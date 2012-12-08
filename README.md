@@ -2,4 +2,5 @@ livehelperchat
 ==============
 
 Live Helper Chat repository.
-Testing commit
+
+Testing how to update
