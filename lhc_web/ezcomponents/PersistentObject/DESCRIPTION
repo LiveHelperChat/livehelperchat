@@ -1,0 +1,3 @@
+This component allows you to store an arbitrary data structures to a fixed
+database table. The component provides all the functionality needed to fetch,
+list, delete etc these datastructures.

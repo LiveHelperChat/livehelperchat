@@ -1,0 +1,215 @@
+Unique index validator
+======================
+
+- The class name ezcDbSchemaNonUniqueIndexNameValidator sounds a bit strange.
+  I think ezcDbSchemaUniqueIndexNameValidator would fit better, since it
+  indicates what is validated and not what violates the validation.
+
+  - Changed
+
+Table prefixes
+==============
+
+- The prefix mechanism simply removes a string with the length of the prefix
+  from tables when a schema is read from a DB. We should check there if the
+  actual prefix is used and throw an exception if this is not the case.
+
+  - No, we should not. The whole idea is that you can multiple "applications"
+	in the database, each with a different prefix. Throwing an exception when
+	another "application" is found would be a real PITA.
+
+- The condition ::
+	
+	 if ( $prefix === '' || $tableName !== $tableNameWithoutPrefix )
+
+  (DatabaseSchema/src/handlers/sqlite/reader.php +74)
+  looks like a tautology. Same for the other handlers.
+
+  - Not really, as the table should be scanned both:
+    - if there is no prefix configured
+	- if the $tableName has the prefix, in which case it get's stripped out
+	  with $tableNameWithoutPrefix = substr( $tableName, strlen( $prefix ) );,
+	  and thus $tableName and $tableNameWithoutPrefix are different then. If
+	  it does *not* have the prefix, the two variables would have the same
+	  content.
+
+	I added a comment to the code about it.
+
+- The fetchSchema() method looks the same for all handlers except for the pure
+  SQL statement. Those should be moved to a common method in
+  ezcDbSchemaDbReader.
+
+  - Done
+
+- The interface ezcDbSchemaDbWriter was changed in this commit, the method
+  isQueryAllowed() was added. This looks like a BC break.
+
+  - It isn't, as the base class ezcDbSchemaCommonSqlWriter implements
+	isQueryAllowed.
+
+- The interface ezcDbSchemaDbReader was made an abstract class, which looks
+  like a BC break.
+
+  - Fixed, I think in a non BC-way, but please double check.
+
+
+General
+=======
+
+- 7 test failures with 5.1.6 and 5.2.6 and SQLite in memory DB: ::
+
+		Time: 1 second
+
+		There were 7 failures:
+
+		1) testConstructorAllDefault(ezcDatabaseSchemaFieldTest)
+		Failed asserting that <boolean:false> matches expected value <integer:0>.
+		expected integer <0>
+		difference       <0>
+		got integer      < >
+		/home/dotxp/dev/PHP/actual/ezcomponents/trunk/DatabaseSchema/tests/schema_field_test.php:21
+
+		2) testConstructorAllGiven2(ezcDatabaseSchemaFieldTest)
+		Failed asserting that <boolean:false> matches expected value <integer:0>.
+		expected integer <0>
+		difference       <0>
+		got integer      < >
+		/home/dotxp/dev/PHP/actual/ezcomponents/trunk/DatabaseSchema/tests/schema_field_test.php:43
+
+		3) testXmlInternal2(ezcDatabaseSchemaSqliteTest)
+		Failed asserting that two objects are equal.
+		--- Expected
+		+++ Actual
+		@@ -14,10 +14,10 @@
+		 
+					 [is_shadow] => ezcDbSchemaField Object
+						 (
+		-                    [type] => boolean
+		+                    [type] => integer
+							 [length] => 0
+							 [notNull] => 1
+		-                    [default] => false
+		+                    [default] => 0
+							 [autoIncrement] => 
+							 [unsigned] => 
+						 )
+		@@ -53,7 +53,7 @@
+								 )
+		 
+							 [primary] => 
+		-                    [unique] => 
+		+                    [unique] => 1
+						 )
+		 
+				 )
+
+		/home/dotxp/dev/PHP/actual/ezcomponents/trunk/DatabaseSchema/tests/generic_test.php:227
+
+		4) testXmlInternal3(ezcDatabaseSchemaSqliteTest)
+		Failed asserting that two objects are equal.
+		--- Expected
+		+++ Actual
+		@@ -28,7 +28,7 @@
+								 )
+		 
+							 [primary] => 
+		-                    [unique] => 
+		+                    [unique] => 1
+						 )
+		 
+				 )
+
+		/home/dotxp/dev/PHP/actual/ezcomponents/trunk/DatabaseSchema/tests/generic_test.php:253
+
+		5) testXmlInternal4(ezcDatabaseSchemaSqliteTest)
+		Failed asserting that two objects are equal.
+		--- Expected
+		+++ Actual
+		@@ -6,7 +6,7 @@
+						 (
+							 [type] => text
+							 [length] => 255
+		-                    [notNull] => 1
+		+                    [notNull] => 
+							 [default] => 
+							 [autoIncrement] => 
+							 [unsigned] => 
+		@@ -16,7 +16,7 @@
+						 (
+							 [type] => text
+							 [length] => 2
+		-                    [notNull] => 1
+		+                    [notNull] => 
+							 [default] => 
+							 [autoIncrement] => 
+							 [unsigned] => 
+		@@ -26,7 +26,7 @@
+						 (
+							 [type] => text
+							 [length] => 50
+		-                    [notNull] => 1
+		+                    [notNull] => 
+							 [default] => 
+							 [autoIncrement] => 
+							 [unsigned] => 
+		@@ -46,7 +46,7 @@
+						 (
+							 [type] => integer
+							 [length] => 0
+		-                    [notNull] => 1
+		+                    [notNull] => 
+							 [default] => 0
+							 [autoIncrement] => 
+							 [unsigned] => 
+		@@ -57,7 +57,7 @@
+							 [type] => integer
+							 [length] => 0
+							 [notNull] => 1
+		-                    [default] => 0
+		+                    [default] => 
+							 [autoIncrement] => 1
+							 [unsigned] => 
+						 )
+
+		/home/dotxp/dev/PHP/actual/ezcomponents/trunk/DatabaseSchema/tests/generic_test.php:293
+
+		6) testDatatypes(ezcDatabaseSchemaSqliteTest)
+		Failed asserting that two strings are equal.
+		--- Expected
+		+++ Actual
+		@@ -9,8 +9,8 @@
+			</field>
+			<field>
+			 <name>test_boolean</name>
+		-    <type>boolean</type>
+		-    <default>true</default>
+		+    <type>integer</type>
+		+    <default>1</default>
+			</field>
+			<field>
+			 <name>test_clob</name>
+
+		/home/dotxp/dev/PHP/actual/ezcomponents/trunk/DatabaseSchema/tests/generic_test.php:338
+
+		7) testApply1(ezcDatabaseSchemaSqliteDiffTest)
+		Failed asserting that two objects are equal.
+		--- Expected
+		+++ Actual
+		@@ -55,7 +55,7 @@
+											 [type] => integer
+											 [length] => 0
+											 [notNull] => 1
+		-                                    [default] => 
+		+                                    [default] => 0
+											 [autoIncrement] => 
+											 [unsigned] => 
+										 )
+
+		/home/dotxp/dev/PHP/actual/ezcomponents/trunk/DatabaseSchema/tests/generic_diff_test.php:196
+
+		FAILURES!
+		Tests: 104, Failures: 7.
+
+		Generating code coverage report, this may take a moment.
+
+	

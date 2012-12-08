@@ -1,0 +1,117 @@
+1.1.3 - Monday 22 March 2010
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Refactored HTTP request parsing for extensibility.
+
+
+1.1.2 - Tuesday 01 September 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed bug #15313: A regression in the ezcMvcRailsRoute matching considering
+  dots (".") in URLs.
+
+
+1.1.1 - Monday 27 July 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #15134: isset() access on controller variables missing.
+
+
+1.1 - Monday 29 June 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes
+
+
+1.1rc1 - Monday 22 June 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.1beta1 - Monday 08 June 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Renamed ezcMvcNoNamedRouteException to ezcMvcNamedRouteNotFoundException.
+- Renamed ezcMvcReversedRoute to ezcMvcReversibleRoute.
+- Removed the ->router property of ezcMvcController, and replaced this with the
+  setRouter() and getRouter() methods.
+
+
+1.1alpha1 - Tuesday 26 May 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented issue #14250: Support for the Content-Disposition headers in the
+  abstract result and response objects.
+- Implemented issue #13844: Support reverse route generation: create an URL
+  from an argument.
+- Implemented issue #14740: Make overriding the pattern to match in routes
+  easier.
+- Implemented issue #14775: Prevent a fatal redirect from looping by spawning
+  more fatal redirects.
+
+
+1.0 - Monday 05 January 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Refactored HTTP response writer to allow for user-defined status objects to
+  be used.
+
+
+1.0rc1 - Monday 15 December 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #13920: Cookies are part of response, but not of request.
+- Fixed issue #14041: MVC tutorial improvement by clarifying the
+  createFatalRedirectRequest dispatcher configuration method.
+
+
+1.0beta1 - Monday 01 December 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #13918: Http Request Parser is missing DELETE.
+- Fixed issue #14003: split() is deprecated in PHP 5.3.
+- Implemented issue #13919: Added the runPreRoutingFilters() method to the
+  ezcMvcDispatcherConfiguration interface and ezcMvcDispatcherConfigurable
+  dispatcher, to be called after request generation, but before routing. This
+  change breaks BC as it adds a new method to the ezcMvcDispatcherConfiguration
+  interface.
+- Implemented issue #13921: The ezcMvcConfigurableDispatcher now throws
+  exceptions if the configuration does not return objects of the expected
+  class.
+- Implemented issue #13926: Split ezcMvcDispatcherConfigurable::run() into
+  smaller parts.
+
+
+1.0alpha2 - Monday 10 November 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Split out controller creation in the ezcMvcConfigurableDispatcher into its
+  own method (createController()) for easier customization of controller
+  loading.
+- Fixed a bug where path elements where not urldecoded().
+- Added support for installation prefixes to the router, to the request parsers
+  to aid installation outside of the top-directory of a virtual host.
+- Added the ezcMvcCatchAllRoute to allow fall back routes to a controller and
+  an action with a pre-formatted name.
+- Refactored ezcMvcController to allow easier overloading by inherited classes.
+- Fixed a bug in action method name generation in the controller.
+- Fixed a bug where the Content-Language header could not be set to anything
+  else but en-GB with the HTTP response writer.
+- Fixed issue #13772: Changed the controller to require an action method.
+- Fixed issue #13773: Added a check for the return type for controller actions,
+  and throw an exception when it's neither an ezcMvcResult or
+  ezcMvcInternalRedirectObject.
+- Fixed issue #13788: array_key_exists() function receives parameters in wrong
+  order.
+- Fixed issue #13845: Added tests for the __set_state() structs methods.
+- Fixed issue #13853: Added the missing exception
+  ezcMvcActionNotFoundException.
+- Fixed issue #13901: Exceptions thrown in controllers are not catched for
+  createFatalRedirectRequest with the configurable dispatcher.
+
+
+1.0alpha1 - Monday 06 October 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Initial release of this package.

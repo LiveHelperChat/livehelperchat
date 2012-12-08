@@ -1,0 +1,1 @@
+<div><strong><?=erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userjoined','User has joined the chat!')?></strong></div>

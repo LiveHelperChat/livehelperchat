@@ -1,0 +1,35 @@
+{use $schema, $tableName, $classPrefix}
+<?php
+{var $className = $classPrefix . underScoreToCamelCase( $tableName ), $propertyNames = array(), $propertyTypes = array(), $primaryKey, $hashKeys}
+{include 'generate_property_names.ezt' send $schema receive $propertyNames}
+{include 'generate_constant_property_types.ezt' send $schema receive $propertyTypes}
+
+$def = new ezcPersistentObjectDefinition();
+$def->table = "{$tableName}";
+$def->class = "{$className}";
+
+{foreach $schema->indexes as $index}
+	{if $index->primary}
+		{* Little complicated, but seems to be the only way to get the first element of a hash *}
+		{$hashKeys = hash_keys( $index->indexFields )}
+		{$primaryKey = $hashKeys[0]}
+		{include 'definition_id_property.ezt'
+			send $tableName,
+				 $primaryKey as $fieldName,
+			     $propertyNames[$primaryKey] as $propertyName}
+	{/if}
+{/foreach}
+
+{foreach $schema->fields as $fieldName => $field}
+
+$def->properties['{$propertyNames[$fieldName]}'] = new ezcPersistentObjectProperty;
+$def->properties['{$propertyNames[$fieldName]}']->columnName = '{$fieldName}';
+$def->properties['{$propertyNames[$fieldName]}']->propertyName = '{$propertyNames[$fieldName]}';
+$def->properties['{$propertyNames[$fieldName]}']->propertyType = {$propertyTypes[$fieldName]};
+{/foreach}
+
+return $def;
+
+?>
+{var $fileName = str_lower( $className ) . '.php'}
+{return $fileName}

@@ -1,0 +1,3 @@
+This component allows you to set up and run your own WebDAV (RFC 2518) server,
+to enable online content editing for the users of your system through the
+WebDAV HTTP extension.

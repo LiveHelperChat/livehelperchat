@@ -1,0 +1,4 @@
+The component allows you construct and/or parse Mail messages conforming to 
+the mail standard. It has support for attachments, multipart messages and HTML 
+mail. It also interfaces with SMTP to send mail or IMAP, POP3 or mbox to 
+retrieve e-mail.

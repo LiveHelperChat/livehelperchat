@@ -1,0 +1,65 @@
+TODO
+====
+
+- All IE versions currently have issues with special chars. These need to be
+  fixed and the client tests need to be re-generated.
+
+1.2
+---
+
+- In certain cases (e.g. eZ Publish integration) the lock plugin must offer a
+  public API to its locks. This API must carefully be designed and implemented.
+
+- Windows' case-insensitivity with filenames must be checked!
+  
+- When a resource is created, clients may provide the getcreationdate
+  property (and other date properties), to keep the original dates in tact.  We
+  currently don't support this at all, it seems, and some (Windows) clients
+  seem to provide invalid dates. At least, an attendee described that he got
+  1970-01-01 after uploading a file to mod_webdav.
+
+- The file backend could need some refactorings for performance:
+
+  - Do not load complete property storage from disc, if only self-handled live
+	properties (e.g. mtime) are requested.
+
+later
+-----
+
+- Add test for mime type file info extensions
+
+
+Inline todos
+============
+
+Grepped on Wed Nov 05 15:57 CET 2008.
+
+Webdav/src/transports/property_handler.php:                // @todo: Should this throw an exception, if the match fails?
+Webdav/src/transports/header_handler.php:        // @todo: RFC conform, also clients conform?
+Webdav/src/transports/header_handler.php:                // @todo Add plugin hook
+Webdav/src/transports/header_handler.php:     * @todo Do we need to provide support for weak entity tags?
+Webdav/src/backends/simple.php:                        // @todo: This assumptions is not particular correct.
+Webdav/src/backends/simple.php:        // @todo: RFC2616 Section 9.6 PUT requires us to send 501 on all
+Webdav/src/backends/simple.php:        // @todo: Does this make sense for PROPFIND requests?
+Webdav/src/backends/simple.php:            // @todo: This method might return errors. If it does, the delete
+Webdav/src/backends/simple.php:                // @todo: handle keepalive setting somehow - even the RFC is quite
+Webdav/src/backends/simple.php:        // @todo: handle keepalive setting somehow - even the RFC is quite
+Webdav/src/backends/simple.php:        // @todo: The error generated here should depend on the actual backend
+Webdav/src/backends/simple.php:     * @todo Mark protected as soon as API is final.
+Webdav/src/backends/file.php:     * @todo The locking mechanism affects the ETag of the base collection. The
+Webdav/src/transport.php:     * @todo We should possibly offer an ezcWebdavTemplateTiein, which brings
+Webdav/src/plugins/lock/transport.php:        // @todo is the following not restrictive enough?
+Webdav/src/plugins/lock/property_handler.php:                    // @TODO: This may only be 1, no ArrayObject needed!
+Webdav/src/plugins/lock/header_handler.php:            // @TODO: Let's see, what clients send.
+Webdav/src/plugins/lock/tools.php:     * @TODO Should we use sha1 instead of md5?
+Webdav/src/plugins/lock/tools.php:        // @TODO: Needs version number in UUID v3/5!
+Webdav/src/plugins/lock/tools.php:        // @TODO This might only work properly with single locks!
+Webdav/src/plugins/lock/config.php:        // @TODO: Check if more sanity checks must be tested?
+Webdav/src/plugins/lock/handlers/lock.php:                // @TODO: Should usually cleanup successful patches again!
+Webdav/src/plugins/lock/handlers/propfind.php:                    // @TODO: Make tool method.
+Webdav/src/plugins/lock/handlers/move.php:            // @TODO: Affected lock must be properly removed here if we once
+Webdav/src/plugins/lock/handlers/unlock.php:            // @TODO Should be protected against infinite recursion
+Webdav/src/plugins/lock/handlers/unlock.php:        // @TODO: Analyse if clients usually lock 0 or infinity
+Webdav/src/server.php:     * @todo Mark protected as soon as API is final.
+Webdav/src/server.php:            // @todo Do we want an opaque value here, too?
+Webdav/src/path_factories/basic.php:            // @todo Some clients first send with / and then discover it is not a resource

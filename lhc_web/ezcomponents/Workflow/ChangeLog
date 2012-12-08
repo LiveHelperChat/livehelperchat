@@ -1,0 +1,206 @@
+1.4.1 - Monday 22 March 2010
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed the saving of data via execution data handlers.
+
+
+1.4 - Monday 21 December 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.4rc1 - Monday 07 December 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.4beta1 - Monday 23 November 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.4alpha1 - Monday 09 November 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #14451: $workflow->nodes does not return all nodes.
+- ezcWorkflowNodeSubWorkflow now passes the correct parent id to a child
+  workflow.
+- Increased compatibility with stricter MySQL server modes.
+
+
+1.3.3 - Monday 11 May 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #14754 and #14760: ezcWorkflowDefinitionStorageXml does not
+  handle DOMText (whitespace) nodes properly.
+
+
+1.3.2 - Monday 30 March 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed execution of ezcWorkflowNodeFinally nodes.
+- Fixed issue #14437: id conflict possible in ezcWorkflowVisitorNodeCollector.
+- ezcWorkflowDefinitionStorageXml can now handle subclasses of
+  ezcWorkflowNodeStart, ezcWorkflowNodeEnd, and ezcWorkflowNodeFinally.
+- The ezcWorkflow class now implements the Countable interface. count() invoked
+  for an ezcWorkflow object will return the number of nodes of the workflow.
+- The ezcWorkflowExecution::loadFromVariableHandlers() and
+  ezcWorkflowExecution::saveToVariableHandlers() methods now pass the
+  ezcWorkflowExecution object to the ezcWorkflowVariableHandler::load() and
+  ezcWorkflowVariableHandler::save() methods.
+
+
+1.3.1 - Monday 09 February 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed ezcWorkflowVisitorVisualization::__toString() for workflow variable
+  values with HTML entities.
+
+
+1.3 - Monday 05 January 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Changed the Loop node to allow more than two incoming and outgoing nodes.
+
+
+1.3rc1 - Monday 15 December 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes
+
+
+1.3beta1 - Monday 01 December 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Added RelaxNG grammar for the XML-based workflow definition language.
+
+
+1.3alpha1 - Monday 10 November 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented ezcWorkflow::reset() to reset a workflow.
+- Implemented issue #13182: ezcWorkflowNodeInput::execute() should check
+  variable conditions.
+- Implemented issue #13204: Implement ezcWorkflowConditionInArray.
+- Fixed issue #13467: Workflow Visualization missed end node.
+- Fixed issue #13478: Canceling execution does not remove execution completely.
+- Fixed a warning in ezcWorkflowExecution::unsetVariable().
+
+
+1.2 - Monday 16 June 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.2rc1 - Tuesday 10 June 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes
+
+
+1.2beta1 - Tuesday 27 May 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented issue #12694: Replace reflection test for class type with SPL
+  function.
+
+
+1.2alpha1 - Monday 07 April 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented issue #10941: Support for the Cancel Case workflow pattern. The
+  execution of a workflow can now be cancelled by either reaching a
+  ezcWorkflowNodeCancel node or by calling the cancel() node on an
+  ezcWorkflowExecution object. In either case, the execution is immediately
+  halted, already activated nodes will not be executed.
+- Implemented issue #12404: Separate file i/o from XML processing in
+  ezcWorkflowDefinitionStorageXml.
+- Implemented a plugin system that allows plugin developers to hook into
+  various extension points in the workflow execution engine.
+- The visualization visitor can now show the current state of a workflow in
+  execution. This includes the highlighting of activated nodes as well as the
+  contents of the workflow variables.
+- The new execution visualizer plugin (ezcWorkflowExecutionVisualizerPlugin)
+  uses the visualization visitor to create visualizations of each step of a
+  workflow execution.
+
+
+1.1 - Monday 17 December 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Added explicit calls to __toString() for PHP 5.1 compatiblity.
+- Changed default value for the ezcWorkflowExecutionListener::notify() method's
+  $type argument from self::INFO to ezcWorkflowExecutionListener::INFO to work
+  around an issue in PHP 5.1's Reflection API that breaks the test suite.
+
+
+1.1rc1 - Wednesday 05 December 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #12144: Resuming from synchronization of parallel split fails.
+
+
+1.1beta1 - Wednesday 28 November 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented issue #11862: Allow arrays to have automatically generated keys.
+
+
+1.1alpha1 - Monday 29 October 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Added ezcWorkflowNodeLoop class to conveniently express loops.
+- Refactored the XML definition storage:
+
+  - DOM is now used for both the loading and saving of workflows (issue
+    #10702).
+  - The marshalling of the node configuration is now handled in the individual
+    node classes. This makes it possible to have custom node classes handled by
+    the XML definition storage.
+
+- Default node configurations are handled better now.
+- Implemented issue #10883: Apply comparison conditions to two variables.
+- Implemented issue #10918: Error messages when loading invalid XML.
+- Implemented issue #10985: Mapping variables between parent and sub workflows.
+- Implemented issue #11003: Add ELSE option to exclusive choice.
+- Fixed issue #11068: Implement ezcWorkflowExecution::hasVariable().
+
+
+1.0.1 - Monday 30 July 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #11067: $execution->getVariable() throws an exeception if value
+  of variable is null.
+- Fixed format string issue in ezcWorkflowExecution::endThread().
+
+1.0 - Monday 02 July 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed an issue that is caused by a bug in PHP 5.2.1.
+
+
+1.0rc1 - Monday 25 June 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #10919: Input validation of all waiting variables before
+  throwing an exception.
+- Fixed issue #10922: Resuming with execution ID.
+- Fixed issue #10968: Allow service objects to suspend the workflow execution.
+- Documentation updates and fixes.
+
+
+1.0beta2 - Thursday 31 May 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #10641: ezcWorkflowNodeVariableSet is not exported to XML
+  properly.
+
+
+1.0beta1 - Monday 07 May 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Initial release of this package.

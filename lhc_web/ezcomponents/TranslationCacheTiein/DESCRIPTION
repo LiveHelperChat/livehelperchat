@@ -1,0 +1,2 @@
+This component adds the TranslationCache backend to the Translation component
+and allows cached translations.

@@ -1,0 +1,162 @@
+TODO
+====
+
+- Document CustomBlockDefinition and CustomFunctionDefinition.
+
+
+Cleanup
+-------
+
+Change all use of Exception to ezcTemplateInternalException.
+
+Remove all use of 'elements' in the parsers, use only 'children' not
+both.
+
+Minor features
+--------------
+
+Maybe support automatic string concat for constant strings::
+
+  "abc\n"
+  "def\n"
+
+becomes::
+
+  "abc\n" . "def\n"
+
+Tests
+-----
+
+Unit tests
+----------
+- ezcTemplateConfiguration
+  * addExtension - needs to check if $customClass does actually exists
+    + test for it
+
+Parsing
+-------
+
+Make sure case-checking is done for all elements, even blocks.
+{Foreach} is not allowed.
+
+
+Nodes
+-----
+
+Make sure the 'if' works in the same way in TST as in AST. That means
+'if' has two children, the first is the normal body while the second
+is the next else/elseif.
+
+Generator
+---------
+
+The AstToPhp should not write the open/close markers ( <?php ?> ),
+instead they should be part of the node tree (Created by TST2AST
+visitor).
+
+
+Syntax errors
+-------------
+
+
+Caching
+-------
+- Check {custom_block}
+
+
+Version number
+--------------
+
+Do we need a version number? 
+
+To differentiate between other template engines, we rely on the path and template extension.
+Newer versions of this template engine should be compatible with the older templates. 
+
+
+Function typehints
+------------------
+
+A few functions (like: array_count() ) have specified what type the method will return. 
+The type is TYPE_VALUE, TYPE_ARRAY, or both. If not specified it assumes that the return type is both,
+which of course is true, but allows less type checking.
+
+
+
+Future ideas
+============
+
+XML output
+----------
+
+Provide XML output (also input?) of TST/AST trees, this could provide
+useful for advanced language tools.
+
+Error messages
+--------------
+
+Some of the error message could be improved to make them clearer. Also
+catching the errors in more correct places would help a lot.
+Take a look at other languages like ADA/Pascal to get some ideas on
+how to give good feedback.
+
+Special syntax
+--------------
+
+Add support for parse-time constants like __LINE__ and __FILE__
+(similar to PHP).
+
+
+Debugging
+---------
+
+Add a 'debug' context which dumps the variable with var_export() or
+something similar.
+
+
+Importing objects
+-----------------
+Think about an {import} statement which can be used to import objects
+etc. into template:
+{import site}
+{$site->title}
+{import site as $siteData}
+
+{import Math}
+{$Math->rand( 5 )}
+
+
+The importer could be implemented by the application to provide common
+data without sending them (via include) all the time.
+
+Method calls
+------------
+Think about how to do method calls, the class must be known and the
+function must be allowed in the template language. Allowing any method
+to be called could be fatal.
+
+
+
+Old (outdated) list
+-------------------
+
+- Create meta-code class which are elements which wrap around real code elements, it has a method to fetch the first real element from its children.
+  this allows optimizer and other code which inspects the code tree to go past these elements.
+  typical meta-code are:
+  - changing run-time options such indentation, spacing, hanging braces etc.
+  - inlining code
+- Operator names need to be consistant, ie. either addition and multiplication or plus and multiply.
+- Rename ezcParser to ezcParserControl and all references of 'main parser' to 'parser control'.
+
+- Added syntax validator class which is invoked when new type, operator and block elements are made.
+  * Check for assignment usage inside an expression, not allowed.
+  * Check for typical mistakes when coming from PHP.
+    o Check for isset()
+  * Check for identifiers which are reserved keywords (by template or PHP):
+    o true, false, and, or
+- Uncomment all typehints.
+- Make sure cursor class handles tab characters
+- Don't expose all variables in element types, instead use methods or magic-properties.
+
+compiler:
+- There should be an 'object' style file generated with information about a template, e.g. related templates
+  and other files.

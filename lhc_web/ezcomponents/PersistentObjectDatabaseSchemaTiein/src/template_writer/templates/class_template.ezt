@@ -1,0 +1,129 @@
+{use $schema, $tableName, $classPrefix}
+<?php
+{var $indent = '', $className = $classPrefix . underScoreToCamelCase( $tableName ), $propertyNames = array(), $propertyTypes = array()}
+{include 'generate_property_names.ezt' send $schema receive $propertyNames}
+{include 'generate_php_property_types.ezt' send $schema receive $propertyTypes}
+{include 'file_doc_block.ezt' send $className}
+{include 'class_doc_block.ezt' send $className, $propertyNames, $propertyTypes}
+class {$className} implements ezcPersistentObject
+\{
+    /**
+     * Properties.
+     * 
+     * @var array(string=>mixed)
+     */
+    protected $properties = array();
+
+    /**
+     * Creates a new {$className}
+     * 
+     * @return void
+     */
+    public function __construct()
+    \{
+		{foreach $schema->fields as $fieldName => $field}
+
+		    $this->properties['{$propertyNames[$fieldName]}'] = null;
+		{/foreach}
+    \}
+
+    /**
+     * Set properties after reading an object from the database. 
+     * 
+     * @param array(string=>mixed) $properties 
+     * @return void
+     *
+     * @access private
+     */
+    public function setState( array $properties )
+    \{
+        foreach ( $properties as $name => $value )
+        \{
+            $this->properties[$name] = $value;
+        \}
+    \}
+
+    /**
+     * Returns the property values to store an object to the database.
+     * 
+     * @return array(string=>mixed)
+     *
+     * @access private
+     */
+    public function getState()
+    \{
+        return $this->properties;
+    \}
+
+    /**
+     * Overloading to set properties.
+     *
+	 * @throws ezcBaseValueException
+	 *         if the property value to set does no conform to type constraints.
+	 * @throws ezcBasePropertyNotFoundException
+	 *         if the desired property does not exist.
+     * 
+     * @param string $propertyName 
+     * @param mixed $propertyValue 
+     * @return void
+	 *
+	 * @ignore
+     */
+    public function __set( $propertyName, $propertyValue )
+    \{
+        switch ( $propertyName )
+        \{
+            {foreach $schema->fields as $fieldName => $field }
+
+				case '{$propertyNames[$fieldName]}':
+					{include 'set_property.ezt'
+						send $propertyTypes[$fieldName] as $propertyType}
+				break;
+            {/foreach}
+
+            default:
+                throw new ezcBasePropertyNotFoundException(
+					$propertyName,
+					$propertyValue
+				);
+        \}
+        $this->properties[$propertyName] = $propertyValue;
+    \}
+
+    /**
+     * Overloading to get properties.
+     * 
+	 * @throws ezcBasePropertyNotFoundException
+	 *         if the desired property does not exist.
+	 *
+     * @param string $propertyName 
+     * @return void
+	 *
+	 * @ignore
+     */
+    public function __get( $propertyName )
+    \{
+        if ( $this->__isset( $propertyName ) )
+        \{
+            return $this->properties[$propertyName];
+        \}
+        throw new ezcBasePropertyNotFoundException( $propertyName );
+    \}
+
+    /**
+     * Overloading for property isset() checks.
+     * 
+     * @param string $propertyName 
+     * @return bool
+	 *
+	 * @ignore
+     */
+    public function __isset( $propertyName )
+    \{
+        return array_key_exists( $propertyName, $this->properties );
+    \}
+\}
+
+?>
+{var $fileName = str_lower( $className ) . '.php'}
+{return $fileName}

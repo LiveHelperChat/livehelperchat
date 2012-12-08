@@ -1,0 +1,1 @@
+<div class="message-row"><div class="msg-date"><?=date('Y-m-d H:i:s',$msg->time);?></div><span class="usr-tit"><?=htmlspecialchars($chat->nick)?>:</span> <?=nl2br(htmlspecialchars(trim($msg->msg)));?></div>

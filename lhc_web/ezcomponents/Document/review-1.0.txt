@@ -1,0 +1,75 @@
+Fixed
+-----
+
+[x] Shouldn't the ezcDocumentRstXhtmlVisitorTests tests just be
+    ezcDocumentXhtmlVisitorTests ?
+
+	No, as they are special test for the RstXhtml visitor, which explicitely
+	visit the RST AST. We may have other XHtml visitors later, like for
+	DocBook
+
+[x] Low code coverage in some parts.
+
+	The parts which are actually implemented do have a >90% coverage. The
+	other stuff is just misses test and implementation.
+
+	The ast node base class also have low coverage, while the uncovered
+	methods are jsut debugging helper methods, which are viable for parser
+	debugging. But we may want to remove them in the release...
+
+[x] WHy is the RstXhtmlVisitor not simple a docbook visitor to generate XHTML?
+
+	This is what we originally discussed as conversion shortcuts. A Docbook
+	XHtml visitor will also be added. The direct conversion has access to more
+	semantic information, then after the docbook conversion.
+
+[x] Why are the option class names including "Base" as in
+    ezcDocumentParserBaseOptions and ezcDocumentConverterBaseOptions,
+    ezcDocumentXmlBaseOptions.
+
+	Fixed, removed "Base" from option class names.
+
+[x] Some of the class descriptions in document/rst/nodes/* are incorrect
+    (Example is ezcDocumentRstSubstitutionNode).
+
+	Fixed.
+
+[x] ezcDocumentRstToken doesn't have the constants documented - also run
+    the doc analysis tool because there's some other stuff as well.
+
+	Fixed.
+
+[x] Docblocks are broken for some files (eg. src/document/rst/nodes): there
+    are duplicated @copyright and @license, and the @package is not Document.
+
+	Fixed.
+
+[x] Strings should enclose variables in {}: "Could not find visitor for '{$class}'"
+
+	Fixed
+
+[x] The tutorial should mention on how to extend the RST directives thingy.
+
+    Fixed
+
+[x] A description of how the RST parser actually works should be added.
+
+    Fixed
+
+[x] Why is ezcDocumentManager final?
+
+	Because it is / will be a class only providing static (conversion)
+	methods with a static registry of known documents. Once used in your code
+	it makes nearly no sense to extend. But we can remove the final keyword to
+	make it possible for users to write (and only use) their own manager on
+	this base.
+
+	  Removed final keyword
+
+Open
+----
+
+[ ] There are some @TODOs in the code.
+
+    The remaining TODOs will be resolved during further development.
+

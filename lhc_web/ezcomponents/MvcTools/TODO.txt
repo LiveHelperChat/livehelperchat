@@ -1,0 +1,2 @@
+- Figure out a way how to configure the view handlers (PHP and Template) with
+  a standard directory name - similarly to what the Template component does.

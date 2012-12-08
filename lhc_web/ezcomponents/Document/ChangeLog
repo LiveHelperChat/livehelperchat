@@ -1,0 +1,233 @@
+1.3.1 - Monday 22 March 2010
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented: Directive contents reparsing helper method.
+- Implemented #15218: Add support for PDF compression.
+- Implemented #15219: Add support for PDF encryption & permissions.
+- Fixed #15973: Issues with re-parsing parts of directives.
+- Fixed #15987: Font size estimation in Haru driver broken.
+- Fixed: Multiple small RST parsing bugs.
+
+
+1.3 - Monday 21 December 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed #15943: ODT list style extraction does not work for nested lists.
+- Fixed #15944: ODT literal layout paragraphs not detected correctly.
+- Fixed #15945: RST generator issue with link/footnote combination
+- Major performance improvements in RST parsing
+
+
+1.3rc1 - Monday 07 December 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed #15905: Make rst->docbook visitor configuratble, just like rst->xhtml
+- Fixed #15904: 'ezcDocumentRstXhtmlBodyVisitor' renders field lists above
+  titles unlike docutils
+- Fixed #15912: Titles with UTF-8 chracters throw a notice.
+- Fixed #15914: Reference names with quotes in it think their name is id\_.
+- Fixed #15913: References with a : or | do not work properly.
+- Fixed #15915: Forward-dispatching of empty named reference fails, if name
+  contains spaces.
+
+
+1.3beta1 - Monday 23 November 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented additional element conversions from DocBook to ODT.
+- Implemented filtering based on styles while converting from ODT to DocBook.
+
+
+1.3alpha2 - Monday 09 November 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented #15197: Implement renderer for table elements.
+- Implemented #15217: Write document metadata in PDFs.
+- Implemented #15220: Implement renderer for blockquote elements.
+- Implemented #15221: Implement support for RTL languages in PDF renderer.
+- Implemented #15224: Implement support for custom fonts in PDF rendering.
+- Implemented #15399: Initial im- and export of Open Document Text (ODT).
+- Implemented #15809: Styling of exported ODTs.
+- Implemented #15810: Infrastructure for inferencing semantical information
+  from ODT styles.
+
+
+1.3alpha1 - Tuesday 01 September 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed #15198: ezcDocumentPdf cannot be constructed without pecl/haru.
+- Fixed #15258: Unusable ezcDocumentPdf::loadString() implementation.
+- Implemented #15188: Add support for text colors in drivers.
+- Implemented #15189: Add support for background colors in drivers.
+- Implemented #15190: Add support for text-decoration in drivers.
+- Implemented #15191: Implement renderer for literalblock elements.
+- Implemented #15192: Implement renderer for bullet list elements.
+- Implemented #15193: Implement renderer for enumeration list elements.
+- Implemented #15194: Implement renderer for definition list elements.
+- Implemented #15195: Implement renderer for external link elements.
+- Implemented #15196: Implement renderer for internal link elements and link
+  targets.
+- Implemented: Support for borders and background colors.
+
+
+1.2.1 - Monday 27 July 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed various smaller bugs in XHtml parsing.
+
+
+1.2 - Monday 29 June 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed: Handling of internal links in wiki writer.
+- Fixed: Registering of custom node class does sometimes not work on existing
+  documents.
+- Fixed: Overlapping text on widdow backtracking
+- Fixed: Do not introduce spaces before punctuation on inline markup.
+
+
+1.2rc1 - Monday 22 June 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.2beta1 - Monday 08 June 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed: Invalid font creation in haru driver.
+- Fixed: Implementation of PDF wrapper class, to call correct renderer.
+- Fixed: Implementation of style loading in PDF wrapper class.
+- Implemented: Method to register additional PDF parts in wrapper class.
+- Implemented: Global error reporting interface, now also used by the PDF
+  renderer.
+- Implemented: Maintain document location in all conversions, so that embedded
+  files can be located.
+- Fixed: Text blocks are continued on the same page wrapped images are
+  rendered on.
+- Fixed: Handle unescaped references containing special chars in RST parser.
+- Fixed: Also recurse into section titles in RST visitor AST preprocessing to
+  find all reference targets.
+- Fixed: Ensure valid XML IDs in visitor.
+
+
+1.2alpha1 - Tuesday 26 May 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented CSS based PDF rendering for basic docbook markup.
+
+
+1.1.2 - Monday 30 March 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed: Parsing of lists inside simple table cells
+- Fixed: Error reporting of document handlers were not used in converters
+- Implemented #14075: Text roles support for RST
+- Implemented #14403: Add support for replace-"directive".
+
+
+1.1.1 - Monday 09 February 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #14332: Paragraphs are sometimes missing in the output, when
+  converting rst documents
+- Fixed issue #14390: Items before first section are merged with first section
+- Fixed issue #14405: Comments in RST not handled for all cases
+- Fixed issue #14406: Unknown property 'indentation' used in RST parser
+- Fixed issue #14407: Underscores not allowed to appear in RST documents
+- Fixed issue #14408: Error parsing grd tables, where first line does not
+  provide full table column specification
+- Fixed issue #14415: Simple table markup does not work with header cell
+  spanning all columns
+
+
+1.1 - Monday 05 January 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #14136: Errors in some file docblocks
+- Fixed issue #14185: Invalid docbook markup created for table cells in wiki
+  visitor
+- Fixed issue #14188: ezcDocumentEzXml::getAsDocbook() returns an
+  ezcDocumentEzXml rather than ezcDocumentDocbook
+- Fixed issue #14208: Invalid docubook markup: Attributes used in wrong case
+- Fixed issue #14210: Docbook: literallayout class should be "normal" instead
+  of "Normal"
+- Fixed issue #14211: Docbook markup: citation and attribution contents should
+  not be wrapped inside a paragraph
+- Added support for reading three wiki formats: Confluence, Creole and
+  DokuWiki.
+- Added support for writing the Creole wiki format.
+- Added support for reading XHTML.
+- Added support for reading and writing eZ Publish XML formats.
+- Added support for writing RST.
+
+
+1.1rc1 - Monday 15 December 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes
+
+
+1.1beta1 - Monday 01 December 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes
+
+
+1.1alpha1 - Monday 10 November 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented feature #12339: Add support for eZXml markup.
+- Implemented feature #12340: Add support for wiki markup.
+- Implemented feature #13083: Read and write XHTML format.
+- Implemented feature #13084: Write RST format.
+- Implemented feature #13322: Possibility to reference a stylesheet for use
+  with XHTML output of reST documents.
+- Fixed issue #13727: Autoenumerated enumerated lists parsed as paragraphs.
+
+
+1.0.2 - Monday 04 August 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #13326: Paragraph order mixed up with blockquotes in bullet
+  lists.
+- Fixed issue #13327: Emphasis closing node wrongly recognized as opening
+  node.
+
+
+1.0.1 - Tuesday 08 July 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #13200: Problem with multiple headers with the same name, when
+  generating table of contents in an rst document.
+- Fixed issue #13220: Support for row seperators in simple table bodies
+  missing.
+- Fixed issue #13237: Whitespaces before single word named external
+  references are skipped.
+- Fixed issue #13238: Whitespaces at line ends, with markup as last element
+  are skipped.
+- Fixed issue #13239: Named external references with literal markup in
+  destination nodes are not found.
+- Fixed issue #13265: Handle inline literals correctly.
+- Fixed issue #13266: Parse error on no newlines at the end of input text.
+- Fixed issue #13267: Trim surrounding whitespaces in title strings.
+
+
+1.0 - Monday 16 June 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #13164: Handle dense enumerated lists.
+
+
+1.0rc1 - Tuesday 10 June 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #13167: Correctly handle indetation change after definition
+  lists.
+- Fixed issue #13166: Handle embeddded URLs in inline references.
+
+
+1.0alpha1 - Tuesday 13 May 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Initial release of this package.

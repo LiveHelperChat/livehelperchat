@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<release-info>
+ <version>2009.2.1</version>
+ <deps>
+  <php>5.2.1</php>
+  <packages>
+   <package version="1.4.1" name="Archive"/>
+   <package version="1.3.1" name="Authentication"/>
+   <package version="1.1" name="AuthenticationDatabaseTiein">
+    <deps>
+     <package version="1.3" name="Database"/>
+     <package version="1.1" name="Authentication"/>
+    </deps>
+   </package>
+   <package version="1.8" name="Base"/>
+   <package version="1.5" name="Cache"/>
+   <package version="1.3.5" name="Configuration"/>
+   <package version="1.6.1" name="ConsoleTools"/>
+   <package version="1.4.7" name="Database"/>
+   <package version="1.4.4" name="DatabaseSchema"/>
+   <package version="1.2.1" name="Debug"/>
+   <package version="1.3.1" name="Document"/>
+   <package version="1.4" name="EventLog"/>
+   <package version="1.0.2" name="EventLogDatabaseTiein">
+    <deps>
+     <package version="1.0.3" name="EventLog"/>
+     <package version="1.2" name="Database"/>
+    </deps>
+   </package>
+   <package version="1.1.1" name="Execution"/>
+   <package version="1.3" name="Feed"/>
+   <package version="1.2" name="File"/>
+   <package version="1.5" name="Graph"/>
+   <package version="1.0.1" name="GraphDatabaseTiein">
+    <deps>
+     <package version="1.1" name="Graph"/>
+    </deps>
+   </package>
+   <package version="1.1.3" name="ImageAnalysis"/>
+   <package version="1.3.8" name="ImageConversion">
+    <deps>
+     <package version="1.1.3" name="ImageAnalysis"/>
+    </deps>
+   </package>
+   <package version="1.7.1" name="Mail"/>
+   <package version="1.1.3" name="MvcTools"/>
+   <package version="1.0" name="MvcAuthenticationTiein"/>
+   <package version="1.0" name="MvcFeedTiein">
+    <deps>
+     <package version="1.1" name="MvcTools"/>
+     <package version="1.2.1" name="Feed"/>
+    </deps>
+   </package>
+   <package version="1.0.1" name="MvcMailTiein">
+    <deps>
+     <package version="1.0" name="MvcTools"/>
+     <package version="1.7" name="Mail"/>
+    </deps>
+   </package>
+   <package version="1.0" name="MvcTemplateTiein">
+    <deps>
+     <package version="1.0" name="MvcTools"/>
+     <package version="1.3.1" name="Template"/>
+    </deps>
+   </package>
+   <package version="1.7.1" name="PersistentObject">
+    <deps>
+     <package version="1.3" name="Database"/>
+    </deps>
+   </package>
+   <package version="1.3" name="PersistentObjectDatabaseSchemaTiein">
+    <deps>
+     <package version="1.3" name="PersistentObject"/>
+     <package version="1.2" name="DatabaseSchema"/>
+     <package version="1.3" name="ConsoleTools"/>
+    </deps>
+   </package>
+   <package version="1.0.6" name="PhpGenerator"/>
+   <package version="1.0.9" name="Search"/>
+   <package version="1.1.1" name="SignalSlot"/>
+   <package version="1.0.8" name="SystemInformation"/>
+   <package version="1.4.2" name="Template"/>
+   <package version="1.1.1" name="TemplateTranslationTiein">
+    <deps>
+     <package version="1.4" name="Template"/>
+     <package version="1.3" name="Translation"/>
+     <package version="1.5" name="ConsoleTools"/>
+    </deps>
+   </package>
+   <package version="1.3.2" name="Translation"/>
+   <package version="1.1.2" name="TranslationCacheTiein">
+    <deps>
+     <package version="1.1.2" name="Translation"/>
+     <package version="1.1.4" name="Cache"/>
+    </deps>
+   </package>
+   <package version="1.1.4" name="Tree"/>
+   <package version="1.1.1" name="TreeDatabaseTiein">
+    <deps>
+     <package version="1.1" name="Tree"/>
+     <package version="1.3" name="Database"/>
+    </deps>
+   </package>
+   <package version="1.0" name="TreePersistentObjectTiein">
+    <deps>
+     <package version="1.0" name="Tree"/>
+     <package version="1.3" name="PersistentObject"/>
+    </deps>
+   </package>
+   <package version="1.2.2" name="Url"/>
+   <package version="1.4" name="UserInput"/>
+   <package version="1.1.4" name="Webdav"/>
+   <package version="1.4.1" name="Workflow"/>
+   <package version="1.4" name="WorkflowDatabaseTiein">
+    <deps>
+     <package version="1.3" name="Database"/>
+     <package version="1.4" name="Workflow"/>
+    </deps>
+   </package>
+   <package version="1.1" name="WorkflowEventLogTiein">
+    <deps>
+     <package version="1.1" name="EventLog"/>
+     <package version="1.0" name="Workflow"/>
+    </deps>
+   </package>
+   <package version="1.0" name="WorkflowSignalSlotTiein">
+    <deps>
+     <package version="1.1" name="SignalSlot"/>
+     <package version="1.2" name="Workflow"/>
+    </deps>
+   </package>
+  </packages>
+ </deps>
+</release-info>

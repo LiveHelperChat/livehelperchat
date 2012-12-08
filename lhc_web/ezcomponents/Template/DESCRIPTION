@@ -1,0 +1,5 @@
+A fully functional Templating system, supporting template compilation in
+different levels, user defined functions and operators, an optimizer, output
+escaping for different output handlers to prevent XSS and other security
+problems and a plug in system for extra functionality (such as a Translation
+system).

@@ -1,0 +1,45 @@
+[-] In the tutorial the example under "Improving authentication performance
+	when using the session" should have <?php tags around it in order to
+	highlight it properly in the docs. This should preferable also be done
+	in <code> examples in the code API docs as well.
+
+	- Done in the tutorial. I do not really agree with including <?php tags
+	in <code> examples, except only where it is needed.
+
+[X] trunk/Authentication/src/filters/ldap/ldap_filter.php method fetchData()
+    has no @return documented, but only a @param - run Toby's check script?
+
+	- Fixed this and other small errors.
+
+[X] trunk/Authentication/src/filters/openid/openid_filter.php and
+    trunk/Authentication/tests/filters/openid/data/openid_wrapper.php have
+    whitespace issues (tabs instead of spaces)
+
+	- Fixed
+
+[X] In trunk/Authentication/src/filters/openid/openid_filter.php, checkImmediate()
+    there is the following block:
+
+       fputs( $connection, implode( "\r\n", $headers ) . "\r\n\r\n" );
+
+       $src = '';
+       while ( !feof( $connection ) )
+       {
+           $src .= fgets( $connection, 1024 );
+       }
+       fclose( $connection );
+
+	The while..fclose() part can more efficiently be done with
+	stream_get_contents() I think.
+
+	- Done here and in other functions.
+
+[X] ezcAuthenticationTypekeyFilter::registerFetchData() is an empty method. If
+    that's correct, add a comment please.
+
+	- Done.
+
+[X] Add documentation to parseQueryString() that it is related to ezcUrl (The
+    same code) - You might want to add that in Url as well.
+
+	- Done.

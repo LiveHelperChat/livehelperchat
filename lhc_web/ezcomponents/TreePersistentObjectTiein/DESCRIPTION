@@ -1,0 +1,3 @@
+The Tree component handles the creating, manipulating and querying of tree
+structures.  This component uses persistent objects as data storage for the
+data elements of the tree nodes.

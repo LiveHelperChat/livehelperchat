@@ -1,0 +1,64 @@
+[X] Options should always be done through an options class, and no longer
+    through arrays like is shown in trunk/Mail/docs/tutorial/tutorial_smtp_auth.php.
+	See: http://ez.no/ezcomponents/contributing/coding_standards#id45
+	As in this case there are options before, the functionality should stay,
+	but the array() way of passing objects should not be documented.
+
+	- The IMAP, POP3 and SMTP transports and the ezcMailParser class can receive
+	options objects in the constructor. They can still receive options as arrays
+	to keep compatibility.
+
+	- TS: Actually we should not even document anymore, that an array also
+	  works as options. Just the option class itself should be documented so
+	  no new users start with the deprecated way of handling options. The
+	  default value for $options in ctors should also be null, not array()
+	  then.
+
+[X] The same in ezcMailImapSet but as that did not have options before, the
+    array way should not be supported at all.
+
+	- To keep consistency in the whole package array options were used.
+
+[X] The "James Bond" header looks broken to me in the tutorial.
+
+	- Fixed.
+
+[ ] Shouldn't the charset for headers default to "Utf-8" instead of "us-ascii"?
+    I am not sure what we do in other cases, it of course has to be consistent.
+	
+	- TS: I think we should default to UTF-8 everywhere we need to define a
+	  default charset.
+
+[ ] Isn't the "$charset = $this->getHeaderCharset" to
+	"$value = substr( $value, 7 ); // "dummy: " + 1" bit copied from somewhere?
+	If so, we should make this a new (private) method somewhere.
+
+[X] In ezcMailImapTransport, why did you change many properties to protected
+    (from private)?
+
+	- I think it makes more sense to have protected properties, and also makes
+	it easier to test.
+
+[X] I see some strange things with ezcMailTransportMta vs ezcMailMtaTransport 
+    in the trunk/Mail/src/transports/mta/mta_transport.php file... are you 
+	sure you didn't swap something? Or was it fucked up before? :)
+
+	- ezcMailTransportMta is a wrong name so it is deprecated in transport_mta.php
+	ezcMailMtaTransport is correct and it is in mta_transport.php
+
+[X] The same thing seems to be going on with ezcMailTransportSmtp vs
+    ezcMailSmtpTransport.
+
+	- The same thing above.
+
+[ ] In ezcMailTools::validateEmailAddressMx() we are using smtp.ez.no in the
+    HELO command. This will be incorrect for most of the use cases, since HELO
+	should identify the server that is opening the communication. We should
+	either rely on $_SERVER['SERVER_NAME'] or let the user supply the domain
+	to use in HELO. Same applies for the sender email address. This should
+	either be "postmaster@{$_SERVER['SERVER_NAME']}" or also configurable.
+
+[ ] On my system several failures and warnings occur. I guess this is mostly
+    because test cases don't get skipped that are only working inside the eZ
+	network, but some seem to have real problems. For details, please check
+	http://home.schlitt.info:8080/buildresults/Mail.

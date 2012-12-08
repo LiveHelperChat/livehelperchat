@@ -1,0 +1,95 @@
+Parsing Issues with RST:
+
+1. in docs/install.txt, it doesn't like
+		spl_autoload_register_
+   on line 285. Replacing it with:
+		`spl_autoload_register_`
+   makes it work.
+   The error message is:
+
+		PHP Fatal error:  Uncaught exception 'ezcDocumentVisitException' with
+		message 'Visitor error: Warning: 'Missing reference target 'register'.' in
+		line 285 at position 22.' in
+		/home/derick/dev/ezcomponents/trunk/Document/src/document/rst/visitor.php:167
+
+    kn: Fixed in revision 10453.
+
+2. in docs/dev_process.txt it throws:
+
+		PHP Fatal error:  Uncaught exception 'ezcDocumentVisitException' with
+		message 'Visitor error: Warning: 'Missing reference target 'register'.' in
+		line 285 at position 22.' in
+		/home/derick/dev/ezcomponents/trunk/Document/src/document/rst/visitor.php:167
+
+   It seems that it doesn't see the:
+		1. _`Present the Idea`
+   on line 37 as a reference target.
+
+   kn: Fixed.
+
+3. docs/articles/2009-01-06-webdav-locking.txt dies with:
+
+		PHP Fatal error:  Uncaught exception 'ezcDocumentVisitException' with
+		message 'Visitor error: Notice: 'Unhandeled field list type
+		'revision'.' in line 5 at position 1.' in
+		/home/derick/dev/ezcomponents/trunk/Document/src/document/rst/visitor.php:167
+
+   and:
+
+		PHP Fatal error:  Uncaught exception 'ezcDocumentVisitException' with
+		message 'Visitor error: Notice: 'Unhandeled field list type 'status'.'
+		in line 6 at position 1.' in
+		/home/derick/dev/ezcomponents/trunk/Document/src/document/rst/visitor.php:167
+
+   perhaps we can do something with it, as it prevents quite a few things from
+   parsing. (Also 2007-09-25-workflow-thesis.txt)
+
+   kn: You can just reduce the error reporting level for such cases, so that
+   notices won't be converted into exception anymore::
+        
+        $rstDocument->options->errorReporting = E_PARSE | E_ERROR | E_WARNING;
+
+PDF generation issues
+
+1. After fixing 1. under RST, the generator outputs:
+
+		Unknown: http://docbook.org/ns/docbook:itemizedlist
+		Unknown: http://docbook.org/ns/docbook:literallayout
+		...
+
+   This is send to stdout, which makes it appear in the PDF upon redirection.
+   I understand that itemizedlist is not understood, but what is wrong with
+   literallayout?
+
+   kn: Implements the common error reporting interface now, so that errors aer
+   either converted into exceptions, or can be requested later using
+   getErrors().
+
+2. While rendering 2009-01-06-webdav-locking.txt there are issues with image
+   inclusion. First of all, the file paths in RST are where the images can be
+   found *after* the files have been converted. But with PDF generation the
+   files have to be the current directory. Perhaps we should add an option to
+   "rebase" or "map" paths for image inclusion?
+
+    kn: The original document location has not been maintained when converting
+    between multiple document formats, so that the images could not be located
+    anymore. Fixed.
+
+3. While rendering 2009-01-06-webdav-locking.txt and fixing 2, I see that the
+   image is included on page 2, but no text is below the image. A similar
+   issue happens when we render 2007-12-20-tree-yui.txt on page 5.
+
+   kn: The alt text is not used as a caption for an image. Using a figure you
+   can also specify a caption for an image., like::
+
+        .. figure:: image.png
+            My caption goes here.
+
+   Which works, with the mentioned article.
+
+4. Rendering 2006-01-16-image-manipulation.txt creates a double line of text
+   under the image on page 5.
+
+   kn: Fixed in revision 10448.
+
+5. There are still some test failures: http://ezc.pastebin.com/m9c77063

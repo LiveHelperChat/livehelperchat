@@ -1,0 +1,2 @@
+A set of classes that allow you to extract information from a database schema,
+compare database schemas and apply a set of changes to a database schema.

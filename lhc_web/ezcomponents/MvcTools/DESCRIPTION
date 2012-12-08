@@ -1,0 +1,3 @@
+The MvcTools component provides functionality for request parsing, routing,
+dispatching, views and response writing. With the tools in this component you can very
+easily build an MVC framework.

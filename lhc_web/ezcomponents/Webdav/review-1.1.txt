@@ -1,0 +1,30 @@
+Review Alexandru 05-11-2008
+---------------------------
+
+[x] ezcWebdavMemoryBackend, ezcWebdavSimpleBackend and maybe other classes have
+the extends and implements on many lines - I thought it was already discussed
+on IRC to have everything on one line. (from previous review.txt)
+
+# TS: Did not notice that. Please clearify and add it to the guidelines so we
+# can make it consistent.
+
+AS: it is not in the guidelines yet. But one side-effect of putting the parent
+classes on multiple lines is that they are not displayed in the Class Tree
+(http://ezcomponents.org/docs/api/trunk/classtrees_Webdav.html).
+
+
+[x] ChangeLog: [RELEASEDATE] not converted to real date on 1.1alpha1 release.
+
+[x] In some files the @copyright and @license tags appear 2 times.
+
+[x] In /src/backends/file.php the $depth constants are not used in
+    copyRecursive() (-1 and 0 appear)
+
+[x] Some files have different class name in header ("File containing the XXX class).
+
+[x] "return null;" is commented-out in some files.
+
+- Some typos in the code and comments:
+
+[x] /src/server.php
+    Nounce -> Nonce

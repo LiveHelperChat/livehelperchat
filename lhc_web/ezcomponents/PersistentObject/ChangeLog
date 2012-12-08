@@ -1,0 +1,378 @@
+1.7.1 - Monday 22 March 2010
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #15657: Column names are now converted to lower case to extract
+  from database results, since this is the setting defined by the Database
+  component.
+- Fixed issue #16135: ezcPersistentCodeManager now supports PHP 5.3
+  namespaces.
+
+
+1.7 - Monday 21 December 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.7rc1 - Monday 07 December 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.7beta1 - Monday 23 November 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.7alpha1 - Tuesday 01 September 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented enhancement #11831: ezcPersistentSession and
+  ezcPersistentSessionIdentityDecorator now provide the method isRelated() to
+  check if two objects are related to each other.
+- Implemented enhancement #13073: The new createSubQuery() method on
+  persistence sessions can be used to create a sub-select for a find query.
+- Implemented enhancement #14154: Property converters are now also called for
+  null values.
+- Implemented enhancement #14158: If an object to be loaded is not found, an
+  ezcPersistentObjectNotFoundException is thrown.
+
+
+1.6 - Monday 29 June 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed message in testcase.
+
+
+1.6rc1 - Monday 22 June 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.6beta1 - Monday 08 June 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Note: This release changes the indexing of arrays returns by
+  ezcPersistentSession and its decorators. These arrays are now indexed by
+  object IDs.
+
+
+1.6alpha2 - Tuesday 26 May 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Renamed ezcPersistentIdentitySession to
+  ezcPersistentSessionIdentityDecorator.
+- Introduced new ezcPersistentSessionFoundation interface, for
+  ezcPersistentSession and its decorators.
+- Finalized implementation of identity management and relation pre-fetching.
+
+
+1.6alpha1 - Tuesday 21 April 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Started implementation of #12473: PersistentObject now supports basic
+  identity management.
+
+
+1.5.2 - Monday 11 May 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #14736: ezcPersistentSession->createRelationFindQuery() now
+  supports relation names.
+- Fixed issue #14863: ezcPersistentSessionInstance::reset() is now static and
+  does work correctly.
+- Fixed issue #14690: Extracted duplicated code into methods and avoided to
+  instantiate a new generator object for each save/update (based on a patch by
+  Benjamin Eberlei).
+
+
+1.5.1 - Monday 30 March 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #14473: ezcPersistentFindIterator does not overwrite object
+  instances anymore.
+- Fixed issue #14505: Property converters don't break the state of newly saved
+  objects anymore.
+
+
+1.5 - Monday 05 January 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes
+
+
+1.5rc1 - Monday 15 December 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes
+
+
+1.5beta1 - Monday 01 December 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #13463: Enhanced documentation for clarity about state array
+  indices.
+
+
+1.5alpha1 - Monday 10 November 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented issue #13218: Add lazy initialization to PersistentObject
+  component.
+- Implemented issue #13558: Small optimizations in the load handler.
+
+
+1.4 - Monday 16 June 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.4rc1 - Tuesday 10 June 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes
+
+
+1.4beta1 - Tuesday 27 May 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.4alpha1 - Monday 05 May 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Refactored ezcPersistentSession.
+- Implemented enhancement #10151: Improved Database and PersistentObject
+  datatype support (especially binary data). The object definitions allow to
+  specify the datatype of the database column assigned to a property.
+- Implemented enhancement #10373: Several relations to the same table for
+  PersistentObject.
+- Implemented enhancement #10727: Improved error messages for PersistentObject
+  with ManualGenerator.
+- Fixed issue #10205: Binding variables with an undeclared var doesn't throw
+  an exception. If getState() on a persistent object does not return an array
+  an exception is thrown now.
+- Fixed issue #12471: PersistentObject misses support for boolean datatype.
+
+
+1.3.4 - Monday 14 January 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #12053: Optimized substr() call.
+- Fixed issue #12108: ezcPersistentStateTransformer::rowToStateArray() relying
+  on definitions with reverse properties set, but it's not automatic.
+
+
+1.3.3 - Monday 17 December 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #12214: persistent object documentation error. (Simple mapping
+  example now uses ezcPersistentNativeGenerator and gives a hint on
+  ezcPersistentSequenceGenerator.)
+
+
+1.3.2 - Wednesday 28 November 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Documentation updates and fixes.
+- Fixed issue #11405: Ambiguous column names when using
+  ezcPersistentManyToManyRelation. Column names are now correctly prefixed
+  with their corresponding table names.
+- Fixed issue #12082: Restoring a definition from var_export( $definition )
+  PHP code.
+
+
+1.3.1 - Monday 13 August 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Documentation updates and fixes.
+
+
+1.3 - Monday 02 July 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Documentation updates and fixes.
+
+
+1.3rc1 - Monday 25 June 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Documentation updates and fixes.
+
+
+1.3beta2 - Thursday 31 May 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #10152: Persistent Object and manual generator: string primary
+  keys.
+- Fixed issue #10552: ManyToMany relations with multiple columns. Mapping works
+  correctly now.
+- Fixed issue #10331: PersistentObject: Exceptions should become more verbose.
+  ezcPersistentQueryException now contains the SQL query in its message, if
+  appropriate.
+- Fixed issue #10725: PersistentObject saveOrUpdate() using manualgenerator
+  will trigger one extra query to check if an object is persistent (save() and
+  update() do this as well just moments later...).
+- Fixed issue #10726: PersistentObject definition should contain type info on
+  the identifier.
+- Fixed issue #10770: PersistentObject throws PDOException in some cases.
+  Throws correct ezcPersistentQueryException now.
+
+
+1.3beta1 - Monday 07 May 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed testcase for manual generator giving failure for postgresql on correct
+  behaviour (INSERT violating NULL contraint does give an error...).
+- Fixed issue #9999: idProperty missing in definition file causes unclear
+  error messages.
+- Fixed issue #10106: ezcPersistentManualGenerator does not quote ID
+  columnName.
+- Fixed issue #10112: Lots of failures in PersistentObject tests with
+  PostgreSQL.
+- Fixed issue #10153: Persistent Object and manual generator (negative and 
+  0 primary keys).
+- Fixed issue #10369: testAddRelatedBirthdayToPerson3UpdateSuccess fails for
+  no apparant reason.
+- Implemented feature #8487: An interface for Persistent Objects.
+- Implemented feature #10166: Cache PO-definitions.
+- Implemented feature #9967: PersistentObject: getRelationQuery() method. This
+  method is now called createRelationFindQuery() and is public now.
+- Implemented feature #9089: Make some methods public.
+  ezcPersistentSession->generateAliasMap() and ->getColumnsFromDefinition()
+  are public now.
+	
+	
+1.2 - Monday 18 December 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #9249: Save/update objects with 1:1 relations that share the
+  same ID does not work.
+- Fixed issue #9489: Check whether the PersistentObject and
+  PersistentObjectDatabaseSchemaTiein tutorials are interlinked.
+- Fixed issue #9493: Convert < and > in exception messages to ' and ' for
+  Cache, ConsoleTools, ImageAnalysis, ImageConversion, PersistentObject,
+  PersistentObjectDatabaseSchemaTiein.
+- Fixed issue #9591: ezcPersistentSession attempts to throw non existing
+  exception (typo).
+- Fixed issue #9819: Let all components deal with the ezcBaseAutoloadException
+  properly.
+
+
+1.2beta2 - Monday 20 November 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #8962: "Sequence Generator" incorrect name for MySQL. MySQL
+  should use the new "ezcPersistentNativeGenerator" from now, with
+  auto_increment. "ezcPersistentSequenceGenerator" dispatches to this for BC
+  reasons.
+- Fixed issue #9248: SQLite driver throws wierd exception.
+- Fixed issue #9335: PersistentSession should use object->getState() in all
+  methods rather than accessing objects properties directly.
+
+
+1.2beta1 - Tuesday 24 October 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed bug #8340: Column names are not escaped.
+- Fixed bug #8489: Show the absolute path in the "cannot find definition file"
+  exception message.
+- Fixed bug #8511: @access private for the 'id generator' classes.
+- Fixed bug #8663: Undeclared property "type" used instead of "propertyType"
+  in ezcPersistentObjectProperty.  This property is not used until now. And
+  causes no change in the usage of the system.
+- Fixed bug #9059: Incorrect prototype of ezcPersistentSession->__construct().
+- Fixed bug #9187: ezcPersistentObjectDefition->__construct() has orphan
+  parameters.
+- Fixed bug #9189: ezcPersistentObjectProperty->__set_state() does not work
+  correcty.
+- Implemented suggestion #8526: Allow retrieving of the database handler and
+  definition manager through the database and definitionManager properties of
+  the ezcPersistentObjectSession class to help with transaction support.
+- Implemented suggestion #8595: Added the ezcPersistentMultiManager class that
+  serves as a singleton mechanism for ezcPersistentSession.	
+- Implemented suggestion #8664: ezcPersistentSession: Cast values and skip
+  undefined properties. Patch by Joel Arvidsson.
+- Added support for several definition managers through
+  ezcPersistentMultiManager.
+- Added the method ezcPersistentFindIterator::flush method that flushes the
+  rest of the resultset from an iterator. This method must be called if you
+  decide not to loop over the complete resultset of an iterator.
+- Deprecated the constructor parameters $key and $incrementKey to
+  ezcPersistentObjectDefinition.
+
+
+1.1 - Monday 12 June 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed small CS issues.
+
+
+1.1rc1 - Monday 29 May 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented feature request 8248: ezcPersistentSession should throw more
+  descriptive exceptions.
+
+
+1.1beta1 - Tuesday 09 May 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed #7884: ezcPersistentSession sometimes triggers PDO "General error:
+  2014" exceptions.
+- Fixed #8042: PersistentObject requires use of database ID counter.
+
+  *Note:* The change involves a slight BC incompatible change.
+  ezcPersistentIdentifierGenerator is no longer an interface but an abstract
+  class. Implementors must change 'implements' to 'extends' to reflect this.
+
+- Added ezcPersistentManualGenerator which can be used to set the ID's of new
+  object manually.
+
+
+1.0.1 - Monday 20 February 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed #7845: Find fetches all columns and not just the required columns.
+
+
+1.0 - Monday 30 January 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed faulty numeric id check in ezcPersistentSession::loadIntoObject().
+
+
+1.0rc1 - Monday 16 January 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Added new methods to ezcPersistentSession:
+
+  * removeFromQuery()
+  * updateFromQuery()
+  * findIterator which returns a ezcResultIterator
+
+- Added support for table and column aliases.
+- Added sequence strategy system, which makes this component also work
+  with PostGreSQL.
+- Changed exception behavior. All errors will now throw a different exception
+  class.
+
+- Added interfaces and classes:
+
+  * ezcPersistentIdentifierGenerator that defines the interface between
+    ezcPersistentSession and the code creating unique ID's for new rows.
+  * ezcPersistentSequenceGenerator that implements the ID generation
+    using sequence functionality in the database handlers.
+  * ezcPersistentGeneratorDefinition to set up what generator to use in the
+    definition.
+
+	
+1.0beta1 - Friday 23 December 2005
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Initial release of this package.

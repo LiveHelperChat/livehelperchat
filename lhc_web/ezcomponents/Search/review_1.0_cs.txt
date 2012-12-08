@@ -1,0 +1,122 @@
+
+FILE: src/handlers/solr.php
+--------------------------------------------------------------------------------
+FOUND 23 ERROR(S) AND 0 WARNING(S) AFFECTING 9 LINE(S)
+--------------------------------------------------------------------------------
+  57 | ERROR | Doc comment var "[ UNKNOWN ]" does not match actual variable name
+     |       | "$host" at position 1
+  57 | ERROR | Missing parameter name at position 1
+  57 | ERROR | Doc comment for "$port" missing
+  57 | ERROR | Doc comment for "$location" missing
+ 268 | ERROR | Doc comment for "$facetFieldList" missing
+ 268 | ERROR | Doc comment for "$limit" missing
+ 268 | ERROR | Doc comment for "$offset" missing
+ 268 | ERROR | Doc comment for "$order" missing
+ 306 | ERROR | Space before opening parenthesis of function call prohibited
+ 343 | ERROR | Space after opening parenthesis of function call required
+ 343 | ERROR | Space before closing parenthesis of function call required
+ 343 | ERROR | Space after opening parenthesis of function call required
+ 343 | ERROR | Space before closing parenthesis of function call required
+ 346 | ERROR | Space after opening parenthesis of function call required
+ 346 | ERROR | Space after opening parenthesis of function call required
+ 346 | ERROR | Space before closing parenthesis of function call required
+ 429 | ERROR | Doc comment for "$facetFieldList" missing
+ 429 | ERROR | Doc comment for "$limit" missing
+ 429 | ERROR | Doc comment for "$offset" missing
+ 429 | ERROR | Doc comment for "$order" missing
+ 452 | ERROR | Doc comment for "$definition" missing
+ 668 | ERROR | Doc comment var "$value" does not match actual variable name
+     |       | "$values" at position 2
+ 699 | ERROR | Doc comment var "$value" does not match actual variable name
+     |       | "$values" at position 2
+--------------------------------------------------------------------------------
+
+
+FILE: src/interfaces/query.php
+--------------------------------------------------------------------------------
+FOUND 2 ERROR(S) AND 0 WARNING(S) AFFECTING 2 LINE(S)
+--------------------------------------------------------------------------------
+ 124 | ERROR | Superfluous doc comment at position 1
+ 135 | ERROR | Superfluous doc comment at position 1
+--------------------------------------------------------------------------------
+
+
+FILE: src/interfaces/query_find.php
+--------------------------------------------------------------------------------
+FOUND 1 ERROR(S) AND 0 WARNING(S) AFFECTING 1 LINE(S)
+--------------------------------------------------------------------------------
+ 44 | ERROR | Superfluous doc comment at position 1
+--------------------------------------------------------------------------------
+
+
+FILE: src/abstraction/implementations/solr.php
+--------------------------------------------------------------------------------
+FOUND 4 ERROR(S) AND 0 WARNING(S) AFFECTING 4 LINE(S)
+--------------------------------------------------------------------------------
+ 162 | ERROR | Superfluous doc comment at position 1
+ 187 | ERROR | Superfluous doc comment at position 1
+ 329 | ERROR | Superfluous doc comment at position 1
+ 357 | ERROR | Superfluous doc comment at position 1
+--------------------------------------------------------------------------------
+
+
+FILE: src/extractors/helpers/simple.php
+--------------------------------------------------------------------------------
+FOUND 6 ERROR(S) AND 0 WARNING(S) AFFECTING 5 LINE(S)
+--------------------------------------------------------------------------------
+  2 | ERROR | Missing file doc comment
+  2 | ERROR | Missing class doc comment
+ 11 | ERROR | Missing function doc comment
+ 21 | ERROR | Missing function doc comment
+ 35 | ERROR | Missing function doc comment
+ 47 | ERROR | Missing function doc comment
+--------------------------------------------------------------------------------
+
+
+FILE: src/extractors/helpers/image.php
+--------------------------------------------------------------------------------
+FOUND 6 ERROR(S) AND 0 WARNING(S) AFFECTING 5 LINE(S)
+--------------------------------------------------------------------------------
+  2 | ERROR | Missing file doc comment
+  2 | ERROR | Missing class doc comment
+ 11 | ERROR | Missing function doc comment
+ 21 | ERROR | Missing function doc comment
+ 35 | ERROR | Missing function doc comment
+ 47 | ERROR | Missing function doc comment
+--------------------------------------------------------------------------------
+
+
+FILE: src/extractors/rstxml.php
+--------------------------------------------------------------------------------
+FOUND 8 ERROR(S) AND 0 WARNING(S) AFFECTING 3 LINE(S)
+--------------------------------------------------------------------------------
+ 40 | ERROR | Space after opening parenthesis of function call required
+ 40 | ERROR | Space before closing parenthesis of function call required
+ 40 | ERROR | Space after opening parenthesis of function call required
+ 40 | ERROR | Space before closing parenthesis of function call required
+ 43 | ERROR | Space after opening parenthesis of function call required
+ 43 | ERROR | Space after opening parenthesis of function call required
+ 43 | ERROR | Space before closing parenthesis of function call required
+ 54 | ERROR | Space after opening parenthesis of function call required
+--------------------------------------------------------------------------------
+
+
+FILE: src/search_session.php
+--------------------------------------------------------------------------------
+FOUND 2 ERROR(S) AND 0 WARNING(S) AFFECTING 2 LINE(S)
+--------------------------------------------------------------------------------
+  65 | ERROR | Superfluous doc comment at position 2
+ 161 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+--------------------------------------------------------------------------------
+
+
+FILE: src/query_builder.php
+--------------------------------------------------------------------------------
+FOUND 4 ERROR(S) AND 0 WARNING(S) AFFECTING 2 LINE(S)
+--------------------------------------------------------------------------------
+ 112 | ERROR | Space after opening parenthesis of function call required
+ 112 | ERROR | Space before closing parenthesis of function call required
+ 114 | ERROR | Space after opening parenthesis of function call required
+ 114 | ERROR | Space before closing parenthesis of function call required
+--------------------------------------------------------------------------------
+

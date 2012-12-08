@@ -1,0 +1,41 @@
+=================
+Review 1.0-alpha1
+=================
+
+:Author: kn
+
+General
+=======
+
+- There are quite some CS errors, check the following report:
+
+.. include:: review_1.0_cs.txt
+   :literal:
+
+- Provide an interface which class may implement, that defines the signature
+  for setState() and getState(), so that I may easily ensure that my search
+  document wrapper classes match the required signature.
+
+  I think it is OK, to make it optional to implement this interface, though.
+
+  - Added the ezcBasePersistable interface for this. We do not check for this
+    here (or in PersistentObject) for this though.
+
+- Check if getState() really returns all properties defined in XML structure,
+  otherwise "undefined index" notices are returned (handlers/solr.php on line
+  778).
+
+  - Added a check for this.
+
+- On reconstruction of search results make setState a public *static* method,
+  so that the constructor is not called (a constructor with required arguments
+  would currently cause a fatal error).
+
+  - We're not changing this to stay consistent with PersistentObject.
+
+- On recreation with the search results in handlers/solr.php line 375 the
+  public ID property from the object is accessed. Is this really necessary, or
+  would it be possible to get it from the actual results to reduce the
+  assumptions on the search result objects?
+
+  - Fixed, we can just get it from the $attr array anyway.

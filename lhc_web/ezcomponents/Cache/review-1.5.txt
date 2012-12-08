@@ -1,0 +1,13 @@
+Review Alexandru 2009-07-31
+===========================
+
+[x] new tests storage_object_test.php depend on classes/exportable.php which
+    is not in SVN. Hence the Cache test suite fails.
+
+[x] the file storage_object_test.php contains references to ezcStorageFileArray
+
+[x] cache_autoload.php references ezcCacheFileObjectSerializer which doesn't exist
+
+[x] tests/suite.php references ezcCacheStorageFileObjectTest which doesn't exist
+
+	It does, just the file naming is not consistent. Fixed that. --ts

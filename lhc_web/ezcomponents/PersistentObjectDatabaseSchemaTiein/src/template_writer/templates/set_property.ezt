@@ -1,0 +1,9 @@
+{use $propertyType}
+				if ( !is_{$propertyType}( $propertyValue ) )
+				\{
+					throw new ezcBaseValueException(
+						$propertyName,
+						$propertyValue,
+						'{$propertyType}'
+					);
+				\}

@@ -1,0 +1,3 @@
+The component allows you to create, modify, and extract archive files of 
+various formats.  The currently supported archives formats are Tar (with 
+the flavours: ustar, v7, pax, and gnu) and Zip. 

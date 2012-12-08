@@ -1,0 +1,128 @@
+Review Alexandru 2008-05-16
+===========================
+
+[X] the tutorial needs to be updated with the new stackable storage.
+
+[X] run docanalisys.php on Cache:
+    - missing method docblocks.
+    - missing or wrong parameters.
+    - @deprecated tag could be instead @apichange? It is not recognized.
+
+[X] xdebug_start_trace() and xdebug_stop_trace() in complex_stack_test.php on
+    line 307 and 309.
+
+[X] investigate which version of APC is needed? Some tests fail with APC 3.0.14
+    (I got "missing apc_add() function" but maybe it was not compiled correctly).
+	I also needed apc.enable_cli=1 in php.ini which I didn't know - specify this
+    somewhere?
+
+[X] 2 failed tests in ezcCacheStorageMemcachePlainTest:
+
+1) testPurgeNoLimit(ezcCacheStorageMemcachePlainTest)
+Purged IDs not returned correctly.
+Failed asserting that two arrays are equal.
+--- Expected
++++ Actual
+@@ -1,8 +1,3 @@
+ Array
+ (
+-    [0] => ID
+-    [1] => Some/Dir/ID
+-    [2] => Some/other/Dir/ID/1
+-    [3] => Some/other/Dir/ID/2
+-    [4] => Some/other/Dir/ID/3
+ )
+
+/home/as/dev/ezcomponents/trunk/Cache/tests/storage_memcache_plain_test.php:530
+
+2) testPurgeLimit(ezcCacheStorageMemcachePlainTest)
+Purged IDs not returned correctly.
+Failed asserting that two arrays are equal.
+--- Expected
++++ Actual
+@@ -1,6 +1,3 @@
+ Array
+ (
+-    [0] => ID
+-    [1] => Some/Dir/ID
+-    [2] => Some/other/Dir/ID/1
+ )
+
+/home/as/dev/ezcomponents/trunk/Cache/tests/storage_memcache_plain_test.php:567
+
+
+	# I receive these errors, too, but just occasionally. I currently have no
+	  clue where they result from. I'll investigate more, later. However, I
+	  think it's a Memcache issue.
+
+	  I opened issue #13053 for this, since I need more time to dig into it.
+
+[X] ezcCacheStack: why does pushStorage() use ezcCacheStackStorageConfiguration?
+    It could have passed the options right there in the pushStorage() instead of
+    creating yet another object. Like:
+
+    $stack->pushStorage( 'cache', $cache, 1, 0.5 );
+
+    instead of:
+
+    $conf = new ezcCacheStackStorageConfiguration( 'cache', $cache, 1, 0.5 );
+    $stack->pushStorage( $conf );
+
+	# The object is needed internally to be passed around. Creating the object
+	  outside allows to do popStorage() and to push such removed storages back
+	  to the stack. Beside that, it can be more convenient when using delayed
+	  initialization through the ezcCacheManager.
+
+[X] ezcCacheStack: the cache storages are stored twice: once in $storageStack
+    and once in $storageIdMap. Wouldn't it be better to store it only in
+    $storageStack and to store only the IDs in $storageIdMap?
+
+	# No. Objects are stored by reference, so it is most likely that this
+	  consumes less memory than storing the actual ID twice, which would by
+	  copied.
+
+[X] Are all options from ezcCacheStackOptions tested in different combinations?
+    LRU, LRU+bubbleUp, LRU+bubbleUp+metaStorage, LRU+metaStorage
+    LFU, LFU+bubbleUp, LFU+bubbleUp+metaStorage, LFU+metaStorage
+
+    And in different combinations with ezcCacheStackStorageConfiguration
+    parameters, like $itemLimit = 1 and $freeRate = 0.1, $freeRate = 0.99 etc?
+
+	# Since not all of them depend on each other, this seems not necessary to
+	  me. Tests are performed for:
+      - LRU+bubbleUp
+      - LRU+metaStorageConfigured
+      - LRU+metaStorageDefault
+	  All with concrete method call tests via mock objects. LRU is only a
+	  wrapper around internel base strategy.  In addition, all methods of LRU,
+	  LFU and the meta data stuff are tested dedicatedly.
+
+    I got a warning:
+    Warning: Invalid argument supplied for foreach()
+    in /home/as/dev/ezcomponents/trunk/Cache/src/storage/memory.php on line 340
+
+    when I call $cache->store() with this configuration (the cache should? be
+    empty but maybe there are items from previous runs):
+
+ezcCacheManager::createCache( 'apc', null, 'ezcCacheStorageApcPlain' );
+$apc = ezcCacheManager::getCache( 'apc' );
+
+$options = array( 'host' => 'localhost', 'port' => 11211, 'ttl' => 30 );
+ezcCacheManager::createCache( 'mem', null, 'ezcCacheStorageMemcachePlain', $options );
+$mem = ezcCacheManager::getCache( 'mem' );
+
+$options = new ezcCacheStackOptions();
+$options->replacementStrategy = 'ezcCacheStackLfuReplacementStrategy';
+$options->bubbleUpOnRestore = true;
+$options->metaStorage = $mem;
+ezcCacheManager::createCache( 'cache', null, 'ezcCacheStack', $options );
+$cache = ezcCacheManager::getCache( 'cache' );
+$conf = new ezcCacheStackStorageConfiguration( 'mem', $mem, 1, 0.9 );
+$cache->pushStorage( $conf );
+$conf = new ezcCacheStackStorageConfiguration( 'apc', $apc, 1, 0.9 );
+$cache->pushStorage( $conf );
+$cache = ezcCacheManager::getCache( 'cache' );
+
+[X] Some tests files contain multiple classes (eg complex_stack_test.php). They
+    should be separated in different files because it might impede running the
+    test case on its own.

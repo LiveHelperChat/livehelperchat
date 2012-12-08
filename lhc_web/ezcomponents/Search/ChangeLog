@@ -1,0 +1,117 @@
+1.0.9 - Monday 22 March 2010
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #16127: Searching with numeric values.
+- Fixed issue #16195: Errors when searching with Solr.
+- Fixed issue #16350: Wrong spelled HTTP method.
+
+
+1.0.8 - Monday 23 November 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #15380: iconv notice in Zend_Search_Lucene backend.
+- Fixed issue #15381: Another iconv notice in Zend_Search_Lucene backend.
+- Fixed issue #15382: Zend_Search_Lucene->deleteById did not really remove the
+  entry because Zend_Search_Lucene wouldn't find the item by just the ID.
+  Workaround added.
+
+
+1.0.7 - Monday 09 November 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #15267: Solr handler did not force the UTF-8 charset for
+  requests.
+
+
+1.0.6 - Tuesday 01 September 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #15289: "AND" and "OR" in the query builder are even recognised
+  when there is no whitespace around them.
+- Fixed issue #15290: Test suite tries to acces local file.
+- Fixed issue #15294: Index is always re-created when the Zend Search Lucene
+  backend is initialized, wiping out all index data.
+- Fixed issue #15295: The Zend_Search_Lucene backend returns a different result
+  format then the Solr backend.
+- Fixed issue #15302: ezcSearchSession::update() leads to errors.
+- Implemented issue #15086: Added ezcSearchSession->createDeleteQuery() and
+  ezcSearchSession->delete().
+- Implemented issue #15087: Added ezcSearchSession->deleteByID() and
+  ezcSearchSession->findByID() for retrieving and deleting documents by their
+  ID.
+
+1.0.5 - Monday 22 June 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #15085: ezcSearchZendLuceneHandler fails on writing index to
+  relative path.
+
+
+1.0.4 - Monday 30 March 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented issue #14429: Support for Solr 1.3.
+- Implemented issue #14594: provide body of error pages.
+- Added the reConnect() method to the Solr handler, so that you can re-connect
+  to it in case the connection causes issues. Related to issue #14636: Can not
+  use solr handler in long running scripts.
+
+
+1.0.3 - Monday 09 February 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #14159: ezcSearchQueryBuilder() does not handle colons properly
+  in search strings for Solr.
+
+
+1.0.2 - Monday 01 December 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #13908: Search component's SolR handler should respect HTTP
+  status codes. (Initial patch by Alexander M. Turek).
+
+
+1.0.1 - Monday 10 November 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #13891: ezcSearchNetworkException is used, but does not exist.
+- Fixed issue with sending incorrect HTTP requests to Solr.
+- Fixed issue with regards to respecting HTTP Connection: close headers when
+  talking to Solr.
+
+
+1.0 - Monday 16 June 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.0rc1 - Tuesday 10 June 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Changed the way how ezcSearchQueryBuilder works. You will now have to
+  run parseSearchQuery() instead of just passing the query object, query
+  string and fields to the constructor.
+- Changed the nested array result for documents into a structure where each
+  ezcSearchResult contains an array of ezcSearchResultDocument objects, which
+  on its turn contain the score, highlighting and document itself.
+- Changed the default limit fo returned search results for the Solr handler
+  from 10 to unlimited (well, 999999).
+
+
+1.0alpha2 - Tuesday 13 May 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixes to the Solr handler:
+
+    - Implemented missing "order by" support.
+    - Fixed between support.
+    - Fixed boost support in case a field already had a boost value assigned by
+      default.
+
+
+1.0alpha1 - Monday 05 May 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Initial release of this package.
+

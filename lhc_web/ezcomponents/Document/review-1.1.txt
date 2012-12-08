@@ -1,0 +1,47 @@
+Review Alexandru 05-11-2008
+---------------------------
+
+[x] Wrong headers in some files ("File containing the XXX class", "Base class...").
+
+[x] Wrong package names (Table, PageBreak, etc) (see issue #13829).
+
+[ ] rst2xhtml conversion does not work for all ezc tutorials (some
+    elements are not supported, like replace).
+
+	kn: Those are just not implemented yet. But the errors are ignorable now.
+
+[ ] Linux-style path separator used in some files.
+
+	kn: PHP should handle this just fine.
+
+[ ] Some functions which return bool are documented with '@return void'.
+
+- Some typos in the code and comments:
+
+[x] /src/exceptions/errnous_xml.php
+    Errnous -> Erroneous
+
+[x] /src/document/xml/xhtml/filter/element/base.php
+    boolena -> bool
+
+Review Toby 2008-11-21
+----------------------
+
+[x] Missing tutorial for new formats.
+
+[x] Wierd @apichange tag in Document/src/options/document_rst.php.
+
+[x] I'd suggest to have a wrapper class for each Wiki format, to allow
+    creation of Wiki documents in the same way as for other documents. For
+	example ezcDocumentWikiCreole to create a wiki document with the creole
+	tokenizer.
+
+[x] It sounds like a good idea to register a default directive for all
+    directives mentioned in the RST specification. Otherwise people get an
+	error, if the try to convert documents containing such directives.
+
+	  kn: As discussed: Changed to an error of level "Warning", which can
+	  easily be ignored.
+
+[x] The docanalysis tool throws an exception because a class used in a type
+    hint does not exist.

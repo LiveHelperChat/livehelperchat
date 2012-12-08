@@ -1,0 +1,2 @@
+The SignalSlot component implements a mechanism for inter and intra object
+communication through the use of signals and slots.

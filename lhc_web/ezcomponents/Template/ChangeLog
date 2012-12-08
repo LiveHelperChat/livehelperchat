@@ -1,0 +1,281 @@
+1.4.2 - [RELEASDATE]
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented issue #11072: Possible different output contexts inside XHTML.
+
+
+1.4.1 - Tuesday 01 September 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #15291: {tr}-block ignores output context.
+
+
+1.4 - Monday 29 June 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes
+
+
+1.4rc1 - Monday 22 June 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.4beta1 - Monday 08 June 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes
+
+
+1.4alpha1 - Tuesday 26 May 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented issue #14898: Deactivate whitespace removal in Template output.
+
+
+1.3.2 - Monday 09 February 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #14349: ezcTemplateLocator has no documentation.
+
+
+1.3.1 - Monday 04 August 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented issue #13187: Updated tutorial to clarify cache keys.
+
+
+1.3 - Monday 16 June 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.3rc1 - Tuesday 10 June 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes
+
+
+1.3beta1 - Tuesday 27 May 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Changed the date_format() template function to only accept DateTime objects.
+
+
+1.3alpha2 - Monday 05 May 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented issue #12723: Make Template date functions support the DateTime
+  object.
+- Fixed issue #11152: ezcTemplateLocationInterface should not have "Interface"
+  in the classname.
+- Fixed issue #12322: Template regression between 1.1 and 1.2 - support for
+  variable object properties re-added.
+
+
+1.3alpha1 - Monday 03 March 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Made the TemplateObject available in CustomBlocks. Thanks to Felix Weis for 
+  the patch.
+- Fixed issue #11228: Cannot supply an absolute Win32-Path to $t->process().
+- Better error message when an external (use) variable is not given.
+- Fixed issue #12289: String function str_last_index documented, but not
+  defined.
+- Fixed issue #12323: Using {cache_template} inside a block will now throw an
+  exception.
+- Fixed issue #11056:
+
+  * {dynamic} is only allowed after {cache_template} or in {cache_block}.
+  * corrected documentation in regard to TTL vs. ttl.
+  * fixed the cache file names in Windows (replace '\' with '-').
+
+- Fixed issue #12368: ezcTemplateConfiguration::addExtension() did not
+  check for invalid arguments correctly.
+- Implemented issue #10940: Possibility to set default permissions to
+  the compiled templates and generated cache files, by using the 0777 mode for
+  creating the directories in which the compiled templates are stored. This
+  mode is still modified by the umask.
+- Implemented issue #9973: Added a translation compiler to convert a string in
+  the original language, to the translated one without substituting parameters.
+  This is to have translation support for the Template component.
+- Added the capture() template block to collect a part of a template into a
+  variable.
+- Added support for variable length argument lists for custom functions
+  through the variableArgumentList element of the
+  ezcTemplateCustomFunctionDefinition.
+- Added support for additional parameters for custom blocks through the
+  excessParameters element of the ezcTemplateCustomBlockDefinition.
+
+
+1.2 - Monday 02 July 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Documentation updates.
+
+
+1.2rc1 - Friday 22 June 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Documentation updates.
+
+
+1.2beta2 - Thursday 31 May 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #10075: Invalid cache created when the Customblock or
+  CustomFunction produces a PHP error.
+- Fixed issue #10870: Return statement does not *immediately* return inside a
+  {dynamic_block}.
+- Implemented issue #9972: Added support for caching.
+- Implemented issue #10738: Added support for dynamic locations.
+
+
+1.2beta1 - Monday 07 May 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #10035: Block comments mixed with Javascript comments generates
+  wrong Template code.
+- Fixed issue #10036: Invalid generated PHP code cannot be renewed without
+  deleting the generated template.
+- Fixed issue #10261: Array fetch and property fetch could not be used
+  together.
+- Implemented issue #9965: Support for delayed initialization through
+  ezcBaseInit.
+- Added support for named parameters in the custom functions.
+- Added support for dynamic locations in the template include(s).
+- Made it possible to send a Template Object to the custom function.
+
+
+1.1 - Monday 18 December 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #9464: Weird error messages on calculations with
+  multidimensional arrays.
+- Fixed issue #9491: Convert < and > in exception messages to ' and ' for
+  Template.
+- Fixed issue #9601: Wrong __isset implementation in Template/template.php.
+- Fixed issue #9607: Custom blocks without a class in the definition generate
+  broken code.
+- Fixed issue #9806: Added the ezcTemplateException class from which all
+  exception classes in Template inherit.
+- Fixed issue #9819: Let all components deal with the ezcBaseAutoloadException
+  properly.
+- The angle brackets are replaced with single quotes within the exceptions.
+- Fixed an issue that the space before 'array append' threw an exception.
+- Fixed the text and cursor position in several parser error messages.
+- Fixed an issue that white-space in front of an array append shows an
+  error.
+- Fixed an issue that non-matching open and close blocks did not always show
+  an error.
+- Fixed issues with some variables (e.g. $this) conflicts with the internal
+  variables.
+- Fixed an issue that the return value from a template include was not 
+  assigned to {use} variable.
+- Fixed problem with correct whitespace trimming of elements inside {if}
+  block.
+- Throw an exception when {else} and {elseif} are used outside {if}.
+- Throw an exception when {case} and {default} are used outside {switch}.
+- Throw an exception when an assignment is done not to a variable. eg: {5 = 7}
+- Changed the error message of wrong {delimiter} usage.
+- The {delimiter} block can also be used inside a while.
+- Fixed an issue that some block names could be prepended, appended with
+  garbage. eg: {vara}
+- It is not allowed to do variable modifications inside an expression. 
+  eg: {myFunc( $a = 2 )} or {$a[ $b = 2 ] += 3}
+- {debug_dump} uses now var_export() for better readability.
+- Assignments are not allowed inside an expression of a control block. Eg:
+  {while $a = 3} or {if $b = 2}
+- All binary operators can be used repeatedly. Eg: {3 === 4 === 5}
+- Variables cannot be used inside a string.
+- Replaced all exit() calls with an ezcTemplateInternalException.
+
+
+1.1beta2 - Monday 20 November 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Changed the location where compiled templates are stored. They will now be
+  written to the sub directory 'compiled_templates' of the $compilePath. 
+- Fixed issue #8837: Delimiter doesn't work in nested loops.
+- Fixed issue #9279: Accessing properties from a null object.
+- Fixed issue #9286: Parse error in compiled template on accessing properties
+  on an object in an array
+- Fixed issue #9290: Reserved names may not be used as template variables in 
+  include send statements.
+- Fixed issue #9293: Template calls exit() for custom template functions
+  without parameters.
+- Fixed issue #9441: Declared variables cannot be used as a 'received'
+  variable in the include block.
+
+
+1.1beta1 - Tuesday 24 October 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Added custom blocks and custom functions.
+
+
+1.0 - Monday 12 June 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed a bug that some indentations were not removed.
+- Fixed a bug that the newlines after a non output block were not removed. 
+- Fixed a bug that fetching an array element was never considered as a
+  possible sub array. E.g. {var $a = array( array("a") )} {foreach $a[0] as $i}
+  gave an error.
+- Fixed a bug that an imported variable with default value got the wrong type. 
+  E.g. {var $myArray = false} {foreach $myArray as $i} gave an error.
+
+
+1.0rc1 - Monday 29 May 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Added "web" functions.
+- Added "date" functions.
+- Added the raw tag that outputs raw, without context, values.
+- Fixed a bug that arrays and properties could not be send as expression
+  part of the include construct. E.g. {include "abc.ezt" send $a[0] as $b}
+- Fixed a bug that property fetches were ignored after the first fetch. 
+  E.g. {$obj->prop1->prop2}
+- Fixed a bug that the variable is declared in the 'as' part of the include.  
+  E.g. {include "abc.ezt" send $a as $b}, $b was declared.
+- Fixed a bug that using parenthesis in an 'if' block gave an error message.
+  E.g. {if ( true ) }
+- Fixed a bug that a function call after a property fetch would give an error
+  message. E.g. {$mail->myProp} {str_len( $mail->myProp)}
+- Fixed a bug that the equal, not equal, identical, not identical could not
+  compare arrays with arrays and arrays with 'values'.
+- Fixed a bug in the get_class function. Due to a spelling error it would
+  throw a PHP Fatal Error.
+- Fixed a bug that blanks between the pre-operator and operand were not
+  allowed. E.g. {5 + -   3} 
+- Fixed a bug that the break and continue tags could contain garbage.
+  E.g. {break abcd}
+- Fixed a bug that the column number in error messages were incorrect.
+- Fixed a bug that the hash_intersect_key function was mapped wrong.
+- Fixed bug #8280: Array assignment with non-constants not working.
+- All compile errors throw the ezcTemplateParserException.  Removed the 
+  ezcTemplateSourceToTstParserException.
+- Renamed the functions: str_trimmed, str_trimmed_left, str_trimmed_right,
+  and str_simplified to respectively str_trim, str_trim_left, str_trim_right, 
+  and str_simplify. 
+- The modulo part of the delimiter is now optional.
+- The delimiter does not appear after the last iteration.
+
+
+1.0beta2 - Tuesday 09 May 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issues with escape characters in the single quoted string, double
+  quoted string, and in the Text.
+- Added functionality that a number can also be specified with an exponent.
+- Throw an exception when a directory in the compile path could not be
+  created (Because of the file permissions). 
+- Throw an exception when a method from an object is called.
+
+
+1.0beta1 - Monday 01 May 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Initial release of this package.

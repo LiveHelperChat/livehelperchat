@@ -1,0 +1,4 @@
+A component that reads XML translation definitions (the Qt Linguist format),
+supports caching of translation contexts and presents you with a class to apply
+translations to strings. A filter system allows you to transform translation
+definitions for special use.

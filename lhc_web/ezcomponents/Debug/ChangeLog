@@ -1,0 +1,131 @@
+1.2.1 - Monday 07 December 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Re-release with proper autoload file (that misses the removed
+  debug_message.php) entry.
+
+
+1.2 - Monday 16 June 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.2rc1 - Tuesday 10 June 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes
+
+
+1.2beta1 - Tuesday 27 May 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.2alpha1 - Monday 03 March 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented enhancement #10701: Getting a readable backtrace. The
+  ezcDebug->log() method now allows you to selectively add a stack trace to
+  debug log messages. The new ezcDebugOptions class allows to globally switch
+  on stack traces for all log messages.
+- Fixed issue #12427: Changed output rendering of the debug formatter to not
+  include a stylesheet by default, but instead the formatter now includes easy
+  overridable CSS classes.
+
+
+1.1 - Monday 02 July 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.1rc1 - Monday 25 June 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Documentation fixes.
+
+
+1.1beta1 - Monday 07 May 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented feature #9965: Support for delayed initialization through
+  ezcBaseInit.
+
+
+1.0.3 - Monday 20 November 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed some documentation issues.
+
+
+1.0.2 - Wednesday 25 October 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed bug #9090: Element times are not available in the output table.
+
+
+1.0.1 - Monday 28 August 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Refactored to use the new ezcBaseStruct class.
+- PHP 5.2 compatibility.
+
+
+1.0 - Monday 30 January 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ezcDebug
+========
+
+- Fixed PHP warning in switchTimer() when the given oldTimer does not exist. 
+- Fixed problem in switchTimer() when oldTimer and newTimer are the same.
+
+ezcDebugHtmlFormatter
+=====================
+
+- Improved the timing information output.  
+- Changed the access from protected to private in the methods: getGroups() and
+  addElement().
+
+
+1.0rc1 - Monday 16 January 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Changed Debug that it uses the ezcLogFilterSet mapping. 
+- Changed exception behavior. All errors will now throw a different exception
+  class.
+- Added property checks. Adding or reading a property throws an exception.
+- Fixed bug #7676: ezcDebugHtmlFormatter::getLog is buggy.
+
+ezcDebug
+========
+
+- Removed the source parameter from the startTimer() method.
+- Removed the verbosity constants.
+
+ezcDebugTimer
+=============
+
+- Changed the timing information structure. The more specific structures
+  ezcDebugTimerStruct and ezcDebugSwitchTimerStruct are used instead. 
+
+
+1.0beta2 - Thursday 22 December 2005
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Renamed the class ezcDebugReporter to ezcDebugOutputFormatter.
+- Renamed the class ezcDebugHtmlReporter to ezcDebugHtmlFormatter.
+
+ezcDebug
+========
+
+- Renamed the method getOutput() to generateOutput().
+- Renamed the method setReporter() to setOutputFormatter().
+
+
+1.0beta1 - Friday 25 November 2005
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Initial release of this package.

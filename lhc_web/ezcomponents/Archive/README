@@ -1,0 +1,30 @@
+LIMITATIONS
+===========
+
+Archive:
+- Wrong mtime, chown, chgrp for symlinks extracted from the archive. 
+  --> lchown, lchgrp are not (yet) implemented in PHP. 
+  --> Touch resolves the symlink.
+  
+Tar:
+- Pax: Writing to archive is not implemented.
+- Gnu: Writing to archive is not implemented.
+
+Zip:
+- Text or binary-file bit is not set in the (created) archive.
+- Extracting of a file is done all in memory. 
+  --> Extracting a deflated file without a header is recently fixed in PHP. 
+      (Use string filter)
+- Check the bitflag, because it is now always 0.
+- We use the same version as InfoZip (10). 
+- Files are always compressed with the deflate algorithm.
+  --> Need to find out the best algorithm. E.g. no compression on small files 
+      or files that are already compressed.
+- Zip64 is not implemented.
+
+File:
+- Common functions from character and blockfile must be moved to ArchiveFile.
+
+Tests:
+- Some tests use executables: tar, gzip, bzip2 and will probably not work on 
+  other machines or platforms.

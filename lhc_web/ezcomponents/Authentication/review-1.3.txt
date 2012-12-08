@@ -1,0 +1,61 @@
+Review 1.3
+==========
+
+[x] Executing the tests with PHP 5.3.0RC3-dev (cli) (built: May 31 2009 10:43:59)
+    ('--with-curl' '--with-curlwrappers') gives me the following error::
+
+        Notice: Array to string conversion in trunk/Authentication/src/url/url.php on line 222
+
+    This is because the $metadata-Array may also contain additional arrays and
+    cannot just be imploded. When curl is used by the http-wrapper, the meta-data
+    array looks like::
+
+        array(10) {
+          ["wrapper_data"]=>
+          array(2) {
+            ["headers"]=>
+            array(0) {
+            }
+            ["readbuf"]=>
+            resource(106) of type (stream)
+          }
+          ["wrapper_type"]=>
+          string(4) "cURL"
+          ["stream_type"]=>
+          string(4) "cURL"
+          ["mode"]=>
+          string(1) "r"
+          ["unread_bytes"]=>
+          int(0)
+          ["seekable"]=>
+          bool(false)
+          ["uri"]=>
+          string(16) "http://yahoo.com"
+          ["timed_out"]=>
+          bool(false)
+          ["blocked"]=>
+          bool(true)
+          ["eof"]=>
+          bool(false)
+        }
+
+    The same error accurs if I try to authentificate against a OpenID (2) site in
+    an application using ezcAuth.
+
+    Seems to be "fixed" by removing the --with-curlwrappers option from ./configure
+
+    AS: I added a check for the 'headers' sub-array, so it should work in
+    both cases, with and without --with-curlwrappers. Both cases are
+    untestable in the same test suite though.
+
+[ ] I get some test failures, when running the test suite, as recorded in
+    "review-1.3-test-failures.txt". Only some of them seem to be temporary
+    issues.
+
+[ ] Why is OpenID 2.0 not default? It does only implement an additional
+    discovery mechanism and this way some common providers do not work out of
+    the box, but $auth->run just returns false.
+
+    Is there any drawback using 2.0 by default, I do not see? I would not
+    consider it a BC break...
+

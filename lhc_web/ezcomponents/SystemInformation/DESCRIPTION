@@ -1,0 +1,2 @@
+Provides access to common system variables, such as CPU type and speed, and the
+available amount of memory.

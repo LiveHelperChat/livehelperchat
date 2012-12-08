@@ -1,0 +1,190 @@
+1.3.2 - Monday 09 November 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #15262: Improved docs for ezcTranslationComplementEmptyFilter /
+  ezcTranslation::getTranslation exeptions.
+
+
+1.3.1 - Tuesday 01 September 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #15260: ezcTranslationBorkFilter modifies all translations, not
+  only unfinished ones.
+
+
+1.3 - Monday 29 June 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes
+
+
+1.3rc1 - Monday 22 June 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.3beta1 - Monday 08 June 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes
+
+
+1.3alpha1 - Tuesday 26 May 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Added the getContextNames() method to the TsBackend.
+
+
+1.2 - Monday 16 June 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.2rc1 - Tuesday 10 June 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes
+
+
+1.2beta1 - Tuesday 27 May 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Renamed the private ezcTranslation->callback_compile() and
+  ezcTranslation->parameter_callback_compile() to
+  ezcTranslation->callbackCompile() and
+  ezcTranslation->parameterCallbackCompile().
+
+
+1.2alpha2 - Monday 05 May 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #12810: Issues with translations in templates.
+
+
+1.2alpha1 - Monday 03 March 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented issue #9973: Added a translation compiler to convert a string in
+  the original language, to the translated one without substituting
+  parameters. This is to have translation support for the Template
+  component.
+- Implemented issue #10912: Add translation entries.
+- Added support for the new location element in Linguist version 1.1 files.
+- Added support for the keepObsolete option for the TsBackend. With this
+  enabled, the obsolete translations are not dropped while reading contexts.
+  This is both useful for testing as well as for manipulating TS files.
+
+
+1.1.6 - Wednesday 05 December 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed bug #12112: ezcTranslation's constructor is wrongly documented.
+
+
+1.1.5 - Wednesday 28 November 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Documentation updates and fixes.
+
+
+1.1.4 - Monday 25 June 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Documentation updates and fixes.
+
+
+1.1.3 - Monday 07 May 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #10027: The format of the XML file format is not documented.
+
+
+1.1.2 - Monday 20 November 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed a typo in a variable name when throwing an exception in
+  ezcTranslationTsBackend.
+- Fixed constructor names.
+
+
+1.1.1 - Monday 28 August 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Refactored to use the new ezcBaseStruct class and properties approach.
+
+
+1.1 - Monday 12 June 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.1rc1 - Monday 29 May 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Refactored to use new ezcBaseOptions class.
+
+
+1.0 - Monday 30 January 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Changed ezcTranslationManager's caching mechanism. It will now cache per
+  manager object and not globally.
+- Fixed ezcTranslationLeetFilter regarding parameters to translation strings.
+  Previously it would also leetify those resulting in broken names for
+  parameters.
+- Moved ezcTranslationCacheBackend to the TranslationCacheTiein component.
+
+
+1.0rc1 - Monday 16 January 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Changed exception behavior. All errors will now throw a different exception
+  class.
+
+
+1.0beta2 - Wednesday 21 December 2005
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+General
+=======
+
+- Changed class name:
+
+  * ezcTranslationFillinFilter to ezcTranslationComplementEmptyFilter
+
+ezcTranslation
+==============
+
+- Changed method name:
+
+  * getString() to getTranslation()
+
+ezcTranslationTsBackend
+=======================
+
+- Added an implementation of the Iterator interface, this allows you to use
+  foreach( ezcTranslationTsBackend as $contextName => $contextData ). This
+  is a more convinient way of looping through all the contexts that make up
+  a translation. It is also faster than having to loop through it yourself
+  with the next() and currentContext() methods.
+
+- Added methods:
+
+  * current() as part of the Iterator implementation
+  * key() as part of the Iterator implementation
+  * rewind() as part of the Iterator implementation
+  * valid() as part of the Iterator implementation
+
+- Changed method names:
+
+  * haveMore() to next()
+  * readContext() to currentContext()
+
+
+1.0beta1 - Thursday 24 November 2005
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Initial release of this package.

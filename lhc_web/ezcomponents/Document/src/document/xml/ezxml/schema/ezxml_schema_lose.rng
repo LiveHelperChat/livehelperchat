@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar ns="http://ez.no/namespaces/ezpublish3" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="">
+  <start>
+    <element name="section">
+      <zeroOrMore>
+        <ref name="sectionContent"/>
+      </zeroOrMore>
+    </element>
+  </start>
+  <define name="sectionContent">
+    <choice>
+      <!-- From documentation -->
+      <element name="h">
+        <ref name="headerContent"/>
+      </element>
+      <element name="p">
+        <ref name="paragraphContent"/>
+      </element>
+      <!-- From ezxml schema -->
+      <element name="section">
+        <oneOrMore>
+          <ref name="sectionContent"/>
+        </oneOrMore>
+      </element>
+      <element name="paragraph">
+        <ref name="paragraphContent"/>
+      </element>
+      <element name="header">
+        <ref name="headerContent"/>
+      </element>
+      <!-- Not documented at all, but some documents do not contain wrapping paragraphs -->
+      <ref name="inlineContent"/>
+    </choice>
+  </define>
+  <define name="headerContent">
+    <optional>
+      <!-- From documentation -->
+      <attribute name="custom_parameter">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="anchor">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <!-- From ezxml schema -->
+      <attribute name="anchor_name">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="level">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="class">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <choice>
+      <!-- Not documented at all -->
+      <ref name="inlineContent"/>
+      <!-- From ezxml schema -->
+      <text/>
+    </choice>
+  </define>
+  <define name="paragraphContent">
+    <optional>
+      <!-- From documentation -->
+      <attribute name="custom_parameter">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <!-- From ezxml schema -->
+      <attribute name="class">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <oneOrMore>
+      <choice>
+        <!-- Not documented at all -->
+        <element name="object">
+          <ref name="embedAttributes"/>
+        </element>
+        <element name="custom">
+          <ref name="customContent"/>
+        </element>
+        <!-- From ezxml schema -->
+        <ref name="inlineContent"/>
+        <element name="line">
+          <ref name="inlineContent"/>
+        </element>
+        <element name="embed">
+          <ref name="embedAttributes"/>
+        </element>
+        <element name="ol">
+          <ref name="listContent"/>
+        </element>
+        <element name="ul">
+          <ref name="listContent"/>
+        </element>
+        <element name="custom">
+          <ref name="customContent"/>
+        </element>
+        <element name="literal">
+          <optional>
+            <!-- From ezxml schema -->
+            <attribute name="class">
+              <data type="string"/>
+            </attribute>
+          </optional>
+          <text/>
+        </element>
+        <element name="table">
+          <ref name="tableContent"/>
+        </element>
+      </choice>
+    </oneOrMore>
+  </define>
+  <define name="customContent">
+    <optional>
+      <!-- Just guessed, not documented at all: -->
+      <attribute name="custom_parameter">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <attribute name="name">
+      <data type="string"/>
+    </attribute>
+    <optional>
+      <attribute name="custom:header">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="custom:link">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="custom:class">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="custom:package_name">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="custom:version">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="custom:type">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="custom:summary">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="custom:description">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="custom:url">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="custom:thumbnail_url">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="custom:min-version">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="custom:feedurl">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="custom:siteurl">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="custom:limit">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="custom:preselect">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <zeroOrMore>
+      <choice>
+        <!-- More or less anything... -->
+        <element name="h">
+          <ref name="headerContent"/>
+        </element>
+        <element name="p">
+          <ref name="paragraphContent"/>
+        </element>
+        <element name="section">
+          <oneOrMore>
+            <ref name="sectionContent"/>
+          </oneOrMore>
+        </element>
+        <element name="paragraph">
+          <ref name="paragraphContent"/>
+        </element>
+        <element name="header">
+          <ref name="headerContent"/>
+        </element>
+        <ref name="inlineContent"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="listContent">
+    <optional>
+      <attribute name="custom_parameter">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="class">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <zeroOrMore>
+      <element name="li">
+        <group>
+          <optional>
+            <attribute name="custom_parameter">
+              <data type="string"/>
+            </attribute>
+          </optional>
+          <optional>
+            <attribute name="class">
+              <data type="string"/>
+            </attribute>
+          </optional>
+          <oneOrMore>
+            <choice>
+              <!-- Not documented at all -->
+              <element name="line">
+                <ref name="inlineContent"/>
+              </element>
+              <!-- From documentation -->
+              <element name="p">
+                <ref name="paragraphContent"/>
+              </element>
+              <!-- From ezxml schema -->
+              <element name="paragraph">
+                <ref name="paragraphContent"/>
+              </element>
+              <ref name="inlineContent"/>
+            </choice>
+            <!-- Seldom, but sometimes those elements are even mixed. -->
+          </oneOrMore>
+        </group>
+        <!-- Yes, empty lists are possible. -->
+      </element>
+    </zeroOrMore>
+  </define>
+  <define name="tableContent">
+    <optional>
+      <attribute name="class">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="width">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="border">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <oneOrMore>
+      <element name="tr">
+        <optional>
+          <attribute name="class">
+            <data type="string"/>
+          </attribute>
+        </optional>
+        <zeroOrMore>
+          <choice>
+            <element name="td">
+              <ref name="tableCellContent"/>
+            </element>
+            <element name="th">
+              <ref name="tableCellContent"/>
+            </element>
+          </choice>
+          <!--
+            Table headers and cells can be mixed in one row.
+            And there are empty rows used sometimes
+          -->
+        </zeroOrMore>
+      </element>
+    </oneOrMore>
+  </define>
+  <define name="tableCellContent">
+    <optional>
+      <attribute name="class">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="xhtml:width">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="xhtml:colspan">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="xhtml:rowspan">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <zeroOrMore>
+      <choice>
+        <ref name="sectionContent"/>
+        <element name="table">
+          <ref name="tableContent"/>
+        </element>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="inlineContent">
+    <zeroOrMore>
+      <choice>
+        <!-- Not dcumented at all -->
+        <element name="custom">
+          <ref name="customContent"/>
+        </element>
+        <element name="object">
+          <ref name="embedAttributes"/>
+        </element>
+        <element name="literal">
+          <optional>
+            <attribute name="class">
+              <data type="string"/>
+            </attribute>
+          </optional>
+          <text/>
+        </element>
+        <!-- From documentation -->
+        <element name="b">
+          <ref name="inlineElementContent"/>
+        </element>
+        <element name="bold">
+          <ref name="inlineElementContent"/>
+        </element>
+        <element name="i">
+          <ref name="inlineElementContent"/>
+        </element>
+        <element name="em">
+          <ref name="inlineElementContent"/>
+        </element>
+        <element name="a">
+          <ref name="linkContent"/>
+        </element>
+        <!-- From ezxml schema -->
+        <element name="embed">
+          <ref name="embedAttributes"/>
+        </element>
+        <element name="embed-inline">
+          <ref name="embedAttributes"/>
+        </element>
+        <element name="strong">
+          <ref name="inlineElementContent"/>
+        </element>
+        <element name="emphasize">
+          <ref name="inlineElementContent"/>
+        </element>
+        <element name="link">
+          <ref name="linkContent"/>
+        </element>
+        <element name="anchor">
+          <optional>
+            <attribute name="custom_parameter">
+              <data type="string"/>
+            </attribute>
+          </optional>
+          <optional>
+            <attribute name="name">
+              <data type="string"/>
+            </attribute>
+          </optional>
+          <ref name="inlineContent"/>
+        </element>
+        <text/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="inlineElementContent">
+    <optional>
+      <!-- From documentation -->
+      <attribute name="custom_parameter">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <!-- From ezxml schema -->
+      <attribute name="class">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <ref name="inlineContent"/>
+  </define>
+  <define name="embedAttributes">
+    <optional>
+      <!-- Not documented at all -->
+      <attribute name="custom:size">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="custom:nolink">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="custom:image_size">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="custom:image_class">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="custom:type">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="custom:link">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="custom:hide_header">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="custom:limit">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="custom:country">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="image:ezurl_target">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="image:ezurl_id">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <!-- From documentation -->
+      <attribute name="custom_parameter">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="id">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="href">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <!-- From ezxml schema -->
+      <attribute name="object_id">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="node_id">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="show_path">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="size">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="align">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="view">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="xhtml:id">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="class">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="target">
+        <data type="string"/>
+      </attribute>
+    </optional>
+  </define>
+  <define name="linkContent">
+    <optional>
+      <!-- From documentation -->
+      <attribute name="custom_parameter">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="href">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="title">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <!-- From ezxml schema -->
+      <attribute name="class">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="xhtml:id">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="target">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="xhtml:title">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="object_id">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="node_id">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="show_path">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="anchor_name">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="url_id">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="id">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="view">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <ref name="inlineContent"/>
+  </define>
+</grammar>

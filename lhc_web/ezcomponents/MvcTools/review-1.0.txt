@@ -1,0 +1,100 @@
+Review of MvcTools-1.0-alpha at 26.11.08
+========================================
+
+:Author: kn
+
+API
+---
+
+[-] The abstract class ezcMvcRouter contains a methods, which I do not really
+    understand:
+
+  - The static public method prefix() is not used or referenced anywhere
+    else in that class
+
+    dr: It is supposed to be used in the user inherited router, so that you
+    can include the result of other routers immediately by applying a prefix
+    to the returned routes. This means you can reuse for example a "blog"
+    router class in your application, by prefixing all routes with "/blog".
+
+[-] Make ezcMvcResult an interface or do not already implement any final
+    methods. If some properties are required, there should be an extensible
+    method for it. Otherwise this strongly limits the extensibility.
+
+    dr: Can you explain to me how and why you would like to do this?
+
+	kn: I sometimes have validators (__set) in my result structs, which may
+	not be the ezc-way, but works fine for me. Additionally I sometimes
+	convert business models to their view model equivalents on __set. With a
+	final __set method I would be required to move this logic into my
+	controller, where it imho does not belong.
+
+    The $status property still seems not really important / used to me.
+
+[X] The DispatcherConfiguration is documented to return a view handler. The
+    configurableDispatcher calls the method createResponse() on the returned
+    view handler. But this method is not defined in the interface. Instead
+    there are other methods defined, I did not see called anywhere.
+
+    dr: The documentation was wrong, it should return an ezcMvcView object.
+
+[X] The ezcMvcResponse::$status variable needs better documentation, its purpose
+    is at least unclear to me. The check in
+    MvcTools/src/response_writers/http.php +61 probably should be changed to
+    is_object(), otherwise values like "null" cause PHP errors there.
+
+[X] Initialize status with 0, even when the constructor is not called - if this
+    property really is required.
+
+    ts: Properties which may contain objects should have null as the default /
+    correct value, not an integer.
+
+Documentation
+-------------
+
+[X] Didn't we agree to document parameters in teh method description and not
+    behind the parameter, like in MvcTools/src/interfaces/route.php +25?
+
+[X] The purpose behind ezcMvcRoute::prefix() is not obvious to me from the
+    documentation.
+
+    dr: it depends on the implementation what it does, in the implementations
+        documentation should be extensive.
+
+    And I don't think the prefixing could fix all the issues, which occur
+    regarding prefixes of controller paths (application in subdirectory, running
+    inside a PHAR, using mod_rewrite, ..)
+
+    I actually remove the prefix in the HttpParser (script name, subdir, ..) and
+    pass the basePath and the sanitized URI around. Using this inside the
+    templates should solve most issues.
+
+[X] The documentation in ezcMvcHttpRequestParser is incomplete.
+
+[X] The return value documentation of
+    arbitDispatcherConfiguration::createFatalRedirectRequest() is wrong and
+    should be: @return ezcMvcRequest. Using the currently documented return
+    value breaks the main loop in ezcMvcConfigurableDispatcher.
+
+    dr: There is no return value for
+        ezcMvcDispatcherConfiguration::runPreRoutingFilters documented -- nor
+        is it necessary.
+
+    kn: Fixed method name, it should have said:
+        arbitDispatcherConfiguration::createFatalRedirectRequest
+
+Trivial, maybe irrelevant
+-------------------------
+
+ezcMvcConfigurableDispatcher
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[X] Increase $redirects at begin of loop, reduces redundancy and makes it less
+    error prone if somebody extends / changes the code.
+
+    dr: already done
+
+[X] Even 25 should be save, make the maximum internal redirects configurable?
+
+    dr: I don't think this is important enough to warrant a whole option
+        class. We can do this when we get a feature request :)

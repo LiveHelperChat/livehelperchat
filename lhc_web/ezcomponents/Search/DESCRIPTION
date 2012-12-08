@@ -1,0 +1,2 @@
+The Search component provides an interface to index and query documents
+with different search engine backends.

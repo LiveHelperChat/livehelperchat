@@ -1,0 +1,19 @@
+Review Alexandru 2008-05-27
+===========================
+
+Enhancement #10151 (new datatype support for PersistentObject)
+--------------------------------------------------------------
+
+[X] The name of the property databaseType is a bit confusing, because it could
+    mean the "type of the database" (as in "mysql", "pgsql") and not "type in the
+    database (as in "int", "bool").
+
+	# I agree with you, that this is not the very best name. $columnType would
+	  have been better. However, I don't think we should change it now, since we
+	  are already in beta.
+
+[X] Class ezcPersistentObjectIdProperty: the class description says "The column
+    must be of type int both in PHP and in the database" but in the __set() method
+    values like STR, BOOL and LOB are allowed.
+
+[X] There are still some docblocks errors (check docanalysis.php).

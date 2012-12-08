@@ -1,0 +1,86 @@
+Template object in custom functions / blocks
+============================================
+
+- The Template object is given as the first parameter to functions/methods
+  realizing a custom block or function, if activated via $sendTemplateObject.
+  Wouldn't it be better to make it be used as the last parameter for BC
+  reasons?
+
+  - Actually, it makes sense to put it as first argument because of functions
+    accepting a variable amount of parameters. It can't be a BC break as
+    it will only effect situations where you enable this explicitly. Of
+    course, when you enable it, you need to change your custom function
+    as well. I added a warning to the docs about it.
+
+- The tests for this feature could be more exact, they only check
+  get_class($template->usedConfiguration), which should usually be the same.
+  I'd expect that they check of the correct Template instance was submitted.
+
+  - I agree, but I've no idea on how to do that. I modified it now to test
+    at least that there is a ezcTemplate object being passed.
+
+Fixed issue #11228: Cannot supply an absolute Win32-Path to $t->process()
+=========================================================================
+
+- The patch (r5906:5889) does not seem to fix the actual issue for me, since
+  it only replaces ezcBaseFile::isAbsolutepath() with a manual check for
+  absolute Unix paths. Absolute Windows paths should still not be
+  recognized.
+
+  - Actually, the swap is the other way. It's changed from
+    $this->properties["stream"][0] != "/" to
+    !ezcBaseFile::isAbsolutepath($this->properties["stream"]). Which seems
+    to be correct.
+
+- The test also do not reflect the behavior indicated by the issue title.
+
+  - I added a specific test for Windows for it as well.
+
+Location suppport
+=================
+
+- Does not seem to be tested, `grep -r -i 'locator' Template/tests/*|grep -v svn`
+  gave no results.
+
+  - I've actually no clue what it's supposed to do either. The normal 
+    override location stuff that eZ Publish needs is however tested and
+    implemented. I'll ask Ray what this is supposed to be.
+
+Implementation of {capture}
+===========================
+
+- Seems not to be mentioned in the ChangeLog.
+- Why are type hints in ezcTemplateCaptureTstNode::__construct() and
+  ezcTemplateTstNode::__construct() commented?
+
+  - I added it to the ChangeLog, tutorial and ENBF. The typehints I
+    uncommented as well. No idea why they were commented out - remember that
+    I inherited this component. 
+
+Misc
+====
+
+- Variable amount of parameters for functions not mentioned in ChangeLog.
+- Variable amount of parameters for blocks not mentioned in ChangeLog.
+- Variable amount of parameters for blocks seems not to be tested.
+
+  - I added a test case for this, added entries to the ChangeLog and mentioned
+    this feature in the documentation.
+
+- Why does the date_format() template function also support timestamps and not
+  only DateTime objects? Though we have date_format_timestam() for these.
+  date_format() should throw an exception if not a DateTime object is received
+  of date_format_timestamp() should dispatch to ezcTemplateDate::date(), too.
+  I'd prefer the first solution.
+
+  - Fixed, I also added it to the docs from which it was missing.
+
+- "Made named parameters work with PHP 5.1.6." is a bit misleading, since
+  actually an exception is throwen if < 5.2.
+
+  - Removed it from the changelog, as we don't support 5.1.6 anymore.
+
+- The tutorial SVN log does not note that any of the changes made it in the
+  tutorial so far.
+
+  - I have already added the translation stuff. 

@@ -1,0 +1,235 @@
+1.4.4 - [REALESEDATE]
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed #16035: DatabaseSchema component automatically sorts table fields
+  alphabetically
+- Fixed #16220: Autoincrement fields are not detected for Oracle for long
+  field / table names.
+- Fixed #16222: Oracle sequences are expected to be dropped for tables, which
+  fails for shortened sequence names
+- Fixed #15892: XML Storage for Schema casts Integer defaults to string and
+  detects field change wrong
+- Fixed #15894: ezcDbSchemaIndex sorts fields by name, but field order is
+  important in indexes!
+- Fixed #15895: Setting an Index Primary should enforce Unique
+- Fixed: Handling of not null in SQLite
+
+
+1.4.3 - Monday 07 December 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #15612: DbSchema does not obey Max Ident Length of 30 constraint
+  for AutoIncrement Simulation. (Patch by Benjamin Eberlei)
+
+
+1.4.2 - Monday 05 January 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Added missing support for the MySQL bit datatype.
+
+
+1.4.1 - Monday 01 December 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #13460: Documentation issues.
+
+
+1.4 - Monday 16 June 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.4rc1 - Tuesday 10 June 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #12937: PersistentObject definition writer now creates correct
+  PHP type definition for non-number primary keys.
+- Fixed issue #13072: SQLite schema reader does not work with uppercase type
+  names.
+
+
+1.4beta1 - Tuesday 27 May 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Changed the class name ezcDbSchemaNonUniqueIndexNameValidator to
+  ezcDbSchemaUniqueIndexNameValidator.
+- Changed ezcDbSchemaDbReader back to an interface, and created a common SQL
+  reader class that implements the common methods.
+- Moved ezcDbSchema*Reader/getReaderType() to the new common SQL reader class
+  ezcDbSchemaCommonSqlReader.
+- Created a common method ezcDbSchemaCommonSqlReader::processSchema() that
+  iterates over all the tables and gathers information about them and their
+  indexes.
+
+
+1.4alpha1 - Monday 05 May 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented issue #10069: DatabaseSchema only for particular tables.
+- Implemented issue #10364: Added support for table name prefixes.
+- Implemented issue #11562: Schema validator for duplicate index names.
+- Implemented issue #12694: Replace reflection test for class type with SPL
+  function.
+- Fixed bug #12538: No warning is thrown when an unsupported type is found
+  while reading from a database, or writing to a database.
+
+
+1.3.1 - Monday 14 January 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Documented issue #10161: Column names are always lowercase.
+- Fixed issue #11442: Make the intention of the DatabaseSchema component
+  clearer in the documentation.
+
+
+1.3 - Monday 17 December 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.3beta1 - Wednesday 28 November 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed bug #12022: PersistentObjectDatabaseSchemaTiein not passing it's
+  tests.  (Whitespace changes in generated PersistentObject definitions made
+  PersistentObjectDatabaseSchemaTiein fail.)
+
+
+1.3alpha1 - Monday 29 October 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented feature #11047: Make ConvertToDDL() methods accept the database
+  name instead of only the database handler.
+- Fixed bug #11281: DatabaseSchema's XML reader does not understand '1' for
+  the notnull, autoincrement and unsigned fields.
+- Fixed bug #11282: DatabaseSchema's SQLite reader doesn't understand the
+  float and varchar data types.
+- Fixed bug #11283: DatabaseSchema's PersistentObject definition writer
+  generates a sequence generater even when the field is not auto-increment.
+- Fixed bug #11285: Documentation example code comment glitch.
+
+
+1.2 - Monday 02 July 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #11059: PersistentObjectDatabaseSchemaTiein: Boolean fields not
+  recognized correctly.
+- Documentation updates.
+
+
+1.2beta2 - Thursday 31 May 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #10768: PersistentObjectDatabaseSchemaTiein: Class prefix not
+  reflected in definition file names.
+- Fixed issue #10769: PersistentObjectDatabaseSchemaTiein: Generated
+  getState() expects parameter.
+- Fixed issue #10804: Adding auto increment to field fails with Oracle and
+  SQLite.
+
+
+1.2beta1 - Monday 07 May 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #10113: Testing DatabaseSchema silently quits.
+- Fixed issue #10115: Reserved keywords are not quoted when used as table
+  or field names.
+- Fixed issue #10286: Missing "throw new" before
+  ezcBaseFilePermissionException.
+- Fixed issue #10365: "true" and "false" are handled incorrectly while parsing
+  schemas from XML files.
+- Fixed issue #10398: Oracle tests of DatabaseSchema run into error.
+- Fixed issue #10548: DatabaseSchema uses different sequence names for Oracle
+  and PostgreSQL.
+- Fixed issue #10630: Call-time pass-by-reference warning in Oracle handler.
+- Implemented feature #9584: Switch for overwriting files.
+  (PersistentObjectDatabaseSchemaTiein)
+- Implemented feature #9874: ezcDbSchema[DB]Reader custom table schema class.
+- Implemented feature #8418: Generate class files as well.
+  (PersistentObjectDatabaseSchemaTiein)
+
+
+1.1 - Monday 18 December 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Added support for Oracle.
+- Fixed issue #8499: PersistentObjectDatabaseSchemaTiein rungenerator.php
+  overwrites files without warning.
+- Fixed issue #9465: Fixed data type mapping. Based on a patch by Friedel
+  Hill.
+- Fixed issue #9489: Check whether the PersistentObject and
+  PersistentObjectDatabaseSchemaTiein tutorials are interlinked.
+- Fixed issue #9541: Tutorial introduction incorrect.
+- Fixed issue #9819: Let all components deal with the ezcBaseAutoloadException
+  properly.
+- Fixed SQL syntax issues when working with PostgreSQL 7.x.
+
+
+1.1beta1 - Monday 20 November 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Added support for PostgreSQL and SQLite.
+- Added support for default column values in the MySQL handler.
+- Added feature #8744: Changed the ezcDbSchema::getSchema() method to
+  return the schema as a reference, so that it can be modified properly.
+- Fixed getting a PDOException when executing queries in the MySQL handler.
+- Fixed issue #8650: No exception is thrown when writing database schema files
+  to non-writable directories.
+- Fixed issue #9322: PostgreSQL and SQLite handler issues.
+
+
+1.0.2 - Monday 28 August 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed bug #8900: Problem with auto increment and primary keys for MySQL
+  because the skip_primary context was not reset for new tables.
+- Added a new validator to check whether columns marked as 'auto_increment'
+  actually have a primary key defined as well.
+- Implemented FR #8901: Written schemas should indent the XML.
+- Refactored the structs to use the new ezcBaseStruct class.
+
+
+1.0.1 - Monday 19 June 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed a bug that an empty 'is null value' string in the database caused a 
+  PHP warning. 
+
+
+1.0 - Monday 12 June 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Updated documentation and added the tutorial.
+
+
+1.0rc1 - Monday 29 May 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes at all.
+
+
+1.0beta3 - Tuesday 09 May 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Added the ezcDbSchemaPersistentWriter class that writes schema definitions
+  for the PersistentObject component.
+- Fixed a small bug in the MySQL reader where the "decimal" type was not
+  understood.
+
+
+1.0beta2 - Wednesday 19 April 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Refactored code:
+
+  * Changed code to use structs instead of associative arrays everywhere.
+  * Reworked the general APIs of the classes.
+  * Changed code to use new exception standards.
+
+
+1.0beta1 - Friday 25 November 2005
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Initial release of this package.

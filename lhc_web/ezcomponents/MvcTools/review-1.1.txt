@@ -1,0 +1,57 @@
+Review of MvcTools-1.1-alpha at 2009-06-02
+==========================================
+
+:Author: ts
+
+Issues
+------
+
+[X] ezcMvcNoNamedRouteException is not a really clear name. I'd suggest
+    ezcMvcNamedRouteNotFoundException.
+
+[X] File name "named_route_no_reversable.php" should be
+    "named_route_not_reversable.php" (no -> not).
+
+[X] MvcTools/src/routes/rails.php +171: Why is the reference operator used
+    here (and in some other foreach loops)?
+
+	$part is modified in case an argument is found, hence we do "as by
+	reference".
+
+[X] ezcMvcReversedRoute is not a good name. Should be ezcMvcInvertibleRoute.
+
+    Renamed to ezcMvcReversibleRoute instead, as the common term is "reversed
+	routing" and not "inverted routing".
+
+[?] MvcTools/src/interfaces/controller.php +122: "isset(
+    $this->properties['router'] )" since when did we change this? Did we use
+	to return true on any existing property, no matter if null?
+
+	What's wrong with this? 
+
+[X] MvcTools/src/interfaces/controller.php: What if a request variable is
+    named 'router'?
+
+	Fixed by removing it as a property and adding it as the methods
+	getRouter()/setRouter() instead.
+
+[X] Enhancement #14740: "Make overriding the pattern to match in routes
+    easier". Is the "." syntax the ruby way of doing this? What about routing
+	per HTTP method?
+
+	For routing per HTTP method, you can select different routers quite easily
+	in the configuration object. The "." syntax is nothing specific, it would
+	just allow you to use variable names in the host part of requestIds as
+	well so that you have a variable for the subdomain, or TLD for example.
+
+[X] Doc issues via docanalysis too.
+
+Enhancements
+------------
+
+- There should be the possibility to expose reverse route generation through a
+  template function in MvcTemplateTiein
+
+  - Had a look at this, but it's certainly not trivial to do. I've found no
+	way on how to get to the router object from within the template without
+	major hacks.

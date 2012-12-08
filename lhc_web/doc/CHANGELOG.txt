@@ -1,0 +1,34 @@
+1.13v
+
+1. Upgraded eZ Components to new version.
+2. Upgraded to latest jQuery and JQuery UI
+
+No new features was implemented.
+
+1.12v
+
+1. Made completely compaticble with 5.3 PHP version. Removed ereg
+2. Removed lithuanian translations. It will have be now added manualy.
+
+No new features was implemented.
+
+1.11v
+
+1. Fixed pagination bug.
+2. If empty password was changed, user account password was changed to empty one.
+
+No new features was implemented.
+
+1.1v
+
+1. Implemented module for desktip client of Live helper chat
+2. Fixed bug then chat was transfered always to first user.
+3. Some code cleanup.
+
+1.01v
+
+1. Added header background
+2. Added logo of Live Helper Chat
+
+******************************
+1.0v Initial release 2009-07-26

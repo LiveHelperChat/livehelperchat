@@ -1,0 +1,37 @@
+<?php
+$currentUser = erLhcoreClassUser::instance();
+if (!$currentUser->isLogged() && !$currentUser->authenticate($_POST['username'],$_POST['password']))
+{
+    exit;
+}
+
+$chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
+
+if ( erLhcoreClassChat::hasAccessToRead($chat) )
+{
+        // Status active
+        $chat->status = 1;
+        
+        if ($chat->user_id == 0)
+        {
+            $currentUser = erLhcoreClassUser::instance();    
+            $chat->user_id = $currentUser->getUserID();
+        }
+        
+        erLhcoreClassChat::getSession()->update($chat); 
+    
+        $ownerString = 'No data';   
+        $user = $chat->getChatOwner();        
+        if ($user !== false) 
+        {
+            $ownerString = $user->name.' '.$user->surname;
+        }
+                   
+    echo json_encode(array('error' => false,'chat' => $chat,'ownerstring' => $ownerString));
+
+} else {
+    echo json_encode(array('error' => true,'error_string' => 'You do not have permission to read this chat!'));
+}
+
+exit;
+?>
