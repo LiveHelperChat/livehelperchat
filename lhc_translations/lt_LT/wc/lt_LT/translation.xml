@@ -1,0 +1,1371 @@
+<!DOCTYPE TS><TS>
+<context>
+    <name>user/login</name>
+    <message>
+        <source>Please login</source>
+        <translation>Prašome prisijungti</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Vartotojo vardas</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Slaptažodis</translation>
+    </message>
+    <message>
+        <source>Login</source>
+        <translation>Prisijungti</translation>
+    </message>
+    <message>
+        <source>Incorrect username or password</source>
+        <translation>Nekorektiškas prisijungimo vardas arba slaptažodis</translation>
+    </message>
+</context>
+<context>
+    <name>install/install</name>
+    <message>
+        <source>Installation of software</source>
+        <translation>Programinės įrangos diegimas</translation>
+    </message>
+</context>
+<context>
+    <name>chat/closedchats</name>
+    <message>
+        <source>Closed chats</source>
+        <translation>Uždaryti pokalbiai</translation>
+    </message>
+    <message>
+        <source>Empty...</source>
+        <translation>Tuščia...</translation>
+    </message>
+    <message>
+        <source>Chats lists</source>
+        <translation>Pokalbių sąrašai</translation>
+    </message>
+    <message>
+        <source>Closed chats list</source>
+        <translation>Uždarytų pokalbių sąrašas</translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation>Informacija</translation>
+    </message>
+     <message>
+        <source>Open in new window</source>
+        <translation>Atidaryti naujam lange</translation>
+    </message>
+    <message>
+        <source>Previous</source>
+        <translation>Ankstesnis</translation>
+    </message>
+    <message>
+        <source>Go to page %item of %numpages</source>
+        <translation>Eiti į puslapį %item iš %numpages</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>Kitas</translation>
+    </message>
+    <message>
+        <source>Page %currentpage of %totalpage</source>
+        <translation>Puslapis %currentpage iš %totalpage</translation>
+    </message>
+    <message>
+        <source>Delete chat</source>
+        <translation>Ištrinti pokalbį</translation>
+    </message>
+</context>
+<context>
+    <name>chat/pendingchats</name>
+    <message>
+        <source>Chats lists</source>
+        <translation>Pokalbių sąrašai</translation>
+    </message>
+    <message>
+        <source>Empty...</source>
+        <translation>Tuščia...</translation>
+    </message>
+    <message>
+        <source>Pending chats</source>
+        <translation>Laukiantys pokalbiai</translation>
+    </message>
+    <message>
+        <source>Pending chats list</source>
+        <translation>Laukiančių patvirtinimo pokalbių sąrašas</translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation>Informacija</translation>
+    </message>
+     <message>
+        <source>Open in new window</source>
+        <translation>Atidaryti naujam lange</translation>
+    </message>
+    <message>
+        <source>Previous</source>
+        <translation>Ankstesnis</translation>
+    </message>
+    <message>
+        <source>Go to page %item of %numpages</source>
+        <translation>Eiti į puslapį %item iš %numpages</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>Kitas</translation>
+    </message>
+    <message>
+        <source>Page %currentpage of %totalpage</source>
+        <translation>Puslapis %currentpage iš %totalpage</translation>
+    </message>
+    <message>
+        <source>Reject chat</source>
+        <translation>Atmesti pokalbį</translation>
+    </message>
+</context>
+<context>
+    <name>chat/activechats</name>
+    <message>
+        <source>Empty...</source>
+        <translation>Tuščia...</translation>
+    </message>
+    <message>
+        <source>Active chats</source>
+        <translation>Aktyvūs pokalbiai</translation>
+    </message>
+    <message>
+        <source>Chats lists</source>
+        <translation>Pokalbių sąrašai</translation>
+    </message>
+    <message>
+        <source>Active chats list</source>
+        <translation>Aktyvių pokalbių sąrašas</translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation>Informacija</translation>
+    </message>
+     <message>
+        <source>Open in new window</source>
+        <translation>Atidaryti naujam lange</translation>
+    </message>
+    <message>
+        <source>Previous</source>
+        <translation>Ankstesnis</translation>
+    </message>
+    <message>
+        <source>Go to page %item of %numpages</source>
+        <translation>Eiti į puslapį %item iš %numpages</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>Kitas</translation>
+    </message>
+    <message>
+        <source>Page %currentpage of %totalpage</source>
+        <translation>Puslapis %currentpage iš %totalpage</translation>
+    </message>
+    <message>
+        <source>Delete chat</source>
+        <translation>Ištrinti pokalbį</translation>
+    </message>
+    <message>
+        <source>Close chat</source>
+        <translation>Uždaryti pokalbį</translation>
+    </message>
+</context>
+<context>
+    <name>pagelayout/pagelayout</name>
+    <message>
+        <source>Logged user</source>
+        <translation>Prisijungęs vartotojas</translation>
+    </message>
+    <message>
+        <source>Live helper chat homepage</source>
+        <translation>Live helper chat namų puslapis</translation>
+    </message>
+    <message>
+        <source>Home</source>
+        <translation>Titulinis puslapis</translation>
+    </message>
+    <message>
+        <source>Chats lists</source>
+        <translation>Pokalbių sąrašai</translation>
+    </message>
+    <message>
+        <source>Transfered chats</source>
+        <translation>Pervesti pokalbiai</translation>
+    </message>
+    <message>
+        <source>Empty...</source>
+        <translation>Tuščia...</translation>
+    </message>
+    <message>
+        <source>Logout</source>
+        <translation>Atsijungti</translation>
+    </message>
+    <message>
+        <source>Clean cache</source>
+        <translation>Išvalyti podėlius</translation>
+    </message>
+    <message>
+        <source>Account</source>
+        <translation>Paskyra</translation>
+    </message>
+    <message>
+        <source>Pending chats</source>
+        <translation>Laukiantys patvirtinimo</translation>
+    </message>
+    <message>
+        <source>Open in new window</source>
+        <translation>Atidaryti naujam lange</translation>
+    </message>
+    <message>
+        <source>Chat rooms</source>
+        <translation>Pokalbių kambariai</translation>
+    </message>
+    <message>
+        <source>Configuration</source>
+        <translation>Konfigūracija</translation>
+    </message>
+    <message>
+        <source>Active chats</source>
+        <translation>Aktyvūs pokalbiai</translation>
+    </message>
+</context>
+<context>
+    <name>chat/lists</name>
+    <message>
+        <source>Chat lists</source>
+        <translation>Pokalbių sąrašai</translation>
+    </message>
+    <message>
+        <source>Choose what type of list you want to see</source>
+        <translation>Pasirinkite kokį sąrašą norite matyti</translation>
+    </message>
+    <message>
+        <source>Pending chats</source>
+        <translation>Laukiantys patvirtinimo</translation>
+    </message>
+    <message>
+        <source>Active chats</source>
+        <translation>Aktyvūs pokalbiai</translation>
+    </message>
+    <message>
+        <source>Closed chats</source>
+        <translation>Uždaryti pokalbiai</translation>
+    </message>
+</context>
+<context>
+    <name>chat/chatnotexists</name>
+    <message>
+        <source>Chat was deleted</source>
+        <translation>Pokalbis buvo ištrintas</translation>
+    </message>
+    <message>
+        <source>Waiting for confirmation</source>
+        <translation>Laukiama patvirtinimo</translation>
+    </message>
+</context>
+<context>
+    <name>user/newgroup</name>
+    <message>
+        <source>New group</source>
+        <translation>Nauja grupė</translation>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation>Pavadinimas</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Saugoti</translation>
+    </message>
+    <message>
+        <source>Save and assign user</source>
+        <translation>Saugoti ir priskirti vartotoją</translation>
+    </message>
+    <message>
+        <source>Groups</source>
+        <translation>Grupės</translation>
+    </message>
+    <message>
+        <source>System configuration</source>
+        <translation>Sistemos konfigūracija</translation>
+    </message>
+</context>
+<context>
+    <name>user/grouplist</name>
+    <message>
+        <source>System configuration</source>
+        <translation>Sistemos konfigūracija</translation>
+    </message>
+    <message>
+        <source>Groups</source>
+        <translation>Grupės</translation>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation>Pavadinimas</translation>
+    </message>
+    <message>
+        <source>Edit group</source>
+        <translation>Redaguoti grupę</translation>
+    </message>
+    <message>
+        <source>Delete group</source>
+        <translation>Trinti grupę</translation>
+    </message>
+    <message>
+        <source>New group</source>
+        <translation>Nauja grupė</translation>
+    </message>
+</context>
+<context>
+    <name>user/groupassignuser</name>
+    <message>
+        <source>Username</source>
+        <translation>Vartotojo vardas</translation>
+    </message>
+    <message>
+        <source>E-mail</source>
+        <translation>El-paštas</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Vardas</translation>
+    </message>
+    <message>
+        <source>Surname</source>
+        <translation>Pavardė</translation>
+    </message> 
+    <message>
+        <source>Assign</source>
+        <translation>Priskirti</translation>
+    </message>
+</context>
+<context>
+    <name>chat/transferchat</name>
+    <message>
+        <source>Transfer chat</source>
+        <translation>Perskirti pokalbį</translation>
+    </message>
+    <message>
+        <source>Transfer</source>
+        <translation>Perskirti</translation>
+    </message>
+    <message>
+        <source>Logged users</source>
+        <translation>Prisijungę vartotojai</translation>
+    </message>
+</context>
+<context>
+    <name>chat/adminchat</name>
+    <message>
+        <source>E-mail</source>
+        <translation>El. paštas</translation>
+    </message>
+    <message>
+        <source>Transfer chat</source>
+        <translation>Perskirti pokalbį</translation>
+    </message>
+    <message>
+        <source>Close dialog</source>
+        <translation>Uždaryti dialogą</translation>
+    </message>
+    <message>
+        <source>Chat owner</source>
+        <translation>Pokalbio sąvininkas</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation>Siųsti</translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation>Informacija</translation>
+    </message>
+    <message>
+        <source>Come from</source>
+        <translation>Atėjo iš</translation>
+    </message>
+    <message>
+        <source>Close chat</source>
+        <translation>Uždaryti pokalbį</translation>
+    </message>
+    <message>
+        <source>Delete chat</source>
+        <translation>Ištrinti pokalbį</translation>
+    </message>
+    <message>
+        <source>Me</source>
+        <translation>Aš</translation>
+    </message>
+    <message>
+        <source>Actions</source>
+        <translation>Veiksmai</translation>
+    </message>
+</context>
+<context>
+    <name>chat/syncuser</name>
+    <message>
+        <source>You do not have permission to view this chat, or chat was deleted</source>
+        <translation>Jūs neturite teisės peržiūrėti šį pokalbį arba pokalbis buvo ištrintas</translation>
+    </message>
+    <message>
+        <source>Support</source>
+        <translation>Palaikymas</translation>
+    </message>
+    <message>
+        <source>Support closed chat window, but You can leave messages, administrator will read them later.</source>
+        <translation>Atsakingas asmuo uždarė pokalbio langą, bet Jūs galite palikti žinutes, administratorius perskaitys jas vėliau.</translation>
+    </message>
+</context>
+<context>
+    <name>permission/editrole</name>
+    <message>
+        <source>Please choose module</source>
+        <translation>Prašome pasirinkti modulį</translation>
+    </message>
+    <message>
+        <source>System configuration</source>
+        <translation>Sistemos konfigūracija</translation>
+    </message>
+    <message>
+        <source>Please choose module function</source>
+        <translation>Prašome pasirinkti modulio funkciją</translation>
+    </message>
+    <message>
+        <source>List of roles</source>
+        <translation>Rolių sąrašas</translation>
+    </message>
+    <message>
+        <source>Please enter role name</source>
+        <translation>Prašome įvesti rolės pavadinimą</translation>
+    </message>
+    <message>
+        <source>Role edit</source>
+        <translation>Rolės redagavimas</translation>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation>Pavadinimas</translation>
+    </message> 
+    <message>
+        <source>Assigned functions</source>
+        <translation>Priskirtos funkcijos</translation>
+    </message>
+    <message>
+        <source>Module</source>
+        <translation>Modulis</translation>
+    </message>
+    <message>
+        <source>Function</source>
+        <translation>Funkcija</translation>
+    </message>
+    <message>
+        <source>Role assigned groups</source>
+        <translation>Rolei priskirtos grupės</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation>Atnaujinti</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Atšaukti</translation>
+    </message>
+    <message>
+        <source>New policy</source>
+        <translation>Nauja teisė</translation>
+    </message>
+    <message>
+        <source>Remove selected</source>
+        <translation>Šalinti pasirinktas</translation>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation>Pavadinimas</translation>
+    </message>
+    <message>
+        <source>Assign group</source>
+        <translation>Priskirti grupę</translation>
+    </message>
+    <message>
+        <source>Group assignement to role</source>
+        <translation>Grupės priskyrimas rolei</translation>
+    </message>
+</context>
+<context>
+    <name>permission/newrole</name>
+    <message>
+        <source>System configuration</source>
+        <translation>Sistemos konfigūracija</translation>
+    </message>
+    <message>
+        <source>List of roles</source>
+        <translation>Rolių sąrašas</translation>
+    </message>
+    <message>
+        <source>Please enter role name</source>
+        <translation>Prašome įvesti rolės pavadinimą</translation>
+    </message>
+    <message>
+        <source>New role</source>
+        <translation>Nauja rolė</translation>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation>Pavadinimas</translation>
+    </message>
+    <message>
+        <source>Policy list</source>
+        <translation>Teisių sąrašas</translation>
+    </message>
+    <message>
+        <source>Module</source>
+        <translation>Modulis</translation>
+    </message>
+    <message>
+        <source>Function</source>
+        <translation>Funkcija</translation>
+    </message> 
+    <message>
+        <source>New policy</source>
+        <translation>Nauja teisė</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Saugoti</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Atšaukti</translation>
+    </message>
+</context>
+<context>
+    <name>permission/modulefunctions</name>
+    <message>
+        <source>All functions</source>
+        <translation>Visos funkcijos</translation>
+    </message>
+</context>
+<context>
+    <name>chat/errors/adminchatnopermission</name>
+    <message>
+        <source>You do not have permission to access current chat!</source>
+        <translation>Jūs neturite teisės prieiti prie šio pokalbio!</translation>
+    </message>
+</context>
+<context>
+    <name>chat/errors/entertext</name>
+    <message>
+        <source>Please enter text!</source>
+        <translation>Prašome įvesti tekstą!</translation>
+    </message>
+</context>
+<context>
+    <name>chat/userleftchat</name>
+    <message>
+        <source>User has left the chat!</source>
+        <translation>Vartotojas paliko pokalbių kambarį!</translation>
+    </message>
+</context>
+<context>
+    <name>chat/userjoined</name>
+    <message>
+        <source>User has joined the chat!</source>
+        <translation>Vartotojas prisijungė prie pokalbių kambario!</translation>
+    </message>
+</context>
+<context>
+    <name>kernel/nopermission</name>
+    <message>
+        <source>You do not have permission to access module</source>
+        <translation>Jūs neturite teisės naudotis moduliu</translation>
+    </message>
+    <message>
+        <source>and use</source>
+        <translation>ir naudotis</translation>
+    </message>
+    <message>
+        <source>function</source>
+        <translation>funkcija</translation>
+    </message>
+</context>
+<context>
+    <name>permission/roles</name>
+    <message>
+        <source>List of roles</source>
+        <translation>Rolių sąrašas</translation>
+    </message>
+    <message>
+        <source>System configuration</source>
+        <translation>Sistemos konfigūracija</translation>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation>Pavadinimas</translation>
+    </message>
+    <message>
+        <source>New role</source>
+        <translation>Nauja rolė</translation>
+    </message>
+    <message>
+        <source>Edit role</source>
+        <translation>Redaguoti rolę</translation>
+    </message>
+    <message>
+        <source>Delete role</source>
+        <translation>Trinti rolę</translation>
+    </message>
+</context>
+<context>
+    <name>permission/roleassigngroup</name>
+    <message>
+        <source>Title</source>
+        <translation>Pavadinimas</translation>
+    </message>
+    <message>
+        <source>Assign</source>
+        <translation>Priskirti</translation>
+    </message>
+</context>
+<context>
+    <name>permission/newpolicy</name>
+    <message>
+        <source>New policy</source>
+        <translation>Nauja teisė</translation>
+    </message>
+    <message>
+        <source>Assigned functions</source>
+        <translation>Priskirtos funkcijos</translation>
+    </message>
+    <message>
+        <source>Choose module</source>
+        <translation>Pasirinkite modulį</translation>
+    </message>
+    <message>
+        <source>All modules</source>
+        <translation>Visi moduliai</translation>
+    </message>
+    <message>
+        <source>Choose module function</source>
+        <translation>Pasirinkite modulio funkciją</translation>
+    </message>
+    <message>
+        <source>All functions</source>
+        <translation>Visos funkcijos</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Saugoti</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Atšaukti</translation>
+    </message>
+</context>
+<context>
+    <name>permission/groupassignrole</name>
+    <message>
+        <source>Title</source>
+        <translation>Pavadinimas</translation>
+    </message>
+    <message>
+        <source>Assign</source>
+        <translation>Priskirti</translation>
+    </message>
+</context>
+<context>
+    <name>chat/transferuser</name>
+    <message>
+        <source>Chat was assigned to selected user</source>
+        <translation>Pokalbis buvo perskirtas pasirinktam vartotojui</translation>
+    </message>
+</context>
+<context>
+    <name>chat/deletechatadmin</name>
+    <message>
+        <source>You do not have rights to delete chat</source>
+        <translation>Jūs neturite teisės ištrinti šio pokalbio</translation>
+    </message>
+</context>
+<context>
+    <name>chat/getstatus</name>
+    <message>
+        <source>Start chat</source>
+        <translation>Pradėti pokalbį</translation>
+    </message> 
+    <message>
+        <source>Live help is online...</source>
+        <translation>Online pagalba aktyvi...</translation>
+    </message>
+    <message>
+        <source>Live help is offline...</source>
+        <translation>Online pagalba neaktyvi...</translation>
+    </message>
+</context>
+<context>
+    <name>user/editgroup</name>
+    <message>
+        <source>Group edit</source>
+        <translation>Grupės redagavimas</translation>
+    </message>
+    <message>
+        <source>Groups</source>
+        <translation>Grupės</translation>
+    </message>
+    <message>
+        <source>System configuration</source>
+        <translation>Sistemos konfigūracija</translation>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation>Pavadinimas</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation>Atnaujinti</translation>
+    </message>
+    <message>
+        <source>Assigned users</source>
+        <translation>Priskirti vartotojai</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Vartotojo vardas</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Vardas</translation>
+    </message>
+    <message>
+        <source>Surname</source>
+        <translation>Pavardė</translation>
+    </message>
+    <message>
+        <source>Assign user</source>
+        <translation>Priskirti vartotoją</translation>
+    </message>
+    <message>
+        <source>User assignment</source>
+        <translation>Vartotojo priskyrimas</translation>
+    </message>
+    <message>
+        <source>Assigned roles</source>
+        <translation>Priskirtos rolės</translation>
+    </message>
+    <message>
+        <source>Assign role</source>
+        <translation>Priskirti rolę</translation>
+    </message>
+    <message>
+        <source>Role assignment</source>
+        <translation>Rolės priskyrimas</translation>
+    </message>
+    <message>
+        <source>Remove role from group</source>
+        <translation>Pašalinti rolę iš grupės</translation>
+    </message>
+    <message>
+        <source>Remove user from group</source>
+        <translation>Pašalinti vartotoją iš grupės</translation>
+    </message>
+    <message>
+        <source>Please enter group name</source>
+        <translation>Prašome įvesti grupės pavadinimą</translation>
+    </message>
+</context>
+<context>
+    <name>chat/startchat</name>
+    <message>
+        <source>Maximum 10 characters</source>
+        <translation>Maksimum 10 ženklų</translation>
+    </message>
+    <message>
+        <source>Fill out this form to start a chat</source>
+        <translation>Užpildykite formą norėdami pradėti pokalbį</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Vardas</translation>
+    </message>
+    <message>
+        <source>E-mail</source>
+        <translation>El. paštas</translation>
+    </message>
+    <message>
+        <source>Start chat</source>
+        <translation>Pradėti pokalbį</translation>
+    </message>
+    <message>
+        <source>Please enter your name</source>
+        <translation>Prašome įvesti vardą</translation>
+    </message>
+    <message>
+        <source>Wrong email</source>
+        <translation>Nekorektiškas el. pašto adresas</translation>
+    </message>
+    <message>
+        <source>Department</source>
+        <translation>Departamentas</translation>
+    </message>
+</context>
+<context>
+    <name>chat/syncadmininterface</name>
+    <message>
+        <source>Add chat</source>
+        <translation>Pridėti pokalbį</translation>
+    </message>
+    <message>
+        <source>Empty...</source>
+        <translation>Tuščia...</translation>
+    </message>
+    <message>
+        <source>Delete chat</source>
+        <translation>Ištrinti pokalbį</translation>
+    </message>
+    <message>
+        <source>Close chat</source>
+        <translation>Uždaryti pokalbį</translation>
+    </message>
+    <message>
+        <source>Open in new window</source>
+        <translation>Atidaryti naujam lange</translation>
+    </message>
+    <message>
+        <source>Reject chat</source>
+        <translation>Atmesti pokalbį</translation>
+    </message>
+    <message>
+        <source>Accept chat</source>
+        <translation>Patvirtinti pokalbį</translation>
+    </message>
+    <message>
+        <source>Transfered chats</source>
+        <translation>Pervesti pokalbiai</translation>
+    </message>
+</context>
+<context>
+    <name>chat/syncadmin</name>
+    <message>
+        <source>Me</source>
+        <translation>Aš</translation>
+    </message>
+</context>
+<context>
+    <name>chat/chattabs</name>
+    <message>
+        <source>Pending confirm</source>
+        <translation>Laukiantys patvirtinimo</translation>
+    </message>
+    <message>
+        <source>Active chats</source>
+        <translation>Aktyvūs pokalbiai</translation>
+    </message>
+    <message>
+        <source>Closed chats</source>
+        <translation>Uždaryti pokalbiai</translation>
+    </message>    
+    <message>
+        <source>Accept chat</source>
+        <translation>Patvirtinti pokalbį</translation>
+    </message>
+    <message>
+        <source>Open in new window</source>
+        <translation>Atidaryti naujam lange</translation>
+    </message>
+    <message>
+        <source>Reject chat</source>
+        <translation>Atmesti pokalbį</translation>
+    </message>
+    <message>
+        <source>Delete chat</source>
+        <translation>Ištrinti pokalbį</translation>
+    </message>
+</context>
+<context>
+    <name>front/default</name>
+    <message>
+        <source>All pending chats</source>
+        <translation>Visi laukiantys pokalbiai</translation>
+    </message>
+    <message>
+        <source>All active chats</source>
+        <translation>Visi aktyvūs pokalbiai</translation>
+    </message>
+    <message>
+        <source>All closed chats</source>
+        <translation>Visi uždaryti pokalbiai</translation>
+    </message>
+    <message>
+        <source>Pending confirm</source>
+        <translation>Laukiantys patvirtinimo</translation>
+    </message>
+    <message>
+        <source>Active chats</source>
+        <translation>Aktyvūs pokalbiai</translation>
+    </message>
+    <message>
+        <source>Closed chats</source>
+        <translation>Uždaryti pokalbiai</translation>
+    </message>    
+    <message>
+        <source>Accept chat</source>
+        <translation>Patvirtinti pokalbį</translation>
+    </message>
+    <message>
+        <source>Open in new window</source>
+        <translation>Atidaryti naujam lange</translation>
+    </message>
+    <message>
+        <source>Reject chat</source>
+        <translation>Atmesti pokalbį</translation>
+    </message>
+    <message>
+        <source>Delete chat</source>
+        <translation>Ištrinti pokalbį</translation>
+    </message>
+</context>
+<context>
+    <name>chat/chat</name>
+    <message>
+        <source>Pending confirm</source>
+        <translation>Laukiama patvirtinimo</translation>
+    </message>
+    <message>
+        <source>Chat started</source>
+        <translation>Pokalbis pradėtas</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation>Siųsti</translation>
+    </message>
+    <message>
+        <source>Support</source>
+        <translation>Palaikymas</translation>
+    </message> 
+</context>
+<context>
+    <name>chat/single</name>
+    <message>
+        <source>Chat started with</source>
+        <translation>Pokalbis pradėtas su</translation>
+    </message>
+</context>
+<context>
+    <name>chat/checkchatstatus</name>
+    <message>
+        <source>Pending support staff member to join, you can write your questions, as soon support staff member confirm this chat, he will get your messages</source>
+        <translation>Laukiama priežiūros personalo nario prisijungiant, Jūs galite rašyti žinutes, kai tik atsakingas narys prisijungs jis gaus Jūsų žinutes.</translation>
+    </message>
+    <message>
+        <source>Support staff member have joined this chat</source>
+        <translation>Priežiūros personalo narys prisijungė prie pokalbio</translation>
+    </message>
+    <message>
+        <source>At this moment there are no logged members, but you can leave your messages.</source>
+        <translation>Šiuo metu nėra prisijungusių atsakingų asmenų, tačiau jūs galite palikti žinutę</translation>
+    </message> 
+</context>
+<context>
+    <name>department/edit</name>
+    <message>
+        <source>Waiting for confirmation</source>
+        <translation>Laukiama patvirtinimo</translation>
+    </message>
+    <message>
+        <source>Edit department</source>
+        <translation>Departamento redagavimas</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Pavadinimas</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation>Atnaujinti</translation>
+    </message>
+    <message>
+        <source>Departments</source>
+        <translation>Departamentai</translation>
+    </message>
+    <message>
+        <source>System configuration</source>
+        <translation>Sistemos konfigūracija</translation>
+    </message>
+</context>
+<context>
+    <name>department/departments</name>
+    <message>
+        <source>Departments</source>
+        <translation>Departamentai</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Pavadinimas</translation>
+    </message>
+    <message>
+        <source>Edit department</source>
+        <translation>Redaguoti departamentą</translation>
+    </message>
+    <message>
+        <source>Delete department</source>
+        <translation>Trinti departamentą</translation>
+    </message>
+    <message>
+        <source>New department</source>
+        <translation>Naujas departamentas</translation>
+    </message>
+    <message>
+        <source>System configuration</source>
+        <translation>Sistemos konfigūracija</translation>
+    </message>
+</context>
+<context>
+    <name>system/htmlcode</name>
+    <message>
+        <source>HTML code</source>
+        <translation>HTML kodas</translation>
+    </message>
+    <message>
+        <source>Copy code from textarea to page where you want your status to appear</source>
+        <translation>Nukopijuokite žemiau esantį kodą į tą vietą, kur norite kad būtų matoma jūsų prisijungimo būsena</translation>
+    </message>
+    <message>
+        <source>System configuration</source>
+        <translation>Sistemos konfigūracija</translation>
+    </message>
+</context>
+<context>
+    <name>system/configuration</name>
+    <message>
+        <source>HTML code</source>
+        <translation>HTML kodas</translation>
+    </message>
+    <message>
+        <source>Users</source>
+        <translation>Vartotojai</translation>
+    </message>
+    <message>
+        <source>List of groups</source>
+        <translation>Grupių sąrašas</translation>
+    </message>
+    <message>
+        <source>List of roles</source>
+        <translation>Rolių sąrašas</translation>
+    </message>
+    <message>
+        <source>Departments</source>
+        <translation>Departamentai</translation>
+    </message>
+    <message>
+        <source>System configuration</source>
+        <translation>Sistemos konfigūracija</translation>
+    </message> 
+</context>
+<context>
+    <name>department/new</name>
+    <message>
+        <source>Please enter department name</source>
+        <translation>Prašome įvesti departamento vardą</translation>
+    </message>
+    <message>
+        <source>New department</source>
+        <translation>Naujas departamentas</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Pavadinimas</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Saugoti</translation>
+    </message>
+    <message>
+        <source>Departments</source>
+        <translation>Departamentai</translation>
+    </message>
+    <message>
+        <source>System configuration</source>
+        <translation>Sistemos konfigūracija</translation>
+    </message>
+</context>
+<context>
+    <name>user/userlist</name>
+    <message>
+        <source>Username</source>
+        <translation>Vartotojo vardas</translation>
+    </message> 
+    <message>
+        <source>System configuration</source>
+        <translation>Sistemos konfigūracija</translation>
+    </message>
+    <message>
+        <source>Users</source>
+        <translation>Vartotojai</translation>
+    </message>
+    <message>
+        <source>E-mail</source>
+        <translation>El-paštas</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Vardas</translation>
+    </message>
+    <message>
+        <source>Surname</source>
+        <translation>Pavardė</translation>
+    </message>
+    <message>
+        <source>Edit user</source>
+        <translation>Redaguoti vartotoją</translation>
+    </message>
+    <message>
+        <source>Delete user</source>
+        <translation>Trinti vartotoją</translation>
+    </message>
+    <message>
+        <source>New user</source>
+        <translation>Naujas vartotojas</translation>
+    </message>
+</context>
+<context>
+    <name>user/edit</name>
+     <message>
+        <source>Assigned departments</source>
+        <translation>Priskirti departamentai</translation>
+    </message>
+    <message>
+        <source>System configuration</source>
+        <translation>Sistemos konfigūracija</translation>
+    </message>
+    <message>
+        <source>Users</source>
+        <translation>Vartotojai</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Vartotojo vardas</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Slaptažodis</translation>
+    </message>
+    <message>
+        <source>Repeat password</source>
+        <translation>Pakartokite slaptažodį</translation>
+    </message> 
+    <message>
+        <source>Contact information</source>
+        <translation>Kontaktinė informacija</translation>
+    </message>
+    <message>
+        <source>E-mail</source>
+        <translation>El. paštas</translation>
+    </message>
+    <message>
+        <source>User edit</source>
+        <translation>Vartotojo redagavimas</translation>
+    </message>
+    <message>
+        <source>Login information</source>
+        <translation>Prisijungimo informacija</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Vardas</translation>
+    </message>
+    <message>
+        <source>Surname</source>
+        <translation>Pavardė</translation>
+    </message>
+    <message>
+        <source>Do not enter password unless you want to change it</source>
+        <translation>Neveskite slaptažodžio nebent norite jį pakeisti</translation>
+    </message>
+    <message>
+        <source>Please enter name</source>
+        <translation>Prašome įvesti vardą</translation>
+    </message>
+    <message>
+        <source>Please enter surname</source>
+        <translation>Prašome įvesti pavardę</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation>Atnaujinti</translation>
+    </message>
+    <message>
+        <source>Wrong email address</source>
+        <translation>Nekorektiškas e-pašto adresas</translation>
+    </message>
+    <message>
+        <source>Passwords mismatch</source>
+        <translation>Slaptažodžiai nesutampa</translation>
+    </message>
+</context>
+<context>
+    <name>user/new</name>
+    <message>
+        <source>System configuration</source>
+        <translation>Sistemos konfigūracija</translation>
+    </message>
+    <message>
+        <source>Users</source>
+        <translation>Vartotojai</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Vartotojo vardas</translation>
+    </message>
+    <message>
+        <source>Assigned departments</source>
+        <translation>Priskirti departamentai</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Slaptažodis</translation>
+    </message>
+    <message>
+        <source>Repeat password</source>
+        <translation>Pakartokite slaptažodį</translation>
+    </message> 
+    <message>
+        <source>Contact information</source>
+        <translation>Kontaktinė informacija</translation>
+    </message>
+    <message>
+        <source>E-mail</source>
+        <translation>El. paštas</translation>
+    </message>
+    <message>
+        <source>New user</source>
+        <translation>Naujas vartotojas</translation>
+    </message>
+    <message>
+        <source>Login information</source>
+        <translation>Prisijungimo informacija</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Vardas</translation>
+    </message>
+    <message>
+        <source>Surname</source>
+        <translation>Pavardė</translation>
+    </message>
+    <message>
+        <source>Please enter name</source>
+        <translation>Prašome įvesti vardą</translation>
+    </message>
+    <message>
+        <source>Please enter surname</source>
+        <translation>Prašome įvesti pavardę</translation>
+    </message>
+    <message>
+        <source>Please enter username</source>
+        <translation>Prašome įvesti vartotojo vardą</translation>
+    </message>
+    <message>
+        <source>User exists</source>
+        <translation>Vartotojas egzistuoja</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Saugoti</translation>
+    </message>
+    <message>
+        <source>Wrong email address</source>
+        <translation>Nekorektiškas e-pašto adresas</translation>
+    </message>
+    <message>
+        <source>Passwords mismatch</source>
+        <translation>Slaptažodžiai nesutampa</translation>
+    </message>
+</context>
+<context>
+    <name>user/account</name>
+    <message>
+        <source>Assigned departments</source>
+        <translation>Priskirti departamentai</translation>
+    </message> 
+    <message>
+        <source>You have global right to see all departments chats</source>
+        <translation>Jūs turite globalias teises matyti visų departamentų pokalbius</translation>
+    </message> 
+    <message>
+        <source>Logged user</source>
+        <translation>Prisijungęs vartotojas</translation>
+    </message>
+    <message>
+        <source>Logout</source>
+        <translation>Atsijungti</translation>
+    </message>
+    <message>
+        <source>Account</source>
+        <translation>Paskyra</translation>
+    </message>
+    <message>
+        <source>Do not enter password unless you want to change it</source>
+        <translation>Neveskite slaptažodžio nebent norite jį pakeisti</translation>
+    </message>
+    <message>
+        <source>Login information</source>
+        <translation>Prisijungimo informacija</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Vartotojo vardas</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Slaptažodis</translation>
+    </message>
+    <message>
+        <source>Repeat password</source>
+        <translation>Pakartokite slaptažodį</translation>
+    </message> 
+    <message>
+        <source>Contact information</source>
+        <translation>Kontaktinė informacija</translation>
+    </message>
+    <message>
+        <source>E-mail</source>
+        <translation>El. paštas</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation>Atnaujinti</translation>
+    </message>
+    <message>
+        <source>Account updated</source>
+        <translation>Paskyros duomenys buvo atnaujinti</translation>
+    </message>
+    <message>
+        <source>Wrong email address</source>
+        <translation>Nekorektiškas e-pašto adresas</translation>
+    </message>
+    <message>
+        <source>Passwords mismatch</source>
+        <translation>Slaptažodžiai nesutampa</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Vardas</translation>
+    </message>
+    <message>
+        <source>Surname</source>
+        <translation>Pavardė</translation>
+    </message>
+    <message>
+        <source>Please enter name</source>
+        <translation>Prašome įvesti vardą</translation>
+    </message>
+    <message>
+        <source>Please enter surname</source>
+        <translation>Prašome įvesti pavardę</translation>
+    </message>
+</context>
+</TS>
