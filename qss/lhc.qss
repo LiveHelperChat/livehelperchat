@@ -1,0 +1,14 @@
+
+
+QPushButton[iconButton="true"] {
+    border: 1px solid gray;
+	padding: 2px;
+}
+
+QPushButton[iconButton="true"]:hover {
+   border: 1px solid #0a246a;
+   background-color: #b6bdd2;
+}
+QPushButton[iconButton="true"]:pressed {
+background-color:#8592b5;
+}
