@@ -780,8 +780,8 @@
 <context>
     <name>chat/startchat</name>
     <message>
-        <source>Maximum 10 characters</source>
-        <translation>Maksimalno 10 karaktera</translation>
+        <source>Maximum 50 characters</source>
+        <translation>Maksimalno 50 karaktera</translation>
     </message>
     <message>
         <source>Fill out this form to start a chat</source>
