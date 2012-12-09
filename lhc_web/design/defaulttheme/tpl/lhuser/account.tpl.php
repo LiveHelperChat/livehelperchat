@@ -1,4 +1,4 @@
-<fieldset><legend><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Logged user');?> - <?php echo $user->name,' ',$user->surname?></legend>
+<h1 class="attr-header"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Logged user');?> - <?php echo $user->name,' ',$user->surname?></h1>
 
 <div class="articlebody">
 
@@ -81,4 +81,3 @@
 <?php } ?>
 </fieldset>
 
-</fieldset>

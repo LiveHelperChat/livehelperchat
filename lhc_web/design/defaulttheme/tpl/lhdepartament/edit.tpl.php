@@ -1,4 +1,4 @@
-<fieldset><legend><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Edit department');?> - <?php echo $departament->name?></legend> 
+<h1 class="attr-header"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Edit department');?> - <?php echo $departament->name?></h1> 
 <div class="articlebody">
 <?php if (isset($errArr)) : ?>
     <?php foreach ((array)$errArr as $error) : ?>
@@ -19,4 +19,3 @@
 		</form>
 	</div>
 </div>
-</fieldset>

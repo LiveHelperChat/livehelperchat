@@ -1,4 +1,4 @@
-<fieldset><legend><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newrole','New role');?></legend>
+<h1 class="attr-header"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newrole','New role');?></h1>
 
 <div class="articlebody">
 
@@ -33,5 +33,3 @@
 		</form>
 	</div>
 </div>
-
-</fieldset>

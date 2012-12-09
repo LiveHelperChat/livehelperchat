@@ -1,4 +1,4 @@
-<fieldset><legend><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','New policy');?> - <?php echo $role->name?></legend>
+<h1 class="attr-header"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','New policy');?> - <?php echo $role->name?></h1>
 
 <div class="articlebody">
 
@@ -43,7 +43,6 @@
 	</div>
 </div>
 
-</fieldset>
 
 <script type="text/javascript">
 $( "#ModuleSelectedID" ).change( function () { 

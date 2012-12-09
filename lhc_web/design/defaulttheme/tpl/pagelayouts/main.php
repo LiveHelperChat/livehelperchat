@@ -18,17 +18,10 @@
 	
 	<div class="clearer"></div>
 </div>
-<div class="top-menu">
 
-</div>
-	<div id="bodcont" class="float-break">	
-	
-		<div id="leftmenucont">
-		      <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/leftmenu.tpl.php'));?>		      
-		</div>
 
-		<?php if (isset($Result['path'])) : 
-		
+
+<?php if (isset($Result['path'])) : 		
 		$pathElementCount = count($Result['path'])-1;
 		?>			
     		<div id="path">
@@ -43,6 +36,17 @@
     		  <?php endforeach; ?>
     		</div>
 		<?php endif; ?>
+
+
+
+
+	<div id="bodcont" class="float-break">	
+	
+		<div id="leftmenucont">
+		      <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/leftmenu.tpl.php'));?>		      
+		</div>
+
+		
 				
 		<div id="middcont">
 			<div id="mainartcont">

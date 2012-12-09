@@ -1,4 +1,4 @@
-<fieldset><legend><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Group edit');?> - <?php echo $group->name?></legend>
+<h1 class="attr-header"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Group edit');?> - <?php echo $group->name?></h1>
 
 <?php if (isset($errArr)) : ?>
     <?php foreach ((array)$errArr as $error) : ?>
@@ -69,7 +69,6 @@
 <input type="submit" class="default-button" name="Remove_role_from_group" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Remove role from group');?>" /> <input class="default-button" type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Assign role');?>" onclick="lhinst.abstractDialog('assign-role-dialog','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Role assignment');?>','<?php echo erLhcoreClassDesign::baseurl('permission/groupassignrole/'.$group->id)?>')" />
 </div>
 </form>
-</fieldset>
 
 
 

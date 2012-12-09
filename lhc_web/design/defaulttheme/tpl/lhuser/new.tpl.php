@@ -1,6 +1,4 @@
-<fieldset><legend><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','New user');?></legend> 
-
-
+<h1 class="attr-header"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','New user');?></h1> 
 
 <div class="articlebody">
 
@@ -54,5 +52,3 @@
 		</form>
 	</div>
 </div>
-
-</fieldset>

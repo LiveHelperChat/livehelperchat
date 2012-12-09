@@ -1,4 +1,4 @@
-<fieldset><legend><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Users');?></legend>
+<h1 class="attr-header"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Users');?></h1>
 
 <table class="lentele" cellpadding="0" cellspacing="0" width="100%">
 <tr>
@@ -27,4 +27,3 @@
 <div>
 <a href="<?php echo erLhcoreClassDesign::baseurl('user/new/')?>"><img src="<?php echo erLhcoreClassDesign::design('images/icons/add.png');?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','New user');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','New user');?>" /></a>
 </div>
-</fieldset>

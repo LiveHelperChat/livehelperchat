@@ -1,4 +1,4 @@
-<fieldset><legend><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closedchats','Closed chats list');?></legend> 
+<h1 class="attr-header"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closedchats','Closed chats list');?></h1> 
 <?php if ($pages->items_total > 0) { ?>
 <div class="pagination-info"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closedchats',"Page %currentpage of %totalpage",array('currentpage' => $pages->current_page,'totalpage' => $pages->num_pages))?></div>
 
@@ -24,4 +24,3 @@
 <?php } else { ?>
 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closedchats','Empty...');?>
 <?php } ?>
-</fieldset>

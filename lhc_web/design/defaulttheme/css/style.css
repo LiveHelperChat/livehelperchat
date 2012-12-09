@@ -1,6 +1,6 @@
 body,html{
-font-size:11px;
-font-family:verdana;
+font-size:12px;
+font-family:arial;
 padding:0;
 margin:0;
 padding-top:0px;
@@ -16,7 +16,13 @@ h2{font-size:12px;}
 
 div.top-menu{border-bottom:1px solid #D5D1CC;padding:2px;}
 
-div#path{font-weight:bold;padding-top:5px;padding-left:12px;}
+div#path{font-weight:bold;
+padding-top:5px;
+padding-bottom:5px;
+padding-left:12px;
+border-top:1px solid #CCC;
+border-bottom: 1px solid #CCC;
+}
 
 div.all-list {padding-top:8px;}
 div.all-list a{font-weight:bold;color:#4D8F35;}
@@ -242,7 +248,7 @@ padding-left: 15px;
 .dataupdate{color:#358F39;font-weight:bold;}
 
 input{font-family:verdana;}
-.inputfield{font-family:verdana;font-size:11px;}
+.inputfield{font-family:verdana;font-size:11px;padding:3px;border:1px solid #CCC;}
 
 .buttonstd{}
 
@@ -685,8 +691,7 @@ div.pagercontent a{color: #4D8F35;}
 input.default-button
 {
     background: #aaaaaa url(../images/tabs/images/ui-bg_highlight-soft_75_cccccc_1x100.png) repeat-x top left;
-    border:1px solid #aaaaaa;
-    
+    border:1px solid #aaaaaa;    
 }
 
 .default-input{
@@ -722,6 +727,10 @@ div.pagination-info{font-weight:bold;padding:3px 0px;}
 .ui-dialog .ui-dialog-buttonpane button { float: right; margin: .5em .4em .5em 0; cursor: pointer; padding: .2em .6em .3em .6em; line-height: 1.4em; width:auto; overflow:visible; }
 .ui-dialog .ui-resizable-se { width: 14px; height: 14px; right: 3px; bottom: 3px; }
 .ui-draggable .ui-dialog-titlebar { cursor: move; }
-
-
 .ui-state-error, .ui-widget-content .ui-state-error {border: 1px solid #cd0a0a; background: #b81900 url(../images/tabs/images/ui-bg_diagonals-thick_18_b81900_40x40.png) 50% 50% repeat; color: #ffffff; }
+
+.attr-header {
+border-bottom: 1px solid #CCC;
+padding-bottom:5px;
+margin-bottom:10px;
+}

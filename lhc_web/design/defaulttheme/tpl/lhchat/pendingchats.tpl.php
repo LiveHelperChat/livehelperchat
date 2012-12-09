@@ -1,7 +1,7 @@
-<fieldset><legend><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Pending chats list');?></legend> 
+<h1 class="attr-header"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Pending chats list');?></h1> 
+
 <?php if ($pages->items_total > 0) { ?>
 <div class="pagination-info"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats',"Page %currentpage of %totalpage",array('currentpage' => $pages->current_page,'totalpage' => $pages->num_pages))?></div>
-
 <table class="lentele" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <th width="1%">ID</th>
@@ -24,4 +24,3 @@
 <?php } else { ?>
 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Empty...');?>
 <?php } ?>
-</fieldset>

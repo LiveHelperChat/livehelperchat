@@ -1,4 +1,4 @@
-<fieldset><legend><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Role edit');?> - <?php echo $role->name?></legend>
+<h1 class="attr-header"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Role edit');?> - <?php echo $role->name?></h1>
 
 <div class="articlebody">
 
@@ -40,7 +40,7 @@
 		</form>
 	</div>
 </div>
-</fieldset>
+
 <br />
 <fieldset><legend><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Role assigned groups');?></legend>
 	<div>
