@@ -33,6 +33,8 @@ function lh(){
         this.syncroRequestSend = status;
     }
     
+    this.trackLastIDS = {};
+    
     // Chats currently under synchronization
     this.chatsSynchronising = [];
     this.chatsSynchronisingMsg = [];
@@ -135,6 +137,8 @@ function lh(){
     
     this.syncusercall = function()
 	{
+	    var inst = this;
+	    
 	    $.postJSON(this.wwwDir + this.syncuser + this.chat_id + '/' + this.hash ,{ }, function(data){ 
 	        // If no error
 	        if (data.error == 'false')
@@ -146,7 +150,7 @@ function lh(){
                 			$('#messagesBlock').append(data.result);    			
                 			$('#messagesBlock').animate({ scrollTop: $('#messagesBlock').prop('scrollHeight') }, 3000);  
                 			
-                			
+                			inst.playNewMessageSound();                            
     	                
     	            } else {
     	                if ( data.status != 'true') $('#status-chat').html(data.status);  
@@ -339,12 +343,23 @@ function lh(){
 	               setTimeout(chatsyncuserpending,3500);
 	               
 	            } else {
-	               $('#status-chat').html(data.result); 
-	               //setTimeout(chatsyncuser,2500);
+	               $('#status-chat').html(data.result); 	               
 	            }
 	        }	        		
     	});
 	}	
+	
+	this.playNewMessageSound = function() {
+	    	
+	    if (Modernizr.audio) {    
+    	    var audio = new Audio();            
+            audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + 'sound/new_message.ogg' :
+                        Modernizr.audio.mp3 ? WWW_DIR_JAVASCRIPT_FILES + 'sound/new_message.mp3' : WWW_DIR_JAVASCRIPT_FILES + 'sound/new_message.wav';
+            
+            audio.load();
+            audio.play();
+	    }
+	}
 	
     this.syncadmincall = function()
 	{	
@@ -354,7 +369,8 @@ function lh(){
 	        {
 	            
 	            this.syncroRequestSend = true;
-    
+                var inst = this;
+                
         	    $.postJSON(this.wwwDir + this.syncadmin ,{ 'chats[]': this.chatsSynchronisingMsg }, function(data){ 
         	        // If no error
         	        if (data.error == 'false')
@@ -366,8 +382,10 @@ function lh(){
                                   $('#messagesBlock-'+item.chat_id).append(item.content);
         		                  $('#messagesBlock-'+item.chat_id).animate({ scrollTop: $("#messagesBlock-"+item.chat_id).prop("scrollHeight") }, 3000);
         		                  lhinst.updateChatLastMessageID(item.chat_id,item.message_id);       		              
-                            });                       
+                            });                      
                             
+                            inst.playNewMessageSound();
+                                                       
         	            }  			     	
             			setTimeout(chatsyncadmin,3500);	
         	        }
@@ -393,17 +411,41 @@ function lh(){
 	
 	this.syncadmininterface = function()
 	{
+	    var inst = this;
+	    
 	    $.getJSON(this.wwwDir + this.syncadmininterfaceurl ,{ }, function(data){ 
 	        // If no error
 	        if (data.error == 'false')
 	        {	 
                 $.each(data.result,function(i,item) {	                    
-                    if (item.content != '') { $(item.dom_id).html(item.content); }              
+                    if (item.content != '') { $(item.dom_id).html(item.content); }  
+                    
+                    if ( item.last_id_identifier ) {                                                
+                        if (!inst.trackLastIDS[item.last_id_identifier] ) {
+                            inst.trackLastIDS[item.last_id_identifier] = parseInt(item.last_id);
+                        } else if (inst.trackLastIDS[item.last_id_identifier] < item.last_id) {
+                            inst.trackLastIDS[item.last_id_identifier] = parseInt(item.last_id);
+                            inst.playSoundNewAction(item.last_id_identifier);
+                        }                    
+                    }           
                 });
 	              			     	
     			setTimeout(chatsyncadmininterface,10000);	
 	        }		
     	});
+	}
+	
+	this.playSoundNewAction = function(identifier) {	    
+	    if (identifier == 'pending_chat') {
+	        if (Modernizr.audio) {    
+        	    var audio = new Audio();            
+                audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + 'sound/new_chat.ogg' :
+                            Modernizr.audio.mp3 ? WWW_DIR_JAVASCRIPT_FILES + 'sound/new_chat.mp3' : WWW_DIR_JAVASCRIPT_FILES + 'sound/new_chat.wav';
+                
+                audio.load();
+                audio.play();
+    	    }
+	    }
 	}
 	
 	this.syncadmininterfacestatic = function()
