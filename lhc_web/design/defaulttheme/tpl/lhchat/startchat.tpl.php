@@ -9,11 +9,11 @@
 <table>
     <tr>
         <td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Name');?></td>
-        <td><input type="text" name="Username" value="" /></td>
+        <td><input type="text" class="inputfield" name="Username" value="" /></td>
     </tr>
     <tr>
         <td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','E-mail');?></td>
-        <td><input type="text" name="Email" value="" /></td>
+        <td><input type="text" class="inputfield" name="Email" value="" /></td>
     </tr>
     <tr>
         <td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Department');?></td>

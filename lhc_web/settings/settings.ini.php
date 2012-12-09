@@ -5,6 +5,7 @@ return array (
     'site' => 
     array (
       'title' => 'Live helper chat 1.13v',
+      'site_admin_email' => '',
       'locale' => 'en_EN',
       'theme' => 'defaulttheme',
       'installed' => false,

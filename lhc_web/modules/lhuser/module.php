@@ -72,8 +72,18 @@ $ViewList['deletegroup'] = array(
     'script' => 'deletegroup.php',
     'params' => array('group_id'),
     'functions' => array( 'deletegroup' )
-    ); 
-         
+    );
+     
+$ViewList['forgotpassword'] = array( 
+    'script' => 'forgotpassword.php',
+    'params' => array(),
+    );
+
+$ViewList['remindpassword'] = array( 
+    'script' => 'remindpassword.php',
+    'params' => array('hash'),
+    );
+    
 $FunctionList['groupassignuser'] = array('explain' => 'Allow logged user to assing user to group');  
 $FunctionList['editgroup'] = array('explain' => 'Allow logged user to edit group');  
 $FunctionList['creategroup'] = array('explain' => 'Allow logged user to create group');  

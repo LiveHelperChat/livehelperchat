@@ -41,6 +41,20 @@ class erLhcoreClassModelUser {
        return $rows[0]['foundusers'] > 0;        
    }
    
+   public static function fetchUserByEmail($email)
+   {
+       $db = ezcDbInstance::get();
+       $stmt = $db->prepare('SELECT id FROM lh_users WHERE email = :email');
+       $stmt->bindValue( ':email',$email);       
+       $stmt->execute();
+       $rows = $stmt->fetchAll();
+       
+       if (isset($rows[0]['id'])) {
+            return $rows[0]['id']; 
+       } else {
+            return false; 
+       }
+   }
       
     public $id = null;
     public $username = '';

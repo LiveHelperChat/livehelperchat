@@ -299,7 +299,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   KEY `user_id` (`user_id`)
                 )"); 
 
-                //Transfer chat
+                // Transfer chat
                 $db->query("CREATE TABLE IF NOT EXISTS `lh_transfer` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
                   `chat_id` int(11) NOT NULL,
@@ -307,7 +307,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   PRIMARY KEY (`id`)
                 )");
                 
-                //Chat messages
+                // Chat messages
                 $db->query("CREATE TABLE IF NOT EXISTS `lh_msg` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
                   `msg` text NOT NULL,
@@ -322,6 +322,15 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   KEY `status` (`status`,`chat_id`)
                 )");
                 
+                // Forgot password table
+                $db->query("CREATE TABLE IF NOT EXISTS `lh_forgotpasswordhash` (
+                `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+                `user_id` INT NOT NULL ,
+                `hash` VARCHAR( 40 ) NOT NULL ,
+                `created` INT NOT NULL
+                )");
+                
+                // User groups table
                 $db->query("CREATE TABLE IF NOT EXISTS `lh_groupuser` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
                   `group_id` int(11) NOT NULL,

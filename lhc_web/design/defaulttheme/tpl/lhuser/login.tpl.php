@@ -4,14 +4,15 @@
 <table>
     <tr>
         <td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Username');?></td>
-        <td><input type="text" name="Username" value="" /></td>
+        <td><input type="text" class="inputfield" name="Username" value="" /></td>
     </tr>
     <tr>
         <td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Password');?></td>
-        <td><input type="password" name="Password" value="" /></td>
+        <td><input type="password" class="inputfield" name="Password" value="" /></td>
     </tr>
     <tr>
         <td><input type="submit" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Login');?>" name="Login" /></td>
-    </tr>
+        <td><a href="<?php echo erLhcoreClassDesign::baseurl('user/forgotpassword')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Password remind')?></a></td>
+    </tr>   
 </table>
 </form>
