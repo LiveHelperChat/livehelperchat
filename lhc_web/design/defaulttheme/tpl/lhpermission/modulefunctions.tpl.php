@@ -1,6 +1,6 @@
 <select name="ModuleFunction">
-<option value="*"><?=erTranslationClassLhTranslation::getInstance()->getTranslation('permission/modulefunctions','All functions');?></option>
+<option value="*"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/modulefunctions','All functions');?></option>
 <?php foreach ($functions as $key => $Function) : ?>
-    <option value="<?=$key?>"><?=$Function['explain']?></option>
-<? endforeach; ?>
+    <option value="<?php echo $key?>"><?php echo $Function['explain']?></option>
+<?php endforeach; ?>
 </select>

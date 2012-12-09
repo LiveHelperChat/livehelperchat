@@ -1,15 +1,15 @@
 <div style="padding:4px;padding-right:4px;">
-<h2 id="status-chat"><?=erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Pending confirm')?></h2>
+<h2 id="status-chat"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Pending confirm')?></h2>
 <table width="100%">
 <tr>
     <td id="messages">
-        <div class="msgBlock" id="messagesBlock"><? foreach (erLhcoreClassChat::getChatMessages($chat_id) as $msg ) : ?>         
-            <? if ($msg['user_id'] == 0) { ?>
-            	<div class="message-row"><div class="msg-date"><?=date('Y-m-d H:i',$msg['time']);?></div><span class="usr-tit"><?=$chat->nick;?>:</span> <?=htmlspecialchars($msg['msg']);?></div>
-            <? } else { ?>
-                <div class="message-row response"><div class="msg-date"><?=date('Y-m-d H:i',$msg['time']);?></div><span class="usr-tit"><?=$msg['name_support']?>:</span> <?=htmlspecialchars($msg['msg']);?></div>
-            <? } ?>  
-         <? endforeach; ?></div>
+        <div class="msgBlock" id="messagesBlock"><?php foreach (erLhcoreClassChat::getChatMessages($chat_id) as $msg ) : ?>         
+            <?php if ($msg['user_id'] == 0) { ?>
+            	<div class="message-row"><div class="msg-date"><?php echo date('Y-m-d H:i',$msg['time']);?></div><span class="usr-tit"><?php echo $chat->nick;?>:</span> <?php echo htmlspecialchars($msg['msg']);?></div>
+            <?php } else { ?>
+                <div class="message-row response"><div class="msg-date"><?php echo date('Y-m-d H:i',$msg['time']);?></div><span class="usr-tit"><?php echo $msg['name_support']?>:</span> <?php echo htmlspecialchars($msg['msg']);?></div>
+            <?php } ?>  
+         <?php endforeach; ?></div>
     </td>
 </tr>
 <tr>
@@ -23,14 +23,14 @@
             </script> 
         </div>
         
-        <input type="button" value="<?=erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Send')?>" onclick="lhinst.addmsguser()" />
+        <input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Send')?>" onclick="lhinst.addmsguser()" />
     </td>
 </tr>
 </table>
 </div>
 <script type="text/javascript">
-    lhinst.setChatID('<?=$chat_id?>');
-    lhinst.setChatHash('<?=$hash?>');
+    lhinst.setChatID('<?php echo $chat_id?>');
+    lhinst.setChatHash('<?php echo $hash?>');
     
     // Start user chat synchronization
     lhinst.chatsyncuserpending();

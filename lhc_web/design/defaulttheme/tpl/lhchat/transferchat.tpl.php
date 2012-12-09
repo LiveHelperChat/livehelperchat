@@ -1,9 +1,9 @@
-<fieldset><legend><?=erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Logged users');?></legend>
-<div id="transfer-block-<?=$chat->id?>">
-<? foreach (erLhcoreClassChat::getOnlineUsers(array($user_id)) as $key => $user) : ?>
-    <div><label><?=$user['name']?> <?=$user['surname']?> <input type="radio" name="TransferTo<?=$chat->id?>" value="<?=$user['id']?>" <?=$key == 0 ? 'checked="checked"' : ''?>></label></div>
-<? endforeach; ?>
+<fieldset><legend><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Logged users');?></legend>
+<div id="transfer-block-<?php echo $chat->id?>">
+<?php foreach (erLhcoreClassChat::getOnlineUsers(array($user_id)) as $key => $user) : ?>
+    <div><label><?php echo $user['name']?> <?php echo $user['surname']?> <input type="radio" name="TransferTo<?php echo $chat->id?>" value="<?php echo $user['id']?>" <?php echo $key == 0 ? 'checked="checked"' : ''?>></label></div>
+<?php endforeach; ?>
 <br />
-<input type="button" onclick="lhinst.transferChat('<?=$chat->id;?>')" value="<?=erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer');?>" />
+<input type="button" onclick="lhinst.transferChat('<?php echo $chat->id;?>')" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer');?>" />
 </div>
 </fieldset>

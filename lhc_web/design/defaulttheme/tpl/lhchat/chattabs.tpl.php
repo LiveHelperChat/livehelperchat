@@ -5,9 +5,9 @@
                 $tabs.tabs('select', '#' + ui.panel.id);
             }});
             
-            <? if (is_numeric($chat_id)) : ?>
-            addChat(<?=$chat_id;?>,'<?=$chat_to_load->nick;?>');
-            <? endif; ?>
+            <?php if (is_numeric($chat_id)) : ?>
+            addChat(<?php echo $chat_id;?>,'<?php echo $chat_to_load->nick;?>');
+            <?php endif; ?>
                   
             /** start chats synchronizatipon **/
             chatsyncadmininterface();
@@ -20,9 +20,9 @@
 
 <div id="tabs" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
 	<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
-		<li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-hover ui-state-active "><a href="#tabs-1"><?=erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chattabs','Pending confirm');?></a></li>
-		<li class="ui-state-default ui-corner-top "><a href="#tabs-2"><?=erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chattabs','Active chats');?></a></li>
-		<li class="ui-state-default ui-corner-top "><a href="#tabs-3"><?=erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chattabs','Closed chats');?></a></li>
+		<li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-hover ui-state-active "><a href="#tabs-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chattabs','Pending confirm');?></a></li>
+		<li class="ui-state-default ui-corner-top "><a href="#tabs-2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chattabs','Active chats');?></a></li>
+		<li class="ui-state-default ui-corner-top "><a href="#tabs-3"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chattabs','Closed chats');?></a></li>
 	</ul>
 	
 	<div id="tabs-1" class="ui-tabs-panel ui-widget-content ui-corner-bottom">	

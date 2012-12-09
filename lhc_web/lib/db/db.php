@@ -8,10 +8,13 @@
          {
              case false: // Default instance
              {
-                $cfg = erConfigClassLhConfig::getInstance();
-                $db = ezcDbFactory::create( "mysql://{$cfg->conf->getSetting( 'db', 'user' )}:{$cfg->conf->getSetting( 'db', 'password' )}@{$cfg->conf->getSetting( 'db', 'host' )}:{$cfg->conf->getSetting( 'db', 'port' )}/{$cfg->conf->getSetting( 'db', 'database' )}" );
-                $db->query('SET NAMES utf8');  
-                        
+                try {
+                    $cfg = erConfigClassLhConfig::getInstance();
+                    $db = ezcDbFactory::create( "mysql://{$cfg->conf->getSetting( 'db', 'user' )}:{$cfg->conf->getSetting( 'db', 'password' )}@{$cfg->conf->getSetting( 'db', 'host' )}:{$cfg->conf->getSetting( 'db', 'port' )}/{$cfg->conf->getSetting( 'db', 'database' )}" );
+                    $db->query('SET NAMES utf8');  
+                } catch (Exception $e) {
+                     $db = false;
+                }  
                 return $db;
              }
              case 'sqlite':

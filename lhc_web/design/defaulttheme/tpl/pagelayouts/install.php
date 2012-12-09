@@ -5,7 +5,7 @@
 <head>
 
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head.tpl.php'));?>
-<link rel="stylesheet" type="text/css" href="<?=erLhcoreClassDesign::design('css/chat.css');?>" /> 
+<link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::design('css/chat.css');?>" /> 
 
 </head>
 <body>

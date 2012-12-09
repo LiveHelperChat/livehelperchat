@@ -1,13 +1,13 @@
-<? if (count($transferchats) > 0) { ?>
+<?php if (count($transferchats) > 0) { ?>
 
-<? foreach ($transferchats as $chat) : ?>
+<?php foreach ($transferchats as $chat) : ?>
     <ul class="chat-ul-list">
-          <li><img class="action-image" align="absmiddle" onclick="lhinst.startChatNewWindowTransfer('<?=$chat['id'];?>','<?=htmlspecialchars($chat['nick']);?>','<?=$chat['transfer_id'];?>')" src="<?=erLhcoreClassDesign::design('images/icons/application_add.png');?>" alt="<?=erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Open in new window');?>" title="<?=erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Open in new window');?>"><?=$chat['id'];?>. <?=$chat['nick'];?> (<?=date('Y-m-d H:i',$chat['time']);?>)</li>
+          <li><img class="action-image" align="absmiddle" onclick="lhinst.startChatNewWindowTransfer('<?php echo $chat['id'];?>','<?php echo htmlspecialchars($chat['nick']);?>','<?php echo $chat['transfer_id'];?>')" src="<?php echo erLhcoreClassDesign::design('images/icons/application_add.png');?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Open in new window');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Open in new window');?>"><?php echo $chat['id'];?>. <?php echo $chat['nick'];?> (<?php echo date('Y-m-d H:i',$chat['time']);?>)</li>
     </ul>
-<? endforeach; ?>
+<?php endforeach; ?>
 
-<? } else { ?>
+<?php } else { ?>
 
-<?=erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Empty...');?>
+<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Empty...');?>
 
-<? } ?>
+<?php } ?>

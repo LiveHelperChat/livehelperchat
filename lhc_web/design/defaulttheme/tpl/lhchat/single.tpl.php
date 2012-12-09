@@ -5,9 +5,9 @@
                 $tabs.tabs('select', '#' + ui.panel.id); 
             }});
             
-            <? if (is_numeric($chat_id)) : ?>
-            addChat(<?=$chat_id;?>,'<?=$chat_to_load->nick;?>');
-            <? endif; ?>
+            <?php if (is_numeric($chat_id)) : ?>
+            addChat(<?php echo $chat_id;?>,'<?php echo $chat_to_load->nick;?>');
+            <?php endif; ?>
                           
             $('#tabs').bind('tabsshow', function(event, ui) {   
                 $('#'+ui.panel.id+' .msgBlock').attr({ scrollTop: $('#'+ui.panel.id+' .msgBlock').attr("scrollHeight") }); 

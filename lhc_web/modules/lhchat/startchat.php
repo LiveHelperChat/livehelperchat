@@ -24,9 +24,9 @@ if (isset($_POST['StartChat']))
         $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your name');
     }
     
-    if ($form->hasValidData( 'Username' ) && $form->Username != '' && strlen($form->Username) > 10)
+    if ($form->hasValidData( 'Username' ) && $form->Username != '' && strlen($form->Username) > 50)
     {
-        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum 10 characters');
+        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum 50 characters');
     }
     
     if ( !$form->hasValidData( 'Email' ) )

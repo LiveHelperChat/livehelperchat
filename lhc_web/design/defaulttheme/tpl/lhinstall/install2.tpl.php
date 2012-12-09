@@ -1,37 +1,37 @@
-<form action="<?=erLhcoreClassDesign::baseurl('install/install/2')?>" method="POST">
+<form action="<?php echo erLhcoreClassDesign::baseurl('install/install/2')?>" method="POST">
 <fieldset><legend>Installation step 2</legend> 
-<? if (isset($errors)) : ?>
+<?php if (isset($errors)) : ?>
 <div class="error-list">
 <ul>
-    <? foreach ($errors as $error) : ?>
-        <li><?=$error?></li>
-    <? endforeach; ?> 
+    <?php foreach ($errors as $error) : ?>
+        <li><?php echo $error?></li>
+    <?php endforeach; ?> 
 </ul>
 </div>
-<? endif; ?>
+<?php endif; ?>
 
         
 <fieldset><legend>Database settings</legend> 
 <table>
     <tr>
         <td>Username</td>
-        <td><input type="text" name="DatabaseUsername" value="<?=isset($db_username) ? $db_username : ''?>" /></td>
+        <td><input type="text" name="DatabaseUsername" value="<?php echo isset($db_username) ? $db_username : ''?>" /></td>
     </tr>
     <tr>
         <td>Password</td>
-        <td><input type="password" name="DatabasePassword" value="<?=isset($db_password) ? $db_password : ''?>" /></td>
+        <td><input type="password" name="DatabasePassword" value="<?php echo isset($db_password) ? $db_password : ''?>" /></td>
     </tr>
     <tr>
         <td>Host</td>
-        <td><input type="text" name="DatabaseHost" value="<?=isset($db_host) ? $db_host : ''?>"></td>
+        <td><input type="text" name="DatabaseHost" value="<?php echo isset($db_host) ? $db_host : ''?>"></td>
     </tr>
     <tr>
         <td>Port</td>
-        <td><input type="text" name="DatabasePort" value="<?=isset($db_port) ? $db_port : '3306'?>"></td>
+        <td><input type="text" name="DatabasePort" value="<?php echo isset($db_port) ? $db_port : '3306'?>"></td>
     </tr>
     <tr>
         <td>Database name</td>
-        <td><input type="text" name="DatabaseDatabaseName" value="<?=isset($db_name) ? $db_name : ''?>"></td>
+        <td><input type="text" name="DatabaseDatabaseName" value="<?php echo isset($db_name) ? $db_name : ''?>"></td>
     </tr>
 </table>
 </fieldset>
