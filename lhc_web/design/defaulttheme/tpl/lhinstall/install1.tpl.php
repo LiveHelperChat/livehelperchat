@@ -20,6 +20,10 @@
         <td>I can write to &quot;settings/settings.ini.php&quot; directory</td>
         <td><?php echo is_writable("settings/settings.ini.php") ? '<span class="ok">Yes</span>' : '<span class="error">No</span>'?></td>
     </tr>
+    <tr>
+        <td>php-pdo extension installed</td>
+        <td><?php echo extension_loaded ('pdo_mysql' ) ? '<span class="ok">Yes</span>' : '<span class="error">No</span>'; ?></td>
+    </tr>
 </table>
 </fieldset>
 <br>

@@ -27,8 +27,11 @@ switch ((int)$Params['user_parameters']['step_id']) {
 	       $Errors[] = "cache/translations is not writable"; 
 	       	           
 		if (!is_writable("cache/userinfo"))
-	       $Errors[] = "cache/userinfo is not writable";	
+	       $Errors[] = "cache/userinfo is not writable";
 	       
+		if (!extension_loaded ('pdo_mysql' ))
+	       $Errors[] = "php-pdo extension not detected. Please install php extension";	
+	      	       
 	       if (count($Errors) == 0)
 	           $tpl->setFile('lhinstall/install2.tpl.php');	              
 	  break;
