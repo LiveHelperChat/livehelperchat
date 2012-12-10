@@ -324,10 +324,11 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 
                 // Forgot password table
                 $db->query("CREATE TABLE IF NOT EXISTS `lh_forgotpasswordhash` (
-                `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+                `id` int(11) NOT NULL AUTO_INCREMENT,
                 `user_id` INT NOT NULL ,
                 `hash` VARCHAR( 40 ) NOT NULL ,
-                `created` INT NOT NULL
+                `created` INT NOT NULL,
+                PRIMARY KEY (`id`)
                 )");
                 
                 // User groups table
