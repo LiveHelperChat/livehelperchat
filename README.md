@@ -1,7 +1,7 @@
 Live helper chat
 ==============
 
-It's open-source powered application. Witch brings simplicity and usability in one place. With live helper chat you can bring live support on your site for free.
+It's open-source powered application. Which brings simplicity and usability in one place. With live helper chat you can bring live support on your site for free.
 
 Official site:
 http://livehelperchat.com/
