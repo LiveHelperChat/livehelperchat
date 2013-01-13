@@ -13,7 +13,21 @@ int main(int argc, char *argv[])
 {
 QApplication app(argc, argv);
 
+
+// Load style sheet
+QFile styleFile( qApp->applicationDirPath() + "/qss/lhc.qss" );
+styleFile.open( QFile::ReadOnly );
+
+// Apply the loaded stylesheet
+QString style( styleFile.readAll() );
+app.setStyleSheet( style );
+
+
+
+
 qApp->addLibraryPath( qApp->applicationDirPath() + "/plugins");
+
+
 
 QTranslator translator;
 

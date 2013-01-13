@@ -21,6 +21,7 @@ ChatWindow::ChatWindow(int chat_id, QWidget *parent) : QWidget(parent)
     */
     setAttribute(Qt::WA_QuitOnClose,false);
 
+    this->setObjectName("ChatWidget");
 
     this->chatID = chat_id;
 
@@ -92,7 +93,8 @@ ChatWindow::ChatWindow(int chat_id, QWidget *parent) : QWidget(parent)
 
     messagesText = new QTextEdit();
     newmessageText = new LHCTextEdit(this->chatID);
-    
+    newmessageText->setObjectName("NewMessageText");
+
     QSplitter *splitter = new QSplitter(Qt::Vertical,this);
     splitter->addWidget(messagesText);
     splitter->addWidget(newmessageText);
