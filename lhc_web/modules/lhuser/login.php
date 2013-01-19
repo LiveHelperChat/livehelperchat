@@ -1,5 +1,12 @@
 <?php
 
+$instance = erLhcoreClassSystem::instance();
+
+if ($instance->SiteAccess == erConfigClassLhConfig::getInstance()->getSetting( 'site', 'default_site_access' )) {    
+    header('Location: ' .erLhcoreClassDesign::baseurldirect('site_admin/user/login') );
+    exit;
+}
+
 $tpl = new erLhcoreClassTemplate( 'lhuser/login.tpl.php');
 
 if (isset($_POST['Login']))
