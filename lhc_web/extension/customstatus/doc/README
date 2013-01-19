@@ -1,0 +1,16 @@
+Dummy module to show how to write your own extension or override some files.
+
+classes - if you want to override kernel classe create a file in classes folder and define it's path in var/autoloads/lhextension_autoload.php file
+
+design - here you can overide default templates
+
+modules - contains example how to write your own module or override default modules files.
+
+To active module
+
+Adjust settings to the following
+
+'extensions' => 
+      array (
+        0 => 'customstatus',
+),

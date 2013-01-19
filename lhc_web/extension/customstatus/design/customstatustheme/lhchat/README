@@ -1,0 +1,4 @@
+Create a template same name as defaulttheme/tpl/lhchat/*
+
+E.g
+Create here getstatus.tpl.php tpl to override default getstatus.tpl.php

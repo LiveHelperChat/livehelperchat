@@ -1,0 +1,1 @@
+<link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::designCSS('css/style.css');?>" /> 
