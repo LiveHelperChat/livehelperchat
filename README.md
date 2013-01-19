@@ -12,6 +12,14 @@ http://livehelperchat.com/
   * lhc_translations - Translations folder.
   * lhc_web - WEB application folder.
 
+Few main features
+
+ * Multilanguage
+ * Themes support - override default template files without changing kernel
+ * Write custom extensions without changing kernel
+ * Override default behaviour without changing kernel
+ * MVC structure - separated design/logic/models
+ * Web and Desktop client Windowd/Mac/Linux support.
 
 Google group:
 https://groups.google.com/forum/#!forum/livehelperchat
