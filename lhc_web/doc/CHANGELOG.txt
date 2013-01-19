@@ -1,3 +1,11 @@
+1.16v
+
+This version changes allows to do the following things.
+1. Extended core so users can override default templates and create custom themes
+2. Option to write custom modules without override defalt modules.
+3. Option to override custom modules files.
+4. Option to override kernel classes
+
 1.13v
 
 1. Upgraded eZ Components to new version.

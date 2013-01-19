@@ -15,11 +15,9 @@
 	<div id="bodcont" class="float-break">			
 		<div id="middcont">
 			<div id="mainartcont">
-			 <div style="padding:2px">
 			<?					
 			     echo $Result['content'];		
 			?>			
-			</div>
 			</div>
 		</div>		
 	</div>

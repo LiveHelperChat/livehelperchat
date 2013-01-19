@@ -3,10 +3,8 @@
 
 <html>
 <head>
-
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head.tpl.php'));?>
-<link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::design('css/chat.css');?>" /> 
-
+<link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::designCSS('css/chat.css');?>" /> 
 </head>
 <body>
 
@@ -15,23 +13,14 @@
 	<div id="bodcont" class="float-break">			
 		<div id="middcont">
 			<div id="mainartcont">
-			 <div style="padding:2px">
 			<?					
 			     echo $Result['content'];		
 			?>			
 			</div>
-			</div>
 		</div>		
-	</div>
-	
-	
+	</div>		
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_footer.tpl.php'));?>
-
-	
 </div>
-
-
-
 </body>
 
 </html>

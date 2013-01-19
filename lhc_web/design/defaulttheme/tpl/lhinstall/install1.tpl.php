@@ -17,6 +17,10 @@
         <td><?php echo is_writable("cache/userinfo") ? '<span class="ok">Yes</span>' : '<span class="error">No</span>'?></td>
     </tr>
     <tr>
+        <td>I can write to &quot;cache/compiledtemplates&quot; directory</td>
+        <td><?php echo is_writable("cache/compiledtemplates") ? '<span class="ok">Yes</span>' : '<span class="error">No</span>'?></td>
+    </tr>
+    <tr>
         <td>I can write to &quot;settings/settings.ini.php&quot; directory</td>
         <td><?php echo is_writable("settings/settings.ini.php") ? '<span class="ok">Yes</span>' : '<span class="error">No</span>'?></td>
     </tr>

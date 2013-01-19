@@ -2,7 +2,7 @@
 
 $cfgSite = erConfigClassLhConfig::getInstance();
 
-if ($cfgSite->conf->getSetting( 'site', 'installed' ) == true)
+if ($cfgSite->getSetting( 'site', 'installed' ) == true)
 {
     $Params['module']['functions'] = array('install');
     include_once('modules/lhkernel/nopermission.php'); 
@@ -11,6 +11,13 @@ if ($cfgSite->conf->getSetting( 'site', 'installed' ) == true)
     $Result['path'] = array(array('title' => 'Live helper chat installation'));
     return $Result;
     
+    exit;
+}
+
+$instance = erLhcoreClassSystem::instance();
+
+if ($instance->SiteAccess != 'site_admin') {    
+    header('Location: ' .erLhcoreClassDesign::baseurldirect('site_admin/install/install') );
     exit;
 }
 
@@ -28,6 +35,9 @@ switch ((int)$Params['user_parameters']['step_id']) {
 	       	           
 		if (!is_writable("cache/userinfo"))
 	       $Errors[] = "cache/userinfo is not writable";
+	       
+		if (!is_writable("cache/compiledtemplates"))
+	       $Errors[] = "cache/compiledtemplates is not writable";
 	       
 		if (!extension_loaded ('pdo_mysql' ))
 	       $Errors[] = "php-pdo extension not detected. Please install php extension";	
@@ -97,13 +107,13 @@ switch ((int)$Params['user_parameters']['step_id']) {
 	       if (count($Errors) == 0){
 	           
 	           $cfgSite = erConfigClassLhConfig::getInstance();
-	           $cfgSite->conf->setSetting( 'db', 'host', $form->DatabaseHost);
-	           $cfgSite->conf->setSetting( 'db', 'user', $form->DatabaseUsername);
-	           $cfgSite->conf->setSetting( 'db', 'password', $form->DatabasePassword);
-	           $cfgSite->conf->setSetting( 'db', 'database', $form->DatabaseDatabaseName);
-	           $cfgSite->conf->setSetting( 'db', 'port', $form->DatabasePort);
+	           $cfgSite->setSetting( 'db', 'host', $form->DatabaseHost);
+	           $cfgSite->setSetting( 'db', 'user', $form->DatabaseUsername);
+	           $cfgSite->setSetting( 'db', 'password', $form->DatabasePassword);
+	           $cfgSite->setSetting( 'db', 'database', $form->DatabaseDatabaseName);
+	           $cfgSite->setSetting( 'db', 'port', $form->DatabasePort);
 	           
-	           $cfgSite->conf->setSetting( 'site', 'secrethash', substr(md5(time() . ":" . mt_rand()),0,10));
+	           $cfgSite->setSetting( 'site', 'secrethash', substr(md5(time() . ":" . mt_rand()),0,10));
 	           
 	           $cfgSite->save();
 	                 
@@ -324,11 +334,10 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 
                 // Forgot password table
                 $db->query("CREATE TABLE IF NOT EXISTS `lh_forgotpasswordhash` (
-                `id` int(11) NOT NULL AUTO_INCREMENT,
+                `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
                 `user_id` INT NOT NULL ,
                 `hash` VARCHAR( 40 ) NOT NULL ,
-                `created` INT NOT NULL,
-                PRIMARY KEY (`id`)
+                `created` INT NOT NULL
                 )");
                 
                 // User groups table
@@ -365,7 +374,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 erLhcoreClassRole::getSession()->save($RoleFunction);
                    
                $cfgSite = erConfigClassLhConfig::getInstance();
-	           $cfgSite->conf->setSetting( 'site', 'installed', true);	     
+	           $cfgSite->setSetting( 'site', 'installed', true);	     
 	           $cfgSite->save();
 	           
     	       $tpl->setFile('lhinstall/install4.tpl.php');

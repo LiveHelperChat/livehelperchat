@@ -1,5 +1,21 @@
 <?php
 
+//exit;
+//xhprof_enable(XHPROF_FLAGS_CPU + XHPROF_FLAGS_MEMORY);
+
+$star_microtile = microtime();
+function set_time ( $start_time, $end_time )
+{
+	$start = explode(' ', $start_time);
+	$end = explode(' ', $end_time);
+	return  $time = $end[0] + $end[1] - $start[0] - $start[1];
+}
+
+/* DEBUG END */
+//ini_set('error_reporting', E_ALL);
+//ini_set('display_errors', 1);
+
+
 require_once "ezcomponents/Base/src/base.php"; // dependent on installation method, see below
 
 function __autoload( $className )
@@ -7,42 +23,22 @@ function __autoload( $className )
         ezcBase::autoload( $className );
 }
 
-ezcBase::addClassRepository( './lib','./lib/autoloads'); 
+ezcBase::addClassRepository( './','./lib/autoloads'); 
+erLhcoreClassSystem::init();
 
 // your code here
 ezcBaseInit::setCallback(
  'ezcInitDatabaseInstance',
- 'erDbClassLazyDatabaseConfiguration'
+ 'erLhcoreClassLazyDatabaseConfiguration'
 );
-  
-erLhcoreClassSystem::init();
 
+$Result = erLhcoreClassModule::moduleInit();
 
-$url = erLhcoreClassURL::getInstance();
-
-if (!is_null($url->getParam( 'module' )) && file_exists('modules/lh'.$url->getParam( 'module' ).'/module.php')){
-    $ModuleToRun = $url->getParam( 'module' );
-    $ViewToRun = $url->getParam( 'function' );
-	include_once('modules/lh'.$url->getParam( 'module' ).'/module.php');	
-} else {	
-	/*First page search results*/
-	$ModuleToRun = 'front';
-	$ViewToRun = 'default';
-	include_once('modules/lhfront/module.php');	
-}
-      
-$Result = erLhcoreClassModule::runModule($ViewList,$FunctionList);
-
-$cfg = erConfigClassLhConfig::getInstance();
-
-ob_start();
+$tpl = erLhcoreClassTemplate::getInstance('pagelayouts/main.php');
+$tpl->set('Result',$Result);
 if (isset($Result['pagelayout']))
 {
-	include_once('design/'. $cfg->conf->getSetting( 'site', 'theme' ) .'/tpl/pagelayouts/'.$Result['pagelayout'].'.php');
+	$tpl->setFile('pagelayouts/'.$Result['pagelayout'].'.php');
 }
-else	
-	include_once('design/'. $cfg->conf->getSetting( 'site', 'theme' ) .'/tpl/pagelayouts/main.php');	
-ob_end_flush();
 
-
-?>
+echo $tpl->fetch();

@@ -5,9 +5,9 @@
     <td id="messages">
         <div class="msgBlock" id="messagesBlock"><?php foreach (erLhcoreClassChat::getChatMessages($chat_id) as $msg ) : ?>         
             <?php if ($msg['user_id'] == 0) { ?>
-            	<div class="message-row"><div class="msg-date"><?php echo date('Y-m-d H:i',$msg['time']);?></div><span class="usr-tit"><?php echo $chat->nick;?>:</span> <?php echo htmlspecialchars($msg['msg']);?></div>
+            	<div class="message-row"><div class="msg-date"><?php echo date('Y-m-d H:i:s',$msg['time']);?></div><span class="usr-tit"><?php echo $chat->nick;?>:</span> <?php echo htmlspecialchars($msg['msg']);?></div>
             <?php } else { ?>
-                <div class="message-row response"><div class="msg-date"><?php echo date('Y-m-d H:i',$msg['time']);?></div><span class="usr-tit"><?php echo $msg['name_support']?>:</span> <?php echo htmlspecialchars($msg['msg']);?></div>
+                <div class="message-row response"><div class="msg-date"><?php echo date('Y-m-d H:i:s',$msg['time']);?></div><span class="usr-tit"><?php echo $msg['name_support']?>:</span> <?php echo htmlspecialchars($msg['msg']);?></div>
             <?php } ?>  
          <?php endforeach; ?></div>
     </td>

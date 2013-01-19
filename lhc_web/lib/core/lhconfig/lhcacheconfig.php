@@ -7,18 +7,30 @@ class erConfigClassLhCacheConfig
     
     private $expireOptions = array('translationfile','accessfile');
     private $sessionExpireOptions = array('access_array','lhCacheUserDepartaments');
+
     
     public function __construct()
+    {      
+        $this->conf = include('cache/cacheconfig/settings.ini.php');        
+    }
+    
+    public function getSetting($section, $key)
     {
-        $sys = erLhcoreClassSystem::instance()->SiteDir;
-        
-        $ini = new ezcConfigurationArrayReader($sys . '/cache/cacheconfig/settings.ini.php' );
-        if ( $ini->configExists() )
-        {
-            $this->conf = $ini->load();
+        if (isset($this->conf['settings'][$section][$key])) {
+            return $this->conf['settings'][$section][$key];
         } else {
-           
-        }
+            throw new Exception('Setting with section {'.$section.'} value {'.$key.'}');
+        }        
+    }
+    
+    public function hasSetting($section, $key)
+    {
+        return isset($this->conf['settings'][$section][$key]);
+    }
+    
+    public function setSetting($section, $key, $value)
+    {
+        $this->conf['settings'][$section][$key] = $value;
     }
     
     public static function getInstance()  
@@ -31,19 +43,15 @@ class erConfigClassLhCacheConfig
     }
     
     public function save()
-    {
-        $sys = erLhcoreClassSystem::instance()->SiteDir;    
-            
-        $writer = new ezcConfigurationArrayWriter($sys . 'cache/cacheconfig/settings.ini.php');        
-        $writer->setConfig( $this->conf );
-        $writer->save();
+    {   
+        file_put_contents('cache/cacheconfig/settings.ini.php',"<?php\n return ".var_export($this->conf,true).";\n?>");
     }
     
     public function expireCache()
     {
         foreach ($this->expireOptions as $option)
         {
-            $this->conf->setSetting( 'cachetimestamps', $option, 0);
+            $this->setSetting( 'cachetimestamps', $option, 0);
         }  
         
         foreach ($this->sessionExpireOptions as $option)
@@ -51,6 +59,22 @@ class erConfigClassLhCacheConfig
             if (isset($_SESSION[$option])) unset($_SESSION[$option]);
         }
         
+        $compiledModules = ezcBaseFile::findRecursive( 'cache/cacheconfig',array( '@\.cache@' ) );        
+        foreach ($compiledModules as $compiledClass)
+		{
+		    unlink($compiledClass);
+		}
+				
+		$compiledTemplates = ezcBaseFile::findRecursive( 'cache/compiledtemplates',array( '@(\.php|\.js|\.css)@' ) );
+		
+		foreach ($compiledTemplates as $compiledTemplate)
+		{
+			unlink($compiledTemplate);
+		}		
+		
+		$instance = CSCacheAPC::getMem(); 
+		$instance->increaseImageManipulationCache();
+						
         $this->save();       
     }
     

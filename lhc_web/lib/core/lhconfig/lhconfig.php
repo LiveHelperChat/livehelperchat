@@ -7,15 +7,45 @@ class erConfigClassLhConfig
     
     public function __construct()
     {
-        $sys = erLhcoreClassSystem::instance()->SiteDir;
-        
-        $ini = new ezcConfigurationArrayReader($sys . '/settings/settings.ini.php' );
-        if ( $ini->configExists() )
-        {
-            $this->conf = $ini->load();
+         $this->conf = include('settings/settings.ini.php');        
+    }
+    
+    public function getSetting($section, $key)
+    {
+        if (isset($this->conf['settings'][$section][$key])) {
+            return $this->conf['settings'][$section][$key];
         } else {
-           
-        }
+            throw new Exception('Setting with section {'.$section.'} value {'.$key.'}');
+        }        
+    }
+    
+    public function hasSetting($section, $key)
+    {
+        return isset($this->conf['settings'][$section][$key]);
+    }
+    
+    public function setSetting($section, $key, $value)
+    {
+        $this->conf['settings'][$section][$key] = $value;
+    }
+    
+    /**
+     * This function should be used then value can be override by siteAccess
+     * 
+     * */
+    public function getOverrideValue($section, $key)
+    {
+        $value = null;
+        
+        if ($this->hasSetting($section,$key))
+        $value = $this->getSetting( $section, $key );
+                
+        $valueOverride = $this->getSetting('site_access_options',erLhcoreClassSystem::instance()->SiteAccess);
+        
+        if (key_exists($key,$valueOverride))  
+              return $valueOverride[$key];
+              
+        return $value;
     }
     
     public static function getInstance()  
@@ -29,13 +59,8 @@ class erConfigClassLhConfig
     
     public function save()
     {
-        $sys = erLhcoreClassSystem::instance()->SiteDir;    
-            
-        $writer = new ezcConfigurationArrayWriter($sys . 'settings/settings.ini.php');        
-        $writer->setConfig( $this->conf );
-        $writer->save();
-    }
-    
+        file_put_contents('settings/settings.ini.php',"<?php\n return ".var_export($this->conf,true).";\n?>");
+    }    
 }
 
 

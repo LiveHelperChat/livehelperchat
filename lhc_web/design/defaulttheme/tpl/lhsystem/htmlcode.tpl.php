@@ -2,7 +2,7 @@
 <p>
 <select id="LocaleID" class="default-select">
     <?php foreach ($locales as $locale ) : ?>
-    <option value="<?php echo substr($locale,0,2)?>"><?php echo $locale?></option>
+    <option value="<?php echo $locale?>"><?php echo $locale?></option>
     <?php endforeach; ?>    
 </select>
 </p>
@@ -14,8 +14,8 @@
 <script type="text/javascript">
 
 $('#LocaleID').change(function(){    
-    $('#HMLTContent').html('&lt;script type=&quot;text/javascript&quot; src=&quot;http://<?php echo $_SERVER['HTTP_HOST'].erLhcoreClassSystem::instance()->WWWDir?>/index.php/'+$(this).val()+'/chat/getstatus'+'&quot;&gt;&lt;/script&gt;');
+    $('#HMLTContent').html('&lt;script type=&quot;text/javascript&quot; src=&quot;http://<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+$(this).val()+'/chat/getstatus'+'&quot;&gt;&lt;/script&gt;');
 });
 
-$('#HMLTContent').html('&lt;script type=&quot;text/javascript&quot; src=&quot;http://<?php echo $_SERVER['HTTP_HOST'].erLhcoreClassSystem::instance()->WWWDir?>/index.php/'+$('#LocaleID').val()+'/chat/getstatus'+'&quot;&gt;&lt;/script&gt;');
+$('#HMLTContent').html('&lt;script type=&quot;text/javascript&quot; src=&quot;http://<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+$('#LocaleID').val()+'/chat/getstatus'+'&quot;&gt;&lt;/script&gt;');
 </script>

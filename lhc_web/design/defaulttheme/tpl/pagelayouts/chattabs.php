@@ -5,7 +5,7 @@
 <head>
 
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head.tpl.php'));?>
-<link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::design('css/chat.css');?>" /> 
+<link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::designCSS('css/chat.css');?>" /> 
 
 <script type="text/javascript">
 /** Reset pointer from parent window **/
@@ -14,30 +14,19 @@ function ChatUnload()
                 window.opener.lhinst.deleteChatNewWindow();
 }
 </script>
-
-<!--[if IE 6]>
-<link rel="stylesheet" type="text/css" href="/iefixes.css" />
-<![endif]-->
 </head>
 <body onunload="ChatUnload()">
-
 <div id="container" class="no-left-column no-right-column">
 
 	<div id="bodcont" class="float-break">			
 		<div id="middcont">
 			<div id="mainartcont">
-			 <div style="padding:2px">
-			<?					
-			     echo $Result['content'];		
-			?>			
-			</div>
+			<?php echo $Result['content']; ?>			
 			</div>
 		</div>		
 	</div>
-	
-<?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_footer.tpl.php'));?>
 
-	
+<?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_footer.tpl.php'));?>
 </div>
 
 </body>

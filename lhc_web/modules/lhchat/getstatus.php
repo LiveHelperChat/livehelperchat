@@ -1,7 +1,5 @@
 <?php
 
-
-$tpl = new erLhcoreClassTemplate('lhchat/getstatus.tpl.php');
+$tpl = erLhcoreClassTemplate::getInstance('lhchat/getstatus.tpl.php');
 echo $tpl->fetch();
 exit;
-?>

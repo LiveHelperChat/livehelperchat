@@ -38,9 +38,9 @@
             <?php 
             $LastMessageID = $msg['id'];            
             if ($msg['user_id'] != 0) { ?>
-            	<div class="message-row"><div class="msg-date"><?php echo date('Y-m-d H:i',$msg['time']);?></div><span class="usr-tit"><?php echo htmlspecialchars($msg['name_support']);?>:</span> <?php echo htmlspecialchars($msg['msg']);?></div>
+            	<div class="message-row"><div class="msg-date"><?php echo date('Y-m-d H:i:s',$msg['time']);?></div><span class="usr-tit"><?php echo htmlspecialchars($msg['name_support']);?>:</span> <?php echo htmlspecialchars($msg['msg']);?></div>
             <?php } else { ?>
-                <div class="message-row response"><div class="msg-date"><?php echo date('Y-m-d H:i',$msg['time']);?></div><span class="usr-tit"><?php echo htmlspecialchars($chat->nick)?>:</span> <?php echo htmlspecialchars($msg['msg']);?></div>
+                <div class="message-row response"><div class="msg-date"><?php echo date('Y-m-d H:i:s',$msg['time']);?></div><span class="usr-tit"><?php echo htmlspecialchars($chat->nick)?>:</span> <?php echo htmlspecialchars($msg['msg']);?></div>
             <?php } ?>  
          <?php endforeach; ?>
          </div>

@@ -26,7 +26,7 @@ if (isset($_POST['Forgotpassword'])) {
 						
 			$host = $_SERVER['HTTP_HOST'];	
 			
-			$adminEmail = erConfigClassLhConfig::getInstance()->conf->getSetting( 'site', 'site_admin_email' );		
+			$adminEmail = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'site_admin_email' );		
 						
 			$UserData = erLhcoreClassUser::getSession()->load( 'erLhcoreClassModelUser', $userID );
 						
@@ -37,7 +37,7 @@ if (isset($_POST['Forgotpassword'])) {
 			$mail = new PHPMailer();
 			$mail->CharSet = "UTF-8";
 			$mail->From = $adminEmail;
-			$mail->FromName = erConfigClassLhConfig::getInstance()->conf->getSetting( 'site', 'title' );
+			$mail->FromName = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'title' );
 			$mail->Subject = erTranslationClassLhTranslation::getInstance()->getTranslation('user/forgotpassword','Password remind');
 		
 			// HTML body

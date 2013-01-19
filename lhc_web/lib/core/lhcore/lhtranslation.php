@@ -21,10 +21,10 @@ class erTranslationClassLhTranslation
         {        
             $this->translationFileModifyTime = filemtime($sys . '/translations/' . $this->languageCode . '/translation.xml');
             
-            if ($cfg->conf->getSetting( 'cachetimestamps', 'translationfile' ) != $this->translationFileModifyTime)
+            if ($cfg->getSetting( 'cachetimestamps', 'translationfile' ) != $this->translationFileModifyTime)
             {
                 $this->updateCache();
-                $cfg->conf->setSetting( 'cachetimestamps', 'translationfile', $this->translationFileModifyTime);
+                $cfg->setSetting( 'cachetimestamps', 'translationfile', $this->translationFileModifyTime);
                 $cfg->save();
             }
             

@@ -353,8 +353,8 @@ function lh(){
 	    	
 	    if (Modernizr.audio) {    
     	    var audio = new Audio();            
-            audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + 'sound/new_message.ogg' :
-                        Modernizr.audio.mp3 ? WWW_DIR_JAVASCRIPT_FILES + 'sound/new_message.mp3' : WWW_DIR_JAVASCRIPT_FILES + 'sound/new_message.wav';
+            audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + '/new_message.ogg' :
+                        Modernizr.audio.mp3 ? WWW_DIR_JAVASCRIPT_FILES + '/new_message.mp3' : WWW_DIR_JAVASCRIPT_FILES + '/new_message.wav';
             
             audio.load();
             audio.play();
@@ -439,8 +439,8 @@ function lh(){
 	    if (identifier == 'pending_chat') {
 	        if (Modernizr.audio) {    
         	    var audio = new Audio();            
-                audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + 'sound/new_chat.ogg' :
-                            Modernizr.audio.mp3 ? WWW_DIR_JAVASCRIPT_FILES + 'sound/new_chat.mp3' : WWW_DIR_JAVASCRIPT_FILES + 'sound/new_chat.wav';
+                audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + '/new_chat.ogg' :
+                            Modernizr.audio.mp3 ? WWW_DIR_JAVASCRIPT_FILES + '/new_chat.mp3' : WWW_DIR_JAVASCRIPT_FILES + '/new_chat.wav';
                 
                 audio.load();
                 audio.play();

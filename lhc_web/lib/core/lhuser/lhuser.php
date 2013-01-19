@@ -40,13 +40,11 @@ class erLhcoreClassUser{
    }
    
    function authenticate($username,$password)
-   {
-//       if ($this->authenticated) return true;
-       
+   {       
        $this->session->destroy();
        
        $cfgSite = erConfigClassLhConfig::getInstance();
-	   $secretHash = $cfgSite->conf->getSetting( 'site', 'secrethash' );
+	   $secretHash = $cfgSite->getSetting( 'site', 'secrethash' );
        
        $this->credentials = new ezcAuthenticationPasswordCredentials( $username, sha1($password.$secretHash.sha1($password)) );
        $database = new ezcAuthenticationDatabaseInfo( ezcDbInstance::get(), 'lh_users', array( 'username', 'password' ) );
@@ -171,7 +169,7 @@ class erLhcoreClassUser{
        
        $cfg = erConfigClassLhCacheConfig::getInstance();
               
-       $AccessTimestamp = $cfg->conf->getSetting( 'cachetimestamps', 'accessfile' );
+       $AccessTimestamp = $cfg->getSetting( 'cachetimestamps', 'accessfile' );
        $CheckExpire = false;
            
        if ( ( $data = $cache->restore( $id ) ) === false || $AccessTimestamp < time() )       
@@ -184,7 +182,7 @@ class erLhcoreClassUser{
             if ($AccessTimestamp < time() )
             {
                 $AccessTimestamp = time() + 60*60*24*1;                
-                $cfg->conf->setSetting( 'cachetimestamps', 'accessfile', $AccessTimestamp );
+                $cfg->setSetting( 'cachetimestamps', 'accessfile', $AccessTimestamp );
                 $cfg->save();
                 $data['access_timestamp'] = $AccessTimestamp;
             }

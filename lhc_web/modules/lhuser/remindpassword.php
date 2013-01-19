@@ -21,12 +21,12 @@ if ($hash != '') {
 				
 			erLhcoreClassUser::getSession()->update($UserData);
 							
-			$adminEmail = erConfigClassLhConfig::getInstance()->conf->getSetting( 'site', 'site_admin_email' );
+			$adminEmail = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'site_admin_email' );
 				
 			$mail = new PHPMailer();
 			$mail->CharSet = "UTF-8";
 			$mail->From = $adminEmail;
-			$mail->FromName = erConfigClassLhConfig::getInstance()->conf->getSetting( 'site', 'title' );
+			$mail->FromName = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'title' );
 			$mail->Subject = erTranslationClassLhTranslation::getInstance()->getTranslation('user/remindpassword','Password remind - new password');
 	
 			// HTML body

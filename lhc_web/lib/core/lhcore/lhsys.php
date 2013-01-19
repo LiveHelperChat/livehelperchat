@@ -1,166 +1,341 @@
 <?php
 
-class erLhcoreClassSystem{
+class CSCacheAPC {
+
+    static private $m_objMem = NULL;
+    public $cacheEngine = null;
+    public $cacheGlobalKey = null;
+
+    public $cacheKeys = array(
+    'site_version'             // Global site version   
+    );
     
+    public function increaseImageManipulationCache()
+    {     
+        $this->increaseCacheVersion('site_version');            
+    }
     
-    static function instance()
+    function setSession($identifier,$value)
     {
-        if ( empty( $GLOBALS['LhSysInstance'] ) )
+    	$_SESSION[$identifier] = $value;
+    }
+    
+    function getSession($identifier) {
+    
+    	if (isset($_SESSION[$identifier])){
+    		return $_SESSION[$identifier];
+    	}
+    
+    	return false;
+    }
+    
+    function __construct() {  
+              
+        $cacheEngineClassName = erConfigClassLhConfig::getInstance()->getSetting( 'cacheEngine', 'className' );        
+        $this->cacheGlobalKey = erConfigClassLhConfig::getInstance()->getSetting( 'cacheEngine', 'cache_global_key' );
+                    
+        if ($cacheEngineClassName !== false)
         {
-            $GLOBALS['LhSysInstance'] = new erLhcoreClassSystem();
+            $this->cacheEngine = new $cacheEngineClassName();
         }
-        return $GLOBALS['LhSysInstance'];
+    }
+         
+    function __destruct() {
+        
+    }
+    
+    static function getMem() {
+        if (self::$m_objMem == NULL) {
+            self::$m_objMem = new CSCacheAPC();
+        }
+        return self::$m_objMem;
+    }
+
+    function delete($key) {
+        if (isset($GLOBALS[$key])) unset($GLOBALS[$key]);
+        
+        if ( $this->cacheEngine != null )
+        {
+            $this->cacheEngine->set($this->cacheGlobalKey.$key,false,0);
+        }
+    }
+
+    function restore($key) {
+        
+        if (isset($GLOBALS[$key]) && $GLOBALS[$key] !== false) return $GLOBALS[$key];
+
+        if ( $this->cacheEngine != null )
+        {       
+            $GLOBALS[$key] = $this->cacheEngine->get($this->cacheGlobalKey.$key);
+        } else {
+            $GLOBALS[$key] = false;
+        }
+               
+        return $GLOBALS[$key];
+    }
+
+    function getCacheVersion($cacheVariable, $valuedefault = 1, $ttl = 0)
+    {
+        
+        if (isset($GLOBALS['CacheKeyVersion_'.$cacheVariable])) return $GLOBALS['CacheKeyVersion_'.$cacheVariable];
+        
+        if ( $this->cacheEngine != null )
+        {
+            if (($version = $this->cacheEngine->get($this->cacheGlobalKey.$cacheVariable)) == false){
+                $version = $valuedefault;
+                $this->cacheEngine->set($this->cacheGlobalKey.$cacheVariable,$version,0,$ttl);
+                $GLOBALS['CacheKeyVersion_'.$cacheVariable] = $valuedefault;
+            } else $GLOBALS['CacheKeyVersion_'.$cacheVariable] = $version;
+            
+        } else {
+            $version = $valuedefault;
+            $GLOBALS['CacheKeyVersion_'.$cacheVariable] = $valuedefault;
+        }
+        
+        return $version;        
+    }
+    
+    function increaseCacheVersion($cacheVariable, $valuedefault = 1, $ttl = 0)
+    {
+        if ( $this->cacheEngine != null )
+        {
+            if (($version = $this->cacheEngine->get($this->cacheGlobalKey.$cacheVariable)) == false) {
+                 $this->cacheEngine->set($this->cacheGlobalKey.$cacheVariable,$valuedefault,0,$ttl);
+                 $GLOBALS['CacheKeyVersion_'.$cacheVariable] = $valuedefault;
+            } else {$this->cacheEngine->increment($this->cacheGlobalKey.$cacheVariable,$version+1);$GLOBALS['CacheKeyVersion_'.$cacheVariable] = $version+1;}
+            
+        } else {
+            $GLOBALS['CacheKeyVersion_'.$cacheVariable] = $valuedefault;
+        }        
+    }
+    
+    function store($key, $value, $ttl = 720000) {        
+        if ( $this->cacheEngine != null )
+        {
+            $GLOBALS[$key] = $value;
+            $this->cacheEngine->set($this->cacheGlobalKey.$key,$value,0,$ttl);
+        } else {
+           $GLOBALS[$key] = $value; 
+        }
+    }      
+}
+
+class erLhcoreClassSystem{
+        
+    protected $Params;
+    
+    public function __construct(){        
+        $this->Params = array(
+            'PHP_OS' => PHP_OS,
+            'DIRECTORY_SEPARATOR' => DIRECTORY_SEPARATOR,
+            'PATH_SEPARATOR' => PATH_SEPARATOR,
+            '_SERVER' => $_SERVER,
+        );
+
+        if ( isset( $this->Params['_SERVER']['REQUEST_TIME'] ) )
+        {
+            // REQUEST_TIME is a float and includes microseconds in PHP > 5.4.0
+            // It should be casted to int in order to keep BC
+            $this->Params['_SERVER']['REQUEST_TIME'] = (int)$this->Params['_SERVER']['REQUEST_TIME'];
+        }
+
+        $this->Attributes = array( 'magickQuotes' => true,
+                                   'hostname'     => true );
+        $this->FileSeparator = $this->Params['DIRECTORY_SEPARATOR'];
+        $this->EnvSeparator  = $this->Params['PATH_SEPARATOR'];
+
+        // Determine OS specific settings
+        if ( $this->Params['PHP_OS'] === 'WINNT' )
+        {
+            $this->OSType = "win32";
+            $this->OS = "windows";
+            $this->FileSystemType = "win32";
+            $this->LineSeparator = "\r\n";
+            $this->ShellEscapeCharacter = '"';
+            $this->BackupFilename = '.bak';
+        }
+        else
+        {
+            $this->OSType = 'unix';
+            if ( $this->Params['PHP_OS'] === 'Linux' )
+            {
+                $this->OS = 'linux';
+            }
+            else if ( $this->Params['PHP_OS'] === 'FreeBSD' )
+            {
+                $this->OS = 'freebsd';
+            }
+            else if ( $this->Params['PHP_OS'] === 'Darwin' )
+            {
+                $this->OS = 'darwin';
+            }
+            else
+            {
+                $this->OS = false;
+            }
+            $this->FileSystemType = "unix";
+            $this->LineSeparator = "\n";
+            $this->ShellEscapeCharacter = "'";
+            $this->BackupFilename = '~';
+        }
     }
     
     
-    static function init()
+    public static function instance()  
     {
-		$index = "index.php";
-		$def_index = '';
-       
+        if ( is_null( self::$instance ) )
+        {          
+            self::$instance = new erLhcoreClassSystem();            
+        }
+        return self::$instance;
+    }
+    
+    
+    /**
+     * Generate wwwdir from phpSelf if valid accoring to scriptFileName
+     * and return null if invalid and false if there is no index in phpSelf
+     *
+     * @param string $phpSelf
+     * @param string $scriptFileName
+     * @param string $index
+     * @return string|null|false String in form 'path/path2' if valid, null if not
+     *                           and false if $index is not  part of phpself
+     */
+    protected static function getValidwwwDir( $phpSelf, $scriptFileName, $index )
+    {
+        if ( !isset( $phpSelf[1] ) || strpos( $phpSelf, $index ) === false )
+            return false;
+
+        // validate $index straight away
+        if ( strpos( $scriptFileName, $index ) === false )
+            return null;
+
+        // optimize '/index.php' pattern
+        if ( $phpSelf === "/{$index}" )
+            return '';
+
+        $phpSelfParts = explode( $index, $phpSelf );
+        $validateDir = $phpSelfParts[0];
+        // remove first path if home dir
+        if ( $phpSelf[1] === '~' )
+        {
+            $uri = explode( '/', ltrim( $validateDir, '/' ) );
+            array_shift( $uri );
+            $validateDir = '/' . implode( '/', $uri );
+        }
+
+        // validate direclty with phpself part
+        if ( strpos( $scriptFileName, $validateDir ) !== false )
+            return trim( $phpSelfParts[0], '/' );
+
+        // validate with windows path
+        if ( strpos( $scriptFileName, str_replace( '/', '\\', $validateDir ) ) !== false )
+            return trim( $phpSelfParts[0], '/' );
+
+        return null;
+    }
+    
+    
+    
+    static function init()
+    {    	
+        $index = 'index.php';
+        $forceVirtualHost = null;
+        
         $instance = erLhcoreClassSystem::instance();
        
- 		$isCGI = ( substr( php_sapi_name(), 0, 3 ) == 'cgi' );
-        $force_VirtualHost = false;        
+ 		$instance       = self::instance();
+        $server         = $instance->Params['_SERVER'];
+        $phpSelf        = $server['PHP_SELF'];
+        $requestUri     = $server['REQUEST_URI'];
+        $scriptFileName = $server['SCRIPT_FILENAME'];
+        $siteDir        = rtrim( str_replace( $index, '', $scriptFileName ), '\/' ) . '/';
+        $wwwDir         = '';
+        $IndexFile      = '';
+        $queryString    = '';
 
-        $phpSelf = $_SERVER['PHP_SELF'];
-
-        // Find out, where our files are.
-        if ( preg_match( "!(.*/)$index$!", $_SERVER['SCRIPT_FILENAME'], $regs ) )
+        // see if we can use phpSelf to determin wwwdir
+        $tempwwwDir = self::getValidwwwDir( $phpSelf, $scriptFileName, $index );
+        if ( $tempwwwDir !== null && $tempwwwDir !== false )
         {
-            $siteDir = $regs[1];
-            $index = "/$index";
-        }
-        elseif ( preg_match( "!(.*/)$index/?!", $phpSelf, $regs ) )
-        {
-            // Some people using CGI have their $_SERVER['SCRIPT_FILENAME'] not right... so we are trying this.
-            $siteDir = $_SERVER['DOCUMENT_ROOT'] . $regs[1];
-            $index = "/$index";
-        }
-        else
-        {
-            // Fallback... doesn't work with virtual-hosts, but better than nothing
-            $siteDir = "./";
-            $index = "/$index";
-        }
-        if ( $isCGI and !$force_VirtualHost )
-        {
-            $index .= '?';
-        }
-
-        $scriptName = $_SERVER['SCRIPT_NAME'];
-        // Get the webdir.
-
-        $wwwDir = "";
-
-        if ( $force_VirtualHost )
-        {
-            $wwwDir = "";
-        }
-        else
-        {
-            if ( preg_match( "!(.*)$index$!", $scriptName, $regs ) )
-                $wwwDir = $regs[1];
-            if ( preg_match( "!(.*)$index$!", $phpSelf, $regs ) )
-                $wwwDir = $regs[1];
-        }
-
-        if ( ! $isCGI || $force_VirtualHost )
-        {
-            $requestURI = $_SERVER['REQUEST_URI'];
-        }
-        else
-        {
-            $requestURI = $_SERVER['QUERY_STRING'];
-
-            /* take out PHPSESSID, if url-encoded */
-            if ( preg_match( "/(.*)&PHPSESSID=[^&]+(.*)/", $requestURI, $matches ) )
+            // Force virual host or Auto detect IIS vh mode & Apache .htaccess mode
+            if ( $forceVirtualHost
+              || ( isset( $server['IIS_WasUrlRewritten'] ) && $server['IIS_WasUrlRewritten'] )
+              || ( isset( $server['REDIRECT_URL'] ) && isset( $server['REDIRECT_STATUS'] ) && $server['REDIRECT_STATUS'] == '200' ) )
             {
-                $requestURI = $matches[1].$matches[2];
-            }
-        }
-
-        // Fallback... Finding the paths above failed, so $_SERVER['PHP_SELF'] is not set right.
-        if ( $siteDir == "./" )
-            $phpSelf = $requestURI;
-
-        if ( ! $isCGI )
-        {
-            $index_reg = str_replace( ".", "\\.", $index );
-            // Trick: Rewrite setup doesn't have index.php in $_SERVER['PHP_SELF'], so we don't want an $index
-            if ( !preg_match( "!.*$index_reg.*!", $phpSelf ) || $force_VirtualHost )
-            {
-                $index = "";
-            }
-            else
-            {                
-                // Get the right $_SERVER['REQUEST_URI'], when using nVH setup.
-                if ( preg_match( "!^$wwwDir$index(.*)!", $phpSelf, $req ) )
+                if ( $tempwwwDir )
                 {
-                    if ( !$req[1] )
+                    $wwwDir = '/' . $tempwwwDir;
+                    $wwwDirPos = strpos( $requestUri, $wwwDir );
+                    if ( $wwwDirPos !== false )
                     {
-                        if ( $phpSelf != "$wwwDir$index" and preg_match( "!^$wwwDir(.*)!", $requestURI, $req ) )
-                        {
-                            $requestURI = $req[1];
-                            $index = '';
-                        }
-                        elseif ( $phpSelf == "$wwwDir$index" and
-                               ( preg_match( "!^$wwwDir$index(.*)!", $requestURI, $req ) or preg_match( "!^$wwwDir(.*)!", $requestURI, $req ) ) )
-                        {
-                            $requestURI = $req[1];
-                        }
+                        $requestUri = substr( $requestUri, $wwwDirPos + strlen($wwwDir) );
                     }
-                    else
+                }
+            }
+            else // Non virtual host mode, use $tempwwwDir to figgure out paths
+            {
+                $indexDir = $index;
+                if ( $tempwwwDir )
+                {
+                    $wwwDir  = '/' . $tempwwwDir;
+                    $indexDir = $wwwDir . '/' . $indexDir;
+                }
+                $IndexFile = '/' . $index;
+
+                // remove sub path from requestUri
+                $indexDirPos = strpos( $requestUri, $indexDir );
+                if ( $indexDirPos !== false )
+                {
+                    $requestUri = substr( $requestUri, $indexDirPos + strlen($indexDir) );
+                }
+                elseif ( $wwwDir )
+                {
+                    $wwwDirPos = strpos( $requestUri, $wwwDir );
+                    if ( $wwwDirPos !== false )
                     {
-                        $requestURI = $req[1];
+                        $requestUri = substr( $requestUri, $wwwDirPos + strlen($wwwDir) );
                     }
                 }
             }
         }
-        if ( $isCGI and $force_VirtualHost )
-            $index = '';
-        // Remove url parameters
-        if ( $isCGI and !$force_VirtualHost )
+
+        // remove url and hash parameters
+        if ( isset( $requestUri[1] ) && $requestUri !== '/'  )
         {
-            $pattern = "!(\/[^&]+)!";
+            $uriGetPos = strpos( $requestUri, '?' );
+            if ( $uriGetPos !== false )
+            {
+                $queryString = substr( $requestUri, $uriGetPos );
+                if ( $uriGetPos === 0 )
+                    $requestUri = '';
+                else
+                    $requestUri = substr( $requestUri, 0, $uriGetPos );
+            }
+
+            $uriHashPos = strpos( $requestUri, '#' );
+            if ( $uriHashPos === 0 )
+                $requestUri = '';
+            elseif ( $uriHashPos !== false )
+                $requestUri = substr( $requestUri, 0, $uriHashPos );
+        }
+
+        // normalize slash use and url decode url if needed
+        if ( $requestUri === '/' || $requestUri === '' )
+        {
+            $requestUri = '';
         }
         else
         {
-            $pattern = "!([^?]+)!";
-        }
-        if ( preg_match( $pattern, $requestURI, $regs ) )
-        {
-            $requestURI = $regs[1];
+            $requestUri = '/' . urldecode( trim( $requestUri, '/ ' ) );
         }
 
-        // Remove internal links
-        if ( preg_match( "!([^#]+)!", $requestURI, $regs ) )
-        {
-            $requestURI = $regs[1];
-        }
-
-        if ( !$isCGI )
-        {
-            $currentPath = substr( $_SERVER['SCRIPT_FILENAME'] , 0, -strlen( 'index.php' ) );
-            if ( strpos( $currentPath, $_SERVER['DOCUMENT_ROOT']  ) === 0 )
-            {
-                $prependRequest = substr( $currentPath, strlen( $_SERVER['DOCUMENT_ROOT'] ) );
-
-                if ( strpos( $requestURI, $prependRequest ) === 0 )
-                {
-                    $requestURI = substr( $requestURI, strlen( $prependRequest ) - 1 );
-                    $wwwDir = substr( $prependRequest, 0, -1 );
-                }
-            }
-        }
-
-    
-        $instance->SiteDir = $siteDir;
-        $instance->WWWDir = $wwwDir;
+        $instance->SiteDir    = $siteDir;
+        $instance->WWWDir     = $wwwDir;
+        $instance->IndexFile  = $IndexFile;
+        $instance->RequestURI = $requestUri;
+        $instance->QueryString = $queryString;        
         $instance->WWWDirLang = '';
-        $instance->IndexFile = $index;
-        $instance->RequestURI = $requestURI;        
-        
     }
 
     function wwwDir()
@@ -185,8 +360,19 @@ class erLhcoreClassSystem{
     
     /// Current language
     public $Language;
-    public $LanguageShortname;
-
+    
+    // Content language
+    public $ContentLanguage;
+    
+    /// Theme site
+    public $ThemeSite;
+    
+    public $SiteAccess;
+        
+    public $MobileDevice = false;
+    
+    private static $instance = null;
+        
 }
 
 

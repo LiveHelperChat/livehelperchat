@@ -4,7 +4,7 @@ $tpl = new erLhcoreClassTemplate( 'lhsystem/htmlcode.tpl.php');
 
 $cfgSite = erConfigClassLhConfig::getInstance(); 
  
-$tpl->set('locales',$cfgSite->conf->getSetting( 'site', 'available_locales' ));
+$tpl->set('locales',$cfgSite->getSetting( 'site', 'available_site_access' ));
 
 $Result['content'] = $tpl->fetch();
 

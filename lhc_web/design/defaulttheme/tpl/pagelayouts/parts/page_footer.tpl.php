@@ -3,3 +3,8 @@
 	<div class="creator"><a href="mailto:remdex@gmail.com">Contact</a></div>
 	<div class="clearer"></div>
 </div>
+
+<?php if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true) {
+		$debug = ezcDebug::getInstance(); 
+		echo $debug->generateOutput(); 
+} ?>
