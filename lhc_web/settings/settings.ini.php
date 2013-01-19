@@ -15,6 +15,10 @@ return array (
       'templatecompile' => false,
       'modulecompile' => false,      
       'default_site_access' => 'eng',
+      'extensions' => 
+          array (
+            // 0 => 'customstatus',
+      ),
       'available_site_access' => 
       array (
         0 => 'eng',
@@ -26,11 +30,7 @@ return array (
     array (
       'module' => 'chat',
       'view' => 'startchat',
-    ),
-    'extensions' => 
-      array (
-        // 0 => 'customstatus',
-    ),
+    ),    
     'db' => 
     array (
       'host' => '',
