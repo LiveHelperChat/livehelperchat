@@ -1,0 +1,1 @@
+In this folder you can create your own overides of templates.
