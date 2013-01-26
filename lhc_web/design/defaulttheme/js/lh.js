@@ -272,7 +272,7 @@ function lh(){
 	
 	this.startChatNewWindow = function(chat_id,name)
 	{    	   
-	    window.open(this.wwwDir + 'chat/single/'+chat_id,'chatwindow'+name+chat_id,"menubar=1,resizable=1,width=600,height=420"); 
+	    window.open(this.wwwDir + 'chat/single/'+chat_id,'chatwindow'+name+chat_id,"menubar=1,resizable=1,width=600,height=430"); 
 	    this.syncadmininterfacestatic();    
         return false;          
 	}
