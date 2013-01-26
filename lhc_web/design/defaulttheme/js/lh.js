@@ -419,15 +419,15 @@ function lh(){
 	        {	 
                 $.each(data.result,function(i,item) {	                    
                     if (item.content != '') { $(item.dom_id).html(item.content); }  
-                    
-                    if ( item.last_id_identifier ) {                                                
-                        if (!inst.trackLastIDS[item.last_id_identifier] ) {
+                     
+                    if ( item.last_id_identifier ) {            
+                        if (inst.trackLastIDS[item.last_id_identifier] == undefined ) {
+                            inst.trackLastIDS[item.last_id_identifier] = parseInt(item.last_id);                    
+                        } else if (inst.trackLastIDS[item.last_id_identifier] < parseInt(item.last_id)) {                            
                             inst.trackLastIDS[item.last_id_identifier] = parseInt(item.last_id);
-                        } else if (inst.trackLastIDS[item.last_id_identifier] < item.last_id) {
-                            inst.trackLastIDS[item.last_id_identifier] = parseInt(item.last_id);
-                            inst.playSoundNewAction(item.last_id_identifier);
+                            inst.playSoundNewAction(item.last_id_identifier);                           
                         }                    
-                    }           
+                    };           
                 });
 	              			     	
     			setTimeout(chatsyncadmininterface,10000);	
