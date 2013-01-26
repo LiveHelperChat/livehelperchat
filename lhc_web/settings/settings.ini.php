@@ -30,7 +30,15 @@ return array (
     array (
       'module' => 'chat',
       'view' => 'startchat',
-    ),    
+    ),  
+    'chat' => array(
+        'online_timeout' => 300,
+        'back_office_sinterval' => 10,
+        'chat_message_sinterval' => 3.5,
+        'new_chat_sound_enabled' => true,
+        'new_message_sound_admin_enabled' => true,
+        'new_message_sound_user_enabled' => true,
+    ),  
     'db' => 
     array (
       'host' => '',

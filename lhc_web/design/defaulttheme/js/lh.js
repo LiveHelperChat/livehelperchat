@@ -150,12 +150,14 @@ function lh(){
                 			$('#messagesBlock').append(data.result);    			
                 			$('#messagesBlock').animate({ scrollTop: $('#messagesBlock').prop('scrollHeight') }, 3000);  
                 			
-                			inst.playNewMessageSound();                            
+                			if ( confLH.new_message_sound_user_enabled == 1 ) {
+                			     inst.playNewMessageSound(); 
+                			};
     	                
     	            } else {
     	                if ( data.status != 'true') $('#status-chat').html(data.status);  
     	            }  			     	
-        			setTimeout(chatsyncuser,3500);	
+        			setTimeout(chatsyncuser,confLH.chat_message_sinterval);	
 	           } else {
 	               $('#status-chat').html(data.status);  
 	           }
@@ -340,7 +342,7 @@ function lh(){
 	                   $('#status-chat').html(data.result); 
 	               }
 	               
-	               setTimeout(chatsyncuserpending,3500);
+	               setTimeout(chatsyncuserpending,confLH.chat_message_sinterval);
 	               
 	            } else {
 	               $('#status-chat').html(data.result); 	               
@@ -384,10 +386,12 @@ function lh(){
         		                  lhinst.updateChatLastMessageID(item.chat_id,item.message_id);       		              
                             });                      
                             
-                            inst.playNewMessageSound();
+                            if ( confLH.new_message_sound_admin_enabled == 1 ) {
+                                inst.playNewMessageSound();
+                            };
                                                        
         	            }  			     	
-            			setTimeout(chatsyncadmin,3500);	
+            			setTimeout(chatsyncadmin,confLH.chat_message_sinterval);	
         	        }
         	        
         	        //Allow another request to send check for messages
@@ -395,7 +399,7 @@ function lh(){
         	        		
             	});
 	        } else {
-	            setTimeout(chatsyncadmin,3500);	
+	            setTimeout(chatsyncadmin,confLH.chat_message_sinterval);	
 	        }
         	
 	    } else {
@@ -430,13 +434,13 @@ function lh(){
                     };           
                 });
 	              			     	
-    			setTimeout(chatsyncadmininterface,10000);	
+    			setTimeout(chatsyncadmininterface,confLH.back_office_sinterval);	
 	        }		
     	});
 	}
 	
 	this.playSoundNewAction = function(identifier) {	    
-	    if (identifier == 'pending_chat') {
+	    if (confLH.new_chat_sound_enabled == 1 && identifier == 'pending_chat') {
 	        if (Modernizr.audio) {    
         	    var audio = new Audio();            
                 audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + '/new_chat.ogg' :

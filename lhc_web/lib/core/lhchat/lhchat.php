@@ -157,8 +157,10 @@ class erLhcoreClassChat {
     
     public static function isOnline()
     {
+       $isOnlineUser = (int)erConfigClassLhConfig::getInstance()->getSetting('chat','online_timeout');
+        
        $db = ezcDbInstance::get();
-       $stmt = $db->prepare('SELECT COUNT(*) AS found FROM lh_users WHERE lastactivity > '.(time()-5*60));
+       $stmt = $db->prepare('SELECT COUNT(*) AS found FROM lh_users WHERE lastactivity > '.(time()-$isOnlineUser));
            
        $stmt->execute();
        $rows = $stmt->fetchAll();  
@@ -169,6 +171,8 @@ class erLhcoreClassChat {
     
     public static function getOnlineUsers($UserID = array())
     {
+       $isOnlineUser = (int)erConfigClassLhConfig::getInstance()->getSetting('chat','online_timeout');
+        
        $db = ezcDbInstance::get();
        $NotUser = '';
        
@@ -177,7 +181,7 @@ class erLhcoreClassChat {
            $NotUser = ' AND lh_users.id NOT IN ('.implode(',',$UserID).')';
        }
        
-       $stmt = $db->prepare('SELECT * FROM lh_users WHERE lastactivity > '.(time()-5*60) .' '.$NotUser);
+       $stmt = $db->prepare('SELECT * FROM lh_users WHERE lastactivity > '.(time()-$isOnlineUser) .' '.$NotUser);
            
        $stmt->execute();
        $rows = $stmt->fetchAll(); 
