@@ -31,7 +31,9 @@ return array_merge(array (
         'erLhcoreClassGroup'       => 'lib/core/lhuser/lhgroup.php',
         'erLhcoreClassChat'        => 'lib/core/lhchat/lhchat.php',
         'erLhcoreClassDepartament' => 'lib/core/lhdepartament/lhdepartament.php',
-        'erLhcoreClassUserDep'     => 'lib/core/lhdepartament/lhuserdep.php',
+        'erLhcoreClassUserDep'      => 'lib/core/lhdepartament/lhuserdep.php',
+        
+        'erLhcoreClassRenderHelper' => 'lib/core/lhcore/lhrenderhelper.php',
         
          // Models
         'erLhcoreClassModelTransfer' => 'lib/models/lhtransfer/erlhcoreclassmodeltransfer.php',

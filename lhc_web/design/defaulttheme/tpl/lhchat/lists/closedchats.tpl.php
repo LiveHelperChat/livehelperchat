@@ -1,5 +1,5 @@
 <?php if (count($chats) > 0) { ?>
-<ul class="chat-ul-list">
+<ul class="disc">
 <?php foreach ($chats as $chat) : ?>
       <li class="chat-row-<?php echo $chat['id'];?>">    		      
            <img class="action-image" align="absmiddle" onclick="lhinst.startChat('<?php echo $chat['id'];?>',$('#tabs'),'<?php echo htmlspecialchars($chat['nick']);?>')" src="<?php echo erLhcoreClassDesign::design('images/icons/add.png');?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Add chat');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Add chat');?>">
@@ -9,7 +9,7 @@
 <?php endforeach; ?>
 </ul>
 <?php } else { ?>
-
+<p>
 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Empty...');?>
-
+</p>
 <?php } ?>

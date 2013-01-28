@@ -1,12 +1,13 @@
 <h1 class="attr-header"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Pending chats list');?></h1> 
 
 <?php if ($pages->items_total > 0) { ?>
-<div class="pagination-info"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats',"Page %currentpage of %totalpage",array('currentpage' => $pages->current_page,'totalpage' => $pages->num_pages))?></div>
 <table class="lentele" cellpadding="0" cellspacing="0" width="100%">
-    <tr>
-        <th width="1%">ID</th>
-        <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Information');?></th>
-    </tr>
+    <thead>
+        <tr>
+            <th width="1%">ID</th>
+            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Information');?></th>
+        </tr>
+    </thead>
     <?php foreach (erLhcoreClassChat::getPendingChats($pages->items_per_page,$pages->low) as $chat) : ?>
     <tr>
         <td><?php echo $chat['id']?></td>
@@ -16,11 +17,13 @@
 	      <?php echo $chat['id'];?>. <?php echo htmlspecialchars($chat['nick']);?> (<?php echo date('Y-m-d H:i:s',$chat['time']);?>) (<?php echo $chat['name'];?>)
         </td>
     </tr>
-    <?php endforeach; ?>
-    <tr>
-        <td colspan="2"><?php echo $pages->display_pages();?></td>
-    </tr>
+    <?php endforeach; ?>    
 </table>
+
+<?php if (isset($pages)) : ?>
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/paginator.tpl.php')); ?>
+<?php endif;?>
+
 <?php } else { ?>
-<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Empty...');?>
+<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Empty...');?></p>
 <?php } ?>

@@ -14,7 +14,7 @@ if (isset($_POST['Update_role']))
 {    
    $definition = array(
         'Name' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::REQUIRED, 'string'
+            ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
         )       
     );
     
@@ -38,7 +38,7 @@ if (isset($_POST['Update_role']))
         return ;
         
     }  else {
-        $tpl->set('errArr',$Errors);
+        $tpl->set('errors',$Errors);
     }
 }
 

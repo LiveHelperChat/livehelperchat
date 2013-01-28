@@ -3,6 +3,21 @@ $.postJSON = function(url, data, callback) {
 	$.post(url, data, callback, "json");
 };
 
+
+$.fn.foundationTabs.addTab = function(tabs, url, name){
+	
+	tabs.find('> dd.active').removeClass("active");
+	$('#tabs-content > li').hide();
+	
+	var nextElement = tabs.find('> dd').size() + 1;		
+	tabs.append('<dd class="active"><a href="#simple'+nextElement+'">'+name+'</a></dd>');	
+	$('#tabs-content').append('<li id="simple'+nextElement+'Tab" style="display:block;"></li>');
+
+	$.get(url, function(data) {
+		  $('#simple'+nextElement+'Tab').html(data);		 
+	});	
+};
+
 function lh(){
 
     this.wwwDir = WWW_DIR_JAVASCRIPT;
@@ -31,7 +46,7 @@ function lh(){
     this.setSynchronizationRequestSend = function(status)
     {
         this.syncroRequestSend = status;
-    }
+    };
     
     this.trackLastIDS = {};
     
@@ -50,42 +65,39 @@ function lh(){
       
     this.setChatID = function (chat_id){
         this.chat_id = chat_id;
-    }
+    };
     
     this.setwwwDir = function (wwwdir){
         this.wwwDir = wwwdir;
-    }
+    };
     
     this.setCloseWindowOnEvent = function (value)
     {
         this.closeWindowOnChatCloseDelete = value;
-    }
+    };
     
     this.setSynchronizationStatus = function(status)
     {
         this.underMessageAdd = status;
-    }
-    
+    };
+
     this.startChat = function (chat_id,tabs,name)
     {
-        if (this.chatUnderSynchronization(chat_id) == false)
-        {
-            //this.addSynchroChat(chat_id);
-            tabs.tabs( 'add' , this.wwwDir +'chat/adminchat/'+chat_id , name );  
-            this.syncadmininterfacestatic();
+        if ( this.chatUnderSynchronization(chat_id) == false ) {            
+            $.fn.foundationTabs.addTab(tabs, this.wwwDir +'chat/adminchat/'+chat_id, name);
         }
-    }
+    };
     
     this.setChatHash = function (hash)
     {
         this.hash = hash;
-    }
+    };
     
     this.addSynchroChat = function (chat_id,message_id)
     {
         this.chatsSynchronising.push(chat_id);
         this.chatsSynchronisingMsg.push(chat_id + ',' +message_id);
-    }
+    };
     
     this.removeSynchroChat = function (chat_id)
     {        
@@ -101,7 +113,7 @@ function lh(){
             } else { j++; }        
         }       
         
-    }
+    };
     
     this.chatUnderSynchronization = function(chat_id)
     {
@@ -117,7 +129,7 @@ function lh(){
         }
         
         return false;
-    }
+    };
     
     this.getChatIndex = function(chat_id)
     {
@@ -169,7 +181,7 @@ function lh(){
 	{    
 	    $.postJSON(this.wwwDir + this.closechatadmin + chat_id ,{}, function(data){ 
 	        	    	   
-	    })	 
+	    });	 
 	    
 	    if ($('#CSChatMessage-'+chat_id).length != 0){	    	    
 	       $('#CSChatMessage-'+chat_id).unbind('keydown', 'enter', function(){});
@@ -177,15 +189,20 @@ function lh(){
 	        
 	    if (hidetab == true) {	
 	        
-	        var selected_index = tabs.tabs('option', 'selected');
-	        
+	        /* 
+	         * var selected_index = tabs.tabs('option', 'selected');
 	        if (selected_index != -1)	
-	        {       	 	                   
+	        {
     	        tabs.tabs('remove' , selected_index);  
-	        }
-	        else
-	            tabs.tabs('remove' , 0);  
-	            
+	        } else tabs.tabs('remove' , 0); */
+
+	        var selected = tabs.find('dd.active');
+	    	var hrefid = selected.find('a').attr('href');
+	    	$(hrefid+'Tab').remove();
+	    	selected.remove();
+	    	tabs.find('dd:eq(0)').addClass("active");
+	    	$('#tabs-content').find('li:eq(0)').show();
+
 	        if (this.closeWindowOnChatCloseDelete == true)
 	        {
 	            window.close(); 
@@ -196,27 +213,24 @@ function lh(){
 	    this.removeSynchroChat(chat_id); 
 	    this.syncadmininterfacestatic();
 	       
-	}	
+	};	
 	
 	this.removeDialogTab = function(chat_id, tabs, hidetab)
 	{
-	    
 	    if ($('#CSChatMessage-'+chat_id).length != 0){	    	    
 	       $('#CSChatMessage-'+chat_id).unbind('keydown', 'enter', function(){});
 	    }
-	  	    
-	    	    
+	  	 	    
 	    if (hidetab == true) {	
-	        
-	        var selected_index = tabs.tabs('option', 'selected');
-	        
-	        if (selected_index != -1)	
-	        {       	 	                   
-    	        tabs.tabs('remove' , selected_index);  
-	        }
-	        else
-	            tabs.tabs('remove' , 0);  
-	            
+	        	        	        
+	    	// Remove active tab
+	    	var selected = tabs.find('dd.active');
+	    	var hrefid = selected.find('a').attr('href');	        
+	    	$(hrefid+'Tab').remove();
+	    	selected.remove();	            
+	    	tabs.find('dd:eq(0)').addClass("active");
+	    	$('#tabs-content').find('li:eq(0)').show();
+	    	
 	        if (this.closeWindowOnChatCloseDelete == true)
 	        {
 	            window.close(); 
@@ -226,7 +240,7 @@ function lh(){
 	    
 	    this.removeSynchroChat(chat_id); 
 	    this.syncadmininterfacestatic();
-	}
+	};
 	
 	this.deleteChat = function(chat_id, tabs, hidetab)
 	{    
@@ -239,62 +253,58 @@ function lh(){
 	       {
 	           alert(data.result);
 	       } 	    	   
-	    })	
+	    });	
 
 	     if (hidetab == true) {	
-	        
-	        var selected_index = tabs.tabs('option', 'selected');
-	        
-	        if (selected_index != -1)	
-	        {       	 	                   
-    	        tabs.tabs('remove' , selected_index);  
-	        }
-	        else
-	            tabs.tabs('remove' , 0);  
-	            
+	        	        	            
+	        // Remove active tab
+	    	var selected = tabs.find('dd.active');
+	    	var hrefid = selected.find('a').attr('href');	        
+	    	$(hrefid+'Tab').remove();
+	    	selected.remove();	            
+	    	tabs.find('dd:eq(0)').addClass("active");
+	    	$('#tabs-content').find('li:eq(0)').show();
+	        	        
 	        if (this.closeWindowOnChatCloseDelete == true)
 	        {
 	            window.close();
-	        }
-	            
+	        }	            
 	    }
-
 	        
 	    this.syncadmininterfacestatic();
 	    this.removeSynchroChat(chat_id);    
-	}
+	};
 	
 	this.rejectPendingChat = function(chat_id, tabs)
 	{    
 	    $.postJSON(this.wwwDir + this.deletechatadmin + chat_id ,{}, function(data){ 
 	        	    	   
-	    })	   
+	    });	   
 	    this.syncadmininterfacestatic();   
-	}
+	};
 	
 	this.startChatNewWindow = function(chat_id,name)
 	{    	   
-	    window.open(this.wwwDir + 'chat/single/'+chat_id,'chatwindow'+name+chat_id,"menubar=1,resizable=1,width=600,height=430"); 
+	    window.open(this.wwwDir + 'chat/single/'+chat_id,'chatwindow'+name+chat_id,"menubar=1,resizable=1,width=600,height=450"); 
 	    this.syncadmininterfacestatic();    
         return false;          
-	}
+	};
 	
 	this.startChatTransfer = function(chat_id,tabs,name,transfer_id){
 	    
 	     $.postJSON(this.wwwDir + this.accepttransfer + transfer_id ,{}, function(data){ 
 	        	    	   
-	    })	    
+	    });	    
 	    this.startChat(chat_id,tabs,name);
-	}
+	};
 	
 	this.startChatNewWindowTransfer = function(chat_id,name,transfer_id)
 	{
 	    $.postJSON(this.wwwDir + this.accepttransfer + transfer_id ,{}, function(data){ 
 	        	    	   
-	    })
-	    
+	    });	    
 	    return this.startChatNewWindow(chat_id,name);
-	}
+	};
 	
 	this.transferChat = function(chat_id)
 	{
@@ -308,26 +318,26 @@ function lh(){
 	        
 	        }
 	        	    	   
-	    })
-	}
+	    });
+	};
 	
 	this.chatTabsOpen = function ()
 	{
-	    window.open(this.wwwDir + 'chat/chattabs/','chatwindows',"menubar=1,resizable=1,width=580,height=420");	
+	    window.open(this.wwwDir + 'chat/chattabs/','chatwindows',"menubar=1,resizable=1,width=580,height=460");	
 	    return false;
-	}
+	};
 	
 	this.deleteChatNewWindow = function()
 	{
 	    this.chattabs = null;
-	}
+	};
 	
 	this.userclosedchat = function()
 	{
 	    $.postJSON(this.wwwDir + this.userclosechaturl + this.chat_id + '/' + this.hash ,{}, function(data){ 
 	      	        	        		
     	});
-	}
+	};
 	
 	this.chatsyncuserpending = function ()
 	{
@@ -349,7 +359,7 @@ function lh(){
 	            }
 	        }	        		
     	});
-	}	
+	};	
 	
 	this.playNewMessageSound = function() {
 	    	
@@ -361,7 +371,7 @@ function lh(){
             audio.load();
             audio.play();
 	    }
-	}
+	};
 	
     this.syncadmincall = function()
 	{	
@@ -405,12 +415,12 @@ function lh(){
 	    } else {
 	        this.isSinchronizing = false;
 	    }
-	},
+	};
 	
 	this.updateChatLastMessageID = function(chat_id,message_id)
 	{
 	    this.chatsSynchronisingMsg[this.getChatIndex(chat_id)] = chat_id+','+message_id;
-	}
+	};
 	
 	
 	this.syncadmininterface = function()
@@ -437,7 +447,7 @@ function lh(){
     			setTimeout(chatsyncadmininterface,confLH.back_office_sinterval);	
 	        }		
     	});
-	}
+	};
 	
 	this.playSoundNewAction = function(identifier) {	    
 	    if (confLH.new_chat_sound_enabled == 1 && identifier == 'pending_chat') {
@@ -450,7 +460,7 @@ function lh(){
                 audio.play();
     	    }
 	    }
-	}
+	};
 	
 	this.syncadmininterfacestatic = function()
 	{
@@ -463,52 +473,20 @@ function lh(){
                 });		     	
 	        }		
     	});
-	}	
+	};	
 	
 	this.transferUserDialog = function(chat_id,title)
-	{
-	    if ($("#transfer-dialog-"+chat_id).hasClass("ui-dialog-content"))
-	    {	    
-	       $("#transfer-dialog-"+chat_id).dialog('open');
-	       
-	    } else {	
-	     
-        $("#transfer-dialog-"+chat_id).load(this.wwwDir + 'chat/transferchat/'+chat_id).dialog({
-             title: title,
-             modal: true,
-             autoOpen: true,                 
-             width: 500
-          }); 
-	    }
-	   
-	}
-	
-	this.abstractDialog = function(element_id,title,url)
-	{
-	    if ($("#"+element_id).hasClass("ui-dialog-content"))
-	    {	    
-	       $("#"+element_id).dialog('open');
-	       
-	    } else {	
-	     
-        $("#"+element_id).load(url).dialog({
-             title: title,
-             modal: true,
-             autoOpen: true,                 
-             width: 500
-          }); 
-	    }
-	   
-	}
-
-	
+	{		
+		$.colorbox({width:'400px',height:'200px', href:this.wwwDir + 'chat/transferchat/'+chat_id});
+	};
+			
     this.addmsgadmin = function (chat_id)
     {        
         this.underMessageAdd = true;
         
         var pdata = {
 				msg	: $("#CSChatMessage-"+chat_id).val()
-		}
+		};
 		
 	   $('#CSChatMessage-'+chat_id).val('');
 	   
@@ -528,13 +506,14 @@ function lh(){
            lhinst.setSynchronizationStatus(false);
            return true;	          
 		});
-    }  
+    };  
     
     this.addmsguser = function ()
     {        
         var pdata = {
 				msg	: $("#CSChatMessage").val()
-		}
+		};
+        
 		$('#CSChatMessage').attr('value','');
 			
        $.postJSON(this.wwwDir + this.addmsgurluser + this.chat_id + '/' + this.hash, pdata , function(data){	
@@ -545,9 +524,8 @@ function lh(){
 		    		
            return true;	          
 		});
-    } 
-      
-    
+    }; 
+          
     this.startSyncAdmin = function()
     {
         if (this.isSinchronizing == false)
@@ -555,8 +533,7 @@ function lh(){
             this.isSinchronizing = true;
             this.syncadmincall();
         }
-    }
-    
+    };        
 }
 
 var lhinst = new lh();

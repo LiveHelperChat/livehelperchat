@@ -1,4 +1,4 @@
-<div style="padding:4px;padding-right:4px;">
+
 <h2 id="status-chat"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Pending confirm')?></h2>
 <table width="100%">
 <tr>
@@ -15,7 +15,7 @@
 <tr>
     <td>
         <div>
-            <textarea rows="4" style="width:100%;" class="default-input"  name="ChatMessage" id="CSChatMessage" ></textarea>
+            <textarea rows="4" name="ChatMessage" id="CSChatMessage" ></textarea>
             <script type="text/javascript">
             jQuery('#CSChatMessage').bind('keydown', 'return', function (evt){
                 lhinst.addmsguser();
@@ -23,11 +23,12 @@
             </script> 
         </div>
         
-        <input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Send')?>" onclick="lhinst.addmsguser()" />
+        <input type="button" class="small button round" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Send')?>" onclick="lhinst.addmsguser()" />
     </td>
 </tr>
 </table>
-</div>
+
+
 <script type="text/javascript">
     lhinst.setChatID('<?php echo $chat_id?>');
     lhinst.setChatHash('<?php echo $hash?>');

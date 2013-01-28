@@ -9,7 +9,7 @@ if ($cfgSite->getSetting( 'site', 'installed' ) == true)
     $Params['module']['functions'] = array('install');
     include_once('modules/lhkernel/nopermission.php'); 
      
-    $Result['pagelayout'] = 'install';
+    $Result['pagelayout'] = 'popup';
     $Result['path'] = array(array('title' => 'Live helper chat installation'));
     return $Result;
     
@@ -289,9 +289,10 @@ switch ((int)$Params['user_parameters']['step_id']) {
                       `lastactivity` int(11) NOT NULL,
                       `name` varchar(100) NOT NULL,
                       `surname` varchar(100) NOT NULL,
+                      `disabled` tinyint(4) NOT NULL,
                       PRIMARY KEY (`id`)
                     )");
-               
+                              
                 $UserData = new erLhcoreClassModelUser();
 
                 $UserData->setPassword($form->AdminPassword);
@@ -410,7 +411,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 }
 
 $Result['content'] = $tpl->fetch();
-$Result['pagelayout'] = 'install';
+$Result['pagelayout'] = 'popup';
 $Result['path'] = array(array('title' => 'Live helper chat installation'));
 
 } catch (Exception $e){

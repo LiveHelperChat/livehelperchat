@@ -16,7 +16,7 @@ if (isset($_POST['Login']))
     if (!$currentUser->authenticate($_POST['Username'],$_POST['Password']))
     {     
             $Error = erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Incorrect username or password');
-            $tpl->set('error',$Error);   
+            $tpl->set('errors',array($Error));   
     } else {    
         erLhcoreClassModule::redirect();
         return ;

@@ -53,7 +53,7 @@ if (isset($_POST['StartChat']))
        erLhcoreClassModule::redirect('chat/chat/' . $chat->id . '/' . $chat->hash);
        return ;
     } else {        
-        $tpl->set('errArr',$Errors);
+        $tpl->set('errors',$Errors);
     }  
 }
 

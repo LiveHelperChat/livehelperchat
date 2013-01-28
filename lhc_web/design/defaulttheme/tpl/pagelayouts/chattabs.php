@@ -9,26 +9,17 @@
 
 <script type="text/javascript">
 /** Reset pointer from parent window **/
-function ChatUnload()
-{
-                window.opener.lhinst.deleteChatNewWindow();
-}
+function ChatUnload(){ window.opener.lhinst.deleteChatNewWindow(); }
 </script>
 </head>
 <body onunload="ChatUnload()">
-<div id="container" class="no-left-column no-right-column">
-
-	<div id="bodcont" class="float-break">			
-		<div id="middcont">
-			<div id="mainartcont">
-			<?php echo $Result['content']; ?>			
-			</div>
-		</div>		
+<div class="content-row pt10">
+	<div class="row">
+	    <div class="columns twelve pt10">
+	        <?php echo $Result['content']; ?>			
+	    </div>
 	</div>
-
-<?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_footer.tpl.php'));?>
 </div>
-
+<script type="text/javascript" language="javascript" src="<?=erLhcoreClassDesign::designJS('js/app.js');?>"></script>
 </body>
-
 </html>

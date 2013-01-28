@@ -32,9 +32,10 @@
 </fieldset>
 <br>
 
-<div class="action-row">
-<input type="submit" value="Next" name="Install">
-</div>
+<input type="submit" class="small button" value="Next" name="Install">
+<br /><br />
+
+
 
 </fieldset>
 </form>

@@ -1,1 +1,1 @@
-<link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::designCSS('css/style.css');?>" /> 
+<link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::designCSS('css/foundation.css;css/app.css;css/colorbox.css');?>" /> 

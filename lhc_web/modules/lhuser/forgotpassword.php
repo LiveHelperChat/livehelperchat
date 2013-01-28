@@ -59,7 +59,7 @@ if (isset($_POST['Forgotpassword'])) {
 			erLhcoreClassModule::redirect('user/forgotpassword');
 		}        
     }  else {    	
-        $tpl->set('error',$Errors[0]);
+        $tpl->set('errors',$Errors);
     }  
 }
 

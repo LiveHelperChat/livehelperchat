@@ -1,84 +1,80 @@
-<h1 class="attr-header"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Group edit');?> - <?php echo $group->name?></h1>
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Group edit');?> - <?php echo htmlspecialchars($group->name)?></h1>
 
-<?php if (isset($errArr)) : ?>
-    <?php foreach ((array)$errArr as $error) : ?>
-    	<div class="error">*&nbsp;<?php echo $error;?></div>
-    <?php endforeach; ?>
-<?php endif;?>
+<?php if (isset($errors)) : ?>
+		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
+<?php endif; ?>
 
-	<div><br />
-		<form action="<?php echo erLhcoreClassDesign::baseurl('/user/editgroup/'.$group->id)?>" method="post">
-			<table>
-				<tr>
-					<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Title');?></td><td><input class="inputfield" type="text" name="Name"  value="<?php echo htmlspecialchars($group->name);?>" /></td>
-				</tr>									
-				<tr>
-					<td>&nbsp;</td>
-					<td><input type="submit" class="default-button" name="Update_group" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Update');?>"/></td>
-				</tr>
-			</table>		
-		</form>
-	</div>
-</fieldset>
+<div>
+	<form action="<?php echo erLhcoreClassDesign::baseurl('user/editgroup')?>/<?php echo $group->id?>" method="post">
+		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Title');?></label>
+		<input class="inputfield" type="text" name="Name"  value="<?php echo htmlspecialchars($group->name);?>" />
+		
+		<input type="submit" class="small button" name="Update_group" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Update');?>"/>
+					
+	</form>
+</div>
 
-<fieldset><legend><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Assigned users');?> - <?php echo $group->name?></legend>
-<form action="<?php echo erLhcoreClassDesign::baseurl('/user/editgroup/'.$group->id)?>" method="post">
+<div class="header-list"><h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Assigned users');?> - <?php echo htmlspecialchars($group->name)?></h1></div>
+<form action="<?php echo erLhcoreClassDesign::baseurl('user/editgroup')?>/<?php echo $group->id?>" method="post">
 
 <table class="lentele" cellpadding="0" cellspacing="0">
+<thead>
 <tr>
     <th>&nbsp;</th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Username');?></th>
-    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Name');?></th>
-    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Surname');?></th>
 </tr>
-<?php foreach (erLhcoreClassGroupUser::getGroupUsers($group->id) as $UserAssigned) : ?>
+</thead>
+<?php foreach ($users as $UserAssigned) : ?>
 <tr>
-    <td><input type="checkbox" name="AssignedID[]" value="<?php echo $UserAssigned['assigned_id']?>" /></td>
-    <td><?php echo $UserAssigned['username']?></td>
-    <td><?php echo $UserAssigned['name']?></td>
-    <td><?php echo $UserAssigned['surname']?></td>
+    <td><input type="checkbox" name="AssignedID[]" value="<?php echo $UserAssigned->id?>" /></td>
+    <td><?php echo $UserAssigned->user?></td>
 </tr>
-<?php endforeach; ?>
-
+<?php endforeach;?>
 </table>
+
+<?php if (isset($pages)) : ?>
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/paginator.tpl.php')); ?>
+<?php endif;?>
+
 <div>
-<br />
-<input type="submit" class="default-button" name="Remove_user_from_group" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Remove user from group');?>" /> <input class="default-button" type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Assign user');?>" onclick="lhinst.abstractDialog('assign-user-dialog','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','User assignment');?>','<?php echo erLhcoreClassDesign::baseurl('user/groupassignuser/'.$group->id)?>')" />
+
+<input type="submit" class="small button alert" name="Remove_user_from_group" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Remove user from group');?>" /> <input class="small button" type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Assign user');?>" onclick="$.colorbox({iframe:true,width:'850px',height:'600px', href:'<?php echo erLhcoreClassDesign::baseurl('user/groupassignuser')?>/<?php echo $group->id?>'});" />
 </div>
 </form>
-</fieldset>
 
-<fieldset><legend><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Assigned roles');?> - <?php echo $group->name?></legend>
-<form action="<?php echo erLhcoreClassDesign::baseurl('/user/editgroup/'.$group->id)?>" method="post">
+<h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Assigned roles');?> - <?php echo htmlspecialchars($group->name)?></h2>
+<form action="<?php echo erLhcoreClassDesign::baseurl('user/editgroup')?>/<?php echo $group->id?>" method="post">
+
+
 
 <table class="lentele" cellpadding="0" cellspacing="0">
+<thead>
 <tr>
     <th>&nbsp;</th>
     <th>Name</th>
 </tr>
+</thead>
 <?php foreach (erLhcoreClassGroupRole::getGroupRoles($group->id) as $UserAssigned) : ?>
 <tr>
     <td><input type="checkbox" name="AssignedID[]" value="<?php echo $UserAssigned['assigned_id']?>" /></td>
-    <td><?php echo $UserAssigned['name']?></td>
+    <td><?php echo htmlspecialchars($UserAssigned['name'])?></td>
 </tr>
 <?php endforeach; ?>
-
 </table>
-<div>
-<br />
-<input type="submit" class="default-button" name="Remove_role_from_group" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Remove role from group');?>" /> <input class="default-button" type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Assign role');?>" onclick="lhinst.abstractDialog('assign-role-dialog','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Role assignment');?>','<?php echo erLhcoreClassDesign::baseurl('permission/groupassignrole/'.$group->id)?>')" />
-</div>
+
+
+
+<input type="submit" class="small alert button" name="Remove_role_from_group" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Remove role from group');?>" /> 
+<input class="small button" type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Assign role');?>" onclick="$.colorbox({width:'850px',height:'600px', href:'<?php echo erLhcoreClassDesign::baseurl('permission/groupassignrole')?>/<?php echo $group->id?>'});" />
+
+
 </form>
-
-
-
-<div id="assign-user-dialog"></div>
-<div id="assign-role-dialog"></div>
+</fieldset>
 
 <?php if (isset($adduser)) : ?>
 <script type="text/javascript">
 $(function() {
-    lhinst.abstractDialog('assign-user-dialog','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','User assignment');?>','<?php echo erLhcoreClassDesign::baseurl('user/groupassignuser/'.$group->id)?>');
+	$.colorbox({width:'850px',height:'600px',iframe:true,href:'<?php echo erLhcoreClassDesign::baseurl('user/groupassignuser')?>/<?php echo $group->id?>'});
 })
 </script>
 <?php endif; ?>

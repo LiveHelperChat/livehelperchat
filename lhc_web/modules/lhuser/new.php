@@ -9,23 +9,31 @@ if (isset($_POST['Update_account']))
 {    
    $definition = array(
         'Password' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::REQUIRED, 'string'
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
         'Password1' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::REQUIRED, 'string'
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),       
         'Email' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::REQUIRED, 'validate_email'
+            ezcInputFormDefinitionElement::OPTIONAL, 'validate_email'
         ),
         'Name' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::REQUIRED, 'string'
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
         'Surname' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::REQUIRED, 'string'
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
         'Username' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::REQUIRED, 'string'
-        ),
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),    		
+		'UserDisabled' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+		),    		
+		'DefaultGroup' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'int',
+				null,
+				FILTER_REQUIRE_ARRAY
+		)
     );
   
     $form = new ezcInputForm( INPUT_POST, $definition );
@@ -61,6 +69,19 @@ if (isset($_POST['Update_account']))
         $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Passwords mismatch');
     }
     
+    if ( $form->hasValidData( 'DefaultGroup' ) ) {
+    	$UserData->user_groups_id = $form->DefaultGroup;
+    } else {
+    	$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Please choose default user group');
+    }
+        
+    if ( $form->hasValidData( 'UserDisabled' ) && $form->UserDisabled == true )
+    {
+    	$UserData->disabled = 1;
+    } else {
+    	$UserData->disabled = 0;
+    }
+    
     if (count($Errors) == 0)
     {  
         $UserData->setPassword($form->Password);
@@ -76,6 +97,15 @@ if (isset($_POST['Update_account']))
            erLhcoreClassUserDep::addUserDepartaments($_POST['UserDepartament'],$UserData->id);
         } 
         
+        erLhcoreClassModelGroupUser::removeUserFromGroups($UserData->id);
+                
+        foreach ($UserData->user_groups_id as $group_id) {
+        	$groupUser = new erLhcoreClassModelGroupUser();
+        	$groupUser->group_id = $group_id;
+        	$groupUser->user_id = $UserData->id;
+        	$groupUser->saveThis();
+        }
+        
         erLhcoreClassModule::redirect('user/userlist');
         return ;
         
@@ -90,7 +120,7 @@ if (isset($_POST['Update_account']))
         $UserData->surname = $form->Surname;
         $UserData->username = $form->Username;
         
-        $tpl->set('errArr',$Errors);
+        $tpl->set('errors',$Errors);
     }
 }
 

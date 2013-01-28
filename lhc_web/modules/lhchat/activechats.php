@@ -5,7 +5,9 @@ $tpl = new erLhcoreClassTemplate('lhchat/activechats.tpl.php');
 $pages = new lhPaginator();
 $pages->items_total = erLhcoreClassChat::getActiveChatsCount();
 $pages->translationContext = 'chat/activechats';
+$pages->serverURL = erLhcoreClassDesign::baseurl('chat/activechats');
 $pages->paginate();
+
 
 $tpl->set('pages',$pages);
 $Result['content'] = $tpl->fetch();

@@ -2,11 +2,8 @@
 <?php 
 $ReverseOrder = $Result['path'];
 krsort($ReverseOrder);
-foreach ($ReverseOrder as $pathItem) : ?>
- <?php echo htmlspecialchars($pathItem['title'])?>&laquo;
-<?php endforeach;?>
-<?php endif; ?>
-
+foreach ($ReverseOrder as $pathItem) : ?><?php echo htmlspecialchars($pathItem['title'])?>&laquo;<?php endforeach;?>
+<?php echo ' '; endif; ?>
 <?php echo erConfigClassLhConfig::getInstance()->getOverrideValue( 'site', 'title' )?></title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 

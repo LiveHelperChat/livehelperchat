@@ -1,23 +1,27 @@
-<h1 class="attr-header"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Departments');?></h1>
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Departments');?></h1>
 
-<table class="lentele" cellpadding="0" cellspacing="0">
+<table class="twelve" cellpadding="0" cellspacing="0">
+<thead>
 <tr>
-    <th>ID</th>
+    <th width="1%">ID</th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Name');?></th>
-    <th>&nbsp;</th>
-    <th>&nbsp;</th>
+    <th width="1%">&nbsp;</th>
+    <th width="1%">&nbsp;</th>
 </tr>
-<?php foreach (erLhcoreClassDepartament::getDepartaments() as $departament) : ?>
+</thead>
+<?php foreach ($items as $departament) : ?>
     <tr>
-        <td><?php echo $departament['id']?></td>
-        <td><?php echo $departament['name']?></td>
-        <td><a href="<?php echo erLhcoreClassDesign::baseurl('departament/edit/'.$departament['id'])?>"><img src="<?php echo erLhcoreClassDesign::design('images/icons/page_edit.png');?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Edit department');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Edit department');?>" /></a></td>
-        <td><a href="<?php echo erLhcoreClassDesign::baseurl('departament/delete/'.$departament['id'])?>"><img src="<?php echo erLhcoreClassDesign::design('images/icons/delete.png');?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Delete department');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Delete department');?>" /></a></td>
+        <td><?php echo $departament->id?></td>
+        <td><?php echo htmlspecialchars($departament->name)?></td>
+        <td nowrap><a class="tiny button round" href="<?php echo erLhcoreClassDesign::baseurl('departament/edit/'.$departament->id)?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Edit department');?></a></td>
+        <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="tiny alert button round" href="<?php echo erLhcoreClassDesign::baseurl('departament/delete/'.$departament->id)?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Delete department');?></a></td>
     </tr>
 <?php endforeach; ?>
 </table>
-<br />
 
-<div>
-<a href="<?php echo erLhcoreClassDesign::baseurl('departament/new/')?>"><img src="<?php echo erLhcoreClassDesign::design('images/icons/add.png');?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','New department');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','New department');?>" /></a>
-</div>
+<?php if (isset($pages)) : ?>
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/paginator.tpl.php')); ?>
+<?php endif;?>
+
+
+<a class="small button" href="<?php echo erLhcoreClassDesign::baseurl('departament/new')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','New department');?></a>

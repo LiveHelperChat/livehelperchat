@@ -1,68 +1,67 @@
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','User edit');?> - <?php echo $user->name,' ',$user->surname?></h1> 
 
-<h1 class="attr-header"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','User edit');?> - <?php echo $user->name,' ',$user->surname?></h1> 
+<?php if (isset($errors)) : ?>
+		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
+<?php endif; ?>
 
-
-<div class="articlebody">
-
-<?php if (isset($errArr)) : ?>
-    <?php foreach ((array)$errArr as $error) : ?>
-    	<div class="error">*&nbsp;<?php echo $error;?></div>
-    <?php endforeach; ?>
-<?php endif;?>
+<?php if (isset($updated)) : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Account updated'); ?>
+	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>	
+<?php endif; ?>
 
 <div class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Do not enter password unless you want to change it');?></div>
-	<div><br />
-		<form action="<?php echo erLhcoreClassDesign::baseurl('/user/edit/'.$user->id)?>" method="post">
-			<table>
-				<tr><td colspan="2"><strong><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Login information')?></strong></td></tr>
-				<tr>
-					<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Username');?></td><td><input class="inputfield" type="text" name="" disabled value="<?php echo htmlspecialchars($user->username);?>" /></td>
-				</tr>
-				<tr>
-					<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Password');?></td>
-					<td><input type="password" class="inputfield" name="Password" value=""/></td>
-				</tr>
-				<tr>
-					<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Repeat password');?></td>
-					<td><input type="password" class="inputfield" name="Password1" value=""/></td>
-				</tr>
-				<tr><td colspan="2"><strong><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Contact information');?></strong></td></tr>
-				<tr>
-					<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','E-mail');?></td>
-					<td><input type="text" class="inputfield" name="Email" value="<?php echo $user->email;?>"/></td>
-				</tr>
-				<tr>
-					<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Name');?></td>
-					<td><input type="text" class="inputfield" name="Name" value="<?php echo htmlspecialchars($user->name);?>"/></td>
-				</tr>
-				<tr>
-					<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Surname');?></td>
-					<td><input type="text" class="inputfield" name="Surname" value="<?php echo htmlspecialchars($user->surname);?>"/></td>
-				</tr>					
-				<tr>
-					<td>&nbsp;</td>
-					<td><input type="submit" class="default-button" name="Update_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Update');?>"/></td>
-				</tr>
-			</table>		
-		</form>
-	</div>
-</div>
 <br />
-<fieldset><legend><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Assigned departments');?></legend>
-<?php if (isset($account_updated_departaments) && $account_updated_departaments == 'done') : ?>
-	<div class="dataupdate"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Account updated');?></div>
-	<br />
-<?php endif; ?>
-<?php
-    $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($user->id);
-?>
-<form action="<?php echo erLhcoreClassDesign::baseurl('/user/edit/'.$user->id)?>" method="post">
-<?php foreach (erLhcoreClassDepartament::getDepartaments() as $departament) : ?>
-    <label><input type="checkbox" name="UserDepartament[]" value="<?php echo $departament['id']?>"<?php echo in_array($departament['id'],$userDepartaments) ? 'checked="checked"' : '';?>/> <?php echo $departament['name']?></label><br />
-<?php endforeach; ?>
-<br />
-<input type="submit" class="default-button" name="UpdateDepartaments_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Update');?>"/>
+
+<form action="<?php echo erLhcoreClassDesign::baseurl('/user/edit/'.$user->id)?>" method="post" autocomplete="off">
+
+<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Username');?></label>
+<input class="inputfield" type="text" name="Username" value="<?php echo htmlspecialchars($user->username);?>" />
+
+<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Password');?></label>
+<input type="password" class="inputfield" name="Password" value=""/>
+
+<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Repeat password');?></label>
+<input type="password" class="inputfield" name="Password1" value=""/>
+
+<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','E-mail');?></label>
+<input type="text" class="inputfield" name="Email" value="<?php echo $user->email;?>"/>
+
+<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Name');?></label>
+<input type="text" class="inputfield" name="Name" value="<?php echo htmlspecialchars($user->name);?>"/>
+
+<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Surname');?></label>
+<input type="text" class="inputfield" name="Surname" value="<?php echo htmlspecialchars($user->surname);?>"/>
+
+<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','User group')?></label>
+<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
+                    'input_name'     => 'DefaultGroup[]',	                 
+                    'selected_id'    => $user->user_groups_id,                      
+					'multiple' 		 => true,                     
+                    'list_function'  => 'erLhcoreClassModelGroup::getList'
+            )); ?>
+            
+<label>Disabled&nbsp;<input type="checkbox" value="on" name="UserDisabled" <?php echo $user->disabled == 1 ? 'checked="checked"' : '' ?> /></label>  
+            
+<ul class="button-group radius">
+<li><input type="submit" class="small button" name="Save_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Save');?>"/></li>
+<li><input type="submit" class="small button" name="Update_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Update');?>"/></li>
+<li><input type="submit" class="small button" name="Cancel_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Cancel');?>"/></li>
+</ul>	
+
 </form>
-</fieldset>
+		
+<hr>
 
+<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Assigned departments');?></h5>
 
+<?php if (isset($account_updated_departaments) && $account_updated_departaments == 'done') : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Account updated'); ?>
+	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>	
+<?php endif; ?>
+
+<?php $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($user->id); ?>
+
+<form action="<?php echo erLhcoreClassDesign::baseurl('/user/edit/'.$user->id)?>" method="post">
+    <?php foreach (erLhcoreClassDepartament::getDepartaments() as $departament) : ?>
+        <label><input type="checkbox" name="UserDepartament[]" value="<?php echo $departament['id']?>"<?php in_array($departament['id'],$userDepartaments) ? print 'checked="checked"' : '';?>/><?php echo htmlspecialchars($departament['name'])?></label><br />
+    <?php endforeach; ?>
+    <input type="submit" class="small button" name="UpdateDepartaments_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Update');?>"/>
+</form>

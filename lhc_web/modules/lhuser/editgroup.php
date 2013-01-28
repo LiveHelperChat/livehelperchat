@@ -1,6 +1,6 @@
 <?php
 
-$tpl = new erLhcoreClassTemplate('lhuser/editgroup.tpl.php');
+$tpl = erLhcoreClassTemplate::getInstance('lhuser/editgroup.tpl.php');
 
 $Group = erLhcoreClassUser::getSession()->load( 'erLhcoreClassModelGroup', (int)$Params['user_parameters']['group_id'] );
 
@@ -8,7 +8,7 @@ if (isset($_POST['Update_group']) )
 {    
    $definition = array(
         'Name' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::REQUIRED, 'string'
+            ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
         )       
     );
     
@@ -31,18 +31,7 @@ if (isset($_POST['Update_group']) )
         return ;
         
     }  else {
-        $tpl->set('errArr',$Errors);
-    }
-}
-
-if (isset($_POST['AssignUsers']) && isset($_POST['UserID']) && count($_POST['UserID']) > 0)
-{
-    foreach ($_POST['UserID'] as $UserID)
-    {                
-        $GroupUser = new erLhcoreClassModelGroupUser();        
-        $GroupUser->group_id = $Group->id;
-        $GroupUser->user_id = $UserID;        
-        erLhcoreClassUser::getSession()->save($GroupUser);
+        $tpl->set('errors',$Errors);
     }
 }
 
@@ -61,7 +50,8 @@ if (isset($_POST['Remove_user_from_group']) && isset($_POST['AssignedID']) && co
 {
     foreach ($_POST['AssignedID'] as $AssignedID)
     {                
-        erLhcoreClassGroupUser::deleteGroupUser($AssignedID);
+        $group_user = erLhcoreClassModelGroupUser::fetch($AssignedID);
+        $group_user->removeThis();
     }
 }
 
@@ -73,6 +63,20 @@ if (isset($_POST['Remove_role_from_group']) && isset($_POST['AssignedID']) && co
     }
 }
 
+$pages = new lhPaginator();
+$pages->items_total = erLhcoreClassModelGroupUser::getCount(array('filter' => array('group_id' => $Group->id)));
+$pages->setItemsPerPage(20);
+$pages->serverURL = erLhcoreClassDesign::baseurl('user/editgroup').'/'.$Group->id;
+$pages->paginate();
+
+$tpl->set('pages',$pages);
+
+
+if ($pages->items_total > 0) {
+    $tpl->set('users',erLhcoreClassModelGroupUser::getList(array('filter' => array('group_id' => $Group->id),'offset' => $pages->low, 'limit' => $pages->items_per_page )));
+} else {
+    $tpl->set('users',array());
+}
 
 
 if (isset($_GET['adduser']))

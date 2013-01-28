@@ -1,17 +1,19 @@
 <?php
 
-$tpl = new erLhcoreClassTemplate( 'lhdepartament/edit.tpl.php');
+$tpl = erLhcoreClassTemplate::getInstance('lhdepartament/edit.tpl.php');
 
 $Departament = erLhcoreClassDepartament::getSession()->load( 'erLhcoreClassModelDepartament', (int)$Params['user_parameters']['departament_id'] );
 
+if ( isset($_POST['Cancel_departament']) ) {        
+    erLhcoreClassModule::redirect('departament/departaments');
+    exit;
+} 
 
-
-
-if (isset($_POST['Update_departament']))
+if (isset($_POST['Update_departament']) || isset($_POST['Save_departament'])  )
 {    
    $definition = array(
         'Name' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::REQUIRED, 'string'
+            ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
         )       
     );
     
@@ -29,11 +31,15 @@ if (isset($_POST['Update_departament']))
     
         erLhcoreClassDepartament::getSession()->update($Departament);
        
-        erLhcoreClassModule::redirect('departament/departaments');
-        return ;
+        if (isset($_POST['Save_departament'])) {        
+            erLhcoreClassModule::redirect('departament/departaments');
+            exit;
+        } else {
+            $tpl->set('updated',true);
+        }
         
     }  else {
-        $tpl->set('errArr',$Errors);
+        $tpl->set('errors',$Errors);
     }
 }
 
@@ -43,11 +49,7 @@ $Result['content'] = $tpl->fetch();
 
 $Result['path'] = array(
 array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','System configuration')),
-
 array('url' => erLhcoreClassDesign::baseurl('departament/departaments'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','departments')),
-
-array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Edit department').' - '.$Departament->name),
-)
-
+array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Edit department').' - '.$Departament->name),);
 
 ?>

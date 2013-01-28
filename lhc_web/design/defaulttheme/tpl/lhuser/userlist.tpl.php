@@ -1,29 +1,30 @@
-<h1 class="attr-header"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Users');?></h1>
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Users');?></h1>
 
 <table class="lentele" cellpadding="0" cellspacing="0" width="100%">
+<thead>
 <tr>
-    <th>ID</th>
+    <th width="1%">ID</th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Username');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','E-mail');?></th>
-    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Name');?></th>
-    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Surname');?></th>
     <th width="1%">&nbsp;</th>
     <th width="1%">&nbsp;</th>
 </tr>
-<?php foreach (erLhcoreClassUser::getUserList() as $user) : ?>
+</thead>
+<?php foreach ($userlist as $user) : ?>
     <tr>
-        <td><?php echo $user['id']?></td>
-        <td><?php echo $user['username']?></td>
-        <td><?php echo $user['email']?></td>
-        <td><?php echo $user['name']?></td>
-        <td><?php echo $user['surname']?></td>
-        <td><a href="<?php echo erLhcoreClassDesign::baseurl('user/edit/'.$user['id'])?>"><img src="<?php echo erLhcoreClassDesign::design('images/icons/page_edit.png');?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Edit user');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Edit user');?>" /></a></td>
-        <td><a href="<?php echo erLhcoreClassDesign::baseurl('user/delete/'.$user['id'])?>"><img src="<?php echo erLhcoreClassDesign::design('images/icons/delete.png');?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Delete user');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Delete user');?>" /></a></td>
+        <td><?php echo $user->id?></td>
+        <td><?php echo $user->username?></td>
+        <td><?php echo $user->email?></td>
+        <td><a class="tiny button round" href="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $user->id?>">Edit</a></td>
+        <td><a class="tiny alert button round" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('gallery/album_list_admin','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('user/delete')?>/<?php echo $user->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Delete');?></a></td>
     </tr>
 <?php endforeach; ?>
 </table>
+<?php if (isset($pages)) : ?>
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/paginator.tpl.php')); ?>
+<?php endif;?>
 <br />
 
 <div>
-<a href="<?php echo erLhcoreClassDesign::baseurl('user/new/')?>"><img src="<?php echo erLhcoreClassDesign::design('images/icons/add.png');?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','New user');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','New user');?>" /></a>
+<a class="small button" href="<?php echo erLhcoreClassDesign::baseurl('user/new')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','New user');?></a>
 </div>

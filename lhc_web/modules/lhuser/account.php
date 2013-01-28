@@ -2,31 +2,42 @@
 
 $tpl = new erLhcoreClassTemplate( 'lhuser/account.tpl.php' );
 
-if (isset($_POST['Update_account']))
+$currentUser = erLhcoreClassUser::instance();
+$UserData = $currentUser->getUserData();
+        
+if (isset($_POST['Update']))
 {    
    $definition = array(
         'Password' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
         'Password1' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'string'
-        ),
-        'Password1' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'string'
-        ),
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),       
         'Email' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::REQUIRED, 'validate_email'
         ),
         'Name' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::REQUIRED, 'string'
+            ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
         ),
         'Surname' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::REQUIRED, 'string'
+            ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
+        ),
+        'Username' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
     );
   
     $form = new ezcInputForm( INPUT_POST, $definition );
     $Errors = array();
+    
+    if ( !$form->hasValidData( 'Username' ) ) {
+        $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Please enter username!');
+    }  elseif ( $form->hasValidData( 'Username' ) && $form->Username != $UserData->username && !erLhcoreClassModelUser::userExists($form->Username) ) {
+    	$UserData->username = $form->Username;
+    } elseif ( $form->hasValidData( 'Username' ) && $form->Username != $UserData->username) {
+    	$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','User exists!');
+    }
     
     if ( !$form->hasValidData( 'Email' ) )
     {
@@ -49,12 +60,9 @@ if (isset($_POST['Update_account']))
     }
     
     if (count($Errors) == 0)
-    {        
-        $currentUser = erLhcoreClassUser::instance();
-        $UserData = $currentUser->getUserData();
-
+    {   
         // Update password if neccesary
-        if ($form->hasInputField( 'Password' ) && $form->hasInputField( 'Password1' ))
+        if ( $form->hasInputField( 'Password' ) && $form->hasInputField( 'Password1' ) && $form->Password != '' )
         {
             $UserData->setPassword($form->Password);
         }
@@ -67,7 +75,7 @@ if (isset($_POST['Update_account']))
         $tpl->set('account_updated','done');
         
     }  else {
-        $tpl->set('errArr',$Errors);
+        $tpl->set('errors',$Errors);
     }
 }
 
@@ -80,7 +88,7 @@ if ($allowEditDepartaments && isset($_POST['UpdateDepartaments_account']))
    if (isset($_POST['UserDepartament']) && count($_POST['UserDepartament']) > 0)
    {
        erLhcoreClassUserDep::addUserDepartaments($_POST['UserDepartament']);
-   }    
+   }
 
    $tpl->set('account_updated_departaments','done');
 }

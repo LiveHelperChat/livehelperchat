@@ -8,19 +8,24 @@
 </head>
 <body>
 
-<div id="container" class="no-left-column no-right-column">
+<div class="content-row">
 
-	<div id="bodcont" class="float-break">			
-		<div id="middcont">
-			<div id="mainartcont">
-			<?					
-			     echo $Result['content'];		
-			?>			
-			</div>
-		</div>		
-	</div>		
+<div class="row">
+    <div class="columns six">
+        <h1><a href="<?php echo erLhcoreClassDesign::baseurl('/')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Home')?>"><img src="<?php echo erLhcoreClassDesign::design('images/general/logo.png');?>" alt="<?php echo erConfigClassLhConfig::getInstance()->getSetting( 'site', 'title' )?>" title="<?php echo erConfigClassLhConfig::getInstance()->getSetting( 'site', 'title' )?>"></a></h1>
+    </div>    
+</div>
+
+<div class="row">
+<div class="columns twelve">
+<?php					
+     echo $Result['content'];		
+?>
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_footer.tpl.php'));?>
 </div>
+</div>
+</div>
+
 </body>
 
 </html>

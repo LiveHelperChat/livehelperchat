@@ -1,15 +1,9 @@
 <form action="<?php echo erLhcoreClassDesign::baseurl('install/install/2')?>" method="POST">
 <fieldset><legend>Installation step 2</legend> 
-<?php if (isset($errors)) : ?>
-<div class="error-list">
-<ul>
-    <?php foreach ($errors as $error) : ?>
-        <li><?php echo $error?></li>
-    <?php endforeach; ?> 
-</ul>
-</div>
-<?php endif; ?>
 
+<?php if (isset($errors)) : ?>
+	<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
+<?php endif; ?>
         
 <fieldset><legend>Database settings</legend> 
 <table>
@@ -37,9 +31,8 @@
 </fieldset>
 <br>
 
-<div class="action-row">
-<input type="submit" value="Next" name="Install">
-</div>
+<input type="submit" value="Next" class="small button" name="Install">
+<br /><br />
 
 </fieldset>
 </form>

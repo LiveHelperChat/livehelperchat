@@ -1,6 +1,12 @@
 <?php
 
 $tpl = new erLhcoreClassTemplate( 'lhdepartament/new.tpl.php');
+$Departament = new erLhcoreClassModelDepartament();
+
+if ( isset($_POST['Cancel_departament']) ) {        
+    erLhcoreClassModule::redirect('departament/departaments');
+    exit;
+} 
 
 if (isset($_POST['Save_departament']))
 {    
@@ -20,26 +26,23 @@ if (isset($_POST['Save_departament']))
     
     if (count($Errors) == 0)
     {     
-        
-        $Departament = new erLhcoreClassModelDepartament();
         $Departament->name = $form->Name;
-    
         erLhcoreClassDepartament::getSession()->save($Departament);
-       
         erLhcoreClassModule::redirect('departament/departaments');
         return ;
         
     }  else {
-        $tpl->set('errArr',$Errors);
+        $tpl->set('errors',$Errors);
     }
 }
+
+$tpl->set('departament',$Departament);
 
 $Result['content'] = $tpl->fetch();
 
 $Result['path'] = array(
 array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/new','System configuration')),
 array('url' => erLhcoreClassDesign::baseurl('departament/departaments'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/new','Departments')),
-
 array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/new','New department')),
 )
 

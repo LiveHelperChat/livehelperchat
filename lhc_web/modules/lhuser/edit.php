@@ -2,28 +2,49 @@
 
 $tpl = new erLhcoreClassTemplate('lhuser/edit.tpl.php');
 
-if (isset($_POST['Update_account']))
+$UserData = erLhcoreClassUser::getSession()->load( 'erLhcoreClassModelUser', (int)$Params['user_parameters']['user_id'] );
+
+if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
 {    
    $definition = array(
         'Password' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
         'Password1' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),    
         'Email' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::REQUIRED, 'validate_email'
+            ezcInputFormDefinitionElement::OPTIONAL, 'validate_email'
         ),
         'Name' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::REQUIRED, 'string'
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
         'Surname' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::REQUIRED, 'string'
-        ),
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),  
+        'Username' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),    		
+		'UserDisabled' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+		),    		
+		'DefaultGroup' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'int',
+				null,
+				FILTER_REQUIRE_ARRAY
+		)
     );
   
     $form = new ezcInputForm( INPUT_POST, $definition );
     $Errors = array();
+        
+    if ( !$form->hasValidData( 'Username' ) ) {
+        $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Please enter username!');
+    }  elseif ( $form->hasValidData( 'Username' ) && $form->Username != $UserData->username && !erLhcoreClassModelUser::userExists($form->Username) ) {
+    	$UserData->username = $form->Username;
+    } elseif ( $form->hasValidData( 'Username' ) && $form->Username != $UserData->username) {
+    	$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','User exists!');
+    }
     
     if ( !$form->hasValidData( 'Email' ) )
     {
@@ -45,11 +66,21 @@ if (isset($_POST['Update_account']))
         $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Passwords mismatch');
     }
     
-    if (count($Errors) == 0)
-    {        
+    if ( $form->hasValidData( 'DefaultGroup' ) ) {
+    	$UserData->user_groups_id = $form->DefaultGroup;
+    } else {
+    	$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Please choose default user group');
+    }
         
-        $UserData = erLhcoreClassUser::getSession()->load( 'erLhcoreClassModelUser', (int)$Params['user_parameters']['user_id'] );
-
+    if ( $form->hasValidData( 'UserDisabled' ) && $form->UserDisabled == true )
+    {
+    	$UserData->disabled = 1;
+    } else {
+    	$UserData->disabled = 0;
+    }
+    
+    if (count($Errors) == 0)
+    {     
         // Update password if neccesary
         if ($form->hasInputField( 'Password' ) && $form->hasInputField( 'Password1' ))
         {
@@ -62,11 +93,27 @@ if (isset($_POST['Update_account']))
         
         erLhcoreClassUser::getSession()->update($UserData);
         
-        erLhcoreClassModule::redirect('user/userlist');
-        return ;
+        erLhcoreClassModelGroupUser::removeUserFromGroups($UserData->id);
+                
+        foreach ($UserData->user_groups_id as $group_id) {
+        	$groupUser = new erLhcoreClassModelGroupUser();
+        	$groupUser->group_id = $group_id;
+        	$groupUser->user_id = $UserData->id;
+        	$groupUser->saveThis();
+        }
         
+        $CacheManager = erConfigClassLhCacheConfig::getInstance();
+        $CacheManager->expireCache();
+        
+        if (isset($_POST['Save_account'])) {        
+            erLhcoreClassModule::redirect('user/userlist');
+            exit;
+        } else {
+            $tpl->set('updated',true);
+        }
+                
     }  else {
-        $tpl->set('errArr',$Errors);
+        $tpl->set('errors',$Errors);
     }
 }
 
@@ -75,15 +122,11 @@ if (isset($_POST['UpdateDepartaments_account']))
    if (isset($_POST['UserDepartament']) && count($_POST['UserDepartament']) > 0)
    {
        erLhcoreClassUserDep::addUserDepartaments($_POST['UserDepartament'],$Params['user_parameters']['user_id']);
-   }    
-
+   } else {
+       erLhcoreClassUserDep::addUserDepartaments(array(),$Params['user_parameters']['user_id']);
+   }
+   
    $tpl->set('account_updated_departaments','done');
-}
-
-// If already set during account update
-if (!isset($UserData))
-{    
-    $UserData = erLhcoreClassUser::getSession()->load( 'erLhcoreClassModelUser', (int)$Params['user_parameters']['user_id'] );
 }
 
 
@@ -93,12 +136,7 @@ $Result['content'] = $tpl->fetch();
 
 $Result['path'] = array(
 array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','System configuration')),
-
 array('url' => erLhcoreClassDesign::baseurl('user/userlist'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Users')),
-
-array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','User edit').' - '.$UserData->name.' '.$UserData->surname)
-
-
-)
+array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','User edit').' - '.$UserData->name.' '.$UserData->surname));
 
 ?>

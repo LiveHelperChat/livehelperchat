@@ -1,23 +1,24 @@
-<h1 class="attr-header"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/grouplist','Groups');?></h1>
-
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/grouplist','Groups');?></h1>
 <table class="lentele" cellpadding="0" cellspacing="0" width="100%">
+<thead>
 <tr>
     <th>ID</th>
-    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/grouplist','Title');?></th>
+    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/grouplist','Name');?></th>
     <th width="1%">&nbsp;</th>
     <th width="1%">&nbsp;</th>
 </tr>
-<?php foreach (erLhcoreClassGroup::getGroupList() as $user) : ?>
+</thead>
+<?php foreach ($groups as $group) : ?>
     <tr>
-        <td width="1%"><?php echo $user['id']?></td>
-        <td><?php echo $user['name']?></td>
-        <td><a href="<?php echo erLhcoreClassDesign::baseurl('user/editgroup/'.$user['id'])?>"><img src="<?php echo erLhcoreClassDesign::design('images/icons/page_edit.png');?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/grouplist','Edit group');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/grouplist','Edit group');?>" /></a></td>
-        <td><a href="<?php echo erLhcoreClassDesign::baseurl('user/deletegroup/'.$user['id'])?>"><img src="<?php echo erLhcoreClassDesign::design('images/icons/delete.png');?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/grouplist','Delete group');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/grouplist','Delete group');?>" /></a></td>
+        <td width="1%"><?php echo $group->id?></td>
+        <td><?php echo $group->name?></td>
+        <td nowrap><a class="tiny button round" href="<?php echo erLhcoreClassDesign::baseurl('user/editgroup')?>/<?php echo $group->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/grouplist','Edit group');?></a></td>
+        <td nowrap><a class="tiny alert button round" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('gallery/album_list_admin','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('user/deletegroup')?>/<?php echo $group->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/grouplist','Delete group');?></a></td>
     </tr>
 <?php endforeach; ?>
 </table>
 <br />
-
-<div>
-<a href="<?php echo erLhcoreClassDesign::baseurl('user/newgroup/')?>"><img src="<?php echo erLhcoreClassDesign::design('images/icons/add.png');?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/grouplist','New group');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/grouplist','New group');?>" /></a>
-</div>
+<?php if (isset($pages)) : ?>
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/paginator.tpl.php')); ?>
+<?php endif;?>
+<a class="small button" href="<?php echo erLhcoreClassDesign::baseurl('user/newgroup')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/grouplist','New group');?></a>

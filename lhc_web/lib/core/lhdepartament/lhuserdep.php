@@ -10,8 +10,8 @@ class erLhcoreClassUserDep{
    public static function getUserDepartaments($userID = false)
    {
        
-         if (isset($GLOBALS['lhCacheUserDepartaments'])) return $GLOBALS['lhCacheUserDepartaments'];
-         if (isset($_SESSION['lhCacheUserDepartaments'])) return $_SESSION['lhCacheUserDepartaments'];
+         if (isset($GLOBALS['lhCacheUserDepartaments_'.$userID])) return $GLOBALS['lhCacheUserDepartaments_'.$userID];
+         if (isset($_SESSION['lhCacheUserDepartaments_'.$userID])) return $_SESSION['lhCacheUserDepartaments_'.$userID];
        
          
          $db = ezcDbInstance::get();
@@ -36,12 +36,13 @@ class erLhcoreClassUserDep{
              $idArray[] = $row['dep_id'];
          }
          
-         $GLOBALS['lhCacheUserDepartaments'] = $idArray;         
-         $_SESSION['lhCacheUserDepartaments'] = $idArray;
+         $GLOBALS['lhCacheUserDepartaments_'.$userID] = $idArray;         
+         $_SESSION['lhCacheUserDepartaments_'.$userID] = $idArray;
          
          return $idArray;    
    }
-    
+   
+      
    public static function addUserDepartaments($Departaments, $userID = false)
    {
        $db = ezcDbInstance::get();
@@ -61,6 +62,10 @@ class erLhcoreClassUserDep{
             $stmt->bindValue( ':user_id',$userID);                  
             $stmt->bindValue( ':dep_id',$DepartamentID);                  
             $stmt->execute();
+       }
+       
+       if (isset($_SESSION['lhCacheUserDepartaments_'.$userID])){
+           unset($_SESSION['lhCacheUserDepartaments_'.$userID]);
        }
        
    }

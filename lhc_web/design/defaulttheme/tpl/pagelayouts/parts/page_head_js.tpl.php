@@ -8,4 +8,4 @@ confLH.new_chat_sound_enabled = <?php echo (int)(erConfigClassLhConfig::getInsta
 confLH.new_message_sound_admin_enabled = <?php echo (int)(erConfigClassLhConfig::getInstance()->getSetting('chat','new_message_sound_admin_enabled')) ?>;
 confLH.new_message_sound_user_enabled = <?php echo (int)(erConfigClassLhConfig::getInstance()->getSetting('chat','new_message_sound_user_enabled')) ?>;
 </script>
-<script type="text/javascript" language="javascript" src="<?php echo erLhcoreClassDesign::designJS('js/jquery-1.7.2.min.js;js/jquery-ui-1.8.21.custom.min.js;js/modernizr.js;js/lh.js;js/jquery.hotkeys-0.7.9.min.js');?>"></script>
+<script type="text/javascript" language="javascript" src="<?php echo erLhcoreClassDesign::designJS('js/jquery.js;js/modernizr.js;js/foundation.min.js;js/jquery.colorbox-min.js;js/lh.js;js/jquery.hotkeys-0.7.9.min.js');?>"></script>
