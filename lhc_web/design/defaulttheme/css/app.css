@@ -124,3 +124,14 @@ div.message-row {
 .status-row .columns p {
 	margin-bottom:0;
 }
+
+   
+@media only screen and (max-width: 467px) { 
+    .tabs dd {
+        display:block;
+        float:none;
+    }    
+    .tabs {
+        height: auto;
+    }
+}
