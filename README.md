@@ -19,7 +19,7 @@ Few main features
  * Write custom extensions without changing kernel
  * Override default behaviour without changing kernel
  * MVC structure - separated design/logic/models
- * Web and Desktop client Windowd/Mac/Linux support.
+ * Web and Desktop client Windows/Mac/Linux support.
 
 Google group:
 https://groups.google.com/forum/#!forum/livehelperchat
