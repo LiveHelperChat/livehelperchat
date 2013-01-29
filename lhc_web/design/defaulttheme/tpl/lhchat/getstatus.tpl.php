@@ -1,6 +1,6 @@
 function lh_openchatWindow(url,windowname)
 {
-    window.open(url+'?URLReferer='+escape(document.location),windowname,"menubar=1,resizable=1,width=450,height=420");	      
+    window.open(url+'?URLReferer='+escape(document.location),windowname,"menubar=1,resizable=1,width=500,height=520");	      
     return false;
 }
 var urlopen= "http://<?php echo $_SERVER['HTTP_HOST'].erLhcoreClassDesign::baseurl('chat/startchat')?>";
