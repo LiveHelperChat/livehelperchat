@@ -332,10 +332,10 @@ class erLhcoreClassSystem{
 
         $instance->SiteDir    = $siteDir;
         $instance->WWWDir     = $wwwDir;
-        $instance->IndexFile  = $IndexFile;
-        $instance->RequestURI = $requestUri;
+        $instance->IndexFile  = '/index.php';
+        $instance->RequestURI = str_replace('//','/',str_replace('index.php','',$requestUri));
         $instance->QueryString = $queryString;        
-        $instance->WWWDirLang = '';
+        $instance->WWWDirLang = '';        
     }
 
     function wwwDir()
