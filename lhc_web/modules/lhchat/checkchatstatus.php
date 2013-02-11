@@ -3,21 +3,24 @@
 $Activated = 'false';
 $result = 'false';
 
+$tpl = erLhcoreClassTemplate::getInstance('lhchat/checkchatstatus.tpl.php');
+
 // FIXME, check is online by user chosen departament
 if (erLhcoreClassChat::isOnline()) {
     
-    if (erLhcoreClassChat::isChatActive($Params['user_parameters']['chat_id'],$Params['user_parameters']['hash']))
-    {
+    $tpl->set('is_online',true);
+    
+    if (erLhcoreClassChat::isChatActive($Params['user_parameters']['chat_id'],$Params['user_parameters']['hash'])) {
        $Activated = 'true';
-       $result = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','Support staff member have joined this chat');       
+       $tpl->set('is_activated',true);
     } else {
-       $result = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','Pending support staff member to join, you can write your questions, as soon support staff member confirm this chat, he will get your messages');
+       $tpl->set('is_activated',false); 
     }
     
 } else {
-   $result = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','At this moment there are no logged members, but you can leave your messages.'); 
+   $tpl->set('is_online',false);
 }
 
-echo json_encode(array('error' => 'false', 'result' => $result,'activated' => $Activated));
+echo json_encode(array('error' => 'false', 'result' => $tpl->fetch(),'activated' => $Activated));
 exit;
 ?>
