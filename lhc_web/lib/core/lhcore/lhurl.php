@@ -25,7 +25,7 @@ class erLhcoreClassURL extends ezcUrl {
             $urlCfgDefault->addOrderedParameter( 'module' ); 
             $urlCfgDefault->addOrderedParameter( 'function' );
                        
-            $urlInstance = new erLhcoreClassURL($sysConfiguration->RequestURI, $urlCfgDefault);
+            $urlInstance = new erLhcoreClassURL('index.php' . $sysConfiguration->RequestURI, $urlCfgDefault);
                 
             $siteaccess = $urlInstance->getParam( 'siteaccess' );
             $cfgSite = erConfigClassLhConfig::getInstance(); 
