@@ -37,8 +37,8 @@
     lhinst.chatsyncuserpending();
     lhinst.syncusercall();
     
-    $(window).bind('unload', function(){        
+    $(window).bind('beforeunload', function(){        
         lhinst.userclosedchat();
-    }); 
+    });
     
 </script>
