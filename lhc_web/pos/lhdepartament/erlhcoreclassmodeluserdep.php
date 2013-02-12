@@ -19,6 +19,16 @@ $def->properties['dep_id']->columnName   = 'dep_id';
 $def->properties['dep_id']->propertyName = 'dep_id';
 $def->properties['dep_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT; 
 
+$def->properties['last_activity'] = new ezcPersistentObjectProperty();
+$def->properties['last_activity']->columnName   = 'last_activity';
+$def->properties['last_activity']->propertyName = 'last_activity';
+$def->properties['last_activity']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT; 
+
+$def->properties['hide_online'] = new ezcPersistentObjectProperty();
+$def->properties['hide_online']->columnName   = 'hide_online';
+$def->properties['hide_online']->propertyName = 'hide_online';
+$def->properties['hide_online']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT; 
+
 return $def; 
 
 ?>

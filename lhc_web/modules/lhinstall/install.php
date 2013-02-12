@@ -284,17 +284,19 @@ switch ((int)$Params['user_parameters']['step_id']) {
                erLhcoreClassRole::getSession()->save($GroupRole);
         
                // Users
-               $db->query("CREATE TABLE IF NOT EXISTS `lh_users` (
-                      `id` int(11) NOT NULL AUTO_INCREMENT,
-                      `username` varchar(40) NOT NULL,
-                      `password` varchar(40) NOT NULL,
-                      `email` varchar(100) NOT NULL,
-                      `lastactivity` int(11) NOT NULL,
-                      `name` varchar(100) NOT NULL,
-                      `surname` varchar(100) NOT NULL,
-                      `disabled` tinyint(4) NOT NULL,
-                      PRIMARY KEY (`id`)
-                    )");
+               $db->query("CREATE TABLE `lh_users` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `username` varchar(40) NOT NULL,
+                  `password` varchar(40) NOT NULL,
+                  `email` varchar(100) NOT NULL,
+                  `name` varchar(100) NOT NULL,
+                  `surname` varchar(100) NOT NULL,
+                  `disabled` tinyint(4) NOT NULL,
+                  `hide_online` tinyint(1) NOT NULL,
+                  `all_departments` tinyint(1) NOT NULL,
+                  PRIMARY KEY (`id`),
+                  KEY `hide_online` (`hide_online`)
+                )");
                               
                 $UserData = new erLhcoreClassModelUser();
 
@@ -303,18 +305,25 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 $UserData->name    = $form->AdminName;
                 $UserData->surname = $form->AdminSurname;
                 $UserData->username = $form->AdminUsername;
-        
+                $UserData->all_departments = 1;
+                
                 erLhcoreClassUser::getSession()->save($UserData);
         
-                //User departaments
-                $db->query("CREATE TABLE IF NOT EXISTS `lh_userdep` (
+                // User departaments
+                $db->query("CREATE TABLE `lh_userdep` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
                   `user_id` int(11) NOT NULL,
                   `dep_id` int(11) NOT NULL,
+                  `last_activity` int(11) NOT NULL,
+                  `hide_online` int(11) NOT NULL,
                   PRIMARY KEY (`id`),
-                  KEY `user_id` (`user_id`)
-                )"); 
+                  KEY `user_id` (`user_id`),
+                  KEY `last_activity_hide_online_dep_id` (`last_activity`,`hide_online`,`dep_id`)
+                )");
 
+                // Insert record to departament instantly
+                $db->query("INSERT INTO `lh_userdep` (`user_id`,`dep_id`) VALUES ({$UserData->id},0)");
+                
                 // Transfer chat
                 $db->query("CREATE TABLE IF NOT EXISTS `lh_transfer` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -371,8 +380,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   PRIMARY KEY (`id`),
                   KEY `role_id` (`role_id`)
                 )");
-                
-                
+                                
                 $RoleFunction = new erLhcoreClassModelRoleFunction();
                 $RoleFunction->role_id = $Role->id;
                 $RoleFunction->module = '*';
@@ -394,8 +402,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
     	       $tpl->set('admin_departament',$form->DefaultDepartament);
     	       
     	       $tpl->set('errors',$Errors);
-    	            
-    	       
+    	                	       
     	       $tpl->setFile('lhinstall/install3.tpl.php');
             }
 	    } else {

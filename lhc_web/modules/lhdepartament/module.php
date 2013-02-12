@@ -26,9 +26,8 @@ $ViewList['delete'] = array(
     'script' => 'delete.php',
     'params' => array('departament_id'),
     'functions' => array( 'delete' )
-    );   
-     
-$FunctionList['alldepartaments'] = array('explain' => 'Access to all departments chats');  
+    );
+
 $FunctionList['list'] = array('explain' => 'Access to list departments');  
 $FunctionList['create'] = array('explain' => 'Create new department');  
 $FunctionList['edit'] = array('explain' => 'Edit department');  

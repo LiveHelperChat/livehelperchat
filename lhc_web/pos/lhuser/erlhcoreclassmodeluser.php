@@ -24,11 +24,6 @@ $def->properties['email']->columnName   = 'email';
 $def->properties['email']->propertyName = 'email';
 $def->properties['email']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
  
-$def->properties['lastactivity'] = new ezcPersistentObjectProperty();
-$def->properties['lastactivity']->columnName   = 'lastactivity';
-$def->properties['lastactivity']->propertyName = 'lastactivity';
-$def->properties['lastactivity']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT; 
-
 $def->properties['name'] = new ezcPersistentObjectProperty();
 $def->properties['name']->columnName   = 'name';
 $def->properties['name']->propertyName = 'name';
@@ -43,6 +38,16 @@ $def->properties['disabled'] = new ezcPersistentObjectProperty();
 $def->properties['disabled']->columnName   = 'disabled';
 $def->properties['disabled']->propertyName = 'disabled';
 $def->properties['disabled']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING; 
+
+$def->properties['hide_online'] = new ezcPersistentObjectProperty();
+$def->properties['hide_online']->columnName   = 'hide_online';
+$def->properties['hide_online']->propertyName = 'hide_online';
+$def->properties['hide_online']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+ 
+$def->properties['all_departments'] = new ezcPersistentObjectProperty();
+$def->properties['all_departments']->columnName   = 'all_departments';
+$def->properties['all_departments']->propertyName = 'all_departments';
+$def->properties['all_departments']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT; 
 
 return $def; 
 

@@ -32,13 +32,18 @@
                     'list_function'  => 'erLhcoreClassModelGroup::getList'
             )); ?>
             
-<label>Disabled&nbsp;<input type="checkbox" value="on" name="UserDisabled" <?php echo $user->disabled == 1 ? 'checked="checked"' : '' ?> /></label> 
-        
+<label>Disabled&nbsp;<input type="checkbox" value="on" name="UserDisabled" <?php echo $user->disabled == 1 ? 'checked="checked"' : '' ?> /></label>
+
+<label>Do not show user status as online&nbsp;<input type="checkbox" value="on" name="HideMyStatus" <?php echo $user->hide_online == 1 ? 'checked="checked"' : '' ?> /></label>  
+     
 <hr>
 
-<h5>Departaments</h5>            
+<h5>Departaments</h5> 
+
+<label><input type="checkbox" value="on" name="all_departments" <?php echo $user->all_departments == 1 ? 'checked="checked"' : '' ?> />All departments</label>
+           
 <?php foreach (erLhcoreClassDepartament::getDepartaments() as $departament) : ?>
-    <label><input type="checkbox" name="UserDepartament[]" value="<?php echo $departament['id']?>"<?php echo in_array($departament['id'],$userdepartaments) ? 'checked="checked"' : '';?>/> <?php echo htmlspecialchars($departament['name'])?></label><br />
+    <label><input type="checkbox" name="UserDepartament[]" value="<?php echo $departament['id']?>"<?php echo in_array($departament['id'],$userdepartaments) ? 'checked="checked"' : '';?>/><?php echo htmlspecialchars($departament['name'])?></label>
 <?php endforeach; ?>
 
 <input type="submit" class="small button" name="Update_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Save');?>"/>

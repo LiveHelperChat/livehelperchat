@@ -28,7 +28,10 @@ if (isset($_POST['Update_account']))
         ),    		
 		'UserDisabled' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-		),    		
+		),  
+		'HideMyStatus' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+		),  		
 		'DefaultGroup' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'int',
 				null,
@@ -82,6 +85,13 @@ if (isset($_POST['Update_account']))
     	$UserData->disabled = 0;
     }
     
+    if ( $form->hasValidData( 'HideMyStatus' ) && $form->HideMyStatus == true )
+    {
+    	$UserData->hide_online = 1;
+    } else {
+    	$UserData->hide_online = 0;
+    }
+    
     if (count($Errors) == 0)
     {  
         $UserData->setPassword($form->Password);
@@ -90,13 +100,26 @@ if (isset($_POST['Update_account']))
         $UserData->surname = $form->Surname;
         $UserData->username = $form->Username;
         
+        $globalDepartament = array();
+        if (isset($_POST['all_departments']) && $_POST['all_departments'] == 'on') {
+           $UserData->all_departments = 1;
+           $globalDepartament[] = 0;
+        } else {
+           $UserData->all_departments = 0;
+        } 
+        
         erLhcoreClassUser::getSession()->save($UserData);
         
         if (isset($_POST['UserDepartament']) && count($_POST['UserDepartament']) > 0)
         {
-           erLhcoreClassUserDep::addUserDepartaments($_POST['UserDepartament'],$UserData->id);
-        } 
-        
+           $globalDepartament = array_merge($_POST['UserDepartament'],$globalDepartament);       
+        }
+          
+        if (count($globalDepartament) > 0)
+        {
+           erLhcoreClassUserDep::addUserDepartaments($globalDepartament,$UserData->id,$UserData);
+        }
+                        
         erLhcoreClassModelGroupUser::removeUserFromGroups($UserData->id);
                 
         foreach ($UserData->user_groups_id as $group_id) {

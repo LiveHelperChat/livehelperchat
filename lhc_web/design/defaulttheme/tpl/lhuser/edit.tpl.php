@@ -40,6 +40,8 @@
             )); ?>
             
 <label>Disabled&nbsp;<input type="checkbox" value="on" name="UserDisabled" <?php echo $user->disabled == 1 ? 'checked="checked"' : '' ?> /></label>  
+
+<label>Do not show user status as online&nbsp;<input type="checkbox" value="on" name="HideMyStatus" <?php echo $user->hide_online == 1 ? 'checked="checked"' : '' ?> /></label>  
             
 <ul class="button-group radius">
 <li><input type="submit" class="small button" name="Save_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Save');?>"/></li>
@@ -60,8 +62,11 @@
 <?php $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($user->id); ?>
 
 <form action="<?php echo erLhcoreClassDesign::baseurl('/user/edit/'.$user->id)?>" method="post">
+    
+    <label><input type="checkbox" value="on" name="all_departments" <?php echo $user->all_departments == 1 ? 'checked="checked"' : '' ?> />All departments</label>
+    
     <?php foreach (erLhcoreClassDepartament::getDepartaments() as $departament) : ?>
-        <label><input type="checkbox" name="UserDepartament[]" value="<?php echo $departament['id']?>"<?php in_array($departament['id'],$userDepartaments) ? print 'checked="checked"' : '';?>/><?php echo htmlspecialchars($departament['name'])?></label><br />
+        <label><input type="checkbox" name="UserDepartament[]" value="<?php echo $departament['id']?>"<?php in_array($departament['id'],$userDepartaments) ? print 'checked="checked"' : '';?>/><?php echo htmlspecialchars($departament['name'])?></label>
     <?php endforeach; ?>
     <input type="submit" class="small button" name="UpdateDepartaments_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Update');?>"/>
 </form>

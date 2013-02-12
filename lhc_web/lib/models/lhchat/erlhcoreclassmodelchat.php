@@ -28,6 +28,11 @@ class erLhcoreClassModelChat {
        }
    } 
    
+   public static function fetch($chat_id) {
+       	 $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', (int)$chat_id );
+       	 return $chat;
+   }
+   
    public function setIP()
    {
        $this->ip = isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];

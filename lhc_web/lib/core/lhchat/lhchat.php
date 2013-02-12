@@ -19,7 +19,9 @@ class erLhcoreClassChat {
             
          $currentUser = erLhcoreClassUser::instance();         
          $LimitationDepartament = '';
-         if (!$currentUser->hasAccessTo('lhdepartament','alldepartaments'))
+         $userData = $currentUser->getUserData(true);
+         
+         if ( $userData->all_departments == 0 )
          {
              $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID());  
                
@@ -27,7 +29,7 @@ class erLhcoreClassChat {
                       
              $LimitationDepartament = ' AND (lh_chat.dep_id IN ('.implode(',',$userDepartaments). ') OR user_id = '.$currentUser->getUserID() . ')';
          }
-              
+         
          $stmt = $db->prepare('SELECT lh_chat.*,lh_departament.name FROM lh_chat LEFT JOIN lh_departament ON lh_chat.dep_id = lh_departament.id WHERE status = 0'.$LimitationDepartament." ORDER BY lh_chat.id DESC LIMIT {$offset},{$limit}");   
                
          $stmt->setFetchMode(PDO::FETCH_ASSOC);        
@@ -42,8 +44,10 @@ class erLhcoreClassChat {
          $db = ezcDbInstance::get();
             
          $currentUser = erLhcoreClassUser::instance();         
+         $userData = $currentUser->getUserData(true);
+                  
          $LimitationDepartament = '';
-         if (!$currentUser->hasAccessTo('lhdepartament','alldepartaments'))
+         if ($userData->all_departments == 0)
          {
              $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID());  
                
@@ -64,9 +68,11 @@ class erLhcoreClassChat {
     {
          $db = ezcDbInstance::get();
          
-         $currentUser = erLhcoreClassUser::instance();         
+         $currentUser = erLhcoreClassUser::instance();    
+         $userData = $currentUser->getUserData(true);
+         
          $LimitationDepartament = '';
-         if (!$currentUser->hasAccessTo('lhdepartament','alldepartaments'))
+         if ( $userData->all_departments == 0 )
          {
              $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID());   
              
@@ -87,9 +93,10 @@ class erLhcoreClassChat {
     {
          $db = ezcDbInstance::get();
          
-         $currentUser = erLhcoreClassUser::instance();         
+         $currentUser = erLhcoreClassUser::instance(); 
+         $userData = $currentUser->getUserData(true);        
          $LimitationDepartament = '';
-         if (!$currentUser->hasAccessTo('lhdepartament','alldepartaments'))
+         if ( $userData->all_departments == 0 )
          {
              $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID());   
              
@@ -112,8 +119,9 @@ class erLhcoreClassChat {
          
          $currentUser = erLhcoreClassUser::instance();         
          $LimitationDepartament = '';
+         $userData = $currentUser->getUserData(true);
                   
-         if (!$currentUser->hasAccessTo('lhdepartament','alldepartaments'))
+         if ( $userData->all_departments == 0 )
          {
              $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID());   
              
@@ -137,8 +145,9 @@ class erLhcoreClassChat {
          
          $currentUser = erLhcoreClassUser::instance();         
          $LimitationDepartament = '';
-                  
-         if (!$currentUser->hasAccessTo('lhdepartament','alldepartaments'))
+         $userData = $currentUser->getUserData(true);
+                   
+         if ( $userData->all_departments == 0 )
          {
              $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID());   
              
@@ -155,16 +164,17 @@ class erLhcoreClassChat {
     }
     
     
-    public static function isOnline()
+    public static function isOnline($dep_id)
     {
        $isOnlineUser = (int)erConfigClassLhConfig::getInstance()->getSetting('chat','online_timeout');
         
        $db = ezcDbInstance::get();
-       $stmt = $db->prepare('SELECT COUNT(*) AS found FROM lh_users WHERE lastactivity > '.(time()-$isOnlineUser));
+       $stmt = $db->prepare('SELECT COUNT(id) AS found FROM lh_userdep WHERE (last_activity > :last_activity AND hide_online = 0) AND (dep_id = :dep_id OR dep_id = 0)');
+       $stmt->bindValue(':dep_id',$dep_id);
+       $stmt->bindValue(':last_activity',(time()-$isOnlineUser));
            
        $stmt->execute();
        $rows = $stmt->fetchAll();  
-              
        
        return $rows[0]['found'] >= 1;
     }
@@ -181,7 +191,8 @@ class erLhcoreClassChat {
            $NotUser = ' AND lh_users.id NOT IN ('.implode(',',$UserID).')';
        }
        
-       $stmt = $db->prepare('SELECT * FROM lh_users WHERE lastactivity > '.(time()-$isOnlineUser) .' '.$NotUser);
+       $stmt = $db->prepare('SELECT lh_users.* FROM lh_users INNER JOIN lh_userdep ON lh_userdep.user_id = lh_users.id WHERE lh_userdep.last_activity > :last_activity '.$NotUser.' GROUP BY lh_users.id');
+       $stmt->bindValue(':last_activity',(time()-$isOnlineUser));
            
        $stmt->execute();
        $rows = $stmt->fetchAll(); 
@@ -254,8 +265,9 @@ class erLhcoreClassChat {
    {
        $currentUser = erLhcoreClassUser::instance();
        
-       if (!$currentUser->hasAccessTo('lhdepartament','alldepartaments'))
-       {      
+       $userData = $currentUser->getUserData(true);
+                   
+       if ( $userData->all_departments == 0 ) {      
             if ($chat->user_id == $currentUser->getUserID()) return true;
                           
             $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID());   

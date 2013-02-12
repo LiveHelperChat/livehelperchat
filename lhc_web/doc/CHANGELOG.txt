@@ -1,3 +1,12 @@
+1.17v
+
+1. Updated a little bit database structure to support hide online options.
+2. Now admin have an option to be hidden. Also status for departament is now individual.
+3. To enable 2 feature please resave admin users.
+4. Fixed bug then editing user password was reset.
+5. Status for online will be used lh_userdep instead of users table.
+6. For upgrade please execute doc/update_db/update_3.sql query.
+
 1.16v
 
 This version changes allows to do the following things.

@@ -25,7 +25,7 @@ if (isset($_POST['Update']))
         ),
         'Username' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-        ),
+        )        
     );
   
     $form = new ezcInputForm( INPUT_POST, $definition );
@@ -58,6 +58,7 @@ if (isset($_POST['Update']))
     {
         $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Passwords mismatch');
     }
+   
     
     if (count($Errors) == 0)
     {   
@@ -85,11 +86,28 @@ $allowEditDepartaments = $currentUser->hasAccessTo('lhuser','editdepartaments');
 
 if ($allowEditDepartaments && isset($_POST['UpdateDepartaments_account']))
 {    
+  
+   $globalDepartament = array();
+   if (isset($_POST['all_departments']) && $_POST['all_departments'] == 'on') {
+       $UserData->all_departments = 1;
+       $globalDepartament[] = 0;
+   } else {
+       $UserData->all_departments = 0;
+   }    
+
+   erLhcoreClassUser::getSession()->update($UserData);
+
    if (isset($_POST['UserDepartament']) && count($_POST['UserDepartament']) > 0)
    {
-       erLhcoreClassUserDep::addUserDepartaments($_POST['UserDepartament']);
+       $globalDepartament = array_merge($_POST['UserDepartament'],$globalDepartament);       
    }
 
+   if (count($globalDepartament) > 0) {
+       erLhcoreClassUserDep::addUserDepartaments($globalDepartament,false,$UserData);
+   } else {
+       erLhcoreClassUserDep::addUserDepartaments(array(),false,$UserData);
+   }
+   
    $tpl->set('account_updated_departaments','done');
 }
 
@@ -100,8 +118,6 @@ if (!isset($UserData))
 }
 
 $tpl->set('editdepartaments',$allowEditDepartaments);
-$tpl->set('alldepartaments',$currentUser->hasAccessTo('lhdepartament','alldepartaments'));
-
 
 $tpl->set('user',$UserData);
 

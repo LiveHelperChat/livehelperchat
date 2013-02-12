@@ -47,6 +47,7 @@ class erLhcoreClassUser{
 	   $secretHash = $cfgSite->getSetting( 'site', 'secrethash' );
        
        $this->credentials = new ezcAuthenticationPasswordCredentials( $username, sha1($password.$secretHash.sha1($password)) );
+       
        $database = new ezcAuthenticationDatabaseInfo( ezcDbInstance::get(), 'lh_users', array( 'username', 'password' ) );
        $this->authentication = new ezcAuthentication( $this->credentials );       
        
@@ -115,9 +116,13 @@ class erLhcoreClassUser{
         return self::$persistentSession;
    }
       
-   function getUserData()
+   function getUserData($useCache = false)
    {
-      return erLhcoreClassUser::getSession()->load( 'erLhcoreClassModelUser', $this->userid );
+      if ($useCache == true && isset($GLOBALS['UserModelCache_'.$this->userid])) return $GLOBALS['UserModelCache_'.$this->userid];
+      
+      $GLOBALS['UserModelCache_'.$this->userid] = erLhcoreClassUser::getSession()->load( 'erLhcoreClassModelUser', $this->userid );
+      
+      return $GLOBALS['UserModelCache_'.$this->userid];
    }
    
    function getUserID()
@@ -128,7 +133,7 @@ class erLhcoreClassUser{
    function updateLastVisit()
    {
        $db = ezcDbInstance::get();                 
-       $db->query('UPDATE lh_users SET lastactivity = '.time().' WHERE id = '.$this->userid);
+       $db->query('UPDATE lh_userdep SET last_activity = '.time().' WHERE user_id = '.$this->userid);
    }
    
    function getUserList()

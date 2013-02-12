@@ -27,6 +27,9 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
         ),    		
 		'UserDisabled' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+		),
+		'HideMyStatus' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 		),    		
 		'DefaultGroup' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'int',
@@ -77,12 +80,19 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
     	$UserData->disabled = 1;
     } else {
     	$UserData->disabled = 0;
+    }   
+     
+    if ( $form->hasValidData( 'HideMyStatus' ) && $form->HideMyStatus == true )
+    {
+    	$UserData->hide_online = 1;
+    } else {
+    	$UserData->hide_online = 0;
     }
     
     if (count($Errors) == 0)
     {     
         // Update password if neccesary
-        if ($form->hasInputField( 'Password' ) && $form->hasInputField( 'Password1' ))
+        if ($form->hasInputField( 'Password' ) && $form->hasInputField( 'Password1' ) && $form->Password != '')
         {
             $UserData->setPassword($form->Password);
         }
@@ -92,6 +102,8 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
         $UserData->surname = $form->Surname;
         
         erLhcoreClassUser::getSession()->update($UserData);
+        
+        erLhcoreClassUserDep::setHideOnlineStatus($UserData);
         
         erLhcoreClassModelGroupUser::removeUserFromGroups($UserData->id);
                 
@@ -118,12 +130,27 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
 }
 
 if (isset($_POST['UpdateDepartaments_account']))
-{    
+{        
+   $globalDepartament = array();
+   if (isset($_POST['all_departments']) && $_POST['all_departments'] == 'on') {
+       $UserData->all_departments = 1;
+       $globalDepartament[] = 0;
+   } else {
+       $UserData->all_departments = 0;
+   }    
+
+   erLhcoreClassUser::getSession()->update($UserData);
+   
    if (isset($_POST['UserDepartament']) && count($_POST['UserDepartament']) > 0)
    {
-       erLhcoreClassUserDep::addUserDepartaments($_POST['UserDepartament'],$Params['user_parameters']['user_id']);
+       $globalDepartament = array_merge($_POST['UserDepartament'],$globalDepartament);       
+   }
+      
+   if (count($globalDepartament) > 0)
+   {
+       erLhcoreClassUserDep::addUserDepartaments($globalDepartament,$Params['user_parameters']['user_id'],$UserData);
    } else {
-       erLhcoreClassUserDep::addUserDepartaments(array(),$Params['user_parameters']['user_id']);
+       erLhcoreClassUserDep::addUserDepartaments(array(),$Params['user_parameters']['user_id'],$UserData);
    }
    
    $tpl->set('account_updated_departaments','done');

@@ -43,7 +43,7 @@ class erLhcoreClassUserDep{
    }
    
       
-   public static function addUserDepartaments($Departaments, $userID = false)
+   public static function addUserDepartaments($Departaments, $userID = false,$UserData = false)
    {
        $db = ezcDbInstance::get();
        if ($userID === false)
@@ -55,19 +55,28 @@ class erLhcoreClassUserDep{
        $stmt = $db->prepare('DELETE FROM lh_userdep WHERE user_id = :user_id ORDER BY id ASC');   
        $stmt->bindValue( ':user_id',$userID);                  
        $stmt->execute();
-       
+
        foreach ($Departaments as $DepartamentID)
        {
-            $stmt = $db->prepare('INSERT INTO lh_userdep (user_id,dep_id) VALUES (:user_id,:dep_id)');   
+            $stmt = $db->prepare('INSERT INTO lh_userdep (user_id,dep_id,hide_online) VALUES (:user_id,:dep_id,:hide_online)');   
             $stmt->bindValue( ':user_id',$userID);                  
             $stmt->bindValue( ':dep_id',$DepartamentID);                  
+            $stmt->bindValue( ':hide_online',$UserData->hide_online);                  
             $stmt->execute();
        }
-       
+
        if (isset($_SESSION['lhCacheUserDepartaments_'.$userID])){
            unset($_SESSION['lhCacheUserDepartaments_'.$userID]);
        }
        
+   }
+   
+   public static function setHideOnlineStatus($UserData) {
+       $db = ezcDbInstance::get();
+       $stmt = $db->prepare('UPDATE lh_userdep SET hide_online = :hide_online WHERE user_id = :user_id');   
+       $stmt->bindValue( ':hide_online',$UserData->hide_online);                  
+       $stmt->bindValue( ':user_id',$UserData->id);                  
+       $stmt->execute();
    }
    
    public static function getSession()

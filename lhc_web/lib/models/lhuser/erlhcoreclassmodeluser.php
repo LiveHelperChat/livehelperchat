@@ -5,14 +5,15 @@ class erLhcoreClassModelUser {
     public function getState()
    {
        return array(
-               'id'           => $this->id,
-               'username'     => $this->username,
-               'password'     => $this->password,
-               'email'        => $this->email,
-               'lastactivity' => $this->lastactivity,
-               'name'         => $this->name,
-               'surname'      => $this->surname,
-               'disabled'     => $this->disabled
+               'id'              => $this->id,
+               'username'        => $this->username,
+               'password'        => $this->password,
+               'email'           => $this->email,
+               'name'            => $this->name,
+               'surname'         => $this->surname,
+               'disabled'        => $this->disabled,
+               'hide_online'     => $this->hide_online,
+               'all_departments' => $this->all_departments
        );
    }
    
@@ -81,10 +82,21 @@ class erLhcoreClassModelUser {
        		   	 		$this->user_groups_id[] = $userGroup->group_id;
        		   		}
        		   }
-       		 
+
        		   return $this->user_groups_id;
        		break;
-       				
+       		
+       	case 'lastactivity':
+       	        $db = ezcDbInstance::get();       	        
+       	        $stmt = $db->prepare('SELECT last_activity FROM lh_userdep WHERE user_id = :user_id LIMIT 1');  
+       	        $stmt->bindValue(':user_id',$this->id);                
+                $stmt->execute();
+                
+                $this->lastactivity = (int)$stmt->fetchColumn();
+                return $this->lastactivity;                
+       	            
+       	    break;
+       	    			
        	case 'lastactivity_front':
        		   $this->lastactivity_front = '';
        		   
@@ -259,10 +271,11 @@ class erLhcoreClassModelUser {
     public $username = '';
     public $password = '';
     public $email = '';
-    public $lastactivity = 0;
     public $name = '';
     public $surname = '';
     public $disabled = 0;
+    public $hide_online = 0;
+    public $all_departments = 0;
 }
 
 ?>

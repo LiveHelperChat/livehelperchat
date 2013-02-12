@@ -5,9 +5,11 @@ class erLhcoreClassModelUserDep {
     public function getState()
    {
        return array(
-               'id'          => $this->id,
-               'user_id'     => $this->user_id,
-               'dep_id'      => $this->dep_id
+               'id'             => $this->id,
+               'user_id'        => $this->user_id,
+               'dep_id'         => $this->dep_id,
+               'last_activity'  => $this->last_activity,
+               'hide_online'    => $this->hide_online
        );
    }
    
@@ -18,14 +20,12 @@ class erLhcoreClassModelUserDep {
            $this->$key = $val;
        }
    }
-   
-  
-  
       
-    public $id = null;
-    public $user_id = '';
-    public $dep_id = '';
-
+   public $id = null;
+   public $user_id = 0;
+   public $dep_id = 0;
+   public $hide_online = 0;
+   public $last_activity = 0;
 }
 
 ?>
