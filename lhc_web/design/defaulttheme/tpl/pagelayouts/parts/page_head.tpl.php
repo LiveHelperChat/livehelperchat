@@ -9,9 +9,10 @@ foreach ($ReverseOrder as $pathItem) : ?><?php echo htmlspecialchars($pathItem['
 
 <link rel="icon" type="image/png" href="<?php echo erLhcoreClassDesign::design('images/favicon.ico')?>" />
 <link rel="shortcut icon" type="image/x-icon" href="<?php echo erLhcoreClassDesign::design('images/favicon.ico')?>">
-<meta name="Keywords" content="live,help,support" />
+<meta name="Keywords" content="" />
 <meta name="Description" content="<?php echo erConfigClassLhConfig::getInstance()->getOverrideValue( 'site', 'description' )?>" />
 <meta name="robots" content="noindex, nofollow">
+<meta name="copyright" content="Remigijus Kiminas, livehelperchat.com">
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_css.tpl.php'));?>
 
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_js.tpl.php'));?>
