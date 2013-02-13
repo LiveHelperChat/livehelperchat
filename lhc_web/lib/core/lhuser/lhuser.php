@@ -14,7 +14,7 @@ class erLhcoreClassUser{
    function __construct()
    {
        $options = new ezcAuthenticationSessionOptions();
-       $options->validity = 3600*12;
+       $options->validity = 3600*24;
  
        $this->session = new ezcAuthenticationSession($options);
        $this->session->start(); 
