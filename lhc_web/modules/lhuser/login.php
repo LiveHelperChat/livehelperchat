@@ -19,7 +19,7 @@ if (isset($_POST['Login']))
             $tpl->set('errors',array($Error));   
     } else {    
         erLhcoreClassModule::redirect();
-        return ;
+        exit;
     }    
 }
 

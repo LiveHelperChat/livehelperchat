@@ -35,7 +35,7 @@ if (isset($_POST['Save_group']) || isset($_POST['Save_group_and_assign_user']))
             erLhcoreClassModule::redirect('user/grouplist');
             
             
-        return ;
+        exit;
         
     }  else {
                 

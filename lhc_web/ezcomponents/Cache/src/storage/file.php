@@ -872,7 +872,7 @@ abstract class ezcCacheStorageFile extends ezcCacheStorage implements ezcCacheSt
     protected function calcLifetime( $file )
     {
         $ttl = $this->options->ttl;
-        if ( file_exists( $file ) && ( $modTime = filemtime( $file ) ) !== false )
+        if ( file_exists( $file ) && ( $modTime = @filemtime( $file ) ) !== false )
         {
             if ( $ttl === false )
             {

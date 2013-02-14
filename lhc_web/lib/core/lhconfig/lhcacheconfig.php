@@ -44,7 +44,9 @@ class erConfigClassLhCacheConfig
     
     public function save()
     {   
-        file_put_contents('cache/cacheconfig/settings.ini.php',"<?php\n return ".var_export($this->conf,true).";\n?>");
+        file_put_contents('cache/cacheconfig/settings.ini.new.php',"<?php\n return ".var_export($this->conf,true).";\n?>");     
+        // Atomic operation   
+        rename('cache/cacheconfig/settings.ini.new.php','cache/cacheconfig/settings.ini.php');
     }
     
     public function expireCache()

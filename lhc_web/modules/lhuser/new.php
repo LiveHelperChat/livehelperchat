@@ -130,7 +130,7 @@ if (isset($_POST['Update_account']))
         }
         
         erLhcoreClassModule::redirect('user/userlist');
-        return ;
+        exit;
         
     }  else {
         

@@ -16,6 +16,6 @@ $stmt->execute();
 
 
 erLhcoreClassModule::redirect('permission/roles');
-return;
+exit;
 
 ?>

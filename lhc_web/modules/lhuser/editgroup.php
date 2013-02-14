@@ -27,8 +27,7 @@ if (isset($_POST['Update_group']) )
         erLhcoreClassUser::getSession()->update($Group);
                      
         erLhcoreClassModule::redirect('user/grouplist');
-        
-        return ;
+        exit;
         
     }  else {
         $tpl->set('errors',$Errors);

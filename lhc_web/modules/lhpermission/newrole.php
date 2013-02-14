@@ -31,7 +31,7 @@ if (isset($_POST['Save_role']) ||isset($_POST['New_policy']) )
         else 
             erLhcoreClassModule::redirect('permission/roles' );
         
-        return ;
+       exit;
         
     }  else {
         $tpl->set('errors',$Errors);
@@ -41,7 +41,7 @@ if (isset($_POST['Save_role']) ||isset($_POST['New_policy']) )
 if (isset($_POST['Cancel_role']))
 {
     erLhcoreClassModule::redirect('permission/roles' );
-    return ;
+    exit;
 }
 
 $Result['content'] = $tpl->fetch();

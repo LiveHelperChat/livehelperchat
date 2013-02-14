@@ -21,6 +21,6 @@ $stmt = $q->prepare();
 $stmt->execute();
 
 erLhcoreClassModule::redirect('user/userlist');
-return;
+exit;
 
 ?>

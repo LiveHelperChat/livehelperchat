@@ -7,7 +7,7 @@ $Role = erLhcoreClassRole::getSession()->load( 'erLhcoreClassModelRole', (int)$P
 if (isset($_POST['Cancel_role']))
 {
     erLhcoreClassModule::redirect('permission/roles' );
-    return ;
+    exit ;
 }
 
 if (isset($_POST['Update_role']))
@@ -35,7 +35,7 @@ if (isset($_POST['Update_role']))
         erLhcoreClassRole::getSession()->update($Role);
        
         erLhcoreClassModule::redirect('permission/roles');
-        return ;
+        exit ;
         
     }  else {
         $tpl->set('errors',$Errors);

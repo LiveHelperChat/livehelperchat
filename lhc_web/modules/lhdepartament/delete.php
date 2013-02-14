@@ -10,6 +10,6 @@ $stmt = $q->prepare();
 $stmt->execute();
 
 erLhcoreClassModule::redirect('departament/departaments');
-return;
+exit;
 
 ?>

@@ -29,7 +29,7 @@ if (isset($_POST['Save_departament']))
         $Departament->name = $form->Name;
         erLhcoreClassDepartament::getSession()->save($Departament);
         erLhcoreClassModule::redirect('departament/departaments');
-        return ;
+        exit ;
         
     }  else {
         $tpl->set('errors',$Errors);
