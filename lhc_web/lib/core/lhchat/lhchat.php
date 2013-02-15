@@ -164,15 +164,21 @@ class erLhcoreClassChat {
     }
     
     
-    public static function isOnline($dep_id)
+    public static function isOnline($dep_id = false)
     {
        $isOnlineUser = (int)erConfigClassLhConfig::getInstance()->getSetting('chat','online_timeout');
         
        $db = ezcDbInstance::get();
-       $stmt = $db->prepare('SELECT COUNT(id) AS found FROM lh_userdep WHERE (last_activity > :last_activity AND hide_online = 0) AND (dep_id = :dep_id OR dep_id = 0)');
-       $stmt->bindValue(':dep_id',$dep_id);
-       $stmt->bindValue(':last_activity',(time()-$isOnlineUser));
-           
+       
+       if ($dep_id !== false){
+           $stmt = $db->prepare('SELECT COUNT(id) AS found FROM lh_userdep WHERE (last_activity > :last_activity AND hide_online = 0) AND (dep_id = :dep_id OR dep_id = 0)');
+           $stmt->bindValue(':dep_id',$dep_id);
+           $stmt->bindValue(':last_activity',(time()-$isOnlineUser));
+       } else {
+           $stmt = $db->prepare('SELECT COUNT(id) AS found FROM lh_userdep WHERE last_activity > :last_activity AND hide_online = 0');
+           $stmt->bindValue(':last_activity',(time()-$isOnlineUser));
+       }
+              
        $stmt->execute();
        $rows = $stmt->fetchAll();  
        
