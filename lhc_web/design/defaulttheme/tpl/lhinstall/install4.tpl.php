@@ -1,4 +1,3 @@
-<form action="<?php echo erLhcoreClassDesign::baseurl('install/install')?>/3" method="POST">
 <fieldset><legend>Installation completed</legend> 
         
 <p>Installation complete you can start adding users and departaments. 
@@ -7,4 +6,3 @@
 <br>
 
 </fieldset>
-</form>
