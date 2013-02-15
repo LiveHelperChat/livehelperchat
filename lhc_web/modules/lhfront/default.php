@@ -1,7 +1,7 @@
 <?php
 
 
-$tpl = new erLhcoreClassTemplate( 'lhfront/default.tpl.php');
+$tpl = erLhcoreClassTemplate::getInstance( 'lhfront/default.tpl.php');
 $Result['content'] = $tpl->fetch();
 
 ?>

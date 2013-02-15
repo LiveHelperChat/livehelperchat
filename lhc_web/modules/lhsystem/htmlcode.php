@@ -1,6 +1,6 @@
 <?php
 
-$tpl = new erLhcoreClassTemplate( 'lhsystem/htmlcode.tpl.php');
+$tpl = erLhcoreClassTemplate::getInstance( 'lhsystem/htmlcode.tpl.php');
 
 $cfgSite = erConfigClassLhConfig::getInstance(); 
  

@@ -13,8 +13,8 @@
     <tr>
         <td><?php echo $departament->id?></td>
         <td><?php echo htmlspecialchars($departament->name)?></td>
-        <td nowrap><a class="tiny button round" href="<?php echo erLhcoreClassDesign::baseurl('departament/edit/'.$departament->id)?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Edit department');?></a></td>
-        <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="tiny alert button round" href="<?php echo erLhcoreClassDesign::baseurl('departament/delete/'.$departament->id)?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Delete department');?></a></td>
+        <td nowrap><a class="tiny button round" href="<?php echo erLhcoreClassDesign::baseurl('departament/edit')?>/<?php echo $departament->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Edit department');?></a></td>
+        <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="tiny alert button round" href="<?php echo erLhcoreClassDesign::baseurl('departament/delete')?>/<?php echo $departament->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Delete department');?></a></td>
     </tr>
 <?php endforeach; ?>
 </table>

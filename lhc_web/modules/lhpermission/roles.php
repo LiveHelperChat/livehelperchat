@@ -1,6 +1,6 @@
 <?php
 
-$tpl = new erLhcoreClassTemplate( 'lhpermission/roles.tpl.php');
+$tpl = erLhcoreClassTemplate::getInstance( 'lhpermission/roles.tpl.php');
 
 $Result['content'] = $tpl->fetch();
 

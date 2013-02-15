@@ -1,4 +1,4 @@
-<form action="<?php echo erLhcoreClassDesign::baseurl('/user/editgroup/'.$group_id)?>" method="post">
+<form action="<?php echo erLhcoreClassDesign::baseurl('user/editgroup')?>/<?php echo $group_id?>" method="post">
 <table class="lentele" cellpadding="0" cellspacing="0" width="100%">
 <thead>
 <tr>

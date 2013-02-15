@@ -1,6 +1,6 @@
 <?php
 
-$tpl = new erLhcoreClassTemplate( 'lhdepartament/departaments.tpl.php');
+$tpl = erLhcoreClassTemplate::getInstance( 'lhdepartament/departaments.tpl.php');
 
 $pages = new lhPaginator();
 $pages->serverURL = erLhcoreClassDesign::baseurl('departament/departaments');

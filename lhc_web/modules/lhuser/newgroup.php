@@ -1,6 +1,6 @@
 <?php
 
-$tpl = new erLhcoreClassTemplate( 'lhuser/newgroup.tpl.php');
+$tpl = erLhcoreClassTemplate::getInstance( 'lhuser/newgroup.tpl.php');
 
 $GroupData = new erLhcoreClassModelGroup();
 

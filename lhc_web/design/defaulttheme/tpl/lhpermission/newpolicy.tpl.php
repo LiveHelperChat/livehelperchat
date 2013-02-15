@@ -4,7 +4,7 @@
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('/permission/editrole/'.$role->id)?>" method="post">
+<form action="<?php echo erLhcoreClassDesign::baseurl('permission/editrole')?>/<?php echo $role->id?>" method="post">
 				
 	<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','Assigned functions');?></h5> 			
 	<table cellpadding="0" cellspacing="0">
@@ -43,7 +43,7 @@ $( "#ModuleSelectedID" ).change( function () {
 	var module_val = $( "#ModuleSelectedID" ).val();
 	if (module_val != '*'){
 	    
-	    $.getJSON('<?php echo erLhcoreClassDesign::baseurl('/permission/modulefunctions/')?>'+module_val ,{ }, function(data){ 
+	    $.getJSON('<?php echo erLhcoreClassDesign::baseurl('permission/modulefunctions')?>/'+module_val ,{ }, function(data){ 
 	        // If no error
 	        if (data.error == 'false')
 	        {	 

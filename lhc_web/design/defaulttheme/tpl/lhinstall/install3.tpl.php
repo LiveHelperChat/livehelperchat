@@ -1,4 +1,4 @@
-<form action="<?php echo erLhcoreClassDesign::baseurl('install/install/3')?>" method="POST">
+<form action="<?php echo erLhcoreClassDesign::baseurl('install/install')?>/3" method="POST">
 <fieldset><legend>Installation step 3</legend> 
 <?php if (isset($errors)) : ?>
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>

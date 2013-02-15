@@ -4,7 +4,7 @@
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('/user/new/')?>" method="post" autocomplete="off">
+<form action="<?php echo erLhcoreClassDesign::baseurl('user/new')?>" method="post" autocomplete="off">
 		
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Username');?></label>
 <input class="inputfield" type="text" name="Username" value="<?php echo htmlspecialchars($user->username);?>" />

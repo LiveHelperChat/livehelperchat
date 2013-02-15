@@ -53,10 +53,9 @@ class erLhcoreClassTemplate {
             if (($this->cacheTemplates = $this->cacheWriter->restore('templateCache')) == false)
             {        	
             	$this->cacheWriter->store('templateCache',array());
-            	$this->cacheTemplates = array();            	
-            } 
-            
-            $cacheObj->store('templateCacheArray_version_'.$cacheObj->getCacheVersion('site_version'),array());
+            	$this->cacheTemplates = array();
+            	$cacheObj->store('templateCacheArray_version_'.$cacheObj->getCacheVersion('site_version'),array());            	
+            }            
         }   
     }
 
@@ -121,10 +120,12 @@ class erLhcoreClassTemplate {
         {
         	try {
         		return $this->fetchExecute($this->cacheTemplates[md5($fileTemplate.$instance->WWWDirLang)]);
-        	} catch (Exception $e) {
+        	} catch (Exception $e) {        	    
         		// Do nothing
         	}
         }
+        
+      
         
         $cfg = erConfigClassLhConfig::getInstance();  
         $file = erLhcoreClassDesign::designtpl($fileTemplate);
@@ -133,25 +134,29 @@ class erLhcoreClassTemplate {
         {
 	        $contentFile = php_strip_whitespace($file);  
 	        
-	        //Compile templates inclusions first level.             
-	        $Matches = array();
-			preg_match_all('/<\?php(.*?)include_once\(erLhcoreClassDesign::designtpl\(\'([a-zA-Z0-9-\.-\/\_]+)\'\)\)(.*?)\?\>/i',$contentFile,$Matches);       		
-			foreach ($Matches[2] as $key => $Match)
-			{	
-				$contentFile = str_replace($Matches[0][$key],php_strip_whitespace(erLhcoreClassDesign::designtpl($Match)),$contentFile);	
-			}
+	        // Compile templates - 3 level of inclusions
+	        for ($i = 0; $i < 3; $i++) {
+    	        $Matches = array();
+    			preg_match_all('/<\?php(.*?)include_once\(erLhcoreClassDesign::designtpl\(\'([a-zA-Z0-9-\.-\/\_]+)\'\)\)(.*?)\?\>/i',$contentFile,$Matches);       		
+    			foreach ($Matches[2] as $key => $Match)
+    			{	
+    				$contentFile = str_replace($Matches[0][$key],php_strip_whitespace(erLhcoreClassDesign::designtpl($Match)),$contentFile);	
+    			}
+    			
+    	        //Compile templates inclusions first level.             
+    	        $Matches = array();
+    			preg_match_all('/<\?php(.*?)include\(erLhcoreClassDesign::designtpl\(\'([a-zA-Z0-9-\.-\/\_]+)\'\)\)(.*?)\?\>/i',$contentFile,$Matches);       		
+    			foreach ($Matches[2] as $key => $Match)
+    			{	
+    				$contentFile = str_replace($Matches[0][$key],php_strip_whitespace(erLhcoreClassDesign::designtpl($Match)),$contentFile);	
+    			}		
+	        }
 			
-	        //Compile templates inclusions first level.             
-	        $Matches = array();
-			preg_match_all('/<\?php(.*?)include\(erLhcoreClassDesign::designtpl\(\'([a-zA-Z0-9-\.-\/\_]+)\'\)\)(.*?)\?\>/i',$contentFile,$Matches);       		
-			foreach ($Matches[2] as $key => $Match)
-			{	
-				$contentFile = str_replace($Matches[0][$key],php_strip_whitespace(erLhcoreClassDesign::designtpl($Match)),$contentFile);	
-			}		
+			
 			
 			//Compile image css paths. Etc..
 			$Matches = array();
-			preg_match_all('/<\?=erLhcoreClassDesign::design\(\'([a-zA-Z0-9-\.-\/\_]+)\'\)(.*?)\?\>/i',$contentFile,$Matches); 
+			preg_match_all('/<\?php echo erLhcoreClassDesign::design\(\'([a-zA-Z0-9-\.-\/\_]+)\'\)(.*?)\?\>/i',$contentFile,$Matches); 
 			foreach ($Matches[1] as $key => $Match)
 			{	
 				$contentFile = str_replace($Matches[0][$key],erLhcoreClassDesign::design($Match),$contentFile);	
@@ -159,7 +164,7 @@ class erLhcoreClassTemplate {
 			
 			//Compile translations, pure translations
 			$Matches = array();
-			preg_match_all('/<\?=erTranslationClassLhTranslation::getInstance\(\)->getTranslation\(\'(.*?)\',\'(.*?)\'\)(.*?)\?\>/i',$contentFile,$Matches);
+			preg_match_all('/<\?php echo erTranslationClassLhTranslation::getInstance\(\)->getTranslation\(\'(.*?)\',\'(.*?)\'\)(.*?)\?\>/i',$contentFile,$Matches);
 					
 			foreach ($Matches[1] as $key => $TranslateContent)
 			{	
@@ -177,39 +182,15 @@ class erLhcoreClassTemplate {
 			
 			// Compile url addresses
 			$Matches = array();
-			preg_match_all('/<\?=erLhcoreClassDesign::baseurl\((.*?)\)(.*?)\?\>/i',$contentFile,$Matches); 
+			preg_match_all('/<\?php echo erLhcoreClassDesign::baseurl\((.*?)\)(.*?)\?\>/i',$contentFile,$Matches); 
 			foreach ($Matches[1] as $key => $UrlAddress)
 			{	
 				$contentFile = str_replace($Matches[0][$key],erLhcoreClassDesign::baseurl(trim($UrlAddress,'\'')),$contentFile);	
 			}
 			
-			// Banner zones
-			$Matches = array();
-			preg_match_all('/<\?=erLhAbstractModelAdZone::fetch\((.*?)\)->header_slot(.*?)\?\>/i',$contentFile,$Matches); 
-			foreach ($Matches[1] as $key => $UrlAddress)
-			{	
-				$contentFile = str_replace($Matches[0][$key],erLhAbstractModelAdZone::fetch(trim($UrlAddress,'\''))->header_slot,$contentFile);	
-			}			
-			
-			// Banner zones
-			$Matches = array();
-			preg_match_all('/<\?=erLhAbstractModelAdZone::fetch\((.*?)\)->content(.*?)\?\>/i',$contentFile,$Matches); 
-			foreach ($Matches[1] as $key => $UrlAddress)
-			{	
-				$contentFile = str_replace($Matches[0][$key],erLhAbstractModelAdZone::fetch(trim($UrlAddress,'\''))->content,$contentFile);	
-			}			
-			
-			// Static articles
-			$Matches = array();
-			preg_match_all('/<\?=erLhcoreClassModelArticleStatic::fetch\((.*?)\)->content(.*?)\?\>/i',$contentFile,$Matches); 
-			foreach ($Matches[1] as $key => $UrlAddress)
-			{	
-				$contentFile = str_replace($Matches[0][$key],erLhcoreClassModelArticleStatic::fetch(trim($UrlAddress,'\''))->content,$contentFile);	
-			}			
-			
 			// Compile url direct addresses
 			$Matches = array();
-			preg_match_all('/<\?=erLhcoreClassDesign::baseurldirect\((.*?)\)(.*?)\?\>/i',$contentFile,$Matches); 
+			preg_match_all('/<\?php echo erLhcoreClassDesign::baseurldirect\((.*?)\)(.*?)\?\>/i',$contentFile,$Matches); 
 			foreach ($Matches[1] as $key => $UrlAddress)
 			{	
 				$contentFile = str_replace($Matches[0][$key],erLhcoreClassDesign::baseurldirect(trim($UrlAddress,'\'')),$contentFile);	
@@ -217,7 +198,7 @@ class erLhcoreClassTemplate {
 								
 			// Compile css url addresses
 			$Matches = array();
-			preg_match_all('/<\?=erLhcoreClassDesign::designCSS\((.*?)\)(.*?)\?\>/i',$contentFile,$Matches); 
+			preg_match_all('/<\?php echo erLhcoreClassDesign::designCSS\((.*?)\)(.*?)\?\>/i',$contentFile,$Matches); 
 			foreach ($Matches[1] as $key => $UrlAddress)
 			{	
 				$contentFile = str_replace($Matches[0][$key],erLhcoreClassDesign::designCSS(trim($UrlAddress,'\'')),$contentFile);	
@@ -225,7 +206,7 @@ class erLhcoreClassTemplate {
 							
 			// Compile css url addresses
 			$Matches = array();
-			preg_match_all('/<\?=erLhcoreClassDesign::designJS\((.*?)\)(.*?)\?\>/i',$contentFile,$Matches); 
+			preg_match_all('/<\?php echo erLhcoreClassDesign::designJS\((.*?)\)(.*?)\?\>/i',$contentFile,$Matches); 
 			foreach ($Matches[1] as $key => $UrlAddress)
 			{
 				$contentFile = str_replace($Matches[0][$key],erLhcoreClassDesign::designJS(trim($UrlAddress,'\'')),$contentFile);	
@@ -242,7 +223,7 @@ class erLhcoreClassTemplate {
 			
 			// Compile config settings, direct output
 			$Matches = array();
-			preg_match_all('/<\?=erConfigClassLhConfig::getInstance\(\)->getSetting\((\s?)\'([a-zA-Z0-9-\.-\/\_]+)\'(\s?),(\s?)\'([a-zA-Z0-9-\.-\/\_]+)\'(\s?)\)(.*?)\?\>/i',$contentFile,$Matches); 
+			preg_match_all('/<\?php echo erConfigClassLhConfig::getInstance\(\)->getSetting\((\s?)\'([a-zA-Z0-9-\.-\/\_]+)\'(\s?),(\s?)\'([a-zA-Z0-9-\.-\/\_]+)\'(\s?)\)(.*?)\?\>/i',$contentFile,$Matches); 
 			foreach ($Matches[1] as $key => $UrlAddress)
 			{				    
 			    $valueConfig = erConfigClassLhConfig::getInstance()->getSetting($Matches[2][$key],$Matches[5][$key]);
@@ -284,7 +265,7 @@ class erLhcoreClassTemplate {
 			
 			// Compile override config settings, used in title, description override
 			$Matches = array();
-			preg_match_all('/<\?=erConfigClassLhConfig::getInstance\(\)->getOverrideValue\((\s?)\'([a-zA-Z0-9-\.-\/\_]+)\'(\s?),(\s?)\'([a-zA-Z0-9-\.-\/\_]+)\'(\s?)\)(.*?)\?\>/i',$contentFile,$Matches); 
+			preg_match_all('/<\?php echo erConfigClassLhConfig::getInstance\(\)->getOverrideValue\((\s?)\'([a-zA-Z0-9-\.-\/\_]+)\'(\s?),(\s?)\'([a-zA-Z0-9-\.-\/\_]+)\'(\s?)\)(.*?)\?\>/i',$contentFile,$Matches); 
 			foreach ($Matches[1] as $key => $UrlAddress)
 			{
 			    $valueConfig = erConfigClassLhConfig::getInstance()->getOverrideValue($Matches[2][$key],$Matches[5][$key]);
@@ -306,7 +287,7 @@ class erLhcoreClassTemplate {
 			
 			
 			// Compile content language
-			$contentFile = str_replace('<?=erLhcoreClassSystem::instance()->ContentLanguage?>',erLhcoreClassSystem::instance()->ContentLanguage,$contentFile);
+			$contentFile = str_replace('<?php echo erLhcoreClassSystem::instance()->ContentLanguage?>',erLhcoreClassSystem::instance()->ContentLanguage,$contentFile);
 			
 			// Compile siteaccess
 			$contentFile = str_replace('erLhcoreClassSystem::instance()->SiteAccess','\''.erLhcoreClassSystem::instance()->SiteAccess.'\'',$contentFile);

@@ -11,7 +11,7 @@
 <div class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Do not enter password unless you want to change it');?></div>
 <br />
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('/user/edit/'.$user->id)?>" method="post" autocomplete="off">
+<form action="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $user->id?>" method="post" autocomplete="off">
 
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Username');?></label>
 <input class="inputfield" type="text" name="Username" value="<?php echo htmlspecialchars($user->username);?>" />
@@ -61,7 +61,7 @@
 
 <?php $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($user->id); ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('/user/edit/'.$user->id)?>" method="post">
+<form action="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $user->id?>" method="post">
     
     <label><input type="checkbox" value="on" name="all_departments" <?php echo $user->all_departments == 1 ? 'checked="checked"' : '' ?> />All departments</label>
     

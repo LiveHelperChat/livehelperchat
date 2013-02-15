@@ -4,7 +4,7 @@
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('/user/newgroup/')?>" method="post">
+<form action="<?php echo erLhcoreClassDesign::baseurl('user/newgroup')?>" method="post">
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/newgroup','Title');?></label>
 <input type="text" name="Name"  value="" />
 

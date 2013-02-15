@@ -1,6 +1,6 @@
 <?php
 
-$tpl = new erLhcoreClassTemplate( 'lhuser/remindpassword.tpl.php');
+$tpl = erLhcoreClassTemplate::getInstance( 'lhuser/remindpassword.tpl.php');
 
 $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('user/remindpassword','Hash not found or was used already');
 

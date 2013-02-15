@@ -1,4 +1,4 @@
-<form action="<?php echo erLhcoreClassDesign::baseurl('/permission/editrole/'.$role_id)?>" method="post">
+<form action="<?php echo erLhcoreClassDesign::baseurl('permission/editrole')?>/<?php echo $role_id ?>" method="post">
 <table cellpadding="0" cellspacing="0" width="100%">
 <thead>
 <tr>

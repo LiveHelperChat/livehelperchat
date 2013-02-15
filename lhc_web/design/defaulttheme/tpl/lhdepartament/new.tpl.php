@@ -4,7 +4,7 @@
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('/departament/new/')?>" method="post">
+<form action="<?php echo erLhcoreClassDesign::baseurl('departament/new')?>" method="post">
 	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Name');?></label>
     <input class="inputfield" type="text" name="Name"  value="<?php echo htmlspecialchars($departament->name);?>" />
 

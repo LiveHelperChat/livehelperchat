@@ -1,6 +1,6 @@
 <?php
 
-$tpl = new erLhcoreClassTemplate( 'lhuser/forgotpassword.tpl.php');
+$tpl = erLhcoreClassTemplate::getInstance( 'lhuser/forgotpassword.tpl.php');
 
 
 if (isset($_POST['Forgotpassword'])) {
@@ -53,7 +53,7 @@ if (isset($_POST['Forgotpassword'])) {
 			$mail->Send();			
 			$mail->ClearAddresses();
 
-			$tpl = new erLhcoreClassTemplate( 'lhuser/forgotpasswordsent.tpl.php');		
+			$tpl = erLhcoreClassTemplate::getInstance( 'lhuser/forgotpasswordsent.tpl.php');		
 							
 		} else {
 			erLhcoreClassModule::redirect('user/forgotpassword');

@@ -1,6 +1,6 @@
 <?php
 
-$tpl = new erLhcoreClassTemplate( 'lhdepartament/new.tpl.php');
+$tpl = erLhcoreClassTemplate::getInstance( 'lhdepartament/new.tpl.php');
 $Departament = new erLhcoreClassModelDepartament();
 
 if ( isset($_POST['Cancel_departament']) ) {        

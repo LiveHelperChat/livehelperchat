@@ -8,7 +8,7 @@
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>	
 <?php endif; ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('/departament/edit/'.$departament->id)?>" method="post">
+<form action="<?php echo erLhcoreClassDesign::baseurl('departament/edit')?>/<?php echo $departament->id?>" method="post">
 
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Name');?></label>
     <input class="inputfield" type="text" name="Name"  value="<?php echo htmlspecialchars($departament->name);?>" />

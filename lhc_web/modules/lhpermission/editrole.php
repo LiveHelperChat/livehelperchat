@@ -1,6 +1,6 @@
 <?php
 
-$tpl = new erLhcoreClassTemplate( 'lhpermission/editrole.tpl.php');
+$tpl = erLhcoreClassTemplate::getInstance( 'lhpermission/editrole.tpl.php');
 
 $Role = erLhcoreClassRole::getSession()->load( 'erLhcoreClassModelRole', (int)$Params['user_parameters']['role_id'] );
 

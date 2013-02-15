@@ -1,6 +1,6 @@
 <?php
 
-$tpl = new erLhcoreClassTemplate( 'lhuser/account.tpl.php' );
+$tpl = erLhcoreClassTemplate::getInstance( 'lhuser/account.tpl.php' );
 
 $currentUser = erLhcoreClassUser::instance();
 $UserData = $currentUser->getUserData();

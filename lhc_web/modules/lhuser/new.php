@@ -1,6 +1,6 @@
 <?php
 
-$tpl = new erLhcoreClassTemplate( 'lhuser/new.tpl.php');
+$tpl = erLhcoreClassTemplate::getInstance( 'lhuser/new.tpl.php');
 
 $UserData = new erLhcoreClassModelUser();
 $UserDepartaments = isset($_POST['UserDepartament']) ? $_POST['UserDepartament'] : array();

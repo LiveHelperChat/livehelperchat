@@ -36,7 +36,7 @@
       
     <ul class="button-group radius">
     <li><input type="submit" name="Update" class="small button" value="Update"></li>
-    <li><a href="<?php echo erLhcoreClassDesign::baseurl('/')?>" class="small button">Return</a></li>
+    <li><a href="<?php echo erLhcoreClassDesign::baseurl()?>" class="small button">Return</a></li>
     </ul>
 </form>
 	

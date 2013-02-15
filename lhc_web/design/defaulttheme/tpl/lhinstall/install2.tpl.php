@@ -1,4 +1,4 @@
-<form action="<?php echo erLhcoreClassDesign::baseurl('install/install/2')?>" method="POST">
+<form action="<?php echo erLhcoreClassDesign::baseurl('install/install')?>/2" method="POST">
 <fieldset><legend>Installation step 2</legend> 
 
 <?php if (isset($errors)) : ?>

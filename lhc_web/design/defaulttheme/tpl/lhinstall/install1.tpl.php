@@ -1,4 +1,4 @@
-<form action="<?php echo erLhcoreClassDesign::baseurl('install/install/1')?>" method="POST">
+<form action="<?php echo erLhcoreClassDesign::baseurl('install/install')?>/1" method="POST">
 <fieldset><legend>Installation</legend> 
 
 <p>Grant write permissions to red marked folders. You can do this by changing username to apache username or CHMOD 777 displayed files/folders.</p>

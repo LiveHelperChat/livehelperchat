@@ -1,6 +1,6 @@
 <?php
 
-$tpl = new erLhcoreClassTemplate('lhuser/edit.tpl.php');
+$tpl = erLhcoreClassTemplate::getInstance('lhuser/edit.tpl.php');
 
 $UserData = erLhcoreClassUser::getSession()->load( 'erLhcoreClassModelUser', (int)$Params['user_parameters']['user_id'] );
 

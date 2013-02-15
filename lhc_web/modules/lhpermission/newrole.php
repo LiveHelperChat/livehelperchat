@@ -1,6 +1,6 @@
 <?php
 
-$tpl = new erLhcoreClassTemplate( 'lhpermission/newrole.tpl.php');
+$tpl = erLhcoreClassTemplate::getInstance( 'lhpermission/newrole.tpl.php');
 
 $Role = new erLhcoreClassModelRole();
 

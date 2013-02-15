@@ -7,7 +7,7 @@ if ($instance->SiteAccess == erConfigClassLhConfig::getInstance()->getSetting( '
     exit;
 }
 
-$tpl = new erLhcoreClassTemplate( 'lhuser/login.tpl.php');
+$tpl = erLhcoreClassTemplate::getInstance( 'lhuser/login.tpl.php');
 
 if (isset($_POST['Login']))
 {
