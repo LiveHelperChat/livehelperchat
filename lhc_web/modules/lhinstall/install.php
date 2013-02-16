@@ -256,9 +256,10 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   
         	   $db->query("INSERT INTO `lh_chat_config` (`identifier`, `value`, `type`, `explain`, `hidden`) VALUES
                 ('tracked_users_cleanup',	'7',	0,	'How many days keep records of online users.',	0),
-                ('track_online_visitors',	'0',	0,	'Enable online site visitors tracking, 0 - no, 1 - yes',	0);");
-                 
-        	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_online_user` (
+                ('track_online_visitors',	'0',	0,	'Enable online site visitors tracking, 0 - no, 1 - yes',	0),
+                ('geo_data', '', '0', '', '1')");
+        	   
+        	   $db->query("CREATE TABLE `lh_chat_online_user` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
                   `vid` varchar(50) NOT NULL,
                   `ip` varchar(50) NOT NULL,
@@ -266,11 +267,12 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `chat_id` int(11) NOT NULL,
                   `last_visit` int(11) NOT NULL,
                   `user_agent` varchar(250) NOT NULL,
-                  `user_location` varchar(50) NOT NULL,
+                  `user_country_code` varchar(50) NOT NULL,
+                  `user_country_name` varchar(50) NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `last_visit` (`last_visit`),
                   KEY `vid` (`vid`)
-                );");
+                ) ;");
 
         	   //Default departament
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_departament` (
