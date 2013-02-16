@@ -2,17 +2,19 @@
 $tpl = new erLhcoreClassTemplate( 'lhchat/startchat.tpl.php');
 $tpl->set('referer','');
 
+$chat = new erLhcoreClassModelChat();
+
 if (isset($_POST['StartChat']))
 {
    $definition = array(
         'Username' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::REQUIRED, 'string'
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
         ),
         'Email' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::REQUIRED, 'validate_email'
+            ezcInputFormDefinitionElement::OPTIONAL, 'validate_email'
         ),
         'DepartamentID' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::REQUIRED, 'int'
+            ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1)
         ),
     );
   
@@ -40,14 +42,23 @@ if (isset($_POST['StartChat']))
         $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You do not have permission to chat! Please contact site owner.');
     }
     
+    $departments = erLhcoreClassModelDepartament::getList();
+    
+    $ids = array_keys($departments);
+        
+    if ($form->hasValidData( 'DepartamentID' ) && in_array($form->DepartamentID,$ids)) {
+        $chat->dep_id = $form->DepartamentID;
+    } else {
+        $id = array_shift($ids);
+        $chat->dep_id = $id;
+    }
+    
     if (count($Errors) == 0)
-    {
-       $chat = new erLhcoreClassModelChat();
+    {       
        $chat->nick = $form->Username;
        $chat->email = $form->Email;
        $chat->time = time();
-       $chat->status = 0;
-       $chat->dep_id = $form->DepartamentID;
+       $chat->status = 0;       
        $chat->setIP();
        $chat->hash = erLhcoreClassChat::generateHash();
        $chat->referrer = isset($_POST['URLRefer']) ? $_POST['URLRefer'] : '';

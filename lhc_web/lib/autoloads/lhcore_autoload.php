@@ -47,6 +47,9 @@ return array_merge(array (
         'erLhcoreClassModelGroupRole'   => 'lib/models/lhpermission/erlhcoreclassmodelgrouprole.php',
         'erLhcoreClassModelChat'        => 'lib/models/lhchat/erlhcoreclassmodelchat.php',
         'erLhcoreClassModelmsg'         => 'lib/models/lhchat/erlhcoreclassmodelmsg.php',
+        'erLhcoreClassModelChatConfig'  => 'lib/models/lhchat/erlhcoreclassmodelchatconfig.php',
+        
+        'erLhcoreClassModelChatOnlineUser'   => 'lib/models/lhchat/erlhcoreclassmodelchatonlineuser.php',
         'erLhcoreClassModelChatBlockedUser'  => 'lib/models/lhchat/erlhcoreclassmodelchatblockeduser.php',
         'erLhcoreClassModelRole'        => 'lib/models/lhpermission/erlhcoreclassmodelrole.php',
         'erLhcoreClassModelRoleFunction'=> 'lib/models/lhpermission/erlhcoreclassmodelrolefunction.php',

@@ -1,12 +1,13 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Blocked users');?></h1>
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Blocked users');?></h1>
 
+<?php if (!empty($items)) : ?>
 <table class="twelve" cellpadding="0" cellspacing="0">
 <thead>
 <tr>
     <th width="1%">ID</th>
-    <th width="20%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','IP');?></th>
-    <th width="20%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Date');?></th>
-    <th width="20%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','User who blocked');?></th>
+    <th width="20%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','IP');?></th>
+    <th width="20%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Date');?></th>
+    <th width="20%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','User who blocked');?></th>
     <th width="1%">&nbsp;</th>
 </tr>
 </thead>
@@ -20,6 +21,9 @@
     </tr>
 <?php endforeach; ?>
 </table>
+<?php else : ?>
+<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Empty...');?></p>
+<?php endif; ?>
 
 <?php if (isset($pages)) : ?>
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/paginator.tpl.php')); ?>

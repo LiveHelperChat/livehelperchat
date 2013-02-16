@@ -125,6 +125,10 @@ div.message-row {
 	margin-bottom:0;
 }
 
+
+.online-users-table tr td{
+    font-size: 12px;
+}
    
 @media only screen and (max-width: 467px) { 
     .tabs dd {

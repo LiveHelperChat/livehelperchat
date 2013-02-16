@@ -150,14 +150,31 @@ $ViewList['chat'] = array(
     'script' => 'chat.php',
     'params' => array('chat_id','hash')
 );   
-        
+
 $ViewList['userclosechat'] = array( 
     'script' => 'userclosechat.php',
     'params' => array('chat_id','hash')
-);  
-    
-    
-       
+);
+
+$ViewList['onlineusers'] = array( 
+    'script' => 'onlineusers.php',
+    'params' => array(),
+    'uparams' => array('clear_list','method'),
+    'functions' => array( 'use' )
+);
+
+$ViewList['listchatconfig'] = array( 
+    'script' => 'listchatconfig.php',
+    'params' => array(),
+    'functions' => array( 'administrateconfig' )
+);
+
+$ViewList['editchatconfig'] = array( 
+    'script' => 'editchatconfig.php',
+    'params' => array('config_id'),
+    'functions' => array( 'administrateconfig' )
+); 
+
 $FunctionList['use'] = array('explain' => 'General chat usage permission');  
 $FunctionList['singlechatwindow'] = array('explain' =>'Allow user to use single chat window functionality');  
 $FunctionList['allowchattabs'] = array('explain' =>'Allow user to user chat rooms functionality');  
@@ -166,5 +183,6 @@ $FunctionList['deleteglobalchat'] = array('explain' =>'Allow to delete all chats
 $FunctionList['allowtransfer'] = array('explain' =>'Allow user to transfer chat to another user');  
 $FunctionList['allowcloseremote'] = array('explain' =>'Allow user to close another user chat');  
 $FunctionList['allowblockusers'] = array('explain' =>'Allow user to block users');  
+$FunctionList['administrateconfig'] = array('explain' =>'Allow to change chat config');  
 
 ?>

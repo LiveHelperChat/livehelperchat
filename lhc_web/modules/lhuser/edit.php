@@ -81,14 +81,14 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
     } else {
     	$UserData->disabled = 0;
     }   
-     
+
     if ( $form->hasValidData( 'HideMyStatus' ) && $form->HideMyStatus == true )
     {
     	$UserData->hide_online = 1;
     } else {
     	$UserData->hide_online = 0;
     }
-    
+
     if (count($Errors) == 0)
     {     
         // Update password if neccesary
@@ -96,27 +96,27 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
         {
             $UserData->setPassword($form->Password);
         }
-        
+
         $UserData->email   = $form->Email;
         $UserData->name    = $form->Name;
         $UserData->surname = $form->Surname;
-        
+
         erLhcoreClassUser::getSession()->update($UserData);
-        
+
         erLhcoreClassUserDep::setHideOnlineStatus($UserData);
-        
+
         erLhcoreClassModelGroupUser::removeUserFromGroups($UserData->id);
-                
+
         foreach ($UserData->user_groups_id as $group_id) {
         	$groupUser = new erLhcoreClassModelGroupUser();
         	$groupUser->group_id = $group_id;
         	$groupUser->user_id = $UserData->id;
         	$groupUser->saveThis();
         }
-        
+
         $CacheManager = erConfigClassLhCacheConfig::getInstance();
         $CacheManager->expireCache();
-        
+
         if (isset($_POST['Save_account'])) {        
             erLhcoreClassModule::redirect('user/userlist');
             exit;

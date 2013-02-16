@@ -181,10 +181,10 @@ class erLhcoreClassModule{
 			
 			// Compile config settings
             $Matches = array();
-            preg_match_all('/erLhcoreClassModelSystemConfig::fetch\((\s?)\'([a-zA-Z0-9-\.-\/\_]+)\'(\s?)\)->current_value/i',$contentFile,$Matches); 
+            preg_match_all('/erLhcoreClassModelChatConfig::fetch\((\s?)\'([a-zA-Z0-9-\.-\/\_]+)\'(\s?)\)->current_value/i',$contentFile,$Matches); 
             foreach ($Matches[1] as $key => $UrlAddress)
             {
-                $valueConfig = erLhcoreClassModelSystemConfig::fetch($Matches[2][$key])->current_value;
+                $valueConfig = erLhcoreClassModelChatConfig::fetch($Matches[2][$key])->current_value;
                 $valueReplace = '';
                 $valueReplace = '\''.str_replace("'","\'",$valueConfig).'\'';
                 $contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);                               

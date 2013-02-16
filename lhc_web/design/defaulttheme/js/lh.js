@@ -541,15 +541,32 @@ function lh(){
             this.isSinchronizing = true;
             this.syncadmincall();
         }
-    };        
+    };
+
+    this.syncOnlineUsers = function()
+    {
+        $.getJSON(this.wwwDir + 'chat/onlineusers/(method)/ajax', {} , function(data) {		                      
+           $('#online-users').html(data.result); 
+           setTimeout(function(){
+               lhinst.syncOnlineUsers();
+           },10000); // Check online users for every 10 seconds
+		});
+    };
 }
 
 var lhinst = new lh();
+
+
 
 /*Helper functions*/
 function chatsyncuser()
 {
     lhinst.syncusercall();    
+}
+
+function startOnlineSync()
+{
+    lhinst.syncOnlineUsers();
 }
 
 function chatsyncuserpending()
