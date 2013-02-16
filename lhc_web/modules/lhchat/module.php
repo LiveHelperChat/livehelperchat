@@ -163,6 +163,13 @@ $ViewList['onlineusers'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['geoconfiguration'] = array( 
+    'script' => 'geoconfiguration.php',
+    'params' => array(),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['listchatconfig'] = array( 
     'script' => 'listchatconfig.php',
     'params' => array(),

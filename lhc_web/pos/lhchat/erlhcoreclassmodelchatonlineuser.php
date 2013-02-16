@@ -39,10 +39,15 @@ $def->properties['user_agent']->columnName   = 'user_agent';
 $def->properties['user_agent']->propertyName = 'user_agent';
 $def->properties['user_agent']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
-$def->properties['user_location'] = new ezcPersistentObjectProperty();
-$def->properties['user_location']->columnName   = 'user_location';
-$def->properties['user_location']->propertyName = 'user_location';
-$def->properties['user_location']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING; 
+$def->properties['user_country_code'] = new ezcPersistentObjectProperty();
+$def->properties['user_country_code']->columnName   = 'user_country_code';
+$def->properties['user_country_code']->propertyName = 'user_country_code';
+$def->properties['user_country_code']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+ 
+$def->properties['user_country_name'] = new ezcPersistentObjectProperty();
+$def->properties['user_country_name']->columnName   = 'user_country_name';
+$def->properties['user_country_name']->propertyName = 'user_country_name';
+$def->properties['user_country_name']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING; 
 
 return $def; 
 
