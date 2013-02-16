@@ -2,20 +2,20 @@
 
 class erLhcoreClassModelChat {
         
-    public function getState()
+   public function getState()
    {
        return array(
-               'id'         => $this->id,
-               'nick'       => $this->nick,
-               'status'     => $this->status,
-               'time'       => $this->time,
-               'user_id'    => $this->user_id,
-               'hash'       => $this->hash,
-               'ip'         => $this->ip,
-               'referrer'   => $this->referrer,
-               'dep_id'     => $this->dep_id,
-               'email'     => $this->email,
-               'user_status'=> $this->user_status,
+               'id'              => $this->id,
+               'nick'            => $this->nick,
+               'status'          => $this->status,
+               'time'            => $this->time,
+               'user_id'         => $this->user_id,
+               'hash'            => $this->hash,
+               'ip'              => $this->ip,
+               'referrer'        => $this->referrer,
+               'dep_id'          => $this->dep_id,
+               'email'           => $this->email,
+               'user_status'     => $this->user_status,
                'support_informed'=> $this->support_informed
        );
    }
@@ -47,19 +47,31 @@ class erLhcoreClassModelChat {
            return false;
        }
    }  
-    
-    public $id = null;
-    public $nick = '';
-    public $status = 0;
-    public $time = '';
-    public $user_id = '';
-    public $hash = '';
-    public $ip = '';
-    public $referrer = '';
-    public $dep_id = '';
-    public $email = '';
-    public $user_status = '';
-    public $support_informed = '';
+   
+   public function blockUser() {
+       
+       if (erLhcoreClassModelChatBlockedUser::getCount(array('filter' => array('ip' => $this->ip))) == 0)
+       {
+           $block = new erLhcoreClassModelChatBlockedUser();
+           $block->ip = $this->ip;       
+           $block->user_id = erLhcoreClassUser::instance()->getUserID();
+           $block->saveThis();
+       }
+       
+   }
+
+   public $id = null;
+   public $nick = '';
+   public $status = 0;
+   public $time = '';
+   public $user_id = '';
+   public $hash = '';
+   public $ip = '';
+   public $referrer = '';
+   public $dep_id = '';
+   public $email = '';
+   public $user_status = '';
+   public $support_informed = '';
 }
 
 ?>

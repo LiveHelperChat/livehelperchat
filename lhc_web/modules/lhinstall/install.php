@@ -235,6 +235,15 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   KEY `user_id` (`user_id`),
                   KEY `dep_id` (`dep_id`)
                 )");
+        	   
+        	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_blocked_user` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `ip` varchar(100) NOT NULL,
+                  `user_id` int(11) NOT NULL,
+                  `datets` int(11) NOT NULL,
+                  PRIMARY KEY (`id`),
+                  KEY `ip` (`ip`)
+                )");
            
         	   //Default departament
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_departament` (

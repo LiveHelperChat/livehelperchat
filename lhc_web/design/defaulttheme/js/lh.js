@@ -306,6 +306,14 @@ function lh(){
 	    return this.startChatNewWindow(chat_id,name);
 	};
 	
+	this.blockUser = function(chat_id,msg) {
+	    if (confirm(msg)) {
+	        $.postJSON(this.wwwDir + 'chat/blockuser/' + chat_id,{}, function(data){ 
+	      	     alert(data.msg);	      	      	        
+    	    });
+	    }
+	};
+	
 	this.transferChat = function(chat_id)
 	{
 	    var user_id = $('[name=TransferTo'+chat_id+']:checked').val();	  

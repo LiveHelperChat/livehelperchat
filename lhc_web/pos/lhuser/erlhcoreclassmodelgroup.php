@@ -7,7 +7,7 @@ $def->class = "erLhcoreClassModelGroup";
 $def->idProperty = new ezcPersistentObjectIdProperty();
 $def->idProperty->columnName = 'id';
 $def->idProperty->propertyName = 'id';
-$def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentSequenceGenerator' );
+$def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentNativeGenerator' );
 
 $def->properties['name'] = new ezcPersistentObjectProperty();
 $def->properties['name']->columnName   = 'name';

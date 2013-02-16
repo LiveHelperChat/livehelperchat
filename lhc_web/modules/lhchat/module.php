@@ -122,6 +122,19 @@ $ViewList['transferuser'] = array(
     'params' => array('chat_id','user_id'),
     'functions' => array( 'allowtransfer' )
     );
+        
+$ViewList['blockuser'] = array( 
+    'script' => 'blockuser.php',
+    'params' => array('chat_id'),
+    'functions' => array( 'allowblockusers' )
+);        
+
+$ViewList['blockedusers'] = array( 
+    'script' => 'blockedusers.php',
+    'params' => array(),
+    'uparams' => array('remove_block'),
+    'functions' => array( 'allowblockusers' )
+);
     
 $ViewList['getstatus'] = array( 
     'script' => 'getstatus.php',
@@ -136,12 +149,12 @@ $ViewList['startchat'] = array(
 $ViewList['chat'] = array( 
     'script' => 'chat.php',
     'params' => array('chat_id','hash')
-    );   
+);   
         
 $ViewList['userclosechat'] = array( 
     'script' => 'userclosechat.php',
     'params' => array('chat_id','hash')
-    );  
+);  
     
     
        
@@ -152,5 +165,6 @@ $FunctionList['deletechat'] = array('explain' =>'Allow user to delete his own ch
 $FunctionList['deleteglobalchat'] = array('explain' =>'Allow to delete all chats');  
 $FunctionList['allowtransfer'] = array('explain' =>'Allow user to transfer chat to another user');  
 $FunctionList['allowcloseremote'] = array('explain' =>'Allow user to close another user chat');  
+$FunctionList['allowblockusers'] = array('explain' =>'Allow user to block users');  
 
 ?>

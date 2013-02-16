@@ -7,7 +7,7 @@ $def->class = "erLhcoreClassModelRoleFunction";
 $def->idProperty = new ezcPersistentObjectIdProperty();
 $def->idProperty->columnName = 'id';
 $def->idProperty->propertyName = 'id';
-$def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentSequenceGenerator' );
+$def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentNativeGenerator' );
 
 $def->properties['role_id'] = new ezcPersistentObjectProperty();
 $def->properties['role_id']->columnName   = 'role_id';
