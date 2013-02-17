@@ -23,7 +23,10 @@ return array (
       array (
         0 => 'eng',
         1 => 'lit',
-        2 => 'site_admin',
+        2 => 'hrv',
+        3 => 'esp',
+        4 => 'por',
+        5 => 'site_admin',
       ),           
     ),
     'default_url' => 
@@ -80,6 +83,57 @@ return array (
       array (
         'locale' => 'lt_LT',
         'content_language' => 'lt',
+        'title' => '',
+        'description' => '',
+        'theme' => 
+        array (
+          0 => 'customtheme',
+          1 => 'defaulttheme',
+        ),
+        'default_url' => 
+        array (
+          'module' => 'chat',
+          'view' => 'startchat',
+        ),
+      ),
+      'hrv' => 
+      array (
+        'locale' => 'hr_HR',
+        'content_language' => 'hr',
+        'title' => '',
+        'description' => '',
+        'theme' => 
+        array (
+          0 => 'customtheme',
+          1 => 'defaulttheme',
+        ),
+        'default_url' => 
+        array (
+          'module' => 'chat',
+          'view' => 'startchat',
+        ),
+      ), 
+      'esp' => 
+      array (
+        'locale' => 'es_MX',
+        'content_language' => 'es',
+        'title' => '',
+        'description' => '',
+        'theme' => 
+        array (
+          0 => 'customtheme',
+          1 => 'defaulttheme',
+        ),
+        'default_url' => 
+        array (
+          'module' => 'chat',
+          'view' => 'startchat',
+        ),
+      ),
+      'por' => 
+      array (
+        'locale' => 'pt_BR',
+        'content_language' => 'pt',
         'title' => '',
         'description' => '',
         'theme' => 
