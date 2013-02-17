@@ -12,8 +12,8 @@ $closedChats = erLhcoreClassChat::getClosedChats(10);
 $pendingChats = erLhcoreClassChat::getPendingChats(10);
 $transferedChats = erLhcoreClassTransfer::getTransferChats();
 
-$columnsToHide = array('user_id','status','dep_id','hash','user_status','support_informed','support_informed');
-$columnsName = array('id' => 'ID','nick' => 'Nick','time' => 'Time','referrer' => 'Referrer','ip' => 'IP','email' => 'E-mail','name' => 'Department');
+$columnsToHide = array('user_id','status','dep_id','hash','user_status','support_informed','support_informed','country_code');
+$columnsName = array('id' => 'ID','nick' => 'Nick','time' => 'Time','referrer' => 'Referrer','ip' => 'IP','country_name' => 'Country','email' => 'E-mail','name' => 'Department');
 
 echo json_encode(
 

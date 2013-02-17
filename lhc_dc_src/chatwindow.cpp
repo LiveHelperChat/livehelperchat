@@ -325,7 +325,7 @@ void ChatWindow::getDataChat(void* pt2Object, QByteArray result)
     if (sc.property("error").toBoolean() == false)
     {      
         QScriptValue chat = sc.property("chat");
-        mySelf->inforChat->setText("<b>IP</b> - "+chat.property("ip").toString() + ", <b>"+tr("Come from")+"</b> - "+chat.property("referrer").toString()+",<br/> <b>ID</b> - "+chat.property("id").toString()+", <b>"+tr("E-mail")+"</b> - "+chat.property("email").toString());
+        mySelf->inforChat->setText("<b>IP</b> - "+chat.property("ip").toString() + " | <b>"+tr("Come from")+"</b> - "+chat.property("referrer").toString()+" | <br/> <b>ID</b> - "+chat.property("id").toString()+" | <b>"+tr("E-mail")+"</b> - "+chat.property("email").toString()+" | <b>"+tr("Country")+"</b> - "+chat.property("country_name").toString());
         mySelf->infoOwner->setText(sc.property("ownerstring").toString());          
         mySelf->clientNick = chat.property("nick").toString();
        // qDebug("Assigned %s ",mySelf->chatScriptObject.property("ip").toString().toStdString().c_str());
