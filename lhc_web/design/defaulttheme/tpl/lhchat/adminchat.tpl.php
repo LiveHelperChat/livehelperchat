@@ -13,8 +13,7 @@
     <div class="columns six">
     <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Information')?></h5>
     <p>
-    IP - <?php echo $chat->ip?>, <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Come from')?> - <?php echo $chat->referrer != '' ? htmlspecialchars($chat->referrer) : ''?>, ID - <?php echo $chat->id;?>,
-    <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','E-mail')?> - <a href="mailto:<?php echo $chat->email?>"><?php echo $chat->email?></a>
+    <?php if ( !empty($chat->country_code) ) : ?><img src="<?php echo erLhcoreClassDesign::design('images/flags');?>/<?php echo $chat->country_code?>.png" alt="<?php echo htmlspecialchars($chat->country_name)?>" title="<?php echo htmlspecialchars($chat->country_name)?>" /><?php endif; ?> | IP - <?php echo $chat->ip?> | <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Come from')?> - <?php echo $chat->referrer != '' ? htmlspecialchars($chat->referrer) : ''?> | ID - <?php echo $chat->id;?> | <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','E-mail')?> - <a href="mailto:<?php echo $chat->email?>"><?php echo $chat->email?></a>
     </p>
     </div>
     

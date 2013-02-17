@@ -19,7 +19,7 @@ $tpl->set('tracking_enabled',erLhcoreClassModelChatConfig::fetch('track_online_v
 if ($is_ajax == false){
     $Result['content'] = $tpl->fetch();
     $Result['path'] = array(
-    array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Online users')));
+    array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Online users')));
 } else {
     echo json_encode(array('result' => $tpl->fetch()));
     exit;

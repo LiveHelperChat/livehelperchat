@@ -63,6 +63,8 @@ if (isset($_POST['StartChat']))
        $chat->hash = erLhcoreClassChat::generateHash();
        $chat->referrer = isset($_POST['URLRefer']) ? $_POST['URLRefer'] : '';
        
+       erLhcoreClassModelChat::detectLocation($chat);
+       
        // Store chat
        erLhcoreClassChat::getSession()->save($chat);
        

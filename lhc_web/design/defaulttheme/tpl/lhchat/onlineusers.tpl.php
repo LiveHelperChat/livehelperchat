@@ -2,8 +2,8 @@
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Online users');?>
     
     <ul class="button-group radius right">
-      <li><a class="round button small alert" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('chat/onlineusers')?>/(clear_list)/1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Clear list');?></a></li>
       <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/geoconfiguration')?>" class="round button small"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','GEO detection configuration');?></a></li>
+      <li><a class="round button small alert" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('chat/onlineusers')?>/(clear_list)/1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Clear list');?></a></li>
     </ul>
     
 </h1>
@@ -45,8 +45,6 @@
 <?php else : ?>
 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Empty...');?>
 <?php endif; ?>
-
-
 
 <?php if ($is_ajax == false) : ?>
 </div>

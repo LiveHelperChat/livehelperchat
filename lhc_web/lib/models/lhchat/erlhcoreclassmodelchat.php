@@ -16,7 +16,9 @@ class erLhcoreClassModelChat {
                'dep_id'          => $this->dep_id,
                'email'           => $this->email,
                'user_status'     => $this->user_status,
-               'support_informed'=> $this->support_informed
+               'support_informed'=> $this->support_informed,
+               'country_code'    => $this->country_code,
+               'country_name'    => $this->country_name,
        );
    }
    
@@ -48,6 +50,32 @@ class erLhcoreClassModelChat {
        }
    }  
    
+   public static function detectLocation(erLhcoreClassModelChat & $instance)
+   {
+       $geoData = erLhcoreClassModelChatConfig::fetch('geo_data');
+       $geo_data = (array)$geoData->data;
+       
+       if (isset($geo_data['geo_detection_enabled']) && $geo_data['geo_detection_enabled'] == 1) {
+           
+           $params = array();
+                              
+           if ($geo_data['geo_service_identifier'] == 'mod_geoip2'){
+               $params['country_code'] = $geo_data['mod_geo_ip_country_code'];
+               $params['country_name'] = $geo_data['mod_geo_ip_country_name'];
+           } elseif ($geo_data['geo_service_identifier'] == 'locatorhq') {
+               $params['username'] = $geo_data['locatorhqusername'];
+               $params['api_key'] = $geo_data['locatorhq_api_key'];
+           }
+                      
+           $location = erLhcoreClassModelChatOnlineUser::getUserData($geo_data['geo_service_identifier'],$instance->ip,$params);
+           
+           if ($location !== false){
+               $instance->country_code = $location->country_code;
+               $instance->country_name = $location->country_name;
+           }
+       }
+   }
+   
    public function blockUser() {
        
        if (erLhcoreClassModelChatBlockedUser::getCount(array('filter' => array('ip' => $this->ip))) == 0)
@@ -57,7 +85,6 @@ class erLhcoreClassModelChat {
            $block->user_id = erLhcoreClassUser::instance()->getUserID();
            $block->saveThis();
        }
-       
    }
 
    public $id = null;
@@ -72,6 +99,8 @@ class erLhcoreClassModelChat {
    public $email = '';
    public $user_status = '';
    public $support_informed = '';
+   public $country_code = '';
+   public $country_name = '';
 }
 
 ?>

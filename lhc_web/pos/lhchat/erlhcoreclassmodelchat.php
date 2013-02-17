@@ -62,7 +62,17 @@ $def->properties['email']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_
 $def->properties['referrer'] = new ezcPersistentObjectProperty();
 $def->properties['referrer']->columnName   = 'referrer';
 $def->properties['referrer']->propertyName = 'referrer';
-$def->properties['referrer']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING; 
+$def->properties['referrer']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+ 
+$def->properties['country_code'] = new ezcPersistentObjectProperty();
+$def->properties['country_code']->columnName   = 'country_code';
+$def->properties['country_code']->propertyName = 'country_code';
+$def->properties['country_code']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+  
+$def->properties['country_name'] = new ezcPersistentObjectProperty();
+$def->properties['country_name']->columnName   = 'country_name';
+$def->properties['country_name']->propertyName = 'country_name';
+$def->properties['country_name']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING; 
 
 
 return $def; 

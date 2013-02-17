@@ -217,7 +217,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
     	       /*DATABASE TABLES SETUP*/
     	       $db = ezcDbInstance::get();
     	       
-        	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat` (
+        	   $db->query("CREATE TABLE `lh_chat` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
                   `nick` varchar(50) NOT NULL,
                   `status` int(11) NOT NULL DEFAULT '0',
@@ -230,11 +230,13 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `user_status` int(11) NOT NULL DEFAULT '0',
                   `support_informed` int(11) NOT NULL DEFAULT '0',
                   `email` varchar(100) NOT NULL,
+                  `country_code` varchar(100) NOT NULL,
+                  `country_name` varchar(100) NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `status` (`status`),
                   KEY `user_id` (`user_id`),
                   KEY `dep_id` (`dep_id`)
-                )");
+                ) ");
         	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_blocked_user` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
