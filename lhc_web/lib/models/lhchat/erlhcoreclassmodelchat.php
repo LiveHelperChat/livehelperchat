@@ -37,7 +37,7 @@ class erLhcoreClassModelChat {
    
    public function setIP()
    {
-       $this->ip = isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
+       $this->ip = $_SERVER['REMOTE_ADDR'];
    }
    
    public function getChatOwner()
