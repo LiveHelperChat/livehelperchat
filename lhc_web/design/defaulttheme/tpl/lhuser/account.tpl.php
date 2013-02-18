@@ -35,8 +35,8 @@
     
       
     <ul class="button-group radius">
-    <li><input type="submit" name="Update" class="small button" value="Update"></li>
-    <li><a href="<?php echo erLhcoreClassDesign::baseurl()?>" class="small button">Return</a></li>
+    <li><input type="submit" name="Update" class="small button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>"></li>
+    <li><a href="<?php echo erLhcoreClassDesign::baseurl()?>" class="small button"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Return');?></a></li>
     </ul>
 </form>
 	

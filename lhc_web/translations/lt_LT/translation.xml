@@ -1185,6 +1185,10 @@
     <message>
         <source>Departments</source>
         <translation>Departamentai</translation>
+    </message> 
+    <message>
+        <source>Cancel</source>
+        <translation>Atšaukti</translation>
     </message>
     <message>
         <source>System configuration</source>
@@ -1334,6 +1338,18 @@
         <translation>Vardas</translation>
     </message>
     <message>
+        <source>Edit</source>
+        <translation>Redaguoti</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Trinti</translation>
+    </message>
+    <message>
+        <source>Last activity</source>
+        <translation>Paskutinis aktyvumas</translation>
+    </message>
+    <message>
         <source>Surname</source>
         <translation>Pavardė</translation>
     </message>
@@ -1355,6 +1371,10 @@
      <message>
         <source>Assigned departments</source>
         <translation>Priskirti departamentai</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Atšaukti</translation>
     </message>
     <message>
         <source>System configuration</source>
@@ -1430,6 +1450,30 @@
     <message>
         <source>System configuration</source>
         <translation>Sistemos konfigūracija</translation>
+    </message> 
+    <message>
+        <source>Please choose default user group</source>
+        <translation>Prašome pasirinkti vartotojo grupę</translation>
+    </message>
+    <message>
+        <source>Disabled</source>
+        <translation>Išjungtas</translation>
+    </message>
+    <message>
+        <source>User group</source>
+        <translation>Vartotojų grupė</translation>
+    </message>
+    <message>
+        <source>Departaments</source>
+        <translation>Departamentai</translation>
+    </message>
+    <message>
+        <source>All departments</source>
+        <translation>Visi departamentai</translation>
+    </message> 
+    <message>
+        <source>Do not show user status as online</source>
+        <translation>Nerodyti manęs kaip prisijungusio</translation>
     </message>
     <message>
         <source>Users</source>
@@ -1537,6 +1581,10 @@
     <message>
         <source>Username</source>
         <translation>Vartotojo vardas</translation>
+    </message>
+    <message>
+        <source>Return</source>
+        <translation>Grįžti</translation>
     </message>
     <message>
         <source>Password</source>

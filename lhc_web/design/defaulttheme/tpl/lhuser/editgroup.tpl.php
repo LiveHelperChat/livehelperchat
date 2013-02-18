@@ -51,7 +51,7 @@
 <thead>
 <tr>
     <th>&nbsp;</th>
-    <th>Name</th>
+    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Name');?></th>
 </tr>
 </thead>
 <?php foreach (erLhcoreClassGroupRole::getGroupRoles($group->id) as $UserAssigned) : ?>
