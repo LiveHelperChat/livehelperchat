@@ -23,7 +23,7 @@
     <th width="20%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','IP');?></th>
     <th width="20%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Last activity');?></th>
     <th width="20%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Page');?></th>
-    <th width="20%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User agent');?></th>    
+    <th width="20%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Browser');?></th>    
     <th width="20%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Location');?></th>    
 </tr>
 </thead>

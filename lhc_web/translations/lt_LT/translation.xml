@@ -30,6 +30,143 @@
     </message>
 </context>
 <context>
+    <name>chat/editchatconfig</name>
+    <message>
+        <source>Edit</source>
+        <translation>Redagavimas</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation>Atnaujinti</translation>
+    </message>
+    <message>
+        <source>Identifier</source>
+        <translation>Identifikatorius</translation>
+    </message>
+</context>
+<context>
+    <name>chat/listchatconfig</name>
+    <message>
+        <source>List chat configuration</source>
+        <translation>Pokalbių nustatymų sąrašas</translation>
+    </message>
+    <message>
+        <source>List</source>
+        <translation>Sąrašas</translation>
+    </message>
+    <message>
+        <source>Identifier</source>
+        <translation>Identifikatorius</translation>
+    </message>
+    <message>
+        <source>Explain</source>
+        <translation>Paaiškinimas</translation>
+    </message>
+    <message>
+        <source>Edit value</source>
+        <translation>Redaguoti reikšmę</translation>
+    </message>
+</context>
+<context>
+    <name>chat/onlineusers</name>
+    <message>
+        <source>IP</source>
+        <translation>IP</translation>
+    </message>
+    <message>
+        <source>Last activity</source>
+        <translation>Paskutinis aktyvumas</translation>
+    </message>
+    <message>
+        <source>Page</source>
+        <translation>Puslapis</translation>
+    </message>
+    <message>
+        <source>Browser</source>
+        <translation>Naršyklė</translation>
+    </message>
+    <message>
+        <source>Location</source>
+        <translation>Vieta</translation>
+    </message>
+    <message>
+        <source>Online users</source>
+        <translation>Prisijungę vartotojai</translation>
+    </message>
+    <message>
+        <source>GEO detection configuration</source>
+        <translation>GEO detekcijos nustatymai</translation>
+    </message>
+    <message>
+        <source>Clear list</source>
+        <translation>Išvalyti sąrašą</translation>
+    </message>
+    <message>
+        <source>Settings updated</source>
+        <translation>Nustatymai atnaujinti</translation>
+    </message>
+    <message>
+        <source>GEO Enabled</source>
+        <translation>GEO Įgalintas</translation>
+    </message>
+    <message>
+        <source>Use this service</source>
+        <translation>Naudoti šitą servisą</translation>
+    </message>
+    <message>
+        <source>Use mod_geoip2</source>
+        <translation>Naudoti mod_geoip2</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Saugoti</translation>
+    </message>
+    <message>
+        <source>Requests will be comming from</source>
+        <translation>Užklausos bus siunčiamos iš</translation>
+    </message>
+    <message>
+        <source>See service terms and conditions</source>
+        <translation>Peržiūrėkite paslaugos teikimo sąlygas ir taisykles</translation>
+    </message>
+    <message>
+        <source>Country code variable does not exists!</source>
+        <translation>Šalies kodo kintamsis neegzistuoja!</translation>
+    </message>
+    <message>
+        <source>Please enter API key!</source>
+        <translation>Prašome įvesti API raktą!</translation>
+    </message>
+    <message>
+        <source>Please enter API username!</source>
+        <translation>Prašome įvesti API vartotojo vardą!</translation>
+    </message>
+    <message>
+        <source>Please choose service provider!</source>
+        <translation>Prašome pasirinkti paslaugos tiekėją!</translation>
+    </message>
+    <message>
+        <source>Country name variable does not exists!</source>
+        <translation>Šalies pavadinimo kintamsis neegzistuoja!</translation>
+    </message>
+    <message>
+        <source>Country code server variable</source>
+        <translation>Šalies nustatymo serverio kintamieji</translation>
+    </message>
+    <message>
+        <source>Setting service provider failed, please check that your service provider allows to make requests to remote pages!</source>
+        <translation>Nustatyti tiekėją nepavyko, prašome patikrinti ar hostingo tiekėjas leidžia siųsti užklausas į nutolusius puslapius!</translation>
+    </message>
+    <message>
+        <source>User tracking is disabled, enable it at</source>
+        <translation>Vartotojų stėbėjimas išjungtas, įjunkitę jį</translation>
+    </message>
+    <message>
+        <source>Chat configuration</source>
+        <translation>Pokalbių nustatymai</translation>
+    </message>
+</context>
+<context>
     <name>chat/closedchats</name>
     <message>
         <source>Closed chats</source>
@@ -364,10 +501,56 @@
     </message>
 </context>
 <context>
+    <name>kernel/message</name>
+    <message>
+        <source>Are you sure?</source>
+        <translation>Ar esate tuo tikras?</translation>
+    </message>  
+</context>
+<context>
+    <name>chat/blockedusers</name>
+    <message>
+        <source>Blocked users</source>
+        <translation>Blokuoti vartotojai</translation>
+    </message>
+    <message>
+        <source>Empty...</source>
+        <translation>Tuščia...</translation>
+    </message>
+    <message>
+        <source>User was blocked!</source>
+        <translation>Vartotojas buvo užblokuotas!</translation>
+    </message>
+    <message>
+        <source>User blocking failed, perhaps you do not have permission to block users?</source>
+        <translation>Blokuoti nepavyko, galbūt Jūs neturite teisės blokuoti vartotojų?</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation>Data</translation>
+    </message>
+    <message>
+        <source>IP</source>
+        <translation>IP</translation>
+    </message>
+    <message>
+        <source>User who blocked</source>
+        <translation>Vartotojas, kuris užblokavo</translation>
+    </message> 
+    <message>
+        <source>Remove block</source>
+        <translation>Pašalinti blokavimą</translation>
+    </message>
+</context>
+<context>
     <name>chat/adminchat</name>
     <message>
         <source>E-mail</source>
         <translation>El. paštas</translation>
+    </message>
+    <message>
+        <source>Are you sure?</source>
+        <translation>Ar esate tuo tikras?</translation>
     </message>
     <message>
         <source>Transfer chat</source>
@@ -392,6 +575,10 @@
     <message>
         <source>Come from</source>
         <translation>Atėjo iš</translation>
+    </message>
+    <message>
+        <source>Block user</source>
+        <translation>Blokuoti vartotoją</translation>
     </message>
     <message>
         <source>Close chat</source>
@@ -796,6 +983,10 @@
         <translation>Vardas</translation>
     </message>
     <message>
+        <source>You do not have permission to chat! Please contact site owner.</source>
+        <translation>Jūs neturite teisės pradėti pokalbio! Susisiekite su svetinės savininku.</translation>
+    </message>
+    <message>
         <source>E-mail</source>
         <translation>El. paštas</translation>
     </message>
@@ -1047,6 +1238,30 @@
     <message>
         <source>HTML code</source>
         <translation>HTML kodas</translation>
+    </message>
+    <message>
+        <source>Chat configuration</source>
+        <translation>Pokalbių nustatymai</translation>
+    </message>
+    <message>
+        <source>Chat ralated</source>
+        <translation>Susiję su pokalbiais</translation>
+    </message>
+    <message>
+        <source>Users and their permissions</source>
+        <translation>Vartotojai ir jų teisės</translation>
+    </message>
+    <message>
+        <source>Other</source>
+        <translation>Kita</translation>
+    </message>
+    <message>
+        <source>GEO detection configuration</source>
+        <translation>GEO detekcijos nustatymai</translation>
+    </message>
+    <message>
+        <source>Blocked users</source>
+        <translation>Blokuoti vartotojai</translation>
     </message>
     <message>
         <source>Users</source>

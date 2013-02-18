@@ -1,6 +1,6 @@
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','System configuration');?></h1>
 
-<h4>Chat ralated</h4>
+<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Chat ralated');?></h4>
 <ul class="circle">
     <li><a href="<?php echo erLhcoreClassDesign::baseurl('departament/departaments')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Departments');?></a></li>
     <li><a href="<?php echo erLhcoreClassDesign::baseurl('system/htmlcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','HTML code');?></a></li>
