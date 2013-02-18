@@ -3,6 +3,7 @@
 class erTranslationClassLhTranslation
 {
     private static $instance = null;
+        
     public $cacheObj;
     public $backend;
     public $manager;
@@ -65,15 +66,26 @@ class erTranslationClassLhTranslation
         try {
            $context = $this->manager->getContext( $this->languageCode, $context );
            try {     
-              
-                return  $context->getTranslation($string, $params);
+                $translated = $context->getTranslation($string, $params);
+                
+                if ($translated == '') return $this->insertarguments($string, $params); 
+                               
+                return $translated;
+                
            } catch (Exception $e){
-                return $string;
+                return $this->insertarguments($string, $params);                
            }
            
         } catch (Exception $e) {    
-            $this->updateCache();
-            return $this->translateFromXML($context,$string,$params);
+                        
+            $this->updateCache();                   
+            try {
+                $translated = $this->translateFromXML($context,$string,$params); 
+            } catch (Exception $e){
+                $translated = $this->insertarguments($string, $params); 
+            } 
+            
+            return $translated;
         }
     }
     
@@ -119,6 +131,7 @@ class erTranslationClassLhTranslation
         return self::$instance;
     }
     
+       
 }
 
 
