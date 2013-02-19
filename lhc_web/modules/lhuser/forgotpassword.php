@@ -17,7 +17,7 @@ if (isset($_POST['Forgotpassword'])) {
     
     if ( !$form->hasValidData( 'Email' ) )
     {
-        $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/forgotpassword','Wrong e-mail address!');
+        $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/forgotpassword','Invalid e-mail address!');
     }
         
 	if (count($Errors) == 0) {  

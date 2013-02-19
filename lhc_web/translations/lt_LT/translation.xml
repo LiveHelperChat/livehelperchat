@@ -14,6 +14,10 @@
         <translation>Slaptažodis</translation>
     </message>
     <message>
+        <source>Password remind</source>
+        <translation>Slaptažodžio priminimas</translation>
+    </message>
+    <message>
         <source>Login</source>
         <translation>Prisijungti</translation>
     </message>
@@ -42,6 +46,52 @@
     <message>
         <source>Identifier</source>
         <translation>Identifikatorius</translation>
+    </message>
+</context>
+<context>
+    <name>user/remindpassword</name>
+    <message>
+        <source>Password remind - new password</source>
+        <translation>Slaptažodžio atstatymas - naujas slaptažodis</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation>Atnaujinti</translation>
+    </message>
+    <message>
+        <source>New password:</source>
+        <translation>Naujas slaptažodis:</translation>
+    </message>
+    <message>
+        <source>New password has been send to your email.</source>
+        <translation>Naujas slaptažodis buvo išiųstas į Jūsų el. paštą.</translation>
+    </message>
+    <message>
+        <source>Identifier</source>
+        <translation>Identifikatorius</translation>
+    </message>
+</context>
+<context>
+    <name>user/forgotpassword</name>
+    <message>
+        <source>Password remind</source>
+        <translation>Slaptažodžio priminimas</translation>
+    </message>
+    <message>
+        <source>Invalid e-mail address!</source>
+        <translation>Nekorektiškas el. pašto adresas!</translation>
+    </message>
+    <message>
+        <source>Click this link and to You will be send new password</source>
+        <translation>Paspauskite nuorodą ir Jums bus atsiųstas naujas slaptažodis</translation>
+    </message>
+    <message>
+        <source>E-mail</source>
+        <translation>El. paštas</translation>
+    </message>
+    <message>
+        <source>Restore password</source>
+        <translation>Atstatyti slaptažodį</translation>
     </message>
 </context>
 <context>
