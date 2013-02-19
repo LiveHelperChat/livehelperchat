@@ -153,7 +153,7 @@ return array (
         'content_language' => 'en',
         'theme' => 
         array (
-          0 => 'backendtheme',
+          0 => 'customtheme',
           1 => 'defaulttheme',
         ),
         'login_pagelayout' => 'login',
