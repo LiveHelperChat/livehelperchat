@@ -145,7 +145,12 @@ $ViewList['getstatus'] = array(
 $ViewList['startchat'] = array( 
     'script' => 'startchat.php',
     'params' => array()
-    );  
+    );
+         
+$ViewList['chatwidget'] = array( 
+    'script' => 'chatwidget.php',
+    'params' => array()
+);  
       
 $ViewList['chat'] = array( 
     'script' => 'chat.php',
