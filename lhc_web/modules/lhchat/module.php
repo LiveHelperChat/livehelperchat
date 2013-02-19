@@ -138,7 +138,8 @@ $ViewList['blockedusers'] = array(
     
 $ViewList['getstatus'] = array( 
     'script' => 'getstatus.php',
-    'params' => array()
+    'params' => array(),
+    'uparams' => array('click'),
     );   
     
 $ViewList['startchat'] = array( 
