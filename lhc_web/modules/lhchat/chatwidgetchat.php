@@ -1,4 +1,7 @@
 <?php
+
+header('P3P: CP="NOI ADM DEV COM NAV OUR STP"');
+
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/chat.tpl.php');
 
 try {

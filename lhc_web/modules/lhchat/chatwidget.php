@@ -1,5 +1,7 @@
 <?php
 
+header('P3P: CP="NOI ADM DEV COM NAV OUR STP"');
+
 if (($hashSession = CSCacheAPC::getMem()->getSession('chat_hash_widget')) !== false) {
     
     list($chatID,$hash) = explode('_',$hashSession);
@@ -14,7 +16,7 @@ $tpl->set('referer','');
 
 $inputData = new stdClass();
 $inputData->username = '';
-$inputData->Question = '';
+$inputData->question = '';
 $inputData->email = '';
 $inputData->departament_id = 0;
 
@@ -43,11 +45,15 @@ if (isset($_POST['StartChat']))
     if ( !$form->hasValidData( 'Username' ) || $form->Username == '' )
     {
         $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your name');
+    } else {
+        $inputData->username = $form->Username;
     }
     
     if ( !$form->hasValidData( 'Question' ) || $form->Question == '' )
     {
         $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your message');
+    } else {
+        $inputData->question = $form->Question;
     }
     
     if ($form->hasValidData( 'Username' ) && $form->Username != '' && strlen($form->Username) > 50)
@@ -58,6 +64,8 @@ if (isset($_POST['StartChat']))
     if ( !$form->hasValidData( 'Email' ) )
     {
         $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Wrong email');
+    } else {
+        $inputData->email = $form->Question;
     }
     
     $ip = isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
@@ -76,6 +84,8 @@ if (isset($_POST['StartChat']))
         $id = array_shift($ids);
         $chat->dep_id = $id;
     }
+    
+    $inputData->departament_id = $chat->dep_id;
     
     if (count($Errors) == 0)
     {       
@@ -112,6 +122,8 @@ if (isset($_POST['StartChat']))
         $tpl->set('errors',$Errors);
     }  
 }
+
+$tpl->set('input_data',$inputData);
 
 if (isset($_GET['URLReferer']))
 {

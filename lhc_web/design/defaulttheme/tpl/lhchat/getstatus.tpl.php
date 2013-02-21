@@ -1,9 +1,9 @@
 var lh_inst  = {
 
     urlopen : "http://<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/startchat')?>",
-    
+
     windowname : "startchatwindow",
-        
+
     addCss : function(css_content) {
         var head = document.getElementsByTagName('head')[0];
         var style = document.createElement('style');
@@ -47,7 +47,7 @@ var lh_inst  = {
         this.removeById('lhc_container');
         window.open(this.urlopen+'?URLReferer='+escape(document.location),this.windowname,"menubar=1,resizable=1,width=500,height=520");
     },
-    
+
     showStartWindow : function() {
 
           this.initial_iframe_url = "http://<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?>"+'?URLReferer='+escape(document.location);
@@ -58,14 +58,14 @@ var lh_inst  = {
                        ' height="320"' +
                        ' style="width: 300px; height: 340px;"></iframe>';
 
-          this.overlay_html = '<div id="lhc_container">' +
+          this.iframe_html = '<div id="lhc_container">' +
                               '<div id="lhc_header"><span id="lhc_title"><a title="Powered by Live Helpher Chat" href="http://livehelperchat.com" target="_blank"><img src="http://<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/icons/lhc.png');?>" alt="Live Helper Chat" /></a></span><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus',"Close")?>" id="lhc_close"><img src="http://<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/icons/cancel.png');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus',"Close")?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus',"Close")?>" /></a>&nbsp;<a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus',"Open in a new window")?>" id="lhc_remote_window"><img src="http://<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/icons/application_double.png');?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus',"Open in a new window")?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus',"Open in a new window")?>" /></a></div>' +
                               this.iframe_html + '</div>';
 
-          raw_css = "#lhc_container * {font-family:arial;font-size:12px;}\n#lhc_container img {border:0;}\n#lhc_title{float:left;}\n#lhc_header{text-align:right;clear:both;border-bottom:1px solid #CCC;padding:5px;}\n#lhc_remote_window,#lhc_close{padding:2px;float:right;}\n#lhc_close:hover,#lhc_remote_window:hover{background:#e5e5e5;}\n#lhc_container {\n  ;width:300px;\n  height: 365px;\n position: absolute;bottom:0;right:0;-webkit-box-shadow: -2px -2px 5px rgba(50, 50, 50, 0.17);-moz-box-shadow:    -2px -2px 5px rgba(50, 50, 50, 0.17);box-shadow:         -2px -2px 5px rgba(50, 50, 50, 0.17);border:1px solid #CCC;-webkit-border-top-left-radius: 10px;-moz-border-radius-topleft: 10px;border-top-left-radius: 10px; }\n#lhc_container iframe.loading{\nbackground: transparent url(http://<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/general/loading.gif');?>) no-repeat center center; }\n";
+          raw_css = "#lhc_container * {font-family:arial;font-size:12px;}\n#lhc_container img {border:0;}\n#lhc_title{float:left;}\n#lhc_header{text-align:right;clear:both;border-bottom:1px solid #CCC;padding:5px;}\n#lhc_remote_window,#lhc_close{padding:2px;float:right;}\n#lhc_close:hover,#lhc_remote_window:hover{background:#e5e5e5;}\n#lhc_container {\;width:300px;\nz-index:9999;\n  height: 365px;\n position: absolute;bottom:0;right:0;-webkit-box-shadow: -2px -2px 5px rgba(50, 50, 50, 0.17);-moz-box-shadow:    -2px -2px 5px rgba(50, 50, 50, 0.17);box-shadow:         -2px -2px 5px rgba(50, 50, 50, 0.17);border:1px solid #CCC;-webkit-border-top-left-radius: 10px;-moz-border-radius-topleft: 10px;border-top-left-radius: 10px; }\n#lhc_container iframe.loading{\nbackground: transparent url(http://<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/general/loading.gif');?>) no-repeat center center; }\n";
           this.addCss(raw_css);
 
-          var fragment = this.appendHTML(this.overlay_html);
+          var fragment = this.appendHTML(this.iframe_html);
 
           // You can use native DOM methods to insert the fragment:
           document.body.insertBefore(fragment, document.body.childNodes[0]);  
