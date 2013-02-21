@@ -40,8 +40,14 @@ function lh(){
     // Is synchronization under progress
     this.isSinchronizing = false;  
      
+    // is Widget mode
+    this.isWidgetMode = false;
     
     this.syncroRequestSend = false;
+    
+    this.setWidgetMode = function(status) {
+    	this.isWidgetMode = status;
+    };
     
     this.setSynchronizationRequestSend = function(status)
     {
@@ -145,13 +151,15 @@ function lh(){
         }
         
         return false;
-    }
+    };
     
     this.syncusercall = function()
 	{
 	    var inst = this;
 	    
-	    $.postJSON(this.wwwDir + this.syncuser + this.chat_id + '/' + this.hash ,{ }, function(data){ 
+	    var modeWindow = this.isWidgetMode == true ? '/(mode)/widget' : '';
+	    
+	    $.postJSON(this.wwwDir + this.syncuser + this.chat_id + '/' + this.hash + modeWindow ,{ }, function(data){ 
 	        // If no error
 	        if (data.error == 'false')
 	        {	           
@@ -188,14 +196,7 @@ function lh(){
 	    }
 	        
 	    if (hidetab == true) {	
-	        
-	        /* 
-	         * var selected_index = tabs.tabs('option', 'selected');
-	        if (selected_index != -1)	
-	        {
-    	        tabs.tabs('remove' , selected_index);  
-	        } else tabs.tabs('remove' , 0); */
-
+	        	        
 	        var selected = tabs.find('dd.active');
 	    	var hrefid = selected.find('a').attr('href');
 	    	$(hrefid+'Tab').remove();
@@ -522,9 +523,11 @@ function lh(){
 				msg	: $("#CSChatMessage").val()
 		};
         
+        var modeWindow = this.isWidgetMode == true ? '/(mode)/widget' : '';
+        
 		$('#CSChatMessage').attr('value','');
 			
-       $.postJSON(this.wwwDir + this.addmsgurluser + this.chat_id + '/' + this.hash, pdata , function(data){	
+       $.postJSON(this.wwwDir + this.addmsgurluser + this.chat_id + '/' + this.hash + modeWindow, pdata , function(data){	
 		    
 		    $('#messagesBlock').append(data.result);
 		    $('#messagesBlock').animate({ scrollTop: $("#messagesBlock").prop("scrollHeight") }, 3000); 		    

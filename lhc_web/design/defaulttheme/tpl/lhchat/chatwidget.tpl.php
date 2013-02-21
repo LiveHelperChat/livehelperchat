@@ -15,8 +15,8 @@
     </div>
 </div>
 
-<label>Your question</label>
-<textarea name="Question"></textarea>
+<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Your question');?></label>
+<textarea placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your message');?>" name="Question"></textarea>
 
 <?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/department.tpl.php'));?>
 
@@ -24,3 +24,4 @@
 <input type="hidden" value="<?php echo htmlspecialchars($referer);?>" name="URLRefer"/>
 
 </form>
+

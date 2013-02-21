@@ -1,0 +1,19 @@
+body {
+	font-size: 12px;	
+	background:rgb(241, 241, 241);	
+}
+
+#widget-layout #status-chat{
+	font-size:12px;
+	margin:3px 0px 6px;
+}
+
+#widget-layout #CSChatMessage {
+	font-size:12px;	
+}
+
+label,
+input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea
+{
+	font-size: 12px;
+}

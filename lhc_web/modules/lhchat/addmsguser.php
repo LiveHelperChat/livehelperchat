@@ -28,6 +28,8 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '')
         
         $tpl->set('msg',$msg);
         $tpl->set('chat',$Chat);
+        $tpl->set('add_msg_mode',isset($Params['user_parameters_unordered']['mode']) ? $Params['user_parameters_unordered']['mode'] : '');
+        
     } else {
          $tpl->setFile( 'lhchat/errors/chatnotexists.tpl.php'); 
     }

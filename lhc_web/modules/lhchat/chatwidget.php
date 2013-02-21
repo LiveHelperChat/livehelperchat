@@ -1,6 +1,22 @@
 <?php
 
+if (($hashSession = CSCacheAPC::getMem()->getSession('chat_hash_widget')) !== false) {
+    
+    list($chatID,$hash) = explode('_',$hashSession);
+    
+    // Redirect user
+    erLhcoreClassModule::redirect('chat/chatwidgetchat/' . $chatID . '/' . $hash);
+    exit;
+}
+
 $tpl = new erLhcoreClassTemplate( 'lhchat/chatwidget.tpl.php');
+$tpl->set('referer','');
+
+$inputData = new stdClass();
+$inputData->username = '';
+$inputData->Question = '';
+$inputData->email = '';
+$inputData->departament_id = 0;
 
 $chat = new erLhcoreClassModelChat();
 
@@ -8,7 +24,10 @@ if (isset($_POST['StartChat']))
 {
    $definition = array(
         'Username' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
+        'Question' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
         'Email' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'validate_email'
@@ -24,6 +43,11 @@ if (isset($_POST['StartChat']))
     if ( !$form->hasValidData( 'Username' ) || $form->Username == '' )
     {
         $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your name');
+    }
+    
+    if ( !$form->hasValidData( 'Question' ) || $form->Question == '' )
+    {
+        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your message');
     }
     
     if ($form->hasValidData( 'Username' ) && $form->Username != '' && strlen($form->Username) > 50)
@@ -68,12 +92,35 @@ if (isset($_POST['StartChat']))
        // Store chat
        erLhcoreClassChat::getSession()->save($chat);
        
+       // Store question as message
+       $msg = new erLhcoreClassModelmsg();
+       $msg->msg = trim($form->Question);
+       $msg->status = 0;
+       $msg->chat_id = $chat->id;
+       $msg->user_id = 0;
+       $msg->time = time();
+     
+       erLhcoreClassChat::getSession()->save($msg);
+
+       // Store hash if user reloads page etc, we show widget
+       CSCacheAPC::getMem()->setSession('chat_hash_widget',$chat->id.'_'.$chat->hash);
+       
        // Redirect user
-       erLhcoreClassModule::redirect('chat/chat/' . $chat->id . '/' . $chat->hash);
+       erLhcoreClassModule::redirect('chat/chatwidgetchat/' . $chat->id . '/' . $chat->hash);
        exit;
     } else {        
         $tpl->set('errors',$Errors);
     }  
+}
+
+if (isset($_GET['URLReferer']))
+{
+    $tpl->set('referer',$_GET['URLReferer']);
+}
+
+if (isset($_POST['URLRefer']))
+{
+    $tpl->set('referer',$_POST['URLRefer']);
 }
 
 $Result['content'] = $tpl->fetch();

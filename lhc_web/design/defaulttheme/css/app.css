@@ -91,7 +91,8 @@ select {
 }
 
 .msg-date {
-	float:right;color:#7D7D7D
+	float:right;color:#7D7D7D;
+	font-size:11px;
 }
 
 .usr-tit {

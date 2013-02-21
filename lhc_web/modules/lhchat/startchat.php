@@ -1,4 +1,17 @@
 <?php
+
+if (($hashSession = CSCacheAPC::getMem()->getSession('chat_hash_widget')) !== false) {
+    
+    list($chatID,$hash) = explode('_',$hashSession);
+
+    // Remove chat from chat widget, from now user will be communicating using popup window
+    CSCacheAPC::getMem()->setSession('chat_hash_widget',false);
+    
+    // Redirect user
+    erLhcoreClassModule::redirect('chat/chat/' . $chatID . '/' . $hash);
+    exit;
+}
+
 $tpl = new erLhcoreClassTemplate( 'lhchat/startchat.tpl.php');
 $tpl->set('referer','');
 

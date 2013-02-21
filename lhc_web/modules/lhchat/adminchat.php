@@ -1,7 +1,7 @@
 <?php
 
 
-$tpl = new erLhcoreClassTemplate('lhchat/adminchat.tpl.php');
+$tpl = erLhcoreClassTemplate::getInstance('lhchat/adminchat.tpl.php');
 
 $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
 $tpl->set('chat',$chat);

@@ -254,15 +254,14 @@ class erLhcoreClassChat {
     * */
    public static function getChatMessages($chat_id)
    {
-       
        $db = ezcDbInstance::get();         
        
-       $stmt = $db->prepare('SELECT lh_msg.* FROM lh_msg WHERE status = 1 AND chat_id = :chat_id ORDER BY id ASC'); 
+       $stmt = $db->prepare('SELECT lh_msg.* FROM lh_msg WHERE chat_id = :chat_id ORDER BY id ASC'); 
        $stmt->bindValue( ':chat_id',$chat_id);  
        $stmt->setFetchMode(PDO::FETCH_ASSOC);         
        $stmt->execute();
        $rows = $stmt->fetchAll();         
-        
+    
        return $rows;
    }
    
