@@ -91,6 +91,8 @@ document.write('<p><a href="#" onclick="lh_inst.lh_openchatWindow()"><?php echo 
 document.write('<p><a href="#" onclick="lh_inst.lh_openchatWindow()"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus',"Live help is offline...")?></a></p>');
 <?php }  
 
+
+
 // User has pending chat
 if (($hashSession = CSCacheAPC::getMem()->getSession('chat_hash_widget')) !== false) {
     echo 'lh_inst.showStartWindow();';
