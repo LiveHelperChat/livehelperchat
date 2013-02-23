@@ -18,6 +18,7 @@
     </div>
 </div>
 
-   
+<script type="text/javascript" language="javascript" src="<?php echo erLhcoreClassDesign::designJS('js/app.js');?>"></script>
+
 </body>
 </html>

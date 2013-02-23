@@ -19,7 +19,7 @@ var lh_inst  = {
         } else {
           rules = document.createTextNode(css_content);
           style.appendChild(rules);
-        }
+        };
         
         head.appendChild(style);
     },
@@ -30,7 +30,7 @@ var lh_inst  = {
         temp.innerHTML = htmlStr;
         while (temp.firstChild) {
             frag.appendChild(temp.firstChild);
-        }
+        };
         return frag;
     },
 
@@ -77,8 +77,8 @@ var lh_inst  = {
           document.body.insertBefore(fragment, document.body.childNodes[0]);  
 
           var lhc_obj = this;
-          document.getElementById('lhc_close').onclick = function() { lhc_obj.hide(); return false; }
-          document.getElementById('lhc_remote_window').onclick = function() { lhc_obj.openRemoteWindow(); return false; }
+          document.getElementById('lhc_close').onclick = function() { lhc_obj.hide(); return false; };
+          document.getElementById('lhc_remote_window').onclick = function() { lhc_obj.openRemoteWindow(); return false; };
     },
 
     lh_openchatWindow : function() {
