@@ -889,6 +889,14 @@
         <translation>Pradėti pokalbį</translation>
     </message> 
     <message>
+        <source>Close</source>
+        <translation>Uždaryti</translation>
+    </message>
+    <message>
+        <source>Open in a new window</source>
+        <translation>Atidaryti naujame lange</translation>
+    </message> 
+    <message>
         <source>Live help is online...</source>
         <translation>Online pagalba aktyvi...</translation>
     </message>
@@ -973,6 +981,18 @@
     <message>
         <source>Maximum 50 characters</source>
         <translation>Maksimum 50 ženklų</translation>
+    </message>
+    <message>
+        <source>Enter your message</source>
+        <translation>Įveskite žinutę</translation>
+    </message>
+    <message>
+        <source>Please enter your message</source>
+        <translation>Prašome įvesti savo žinutę</translation>
+    </message>
+    <message>
+        <source>Your question</source>
+        <translation>Jūsų klausimas</translation>
     </message>
     <message>
         <source>Fill out this form to start a chat</source>
@@ -1138,6 +1158,10 @@
         <translation>Siųsti</translation>
     </message>
     <message>
+        <source>Enter your message</source>
+        <translation>Įveskite savo žinutę</translation>
+    </message>
+    <message>
         <source>Support</source>
         <translation>Palaikymas</translation>
     </message> 
@@ -1227,6 +1251,30 @@
     <message>
         <source>HTML code</source>
         <translation>HTML kodas</translation>
+    </message>
+    <message>
+        <source>On click show page widget</source>
+        <translation>Paspaudus rodyti puslapyje widgetą</translation>
+    </message>
+    <message>
+        <source>Choose a language</source>
+        <translation>Pasirinkite kalbą</translation>
+    </message>
+    <message>
+        <source>Position</source>
+        <translation>Pozicija</translation>
+    </message>
+    <message>
+        <source>Native placement - will be shown where html is embeded</source>
+        <translation>Įerpimo pozicija - bus rodoma ten kur įdėtas HTML kodas</translation>
+    </message>
+    <message>
+        <source>Bottom right corner of the screen</source>
+        <translation>Rodyti ekrano apačioje, dešinėje pusėje</translation>
+    </message>
+    <message>
+        <source>Hide status then offline</source>
+        <translation>Nerodyti būsenos, kai nėra prisijungusių operatorių</translation>
     </message>
     <message>
         <source>Copy code from textarea to page where you want your status to appear</source>
