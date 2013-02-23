@@ -7,6 +7,7 @@
 5. Option to block users in back office and chat window.
 6. Option to see users browsing the site
 7. Caching options
+8. Asynchronous status loading
 
 1.17v
 
