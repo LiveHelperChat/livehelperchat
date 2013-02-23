@@ -1,3 +1,13 @@
+1.18v
+
+1. GEO Detection
+2. Page widget availability
+3. HTML Code generation upgrades
+4. For upgrade please execute doc/update_db/update_4.sql,doc/update_db/update_5.sql,doc/update_db/update_6.sql queries.
+5. Option to block users in back office and chat window.
+6. Option to see users browsing the site
+7. Caching options
+
 1.17v
 
 1. Updated a little bit database structure to support hide online options.
