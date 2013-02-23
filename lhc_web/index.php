@@ -1,20 +1,8 @@
 <?php
 
-//exit;
-//xhprof_enable(XHPROF_FLAGS_CPU + XHPROF_FLAGS_MEMORY);
-
-$star_microtile = microtime();
-function set_time ( $start_time, $end_time )
-{
-	$start = explode(' ', $start_time);
-	$end = explode(' ', $end_time);
-	return  $time = $end[0] + $end[1] - $start[0] - $start[1];
-}
-
 /* DEBUG END */
 @ini_set('error_reporting', 0);
 @ini_set('display_errors', 0);
-
 
 require_once "ezcomponents/Base/src/base.php"; // dependent on installation method, see below
 
