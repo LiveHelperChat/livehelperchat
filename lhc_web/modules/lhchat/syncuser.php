@@ -18,6 +18,8 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
     {
         $tpl = new erLhcoreClassTemplate( 'lhchat/syncuser.tpl.php');
         $tpl->set('messages',$Messages);
+        $tpl->set('sync_mode',isset($Params['user_parameters_unordered']['mode']) ? $Params['user_parameters_unordered']['mode'] : '');
+        
         $content = $tpl->fetch();
     }
     

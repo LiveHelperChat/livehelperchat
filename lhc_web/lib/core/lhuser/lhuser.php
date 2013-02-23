@@ -25,16 +25,16 @@ class erLhcoreClassUser{
        {
            $this->authenticated = false;   
            
-           if ( isset($_SESSION['user_id']) )
+           if ( isset($_SESSION['lhc_user_id']) )
            {
-               unset($_SESSION['user_id']);
-               unset($_SESSION['access_array']);
-               unset($_SESSION['access_timestamp']);
+               unset($_SESSION['lhc_user_id']);
+               unset($_SESSION['lhc_access_array']);
+               unset($_SESSION['lhc_access_timestamp']);
            }
            
        } else {
           $this->session->save( $this->session->load() );            
-          $this->userid = $_SESSION['user_id'];
+          $this->userid = $_SESSION['lhc_user_id'];
           $this->authenticated = true;
        } 
    }
@@ -67,15 +67,15 @@ class erLhcoreClassUser{
             
             if ( $data['disabled'][0] == 0 ) { 
             	
-            	if ( isset($_SESSION['access_array']) ) {
-            		unset($_SESSION['access_array']);
+            	if ( isset($_SESSION['lhc_access_array']) ) {
+            		unset($_SESSION['lhc_access_array']);
             	}
             	
-            	if ( isset($_SESSION['access_timestamp']) ) {
-            		unset($_SESSION['access_timestamp']);
+            	if ( isset($_SESSION['lhc_access_timestamp']) ) {
+            		unset($_SESSION['lhc_access_timestamp']);
             	}
             	
-                $_SESSION['user_id'] = $data['id'][0];
+                $_SESSION['lhc_user_id'] = $data['id'][0];
                 $this->userid = $data['id'][0];
                             
                 $this->authenticated = true;
@@ -98,9 +98,9 @@ class erLhcoreClassUser{
    
    function logout()
    {
-       if (isset($_SESSION['access_array'])){ unset($_SESSION['access_array']); }
-       if (isset($_SESSION['access_timestamp'])){ unset($_SESSION['access_timestamp']); }
-       if (isset($_SESSION['user_id'])){ unset($_SESSION['user_id']); }              
+       if (isset($_SESSION['lhc_access_array'])){ unset($_SESSION['lhc_access_array']); }
+       if (isset($_SESSION['lhc_access_timestamp'])){ unset($_SESSION['lhc_access_timestamp']); }
+       if (isset($_SESSION['lhc_user_id'])){ unset($_SESSION['lhc_user_id']); }              
        $this->session->destroy();
    }
    
@@ -176,10 +176,10 @@ class erLhcoreClassUser{
    {   
        if ($this->AccessArray !== false) return $this->AccessArray;
 
-       if (isset($_SESSION['access_array'])) {
+       if (isset($_SESSION['lhc_access_array'])) {
                     
-           $this->AccessArray = $_SESSION['access_array'];
-           $this->AccessTimestamp =  $_SESSION['access_timestamp'];
+           $this->AccessArray = $_SESSION['lhc_access_array'];
+           $this->AccessTimestamp =  $_SESSION['lhc_access_timestamp'];
                    
            $cacheObj = CSCacheAPC::getMem();
            
@@ -232,7 +232,7 @@ class erLhcoreClassUser{
                 $cache->store( $id, $data );
             }
                         
-            $_SESSION['access_array'] = $this->AccessArray;
+            $_SESSION['lhc_access_array'] = $this->AccessArray;
                         
             
        } else {
@@ -253,8 +253,8 @@ class erLhcoreClassUser{
            }
        }
           
-       $_SESSION['access_array'] = $this->AccessArray;
-       $_SESSION['access_timestamp'] = $this->AccessTimestamp;
+       $_SESSION['lhc_access_array'] = $this->AccessArray;
+       $_SESSION['lhc_access_timestamp'] = $this->AccessTimestamp;
               
        return $this->AccessArray;
    }

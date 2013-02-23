@@ -252,6 +252,11 @@ class erLhcoreClassModelChatOnlineUser {
    }
    
    public static function handleRequest() {      
+       
+       // For DEBUG
+       //$cookieData = print_r($_COOKIE,true);
+       //$cookieData .= print_r($_SESSION,true);
+       
        // Track only not logged users 
        if ( erLhcoreClassUser::instance()->isLogged() == false )
        {
@@ -284,6 +289,8 @@ class erLhcoreClassModelChatOnlineUser {
 
            $item->user_agent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
            $item->current_page = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
+           // For DEBUG           
+           //$item->current_page = $cookieData;
            $item->last_visit = time();   
            $item->saveThis();           
        }       

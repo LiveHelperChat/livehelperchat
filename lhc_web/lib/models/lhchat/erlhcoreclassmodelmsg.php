@@ -25,6 +25,23 @@ class erLhcoreClassModelmsg {
               );
    }
    
+   public function __get($var) {
+   	
+	   	switch ($var) {
+	   		case 'time_front':				   			
+		   			if (date('Ymd') == date('Ymd',$this->time)) {
+		   			     $this->time_front = date('H:i:s',$this->time);
+		   			} else {
+		   			     $this->time_front = date('Y-m-d H:i:s',$this->time);
+		   			}	   			
+		   			return $this->time_front;
+	   			break;
+	   			   			 
+	   		default:
+	   			break;
+	   	}
+   }
+   
    public function setState( array $properties )
    {
        foreach ( $properties as $key => $val )

@@ -104,13 +104,15 @@ $ViewList['addmsgadmin'] = array(
 /* Anonymous functions */    
 $ViewList['addmsguser'] = array( 
     'script' => 'addmsguser.php',
-    'params' => array('chat_id','hash')
-    );    
+    'params' => array('chat_id','hash'),
+    'uparams' => array('mode'),
+);    
      
 $ViewList['syncuser'] = array( 
     'script' => 'syncuser.php',
-    'params' => array('chat_id','hash')
-    );         
+    'params' => array('chat_id','hash'),
+	'uparams' => array('mode')
+);         
     
 $ViewList['checkchatstatus'] = array( 
     'script' => 'checkchatstatus.php',
@@ -138,16 +140,32 @@ $ViewList['blockedusers'] = array(
     
 $ViewList['getstatus'] = array( 
     'script' => 'getstatus.php',
-    'params' => array()
+    'params' => array(),
+    'uparams' => array('click','position','hide_offline'),
     );   
     
 $ViewList['startchat'] = array( 
     'script' => 'startchat.php',
     'params' => array()
-    );  
+    );
+         
+$ViewList['chatwidget'] = array( 
+    'script' => 'chatwidget.php',
+    'params' => array()
+);
+          
+$ViewList['chatwidgetclosed'] = array( 
+    'script' => 'chatwidgetclosed.php',
+    'params' => array()
+);  
       
 $ViewList['chat'] = array( 
     'script' => 'chat.php',
+    'params' => array('chat_id','hash')
+);   
+      
+$ViewList['chatwidgetchat'] = array( 
+    'script' => 'chatwidgetchat.php',
     'params' => array('chat_id','hash')
 );   
 

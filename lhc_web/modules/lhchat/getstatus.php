@@ -9,5 +9,9 @@ if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value
     erLhcoreClassModelChatOnlineUser::handleRequest();
 }
 
+$tpl->set('click',$Params['user_parameters_unordered']['click']);
+$tpl->set('position',$Params['user_parameters_unordered']['position']);
+$tpl->set('hide_offline',$Params['user_parameters_unordered']['hide_offline']);
+
 echo $tpl->fetch();
 exit;

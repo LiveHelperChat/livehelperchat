@@ -1,19 +1,25 @@
 <?php
 
+// For IE to support headers if chat is installed on different domain
+header('P3P: CP="NOI ADM DEV COM NAV OUR STP"');
+
 if (($hashSession = CSCacheAPC::getMem()->getSession('chat_hash_widget')) !== false) {
     
     list($chatID,$hash) = explode('_',$hashSession);
-
-    // Remove chat from chat widget, from now user will be communicating using popup window
-    CSCacheAPC::getMem()->setSession('chat_hash_widget',false);
     
     // Redirect user
-    erLhcoreClassModule::redirect('chat/chat/' . $chatID . '/' . $hash);
+    erLhcoreClassModule::redirect('chat/chatwidgetchat/' . $chatID . '/' . $hash);
     exit;
 }
 
-$tpl = new erLhcoreClassTemplate( 'lhchat/startchat.tpl.php');
+$tpl = new erLhcoreClassTemplate( 'lhchat/chatwidget.tpl.php');
 $tpl->set('referer','');
+
+$inputData = new stdClass();
+$inputData->username = '';
+$inputData->question = '';
+$inputData->email = '';
+$inputData->departament_id = 0;
 
 $chat = new erLhcoreClassModelChat();
 
@@ -21,7 +27,10 @@ if (isset($_POST['StartChat']))
 {
    $definition = array(
         'Username' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
+        'Question' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
         'Email' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'validate_email'
@@ -37,6 +46,15 @@ if (isset($_POST['StartChat']))
     if ( !$form->hasValidData( 'Username' ) || $form->Username == '' )
     {
         $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your name');
+    } else {
+        $inputData->username = $form->Username;
+    }
+    
+    if ( !$form->hasValidData( 'Question' ) || $form->Question == '' )
+    {
+        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your message');
+    } else {
+        $inputData->question = $form->Question;
     }
     
     if ($form->hasValidData( 'Username' ) && $form->Username != '' && strlen($form->Username) > 50)
@@ -47,6 +65,8 @@ if (isset($_POST['StartChat']))
     if ( !$form->hasValidData( 'Email' ) )
     {
         $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Wrong email');
+    } else {
+        $inputData->email = $form->Question;
     }
     
     $ip = isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
@@ -66,6 +86,8 @@ if (isset($_POST['StartChat']))
         $chat->dep_id = $id;
     }
     
+    $inputData->departament_id = $chat->dep_id;
+    
     if (count($Errors) == 0)
     {       
        $chat->nick = $form->Username;
@@ -81,13 +103,28 @@ if (isset($_POST['StartChat']))
        // Store chat
        erLhcoreClassChat::getSession()->save($chat);
        
+       // Store question as message
+       $msg = new erLhcoreClassModelmsg();
+       $msg->msg = trim($form->Question);
+       $msg->status = 0;
+       $msg->chat_id = $chat->id;
+       $msg->user_id = 0;
+       $msg->time = time();
+     
+       erLhcoreClassChat::getSession()->save($msg);
+
+       // Store hash if user reloads page etc, we show widget
+       CSCacheAPC::getMem()->setSession('chat_hash_widget',$chat->id.'_'.$chat->hash);
+       
        // Redirect user
-       erLhcoreClassModule::redirect('chat/chat/' . $chat->id . '/' . $chat->hash);
+       erLhcoreClassModule::redirect('chat/chatwidgetchat/' . $chat->id . '/' . $chat->hash);
        exit;
     } else {        
         $tpl->set('errors',$Errors);
     }  
 }
+
+$tpl->set('input_data',$inputData);
 
 if (isset($_GET['URLReferer']))
 {
@@ -100,8 +137,6 @@ if (isset($_POST['URLRefer']))
 }
 
 $Result['content'] = $tpl->fetch();
-$Result['pagelayout'] = 'userchat';
-
-$Result['path'] = array(array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Fill form to start chat')))
+$Result['pagelayout'] = 'widget';
 
 ?>
