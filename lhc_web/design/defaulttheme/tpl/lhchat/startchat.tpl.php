@@ -4,25 +4,23 @@
 <?php endif; ?>
 
 <form method="post" action="<?php echo erLhcoreClassDesign::baseurl('chat/startchat')?>">
-<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Name');?></label>
-<input type="text" class="inputfield" name="Username" value="" />
 
-<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','E-mail');?></label>
-<input type="text" class="inputfield" name="Email" value="" />
+<?php if (isset($start_data_fields['name_visible_in_popup']) && $start_data_fields['name_visible_in_popup'] == true) : ?>
+<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Name');?><?php if (isset($start_data_fields['name_require_option']) && $start_data_fields['name_require_option'] == 'required') : ?>*<?php endif;?></label>
+<input type="text" class="inputfield" name="Username" value="<?php echo htmlspecialchars($input_data->username);?>" />
+<?php endif; ?>
 
-<?php 
+<?php if (isset($start_data_fields['email_visible_in_popup']) && $start_data_fields['email_visible_in_popup'] == true) : ?>
+<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','E-mail');?><?php if (isset($start_data_fields['email_require_option']) && $start_data_fields['email_require_option'] == 'required') : ?>*<?php endif;?></label>
+<input type="text" class="inputfield" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
+<?php endif; ?>
 
-$departments = erLhcoreClassDepartament::getDepartaments();
+<?php if (isset($start_data_fields['message_visible_in_popup']) && $start_data_fields['message_visible_in_popup'] == true) : ?>
+<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Your question');?><?php if (isset($start_data_fields['message_require_option']) && $start_data_fields['message_require_option'] == 'required') : ?>*<?php endif;?></label>
+<textarea placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your message');?>" name="Question"><?php echo htmlspecialchars($input_data->question);?></textarea>
+<?php endif; ?>
 
-// Show only if there are more than 1 department
-if (count($departments) > 1) : ?>
-<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Department');?></label>
-<select name="DepartamentID">
-    <?php foreach (erLhcoreClassDepartament::getDepartaments() as $departament) : ?>
-        <option value="<?php echo $departament['id']?>"><?php echo $departament['name']?></option>
-    <?php endforeach; ?>
-</select>
-<?php endif; ?> 
+<?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/department.tpl.php'));?>
 
 <input type="submit" class="small button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Start chat');?>" name="StartChat" />
 <input type="hidden" value="<?php echo htmlspecialchars($referer);?>" name="URLRefer"/>

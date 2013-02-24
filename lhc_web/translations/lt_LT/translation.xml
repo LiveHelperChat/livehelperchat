@@ -1092,6 +1092,10 @@
         <source>Department</source>
         <translation>Departamentas</translation>
     </message>
+    <message>
+        <source>Visitor</source>
+        <translation>Lankytojas</translation>
+    </message>
 </context>
 <context>
     <name>chat/syncadmininterface</name>
@@ -1411,10 +1415,65 @@
     </message>    
 </context>
 <context>
+    <name>chat/startchatformsettings</name>
+    <message>
+        <source>Start chat form settings</source>
+        <translation>Pokalbio pradžios formos nustatymai</translation>
+    </message>
+    <message>
+        <source>At least one field have to be visible and required in popup and page widget</source>
+        <translation>Bent vienas laukas turi būti matomas ir privalomas popupe ir vidiniame puslapio popupe</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Vardas</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation>Privalomas</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation>Neprivalomas</translation>
+    </message>
+    <message>
+        <source>This field is visible in popup</source>
+        <translation>Šis laukas matomas popupe</translation>
+    </message>
+    <message>
+        <source>This field is visible in page widget</source>
+        <translation>Šis laukas matomas vidiniame puslapio popupe</translation>
+    </message>
+    <message>
+        <source>This field is</source>
+        <translation>Šis laukas yra</translation>
+    </message>
+    <message>
+        <source>E-mail</source>
+        <translation>El. paštas</translation>
+    </message>
+    <message>
+        <source>Message</source>
+        <translation>Žinutė</translation>
+    </message>
+    <message>
+        <source>Please choose at least one field for popup</source>
+        <translation>Prašome prisijungti bent vieną lauką popupui</translation>
+    </message> 
+    <message>
+        <source>Please choose at least one field for page widget</source>
+        <translation>Prašome prisijungti bent vieną lauką vidiniam puslapio popupui</translation>
+    </message>
+</context>
+<context>
     <name>system/configuration</name>
     <message>
         <source>HTML code</source>
         <translation>HTML kodas</translation>
+    </message>
+    <message>
+        <source>Start chat form settings</source>
+        <translation>Pokalbio pradžios formos nustatymai</translation>
     </message>
     <message>
         <source>Synchronisation and sound settings</source>

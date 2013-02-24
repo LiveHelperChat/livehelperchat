@@ -15,107 +15,58 @@ if (($hashSession = CSCacheAPC::getMem()->getSession('chat_hash_widget')) !== fa
 $tpl = new erLhcoreClassTemplate( 'lhchat/chatwidget.tpl.php');
 $tpl->set('referer','');
 
+// Start chat field options
+$startData = erLhcoreClassModelChatConfig::fetch('start_chat_data');
+$startDataFields = (array)$startData->data;
+
 $inputData = new stdClass();
 $inputData->username = '';
 $inputData->question = '';
 $inputData->email = '';
 $inputData->departament_id = 0;
+$inputData->validate_start_chat = false;
 
 $chat = new erLhcoreClassModelChat();
 
 if (isset($_POST['StartChat']))
 {
-   $definition = array(
-        'Username' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-        ),
-        'Question' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-        ),
-        'Email' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'validate_email'
-        ),
-        'DepartamentID' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1)
-        ),
-    );
-  
-    $form = new ezcInputForm( INPUT_POST, $definition );
-    $Errors = array();
-    
-    if ( !$form->hasValidData( 'Username' ) || $form->Username == '' )
-    {
-        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your name');
-    } else {
-        $inputData->username = $form->Username;
-    }
-    
-    if ( !$form->hasValidData( 'Question' ) || $form->Question == '' )
-    {
-        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your message');
-    } else {
-        $inputData->question = $form->Question;
-    }
-    
-    if ($form->hasValidData( 'Username' ) && $form->Username != '' && strlen($form->Username) > 50)
-    {
-        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum 50 characters');
-    }
-    
-    if ( !$form->hasValidData( 'Email' ) )
-    {
-        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Wrong email');
-    } else {
-        $inputData->email = $form->Question;
-    }
-    
-    $ip = isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
-    
-    if (erLhcoreClassModelChatBlockedUser::getCount(array('filter' => array('ip' => $ip))) > 0) {
-        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You do not have permission to chat! Please contact site owner.');
-    }
-    
-    $departments = erLhcoreClassModelDepartament::getList();
-    
-    $ids = array_keys($departments);
-        
-    if ($form->hasValidData( 'DepartamentID' ) && in_array($form->DepartamentID,$ids)) {
-        $chat->dep_id = $form->DepartamentID;
-    } else {
-        $id = array_shift($ids);
-        $chat->dep_id = $id;
-    }
-    
-    $inputData->departament_id = $chat->dep_id;
-    
-    if (count($Errors) == 0)
-    {       
-       $chat->nick = $form->Username;
-       $chat->email = $form->Email;
+   // Validate post data
+   $Errors = erLhcoreClassChatValidator::validateStartChat($inputData,$startDataFields,$chat);
+
+   if (count($Errors) == 0)
+   {   
        $chat->time = time();
        $chat->status = 0;       
        $chat->setIP();
        $chat->hash = erLhcoreClassChat::generateHash();
        $chat->referrer = isset($_POST['URLRefer']) ? $_POST['URLRefer'] : '';
        
-       erLhcoreClassModelChat::detectLocation($chat);
+       if ( empty($chat->nick) ) {
+           $chat->nick = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor');;
+       }
        
+       erLhcoreClassModelChat::detectLocation($chat);
+
        // Store chat
        erLhcoreClassChat::getSession()->save($chat);
        
-       // Store question as message
-       $msg = new erLhcoreClassModelmsg();
-       $msg->msg = trim($form->Question);
-       $msg->status = 0;
-       $msg->chat_id = $chat->id;
-       $msg->user_id = 0;
-       $msg->time = time();
-     
-       erLhcoreClassChat::getSession()->save($msg);
+       // Store message if required
+       if (isset($startDataFields['message_visible_in_page_widget']) && $startDataFields['message_visible_in_page_widget'] == true) {           
+           if ( $inputData->question != '' ) { 
+               // Store question as message
+               $msg = new erLhcoreClassModelmsg();
+               $msg->msg = trim($inputData->question);
+               $msg->status = 0;
+               $msg->chat_id = $chat->id;
+               $msg->user_id = 0;
+               $msg->time = time();               
+               erLhcoreClassChat::getSession()->save($msg);
+           }
+       }
 
        // Store hash if user reloads page etc, we show widget
        CSCacheAPC::getMem()->setSession('chat_hash_widget',$chat->id.'_'.$chat->hash);
-       
+
        // Redirect user
        erLhcoreClassModule::redirect('chat/chatwidgetchat/' . $chat->id . '/' . $chat->hash);
        exit;
@@ -123,6 +74,8 @@ if (isset($_POST['StartChat']))
         $tpl->set('errors',$Errors);
     }  
 }
+
+$tpl->set('start_data_fields',$startDataFields);
 
 $tpl->set('input_data',$inputData);
 

@@ -10,8 +10,7 @@ $definition = array(
 
 $form = new ezcInputForm( INPUT_POST, $definition );
 
-
-if ($form->hasValidData( 'msg' ) && trim($form->msg) != '')
+if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && strlen($form->msg) < 500)
 {    
     $Chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);  
     

@@ -204,6 +204,12 @@ $ViewList['syncandsoundesetting'] = array(
     'script' => 'syncandsoundesetting.php',
     'params' => array(),
     'functions' => array( 'administrateconfig' )
+);
+ 
+$ViewList['startchatformsettings'] = array( 
+    'script' => 'startchatformsettings.php',
+    'params' => array(),
+    'functions' => array( 'administrateconfig' )
 ); 
 
 $FunctionList['use'] = array('explain' => 'General chat usage permission');  

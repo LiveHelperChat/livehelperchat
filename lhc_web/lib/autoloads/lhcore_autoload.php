@@ -27,9 +27,12 @@ return array_merge(array (
         'erTranslationClassLhTranslation' => 'lib/core/lhcore/lhtranslation.php',
         
         // Core clases models
-        'erLhcoreClassUser'        => 'lib/core/lhuser/lhuser.php',
-        'erLhcoreClassGroup'       => 'lib/core/lhuser/lhgroup.php',
-        'erLhcoreClassChat'        => 'lib/core/lhchat/lhchat.php',
+        'erLhcoreClassUser'         => 'lib/core/lhuser/lhuser.php',
+        'erLhcoreClassGroup'        => 'lib/core/lhuser/lhgroup.php',
+        'erLhcoreClassChat'         => 'lib/core/lhchat/lhchat.php',
+        'erLhcoreClassChatValidator'=> 'lib/core/lhchat/lhchatvalidator.php',
+        
+        
         'erLhcoreClassDepartament' => 'lib/core/lhdepartament/lhdepartament.php',
         'erLhcoreClassUserDep'      => 'lib/core/lhdepartament/lhuserdep.php',
         
