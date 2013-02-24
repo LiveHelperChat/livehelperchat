@@ -18,8 +18,12 @@ class erLhcoreClassModelChatConfig {
        if (isset($GLOBALS['lhc_erLhcoreClassModelChatConfig'.$identifier])) {
            return $GLOBALS['lhc_erLhcoreClassModelChatConfig'.$identifier];
        }    
-       
+       try {
        $GLOBALS['lhc_erLhcoreClassModelChatConfig'.$identifier] = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChatConfig', $identifier );     
+       } catch (Exception $e) {
+           // Record still does not exists, this happens during install
+           $GLOBALS['lhc_erLhcoreClassModelChatConfig'.$identifier] = new erLhcoreClassModelChatConfig();
+       }
        
        return $GLOBALS['lhc_erLhcoreClassModelChatConfig'.$identifier];
    }
