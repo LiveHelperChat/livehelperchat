@@ -4,7 +4,7 @@ $ReverseOrder = $Result['path'];
 krsort($ReverseOrder);
 foreach ($ReverseOrder as $pathItem) : ?><?php echo htmlspecialchars($pathItem['title']).' '?>&laquo;<?php echo ' ';endforeach;?>
 <?php endif; ?>
-<?php echo erConfigClassLhConfig::getInstance()->getOverrideValue( 'site', 'title' )?></title>
+<?php echo htmlspecialchars(erLhcoreClassModelChatConfig::fetch('application_name')->current_value)?></title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
 <link rel="icon" type="image/png" href="<?php echo erLhcoreClassDesign::design('images/favicon.ico')?>" />

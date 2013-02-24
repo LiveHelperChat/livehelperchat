@@ -40,12 +40,24 @@
         <translation>Redagavimas</translation>
     </message>
     <message>
+        <source>Data updated</source>
+        <translation>Duomenys atnaujinti</translation>
+    </message>
+    <message>
         <source>Update</source>
         <translation>Atnaujinti</translation>
     </message>
     <message>
         <source>Identifier</source>
         <translation>Identifikatorius</translation>
+    </message>
+    <message>
+        <source>Value in</source>
+        <translation>Reikšmė</translation>
+    </message>
+    <message>
+        <source>site access</source>
+        <translation>prieigoje</translation>
     </message>
 </context>
 <context>
@@ -122,6 +134,10 @@
     <message>
         <source>IP</source>
         <translation>IP</translation>
+    </message>
+    <message>
+        <source>Empty...</source>
+        <translation>Tuščia...</translation>
     </message>
     <message>
         <source>Last activity</source>

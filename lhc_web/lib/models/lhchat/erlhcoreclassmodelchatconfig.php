@@ -14,9 +14,14 @@ class erLhcoreClassModelChatConfig {
    }
 
    public static function fetch($identifier)
-   {       
-       $identifierObj = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChatConfig', $identifier );     
-       return $identifierObj;
+   {   
+       if (isset($GLOBALS['lhc_erLhcoreClassModelChatConfig'.$identifier])) {
+           return $GLOBALS['lhc_erLhcoreClassModelChatConfig'.$identifier];
+       }    
+       
+       $GLOBALS['lhc_erLhcoreClassModelChatConfig'.$identifier] = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChatConfig', $identifier );     
+       
+       return $GLOBALS['lhc_erLhcoreClassModelChatConfig'.$identifier];
    }
    
    public function saveThis()

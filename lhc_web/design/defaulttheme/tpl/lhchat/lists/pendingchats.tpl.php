@@ -1,5 +1,5 @@
 <?php if (count($chats) > 0 || count($transferchats) > 0) { ?>
-<ul class="disc">
+<ul class="no-bullet">
 	<?php foreach ($chats as $chat) : ?>
 	      <li class="chat-row-<?php echo $chat['id'];?>">
 	      <?php if ( !empty($chat['country_code']) ) : ?><img src="<?php echo erLhcoreClassDesign::design('images/flags');?>/<?php echo $chat['country_code']?>.png" alt="<?php echo htmlspecialchars($chat['country_name'])?>" title="<?php echo htmlspecialchars($chat['country_name'])?>" />&nbsp;<?php endif; ?>    		      
@@ -16,7 +16,7 @@
     <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Transfered chats');?></h4>
     
         <?php foreach ($transferchats as $chat) : ?>
-            <ul class="disc">
+            <ul class="no-bullet">
                   <li>                  
                   <img class="action-image" align="absmiddle" onclick="lhinst.startChatTransfer('<?php echo $chat['id'];?>',$('#tabs'),'<?php echo htmlspecialchars($chat['nick']);?>','<?php echo $chat['transfer_id'];?>')" src="<?php echo erLhcoreClassDesign::design('images/icons/accept.png');?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Accept chat');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Accept chat');?>">
                   <img class="action-image" align="absmiddle" onclick="lhinst.startChatNewWindowTransfer('<?php echo $chat['id'];?>','<?php echo htmlspecialchars($chat['nick']);?>','<?php echo $chat['transfer_id'];?>')" src="<?php echo erLhcoreClassDesign::design('images/icons/application_add.png');?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Open in new window');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Open in new window');?>"> <?php echo $chat['id'];?>. <?php echo $chat['nick'];?> (<?php echo date('Y-m-d H:i:s',$chat['time']);?>)

@@ -29,7 +29,7 @@ if (isset($_POST['UpdateConfig']))
     $ConfigData->saveThis();
 	$tpl->set('data_updated',true);
 	
-	// Cleanup cache to recompile
+	// Cleanup cache to recompile templates etc.
 	$CacheManager = erConfigClassLhCacheConfig::getInstance();
     $CacheManager->expireCache();
 

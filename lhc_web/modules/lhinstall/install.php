@@ -259,6 +259,9 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   $db->query("INSERT INTO `lh_chat_config` (`identifier`, `value`, `type`, `explain`, `hidden`) VALUES
                 ('tracked_users_cleanup',	'7',	0,	'How many days keep records of online users.',	0),
                 ('track_online_visitors',	'0',	0,	'Enable online site visitors tracking, 0 - no, 1 - yes',	0),
+                ('customer_company_name',	'Live Helper Chat',	0,	'Your company name - visible in bottom left corner',	0),
+                ('customer_site_url',	'http://livehelperchat.com',	0,	'Your site URL address',	0),
+                ('application_name',	'a:6:{s:3:\"eng\";s:31:\"Live Helper Chat - live support\";s:3:\"lit\";s:26:\"Live Helper Chat - pagalba\";s:3:\"hrv\";s:0:\"\";s:3:\"esp\";s:0:\"\";s:3:\"por\";s:0:\"\";s:10:\"site_admin\";s:31:\"Live Helper Chat - live support\";}',	1,	'Support application name, visible in browser title.',	0),
                 ('geo_data', '', '0', '', '1')");
         	   
         	   $db->query("CREATE TABLE `lh_chat_online_user` (
@@ -429,6 +432,9 @@ switch ((int)$Params['user_parameters']['step_id']) {
                    
                $cfgSite = erConfigClassLhConfig::getInstance();
 	           $cfgSite->setSetting( 'site', 'installed', true);	     
+	           $cfgSite->setSetting( 'site', 'templatecache', true);	     
+	           $cfgSite->setSetting( 'site', 'templatecompile', true);	     
+	           $cfgSite->setSetting( 'site', 'modulecompile', true);	     
 	           $cfgSite->save();
 	           
     	       $tpl->setFile('lhinstall/install4.tpl.php');
