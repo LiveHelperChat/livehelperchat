@@ -1352,10 +1352,73 @@
     </message>
 </context>
 <context>
+    <name>chat/syncandsoundesetting</name>
+    <message>
+        <source>Save</source>
+        <translation>Saugoti</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation>Atnaujinti</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Atšaukti</translation>
+    </message>
+    <message>
+        <source>Settings updated</source>
+        <translation>Nustatymai atnaujinti</translation>
+    </message>
+    <message>
+        <source>How many seconds user considered for being as online</source>
+        <translation>Kiek sekundžių vartotojas laikomas, kaip prisijungęs</translation>
+    </message>
+    <message>
+        <source>Sync for new chats, interval in seconds</source>
+        <translation>Tikrinti ar nėra naujų užklausų, kas nurodytą intervalą</translation>
+    </message>
+    <message>
+        <source>Sync for new user message, interval in seconds</source>
+        <translation>Tikrinti ar neparašė vartotojas, kas nurodytą sekundžių skaičių</translation>
+    </message>
+    <message>
+        <source>Play new pending chat sound on new chat request</source>
+        <translation>Groti pranešimo garsą apie naują užklausimą</translation>
+    </message>
+    <message>
+        <source>Play sound on new message for back office user</source>
+        <translation>Groti garsą apie naują žinutę konsultantui</translation>
+    </message>
+    <message>
+        <source>Play sound on new message for front end user</source>
+        <translation>Groti garsą apie naują žinutę klientui</translation>
+    </message>
+    <message>
+        <source>Synchronisation and sound settings</source>
+        <translation>Sinchronizacijos ir garso nustatymai</translation>
+    </message> 
+    <message>
+        <source>Please enter valid online timeout value!</source>
+        <translation>Prašome įvesti validų būvimo prisijungus intervalą!</translation>
+    </message> 
+    <message>
+        <source>Please enter valid back office sync internval!</source>
+        <translation>Prašome įvesti validų naujų užklausų sinchronizavimo intervalą!</translation>
+    </message>
+    <message>
+        <source>Please enter valid new messages sync internval!</source>
+        <translation>Prašome įvesti korektišką naujų žinučių sinchronizavimo intervalą!</translation>
+    </message>    
+</context>
+<context>
     <name>system/configuration</name>
     <message>
         <source>HTML code</source>
         <translation>HTML kodas</translation>
+    </message>
+    <message>
+        <source>Synchronisation and sound settings</source>
+        <translation>Sinchronizacijos ir garso nustatymai</translation>
     </message>
     <message>
         <source>Chat configuration</source>

@@ -198,6 +198,12 @@ $ViewList['editchatconfig'] = array(
     'script' => 'editchatconfig.php',
     'params' => array('config_id'),
     'functions' => array( 'administrateconfig' )
+);
+
+$ViewList['syncandsoundesetting'] = array( 
+    'script' => 'syncandsoundesetting.php',
+    'params' => array(),
+    'functions' => array( 'administrateconfig' )
 ); 
 
 $FunctionList['use'] = array('explain' => 'General chat usage permission');  
