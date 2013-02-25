@@ -102,8 +102,25 @@ var lh_inst  = {
         var fragment = this.appendHTML(htmlStatus);
 
         document.body.insertBefore(fragment, document.body.childNodes[0]);
+    },
+    
+    timeoutInstance : null,
+    
+    startNewMessageCheck : function() {
+        timeoutInstance = setTimeout(function() {        
+            lh_inst.removeById('lhc_operator_message');                   
+            var th = document.getElementsByTagName('head')[0];
+            var s = document.createElement('script');
+            s.setAttribute('id','lhc_operator_message');
+            s.setAttribute('type','text/javascript');
+            s.setAttribute('src','http://<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatcheckoperatormessage')?>');
+            th.appendChild(s);
+            lh_inst.startNewMessageCheck();
+        }, 10000);
     }
 };
+
+lh_inst.startNewMessageCheck();
 
 <?php if ($position == 'original' || $position == '') : 
 // You can style bottom HTML whatever you want. ?>
@@ -116,6 +133,8 @@ lh_inst.showStatusWidget();
 if (($hashSession = CSCacheAPC::getMem()->getSession('chat_hash_widget')) !== false) {
     echo 'lh_inst.showStartWindow();';
 }
+
+
 
 endif; // hide if offline
 

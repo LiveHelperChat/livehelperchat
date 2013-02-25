@@ -20,11 +20,12 @@
 <thead>
 <tr>
     <th width="1%">ID</th>
-    <th width="20%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','IP');?></th>
-    <th width="20%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Last activity');?></th>
-    <th width="20%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Page');?></th>
+    <th width="5%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','IP');?></th>
+    <th width="5%" nowrap><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Last activity');?></th>
+    <th width="5%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Page');?></th>
     <th width="20%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Browser');?></th>    
     <th width="20%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Location');?></th>    
+    <th width="20%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Action');?></th>    
 </tr>
 </thead>
 <?php foreach ($items as $departament) : ?>
@@ -39,6 +40,9 @@
         <img src="<?php echo erLhcoreClassDesign::design('images/flags');?>/<?php echo $departament->user_country_code?>.png" alt="<?php echo htmlspecialchars($departament->user_country_name)?>" title="<?php echo htmlspecialchars($departament->user_country_name)?>" />
         <?php endif; ?>
         </td>        
+        <td nowrap>
+        <input type="button" class="small button" onclick="$.colorbox({width:'500px', href:'<?php echo erLhcoreClassDesign::baseurl('chat/sendnotice')?>/<?php echo $departament->id?>'});" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Send message');?>"/>
+        </td>
     </tr>
 <?php endforeach; ?>
 </table>

@@ -152,6 +152,11 @@ $ViewList['startchat'] = array(
 $ViewList['chatwidget'] = array( 
     'script' => 'chatwidget.php',
     'params' => array()
+);      
+   
+$ViewList['chatcheckoperatormessage'] = array( 
+    'script' => 'chatcheckoperatormessage.php',
+    'params' => array()
 );
           
 $ViewList['chatwidgetclosed'] = array( 
@@ -178,6 +183,13 @@ $ViewList['onlineusers'] = array(
     'script' => 'onlineusers.php',
     'params' => array(),
     'uparams' => array('clear_list','method'),
+    'functions' => array( 'use' )
+);
+
+$ViewList['sendnotice'] = array( 
+    'script' => 'sendnotice.php',
+    'params' => array(),
+    'uparams' => array('online_id'),
     'functions' => array( 'use' )
 );
 
