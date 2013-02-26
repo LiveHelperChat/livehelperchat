@@ -42,7 +42,7 @@ if (isset($_POST['StartChat']))
        $chat->referrer = isset($_POST['URLRefer']) ? $_POST['URLRefer'] : '';
        
        if ( empty($chat->nick) ) {
-           $chat->nick = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor');;
+           $chat->nick = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor');
        }
        
        erLhcoreClassModelChat::detectLocation($chat);

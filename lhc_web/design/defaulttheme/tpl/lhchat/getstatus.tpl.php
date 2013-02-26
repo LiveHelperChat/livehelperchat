@@ -53,12 +53,16 @@ var lh_inst  = {
         window.open(this.urlopen+'?URLReferer='+escape(document.location),this.windowname,"menubar=1,resizable=1,width=500,height=520");
     },
 
-    showStartWindow : function() {
+    showStartWindow : function(url_to_open) {
 
           this.removeById('lhc_container');
-    
-          this.initial_iframe_url = "http://<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?>"+'?URLReferer='+escape(document.location);
 
+          if ( url_to_open != undefined ) {
+                this.initial_iframe_url = url_to_open+'?URLReferer='+escape(document.location);
+          } else {
+                this.initial_iframe_url = "http://<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?>"+'?URLReferer='+escape(document.location);
+          }
+          
           this.iframe_html = '<iframe id="fdbk_iframe" allowTransparency="true" scrolling="no" class="loading" frameborder="0" ' +
                        ( this.initial_iframe_url != '' ? ' src="'    + this.initial_iframe_url + '"' : '' ) +
                        ' width="300"' +
@@ -81,6 +85,8 @@ var lh_inst  = {
           document.getElementById('lhc_remote_window').onclick = function() { lhc_obj.openRemoteWindow(); return false; };
     },
 
+    
+    
     lh_openchatWindow : function() {
         <?php if ($click == 'internal') : ?>
         this.showStartWindow();
@@ -106,6 +112,10 @@ var lh_inst  = {
     
     timeoutInstance : null,
     
+    stopCheckNewMessage : function() {
+        clearTimeout(timeoutInstance);
+    },
+    
     startNewMessageCheck : function() {
         timeoutInstance = setTimeout(function() {        
             lh_inst.removeById('lhc_operator_message');                   
@@ -116,7 +126,7 @@ var lh_inst  = {
             s.setAttribute('src','http://<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatcheckoperatormessage')?>');
             th.appendChild(s);
             lh_inst.startNewMessageCheck();
-        }, 10000);
+        }, 5000);
     }
 };
 
@@ -131,7 +141,7 @@ lh_inst.showStatusWidget();
 
 // User has pending chat
 if (($hashSession = CSCacheAPC::getMem()->getSession('chat_hash_widget')) !== false) {
-    echo 'lh_inst.showStartWindow();';
+    echo 'lh_inst.stopCheckNewMessage();lh_inst.showStartWindow();';
 }
 
 

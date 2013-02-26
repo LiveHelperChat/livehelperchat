@@ -39,7 +39,11 @@ class erLhcoreClassModelChatOnlineUser {
        	case 'last_visit_front':
        		  return date('Y-m-d H:i:s',$this->last_visit);
        		break;
-       		
+       	
+       	case 'has_message_from_operator':
+       	        return true;
+       	    break;	
+       			
        	case 'lastactivity_ago':
        		   $this->lastactivity_ago = '';
        		   
@@ -256,7 +260,7 @@ class erLhcoreClassModelChatOnlineUser {
        // For DEBUG
        //$cookieData = print_r($_COOKIE,true);
        //$cookieData .= print_r($_SESSION,true);
-       
+
        // Track only not logged users 
        if ( erLhcoreClassUser::instance()->isLogged() == false )
        {
@@ -292,8 +296,12 @@ class erLhcoreClassModelChatOnlineUser {
            // For DEBUG           
            //$item->current_page = $cookieData;
            $item->last_visit = time();   
-           $item->saveThis();           
-       }       
+           $item->saveThis();   
+           
+           return $item;        
+       } 
+       
+       return false;      
    }
 
    public function saveThis() {

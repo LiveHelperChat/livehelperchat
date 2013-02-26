@@ -152,6 +152,11 @@ $ViewList['startchat'] = array(
 $ViewList['chatwidget'] = array( 
     'script' => 'chatwidget.php',
     'params' => array()
+);          
+
+$ViewList['readoperatormessage'] = array( 
+    'script' => 'readoperatormessage.php',
+    'params' => array()
 );      
    
 $ViewList['chatcheckoperatormessage'] = array( 
