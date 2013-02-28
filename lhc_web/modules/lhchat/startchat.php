@@ -50,6 +50,17 @@ if (isset($_POST['StartChat'])) {
        // Store chat
        erLhcoreClassChat::getSession()->save($chat);
        
+       // Assign chat to user
+       if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 ) {
+            // To track online users
+            $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest();
+            
+            if ($userInstance !== false) {
+                $userInstance->chat_id = $chat->id;
+                $userInstance->saveThis();
+            }            
+       }
+        
        // Store message if required
        if (isset($startDataFields['message_visible_in_popup']) && $startDataFields['message_visible_in_popup'] == true) {           
            if ( $inputData->question != '' ) {           

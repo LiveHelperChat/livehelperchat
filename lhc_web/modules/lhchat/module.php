@@ -141,7 +141,7 @@ $ViewList['blockedusers'] = array(
 $ViewList['getstatus'] = array( 
     'script' => 'getstatus.php',
     'params' => array(),
-    'uparams' => array('click','position','hide_offline'),
+    'uparams' => array('click','position','hide_offline','check_operator_messages'),
     );   
     
 $ViewList['startchat'] = array( 
@@ -193,8 +193,7 @@ $ViewList['onlineusers'] = array(
 
 $ViewList['sendnotice'] = array( 
     'script' => 'sendnotice.php',
-    'params' => array(),
-    'uparams' => array('online_id'),
+    'params' => array('online_id'),
     'functions' => array( 'use' )
 );
 

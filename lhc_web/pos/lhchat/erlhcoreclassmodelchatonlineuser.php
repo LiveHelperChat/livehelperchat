@@ -47,7 +47,25 @@ $def->properties['user_country_code']->propertyType = ezcPersistentObjectPropert
 $def->properties['user_country_name'] = new ezcPersistentObjectProperty();
 $def->properties['user_country_name']->columnName   = 'user_country_name';
 $def->properties['user_country_name']->propertyName = 'user_country_name';
-$def->properties['user_country_name']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING; 
+$def->properties['user_country_name']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+ 
+// Operator message
+$def->properties['operator_message'] = new ezcPersistentObjectProperty();
+$def->properties['operator_message']->columnName   = 'operator_message';
+$def->properties['operator_message']->propertyName = 'operator_message';
+$def->properties['operator_message']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+// Which user has send the message
+$def->properties['operator_user_id'] = new ezcPersistentObjectProperty();
+$def->properties['operator_user_id']->columnName   = 'operator_user_id';
+$def->properties['operator_user_id']->propertyName = 'operator_user_id';
+$def->properties['operator_user_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+// Have the user seen the message and closed the window
+$def->properties['message_seen'] = new ezcPersistentObjectProperty();
+$def->properties['message_seen']->columnName   = 'message_seen';
+$def->properties['message_seen']->propertyName = 'message_seen';
+$def->properties['message_seen']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING; 
 
 return $def; 
 

@@ -13,7 +13,10 @@ class erLhcoreClassModelChatOnlineUser {
                'last_visit'         => $this->last_visit,
                'user_agent'         => $this->user_agent,
                'user_country_name'  => $this->user_country_name,
-               'user_country_code'  => $this->user_country_code
+               'user_country_code'  => $this->user_country_code,
+               'operator_message'   => $this->operator_message,
+               'operator_user_id'   => $this->operator_user_id,
+               'message_seen'       => $this->message_seen
        );
    }
 
@@ -41,9 +44,21 @@ class erLhcoreClassModelChatOnlineUser {
        		break;
        	
        	case 'has_message_from_operator':
-       	        return true;
+       	        return ($this->message_seen == 0 && $this->operator_message != '');
+       	    break;
+       	    
+       	case 'operator_user':
+       	        $this->operator_user = false;
+       	        if ($this->operator_user_id > 0) {
+       	            try {
+       	                $this->operator_user = erLhcoreClassModelUser::fetch($this->operator_user_id);
+       	            } catch (Exception $e) {
+       	                
+       	            }
+       	        }
+       	        return $this->operator_user;
        	    break;	
-       			
+   		
        	case 'lastactivity_ago':
        		   $this->lastactivity_ago = '';
        		   
@@ -316,7 +331,10 @@ class erLhcoreClassModelChatOnlineUser {
    public $chat_id = 0;
    public $last_visit = 0;
    public $user_country_name = '';
-   public $user_country_code = '';
+   public $user_country_code = '';   
+   public $operator_message = '';
+   public $operator_user_id = 0;
+   public $message_seen = 0;
 
 }
 

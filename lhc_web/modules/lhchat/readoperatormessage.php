@@ -47,27 +47,40 @@ if (isset($_POST['askQuestion']))
        
        erLhcoreClassModelChat::detectLocation($chat);
 
+       // Assign default department
+       $departments = erLhcoreClassModelDepartament::getList();    
+       $ids = array_keys($departments);
+       $id = array_shift($ids);
+       $chat->dep_id = $id;
+       
        // Store chat
        erLhcoreClassChat::getSession()->save($chat);
        
-       // @fix me
-       // Store Message from operator
-       /*$msg = new erLhcoreClassModelmsg();
-       $msg->msg = trim($inputData->question);
-       $msg->status = 0;
-       $msg->chat_id = $chat->id;
-       $msg->user_id = 0;
-       $msg->time = time();               
-       erLhcoreClassChat::getSession()->save($msg);*/
+       // Mark as user has read message from operator.
+       $userInstance->message_seen = 1;
+       $userInstance->chat_id = $chat->id;
+       $userInstance->saveThis();
        
+       // Store Message from operator
+       $msg = new erLhcoreClassModelmsg();
+       $msg->msg = trim($userInstance->operator_message);
+       $msg->status = 1;
+       $msg->chat_id = $chat->id;
+       $msg->user_id = $userInstance->operator_user_id;
+       $msg->time = time();
+       $msg->name_support = $userInstance->operator_user->name.' '.$userInstance->operator_user->surname;               
+       erLhcoreClassChat::getSession()->save($msg);
+
        // Store User Message
        $msg = new erLhcoreClassModelmsg();
        $msg->msg = trim($inputData->question);
-       $msg->status = 0;
+       $msg->status = 1;
        $msg->chat_id = $chat->id;
        $msg->user_id = 0;
        $msg->time = time();               
        erLhcoreClassChat::getSession()->save($msg);
+       
+       
        
        // Store hash if user reloads page etc, we show widget
        CSCacheAPC::getMem()->setSession('chat_hash_widget',$chat->id.'_'.$chat->hash);

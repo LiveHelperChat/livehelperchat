@@ -62,7 +62,7 @@ var lh_inst  = {
           } else {
                 this.initial_iframe_url = "http://<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?>"+'?URLReferer='+escape(document.location);
           }
-          
+
           this.iframe_html = '<iframe id="fdbk_iframe" allowTransparency="true" scrolling="no" class="loading" frameborder="0" ' +
                        ( this.initial_iframe_url != '' ? ' src="'    + this.initial_iframe_url + '"' : '' ) +
                        ' width="300"' +
@@ -83,9 +83,10 @@ var lh_inst  = {
           var lhc_obj = this;
           document.getElementById('lhc_close').onclick = function() { lhc_obj.hide(); return false; };
           document.getElementById('lhc_remote_window').onclick = function() { lhc_obj.openRemoteWindow(); return false; };
-    },
 
-    
+          // Do not check for new messages
+          this.stopCheckNewMessage();
+    },    
     
     lh_openchatWindow : function() {
         <?php if ($click == 'internal') : ?>
@@ -130,7 +131,9 @@ var lh_inst  = {
     }
 };
 
+<?php if ($check_operator_messages == 'true') : ?>
 lh_inst.startNewMessageCheck();
+<?php endif; ?>
 
 <?php if ($position == 'original' || $position == '') : 
 // You can style bottom HTML whatever you want. ?>
