@@ -22,6 +22,9 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
         'SyncForUserMessagesEvery' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'float'
         ),
+        'SyncForOperatorMessagesEvery' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'float'
+        ),
         'PlayOnRequest' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
@@ -58,6 +61,12 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
         $settingsInstance->setSetting('chat','online_timeout',$form->OnlineTimeout);
     } else {
         $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Please enter valid online timeout value!');
+    }
+    
+    if ( $form->hasValidData( 'SyncForOperatorMessagesEvery' )  ) {
+        $settingsInstance->setSetting('chat','check_for_operator_msg',$form->SyncForOperatorMessagesEvery);
+    } else {
+        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Please enter valid operator message timeout value!');
     }
     
     if ( $form->hasValidData( 'SyncBackOffice' )  ) {

@@ -18,6 +18,9 @@
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Sync for new user message, interval in seconds');?></label>
 <input type="text" name="SyncForUserMessagesEvery" value="<?php echo $settings_instance->getSetting('chat','chat_message_sinterval')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Value in seconds');?>" />
 
+<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Check messages from operators, interval in seconds');?></label>
+<input type="text" name="SyncForOperatorMessagesEvery" value="<?php echo $settings_instance->getSetting('chat','check_for_operator_msg')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Value in seconds');?>" />
+
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Play new pending chat sound on new chat request');?> <input type="checkbox" name="PlayOnRequest" value="on" <?php ($settings_instance->getSetting('chat','new_chat_sound_enabled') == true) ? print 'checked="checked"' : '' ?> /></label>
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Play sound on new message for back office user');?> <input type="checkbox" name="PlayOnMessageBackOffice" value="on" <?php ($settings_instance->getSetting('chat','new_message_sound_admin_enabled') == true) ? print 'checked="checked"' : '' ?> /></label>
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Play sound on new message for front end user');?> <input type="checkbox" name="PlayOnMessageFrontOffice" value="on" <?php ($settings_instance->getSetting('chat','new_message_sound_user_enabled') == true) ? print 'checked="checked"' : '' ?> /></label>

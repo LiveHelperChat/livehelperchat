@@ -1437,6 +1437,14 @@
         <translation>Saugoti</translation>
     </message>
     <message>
+        <source>Check messages from operators, interval in seconds</source>
+        <translation>Tikrint ar nėra žinučių iš operatorių, intervalas sekundėmis</translation>
+    </message>
+    <message>
+        <source>Please enter valid operator message timeout value!</source>
+        <translation>Prašome įvesti validų žinučių iš operatoriaus tikrinimo intervalą!</translation>
+    </message>
+    <message>
         <source>Update</source>
         <translation>Atnaujinti</translation>
     </message>
