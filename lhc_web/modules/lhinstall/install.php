@@ -275,11 +275,14 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `user_agent` varchar(250) NOT NULL,
                   `user_country_code` varchar(50) NOT NULL,
                   `user_country_name` varchar(50) NOT NULL,
+                  `operator_message` varchar(250) NOT NULL,
+                  `operator_user_id` int(11) NOT NULL,
+                  `message_seen` int(11) NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `last_visit` (`last_visit`),
                   KEY `vid` (`vid`)
-                ) ;");
-
+                );");
+        	   
         	   //Default departament
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_departament` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
