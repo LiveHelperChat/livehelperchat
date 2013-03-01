@@ -335,13 +335,15 @@ class erLhcoreClassSystem{
         $instance->IndexFile  = '/index.php';
         $instance->RequestURI = str_replace('//','/',str_replace('index.php','',$requestUri));
         $instance->QueryString = $queryString;        
-        $instance->WWWDirLang = '';        
+        $instance->WWWDirLang = '';     
     }
 
     function wwwDir()
     {
         return $this->WWWDir;
     }
+    
+    public $baseHTTP;
     
     /// The path to where all the code resides
     public $SiteDir;

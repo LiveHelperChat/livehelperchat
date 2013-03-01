@@ -58,7 +58,7 @@ if (isset($_POST['StartChat']))
             if ($userInstance !== false) {
                 $userInstance->chat_id = $chat->id;
                 $userInstance->saveThis();
-            }            
+            }
        }
        
        // Store message if required

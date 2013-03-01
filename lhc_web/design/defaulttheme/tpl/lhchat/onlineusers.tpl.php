@@ -39,16 +39,17 @@
         <img src="<?php echo erLhcoreClassDesign::design('images/flags');?>/<?php echo $departament->user_country_code?>.png" alt="<?php echo htmlspecialchars($departament->user_country_name)?>" title="<?php echo htmlspecialchars($departament->user_country_name)?>" />
         <?php endif; ?>
                   
-        <img src="<?php if ($departament->operator_message == '') : ?><?php echo erLhcoreClassDesign::design('images/icons/user_inactive.png');?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/user.png');?><?php endif;?>" title="<?php if ($departament->message_seen == 0) : ?><?php if ($departament->operator_message == '') : ?>User does not have any message from operator<?php else : ?>User have not seen message from operator, or message window still open.<?php endif; ?><?php else : ?>User has seen message from operator.<?php endif; ?>" />
+        <img src="<?php if ($departament->operator_message == '') : ?><?php echo erLhcoreClassDesign::design('images/icons/user_inactive.png');?><?php elseif ($departament->message_seen == 1 && $departament->operator_message != '') : ?><?php echo erLhcoreClassDesign::design('images/icons/user_green_32.png');?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/user.png');?><?php endif;?>" title="<?php if ($departament->message_seen == 0) : ?><?php if ($departament->operator_message == '') : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User does not have any message from operator');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User have not seen message from operator, or message window still open.');?><?php endif; ?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User has seen message from operator.');?><?php endif; ?>" />
+        
         <img src="<?php echo erLhcoreClassDesign::design('images/icons/browsers.png');?>" title="<?php echo htmlspecialchars($departament->user_agent)?>" />
         
-        <?php if ($departament->chat_id > 0) : ?><img src="<?php echo erLhcoreClassDesign::design('images/icons/user_comment.png');?>" title="User is chatting" />
-        <?php else : ?><img src="<?php echo erLhcoreClassDesign::design('images/icons/user_comment_inactive.png');?>" title="User is not having any chat right now" /><?php endif; ?>
+        <?php if ($departament->chat_id > 0) : ?><img src="<?php echo erLhcoreClassDesign::design('images/icons/user_comment.png');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User is chatting');?>" />
+        <?php else : ?><img src="<?php echo erLhcoreClassDesign::design('images/icons/user_comment_inactive.png');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User is not having any chat right now');?>" /><?php endif; ?>
         
         <?php if ( ($operator_user = $departament->operator_user) !== false ) : ?>
-        <img src="<?php echo erLhcoreClassDesign::design('images/icons/user_suit_32.png');?>" title="<?php echo htmlspecialchars($operator_user); ?> has send message to user" />
+        <img src="<?php echo erLhcoreClassDesign::design('images/icons/user_suit_32.png');?>" title="<?php echo htmlspecialchars($operator_user); ?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','has send message to user');?>" />
         <?php else : ?>
-        <img src="<?php echo erLhcoreClassDesign::design('images/icons/user_suit_32_inactive.png');?>" title="No one has send any message to user yet" />
+        <img src="<?php echo erLhcoreClassDesign::design('images/icons/user_suit_32_inactive.png');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','No one has send any message to user yet');?>" />
         <?php endif; ?>  
         
         <img src="<?php echo erLhcoreClassDesign::design('images/icons/ip.png');?>" title="<?php echo $departament->ip?>" />
@@ -57,7 +58,7 @@
         
         </td>   
        
-        <td nowrap><input type="button" class="tiny button radius" onclick="$.colorbox({'iframe':true,height:'500px',width:'500px', href:'<?php echo erLhcoreClassDesign::baseurl('chat/sendnotice')?>/<?php echo $departament->id?>'});" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Send message');?>"/></td>
+        <td nowrap><input type="button" class="tiny button radius" onclick="$.colorbox({'iframe':true,height:'500px',width:'500px', href:'<?php echo erLhcoreClassDesign::baseurl('chat/sendnotice')?>/<?php echo $departament->id?>'});" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Send message');?>"/></td>
     </tr>
 <?php endforeach; ?>
 </table>

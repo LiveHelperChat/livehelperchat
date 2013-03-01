@@ -9,6 +9,6 @@
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Your question');?>*</label>
 <textarea placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your message');?>" name="Question"><?php echo htmlspecialchars($input_data->question);?></textarea>
 
-<input type="submit" name="askQuestion" value="Send my question" class="button small radius"/>
+<input type="submit" name="askQuestion" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Send my question');?>" class="button small radius"/>
 
 </form>

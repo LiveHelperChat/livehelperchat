@@ -130,10 +130,77 @@
     </message>
 </context>
 <context>
+    <name>chat/sendnotice</name>
+    <message>
+        <source>Send message to user</source>
+        <translation>Siųsti žinutę vartotojui</translation>
+    </message>
+    <message>
+        <source>Message was send to user</source>
+        <translation>Žinutė buvo išsiųsta vartotojui</translation>
+    </message>
+    <message>
+        <source>If message was already send, this will mark message as not delivered and to user again will be shown chat message.</source>
+        <translation>Jei žinutė buvo jau išsiųsta, tai pažymės žinutę kaip nepristatytą ir vartotojui bus parodytas naujas pranešimas.</translation>
+    </message>
+    <message>
+        <source>Type your message to user</source>
+        <translation>Parašykite savo žinutę vartotojui</translation>
+    </message>
+    <message>
+        <source>Send message</source>
+        <translation>Siųsti žinutę</translation>
+    </message>
+</context>
+<context>
     <name>chat/onlineusers</name>
+    <message>
+        <source>No one has send any message to user yet</source>
+        <translation>Niekas dar neišsiuntė žinutės vartotojui</translation>
+    </message>
+    <message>
+        <source>has send message to user</source>
+        <translation>išsiuntė žinutę vartotojui</translation>
+    </message>
+    <message>
+        <source>User is chatting</source>
+        <translation>Vartotojas kalba dabar</translation>
+    </message>
+    <message>
+        <source>User is not having any chat right now</source>
+        <translation>Su vartotoju niekas dabar nekalba</translation>
+    </message>
+    <message>
+        <source>User does not have any message from operator</source>
+        <translation>Vartotojas neturi jokių žinučių iš operatoriaus</translation>
+    </message>
+    <message>
+        <source>User have not seen message from operator, or message window still open.</source>
+        <translation>Vartotojas nematė žinutės dar, arba žinutės langas dar atidarytas.</translation>
+    </message>
+    <message>
+        <source>User has seen message from operator.</source>
+        <translation>Vartotojas matė žinutę iš operatoriaus.</translation>
+    </message>
     <message>
         <source>IP</source>
         <translation>IP</translation>
+    </message>
+    <message>
+        <source>Send message</source>
+        <translation>Siųsti žinutę</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>Būsena</translation>
+    </message>
+    <message>
+        <source>Action</source>
+        <translation>Veiksmas</translation>
+    </message>
+    <message>
+        <source>Send message</source>
+        <translation>Siųsti žinutę</translation>
     </message>
     <message>
         <source>Empty...</source>
@@ -1049,6 +1116,10 @@
         <translation>Maksimum 50 ženklų</translation>
     </message>
     <message>
+        <source>Send my question</source>
+        <translation>Siųsti mano klausimą</translation>
+    </message>
+    <message>
         <source>Enter your message</source>
         <translation>Įveskite žinutę</translation>
     </message>
@@ -1321,6 +1392,10 @@
     <message>
         <source>HTML code</source>
         <translation>HTML kodas</translation>
+    </message>
+    <message>
+        <source>Check for messages from operator</source>
+        <translation>Tikrinti ar nėra žinučių iš operatorių</translation>
     </message>
     <message>
         <source>On click show page widget</source>

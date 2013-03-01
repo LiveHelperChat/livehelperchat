@@ -80,8 +80,6 @@ if (isset($_POST['askQuestion']))
        $msg->time = time();               
        erLhcoreClassChat::getSession()->save($msg);
        
-       
-       
        // Store hash if user reloads page etc, we show widget
        CSCacheAPC::getMem()->setSession('chat_hash_widget',$chat->id.'_'.$chat->hash);
 
