@@ -1,3 +1,15 @@
+1.19v
+
+1. Option to send messages to browsing user
+2. Option to change operator message timeout
+3. Redesigned a little bit online users window.
+4. For upgrade please execute doc/update_db/update_9.sql
+And add two variables in settings.ini.php file
+'https_port' => 443, 
+'check_for_operator_msg' => 10,
+See where these settings have to be putted
+https://github.com/remdex/livehelperchat/blob/bf02444b9142ef39aba21d1a68c8750468d736ab/lhc_web/settings/settings.ini.php
+
 1.18v
 
 1. GEO Detection
