@@ -24,7 +24,7 @@
             $user = $chat->getChatOwner();        
             if ($user !== false) :
             ?>
-            <?php echo $user->name?> <?php echo $user->surname?>
+            <?php echo htmlspecialchars($user->name)?> <?php echo htmlspecialchars($user->surname)?>
             <?php endif; ?></p>
             </fieldset>
     </div>

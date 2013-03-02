@@ -11,7 +11,7 @@
 <?php foreach ($groups as $group) : ?>
     <tr>
         <td width="1%"><?php echo $group->id?></td>
-        <td><?php echo $group->name?></td>
+        <td><?php echo htmlspecialchars($group->name)?></td>
         <td nowrap><a class="tiny button round" href="<?php echo erLhcoreClassDesign::baseurl('user/editgroup')?>/<?php echo $group->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/grouplist','Edit group');?></a></td>
         <td nowrap><a class="tiny alert button round" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('gallery/album_list_admin','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('user/deletegroup')?>/<?php echo $group->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/grouplist','Delete group');?></a></td>
     </tr>

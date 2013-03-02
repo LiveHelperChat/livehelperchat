@@ -10,7 +10,7 @@
 <input class="inputfield" type="text" name="Username" value="<?php echo htmlspecialchars($user->username);?>" />
 
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','E-mail');?></label>
-<input type="text" class="inputfield" name="Email" value="<?php echo $user->email;?>"/>
+<input type="text" class="inputfield" name="Email" value="<?php echo htmlspecialchars($user->email);?>"/>
 
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Password');?></label>
 <input type="password" class="inputfield" name="Password" value=""/>

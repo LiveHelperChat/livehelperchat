@@ -18,9 +18,7 @@
 
 <div class="row">
 <div class="columns twelve">
-<?php					
-     echo $Result['content'];		
-?>
+<?php echo $Result['content'];?>
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_footer.tpl.php'));?>
 </div>
 </div>

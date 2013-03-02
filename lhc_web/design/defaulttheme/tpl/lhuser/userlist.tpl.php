@@ -14,8 +14,8 @@
 <?php foreach ($userlist as $user) : ?>
     <tr>
         <td><?php echo $user->id?></td>
-        <td><?php echo $user->username?></td>
-        <td><?php echo $user->email?></td>
+        <td><?php echo htmlspecialchars($user->username)?></td>
+        <td><?php echo htmlspecialchars($user->email)?></td>
         <td><?php echo $user->lastactivity_ago?> ago</td>
         <td><a class="tiny button round" href="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $user->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Edit');?></a></td>
         <td><a class="tiny alert button round" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/messages','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('user/delete')?>/<?php echo $user->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Delete');?></a></td>
