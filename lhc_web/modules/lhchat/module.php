@@ -201,7 +201,7 @@ $ViewList['geoconfiguration'] = array(
     'script' => 'geoconfiguration.php',
     'params' => array(),
     'uparams' => array(),
-    'functions' => array( 'use' )
+    'functions' => array( 'administrateconfig' )
 );
 
 $ViewList['listchatconfig'] = array( 
