@@ -40,7 +40,7 @@
         <td><?php echo htmlspecialchars($departament->lastactivity_ago)?> ago</td>
         <td><?php echo htmlspecialchars($departament->current_page)?></td>
         <td>             
-        <div style="width:180px">
+        <div style="width:190px">
         <?php if ( !empty($departament->user_country_code) ) : ?>
         <img src="<?php echo erLhcoreClassDesign::design('images/flags');?>/<?php echo $departament->user_country_code?>.png" alt="<?php echo htmlspecialchars($departament->user_country_name)?>" title="<?php echo htmlspecialchars($departament->user_country_name)?>" />
         <?php endif; ?>
