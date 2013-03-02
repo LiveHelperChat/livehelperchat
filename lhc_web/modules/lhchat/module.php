@@ -237,5 +237,6 @@ $FunctionList['allowtransfer'] = array('explain' =>'Allow user to transfer chat 
 $FunctionList['allowcloseremote'] = array('explain' =>'Allow user to close another user chat');  
 $FunctionList['allowblockusers'] = array('explain' =>'Allow user to block users');  
 $FunctionList['administrateconfig'] = array('explain' =>'Allow to change chat config');  
+$FunctionList['allowclearonlinelist'] = array('explain' =>'Allow use to clean online users list');  
 
 ?>

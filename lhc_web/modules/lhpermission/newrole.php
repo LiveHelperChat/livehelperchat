@@ -29,8 +29,7 @@ if (isset($_POST['Save_role']) ||isset($_POST['New_policy']) )
         if (isset($_POST['New_policy']))        
             erLhcoreClassModule::redirect('permission/editrole/' . $Role->id .'/?newPolicy=1' );
         else 
-            erLhcoreClassModule::redirect('permission/roles' );
-        
+            erLhcoreClassModule::redirect('permission/roles' );        
        exit;
         
     }  else {

@@ -18,10 +18,10 @@
     <input type="text" placeholder="Your username" name="Username" value="<?php echo htmlspecialchars($user->username);?>" />
 
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Password');?></label>
-    <input type="password" placeholder="Enter new password" name="Password" value=""/>
+    <input type="password" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Enter new password');?>" name="Password" value=""/>
     	
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Repeat password');?></label>
-    <input type="password" placeholder="Repeat new password" name="Password1" value=""/>
+    <input type="password" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Repeat new password');?>" name="Password1" value=""/>
     	
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Email');?></label>
     <input type="text" value="<?php echo $user->email;?>" name="Email" placeholder="Your email address" id="email" class="required email valid">
@@ -31,8 +31,6 @@
     	
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Surname');?></label>
     <input type="text" name="Surname" value="<?php echo htmlspecialchars($user->surname);?>"/>
-      
-    
       
     <ul class="button-group radius">
     <li><input type="submit" name="Update" class="small button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>"></li>

@@ -301,9 +301,15 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   PRIMARY KEY (`id`)
                 )");
                
+               // Admin group
                $GroupData = new erLhcoreClassModelGroup();
                $GroupData->name    = "Administrators";
                erLhcoreClassUser::getSession()->save($GroupData);
+               
+               // Precreate operators group
+               $GroupDataOperators = new erLhcoreClassModelGroup();
+               $GroupDataOperators->name    = "Operators";
+               erLhcoreClassUser::getSession()->save($GroupDataOperators);
                
                //Administrators role
                $db->query("CREATE TABLE IF NOT EXISTS `lh_role` (
@@ -311,10 +317,16 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `name` varchar(50) NOT NULL,
                   PRIMARY KEY (`id`)
                 )");
+               
+               // Administrators role
                $Role = new erLhcoreClassModelRole();
                $Role->name = 'Administrators';
                erLhcoreClassRole::getSession()->save($Role);
-
+               
+               // Operators role
+               $RoleOperators = new erLhcoreClassModelRole();
+               $RoleOperators->name = 'Operators';
+               erLhcoreClassRole::getSession()->save($RoleOperators);
                
                //Assing group role
                $db->query("CREATE TABLE IF NOT EXISTS `lh_grouprole` (
@@ -325,11 +337,18 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   KEY `group_id` (`role_id`,`group_id`)
                 )");
 
+               // Assign admin role to admin group
                $GroupRole = new erLhcoreClassModelGroupRole();        
                $GroupRole->group_id =$GroupData->id;
                $GroupRole->role_id = $Role->id;        
                erLhcoreClassRole::getSession()->save($GroupRole);
-        
+
+               // Assign operators role to operators group
+               $GroupRoleOperators = new erLhcoreClassModelGroupRole();        
+               $GroupRoleOperators->group_id =$GroupDataOperators->id;
+               $GroupRoleOperators->role_id = $RoleOperators->id;        
+               erLhcoreClassRole::getSession()->save($GroupRoleOperators);
+               
                // Users
                $db->query("CREATE TABLE `lh_users` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -413,11 +432,12 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   KEY `group_id_2` (`group_id`,`user_id`)
                 )");
 
+                // Assign admin user to admin group
                 $GroupUser = new erLhcoreClassModelGroupUser();        
                 $GroupUser->group_id = $GroupData->id;
                 $GroupUser->user_id = $UserData->id;        
                 erLhcoreClassUser::getSession()->save($GroupUser);
-                
+                                
                 //Assign default role functions
                 $db->query("CREATE TABLE IF NOT EXISTS `lh_rolefunction` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -427,13 +447,36 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   PRIMARY KEY (`id`),
                   KEY `role_id` (`role_id`)
                 )");
-                                
+
+                // Admin role and function               
                 $RoleFunction = new erLhcoreClassModelRoleFunction();
                 $RoleFunction->role_id = $Role->id;
                 $RoleFunction->module = '*';
                 $RoleFunction->function = '*';                
                 erLhcoreClassRole::getSession()->save($RoleFunction);
                    
+                // Operators rules and functions
+                $permissionsArray = array(
+                    array('module' => 'lhuser',  'function' => 'selfedit'),
+                    array('module' => 'lhchat',  'function' => 'use'),
+                    array('module' => 'lhchat',  'function' => 'singlechatwindow'),
+                    array('module' => 'lhchat',  'function' => 'allowchattabs'),
+                    array('module' => 'lhfront', 'function' => 'use'),
+                    array('module' => 'lhsystem','function' => 'use'),
+                    array('module' => 'lhchat',  'function' => 'allowblockusers'),
+                    array('module' => 'lhsystem','function' => 'generatejs'),
+                    array('module' => 'lhchat',  'function' => 'allowtransfer'),
+                    array('module' => 'lhxml',   'function' => '*')                    
+                );
+                
+                foreach ($permissionsArray as $paramsPermission) {
+                    $RoleFunctionOperator = new erLhcoreClassModelRoleFunction();
+                    $RoleFunctionOperator->role_id = $RoleOperators->id;
+                    $RoleFunctionOperator->module = $paramsPermission['module'];
+                    $RoleFunctionOperator->function = $paramsPermission['function'];            
+                    erLhcoreClassRole::getSession()->save($RoleFunctionOperator);
+                }
+                
                $cfgSite = erConfigClassLhConfig::getInstance();
 	           $cfgSite->setSetting( 'site', 'installed', true);	     
 	           $cfgSite->setSetting( 'site', 'templatecache', true);	     

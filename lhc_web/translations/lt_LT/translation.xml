@@ -602,6 +602,10 @@
         <translation>Vartotojo vardas</translation>
     </message>
     <message>
+        <source>User was assigned to group!</source>
+        <translation>Vartotojas buvo priskirtas grupei!</translation>
+    </message>
+    <message>
         <source>E-mail</source>
         <translation>El-paštas</translation>
     </message>
@@ -1872,6 +1876,14 @@
     <message>
         <source>Assigned departments</source>
         <translation>Priskirti departamentai</translation>
+    </message>
+    <message>
+        <source>Enter new password</source>
+        <translation>Įveskite naują slaptažodį</translation>
+    </message>
+    <message>
+        <source>Repeat new password</source>
+        <translation>Pakartokite naują slaptažodį</translation>
     </message> 
     <message>
         <source>You have global right to see all departments chats</source>
