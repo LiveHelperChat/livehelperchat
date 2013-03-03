@@ -22,7 +22,10 @@
     <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/syncandsoundesetting')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Synchronisation and sound settings');?></a></li>
     <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/startchatformsettings')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Start chat form settings');?></a></li>
     <?php endif; ?>
+    
+    <?php if ($currentUser->hasAccessTo('lhchat','administratecannedmsg')) : ?>
     <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/cannedmsg')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Canned messages');?></a></li>
+    <?php endif; ?>
     
 </ul>
 <hr>
