@@ -236,7 +236,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   KEY `status` (`status`),
                   KEY `user_id` (`user_id`),
                   KEY `dep_id` (`dep_id`)
-                ) ");
+                ) DEFAULT CHARSET=utf8;");
         	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_blocked_user` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -245,13 +245,13 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `datets` int(11) NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `ip` (`ip`)
-                )");
+                ) DEFAULT CHARSET=utf8;");
         	           	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_canned_msg` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
                   `msg` text NOT NULL,
                   PRIMARY KEY (`id`)
-                )");
+                ) DEFAULT CHARSET=utf8;");
         	    
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_config` (
                   `identifier` varchar(50) NOT NULL,
@@ -260,7 +260,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `explain` varchar(250) NOT NULL,
                   `hidden` int(11) NOT NULL DEFAULT '0',
                   PRIMARY KEY (`identifier`)
-                );");
+                ) DEFAULT CHARSET=utf8;");
         	   
         	   $db->query("INSERT INTO `lh_chat_config` (`identifier`, `value`, `type`, `explain`, `hidden`) VALUES
                 ('tracked_users_cleanup',	'7',	0,	'How many days keep records of online users.',	0),
@@ -287,14 +287,14 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   PRIMARY KEY (`id`),
                   KEY `last_visit` (`last_visit`),
                   KEY `vid` (`vid`)
-                );");
+                ) DEFAULT CHARSET=utf8;");
         	   
         	   //Default departament
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_departament` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
                   `name` varchar(100) NOT NULL,
                   PRIMARY KEY (`id`)
-                )");
+                ) DEFAULT CHARSET=utf8;");
 
         	   $Departament = new erLhcoreClassModelDepartament();
                $Departament->name = $form->DefaultDepartament;    
@@ -305,7 +305,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `id` int(11) NOT NULL AUTO_INCREMENT,
                   `name` varchar(50) NOT NULL,
                   PRIMARY KEY (`id`)
-                )");
+                ) DEFAULT CHARSET=utf8;");
                
                // Admin group
                $GroupData = new erLhcoreClassModelGroup();
@@ -322,7 +322,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `id` int(11) NOT NULL AUTO_INCREMENT,
                   `name` varchar(50) NOT NULL,
                   PRIMARY KEY (`id`)
-                )");
+                ) DEFAULT CHARSET=utf8;");
                
                // Administrators role
                $Role = new erLhcoreClassModelRole();
@@ -341,7 +341,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `role_id` int(11) NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `group_id` (`role_id`,`group_id`)
-                )");
+                ) DEFAULT CHARSET=utf8;");
 
                // Assign admin role to admin group
                $GroupRole = new erLhcoreClassModelGroupRole();        
@@ -368,7 +368,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `all_departments` tinyint(1) NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `hide_online` (`hide_online`)
-                )");
+                ) DEFAULT CHARSET=utf8;");
                               
                 $UserData = new erLhcoreClassModelUser();
 
@@ -391,7 +391,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   PRIMARY KEY (`id`),
                   KEY `user_id` (`user_id`),
                   KEY `last_activity_hide_online_dep_id` (`last_activity`,`hide_online`,`dep_id`)
-                )");
+                ) DEFAULT CHARSET=utf8;");
 
                 // Insert record to departament instantly
                 $db->query("INSERT INTO `lh_userdep` (`user_id`,`dep_id`) VALUES ({$UserData->id},0)");
@@ -402,7 +402,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `chat_id` int(11) NOT NULL,
                   `user_id` int(11) NOT NULL,
                   PRIMARY KEY (`id`)
-                )");
+                ) DEFAULT CHARSET=utf8;");
                 
                 // Chat messages
                 $db->query("CREATE TABLE IF NOT EXISTS `lh_msg` (
@@ -417,7 +417,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   KEY `chat_id` (`chat_id`),
                   KEY `id` (`id`,`chat_id`),
                   KEY `status` (`status`,`chat_id`)
-                )");
+                ) DEFAULT CHARSET=utf8;");
                 
                 // Forgot password table
                 $db->query("CREATE TABLE IF NOT EXISTS `lh_forgotpasswordhash` (
@@ -425,7 +425,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 `user_id` INT NOT NULL ,
                 `hash` VARCHAR( 40 ) NOT NULL ,
                 `created` INT NOT NULL
-                )");
+                ) DEFAULT CHARSET=utf8;");
                 
                 // User groups table
                 $db->query("CREATE TABLE IF NOT EXISTS `lh_groupuser` (
@@ -436,7 +436,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   KEY `group_id` (`group_id`),
                   KEY `user_id` (`user_id`),
                   KEY `group_id_2` (`group_id`,`user_id`)
-                )");
+                ) DEFAULT CHARSET=utf8;");
 
                 // Assign admin user to admin group
                 $GroupUser = new erLhcoreClassModelGroupUser();        
@@ -452,7 +452,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `function` varchar(100) NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `role_id` (`role_id`)
-                )");
+                ) DEFAULT CHARSET=utf8;");
 
                 // Admin role and function               
                 $RoleFunction = new erLhcoreClassModelRoleFunction();
