@@ -13,7 +13,7 @@ if (isset($_POST['Update_departament']) || isset($_POST['Save_departament'])  )
 {    
    $definition = array(
         'Name' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         )       
     );
     

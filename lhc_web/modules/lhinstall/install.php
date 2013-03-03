@@ -246,7 +246,13 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   PRIMARY KEY (`id`),
                   KEY `ip` (`ip`)
                 )");
-        	   
+        	           	   
+        	   $db->query("CREATE TABLE IF NOT EXISTS `lh_canned_msg` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `msg` text COLLATE 'utf8_general_ci' NOT NULL,
+                  PRIMARY KEY (`id`)
+                )");
+        	    
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_config` (
                   `identifier` varchar(50) NOT NULL,
                   `value` text NOT NULL,

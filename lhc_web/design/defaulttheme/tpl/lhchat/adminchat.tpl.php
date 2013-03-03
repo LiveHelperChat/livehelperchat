@@ -53,7 +53,19 @@ jQuery('#CSChatMessage-<?php echo $chat->id?>').bind('keydown', 'return', functi
     lhinst.addmsgadmin('<?php echo $chat->id?>');
 });
 </script>  
-<input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Send')?>" class="small button round" onclick="lhinst.addmsgadmin('<?php echo $chat->id?>')" />
+
+<div class="row">
+    <div class="columns four"><input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Send')?>" class="small button round" onclick="lhinst.addmsgadmin('<?php echo $chat->id?>')" /></div>
+    <div class="columns eight">
+    <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
+                    'input_name'     => 'CannedMessage',
+                    'on_change'      => "$('#CSChatMessage-".$chat->id."').text(($(this).val() > 0 ? $(this).find(':selected').text() : ''))",
+                    'optional_field' =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Select canned message'),
+                    'display_name'   => 'msg',
+                    'list_function'  => 'erLhcoreClassModelCannedMsg::getList'
+            )); ?>
+    </div>
+</div>
 
 <script type="text/javascript">
 lhinst.addSynchroChat('<?php echo $chat->id;?>','<?php echo $LastMessageID?>');

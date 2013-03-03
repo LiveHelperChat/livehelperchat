@@ -226,6 +226,25 @@ $ViewList['startchatformsettings'] = array(
     'script' => 'startchatformsettings.php',
     'params' => array(),
     'functions' => array( 'administrateconfig' )
+);
+  
+$ViewList['cannedmsg'] = array( 
+    'script' => 'cannedmsg.php',
+    'params' => array(),
+    'uparams' => array('action','id'),
+    'functions' => array( 'administratecannedmsg' )
+);   
+
+$ViewList['newcannedmsg'] = array( 
+    'script' => 'newcannedmsg.php',
+    'params' => array(),
+    'functions' => array( 'administratecannedmsg' )
+); 
+
+$ViewList['cannedmsgedit'] = array( 
+    'script' => 'cannedmsgedit.php',
+    'params' => array('id'),
+    'functions' => array( 'administratecannedmsg' )
 ); 
 
 $FunctionList['use'] = array('explain' => 'General chat usage permission');  
@@ -238,5 +257,6 @@ $FunctionList['allowcloseremote'] = array('explain' =>'Allow user to close anoth
 $FunctionList['allowblockusers'] = array('explain' =>'Allow user to block users');  
 $FunctionList['administrateconfig'] = array('explain' =>'Allow to change chat config');  
 $FunctionList['allowclearonlinelist'] = array('explain' =>'Allow use to clean online users list');  
+$FunctionList['administratecannedmsg'] = array('explain' =>'Allow use change canned messages');  
 
 ?>

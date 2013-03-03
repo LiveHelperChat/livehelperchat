@@ -27,10 +27,64 @@
     </message>
 </context>
 <context>
+    <name>chat/cannedmsg</name>
+    <message>
+        <source>Canned messages</source>
+        <translation>Paruoštos žinutės</translation>
+    </message>
+    <message>
+        <source>System configuration</source>
+        <translation>Sistemos konfiguracija</translation>
+    </message>
+    <message>
+        <source>Delete message</source>
+        <translation>Trinti žinutę</translation>
+    </message>
+    <message>
+        <source>Edit message</source>
+        <translation>Redaguoti žinutę</translation>
+    </message>
+    <message>
+        <source>Message</source>
+        <translation>Žinutė</translation>
+    </message>
+    <message>
+        <source>New canned message</source>
+        <translation>Nauja paruošta žinutė</translation>
+    </message>
+    <message>
+        <source>Edit canned message</source>
+        <translation>Redaguoti paruoštą žinutę</translation>
+    </message>
+    <message>
+        <source>Please enter canned message</source>
+        <translation>Prašome įvesti paruoštą žinutę</translation>
+    </message>
+</context>
+<context>
     <name>install/install</name>
     <message>
         <source>Installation of software</source>
         <translation>Programinės įrangos diegimas</translation>
+    </message>
+</context>
+<context>
+    <name>system/buttons</name>
+    <message>
+        <source>Save</source>
+        <translation>Saugoti</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation>Atnaujinti</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Atšaukti</translation>
+    </message>
+    <message>
+        <source>Updated</source>
+        <translation>Atnaujinta</translation>
     </message>
 </context>
 <context>
@@ -684,6 +738,10 @@
     <message>
         <source>E-mail</source>
         <translation>El. paštas</translation>
+    </message>
+    <message>
+        <source>Select canned message</source>
+        <translation>Pasirinkite paruoštą žinutę</translation>
     </message>
     <message>
         <source>Are you sure?</source>
@@ -1557,6 +1615,10 @@
     <message>
         <source>HTML code</source>
         <translation>HTML kodas</translation>
+    </message>
+    <message>
+        <source>Canned messages</source>
+        <translation>Paruoštos žinutės</translation>
     </message>
     <message>
         <source>Start chat form settings</source>
