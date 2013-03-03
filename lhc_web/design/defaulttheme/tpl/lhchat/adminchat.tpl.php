@@ -58,7 +58,7 @@ jQuery('#CSChatMessage-<?php echo $chat->id?>').bind('keydown', 'return', functi
     <div class="columns four"><input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Send')?>" class="small button round" onclick="lhinst.addmsgadmin('<?php echo $chat->id?>')" /></div>
     <div class="columns eight">
     <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
-                    'input_name'     => 'CannedMessage',
+                    'input_name'     => 'CannedMessage-'.$chat->id,
                     'on_change'      => "$('#CSChatMessage-".$chat->id."').text(($(this).val() > 0 ? $(this).find(':selected').text() : ''))",
                     'optional_field' =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Select canned message'),
                     'display_name'   => 'msg',
