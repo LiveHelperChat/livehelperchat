@@ -1,6 +1,6 @@
 <?php
 
-$tpl = new erLhcoreClassTemplate();
+$tpl = erLhcoreClassTemplate::getInstance();
 $ReturnMessages = array();
 
 /**

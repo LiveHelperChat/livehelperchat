@@ -1,6 +1,6 @@
 <?php
 
-$tpl = new erLhcoreClassTemplate( 'lhchat/addmsguser.tpl.php');
+$tpl = erLhcoreClassTemplate::getInstance('lhchat/addmsguser.tpl.php');
 
 $definition = array(
         'msg' => new ezcInputFormDefinitionElement(

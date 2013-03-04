@@ -9,7 +9,7 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
     $ReturnMessages = array();
     $ReturnStatuses = array();
     
-    $tpl = new erLhcoreClassTemplate( 'lhchat/syncadmin.tpl.php');
+    $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/syncadmin.tpl.php');
     
     foreach ($_POST['chats'] as $chat_id_list)
     {   

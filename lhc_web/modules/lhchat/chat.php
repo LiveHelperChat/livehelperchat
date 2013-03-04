@@ -1,5 +1,5 @@
 <?php
-$tpl = new erLhcoreClassTemplate( 'lhchat/chat.tpl.php');
+$tpl = erLhcoreClassTemplate::getInstance( 'lhchat/chat.tpl.php');
 
 try {
           

@@ -12,7 +12,7 @@ if (($hashSession = CSCacheAPC::getMem()->getSession('chat_hash_widget')) !== fa
     exit;
 }
 
-$tpl = new erLhcoreClassTemplate( 'lhchat/chatwidget.tpl.php');
+$tpl = erLhcoreClassTemplate::getInstance( 'lhchat/chatwidget.tpl.php');
 $tpl->set('referer','');
 
 // Start chat field options

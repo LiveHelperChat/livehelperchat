@@ -2,7 +2,7 @@
 
 header('P3P: CP="NOI ADM DEV COM NAV OUR STP"');
 
-$tpl = new erLhcoreClassTemplate( 'lhchat/readoperatormessage.tpl.php');
+$tpl = erLhcoreClassTemplate::getInstance( 'lhchat/readoperatormessage.tpl.php');
 $tpl->set('referer','');
 
 $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest();

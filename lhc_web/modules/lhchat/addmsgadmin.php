@@ -18,7 +18,7 @@ $Chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params
     
     if ( erLhcoreClassChat::hasAccessToRead($Chat) )
     {
-        $tpl = new erLhcoreClassTemplate('lhchat/addmsgadmin.tpl.php');  
+        $tpl = erLhcoreClassTemplate::getInstance('lhchat/addmsgadmin.tpl.php');  
             
         $currentUser = erLhcoreClassUser::instance();
         $userData = $currentUser->getUserData();    

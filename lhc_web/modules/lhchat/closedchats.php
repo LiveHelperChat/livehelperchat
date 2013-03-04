@@ -1,6 +1,6 @@
 <?php
 
-$tpl = new erLhcoreClassTemplate( 'lhchat/closedchats.tpl.php');
+$tpl = erLhcoreClassTemplate::getInstance( 'lhchat/closedchats.tpl.php');
 
 
 $pages = new lhPaginator();

@@ -1,6 +1,6 @@
 <?php
 
-$tpl = new erLhcoreClassTemplate( 'lhchat/pendingchats.tpl.php');
+$tpl = erLhcoreClassTemplate::getInstance( 'lhchat/pendingchats.tpl.php');
 
 $pages = new lhPaginator();
 $pages->items_total = erLhcoreClassChat::getPendingChatsCount();
