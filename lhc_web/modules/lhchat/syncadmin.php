@@ -2,10 +2,12 @@
 
 
 $content = 'false';
+$content_status = 'false';
 
 if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']) > 0)
 {
     $ReturnMessages = array();
+    $ReturnStatuses = array();
     
     $tpl = new erLhcoreClassTemplate( 'lhchat/syncadmin.tpl.php');
     
@@ -40,16 +42,24 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
                     erLhcoreClassChat::getSession()->update($Chat);
                     $ReturnMessages[] = array('chat_id' => $chat_id, 'content' => $tpl->fetch( 'lhchat/userjoinged.tpl.php'), 'message_id' => $MessageID);
                 }
-            } 
+            }
+            
+            if ($Chat->is_user_typing) {
+                $ReturnStatuses[] = array('chat_id' => $chat_id,'tp' => 'true');
+            } else {
+                $ReturnStatuses[] = array('chat_id' => $chat_id,'tp' => 'false');
+            }             
         }
         
     }
     
     if (count($ReturnMessages) > 0) $content = $ReturnMessages;
+    
+    if (count($ReturnStatuses) > 0) $content_status = $ReturnStatuses;
 }
 
 
 
-echo json_encode(array('error' => 'false', 'result' => $content ));
+echo json_encode(array('error' => 'false','result_status' => $content_status, 'result' => $content ));
 exit;
 ?>

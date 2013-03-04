@@ -121,6 +121,65 @@ function lh(){
         
     };
     
+    this.is_typing = false;
+    this.typing_timeout = null;
+    
+    this.initTypingMonitoringAdmin = function(chat_id) {
+       
+        var www_dir = this.wwwDir;
+        var inst = this;
+            
+        jQuery('#CSChatMessage-'+chat_id).bind('keyup', function (evt){            
+            if (inst.is_typing == false) {
+                inst.is_typing = true;
+                clearTimeout(inst.typing_timeout);
+                $.getJSON(www_dir + 'chat/operatortyping/' + chat_id+'/true',{ }, function(data){ 
+                   inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id)},2000);
+                });
+            } else {
+                 clearTimeout(inst.typing_timeout);
+                 inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id)},2000);
+            }
+        });
+    };
+    
+    this.typingStoppedOperator = function(chat_id) {        
+        var inst = this;
+        if (inst.is_typing == true){
+            $.getJSON(this.wwwDir + 'chat/operatortyping/' + chat_id+'/false',{ }, function(data){ 
+                inst.is_typing = false;
+            });
+        }
+    };
+    
+    this.initTypingMonitoringUser = function(chat_id) {
+       
+        var www_dir = this.wwwDir;
+        var inst = this;
+            
+        jQuery('#CSChatMessage').bind('keyup', function (evt){            
+            if (inst.is_typing == false) {
+                inst.is_typing = true;
+                clearTimeout(inst.typing_timeout);
+                $.getJSON(www_dir + 'chat/usertyping/' + chat_id+'/'+inst.hash+'/true',{ }, function(data){ 
+                   inst.typing_timeout = setTimeout(function(){inst.typingStoppedUser(chat_id)},2000);
+                });
+            } else {
+                 clearTimeout(inst.typing_timeout);
+                 inst.typing_timeout = setTimeout(function(){inst.typingStoppedUser(chat_id)},2000);
+            }
+        });
+    };
+      
+    this.typingStoppedUser = function(chat_id) {        
+        var inst = this;
+        if (inst.is_typing == true){
+            $.getJSON(this.wwwDir + 'chat/usertyping/' + chat_id+'/'+this.hash+'/false',{ }, function(data){ 
+                inst.is_typing = false;
+            });
+        }
+    };      
+    
     this.chatUnderSynchronization = function(chat_id)
     {
         var j = 0;
@@ -178,6 +237,13 @@ function lh(){
     	                if ( data.status != 'true') $('#status-chat').html(data.status);  
     	            }  			     	
         			setTimeout(chatsyncuser,confLH.chat_message_sinterval);	
+        			
+        			if ( data.is_typing == 'true' ) {
+        			    $('#id-operator-typing').fadeIn();
+        			} else {
+        			    $('#id-operator-typing').fadeOut();
+        			}	           
+
 	           } else {
 	               $('#status-chat').html(data.status);  
 	           }
@@ -395,7 +461,8 @@ function lh(){
         	    $.postJSON(this.wwwDir + this.syncadmin ,{ 'chats[]': this.chatsSynchronisingMsg }, function(data){ 
         	        // If no error
         	        if (data.error == 'false')
-        	        {	           
+        	        {	  
+        	                     
         	            if (data.result != 'false')
         	            {  	                
         	                
@@ -409,9 +476,21 @@ function lh(){
                                 inst.playNewMessageSound();
                             };
                                                        
-        	            }  			     	
+        	            }; 
+        	            
+        	            if (data.result_status != 'false')
+        	            {
+        	                $.each(data.result_status,function(i,item) {    
+        	                      if (item.tp == 'true') {                     
+                                      $('#user-is-typing-'+item.chat_id).fadeIn();  
+        	                      } else {
+        	                          $('#user-is-typing-'+item.chat_id).fadeOut(); 
+        	                      }     		              
+                            });
+        	            };        	            
+        	             			     	
             			setTimeout(chatsyncadmin,confLH.chat_message_sinterval);	
-        	        }
+        	        };
         	        
         	        //Allow another request to send check for messages
         	        lhinst.setSynchronizationRequestSend(false);

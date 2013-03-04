@@ -70,6 +70,12 @@ $ViewList['single'] = array(
     'params' => array('chat_id'),
     'functions' => array( 'singlechatwindow' )
 );  
+     
+$ViewList['operatortyping'] = array( 
+    'script' => 'operatortyping.php',
+    'params' => array('chat_id','status'),
+    'functions' => array( 'use' )
+);  
        
 $ViewList['syncadmin'] = array( 
     'script' => 'syncadmin.php',
@@ -112,7 +118,13 @@ $ViewList['syncuser'] = array(
     'script' => 'syncuser.php',
     'params' => array('chat_id','hash'),
 	'uparams' => array('mode')
-);         
+);
+      
+$ViewList['usertyping'] = array(
+    'script' => 'usertyping.php',
+    'params' => array('chat_id','hash','status'),
+	'uparams' => array()
+);
     
 $ViewList['checkchatstatus'] = array( 
     'script' => 'checkchatstatus.php',

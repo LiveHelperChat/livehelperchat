@@ -232,6 +232,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `email` varchar(100) NOT NULL,
                   `country_code` varchar(100) NOT NULL,
                   `country_name` varchar(100) NOT NULL,
+                  `user_typing` int(11) NOT NULL,
+                  `operator_typing` int(11) NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `status` (`status`),
                   KEY `user_id` (`user_id`),

@@ -1,3 +1,14 @@
+1.20v
+
+1. Canned messages
+execute doc/update_db/update_10.sql
+http://livehelperchat.com/canned-messages-feature-93a.html
+http://livehelperchat.com/canned-messages-92a.html
+
+2. Now operator and user can see then each other is typing.
+https://github.com/remdex/livehelperchat/issues/4
+execute doc/update_db/update_11.sql
+
 1.19v
 
 1. Option to send messages to browsing user

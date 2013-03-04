@@ -16,8 +16,7 @@
 function addChat(chat_id,name)
 {
     lhinst.startChat(chat_id,$('#tabs'),name);
-    lhinst.setCloseWindowOnEvent(true);    
+    lhinst.setCloseWindowOnEvent(true);
     window.focus();
-}
-          
+}          
 </script>

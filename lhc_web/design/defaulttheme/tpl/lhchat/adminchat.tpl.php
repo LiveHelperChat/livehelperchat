@@ -31,19 +31,24 @@
 </div>
   
 
-
-<div class="msgBlock" id="messagesBlock-<?php echo $chat->id?>">
-<?php $LastMessageID = 0;?>
-<?php foreach (erLhcoreClassChat::getChatMessages($chat->id) as $msg ) : ?> 
-<?php 
-$LastMessageID = $msg['id'];            
-if ($msg['user_id'] != 0) { ?>
-	<div class="message-row"><div class="msg-date"><?php echo date('Y-m-d H:i:s',$msg['time']);?></div><span class="usr-tit"><?php echo htmlspecialchars($msg['name_support']);?>:&nbsp;</span><?php echo htmlspecialchars($msg['msg']);?></div>
-<?php } else { ?>
-    <div class="message-row response"><div class="msg-date"><?php echo date('Y-m-d H:i:s',$msg['time']);?></div><span class="usr-tit"><?php echo htmlspecialchars($chat->nick)?>:&nbsp;</span><?php echo htmlspecialchars($msg['msg']);?></div>
-<?php } ?>  
-<?php endforeach; ?>
+<div class="message-block">
+    <div class="msgBlock" id="messagesBlock-<?php echo $chat->id?>">
+    <?php $LastMessageID = 0;?>
+    <?php foreach (erLhcoreClassChat::getChatMessages($chat->id) as $msg ) : ?> 
+    <?php 
+    $LastMessageID = $msg['id'];            
+    if ($msg['user_id'] != 0) { ?>
+    	<div class="message-row"><div class="msg-date"><?php echo date('Y-m-d H:i:s',$msg['time']);?></div><span class="usr-tit"><?php echo htmlspecialchars($msg['name_support']);?>:&nbsp;</span><?php echo htmlspecialchars($msg['msg']);?></div>
+    <?php } else { ?>
+        <div class="message-row response"><div class="msg-date"><?php echo date('Y-m-d H:i:s',$msg['time']);?></div><span class="usr-tit"><?php echo htmlspecialchars($chat->nick)?>:&nbsp;</span><?php echo htmlspecialchars($msg['msg']);?></div>
+    <?php } ?>  
+    <?php endforeach; ?>
+    </div>
+    <div class="user-is-typing" id="user-is-typing-<?php echo $chat->id?>">
+                <i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','User is typing now...')?></i>
+    </div>
 </div>
+
 <br />
 
      
@@ -52,6 +57,7 @@ if ($msg['user_id'] != 0) { ?>
 jQuery('#CSChatMessage-<?php echo $chat->id?>').bind('keydown', 'return', function (evt){
     lhinst.addmsgadmin('<?php echo $chat->id?>');
 });
+lhinst.initTypingMonitoringAdmin('<?php echo $chat->id?>');
 </script>  
 
 <div class="row">

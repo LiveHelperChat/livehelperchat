@@ -19,6 +19,8 @@ class erLhcoreClassModelChat {
                'support_informed'=> $this->support_informed,
                'country_code'    => $this->country_code,
                'country_name'    => $this->country_name,
+               'user_typing'     => $this->user_typing,
+               'operator_typing' => $this->operator_typing
        );
    }
    
@@ -49,6 +51,26 @@ class erLhcoreClassModelChat {
            return false;
        }
    }  
+   
+   public function __get($var) {
+       
+       switch ($var) {
+
+       	case 'is_operator_typing':
+       		   $this->is_operator_typing = $this->operator_typing > (time()-10); // typing is considered if status did not changed for 10 seconds
+       		   return $this->is_operator_typing;
+       		break;
+       		
+       	case 'is_user_typing':
+       		   $this->is_user_typing = $this->user_typing > (time()-10); // typing is considered if status did not changed for 10 seconds
+       		   return $this->is_user_typing;
+       		break;
+       
+       	default:
+       		break;
+       }
+       
+   }
    
    public static function detectLocation(erLhcoreClassModelChat & $instance)
    {
@@ -101,6 +123,8 @@ class erLhcoreClassModelChat {
    public $support_informed = '';
    public $country_code = '';
    public $country_name = '';
+   public $user_typing = 0;
+   public $operator_typing = 0;
 }
 
 ?>

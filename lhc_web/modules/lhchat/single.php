@@ -1,8 +1,6 @@
 <?php
 
-$tpl = new erLhcoreClassTemplate('lhchat/single.tpl.php');
-
-
+$tpl = erLhcoreClassTemplate::getInstance('lhchat/single.tpl.php');
 
 if (is_numeric($Params['user_parameters']['chat_id']))
 {
@@ -17,9 +15,6 @@ if (is_numeric($Params['user_parameters']['chat_id']))
    
 }
 $tpl->set('chat_id',$Params['user_parameters']['chat_id']);
-
-
-
 
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'chattabs';

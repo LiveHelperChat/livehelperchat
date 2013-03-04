@@ -9,6 +9,6 @@
   the Free Software Foundation; either version 2 of the License, or
   (at your option) any later version.
   ********************************************
-  Version 1.16
+  Version 1.20
   Date 2013-01-19
 **********************************************/

@@ -19,7 +19,7 @@ try {
        $tpl->set('is_activated',true);
     } else {
        $tpl->set('is_activated',false); 
-    }        
+    }     
     
 } catch (Exception $e) {
     exit;

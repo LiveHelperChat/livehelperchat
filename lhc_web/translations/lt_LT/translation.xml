@@ -1353,6 +1353,14 @@
         <translation>Laukiama patvirtinimo</translation>
     </message>
     <message>
+        <source>Operator is typing now...</source>
+        <translation>Operatorius šiuo metu rašo žinutę...</translation>
+    </message>
+    <message>
+        <source>User is typing now...</source>
+        <translation>Vartototojas šiuo metu rašo žinutę...</translation>
+    </message>
+    <message>
         <source>Chat started</source>
         <translation>Pokalbis pradėtas</translation>
     </message>

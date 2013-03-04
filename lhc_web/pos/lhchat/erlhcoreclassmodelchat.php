@@ -72,8 +72,17 @@ $def->properties['country_code']->propertyType = ezcPersistentObjectProperty::PH
 $def->properties['country_name'] = new ezcPersistentObjectProperty();
 $def->properties['country_name']->columnName   = 'country_name';
 $def->properties['country_name']->propertyName = 'country_name';
-$def->properties['country_name']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING; 
+$def->properties['country_name']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['user_typing'] = new ezcPersistentObjectProperty();
+$def->properties['user_typing']->columnName   = 'user_typing';
+$def->properties['user_typing']->propertyName = 'user_typing';
+$def->properties['user_typing']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['operator_typing'] = new ezcPersistentObjectProperty();
+$def->properties['operator_typing']->columnName   = 'operator_typing';
+$def->properties['operator_typing']->propertyName = 'operator_typing';
+$def->properties['operator_typing']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT; 
 
 return $def; 
 
