@@ -72,7 +72,7 @@ class erLhcoreClassChatValidator {
             if ( !$form->hasValidData( 'Email' ) && $start_data_fields['email_require_option'] == 'required' ) {
                 $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Wrong email');
             } elseif ( $form->hasValidData( 'Email' ) ) {
-                $inputForm->email = $form->Email;
+                $chat->email = $inputForm->email = $form->Email;
             } else {
                 $chat->email = $inputForm->email = $_POST['Email'];
             }
