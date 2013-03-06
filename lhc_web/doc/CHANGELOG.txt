@@ -1,3 +1,14 @@
+1.21v
+
+Enchancements:
+https://github.com/remdex/livehelperchat/issues/7
+https://github.com/remdex/livehelperchat/issues/6
+
+1. Phone additional field
+execute doc/update_db/update_12.sql
+
+2. Now messages will be parsed for URL detection, smileys etc.
+
 1.20v
 
 1. Canned messages
