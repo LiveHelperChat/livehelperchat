@@ -740,6 +740,10 @@
         <translation>El. paštas</translation>
     </message>
     <message>
+        <source>Phone</source>
+        <translation>Telefonas</translation>
+    </message>
+    <message>
         <source>Select canned message</source>
         <translation>Pasirinkite paruoštą žinutę</translation>
     </message>
@@ -1190,8 +1194,16 @@
         <translation>Prašome įvesti savo žinutę</translation>
     </message>
     <message>
+        <source>Please enter your phone</source>
+        <translation>Prašome įvesti savo telefoną</translation>
+    </message>
+    <message>
         <source>Your question</source>
         <translation>Jūsų klausimas</translation>
+    </message>
+    <message>
+        <source>Phone</source>
+        <translation>Telefonas</translation>
     </message>
     <message>
         <source>Fill out this form to start a chat</source>

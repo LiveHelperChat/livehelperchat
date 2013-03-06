@@ -24,6 +24,7 @@ $inputData = new stdClass();
 $inputData->username = '';
 $inputData->question = '';
 $inputData->email = '';
+$inputData->phone = '';
 $inputData->departament_id = 0;
 $inputData->validate_start_chat = true;
 

@@ -20,7 +20,8 @@ class erLhcoreClassModelChat {
                'country_code'    => $this->country_code,
                'country_name'    => $this->country_name,
                'user_typing'     => $this->user_typing,
-               'operator_typing' => $this->operator_typing
+               'operator_typing' => $this->operator_typing,
+               'phone'           => $this->phone,
        );
    }
    
@@ -123,6 +124,7 @@ class erLhcoreClassModelChat {
    public $support_informed = '';
    public $country_code = '';
    public $country_name = '';
+   public $phone = '';
    public $user_typing = 0;
    public $operator_typing = 0;
 }

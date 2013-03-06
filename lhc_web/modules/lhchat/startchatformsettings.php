@@ -44,6 +44,17 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
         ),    
         'MessageRequireOption' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
+        ),
+        
+        // Phone options
+        'PhoneVisibleInPopup' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+        'PhoneVisibleInPageWidget' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),    
+        'PhoneRequireOption' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
         )
     );
     
@@ -103,6 +114,33 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
     }
     
     if ($data['email_visible_in_page_widget'] == true && $data['email_require_option'] == 'required') {
+        $hasWidgetData = true;
+    }
+    
+    // E-mail
+    if ( $form->hasValidData( 'PhoneVisibleInPopup' ) && $form->PhoneVisibleInPopup == true ) {
+        $data['phone_visible_in_popup'] = true;
+    } else {
+        $data['phone_visible_in_popup'] = false;
+    }
+    
+    if ( $form->hasValidData( 'PhoneVisibleInPageWidget' ) && $form->PhoneVisibleInPageWidget == true ) {
+        $data['phone_visible_in_page_widget'] = true;
+    } else {
+        $data['phone_visible_in_page_widget'] = false;
+    }
+    
+    if ( $form->hasValidData( 'PhoneRequireOption' ) && $form->PhoneRequireOption != '' ) {
+        $data['phone_require_option'] = $form->PhoneRequireOption;
+    } else {
+        $data['phone_require_option'] = 'required';
+    }
+        
+    if ($data['phone_visible_in_popup'] == true && $data['phone_require_option'] == 'required') {
+        $hasValidPopupData = true;
+    }
+    
+    if ($data['phone_visible_in_page_widget'] == true && $data['phone_require_option'] == 'required') {
         $hasWidgetData = true;
     }
     

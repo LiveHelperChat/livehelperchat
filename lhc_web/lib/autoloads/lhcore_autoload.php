@@ -33,6 +33,9 @@ return array_merge(array (
         'erLhcoreClassChatValidator'=> 'lib/core/lhchat/lhchatvalidator.php',
         
         
+        'erLhcoreClassBBCode'       => 'lib/core/lhbbcode/lhbbcode.php',
+        
+        
         'erLhcoreClassDepartament' => 'lib/core/lhdepartament/lhdepartament.php',
         'erLhcoreClassUserDep'      => 'lib/core/lhdepartament/lhuserdep.php',
         

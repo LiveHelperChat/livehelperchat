@@ -1,3 +1,3 @@
 <?php foreach ($messages as $msg ) : ?>
-<div class="message-row<?php echo $msg['user_id'] == 0 ? ' response' : ''?>"><div class="msg-date"><?php echo date('Y-m-d H:i:s',$msg['time']);?></div><span class="usr-tit"><?php echo $msg['user_id'] == 0 ? htmlspecialchars($chat->nick) : htmlspecialchars($msg['name_support']) ?>:&nbsp;</span><?php echo nl2br(htmlspecialchars(trim($msg['msg'])));?></div>
+<div class="message-row<?php echo $msg['user_id'] == 0 ? ' response' : ''?>"><div class="msg-date"><?php echo date('Y-m-d H:i:s',$msg['time']);?></div><span class="usr-tit"><?php echo $msg['user_id'] == 0 ? htmlspecialchars($chat->nick) : htmlspecialchars($msg['name_support']) ?>:&nbsp;</span><?php echo erLhcoreClassBBCode::make_clickable(htmlspecialchars($msg['msg']))?></div>
 <?php endforeach; ?>

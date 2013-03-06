@@ -27,6 +27,10 @@ class erLhcoreClassChatValidator {
                 $validationFields['Question'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
             }
             
+            if (isset($start_data_fields['phone_visible_in_popup']) && $start_data_fields['phone_visible_in_popup'] == true) {
+                $validationFields['Phone'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
+            }
+            
         } else {
             if (isset($start_data_fields['name_visible_in_page_widget']) && $start_data_fields['name_visible_in_page_widget'] == true) {
                 $validationFields['Username'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
@@ -38,6 +42,10 @@ class erLhcoreClassChatValidator {
 
             if (isset($start_data_fields['message_visible_in_page_widget']) && $start_data_fields['message_visible_in_page_widget'] == true) {
                 $validationFields['Question'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
+            }
+            
+            if (isset($start_data_fields['phone_visible_in_page_widget']) && $start_data_fields['phone_visible_in_page_widget'] == true) {
+                $validationFields['Phone'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
             }
         }
 
@@ -78,6 +86,7 @@ class erLhcoreClassChatValidator {
             }
         }
 
+        // Validate question
         if (($inputForm->validate_start_chat == true && isset($start_data_fields['message_visible_in_popup']) && $start_data_fields['message_visible_in_popup'] == true) ||
         ($inputForm->validate_start_chat == false && isset($start_data_fields['message_visible_in_page_widget']) && $start_data_fields['message_visible_in_page_widget'] == true)) {
 
@@ -92,7 +101,23 @@ class erLhcoreClassChatValidator {
                 $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum 500 characters for message');
             }
         }
+        
+        // Validate phone
+        if (($inputForm->validate_start_chat == true && isset($start_data_fields['phone_visible_in_popup']) && $start_data_fields['phone_visible_in_popup'] == true) ||
+        ($inputForm->validate_start_chat == false && isset($start_data_fields['phone_visible_in_page_widget']) && $start_data_fields['phone_visible_in_page_widget'] == true)) {
 
+            if ( !$form->hasValidData( 'Phone' ) || ($form->Question == '' && $start_data_fields['phone_require_option'] == 'required')) {
+                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your phone');
+            } elseif ($form->hasValidData( 'Phone' )) {
+                $chat->phone = $inputForm->phone = $form->Phone;
+            }
+
+            if ($form->hasValidData( 'Phone' ) && $form->Phone != '' && strlen($form->Phone) > 100)
+            {
+                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum 100 characters for phone');
+            }
+        }
+        
         $departments = erLhcoreClassModelDepartament::getList();    
         $ids = array_keys($departments);        
         if ($form->hasValidData( 'DepartamentID' ) && in_array($form->DepartamentID,$ids)) {

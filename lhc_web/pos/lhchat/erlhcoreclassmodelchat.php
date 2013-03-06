@@ -57,7 +57,12 @@ $def->properties['ip']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STR
 $def->properties['email'] = new ezcPersistentObjectProperty();
 $def->properties['email']->columnName   = 'email';
 $def->properties['email']->propertyName = 'email';
-$def->properties['email']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING; 
+$def->properties['email']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+ 
+$def->properties['phone'] = new ezcPersistentObjectProperty();
+$def->properties['phone']->columnName   = 'phone';
+$def->properties['phone']->propertyName = 'phone';
+$def->properties['phone']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING; 
 
 $def->properties['referrer'] = new ezcPersistentObjectProperty();
 $def->properties['referrer']->columnName   = 'referrer';
