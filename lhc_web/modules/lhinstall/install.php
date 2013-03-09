@@ -393,7 +393,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `hide_online` int(11) NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `user_id` (`user_id`),
-                  KEY `last_activity_hide_online_dep_id` (`last_activity`,`hide_online`,`dep_id`)
+                  KEY `last_activity_hide_online_dep_id` (`last_activity`,`hide_online`,`dep_id`),
+                  KEY `dep_id` (`dep_id`)
                 ) DEFAULT CHARSET=utf8;");
 
                 // Insert record to departament instantly
