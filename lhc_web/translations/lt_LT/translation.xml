@@ -1249,6 +1249,18 @@
         <translation>Pridėti pokalbį</translation>
     </message>
     <message>
+        <source>Last activity</source>
+        <translation>Paskutinis aktyvumas</translation>
+    </message>
+    <message>
+        <source>Send message</source>
+        <translation>Siųsti žinutę</translation>
+    </message>
+    <message>
+        <source>ago</source>
+        <translation>prieš</translation>
+    </message>
+    <message>
         <source>Empty...</source>
         <translation>Tuščia...</translation>
     </message>
@@ -1320,6 +1332,10 @@
     <message>
         <source>All pending chats</source>
         <translation>Visi laukiantys pokalbiai</translation>
+    </message>
+    <message>
+        <source>Online operators</source>
+        <translation>Prisijungę operatoriai</translation>
     </message>
     <message>
         <source>All active chats</source>

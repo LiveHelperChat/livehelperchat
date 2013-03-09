@@ -1,5 +1,9 @@
 <?php
 
+$currentUser = erLhcoreClassUser::instance();
+$canListOnlineUsers = $currentUser->hasAccessTo('lhuser','userlistonline');
+
+
 $tpl = erLhcoreClassTemplate::getInstance();
 $ReturnMessages = array();
 
@@ -48,10 +52,13 @@ $ReturnMessages[] = array('dom_id' => '#pending-chat-list', 'content' => trim($t
 $tpl->set('right',true);
 $ReturnMessages[] = array('last_id_identifier' => 'pending_chat','last_id' => $lastPendingChatID, 'dom_id' => '#right-pending-chats', 'content' => trim($tpl->fetch('lhchat/lists/pendingchats.tpl.php')));
 
-
 $ReturnMessages[] = array('dom_id' => '#right-transfer-chats', 'content' => trim($tpl->fetch('lhchat/lists/transferedchats.tpl.php')));
 
 
+if ($canListOnlineUsers == true) {
+	$tpl->set('current_user',$currentUser);
+	$ReturnMessages[] = array('dom_id' => '#online-operator-list', 'content' => trim($tpl->fetch('lhchat/lists/onlineoperators.tpl.php')));
+}
 
 $currentUser = erLhcoreClassUser::instance();    
 $currentUser->updateLastVisit();

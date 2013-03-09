@@ -157,6 +157,10 @@ div.message-row {
     box-shadow:         -1px -1px 3px rgba(50, 50, 50, 0.16);
 }
 
+.button.very-tiny {
+	padding:3px 5px;
+}
+
 @media only screen and (max-width: 467px) { 
     .tabs dd {
         display:block;
