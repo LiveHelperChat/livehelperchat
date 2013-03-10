@@ -1,12 +1,12 @@
 <?php
-$currentUser = erLhcoreClassUser::instance();    
+$currentUser = erLhcoreClassUser::instance();
 $UserData = $currentUser->getUserData();
 ?>
-<div class="right pt10">
-	<ul class="inline-list">
+<div class="pt10 float-break">
+	<ul class="inline-list right mb0">
 	   <li><a href="<?php echo erLhcoreClassDesign::baseurl('user/account')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Account');?> - (<?php echo htmlspecialchars($UserData->name),' ',htmlspecialchars($UserData->surname)?>)</a></li>
 	   <li><a href="<?php echo erLhcoreClassDesign::baseurl('user/logout')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Logout');?></a></li>
 	</ul>
-</div>	
-	
+</div>
+
 <?php unset($currentUser);unset($UserData);?>

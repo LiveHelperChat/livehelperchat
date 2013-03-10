@@ -1,11 +1,13 @@
 <script type="text/javascript">
-	$(function() {		            
+	$(function() {
             <?php if (is_numeric($chat_id)) : ?>
             addChat(<?php echo $chat_id;?>,'<?php echo $chat_to_load->nick;?>');
-            <?php endif; ?>                     
+            <?php endif; ?>
 	});
 </script>
-    
+
+<?php include(erLhcoreClassDesign::designtpl('lhchat/user_settings.tpl.php'));?>
+
 <dl class="tabs" id="tabs">
 </dl>
 
@@ -18,5 +20,5 @@ function addChat(chat_id,name)
     lhinst.startChat(chat_id,$('#tabs'),name);
     lhinst.setCloseWindowOnEvent(true);
     window.focus();
-}          
+}
 </script>

@@ -20,22 +20,25 @@
     </div>
     <div class="columns six">
         <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/user_box.tpl.php'));?>
+        <div class="float-break">
+        <?php include(erLhcoreClassDesign::designtpl('lhchat/user_settings.tpl.php'));?>
+        </div>
     </div>
 </div>
 
 
-<?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/top_menu.tpl.php'));?>	
+<?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/top_menu.tpl.php'));?>
 
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/path.tpl.php'));?>
-		
+
 <div class="row">
-    
+
     <div class="columns eight">
     <?php echo $Result['content']; ?>
     </div>
-    
+
     <div class="columns four">
-					
+
 			<h4><a href="<?php echo erLhcoreClassDesign::baseurl('chat/pendingchats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Pending chats');?></a></h5>
     		<div id="right-pending-chats">
         		<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Empty...');?>
@@ -45,16 +48,16 @@
     		<div id="right-active-chats">
         		<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Empty...');?>
             </div>
-        	<hr>	
+        	<hr>
 	        <h4><a href="<?php echo erLhcoreClassDesign::baseurl('chat/closedchats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Transfered chats');?></a></h5>
     		<div id="right-transfer-chats">
         		<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Empty...');?>
             </div>
-        		
+
     </div>
-    
-</div>	
-	
+
+</div>
+
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_footer.tpl.php'));?>
 
 </div>

@@ -27,6 +27,21 @@
     </message>
 </context>
 <context>
+    <name>chat/user_settings</name>
+    <message>
+        <source>Enable/Disable sound about new messages from users</source>
+        <translation>Įjungti/Išjungti garsą apie naujus pranešimus iš vartotojų</translation>
+    </message>
+    <message>
+        <source>Enable/Disable sound about new pending chats</source>
+        <translation>Įjungti/Išjungti garsą apie naujas užklausas iš vartotojų</translation>
+    </message>
+    <message>
+        <source>Enable/Disable sound about new messages from operator</source>
+        <translation>Įjungti/Išjungti garsą apie naujus pranešimus iš operatoriaus</translation>
+    </message>
+</context>
+<context>
     <name>chat/cannedmsg</name>
     <message>
         <source>Canned messages</source>
@@ -670,7 +685,7 @@
     <message>
         <source>Surname</source>
         <translation>Pavardė</translation>
-    </message> 
+    </message>
     <message>
         <source>Assign</source>
         <translation>Priskirti</translation>
@@ -696,7 +711,7 @@
     <message>
         <source>Are you sure?</source>
         <translation>Ar esate tuo tikras?</translation>
-    </message>  
+    </message>
 </context>
 <context>
     <name>chat/blockedusers</name>
@@ -727,7 +742,7 @@
     <message>
         <source>User who blocked</source>
         <translation>Vartotojas, kuris užblokavo</translation>
-    </message> 
+    </message>
     <message>
         <source>Remove block</source>
         <translation>Pašalinti blokavimą</translation>
@@ -840,7 +855,7 @@
     <message>
         <source>Title</source>
         <translation>Pavadinimas</translation>
-    </message> 
+    </message>
     <message>
         <source>Assigned functions</source>
         <translation>Priskirtos funkcijos</translation>
@@ -919,7 +934,7 @@
     <message>
         <source>Function</source>
         <translation>Funkcija</translation>
-    </message> 
+    </message>
     <message>
         <source>New policy</source>
         <translation>Nauja teisė</translation>
@@ -1086,7 +1101,7 @@
     <message>
         <source>Start chat</source>
         <translation>Pradėti pokalbį</translation>
-    </message> 
+    </message>
     <message>
         <source>Close</source>
         <translation>Uždaryti</translation>
@@ -1094,7 +1109,7 @@
     <message>
         <source>Open in a new window</source>
         <translation>Atidaryti naujame lange</translation>
-    </message> 
+    </message>
     <message>
         <source>Live help is online...</source>
         <translation>Online pagalba aktyvi...</translation>
@@ -1309,7 +1324,7 @@
     <message>
         <source>Closed chats</source>
         <translation>Uždaryti pokalbiai</translation>
-    </message>    
+    </message>
     <message>
         <source>Accept chat</source>
         <translation>Patvirtinti pokalbį</translation>
@@ -1356,7 +1371,7 @@
     <message>
         <source>Closed chats</source>
         <translation>Uždaryti pokalbiai</translation>
-    </message>    
+    </message>
     <message>
         <source>Accept chat</source>
         <translation>Patvirtinti pokalbį</translation>
@@ -1403,7 +1418,7 @@
     <message>
         <source>Support</source>
         <translation>Palaikymas</translation>
-    </message> 
+    </message>
 </context>
 <context>
     <name>chat/single</name>
@@ -1425,7 +1440,7 @@
     <message>
         <source>At this moment there are no logged members, but you can leave your messages.</source>
         <translation>Šiuo metu nėra prisijungusių atsakingų asmenų, tačiau jūs galite palikti žinutę</translation>
-    </message> 
+    </message>
 </context>
 <context>
     <name>department/edit</name>
@@ -1448,7 +1463,7 @@
     <message>
         <source>Departments</source>
         <translation>Departamentai</translation>
-    </message> 
+    </message>
     <message>
         <source>Cancel</source>
         <translation>Atšaukti</translation>
@@ -1581,11 +1596,11 @@
     <message>
         <source>Synchronisation and sound settings</source>
         <translation>Sinchronizacijos ir garso nustatymai</translation>
-    </message> 
+    </message>
     <message>
         <source>Please enter valid online timeout value!</source>
         <translation>Prašome įvesti validų būvimo prisijungus intervalą!</translation>
-    </message> 
+    </message>
     <message>
         <source>Please enter valid back office sync internval!</source>
         <translation>Prašome įvesti validų naujų užklausų sinchronizavimo intervalą!</translation>
@@ -1593,7 +1608,7 @@
     <message>
         <source>Please enter valid new messages sync internval!</source>
         <translation>Prašome įvesti korektišką naujų žinučių sinchronizavimo intervalą!</translation>
-    </message>    
+    </message>
 </context>
 <context>
     <name>chat/startchatformsettings</name>
@@ -1640,7 +1655,7 @@
     <message>
         <source>Please choose at least one field for popup</source>
         <translation>Prašome prisijungti bent vieną lauką popupui</translation>
-    </message> 
+    </message>
     <message>
         <source>Please choose at least one field for page widget</source>
         <translation>Prašome prisijungti bent vieną lauką vidiniam puslapio popupui</translation>
@@ -1707,7 +1722,7 @@
     <message>
         <source>System configuration</source>
         <translation>Sistemos konfigūracija</translation>
-    </message> 
+    </message>
 </context>
 <context>
     <name>department/new</name>
@@ -1741,7 +1756,7 @@
     <message>
         <source>Username</source>
         <translation>Vartotojo vardas</translation>
-    </message> 
+    </message>
     <message>
         <source>System configuration</source>
         <translation>Sistemos konfigūracija</translation>
@@ -1816,7 +1831,7 @@
     <message>
         <source>Repeat password</source>
         <translation>Pakartokite slaptažodį</translation>
-    </message> 
+    </message>
     <message>
         <source>Contact information</source>
         <translation>Kontaktinė informacija</translation>
@@ -1871,7 +1886,7 @@
     <message>
         <source>System configuration</source>
         <translation>Sistemos konfigūracija</translation>
-    </message> 
+    </message>
     <message>
         <source>Please choose default user group</source>
         <translation>Prašome pasirinkti vartotojo grupę</translation>
@@ -1891,7 +1906,7 @@
     <message>
         <source>All departments</source>
         <translation>Visi departamentai</translation>
-    </message> 
+    </message>
     <message>
         <source>Do not show user status as online</source>
         <translation>Nerodyti manęs kaip prisijungusio</translation>
@@ -1915,7 +1930,7 @@
     <message>
         <source>Repeat password</source>
         <translation>Pakartokite slaptažodį</translation>
-    </message> 
+    </message>
     <message>
         <source>Contact information</source>
         <translation>Kontaktinė informacija</translation>
@@ -1982,11 +1997,11 @@
     <message>
         <source>Repeat new password</source>
         <translation>Pakartokite naują slaptažodį</translation>
-    </message> 
+    </message>
     <message>
         <source>You have global right to see all departments chats</source>
         <translation>Jūs turite globalias teises matyti visų departamentų pokalbius</translation>
-    </message> 
+    </message>
     <message>
         <source>Logged user</source>
         <translation>Prisijungęs vartotojas</translation>
@@ -2022,7 +2037,7 @@
     <message>
         <source>Repeat password</source>
         <translation>Pakartokite slaptažodį</translation>
-    </message> 
+    </message>
     <message>
         <source>Contact information</source>
         <translation>Kontaktinė informacija</translation>

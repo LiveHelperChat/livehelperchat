@@ -4,7 +4,7 @@
 <html>
 <head>
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head.tpl.php'));?>
-<link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::designCSS('css/chat.css');?>" /> 
+<link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::designCSS('css/chat.css');?>" />
 </head>
 <body>
 
@@ -23,7 +23,7 @@
 </div>
 
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_footer_user.tpl.php'));?>
-</div>    
-	
+</div>
+
 </body>
 </html>

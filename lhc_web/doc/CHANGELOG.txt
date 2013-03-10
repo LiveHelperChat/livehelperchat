@@ -1,3 +1,12 @@
+1.22v
+
+Enchancements:
+1. Option to monitor online operators by other operators in dashboard.
+2. Option to control sound options individually by users.
+
+For upgrade execute
+doc/update_db/update_13.sql queries.
+
 1.21v
 
 Enchancements:
@@ -27,7 +36,7 @@ execute doc/update_db/update_11.sql
 3. Redesigned a little bit online users window.
 4. For upgrade please execute doc/update_db/update_9.sql
 And add two variables in settings.ini.php file
-'https_port' => 443, 
+'https_port' => 443,
 'check_for_operator_msg' => 10,
 See where these settings have to be putted
 https://github.com/remdex/livehelperchat/blob/bf02444b9142ef39aba21d1a68c8750468d736ab/lhc_web/settings/settings.ini.php
