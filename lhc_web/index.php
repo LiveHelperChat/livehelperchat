@@ -10,7 +10,7 @@ function __autoload( $className )
         ezcBase::autoload( $className );
 }
 
-ezcBase::addClassRepository( './','./lib/autoloads'); 
+ezcBase::addClassRepository( './','./lib/autoloads');
 erLhcoreClassSystem::init();
 
 // your code here
