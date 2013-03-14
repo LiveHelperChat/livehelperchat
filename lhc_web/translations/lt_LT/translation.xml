@@ -1396,6 +1396,10 @@
         <translation>Laukiama patvirtinimo</translation>
     </message>
     <message>
+        <source>Close</source>
+        <translation>Uždaryti</translation>
+    </message>
+    <message>
         <source>Operator is typing now...</source>
         <translation>Operatorius šiuo metu rašo žinutę...</translation>
     </message>

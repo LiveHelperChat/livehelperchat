@@ -5,6 +5,7 @@
 	</div>
 
 	<div class="columns one mobile-one">
+
 		<?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings.tpl.php'));?>
 	</div>
 
@@ -35,6 +36,8 @@
         lhinst.initTypingMonitoringUser('<?php echo $chat_id?>');
         </script>
     </div>
+
+
 
     <input type="button" class="small button round" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Send')?>" onclick="lhinst.addmsguser()" />
 

@@ -134,13 +134,18 @@ function lh(){
                 inst.is_typing = true;
                 clearTimeout(inst.typing_timeout);
                 $.getJSON(www_dir + 'chat/operatortyping/' + chat_id+'/true',{ }, function(data){
-                   inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id)},2000);
+                   inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);},2000);
                 });
             } else {
                  clearTimeout(inst.typing_timeout);
-                 inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id)},2000);
+                 inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);},2000);
             }
         });
+    };
+
+    this.closeWindow  = function() {
+    	window.open('','_self','');
+    	window.close();
     };
 
     this.typingStoppedOperator = function(chat_id) {

@@ -11,9 +11,12 @@
 <div class="content-row">
 
 <div class="row">
-    <div class="columns twelve">
+    <div class="columns ten">
         <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_logo.tpl.php'));?>
     </div>
+    <div class="columns two pt20">
+		<input type="button" class="secondary tiny button round right" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>" onclick="lhinst.closeWindow();" />
+	</div>
 </div>
 
 <div class="row">

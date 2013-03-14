@@ -1,4 +1,4 @@
-<?php $isOnlineHelp = erLhcoreClassChat::isOnline(); 
+<?php $isOnlineHelp = erLhcoreClassChat::isOnline();
 
 // Perhaps user do not want to show live help then it's offline
 if ( !($isOnlineHelp == false && $hide_offline == 'true') ) : ?>
@@ -13,17 +13,17 @@ var lh_inst  = {
         var head = document.getElementsByTagName('head')[0];
         var style = document.createElement('style');
         style.type = 'text/css';
-        
+
         if(style.styleSheet) {
           style.styleSheet.cssText = css_content;
         } else {
           rules = document.createTextNode(css_content);
           style.appendChild(rules);
         };
-        
+
         head.appendChild(style);
     },
-    
+
     appendHTML : function (htmlStr) {
         var frag = document.createDocumentFragment(),
             temp = document.createElement('div');
@@ -50,7 +50,7 @@ var lh_inst  = {
         this.startNewMessageCheck();
         <?php endif; ?>
     },
-    
+
     openRemoteWindow : function() {
         this.removeById('lhc_container');
         window.open(this.urlopen+'?URLReferer='+escape(document.location),this.windowname,"menubar=1,resizable=1,width=500,height=520");
@@ -81,7 +81,7 @@ var lh_inst  = {
 
           var fragment = this.appendHTML(this.iframe_html);
 
-          document.body.insertBefore(fragment, document.body.childNodes[0]);  
+          document.body.insertBefore(fragment, document.body.childNodes[0]);
 
           var lhc_obj = this;
           document.getElementById('lhc_close').onclick = function() { lhc_obj.hide(); return false; };
@@ -89,13 +89,13 @@ var lh_inst  = {
 
           // Do not check for new messages
           this.stopCheckNewMessage();
-    },    
-    
+    },
+
     lh_openchatWindow : function() {
         <?php if ($click == 'internal') : ?>
         this.showStartWindow();
         <?php else : ?>
-        window.open(this.urlopen+'?URLReferer='+escape(document.location),this.windowname,"menubar=1,resizable=1,width=500,height=520");	      
+        window.open(this.urlopen+'?URLReferer='+escape(document.location),this.windowname,"menubar=1,resizable=1,width=500,height=520");
         <?php endif; ?>
         return false;
     },
@@ -113,16 +113,16 @@ var lh_inst  = {
 
         document.body.insertBefore(fragment, document.body.childNodes[0]);
     },
-    
+
     timeoutInstance : null,
-    
+
     stopCheckNewMessage : function() {
-        clearTimeout(timeoutInstance);
+        clearTimeout(this.timeoutInstance);
     },
-    
+
     startNewMessageCheck : function() {
-        timeoutInstance = setTimeout(function() {        
-            lh_inst.removeById('lhc_operator_message');                   
+        this.timeoutInstance = setTimeout(function() {
+            lh_inst.removeById('lhc_operator_message');
             var th = document.getElementsByTagName('head')[0];
             var s = document.createElement('script');
             s.setAttribute('id','lhc_operator_message');
@@ -138,12 +138,12 @@ var lh_inst  = {
 lh_inst.startNewMessageCheck();
 <?php endif; ?>
 
-<?php if ($position == 'original' || $position == '') : 
+<?php if ($position == 'original' || $position == '') :
 // You can style bottom HTML whatever you want. ?>
 document.getElementById('lhc_status_container').innerHTML = '<p><a href="#" onclick="return lh_inst.lh_openchatWindow()"><?php if ($isOnlineHelp == true) : ?><img src="<?php echo erLhcoreClassSystem::instance()->baseHTTP?><?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/icons/user_green_chat.png');?>" alt="" /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus',"Live help is online...")?><?php else : ?><img src="<?php echo erLhcoreClassSystem::instance()->baseHTTP?><?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/icons/user_gray_chat.png');?>" alt="" /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus',"Live help is offline...")?><?php endif;?></a></p>';
 <?php elseif ($position == 'bottom_right') : ?>
 lh_inst.showStatusWidget();
-<?php endif; 
+<?php endif;
 
 // User has pending chat
 if (($hashSession = CSCacheAPC::getMem()->getSession('chat_hash_widget')) !== false) : ?>
