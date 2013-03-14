@@ -287,6 +287,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 
         	   $db->query("INSERT INTO `lh_chat_config` (`identifier`, `value`, `type`, `explain`, `hidden`) VALUES
                 ('tracked_users_cleanup',	'7',	0,	'How many days keep records of online users.',	0),
+        	   	('list_online_operators', '0', '0', 'List online operators, 0 - no, 1 - yes.', '0'),
                 ('track_online_visitors',	'0',	0,	'Enable online site visitors tracking, 0 - no, 1 - yes',	0),
                 ('customer_company_name',	'Live Helper Chat',	0,	'Your company name - visible in bottom left corner',	0),
                 ('customer_site_url',	'http://livehelperchat.com',	0,	'Your site URL address',	0),

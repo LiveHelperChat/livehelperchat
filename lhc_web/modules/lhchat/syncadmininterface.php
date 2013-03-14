@@ -1,8 +1,12 @@
 <?php
 
-$currentUser = erLhcoreClassUser::instance();
-$canListOnlineUsers = $currentUser->hasAccessTo('lhuser','userlistonline');
 
+$currentUser = erLhcoreClassUser::instance();
+$canListOnlineUsers = false;
+
+if (erLhcoreClassModelChatConfig::fetch('list_online_operators')->current_value == 1) {
+	$canListOnlineUsers = $currentUser->hasAccessTo('lhuser','userlistonline');
+}
 
 $tpl = erLhcoreClassTemplate::getInstance();
 $ReturnMessages = array();
@@ -60,7 +64,6 @@ if ($canListOnlineUsers == true) {
 	$ReturnMessages[] = array('dom_id' => '#online-operator-list', 'content' => trim($tpl->fetch('lhchat/lists/onlineoperators.tpl.php')));
 }
 
-$currentUser = erLhcoreClassUser::instance();    
 $currentUser->updateLastVisit();
 
 

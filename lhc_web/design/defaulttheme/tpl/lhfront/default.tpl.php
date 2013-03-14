@@ -1,6 +1,12 @@
-<?php 
-$currentUser = erLhcoreClassUser::instance(); 
-$canListOnlineUsers = $currentUser->hasAccessTo('lhuser','userlistonline');
+<?php
+
+$canListOnlineUsers = false;
+
+if (erLhcoreClassModelChatConfig::fetch('list_online_operators')->current_value == 1) {
+	$currentUser = erLhcoreClassUser::instance();
+	$canListOnlineUsers = $currentUser->hasAccessTo('lhuser','userlistonline');
+}
+
 ?>
 <dl class="tabs" id="tabs">
   <dd class="active"><a href="#simple1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Pending confirm');?></a></dd>
@@ -17,18 +23,18 @@ $canListOnlineUsers = $currentUser->hasAccessTo('lhuser','userlistonline');
   	<a class="small button round" href="<?php echo erLhcoreClassDesign::baseurl('chat/pendingchats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','All pending chats');?></a>
   </li>
   <li id="simple2Tab">
-  	<div id="active-chat-list"></div>    
+  	<div id="active-chat-list"></div>
     <br/>
  	<a class="small button round" href="<?php echo erLhcoreClassDesign::baseurl('chat/activechats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','All active chats');?></a>
   </li>
-  <li id="simple3Tab">  
+  <li id="simple3Tab">
   	<div id="closed-chat-list"></div>
   	<br/>
   	<a class="small button round" href="<?php echo erLhcoreClassDesign::baseurl('chat/closedchats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','All closed chats');?></a>
   </li>
   <?php if ($canListOnlineUsers == true) : ?>
-  <li id="simple4Tab">  
-  	<div id="online-operator-list"></div> 
+  <li id="simple4Tab">
+  	<div id="online-operator-list"></div>
   </li>
   <?php endif; ?>
 </ul>
