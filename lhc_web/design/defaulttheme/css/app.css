@@ -214,7 +214,7 @@ ul.user-settings-list li{
 
 .page-url:hover {
 	position:absolute;
-	overflow:visible;
+	overflow:visible;z-index:999;
 }
 
 .page-url:hover span {
