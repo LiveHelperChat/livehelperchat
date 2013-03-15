@@ -19,7 +19,6 @@ public:
 
     bool messageSend;
 
-    void getCurrentChat();
     void sendMessage();
 
     ~LHCTextEdit();
@@ -30,8 +29,8 @@ protected:
 private:
     int chatID;
 
-    
-   
+
+
 };
 
 #endif
