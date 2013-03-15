@@ -73,5 +73,5 @@
 
 <?php if ($is_ajax == false) : ?>
 </div>
-<script>//startOnlineSync();</script>
+<script>startOnlineSync();</script>
 <?php endif; ?>
