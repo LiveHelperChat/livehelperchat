@@ -201,6 +201,34 @@ ul.user-settings-list li{
 .float-break{height:1%}
 .float-break:after{content:"-";height:0;font-size:0;visibility:hidden;display:block;clear:both}
 
+.page-url {
+	overflow:hidden;
+	position:relative;
+	height:20px;
+}
+
+.page-url span{
+	position: absolute;
+	right: 0;
+}
+
+.page-url:hover {
+	position:absolute;
+	overflow:visible;
+}
+
+.page-url:hover span {
+	position:relative;
+	border-radius:3px;
+	border:1px solid #CCC;
+	background-color:#FFF;
+	padding:2px;
+	-webkit-box-shadow: 3px 3px 12px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow:    3px 3px 12px rgba(50, 50, 50, 0.75);
+	box-shadow:         3px 3px 12px rgba(50, 50, 50, 0.75);
+	font-weight:bold;
+}
+
 ul.mb0 {
 	margin-bottom:0;
 }
