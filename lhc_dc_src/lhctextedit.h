@@ -19,7 +19,9 @@ public:
 
     bool messageSend;
 
-  
+    void getCurrentChat();
+    void sendMessage();
+
     ~LHCTextEdit();
 
 protected:

@@ -30,6 +30,9 @@ public:
         void deleteChatClicked();
         void separateWindowClicked();
         void transferChatClicked();
+        void sendMessageClicked();
+        void cannedChanged(int);
+
         void stateChanged(Phonon::State newState, Phonon::State oldState);
 
 private:
@@ -66,10 +69,11 @@ private:
 
     QVBoxLayout *infoGroupBoxLayout,*infoOwnerGroupBoxLayout;
 
-    QHBoxLayout *actionButtonsLayout;
+    QHBoxLayout *actionButtonsLayout,*bottomActionLayout;
 
+    QComboBox *cannedCombobox;
 
-    QPushButton *closeDialogButton,*closeChatButton,*deleteChatButton,*transferChatButton,*separateWindowButton;
+    QPushButton *closeDialogButton,*closeChatButton,*deleteChatButton,*transferChatButton,*separateWindowButton,*sendMessageButton;
 
     bool asTab,separateWindow;
     

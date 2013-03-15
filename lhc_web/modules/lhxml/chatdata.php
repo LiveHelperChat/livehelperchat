@@ -11,23 +11,25 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 {
         // Status active
         $chat->status = 1;
-        
+
         if ($chat->user_id == 0)
         {
-            $currentUser = erLhcoreClassUser::instance();    
+            $currentUser = erLhcoreClassUser::instance();
             $chat->user_id = $currentUser->getUserID();
         }
-        
-        erLhcoreClassChat::getSession()->update($chat); 
-    
-        $ownerString = 'No data';   
-        $user = $chat->getChatOwner();        
-        if ($user !== false) 
+
+        erLhcoreClassChat::getSession()->update($chat);
+
+        $ownerString = 'No data';
+        $user = $chat->getChatOwner();
+        if ($user !== false)
         {
             $ownerString = $user->name.' '.$user->surname;
         }
-                   
-    echo json_encode(array('error' => false,'chat' => $chat,'ownerstring' => $ownerString));
+
+        $cannedmsg = erLhcoreClassModelCannedMsg::getList();
+
+    echo json_encode(array('error' => false, 'canned_messages' => $cannedmsg, 'chat' => $chat, 'ownerstring' => $ownerString));
 
 } else {
     echo json_encode(array('error' => true,'error_string' => 'You do not have permission to read this chat!'));

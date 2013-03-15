@@ -13,6 +13,7 @@
 
 ChatWindow::ChatWindow(int chat_id, QWidget *parent) : QWidget(parent)
 {
+
 	ui.setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose); 
 
@@ -34,11 +35,14 @@ ChatWindow::ChatWindow(int chat_id, QWidget *parent) : QWidget(parent)
 
     actionsGroupBox = new QGroupBox(tr("Actions"));  
     actionButtonsLayout = new QHBoxLayout();
+    bottomActionLayout = new QHBoxLayout();
     closeDialogButton = new QPushButton();
     closeChatButton = new QPushButton();
     deleteChatButton = new QPushButton();
     transferChatButton = new QPushButton();
     separateWindowButton = new QPushButton();
+    sendMessageButton = new QPushButton(tr("Send"));
+    sendMessageButton->setObjectName("SendMessageButton");
 
     closeDialogButton->setProperty("iconButton", true);
     closeChatButton->setProperty("iconButton", true);
@@ -65,6 +69,8 @@ ChatWindow::ChatWindow(int chat_id, QWidget *parent) : QWidget(parent)
     connect(deleteChatButton, SIGNAL(clicked()), this, SLOT(deleteChatClicked()));
     connect(separateWindowButton, SIGNAL(clicked()), this, SLOT(separateWindowClicked()));
     connect(transferChatButton, SIGNAL(clicked()), this, SLOT(transferChatClicked()));
+    connect(sendMessageButton, SIGNAL(clicked()), this, SLOT(sendMessageClicked()));
+
 
 
     informationGroupBox = new QGroupBox(tr("Information"));
@@ -95,6 +101,12 @@ ChatWindow::ChatWindow(int chat_id, QWidget *parent) : QWidget(parent)
     newmessageText = new LHCTextEdit(this->chatID);
     newmessageText->setObjectName("NewMessageText");
 
+
+    cannedCombobox = new QComboBox();
+    bottomActionLayout->addWidget(sendMessageButton);
+    bottomActionLayout->addWidget(cannedCombobox,2);
+    connect(cannedCombobox, SIGNAL(currentIndexChanged(int)), this, SLOT(cannedChanged(int)));
+
     QSplitter *splitter = new QSplitter(Qt::Vertical,this);
     splitter->addWidget(messagesText);
     splitter->addWidget(newmessageText);
@@ -105,6 +117,10 @@ ChatWindow::ChatWindow(int chat_id, QWidget *parent) : QWidget(parent)
 
     // Add main layout
     mainGrindLayout->addWidget(splitter,1,0,1,3);
+
+
+    mainGrindLayout->addLayout(bottomActionLayout,2,0,1,3);
+
 
     ui.vboxLayout1->addLayout(mainGrindLayout);
 
@@ -122,7 +138,7 @@ ChatWindow::ChatWindow(int chat_id, QWidget *parent) : QWidget(parent)
 }
 
 void ChatWindow::stateChanged(Phonon::State newState, Phonon::State /* oldState */)
- {
+{
      switch (newState) {
          case Phonon::ErrorState:
              if (mediaObject->errorType() == Phonon::FatalError) {
@@ -147,7 +163,21 @@ void ChatWindow::stateChanged(Phonon::State newState, Phonon::State /* oldState 
          default:
              ;
      }
- }
+}
+
+void ChatWindow::cannedChanged(int index)
+{
+    if(index!=0) {
+        newmessageText->setText(cannedCombobox->currentText());
+    } else {
+        newmessageText->setText("");
+    }
+}
+
+void ChatWindow::sendMessageClicked()
+{
+    newmessageText->sendMessage();
+}
 
 void ChatWindow::transferChatClicked()
 {
@@ -300,7 +330,8 @@ void ChatWindow::receivedMessages(void* pt2Object, QScriptValue result)
     // Scroll to bottom
     QScrollBar *sb = mySelf->messagesText->verticalScrollBar();
     sb->setValue(sb->maximum());
-   
+
+
 
 }
 
@@ -343,7 +374,17 @@ void ChatWindow::getDataChat(void* pt2Object, QByteArray result)
 									 tr("&OK"), QString::null , 0, 0, 1);
     }
 
-    
+    mySelf->cannedCombobox->addItem(tr("Choose canned message"));
+    QScriptValueIterator itt(sc.property("canned_messages"));
 
+    //qDebug("Received chat data %s",QString(result).toStdString().c_str());
+
+
+    while (itt.hasNext()) {
+          itt.next();
+          mySelf->cannedCombobox->addItem(itt.value().property("msg").toString());
+    }
 }
+
+
 
