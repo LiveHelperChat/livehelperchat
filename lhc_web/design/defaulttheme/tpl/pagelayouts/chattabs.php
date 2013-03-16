@@ -5,7 +5,7 @@
 <head>
 
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head.tpl.php'));?>
-<link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::designCSS('css/chat.css');?>" /> 
+<link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::designCSS('css/chat.css');?>" />
 
 <script type="text/javascript">
 /** Reset pointer from parent window **/
@@ -16,10 +16,10 @@ function ChatUnload(){ window.opener.lhinst.deleteChatNewWindow(); }
 <div class="content-row pt10">
 	<div class="row">
 	    <div class="columns twelve pt10">
-	        <?php echo $Result['content']; ?>			
+	        <?php echo $Result['content']; ?>
 	    </div>
 	</div>
 </div>
-<script type="text/javascript" language="javascript" src="<?=erLhcoreClassDesign::designJS('js/app.js');?>"></script>
+<script type="text/javascript" language="javascript" src="<?php echo erLhcoreClassDesign::designJS('js/app.js');?>"></script>
 </body>
 </html>
