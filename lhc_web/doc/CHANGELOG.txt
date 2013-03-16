@@ -1,3 +1,13 @@
+1.23v
+
+Enchancements:
+1. Fixed few more short tags.
+2. Implemented - https://github.com/remdex/livehelperchat/issues/9
+3. Usability updates for online users. Then URL is very long it streches the table. So this will be fixed.
+4. Option to turn of online operators tabs completely.
+
+execute doc/update_db/update_14.sql
+
 1.22v
 
 Enchancements:
