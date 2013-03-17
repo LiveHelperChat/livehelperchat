@@ -15,8 +15,13 @@ $q->deleteFrom( 'lh_userdep' )->where( $q->expr->eq( 'user_id', $Params['user_pa
 $stmt = $q->prepare();
 $stmt->execute();
 
-// User departaments
+// User groups
 $q->deleteFrom( 'lh_groupuser' )->where( $q->expr->eq( 'user_id', $Params['user_parameters']['user_id'] ) );
+$stmt = $q->prepare();
+$stmt->execute();
+
+// User remember
+$q->deleteFrom( 'lh_users_remember' )->where( $q->expr->eq( 'user_id', $Params['user_parameters']['user_id'] ) );
 $stmt = $q->prepare();
 $stmt->execute();
 

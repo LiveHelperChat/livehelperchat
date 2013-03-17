@@ -429,6 +429,14 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   PRIMARY KEY (`id`)
                 ) DEFAULT CHARSET=utf8;");
 
+                // Remember user table
+                $db->query("CREATE TABLE IF NOT EXISTS `lh_users_remember` (
+				 `id` int(11) NOT NULL AUTO_INCREMENT,
+				 `user_id` int(11) NOT NULL,
+				 `mtime` int(11) NOT NULL,
+				 PRIMARY KEY (`id`)
+				) DEFAULT CHARSET=utf8;");
+
                 // Chat messages
                 $db->query("CREATE TABLE IF NOT EXISTS `lh_msg` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
