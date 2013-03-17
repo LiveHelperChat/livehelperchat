@@ -25,6 +25,10 @@
         <source>Incorrect username or password</source>
         <translation>Nekorektiškas prisijungimo vardas arba slaptažodis</translation>
     </message>
+    <message>
+        <source>Remember me</source>
+        <translation>Prisiminti mane</translation>
+    </message>
 </context>
 <context>
     <name>chat/user_settings</name>
