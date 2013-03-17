@@ -6,7 +6,7 @@ $tpl = erLhcoreClassTemplate::getInstance('lhchat/getstatus.tpl.php');
 
 if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 ) {
     // To track online users
-    $visitor = erLhcoreClassModelChatOnlineUser::handleRequest();
+    $visitor = erLhcoreClassModelChatOnlineUser::handleRequest(array('pages_count' => true));
     $tpl->set('visitor',$visitor);
 }
 

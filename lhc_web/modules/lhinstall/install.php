@@ -302,6 +302,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `current_page` varchar(250) NOT NULL,
                   `chat_id` int(11) NOT NULL,
                   `last_visit` int(11) NOT NULL,
+        	   	  `first_visit` int(11) NOT NULL,
+        	   	  `pages_count` int(11) NOT NULL,
                   `user_agent` varchar(250) NOT NULL,
                   `user_country_code` varchar(50) NOT NULL,
                   `user_country_name` varchar(50) NOT NULL,

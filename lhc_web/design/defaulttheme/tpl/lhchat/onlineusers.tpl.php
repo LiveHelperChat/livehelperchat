@@ -39,7 +39,7 @@
         <td><?php echo htmlspecialchars($departament->lastactivity_ago)?> ago</td>
         <td><div class="page-url"><span><?php echo htmlspecialchars($departament->current_page)?></span></div></td>
         <td>
-        <div style="width:200px">
+        <div style="width:230px">
         <?php if ( !empty($departament->user_country_code) ) : ?>
         <img src="<?php echo erLhcoreClassDesign::design('images/flags');?>/<?php echo $departament->user_country_code?>.png" alt="<?php echo htmlspecialchars($departament->user_country_name)?>" title="<?php echo htmlspecialchars($departament->user_country_name)?>" />
         <?php endif; ?>
@@ -58,6 +58,10 @@
         <?php endif; ?>
 
         <img src="<?php echo erLhcoreClassDesign::design('images/icons/ip.png');?>" title="<?php echo $departament->ip?>" />
+
+        <img src="<?php echo erLhcoreClassDesign::design('images/icons/information.png');?>" title="<?php echo $departament->first_visit_front?> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','first visit');?><?php echo "\n";?><?php echo $departament->last_visit_front?> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','last visit');?><?php echo "\n"?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Pageviews');?> - <?php echo $departament->pages_count?>" />
+
+
 
         </div>
 

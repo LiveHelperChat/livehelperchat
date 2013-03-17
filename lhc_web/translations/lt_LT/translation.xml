@@ -232,6 +232,18 @@
         <translation>Niekas dar neišsiuntė žinutės vartotojui</translation>
     </message>
     <message>
+        <source>Pageviews</source>
+        <translation>Puslapio peržiūrų</translation>
+    </message>
+    <message>
+        <source>last visit</source>
+        <translation>paskutinis apsilankymas</translation>
+    </message>
+    <message>
+        <source>first visit</source>
+        <translation>pirmas apsilankymas</translation>
+    </message>
+    <message>
         <source>has send message to user</source>
         <translation>išsiuntė žinutę vartotojui</translation>
     </message>
