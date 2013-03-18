@@ -1,3 +1,12 @@
+1.24v
+
+Enchancements:
+1. Remember me functionality
+2. How many pages user have visited functionality
+3. First time user visit tracking
+
+execute doc/update_db/update_15.sql
+
 1.23v
 
 Enchancements:
