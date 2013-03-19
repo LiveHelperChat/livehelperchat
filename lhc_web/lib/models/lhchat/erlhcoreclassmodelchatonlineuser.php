@@ -53,6 +53,31 @@ class erLhcoreClassModelChatOnlineUser {
        	        return ($this->message_seen == 0 && $this->operator_message != '');
        	    break;
 
+       	case 'chat':
+       			$this->chat = false;
+	       		if ($this->chat_id > 0) {
+	       			try {
+	       				$this->chat = erLhcoreClassModelChat::fetch($this->chat_id);
+	       			} catch (Exception $e) {
+	       				//
+	       			}
+	       		}
+	       		return $this->chat;
+       		break;
+
+       	case 'can_view_chat':
+       			$this->can_view_chat = false;
+       			$currentUser = erLhcoreClassUser::instance();
+
+				if ($this->operator_user_id == $currentUser->getUserID()){
+					$this->can_view_chat = true; // Faster way
+				} else if ($this->chat instanceof erLhcoreClassModelChat) {
+       				$this->can_view_chat = erLhcoreClassChat::hasAccessToRead($chat);
+       			}
+
+       			return $this->can_view_chat;
+       		break;
+
        	case 'operator_user':
        	        $this->operator_user = false;
        	        if ($this->operator_user_id > 0) {
