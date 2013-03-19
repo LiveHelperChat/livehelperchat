@@ -31,6 +31,13 @@
     </message>
 </context>
 <context>
+    <name>chat/previewchat</name>
+    <message>
+        <source>Last 100 messages rows</source>
+        <translation>Paskutinės 100 pokalbio žinučių</translation>
+    </message>
+</context>
+<context>
     <name>chat/user_settings</name>
     <message>
         <source>Enable/Disable sound about new messages from users</source>
@@ -534,6 +541,10 @@
     <message>
         <source>Logged user</source>
         <translation>Prisijungęs vartotojas</translation>
+    </message>
+    <message>
+        <source>Unread messages</source>
+        <translation>Neperskaitytos žinutės</translation>
     </message>
     <message>
         <source>Online users</source>
@@ -1280,6 +1291,10 @@
         <translation>Pridėti pokalbį</translation>
     </message>
     <message>
+        <source>h.</source>
+        <translation>val.</translation>
+    </message>
+    <message>
         <source>Last activity</source>
         <translation>Paskutinis aktyvumas</translation>
     </message>
@@ -1363,6 +1378,10 @@
     <message>
         <source>All pending chats</source>
         <translation>Visi laukiantys pokalbiai</translation>
+    </message>
+    <message>
+        <source>Unread messages</source>
+        <translation>Neperskaitytos žinutės</translation>
     </message>
     <message>
         <source>Online operators</source>

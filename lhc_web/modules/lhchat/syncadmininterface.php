@@ -1,6 +1,5 @@
 <?php
 
-
 $currentUser = erLhcoreClassUser::instance();
 $canListOnlineUsers = false;
 
@@ -14,15 +13,9 @@ $ReturnMessages = array();
 /**
  * Active chats
  * */
-$tpl->set('right',false);
 $chats = erLhcoreClassChat::getActiveChats(10);
 $tpl->set('chats',$chats);
-$ReturnMessages[] = array('dom_id' => '#active-chat-list', 'content' => trim($tpl->fetch( 'lhchat/lists/activechats.tpl.php')));
-
-
-$tpl->set('right',true);
-$ReturnMessages[] = array('dom_id' => '#right-active-chats', 'content' => trim($tpl->fetch( 'lhchat/lists/activechats.tpl.php')));
-
+$ReturnMessages[] = array('dom_id' => '#active-chat-list,#right-active-chats', 'content' => trim($tpl->fetch( 'lhchat/lists/activechats.tpl.php')));
 
 /**
  * Closed chats
@@ -30,13 +23,9 @@ $ReturnMessages[] = array('dom_id' => '#right-active-chats', 'content' => trim($
 $tpl->set('chats',erLhcoreClassChat::getClosedChats(10));
 $ReturnMessages[] = array('dom_id' => '#closed-chat-list', 'content' => trim($tpl->fetch( 'lhchat/lists/closedchats.tpl.php')));
 
-
 /**
  * Pending chats
  * */
-
-$tpl->set('right',false);
-
 $pendingChats = erLhcoreClassChat::getPendingChats(10);
 $tpl->set('chats',$pendingChats);
 
@@ -49,23 +38,24 @@ if (!empty($pendingChats)){
     $chatPending = current($pendingChats);
     $lastPendingChatID = $chatPending['id'];
 }
+$ReturnMessages[] = array('dom_id' => '#right-pending-chats,#pending-chat-list', 'last_id_identifier' => 'pending_chat', 'last_id' => $lastPendingChatID, 'content' => trim($tpl->fetch('lhchat/lists/pendingchats.tpl.php')));
 
+// Transfered chats
 $tpl->set('transferchats',erLhcoreClassTransfer::getTransferChats());
-$ReturnMessages[] = array('dom_id' => '#pending-chat-list', 'content' => trim($tpl->fetch('lhchat/lists/pendingchats.tpl.php')));
-
-$tpl->set('right',true);
-$ReturnMessages[] = array('last_id_identifier' => 'pending_chat','last_id' => $lastPendingChatID, 'dom_id' => '#right-pending-chats', 'content' => trim($tpl->fetch('lhchat/lists/pendingchats.tpl.php')));
-
 $ReturnMessages[] = array('dom_id' => '#right-transfer-chats', 'content' => trim($tpl->fetch('lhchat/lists/transferedchats.tpl.php')));
-
 
 if ($canListOnlineUsers == true) {
 	$tpl->set('current_user',$currentUser);
 	$ReturnMessages[] = array('dom_id' => '#online-operator-list', 'content' => trim($tpl->fetch('lhchat/lists/onlineoperators.tpl.php')));
 }
 
-$currentUser->updateLastVisit();
+// Unread chats
+$unreadChats = erLhcoreClassChat::getUnreadMessagesChats();
+$tpl->set('chats',$unreadChats);
+$ReturnMessages[] = array('dom_id' => '#unread-chat-list,#right-unread-chats', 'content' => trim($tpl->fetch('lhchat/lists/unread-chat-list.tpl.php')));
 
+// Update last visit
+$currentUser->updateLastVisit();
 
 echo json_encode(array('error' => 'false', 'result' => $ReturnMessages ));
 exit;

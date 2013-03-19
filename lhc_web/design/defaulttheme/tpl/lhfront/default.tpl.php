@@ -12,6 +12,7 @@ if (erLhcoreClassModelChatConfig::fetch('list_online_operators')->current_value 
   <dd class="active"><a href="#simple1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Pending confirm');?></a></dd>
   <dd><a href="#simple2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Active chats');?></a></dd>
   <dd><a href="#simple3"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Closed chats');?></a></dd>
+  <dd><a href="#simple5"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Unread messages');?></a></dd>
   <?php if ($canListOnlineUsers == true) : ?>
   <dd><a href="#simple4"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Online operators');?></a></dd>
   <?php endif; ?>
@@ -37,4 +38,7 @@ if (erLhcoreClassModelChatConfig::fetch('list_online_operators')->current_value 
   	<div id="online-operator-list"></div>
   </li>
   <?php endif; ?>
+  <li id="simple5Tab">
+  	<div id="unread-chat-list"></div>
+  </li>
 </ul>

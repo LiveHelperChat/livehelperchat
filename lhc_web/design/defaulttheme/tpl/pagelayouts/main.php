@@ -37,7 +37,7 @@
     <?php echo $Result['content']; ?>
     </div>
 
-    <div class="columns four">
+    <div class="columns four" id="right-column-page">
 
 			<h4><a href="<?php echo erLhcoreClassDesign::baseurl('chat/pendingchats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Pending chats');?></a></h5>
     		<div id="right-pending-chats">
@@ -51,6 +51,11 @@
         	<hr>
 	        <h4><a href="<?php echo erLhcoreClassDesign::baseurl('chat/closedchats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Transfered chats');?></a></h5>
     		<div id="right-transfer-chats">
+        		<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Empty...');?>
+            </div>
+        	<hr>
+	        <h4><a href="<?php echo erLhcoreClassDesign::baseurl('chat/unreadmessages')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Unread messages');?></a></h5>
+    		<div id="right-unread-chats">
         		<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Empty...');?>
             </div>
 

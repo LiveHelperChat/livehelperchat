@@ -59,6 +59,11 @@ select {
     cursor:pointer;
 }
 
+/*Hide elements which should not be visible in right column*/
+#right-column-page .right-action-hide {
+	display:none;
+}
+
 .tabs dd a, .tabs li a {
 	line-height:30px;
 	height:30px;

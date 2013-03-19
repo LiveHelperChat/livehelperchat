@@ -9,7 +9,7 @@ $.fn.foundationTabs.addTab = function(tabs, url, name){
 	tabs.find('> dd.active').removeClass("active");
 	$('#tabs-content > li').hide();
 
-	var nextElement = tabs.find('> dd').size() + 1;
+	var nextElement = tabs.find('> dd').size() + 5; // Leave some numbering for custom tabs
 	tabs.append('<dd class="active"><a href="#simple'+nextElement+'">'+name+'</a></dd>');
 	$('#tabs-content').append('<li id="simple'+nextElement+'Tab" style="display:block;"></li>');
 

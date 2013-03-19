@@ -451,7 +451,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   PRIMARY KEY (`id`),
                   KEY `chat_id` (`chat_id`),
                   KEY `id` (`id`,`chat_id`),
-                  KEY `status` (`status`,`chat_id`)
+                  KEY `status` (`status`,`chat_id`),
+                  KEY `user_id_status_chat_id` (`user_id`,`status`,`chat_id`)
                 ) DEFAULT CHARSET=utf8;");
 
                 // Forgot password table
