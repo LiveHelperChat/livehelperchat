@@ -15,7 +15,22 @@ class erLhcoreClassChat {
      */
     public static function getPendingChats($limit = 50, $offset = 0)
     {
-         $db = ezcDbInstance::get();
+    	$limitation = self::getDepartmentLimitation();
+
+    	// Does not have any assigned department
+    	if ($limitation === false) { return array(); }
+
+    	$filter = array();
+    	$filter['filter'] = array('status' => 0);
+
+    	if ($limitation !== true) { $filter['customfilter'] = $limitation;	}
+
+    	$filter['limit'] = $limit;
+    	$filter['offset'] = $offset;
+
+    	return self::getList($filter);
+
+         /* $db = ezcDbInstance::get();
 
          $currentUser = erLhcoreClassUser::instance();
          $LimitationDepartament = '';
@@ -36,70 +51,261 @@ class erLhcoreClassChat {
          $stmt->execute();
          $rows = $stmt->fetchAll();
 
-         return $rows;
+         return $rows; */
     }
 
-    // Get's unread messages from users
-    public static function getUnreadMessagesChats($limit = 50, $offset = 0) {
-    	$db = ezcDbInstance::get();
+
+    public static function getPendingChatsCount()
+    {
+    	$limitation = self::getDepartmentLimitation();
+
+    	// Does not have any assigned department
+    	if ($limitation === false) { return array(); }
+
+    	$filter = array();
+    	$filter['filter'] = array('status' => 0);
+
+    	if ($limitation !== true) { $filter['customfilter'] = $limitation;	}
+
+    	return self::getCount($filter);
+
+    	/* $db = ezcDbInstance::get();
 
     	$currentUser = erLhcoreClassUser::instance();
-    	$LimitationDepartament = '';
     	$userData = $currentUser->getUserData(true);
 
-    	if ( $userData->all_departments == 0 )
+    	$LimitationDepartament = '';
+    	if ($userData->all_departments == 0)
     	{
     		$userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID());
 
     		if (count($userDepartaments) == 0) return array();
 
-    		$LimitationDepartament = ' AND (lh_chat.dep_id IN ('.implode(',',$userDepartaments). ') OR lh_chat.user_id = '.$currentUser->getUserID() . ')';
+    		$LimitationDepartament = ' AND (lh_chat.dep_id IN ('.implode(',',$userDepartaments). ') OR user_id = '.$currentUser->getUserID() . ')';
     	}
 
-    	$sql = 'SELECT lh_chat.*,lh_departament.name,lh_msg.time AS last_message FROM lh_chat
-
-    			LEFT JOIN lh_departament ON lh_chat.dep_id = lh_departament.id
-    			INNER JOIN lh_msg ON lh_chat.id = lh_msg.chat_id
-
-    			WHERE lh_msg.user_id = 0 AND lh_msg.status = 0 '.$LimitationDepartament." GROUP BY lh_chat.id ORDER BY lh_chat.id DESC LIMIT {$offset},{$limit}";
-
-    	$stmt = $db->prepare($sql);
-
+    	$stmt = $db->prepare('SELECT count(lh_chat.id) as found FROM lh_chat LEFT JOIN lh_departament ON lh_chat.dep_id = lh_departament.id WHERE status = 0'.$LimitationDepartament);
     	$stmt->setFetchMode(PDO::FETCH_ASSOC);
     	$stmt->execute();
     	$rows = $stmt->fetchAll();
 
+    	return $rows[0]['found']; */
+    }
+
+
+    public static function getList($paramsSearch = array(), $class = 'erLhcoreClassModelChat')
+    {
+	       $paramsDefault = array('limit' => 32, 'offset' => 0);
+
+	       $params = array_merge($paramsDefault,$paramsSearch);
+
+	       $session = erLhcoreClassChat::getSession();
+	       $q = $session->createFindQuery( $class );
+
+	       $conditions = array();
+
+	      if (isset($params['filter']) && count($params['filter']) > 0)
+	      {
+	           foreach ($params['filter'] as $field => $fieldValue)
+	           {
+	               $conditions[] = $q->expr->eq( $field, $q->bindValue($fieldValue) );
+	           }
+	      }
+
+	      if (isset($params['filterin']) && count($params['filterin']) > 0)
+	      {
+	           foreach ($params['filterin'] as $field => $fieldValue)
+	           {
+	               $conditions[] = $q->expr->in( $field, $fieldValue );
+	           }
+	      }
+
+	      if (isset($params['filterlt']) && count($params['filterlt']) > 0)
+	      {
+	           foreach ($params['filterlt'] as $field => $fieldValue)
+	           {
+	               $conditions[] = $q->expr->lt( $field, $q->bindValue($fieldValue) );
+	           }
+	      }
+
+	      if (isset($params['filtergt']) && count($params['filtergt']) > 0)
+	      {
+	           foreach ($params['filtergt'] as $field => $fieldValue)
+	           {
+	               $conditions[] = $q->expr->gt( $field,$q->bindValue( $fieldValue ));
+	           }
+	      }
+
+	      if (isset($params['customfilter']) && count($params['customfilter']) > 0)
+	      {
+		      	foreach ($params['customfilter'] as $fieldValue)
+		      	{
+		      		$conditions[] = $fieldValue;
+		      	}
+	      }
+
+	      if (count($conditions) > 0)
+	      {
+	          $q->where(
+	                     $conditions
+	          );
+	      }
+
+	      $q->limit($params['limit'],$params['offset']);
+
+	      $q->orderBy(isset($params['sort']) ? $params['sort'] : 'id DESC' );
+
+	      $objects = $session->find( $q );
+
+	      return $objects;
+    }
+
+
+
+    public static function getCount($params = array(), $table = 'lh_chat', $operation = 'COUNT(id)')
+    {
+    	$session = erLhcoreClassChat::getSession();
+    	$q = $session->database->createSelectQuery();
+    	$q->select( $operation )->from( $table );
+    	$conditions = array();
+
+    	if (isset($params['filter']) && count($params['filter']) > 0)
+    	{
+    		foreach ($params['filter'] as $field => $fieldValue)
+    		{
+    			$conditions[] = $q->expr->eq( $field, $q->bindValue($fieldValue) );
+    		}
+    	}
+
+    	if (isset($params['filterin']) && count($params['filterin']) > 0)
+    	{
+    		foreach ($params['filterin'] as $field => $fieldValue)
+    		{
+    			$conditions[] = $q->expr->in( $field, $fieldValue );
+    		}
+    	}
+
+    	if (isset($params['filterlt']) && count($params['filterlt']) > 0)
+    	{
+    		foreach ($params['filterlt'] as $field => $fieldValue)
+    		{
+    			$conditions[] = $q->expr->lt( $field, $q->bindValue($fieldValue) );
+    		}
+    	}
+
+    	if (isset($params['filtergt']) && count($params['filtergt']) > 0)
+    	{
+    		foreach ($params['filtergt'] as $field => $fieldValue)
+    		{
+    			$conditions[] = $q->expr->gt( $field,$q->bindValue( $fieldValue ));
+    		}
+    	}
+
+    	if (isset($params['customfilter']) && count($params['customfilter']) > 0)
+    	{
+    		foreach ($params['customfilter'] as $fieldValue)
+    		{
+    			$conditions[] = $fieldValue;
+    		}
+    	}
+
+    	if ( count($conditions) > 0 )
+    	{
+	    	$q->where( $conditions );
+    	}
+
+    	$stmt = $q->prepare();
+    	$stmt->execute();
+    	$result = $stmt->fetchColumn();
+
+    	return $result;
+    }
+
+    public static function getDepartmentLimitation(){
+    	$currentUser = erLhcoreClassUser::instance();
+    	$LimitationDepartament = '';
+    	$userData = $currentUser->getUserData(true);
+    	if ( $userData->all_departments == 0 )
+    	{
+    		$userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID());
+
+    		if (count($userDepartaments) == 0) return false;
+
+    		$LimitationDepartament = '(lh_chat.dep_id IN ('.implode(',',$userDepartaments). ') OR lh_chat.user_id = '.$currentUser->getUserID().')';
+
+    		return $LimitationDepartament;
+    	}
+
+    	return true;
+    }
+
+    // Get's unread messages from users
+    public static function getUnreadMessagesChats($limit = 10, $offset = 0) {
+
+    	$limitation = self::getDepartmentLimitation();
+
+    	// Does not have any assigned department
+    	if ($limitation === false) {
+    		return array();
+    	}
+
+    	$filter = array();
+
+    	$filter['filter'] = array('has_unread_messages' => 1);
+
+    	if ($limitation !== true) {
+    		$filter['customfilter'] = $limitation;
+    	}
+
+    	$filter['limit'] = $limit;
+    	$filter['offset'] = $offset;
+
+    	$rows = self::getList($filter);
+
     	return $rows;
     }
 
-    public static function getPendingChatsCount()
-    {
-         $db = ezcDbInstance::get();
+    // Get's unread messages from users | COUNT
+    public static function getUnreadMessagesChatsCount() {
 
-         $currentUser = erLhcoreClassUser::instance();
-         $userData = $currentUser->getUserData(true);
+    	$limitation = self::getDepartmentLimitation();
 
-         $LimitationDepartament = '';
-         if ($userData->all_departments == 0)
-         {
-             $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID());
+    	// Does not have any assigned department
+    	if ($limitation === false) {
+    		return array();
+    	}
 
-             if (count($userDepartaments) == 0) return array();
+    	$filter = array();
 
-             $LimitationDepartament = ' AND (lh_chat.dep_id IN ('.implode(',',$userDepartaments). ') OR user_id = '.$currentUser->getUserID() . ')';
-         }
+    	$filter['filter'] = array('has_unread_messages' => 1);
 
-         $stmt = $db->prepare('SELECT count(lh_chat.id) as found FROM lh_chat LEFT JOIN lh_departament ON lh_chat.dep_id = lh_departament.id WHERE status = 0'.$LimitationDepartament);
-         $stmt->setFetchMode(PDO::FETCH_ASSOC);
-         $stmt->execute();
-         $rows = $stmt->fetchAll();
+    	if ($limitation !== true) {
+    		$filter['customfilter'] = $limitation;
+    	}
 
-         return $rows[0]['found'];
+    	$rows = self::getCount($filter);
+
+    	return $rows;
     }
 
     public static function getActiveChats($limit = 50, $offset = 0)
     {
-         $db = ezcDbInstance::get();
+    	$limitation = self::getDepartmentLimitation();
+
+    	// Does not have any assigned department
+    	if ($limitation === false) { return array(); }
+
+    	$filter = array();
+    	$filter['filter'] = array('status' => 1);
+
+    	if ($limitation !== true) { $filter['customfilter'] = $limitation;	}
+
+    	$filter['limit'] = $limit;
+    	$filter['offset'] = $offset;
+
+    	return self::getList($filter);
+
+         /* $db = ezcDbInstance::get();
 
          $currentUser = erLhcoreClassUser::instance();
          $userData = $currentUser->getUserData(true);
@@ -119,12 +325,24 @@ class erLhcoreClassChat {
          $stmt->execute();
          $rows = $stmt->fetchAll();
 
-         return $rows;
+         return $rows; */
     }
 
     public static function getActiveChatsCount()
     {
-         $db = ezcDbInstance::get();
+    	$limitation = self::getDepartmentLimitation();
+
+    	// Does not have any assigned department
+    	if ($limitation === false) { return array(); }
+
+    	$filter = array();
+    	$filter['filter'] = array('status' => 1);
+
+    	if ($limitation !== true) { $filter['customfilter'] = $limitation;	}
+
+    	return self::getCount($filter);
+
+        /*  $db = ezcDbInstance::get();
 
          $currentUser = erLhcoreClassUser::instance();
          $userData = $currentUser->getUserData(true);
@@ -143,12 +361,27 @@ class erLhcoreClassChat {
          $stmt->execute();
          $rows = $stmt->fetchAll();
 
-         return $rows[0]['found'];
+         return $rows[0]['found']; */
     }
 
     public static function getClosedChats($limit = 50, $offset = 0)
     {
-         $db = ezcDbInstance::get();
+    	$limitation = self::getDepartmentLimitation();
+
+    	// Does not have any assigned department
+    	if ($limitation === false) { return array(); }
+
+    	$filter = array();
+    	$filter['filter'] = array('status' => 2);
+
+    	if ($limitation !== true) { $filter['customfilter'] = $limitation;	}
+
+    	$filter['limit'] = $limit;
+    	$filter['offset'] = $offset;
+
+    	return self::getList($filter);
+
+        /*  $db = ezcDbInstance::get();
 
          $currentUser = erLhcoreClassUser::instance();
          $LimitationDepartament = '';
@@ -169,11 +402,24 @@ class erLhcoreClassChat {
          $stmt->execute();
          $rows = $stmt->fetchAll();
 
-         return $rows;
+         return $rows; */
     }
 
     public static function getClosedChatsCount()
     {
+    	$limitation = self::getDepartmentLimitation();
+
+    	// Does not have any assigned department
+    	if ($limitation === false) { return array(); }
+
+    	$filter = array();
+    	$filter['filter'] = array('status' => 2);
+
+    	if ($limitation !== true) { $filter['customfilter'] = $limitation;	}
+
+    	return self::getCount($filter);
+
+    	/*
          $db = ezcDbInstance::get();
 
          $currentUser = erLhcoreClassUser::instance();
@@ -193,7 +439,7 @@ class erLhcoreClassChat {
          $stmt->execute();
          $rows = $stmt->fetchAll();
 
-         return $rows[0]['found'];
+         return $rows[0]['found']; */
     }
 
 
@@ -252,16 +498,19 @@ class erLhcoreClassChat {
         $stmt->execute();
         $rows = $stmt->fetchAll();
 
-        // Change messages status
-        $stmt = $db->prepare("UPDATE lh_msg SET status = 1 WHERE chat_id = :chat_id AND user_id != 0 AND status = 0");
-        $stmt->bindValue( ':chat_id',$chat_id);
-        $stmt->execute();
+        // Update only if we have found unread messages
+        if (count($rows) > 0){
+	        // Change messages status
+	        $stmt = $db->prepare("UPDATE lh_msg SET status = 1 WHERE chat_id = :chat_id AND user_id != 0 AND status = 0");
+	        $stmt->bindValue( ':chat_id',$chat_id);
+	        $stmt->execute();
+        }
 
         return $rows;
    }
 
    /**
-    * All messages, with should get administrator, with status Pending
+    * All messages, wich should get administrator, with status Pending
     *
     * */
    public static function getPendingAdminMessages($chat_id,$message_id)
@@ -274,10 +523,10 @@ class erLhcoreClassChat {
        $stmt->execute();
        $rows = $stmt->fetchAll();
 
-       // Change messages status
-       $stmt = $db->prepare("UPDATE lh_msg SET status = 1 WHERE user_id = 0 AND status = 0 AND chat_id = :chat_id");
-       $stmt->bindValue( ':chat_id',$chat_id);
-       $stmt->execute();
+       // Change messages status, why do we need set status = 1 if admin fetches messages by last message ID ???
+       //$stmt = $db->prepare("UPDATE lh_msg SET status = 1 WHERE user_id = 0 AND status = 0 AND chat_id = :chat_id");
+       //$stmt->bindValue( ':chat_id',$chat_id);
+       //$stmt->execute();
 
        return $rows;
    }

@@ -1,2 +1,10 @@
-ALTER TABLE `lh_msg`
-ADD INDEX `user_id_status_chat_id` (`user_id`, `status`, `chat_id`);
+ALTER TABLE `lh_chat`
+ADD `has_unread_messages` int(11) NOT NULL,
+COMMENT='';
+
+ALTER TABLE `lh_chat`
+ADD `last_user_msg_time` int(11) NOT NULL,
+COMMENT='';
+
+ALTER TABLE `lh_chat`
+ADD INDEX `has_unread_messages` (`has_unread_messages`);

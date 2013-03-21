@@ -25,6 +25,10 @@ class erLhcoreClassModelmsg {
               );
    }
 
+   public function saveThis() {
+   		erLhcoreClassChat::getSession()->saveOrUpdate($this);
+   }
+
    public static function getList($paramsSearch = array())
    {
 	   	$paramsDefault = array('limit' => 32, 'offset' => 0);

@@ -36,8 +36,9 @@ $lastPendingChatID = 0;
 if (!empty($pendingChats)){
     reset($pendingChats);
     $chatPending = current($pendingChats);
-    $lastPendingChatID = $chatPending['id'];
+    $lastPendingChatID = $chatPending->id;
 }
+
 $ReturnMessages[] = array('dom_id' => '#right-pending-chats,#pending-chat-list', 'last_id_identifier' => 'pending_chat', 'last_id' => $lastPendingChatID, 'content' => trim($tpl->fetch('lhchat/lists/pendingchats.tpl.php')));
 
 // Transfered chats

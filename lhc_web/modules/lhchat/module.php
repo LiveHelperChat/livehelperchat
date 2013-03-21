@@ -87,19 +87,25 @@ $ViewList['syncadmin'] = array(
     'script' => 'syncadmin.php',
     'params' => array(),
     'functions' => array( 'use' )
-    );
+);
 
 $ViewList['activechats'] = array(
     'script' => 'activechats.php',
     'params' => array(),
     'functions' => array( 'use' )
-    );
+);
 
 $ViewList['closedchats'] = array(
     'script' => 'closedchats.php',
     'params' => array(),
     'functions' => array( 'use' )
-    );
+);
+
+$ViewList['unreadchats'] = array(
+    'script' => 'unreadchats.php',
+    'params' => array(),
+    'functions' => array( 'use' )
+);
 
 $ViewList['pendingchats'] = array(
     'script' => 'pendingchats.php',
