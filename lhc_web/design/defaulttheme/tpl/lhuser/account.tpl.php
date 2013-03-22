@@ -1,9 +1,9 @@
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Logged user');?> - <?php echo $user->name,' ',$user->surname?></h1>
 
 <dl class="tabs">
-  <dd class="active"><a href="#simple1">Account data</a></dd>
-  <dd><a href="#simple2">Assigned departments</a></dd>
-  <dd><a href="#simple3">Miscellaneous</a></dd>
+  <dd <?php if ($tab == '') : ?>class="active"<?php endif;?>><a href="#simple1">Account data</a></dd>
+  <dd <?php if ($tab == 'tab_departments') : ?>class="active"<?php endif;?>><a href="#simple2">Assigned departments</a></dd>
+  <dd <?php if ($tab == 'tab_settings') : ?>class="active"<?php endif;?>><a href="#simple3">Miscellaneous</a></dd>
 </dl>
 
 <?php if (isset($errors)) : ?>
@@ -15,7 +15,7 @@
 <?php endif; ?>
 
 <ul class="tabs-content">
-  <li class="active" id="simple1Tab">
+  <li <?php if ($tab == '') : ?>class="active"<?php endif;?> id="simple1Tab">
 
 	<div class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Do not enter password unless you want to change it');?></div>
 	<br />
@@ -45,11 +45,11 @@
 	    </ul>
 	</form>
   </li>
-  <li id="simple2Tab">
+  <li <?php if ($tab == 'tab_departments') : ?>class="active"<?php endif;?> id="simple2Tab">
   	<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Assigned departments');?></h5>
 	<?php if (isset($account_updated_departaments) && $account_updated_departaments == 'done') : ?>
-		<div class="dataupdate"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Account updated');?></div>
-		<br />
+		<?php $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Account updated'); ?>
+		<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 	<?php endif; ?>
 
 	<?php $userDepartaments = erLhcoreClassUserDep::getUserDepartaments(); ?>
@@ -72,15 +72,15 @@
 
 	<?php } ?>
   </li>
-  <li id="simple3Tab">
+  <li id="simple3Tab" <?php if ($tab == 'tab_settings') : ?>class="active"<?php endif;?>>
   <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Visible tabs');?></h5>
   <form action="<?php echo erLhcoreClassDesign::baseurl('user/account')?>" method="post">
 	<label><input type="checkbox" name="pendingTabEnabled" value="1" <?php erLhcoreClassModelUserSetting::getSetting('enable_pending_list',1) == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Pending chats tab enabled');?></label>
 	<label><input type="checkbox" name="activeTabEnabled" value="1" <?php erLhcoreClassModelUserSetting::getSetting('enable_active_list',1) == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Active chats tab enabled');?></label>
-	<label><input type="checkbox" name="closedTabEnabled" value="1" <?php erLhcoreClassModelUserSetting::getSetting('enable_close_list',1) == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Closed chats tab enabled');?></label>
+	<label><input type="checkbox" name="closedTabEnabled" value="1" <?php erLhcoreClassModelUserSetting::getSetting('enable_close_list',0) == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Closed chats tab enabled');?></label>
 	<label><input type="checkbox" name="unreadTabEnabled" value="1" <?php erLhcoreClassModelUserSetting::getSetting('enable_unread_list',1) == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Unread chats tab enabled');?></label>
 	<input type="submit" class="small button" name="UpdateTabsSettings_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>"/>
-	</form>
+  </form>
   </li>
 </ul>
 

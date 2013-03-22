@@ -37,28 +37,46 @@
     <?php echo $Result['content']; ?>
     </div>
 
+    <?php
+
+    $pendingTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_pending_list',1);
+    $activeTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_active_list',1);
+    $closedTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_close_list',0);
+    $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_list',1);
+
+    ?>
     <div class="columns four" id="right-column-page">
 
+    		<?php if ($pendingTabEnabled == true) : ?>
 			<h4><a href="<?php echo erLhcoreClassDesign::baseurl('chat/pendingchats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Pending chats');?></a></h5>
     		<div id="right-pending-chats">
         		<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Empty...');?>
             </div>
         	<hr>
+        	<?php endif;?>
+
+        	<?php if ($activeTabEnabled == true) : ?>
 			<h4><a href="<?php echo erLhcoreClassDesign::baseurl('chat/activechats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Active chats');?></a></h5>
     		<div id="right-active-chats">
         		<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Empty...');?>
             </div>
         	<hr>
+        	<?php endif;?>
+
+        	<?php if ($closedTabEnabled == true) : ?>
 	        <h4><a href="<?php echo erLhcoreClassDesign::baseurl('chat/closedchats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Transfered chats');?></a></h5>
     		<div id="right-transfer-chats">
         		<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Empty...');?>
             </div>
         	<hr>
+        	<?php endif;?>
+
+        	<?php if ($unreadTabEnabled == true) : ?>
 	        <h4><a href="<?php echo erLhcoreClassDesign::baseurl('chat/unreadchats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Unread messages');?></a></h5>
     		<div id="right-unread-chats">
         		<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Empty...');?>
             </div>
-
+			<?php endif;?>
     </div>
 
 </div>

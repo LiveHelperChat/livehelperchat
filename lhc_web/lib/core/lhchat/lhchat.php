@@ -29,29 +29,6 @@ class erLhcoreClassChat {
     	$filter['offset'] = $offset;
 
     	return self::getList($filter);
-
-         /* $db = ezcDbInstance::get();
-
-         $currentUser = erLhcoreClassUser::instance();
-         $LimitationDepartament = '';
-         $userData = $currentUser->getUserData(true);
-
-         if ( $userData->all_departments == 0 )
-         {
-             $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID());
-
-             if (count($userDepartaments) == 0) return array();
-
-             $LimitationDepartament = ' AND (lh_chat.dep_id IN ('.implode(',',$userDepartaments). ') OR user_id = '.$currentUser->getUserID() . ')';
-         }
-
-         $stmt = $db->prepare('SELECT lh_chat.*,lh_departament.name FROM lh_chat LEFT JOIN lh_departament ON lh_chat.dep_id = lh_departament.id WHERE status = 0'.$LimitationDepartament." ORDER BY lh_chat.id DESC LIMIT {$offset},{$limit}");
-
-         $stmt->setFetchMode(PDO::FETCH_ASSOC);
-         $stmt->execute();
-         $rows = $stmt->fetchAll();
-
-         return $rows; */
     }
 
 
@@ -68,30 +45,7 @@ class erLhcoreClassChat {
     	if ($limitation !== true) { $filter['customfilter'] = $limitation;	}
 
     	return self::getCount($filter);
-
-    	/* $db = ezcDbInstance::get();
-
-    	$currentUser = erLhcoreClassUser::instance();
-    	$userData = $currentUser->getUserData(true);
-
-    	$LimitationDepartament = '';
-    	if ($userData->all_departments == 0)
-    	{
-    		$userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID());
-
-    		if (count($userDepartaments) == 0) return array();
-
-    		$LimitationDepartament = ' AND (lh_chat.dep_id IN ('.implode(',',$userDepartaments). ') OR user_id = '.$currentUser->getUserID() . ')';
-    	}
-
-    	$stmt = $db->prepare('SELECT count(lh_chat.id) as found FROM lh_chat LEFT JOIN lh_departament ON lh_chat.dep_id = lh_departament.id WHERE status = 0'.$LimitationDepartament);
-    	$stmt->setFetchMode(PDO::FETCH_ASSOC);
-    	$stmt->execute();
-    	$rows = $stmt->fetchAll();
-
-    	return $rows[0]['found']; */
     }
-
 
     public static function getList($paramsSearch = array(), $class = 'erLhcoreClassModelChat')
     {
@@ -304,28 +258,6 @@ class erLhcoreClassChat {
     	$filter['offset'] = $offset;
 
     	return self::getList($filter);
-
-         /* $db = ezcDbInstance::get();
-
-         $currentUser = erLhcoreClassUser::instance();
-         $userData = $currentUser->getUserData(true);
-
-         $LimitationDepartament = '';
-         if ( $userData->all_departments == 0 )
-         {
-             $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID());
-
-             if (count($userDepartaments) == 0) return array();
-
-             $LimitationDepartament = ' AND (lh_chat.dep_id IN ('.implode(',',$userDepartaments).') OR user_id = '.$currentUser->getUserID() . ')';
-         }
-
-         $stmt = $db->prepare('SELECT lh_chat.*,lh_departament.name FROM lh_chat LEFT JOIN lh_departament ON lh_chat.dep_id = lh_departament.id WHERE status = 1'.$LimitationDepartament." ORDER BY lh_chat.id DESC LIMIT {$offset},{$limit}");
-         $stmt->setFetchMode(PDO::FETCH_ASSOC);
-         $stmt->execute();
-         $rows = $stmt->fetchAll();
-
-         return $rows; */
     }
 
     public static function getActiveChatsCount()
@@ -341,27 +273,6 @@ class erLhcoreClassChat {
     	if ($limitation !== true) { $filter['customfilter'] = $limitation;	}
 
     	return self::getCount($filter);
-
-        /*  $db = ezcDbInstance::get();
-
-         $currentUser = erLhcoreClassUser::instance();
-         $userData = $currentUser->getUserData(true);
-         $LimitationDepartament = '';
-         if ( $userData->all_departments == 0 )
-         {
-             $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID());
-
-             if (count($userDepartaments) == 0) return array();
-
-             $LimitationDepartament = ' AND (lh_chat.dep_id IN ('.implode(',',$userDepartaments).') OR user_id = '.$currentUser->getUserID() . ')';
-         }
-
-         $stmt = $db->prepare('SELECT count(lh_chat.id) AS found FROM lh_chat LEFT JOIN lh_departament ON lh_chat.dep_id = lh_departament.id WHERE status = 1'.$LimitationDepartament);
-         $stmt->setFetchMode(PDO::FETCH_ASSOC);
-         $stmt->execute();
-         $rows = $stmt->fetchAll();
-
-         return $rows[0]['found']; */
     }
 
     public static function getClosedChats($limit = 50, $offset = 0)
@@ -380,29 +291,6 @@ class erLhcoreClassChat {
     	$filter['offset'] = $offset;
 
     	return self::getList($filter);
-
-        /*  $db = ezcDbInstance::get();
-
-         $currentUser = erLhcoreClassUser::instance();
-         $LimitationDepartament = '';
-         $userData = $currentUser->getUserData(true);
-
-         if ( $userData->all_departments == 0 )
-         {
-             $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID());
-
-             if (count($userDepartaments) == 0) return array();
-
-             $LimitationDepartament = ' AND (lh_chat.dep_id IN ('.implode(',',$userDepartaments).') OR user_id = '.$currentUser->getUserID() . ')';
-         }
-
-         $stmt = $db->prepare('SELECT lh_chat.*,lh_departament.name FROM lh_chat LEFT JOIN lh_departament ON lh_chat.dep_id = lh_departament.id WHERE status = 2'.$LimitationDepartament." ORDER BY lh_chat.id DESC LIMIT {$offset},{$limit} ");
-
-         $stmt->setFetchMode(PDO::FETCH_ASSOC);
-         $stmt->execute();
-         $rows = $stmt->fetchAll();
-
-         return $rows; */
     }
 
     public static function getClosedChatsCount()
@@ -418,28 +306,6 @@ class erLhcoreClassChat {
     	if ($limitation !== true) { $filter['customfilter'] = $limitation;	}
 
     	return self::getCount($filter);
-
-    	/*
-         $db = ezcDbInstance::get();
-
-         $currentUser = erLhcoreClassUser::instance();
-         $LimitationDepartament = '';
-         $userData = $currentUser->getUserData(true);
-
-         if ( $userData->all_departments == 0 )
-         {
-             $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID());
-
-             if (count($userDepartaments) == 0) return array();
-
-             $LimitationDepartament = ' AND (lh_chat.dep_id IN ('.implode(',',$userDepartaments).') OR user_id = '.$currentUser->getUserID() . ')';
-         }
-
-         $stmt = $db->prepare('SELECT count(lh_chat.id) as found FROM lh_chat LEFT JOIN lh_departament ON lh_chat.dep_id = lh_departament.id WHERE status = 2'.$LimitationDepartament);
-         $stmt->execute();
-         $rows = $stmt->fetchAll();
-
-         return $rows[0]['found']; */
     }
 
 
