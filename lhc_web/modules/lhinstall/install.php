@@ -227,6 +227,9 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `referrer` text NOT NULL,
                   `ip` varchar(100) NOT NULL,
                   `dep_id` int(11) NOT NULL,
+                  `has_unread_messages` int(11) NOT NULL,
+                  `last_user_msg_time` int(11) NOT NULL,
+                  `has_unread_messages` int(11) NOT NULL,
                   `user_status` int(11) NOT NULL DEFAULT '0',
                   `support_informed` int(11) NOT NULL DEFAULT '0',
                   `email` varchar(100) NOT NULL,
@@ -238,6 +241,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   PRIMARY KEY (`id`),
                   KEY `status` (`status`),
                   KEY `user_id` (`user_id`),
+                  KEY `has_unread_messages` (`has_unread_messages`),
                   KEY `dep_id` (`dep_id`)
                 ) DEFAULT CHARSET=utf8;");
 
@@ -274,7 +278,11 @@ switch ((int)$Params['user_parameters']['step_id']) {
 
         	   $db->query("INSERT INTO `lh_users_setting_option` (`identifier`, `class`, `attribute`) VALUES
         	   ('chat_message',	'',	''),
-        	   ('new_chat_sound',	'',	'')");
+        	   ('new_chat_sound',	'',	''),
+        	   ('enable_pending_list', '', ''),
+        	   ('enable_active_list', '', ''),
+        	   ('enable_close_list', '', ''),
+        	   ('enable_unread_list', '', '')");
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_config` (
                   `identifier` varchar(50) NOT NULL,

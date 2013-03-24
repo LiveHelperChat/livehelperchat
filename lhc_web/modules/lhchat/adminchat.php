@@ -10,14 +10,15 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 {
     // Status active
     $chat->status = 1;
-    
+
     if ($chat->user_id == 0)
     {
-        $currentUser = erLhcoreClassUser::instance();    
+        $currentUser = erLhcoreClassUser::instance();
         $chat->user_id = $currentUser->getUserID();
     }
-    
-    erLhcoreClassChat::getSession()->update($chat);    
+
+    $chat->has_unread_messages = 0;
+    erLhcoreClassChat::getSession()->update($chat);
 
 } else {
     $tpl->setFile( 'lhchat/errors/adminchatnopermission.tpl.php');

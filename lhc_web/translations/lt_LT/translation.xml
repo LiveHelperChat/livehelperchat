@@ -38,6 +38,25 @@
     </message>
 </context>
 <context>
+    <name>core/paginator</name>
+    <message>
+        <source>Page</source>
+        <translation>Puslapis</translation>
+    </message>
+    <message>
+        <source>of</source>
+        <translation>iš</translation>
+    </message>
+    <message>
+        <source>Found</source>
+        <translation>Rasta</translation>
+    </message>
+    <message>
+        <source>Go to page</source>
+        <translation>Eiti į puslapį</translation>
+    </message>
+</context>
+<context>
     <name>chat/user_settings</name>
     <message>
         <source>Enable/Disable sound about new messages from users</source>
@@ -563,6 +582,10 @@
         <translation>Pokalbių sąrašai</translation>
     </message>
     <message>
+        <source>Closed chats</source>
+        <translation>Uždaryti pokalbiai</translation>
+    </message>
+    <message>
         <source>Transfered chats</source>
         <translation>Pervesti pokalbiai</translation>
     </message>
@@ -624,6 +647,25 @@
     <message>
         <source>Closed chats</source>
         <translation>Uždaryti pokalbiai</translation>
+    </message>
+    <message>
+        <source>Chats with unread messages</source>
+        <translation>Pokalbiai su neperskaitytom žinutėm</translation>
+    </message>
+</context>
+<context>
+    <name>chat/unreadchats</name>
+    <message>
+        <source>Unread chats list</source>
+        <translation>Neperskaitytų pokalbių sąrašas</translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation>Informacija</translation>
+    </message>
+    <message>
+        <source>Empty...</source>
+        <translation>Tuščia...</translation>
     </message>
 </context>
 <context>
@@ -2028,6 +2070,38 @@
     <message>
         <source>Assigned departments</source>
         <translation>Priskirti departamentai</translation>
+    </message>
+    <message>
+        <source>Account data</source>
+        <translation>Paskyros duomenys</translation>
+    </message>
+    <message>
+        <source>Assigned departments</source>
+        <translation>Priskirti departamentai</translation>
+    </message>
+    <message>
+        <source>Other</source>
+        <translation>Kita</translation>
+    </message>
+    <message>
+        <source>Visible lists</source>
+        <translation>Matomi sąrašai</translation>
+    </message>
+    <message>
+        <source>Pending chats tab enabled</source>
+        <translation>Laukiančių pokalbių kortelė matoma</translation>
+    </message>
+    <message>
+        <source>Active chats tab enabled</source>
+        <translation>Aktyvių pokalbių kortelė matoma</translation>
+    </message>
+    <message>
+        <source>Unread chats tab enabled</source>
+        <translation>Neperskaitytų žinučių kortelė matoma</translation>
+    </message>
+    <message>
+        <source>Closed chats tab enabled</source>
+        <translation>Uždarytų pokalbių kortelė matoma</translation>
     </message>
     <message>
         <source>Enter new password</source>

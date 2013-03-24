@@ -1,3 +1,17 @@
+1.25v
+
+Bugfixes:
+1. Web interface was mssing transfered chats lists :(
+
+Performance related:
+1. Removed bunch of not needed queries.
+2. Internal code cleanup.
+3. General performance improvements.
+
+Features:
+1. Option use to choose which tabs he want's to see. Click account to see options.
+2. Account page now is featured by tabs.
+
 1.24v
 
 Enchancements:

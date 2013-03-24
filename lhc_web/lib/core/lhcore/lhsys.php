@@ -7,43 +7,53 @@ class CSCacheAPC {
     public $cacheGlobalKey = null;
 
     public $cacheKeys = array(
-    'site_version'             // Global site version   
+    'site_version'             // Global site version
     );
-    
+
     public function increaseImageManipulationCache()
-    {     
-        $this->increaseCacheVersion('site_version');            
+    {
+        $this->increaseCacheVersion('site_version');
     }
-    
-    function setSession($identifier,$value)
+
+    function setSession($identifier,$value, $useGlobalCache = false)
     {
     	$_SESSION[$identifier] = $value;
+
+    	if ($useGlobalCache == true) {
+    		$GLOBALS[$identifier] = $value;
+    	}
     }
-    
-    function getSession($identifier) {
-    
+
+    function getSession($identifier, $useGlobalCache = false) {
+
     	if (isset($_SESSION[$identifier])){
     		return $_SESSION[$identifier];
     	}
-    
+
+    	if ($useGlobalCache == true) {
+    		if (isset($GLOBALS[$identifier])) {
+    			return $GLOBALS[$identifier];
+    		}
+    	}
+
     	return false;
     }
-    
-    function __construct() {  
-              
-        $cacheEngineClassName = erConfigClassLhConfig::getInstance()->getSetting( 'cacheEngine', 'className' );        
+
+    function __construct() {
+
+        $cacheEngineClassName = erConfigClassLhConfig::getInstance()->getSetting( 'cacheEngine', 'className' );
         $this->cacheGlobalKey = erConfigClassLhConfig::getInstance()->getSetting( 'cacheEngine', 'cache_global_key' );
-                    
+
         if ($cacheEngineClassName !== false)
         {
             $this->cacheEngine = new $cacheEngineClassName();
         }
     }
-         
+
     function __destruct() {
-        
+
     }
-    
+
     static function getMem() {
         if (self::$m_objMem == NULL) {
             self::$m_objMem = new CSCacheAPC();
@@ -53,7 +63,7 @@ class CSCacheAPC {
 
     function delete($key) {
         if (isset($GLOBALS[$key])) unset($GLOBALS[$key]);
-        
+
         if ( $this->cacheEngine != null )
         {
             $this->cacheEngine->set($this->cacheGlobalKey.$key,false,0);
@@ -61,24 +71,24 @@ class CSCacheAPC {
     }
 
     function restore($key) {
-        
+
         if (isset($GLOBALS[$key]) && $GLOBALS[$key] !== false) return $GLOBALS[$key];
 
         if ( $this->cacheEngine != null )
-        {       
+        {
             $GLOBALS[$key] = $this->cacheEngine->get($this->cacheGlobalKey.$key);
         } else {
             $GLOBALS[$key] = false;
         }
-               
+
         return $GLOBALS[$key];
     }
 
     function getCacheVersion($cacheVariable, $valuedefault = 1, $ttl = 0)
     {
-        
+
         if (isset($GLOBALS['CacheKeyVersion_'.$cacheVariable])) return $GLOBALS['CacheKeyVersion_'.$cacheVariable];
-        
+
         if ( $this->cacheEngine != null )
         {
             if (($version = $this->cacheEngine->get($this->cacheGlobalKey.$cacheVariable)) == false){
@@ -86,15 +96,15 @@ class CSCacheAPC {
                 $this->cacheEngine->set($this->cacheGlobalKey.$cacheVariable,$version,0,$ttl);
                 $GLOBALS['CacheKeyVersion_'.$cacheVariable] = $valuedefault;
             } else $GLOBALS['CacheKeyVersion_'.$cacheVariable] = $version;
-            
+
         } else {
             $version = $valuedefault;
             $GLOBALS['CacheKeyVersion_'.$cacheVariable] = $valuedefault;
         }
-        
-        return $version;        
+
+        return $version;
     }
-    
+
     function increaseCacheVersion($cacheVariable, $valuedefault = 1, $ttl = 0)
     {
         if ( $this->cacheEngine != null )
@@ -103,28 +113,28 @@ class CSCacheAPC {
                  $this->cacheEngine->set($this->cacheGlobalKey.$cacheVariable,$valuedefault,0,$ttl);
                  $GLOBALS['CacheKeyVersion_'.$cacheVariable] = $valuedefault;
             } else {$this->cacheEngine->increment($this->cacheGlobalKey.$cacheVariable,$version+1);$GLOBALS['CacheKeyVersion_'.$cacheVariable] = $version+1;}
-            
+
         } else {
             $GLOBALS['CacheKeyVersion_'.$cacheVariable] = $valuedefault;
-        }        
+        }
     }
-    
-    function store($key, $value, $ttl = 720000) {        
+
+    function store($key, $value, $ttl = 720000) {
         if ( $this->cacheEngine != null )
         {
             $GLOBALS[$key] = $value;
             $this->cacheEngine->set($this->cacheGlobalKey.$key,$value,0,$ttl);
         } else {
-           $GLOBALS[$key] = $value; 
+           $GLOBALS[$key] = $value;
         }
-    }      
+    }
 }
 
 class erLhcoreClassSystem{
-        
+
     protected $Params;
-    
-    public function __construct(){        
+
+    public function __construct(){
         $this->Params = array(
             'PHP_OS' => PHP_OS,
             'DIRECTORY_SEPARATOR' => DIRECTORY_SEPARATOR,
@@ -179,18 +189,18 @@ class erLhcoreClassSystem{
             $this->BackupFilename = '~';
         }
     }
-    
-    
-    public static function instance()  
+
+
+    public static function instance()
     {
         if ( is_null( self::$instance ) )
-        {          
-            self::$instance = new erLhcoreClassSystem();            
+        {
+            self::$instance = new erLhcoreClassSystem();
         }
         return self::$instance;
     }
-    
-    
+
+
     /**
      * Generate wwwdir from phpSelf if valid accoring to scriptFileName
      * and return null if invalid and false if there is no index in phpSelf
@@ -234,16 +244,16 @@ class erLhcoreClassSystem{
 
         return null;
     }
-    
-    
-    
+
+
+
     static function init()
-    {    	
+    {
         $index = 'index.php';
         $forceVirtualHost = null;
-        
+
         $instance = erLhcoreClassSystem::instance();
-       
+
  		$instance       = self::instance();
         $server         = $instance->Params['_SERVER'];
         $phpSelf        = $server['PHP_SELF'];
@@ -334,47 +344,47 @@ class erLhcoreClassSystem{
         $instance->WWWDir     = $wwwDir;
         $instance->IndexFile  = '/index.php';
         $instance->RequestURI = str_replace('//','/',str_replace('index.php','',$requestUri));
-        $instance->QueryString = $queryString;        
-        $instance->WWWDirLang = '';     
+        $instance->QueryString = $queryString;
+        $instance->WWWDirLang = '';
     }
 
     function wwwDir()
     {
         return $this->WWWDir;
     }
-    
+
     public $baseHTTP;
-    
+
     /// The path to where all the code resides
     public $SiteDir;
     /// The access path of the current site view
     /// The relative directory path of the vhless setup
     public $WWWDir;
-    
+
     // The www dir used in links formating
     public $WWWDirLang;
-    
+
     /// The filepath for the index
     public $IndexFile;
     /// The uri which is used for parsing module/view information from, may differ from $_SERVER['REQUEST_URI']
     public $RequestURI;
     /// The type of filesystem, is either win32 or unix. This often used to determine os specific paths.
-    
+
     /// Current language
     public $Language;
-    
+
     // Content language
     public $ContentLanguage;
-    
+
     /// Theme site
     public $ThemeSite;
-    
+
     public $SiteAccess;
-        
+
     public $MobileDevice = false;
-    
+
     private static $instance = null;
-        
+
 }
 
 

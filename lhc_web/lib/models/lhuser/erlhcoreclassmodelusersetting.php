@@ -82,7 +82,9 @@ class erLhcoreClassModelUserSetting {
            $item->value = $value;
 
            $item->saveThis();
-           CSCacheAPC::getMem()->store('settings_user_id_'.$user_id.'_'.$identifier,$value);
+
+           CSCacheAPC::getMem()->store('settings_user_id_'.$user_id.'_'.$identifier, $value);
+           CSCacheAPC::getMem()->setSession('settings_user_id_'.$user_id.'_'.$identifier, $value,true);
 
        } else {
            CSCacheAPC::getMem()->setSession('anonymous_'.$identifier,$value);
@@ -101,7 +103,9 @@ class erLhcoreClassModelUserSetting {
 
        if ($user_id !== false){
 
-           if (($value = CSCacheAPC::getMem()->restore('settings_user_id_'.$user_id.'_'.$identifier)) === false){
+       	   $value = CSCacheAPC::getMem()->getSession('settings_user_id_'.$user_id.'_'.$identifier,true);
+
+           if ($value === false && ($value = CSCacheAPC::getMem()->restore('settings_user_id_'.$user_id.'_'.$identifier)) === false) {
                $value = $default_value;
                $list = self::getList(array('filter' => array('user_id' => $user_id,'identifier' => $identifier)));
 
@@ -117,6 +121,7 @@ class erLhcoreClassModelUserSetting {
                }
 
                CSCacheAPC::getMem()->store('settings_user_id_'.$user_id.'_'.$identifier,$value);
+               CSCacheAPC::getMem()->setSession('settings_user_id_'.$user_id.'_'.$identifier,$value,true);
            }
        } else {
 

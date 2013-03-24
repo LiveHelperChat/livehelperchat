@@ -64,6 +64,10 @@ select {
 	display:none;
 }
 
+#right-column-page hr {
+	margin:0;
+}
+
 .tabs dd a, .tabs li a {
 	line-height:30px;
 	height:30px;
