@@ -23,7 +23,7 @@ class erLhcoreClassChat {
     	$filter = array();
     	$filter['filter'] = array('status' => 0);
 
-    	if ($limitation !== true) { $filter['customfilter'] = $limitation;	}
+    	if ($limitation !== true) { $filter['customfilter'][] = $limitation;	}
 
     	$filter['limit'] = $limit;
     	$filter['offset'] = $offset;
@@ -42,7 +42,7 @@ class erLhcoreClassChat {
     	$filter = array();
     	$filter['filter'] = array('status' => 0);
 
-    	if ($limitation !== true) { $filter['customfilter'] = $limitation;	}
+    	if ($limitation !== true) { $filter['customfilter'][] = $limitation;	}
 
     	return self::getCount($filter);
     }
@@ -208,7 +208,7 @@ class erLhcoreClassChat {
     	$filter['filter'] = array('has_unread_messages' => 1);
 
     	if ($limitation !== true) {
-    		$filter['customfilter'] = $limitation;
+    		$filter['customfilter'][] = $limitation;
     	}
 
     	$filter['limit'] = $limit;
@@ -234,7 +234,7 @@ class erLhcoreClassChat {
     	$filter['filter'] = array('has_unread_messages' => 1);
 
     	if ($limitation !== true) {
-    		$filter['customfilter'] = $limitation;
+    		$filter['customfilter'][] = $limitation;
     	}
 
     	$rows = self::getCount($filter);
@@ -252,7 +252,7 @@ class erLhcoreClassChat {
     	$filter = array();
     	$filter['filter'] = array('status' => 1);
 
-    	if ($limitation !== true) { $filter['customfilter'] = $limitation;	}
+    	if ($limitation !== true) { $filter['customfilter'][] = $limitation;	}
 
     	$filter['limit'] = $limit;
     	$filter['offset'] = $offset;
@@ -270,7 +270,7 @@ class erLhcoreClassChat {
     	$filter = array();
     	$filter['filter'] = array('status' => 1);
 
-    	if ($limitation !== true) { $filter['customfilter'] = $limitation;	}
+    	if ($limitation !== true) { $filter['customfilter'][] = $limitation;	}
 
     	return self::getCount($filter);
     }
@@ -285,7 +285,7 @@ class erLhcoreClassChat {
     	$filter = array();
     	$filter['filter'] = array('status' => 2);
 
-    	if ($limitation !== true) { $filter['customfilter'] = $limitation;	}
+    	if ($limitation !== true) { $filter['customfilter'][] = $limitation;	}
 
     	$filter['limit'] = $limit;
     	$filter['offset'] = $offset;
@@ -303,7 +303,7 @@ class erLhcoreClassChat {
     	$filter = array();
     	$filter['filter'] = array('status' => 2);
 
-    	if ($limitation !== true) { $filter['customfilter'] = $limitation;	}
+    	if ($limitation !== true) { $filter['customfilter'][] = $limitation;	}
 
     	return self::getCount($filter);
     }
