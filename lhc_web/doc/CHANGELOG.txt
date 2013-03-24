@@ -12,6 +12,8 @@ Features:
 1. Option use to choose which tabs he want's to see. Click account to see options.
 2. Account page now is featured by tabs.
 
+execute doc/update_db/update_16.sql
+
 1.24v
 
 Enchancements:
