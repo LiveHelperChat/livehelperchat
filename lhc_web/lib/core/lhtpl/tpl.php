@@ -52,8 +52,13 @@ class erLhcoreClassTemplate {
              
             if (($this->cacheTemplates = $this->cacheWriter->restore('templateCache')) == false)
             {        	
-            	$this->cacheWriter->store('templateCache',array());
-            	$this->cacheTemplates = array();
+            	try {
+            		$this->cacheWriter->store('templateCache',array());
+            		$this->cacheTemplates = array();
+            	} catch (Exception $e) {
+            		// Do nothing
+            	}
+            	
             	$cacheObj->store('templateCacheArray_version_'.$cacheObj->getCacheVersion('site_version'),array());            	
             }            
         }   
@@ -327,7 +332,11 @@ class erLhcoreClassTemplate {
             $this->cacheWriter = new ezcCacheStorageFileArray($sys . 'cache/cacheconfig/');
 	    }
 	    
-		$this->cacheWriter->store('templateCache',$this->cacheTemplates); 
+		try {
+			$this->cacheWriter->store('templateCache',$this->cacheTemplates);
+		} catch (Exception $e) {
+			// Do nothing, this happens on a lot of requests
+		}
 		
 		$cacheObj = CSCacheAPC::getMem();
 		$cacheObj->store('templateCacheArray_version_'.$cacheObj->getCacheVersion('site_version'),$this->cacheTemplates);
