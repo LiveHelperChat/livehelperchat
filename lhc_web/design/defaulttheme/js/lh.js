@@ -274,7 +274,7 @@ function lh(){
 
 	    if ($('#CSChatMessage-'+chat_id).length != 0){
 	       $('#CSChatMessage-'+chat_id).unbind('keydown', 'enter', function(){});
-	    }
+	    };
 
 	    if (hidetab == true) {
 
@@ -290,7 +290,7 @@ function lh(){
 	            window.close();
 	        }
 
-	    }
+	    };
 
 	    this.removeSynchroChat(chat_id);
 	    this.syncadmininterfacestatic();
@@ -316,9 +316,8 @@ function lh(){
 	        if (this.closeWindowOnChatCloseDelete == true)
 	        {
 	            window.close();
-	        }
-
-	    }
+	        };
+	    };
 
 	    this.removeSynchroChat(chat_id);
 	    this.syncadmininterfacestatic();
@@ -351,7 +350,7 @@ function lh(){
 	        {
 	            window.close();
 	        }
-	    }
+	    };
 
 	    this.syncadmininterfacestatic();
 	    this.removeSynchroChat(chat_id);
@@ -611,6 +610,9 @@ function lh(){
            // Unblock messages synchronization
            lhinst.setSynchronizationStatus(false);
            return true;
+		}).fail(function(){
+			// Unblock messages synchronization
+	        lhinst.setSynchronizationStatus(false);
 		});
     };
 
