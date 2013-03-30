@@ -21,7 +21,5 @@ if ( erLhcoreClassChat::hasAccessToRead($Chat) )
 	}
 }
 
-
-
 exit;
 ?>

@@ -239,7 +239,6 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `operator_typing` int(11) NOT NULL,
                   `phone` varchar(100) NOT NULL,
                   PRIMARY KEY (`id`),
-                  KEY `status` (`status`),
                   KEY `user_id` (`user_id`),
                   KEY `has_unread_messages_dep_id_id` (`has_unread_messages`, `dep_id`, `id`),
         	   	  KEY `status_dep_id_id` (`status`, `dep_id`, `id`),

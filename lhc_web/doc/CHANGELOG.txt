@@ -1,5 +1,10 @@
 1.25v
 
+Summary:
+This release brings whole bunch of changes, most important is the performance ones, I have spend a lot of time optimizing every single query,
+and limiting requests number to minimum.
+There is few things I still would like to change, but for the moment it will be just fine. So now every single query is using index.
+
 Bugfixes:
 1. Web interface was missing transfered chats lists.
 
@@ -17,8 +22,11 @@ Features:
 
 Stability:
 1. Now if requests fails, for whatever reason, APP will continue synchronization lists.
+2. Within each page refresh there was a sound that user joined chat etc, very annoying. Now this won't be happening.
 
 execute doc/update_db/update_16.sql
+
+Update. Please make sure you replace ezcomponents folder also.
 
 1.24v
 
