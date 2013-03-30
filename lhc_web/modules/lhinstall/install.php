@@ -241,7 +241,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   PRIMARY KEY (`id`),
                   KEY `status` (`status`),
                   KEY `user_id` (`user_id`),
-                  KEY `has_unread_messages` (`has_unread_messages`),
+                  KEY `has_unread_messages_dep_id_id` (`has_unread_messages`, `dep_id`, `id`),
+        	   	  KEY `status_dep_id_id` (`status`, `dep_id`, `id`),
                   KEY `dep_id` (`dep_id`)
                 ) DEFAULT CHARSET=utf8;");
 
@@ -432,12 +433,18 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 $db->query("INSERT INTO `lh_userdep` (`user_id`,`dep_id`) VALUES ({$UserData->id},0)");
 
                 // Transfer chat
-                $db->query("CREATE TABLE IF NOT EXISTS `lh_transfer` (
-                  `id` int(11) NOT NULL AUTO_INCREMENT,
-                  `chat_id` int(11) NOT NULL,
-                  `user_id` int(11) NOT NULL,
-                  PRIMARY KEY (`id`)
-                ) DEFAULT CHARSET=utf8;");
+                $db->query("CREATE TABLE `lh_transfer` (
+				  `id` int(11) NOT NULL AUTO_INCREMENT,
+				  `chat_id` int(11) NOT NULL,
+				  `dep_id` int(11) NOT NULL,
+				  `transfer_user_id` int(11) NOT NULL,
+				  `from_dep_id` int(11) NOT NULL,
+				  `transfer_to_user_id` int(11) NOT NULL,
+				  PRIMARY KEY (`id`),
+				  KEY `dep_id` (`dep_id`),
+				  KEY `transfer_user_id_dep_id` (`transfer_user_id`,`dep_id`),
+				  KEY `transfer_to_user_id` (`transfer_to_user_id`)
+				) DEFAULT CHARSET=utf8;");
 
                 // Remember user table
                 $db->query("CREATE TABLE IF NOT EXISTS `lh_users_remember` (
@@ -449,19 +456,19 @@ switch ((int)$Params['user_parameters']['step_id']) {
 
                 // Chat messages
                 $db->query("CREATE TABLE IF NOT EXISTS `lh_msg` (
-                  `id` int(11) NOT NULL AUTO_INCREMENT,
-                  `msg` text NOT NULL,
-                  `status` int(11) NOT NULL DEFAULT '0',
-                  `time` int(11) NOT NULL,
-                  `chat_id` int(11) NOT NULL DEFAULT '0',
-                  `user_id` int(11) NOT NULL DEFAULT '0',
-                  `name_support` varchar(100) NOT NULL,
-                  PRIMARY KEY (`id`),
-                  KEY `chat_id` (`chat_id`),
-                  KEY `id` (`id`,`chat_id`),
-                  KEY `status` (`status`,`chat_id`),
-                  KEY `user_id_status_chat_id` (`user_id`,`status`,`chat_id`)
-                ) DEFAULT CHARSET=utf8;");
+				  `id` int(11) NOT NULL AUTO_INCREMENT,
+				  `msg` text NOT NULL,
+				  `status` int(11) NOT NULL DEFAULT '0',
+				  `time` int(11) NOT NULL,
+				  `chat_id` int(11) NOT NULL DEFAULT '0',
+				  `user_id` int(11) NOT NULL DEFAULT '0',
+				  `name_support` varchar(100) NOT NULL,
+				  PRIMARY KEY (`id`),
+				  KEY `chat_id` (`chat_id`),
+				  KEY `id` (`id`,`chat_id`),
+				  KEY `status` (`status`,`chat_id`),
+				  KEY `chat_id_user_id_status` (`chat_id`,`user_id`,`status`)
+				) DEFAULT CHARSET=utf8;");
 
                 // Forgot password table
                 $db->query("CREATE TABLE IF NOT EXISTS `lh_forgotpasswordhash` (

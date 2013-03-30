@@ -33,13 +33,13 @@ $ViewList['transferchat'] = array(
     'script' => 'transferchat.php',
     'params' => array('chat_id'),
     'functions' => array( 'allowtransfer' )
-    );
+);
 
 $ViewList['accepttransfer'] = array(
     'script' => 'accepttransfer.php',
     'params' => array('transfer_id'),
     'functions' => array( 'use' )
-    );
+);
 
 $ViewList['deletechatadmin'] = array(
     'script' => 'deletechatadmin.php',
@@ -145,7 +145,7 @@ $ViewList['checkchatstatus'] = array(
 
 $ViewList['transferuser'] = array(
     'script' => 'transferuser.php',
-    'params' => array('chat_id','user_id'),
+    'params' => array('chat_id','item_id'),
     'functions' => array( 'allowtransfer' )
     );
 

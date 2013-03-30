@@ -72,6 +72,14 @@ class ezcQuerySelect extends ezcQuery
     protected $fromString = null;
 
     /**
+     * Stores the USE INDEX part of the SQL.
+     *
+     * Everything from 'FROM TABLE' until 'WHERE' is stored.
+     * @var string
+     */
+    protected $useIndexString = null;
+
+    /**
      * Stores the WHERE part of the SQL.
      *
      * Everything from 'WHERE' until 'GROUP', 'LIMIT', 'ORDER' or 'SORT' is stored.
@@ -231,13 +239,13 @@ class ezcQuerySelect extends ezcQuery
     }
 
     /**
-     * Opens the query and uses a distinct select on the columns you want to 
+     * Opens the query and uses a distinct select on the columns you want to
      * return with the query.
      *
-     * selectDistinct() accepts an arbitrary number of parameters. Each 
-     * parameter  must contain either the name of a column or an array 
+     * selectDistinct() accepts an arbitrary number of parameters. Each
+     * parameter  must contain either the name of a column or an array
      * containing the names of the columns.
-     * Each call to selectDistinct() appends columns to the list of columns 
+     * Each call to selectDistinct() appends columns to the list of columns
      * that will be used in the query.
      *
      * Example:
@@ -255,11 +263,11 @@ class ezcQuerySelect extends ezcQuery
      * $q->selectDistinct( 'column1' )->select( 'column2' );
      * </code>
      *
-     * Each of above code produce SQL clause 'SELECT DISTINCT column1, column2' 
+     * Each of above code produce SQL clause 'SELECT DISTINCT column1, column2'
      * for the query.
      *
-     * You may call select() after calling selectDistinct() which will result 
-     * in the additional columns beein added. A call of selectDistinct() after 
+     * You may call select() after calling selectDistinct() which will result
+     * in the additional columns beein added. A call of selectDistinct() after
      * select() will result in an ezcQueryInvalidException.
      *
      * @throws ezcQueryVariableParameterException if called with no parameters..
@@ -275,7 +283,7 @@ class ezcQuerySelect extends ezcQuery
         }
         elseif ( strpos ( $this->selectString, 'DISTINCT' ) === false )
         {
-            throw new ezcQueryInvalidException( 
+            throw new ezcQueryInvalidException(
                 'SELECT',
                 'You can\'t use selectDistinct() after using select() in the same query.'
             );
@@ -442,11 +450,11 @@ class ezcQuerySelect extends ezcQuery
 
     /**
      * Returns the SQL for an inner join or prepares $fromString for an inner join.
-     * 
+     *
      * This method could be used in two forms:
      *
      * <b>innerJoin( 't2', $joinCondition )</b>
-     * 
+     *
      * Takes 2 string arguments and returns ezcQuery.
      *
      * The first parameter is the name of the table to join with. The table to
@@ -463,14 +471,14 @@ class ezcQuerySelect extends ezcQuery
      * </code>
      *
      * <b>innerJoin( 't2', 't1.id', 't2.id' )</b>
-     * 
+     *
      * Takes 3 string arguments and returns ezcQuery. This is a simplified form
      * of the 2 parameter version.  innerJoin( 't2', 't1.id', 't2.id' ) is
      * equal to innerJoin( 't2', $this->expr->eq('t1.id', 't2.id' ) );
      *
      * The first parameter is the name of the table to join with. The table to
      * which is joined should have been previously set with the from() method.
-     * 
+     *
      * The second parameter is the name of the column on the table set
      * previously with the from() method and the third parameter the name of
      * the column to join with on the table that was specified in the first
@@ -501,11 +509,11 @@ class ezcQuerySelect extends ezcQuery
 
     /**
      * Returns the SQL for a left join or prepares $fromString for a left join.
-     * 
+     *
      * This method could be used in two forms:
      *
      * <b>leftJoin( 't2', $joinCondition )</b>
-     * 
+     *
      * Takes 2 string arguments and returns ezcQuery.
      *
      * The first parameter is the name of the table to join with. The table to
@@ -522,14 +530,14 @@ class ezcQuerySelect extends ezcQuery
      * </code>
      *
      * <b>leftJoin( 't2', 't1.id', 't2.id' )</b>
-     * 
+     *
      * Takes 3 string arguments and returns ezcQuery. This is a simplified form
      * of the 2 parameter version.  leftJoin( 't2', 't1.id', 't2.id' ) is
      * equal to leftJoin( 't2', $this->expr->eq('t1.id', 't2.id' ) );
      *
      * The first parameter is the name of the table to join with. The table to
      * which is joined should have been previously set with the from() method.
-     * 
+     *
      * The second parameter is the name of the column on the table set
      * previously with the from() method and the third parameter the name of
      * the column to join with on the table that was specified in the first
@@ -560,11 +568,11 @@ class ezcQuerySelect extends ezcQuery
 
     /**
      * Returns the SQL for a right join or prepares $fromString for a right join.
-     * 
+     *
      * This method could be used in two forms:
      *
      * <b>rightJoin( 't2', $joinCondition )</b>
-     * 
+     *
      * Takes 2 string arguments and returns ezcQuery.
      *
      * The first parameter is the name of the table to join with. The table to
@@ -581,14 +589,14 @@ class ezcQuerySelect extends ezcQuery
      * </code>
      *
      * <b>rightJoin( 't2', 't1.id', 't2.id' )</b>
-     * 
+     *
      * Takes 3 string arguments and returns ezcQuery. This is a simplified form
      * of the 2 parameter version.  rightJoin( 't2', 't1.id', 't2.id' ) is
      * equal to rightJoin( 't2', $this->expr->eq('t1.id', 't2.id' ) );
      *
      * The first parameter is the name of the table to join with. The table to
      * which is joined should have been previously set with the from() method.
-     * 
+     *
      * The second parameter is the name of the column on the table set
      * previously with the from() method and the third parameter the name of
      * the column to join with on the table that was specified in the first
@@ -661,6 +669,27 @@ class ezcQuerySelect extends ezcQuery
 
         $this->whereString .= join( ' AND ', $expressions );
         return $this;
+    }
+
+    public function useIndex()
+    {
+    	if ( $this->useIndexString == null )
+    	{
+    		$this->useIndexString = 'USE INDEX ';
+    	}
+
+    	$args = func_get_args();
+    	$expressions = self::arrayFlatten( $args );
+    	if ( count( $expressions ) < 1 )
+    	{
+    		throw new ezcQueryVariableParameterException( 'useindex', count( $args ), 1 );
+    	}
+
+    	$this->lastInvokedMethod = 'useindex';
+
+    	$this->useIndexString .= ' ( ' . join( ' , ', $expressions ) . ' ) ';
+
+    	return $this;
     }
 
 
@@ -872,6 +901,12 @@ class ezcQuerySelect extends ezcQuery
         {
             $query = "{$query} {$this->fromString}";
         }
+
+        if ( $this->useIndexString != null )
+        {
+        	$query = "{$query} {$this->useIndexString}";
+        }
+
         if ( $this->whereString != null )
         {
             $query = "{$query} {$this->whereString}";

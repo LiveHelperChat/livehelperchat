@@ -23,7 +23,7 @@ class erLhcoreClassModelChat {
                'operator_typing' 		=> $this->operator_typing,
                'phone'           		=> $this->phone,
                'has_unread_messages'    => $this->has_unread_messages,
-               'last_user_msg_time'     => $this->last_user_msg_time,
+               'last_user_msg_time'     => $this->last_user_msg_time
        );
    }
 
@@ -64,12 +64,12 @@ class erLhcoreClassModelChat {
        switch ($var) {
 
        	case 'is_operator_typing':
-       		   $this->is_operator_typing = $this->operator_typing > (time()-10); // typing is considered if status did not changed for 10 seconds
+       		   $this->is_operator_typing = $this->operator_typing > (time()-6); // typing is considered if status did not changed for 10 seconds
        		   return $this->is_operator_typing;
        		break;
 
        	case 'is_user_typing':
-       		   $this->is_user_typing = $this->user_typing > (time()-10); // typing is considered if status did not changed for 10 seconds
+       		   $this->is_user_typing = $this->user_typing > (time()-6); // typing is considered if status did not changed for 10 seconds
        		   return $this->is_user_typing;
        		break;
 
@@ -148,6 +148,7 @@ class erLhcoreClassModelChat {
    public $operator_typing = 0;
    public $has_unread_messages = 0;
    public $last_user_msg_time = 0;
+
 }
 
 ?>

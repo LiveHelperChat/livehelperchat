@@ -3,17 +3,56 @@
 class erLhcoreClassTransfer
 {
 
-    public static function getTransferChats()
+
+
+	public static function getDepartmentLimitation(){
+		$currentUser = erLhcoreClassUser::instance();
+		$LimitationDepartament = '';
+		$userData = $currentUser->getUserData(true);
+		if ( $userData->all_departments == 0 )
+		{
+			$userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID());
+
+			if (count($userDepartaments) == 0) return false;
+
+			$LimitationDepartament = '(lh_transfer.dep_id IN ('.implode(',',$userDepartaments).'))';
+
+			return $LimitationDepartament;
+		}
+
+		return true;
+	}
+
+
+    public static function getTransferChats($params = array())
     {
+    	$limitation = self::getDepartmentLimitation();
+
+    	// Does not have any assigned department
+    	if ($limitation === false) {
+    		return array();
+    	}
+
        $db = ezcDbInstance::get();
-
        $currentUser = erLhcoreClassUser::instance();
+       $limitationSQL = '';
 
-       $stmt = $db->prepare('SELECT lh_chat.*,lh_transfer.id as transfer_id FROM lh_chat INNER JOIN lh_transfer ON lh_transfer.chat_id = lh_chat.id WHERE lh_transfer.user_id = :user_id');
-       $stmt->bindValue( ':user_id',$currentUser->getUserID());
-       $stmt->setFetchMode(PDO::FETCH_ASSOC);
-       $stmt->execute();
-       $rows = $stmt->fetchAll();
+       if (isset($params['department_transfers']) && $params['department_transfers'] == true) {
+	       	if ($limitation !== true) {
+	       		$limitationSQL = ' AND '.$limitation;
+	       	}
+	       	$stmt = $db->prepare('SELECT lh_chat.*,lh_transfer.id as transfer_id FROM lh_chat INNER JOIN lh_transfer ON lh_transfer.chat_id = lh_chat.id WHERE transfer_user_id != :transfer_user_id '.$limitationSQL);
+	       	$stmt->bindValue( ':transfer_user_id',$currentUser->getUserID());
+	       	$stmt->setFetchMode(PDO::FETCH_ASSOC);
+	       	$stmt->execute();
+	       	$rows = $stmt->fetchAll();
+       } else {
+	       	$stmt = $db->prepare('SELECT lh_chat.*,lh_transfer.id as transfer_id FROM lh_chat INNER JOIN lh_transfer ON lh_transfer.chat_id = lh_chat.id WHERE lh_transfer.transfer_to_user_id = :user_id');
+	       	$stmt->bindValue( ':user_id',$currentUser->getUserID());
+	       	$stmt->setFetchMode(PDO::FETCH_ASSOC);
+	       	$stmt->execute();
+	       	$rows = $stmt->fetchAll();
+       }
 
        return $rows;
    }

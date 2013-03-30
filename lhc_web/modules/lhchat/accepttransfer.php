@@ -7,9 +7,18 @@ erLhcoreClassTransfer::getSession()->delete($chatTransfer);
 $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $chat_id);
 
 // Set new chat owner
-$currentUser = erLhcoreClassUser::instance();    
+$currentUser = erLhcoreClassUser::instance();
 $chat->user_id = $currentUser->getUserID();
-    
+
+if  ($chatTransfer->dep_id > 0){
+	$chat->dep_id = $chatTransfer->dep_id;
+}
+
+if ( !erLhcoreClassChat::hasAccessToRead($chat) )
+{
+	$chat->dep_id = erLhcoreClassUserDep::getDefaultUserDepartment();
+}
+
 erLhcoreClassChat::getSession()->update($chat);
 
 echo json_encode(array('error' => 'false'));

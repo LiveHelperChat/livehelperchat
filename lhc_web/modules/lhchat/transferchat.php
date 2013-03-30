@@ -6,8 +6,7 @@ $tpl->set('chat',erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat'
 $currentUser = erLhcoreClassUser::instance();
 $tpl->set('user_id',$currentUser->getUserID());
 
-print ($tpl->fetch());
-
+print $tpl->fetch();
 exit;
 
 ?>

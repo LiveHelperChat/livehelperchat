@@ -372,11 +372,12 @@ function lh(){
 	};
 
 	this.startChatTransfer = function(chat_id,tabs,name,transfer_id){
-
-	     $.postJSON(this.wwwDir + this.accepttransfer + transfer_id ,{}, function(data){
-
+		var inst = this;
+	    $.postJSON(this.wwwDir + this.accepttransfer + transfer_id ,{}, function(data){
+	    	inst.startChat(chat_id,tabs,name);
+	    }).fail(function(){
+	    	inst.startChat(chat_id,tabs,name);
 	    });
-	    this.startChat(chat_id,tabs,name);
 	};
 
 	this.startChatNewWindowTransfer = function(chat_id,name,transfer_id)
@@ -397,15 +398,22 @@ function lh(){
 
 	this.transferChat = function(chat_id)
 	{
-	    var user_id = $('[name=TransferTo'+chat_id+']:checked').val();
+		var user_id = $('[name=TransferTo'+chat_id+']:checked').val();
 
-	    $.postJSON(this.wwwDir + this.trasnsferuser + chat_id + '/' + user_id ,{}, function(data){
+		$.postJSON(this.wwwDir + this.trasnsferuser + chat_id + '/' + user_id ,{'type':'user'}, function(data){
+			if (data.error == 'false') {
+				$('#transfer-block-'+data.chat_id).html(data.result);
+			};
+		});
+	};
 
-	        if (data.error == 'false')
-	        {
+	this.transferChatDep = function(chat_id)
+	{
+	    var user_id = $('[name=DepartamentID'+chat_id+']:checked').val();
+	    $.postJSON(this.wwwDir + this.trasnsferuser + chat_id + '/' + user_id ,{'type':'dep'}, function(data){
+	        if (data.error == 'false') {
 	        	$('#transfer-block-'+data.chat_id).html(data.result);
 	        };
-
 	    });
 	};
 
@@ -582,7 +590,7 @@ function lh(){
 
 	this.transferUserDialog = function(chat_id,title)
 	{
-		$.colorbox({width:'400px',height:'200px', href:this.wwwDir + 'chat/transferchat/'+chat_id});
+		$.colorbox({width:'550px',height:'400px', href:this.wwwDir + 'chat/transferchat/'+chat_id});
 	};
 
     this.addmsgadmin = function (chat_id)

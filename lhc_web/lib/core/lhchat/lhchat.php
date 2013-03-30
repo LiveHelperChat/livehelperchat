@@ -23,7 +23,10 @@ class erLhcoreClassChat {
     	$filter = array();
     	$filter['filter'] = array('status' => 0);
 
-    	if ($limitation !== true) { $filter['customfilter'][] = $limitation;	}
+    	if ($limitation !== true) {
+    		$filter['customfilter'][] = $limitation;
+    		$filter['use_index'] = 'status_dep_id_id';
+    	}
 
     	$filter['limit'] = $limit;
     	$filter['offset'] = $offset;
@@ -43,7 +46,10 @@ class erLhcoreClassChat {
     	$filter = array();
     	$filter['filter'] = array('status' => 0);
 
-    	if ($limitation !== true) { $filter['customfilter'][] = $limitation;	}
+    	if ($limitation !== true) {
+    		$filter['customfilter'][] = $limitation;
+    		$filter['use_index'] = 'status_dep_id_id';
+    	}
 
     	return self::getCount($filter);
     }
@@ -107,6 +113,10 @@ class erLhcoreClassChat {
 			          );
 			      }
 
+				 if (isset($params['use_index'])) {
+		      		$q->useIndex( $params['use_index'] );
+		      	 }
+
 			      $q->limit($params['limit'],$params['offset']);
 
 			      $q->orderBy(isset($params['sort']) ? $params['sort'] : 'id DESC' );
@@ -163,6 +173,15 @@ class erLhcoreClassChat {
 		      		}
 		      	}
 
+		      	if (isset($params['customfilter']) && count($params['customfilter']) > 0)
+		      	{
+		      		foreach ($params['customfilter'] as $fieldValue)
+		      		{
+		      			$conditions[] = $fieldValue;
+		      		}
+		      	}
+
+
 		      	if (count($conditions) > 0)
 		      	{
 		      		$q2->where(
@@ -179,7 +198,6 @@ class erLhcoreClassChat {
 
 		      	$q->innerJoin( $q->alias( $q2, 'items' ), $tableName . '.id', 'items.id' );
 		      	$q->orderBy(isset($params['sort']) ? $params['sort'] : 'id DESC' );
-
 	      }
 
 	      $objects = $session->find( $q );
@@ -241,6 +259,10 @@ class erLhcoreClassChat {
 	    	$q->where( $conditions );
     	}
 
+    	if (isset($params['use_index'])) {
+    		$q->useIndex( $params['use_index'] );
+    	}
+
     	$stmt = $q->prepare();
     	$stmt->execute();
     	$result = $stmt->fetchColumn();
@@ -248,7 +270,7 @@ class erLhcoreClassChat {
     	return $result;
     }
 
-    public static function getDepartmentLimitation(){
+    public static function getDepartmentLimitation($tableName = 'lh_chat') {
     	$currentUser = erLhcoreClassUser::instance();
     	$LimitationDepartament = '';
     	$userData = $currentUser->getUserData(true);
@@ -258,7 +280,7 @@ class erLhcoreClassChat {
 
     		if (count($userDepartaments) == 0) return false;
 
-    		$LimitationDepartament = '(lh_chat.dep_id IN ('.implode(',',$userDepartaments). ') OR lh_chat.user_id = '.$currentUser->getUserID().')';
+    		$LimitationDepartament = '('.$tableName.'.dep_id IN ('.implode(',',$userDepartaments).'))';
 
     		return $LimitationDepartament;
     	}
@@ -282,6 +304,7 @@ class erLhcoreClassChat {
 
     	if ($limitation !== true) {
     		$filter['customfilter'][] = $limitation;
+    		$filter['use_index'] = 'has_unread_messages_dep_id_id';
     	}
 
     	$filter['limit'] = $limit;
@@ -309,6 +332,7 @@ class erLhcoreClassChat {
 
     	if ($limitation !== true) {
     		$filter['customfilter'][] = $limitation;
+    		$filter['use_index'] = 'has_unread_messages_dep_id_id';
     	}
 
     	$rows = self::getCount($filter);
@@ -326,7 +350,10 @@ class erLhcoreClassChat {
     	$filter = array();
     	$filter['filter'] = array('status' => 1);
 
-    	if ($limitation !== true) { $filter['customfilter'][] = $limitation;	}
+    	if ($limitation !== true) {
+    		$filter['customfilter'][] = $limitation;
+    		$filter['use_index'] = 'status_dep_id_id';
+    	}
 
     	$filter['limit'] = $limit;
     	$filter['offset'] = $offset;
@@ -345,7 +372,10 @@ class erLhcoreClassChat {
     	$filter = array();
     	$filter['filter'] = array('status' => 1);
 
-    	if ($limitation !== true) { $filter['customfilter'][] = $limitation;	}
+    	if ($limitation !== true) {
+    		$filter['customfilter'][] = $limitation;
+    		$filter['use_index'] = 'status_dep_id_id';
+    	}
 
     	return self::getCount($filter);
     }
@@ -360,7 +390,10 @@ class erLhcoreClassChat {
     	$filter = array();
     	$filter['filter'] = array('status' => 2);
 
-    	if ($limitation !== true) { $filter['customfilter'][] = $limitation;	}
+    	if ($limitation !== true) {
+    		$filter['customfilter'][] = $limitation;
+    		$filter['use_index'] = 'status_dep_id_id';
+    	}
 
     	$filter['limit'] = $limit;
     	$filter['offset'] = $offset;
@@ -379,7 +412,10 @@ class erLhcoreClassChat {
     	$filter = array();
     	$filter['filter'] = array('status' => 2);
 
-    	if ($limitation !== true) { $filter['customfilter'][] = $limitation;	}
+    	if ($limitation !== true) {
+    		$filter['customfilter'][] = $limitation;
+    		$filter['use_index'] = 'status_dep_id_id';
+    	}
 
     	return self::getCount($filter);
     }
@@ -418,7 +454,21 @@ class erLhcoreClassChat {
            $NotUser = ' AND lh_users.id NOT IN ('.implode(',',$UserID).')';
        }
 
-       $stmt = $db->prepare('SELECT lh_users.* FROM lh_users INNER JOIN lh_userdep ON lh_userdep.user_id = lh_users.id WHERE lh_userdep.last_activity > :last_activity '.$NotUser.' GROUP BY lh_users.id');
+       // User can see online only his department users
+       $limitation = self::getDepartmentLimitation('lh_userdep');
+
+       // Does not have any assigned department
+       if ($limitation === false) { return array(); }
+
+       $limitationSQL = '';
+
+       if ($limitation !== true) {
+       		$limitationSQL = ' AND '.$limitation;
+       }
+
+       $SQL = 'SELECT lh_users.* FROM lh_users INNER JOIN lh_userdep ON lh_userdep.user_id = lh_users.id WHERE lh_userdep.last_activity > :last_activity '.$NotUser.$limitationSQL.' GROUP BY lh_users.id';
+       $stmt = $db->prepare($SQL);
+
        $stmt->bindValue(':last_activity',(time()-$isOnlineUser));
 
        $stmt->execute();
@@ -434,14 +484,14 @@ class erLhcoreClassChat {
    {
         $db = ezcDbInstance::get();
 
-        $stmt = $db->prepare('SELECT * FROM lh_msg WHERE chat_id = :chat_id AND user_id != 0 AND status = 0');
+        $stmt = $db->prepare('SELECT * FROM lh_msg USE INDEX (chat_id_user_id_status) WHERE chat_id = :chat_id AND user_id != 0 AND status = 0 ORDER BY id ASC');
         $stmt->bindValue( ':chat_id',$chat_id);
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $stmt->execute();
         $rows = $stmt->fetchAll();
 
         // Update only if we have found unread messages
-        if (count($rows) > 0){
+        if ( count($rows) > 0 ) {
 	        // Change messages status
 	        $stmt = $db->prepare("UPDATE lh_msg SET status = 1 WHERE chat_id = :chat_id AND user_id != 0 AND status = 0");
 	        $stmt->bindValue( ':chat_id',$chat_id);
@@ -458,7 +508,7 @@ class erLhcoreClassChat {
    public static function getPendingAdminMessages($chat_id,$message_id)
    {
        $db = ezcDbInstance::get();
-       $stmt = $db->prepare('SELECT lh_msg.* FROM lh_msg WHERE id > :message_id AND chat_id = :chat_id ORDER BY id ASC');
+       $stmt = $db->prepare('SELECT lh_msg.* FROM lh_msg INNER JOIN ( SELECT id FROM lh_msg WHERE id > :message_id AND chat_id = :chat_id ORDER BY id ASC) AS items ON lh_msg.id = items.id');
        $stmt->bindValue( ':chat_id',$chat_id);
        $stmt->bindValue( ':message_id',$message_id);
        $stmt->setFetchMode(PDO::FETCH_ASSOC);
@@ -497,7 +547,11 @@ class erLhcoreClassChat {
        $userData = $currentUser->getUserData(true);
 
        if ( $userData->all_departments == 0 ) {
-            if ($chat->user_id == $currentUser->getUserID()) return true;
+            /*
+             * From now permission is strictly by assigned department, not by chat owner
+             *
+             * if ($chat->user_id == $currentUser->getUserID()) return true;
+             * */
 
             $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID());
 
@@ -518,7 +572,7 @@ class erLhcoreClassChat {
    public static function isChatActive($chat_id,$hash)
    {
        $db = ezcDbInstance::get();
-       $stmt = $db->prepare('SELECT COUNT(*) AS found FROM lh_chat WHERE id = :chat_id AND hash = :hash AND status = 1');
+       $stmt = $db->prepare('SELECT COUNT(id) AS found FROM lh_chat WHERE id = :chat_id AND hash = :hash AND status = 1');
        $stmt->bindValue( ':chat_id',$chat_id);
        $stmt->bindValue( ':hash',$hash);
 

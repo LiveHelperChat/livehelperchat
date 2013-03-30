@@ -56,6 +56,9 @@ if ($pendingTabEnabled == true) {
 $tpl->set('transferchats',erLhcoreClassTransfer::getTransferChats());
 $ReturnMessages[] = array('dom_id' => '#right-transfer-chats', 'content' => trim($tpl->fetch('lhchat/lists/transferedchats.tpl.php')));
 
+// Transfered chats to departments
+$tpl->set('transferchats',erLhcoreClassTransfer::getTransferChats(array('department_transfers' => true)));
+$ReturnMessages[] = array('dom_id' => '#right-transfer-departments', 'content' => trim($tpl->fetch('lhchat/lists/transferedchats.tpl.php')));
 
 if ($canListOnlineUsers == true) {
 	$tpl->set('current_user',$currentUser);

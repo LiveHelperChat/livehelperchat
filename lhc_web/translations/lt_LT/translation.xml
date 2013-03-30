@@ -562,6 +562,22 @@
         <translation>Prisijungęs vartotojas</translation>
     </message>
     <message>
+        <source>Chats transfered to your department</source>
+        <translation>Pokalbiai pervesti Jūsų departamentui</translation>
+    </message>
+    <message>
+        <source>Chats transfered to you directly</source>
+        <translation>Pokalbiai pervesti Jums tiesiogiai</translation>
+    </message>
+    <message>
+        <source>Transfered to you</source>
+        <translation>Pervesti Jums</translation>
+    </message>
+    <message>
+        <source>Transfered to your department</source>
+        <translation>Pervesti į Jūsų departamentą</translation>
+    </message>
+    <message>
         <source>Unread messages</source>
         <translation>Neperskaitytos žinutės</translation>
     </message>
@@ -765,6 +781,30 @@
     <message>
         <source>Transfer chat</source>
         <translation>Perskirti pokalbį</translation>
+    </message>
+    <message>
+        <source>Transfer chat to one of your departments users</source>
+        <translation>Pervesti pokalbį vienam iš departamento darbuotojų</translation>
+    </message>
+    <message>
+        <source>Departments</source>
+        <translation>Departamentai</translation>
+    </message>
+    <message>
+        <source>Chat was assigned to selected department</source>
+        <translation>Pokalbis buvo perskirtas pasirinktam departamentui</translation>
+    </message>
+    <message>
+        <source>Chat was assigned to selected user</source>
+        <translation>Pokalbis buvo priskirtas pasirinktam vartotojui</translation>
+    </message>
+    <message>
+        <source>Transfer to user</source>
+        <translation>Pervesti vartotojui</translation>
+    </message>
+    <message>
+        <source>Transfer to department</source>
+        <translation>Pervesti departamentui</translation>
     </message>
     <message>
         <source>Transfer</source>
