@@ -462,9 +462,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `user_id` int(11) NOT NULL DEFAULT '0',
 				  `name_support` varchar(100) NOT NULL,
 				  PRIMARY KEY (`id`),
-				  KEY `chat_id` (`chat_id`),
-				  KEY `id` (`id`,`chat_id`),
 				  KEY `status` (`status`,`chat_id`),
+				  KEY `chat_id_id` (`chat_id`, `id`),
 				  KEY `chat_id_user_id_status` (`chat_id`,`user_id`,`status`)
 				) DEFAULT CHARSET=utf8;");
 

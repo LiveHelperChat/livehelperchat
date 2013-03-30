@@ -27,6 +27,9 @@ VALUES ('enable_unread_list', '', '');
 ALTER TABLE `lh_msg`
 ADD INDEX `chat_id_user_id_status` (`chat_id`, `user_id`, `status`);
 
+ALTER TABLE `lh_msg`
+ADD INDEX `chat_id_id` (`chat_id`, `id`);
+
 DROP TABLE `lh_transfer`;
 
 CREATE TABLE `lh_transfer` (

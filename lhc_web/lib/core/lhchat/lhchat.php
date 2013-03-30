@@ -508,7 +508,7 @@ class erLhcoreClassChat {
    public static function getPendingAdminMessages($chat_id,$message_id)
    {
        $db = ezcDbInstance::get();
-       $stmt = $db->prepare('SELECT lh_msg.* FROM lh_msg INNER JOIN ( SELECT id FROM lh_msg WHERE id > :message_id AND chat_id = :chat_id ORDER BY id ASC) AS items ON lh_msg.id = items.id');
+       $stmt = $db->prepare('SELECT lh_msg.* FROM lh_msg INNER JOIN ( SELECT id FROM lh_msg WHERE chat_id = :chat_id AND id > :message_id ORDER BY id ASC) AS items ON lh_msg.id = items.id');
        $stmt->bindValue( ':chat_id',$chat_id);
        $stmt->bindValue( ':message_id',$message_id);
        $stmt->setFetchMode(PDO::FETCH_ASSOC);
