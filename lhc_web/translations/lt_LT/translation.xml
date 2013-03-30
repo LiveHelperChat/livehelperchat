@@ -1462,6 +1462,10 @@
         <translation>Visi laukiantys pokalbiai</translation>
     </message>
     <message>
+        <source>All unread chats</source>
+        <translation>Visi neperskaityti pokalbiai</translation>
+    </message>
+    <message>
         <source>Unread messages</source>
         <translation>Neperskaitytos žinutės</translation>
     </message>

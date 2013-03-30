@@ -229,7 +229,6 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `dep_id` int(11) NOT NULL,
                   `has_unread_messages` int(11) NOT NULL,
                   `last_user_msg_time` int(11) NOT NULL,
-                  `has_unread_messages` int(11) NOT NULL,
                   `user_status` int(11) NOT NULL DEFAULT '0',
                   `support_informed` int(11) NOT NULL DEFAULT '0',
                   `email` varchar(100) NOT NULL,
