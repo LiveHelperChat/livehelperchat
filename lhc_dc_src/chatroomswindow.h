@@ -23,6 +23,7 @@ private slots:
     void activeChatsMenu(QPoint p);
     void closedChatsMenu(QPoint p);
     void transferedChatsMenu(QPoint p);
+    void onlineUsersMenu(QPoint p);
 
     // Pending actions
     void denyPendingChatAction();
@@ -36,6 +37,10 @@ private slots:
     void newActiveSepChatWindow();
     void closeActiveChatAction();
     void deleteActiveChatAction();
+
+    // Online Users menu
+    void sendMessageWindow();
+    void userInfoWindow();
 
     // Closed chats menu
     void addClosedChatWindow();
@@ -53,6 +58,7 @@ private:
      void createPendingChatsTab();
      void createClosedChatsTab();
      void createActiveChatsTab();
+     void createOnlineUsersTab();
 
      QTabWidget *ChatRoomstabWidget;
 
@@ -66,7 +72,8 @@ private:
          *pendingChatsList,
          *closedChatsList,
          *transferedChatsList,
-         *activeChatsList;
+         *activeChatsList,
+         *OnlineUsersList;
 
 
      QWidget  
@@ -84,7 +91,12 @@ private:
          * Deleted chats
          */
          *tabActiveChats,
-         
+
+         /**
+         * Online users
+         */
+         *tabOnlineUsers,
+
          /**
          * Main window
          */
@@ -106,10 +118,13 @@ private:
         /**
         * Active tab groupbox
         */
-        *activeChatsGroupBox;
+        *activeChatsGroupBox,
 
+        /**
+        * Online users tab groupbox
+        */
+        *OnlineUsersGroupBox;
    
-
     QVBoxLayout   
         /**
         * => General chats layouts
@@ -130,7 +145,13 @@ private:
         * Deleted chats layouts      
         */
         *activeDataVBOX,
-        *activeChatsListVBOX;
+        *activeChatsListVBOX,
+
+        /**
+         * Online Users layouts
+        */
+        *OnlineUsersListVBOX,
+        *OnlineUsersDataVBOX;
 
     // Midi area parent
     QMdiArea *mdiArea;

@@ -22,11 +22,16 @@ HEADERS += logindialog.h \
 		   lhctextedit.h \
 		   lhchatsynchro.h \
 		   transferdialog.h \
-		   timeeditdelegate.h
+                   timeeditdelegate.h \
+                   privatemessage.h \
+                   onlineuserinfo.h
+
 		   
 FORMS +=   ui/logindialogbase.ui \
 		   ui/chatroomswidget.ui \
-		   ui/chatwidget.ui
+                   ui/chatwidget.ui \
+                   ui/privatemessage.ui \
+                   ui/onlineuserinfo.ui
 
 SOURCES += logindialog.cpp \
            logindialogbase.cpp \
@@ -42,7 +47,9 @@ SOURCES += logindialog.cpp \
 		   lhctextedit.cpp \
 		   lhchatsynchro.cpp \
 		   transferdialog.cpp \
-		   timeeditdelegate.cpp
+                   timeeditdelegate.cpp \
+                   privatemessage.cpp \
+                   onlineuserinfo.cpp
 
  RESOURCES += lhc.qrc
  RC_FILE = lhc.rc

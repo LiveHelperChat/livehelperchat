@@ -6,7 +6,8 @@
 #include "chatroomswindow.h"
 #include "lhtablewidget.h"
 #include "chatwindow.h"
-
+#include "privatemessage.h"
+#include "onlineuserinfo.h"
 
 
 ChatRoomsWindow::ChatRoomsWindow( QWidget *parent) : QWidget(parent)
@@ -29,6 +30,7 @@ ChatRoomsWindow::ChatRoomsWindow( QWidget *parent) : QWidget(parent)
     createPendingChatsTab();
     createActiveChatsTab();
     createClosedChatsTab();
+    createOnlineUsersTab();
 
     // After all tabs created initialize mail layout
     ui.vboxLayout1->addWidget(ChatRoomstabWidget);
@@ -44,9 +46,9 @@ ChatRoomsWindow::ChatRoomsWindow( QWidget *parent) : QWidget(parent)
     connect(activeChatsList, SIGNAL(customContextMenuRequested (const QPoint &)), this, SLOT(activeChatsMenu(QPoint)));
     connect(closedChatsList, SIGNAL(customContextMenuRequested (const QPoint &)), this, SLOT(closedChatsMenu(QPoint)));
     connect(transferedChatsList, SIGNAL(customContextMenuRequested (const QPoint &)), this, SLOT(transferedChatsMenu(QPoint)));
+    connect(OnlineUsersList, SIGNAL(customContextMenuRequested (const QPoint &)), this, SLOT(onlineUsersMenu(QPoint)));
 
-
-    //Synchronize chats every 5 seconds.
+    //Synchronize chats every 10 seconds.
     timer->start(10000);
 }
 
@@ -156,6 +158,39 @@ void ChatRoomsWindow::activeChatsMenu(QPoint p)
     }
 }
 
+void ChatRoomsWindow::onlineUsersMenu(QPoint p)
+{
+    QTableWidgetItem *index = OnlineUsersList->itemAt(p);
+    if (index)
+    {
+        QMenu *pmenu = new QMenu();
+
+            QAction  *sendmsg,
+                     *info;
+            sendmsg = pmenu->addAction( QIcon(":/images/add.png"), tr("Send private message"));
+            info  = pmenu->addAction( QIcon(":/images/application_add.png"), tr("View user information"));
+            connect(sendmsg, SIGNAL(triggered()), this, SLOT(sendMessageWindow()));
+            connect(info, SIGNAL(triggered()), this, SLOT(userInfoWindow()));
+        pmenu->exec(QCursor::pos());
+        delete pmenu;
+    }
+}
+
+void ChatRoomsWindow::userInfoWindow()
+{
+    onlineuserinfo *crw = new onlineuserinfo(this,OnlineUsersList->getCurrentChat());
+
+    crw->setVisitorID(OnlineUsersList->getCurrentChat());
+    crw->show();
+}
+
+void ChatRoomsWindow::sendMessageWindow()
+{
+    privatemessage *crw = new privatemessage();
+
+    crw->setVisitorID(OnlineUsersList->getCurrentChat());
+    crw->show();
+}
 
 void ChatRoomsWindow::newActiveSepChatWindow()
 {
@@ -312,6 +347,36 @@ void ChatRoomsWindow::synschronize()
     lhwsc->LhcSendRequest("/xml/lists/",(QObject*) this, ChatRoomsWindow::receivedDataCallback);
 }
 
+void ChatRoomsWindow::createOnlineUsersTab()
+{
+
+    // Create tab layout
+    OnlineUsersGroupBox = new QGroupBox(tr("Online Users"));
+    OnlineUsersListVBOX = new QVBoxLayout;
+
+    OnlineUsersList = new LHQTableWidget(this);
+    OnlineUsersList->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    OnlineUsersList->setSelectionBehavior(QAbstractItemView::SelectRows);
+    OnlineUsersList->setSelectionMode(QAbstractItemView::SingleSelection);
+    OnlineUsersList->verticalHeader()->hide();
+    OnlineUsersList->setAlternatingRowColors(true);
+    OnlineUsersList->setContextMenuPolicy(Qt::CustomContextMenu);
+
+    OnlineUsersListVBOX->addWidget(OnlineUsersList);
+    OnlineUsersGroupBox->setLayout(OnlineUsersListVBOX);
+
+    // Initialize main tab layout
+    OnlineUsersDataVBOX = new QVBoxLayout;
+    OnlineUsersDataVBOX->addWidget(OnlineUsersGroupBox);
+
+    // Create tab container
+    tabOnlineUsers = new QWidget();
+    tabOnlineUsers->setLayout(OnlineUsersDataVBOX);
+
+    // Add tab
+    ChatRoomstabWidget->addTab(tabOnlineUsers,tr("Online Users"));
+}
+
 void ChatRoomsWindow::createPendingChatsTab()
 {  
     // Create transfered chats groupbox
@@ -366,8 +431,8 @@ void ChatRoomsWindow::createPendingChatsTab()
 }
 
 void ChatRoomsWindow::receivedDataCallback(void* pt2Object, QByteArray result)
-{  
-     //qDebug("value %s",QString(result).toStdString().c_str());
+{
+    //qDebug("value %s",QString(result).toStdString().c_str());
     ChatRoomsWindow* mySelf = (ChatRoomsWindow*) pt2Object;
     QScriptValue sc; 
     QScriptEngine engine;
@@ -376,9 +441,7 @@ void ChatRoomsWindow::receivedDataCallback(void* pt2Object, QByteArray result)
     mySelf->closedChatsList->setData(sc.property("closed_chats"));
     mySelf->activeChatsList->setData(sc.property("active_chats"));
     mySelf->transferedChatsList->setData(sc.property("transfered_chats"));
-
-    
-    
+    mySelf->OnlineUsersList->setData(sc.property("online_users"));
 
     // Avoid tooltips on initial request
     if (mySelf->balloonEnabled == false)
@@ -388,8 +451,6 @@ void ChatRoomsWindow::receivedDataCallback(void* pt2Object, QByteArray result)
 
         connect(mySelf->transferedChatsList, SIGNAL(newChatAdded(int,int)), mySelf->parentWidget, SLOT(showToolTipNewChat(int,int)));
         connect(mySelf->pendingChatsList, SIGNAL(newChatAdded(int,int)), mySelf->parentWidget, SLOT(showToolTipNewChat(int,int)));
-        //connect(mySelf->activeChatsList, SIGNAL(newChatAdded(int)), mySelf->parentWidget, SLOT(showToolTipNewChat(int)));
-        //connect(mySelf->closedChatsList, SIGNAL(newChatAdded(int)), mySelf->parentWidget, SLOT(showToolTipNewChat(int)));
 
         mySelf->balloonEnabled = true;
     }
