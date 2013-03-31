@@ -16,23 +16,23 @@ $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_lis
 <dl class="tabs" id="tabs">
 
   <?php if ($pendingTabEnabled == true) : ?>
-  <dd class="active"><a href="#simple1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Pending confirm');?></a></dd>
+  <dd class="active"><a href="#simple1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Pending confirm');?><span class="pn-cnt"></span></a></dd>
   <?php endif;?>
 
   <?php if ($activeTabEnabled == true) : ?>
-  <dd><a href="#simple2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Active chats');?></a></dd>
+  <dd><a href="#simple2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Active chats');?><span class="ac-cnt"></span></a></dd>
   <?php endif;?>
 
   <?php if ($unreadTabEnabled == true) : ?>
-  <dd><a href="#simple3"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Unread messages');?></a></dd>
+  <dd><a href="#simple3"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Unread messages');?><span class="un-cnt"></span></a></dd>
   <?php endif;?>
 
   <?php if ($closedTabEnabled == true) : ?>
-  <dd><a href="#simple4"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Closed chats');?></a></dd>
+  <dd><a href="#simple4"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Closed chats');?><span class="cl-cnt"></span></a></dd>
   <?php endif;?>
 
   <?php if ($canListOnlineUsers == true) : ?>
-  <dd><a href="#simple5"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Online operators');?></a></dd>
+  <dd><a href="#simple5"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Online operators');?><span class="onp-cnt"></span></a></dd>
   <?php endif; ?>
 
 </dl>

@@ -558,6 +558,14 @@ function lh(){
                 $.each(data.result,function(i,item) {
                     if (item.content != '') { $(item.dom_id).html(item.content); }
 
+                    if (item.dom_id_status != undefined) {
+                    	if (parseInt(item.dom_item_count) > 0) {
+                    		$(item.dom_id_status).html(' ('+item.dom_item_count+')');
+                    	} else {
+                    		$(item.dom_id_status).html('');
+                    	};
+                    };
+
                     if ( item.last_id_identifier ) {
                         if (inst.trackLastIDS[item.last_id_identifier] == undefined ) {
                             inst.trackLastIDS[item.last_id_identifier] = parseInt(item.last_id);
@@ -594,7 +602,17 @@ function lh(){
 	        if (data.error == 'false')
 	        {
                 $.each(data.result,function(i,item) {
-                    if (item.content != '') { $(item.dom_id).html(item.content); }
+                    if (item.content != '') {
+                    	$(item.dom_id).html(item.content);
+                    };
+
+                    if (item.dom_id_status != undefined) {
+                    	if (parseInt(item.dom_item_count) > 0) {
+                    		$(item.dom_id_status).html(' ('+item.dom_item_count+')');
+                    	} else {
+                    		$(item.dom_id_status).html('');
+                    	};
+                    };
                 });
 	        }
     	});

@@ -21,15 +21,16 @@ if ($activeTabEnabled == true) {
 	 * */
 	$chats = erLhcoreClassChat::getActiveChats(10);
 	$tpl->set('chats',$chats);
-	$ReturnMessages[] = array('dom_id' => '#active-chat-list,#right-active-chats', 'content' => trim($tpl->fetch( 'lhchat/lists/activechats.tpl.php')));
+	$ReturnMessages[] = array('dom_id_status' => '.ac-cnt', 'dom_item_count' => count($chats), 'dom_id' => '#active-chat-list,#right-active-chats', 'content' => trim($tpl->fetch( 'lhchat/lists/activechats.tpl.php')));
 }
 
 if ($closedTabEnabled == true) {
 	/**
 	 * Closed chats
 	 * */
-	$tpl->set('chats',erLhcoreClassChat::getClosedChats(10));
-	$ReturnMessages[] = array('dom_id' => '#closed-chat-list,#right-closed-chats', 'content' => trim($tpl->fetch( 'lhchat/lists/closedchats.tpl.php')));
+	$chats = erLhcoreClassChat::getClosedChats(10);
+	$tpl->set('chats',$chats);
+	$ReturnMessages[] = array('dom_id_status' => '.cl-cnt', 'dom_item_count' => count($chats), 'dom_id' => '#closed-chat-list,#right-closed-chats', 'content' => trim($tpl->fetch( 'lhchat/lists/closedchats.tpl.php')));
 }
 
 if ($pendingTabEnabled == true) {
@@ -49,7 +50,7 @@ if ($pendingTabEnabled == true) {
 	    $lastPendingChatID = $chatPending->id;
 	}
 
-	$ReturnMessages[] = array('dom_id' => '#right-pending-chats,#pending-chat-list', 'last_id_identifier' => 'pending_chat', 'last_id' => $lastPendingChatID, 'content' => trim($tpl->fetch('lhchat/lists/pendingchats.tpl.php')));
+	$ReturnMessages[] = array('dom_id_status' => '.pn-cnt', 'dom_item_count' => count($pendingChats),'dom_id' => '#right-pending-chats,#pending-chat-list', 'last_id_identifier' => 'pending_chat', 'last_id' => $lastPendingChatID, 'content' => trim($tpl->fetch('lhchat/lists/pendingchats.tpl.php')));
 }
 
 // Transfered chats
@@ -61,15 +62,16 @@ $tpl->set('transferchats',erLhcoreClassTransfer::getTransferChats(array('departm
 $ReturnMessages[] = array('dom_id' => '#right-transfer-departments', 'content' => trim($tpl->fetch('lhchat/lists/transferedchats.tpl.php')));
 
 if ($canListOnlineUsers == true) {
-	$tpl->set('current_user',$currentUser);
-	$ReturnMessages[] = array('dom_id' => '#online-operator-list', 'content' => trim($tpl->fetch('lhchat/lists/onlineoperators.tpl.php')));
+	$onlineOperators = erLhcoreClassModelUserDep::getOnlineOperators($currentUser);
+	$tpl->set('online_operators',$onlineOperators);
+	$ReturnMessages[] = array('dom_id_status' => '.onp-cnt', 'dom_item_count' => count($onlineOperators), 'dom_id' => '#online-operator-list', 'content' => trim($tpl->fetch('lhchat/lists/onlineoperators.tpl.php')));
 }
 
 if ($unreadTabEnabled == true) {
 	// Unread chats
 	$unreadChats = erLhcoreClassChat::getUnreadMessagesChats();
 	$tpl->set('chats',$unreadChats);
-	$ReturnMessages[] = array('dom_id' => '#unread-chat-list,#right-unread-chats', 'content' => trim($tpl->fetch('lhchat/lists/unread-chat-list.tpl.php')));
+	$ReturnMessages[] = array('dom_id_status' => '.un-cnt', 'dom_item_count' => count($unreadChats),'dom_id' => '#unread-chat-list,#right-unread-chats', 'content' => trim($tpl->fetch('lhchat/lists/unread-chat-list.tpl.php')));
 }
 
 // Update last visit
