@@ -280,7 +280,7 @@ function lh(){
 
 	this.closeActiveChatDialog = function(chat_id, tabs, hidetab)
 	{
-	    $.postJSON(this.wwwDir + this.closechatadmin + chat_id ,{}, function(data){
+	    $.getJSON(this.wwwDir + this.closechatadmin + chat_id ,{}, function(data){
 
 	    });
 
@@ -341,7 +341,7 @@ function lh(){
 	       $('#CSChatMessage-'+chat_id).unbind('keydown', 'enter', function(){});
 	    }
 
-	    $.postJSON(this.wwwDir + this.deletechatadmin + chat_id ,{}, function(data){
+	    $.getJSON(this.wwwDir + this.deletechatadmin + chat_id ,{}, function(data){
 	       if (data.error == 'true')
 	       {
 	           alert(data.result);
@@ -370,7 +370,7 @@ function lh(){
 
 	this.rejectPendingChat = function(chat_id, tabs)
 	{
-	    $.postJSON(this.wwwDir + this.deletechatadmin + chat_id ,{}, function(data){
+	    $.getJSON(this.wwwDir + this.deletechatadmin + chat_id ,{}, function(data){
 
 	    });
 	    this.syncadmininterfacestatic();
@@ -385,7 +385,7 @@ function lh(){
 
 	this.startChatTransfer = function(chat_id,tabs,name,transfer_id){
 		var inst = this;
-	    $.postJSON(this.wwwDir + this.accepttransfer + transfer_id ,{}, function(data){
+	    $.getJSON(this.wwwDir + this.accepttransfer + transfer_id ,{}, function(data){
 	    	inst.startChat(chat_id,tabs,name);
 	    }).fail(function(){
 	    	inst.startChat(chat_id,tabs,name);
@@ -394,7 +394,7 @@ function lh(){
 
 	this.startChatNewWindowTransfer = function(chat_id,name,transfer_id)
 	{
-	    $.postJSON(this.wwwDir + this.accepttransfer + transfer_id ,{}, function(data){
+	    $.getJSON(this.wwwDir + this.accepttransfer + transfer_id ,{}, function(data){
 
 	    });
 	    return this.startChatNewWindow(chat_id,name);
@@ -442,14 +442,14 @@ function lh(){
 
 	this.userclosedchat = function()
 	{
-	    $.postJSON(this.wwwDir + this.userclosechaturl + this.chat_id + '/' + this.hash ,{}, function(data){
+	    $.getJSON(this.wwwDir + this.userclosechaturl + this.chat_id + '/' + this.hash ,{}, function(data){
 
     	});
 	};
 
 	this.chatsyncuserpending = function ()
 	{
-	    $.postJSON(this.wwwDir + this.checkchatstatus + this.chat_id + '/' + this.hash ,{}, function(data){
+	    $.getJSON(this.wwwDir + this.checkchatstatus + this.chat_id + '/' + this.hash ,{}, function(data){
 	        // If no error
 	        if (data.error == 'false')
 	        {
