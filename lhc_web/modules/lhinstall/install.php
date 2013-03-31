@@ -428,7 +428,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ) DEFAULT CHARSET=utf8;");
 
                 // Insert record to departament instantly
-                $db->query("INSERT INTO `lh_userdep` (`user_id`,`dep_id`) VALUES ({$UserData->id},0)");
+                $db->query("INSERT INTO `lh_userdep` (`user_id`,`dep_id`,`last_activity`,`hide_online`) VALUES ({$UserData->id},0,0,0)");
 
                 // Transfer chat
                 $db->query("CREATE TABLE `lh_transfer` (
