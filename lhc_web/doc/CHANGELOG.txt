@@ -7,6 +7,8 @@ Resume:
 2. Same check messages algorithm for admin and user.
 3. Only one index is needed now for messages table. Improves write operations and eliminates update in user sync call.
 
+execute doc/update_db/update_17.sql
+
 1.25v
 
 Summary:
