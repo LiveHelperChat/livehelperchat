@@ -1,3 +1,0 @@
-The Tree component handles the creating, manipulating and querying of tree
-structures.  This component implements the database related backends and
-data stores.

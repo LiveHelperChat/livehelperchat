@@ -1,3 +1,0 @@
-The Tree component handles the creating, manipulating and querying of tree
-structures.  The component supports different storage algorithms for optimal
-performance.
