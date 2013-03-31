@@ -67,6 +67,11 @@ return array_merge(array (
         'erLhcoreClassModelRoleFunction'=> 'lib/models/lhpermission/erlhcoreclassmodelrolefunction.php',
         'erLhcoreClassModelDepartament' => 'lib/models/lhdepartament/erlhcoreclassmodeldepartament.php',
         'erLhcoreClassModelUserDep' 	=> 'lib/models/lhdepartament/erlhcoreclassmodeluserdep.php',
+
+		// Questionary module
+		'erLhcoreClassModelQuestion'	=> 'lib/models/lhquestionary/erlhcoreclassmodelquestion.php',
+		'erLhcoreClassQuestionary'		=> 'lib/core/lhquestionary/lhquestionary.php',
+		'erLhcoreClassModelQuestionAnswer'	=> 'lib/models/lhquestionary/erlhcoreclassmodelquestionanswer.php',
 ),
 include('var/autoloads/lhextension_autoload.php')
 );

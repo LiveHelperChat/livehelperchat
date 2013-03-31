@@ -38,6 +38,164 @@
     </message>
 </context>
 <context>
+    <name>questionary/newquestion</name>
+    <message>
+        <source>Save</source>
+        <translation>Saugoti</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Atšaukti</translation>
+    </message>
+    <message>
+        <source>Enter new question</source>
+        <translation>Įvesti naują klausimą</translation>
+    </message>
+    <message>
+        <source>New question</source>
+        <translation>Naujas klausimas</translation>
+    </message>
+</context>
+<context>
+    <name>questionary/previewanswer</name>
+    <message>
+        <source>Answer preview</source>
+        <translation>Atsakymo peržiūra</translation>
+    </message>
+</context>
+<context>
+    <name>questionary/answers</name>
+    <message>
+        <source>Answer</source>
+        <translation>Atsakymas</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation>Data</translation>
+    </message>
+    <message>
+        <source>IP</source>
+        <translation>IP</translation>
+    </message>
+    <message>
+        <source>View</source>
+        <translation>Peržiūra</translation>
+    </message>
+    <message>
+        <source>Delete answer</source>
+        <translation>Trinti atsakymą</translation>
+    </message>
+    <message>
+        <source>Empty...</source>
+        <translation>Trinti...</translation>
+    </message>
+</context>
+<context>
+    <name>questionary/form_question</name>
+    <message>
+        <source>Question</source>
+        <translation>Klausimas</translation>
+    </message>
+    <message>
+        <source>Show question for all URL containing this string E.g /shop/basket</source>
+        <translation>Rodyti klausimą visiems url kuriuose yra tekstas Pvz. /shop/basket</translation>
+    </message>
+    <message>
+        <source>Priority, if multiple questions matches location, question with higher priority will be shown</source>
+        <translation>Prioritetas, jeigu keletas klausimų atitinką tą patį adresą, klausimas su didesniu prioritetu bus rodomas</translation>
+    </message>
+    <message>
+        <source>Active</source>
+        <translation>Aktyvus</translation>
+    </message>
+</context>
+<context>
+    <name>questionary/edit</name>
+    <message>
+        <source>Please enter question!</source>
+        <translation>Prašome įvesti klausimą!</translation>
+    </message>
+    <message>
+        <source>Edit question</source>
+        <translation>Redaguoti klausimą</translation>
+    </message>
+    <message>
+        <source>Question</source>
+        <translation>Klausimas</translation>
+    </message>
+    <message>
+        <source>Answers</source>
+        <translation>Atsakymai</translation>
+    </message>
+    <message>
+        <source>Updated</source>
+        <translation>Atnaujinta</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Saugoti</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation>Atnaujinti</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Atšaukti</translation>
+    </message>
+</context>
+<context>
+    <name>questionary/list</name>
+    <message>
+        <source>Questionary</source>
+        <translation>Klausimynas</translation>
+    </message>
+    <message>
+        <source>Questions</source>
+        <translation>Klausimai</translation>
+    </message>
+    <message>
+        <source>Question</source>
+        <translation>Klausimas</translation>
+    </message>
+    <message>
+        <source>Location</source>
+        <translation>Puslapis</translation>
+    </message>
+    <message>
+        <source>Priority</source>
+        <translation>Prioritetas</translation>
+    </message>
+    <message>
+        <source>Edit question</source>
+        <translation>Redaguoti klausimą</translation>
+    </message>
+    <message>
+        <source>Delete question</source>
+        <translation>Trinti klausimą</translation>
+    </message>
+    <message>
+        <source>New question</source>
+        <translation>Naujas klausimas</translation>
+    </message>
+    <message>
+        <source>Empty...</source>
+        <translation>Tuščia...</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation>T</translation>
+    </message>
+    <message>
+        <source>N</source>
+        <translation>N</translation>
+    </message>
+    <message>
+        <source>Active</source>
+        <translation>Aktyvus</translation>
+    </message>
+</context>
+<context>
     <name>core/paginator</name>
     <message>
         <source>Page</source>
@@ -568,6 +726,10 @@
     <message>
         <source>Chats transfered to you directly</source>
         <translation>Pokalbiai pervesti Jums tiesiogiai</translation>
+    </message>
+    <message>
+        <source>Questionary</source>
+        <translation>Klausimynas</translation>
     </message>
     <message>
         <source>Transfered to you</source>
