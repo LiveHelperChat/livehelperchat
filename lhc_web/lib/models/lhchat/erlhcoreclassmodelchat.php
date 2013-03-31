@@ -44,6 +44,10 @@ class erLhcoreClassModelChat {
        	 erLhcoreClassChat::getSession()->saveOrUpdate($this);
    }
 
+   public function updateThis() {
+       	 erLhcoreClassChat::getSession()->update($this);
+   }
+
    public function setIP()
    {
        $this->ip = $_SERVER['REMOTE_ADDR'];

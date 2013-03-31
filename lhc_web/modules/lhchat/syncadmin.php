@@ -20,7 +20,7 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
 
         if ( erLhcoreClassChat::hasAccessToRead($Chat) )
         {
-            $Messages = erLhcoreClassChat::getPendingAdminMessages($chat_id,$MessageID);
+            $Messages = erLhcoreClassChat::getPendingMessages($chat_id,$MessageID);
 
             if (count($Messages) > 0)
             {

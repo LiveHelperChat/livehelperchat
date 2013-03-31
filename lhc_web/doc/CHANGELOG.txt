@@ -1,3 +1,12 @@
+1.26v
+
+Small release compared to previous one, but it does one amazing thing. Now all messages from user or operators will be checked with same query. Last message ID algorithm was implemented.
+
+Resume:
+1. Removed status column from messages table, not needed anymore.
+2. Same check messages algorithm for admin and user.
+3. Only one index is needed now for messages table. Improves write operations and eliminates update in user sync call.
+
 1.25v
 
 Summary:

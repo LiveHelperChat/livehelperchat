@@ -456,15 +456,12 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 $db->query("CREATE TABLE IF NOT EXISTS `lh_msg` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
 				  `msg` text NOT NULL,
-				  `status` int(11) NOT NULL DEFAULT '0',
 				  `time` int(11) NOT NULL,
 				  `chat_id` int(11) NOT NULL DEFAULT '0',
 				  `user_id` int(11) NOT NULL DEFAULT '0',
 				  `name_support` varchar(100) NOT NULL,
 				  PRIMARY KEY (`id`),
-				  KEY `status` (`status`,`chat_id`),
-				  KEY `chat_id_id` (`chat_id`, `id`),
-				  KEY `chat_id_user_id_status` (`chat_id`,`user_id`,`status`)
+				  KEY `chat_id_id` (`chat_id`, `id`)
 				) DEFAULT CHARSET=utf8;");
 
                 // Forgot password table

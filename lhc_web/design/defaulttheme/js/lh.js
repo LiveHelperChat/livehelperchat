@@ -37,6 +37,9 @@ function lh(){
     this.chat_id = null;
     this.hash = null;
 
+    // Used for synchronization for user chat
+    this.last_message_id = 0;
+
     // Is synchronization under progress
     this.isSinchronizing = false;
 
@@ -68,6 +71,10 @@ function lh(){
 
 
     this.closeWindowOnChatCloseDelete = false;
+
+    this.setLastUserMessageID = function(message_id) {
+    	this.last_message_id = message_id;
+    };
 
     this.setChatID = function (chat_id){
         this.chat_id = chat_id;
@@ -134,13 +141,13 @@ function lh(){
                 inst.is_typing = true;
                 clearTimeout(inst.typing_timeout);
                 $.getJSON(www_dir + 'chat/operatortyping/' + chat_id+'/true',{ }, function(data){
-                   inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);},2000);
+                   inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);},3000);
                 }).fail(function(){
-                	inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);},2000);
+                	inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);},3000);
                 });
             } else {
                  clearTimeout(inst.typing_timeout);
-                 inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);},2000);
+                 inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);},3000);
             }
         });
     };
@@ -171,13 +178,13 @@ function lh(){
                 inst.is_typing = true;
                 clearTimeout(inst.typing_timeout);
                 $.getJSON(www_dir + 'chat/usertyping/' + chat_id+'/'+inst.hash+'/true',{ }, function(data){
-                   inst.typing_timeout = setTimeout(function(){inst.typingStoppedUser(chat_id);},2000);
+                   inst.typing_timeout = setTimeout(function(){inst.typingStoppedUser(chat_id);},3000);
                 }).fail(function(){
-                	inst.typing_timeout = setTimeout(function(){inst.typingStoppedUser(chat_id);},2000);
+                	inst.typing_timeout = setTimeout(function(){inst.typingStoppedUser(chat_id);},3000);
                 });
             } else {
                  clearTimeout(inst.typing_timeout);
-                 inst.typing_timeout = setTimeout(function(){inst.typingStoppedUser(chat_id);},2000);
+                 inst.typing_timeout = setTimeout(function(){inst.typingStoppedUser(chat_id);},3000);
             }
         });
     };
@@ -231,7 +238,7 @@ function lh(){
 
 	    var modeWindow = this.isWidgetMode == true ? '/(mode)/widget' : '';
 
-	    $.getJSON(this.wwwDir + this.syncuser + this.chat_id + '/' + this.hash + modeWindow ,{ }, function(data){
+	    $.getJSON(this.wwwDir + this.syncuser + this.chat_id + '/'+ this.last_message_id + '/' + this.hash + modeWindow ,{ }, function(data){
 	        // If no error
 	        if (data.error == 'false')
 	        {
@@ -246,9 +253,14 @@ function lh(){
                 			     inst.playNewMessageSound();
                 			};
 
+                			// Set last message ID
+                			inst.last_message_id = data.message_id;
+
     	            } else {
     	                if ( data.status != 'true') $('#status-chat').html(data.status);
     	            }
+
+
         			setTimeout(chatsyncuser,confLH.chat_message_sinterval);
 
         			if ( data.is_typing == 'true' ) {
@@ -634,13 +646,14 @@ function lh(){
 
 		$('#CSChatMessage').attr('value','');
 
-       $.postJSON(this.wwwDir + this.addmsgurluser + this.chat_id + '/' + this.hash + modeWindow, pdata , function(data){
+		var inst = this;
 
+        $.postJSON(this.wwwDir + this.addmsgurluser + this.chat_id + '/' + this.hash + modeWindow, pdata , function(data){
 		    $('#messagesBlock').append(data.result);
 		    $('#messagesBlock').animate({ scrollTop: $("#messagesBlock").prop("scrollHeight") }, 3000);
 		    $('#CSChatMessage').val('');
-
-           return true;
+		    inst.last_message_id = data.message_id;
+            return true;
 		});
     };
 

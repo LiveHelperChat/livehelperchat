@@ -57,6 +57,7 @@ $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_lis
   <?php if ($unreadTabEnabled == true) : ?>
   <li id="simple3Tab">
   	<div id="unread-chat-list"></div>
+  	<br/>
   	<a class="small button round" href="<?php echo erLhcoreClassDesign::baseurl('chat/unreadchats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','All unread chats');?></a>
   </li>
   <?php endif;?>

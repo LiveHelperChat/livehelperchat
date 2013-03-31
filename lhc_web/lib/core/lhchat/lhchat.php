@@ -476,36 +476,12 @@ class erLhcoreClassChat {
        return $rows;
     }
 
-   /**
-    * All messages, with should get user, with status Pending
-    *
-    * */
-   public static function getPendingUserMessages($chat_id)
-   {
-        $db = ezcDbInstance::get();
-
-        $stmt = $db->prepare('SELECT * FROM lh_msg USE INDEX (chat_id_user_id_status) WHERE chat_id = :chat_id AND user_id != 0 AND status = 0 ORDER BY id ASC');
-        $stmt->bindValue( ':chat_id',$chat_id);
-        $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $stmt->execute();
-        $rows = $stmt->fetchAll();
-
-        // Update only if we have found unread messages
-        if ( count($rows) > 0 ) {
-	        // Change messages status
-	        $stmt = $db->prepare("UPDATE lh_msg SET status = 1 WHERE chat_id = :chat_id AND user_id != 0 AND status = 0");
-	        $stmt->bindValue( ':chat_id',$chat_id);
-	        $stmt->execute();
-        }
-
-        return $rows;
-   }
 
    /**
-    * All messages, wich should get administrator, with status Pending
+    * All messages, which should get administrator/user
     *
     * */
-   public static function getPendingAdminMessages($chat_id,$message_id)
+   public static function getPendingMessages($chat_id,$message_id)
    {
        $db = ezcDbInstance::get();
        $stmt = $db->prepare('SELECT lh_msg.* FROM lh_msg INNER JOIN ( SELECT id FROM lh_msg WHERE chat_id = :chat_id AND id > :message_id ORDER BY id ASC) AS items ON lh_msg.id = items.id');
@@ -515,11 +491,6 @@ class erLhcoreClassChat {
        $stmt->execute();
        $rows = $stmt->fetchAll();
 
-       // Change messages status, why do we need set status = 1 if admin fetches messages by last message ID ???
-       //$stmt = $db->prepare("UPDATE lh_msg SET status = 1 WHERE user_id = 0 AND status = 0 AND chat_id = :chat_id");
-       //$stmt->bindValue( ':chat_id',$chat_id);
-       //$stmt->execute();
-
        return $rows;
    }
 
@@ -528,17 +499,14 @@ class erLhcoreClassChat {
     * */
    public static function getChatMessages($chat_id)
    {
-       $db = ezcDbInstance::get();
-
-       $stmt = $db->prepare('SELECT lh_msg.* FROM lh_msg WHERE chat_id = :chat_id ORDER BY id ASC');
+   	   $db = ezcDbInstance::get();
+       $stmt = $db->prepare('SELECT lh_msg.* FROM lh_msg INNER JOIN ( SELECT id FROM lh_msg WHERE chat_id = :chat_id ORDER BY id ASC) AS items ON lh_msg.id = items.id');
        $stmt->bindValue( ':chat_id',$chat_id);
        $stmt->setFetchMode(PDO::FETCH_ASSOC);
        $stmt->execute();
        $rows = $stmt->fetchAll();
-
        return $rows;
    }
-
 
    public static function hasAccessToRead($chat)
    {

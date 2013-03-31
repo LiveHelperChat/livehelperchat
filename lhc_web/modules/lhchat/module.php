@@ -128,7 +128,7 @@ $ViewList['addmsguser'] = array(
 
 $ViewList['syncuser'] = array(
     'script' => 'syncuser.php',
-    'params' => array('chat_id','hash'),
+    'params' => array('chat_id','message_id','hash'),
 	'uparams' => array('mode')
 );
 

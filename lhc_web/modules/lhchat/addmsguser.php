@@ -18,7 +18,6 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && strlen($form->msg)
     {
         $msg = new erLhcoreClassModelmsg();
         $msg->msg = trim($form->msg);
-        $msg->status = 0;
         $msg->chat_id = $Params['user_parameters']['chat_id'];
         $msg->user_id = 0;
         $Chat->last_user_msg_time = $msg->time = time();
@@ -26,7 +25,7 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && strlen($form->msg)
         erLhcoreClassChat::getSession()->save($msg);
 
         $Chat->has_unread_messages = 1;
-        $Chat->saveThis();
+        $Chat->updateThis();
 
         $tpl->set('msg',$msg);
         $tpl->set('chat',$Chat);
@@ -40,7 +39,7 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && strlen($form->msg)
 }
 
 
-echo json_encode(array('error' => 'false','chat_id' => $Params['user_parameters']['chat_id'], 'result' => $tpl->fetch() ));
+echo json_encode(array('error' => 'false','chat_id' => $Params['user_parameters']['chat_id'], 'message_id' => (is_object($msg) ? $msg->id : 0), 'result' => $tpl->fetch() ));
 exit;
 
 ?>
