@@ -1,0 +1,1 @@
+<a href="<?php echo erLhcoreClassDesign::baseurl('questionary/htmlcode')?>" class="round button small right"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Embed html code');?></a>

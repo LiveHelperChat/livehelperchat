@@ -1,8 +1,11 @@
+<?php include(erLhcoreClassDesign::designtpl('lhquestionary/embed_button.tpl.php'));?>
+
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Edit question');?> - <?php echo htmlspecialchars($question->question)?></h1>
 
 <dl class="tabs">
   <dd <?php if ($tab == '') : ?>class="active"<?php endif;?>><a href="#simple1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Question');?></a></dd>
-  <dd <?php if ($tab == 'answers') : ?>class="active"<?php endif;?>><a href="#simple2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Answers');?></a></dd>
+  <dd <?php if ($tab == 'voting') : ?>class="active"<?php endif;?>><a href="#simple2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Voting options');?></a></dd>
+  <dd <?php if ($tab == 'answers') : ?>class="active"<?php endif;?>><a href="#simple3"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Answers');?></a></dd>
 </dl>
 
 <ul class="tabs-content">
@@ -28,7 +31,10 @@
 
 		</form>
 	</li>
-	<li <?php if ($tab == 'answers') : ?>class="active"<?php endif;?> id="simple2Tab">
+	<li <?php if ($tab == 'voting') : ?>class="active"<?php endif;?> id="simple2Tab">
+		<?php include(erLhcoreClassDesign::designtpl('lhquestionary/voting.tpl.php'));?>
+	</li>
+	<li <?php if ($tab == 'answers') : ?>class="active"<?php endif;?> id="simple3Tab">
 		<?php include(erLhcoreClassDesign::designtpl('lhquestionary/answers.tpl.php'));?>
 	</li>
 </ul>

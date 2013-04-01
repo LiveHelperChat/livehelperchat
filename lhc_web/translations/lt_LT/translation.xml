@@ -87,7 +87,7 @@
     </message>
     <message>
         <source>Empty...</source>
-        <translation>Trinti...</translation>
+        <translation>Tuščia...</translation>
     </message>
 </context>
 <context>
@@ -140,8 +140,48 @@
         <translation>Atnaujinti</translation>
     </message>
     <message>
+        <source>Embed html code</source>
+        <translation>Įterpimo html kodas</translation>
+    </message>
+    <message>
         <source>Cancel</source>
         <translation>Atšaukti</translation>
+    </message>
+    <message>
+        <source>Option</source>
+        <translation>Parinktis</translation>
+    </message>
+    <message>
+        <source>Option position</source>
+        <translation>Parinkties pozicija</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation>Redaguoti</translation>
+    </message>
+    <message>
+        <source>Please enter option!</source>
+        <translation>Prašome įvesti parinktį!</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Trinti</translation>
+    </message>
+    <message>
+        <source>Position</source>
+        <translation>Pozicija</translation>
+    </message>
+    <message>
+        <source>Enter name...</source>
+        <translation>Įveskite pavadinimą</translation>
+    </message>
+    <message>
+        <source>Voting options</source>
+        <translation>Balsavimo parinktys</translation>
+    </message>
+    <message>
+        <source>If there are no options to choose from to use will be shown text field where he will be able to enter his own answer.</source>
+        <translation>Jei nėra įvesta nei viena parinktis, vartotojui bus rodoma užklausaos forma su tekstiniu lauku, kur jis galės pats įvesti atsakymą.</translation>
     </message>
 </context>
 <context>

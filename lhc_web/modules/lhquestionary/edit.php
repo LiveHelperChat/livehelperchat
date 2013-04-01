@@ -3,7 +3,9 @@
 $tpl = erLhcoreClassTemplate::getInstance('lhquestionary/edit.tpl.php');
 $Question = erLhcoreClassModelQuestion::fetch((int)$Params['user_parameters']['id']);
 
-$tab = $Params['user_parameters_unordered']['tab'] == 'answers' ? 'answers' : '';
+$validTabs = array('answers','voting');
+
+$tab = in_array((string)$Params['user_parameters_unordered']['tab'], $validTabs) ? (string)$Params['user_parameters_unordered']['tab'] : '';
 $tpl->set('tab',$tab);
 
 if ( isset($_POST['CancelAction']) ) {
@@ -74,6 +76,59 @@ if (isset($_POST['UpdateAction']) || isset($_POST['SaveAction'])  )
 	}
 }
 
+// Voting tab actions
+$Option = (int)$Params['user_parameters_unordered']['option_id'] > 0 ? erLhcoreClassModelQuestionOption::fetch((int)$Params['user_parameters_unordered']['option_id']) : new erLhcoreClassModelQuestionOption();
+
+if ( isset($_POST['UpdateO']) )
+{
+	$tab = 'voting';
+
+	$definition = array(
+			'Option' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+			),
+			'Priority' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'int'
+			)
+	);
+	$form = new ezcInputForm( INPUT_POST, $definition );
+	$Errors = array();
+
+	if ( !$form->hasValidData( 'Option' ) || $form->Option == '' )
+	{
+		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Please enter option!');
+	}
+
+	if ( $form->hasValidData( 'Priority' ) ) {
+		$Option->priority = $form->Priority;
+	} else {
+		$Option->priority = 0;
+	}
+
+	if (count($Errors) == 0)
+	{
+		$Option->option_name = $form->Option;
+		$Option->question_id = $Question->id;
+		$Option->saveThis();
+
+		// Mark question as it's voting
+		$Question->is_voting = 1;
+		$Question->saveThis();
+
+		erLhcoreClassModule::redirect('questionary/edit','/'.$Question->id.'/(tab)/voting');
+		exit;
+	} else {
+		$tpl->set('errors',$Errors);
+	}
+}
+
+if ( isset($_POST['CancelO']) ) {
+	erLhcoreClassModule::redirect('questionary/edit','/'.$Question->id.'/(tab)/voting');
+	exit;
+}
+
+
+
 // Answers
 $pages = new lhPaginator();
 $pages->serverURL = erLhcoreClassDesign::baseurl('questionary/edit').'/'.$Question->id.'/(tab)/answers';
@@ -88,8 +143,8 @@ if ($pages->items_total > 0) {
 
 $tpl->set('items',$items);
 $tpl->set('pages',$pages);
-
 $tpl->set('question',$Question);
+$tpl->set('option',$Option);
 
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(

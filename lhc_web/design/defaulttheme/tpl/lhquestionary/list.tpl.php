@@ -1,3 +1,4 @@
+<?php include(erLhcoreClassDesign::designtpl('lhquestionary/embed_button.tpl.php'));?>
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/list','Questions');?></h1>
 
 <?php if ($pages->items_total > 0) : ?>

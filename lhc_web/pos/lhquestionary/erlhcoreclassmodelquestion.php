@@ -29,6 +29,11 @@ $def->properties['priority']->columnName   = 'priority';
 $def->properties['priority']->propertyName = 'priority';
 $def->properties['priority']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['is_voting'] = new ezcPersistentObjectProperty();
+$def->properties['is_voting']->columnName   = 'is_voting';
+$def->properties['is_voting']->propertyName = 'is_voting';
+$def->properties['is_voting']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

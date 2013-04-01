@@ -28,6 +28,25 @@ $ViewList['deleteanswer'] = array(
 		'functions' => array( 'manage_questionary' )
 );
 
+$ViewList['deleteoption'] = array(
+		'script' => 'deleteoption.php',
+		'params' => array('id'),
+		'functions' => array( 'manage_questionary' )
+);
+
+$ViewList['htmlcode'] = array(
+		'script' => 'htmlcode.php',
+		'params' => array(),
+		'functions' => array( 'manage_questionary' )
+);
+
+$ViewList['getstatus'] = array(
+		'script' => 'getstatus.php',
+		'params' => array(),
+		'functions' => array( ),
+		'uparams' => array('position')
+);
+
 $ViewList['previewanswer'] = array(
 		'script' => 'previewanswer.php',
 		'params' => array('id'),
@@ -36,8 +55,8 @@ $ViewList['previewanswer'] = array(
 
 $ViewList['edit'] = array(
 		'script' => 'edit.php',
-		'params' => array('id'),
-		'uparams' => array('tab'),
+		'params' => array('id',),
+		'uparams' => array('tab','option_id'),
 		'functions' => array( 'manage_questionary' )
 );
 

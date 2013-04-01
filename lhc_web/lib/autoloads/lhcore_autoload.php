@@ -69,9 +69,12 @@ return array_merge(array (
         'erLhcoreClassModelUserDep' 	=> 'lib/models/lhdepartament/erlhcoreclassmodeluserdep.php',
 
 		// Questionary module
-		'erLhcoreClassModelQuestion'	=> 'lib/models/lhquestionary/erlhcoreclassmodelquestion.php',
-		'erLhcoreClassQuestionary'		=> 'lib/core/lhquestionary/lhquestionary.php',
-		'erLhcoreClassModelQuestionAnswer'	=> 'lib/models/lhquestionary/erlhcoreclassmodelquestionanswer.php',
+		'erLhcoreClassModelQuestion'			=> 'lib/models/lhquestionary/erlhcoreclassmodelquestion.php',
+		'erLhcoreClassQuestionary'				=> 'lib/core/lhquestionary/lhquestionary.php',
+		'erLhcoreClassModelQuestionAnswer'		=> 'lib/models/lhquestionary/erlhcoreclassmodelquestionanswer.php',
+		'erLhcoreClassModelQuestionOption'		=> 'lib/models/lhquestionary/erlhcoreclassmodelquestionoption.php',
+		'erLhcoreClassModelQuestionOptionAnswer'=> 'lib/models/lhquestionary/erlhcoreclassmodelquestionoptionanswer.php',
+
 ),
 include('var/autoloads/lhextension_autoload.php')
 );

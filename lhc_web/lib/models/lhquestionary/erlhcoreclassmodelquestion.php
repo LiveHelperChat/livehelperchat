@@ -10,6 +10,7 @@ class erLhcoreClassModelQuestion {
        		    'location'   => $this->location,
        			'active'	 => $this->active,
        			'priority'	 => $this->priority,
+       			'is_voting'	 => $this->is_voting,
               );
    }
 
@@ -46,13 +47,15 @@ class erLhcoreClassModelQuestion {
 
    public function __get($var){
        switch ($var) {
-       	case 'user':
-       	        try {
-           		   $this->user = erLhcoreClassModelUser::fetch($this->user_id);
-       	        } catch (Exception $e){
-       	            $this->user = 'Not exist';
-       	        }
-           		return $this->user;
+
+       	case 'total_votes':
+       			$this->total_votes = erLhcoreClassQuestionary::getCount(array('filter' => array('question_id' => $this->id)),'lh_question_option_answer');
+           		return $this->total_votes;
+       		break;
+
+       	case 'total_votes_for_percentange':
+       			$this->total_votes_for_percentange = $this->total_votes == 0 ? 1 : $this->total_votes;
+           		return $this->total_votes_for_percentange;
        		break;
 
        	default:
@@ -65,6 +68,7 @@ class erLhcoreClassModelQuestion {
    public $location = '';
    public $active = 1;
    public $priority = 0;
+   public $is_voting = 0;
 }
 
 ?>

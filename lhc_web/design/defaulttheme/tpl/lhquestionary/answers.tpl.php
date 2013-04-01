@@ -26,6 +26,27 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/paginator.tpl.php')); ?>
 <?php endif;?>
 
+<?php elseif ($question->is_voting == 1) : ?>
+
+<table class="twelve" cellpadding="0" cellspacing="0">
+<thead>
+<tr>
+    <th width="1%">ID</th>
+    <th class="five"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/answers','Option name');?></th>
+    <th class="five"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/answers','Progress');?></th>
+    <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/answers','Votes');?></th>
+</tr>
+</thead>
+<?php foreach ($optionsItems as $optionsItem) : ?>
+    <tr>
+        <td><?php echo $optionsItem->id?></td>
+        <td><?php echo htmlspecialchars($optionsItem->option_name)?></td>
+        <td><div class="progress ten"><span style="width: <?php echo $optionsItem->votes/$question->total_votes_for_percentange?>%" class="meter"></span></div></td>
+        <td>(<?php echo $optionsItem->votes?>)</td>
+    </tr>
+<?php endforeach; ?>
+</table>
+
 <?php else : ?>
 <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/answers','Empty...');?></p>
 <?php endif;?>
