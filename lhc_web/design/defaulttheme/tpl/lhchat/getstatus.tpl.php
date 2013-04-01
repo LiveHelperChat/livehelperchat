@@ -149,7 +149,7 @@ lh_inst.showStatusWidget();
 if (($hashSession = CSCacheAPC::getMem()->getSession('chat_hash_widget')) !== false) : ?>
    lh_inst.stopCheckNewMessage();
    lh_inst.showStartWindow();
-<?php elseif (isset($visitor) && $visitor->has_message_from_operator == true) : ?>
+<?php elseif (isset($visitor) && is_object($visitor) && $visitor->has_message_from_operator == true) : ?>
    lh_inst.stopCheckNewMessage();
    lh_inst.showStartWindow('<?php echo erLhcoreClassSystem::instance()->baseHTTP?><?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/readoperatormessage')?>');
 <?php endif;
