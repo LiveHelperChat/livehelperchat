@@ -308,8 +308,6 @@ class erLhcoreClassModelChatOnlineUser {
        //$cookieData .= print_r($_SESSION,true);
 
        // Track only not logged users
-       if ( erLhcoreClassUser::instance()->isLogged() == false )
-       {
            if ( isset($_COOKIE['lhc_vid']) ) {
                $items = erLhcoreClassModelChatOnlineUser::getList(array('filter' => array('vid' => $_COOKIE['lhc_vid'])));
                if (!empty($items)) {
@@ -350,9 +348,6 @@ class erLhcoreClassModelChatOnlineUser {
            $item->saveThis();
 
            return $item;
-       }
-
-       return false;
    }
 
    public function saveThis() {
