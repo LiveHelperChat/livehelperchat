@@ -41,6 +41,10 @@ div.alert-box ul {
     margin-top:10px;
 }
 
+.mt0 {
+    margin-top:0px;
+}
+
 .footer-row {
     border-top: 1px solid #CCC;
 }
@@ -73,6 +77,14 @@ select {
 	height:30px;
 	padding:0 10px;
 	font-size:12px;
+}
+
+.fs11 {
+	font-size: 12px;
+}
+
+.mb5 {
+	margin-bottom: 5px;
 }
 
 .tabs {

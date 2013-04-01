@@ -24,6 +24,41 @@ class erLhcoreClassQuestionary {
 
 	private static $persistentSession;
 
+	// Returns relative voting item, if matched items are with the same priority
+	// item with longer location should be returned first/
+	public static function getReletiveVoting($url) {
+
+		$matchString = '';
+		if ($url != '') {
+			$parts = parse_url($url);
+			if (isset($parts['path'])) {
+				$matchString = $parts['path'];
+			}
+
+			if (isset($parts['query'])) {
+				$matchString .= '?'.$parts['query'];
+			}
+		}
+
+		$mostRelative = false;
+
+		$items = self::getList(array('sort' => 'priority DESC', 'filter' => array('active' => 1)));
+
+		foreach ($items as $item) {
+			if ( (empty($item->location) || $item->location == '/') && $mostRelative == false) { // Select standard one if we do not have yet one
+				$mostRelative = $item;
+			} else if ( !empty($item->location) && $item->location != '/' && strpos($matchString, $item->location) !== false) {
+				if ($mostRelative == false) {
+					$mostRelative = $item;
+				} elseif (strlen($item->location) > strlen($mostRelative->location)) {
+					$mostRelative = $item;
+				}
+			}
+		}
+
+		return $mostRelative;
+	}
+
     public static function getList($paramsSearch = array(), $class = 'erLhcoreClassModelQuestion', $tableName = 'lh_question')
     {
 	       $paramsDefault = array('limit' => 32, 'offset' => 0);

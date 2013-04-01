@@ -44,7 +44,19 @@ $ViewList['getstatus'] = array(
 		'script' => 'getstatus.php',
 		'params' => array(),
 		'functions' => array( ),
-		'uparams' => array('position')
+		'uparams' => array('position','expand')
+);
+
+$ViewList['votingwidget'] = array(
+		'script' => 'votingwidget.php',
+		'params' => array(),
+		'functions' => array( )
+);
+
+$ViewList['votingwidgetclosed'] = array(
+		'script' => 'votingwidgetclosed.php',
+		'params' => array(),
+		'functions' => array( )
 );
 
 $ViewList['previewanswer'] = array(

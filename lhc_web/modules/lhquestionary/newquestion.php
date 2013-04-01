@@ -9,6 +9,9 @@ if (isset($_POST['SaveAction']))
 			'Question' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
 			),
+			'QuestionIntro' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+			),
 			'Location' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
 			),
@@ -31,6 +34,11 @@ if (isset($_POST['SaveAction']))
 		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Please enter question!');
 	} else {
 		$Data->question = $form->Question;
+	}
+
+	if ( $form->hasValidData( 'QuestionIntro' ) )
+	{
+		$Data->question_intro = $form->QuestionIntro;
 	}
 
 	if ( $form->hasValidData( 'Location' ) )

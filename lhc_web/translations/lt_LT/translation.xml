@@ -38,6 +38,64 @@
     </message>
 </context>
 <context>
+    <name>questionary/htmlcode</name>
+    <message>
+        <source>HTML code</source>
+        <translation>HTML kodas</translation>
+    </message>
+    <message>
+        <source>Status text</source>
+        <translation>Statuso tekstas</translation>
+    </message>
+    <message>
+        <source>Expand widget automatically for new users</source>
+        <translation>Išskleisti widgetą automatiškai naujiems lankytojams</translation>
+    </message>
+    <message>
+        <source>Copy code from textarea to page header or footer</source>
+        <translation>Nukopijuokite tekstą į puslapio head dalį arba footeri</translation>
+    </message>
+</context>
+<context>
+    <name>questionary/votingwidget</name>
+    <message>
+        <source>Vote</source>
+        <translation>Balsuoti</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation>Siųsti</translation>
+    </message>
+    <message>
+        <source>We do not have any requests for now.</source>
+        <translation>Mes neturime aktualių apklausų šiuo metu.</translation>
+    </message>
+    <message>
+        <source>You have already voted, thank you!</source>
+        <translation>Jūs jau balsavote, ačiū!</translation>
+    </message>
+    <message>
+        <source>Thank you!</source>
+        <translation>Ačiū!</translation>
+    </message>
+    <message>
+        <source>You have already send your feedback!</source>
+        <translation>Jūs jau atsiuntėte savo atsiliepimą!</translation>
+    </message>
+    <message>
+        <source>No question was detected</source>
+        <translation>Klausimas nerastas</translation>
+    </message>
+    <message>
+        <source>Please enter your feedback!</source>
+        <translation>Įveskite savo atsiliepimą!</translation>
+    </message>
+    <message>
+        <source>Please choose one of the option!</source>
+        <translation>Pasirinkite vieną iš galimų variantų!</translation>
+    </message>
+</context>
+<context>
     <name>questionary/newquestion</name>
     <message>
         <source>Save</source>
@@ -86,6 +144,18 @@
         <translation>Trinti atsakymą</translation>
     </message>
     <message>
+        <source>Option name</source>
+        <translation>Pasirinkimo variantas</translation>
+    </message>
+    <message>
+        <source>Progress</source>
+        <translation>Progresas</translation>
+    </message>
+    <message>
+        <source>Votes</source>
+        <translation>Balsai</translation>
+    </message>
+    <message>
         <source>Empty...</source>
         <translation>Tuščia...</translation>
     </message>
@@ -95,6 +165,10 @@
     <message>
         <source>Question</source>
         <translation>Klausimas</translation>
+    </message>
+    <message>
+        <source>Question intro</source>
+        <translation>Klausimo įžanga</translation>
     </message>
     <message>
         <source>Show question for all URL containing this string E.g /shop/basket</source>
@@ -1856,6 +1930,18 @@
     <message>
         <source>Bottom right corner of the screen</source>
         <translation>Rodyti ekrano apačioje, dešinėje pusėje</translation>
+    </message>
+    <message>
+        <source>Bottom left corner of the screen</source>
+        <translation>Rodyti ekrano apačioje, kairėje pusėje</translation>
+    </message>
+    <message>
+        <source>Middle right side of the screen</source>
+        <translation>Rodyti ekrano dešinėje pusėje per vidurį</translation>
+    </message>
+    <message>
+        <source>Middle left side of the screen</source>
+        <translation>Rodyti ekrano kairėje pusėje per vidurį</translation>
     </message>
     <message>
         <source>Hide status then offline</source>

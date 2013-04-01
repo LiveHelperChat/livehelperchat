@@ -19,6 +19,9 @@ if (isset($_POST['UpdateAction']) || isset($_POST['SaveAction'])  )
 			'Question' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
 			),
+			'QuestionIntro' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+			),
 			'Location' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
 			),
@@ -36,6 +39,11 @@ if (isset($_POST['UpdateAction']) || isset($_POST['SaveAction'])  )
 	if ( !$form->hasValidData( 'Question' ) || $form->Question == '' )
 	{
 		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Please enter question!');
+	}
+
+	if ( $form->hasValidData( 'QuestionIntro' ) )
+	{
+		$Question->question_intro = $form->QuestionIntro;
 	}
 
 	if ( $form->hasValidData( 'Location' ) )

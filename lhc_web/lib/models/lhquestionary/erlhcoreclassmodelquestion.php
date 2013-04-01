@@ -5,12 +5,13 @@ class erLhcoreClassModelQuestion {
    public function getState()
    {
        return array(
-                'id'         => $this->id,
-                'question'   => $this->question,
-       		    'location'   => $this->location,
-       			'active'	 => $this->active,
-       			'priority'	 => $this->priority,
-       			'is_voting'	 => $this->is_voting,
+                'id'         	 => $this->id,
+                'question'   	 => $this->question,
+                'question_intro' => $this->question_intro,
+       		    'location'   	 => $this->location,
+       			'active'	 	 => $this->active,
+       			'priority'	 	 => $this->priority,
+       			'is_voting'	 	 => $this->is_voting,
               );
    }
 
@@ -58,6 +59,11 @@ class erLhcoreClassModelQuestion {
            		return $this->total_votes_for_percentange;
        		break;
 
+       	case 'options':
+       			$this->options = erLhcoreClassQuestionary::getList(array('sort' => 'priority DESC', 'filter' => array('question_id' => $this->id)),'erLhcoreClassModelQuestionOption','lh_question_option');;
+       			return $this->options;
+       		break;
+
        	default:
        		break;
        }
@@ -66,6 +72,7 @@ class erLhcoreClassModelQuestion {
    public $id = null;
    public $question = '';
    public $location = '';
+   public $question_intro = '';
    public $active = 1;
    public $priority = 0;
    public $is_voting = 0;
