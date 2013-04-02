@@ -1,3 +1,13 @@
+1.27v
+
+Feature release:
+
+Resume:
+1. Questionary/Voting module for collecting users feedback.
+2. Different positions for live helper main widget
+
+execute doc/update_db/update_18_questionary.sql
+
 1.26v
 
 Small release compared to previous one, but it does one amazing thing. Now all messages from user or operators will be checked with same query. Last message ID algorithm was implemented.

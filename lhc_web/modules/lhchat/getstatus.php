@@ -1,6 +1,7 @@
 <?php
 
 header('P3P: CP="NOI ADM DEV COM NAV OUR STP"');
+header("Content-type: text/javascript");
 
 $tpl = erLhcoreClassTemplate::getInstance('lhchat/getstatus.tpl.php');
 
