@@ -54,7 +54,7 @@ $positionArgument = array (
 if (key_exists($position, $positionArgument)){
 	$currentPosition = $positionArgument[$position];
 } else {
-	$currentPosition = $positionArgument['original'];
+	$currentPosition = $positionArgument['bottom_right'];
 }
 
 $isOnlineHelp = erLhcoreClassChat::isOnline();
