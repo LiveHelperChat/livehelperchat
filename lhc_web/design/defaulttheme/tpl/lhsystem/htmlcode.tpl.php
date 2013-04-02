@@ -16,7 +16,7 @@
         <select id="LocaleID">
             <?php foreach ($locales as $locale ) : ?>
             <option value="<?php echo $locale?>/"><?php echo $locale?></option>
-            <?php endforeach; ?>    
+            <?php endforeach; ?>
         </select>
     </div>
     <div class="columns six">
@@ -24,6 +24,9 @@
         <select id="PositionID">
                <option value="original"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Native placement - will be shown where html is embeded');?></option>
                <option value="bottom_right"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Bottom right corner of the screen');?></option>
+               <option value="bottom_left"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Bottom left corner of the screen');?></option>
+               <option value="middle_right"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Middle right side of the screen');?></option>
+               <option value="middle_left"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Middle left side of the screen');?></option>
         </select>
     </div>
 </div>
@@ -38,18 +41,18 @@ var default_site_access = '<?php echo erConfigClassLhConfig::getInstance()->getS
 
 function generateEmbedCode(){
     var siteAccess = $('#LocaleID').val() == default_site_access ? '' : $('#LocaleID').val();
-    var id_internal_popup = $('#id_internal_popup').is(':checked') ? '/(click)/internal' : '';    
+    var id_internal_popup = $('#id_internal_popup').is(':checked') ? '/(click)/internal' : '';
     var id_hide_then_offline = $('#id_hide_then_offline').is(':checked') ? '/(hide_offline)/true' : '';
     var id_check_operator_message = $('#id_check_operator_message').is(':checked') ? '/(check_operator_messages)/true' : '';
-        
+
     var id_position =  '/(position)/'+$('#PositionID').val();
     var id_tag = '';
-    
+
     if ($('#PositionID').val() == 'original'){
         id_tag = '<!-- Place this tag where you want the Live Helper Status to render. -->'+"\n"+
         '<div id="lhc_status_container" ></div>'+"\n\n<!-- Place this tag after the Live Helper status tag. -->\n";
     };
-    
+
     var script = '<script type="text/javascript">'+"\n"+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
@@ -57,11 +60,11 @@ function generateEmbedCode(){
         'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);'+"\n"+
       '})();'+"\n"+
     '</scr'+'ipt>';
-    
+
     $('#HMLTContent').text(id_tag+script);
 };
 
-$('#LocaleID,#id_internal_popup,#id_position_bottom,#PositionID,#id_hide_then_offline,#id_check_operator_message').change(function(){    
+$('#LocaleID,#id_internal_popup,#id_position_bottom,#PositionID,#id_hide_then_offline,#id_check_operator_message').change(function(){
     generateEmbedCode();
 });
 

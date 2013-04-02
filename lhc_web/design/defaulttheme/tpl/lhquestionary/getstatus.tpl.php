@@ -27,8 +27,8 @@ $positionArgument = array (
 		),
 		'middle_right' => array (
 				'radius' => 'left',
-				'position' => 'top:40%;right:-155px;',
-				'position_body' => 'top:40%;right:0px;',
+				'position' => 'top:400px;right:-155px;',
+				'position_body' => 'top:400px;right:0px;',
 				'shadow' => '0px 0px 10px',
 				'widget_hover' => 'right:0;transition: 1s;',
 				'moz_radius' => 'topleft',
@@ -39,8 +39,8 @@ $positionArgument = array (
 		),
 		'middle_left' => array (
 				'radius' => 'left',
-				'position' => 'top:40%;left:-155px;',
-				'position_body' => 'top:40%;left:0px;',
+				'position' => 'top:400px;left:-155px;',
+				'position_body' => 'top:400px;left:0px;',
 				'shadow' => '0px 0px 10px',
 				'padding_text' => '9px 35px 9px 9px',
 				'widget_hover' => 'left:0;transition: 1s;',
