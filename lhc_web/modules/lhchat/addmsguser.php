@@ -1,7 +1,5 @@
 <?php
 
-$tpl = erLhcoreClassTemplate::getInstance('lhchat/addmsguser.tpl.php');
-
 $definition = array(
         'msg' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
@@ -26,20 +24,14 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && strlen($form->msg)
 
         $Chat->has_unread_messages = 1;
         $Chat->updateThis();
-
-        $tpl->set('msg',$msg);
-        $tpl->set('chat',$Chat);
-        $tpl->set('add_msg_mode',isset($Params['user_parameters_unordered']['mode']) ? $Params['user_parameters_unordered']['mode'] : '');
-
     } else {
-         $tpl->setFile( 'lhchat/errors/chatnotexists.tpl.php');
+
     }
 } else {
-    $tpl->setFile('lhchat/errors/entertext.tpl.php');
+
 }
 
-
-echo json_encode(array('error' => 'false','chat_id' => $Params['user_parameters']['chat_id'], 'message_id' => (is_object($msg) ? $msg->id : 0), 'result' => $tpl->fetch() ));
+echo json_encode(array('error' => 'false'));
 exit;
 
 ?>

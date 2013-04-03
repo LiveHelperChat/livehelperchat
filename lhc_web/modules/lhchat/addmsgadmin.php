@@ -10,16 +10,12 @@ $form = new ezcInputForm( INPUT_POST, $definition );
 
 if (trim($form->msg) != '')
 {
-
-$Chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
+	$Chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
 
     // Has access to read, chat
     //FIXME create permission to add message...
-
     if ( erLhcoreClassChat::hasAccessToRead($Chat) )
     {
-        $tpl = erLhcoreClassTemplate::getInstance('lhchat/addmsgadmin.tpl.php');
-
         $currentUser = erLhcoreClassUser::instance();
         $userData = $currentUser->getUserData();
 
@@ -32,10 +28,7 @@ $Chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params
         $msg->name_support = $userData->name.' '.$userData->surname;
 
         erLhcoreClassChat::getSession()->save($msg);
-
-        $tpl->set('msg',$msg);
-
-        echo json_encode(array('error' => 'false','chat_id' => $Params['user_parameters']['chat_id'],'message_id' => $msg->id, 'result' => $tpl->fetch() ));
+        echo json_encode(array('error' => 'false'));
     }
 
 } else {

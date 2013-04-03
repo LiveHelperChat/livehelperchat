@@ -1,9 +1,8 @@
 <?php
 
-
-
 $content = 'false';
 $content_status = 'false';
+$userOwner = 'true';
 
 if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']) > 0)
 {
@@ -11,6 +10,7 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
     $ReturnStatuses = array();
 
     $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/syncadmin.tpl.php');
+    $currentUser = erLhcoreClassUser::instance();
 
     foreach ($_POST['chats'] as $chat_id_list)
     {
@@ -32,6 +32,15 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
 
                 $tpl->set('messages',$Messages);
                 $tpl->set('chat',$Chat);
+
+                if ($userOwner == 'true') {
+                	foreach ($Messages as $msg) {
+                		if ($msg['user_id'] != $currentUser->getUserID()) {
+                			$userOwner = 'false';
+                			break;
+                		}
+                	}
+                }
 
                 $LastMessageIDs = array_pop($Messages);
 
@@ -68,6 +77,6 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
 
 
 
-echo json_encode(array('error' => 'false','result_status' => $content_status, 'result' => $content ));
+echo json_encode(array('error' => 'false', 'uw' => $userOwner, 'result_status' => $content_status, 'result' => $content ));
 exit;
 ?>

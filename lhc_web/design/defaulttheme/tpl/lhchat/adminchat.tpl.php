@@ -54,7 +54,7 @@
 
 <textarea rows="4" name="ChatMessage" id="CSChatMessage-<?php echo $chat->id?>" ></textarea>
 <script type="text/javascript">
-jQuery('#CSChatMessage-<?php echo $chat->id?>').bind('keydown', 'return', function (evt){
+jQuery('#CSChatMessage-<?php echo $chat->id?>').bind('keyup', 'return', function (evt){
     lhinst.addmsgadmin('<?php echo $chat->id?>');
 });
 lhinst.initTypingMonitoringAdmin('<?php echo $chat->id?>');
@@ -68,6 +68,7 @@ lhinst.initTypingMonitoringAdmin('<?php echo $chat->id?>');
                     'on_change'      => "$('#CSChatMessage-".$chat->id."').val(($(this).val() > 0) ? $(this).find(':selected').text() : '')",
                     'optional_field' =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Select canned message'),
                     'display_name'   => 'msg',
+    				'selected_id'    => '',
                     'list_function'  => 'erLhcoreClassModelCannedMsg::getList'
             )); ?>
     </div>

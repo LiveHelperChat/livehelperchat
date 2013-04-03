@@ -72,6 +72,8 @@ function lh(){
 
     this.closeWindowOnChatCloseDelete = false;
 
+    this.userTimeout = false;
+
     this.setLastUserMessageID = function(message_id) {
     	this.last_message_id = message_id;
     };
@@ -235,47 +237,53 @@ function lh(){
     this.syncusercall = function()
 	{
 	    var inst = this;
+	    if (this.syncroRequestSend == false)
+        {
+		    clearTimeout(inst.userTimeout);
+		    this.syncroRequestSend = true;
+		    var modeWindow = this.isWidgetMode == true ? '/(mode)/widget' : '';
 
-	    var modeWindow = this.isWidgetMode == true ? '/(mode)/widget' : '';
+		    $.getJSON(this.wwwDir + this.syncuser + this.chat_id + '/'+ this.last_message_id + '/' + this.hash + modeWindow ,{ }, function(data){
+		        // If no error
+		        if (data.error == 'false')
+		        {
+		           if (data.blocked != 'true')
+		           {
+	    	            if (data.result != 'false' && data.status == 'true')
+	    	            {
+	                			$('#messagesBlock').append(data.result);
+	                			$('#messagesBlock').animate({ scrollTop: $('#messagesBlock').prop('scrollHeight') }, 1000);
 
-	    $.getJSON(this.wwwDir + this.syncuser + this.chat_id + '/'+ this.last_message_id + '/' + this.hash + modeWindow ,{ }, function(data){
-	        // If no error
-	        if (data.error == 'false')
-	        {
-	           if (data.blocked != 'true')
-	           {
-    	            if (data.result != 'false' && data.status == 'true')
-    	            {
-                			$('#messagesBlock').append(data.result);
-                			$('#messagesBlock').animate({ scrollTop: $('#messagesBlock').prop('scrollHeight') }, 3000);
+	                			// If one the message owner is not current user play sound
+	                			if ( confLH.new_message_sound_user_enabled == 1 && data.uw == 'false') {
+	                			     inst.playNewMessageSound();
+	                			};
 
-                			if ( confLH.new_message_sound_user_enabled == 1 ) {
-                			     inst.playNewMessageSound();
-                			};
+	                			// Set last message ID
+	                			inst.last_message_id = data.message_id;
 
-                			// Set last message ID
-                			inst.last_message_id = data.message_id;
+	    	            } else {
+	    	                if ( data.status != 'true') $('#status-chat').html(data.status);
+	    	            }
 
-    	            } else {
-    	                if ( data.status != 'true') $('#status-chat').html(data.status);
-    	            }
+	    	            inst.userTimeout = setTimeout(chatsyncuser,confLH.chat_message_sinterval);
 
+	        			if ( data.is_typing == 'true' ) {
+	        			    $('#id-operator-typing').fadeIn();
+	        			} else {
+	        			    $('#id-operator-typing').fadeOut();
+	        			}
 
-        			setTimeout(chatsyncuser,confLH.chat_message_sinterval);
-
-        			if ( data.is_typing == 'true' ) {
-        			    $('#id-operator-typing').fadeIn();
-        			} else {
-        			    $('#id-operator-typing').fadeOut();
-        			}
-
-	           } else {
-	               $('#status-chat').html(data.status);
-	           }
-	        }
-    	}).fail(function(){
-    		setTimeout(chatsyncuser,confLH.chat_message_sinterval);
-    	});
+		           } else {
+		               $('#status-chat').html(data.status);
+		           }
+		        };
+		        inst.syncroRequestSend = false;
+	    	}).fail(function(){
+	    		inst.syncroRequestSend = false;
+	    		inst.userTimeout = setTimeout(chatsyncuser,confLH.chat_message_sinterval);
+	    	});
+	    }
 	},
 
 	this.closeActiveChatDialog = function(chat_id, tabs, hidetab)
@@ -489,10 +497,9 @@ function lh(){
 	    {
 	        if (this.underMessageAdd == false && this.syncroRequestSend == false)
 	        {
-
 	            this.syncroRequestSend = true;
-                var inst = this;
 
+                clearTimeout(this.userTimeout);
         	    $.postJSON(this.wwwDir + this.syncadmin ,{ 'chats[]': this.chatsSynchronisingMsg }, function(data){
         	        // If no error
         	        if (data.error == 'false')
@@ -501,14 +508,13 @@ function lh(){
         	            {
         	                $.each(data.result,function(i,item) {
                                   $('#messagesBlock-'+item.chat_id).append(item.content);
-        		                  $('#messagesBlock-'+item.chat_id).animate({ scrollTop: $("#messagesBlock-"+item.chat_id).prop("scrollHeight") }, 3000);
+        		                  $('#messagesBlock-'+item.chat_id).animate({ scrollTop: $("#messagesBlock-"+item.chat_id).prop("scrollHeight") }, 1000);
         		                  lhinst.updateChatLastMessageID(item.chat_id,item.message_id);
                             });
 
-                            if ( confLH.new_message_sound_admin_enabled == 1 ) {
-                                inst.playNewMessageSound();
+                            if ( confLH.new_message_sound_admin_enabled == 1  && data.uw == 'false') {
+                            	lhinst.playNewMessageSound();
                             };
-
         	            };
 
         	            if (data.result_status != 'false')
@@ -522,18 +528,18 @@ function lh(){
                             });
         	            };
 
-            			setTimeout(chatsyncadmin,confLH.chat_message_sinterval);
+        	            lhinst.userTimeout = setTimeout(chatsyncadmin,confLH.chat_message_sinterval);
         	        };
 
         	        //Allow another request to send check for messages
         	        lhinst.setSynchronizationRequestSend(false);
 
             	}).fail(function(){
-            		setTimeout(chatsyncadmin,confLH.chat_message_sinterval);
+            		lhinst.userTimeout = setTimeout(chatsyncadmin,confLH.chat_message_sinterval);
             		lhinst.setSynchronizationRequestSend(false);
             	});
 	        } else {
-	            setTimeout(chatsyncadmin,confLH.chat_message_sinterval);
+	        	lhinst.userTimeout = setTimeout(chatsyncadmin,confLH.chat_message_sinterval);
 	        }
 
 	    } else {
@@ -625,32 +631,14 @@ function lh(){
 
     this.addmsgadmin = function (chat_id)
     {
-        this.underMessageAdd = true;
-
         var pdata = {
 				msg	: $("#CSChatMessage-"+chat_id).val()
-		};
+	   };
 
 	   $('#CSChatMessage-'+chat_id).val('');
-
-
        $.postJSON(this.wwwDir + this.addmsgurl + chat_id, pdata , function(data){
-
-           if (data.error == 'false')
-           {
-		    $('#messagesBlock-'+data.chat_id).append(data.result);
-		    $('#messagesBlock-'+data.chat_id).animate({ scrollTop: $("#messagesBlock-"+data.chat_id).prop("scrollHeight") }, 3000);
-		    lhinst.updateChatLastMessageID(data.chat_id,data.message_id);
-           }
-
-           $('#CSChatMessage-'+data.chat_id).val('');
-
-           // Unblock messages synchronization
-           lhinst.setSynchronizationStatus(false);
+    	   lhinst.syncadmincall();
            return true;
-		}).fail(function(){
-			// Unblock messages synchronization
-	        lhinst.setSynchronizationStatus(false);
 		});
     };
 
@@ -661,17 +649,11 @@ function lh(){
 		};
 
         var modeWindow = this.isWidgetMode == true ? '/(mode)/widget' : '';
-
-		$('#CSChatMessage').attr('value','');
-
+		$('#CSChatMessage').val('');
 		var inst = this;
 
-        $.postJSON(this.wwwDir + this.addmsgurluser + this.chat_id + '/' + this.hash + modeWindow, pdata , function(data){
-		    $('#messagesBlock').append(data.result);
-		    $('#messagesBlock').animate({ scrollTop: $("#messagesBlock").prop("scrollHeight") }, 3000);
-		    $('#CSChatMessage').val('');
-		    inst.last_message_id = data.message_id;
-            return true;
+        $.postJSON(this.wwwDir + this.addmsgurluser + this.chat_id + '/' + this.hash + modeWindow, pdata , function(data) {
+        	inst.syncusercall();
 		});
     };
 
