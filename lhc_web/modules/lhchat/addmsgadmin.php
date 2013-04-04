@@ -21,7 +21,7 @@ if (trim($form->msg) != '')
 
         $msg = new erLhcoreClassModelmsg();
         $msg->nick = $userData->name.' '.$userData->surname;
-        $msg->msg = $form->msg;
+        $msg->msg = trim($form->msg);
         $msg->chat_id = $Params['user_parameters']['chat_id'];
         $msg->user_id = $userData->id;
         $msg->time = time();
