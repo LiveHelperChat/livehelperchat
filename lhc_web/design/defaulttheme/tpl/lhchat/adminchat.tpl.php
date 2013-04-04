@@ -30,27 +30,30 @@
     </div>
 </div>
 
-
 <div class="message-block">
     <div class="msgBlock" id="messagesBlock-<?php echo $chat->id?>">
     <?php $LastMessageID = 0;?>
     <?php foreach (erLhcoreClassChat::getChatMessages($chat->id) as $msg ) : ?>
-    <?php
-    $LastMessageID = $msg['id'];
+    <?php $LastMessageID = $msg['id'];
     if ($msg['user_id'] != 0) { ?>
     	<div class="message-row"><div class="msg-date"><?php echo date('Y-m-d H:i:s',$msg['time']);?></div><span class="usr-tit"><?php echo htmlspecialchars($msg['name_support']);?>:&nbsp;</span><?php echo erLhcoreClassBBCode::make_clickable(htmlspecialchars($msg['msg']))?></div>
     <?php } else { ?>
         <div class="message-row response"><div class="msg-date"><?php echo date('Y-m-d H:i:s',$msg['time']);?></div><span class="usr-tit"><?php echo htmlspecialchars($chat->nick)?>:&nbsp;</span><?php echo erLhcoreClassBBCode::make_clickable(htmlspecialchars($msg['msg']))?></div>
     <?php } ?>
     <?php endforeach; ?>
+
+    <?php if ($chat->user_status == 1) : ?>
+    	<?php include(erLhcoreClassDesign::designtpl('lhchat/userleftchat.tpl.php')); ?>
+    <?php elseif ($chat->user_status == 0) : ?>
+    	<?php include(erLhcoreClassDesign::designtpl('lhchat/userjoinged.tpl.php')); ?>
+    <?php endif;?>
+
     </div>
     <div class="user-is-typing" id="user-is-typing-<?php echo $chat->id?>">
                 <i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','User is typing now...')?></i>
     </div>
 </div>
-
 <br />
-
 
 <textarea rows="4" name="ChatMessage" id="CSChatMessage-<?php echo $chat->id?>" ></textarea>
 <script type="text/javascript">
@@ -76,6 +79,8 @@ lhinst.initTypingMonitoringAdmin('<?php echo $chat->id?>');
 
 <script type="text/javascript">
 lhinst.addSynchroChat('<?php echo $chat->id;?>','<?php echo $LastMessageID?>');
+
+$('#messagesBlock-<?php echo $chat->id?>').animate({ scrollTop: $('#messagesBlock-<?php echo $chat->id?>').prop('scrollHeight') }, 1000);
 
 // Start synchronisation
 lhinst.startSyncAdmin();

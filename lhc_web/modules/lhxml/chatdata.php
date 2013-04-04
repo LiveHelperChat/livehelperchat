@@ -9,8 +9,10 @@ $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params
 
 if ( erLhcoreClassChat::hasAccessToRead($chat) )
 {
-        // Status active
-        $chat->status = 1;
+		// If status is pending change status to active
+		if ($chat->status == 0) {
+		    	$chat->status = 1;
+		}
 
         if ($chat->user_id == 0)
         {

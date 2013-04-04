@@ -56,7 +56,7 @@
     lhinst.setWidgetMode(true);
 	<?php endif; ?>
 
-	$('#messagesBlock').animate({ scrollTop: $('#messagesBlock').prop('scrollHeight') }, 3000);
+	$('#messagesBlock').animate({ scrollTop: $('#messagesBlock').prop('scrollHeight') }, 1000);
 
     // Start user chat synchronization
     lhinst.chatsyncuserpending();

@@ -8,8 +8,10 @@ $tpl->set('chat',$chat);
 
 if ( erLhcoreClassChat::hasAccessToRead($chat) )
 {
-    // Status active
-    $chat->status = 1;
+    // If status is pending change status to active
+    if ($chat->status == 0) {
+    	$chat->status = 1;
+    }
 
     if ($chat->user_id == 0)
     {
@@ -17,6 +19,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
         $chat->user_id = $currentUser->getUserID();
     }
 
+    $chat->support_informed = 1;
     $chat->has_unread_messages = 0;
     erLhcoreClassChat::getSession()->update($chat);
 

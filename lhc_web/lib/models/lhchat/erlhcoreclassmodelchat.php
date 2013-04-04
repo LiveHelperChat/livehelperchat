@@ -143,7 +143,7 @@ class erLhcoreClassModelChat {
    public $referrer = '';
    public $dep_id = '';
    public $email = '';
-   public $user_status = '';
+   public $user_status = 0;
    public $support_informed = '';
    public $country_code = '';
    public $country_name = '';

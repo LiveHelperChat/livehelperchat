@@ -17,7 +17,7 @@ try {
         $tpl->set('chat_widget_mode',true);
 
         // User online
-        $Chat->user_status = 1;
+        $Chat->user_status = 0;
         $Chat->support_informed = 1;
         erLhcoreClassChat::getSession()->update($Chat);
 
