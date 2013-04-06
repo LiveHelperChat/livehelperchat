@@ -254,7 +254,7 @@
         <translation>Balsavimo parinktys</translation>
     </message>
     <message>
-        <source>If there are no options to choose from to use will be shown text field where he will be able to enter his own answer.</source>
+        <source>If there are no options to choose from to user will be shown text field where he will be able to enter his own answer.</source>
         <translation>Jei nėra įvesta nei viena parinktis, vartotojui bus rodoma užklausaos forma su tekstiniu lauku, kur jis galės pats įvesti atsakymą.</translation>
     </message>
 </context>

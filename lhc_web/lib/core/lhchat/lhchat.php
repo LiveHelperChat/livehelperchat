@@ -41,7 +41,7 @@ class erLhcoreClassChat {
     	$limitation = self::getDepartmentLimitation();
 
     	// Does not have any assigned department
-    	if ($limitation === false) { return array(); }
+    	if ($limitation === false) { return 0; }
 
     	$filter = array();
     	$filter['filter'] = array('status' => 0);
@@ -323,7 +323,7 @@ class erLhcoreClassChat {
 
     	// Does not have any assigned department
     	if ($limitation === false) {
-    		return array();
+    		return 0;
     	}
 
     	$filter = array();
@@ -367,7 +367,7 @@ class erLhcoreClassChat {
     	$limitation = self::getDepartmentLimitation();
 
     	// Does not have any assigned department
-    	if ($limitation === false) { return array(); }
+    	if ($limitation === false) { return 0; }
 
     	$filter = array();
     	$filter['filter'] = array('status' => 1);
@@ -407,7 +407,7 @@ class erLhcoreClassChat {
     	$limitation = self::getDepartmentLimitation();
 
     	// Does not have any assigned department
-    	if ($limitation === false) { return array(); }
+    	if ($limitation === false) { return 0; }
 
     	$filter = array();
     	$filter['filter'] = array('status' => 2);

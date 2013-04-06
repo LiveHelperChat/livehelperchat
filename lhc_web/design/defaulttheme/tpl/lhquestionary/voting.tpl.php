@@ -1,4 +1,4 @@
-<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','If there are no options to choose from to use will be shown text field where he will be able to enter his own answer.') ?></p>
+<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','If there are no options to choose from to user will be shown text field where he will be able to enter his own answer.') ?></p>
 
 <?php if (isset($errors)) : ?>
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>

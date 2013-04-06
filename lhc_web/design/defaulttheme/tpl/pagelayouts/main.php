@@ -46,8 +46,8 @@
     <div class="columns four" id="right-column-page">
 
     		<dl class="tabs">
-			    <dd class="active"><a href="#simpleAssignYou1" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Chats transfered to you directly');?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Transfered to you');?></a></dd>
-			    <dd><a href="#simpleAssignYou2" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Chats transfered to your department');?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Transfered to your department');?></a></dd>
+			    <dd class="active"><a href="#simpleAssignYou1" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Chats transfered to you directly');?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Transfered to you');?><span class="tru-cnt"></span></a></dd>
+			    <dd><a href="#simpleAssignYou2" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Chats transfered to your department');?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Transfered to your department');?><span class="trd-cnt"></span></a></dd>
 			</dl>
 
 			<ul class="tabs-content">
