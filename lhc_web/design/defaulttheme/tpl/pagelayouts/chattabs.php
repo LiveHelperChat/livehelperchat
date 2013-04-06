@@ -3,16 +3,9 @@
 
 <html>
 <head>
-
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head.tpl.php'));?>
-<link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::designCSS('css/chat.css');?>" />
-
-<script type="text/javascript">
-/** Reset pointer from parent window **/
-function ChatUnload(){ window.opener.lhinst.deleteChatNewWindow(); }
-</script>
 </head>
-<body onunload="ChatUnload()">
+<body>
 <div class="content-row pt10">
 	<div class="row">
 	    <div class="columns twelve pt10">
@@ -21,5 +14,11 @@ function ChatUnload(){ window.opener.lhinst.deleteChatNewWindow(); }
 	</div>
 </div>
 <script type="text/javascript" language="javascript" src="<?php echo erLhcoreClassDesign::designJS('js/app.js');?>"></script>
+
+<?php if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true) {
+		$debug = ezcDebug::getInstance();
+		echo $debug->generateOutput();
+} ?>
+
 </body>
 </html>

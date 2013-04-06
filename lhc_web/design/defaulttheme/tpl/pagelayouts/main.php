@@ -3,14 +3,11 @@
 
 <html>
 <head>
-
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head.tpl.php'));?>
-
 </head>
 <body>
 
 <div class="content-row">
-
 <div class="row">
 <div class="columns twelve">
 
@@ -106,5 +103,11 @@
 </div>
 </div>
 <script type="text/javascript">chatsyncadmininterface();</script>
+
+<?php if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true) {
+		$debug = ezcDebug::getInstance();
+		echo $debug->generateOutput();
+} ?>
+
 </body>
 </html>

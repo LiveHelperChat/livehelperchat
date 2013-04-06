@@ -63,9 +63,6 @@ function lh(){
     this.chatsSynchronising = [];
     this.chatsSynchronisingMsg = [];
 
-    // chat tabs window pointer
-    this.chattabs = null;
-
     // Block synchronization till message add finished
     this.underMessageAdd = false;
 
@@ -441,11 +438,6 @@ function lh(){
 	{
 	    window.open(this.wwwDir + 'chat/chattabs/','chatwindows',"menubar=1,resizable=1,width=580,height=460");
 	    return false;
-	};
-
-	this.deleteChatNewWindow = function()
-	{
-	    this.chattabs = null;
 	};
 
 	this.userclosedchat = function()
