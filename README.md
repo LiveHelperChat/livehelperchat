@@ -1,16 +1,23 @@
 Live helper chat
 ==============
 
-It's open-source powered application. Which brings simplicity and usability in one place. With live helper chat you can bring live support on your site for free.
+It's open-source powered application. Which brings simplicity and usability in one place. With live helper chat you can bring live support on your site for free. http://livehelperchat.com
 
-Official site:
-http://livehelperchat.com/
+## Demo
+http://livehelperchat.com/demo-12c.html
+
+## Documentation
+http://livehelperchat.com/documentation-6c.html
+
+## Folders structure
 
  * Directories content:
   * lhc_dc - Compiled Windows desktop client.
   * lhc_dc_src - Desktop client source.
   * lhc_translations - Translations folder.
   * lhc_web - WEB application folder.
+
+## Features
 
 Few main features
 
