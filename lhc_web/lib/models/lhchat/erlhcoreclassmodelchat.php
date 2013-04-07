@@ -23,7 +23,8 @@ class erLhcoreClassModelChat {
                'operator_typing' 		=> $this->operator_typing,
                'phone'           		=> $this->phone,
                'has_unread_messages'    => $this->has_unread_messages,
-               'last_user_msg_time'     => $this->last_user_msg_time
+               'last_user_msg_time'     => $this->last_user_msg_time,
+               'last_msg_id'     		=> $this->last_msg_id
        );
    }
 
@@ -152,6 +153,7 @@ class erLhcoreClassModelChat {
    public $operator_typing = 0;
    public $has_unread_messages = 0;
    public $last_user_msg_time = 0;
+   public $last_msg_id = 0;
 
 }
 

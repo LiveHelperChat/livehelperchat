@@ -99,6 +99,11 @@ $def->properties['last_user_msg_time']->columnName   = 'last_user_msg_time';
 $def->properties['last_user_msg_time']->propertyName = 'last_user_msg_time';
 $def->properties['last_user_msg_time']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['last_msg_id'] = new ezcPersistentObjectProperty();
+$def->properties['last_msg_id']->columnName   = 'last_msg_id';
+$def->properties['last_msg_id']->propertyName = 'last_msg_id';
+$def->properties['last_msg_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

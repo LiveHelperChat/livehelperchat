@@ -1,3 +1,14 @@
+1.28v
+
+Feature release:
+1. Even more smarter way to check for new messages. Avoids query to msg table and first check that user last message id is lower than chat last message id.
+It's better loose one query upon message add than that execyte each time two queries.
+
+2. Override CSS predefined in their folders.
+4. Different positions for main live helper widget.
+4. Small other changes.
+
+
 1.27v
 
 Feature release:

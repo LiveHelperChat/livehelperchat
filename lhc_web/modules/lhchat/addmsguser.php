@@ -22,6 +22,11 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && strlen($form->msg)
 
         erLhcoreClassChat::getSession()->save($msg);
 
+        // Set last message ID
+        if ($Chat->last_msg_id < $msg->id) {
+        	$Chat->last_msg_id = $msg->id;
+        }
+
         $Chat->has_unread_messages = 1;
         $Chat->updateThis();
     } else {

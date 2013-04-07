@@ -26,8 +26,15 @@ if (trim($form->msg) != '')
         $msg->user_id = $userData->id;
         $msg->time = time();
         $msg->name_support = $userData->name.' '.$userData->surname;
-
         erLhcoreClassChat::getSession()->save($msg);
+
+        // Set last message ID
+        if ($Chat->last_msg_id < $msg->id) {
+        	$Chat->last_msg_id = $msg->id;
+        	$Chat->updateThis();
+        }
+
+
         echo json_encode(array('error' => 'false'));
     }
 

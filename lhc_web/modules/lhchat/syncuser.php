@@ -15,27 +15,29 @@ $userOwner = 'true';
 
 if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 {
-    $Messages = erLhcoreClassChat::getPendingMessages((int)$Params['user_parameters']['chat_id'],(int)$Params['user_parameters']['message_id']);
+	// Check for new messages only if chat last message id is greater than user last message id
+	if ((int)$Params['user_parameters']['message_id'] < $chat->last_msg_id) {
+	    $Messages = erLhcoreClassChat::getPendingMessages((int)$Params['user_parameters']['chat_id'],(int)$Params['user_parameters']['message_id']);
+	    if (count($Messages) > 0)
+	    {
+	        $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/syncuser.tpl.php');
+	        $tpl->set('messages',$Messages);
+	        $tpl->set('chat',$chat);
+	        $tpl->set('sync_mode',isset($Params['user_parameters_unordered']['mode']) ? $Params['user_parameters_unordered']['mode'] : '');
+	        $content = $tpl->fetch();
 
-    if (count($Messages) > 0)
-    {
-        $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/syncuser.tpl.php');
-        $tpl->set('messages',$Messages);
-        $tpl->set('chat',$chat);
-        $tpl->set('sync_mode',isset($Params['user_parameters_unordered']['mode']) ? $Params['user_parameters_unordered']['mode'] : '');
-        $content = $tpl->fetch();
+	        foreach ($Messages as $msg) {
+	        	if ($msg['user_id'] > 0) {
+	        		$userOwner = 'false';
+	        		break;
+	        	}
+	        }
 
-        foreach ($Messages as $msg) {
-        	if ($msg['user_id'] > 0) {
-        		$userOwner = 'false';
-        		break;
-        	}
-        }
+	        $LastMessageIDs = array_pop($Messages);
+	        $LastMessageID = $LastMessageIDs['id'];
 
-        $LastMessageIDs = array_pop($Messages);
-        $LastMessageID = $LastMessageIDs['id'];
-
-    }
+	    }
+	}
 
     if ( $chat->is_operator_typing == true ) {
         $is_operator_typing = 'true';
