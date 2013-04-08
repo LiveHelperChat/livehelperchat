@@ -19,13 +19,8 @@ if (trim($form->msg) != '')
 
     $Chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
 
-    // Has access to read, chat
-    //FIXME create permission to add message...
-
     if ( erLhcoreClassChat::hasAccessToRead($Chat) )
     {
-        //$tpl = new erLhcoreClassTemplate('lhchat/addmsgadmin.tpl.php');
-
         $currentUser = erLhcoreClassUser::instance();
         $userData = $currentUser->getUserData();
 
@@ -36,8 +31,14 @@ if (trim($form->msg) != '')
         $msg->user_id = $userData->id;
         $msg->time = time();
         $msg->name_support = $userData->name.' '.$userData->surname;
-
         erLhcoreClassChat::getSession()->save($msg);
+
+        // Set last message ID
+        if ($Chat->last_msg_id < $msg->id) {
+        	$Chat->last_msg_id = $msg->id;
+        	$Chat->updateThis();
+        }
+
     }
 
 } else {

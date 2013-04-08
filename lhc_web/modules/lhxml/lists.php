@@ -12,7 +12,7 @@ $pendingChats = erLhcoreClassChat::getPendingChats(10);
 $transferedChats = erLhcoreClassTransfer::getTransferChats();
 $onlineUsers = erLhcoreClassModelChatOnlineUser::getList();
 
-$columnsToHide = array('user_id','status','dep_id','hash','user_status','support_informed','support_informed','country_code','user_typing','operator_typing','has_unread_messages','last_user_msg_time');
+$columnsToHide = array('user_id','status','dep_id','last_msg_id','hash','user_status','support_informed','support_informed','country_code','user_typing','operator_typing','has_unread_messages','last_user_msg_time');
 $columnsName = array('id' => 'ID','nick' => 'Nick','time' => 'Time','referrer' => 'Referrer','ip' => 'IP','country_name' => 'Country','email' => 'E-mail','name' => 'Department','phone' => 'Phone');
 
 $onlineuserscolumnsToHide = array('vid','user_country_code','current_page', 'chat_id', 'operator_user_id', 'message_seen');

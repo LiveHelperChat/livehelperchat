@@ -33,9 +33,7 @@ if ($currentUser->isLogged() && isset($_POST['chats']))
 
         if ( erLhcoreClassChat::hasAccessToRead($Chat) )
         {
-            $Messages = erLhcoreClassChat::getPendingMessages($chat_id,$minMessageID);
-
-            if (count($Messages) > 0)
+            if ( ($Chat->last_msg_id > (int)$minMessageID) && count($Messages = erLhcoreClassChat::getPendingMessages($chat_id,(int)$minMessageID)) > 0)
             {
                 foreach ($Messages as $msg)
                 {
