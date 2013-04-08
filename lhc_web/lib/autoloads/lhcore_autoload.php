@@ -75,6 +75,10 @@ return array_merge(array (
 		'erLhcoreClassModelQuestionOption'		=> 'lib/models/lhquestionary/erlhcoreclassmodelquestionoption.php',
 		'erLhcoreClassModelQuestionOptionAnswer'=> 'lib/models/lhquestionary/erlhcoreclassmodelquestionoptionanswer.php',
 
+		// FAQ
+		'erLhcoreClassFaq' 			=> 'lib/core/lhfaq/lhfaq.php',
+		'erLhcoreClassModelFaq' 	=> 'lib/models/lhfaq/erlhcoreclassmodelfaq.php',
+
 ),
 include('var/autoloads/lhextension_autoload.php')
 );
