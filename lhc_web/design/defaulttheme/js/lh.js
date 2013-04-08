@@ -290,7 +290,7 @@ function lh(){
 	    });
 
 	    if ($('#CSChatMessage-'+chat_id).length != 0){
-	       $('#CSChatMessage-'+chat_id).unbind('keydown', 'enter', function(){});
+	       $('#CSChatMessage-'+chat_id).unbind('keyup', 'enter', function(){});
 	    };
 
 	    if (hidetab == true) {
@@ -317,7 +317,7 @@ function lh(){
 	this.removeDialogTab = function(chat_id, tabs, hidetab)
 	{
 	    if ($('#CSChatMessage-'+chat_id).length != 0){
-	       $('#CSChatMessage-'+chat_id).unbind('keydown', 'enter', function(){});
+	       $('#CSChatMessage-'+chat_id).unbind('keyup', 'enter', function(){});
 	    }
 
 	    if (hidetab == true) {
@@ -343,7 +343,7 @@ function lh(){
 	this.deleteChat = function(chat_id, tabs, hidetab)
 	{
 	    if ($('#CSChatMessage-'+chat_id).length != 0){
-	       $('#CSChatMessage-'+chat_id).unbind('keydown', 'enter', function(){});
+	       $('#CSChatMessage-'+chat_id).unbind('keyup', 'enter', function(){});
 	    }
 
 	    $.getJSON(this.wwwDir + this.deletechatadmin + chat_id ,{}, function(data){

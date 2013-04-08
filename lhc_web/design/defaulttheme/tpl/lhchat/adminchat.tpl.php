@@ -20,13 +20,11 @@
     <div class="columns three">
     <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Chat owner')?></h5>
     <p>
-            <?php
-            $user = $chat->getChatOwner();
-            if ($user !== false) :
-            ?>
+            <?php $user = $chat->getChatOwner();
+            if ($user !== false) : ?>
             <?php echo htmlspecialchars($user->name)?> <?php echo htmlspecialchars($user->surname)?>
-            <?php endif; ?></p>
-            </fieldset>
+            <?php endif; ?>
+    </p>
     </div>
 </div>
 

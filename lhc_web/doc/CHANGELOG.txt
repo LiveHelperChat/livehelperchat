@@ -8,6 +8,9 @@ It's better to add one query on message add than execute each time two queries.
 4. Small other changes, HTML some cleanup, and debug output movement from main footer.
 5. Number of transfered chats will be shown also in transfer tab.
 
+Bugfix:
+1. Close dialog, Close chat, Delete stopped working after I introduced new algorithm for checking messages.
+
 execute doc/update_db/update_19.sql
 
 1.27v
