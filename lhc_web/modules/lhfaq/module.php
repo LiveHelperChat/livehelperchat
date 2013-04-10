@@ -7,31 +7,36 @@ $ViewList = array();
 $ViewList['list'] = array(
     'script' => 'list.php',
     'params' => array(),
-	'functions' => array( 'manage_questionary' )
+	'functions' => array( 'manage_faq' )
 );
 
 $ViewList['delete'] = array(
 		'script' => 'delete.php',
 		'params' => array('id'),
-		'functions' => array( 'manage_questionary' )
+		'functions' => array( 'manage_faq' )
 );
 
 $ViewList['view'] = array(
 		'script' => 'view.php',
 		'params' => array('id'),
-		'functions' => array( 'manage_questionary' )
+		'functions' => array( 'manage_faq' )
 );
 
 $ViewList['new'] = array(
 		'script' => 'new.php',
 		'params' => array('id'),
-		'functions' => array( 'manage_questionary' )
+		'functions' => array( 'manage_faq' )
 );
 
 $ViewList['faqwidget'] = array(
 		'script' => 'faqwidget.php',
 		'params' => array(),
+);
 
+$ViewList['htmlcode'] = array(
+		'script' => 'htmlcode.php',
+		'params' => array(),
+		'functions' => array( 'manage_faq' )
 );
 
 $FunctionList = array();

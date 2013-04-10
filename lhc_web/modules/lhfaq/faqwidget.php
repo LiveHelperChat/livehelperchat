@@ -1,6 +1,6 @@
 <?php
 
-$tpl = new erLhcoreClassTemplate( 'lhfaq/faqwidget.tpl.php');
+$tpl = erLhcoreClassTemplate::getInstance( 'lhfaq/faqwidget.tpl.php');
 
 $pages = new lhPaginator();
 $pages->serverURL = erLhcoreClassDesign::baseurl('faq/faqwidget');

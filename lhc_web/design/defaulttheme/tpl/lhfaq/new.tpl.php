@@ -1,8 +1,9 @@
+<?php include(erLhcoreClassDesign::designtpl('lhquestionary/embed_button.tpl.php'));?>
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/new','New question');?></h1>
+
 <?php if (isset($errors)) : ?>
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
-
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/new','New question');?></h1>
 
 <form action="<?php echo erLhcoreClassDesign::baseurl('faq/new')?>" method="post">
 
