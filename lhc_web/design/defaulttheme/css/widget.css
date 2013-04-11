@@ -1,6 +1,6 @@
 body {
-	font-size: 12px;	
-	background:rgb(241, 241, 241);	
+	font-size: 12px;
+	background:rgb(241, 241, 241);
 }
 
 #widget-layout .row { min-width: 0;  }
@@ -11,7 +11,29 @@ body {
 }
 
 #widget-layout #CSChatMessage {
-	font-size:12px;	
+	font-size:12px;
+}
+
+::-webkit-scrollbar {
+width: 0.7em;
+height: 0.8em;
+background-color: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+min-height: 0.8em;
+min-width: 0.7em;
+background-color: #ddd;
+}
+
+
+
+ul.accordion > li.active .content{
+	padding:0px 15px 10px;
+}
+
+ul.accordion > li.active .content p{
+	margin:0;
 }
 
 label,

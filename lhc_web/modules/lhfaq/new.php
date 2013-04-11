@@ -10,7 +10,7 @@ if ( isset($_POST['Save']) )
 
 	if (count($Errors) == 0) {
 		erLhcoreClassFaq::getSession()->SaveOrUpdate($faq);
-		erLhcoreClassModule::redirect('faq/view','/'.$faq->id);
+		erLhcoreClassModule::redirect('faq/list');
 		exit;
 	} else {
 		$tpl->set('errors',$Errors);

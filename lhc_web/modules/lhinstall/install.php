@@ -260,7 +260,9 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `answer` text NOT NULL,
 				  `url` varchar(250) NOT NULL,
 				  `active` int(11) NOT NULL,
-				  PRIMARY KEY (`id`)
+				  PRIMARY KEY (`id`),
+				  KEY `active` (`active`),
+				  KEY `active_url` (`active`,`url`)
 				) DEFAULT CHARSET=utf8;");
 
         	   $db->query("CREATE TABLE `lh_question` (

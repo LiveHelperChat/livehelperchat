@@ -1,13 +1,32 @@
 <h1 class="attr-header"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','HTML code');?></h1>
 
-<br />
 <div class="row">
     <div class="columns six">
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/htmlcode','Status text');?></label>
 		<input type="text" id="id_status_text" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Help us to grow');?>" />
 	</div>
-	<div class="columns six"><label><input type="checkbox" id="id_show_widget_on_open" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/htmlcode','Expand widget automatically for new users');?></label></div>
+	<div class="columns six"><label for="id_show_widget_on_open"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/htmlcode','Expand widget automatically for new users');?></label>
+	<input type="checkbox" id="id_show_widget_on_open" value="on">
+	</div>
 </div>
+
+<div class="row">
+<div class="columns six">
+	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/htmlcode','Position from top, only used if left middle or right middle is chosen');?></label>
+    <div class="row">
+      <div class="eight columns">
+        <input type="text" id="id_top_text" value="400" />
+      </div>
+      <div class="four columns">
+      	<select id="UnitsTop">
+            <option value="pixels">Pixels</option>
+            <option value="percents">Percents</option>
+        </select>
+      </div>
+    </div>
+</div>
+</div>
+
 
 <div class="row">
     <div class="columns six">
@@ -40,17 +59,19 @@ function generateEmbedCode(){
     var id_position =  '/(position)/'+$('#PositionID').val();
     var id_show_widget_on_open = $('#id_show_widget_on_open').is(':checked') ? '/(expand)/true' : '';
 	var textStatus = $('#id_status_text').val();
+	var top = '/(top)/'+($('#id_top_text').val() == '' ? 400 : $('#id_top_text').val());
+	var topposition = '/(units)/'+$('#UnitsTop').val();
 
     var script = '<script type="text/javascript">'+"\nvar LHCVotingOptions = {status_text:'"+textStatus+"'};\n"+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
-        'po.src = \'<?php echo erLhcoreClassSystem::instance()->baseHTTP?><?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'questionary/getstatus'+id_position+id_show_widget_on_open+"';\n"+
+        'po.src = \'<?php echo erLhcoreClassSystem::instance()->baseHTTP?><?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'questionary/getstatus'+id_position+id_show_widget_on_open+top+topposition+"';\n"+
         'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);'+"\n"+
       '})();'+"\n"+
     '</scr'+'ipt>';
     $('#HMLTContent').text(script);
 };
-$('#LocaleID,#PositionID,#id_show_widget_on_open,#id_status_text').change(function(){
+$('#LocaleID,#PositionID,#id_show_widget_on_open,#id_status_text,#UnitsTop,#id_top_text').change(function(){
     generateEmbedCode();
 });
 generateEmbedCode();

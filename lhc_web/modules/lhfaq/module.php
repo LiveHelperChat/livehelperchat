@@ -33,6 +33,13 @@ $ViewList['faqwidget'] = array(
 		'params' => array(),
 );
 
+$ViewList['getstatus'] = array(
+		'script' => 'getstatus.php',
+		'params' => array(),
+		'functions' => array( ),
+		'uparams' => array('position','top','units')
+);
+
 $ViewList['htmlcode'] = array(
 		'script' => 'htmlcode.php',
 		'params' => array(),
