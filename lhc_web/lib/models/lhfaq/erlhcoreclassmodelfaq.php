@@ -114,6 +114,22 @@ class erLhcoreClassModelFaq {
 
 	public function saveThis()
 	{
+		if ($this->url != '') {
+
+			$matchStringURL = '';
+
+			$parts = parse_url($this->url);
+			if (isset($parts['path'])) {
+				$matchStringURL = $parts['path'];
+			}
+
+			if (isset($parts['query'])) {
+				$matchStringURL .= '?'.$parts['query'];
+			}
+
+			$this->url = $matchStringURL;
+		}
+
 		erLhcoreClassFaq::getSession()->saveOrUpdate($this);
 	}
 

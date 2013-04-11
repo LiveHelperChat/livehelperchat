@@ -9,7 +9,7 @@ if ( isset($_POST['Update']) )
 	$Errors = erLhcoreClassFaq::validateFaq($faq);
 
 	if (count($Errors) == 0) {
-		erLhcoreClassFaq::getSession()->SaveOrUpdate($faq);
+		$faq->saveThis();
 		$tpl->set('updated',true);
 	} else {
 		$tpl->set('errors',$Errors);

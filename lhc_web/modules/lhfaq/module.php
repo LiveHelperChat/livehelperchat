@@ -31,6 +31,7 @@ $ViewList['new'] = array(
 $ViewList['faqwidget'] = array(
 		'script' => 'faqwidget.php',
 		'params' => array(),
+		'uparams' => array('url'),
 );
 
 $ViewList['getstatus'] = array(

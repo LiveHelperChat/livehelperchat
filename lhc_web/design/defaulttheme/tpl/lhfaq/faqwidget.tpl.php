@@ -31,7 +31,7 @@
 			<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 		<?php endif;?>
 
-	  <form action="<?php echo erLhcoreClassDesign::baseurl('faq/faqwidget')?>" method="post">
+	  <form action="<?php echo erLhcoreClassDesign::baseurl('faq/faqwidget')?><?php echo $dynamic_url_append?>" method="post">
 		  <h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','Type your question');?></h2>
 
 		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','Question');?>:</label>

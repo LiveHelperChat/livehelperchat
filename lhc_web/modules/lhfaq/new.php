@@ -9,7 +9,7 @@ if ( isset($_POST['Save']) )
 	$Errors = erLhcoreClassFaq::validateFaq($faq);
 
 	if (count($Errors) == 0) {
-		erLhcoreClassFaq::getSession()->SaveOrUpdate($faq);
+		$faq->saveThis();
 		erLhcoreClassModule::redirect('faq/list');
 		exit;
 	} else {
