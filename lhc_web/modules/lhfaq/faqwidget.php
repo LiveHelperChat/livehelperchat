@@ -49,7 +49,7 @@ if ($dynamic_url != ''){
 	$tpl->set('dynamic_url_append',$dynamic_url_append);
 }
 
-// We use direct queries in this file, because of complex query
+// We use direct queries in this file, because of its complexity
 $session = erLhcoreClassFaq::getSession();
 $q = $session->database->createSelectQuery();
 $q->select( "COUNT(id)" )->from( "lh_faq" );
