@@ -1,40 +1,41 @@
 <?php
 return array (
-  'settings' => 
+  'settings' =>
   array (
-    'site' => 
+    'site' =>
     array (
       'title' => 'Live helper Chat',
       'site_admin_email' => '',
       'locale' => 'en_EN',
       'theme' => 'defaulttheme',
       'installed' => false,
-      'secrethash' => '',            
+      'secrethash' => '',
       'debug_output' => false,
       'templatecache' => false,
       'templatecompile' => false,
-      'modulecompile' => false,  
-      'https_port' => 443,  
+      'modulecompile' => false,
+      'https_port' => 443,
       'default_site_access' => 'eng',
-      'extensions' => 
+      'extensions' =>
           array (
             // 0 => 'customstatus',
       ),
-      'available_site_access' => 
+      'available_site_access' =>
       array (
         0 => 'eng',
         1 => 'lit',
         2 => 'hrv',
         3 => 'esp',
         4 => 'por',
-        5 => 'site_admin',
-      ),           
+        5 => 'nld',
+        6 => 'site_admin',
+      ),
     ),
-    'default_url' => 
+    'default_url' =>
     array (
       'module' => 'chat',
       'view' => 'startchat',
-    ),  
+    ),
     'chat' => array(
         'online_timeout' => 300,
         'back_office_sinterval' => 10,
@@ -43,8 +44,8 @@ return array (
         'new_chat_sound_enabled' => true,
         'new_message_sound_admin_enabled' => true,
         'new_message_sound_user_enabled' => true,
-    ),  
-    'db' => 
+    ),
+    'db' =>
     array (
       'host' => '',
       'user' => '',
@@ -52,9 +53,9 @@ return array (
       'database' => '',
       'port' => 3306,
       'use_slaves' => false,
-      'db_slaves' => 
+      'db_slaves' =>
       array (
-        0 => 
+        0 =>
         array (
           'host' => '',
           'user' => '',
@@ -64,109 +65,126 @@ return array (
         ),
       ),
     ),
-    'site_access_options' => 
+    'site_access_options' =>
     array (
-      'eng' => 
+      'eng' =>
       array (
         'locale' => 'en_EN',
         'content_language' => 'en',
-        'default_url' => 
+        'default_url' =>
         array (
           'module' => 'chat',
           'view' => 'startchat',
         ),
-        'theme' => 
+        'theme' =>
         array (
           0 => 'customtheme',
           1 => 'defaulttheme',
         ),
       ),
-      'lit' => 
+      'lit' =>
       array (
         'locale' => 'lt_LT',
         'content_language' => 'lt',
         'title' => '',
         'description' => '',
-        'theme' => 
+        'theme' =>
         array (
           0 => 'customtheme',
           1 => 'defaulttheme',
         ),
-        'default_url' => 
+        'default_url' =>
         array (
           'module' => 'chat',
           'view' => 'startchat',
         ),
       ),
-      'hrv' => 
+      'hrv' =>
       array (
         'locale' => 'hr_HR',
         'content_language' => 'hr',
         'title' => '',
         'description' => '',
-        'theme' => 
+        'theme' =>
         array (
           0 => 'customtheme',
           1 => 'defaulttheme',
         ),
-        'default_url' => 
+        'default_url' =>
         array (
           'module' => 'chat',
           'view' => 'startchat',
         ),
-      ), 
-      'esp' => 
+      ),
+      'esp' =>
       array (
         'locale' => 'es_MX',
         'content_language' => 'es',
         'title' => '',
         'description' => '',
-        'theme' => 
+        'theme' =>
         array (
           0 => 'customtheme',
           1 => 'defaulttheme',
         ),
-        'default_url' => 
+        'default_url' =>
         array (
           'module' => 'chat',
           'view' => 'startchat',
         ),
       ),
-      'por' => 
+      'por' =>
       array (
         'locale' => 'pt_BR',
         'content_language' => 'pt',
         'title' => '',
         'description' => '',
-        'theme' => 
+        'theme' =>
         array (
           0 => 'customtheme',
           1 => 'defaulttheme',
         ),
-        'default_url' => 
+        'default_url' =>
         array (
           'module' => 'chat',
           'view' => 'startchat',
         ),
       ),
-      'site_admin' => 
+      'nld' =>
+      array (
+        'locale' => 'nl_NL',
+        'content_language' => 'nl',
+        'title' => '',
+        'description' => '',
+        'theme' =>
+        array (
+          0 => 'customtheme',
+          1 => 'defaulttheme',
+        ),
+        'default_url' =>
+        array (
+          'module' => 'chat',
+          'view' => 'startchat',
+        ),
+      ),
+      'site_admin' =>
       array (
         'locale' => 'en_EN',
         'content_language' => 'en',
-        'theme' => 
+        'theme' =>
         array (
           0 => 'customtheme',
           1 => 'defaulttheme',
         ),
         'login_pagelayout' => 'login',
-        'default_url' => 
+        'default_url' =>
         array (
           'module' => 'front',
           'view' => 'default',
         ),
       ),
     ),
-    'cacheEngine' => 
+    'cacheEngine' =>
     array (
       'cache_global_key' => 'global_cache_key',
       'className' => false,
