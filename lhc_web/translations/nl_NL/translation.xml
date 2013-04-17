@@ -64,8 +64,8 @@
         <translation>Ga naar pagina %item va %numpages</translation>
     </message>
     <message>
-        <source>Volgende</source>
-        <translation>Próximo</translation>
+        <source>Próximo</source>
+        <translation>Volgende</translation>
     </message>
     <message>
         <source>Page %currentpage of %totalpage</source>
@@ -367,7 +367,7 @@
     </message>
     <message>
         <source>Transfer chat</source>
-        <translation>Transfer chats</translation>
+        <translation>Transfer chatgesprek</translation>
     </message>
     <message>
         <source>Close dialog</source>
@@ -418,7 +418,7 @@
     </message>
     <message>
         <source>Support closed chat window, but You can leave messages, administrator will read them later.</source>
-        <translation>De medewerker heeft het chat-window gesloten, maar je kunt een berichtje achter laten zodat we deze alsnog lezen.</translation>
+        <translation>De medewerker heeft het chat-scherm gesloten, maar je kunt een berichtje achter laten.</translation>
     </message>
 </context>
 <context>
@@ -699,11 +699,11 @@
     </message> 
     <message>
         <source>Live help is online...</source>
-        <translation>Uw reisagent is online...</translation>
+        <translation>Medewerker is online...</translation>
     </message>
     <message>
         <source>Live help is offline...</source>
-        <translation>Uw reisagent is offline...</translation>
+        <translation>Medewerker is offline...</translation>
     </message>
 </context>
 <context>
@@ -858,7 +858,7 @@
     <name>chat/chattabs</name>
     <message>
         <source>Pending confirm</source>
-        <translation>Wachtend bevestiging</translation>
+        <translation>Wachten op bevestiging</translation>
     </message>
     <message>
         <source>Active chats</source>
@@ -932,7 +932,7 @@
     <name>chat/chat</name>
     <message>
         <source>Pending confirm</source>
-        <translation>Bevestig wachtend</translation>
+        <translation>Wachten op bevestiging</translation>
     </message>
     <message>
         <source>Chat started</source>
@@ -958,7 +958,7 @@
     <name>chat/checkchatstatus</name>
     <message>
         <source>Pending support staff member to join, you can write your questions, as soon support staff member confirm this chat, he will get your messages</source>
-        <translation>Wachtend op een beschikbare medewerker, u kunt alvast beginnen met het typen van uw vraag, zodra de medewerker is ingelogd zal hij deze kunnen zien. </translation>
+        <translation>U wordt verbonden met een beschikbare medewerker, u kunt alvast beginnen met het tyypen van uw vraag. </translation>
     </message>
     <message>
         <source>Support staff member have joined this chat</source>
@@ -966,7 +966,7 @@
     </message>
     <message>
         <source>At this moment there are no logged members, but you can leave your messages.</source>
-        <translation>Op dit moment zijn er geen reisagenten aanwezig, wel kunt u een berichtje achter laten.</translation>
+        <translation>Op dit moment zijn er geen medewerkers aanwezig, wel kunt u een berichtje achter laten.</translation>
     </message> 
 </context>
 <context>
@@ -1031,7 +1031,7 @@
     </message>
     <message>
         <source>Copy code from textarea to page where you want your status to appear</source>
-        <translation>Kopieer de code uit het textvak en plaats het waar je de status wilt laten verschijnen</translation>
+        <translation>Kopieer de code uit het textvak en plaats het waar je de statusknop wilt laten verschijnen</translation>
     </message>
     <message>
         <source>System configuration</source>
