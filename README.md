@@ -12,9 +12,8 @@ http://livehelperchat.com/documentation-6c.html
 ## Folders structure
 
  * Directories content:
-  * lhc_dc - Compiled Windows desktop client.
+  * lhc_dc - Compiled desktop clients Windows/Mac.
   * lhc_dc_src - Desktop client source.
-  * lhc_translations - Translations folder.
   * lhc_web - WEB application folder.
 
 ## Features
@@ -38,6 +37,8 @@ Few main features
  * Option to configure start chat fields
  * Sounds on pending chats and new messages
  * Users blocking
+ * FAQ module
+ * Voting module
  * Top performance with enabled cache
  * Advanced embed code generation with numerous options of includable code.
  * Template override system
