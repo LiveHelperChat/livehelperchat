@@ -164,7 +164,7 @@ class erLhcoreClassUser{
        $q = ezcDbInstance::get()->createDeleteQuery();
 
        // User remember
-       $q->deleteFrom( 'lh_users_remember' )->where( $q->expr->eq( 'user_id', $this->userid ) );
+       $q->deleteFrom( 'lh_users_remember' )->where( $q->expr->eq( 'user_id', $q->bindValue($this->userid) ) );
        $stmt = $q->prepare();
        $stmt->execute();
 
