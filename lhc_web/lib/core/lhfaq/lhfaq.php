@@ -22,7 +22,7 @@ class erLhcoreClassFaq {
 	   			'question' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
 	   			),
-	   			'url' => new ezcInputFormDefinitionElement(
+	   			'URL' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
 	   			),
 	   			'ActiveFAQ' => new ezcInputFormDefinitionElement(
@@ -46,9 +46,9 @@ class erLhcoreClassFaq {
 	   		$faq->question = $form->question;
 	   	}
 
-	   	if ( $form->hasValidData( 'url' ) )
+	   	if ( $form->hasValidData( 'URL' ) )
 	   	{
-	   		$faq->url = $form->url;
+	   		$faq->url = $form->URL;
 	   	} else {
 	   		$faq->url = '';
 	   	}

@@ -1,11 +1,11 @@
 <form action="<?php echo erLhcoreClassDesign::baseurl('install/install')?>/2" method="POST">
-<fieldset><legend>Installation step 2</legend> 
+<fieldset><legend>Installation step 2</legend>
 
 <?php if (isset($errors)) : ?>
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
-        
-<fieldset><legend>Database settings</legend> 
+
+<fieldset><legend>Database settings</legend>
 <table>
     <tr>
         <td>Username</td>
@@ -17,7 +17,7 @@
     </tr>
     <tr>
         <td>Host</td>
-        <td><input type="text" name="DatabaseHost" value="<?php echo isset($db_host) ? $db_host : ''?>"></td>
+        <td><input type="text" name="DatabaseHost" value="<?php echo isset($db_host) ? $db_host : '127.0.0.1' ?>"></td>
     </tr>
     <tr>
         <td>Port</td>

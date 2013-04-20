@@ -10,7 +10,7 @@ $pages->paginate();
 
 $items = array();
 if ($pages->items_total > 0) {
-	$items = erLhcoreClassModelFaq::getList(array('offset' => $pages->low, 'limit' => $pages->items_per_page,'sort' => 'id ASC'));
+	$items = erLhcoreClassModelFaq::getList(array('offset' => $pages->low, 'limit' => $pages->items_per_page,'sort' => 'id DESC'));
 }
 
 $tpl->set('items',$items);
