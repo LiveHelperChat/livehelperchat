@@ -577,6 +577,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                     array('module' => 'lhchat',  'function' => 'allowtransfer'),
                     array('module' => 'lhchat',  'function' => 'administratecannedmsg'),
                     array('module' => 'lhquestionary',  'function' => 'manage_questionary'),
+                    array('module' => 'lhfaq',   'function' => 'manage_faq'),
                     array('module' => 'lhxml',   'function' => '*')
                 );
 

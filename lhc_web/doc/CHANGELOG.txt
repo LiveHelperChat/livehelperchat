@@ -3,6 +3,8 @@
 Feature release:
 1. FAQ module, show FAQ questions to your customers based on their URL.
 2. Custom position from top if middle right or middle right is chosen.
+3. Dutch translation, thanks to Robin Stuivenberg
+4. MacOS bundle, requires QT 4.7 or 4.8 runtime library. Anyone can compile without dependency?
 
 execute doc/update_db/update_20.sql
 
