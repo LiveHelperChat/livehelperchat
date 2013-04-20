@@ -29,6 +29,11 @@ $def->properties['active']->columnName   = 'active';
 $def->properties['active']->propertyName = 'active';
 $def->properties['active']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['has_url'] = new ezcPersistentObjectProperty();
+$def->properties['has_url']->columnName   = 'has_url';
+$def->properties['has_url']->propertyName = 'has_url';
+$def->properties['has_url']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

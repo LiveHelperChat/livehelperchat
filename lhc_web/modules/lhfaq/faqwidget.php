@@ -81,7 +81,7 @@ if ($pages->items_total > 0) {
 
 	);
 	$q->limit($pages->items_per_page, $pages->low);
-	$q->orderBy('id DESC' );
+	$q->orderBy('has_url DESC, id DESC' ); // Questions with matched URL has higher priority
 	$items = $session->find( $q );
 }
 

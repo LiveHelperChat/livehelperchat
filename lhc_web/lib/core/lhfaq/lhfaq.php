@@ -49,6 +49,8 @@ class erLhcoreClassFaq {
 	   	if ( $form->hasValidData( 'url' ) )
 	   	{
 	   		$faq->url = $form->url;
+	   	} else {
+	   		$faq->url = '';
 	   	}
 
 	   	if ( $form->hasValidData( 'ActiveFAQ' ) && $form->ActiveFAQ == true ) {

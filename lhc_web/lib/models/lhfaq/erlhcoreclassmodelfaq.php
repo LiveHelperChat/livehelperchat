@@ -10,6 +10,7 @@ class erLhcoreClassModelFaq {
 				'answer'     => $this->answer,
 				'url'        => $this->url,
 				'active'     => $this->active,
+				'has_url'    => $this->has_url
 		);
 	}
 
@@ -128,6 +129,9 @@ class erLhcoreClassModelFaq {
 			}
 
 			$this->url = $matchStringURL;
+			$this->has_url = 1;
+		} else {
+			$this->has_url = 0;
 		}
 
 		erLhcoreClassFaq::getSession()->saveOrUpdate($this);
@@ -142,6 +146,7 @@ class erLhcoreClassModelFaq {
 	public $answer = '';
 	public $url = '';
 	public $active = 1;
+	public $has_url = 0;
 
 }
 
