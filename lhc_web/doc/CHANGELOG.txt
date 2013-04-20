@@ -1,3 +1,11 @@
+1.29v
+
+Feature release:
+1. FAQ module, show FAQ questions to your customers based on their URL.
+2. Custom position from top if middle right or middle right is chosen.
+
+execute doc/update_db/update_20.sql
+
 1.28v
 
 Feature release:

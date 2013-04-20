@@ -93,11 +93,6 @@ var lhc_FAQ = function() {
     };
 
     this.hide = function() {
-        var th = document.getElementsByTagName('head')[0];
-        var s = document.createElement('script');
-        s.setAttribute('type','text/javascript');
-        s.setAttribute('src','<?php echo erLhcoreClassSystem::instance()->baseHTTP?><?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('faq/faqwidgetclosed')?>');
-        th.appendChild(s);
         self.removeById('lhc_container_faq');
     };
 

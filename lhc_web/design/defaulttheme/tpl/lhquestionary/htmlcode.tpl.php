@@ -12,7 +12,7 @@
 
 <div class="row">
 <div class="columns six">
-	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/htmlcode','Position from top, only used if left middle or right middle is chosen');?></label>
+	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Position from top, only used if left middle or right middle is chosen');?></label>
     <div class="row">
       <div class="eight columns">
         <input type="text" id="id_top_text" value="400" />

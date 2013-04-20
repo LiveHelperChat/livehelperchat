@@ -27,7 +27,7 @@
 				<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 		<?php endif; ?>
 
-		<?php if(isset($success)) : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','Your question was sent!'); ?>
+		<?php if(isset($success)) : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','Your question was submitted!'); ?>
 			<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 		<?php endif;?>
 

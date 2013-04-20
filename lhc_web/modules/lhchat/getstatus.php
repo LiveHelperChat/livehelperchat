@@ -11,10 +11,15 @@ if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value
     $tpl->set('visitor',$visitor);
 }
 
+$validUnits = array('pixels' => 'px','percents' => '%');
+
 $tpl->set('click',$Params['user_parameters_unordered']['click']);
 $tpl->set('position',$Params['user_parameters_unordered']['position']);
 $tpl->set('hide_offline',$Params['user_parameters_unordered']['hide_offline']);
 $tpl->set('check_operator_messages',$Params['user_parameters_unordered']['check_operator_messages']);
+$tpl->set('top_pos',(int)$Params['user_parameters_unordered']['top'] >= 0 ? (int)$Params['user_parameters_unordered']['top'] : 350);
+$tpl->set('units',key_exists((string)$Params['user_parameters_unordered']['units'], $validUnits) ? $validUnits[(string)$Params['user_parameters_unordered']['units']] : 'pixels');
+
 
 echo $tpl->fetch();
 exit;

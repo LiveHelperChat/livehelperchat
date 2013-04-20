@@ -34,14 +34,14 @@ class erLhcoreClassFaq {
 
 	   	if ( !$form->hasValidData( 'answer' ) || $form->answer == '')
 	   	{
-	   		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('faq/view','Please enter answer');
+	   		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('faq/view','Please enter answer!');
 	   	} else {
 	   		$faq->answer = $form->answer;
 	   	}
 
 	   	if ( !$form->hasValidData( 'question' ) || $form->question == '')
 	   	{
-	   		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('faq/view','Please enter question');
+	   		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('faq/view','Please enter question!');
 	   	} else {
 	   		$faq->question = $form->question;
 	   	}

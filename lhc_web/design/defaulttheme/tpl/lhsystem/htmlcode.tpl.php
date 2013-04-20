@@ -28,12 +28,27 @@
                <option value="middle_right"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Middle right side of the screen');?></option>
                <option value="middle_left"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Middle left side of the screen');?></option>
         </select>
+
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Position from top, only used if left middle or right middle is chosen');?></label>
+	    <div class="row">
+	      <div class="eight columns">
+	        <input type="text" id="id_top_text" value="350" />
+	      </div>
+	      <div class="four columns">
+	      	<select id="UnitsTop">
+	            <option value="pixels">Pixels</option>
+	            <option value="percents">Percents</option>
+	        </select>
+	      </div>
+	    </div>
+
     </div>
 </div>
 
+
+
 <p class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Copy code from textarea to page where you want your status to appear');?></p>
 <textarea style="width:100%;height:180px;font-size:12px;" id="HMLTContent" ><?php echo htmlspecialchars('<script type="text/javascript" src="http://'.$_SERVER['HTTP_HOST'].erLhcoreClassDesign::baseurl('chat/getstatus').'"></script>')?></textarea>
-
 
 <script type="text/javascript">
 
@@ -47,6 +62,8 @@ function generateEmbedCode(){
 
     var id_position =  '/(position)/'+$('#PositionID').val();
     var id_tag = '';
+    var top = '/(top)/'+($('#id_top_text').val() == '' ? 350 : $('#id_top_text').val());
+	var topposition = '/(units)/'+$('#UnitsTop').val();
 
     if ($('#PositionID').val() == 'original'){
         id_tag = '<!-- Place this tag where you want the Live Helper Status to render. -->'+"\n"+
@@ -56,7 +73,7 @@ function generateEmbedCode(){
     var script = '<script type="text/javascript">'+"\n"+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
-        'po.src = \'<?php echo erLhcoreClassSystem::instance()->baseHTTP?><?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chat/getstatus'+id_internal_popup+id_position+id_hide_then_offline+id_check_operator_message+'\';'+"\n"+
+        'po.src = \'<?php echo erLhcoreClassSystem::instance()->baseHTTP?><?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chat/getstatus'+id_internal_popup+id_position+id_hide_then_offline+id_check_operator_message+top+topposition+'\';'+"\n"+
         'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);'+"\n"+
       '})();'+"\n"+
     '</scr'+'ipt>';
@@ -64,7 +81,7 @@ function generateEmbedCode(){
     $('#HMLTContent').text(id_tag+script);
 };
 
-$('#LocaleID,#id_internal_popup,#id_position_bottom,#PositionID,#id_hide_then_offline,#id_check_operator_message').change(function(){
+$('#LocaleID,#id_internal_popup,#id_position_bottom,#PositionID,#id_hide_then_offline,#id_check_operator_message,#UnitsTop,#id_top_text').change(function(){
     generateEmbedCode();
 });
 

@@ -405,6 +405,13 @@
     </message>
 </context>
 <context>
+    <name>system/messages</name>
+    <message>
+        <source>Updated</source>
+        <translation>Atnaujinta</translation>
+    </message>
+</context>
+<context>
     <name>chat/editchatconfig</name>
     <message>
         <source>Edit</source>
@@ -832,6 +839,10 @@
     <message>
         <source>Logged user</source>
         <translation>Prisijungęs vartotojas</translation>
+    </message>
+    <message>
+        <source>FAQ</source>
+        <translation>DUK</translation>
     </message>
     <message>
         <source>Chats transfered to your department</source>
@@ -1908,6 +1919,14 @@
         <translation>HTML kodas</translation>
     </message>
     <message>
+        <source>Embed html code</source>
+        <translation>Įterpimo html kodas</translation>
+    </message>
+    <message>
+        <source>Position from top, only used if left middle or right middle is chosen</source>
+        <translation>Pozicija nuo viršaus, naudojamas jei pasirinktas vidurys kairėje arba dešinėje</translation>
+    </message>
+    <message>
         <source>Check for messages from operator</source>
         <translation>Tikrinti ar nėra žinučių iš operatorių</translation>
     </message>
@@ -2522,6 +2541,122 @@
     <message>
         <source>Please enter surname</source>
         <translation>Prašome įvesti pavardę</translation>
+    </message>
+</context>
+<context>
+    <name>faq/list</name>
+    <message>
+        <source>FAQ</source>
+        <translation>DUK</translation>
+    </message>
+    <message>
+        <source>Question</source>
+        <translation>Klausimas</translation>
+    </message>
+    <message>
+        <source>Active</source>
+        <translation>Aktyvus</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation>Redaguoti</translation>
+    </message>
+    <message>
+        <source>Delete this question</source>
+        <translation>Pašalinti šį klausimą</translation>
+    </message>
+    <message>
+        <source>New question</source>
+        <translation>Naujas klausimas</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation>T</translation>
+    </message>
+    <message>
+        <source>N</source>
+        <translation>N</translation>
+    </message>
+</context>
+<context>
+    <name>faq/new</name>
+    <message>
+        <source>Question</source>
+        <translation>Klausimas</translation>
+    </message>
+    <message>
+        <source>FAQ description</source>
+        <translation>FAQ aprašymas</translation>
+    </message>
+    <message>
+        <source>New question</source>
+        <translation>Naujas klausimas</translation>
+    </message>
+    <message>
+        <source>Answer</source>
+        <translation>Atsakymas</translation>
+    </message>
+    <message>
+        <source>URL where this question should appear, leave empty for all</source>
+        <translation>URL kur šis klausimas turėtų būti rodomas, palikite tuščią visiems</translation>
+    </message>
+    <message>
+        <source>Question active</source>
+        <translation>Klausimas aktyvus</translation>
+    </message>
+</context>
+<context>
+    <name>faq/view</name>
+    <message>
+        <source>Please enter answer!</source>
+        <translation>Prašome įvesti atsakymą!</translation>
+    </message>
+    <message>
+        <source>View</source>
+        <translation>Peržiūra</translation>
+    </message>
+    <message>
+        <source>FAQ description</source>
+        <translation>DUK aprašymas</translation>
+    </message>
+    <message>
+        <source>Please enter question!</source>
+        <translation>Prašome įvesti klausimą!</translation>
+    </message>
+    <message>
+        <source>FAQ</source>
+        <translation>DUK</translation>
+    </message>
+</context>
+<context>
+    <name>faq/faqwidget</name>
+    <message>
+        <source>FAQ</source>
+        <translation>DUK</translation>
+    </message>
+    <message>
+        <source>Ask a question</source>
+        <translation>Paklauskite klausimo</translation>
+    </message>
+    <message>
+        <source>Your question was submitted!</source>
+        <translation>Jūsų klausimas buvo pateiktas!</translation>
+    </message>
+    <message>
+        <source>Type your question</source>
+        <translation>Įveskite savo klausimą</translation>
+    </message>
+    <message>
+        <source>Question</source>
+        <translation>Klausimas</translation>
+    </message>
+    <message>
+        <source>Send question</source>
+        <translation>Siųsti klausimą</translation>
+    </message>
+    <message>
+        <source>Please enter question!</source>
+        <translation>Prašome įvesti klausima!</translation>
     </message>
 </context>
 </TS>
