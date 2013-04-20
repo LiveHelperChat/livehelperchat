@@ -1,5 +1,5 @@
 <?php if (isset($errors)) : ?>
-<div class="alert-box alert"><a href="#" class="close">×</a>
+<div data-alert class="alert-box alert"><a href="#" class="close">×</a>
 <ul>
 <?php foreach ($errors as $err) : ?>
     <li><?php echo $err?></li>

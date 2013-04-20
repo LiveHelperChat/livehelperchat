@@ -11,7 +11,7 @@
 <br />
 
 <div class="row">
-    <div class="columns six">
+    <div class="columns large-6">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Choose a language');?></label>
         <select id="LocaleID">
             <?php foreach ($locales as $locale ) : ?>
@@ -19,7 +19,7 @@
             <?php endforeach; ?>
         </select>
     </div>
-    <div class="columns six">
+    <div class="columns large-6">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Position');?></label>
         <select id="PositionID">
                <option value="original"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Native placement - will be shown where html is embeded');?></option>
@@ -31,10 +31,10 @@
 
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Position from top, only used if left middle or right middle is chosen');?></label>
 	    <div class="row">
-	      <div class="eight columns">
+	      <div class="large-8 columns">
 	        <input type="text" id="id_top_text" value="350" />
 	      </div>
-	      <div class="four columns">
+	      <div class="large-4 columns">
 	      	<select id="UnitsTop">
 	            <option value="pixels">Pixels</option>
 	            <option value="percents">Percents</option>

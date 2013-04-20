@@ -1,1 +1,1 @@
-<div class="alert-box success"><?php echo $msg?><a href="" class="close">×</a></div>
+<div data-alert class="alert-box success"><?php echo $msg?><a href="" class="close">×</a></div>

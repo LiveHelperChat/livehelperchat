@@ -9,13 +9,13 @@
 
 <div class="content-row">
 <div class="row">
-<div class="columns twelve">
+<div class="columns large-12">
 
 <div class="row">
-    <div class="columns six">
+    <div class="columns large-6">
         <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_logo_back_office.tpl.php'));?>
     </div>
-    <div class="columns six">
+    <div class="columns large-6">
         <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/user_box.tpl.php'));?>
         <div class="float-break">
         <?php include(erLhcoreClassDesign::designtpl('lhchat/user_settings.tpl.php'));?>
@@ -30,7 +30,7 @@
 
 <div class="row">
 
-    <div class="columns eight">
+    <div class="columns large-8">
     <?php echo $Result['content']; ?>
     </div>
 
@@ -40,7 +40,7 @@
     $closedTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_close_list',0);
     $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_list',1);
     ?>
-    <div class="columns four" id="right-column-page">
+    <div class="columns large-4" id="right-column-page">
 
     		<dl class="tabs">
 			    <dd class="active"><a href="#simpleAssignYou1" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Chats transfered to you directly');?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Transfered to you');?><span class="tru-cnt"></span></a></dd>

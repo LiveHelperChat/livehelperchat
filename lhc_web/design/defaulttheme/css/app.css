@@ -2,6 +2,10 @@ body {
 	background: url(../images/general/subtle_grunge.png);
 }
 
+.row {
+	max-width: 100%;
+}
+
 .content-row {
 	margin: 10px;
 
@@ -20,6 +24,12 @@ ul.breadcrumbs li span {
 ul.breadcrumbs li:last-child span {
     padding-left:12px;
 }
+
+.breadcrumbs li a span {
+	font-size: 1em;
+}
+
+
 
 h1 { font-size: 24px; }
 

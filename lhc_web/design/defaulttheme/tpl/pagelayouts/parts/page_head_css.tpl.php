@@ -1,1 +1,1 @@
-<link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::designCSS('css/foundation.css;css/app.css;css/colorbox.css;css/override.css');?>" />
+<link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::designCSS('css/normalize.css;css/foundation-ltr.css;css/app.css;css/colorbox.css;css/override.css');?>" />

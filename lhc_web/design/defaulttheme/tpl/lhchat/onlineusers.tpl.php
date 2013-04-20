@@ -1,18 +1,17 @@
 <?php $currentUser = erLhcoreClassUser::instance(); if ($is_ajax == false) : ?>
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Online users');?>
 
-    <ul class="button-group radius right">
+<ul class="button-group radius right">
       <?php if ($currentUser->hasAccessTo('lhchat','administrateconfig')) : ?>
       <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/geoconfiguration')?>" class="round button small"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','GEO detection configuration');?></a></li>
       <?php endif; ?>
 
       <?php if ($currentUser->hasAccessTo('lhchat','allowclearonlinelist')) : ?>
-      <li><a class="round button small alert" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('chat/onlineusers')?>/(clear_list)/1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Clear list');?></a></li>
+      <li><a class="round small button alert" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('chat/onlineusers')?>/(clear_list)/1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Clear list');?></a></li>
       <?php endif; ?>
 
-    </ul>
+</ul>
 
-</h1>
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Online users');?></h1>
 
 <?php if($tracking_enabled == false) : ?>
 <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User tracking is disabled, enable it at');?>&nbsp;-&nbsp;<a href="<?php echo erLhcoreClassDesign::baseurl('chat/editchatconfig')?>/track_online_visitors"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Chat configuration');?></a></p>
