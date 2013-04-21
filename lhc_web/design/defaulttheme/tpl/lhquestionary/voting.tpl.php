@@ -35,8 +35,8 @@
         <td><?php echo $optionsItem->id?></td>
         <td><?php echo htmlspecialchars($optionsItem->option_name)?></td>
         <td><?php echo $optionsItem->priority?></td>
-        <td nowrap><a class="tiny button round" href="<?php echo erLhcoreClassDesign::baseurl('questionary/edit')?>/<?php echo $question->id?>/(option_id)/<?php echo $optionsItem->id?>/(tab)/voting"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Edit');?></a></td>
-        <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="tiny alert button round" href="<?php echo erLhcoreClassDesign::baseurl('questionary/deleteoption')?>/<?php echo $optionsItem->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Delete');?></a></td>
+        <td nowrap><a class="small button round" href="<?php echo erLhcoreClassDesign::baseurl('questionary/edit')?>/<?php echo $question->id?>/(option_id)/<?php echo $optionsItem->id?>/(tab)/voting"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Edit');?></a></td>
+        <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="small alert button round" href="<?php echo erLhcoreClassDesign::baseurl('questionary/deleteoption')?>/<?php echo $optionsItem->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Delete');?></a></td>
 </tr>
 <?php endforeach;?>
 </table>

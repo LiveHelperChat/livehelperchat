@@ -1919,6 +1919,22 @@
         <translation>HTML kodas</translation>
     </message>
     <message>
+        <source>Size</source>
+        <translation>Dydis</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation>Plotis</translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation>Aukštis</translation>
+    </message>
+    <message>
+        <source>Copy code from textarea to footer, before closing &lt;/body&gt; tag</source>
+        <translation>Nukopijuokite žemiau esantį kodą į tą vietą, kur norite kad būtų matoma jūsų prisijungimo būsena</translation>
+    </message>
+    <message>
         <source>Embed html code</source>
         <translation>Įterpimo html kodas</translation>
     </message>
