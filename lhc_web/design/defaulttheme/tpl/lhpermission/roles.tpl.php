@@ -13,8 +13,8 @@
     <tr>
         <td><?php echo $departament['id']?></td>
         <td><?php echo htmlspecialchars($departament['name'])?></td>
-        <td nowrap><a class="tiny button round" href="<?php echo erLhcoreClassDesign::baseurl('permission/editrole')?>/<?php echo $departament['id']?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/roles','Edit role');?></a></td>
-        <td nowrap><a class="tiny alert button round" onclick="return confirm('Are you sure?')" href="<?php echo erLhcoreClassDesign::baseurl('permission/deleterole')?>/<?php echo $departament['id']?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/roles','Delete role');?></a></td>
+        <td nowrap><a class="small button round" href="<?php echo erLhcoreClassDesign::baseurl('permission/editrole')?>/<?php echo $departament['id']?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/roles','Edit role');?></a></td>
+        <td nowrap><a class="small alert button round" onclick="return confirm('Are you sure?')" href="<?php echo erLhcoreClassDesign::baseurl('permission/deleterole')?>/<?php echo $departament['id']?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/roles','Delete role');?></a></td>
     </tr>
 <?php endforeach; ?>
 </table>

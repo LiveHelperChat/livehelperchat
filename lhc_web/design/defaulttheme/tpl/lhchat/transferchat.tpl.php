@@ -1,14 +1,12 @@
 <br>
-<dl class="tabs">
-    <dd class="active"><a href="#simpleTransfer1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer to user');?></a></dd>
-    <dd><a href="#simpleTransfer2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer to department');?></a></dd>
-</dl>
-
 <div id="transfer-block-<?php echo $chat->id?>"></div>
 
-<ul class="tabs-content" id="tabs-content">
-  <li id="simpleTransfer1Tab" class="active">
-  		<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Logged users');?></h4>
+<div class="section-container auto" data-section>
+  <section class="active">
+    <p class="title" data-section-title><a href="#panel1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer to user');?></a></p>
+    <div class="content" data-section-content>
+    	<div>
+        <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Logged users');?></h4>
 
   		<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer chat to one of your departments users');?></p>
 
@@ -17,9 +15,14 @@
 		<?php endforeach; ?>
 
 		<input type="button" onclick="lhinst.transferChat('<?php echo $chat->id;?>')" class="small button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer');?>" />
-  </li>
-  <li id="simpleTransfer2Tab" >
-  		<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Departments');?></h4>
+    </div>
+    </div>
+  </section>
+  <section>
+    <p class="title" data-section-title><a href="#panel2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer to department');?></a></p>
+    <div class="content" data-section-content>
+    	<div>
+      <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Departments');?></h4>
 
   		<?php foreach (erLhcoreClassDepartament::getDepartaments() as $departament) :
   		if ($departament['id'] !== $chat->dep_id) : ?>
@@ -27,5 +30,9 @@
 	    <?php endif; endforeach; ?>
 
 		<input type="button" onclick="lhinst.transferChatDep('<?php echo $chat->id;?>')" class="small button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer');?>" />
-  </li>
-</ul>
+    </div>
+    </div>
+  </section>
+</div>
+
+<script>setTimeout(function(){$(document).foundation('section', 'resize');},1000)</script>

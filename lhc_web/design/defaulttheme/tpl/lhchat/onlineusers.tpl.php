@@ -1,6 +1,6 @@
 <?php $currentUser = erLhcoreClassUser::instance(); if ($is_ajax == false) : ?>
 
-<ul class="button-group radius right">
+<ul class="button-group radius geo-settings">
       <?php if ($currentUser->hasAccessTo('lhchat','administrateconfig')) : ?>
       <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/geoconfiguration')?>" class="round button small"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','GEO detection configuration');?></a></li>
       <?php endif; ?>
@@ -35,7 +35,7 @@
 <?php foreach ($items as $departament) : ?>
     <tr>
         <td><?php echo $departament->id?></td>
-        <td><?php echo htmlspecialchars($departament->lastactivity_ago)?> ago</td>
+        <td nowrap><?php echo htmlspecialchars($departament->lastactivity_ago)?> ago</td>
         <td><div class="page-url"><span><?php echo htmlspecialchars($departament->current_page)?></span></div></td>
         <td>
         <div style="width:230px">
@@ -68,7 +68,7 @@
 
         </td>
 
-        <td nowrap><input type="button" class="tiny button radius" onclick="$.colorbox({'iframe':true,height:'500px',width:'500px', href:'<?php echo erLhcoreClassDesign::baseurl('chat/sendnotice')?>/<?php echo $departament->id?>'});" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Send message');?>"/></td>
+        <td nowrap><input type="button" class="small button radius" onclick="$.colorbox({'iframe':true,height:'500px',width:'500px', href:'<?php echo erLhcoreClassDesign::baseurl('chat/sendnotice')?>/<?php echo $departament->id?>'});" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Send message');?>"/></td>
     </tr>
 <?php endforeach; ?>
 </table>

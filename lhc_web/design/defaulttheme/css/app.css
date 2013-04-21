@@ -8,13 +8,21 @@ body {
 
 .content-row {
 	margin: 10px;
-
 	background-color: rgb(255, 255, 255); /* The Fallback */
     background-color: rgba(255, 255, 255, 0.95);
-
 	-webkit-box-shadow: 0px 0px 7px rgba(50, 50, 50, 0.3);
 	-moz-box-shadow:    0px 0px 7px rgba(50, 50, 50, 0.3);
 	box-shadow:         0px 0px 7px rgba(50, 50, 50, 0.3);
+	padding-top:10px;
+}
+
+.right-footer,
+.right-button {
+	float:right;
+}
+
+form {
+	margin-bottom:0;
 }
 
 ul.breadcrumbs li span {
@@ -25,8 +33,61 @@ ul.breadcrumbs li:last-child span {
     padding-left:12px;
 }
 
+.user-settings-list,
+.user-account-list {
+	float:right;
+}
+
 .breadcrumbs li a span {
 	font-size: 1em;
+}
+
+.section-container.hide {
+	display:none;
+}
+
+.geo-settings {
+	float:right;
+}
+
+.top-bar,
+.top-bar-section li a:not(.button){
+	background-color:#4d4d4d;
+}
+
+.top-bar{
+	height:auto;
+}
+
+.top-bar-section li a:not(.button):hover {
+	background-color:#000;
+}
+
+.section-container section .title a,
+.section-container .section .title a,
+.section-container.auto section .title a,
+.section-container.auto .section .title a{
+	padding:0.5em 0.7em;
+	font-size: 0.75em;
+}
+
+.top-bar {
+	margin-bottom:0.75em;
+}
+
+select {
+	font-size: 0.75em;
+}
+
+ul.small-list,
+.section-container.auto section.active .content p,
+.section-container.auto .section.active .content p {
+	font-size: 0.75em;
+}
+
+
+ul, ol, dl{
+	list-style-position: inside;
 }
 
 
@@ -45,10 +106,15 @@ h6 { font-size: 14px; }
 
 div.alert-box ul {
 	margin-bottom: 0;
+	font-size: 0.82em;
 }
 
 .mt10 {
     margin-top:10px;
+}
+
+.mb6 {
+	margin-bottom: 6px;
 }
 
 .mt0 {
@@ -62,7 +128,9 @@ div.alert-box ul {
 .footer-row p {
     padding: 10px;
     margin:0;
+    font-size:0.75em;
 }
+
 
 select {
 	margin-bottom: 12px;
@@ -78,15 +146,22 @@ select {
 	display:none;
 }
 
-#right-column-page hr {
-	margin:0;
+.status-row .columns p,
+#right-pending-chats p,
+#right-active-chats p,
+#right-unread-chats p,
+#right-closed-chats p{
+	font-size:0.75em;
 }
 
-.tabs dd a, .tabs li a {
-	line-height:30px;
-	height:30px;
-	padding:0 10px;
-	font-size:12px;
+.found-total,
+table tr td {
+	font-size:0.75em;
+}
+
+.found-total{
+	color:#999999;
+	float:right;
 }
 
 .fs11 {
@@ -138,7 +213,7 @@ div.response {
 }
 
 div.message-row {
-	padding:2px;
+	padding:4px 2px;
 }
 
 .pt10 {
@@ -167,6 +242,14 @@ div.message-row {
 
 .message-block,
 #messages{position:relative;}
+.message-block{
+	font-size: 0.75em;
+}
+
+#messages {
+	font-size: 0.75em;
+}
+
 
 .user-is-typing,
 #id-operator-typing {
@@ -221,7 +304,6 @@ div.message-row {
 }
 
 ul.user-settings-list {
-	float:right;
 	margin-bottom:0;
 }
 
@@ -264,12 +346,16 @@ ul.mb0 {
 	margin-bottom:0;
 }
 
-@media only screen and (max-width: 467px) {
-    .tabs dd {
-        display:block;
-        float:none;
-    }
-    .tabs {
-        height: auto;
-    }
-}
+/* Accordion ---------------------- */
+ul.accordion-lhc { margin: 0 0 22px 0; border-bottom: 1px solid #e9e9e9; }
+ul.accordion-lhc > li { list-style: none; margin: 0; padding: 0; border-top: 1px solid #e9e9e9; }
+ul.accordion-lhc > li > div.title-lhc { cursor: pointer; background: #f6f6f6; padding: 10px; margin: 0; position: relative; border-left: 1px solid #e9e9e9; border-right: 1px solid #e9e9e9; -webkit-transition: 0.15s background linear; -moz-transition: 0.15s background linear; -o-transition: 0.15s background linear; transition: 0.15s background linear; }
+ul.accordion-lhc > li > div.title-lhc h1, ul.accordion-lhc > li > div.title-lhc h2, ul.accordion-lhc > li > div.title-lhc h3, ul.accordion-lhc > li > div.title-lhc h4, ul.accordion-lhc > li > div.title-lhc h5 { margin: 0; }
+ul.accordion-lhc > li > div.title-lhc:after { content: ""; display: block; width: 0; height: 0; border: solid 6px; border-color: transparent #9d9d9d transparent transparent; position: absolute; right: 15px; top:12px; }
+ul.accordion-lhc > li .content-lhc { display: none; padding: 15px;font-size:0.75em }
+ul.accordion-lhc > li.active-lhc { border-top: 3px solid #2ba6cb; }
+ul.accordion-lhc > li.active-lhc .title-lhc { background: white; padding-top: 13px; }
+ul.accordion-lhc > li.active-lhc .title-lhc:after { content: ""; display: block; width: 0; height: 0; border: solid 6px; border-color: #9d9d9d transparent transparent transparent; }
+ul.accordion-lhc > li.active-lhc .content-lhc { background: white; display: block; border-left: 1px solid #e9e9e9; border-right: 1px solid #e9e9e9; }
+
+

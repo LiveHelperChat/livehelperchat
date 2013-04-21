@@ -8,11 +8,9 @@
 
 <?php include(erLhcoreClassDesign::designtpl('lhchat/user_settings.tpl.php'));?>
 
-<dl class="tabs" id="tabs">
-</dl>
+<div class="section-container tabs" data-section="tabs" id="tabs">
 
-<ul class="tabs-content" id="tabs-content">
-</ul>
+</div>
 
 <script type="text/javascript">
 function addChat(chat_id,name)

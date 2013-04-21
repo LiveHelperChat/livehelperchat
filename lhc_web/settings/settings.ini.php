@@ -71,6 +71,7 @@ return array (
       array (
         'locale' => 'en_EN',
         'content_language' => 'en',
+      	'dir_language' => 'ltr',
         'default_url' =>
         array (
           'module' => 'chat',
@@ -86,6 +87,7 @@ return array (
       array (
         'locale' => 'lt_LT',
         'content_language' => 'lt',
+      	'dir_language' => 'ltr',
         'title' => '',
         'description' => '',
         'theme' =>
@@ -103,6 +105,7 @@ return array (
       array (
         'locale' => 'hr_HR',
         'content_language' => 'hr',
+      	'dir_language' => 'ltr',
         'title' => '',
         'description' => '',
         'theme' =>
@@ -120,6 +123,7 @@ return array (
       array (
         'locale' => 'es_MX',
         'content_language' => 'es',
+      	'dir_language' => 'ltr',
         'title' => '',
         'description' => '',
         'theme' =>
@@ -137,6 +141,7 @@ return array (
       array (
         'locale' => 'pt_BR',
         'content_language' => 'pt',
+      	'dir_language' => 'ltr',
         'title' => '',
         'description' => '',
         'theme' =>
@@ -154,6 +159,7 @@ return array (
       array (
         'locale' => 'nl_NL',
         'content_language' => 'nl',
+      	'dir_language' => 'ltr',
         'title' => '',
         'description' => '',
         'theme' =>
@@ -171,6 +177,7 @@ return array (
       array (
         'locale' => 'en_EN',
         'content_language' => 'en',
+      	'dir_language' => 'ltr',
         'theme' =>
         array (
           0 => 'customtheme',

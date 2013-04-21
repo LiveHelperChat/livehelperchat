@@ -102,5 +102,6 @@ if (isset($_POST['URLRefer']))
 
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'widget';
+$Result['pagelayout_css_append'] = 'widget-chat';
 
 ?>

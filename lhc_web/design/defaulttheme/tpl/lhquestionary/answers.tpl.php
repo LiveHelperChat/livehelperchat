@@ -1,5 +1,5 @@
 <?php if ($pages->items_total > 0) : ?>
-	<table class="twelve" cellpadding="0" cellspacing="0">
+	<table class="large-12" cellpadding="0" cellspacing="0">
 	<thead>
 	<tr>
 	    <th width="1%">ID</th>
@@ -29,12 +29,12 @@
 <?php endif; ?>
 
 <?php if ($question->is_voting == 1) : ?>
-<table class="twelve" cellpadding="0" cellspacing="0">
+<table class="large-12" cellpadding="0" cellspacing="0">
 <thead>
 <tr>
     <th width="1%">ID</th>
-    <th class="five"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/answers','Option name');?></th>
-    <th class="five"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/answers','Progress');?></th>
+    <th class="large-5"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/answers','Option name');?></th>
+    <th class="large-5"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/answers','Progress');?></th>
     <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/answers','Votes');?></th>
 </tr>
 </thead>

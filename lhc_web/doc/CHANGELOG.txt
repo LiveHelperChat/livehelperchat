@@ -1,3 +1,9 @@
+1.30v
+
+Feature release:
+1. Upgrade to Foundation 4 version
+2. RTL language support
+
 1.29v
 
 Feature release:

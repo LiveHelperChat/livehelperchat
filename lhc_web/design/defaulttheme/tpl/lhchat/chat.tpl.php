@@ -1,11 +1,10 @@
 <div class="row">
 
-	<div class="columns eleven mobile-three">
+	<div class="columns small-10">
 		<h2 id="status-chat"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Pending confirm')?></h2>
 	</div>
 
-	<div class="columns one mobile-one">
-
+	<div class="columns small-2">
 		<?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings.tpl.php'));?>
 	</div>
 
@@ -40,11 +39,7 @@
         </script>
     </div>
 
-
-
-    <input type="button" class="small button round" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Send')?>" onclick="lhinst.addmsguser()" />
-
-    <br>
+    <input type="button" class="small round button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Send')?>" onclick="lhinst.addmsguser()" />
     <br>
 
 <script type="text/javascript">

@@ -3,20 +3,8 @@ $.postJSON = function(url, data, callback) {
 	return $.post(url, data, callback, "json");
 };
 
-
-$.fn.foundationTabs.addTab = function(tabs, url, name){
-
-	tabs.find('> dd.active').removeClass("active");
-	$('#tabs-content > li').hide();
-
-	var nextElement = tabs.find('> dd').size() + 5; // Leave some numbering for custom tabs
-	tabs.append('<dd class="active"><a href="#simple'+nextElement+'">'+name+'</a></dd>');
-	$('#tabs-content').append('<li id="simple'+nextElement+'Tab" style="display:block;"></li>');
-
-	$.get(url, function(data) {
-		  $('#simple'+nextElement+'Tab').html(data);
-	});
-};
+/*Port FN accordion*/
+(function(e,t,n){"use strict";e.fn.foundationAccordion=function(t){var n=function(e){return e.hasClass("hover")&&!Modernizr.touch};e(document).on("mouseenter",".accordion-lhc li",function(){var t=e(this).parent();if(n(t)){var r=e(this).children(".content-lhc").first();e(".content-lhc",t).not(r).hide().parent("li").removeClass("active-lhc"),r.show(0,function(){r.parent("li").addClass("active-lhc")})}}),e(document).on("click.fndtn",".accordion-lhc li .title-lhc",function(){var t=e(this).closest("li"),r=t.parent();if(!n(r)){var i=t.children(".content-lhc").first();t.hasClass("active-lhc")?r.find("li").removeClass("active-lhc").end().find(".content-lhc").hide():(e(".content-lhc",r).not(i).hide().parent("li").removeClass("active-lhc"),i.show(0,function(){i.parent("li").addClass("active-lhc")}))}})}})(jQuery,this);
 
 function lh(){
 
@@ -93,10 +81,19 @@ function lh(){
         this.underMessageAdd = status;
     };
 
-    this.startChat = function (chat_id,tabs,name)
-    {
+    this.addTab = function(tabs, url, name) {
+    	tabs.find('> section.active').removeClass("active").attr('style','');
+    	var nextElement = tabs.find('> section').size() + 5; // Leave some numbering for custom tabs
+    	tabs.append('<section class="active"><p class="title"><a href="#">' + name + '</a></p><div class="content" id="simple'+nextElement+'Tab">...</div></section>');
+    	$.get(url, function(data) {
+    		  $('#simple'+nextElement+'Tab').html(data);
+    		  $(document).foundation('section', 'resize');
+    	});
+    };
+
+    this.startChat = function (chat_id,tabs,name) {
         if ( this.chatUnderSynchronization(chat_id) == false ) {
-            $.fn.foundationTabs.addTab(tabs, this.wwwDir +'chat/adminchat/'+chat_id, name);
+        	this.addTab(tabs, this.wwwDir +'chat/adminchat/'+chat_id, name);
         }
     };
 
@@ -295,12 +292,9 @@ function lh(){
 
 	    if (hidetab == true) {
 
-	        var selected = tabs.find('dd.active');
-	    	var hrefid = selected.find('a').attr('href');
-	    	$(hrefid+'Tab').remove();
-	    	selected.remove();
-	    	tabs.find('dd:eq(0)').addClass("active");
-	    	$('#tabs-content').find('li:eq(0)').show();
+	    	tabs.find('section.active').remove();
+			tabs.find('section:eq(0)').addClass("active");
+			$(document).foundation('section', 'resize');
 
 	        if (this.closeWindowOnChatCloseDelete == true)
 	        {
@@ -322,13 +316,9 @@ function lh(){
 
 	    if (hidetab == true) {
 
-	    	// Remove active tab
-	    	var selected = tabs.find('dd.active');
-	    	var hrefid = selected.find('a').attr('href');
-	    	$(hrefid+'Tab').remove();
-	    	selected.remove();
-	    	tabs.find('dd:eq(0)').addClass("active");
-	    	$('#tabs-content').find('li:eq(0)').show();
+	    	tabs.find('section.active').remove();
+			tabs.find('section:eq(0)').addClass("active");
+			$(document).foundation('section', 'resize');
 
 	        if (this.closeWindowOnChatCloseDelete == true)
 	        {
@@ -356,12 +346,10 @@ function lh(){
 	     if (hidetab == true) {
 
 	        // Remove active tab
-	    	var selected = tabs.find('dd.active');
-	    	var hrefid = selected.find('a').attr('href');
-	    	$(hrefid+'Tab').remove();
-	    	selected.remove();
-	    	tabs.find('dd:eq(0)').addClass("active");
-	    	$('#tabs-content').find('li:eq(0)').show();
+	    	tabs.find('section.active').remove();
+			tabs.find('section:eq(0)').addClass("active");
+			$(document).foundation('section', 'resize');
+
 
 	        if (this.closeWindowOnChatCloseDelete == true)
 	        {
@@ -573,6 +561,7 @@ function lh(){
                         }
                     };
                 });
+                $(document).foundation('section', 'resize');
 	        };
 	        setTimeout(chatsyncadmininterface,confLH.back_office_sinterval);
     	}).fail(function(){

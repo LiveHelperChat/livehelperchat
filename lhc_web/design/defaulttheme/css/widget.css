@@ -1,9 +1,19 @@
 body {
-	font-size: 12px;
-	background:rgb(241, 241, 241);
+	margin:5px;
 }
 
 #widget-layout .row { min-width: 0;  }
+#widget-layout > .columns { padding: 0;  }
+
+.widget-chat #widget-layout > .columns{
+padding:10px;
+}
+
+.widget-chat #widget-layout {
+	background-color:#FFF;
+	border:1px solid #cccccc;
+	padding-top:10px;
+}
 
 #widget-layout #status-chat{
 	font-size:12px;
@@ -24,16 +34,6 @@ background-color: #fff;
 min-height: 0.8em;
 min-width: 0.7em;
 background-color: #ddd;
-}
-
-
-
-ul.accordion > li.active .content{
-	padding:0px 15px 10px;
-}
-
-ul.accordion > li.active .content p{
-	margin:0;
 }
 
 label,

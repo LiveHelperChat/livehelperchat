@@ -1,23 +1,23 @@
 <h1 class="attr-header"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','HTML code');?></h1>
 
 <div class="row">
-    <div class="columns six">
+    <div class="columns large-6">
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/htmlcode','Status text');?></label>
 		<input type="text" id="id_status_text" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Help us to grow');?>" />
 	</div>
-	<div class="columns six"><label for="id_show_widget_on_open"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/htmlcode','Expand widget automatically for new users');?></label>
+	<div class="columns large-6"><label for="id_show_widget_on_open"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/htmlcode','Expand widget automatically for new users');?></label>
 	<input type="checkbox" id="id_show_widget_on_open" value="on">
 	</div>
 </div>
 
 <div class="row">
-<div class="columns six">
+<div class="columns large-6">
 	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Position from top, only used if left middle or right middle is chosen');?></label>
     <div class="row">
-      <div class="eight columns">
+      <div class="large-8 columns">
         <input type="text" id="id_top_text" value="400" />
       </div>
-      <div class="four columns">
+      <div class="large-4 columns">
       	<select id="UnitsTop">
             <option value="pixels">Pixels</option>
             <option value="percents">Percents</option>
@@ -29,7 +29,7 @@
 
 
 <div class="row">
-    <div class="columns six">
+    <div class="columns large-6">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Choose a language');?></label>
         <select id="LocaleID">
             <?php foreach ($locales as $locale ) : ?>
@@ -37,7 +37,7 @@
             <?php endforeach; ?>
         </select>
     </div>
-    <div class="columns six">
+    <div class="columns large-6">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Position');?></label>
         <select id="PositionID">
                <option value="bottom_right"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Bottom right corner of the screen');?></option>

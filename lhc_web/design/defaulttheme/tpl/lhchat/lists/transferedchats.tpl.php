@@ -1,5 +1,5 @@
 <?php if (count($transferchats) > 0) { ?>
-<ul class="no-bullet">
+<ul class="no-bullet small-list">
 <?php foreach ($transferchats as $chat) : ?>
     		  <li>
     		  <img class="action-image right-action-hide" align="absmiddle" onclick="lhinst.startChatTransfer('<?php echo $chat['id'];?>',$('#tabs'),'<?php echo htmlspecialchars($chat['nick']);?>','<?php echo $chat['transfer_id'];?>')" src="<?php echo erLhcoreClassDesign::design('images/icons/accept.png');?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Accept chat');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Accept chat');?>">
