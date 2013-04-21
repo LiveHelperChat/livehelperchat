@@ -430,7 +430,7 @@ function lh(){
 
 	this.userclosedchat = function()
 	{
-	    $.getJSON(this.wwwDir + this.userclosechaturl + this.chat_id + '/' + this.hash ,{}, function(data){
+	    $.get(this.wwwDir + this.userclosechaturl + this.chat_id + '/' + this.hash,function(data){
 
     	});
 	};
