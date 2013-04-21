@@ -25,11 +25,11 @@
 			<label><input type="radio" name="Option" value="<?php echo $option->id?>" /> <?php echo htmlspecialchars($option->option_name)?></label>
 		<?php endforeach;?>
 		<br>
-		<input type="submit" class="mall round button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/votingwidget','Vote');?>" name="VoteAction">
+		<input type="submit" class="small round button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/votingwidget','Vote');?>" name="VoteAction">
 		<?php else : ?>
 		<textarea name="feedBack"><?php echo htmlspecialchars($answer->answer)?></textarea>
 
-		<input type="submit" class="mall round button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/votingwidget','Send');?>" name="FeedBackAction">
+		<input type="submit" class="small round button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/votingwidget','Send');?>" name="FeedBackAction">
 		<?php endif;?>
 
 		<input type="hidden" name="QuestionID" value="<?php echo $voting->id ?>" />
