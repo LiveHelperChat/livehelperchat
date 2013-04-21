@@ -7,6 +7,7 @@ body {
 
 .widget-chat #widget-layout > .columns{
 padding:10px;
+padding-top:0;
 }
 
 .widget-chat #widget-layout {
