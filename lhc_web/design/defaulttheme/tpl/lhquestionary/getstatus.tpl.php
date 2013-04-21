@@ -107,7 +107,7 @@ var lhc_Questionary = function() {
 
    		  this.initial_iframe_url = "<?php echo erLhcoreClassSystem::instance()->baseHTTP?><?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('questionary/votingwidget')?>"+'?URLReferer='+escape(document.location);
 
-   		  this.iframe_html = '<iframe id="fdbk_iframe" allowTransparency="true" scrolling="no" class="loading" frameborder="0" ' +
+   		  this.iframe_html = '<iframe id="fdbk_iframe" allowTransparency="true" scrolling="yes" class="loading" frameborder="0" ' +
                        ( this.initial_iframe_url != '' ? ' src="'    + this.initial_iframe_url + '"' : '' ) +
                        ' width="300"' +
                        ' height="200"' +

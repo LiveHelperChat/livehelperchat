@@ -30,6 +30,12 @@ height: 0.8em;
 background-color: #fff;
 }
 
+.section-container,
+.section-container.auto,
+.button {
+	margin-bottom:0;
+}
+
 ::-webkit-scrollbar-thumb {
 min-height: 0.8em;
 min-width: 0.7em;
