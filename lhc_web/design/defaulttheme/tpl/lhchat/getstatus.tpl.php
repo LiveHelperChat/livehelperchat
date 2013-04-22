@@ -115,14 +115,28 @@ var lh_inst  = {
         window.open(this.urlopen+'?URLReferer='+escape(document.location),this.windowname,"menubar=1,resizable=1,width=500,height=520");
     },
 
+    parseOptions : function() {
+    	if (LHCChatOptions.attr != undefined) {
+    		if (LHCChatOptions.attr.length > 0){
+    			argumentsQuery = new Array();
+    			LHCChatOptions.attr.forEach(function (element) {
+				    argumentsQuery.push('name[]='+encodeURIComponent(element.name)+'&value[]='+encodeURIComponent(element.value));
+				});
+				return '&'+argumentsQuery.join('&');
+    		};
+    	};
+
+    	return '';
+    },
+
     showStartWindow : function(url_to_open) {
 
           this.removeById('lhc_container');
 
           if ( url_to_open != undefined ) {
-                this.initial_iframe_url = url_to_open+'?URLReferer='+escape(document.location);
+                this.initial_iframe_url = url_to_open+'?URLReferer='+escape(document.location)+this.parseOptions();
           } else {
-                this.initial_iframe_url = "<?php echo erLhcoreClassSystem::instance()->baseHTTP?><?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?>"+'?URLReferer='+escape(document.location);
+                this.initial_iframe_url = "<?php echo erLhcoreClassSystem::instance()->baseHTTP?><?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?>"+'?URLReferer='+escape(document.location)+this.parseOptions();
           }
 
           this.iframe_html = '<iframe id="fdbk_iframe" allowTransparency="true" scrolling="no" class="loading" frameborder="0" ' +
@@ -154,7 +168,7 @@ var lh_inst  = {
         <?php if ($click == 'internal') : ?>
         this.showStartWindow();
         <?php else : ?>
-        window.open(this.urlopen+'?URLReferer='+escape(document.location),this.windowname,"menubar=1,resizable=1,width=500,height=520");
+        window.open(this.urlopen+'?URLReferer='+escape(document.location)+this.parseOptions(),this.windowname,"menubar=1,resizable=1,width=500,height=520");
         <?php endif; ?>
         return false;
     },
