@@ -2,6 +2,20 @@
 
 Feature release:
 1. Option to pass custom argument for chat
+Example:
+<script type="text/javascript">
+var LHCChatOptions = {};
+LHCChatOptions.attr = new Array();
+LHCChatOptions.attr.push({'name':'Basket id','value':'1212'});
+LHCChatOptions.attr.push({'name':'User ID','value':'4555'});
+(function() {
+var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+po.src = 'http://<some_domain>/index.php/chat/getstatus/(position)/middle_right';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+})();
+</script>
+
+
 
 1.30v
 
