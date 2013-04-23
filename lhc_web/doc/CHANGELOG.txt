@@ -1,7 +1,7 @@
 1.31v
 
 Feature release:
-1. Option to pass custom argument for chat
+1. Option to pass custom argument for chat, these arguments will be visible in chat form
 Example:
 <script type="text/javascript">
 var LHCChatOptions = {};
@@ -15,6 +15,19 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po
 })();
 </script>
 
+2. Option to prefill some form attributes in javascript
+<script type="text/javascript">
+LHCChatOptions.attr_prefill = new Array();
+LHCChatOptions.attr_prefill.push({'name':'email','value':'remdex@gmail.com'});
+LHCChatOptions.attr_prefill.push({'name':'phone','value':'370888888'});
+LHCChatOptions.attr_prefill.push({'name':'username','value':'Remigijus Kiminas'});
+
+(function() {
+var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+po.src = 'http://<some_domain>/index.php/chat/getstatus/(position)/middle_right';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+})();
+</script>
 
 
 1.30v

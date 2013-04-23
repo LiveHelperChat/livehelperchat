@@ -20,10 +20,10 @@ $startData = erLhcoreClassModelChatConfig::fetch('start_chat_data');
 $startDataFields = (array)$startData->data;
 
 $inputData = new stdClass();
-$inputData->username = '';
+$inputData->username = isset($_GET['prefill']['username']) ? (string)$_GET['prefill']['username'] : '';
 $inputData->question = '';
-$inputData->email = '';
-$inputData->phone = '';
+$inputData->email = isset($_GET['prefill']['email']) ? (string)$_GET['prefill']['email'] : '';
+$inputData->phone = isset($_GET['prefill']['phone']) ? (string)$_GET['prefill']['phone'] : '';
 $inputData->departament_id = 0;
 $inputData->validate_start_chat = false;
 $inputData->name_items = array();

@@ -116,15 +116,28 @@ var lh_inst  = {
     },
 
     parseOptions : function() {
+		argumentsQuery = new Array();
+
     	if (LHCChatOptions.attr != undefined) {
     		if (LHCChatOptions.attr.length > 0){
-    			argumentsQuery = new Array();
     			LHCChatOptions.attr.forEach(function (element) {
 				    argumentsQuery.push('name[]='+encodeURIComponent(element.name)+'&value[]='+encodeURIComponent(element.value));
 				});
-				return '&'+argumentsQuery.join('&');
     		};
     	};
+
+    	if (LHCChatOptions.attr_prefill != undefined) {
+    		if (LHCChatOptions.attr_prefill.length > 0){
+    			LHCChatOptions.attr_prefill.forEach(function (element) {
+				    argumentsQuery.push('prefill['+element.name+']='+encodeURIComponent(element.value));
+				});
+    		};
+    	};
+
+    	if (argumentsQuery.length > 0) {
+    		return '&'+argumentsQuery.join('&');
+    	}
+
     	return '';
     },
 
