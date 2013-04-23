@@ -136,7 +136,7 @@ var lh_inst  = {
 
     	if (argumentsQuery.length > 0) {
     		return '&'+argumentsQuery.join('&');
-    	}
+    	};
 
     	return '';
     },
