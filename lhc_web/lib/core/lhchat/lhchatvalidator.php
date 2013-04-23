@@ -51,6 +51,18 @@ class erLhcoreClassChatValidator {
 
         $validationFields['DepartamentID'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1));
 
+        $validationFields['name_items'] = new ezcInputFormDefinitionElement(
+        		ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
+        		null,
+        		FILTER_REQUIRE_ARRAY
+        );
+
+        $validationFields['value_items'] = new ezcInputFormDefinitionElement(
+        		ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
+        		null,
+        		FILTER_REQUIRE_ARRAY
+        );
+
         $form = new ezcInputForm( INPUT_POST, $validationFields );
         $Errors = array();
 
@@ -128,6 +140,24 @@ class erLhcoreClassChatValidator {
         }
 
         $inputForm->departament_id = $chat->dep_id;
+
+        if ( $form->hasValidData( 'name_items' ) && !empty($form->name_items))
+        {
+        	$valuesArray = array();
+        	if ( $form->hasValidData( 'value_items' ) && !empty($form->value_items))
+        	{
+        		$inputForm->value_items = $valuesArray = $form->value_items;
+        	}
+
+        	$inputForm->name_items = $form->name_items;
+
+        	$stringParts = array();
+        	foreach ($form->name_items as $key => $name_item) {
+        		$stringParts[] = trim($name_item).' - '.(isset($valuesArray[$key]) ? trim($valuesArray[$key]) : '-');
+        	}
+
+        	$chat->additional_data = implode(', ', $stringParts);
+        }
 
         return $Errors;
 

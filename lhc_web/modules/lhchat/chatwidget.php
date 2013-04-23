@@ -26,6 +26,9 @@ $inputData->email = '';
 $inputData->phone = '';
 $inputData->departament_id = 0;
 $inputData->validate_start_chat = false;
+$inputData->name_items = array();
+$inputData->value_items = array();
+
 
 $chat = new erLhcoreClassModelChat();
 
@@ -88,6 +91,31 @@ if (isset($_POST['StartChat']))
 
 $tpl->set('start_data_fields',$startDataFields);
 
+$definition = array(
+		'name'  => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
+				null,
+				FILTER_REQUIRE_ARRAY
+		),
+		'value' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
+				null,
+				FILTER_REQUIRE_ARRAY
+		)
+);
+
+$form = new ezcInputForm( INPUT_GET, $definition );
+
+if ( $form->hasValidData( 'name' ) && !empty($form->name))
+{
+	$inputData->name_items = $form->name;
+}
+
+if ( $form->hasValidData( 'value' ) && !empty($form->value))
+{
+	$inputData->value_items = $form->value;
+}
+
 $tpl->set('input_data',$inputData);
 
 if (isset($_GET['URLReferer']))
@@ -99,6 +127,10 @@ if (isset($_POST['URLRefer']))
 {
     $tpl->set('referer',$_POST['URLRefer']);
 }
+
+
+
+
 
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'widget';

@@ -16,6 +16,14 @@ body {
 	padding-top:10px;
 }
 
+.params-list li {
+	float:left;
+	font-size:0.75em;
+	margin-left:10px;
+	list-style-position: inside;
+}
+
+
 .right-footer,
 .right-button {
 	float:right;

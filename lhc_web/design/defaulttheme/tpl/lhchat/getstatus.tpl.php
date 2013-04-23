@@ -125,7 +125,6 @@ var lh_inst  = {
 				return '&'+argumentsQuery.join('&');
     		};
     	};
-
     	return '';
     },
 

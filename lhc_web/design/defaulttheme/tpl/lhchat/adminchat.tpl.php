@@ -13,7 +13,15 @@
     <div class="columns large-6">
     <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Information')?></h5>
     <p>
-    <?php if ( !empty($chat->country_code) ) : ?><img src="<?php echo erLhcoreClassDesign::design('images/flags');?>/<?php echo $chat->country_code?>.png" alt="<?php echo htmlspecialchars($chat->country_name)?>" title="<?php echo htmlspecialchars($chat->country_name)?>" /><?php endif; ?> | IP - <?php echo $chat->ip?><?php if (!empty($chat->referrer)) : ?> | <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Come from')?> - <?php echo $chat->referrer != '' ? htmlspecialchars($chat->referrer) : ''?><?php endif;?> | ID - <?php echo $chat->id;?><?php if (!empty($chat->email)) : ?> | <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','E-mail')?> - <a href="mailto:<?php echo $chat->email?>"><?php echo $chat->email?></a><?php endif;?><?php if (!empty($chat->phone)) : ?> | <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Phone')?> - <?php echo htmlspecialchars($chat->phone)?><?php endif;?>
+		<ul class="square params-list">
+    		<?php if ( !empty($chat->country_code) ) : ?><li><img src="<?php echo erLhcoreClassDesign::design('images/flags');?>/<?php echo $chat->country_code?>.png" alt="<?php echo htmlspecialchars($chat->country_name)?>" title="<?php echo htmlspecialchars($chat->country_name)?>" /></li><?php endif; ?>
+    		<li>IP - <?php echo $chat->ip?></li>
+    		<?php if (!empty($chat->referrer)) : ?><li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Come from')?> -  <?php echo $chat->referrer != '' ? htmlspecialchars($chat->referrer) : ''?></li><?php endif;?>
+    		<li>ID - <?php echo $chat->id;?></li>
+    		<?php if (!empty($chat->email)) : ?><li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','E-mail')?> - <a href="mailto:<?php echo $chat->email?>"><?php echo $chat->email?></a></li><?php endif;?>
+    		<?php if (!empty($chat->phone)) : ?><li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Phone')?> - <?php echo htmlspecialchars($chat->phone)?></li><?php endif;?>
+    		<?php if (!empty($chat->additional_data)) : ?><li><?php echo htmlspecialchars($chat->additional_data)?></li><?php endif;?>
+    	</ul>
     </p>
     </div>
 

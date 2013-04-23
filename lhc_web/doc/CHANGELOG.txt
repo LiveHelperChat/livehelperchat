@@ -1,3 +1,8 @@
+1.31v
+
+Feature release:
+1. Option to pass custom argument for chat
+
 1.30v
 
 Feature release:
