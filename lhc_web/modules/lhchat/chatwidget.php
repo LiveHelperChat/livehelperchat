@@ -28,7 +28,7 @@ $inputData->departament_id = 0;
 $inputData->validate_start_chat = false;
 $inputData->name_items = array();
 $inputData->value_items = array();
-
+$inputData->value_sizes = array();
 
 $chat = new erLhcoreClassModelChat();
 
@@ -101,6 +101,16 @@ $definition = array(
 				ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
 				null,
 				FILTER_REQUIRE_ARRAY
+		),
+		'type' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'string',
+				null,
+				FILTER_REQUIRE_ARRAY
+		),
+		'size' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'string',
+				null,
+				FILTER_REQUIRE_ARRAY
 		)
 );
 
@@ -116,6 +126,16 @@ if ( $form->hasValidData( 'value' ) && !empty($form->value))
 	$inputData->value_items = $form->value;
 }
 
+if ( $form->hasValidData( 'type' ) && !empty($form->type))
+{
+	$inputData->value_types = $form->type;
+}
+
+if ( $form->hasValidData( 'size' ) && !empty($form->size))
+{
+	$inputData->value_sizes = $form->size;
+}
+
 $tpl->set('input_data',$inputData);
 
 if (isset($_GET['URLReferer']))
@@ -127,9 +147,6 @@ if (isset($_POST['URLRefer']))
 {
     $tpl->set('referer',$_POST['URLRefer']);
 }
-
-
-
 
 
 $Result['content'] = $tpl->fetch();

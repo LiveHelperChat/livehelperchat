@@ -6,8 +6,8 @@ Example:
 <script type="text/javascript">
 var LHCChatOptions = {};
 LHCChatOptions.attr = new Array();
-LHCChatOptions.attr.push({'name':'Basket id','value':'1212'});
-LHCChatOptions.attr.push({'name':'User ID','value':'4555'});
+LHCChatOptions.attr.push({'name':'Basket id','value':'<predefined value>','type':'text','size':12}); // 12 is 100% full row, 6 is 50%
+LHCChatOptions.attr.push({'name':'User ID','value':'<predefined value>','type':'hidden','size':0}); // hidden is invisible field, size just zero
 (function() {
 var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
 po.src = 'http://<some_domain>/index.php/chat/getstatus/(position)/middle_right';
@@ -29,6 +29,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po
 })();
 </script>
 
+3. Option to configure chat popup window width and height, same for chat widget also.
 
 1.30v
 

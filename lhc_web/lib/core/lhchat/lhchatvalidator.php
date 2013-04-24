@@ -63,6 +63,18 @@ class erLhcoreClassChatValidator {
         		FILTER_REQUIRE_ARRAY
         );
 
+        $validationFields['value_types'] = new ezcInputFormDefinitionElement(
+        		ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
+        		null,
+        		FILTER_REQUIRE_ARRAY
+        );
+
+        $validationFields['value_sizes'] = new ezcInputFormDefinitionElement(
+        		ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
+        		null,
+        		FILTER_REQUIRE_ARRAY
+        );
+
         $form = new ezcInputForm( INPUT_POST, $validationFields );
         $Errors = array();
 
@@ -147,6 +159,16 @@ class erLhcoreClassChatValidator {
         	if ( $form->hasValidData( 'value_items' ) && !empty($form->value_items))
         	{
         		$inputForm->value_items = $valuesArray = $form->value_items;
+        	}
+
+        	if ( $form->hasValidData( 'value_types' ) && !empty($form->value_types))
+        	{
+        		$inputForm->value_types = $form->value_types;
+        	}
+
+        	if ( $form->hasValidData( 'value_sizes' ) && !empty($form->value_sizes))
+        	{
+        		$inputForm->value_sizes = $form->value_sizes;
         	}
 
         	$inputForm->name_items = $form->name_items;

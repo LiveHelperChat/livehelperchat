@@ -30,11 +30,13 @@
 <textarea placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your message');?>" name="Question"><?php echo htmlspecialchars($input_data->question);?></textarea>
 <?php endif; ?>
 
+<?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/user_variables.tpl.php'));?>
+
 <?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/department.tpl.php'));?>
 
 <input type="submit" class="small round button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Start chat');?>" name="StartChat" />
 <input type="hidden" value="<?php echo htmlspecialchars($referer);?>" name="URLRefer"/>
 
-<?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/user_variables.tpl.php'));?>
+
 
 </form>
