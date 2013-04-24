@@ -27,6 +27,10 @@
     <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/cannedmsg')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Canned messages');?></a></li>
     <?php endif; ?>
 
+    <?php if ($currentUser->hasAccessTo('lhabstract','use')) : ?>
+    <li><a href="<?php echo erLhcoreClassDesign::baseurl('abstract/list/EmailTemplate')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','E-mail templates');?></a></li>
+    <?php endif; ?>
+
 </ul>
 <hr>
 <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Users and their permissions');?></h4>
@@ -42,6 +46,7 @@
     <?php if ($currentUser->hasAccessTo('lhpermission','list')) : ?>
     <li><a href="<?php echo erLhcoreClassDesign::baseurl('permission/roles')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','List of roles');?></a></li>
     <?php endif; ?>
+
 </ul>
 <?php if ($currentUser->hasAccessTo('lhsystem','expirecache')) : ?>
 <hr>

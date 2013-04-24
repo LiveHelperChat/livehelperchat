@@ -394,11 +394,15 @@ function lh(){
 	};
 
 	this.blockUser = function(chat_id,msg) {
-	    if (confirm(msg)) {
-	        $.postJSON(this.wwwDir + 'chat/blockuser/' + chat_id,{}, function(data){
-	      	     alert(data.msg);
-    	    });
-	    }
+		if (confirm(msg)) {
+			$.postJSON(this.wwwDir + 'chat/blockuser/' + chat_id,{}, function(data){
+				alert(data.msg);
+			});
+		}
+	};
+
+	this.sendMail = function(chat_id) {
+		$.colorbox({iframe:true, width:'550px',height:'400px', href:this.wwwDir + 'chat/sendmail/'+chat_id});
 	};
 
 	this.transferChat = function(chat_id)

@@ -25,6 +25,7 @@ class erLhcoreClassModelChat {
                'has_unread_messages'    => $this->has_unread_messages,
                'last_user_msg_time'     => $this->last_user_msg_time,
                'last_msg_id'     		=> $this->last_msg_id,
+               'mail_send'     			=> $this->mail_send,
                'additional_data'     	=> $this->additional_data
        );
    }
@@ -155,6 +156,7 @@ class erLhcoreClassModelChat {
    public $has_unread_messages = 0;
    public $last_user_msg_time = 0;
    public $last_msg_id = 0;
+   public $mail_send = 0;
    public $additional_data = '';
 
 }

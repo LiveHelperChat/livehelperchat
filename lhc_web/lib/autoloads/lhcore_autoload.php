@@ -79,6 +79,10 @@ return array_merge(array (
 		'erLhcoreClassFaq' 			=> 'lib/core/lhfaq/lhfaq.php',
 		'erLhcoreClassModelFaq' 	=> 'lib/models/lhfaq/erlhcoreclassmodelfaq.php',
 
+		// Abstract module
+		'erLhAbstractModelEmailTemplate' => 'lib/models/lhabstract/erlhabstractmodelemailtemplate.php',
+		'erLhcoreClassAbstract' 		 => 'lib/core/lhabstract/lhabstract.php',
+
 ),
 include('var/autoloads/lhextension_autoload.php')
 );

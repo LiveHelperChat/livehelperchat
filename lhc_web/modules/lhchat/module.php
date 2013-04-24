@@ -21,13 +21,19 @@ $ViewList['closechatadmin'] = array(
     'script' => 'closechatadmin.php',
     'params' => array('chat_id'),
     'functions' => array( 'use' )
-    );
+);
 
 $ViewList['closechat'] = array(
     'script' => 'closechat.php',
     'params' => array('chat_id'),
     'functions' => array( 'use' )
-    );
+);
+
+$ViewList['sendmail'] = array(
+    'script' => 'sendmail.php',
+    'params' => array('chat_id'),
+    'functions' => array( 'use' )
+);
 
 $ViewList['transferchat'] = array(
     'script' => 'transferchat.php',
