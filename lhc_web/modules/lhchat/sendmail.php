@@ -9,9 +9,26 @@ $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params
 if ( erLhcoreClassChat::hasAccessToRead($chat) )
 {
   $tpl = erLhcoreClassTemplate::getInstance('lhchat/sendmail.tpl.php');
+  $mailTemplate = erLhAbstractModelEmailTemplate::fetch(1);
+  erLhcoreClassChatMail::prepareSendMail($mailTemplate);
 
+  if (isset($_POST['SendMail'])) {
 
+	  	$Errors = erLhcoreClassChatMail::validateSendMail($mailTemplate, $chat);
 
+	  	if (count($Errors) == 0) {
+	  		erLhcoreClassChatMail::sendMail($mailTemplate, $chat);
+
+	  		$chat->mail_send = 1;
+	  		$chat->saveThis();
+
+	  		$tpl->set('message_saved',true);
+	  	} else {
+	  		$tpl->set('errors',$Errors);
+	  	}
+  }
+
+  $tpl->set('mail_template',$mailTemplate);
   $tpl->set('chat',$chat);
   $Result['content'] = $tpl->fetch();
   $Result['pagelayout'] = 'popup';

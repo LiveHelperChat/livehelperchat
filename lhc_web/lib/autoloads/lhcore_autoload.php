@@ -82,6 +82,7 @@ return array_merge(array (
 		// Abstract module
 		'erLhAbstractModelEmailTemplate' => 'lib/models/lhabstract/erlhabstractmodelemailtemplate.php',
 		'erLhcoreClassAbstract' 		 => 'lib/core/lhabstract/lhabstract.php',
+		'erLhcoreClassChatMail' 		 => 'lib/core/lhchat/lhchatmail.php'
 
 ),
 include('var/autoloads/lhextension_autoload.php')

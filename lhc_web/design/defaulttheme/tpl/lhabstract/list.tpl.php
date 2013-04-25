@@ -1,8 +1,7 @@
 <h1><?php echo htmlspecialchars($object_trans['name'])?></h1>
 
 <?php if ($pages->items_total > 0) : ?>
-
-	<table class="lentele" cellpadding="0" cellspacing="0" width="100%">
+	<table cellpadding="0" cellspacing="0" width="100%">
 		<thead>
 			<tr>
 	    	<?php foreach ($fields as $field) : ?>
@@ -43,10 +42,10 @@
 	       		<?php endif;?>
 
 	        <?php endforeach;?>
-	        <td><a class="small button round" href="<?php echo erLhcoreClassDesign::baseurl('abstract/edit')?>/<?php echo $identifier.'/'.$item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Edit');?></a></td>
+	        <td><a class="small button round" href="<?php echo erLhcoreClassDesign::baseurl('abstract/edit')?>/<?php echo $identifier.'/'.$item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/list','Edit');?></a></td>
 
 	         <?php if (!isset($hide_delete)) : ?>
-	         	<td><a class="small alert button round" onclick="return confirm('Are you sure?')" href="<?php echo erLhcoreClassDesign::baseurl('abstract/delete')?>/<?php echo $identifier.'/'.$item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Delete');?></a></td>
+	         	<td><a class="small alert button round" onclick="return confirm('Are you sure?')" href="<?php echo erLhcoreClassDesign::baseurl('abstract/delete')?>/<?php echo $identifier.'/'.$item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/list','Delete');?></a></td>
 	         <?php endif;?>
 
 	    </tr>
@@ -64,7 +63,7 @@
 
 <?php if (!isset($hide_add)) : ?>
 	<div class="new-record-control">
-		<a class="small button rounde" href="<?php echo erLhcoreClassDesign::baseurl('abstract/new')?>/<?php echo $identifier?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','New');?></a>
+		<a class="small button rounde" href="<?php echo erLhcoreClassDesign::baseurl('abstract/new')?>/<?php echo $identifier?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/list','New');?></a>
 	</div>
 	<br>
 <?php endif;?>

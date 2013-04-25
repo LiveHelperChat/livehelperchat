@@ -182,7 +182,6 @@ class erLhcoreClassChatValidator {
         }
 
         return $Errors;
-
     }
 
 }

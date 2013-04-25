@@ -5,12 +5,17 @@ class erLhAbstractModelEmailTemplate {
 	public function getState()
 	{
 		$stateArray = array (
-			'id'         => $this->id,
-			'from_name'  => $this->from_name,
-			'from_email' => $this->from_email,
-			'name'       => $this->name,
-			'subject'    => $this->subject,
-			'content'    => $this->content
+			'id'         	=> $this->id,
+			'from_name'  	=> $this->from_name,
+			'from_name_ac'  => $this->from_name_ac,
+			'from_email' 	=> $this->from_email,
+			'from_email_ac' => $this->from_email_ac,
+			'reply_to' 		=> $this->reply_to,
+			'reply_to_ac' 	=> $this->reply_to_ac,
+			'name'       	=> $this->name,
+			'subject'       => $this->subject,
+			'subject_ac'    => $this->subject_ac,
+			'content'    	=> $this->content
 		);
 
 		return $stateArray;
@@ -34,40 +39,82 @@ class erLhAbstractModelEmailTemplate {
    		return array(
    				'name' => array(
    						'type' => 'text',
-   						'trans' => 'Name, for personal purposes',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','Name, for personal purposes'),
    						'required' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
    				'subject' => array (
    						'type' => 'text',
-   						'trans' => 'Subject',
-   						'required' => false,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),	'from_name' => array(
-   								'type' => 'text',
-   								'trans' => 'From name',
-   								'required' => false,
-   								'validation_definition' => new ezcInputFormDefinitionElement(
-   										ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   								)),
-   				'from_email' => array(
-   						'type' => 'text',
-   						'trans' => 'From e-mail',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','Subject'),
    						'required' => false,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
-
-   				'content' => array(
-   						'type' => 'textarea',
-   						'trans' => 'Content',
+   				'subject_ac' => array (
+   						'type' => 'checkbox',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','Allow user to change subject'),
    						'required' => false,
    						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)));
+   						)),
+   				'from_name' => array(
+   								'type' => 'text',
+   								'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','From name'),
+   								'required' => false,
+   								'validation_definition' => new ezcInputFormDefinitionElement(
+   										ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   								)),
+   				'from_name_ac' => array(
+   								'type' => 'checkbox',
+   								'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','Allow to change from name'),
+   								'required' => false,
+   								'hidden' => true,
+   								'validation_definition' => new ezcInputFormDefinitionElement(
+   										ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+   								)),
+   				'from_email' => array(
+   						'type' => 'text',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','From e-mail, if mail was not send for some reason, this mail will get failed delivery message'),
+   						'required' => false,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
+   				'from_email_ac' => array(
+   						'type' => 'checkbox',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','Allow to change from e-mail'),
+   						'required' => false,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+   						)),
+   				'reply_to' => array(
+   						'type' => 'text',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','Reply to'),
+   						'required' => false,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
+   				'reply_to_ac' => array(
+   						'type' => 'checkbox',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','Allow to change reply e-mail'),
+   						'required' => false,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+   						)),
+   				'content' => array(
+   						'type' => 'textarea',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','Content'),
+   						'required' => false,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						))
+   		);
 	}
 
 	public function getModuleTranslations()
@@ -192,8 +239,13 @@ class erLhAbstractModelEmailTemplate {
    	public $id = null;
 	public $name = '';
 	public $subject = '';
+	public $subject_ac = 0;
 	public $from_name = '';
+	public $from_name_ac = 0;
 	public $from_email = '';
+	public $from_email_ac = 0;
+	public $reply_to = '';
+	public $reply_to_ac = 0;
 	public $content = '';
 
 	public $hide_add = true;

@@ -7,8 +7,14 @@
 <?php endif; ?>
 
 <?php foreach ($object->getFields() as $fieldName => $attr) : ?>
- <label><?php echo htmlspecialchars($attr['trans']);?><?php echo $attr['required'] == true ? ' *' : ''?></label>
+
+<?php if ($attr['type'] == 'checkbox') : ?>
+<label><?php echo erLhcoreClassAbstract::renderInput($fieldName, $attr, $object)?> <?php echo htmlspecialchars($attr['trans']);?><?php echo $attr['required'] == true ? ' *' : ''?><br/><br/></label>
+<?php else : ?>
+<label><?php echo htmlspecialchars($attr['trans']);?><?php echo $attr['required'] == true ? ' *' : ''?></label>
 <?php echo erLhcoreClassAbstract::renderInput($fieldName, $attr, $object)?>
+<?php endif;?>
+
 <?php endforeach;?>
 
 <br />
