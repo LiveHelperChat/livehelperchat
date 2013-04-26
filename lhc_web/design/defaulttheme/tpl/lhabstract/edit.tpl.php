@@ -1,4 +1,4 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/edit','Edit');?> - <?php echo htmlspecialchars($object_trans['name'])?></h1>
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Edit');?> - <?php echo htmlspecialchars($object_trans['name'])?></h1>
 
 
 <form enctype="multipart/form-data" action="<?php echo erLhcoreClassDesign::baseurl('abstract/edit')?>/<?php echo $identifier?>/<?php echo $object->id?>" method="post">

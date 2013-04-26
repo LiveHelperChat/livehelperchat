@@ -403,6 +403,22 @@
         <source>Updated</source>
         <translation>Atnaujinta</translation>
     </message>
+    <message>
+        <source>Edit</source>
+        <translation>Redaguoti</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Trinti</translation>
+    </message>
+    <message>
+        <source>New</source>
+        <translation>Naujas</translation>
+    </message>
+    <message>
+        <source>Empty...</source>
+        <translation>Tuščia...</translation>
+    </message>
 </context>
 <context>
     <name>system/messages</name>
@@ -1110,6 +1126,57 @@
     </message>
 </context>
 <context>
+    <name>chat/sendmail</name>
+    <message>
+        <source>Send mail to user</source>
+        <translation>Siųsti laišką vartotojui</translation>
+    </message>
+    <message>
+        <source>Mail was send to user</source>
+        <translation>Laiškas buvo išsiųstas vartotojui</translation>
+    </message>
+    <message>
+        <source>Subject</source>
+        <translation>Antraštė</translation>
+    </message>
+    <message>
+        <source>From name</source>
+        <translation>Nuo ko</translation>
+    </message>
+    <message>
+        <source>Reply e-mail</source>
+        <translation>Kam atsakyti, el. paštas</translation>
+    </message>
+    <message>
+        <source>From e-mail</source>
+        <translation>Nuo ko, el. paštas</translation>
+    </message>
+    <message>
+        <source>Type your message to user</source>
+        <translation>Įveskite savo žinutę vartotojui</translation>
+    </message>
+    <message>
+        <source>Send mail</source>
+        <translation>Siųsti laišką</translation>
+    </message>
+    <message>
+        <source>User did not entered his e-mail!</source>
+        <translation>Vartotojas neįvedė savo el. pašto adreso!</translation>
+    </message>
+    <message>
+        <source>From e-mail is missing!</source>
+        <translation>Trūksta siuntėjo el. pašto adreso!</translation>
+    </message>
+    <message>
+        <source>Reply e-mail is missing!</source>
+        <translation>Trūksta atsakovo el. pašto adreso</translation>
+    </message>
+    <message>
+        <source>Subject is missing!</source>
+        <translation>Neįvesta antraštė</translation>
+    </message>
+</context>
+<context>
     <name>chat/blockedusers</name>
     <message>
         <source>Blocked users</source>
@@ -1153,6 +1220,10 @@
     <message>
         <source>Phone</source>
         <translation>Telefonas</translation>
+    </message>
+    <message>
+        <source>Send mail</source>
+        <translation>Siųsti el. laišką</translation>
     </message>
     <message>
         <source>Select canned message</source>
@@ -2110,10 +2181,68 @@
     </message>
 </context>
 <context>
+    <name>abstract/abstract_form</name>
+    <message>
+        <source>Updated!</source>
+        <translation>Atnaujinta!</translation>
+    </message>
+</context>
+<context>
+    <name>abstract/email_template</name>
+    <message>
+        <source>E-mail templates</source>
+        <translation>El. pašto šablonai</translation>
+    </message>
+    <message>
+        <source>Content</source>
+        <translation>Turinys</translation>
+    </message>
+    <message>
+        <source>Allow to change reply e-mail</source>
+        <translation>Leisti keisti atsakymo el. pašto adresą</translation>
+    </message>
+    <message>
+        <source>Reply to</source>
+        <translation>Atsakyti kam</translation>
+    </message>
+    <message>
+        <source>Allow to change from e-mail</source>
+        <translation>Leisti keisti siuntėjo el. pašto adresą</translation>
+    </message>
+    <message>
+        <source>From e-mail, if mail was not send for some reason, this mail will get failed delivery message</source>
+        <translation>Siuntėjo el. pašto adresas, jei dėl kažkokios priežasties laiškas nebus pristatytas, šitas el. pašto adresas gaus pranešimą.</translation>
+    </message>
+    <message>
+        <source>Allow to change from name</source>
+        <translation>Leisti keisti siuntėjo pavadinimą</translation>
+    </message>
+    <message>
+        <source>From name</source>
+        <translation>Siuntėjo vardas</translation>
+    </message>
+    <message>
+        <source>Allow user to change subject</source>
+        <translation>Leisti keisti antraštę</translation>
+    </message>
+    <message>
+        <source>Subject</source>
+        <translation>Antraštė</translation>
+    </message>
+    <message>
+        <source>Name, for personal purposes</source>
+        <translation>Pavadinimas, asmeniniais tikslais</translation>
+    </message>
+</context>
+<context>
     <name>system/configuration</name>
     <message>
         <source>HTML code</source>
         <translation>HTML kodas</translation>
+    </message>
+    <message>
+        <source>E-mail templates</source>
+        <translation>El. pašto šablonai</translation>
     </message>
     <message>
         <source>Canned messages</source>

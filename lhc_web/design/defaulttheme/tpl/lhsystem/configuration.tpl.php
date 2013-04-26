@@ -28,7 +28,7 @@
     <?php endif; ?>
 
     <?php if ($currentUser->hasAccessTo('lhabstract','use')) : ?>
-    <li><a href="<?php echo erLhcoreClassDesign::baseurl('abstract/list/EmailTemplate')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','E-mail templates');?></a></li>
+    <li><a href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/EmailTemplate"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','E-mail templates');?></a></li>
     <?php endif; ?>
 
 </ul>

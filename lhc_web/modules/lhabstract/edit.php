@@ -45,5 +45,5 @@ $Result['content'] = $tpl->fetch();
 
 $Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','System configuration')),
 		array('url' => erLhcoreClassDesign::baseurl('abstract/list').'/EmailTemplate', 'title' => $object_trans['name']),
-		array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/edit','Edit'))
+		array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Edit'))
 );
