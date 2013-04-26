@@ -42,7 +42,7 @@ setTimeout(function(){
 	<?php endif;?>
 </div>
 
-<textarea name="Message" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','Type your message to user');?>"><?php //echo htmlspecialchars($input->operator_message) ?></textarea>
+<textarea name="Message" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','Type your message to user');?>"><?php echo isset($_POST['Message']) ? htmlspecialchars($_POST['Message']) : ''?></textarea>
 <input type="submit" class="button small" name="SendMail" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Send mail');?>" />
 
 </form>
