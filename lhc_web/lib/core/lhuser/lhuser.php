@@ -15,7 +15,9 @@ class erLhcoreClassUser{
    {
        $options = new ezcAuthenticationSessionOptions();
        $options->validity = 3600*24;
-
+       $options->idKey = 'lhc_ezcAuth_id';
+       $options->timestampKey = 'lhc_ezcAuth_timestamp';
+       
        $this->session = new ezcAuthenticationSession($options);
        $this->session->start();
 
@@ -32,11 +34,11 @@ class erLhcoreClassUser{
 	       	if ($logged == false) {
 	       		$this->authenticated = false;
 
-	       		if ( isset($_SESSION['user_id']) )
+	       		if ( isset($_SESSION['lhc_user_id']) )
 	       		{
-	       			unset($_SESSION['user_id']);
-	       			unset($_SESSION['access_array']);
-	       			unset($_SESSION['access_timestamp']);
+	       			unset($_SESSION['lhc_user_id']);
+	       			unset($_SESSION['lhc_access_array']);
+	       			unset($_SESSION['lhc_access_timestamp']);
 	       		}
 	       	}
 
