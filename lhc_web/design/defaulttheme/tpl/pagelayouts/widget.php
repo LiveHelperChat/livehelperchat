@@ -24,7 +24,11 @@ setInterval(function(){
 	var currentHeight = heightElement.height();
 	if (heightContent != currentHeight){
 		heightContent = currentHeight;
-		parent.postMessage('<?php echo $Result['dynamic_height_message']?>:'+(parseInt(heightContent)+<?php (isset($Result['dynamic_height_append'])) ? print $Result['dynamic_height_append'] : print 20?>), '*');
+		try {
+			parent.postMessage('<?php echo $Result['dynamic_height_message']?>:'+(parseInt(heightContent)+<?php (isset($Result['dynamic_height_append'])) ? print $Result['dynamic_height_append'] : print 20?>), '*');
+		} catch(e) {
+
+		};
 	};
 },200);
 </script>

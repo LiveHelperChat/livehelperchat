@@ -1990,6 +1990,26 @@
         <translation>HTML kodas</translation>
     </message>
     <message>
+        <source>Widget width</source>
+        <translation>Widget plotis</translation>
+    </message>
+    <message>
+        <source>Popup window size</source>
+        <translation>Iššokančio lango dydis</translation>
+    </message>
+    <message>
+        <source>Popup window width in pixels</source>
+        <translation>Iššokančio lango plotis pikseliais</translation>
+    </message>
+    <message>
+        <source>Popup window height in pixels</source>
+        <translation>Iššokančio lango aukštis pikseliais</translation>
+    </message>
+    <message>
+        <source>Widget width in pixels</source>
+        <translation>Widgeto plotis pikseliais</translation>
+    </message>
+    <message>
         <source>Size</source>
         <translation>Dydis</translation>
     </message>

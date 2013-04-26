@@ -22,13 +22,13 @@
 
         <div class="row">
         	<div class="column large-6">
-        		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Popup size')?></label>
+        		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Popup window size')?></label>
         		<div class="row">
 		        	<div class="column large-6">
-		        		<input type="text" id="id_popup_width" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Popup width in px')?>" value="500" />
+		        		<input type="text" id="id_popup_width" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Popup window width in pixels')?>" value="500" />
 		        	</div>
 		        	<div class="column large-6">
-		        		<input type="text" id="id_popup_height" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Popup height in px')?>" value="520" />
+		        		<input type="text" id="id_popup_height" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Popup window height in pixels')?>" value="520" />
 		        	</div>
 		        </div>
         	</div>
@@ -36,7 +36,7 @@
 	        	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Widget width')?></label>
 	        	<div class="row">
 			        	<div class="column large-12">
-			        		<input type="text" id="id_widget_width" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Widget width in px')?>" value="300" />
+			        		<input type="text" id="id_widget_width" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Widget width in pixels')?>" value="300" />
 			        	</div>
 			     </div>
         	</div>
