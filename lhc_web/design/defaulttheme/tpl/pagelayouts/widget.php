@@ -16,5 +16,19 @@
 
 <script type="text/javascript" language="javascript" src="<?php echo erLhcoreClassDesign::designJS('js/app.js');?>"></script>
 
+<?php if (isset($Result['dynamic_height'])) : ?>
+<script>
+var heightContent = 0;
+var heightElement = $('#widget-layout');
+setInterval(function(){
+	var currentHeight = heightElement.height();
+	if (heightContent != currentHeight){
+		heightContent = currentHeight;
+		parent.postMessage('<?php echo $Result['dynamic_height_message']?>:'+(parseInt(heightContent)+<?php (isset($Result['dynamic_height_append'])) ? print $Result['dynamic_height_append'] : print 20?>), '*');
+	};
+},200);
+</script>
+<?php endif;?>
+
 </body>
 </html>

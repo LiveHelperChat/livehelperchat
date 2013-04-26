@@ -37,6 +37,4 @@
 <input type="submit" class="small round button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Start chat');?>" name="StartChat" />
 <input type="hidden" value="<?php echo htmlspecialchars($referer);?>" name="URLRefer"/>
 
-
-
 </form>

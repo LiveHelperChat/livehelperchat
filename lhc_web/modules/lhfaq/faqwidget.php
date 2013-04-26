@@ -133,3 +133,7 @@ $tpl->set('pages',$pages);
 
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'widget';
+$Result['dynamic_height'] = true;
+$Result['dynamic_height_message'] = 'lhc_sizing_faq';
+$Result['dynamic_height_append'] = 10;
+
