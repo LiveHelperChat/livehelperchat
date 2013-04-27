@@ -35,9 +35,12 @@
         	<div class="column large-6">
 	        	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Widget width')?></label>
 	        	<div class="row">
-			        	<div class="column large-12">
+			        	<div class="column large-6">
 			        		<input type="text" id="id_widget_width" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Widget width in pixels')?>" value="300" />
 			        	</div>
+			        	<div class="column large-6">
+		                    <input type="text" id="id_widget_height" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Widget height in px')?>" value="340" />
+		                </div>
 			     </div>
         	</div>
         </div>
@@ -94,7 +97,7 @@ function generateEmbedCode(){
     };
 
     var script = '<script type="text/javascript">'+"\n"+"var LHCChatOptions = {};\n"+
-      'LHCChatOptions.opt = {widget_width:'+$('#id_widget_width').val()+',popup_height:'+$('#id_popup_height').val()+',popup_width:'+$('#id_popup_width').val()+'};\n'+
+      'LHCChatOptions.opt = {widget_height:'+$('#id_widget_height').val()+',widget_width:'+$('#id_widget_width').val()+',popup_height:'+$('#id_popup_height').val()+',popup_width:'+$('#id_popup_width').val()+'};\n'+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
         'po.src = \'<?php echo erLhcoreClassSystem::instance()->baseHTTP?><?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chat/getstatus'+id_internal_popup+id_position+id_hide_then_offline+id_check_operator_message+top+topposition+'\';'+"\n"+
@@ -105,7 +108,7 @@ function generateEmbedCode(){
     $('#HMLTContent').text(id_tag+script);
 };
 
-$('#LocaleID,#id_internal_popup,#id_position_bottom,#PositionID,#id_hide_then_offline,#id_check_operator_message,#UnitsTop,#id_top_text,#id_popup_width,#id_popup_height,#id_widget_width').change(function(){
+$('#LocaleID,#id_internal_popup,#id_position_bottom,#PositionID,#id_hide_then_offline,#id_check_operator_message,#UnitsTop,#id_top_text,#id_popup_width,#id_popup_height,#id_widget_width,#id_widget_height').change(function(){
     generateEmbedCode();
 });
 

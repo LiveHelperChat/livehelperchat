@@ -3,3 +3,6 @@
 <?php else : ?>
 <link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::designCSS('css/normalize.css;css/foundation-rtl.css;css/app.css;css/app-rtl.css;css/colorbox.css;css/override_rtl.css');?>" />
 <?php endif;?>
+<!--[if lt IE 9]>
+	<link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::designCSS('css/ie8-and-down.css');?>" />
+<![endif]-->
