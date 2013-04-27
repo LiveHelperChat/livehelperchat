@@ -145,8 +145,10 @@ var lhc_Questionary = function() {
     	var action = e.data.split(':')[0];
     	if (action == 'lhc_sizing_questionary') {
     		var height = e.data.split(':')[1];
-    		document.getElementById('lhcquestionary_iframe').height = height;
-    		document.getElementById('lhcquestionary_iframe').style.height = height+'px';
+    		var elementObject = document.getElementById('lhcquestionary_iframe');
+    		elementObject.height = height;
+    		elementObject.style.height = height+'px';
+    		document.getElementById('lhc_container_questionary').className = document.getElementById('lhc_container_questionary').className;
     	};
    };
 

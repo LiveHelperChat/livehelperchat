@@ -140,8 +140,10 @@ var lhc_FAQ = function() {
     	var action = e.data.split(':')[0];
     	if (action == 'lhc_sizing_faq') {
     		var height = e.data.split(':')[1];
-    		document.getElementById('lhcfaq_iframe').height = height;
-    		document.getElementById('lhcfaq_iframe').style.height = height+'px';
+    		var elementObject = document.getElementById('lhcfaq_iframe');
+    		elementObject.height = height;
+    		elementObject.style.height = height+'px';
+    		document.getElementById('lhc_container_faq').className = document.getElementById('lhc_container_faq').className;
     	};
    };
 

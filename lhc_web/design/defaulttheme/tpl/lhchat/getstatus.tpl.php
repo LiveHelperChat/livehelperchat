@@ -234,8 +234,10 @@ var lh_inst  = {
     	var action = e.data.split(':')[0];
     	if (action == 'lhc_sizing_chat') {
     		var height = e.data.split(':')[1];
-    		document.getElementById('fdbk_iframe').height = height;
-    		document.getElementById('fdbk_iframe').style.height = height+'px';
+    		var elementObject = document.getElementById('fdbk_iframe');
+    		elementObject.height = height;
+    		elementObject.style.height = height+'px';
+    		document.getElementById('lhc_container').className = document.getElementById('lhc_container').className;
     	};
     }
 };
