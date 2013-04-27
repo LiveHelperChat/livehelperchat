@@ -1,7 +1,6 @@
 1.31v
 
 Feature release:
-
 1. Option to pass custom argument for chat, these arguments will be visible in chat form
 Example:
 <script type="text/javascript">
@@ -15,7 +14,6 @@ po.src = 'http://<some_domain>/index.php/chat/getstatus/(position)/middle_right'
 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
 })();
 </script>
-
 2. Option to prefill some form attributes in javascript
 <script type="text/javascript">
 LHCChatOptions.attr_prefill = new Array();
@@ -28,12 +26,10 @@ po.src = 'http://<some_domain>/index.php/chat/getstatus/(position)/middle_right'
 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
 })();
 </script>
-
 3. Option to configure chat popup window width and height, same for chat widget also.
-
 4. Send mail to user, let say you have missed chat. But still you want to responde to user. So with this feature you will be able to do so.
-
 5. Dynamic widgets height and width, this will allow to fit content dynamically so even more fantastic usability.
+6. Improved compatibility with IE8
 
 1.30v
 
