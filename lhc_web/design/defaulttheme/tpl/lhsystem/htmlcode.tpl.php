@@ -33,12 +33,14 @@
 		        </div>
         	</div>
         	<div class="column large-6">
-	        	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Widget width')?></label>
+
 	        	<div class="row">
 			        	<div class="column large-6">
+			        		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Widget width')?></label>
 			        		<input type="text" id="id_widget_width" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Widget width in pixels')?>" value="300" />
 			        	</div>
 			        	<div class="column large-6">
+			        		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Widget height')?></label>
 		                    <input type="text" id="id_widget_height" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Widget height in px')?>" value="340" />
 		                </div>
 			     </div>

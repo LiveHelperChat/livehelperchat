@@ -31,7 +31,7 @@ $ViewList['new'] = array(
 $ViewList['faqwidget'] = array(
 		'script' => 'faqwidget.php',
 		'params' => array(),
-		'uparams' => array('url'),
+		'uparams' => array('url','mode'),
 );
 
 $ViewList['getstatus'] = array(
@@ -39,6 +39,18 @@ $ViewList['getstatus'] = array(
 		'params' => array(),
 		'functions' => array( ),
 		'uparams' => array('position','top','units')
+);
+
+$ViewList['embed'] = array(
+		'script' => 'embed.php',
+		'params' => array(),
+		'functions' => array()
+);
+
+$ViewList['embedcode'] = array(
+		'script' => 'embedcode.php',
+		'params' => array(),
+		'functions' => array('manage_faq')
 );
 
 $ViewList['htmlcode'] = array(

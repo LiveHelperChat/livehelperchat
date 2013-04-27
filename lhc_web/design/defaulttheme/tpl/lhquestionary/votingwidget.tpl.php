@@ -8,7 +8,7 @@
 	<?php elseif (isset($already_voted)) : ?>
 	<h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/votingwidget','You have already voted, thank you!');?></h2>
 	<?php else : ?>
-	<form action="<?php echo erLhcoreClassDesign::baseurl('questionary/votingwidget')?>" method="post">
+	<form action="<?php echo erLhcoreClassDesign::baseurl('questionary/votingwidget')?><?php echo $append_mode?>" method="post">
 	<?php if ($voting !== false) : ?>
 	<h4 class="mt0 mb5"><?php echo htmlspecialchars($voting->question)?></h4>
 

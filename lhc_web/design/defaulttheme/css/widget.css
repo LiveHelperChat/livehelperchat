@@ -2,6 +2,10 @@ body {
 	margin:5px;
 }
 
+body.embed-widget {
+	background:none;
+}
+
 #widget-layout .row { min-width: 0;  }
 #widget-layout > .columns { padding: 0;  }
 

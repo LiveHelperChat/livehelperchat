@@ -1990,8 +1990,20 @@
         <translation>HTML kodas</translation>
     </message>
     <message>
+        <source>Page embed code</source>
+        <translation>Įterpimo į puslapį kodas</translation>
+    </message>
+    <message>
+        <source>Widget embed code</source>
+        <translation>Widget įterpimo kodas</translation>
+    </message>
+    <message>
         <source>Widget width</source>
         <translation>Widget plotis</translation>
+    </message>
+    <message>
+        <source>Widget height</source>
+        <translation>Widget aukštis</translation>
     </message>
     <message>
         <source>Popup window size</source>
@@ -2024,6 +2036,10 @@
     <message>
         <source>Copy code from textarea to footer, before closing &lt;/body&gt; tag</source>
         <translation>Nukopijuokite žemiau esantį kodą į tą vietą, kur norite kad būtų matoma jūsų prisijungimo būsena</translation>
+    </message>
+    <message>
+        <source>Copy code from textarea to page where you want page to be rendered</source>
+        <translation>Nukopijuokite žemiau esantį kodą į tą vietą, kur norite kad būtų matomas įskiepis</translation>
     </message>
     <message>
         <source>Embed html code</source>

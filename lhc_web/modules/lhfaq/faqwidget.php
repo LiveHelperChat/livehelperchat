@@ -45,7 +45,16 @@ if ($dynamic_url != '') {
 
 $dynamic_url_append = '';
 if ($dynamic_url != ''){
-	$dynamic_url_append = '/(url)/'.rawurlencode(base64_encode($dynamic_url));
+	$dynamic_url_append .= '/(url)/'.rawurlencode(base64_encode($dynamic_url));
+}
+
+$embedMode = false;
+if ((string)$Params['user_parameters_unordered']['mode'] == 'embed') {
+	$dynamic_url_append .= '/(mode)/embed';
+	$embedMode = true;
+}
+
+if (!empty($dynamic_url_append)) {
 	$tpl->set('dynamic_url_append',$dynamic_url_append);
 }
 
@@ -57,7 +66,7 @@ $q->where(
 		$q->expr->eq( 'active', 1 ),
 		$q->expr->lOr(
 		$q->expr->eq( 'url', $q->bindValue('') ),
-		$q->expr->eq( 'url', $q->bindValue( $matchStringURL ) ) )
+		$q->expr->eq( 'url', $q->bindValue( trim($matchStringURL) ) ) )
 
 );
 $stmt = $q->prepare();
@@ -77,7 +86,7 @@ if ($pages->items_total > 0) {
 			$q->expr->eq( 'active', 1 ),
 			$q->expr->lOr(
 					$q->expr->eq( 'url', $q->bindValue('') ),
-					$q->expr->eq( 'url', $q->bindValue( $matchStringURL ) ) )
+					$q->expr->eq( 'url', $q->bindValue( trim($matchStringURL) ) ) )
 
 	);
 	$q->limit($pages->items_per_page, $pages->low);
@@ -136,4 +145,8 @@ $Result['pagelayout'] = 'widget';
 $Result['dynamic_height'] = true;
 $Result['dynamic_height_message'] = 'lhc_sizing_faq';
 $Result['dynamic_height_append'] = 10;
+if ($embedMode == true) {
+	$Result['dynamic_height_message'] = 'lhc_sizing_faq_embed';
+	$Result['pagelayout_css_append'] = 'embed-widget';
+}
 
