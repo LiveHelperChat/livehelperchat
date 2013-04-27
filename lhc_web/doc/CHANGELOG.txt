@@ -30,6 +30,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po
 4. Send mail to user, let say you have missed chat. But still you want to responde to user. So with this feature you will be able to do so.
 5. Dynamic widgets height and width, this will allow to fit content dynamically/ so even more improved usability.
 6. Improved compatibility with IE8
+7. Option to embed FAQ and Questionary module directly in page
 
 execute doc/update_db/update_21.sql
 
