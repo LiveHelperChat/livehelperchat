@@ -104,3 +104,6 @@ if (isset($_POST['URLRefer']))
 
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'widget';
+$Result['dynamic_height'] = true;
+$Result['dynamic_height_message'] = 'lhc_sizing_chat';
+$Result['pagelayout_css_append'] = 'widget-chat';
