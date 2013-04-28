@@ -11,6 +11,7 @@ function lh(){
     this.wwwDir = WWW_DIR_JAVASCRIPT;
     this.addmsgurl = "chat/addmsgadmin/";
     this.addmsgurluser = "chat/addmsguser/";
+    this.addmsgurluserchatbox = "chatbox/addmsguser/";
     this.syncuser = "chat/syncuser/";
     this.syncadmin = "chat/syncadmin/";
     this.closechatadmin = "chat/closechatadmin/";
@@ -43,6 +44,10 @@ function lh(){
     this.setSynchronizationRequestSend = function(status)
     {
         this.syncroRequestSend = status;
+    };
+
+    this.setSyncUserURL = function(url) {
+    	this.syncuser = url;
     };
 
     this.trackLastIDS = {};
@@ -614,16 +619,32 @@ function lh(){
 		$.colorbox({width:'550px',height:'400px', href:this.wwwDir + 'chat/transferchat/'+chat_id});
 	};
 
-    this.addmsgadmin = function (chat_id)
-    {
-        var pdata = {
+	this.addmsgadmin = function (chat_id)
+	{
+		var pdata = {
 				msg	: $("#CSChatMessage-"+chat_id).val()
-	   };
+		};
 
-	   $('#CSChatMessage-'+chat_id).val('');
-       $.postJSON(this.wwwDir + this.addmsgurl + chat_id, pdata , function(data){
-    	   lhinst.syncadmincall();
-           return true;
+		$('#CSChatMessage-'+chat_id).val('');
+		$.postJSON(this.wwwDir + this.addmsgurl + chat_id, pdata , function(data){
+			lhinst.syncadmincall();
+			return true;
+		});
+	};
+
+    this.addmsguserchatbox = function (chat_id)
+    {
+    	var pdata = {
+    			msg	: $("#CSChatMessage").val(),
+				nick	: $("#CSChatNick").val(),
+		};
+
+        var modeWindow = this.isWidgetMode == true ? '/(mode)/widget' : '';
+		$('#CSChatMessage').val('');
+		var inst = this;
+
+        $.postJSON(this.wwwDir + this.addmsgurluserchatbox + this.chat_id + '/' + this.hash + modeWindow, pdata , function(data) {
+        	inst.syncusercall();
 		});
     };
 

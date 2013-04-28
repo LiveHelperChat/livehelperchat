@@ -14,6 +14,9 @@
 					<?php if ($currentUser->hasAccessTo('lhsystem','use')) : ?>
 					<li><a href="<?php echo erLhcoreClassDesign::baseurl('system/configuration')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Configuration');?></a></li>
 					<?php endif; ?>
+					<?php if ($currentUser->hasAccessTo('lhchatbox','manage_chatbox')) : ?>
+					<li><a href="<?php echo erLhcoreClassDesign::baseurl('chatbox/configuration')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Chatbox');?></a></li>
+					<?php endif; ?>
 	            </ul>
 	</section>
 </nav>

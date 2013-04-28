@@ -14,6 +14,18 @@ padding:10px;
 padding-top:0;
 }
 
+input.mb0 {
+	margin-bottom:0;
+}
+
+input.mb5 {
+	margin-bottom:5px;
+}
+
+input.mt5 {
+	margin-top:5px;
+}
+
 .widget-chat #widget-layout {
 	background-color:#FFF;
 	border:1px solid #cccccc;
@@ -34,6 +46,22 @@ width: 0.7em;
 height: 0.8em;
 background-color: #fff;
 }
+
+.chatbox-row .usr-tit{
+	display:block;
+	border: 1px solid #dcdcdc;
+	padding:5px;
+	border-radius:6px;
+	margin-bottom: 4px;
+	font-size: 11px;
+	background:url(../images/icons/user_green.png) no-repeat 3px 2px;
+	padding-left: 20px;
+}
+
+.chatbox-row-response .usr-tit{
+	background-image:url(../images/icons/user_suit.png);
+}
+
 
 .section-container,
 .section-container.auto,

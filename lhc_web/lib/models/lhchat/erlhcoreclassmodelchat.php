@@ -136,9 +136,14 @@ class erLhcoreClassModelChat {
        }
    }
 
+   const STATUS_PENDING_CHAT = 0;
+   const STATUS_ACTIVE_CHAT = 1;
+   const STATUS_CLOSED_CHAT = 2;
+   const STATUS_CHATBOX_CHAT = 3;
+
    public $id = null;
    public $nick = '';
-   public $status = 0;
+   public $status = self::STATUS_PENDING_CHAT;
    public $time = '';
    public $user_id = '';
    public $hash = '';

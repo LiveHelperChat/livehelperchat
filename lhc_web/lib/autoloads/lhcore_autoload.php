@@ -82,7 +82,11 @@ return array_merge(array (
 		// Abstract module
 		'erLhAbstractModelEmailTemplate' => 'lib/models/lhabstract/erlhabstractmodelemailtemplate.php',
 		'erLhcoreClassAbstract' 		 => 'lib/core/lhabstract/lhabstract.php',
-		'erLhcoreClassChatMail' 		 => 'lib/core/lhchat/lhchatmail.php'
+		'erLhcoreClassChatMail' 		 => 'lib/core/lhchat/lhchatmail.php',
+
+		// Chatbox
+		'erLhcoreClassChatbox'			=> 'lib/core/lhchatbox/lhchatbox.php',
+		'erLhcoreClassModelChatbox'		=> 'lib/models/lhchatbox/erlhcoreclassmodelchatbox.php',
 
 ),
 include('var/autoloads/lhextension_autoload.php')
