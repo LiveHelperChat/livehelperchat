@@ -5,7 +5,7 @@ class erLhcoreClassChatbox {
     /**
      * Gets pending chats
      */
-    public static function getInstance($identifier = 'default')
+    public static function getInstance($identifier = 'default', $chathash = '')
     {
     	if ($identifier == '' || $identifier == 'default') {
 	    	$identifier = 'default';
@@ -13,7 +13,7 @@ class erLhcoreClassChatbox {
 			if (empty($items)) {
 				$chatbox = new erLhcoreClassModelChatbox();
 				$chatbox->identifier = $identifier;
-				$chatbox->name = 'Default chatbox';
+				$chatbox->name = 'Chatbox';
 
 				$chat = new erLhcoreClassModelChat();
 				$chat->status = erLhcoreClassModelChat::STATUS_CHATBOX_CHAT;
@@ -38,8 +38,60 @@ class erLhcoreClassChatbox {
 			} else {
 				return array_shift($items);
 			}
+    	} else {
+    		// @todo implement hash there
+
     	}
     }
+
+    public static function validateChatbox(& $chatbox) {
+    	$definition = array(
+    			'ManagerName' => new ezcInputFormDefinitionElement(
+    					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+    			),
+    			'ChatboxName' => new ezcInputFormDefinitionElement(
+    					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+    			),
+    			'Identifier' => new ezcInputFormDefinitionElement(
+    					ezcInputFormDefinitionElement::OPTIONAL, 'string'
+    			),
+    			'ActiveChatbox' => new ezcInputFormDefinitionElement(
+    					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+    			)
+    	);
+    	$form = new ezcInputForm( INPUT_POST, $definition );
+    	$Errors = array();
+
+    	if ( !$form->hasValidData( 'ManagerName' ) || $form->ManagerName == '')
+    	{
+    		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('faq/view','Please enter manager name!');
+    	} else {
+    		$chatbox->chat->nick = $form->ManagerName;
+    	}
+
+    	if ( !$form->hasValidData( 'ChatboxName' ) || $form->ChatboxName == '')
+    	{
+    		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('faq/view','Please enter chatbox name!');
+    	} else {
+    		$chatbox->name = $form->ChatboxName;
+    	}
+
+    	if ( !$form->hasValidData( 'Identifier' ) || $form->Identifier == '')
+    	{
+    		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('faq/view','Please enter chatbox identifier!');
+    	} else {
+    		$chatbox->identifier = $form->Identifier;
+    	}
+
+    	if ( $form->hasValidData( 'ActiveChatbox' ) && $form->ActiveChatbox == true ) {
+    		$chatbox->active = 1;
+    	} else {
+    		$chatbox->active = 0;
+    	}
+
+    	return $Errors;
+    }
+
 
     public static function getVisitorName() {
     	if (isset($_SESSION['lhc_chatbox_nick'])) {

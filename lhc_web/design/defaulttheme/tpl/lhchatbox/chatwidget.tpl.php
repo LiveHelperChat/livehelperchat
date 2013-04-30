@@ -7,6 +7,8 @@
 	</div>
 </div>
 
+<?php if ($chatbox->active == 1) : ?>
+
     <div id="messages" >
         <div class="msgBlock" id="messagesBlock" style="height:<?php isset($chatbox_chat_height) ? print (int)$chatbox_chat_height : print 220?>px"><?php
         $lastMessageID = 0;
@@ -42,3 +44,6 @@
 	$('#messagesBlock').animate({ scrollTop: $('#messagesBlock').prop('scrollHeight') }, 1000);
     lhinst.syncusercall();
 </script>
+<?php else : ?>
+<div class="alert-box alert round"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Chatbox is disabled.')?></div>
+<?php endif;?>

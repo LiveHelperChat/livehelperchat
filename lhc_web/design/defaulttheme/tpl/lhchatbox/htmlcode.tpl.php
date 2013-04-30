@@ -76,7 +76,7 @@ function generateEmbedCode(){
 	var heightwidget = '/(height)/'+($('#id_height_text').val() == '' ? 300 : $('#id_height_text').val());
 	var chat_height = '/(chat_height)/'+($('#id_chat_height').val() == '' ? 220 : $('#id_chat_height').val());
 
-    var script = '<script type="text/javascript">'+"\nvar LHCChatboxOptions = {identifier:'default',status_text:'"+textStatus+"'};\n"+
+    var script = '<script type="text/javascript">'+"\nvar LHCChatboxOptions = {hashchatbox:'',identifier:'default',status_text:'"+textStatus+"'};\n"+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
         'po.src = \'<?php echo erLhcoreClassSystem::instance()->baseHTTP?><?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chatbox/getstatus'+id_position+top+topposition+widthwidget+heightwidget+chat_height+"';\n"+

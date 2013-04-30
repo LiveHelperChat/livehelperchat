@@ -43,7 +43,7 @@ $ViewList['new'] = array(
 $ViewList['chatwidget'] = array(
 		'script' => 'chatwidget.php',
 		'params' => array(),
-		'uparams' => array('mode','identifier','chat_height'),
+		'uparams' => array('mode','identifier','chat_height','hashchatbox'),
 );
 
 $ViewList['getstatus'] = array(
@@ -63,6 +63,27 @@ $ViewList['embed'] = array(
 $ViewList['embedcode'] = array(
 		'script' => 'embedcode.php',
 		'params' => array(),
+		'functions' => array('manage_chatbox')
+);
+
+$ViewList['edit'] = array(
+		'script' => 'edit.php',
+		'params' => array('id'),
+		'functions' => array('manage_chatbox')
+);
+
+$ViewList['delete'] = array(
+		'params' => array('id'),
+		'functions' => array('manage_chatbox')
+);
+
+$ViewList['generalsettings'] = array(
+		'params' => array('id'),
+		'functions' => array('manage_chatbox')
+);
+
+$ViewList['new'] = array(
+		'params' => array('id'),
 		'functions' => array('manage_chatbox')
 );
 

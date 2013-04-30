@@ -24,6 +24,11 @@ $def->properties['chat_id']->columnName   = 'chat_id';
 $def->properties['chat_id']->propertyName = 'chat_id';
 $def->properties['chat_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['active'] = new ezcPersistentObjectProperty();
+$def->properties['active']->columnName   = 'active';
+$def->properties['active']->propertyName = 'active';
+$def->properties['active']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

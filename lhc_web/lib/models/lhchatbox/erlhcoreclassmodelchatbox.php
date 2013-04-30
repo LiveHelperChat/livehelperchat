@@ -8,6 +8,7 @@ class erLhcoreClassModelChatbox {
                'id'              	=> $this->id,
                'identifier'         => $this->identifier,
                'name'          		=> $this->name,
+               'active'          	=> $this->active,
                'chat_id'            => $this->chat_id
        );
    }
@@ -30,13 +31,17 @@ class erLhcoreClassModelChatbox {
    }
 
    public function updateThis() {
-       	 erLhcoreClassChatbox::getSession()->update($this);
+       	erLhcoreClassChatbox::getSession()->update($this);
+   }
+
+   public function removeThis() {
+   		$this->chat->removeThis();
+   		erLhcoreClassChatbox::getSession()->delete($this);
    }
 
    public function __get($var) {
 
        switch ($var) {
-
 
        	case 'chat':
        			$this->chat = false;
@@ -46,6 +51,8 @@ class erLhcoreClassModelChatbox {
        				} catch (Exception $e) {
 
        				}
+       			} else {
+       				$this->chat = new erLhcoreClassModelChat();
        			}
        			return $this->chat;
        		break;
@@ -60,6 +67,7 @@ class erLhcoreClassModelChatbox {
    public $identifier = '';
    public $name = '';
    public $chat_id = 0;
+   public $active = 1;
 
 }
 

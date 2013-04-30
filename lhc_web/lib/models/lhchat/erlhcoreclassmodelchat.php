@@ -38,6 +38,23 @@ class erLhcoreClassModelChat {
        }
    }
 
+   public function removeThis()
+   {
+	   	$q = ezcDbInstance::get()->createDeleteQuery();
+
+	   	// Messages
+	   	$q->deleteFrom( 'lh_msg' )->where( $q->expr->eq( 'chat_id', $this->id ) );
+	   	$stmt = $q->prepare();
+	   	$stmt->execute();
+
+	   	// Transfered chats
+	   	$q->deleteFrom( 'lh_transfer' )->where( $q->expr->eq( 'chat_id', $this->id ) );
+	   	$stmt = $q->prepare();
+	   	$stmt->execute();
+
+	   	erLhcoreClassChat::getSession()->delete($this);
+   }
+
    public static function fetch($chat_id) {
        	 $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', (int)$chat_id );
        	 return $chat;
