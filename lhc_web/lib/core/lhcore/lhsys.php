@@ -340,10 +340,14 @@ class erLhcoreClassSystem{
             $requestUri = '/' . urldecode( trim( $requestUri, '/ ' ) );
         }
 
+        if ( ($pos = strpos($requestUri,'index.php')) !== false ) {
+        	$requestUri = substr($requestUri,$pos+9);
+        }
+
         $instance->SiteDir    = $siteDir;
         $instance->WWWDir     = $wwwDir;
         $instance->IndexFile  = '/index.php';
-        $instance->RequestURI = str_replace('//','/',str_replace('index.php','',$requestUri));
+        $instance->RequestURI = str_replace('//','/',$requestUri);
         $instance->QueryString = $queryString;
         $instance->WWWDirLang = '';
     }
