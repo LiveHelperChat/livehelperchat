@@ -636,7 +636,7 @@ function lh(){
     {
     	var pdata = {
     			msg	: $("#CSChatMessage").val(),
-				nick	: $("#CSChatNick").val(),
+				nick: $("#CSChatNick").val()
 		};
 
         var modeWindow = this.isWidgetMode == true ? '/(mode)/widget' : '';
