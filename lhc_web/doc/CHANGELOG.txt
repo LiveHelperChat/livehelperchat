@@ -1,10 +1,9 @@
 1.32v
 
 1. Chatbox/Shoutbox module.
-2. Option to embed FAQ, Voting, Chat, Shoutbox directly in page.
+2. Option to embed Chat, Shoutbox directly in page.
 
 execute doc/update_db/update_22.sql
-
 
 1.31v
 
