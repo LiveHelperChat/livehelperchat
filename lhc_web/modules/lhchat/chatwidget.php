@@ -3,17 +3,26 @@
 // For IE to support headers if chat is installed on different domain
 header('P3P: CP="NOI ADM DEV COM NAV OUR STP"');
 
+$embedMode = false;
+$modeAppend = '';
+if ((string)$Params['user_parameters_unordered']['mode'] == 'embed') {
+	$embedMode = true;
+	$modeAppend = '/(mode)/embed';
+}
+
 if (($hashSession = CSCacheAPC::getMem()->getSession('chat_hash_widget')) !== false) {
 
     list($chatID,$hash) = explode('_',$hashSession);
 
     // Redirect user
-    erLhcoreClassModule::redirect('chat/chatwidgetchat/' . $chatID . '/' . $hash);
+    erLhcoreClassModule::redirect('chat/chatwidgetchat','/' . $chatID . '/' . $hash . $modeAppend );
     exit;
 }
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/chatwidget.tpl.php');
 $tpl->set('referer','');
+
+$tpl->set('append_mode',$modeAppend);
 
 // Start chat field options
 $startData = erLhcoreClassModelChatConfig::fetch('start_chat_data');
@@ -82,7 +91,7 @@ if (isset($_POST['StartChat']))
        CSCacheAPC::getMem()->setSession('chat_hash_widget',$chat->id.'_'.$chat->hash);
 
        // Redirect user
-       erLhcoreClassModule::redirect('chat/chatwidgetchat/' . $chat->id . '/' . $chat->hash);
+       erLhcoreClassModule::redirect('chat/chatwidgetchat','/' . $chat->id . '/' . $chat->hash . $modeAppend);
        exit;
     } else {
         $tpl->set('errors',$Errors);
@@ -154,6 +163,11 @@ $Result['pagelayout'] = 'widget';
 $Result['dynamic_height'] = true;
 $Result['dynamic_height_message'] = 'lhc_sizing_chat';
 $Result['pagelayout_css_append'] = 'widget-chat';
+
+if ($embedMode == true) {
+	$Result['dynamic_height_message'] = 'lhc_sizing_chat_page';
+	$Result['pagelayout_css_append'] = 'embed-widget';
+}
 
 
 ?>

@@ -9,8 +9,15 @@ if ( isset($_POST['Save']) )
 	$Errors = erLhcoreClassChatbox::validateChatbox($chatbox);
 
 	if (count($Errors) == 0) {
-		$chatbox->chat->saveThis();
+
+		// Predefine some default variables
+		$departments = erLhcoreClassModelDepartament::getList();
+		$ids = array_keys($departments);
+		$id = array_shift($ids);
+		$chatbox->chat->dep_id = $id;
 		$chatbox->chat->time = time();
+		$chatbox->chat->saveThis();
+
 		$chatbox->chat_id = $chatbox->chat->id;
 		$chatbox->saveThis();
 		erLhcoreClassModule::redirect('chatbox/list');
@@ -29,6 +36,7 @@ $tpl->set('chatbox',$chatbox);
 
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(
-		array('url' =>erLhcoreClassDesign::baseurl('chatbox/list'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chatbox/list','Chatbox')),
-		array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chatbox/new','New chatbox')));
+		array('url' =>erLhcoreClassDesign::baseurl('chatbox/configuration'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chatbox/list','Chatbox')),
+		array('url' =>erLhcoreClassDesign::baseurl('chatbox/list'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chatbox/list','Chatbox list')),
+		array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chatbox/new','New')));
 ?>

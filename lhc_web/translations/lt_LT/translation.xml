@@ -1990,6 +1990,10 @@
         <translation>HTML kodas</translation>
     </message>
     <message>
+        <source>Chatbox messages content height</source>
+        <translation>Chatbox žunučių turinio aukštis</translation>
+    </message>
+    <message>
         <source>Page embed code</source>
         <translation>Įterpimo į puslapį kodas</translation>
     </message>
@@ -2279,6 +2283,10 @@
     <message>
         <source>E-mail templates</source>
         <translation>El. pašto šablonai</translation>
+    </message>
+    <message>
+        <source>Chat embed code</source>
+        <translation>Pokalbių generavimo kodas</translation>
     </message>
     <message>
         <source>Canned messages</source>
@@ -2838,6 +2846,94 @@
     <message>
         <source>Please enter question!</source>
         <translation>Prašome įvesti klausima!</translation>
+    </message>
+</context>
+<context>
+    <name>chatbox/configuration</name>
+    <message>
+        <source>Chatbox</source>
+        <translation>Chatbox</translation>
+    </message>
+    <message>
+        <source>Chatbox list</source>
+        <translation>Chatbox sąrašas</translation>
+    </message>
+    <message>
+        <source>General settings</source>
+        <translation>Bendri nustatymai</translation>
+    </message>
+    <message>
+        <source>General</source>
+        <translation>Bendra</translation>
+    </message>
+    <message>
+        <source>Embed code generation</source>
+        <translation>Įterpimo kodo generavimas</translation>
+    </message>
+</context>
+<context>
+    <name>chatbox/generalsettings</name>
+    <message>
+        <source>Chatbox settings</source>
+        <translation>Chatbox nustatymai</translation>
+    </message>
+    <message>
+        <source>Default new chatbox name</source>
+        <translation>Standartinis naujo chatboxo pavadinimas</translation>
+    </message>
+    <message>
+        <source>Default operator name</source>
+        <translation>Standartinis operatoriaus nikas</translation>
+    </message>
+    <message>
+        <source>Messages limit in chatbox</source>
+        <translation>Žinučių limitas chatboxe</translation>
+    </message>
+    <message>
+        <source>Auto creation by chatbox identifier enabled</source>
+        <translation>Auto sukūrimas pagal identifikatorių įgalintas</translation>
+    </message>
+    <message>
+        <source>Secret hash, used then auto creation is disabled</source>
+        <translation>Slaptas hash, kuriuo remiantis bus tikrininama teisė sukurti chatboxą</translation>
+    </message>
+    <message>
+        <source>more information how to use it</source>
+        <translation>daugiau informacijos kaip jį naudoti</translation>
+    </message>
+</context>
+<context>
+    <name>chatbox/list</name>
+    <message>
+        <source>Chatbox list</source>
+        <translation>Chatbox sąrašas</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Pavadinimas</translation>
+    </message>
+    <message>
+        <source>Identifier</source>
+        <translation>Identifikatorius</translation>
+    </message>
+</context>
+<context>
+    <name>chatbox/form</name>
+    <message>
+        <source>Chatbox name</source>
+        <translation>Chatbox pavadinimas</translation>
+    </message>
+    <message>
+        <source>Name of manager</source>
+        <translation>Operatoriaus nikas</translation>
+    </message>
+    <message>
+        <source>Identifier</source>
+        <translation>Identifikatorius</translation>
+    </message>
+    <message>
+        <source>Chatbox active</source>
+        <translation>Chatbox aktyvus</translation>
     </message>
 </context>
 </TS>

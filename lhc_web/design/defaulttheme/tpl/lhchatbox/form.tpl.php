@@ -1,10 +1,10 @@
-<label>Name of manager:</label>
-<input type="text" name="ManagerName" value="<?php echo htmlspecialchars($chatbox->chat->nick)?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/new','Please enter name of manager');?>">
+<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatbox/form','Chatbox name');?>:</label>
+<input type="text" name="ChatboxName" value="<?php echo htmlspecialchars($chatbox->name)?>" >
 
-<label>Chatbox name:</label>
-<input type="text" name="ChatboxName" value="<?php echo htmlspecialchars($chatbox->name)?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/new','Chatbox name');?>">
+<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatbox/form','Name of manager');?>:</label>
+<input type="text" name="ManagerName" value="<?php echo htmlspecialchars($chatbox->chat->nick)?>" >
 
-<label>Identifier:</label>
-<input type="text" name="Identifier" value="<?php echo htmlspecialchars($chatbox->identifier)?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/new','Identifier');?>">
+<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatbox/form','Identifier');?>:</label>
+<input type="text" name="Identifier" value="<?php echo htmlspecialchars($chatbox->identifier)?>" >
 
-<label><input type="checkbox" name="ActiveChatbox" value="on" <?php $chatbox->active == 1 ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/new','Chatbox active');?></label>
+<label><input type="checkbox" name="ActiveChatbox" value="on" <?php $chatbox->active == 1 ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatbox/form','Chatbox active');?></label>

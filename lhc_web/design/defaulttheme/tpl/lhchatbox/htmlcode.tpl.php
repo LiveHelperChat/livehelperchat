@@ -6,7 +6,7 @@
 		<input type="text" id="id_status_text" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Chatbox');?>" />
 	</div>
 	<div class="columns large-6">
-		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Chat content height');?></label>
+		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Chatbox messages content height');?></label>
 	    <input type="text" id="id_chat_height" value="220" />
 	</div>
 </div>
@@ -76,7 +76,7 @@ function generateEmbedCode(){
 	var heightwidget = '/(height)/'+($('#id_height_text').val() == '' ? 300 : $('#id_height_text').val());
 	var chat_height = '/(chat_height)/'+($('#id_chat_height').val() == '' ? 220 : $('#id_chat_height').val());
 
-    var script = '<script type="text/javascript">'+"\nvar LHCChatboxOptions = {hashchatbox:'',identifier:'default',status_text:'"+textStatus+"'};\n"+
+    var script = '<script type="text/javascript">'+"\nvar LHCChatboxOptions = {hashchatbox:'empty',identifier:'default',status_text:'"+textStatus+"'};\n"+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
         'po.src = \'<?php echo erLhcoreClassSystem::instance()->baseHTTP?><?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chatbox/getstatus'+id_position+top+topposition+widthwidget+heightwidget+chat_height+"';\n"+

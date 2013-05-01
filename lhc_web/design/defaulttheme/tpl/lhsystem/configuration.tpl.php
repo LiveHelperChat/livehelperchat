@@ -2,14 +2,12 @@
 
 <?php $currentUser = erLhcoreClassUser::instance(); ?>
 
+<div class="row">
+<div class="columns small-6">
 <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Chat ralated');?></h4>
 <ul class="circle small-list">
     <?php if ($currentUser->hasAccessTo('lhdepartament','list')) : ?>
     <li><a href="<?php echo erLhcoreClassDesign::baseurl('departament/departaments')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Departments');?></a></li>
-    <?php endif; ?>
-
-    <?php if ($currentUser->hasAccessTo('lhsystem','generatejs')) : ?>
-    <li><a href="<?php echo erLhcoreClassDesign::baseurl('system/htmlcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','HTML code');?></a></li>
     <?php endif; ?>
 
     <?php if ($currentUser->hasAccessTo('lhchat','allowblockusers')) : ?>
@@ -32,7 +30,25 @@
     <?php endif; ?>
 
 </ul>
+</div>
+
+
+<?php if ($currentUser->hasAccessTo('lhsystem','generatejs')) : ?>
+<div class="columns small-6">
+	<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Chat embed code');?></h4>
+	<ul class="circle small-list">
+	    <li><a href="<?php echo erLhcoreClassDesign::baseurl('system/htmlcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Widget embed code');?></a></li>
+	    <li><a href="<?php echo erLhcoreClassDesign::baseurl('system/embedcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Page embed code');?></a></li>
+	</ul>
+</div>
+<?php endif; ?>
+
+</div>
+
 <hr>
+
+
+
 <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Users and their permissions');?></h4>
 <ul class="circle small-list">
     <?php if ($currentUser->hasAccessTo('lhuser','userlist')) : ?>

@@ -1,5 +1,5 @@
 <?php include(erLhcoreClassDesign::designtpl('lhchatbox/embed_button.tpl.php'));?>
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatbox/edit','Edit');?></h1>
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Edit');?></h1>
 
 <?php if (isset($errors)) : ?>
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>

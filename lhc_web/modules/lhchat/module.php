@@ -174,6 +174,12 @@ $ViewList['getstatus'] = array(
     'uparams' => array('click','position','hide_offline','check_operator_messages','top','units'),
     );
 
+$ViewList['getstatusembed'] = array(
+    'script' => 'getstatusembed.php',
+    'params' => array(),
+    'uparams' => array('hide_offline'),
+);
+
 $ViewList['startchat'] = array(
     'script' => 'startchat.php',
     'params' => array()
@@ -181,7 +187,8 @@ $ViewList['startchat'] = array(
 
 $ViewList['chatwidget'] = array(
     'script' => 'chatwidget.php',
-    'params' => array()
+    'params' => array(),
+    'uparams' => array('mode'),
 );
 
 $ViewList['readoperatormessage'] = array(
@@ -206,7 +213,8 @@ $ViewList['chat'] = array(
 
 $ViewList['chatwidgetchat'] = array(
     'script' => 'chatwidgetchat.php',
-    'params' => array('chat_id','hash')
+    'params' => array('chat_id','hash'),
+	'uparams' => array('mode')
 );
 
 $ViewList['userclosechat'] = array(

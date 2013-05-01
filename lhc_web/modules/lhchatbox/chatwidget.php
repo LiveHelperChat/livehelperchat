@@ -42,6 +42,7 @@ $Result['pagelayout'] = 'widget';
 $Result['pagelayout_css_append'] = 'widget-chat';
 $Result['dynamic_height'] = true;
 $Result['dynamic_height_message'] = 'lhc_sizing_chatbox';
+
 $Result['dynamic_height_append'] = 20;
 
 if ($embedMode == true) {

@@ -1,19 +1,19 @@
 <?php include(erLhcoreClassDesign::designtpl('lhchatbox/embed_button.tpl.php'));?>
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/activechats','Chatbox list');?></h1>
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatbox/list','Chatbox list');?></h1>
 
 <?php if ($pages->items_total > 0) { ?>
 <table cellpadding="0" cellspacing="0" width="100%">
 <thead>
     <tr>
         <th width="1%">ID</th>
-        <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/activechats','Name');?></th>
-        <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/activechats','Identifier');?></th>
+        <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatbox/list','Name');?></th>
+        <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatbox/list','Identifier');?></th>
         <th></th>
         <th></th>
         <th></th>
     </tr>
 </thead>
-    <?php foreach (erLhcoreClassChatbox::getList(array('limit' => $pages->items_per_page,'offset' => $pages->low)) as $chat) : ?>
+    <?php foreach (erLhcoreClassChatbox::getList(array('limit' => $pages->items_per_page, 'offset' => $pages->low)) as $chat) : ?>
     <tr>
         <td><?php echo $chat->id?></td>
         <td><?php echo htmlspecialchars($chat->name)?></td>
@@ -36,4 +36,4 @@
 <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/activechats','Empty...');?></p>
 <?php } ?>
 
-<a href="<?php echo erLhcoreClassDesign::baseurl('chatbox/new')?>" class="button small"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatbox/list','New chatbox');?></a>
+<a href="<?php echo erLhcoreClassDesign::baseurl('chatbox/new')?>" class="button small"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','New');?></a>

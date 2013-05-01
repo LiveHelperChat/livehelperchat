@@ -11,16 +11,20 @@ class erLhcoreClassChatbox {
 	    	$identifier = 'default';
 			$items = self::getList(array('filter' => array('identifier' => $identifier)));
 			if (empty($items)) {
+				$chatboxData = erLhcoreClassModelChatConfig::fetch('chatbox_data');
+				$data = (array)$chatboxData->data;
+
 				$chatbox = new erLhcoreClassModelChatbox();
 				$chatbox->identifier = $identifier;
-				$chatbox->name = 'Chatbox';
+				$chatbox->name = $data['chatbox_default_name'];
 
 				$chat = new erLhcoreClassModelChat();
 				$chat->status = erLhcoreClassModelChat::STATUS_CHATBOX_CHAT;
 				$chat->time = time();
 				$chat->setIP();
 				$chat->hash = erLhcoreClassChat::generateHash();
-				$chat->nick = 'Manager';
+				$chat->nick = $data['chatbox_default_opname'];
+				$chat->referrer = isset($_GET['URLReferer']) ? $_GET['URLReferer'] : '';
 
 				// Assign default department
 				$departments = erLhcoreClassModelDepartament::getList();
@@ -39,8 +43,54 @@ class erLhcoreClassChatbox {
 				return array_shift($items);
 			}
     	} else {
-    		// @todo implement hash there
+    		$chatboxData = erLhcoreClassModelChatConfig::fetch('chatbox_data');
+    		$data = (array)$chatboxData->data;
+    		$canCreate = $data['chatbox_auto_enabled'] == 1 ? true : false;
+    		if ($canCreate == false) {
+    			if (sha1($data['chatbox_secret_hash'].sha1($data['chatbox_secret_hash'].$identifier)) == $chathash) {
+    				$canCreate = true;
+    			}
+    		}
 
+    		if ($canCreate == true) {
+    			$items = self::getList(array('filter' => array('identifier' => $identifier)));
+    			if (empty($items)) {
+    				$chatbox = new erLhcoreClassModelChatbox();
+    				$chatbox->identifier = $identifier;
+    				$chatbox->name = $data['chatbox_default_name'];
+
+    				$chat = new erLhcoreClassModelChat();
+    				$chat->status = erLhcoreClassModelChat::STATUS_CHATBOX_CHAT;
+    				$chat->time = time();
+    				$chat->setIP();
+    				$chat->hash = erLhcoreClassChat::generateHash();
+    				$chat->nick = $data['chatbox_default_opname'];
+    				$chat->referrer = isset($_GET['URLReferer']) ? $_GET['URLReferer'] : '';
+
+    				// Assign default department
+    				$departments = erLhcoreClassModelDepartament::getList();
+    				$ids = array_keys($departments);
+    				$id = array_shift($ids);
+    				$chat->dep_id = $id;
+
+    				// Store chat
+    				erLhcoreClassChat::getSession()->save($chat);
+
+    				$chatbox->chat_id = $chat->id;
+    				$chatbox->saveThis();
+
+    				return $chatbox;
+    			} else {
+					return array_shift($items);
+				}
+    		} else {
+    			$items = self::getList(array('filter' => array('identifier' => $identifier)));
+    			if (!empty($items)) {
+    				return array_shift($items);
+    			}
+    		}
+
+    		return false;
     	}
     }
 
@@ -105,8 +155,11 @@ class erLhcoreClassChatbox {
     // Cleanup chats
     public static function cleanupChatbox($chat) {
 
+    	$chatboxData = erLhcoreClassModelChatConfig::fetch('chatbox_data');
+    	$data = (array)$chatboxData->data;
+
     	$db = ezcDbInstance::get();
-    	$stmt = $db->prepare('SELECT id FROM `lh_msg` WHERE chat_id = :chat_id ORDER BY id DESC LIMIT 30,1');
+    	$stmt = $db->prepare("SELECT id FROM `lh_msg` WHERE chat_id = :chat_id ORDER BY id DESC LIMIT {$data['chatbox_msg_limit']},1");
     	$stmt->bindValue(':chat_id',$chat->id);
     	$stmt->execute();
     	$msg_id = $stmt->fetchColumn();

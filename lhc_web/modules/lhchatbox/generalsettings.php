@@ -13,6 +13,15 @@ if ( isset($_POST['StoreChatboxSettings']) ) {
 			),
 			'SecretHash' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'string'
+			),
+			'DefaultName' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+			),
+			'DefaultOperatorName' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+			),
+			'MessagesLimit' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'int'
 			)
 	);
 
@@ -33,6 +42,24 @@ if ( isset($_POST['StoreChatboxSettings']) ) {
 		$data['chatbox_secret_hash'] = '';
 	}
 
+	if ( $form->hasValidData( 'DefaultName' ) ) {
+		$data['chatbox_default_name'] = $form->DefaultName;
+	} else {
+		$data['chatbox_default_name'] = '';
+	}
+
+	if ( $form->hasValidData( 'DefaultOperatorName' ) ) {
+		$data['chatbox_default_opname'] = $form->DefaultOperatorName;
+	} else {
+		$data['chatbox_default_opname'] = '';
+	}
+
+	if ( $form->hasValidData( 'MessagesLimit' ) ) {
+		$data['chatbox_msg_limit'] = $form->MessagesLimit;
+	} else {
+		$data['chatbox_msg_limit'] = '';
+	}
+
 	$chatboxData->value = serialize($data);
 
 	$chatboxData->saveThis();
@@ -44,8 +71,8 @@ $tpl->set('chatbox_data',$data);
 
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(
-		array('url' => erLhcoreClassDesign::baseurl('chatbox/configuration'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Chatbox configuration')),
-		array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Chatbox configuration')));
+		array('url' =>erLhcoreClassDesign::baseurl('chatbox/configuration'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chatbox/list','Chatbox')),
+		array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chatbox/generalsettings','Chatbox settings')));
 
 
 ?>

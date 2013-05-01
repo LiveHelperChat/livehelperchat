@@ -1,3 +1,4 @@
+<?php if ($chatbox !== false) : ?>
 <div class="row">
 	<div class="columns small-10">
 		<h4><?php echo htmlspecialchars($chatbox->name)?></h4>
@@ -32,7 +33,7 @@
         </script>
     </div>
 
-    <input type="button" class="small round button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Send')?>" onclick="lhinst.addmsguser()" />
+    <input type="button" class="small round button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Send')?>" onclick="lhinst.addmsguserchatbox()" />
     <br>
 
 <script type="text/javascript">
@@ -46,4 +47,7 @@
 </script>
 <?php else : ?>
 <div class="alert-box alert round"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Chatbox is disabled.')?></div>
+<?php endif;?>
+<?php else : ?>
+<div class="alert-box alert round"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Invalid hash or auto creation is disabled')?></div>
 <?php endif;?>
