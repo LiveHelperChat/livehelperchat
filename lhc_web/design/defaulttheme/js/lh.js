@@ -335,6 +335,18 @@ function lh(){
 	    this.syncadmininterfacestatic();
 	};
 
+	this.removeActiveDialogTag = function(tabs) {
+
+		tabs.find('section.active').remove();
+		tabs.find('section:eq(0)').addClass("active");
+		$(document).foundation('section', 'resize');
+
+        if (this.closeWindowOnChatCloseDelete == true)
+        {
+            window.close();
+        };
+	};
+
 	this.deleteChat = function(chat_id, tabs, hidetab)
 	{
 	    if ($('#CSChatMessage-'+chat_id).length != 0){

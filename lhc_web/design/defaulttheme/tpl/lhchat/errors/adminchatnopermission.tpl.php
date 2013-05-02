@@ -1,7 +1,9 @@
-<div class="ui-widget">
-			<div class="ui-state-error ui-corner-all" style="padding: 0pt 0.7em;"> 
-				<p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: 0.3em;"></span> 
-				<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/errors/adminchatnopermission','You do not have permission to access current chat!')?>
-				</p>
-			</div>
+<div>
+<div data-alert class="alert-box alert"><a href="#" class="close">×</a>
+<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/errors/adminchatnopermission','You do not have permission to access current chat!')?>
+</div>
+
+<?php if (isset($show_close_button) && $show_close_button == true) : ?>
+<input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Close dialog')?>" class="tiny button round alert" onclick="lhinst.removeActiveDialogTag($('#tabs'))">
+<?php endif;?>
 </div>
