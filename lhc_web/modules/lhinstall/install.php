@@ -604,6 +604,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                     array('module' => 'lhuser',  'function' => 'selfedit'),
                     array('module' => 'lhchat',  'function' => 'use'),
                     array('module' => 'lhchat',  'function' => 'singlechatwindow'),
+                    array('module' => 'lhchat',  'function' => 'allowopenremotechat'),
                     array('module' => 'lhchat',  'function' => 'allowchattabs'),
                     array('module' => 'lhfront', 'function' => 'use'),
                     array('module' => 'lhsystem','function' => 'use'),
@@ -613,6 +614,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                     array('module' => 'lhchat',  'function' => 'administratecannedmsg'),
                     array('module' => 'lhquestionary',  'function' => 'manage_questionary'),
                     array('module' => 'lhfaq',   'function' => 'manage_faq'),
+                    array('module' => 'lhchatbox',   'function' => 'manage_chatbox'),
                     array('module' => 'lhxml',   'function' => '*')
                 );
 

@@ -296,6 +296,7 @@ $FunctionList['allowblockusers'] = array('explain' =>'Allow user to block users'
 $FunctionList['administrateconfig'] = array('explain' =>'Allow to change chat config');
 $FunctionList['allowclearonlinelist'] = array('explain' =>'Allow use to clean online users list');
 $FunctionList['administratecannedmsg'] = array('explain' =>'Allow use change canned messages');
+$FunctionList['allowopenremotechat'] = array('explain' =>'Allow user to open other users chats from same department');
 
 
 ?>

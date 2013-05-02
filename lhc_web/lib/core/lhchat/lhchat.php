@@ -539,12 +539,20 @@ class erLhcoreClassChat {
              *
              * if ($chat->user_id == $currentUser->getUserID()) return true;
              * */
-
             $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID());
 
             if (count($userDepartaments) == 0) return false;
 
-            if (in_array($chat->dep_id,$userDepartaments)) return true;
+            if (in_array($chat->dep_id,$userDepartaments)) {
+
+            	if ($currentUser->hasAccessTo('lhchat','allowopenremotechat') == true){
+            		return true;
+            	} elseif ($chat->user_id == 0 || $chat->user_id == $currentUser->getUserID()) {
+            		return true;
+            	}
+
+            	return false;
+            }
 
             return false;
        }
