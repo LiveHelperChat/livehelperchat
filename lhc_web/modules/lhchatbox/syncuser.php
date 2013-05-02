@@ -17,12 +17,24 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 {
 	// Check for new messages only if chat last message id is greater than user last message id
 	if ((int)$Params['user_parameters']['message_id'] < $chat->last_msg_id) {
-	    $Messages = erLhcoreClassChat::getPendingMessages((int)$Params['user_parameters']['chat_id'],(int)$Params['user_parameters']['message_id']);
-	    if (count($Messages) > 0)
+	    $Messages = erLhcoreClassChat::getPendingMessagesChatbox((int)$Params['user_parameters']['chat_id'],(int)$Params['user_parameters']['message_id']);
+	    if ( ($Params['user_parameters']['message_id'] == 0 && count($Messages) > 0) || count($Messages) > 1)
 	    {
+	    	$prevNick = '';
+	    	if ($Params['user_parameters']['message_id'] > 0 && count($Messages) > 1){
+	    		$lastMessage = array_shift($Messages);
+	    		if ($lastMessage['id'] == $Params['user_parameters']['message_id']){
+	    			$prevNick = $lastMessage['user_id'] == 0 ? $lastMessage['name_support'] : $chat->nick;
+	    		} else {
+	    			array_unshift($Messages, $lastMessage);
+	    		}
+	    	}
+
+
 	        $tpl = erLhcoreClassTemplate::getInstance( 'lhchatbox/syncuser.tpl.php');
 	        $tpl->set('messages',$Messages);
 	        $tpl->set('chat',$chat);
+	        $tpl->set('prev_nick',$prevNick);
 	        $tpl->set('sync_mode',isset($Params['user_parameters_unordered']['mode']) ? $Params['user_parameters_unordered']['mode'] : '');
 	        $content = $tpl->fetch();
 

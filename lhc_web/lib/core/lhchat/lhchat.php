@@ -494,6 +494,25 @@ class erLhcoreClassChat {
        return $rows;
    }
 
+
+   /**
+    * All messages, which should get administrator/user for chatbox
+    *
+    * */
+   public static function getPendingMessagesChatbox($chat_id,$message_id)
+   {
+       $db = ezcDbInstance::get();
+       $stmt = $db->prepare('SELECT lh_msg.* FROM lh_msg INNER JOIN ( SELECT id FROM lh_msg WHERE chat_id = :chat_id AND id >= :message_id ORDER BY id ASC) AS items ON lh_msg.id = items.id');
+       $stmt->bindValue( ':chat_id',$chat_id);
+       $stmt->bindValue( ':message_id',$message_id);
+       $stmt->setFetchMode(PDO::FETCH_ASSOC);
+       $stmt->execute();
+       $rows = $stmt->fetchAll();
+
+       return $rows;
+   }
+
+
    /**
     * Gets chats messages, used to review chat etc.
     * */
