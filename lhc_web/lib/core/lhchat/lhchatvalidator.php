@@ -9,21 +9,21 @@ class erLhcoreClassChatValidator {
     /**
      * Custom form fields validation
      */
-    public static function validateStartChat(& $inputForm, & $start_data_fields, & $chat)
+    public static function validateStartChat(& $inputForm, & $start_data_fields, & $chat, $additionalParams = array())
     {
         $validationFields = array();
 
         // Dynamic form field
         if ($inputForm->validate_start_chat == true) {
-            if (isset($start_data_fields['name_visible_in_popup']) && $start_data_fields['name_visible_in_popup'] == true) {
+            if ( (isset($start_data_fields['name_visible_in_popup']) && $start_data_fields['name_visible_in_popup'] == true) || isset($additionalParams['offline']) ) {
                 $validationFields['Username'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
             }
 
-            if (isset($start_data_fields['email_visible_in_popup']) && $start_data_fields['email_visible_in_popup'] == true) {
+            if ((isset($start_data_fields['email_visible_in_popup']) && $start_data_fields['email_visible_in_popup'] == true) || isset($additionalParams['offline'])) {
                 $validationFields['Email'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'validate_email' );
             }
 
-            if (isset($start_data_fields['message_visible_in_popup']) && $start_data_fields['message_visible_in_popup'] == true) {
+            if ((isset($start_data_fields['message_visible_in_popup']) && $start_data_fields['message_visible_in_popup'] == true) || isset($additionalParams['offline'])) {
                 $validationFields['Question'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
             }
 
@@ -32,15 +32,15 @@ class erLhcoreClassChatValidator {
             }
 
         } else {
-            if (isset($start_data_fields['name_visible_in_page_widget']) && $start_data_fields['name_visible_in_page_widget'] == true) {
+            if ((isset($start_data_fields['name_visible_in_page_widget']) && $start_data_fields['name_visible_in_page_widget'] == true) || isset($additionalParams['offline'])) {
                 $validationFields['Username'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
             }
 
-            if (isset($start_data_fields['email_visible_in_page_widget']) && $start_data_fields['email_visible_in_page_widget'] == true) {
+            if ((isset($start_data_fields['email_visible_in_page_widget']) && $start_data_fields['email_visible_in_page_widget'] == true) || isset($additionalParams['offline'])) {
                 $validationFields['Email'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'validate_email' );
             }
 
-            if (isset($start_data_fields['message_visible_in_page_widget']) && $start_data_fields['message_visible_in_page_widget'] == true) {
+            if ( (isset($start_data_fields['message_visible_in_page_widget']) && $start_data_fields['message_visible_in_page_widget'] == true) || isset($additionalParams['offline'])) {
                 $validationFields['Question'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
             }
 
@@ -82,10 +82,13 @@ class erLhcoreClassChatValidator {
             $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You do not have permission to chat! Please contact site owner.');
         }
 
-        if (($inputForm->validate_start_chat == true && isset($start_data_fields['name_visible_in_popup']) && $start_data_fields['name_visible_in_popup'] == true) ||
-        ($inputForm->validate_start_chat == false && isset($start_data_fields['name_visible_in_page_widget']) && $start_data_fields['name_visible_in_page_widget'] == true)) {
+        if (
+        ($inputForm->validate_start_chat == true && isset($start_data_fields['name_visible_in_popup']) && $start_data_fields['name_visible_in_popup'] == true) ||
+        ($inputForm->validate_start_chat == false && isset($start_data_fields['name_visible_in_page_widget']) && $start_data_fields['name_visible_in_page_widget'] == true) ||
+        isset($additionalParams['offline'])
+        ) {
 
-            if ( !$form->hasValidData( 'Username' ) || ($form->Username == '' && $start_data_fields['name_require_option'] == 'required') )
+            if ( !$form->hasValidData( 'Username' ) || ($form->Username == '' && ($start_data_fields['name_require_option'] == 'required' || isset($additionalParams['offline'])))  )
             {
                 $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your name');
             } elseif ($form->hasValidData( 'Username' )) {
@@ -99,9 +102,9 @@ class erLhcoreClassChatValidator {
         }
 
         if (($inputForm->validate_start_chat == true && isset($start_data_fields['email_visible_in_popup']) && $start_data_fields['email_visible_in_popup'] == true) ||
-        ($inputForm->validate_start_chat == false && isset($start_data_fields['email_visible_in_page_widget']) && $start_data_fields['email_visible_in_page_widget'] == true)) {
+        ($inputForm->validate_start_chat == false && isset($start_data_fields['email_visible_in_page_widget']) && $start_data_fields['email_visible_in_page_widget'] == true) || isset($additionalParams['offline']) ) {
 
-            if ( !$form->hasValidData( 'Email' ) && $start_data_fields['email_require_option'] == 'required' ) {
+            if ( (!$form->hasValidData( 'Email' ) && $start_data_fields['email_require_option'] == 'required') || (!$form->hasValidData( 'Email' ) && isset($additionalParams['offline'])) ) {
                 $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Wrong email');
             } elseif ( $form->hasValidData( 'Email' ) ) {
                 $chat->email = $inputForm->email = $form->Email;
@@ -112,9 +115,9 @@ class erLhcoreClassChatValidator {
 
         // Validate question
         if (($inputForm->validate_start_chat == true && isset($start_data_fields['message_visible_in_popup']) && $start_data_fields['message_visible_in_popup'] == true) ||
-        ($inputForm->validate_start_chat == false && isset($start_data_fields['message_visible_in_page_widget']) && $start_data_fields['message_visible_in_page_widget'] == true)) {
+        ($inputForm->validate_start_chat == false && isset($start_data_fields['message_visible_in_page_widget']) && $start_data_fields['message_visible_in_page_widget'] == true) || isset($additionalParams['offline'])) {
 
-            if ( !$form->hasValidData( 'Question' ) || ($form->Question == '' && $start_data_fields['message_require_option'] == 'required')) {
+            if ( !$form->hasValidData( 'Question' ) || ($form->Question == '' && ($start_data_fields['message_require_option'] == 'required' || isset($additionalParams['offline'])))) {
                 $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your message');
             } elseif ($form->hasValidData( 'Question' )) {
                 $inputForm->question = $form->Question;

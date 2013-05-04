@@ -100,6 +100,40 @@ class erLhcoreClassChatMail {
     	$mail->ClearAddresses();
     }
 
+    public static function sendMailRequest($inputData, erLhcoreClassModelChat $chat) {
+
+    	$sendMail = erLhAbstractModelEmailTemplate::fetch(2);
+
+    	$mail = new PHPMailer();
+    	$mail->CharSet = "UTF-8";
+
+    	if ($sendMail->from_email != '') {
+    		$mail->Sender = $sendMail->from_email;
+    	}
+
+    	$mail->From = $chat->email;
+    	$mail->FromName = $chat->nick;
+    	$mail->Subject = $sendMail->subject;
+    	$mail->AddReplyTo($chat->email,$chat->nick);
+    	$mail->Body = str_replace(array('{phone}','{name}','{email}','{message}','{additional_data}','{url_request}','{ip}'), array($chat->phone,$chat->nick,$chat->email,$inputData->question,$chat->additional_data,(isset($_POST['URLRefer']) ? $_POST['URLRefer'] : ''),$_SERVER['REMOTE_ADDR']), $sendMail->content);
+
+    	$emailRecipient = '';
+    	if ($chat->department !== false && $chat->department->email != '') { // Perhaps department has assigned email
+    		$emailRecipient = $chat->department->email;
+    	} elseif ($sendMail->recipient != '') { // Perhaps template has default recipient
+    		$emailRecipient = $sendMail->recipient;
+    	} else { // Lets find first user and send him an e-mail
+    		$list = erLhcoreClassModelUser::getUserList(array('limit' => 1,'sort' => 'id ASC'));
+    		$user = array_pop($list);
+    		$emailRecipient = $user->email;
+    	}
+
+    	$mail->AddAddress( $emailRecipient );
+
+    	$mail->Send();
+    	$mail->ClearAddresses();
+    }
+
 }
 
 ?>

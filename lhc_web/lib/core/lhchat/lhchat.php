@@ -420,7 +420,6 @@ class erLhcoreClassChat {
     	return self::getCount($filter);
     }
 
-
     public static function isOnline($dep_id = false)
     {
        $isOnlineUser = (int)erConfigClassLhConfig::getInstance()->getSetting('chat','online_timeout');

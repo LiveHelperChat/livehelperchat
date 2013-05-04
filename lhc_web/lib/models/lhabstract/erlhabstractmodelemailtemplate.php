@@ -15,6 +15,7 @@ class erLhAbstractModelEmailTemplate {
 			'name'       	=> $this->name,
 			'subject'       => $this->subject,
 			'subject_ac'    => $this->subject_ac,
+			'recipient'     => $this->recipient,
 			'content'    	=> $this->content
 		);
 
@@ -105,6 +106,14 @@ class erLhAbstractModelEmailTemplate {
    						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+   						)),
+   				'recipient' => array(
+   						'type' => 'text',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','Recipient email, this is used if application could not determine who should receive an email.'),
+   						'required' => false,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
    				'content' => array(
    						'type' => 'textarea',
@@ -247,6 +256,7 @@ class erLhAbstractModelEmailTemplate {
 	public $reply_to = '';
 	public $reply_to_ac = 0;
 	public $content = '';
+	public $recipient = '';
 
 	public $hide_add = true;
 	public $hide_delete = true;

@@ -8,6 +8,9 @@
 	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Name');?></label>
     <input type="text" name="Name"  value="<?php echo htmlspecialchars($departament->name);?>" />
 
+    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','E-mail');?></label>
+    <input type="text" name="Email"  value="<?php echo htmlspecialchars($departament->email);?>" />
+
     <ul class="button-group radius">
     <li><input type="submit" class="small button" name="Save_departament" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/new','Save');?>"/></li>
 	<li><input type="submit" class="small button" name="Cancel_departament" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/new','Cancel');?>"/></li>

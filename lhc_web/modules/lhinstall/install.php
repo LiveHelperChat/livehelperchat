@@ -209,7 +209,11 @@ switch ((int)$Params['user_parameters']['step_id']) {
             if (count($Errors) == 0) {
 
                $tpl->set('admin_username',$form->AdminUsername);
-               if ( $form->hasValidData( 'AdminEmail' ) ) $tpl->set('admin_email',$form->AdminEmail);
+               $adminEmail = '';
+               if ( $form->hasValidData( 'AdminEmail' ) ) {
+               		$tpl->set('admin_email',$form->AdminEmail);
+               		$adminEmail = $form->AdminEmail;
+               }
     	       $tpl->set('admin_name',$form->AdminName);
     	       $tpl->set('admin_surname',$form->AdminSurname);
     	       $tpl->set('admin_departament',$form->DefaultDepartament);
@@ -282,10 +286,13 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `subject_ac` tinyint(4) NOT NULL,
 				  `reply_to` varchar(150) NOT NULL,
 				  `reply_to_ac` tinyint(4) NOT NULL,
+				  `recipient` varchar(150) NOT NULL,
 				  PRIMARY KEY (`id`)
 				) DEFAULT CHARSET=utf8;");
 
-        	   $db->query("INSERT INTO `lh_abstract_email_template` (`id`, `name`, `from_name`, `from_name_ac`, `from_email`, `from_email_ac`, `content`, `subject`, `subject_ac`, `reply_to`, `reply_to_ac`) VALUES (1,'Send mail to user','Live Support',0,'',0,'Dear {user_chat_nick},\r\n\r\n{additional_message}\r\n\r\nLive Support response:\r\n{messages_content}\r\n\r\nSincerely,\r\nLive Support Team\r\n','{name_surname} has responded to your request',	1,'',1);");
+        	   $db->query("INSERT INTO `lh_abstract_email_template` (`id`, `name`, `from_name`, `from_name_ac`, `from_email`, `from_email_ac`, `content`, `subject`, `subject_ac`, `reply_to`, `reply_to_ac`, `recipient`) VALUES
+        	   		(1,'Send mail to user','Live Support',0,'',0,'Dear {user_chat_nick},\r\n\r\n{additional_message}\r\n\r\nLive Support response:\r\n{messages_content}\r\n\r\nSincerely,\r\nLive Support Team\r\n','{name_surname} has responded to your request',	1,'',1,''),
+        	   		(2,	'Support request from user',	'',	0,	'',	0,	'Hello,\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nAdditional data, if any:\r\n{additional_data}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nSincerely,\r\nLive Support Team',	'Support request from user',	0,	'',	0,	'{$adminEmail}');");
 
         	   $db->query("CREATE TABLE `lh_question` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -416,11 +423,12 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ) DEFAULT CHARSET=utf8;");
 
         	   //Default departament
-        	   $db->query("CREATE TABLE IF NOT EXISTS `lh_departament` (
-                  `id` int(11) NOT NULL AUTO_INCREMENT,
-                  `name` varchar(100) NOT NULL,
-                  PRIMARY KEY (`id`)
-                ) DEFAULT CHARSET=utf8;");
+        	   $db->query("CREATE TABLE `lh_departament` (
+				  `id` int(11) NOT NULL AUTO_INCREMENT,
+				  `name` varchar(100) NOT NULL,
+				  `email` varchar(100) NOT NULL,
+				  PRIMARY KEY (`id`)
+				) DEFAULT CHARSET=utf8;");
 
         	   $Departament = new erLhcoreClassModelDepartament();
                $Departament->name = $form->DefaultDepartament;

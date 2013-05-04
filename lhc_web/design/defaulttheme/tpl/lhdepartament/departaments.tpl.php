@@ -5,6 +5,7 @@
 <tr>
     <th width="1%">ID</th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Name');?></th>
+    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','E-mail');?></th>
     <th width="1%">&nbsp;</th>
     <th width="1%">&nbsp;</th>
 </tr>
@@ -13,6 +14,7 @@
     <tr>
         <td><?php echo $departament->id?></td>
         <td><?php echo htmlspecialchars($departament->name)?></td>
+        <td><?php echo htmlspecialchars($departament->email)?></td>
         <td nowrap><a class="small button round" href="<?php echo erLhcoreClassDesign::baseurl('departament/edit')?>/<?php echo $departament->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Edit department');?></a></td>
         <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="small alert button round" href="<?php echo erLhcoreClassDesign::baseurl('departament/delete')?>/<?php echo $departament->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Delete department');?></a></td>
     </tr>

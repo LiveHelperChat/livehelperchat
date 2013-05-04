@@ -3,34 +3,43 @@
 $tpl = erLhcoreClassTemplate::getInstance( 'lhdepartament/new.tpl.php');
 $Departament = new erLhcoreClassModelDepartament();
 
-if ( isset($_POST['Cancel_departament']) ) {        
+if ( isset($_POST['Cancel_departament']) ) {
     erLhcoreClassModule::redirect('departament/departaments');
     exit;
-} 
+}
 
 if (isset($_POST['Save_departament']))
-{    
+{
    $definition = array(
         'Name' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-        )       
+        ),
+        'Email' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'validate_email'
+        )
     );
-    
+
     $form = new ezcInputForm( INPUT_POST, $definition );
     $Errors = array();
-    
+
     if ( !$form->hasValidData( 'Name' ) || $form->Name == '' )
     {
         $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('department/new','Please enter department name');
     }
-    
+
+    if ( $form->hasValidData( 'Email' ) ) {
+    	$Departament->email = $form->Email;
+    } else {
+    	$Departament->email = '';
+    }
+
     if (count($Errors) == 0)
-    {     
+    {
         $Departament->name = $form->Name;
         erLhcoreClassDepartament::getSession()->save($Departament);
         erLhcoreClassModule::redirect('departament/departaments');
         exit ;
-        
+
     }  else {
         $tpl->set('errors',$Errors);
     }

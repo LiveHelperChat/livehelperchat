@@ -2,6 +2,7 @@
 
 <div class="row">
     <div class="columns large-6"><label><input type="checkbox" id="id_hide_then_offline" value="on" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Hide status then offline');?></label></div>
+    <div class="columns large-6"><label><input type="checkbox" id="id_show_leave_form" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Show leave a message form then there is no online operators');?></label></div>
 </div>
 <br />
 
@@ -26,6 +27,7 @@ var default_site_access = '<?php echo erConfigClassLhConfig::getInstance()->getS
 function generateEmbedCode() {
     var siteAccess = $('#LocaleID').val() == default_site_access ? '' : $('#LocaleID').val();
     var id_hide_then_offline = $('#id_hide_then_offline').is(':checked') ? '/(hide_offline)/true' : '';
+    var id_show_leave_form = $('#id_show_leave_form').is(':checked') ? '/(leaveamessage)/true' : '';
 
     var id_tag = '<!-- Place this tag where you want the Live Helper Plugin to render. -->'+"\n"+
         '<div id="lhc_status_container_page" ></div>'+"\n\n<!-- Place this tag after the Live Helper Plugin tag. -->\n";
@@ -34,7 +36,7 @@ function generateEmbedCode() {
       'LHCChatOptionsPage.opt = {};\n'+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
-        'po.src = \'<?php echo erLhcoreClassSystem::instance()->baseHTTP?><?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chat/getstatusembed'+id_hide_then_offline+'\';'+"\n"+
+        'po.src = \'<?php echo erLhcoreClassSystem::instance()->baseHTTP?><?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chat/getstatusembed'+id_hide_then_offline+id_show_leave_form+'\';'+"\n"+
         'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);'+"\n"+
       '})();'+"\n"+
     '</scr'+'ipt>';
@@ -42,7 +44,7 @@ function generateEmbedCode() {
     $('#HMLTContent').text(id_tag+script);
 };
 
-$('#LocaleID').change(function(){
+$('#LocaleID,#id_show_leave_form').change(function(){
     generateEmbedCode();
 });
 

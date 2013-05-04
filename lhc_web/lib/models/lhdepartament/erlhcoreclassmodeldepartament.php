@@ -6,7 +6,8 @@ class erLhcoreClassModelDepartament {
    {
        return array(
                'id'       => $this->id,
-               'name'     => $this->name
+               'name'     => $this->name,
+               'email'     => $this->email,
        );
    }
 
@@ -120,6 +121,7 @@ class erLhcoreClassModelDepartament {
 
     public $id = null;
     public $name = '';
+    public $email = '';
 }
 
 ?>

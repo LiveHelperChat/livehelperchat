@@ -1,3 +1,10 @@
+1.33v
+
+1. New permission for chat, now operators can have or not permission to open already opened chats. This disables reading other persons chats. Except for users who have permission.
+This permission takes effect only if user does not have permission to all chats.
+2. Leave a message functionality
+
+
 1.32v
 
 1. Chatbox/Shoutbox module.

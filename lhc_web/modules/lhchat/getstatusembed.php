@@ -10,7 +10,7 @@ if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value
     $visitor = erLhcoreClassModelChatOnlineUser::handleRequest(array('pages_count' => true));
     $tpl->set('visitor',$visitor);
 }
-
+$tpl->set('leaveamessage',(string)$Params['user_parameters_unordered']['leaveamessage'] == 'true');
 $tpl->set('hide_offline',$Params['user_parameters_unordered']['hide_offline']);
 echo $tpl->fetch();
 exit;
