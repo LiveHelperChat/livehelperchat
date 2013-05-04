@@ -1664,6 +1664,14 @@
         <translation>Maksimum 50 ženklų</translation>
     </message>
     <message>
+        <source>Leave a message</source>
+        <translation>Palikite žinutę</translation>
+    </message>
+    <message>
+        <source>There is no online operators at the moment, please leave your message</source>
+        <translation>Šiuo metu nėra prisijungusių operatorių, prašome palikti žinutę</translation>
+    </message>
+    <message>
         <source>Send my question</source>
         <translation>Siųsti mano klausimą</translation>
     </message>
@@ -1990,12 +1998,20 @@
         <translation>HTML kodas</translation>
     </message>
     <message>
+        <source>Show leave a message form then there is no online operators</source>
+        <translation>Rodyti palikite žinutę langą, kai nėra prisijungusių operatorių</translation>
+    </message>
+    <message>
         <source>Chatbox messages content height</source>
         <translation>Chatbox žunučių turinio aukštis</translation>
     </message>
     <message>
         <source>Page embed code</source>
         <translation>Įterpimo į puslapį kodas</translation>
+    </message>
+    <message>
+        <source>height</source>
+        <translation>aukštis</translation>
     </message>
     <message>
         <source>Widget embed code</source>
@@ -2232,6 +2248,10 @@
     <message>
         <source>E-mail templates</source>
         <translation>El. pašto šablonai</translation>
+    </message>
+    <message>
+        <source>Recipient email, this is used if application could not determine who should receive an email.</source>
+        <translation>Gavėjo el. paštas, naudojamas kai nenustatomas konkretus gavėjas.</translation>
     </message>
     <message>
         <source>Content</source>

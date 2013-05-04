@@ -66,8 +66,8 @@
 	      </div>
 	      <div class="large-4 columns">
 	      	<select id="UnitsTop">
-	            <option value="pixels">Pixels</option>
-	            <option value="percents">Percents</option>
+	            <option value="pixels"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Pixels');?></option>
+	            <option value="percents"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Percents');?></option>
 	        </select>
 	      </div>
 	    </div>
