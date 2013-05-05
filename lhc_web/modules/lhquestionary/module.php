@@ -1,6 +1,6 @@
 <?php
 
-$Module = array( "name" => "Questionary module");
+$Module = array( "name" => "Questionary/Voting");
 
 $ViewList = array();
 

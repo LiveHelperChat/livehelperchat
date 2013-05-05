@@ -1,6 +1,6 @@
 <?php
 
-$Module = array( "name" => "Live helper chat faq module");
+$Module = array( "name" => "FAQ");
 
 $ViewList = array();
 

@@ -1,6 +1,6 @@
 <?php
 
-$Module = array( "name" => "Live helper chat faq module");
+$Module = array( "name" => "Chatbox");
 
 $ViewList = array();
 
@@ -104,6 +104,6 @@ $ViewList['configuration'] = array(
 );
 
 $FunctionList = array();
-$FunctionList['manage_chatbox'] = array('explain' => 'Allow user to manage Chatbox');
+$FunctionList['manage_chatbox'] = array('explain' => 'Allow user to manage Chatbox module');
 
 ?>

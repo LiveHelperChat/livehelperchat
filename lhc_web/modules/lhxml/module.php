@@ -1,6 +1,6 @@
 <?php
 
-$Module = array( "name" => "Live helper XML service");
+$Module = array( "name" => "Live helper Chat XML service");
 
 $ViewList = array();
 

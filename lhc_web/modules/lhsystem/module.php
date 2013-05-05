@@ -30,6 +30,6 @@ $ViewList['expirecache'] = array(
 
 $FunctionList['use'] = array('explain' => 'Allow user to see configuration links');
 $FunctionList['expirecache'] = array('explain' => 'Allow user to clear cache');
-$FunctionList['generatejs'] = array('explain' => 'Allow user access HTML generation');
+$FunctionList['generatejs'] = array('explain' => 'Allow user to access HTML generation');
 
 ?>

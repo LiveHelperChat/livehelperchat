@@ -94,17 +94,17 @@ $ViewList['setsettingajax'] = array (
 		'params' => array('identifier','value')
 );
 
-$FunctionList['groupassignuser'] = array('explain' => 'Allow logged user to assing user to group');
-$FunctionList['editgroup'] = array('explain' => 'Allow logged user to edit group');
-$FunctionList['creategroup'] = array('explain' => 'Allow logged user to create group');
-$FunctionList['deletegroup'] = array('explain' => 'Allow logged user to delete group');
-$FunctionList['createuser'] = array('explain' => 'Allow logged user to create another user');
-$FunctionList['deleteuser'] = array('explain' => 'Allow logged user to delete another user');
-$FunctionList['edituser'] = array('explain' => 'Allow logged user to edit another user');
-$FunctionList['grouplist'] = array('explain' => 'Allow logged user to list group');
-$FunctionList['userlist'] = array('explain' => 'Allow logged user to list users');
-$FunctionList['selfedit'] = array('explain' => 'Allow logged user to edit his own data');
-$FunctionList['editdepartaments'] = array('explain' => 'Allow logged user to edit his responsible departaments');
+$FunctionList['groupassignuser'] = array('explain' => 'Allow user to assign user to group');
+$FunctionList['editgroup'] = array('explain' => 'Allow user to edit group');
+$FunctionList['creategroup'] = array('explain' => 'Allow user to create group');
+$FunctionList['deletegroup'] = array('explain' => 'Allow user to delete group');
+$FunctionList['createuser'] = array('explain' => 'Allow user to create another user');
+$FunctionList['deleteuser'] = array('explain' => 'Allow user to delete another user');
+$FunctionList['edituser'] = array('explain' => 'Allow user to edit another user');
+$FunctionList['grouplist'] = array('explain' => 'Allow user to list group');
+$FunctionList['userlist'] = array('explain' => 'Allow user to list users');
+$FunctionList['selfedit'] = array('explain' => 'Allow user to edit his own data');
+$FunctionList['editdepartaments'] = array('explain' => 'Allow user to edit his responsible departaments');
 $FunctionList['userlistonline'] = array('explain' => 'Allow user to see logged operators list');
 
 ?>

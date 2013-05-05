@@ -18,7 +18,7 @@ class erLhcoreClassModules{
         foreach ($Modules as $ModuleInclude)
         {
             include($ModuleInclude);
-            $ModuleList[str_replace('modules/','',dirname($ModuleInclude))] = array('name' => $Module['name']);
+            $ModuleList[str_replace('modules/','',dirname($ModuleInclude))] = array('name' => erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole',$Module['name']));
         }
 
         // Add extensions modules
@@ -31,9 +31,9 @@ class erLhcoreClassModules{
         	{
         		include($ModuleInclude);
         		if (isset($ModuleList[str_replace("extension/{$extension}/{$ModulesDir}/",'',dirname($ModuleInclude))]['name'])){
-        			$ModuleList[str_replace("extension/{$extension}/{$ModulesDir}/",'',dirname($ModuleInclude))]['name'] .= ', EX - '.$Module['name'];
+        			$ModuleList[str_replace("extension/{$extension}/{$ModulesDir}/",'',dirname($ModuleInclude))]['name'] .= ', EX - '.erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole',$Module['name']);
         		} else {
-        			$ModuleList[str_replace("extension/{$extension}/{$ModulesDir}/",'',dirname($ModuleInclude))] = array('name' => $Module['name']);
+        			$ModuleList[str_replace("extension/{$extension}/{$ModulesDir}/",'',dirname($ModuleInclude))] = array('name' => erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole',$Module['name']));
         		}
         	}
         }
@@ -59,6 +59,10 @@ class erLhcoreClassModules{
    	   		}
    	   	}
 
+   	   	foreach ($FunctionListReturn as & $Function) {
+   	   		$Function['explain'] = erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole',$Function['explain']);
+   	   	}
+
    	   	return $FunctionListReturn;
    }
 
@@ -79,9 +83,9 @@ class erLhcoreClassModules{
    	 		if (file_exists("extension/{$extension}/modules/{$ModuleIdentifier}/module.php")) {
    	 			include("extension/{$extension}/modules/{$ModuleIdentifier}/module.php");
    	 			if (!empty($ModuleName)) {
-   	 				$ModuleName .= ', EX - '.$Module['name'];
+   	 				$ModuleName .= ', EX - '.erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole',$Module['name']);
    	 			} else {
-   	 				$ModuleName = $Module['name'];
+   	 				$ModuleName = erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole',$Module['name']);
    	 			}
    	 		}
    	 	}
@@ -99,7 +103,7 @@ class erLhcoreClassModules{
 
    	 	if (file_exists('modules/' . $ModuleIdentifier . '/module.php')){
    	 		include('modules/' . $ModuleIdentifier . '/module.php');
-   	 		$translatedFunctionName = (isset($FunctionList[$FunctionName]['explain'])) ? $FunctionList[$FunctionName]['explain'] : '';
+   	 		$translatedFunctionName = (isset($FunctionList[$FunctionName]['explain'])) ? erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole',$FunctionList[$FunctionName]['explain']) : '';
    	 	}
 
    	 	$cfg = erConfigClassLhConfig::getInstance();
@@ -109,9 +113,9 @@ class erLhcoreClassModules{
    	 			include("extension/{$extension}/modules/{$ModuleIdentifier}/module.php");
    	 			if (isset($FunctionList[$FunctionName]['explain'])){
 	   	 			if (!empty($translatedFunctionName)) {
-	   	 				$translatedFunctionName .= ', EX - '.$FunctionList[$FunctionName]['explain'];
+	   	 				$translatedFunctionName .= ', EX - '.erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole',$FunctionList[$FunctionName]['explain']);
 	   	 			} else {
-	   	 				$translatedFunctionName = $FunctionList[$FunctionName]['explain'];
+	   	 				$translatedFunctionName = erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole',$FunctionList[$FunctionName]['explain']);
 	   	 			}
    	 			}
    	 		}

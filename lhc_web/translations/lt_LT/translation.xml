@@ -1296,8 +1296,220 @@
 <context>
     <name>permission/editrole</name>
     <message>
-        <source>Please choose module</source>
-        <translation>Prašome pasirinkti modulį</translation>
+        <source>Abstract module</source>
+        <translation>Abstraktūs objektai</translation>
+    </message>
+    <message>
+        <source>Allow to use abstract module</source>
+        <translation>Leisti naudotis abstrakčiu moduliu</translation>
+    </message>
+    <message>
+        <source>Chat</source>
+        <translation>Pokalbiai</translation>
+    </message>
+    <message>
+        <source>General permission to use chat module</source>
+        <translation>Bendras leidimas naudotis pokalbių moduliu</translation>
+    </message>
+    <message>
+        <source>Allow user to use single chat window functionality</source>
+        <translation>Leisti vartotojui naudotis iššokančio lango funcionalumu</translation>
+    </message>
+    <message>
+        <source>Allow user to user chat rooms functionality</source>
+        <translation>Leisti vartotojui naudotis pokalbių kambarių funkcionalumu</translation>
+    </message>
+    <message>
+        <source>Allow user to delete his own chats</source>
+        <translation>Leisti vartotojui ištrinti savo paties pokalbius</translation>
+    </message>
+    <message>
+        <source>Allow to delete all chats</source>
+        <translation>Leisti vartotojui trinti visus pokalbius</translation>
+    </message>
+    <message>
+        <source>Allow user to transfer chat to another user</source>
+        <translation>Leisti vartotojui pervesti pokalbius kitam vartotojui</translation>
+    </message>
+    <message>
+        <source>Allow user to close another user chat</source>
+        <translation>Leisti vartotojui uždaryti kito vartotojo pokalbius</translation>
+    </message>
+    <message>
+        <source>Allow user to block visitors</source>
+        <translation>Leisti vartotojui blokuoti lankytojus</translation>
+    </message>
+    <message>
+        <source>Allow to change chat config</source>
+        <translation>Leisti vartotojui konfiguruoti pokalbių nustatymus</translation>
+    </message>
+    <message>
+        <source>Allow user to clean online users list</source>
+        <translation>Leisti vartotojui išvalytu prisijungusių lankytojų sąrašą</translation>
+    </message>
+    <message>
+        <source>Allow user change canned messages</source>
+        <translation>Leisti vartotojui keisti paruoštas žinutes</translation>
+    </message>
+    <message>
+        <source>Allow user to open other users chats from same department</source>
+        <translation>Leisti vartotojui atidarytų kitų vartotojų pokalbius iš to paties departamento</translation>
+    </message>
+    <message>
+        <source>Chatbox</source>
+        <translation>Chatbox</translation>
+    </message>
+    <message>
+        <source>Departments configuration</source>
+        <translation>Departamentų konfiguracija</translation>
+    </message>
+    <message>
+        <source>Access to list departments</source>
+        <translation>Prieiga prie departamentų sąrašo</translation>
+    </message>
+    <message>
+        <source>Permission to create a new department</source>
+        <translation>Leidimas kurti naują departamentą</translation>
+    </message>
+    <message>
+        <source>Permission to edit department</source>
+        <translation>Leidimas redaguoti departamentą</translation>
+    </message>
+    <message>
+        <source>Permission to delete department</source>
+        <translation>Leidimas trinti departamentą</translation>
+    </message>
+    <message>
+        <source>Allow user to choose his departments</source>
+        <translation>Leisti vartotojui pasirinkti savo departamentą</translation>
+    </message>
+    <message>
+        <source>Allow user to manage Chatbox module</source>
+        <translation>Leisti vartotojui tvarkyti Chatbox modulį</translation>
+    </message>
+    <message>
+        <source>FAQ</source>
+        <translation>DUK</translation>
+    </message>
+    <message>
+        <source>Allow user to manage FAQ</source>
+        <translation>Leisti vartotojui valdyti DUK</translation>
+    </message>
+    <message>
+        <source>Frontpage</source>
+        <translation>Titulinis</translation>
+    </message>
+    <message>
+        <source>General frontpage use permission</source>
+        <translation>Leisti naudotis tituliniu puslapiu</translation>
+    </message>
+    <message>
+        <source>Live helper Chat installer</source>
+        <translation>Live Helper Chat instaliacinis modulis</translation>
+    </message>
+    <message>
+        <source>Permissions configuration</source>
+        <translation>Teisių valdymas</translation>
+    </message>
+    <message>
+        <source>Access to edit role</source>
+        <translation>Teisė redaguoti rolę</translation>
+    </message>
+    <message>
+        <source>Access to delete role</source>
+        <translation>Teisė trinti rolę</translation>
+    </message>
+    <message>
+        <source>Access to list roles</source>
+        <translation>Teisė gauti rolių sąrašą</translation>
+    </message>
+    <message>
+        <source>Access to create new role</source>
+        <translation>Teisė kurti naują rolę</translation>
+    </message>
+    <message>
+        <source>Questionary/Voting</source>
+        <translation>Klausimynas/Balsavimas</translation>
+    </message>
+    <message>
+        <source>Allow user to manage questionary</source>
+        <translation>Leisti vartotojui valdyti klausimyną</translation>
+    </message>
+    <message>
+        <source>Allow user to see configuration links</source>
+        <translation>Rodyti vartotojui konfiguracines nuorodas</translation>
+    </message>
+    <message>
+        <source>Allow user to clear cache</source>
+        <translation>Leisti vartotojui išvalyti podelį</translation>
+    </message>
+    <message>
+        <source>Users, groups management</source>
+        <translation>Vartotojų, grupių valdymas</translation>
+    </message>
+    <message>
+        <source>Allow user to assign user to group</source>
+        <translation>Leisti vartotojui priskirti vartotoją grupei</translation>
+    </message>
+    <message>
+        <source>Allow user to edit group</source>
+        <translation>Leisti vartotojui redaguoti grupę</translation>
+    </message>
+    <message>
+        <source>Allow user to create group</source>
+        <translation>Leisti vartotojui kurti grupę</translation>
+    </message>
+    <message>
+        <source>Allow user to delete group</source>
+        <translation>Leisti vartotojui trinti grupę</translation>
+    </message>
+    <message>
+        <source>Allow user to create another user</source>
+        <translation>Leisti vartotojui kurti kitą vartotoją</translation>
+    </message>
+    <message>
+        <source>Allow user to delete another user</source>
+        <translation>Leisti vartotojui trinti kitą vartotoją</translation>
+    </message>
+    <message>
+        <source>Allow user to edit another user</source>
+        <translation>Leisti vartotojui redaguoti kitą vartotoją</translation>
+    </message>
+    <message>
+        <source>Allow user to list group</source>
+        <translation>Leisti vartotojui matyti grupių sąrašą</translation>
+    </message>
+    <message>
+        <source>Allow user to list users</source>
+        <translation>Leisti vartotojui matyti vartotojų sąrašą</translation>
+    </message>
+    <message>
+        <source>Allow user to edit his own data</source>
+        <translation>Leisti vartotojui redaguoti savo paties duomenis</translation>
+    </message>
+    <message>
+        <source>Allow user to edit his responsible departaments</source>
+        <translation>Leisti vartotojui redaguoti kuriam departamentui jis priklauso</translation>
+    </message>
+    <message>
+        <source>Allow user to see logged operators list</source>
+        <translation>Leisti vartotojui matyti prisijungusių operatorių sąrašą</translation>
+    </message>
+    <message>
+        <source>Live helper Chat XML service</source>
+        <translation>Live helper Chat XML servisas</translation>
+    </message>
+    <message>
+        <source>Allow user to access HTML generation</source>
+        <translation>Leisti vartotojui prieigą prie HTML įterpimo generavimo</translation>
+    </message>
+    <message>
+        <source>All modules</source>
+        <translation>Visi moduliai</translation>
+    </message>
+    <message>
+        <source>All functions</source>
+        <translation>Visos funkcijos</translation>
     </message>
     <message>
         <source>System configuration</source>
@@ -1944,6 +2156,10 @@
         <translation>Departamento redagavimas</translation>
     </message>
     <message>
+        <source>E-mail</source>
+        <translation>El. paštas</translation>
+    </message>
+    <message>
         <source>Name</source>
         <translation>Pavadinimas</translation>
     </message>
@@ -1969,6 +2185,10 @@
     <message>
         <source>Departments</source>
         <translation>Departamentai</translation>
+    </message>
+    <message>
+        <source>E-mail</source>
+        <translation>El. paštas</translation>
     </message>
     <message>
         <source>Name</source>

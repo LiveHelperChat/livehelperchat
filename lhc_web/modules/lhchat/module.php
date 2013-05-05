@@ -286,17 +286,17 @@ $ViewList['cannedmsgedit'] = array(
     'functions' => array( 'administratecannedmsg' )
 );
 
-$FunctionList['use'] = array('explain' => 'General chat usage permission');
+$FunctionList['use'] = array('explain' => 'General permission to use chat module');
 $FunctionList['singlechatwindow'] = array('explain' =>'Allow user to use single chat window functionality');
 $FunctionList['allowchattabs'] = array('explain' =>'Allow user to user chat rooms functionality');
 $FunctionList['deletechat'] = array('explain' =>'Allow user to delete his own chats');
 $FunctionList['deleteglobalchat'] = array('explain' =>'Allow to delete all chats');
 $FunctionList['allowtransfer'] = array('explain' =>'Allow user to transfer chat to another user');
 $FunctionList['allowcloseremote'] = array('explain' =>'Allow user to close another user chat');
-$FunctionList['allowblockusers'] = array('explain' =>'Allow user to block users');
+$FunctionList['allowblockusers'] = array('explain' =>'Allow user to block visitors');
 $FunctionList['administrateconfig'] = array('explain' =>'Allow to change chat config');
-$FunctionList['allowclearonlinelist'] = array('explain' =>'Allow use to clean online users list');
-$FunctionList['administratecannedmsg'] = array('explain' =>'Allow use change canned messages');
+$FunctionList['allowclearonlinelist'] = array('explain' =>'Allow user to clean online users list');
+$FunctionList['administratecannedmsg'] = array('explain' =>'Allow user change canned messages');
 $FunctionList['allowopenremotechat'] = array('explain' =>'Allow user to open other users chats from same department');
 
 
