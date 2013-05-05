@@ -49,7 +49,7 @@ $ViewList['chatwidget'] = array(
 $ViewList['getstatus'] = array(
 		'script' => 'getstatus.php',
 		'params' => array(),
-		'functions' => array( ),
+		'functions' => array(),
 		'uparams' => array('position','top','units','width','height','chat_height')
 );
 
