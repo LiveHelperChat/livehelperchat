@@ -10,25 +10,26 @@ $form = new ezcInputForm( INPUT_POST, $definition );
 
 if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && strlen($form->msg) < 500)
 {
-    $Chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
+    $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
 
-    if ($Chat->hash == $Params['user_parameters']['hash'])
+    if ($chat->hash == $Params['user_parameters']['hash'] && ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)) // Allow add messages only if chat is active
     {
         $msg = new erLhcoreClassModelmsg();
         $msg->msg = trim($form->msg);
         $msg->chat_id = $Params['user_parameters']['chat_id'];
         $msg->user_id = 0;
-        $Chat->last_user_msg_time = $msg->time = time();
+        $chat->last_user_msg_time = $msg->time = time();
 
         erLhcoreClassChat::getSession()->save($msg);
 
         // Set last message ID
-        if ($Chat->last_msg_id < $msg->id) {
-        	$Chat->last_msg_id = $msg->id;
+        if ($chat->last_msg_id < $msg->id) {
+        	$chat->last_msg_id = $msg->id;
         }
 
-        $Chat->has_unread_messages = 1;
-        $Chat->updateThis();
+        $chat->has_unread_messages = 1;
+        $chat->updateThis();
+
     } else {
 
     }

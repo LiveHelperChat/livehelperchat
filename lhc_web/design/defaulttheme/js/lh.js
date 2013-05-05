@@ -275,6 +275,8 @@ function lh(){
 
 		           } else {
 		               $('#status-chat').html(data.status);
+		               $('#ChatMessageContainer').remove();
+		               $('#ChatSendButtonContainer').remove();
 		           }
 		        };
 		        inst.syncroRequestSend = false;

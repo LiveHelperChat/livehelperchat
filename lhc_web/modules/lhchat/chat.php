@@ -1,27 +1,28 @@
 <?php
+
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/chat.tpl.php');
 
 try {
-          
-    $Chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);  
-    
-    if ($Chat->hash == $Params['user_parameters']['hash'])
-    {  
+
+    $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
+
+    if ($chat->hash == $Params['user_parameters']['hash'])
+    {
         $tpl->set('chat_id',$Params['user_parameters']['chat_id']);
         $tpl->set('hash',$Params['user_parameters']['hash']);
-        $tpl->set('chat',$Chat);
-        
+        $tpl->set('chat',$chat);
+
         // User online
-        $Chat->user_status = 0;        
-        $Chat->support_informed = 0;        
-        erLhcoreClassChat::getSession()->update($Chat);
-        
+        $chat->user_status = 0;
+        $chat->support_informed = 0;
+        erLhcoreClassChat::getSession()->update($chat);
+
     } else {
-        $tpl->setFile( 'lhchat/errors/chatnotexists.tpl.php');  
+        $tpl->setFile( 'lhchat/errors/chatnotexists.tpl.php');
     }
 
 } catch(Exception $e) {
-   $tpl->setFile('lhchat/errors/chatnotexists.tpl.php');      
+   $tpl->setFile('lhchat/errors/chatnotexists.tpl.php');
 }
 
 

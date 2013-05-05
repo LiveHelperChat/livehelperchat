@@ -14,19 +14,19 @@ if ((string)$Params['user_parameters_unordered']['mode'] == 'embed') {
 
 try {
 
-    $Chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
+    $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
 
-    if ($Chat->hash == $Params['user_parameters']['hash'])
+    if ($chat->hash == $Params['user_parameters']['hash'])
     {
         $tpl->set('chat_id',$Params['user_parameters']['chat_id']);
         $tpl->set('hash',$Params['user_parameters']['hash']);
-        $tpl->set('chat',$Chat);
+        $tpl->set('chat',$chat);
         $tpl->set('chat_widget_mode',true);
 
         // User online
-        $Chat->user_status = 0;
-        $Chat->support_informed = 1;
-        erLhcoreClassChat::getSession()->update($Chat);
+        $chat->user_status = 0;
+        $chat->support_informed = 1;
+        erLhcoreClassChat::getSession()->update($chat);
 
     } else {
         $tpl->setFile( 'lhchat/errors/chatnotexists.tpl.php');
