@@ -1,9 +1,14 @@
 1.33v
 
+New features:
 1. New permission for chat, now operators can have or not permission to open already opened chats. This disables reading other persons chats. Except for users who have permission.
 This permission takes effect only if user does not have permission to all chats.
 2. Leave a message functionality
 
+Enhancements:
+1. Added support for managing permission for extensions. Names will be listed in literal not in system names.
+
+execute doc/update_db/update_23.sql
 
 1.32v
 
