@@ -21,10 +21,10 @@
     </div>
 
     <div>
-    <input type="text" class="mb5 mt5" placholder="Nick" title="Nick" value="<?php echo htmlspecialchars(erLhcoreClassChatbox::getVisitorName()); ?>" id="CSChatNick" />
+    <input type="text" class="mt5 mb0" placholder="Nick" title="Nick" value="<?php echo htmlspecialchars(erLhcoreClassChatbox::getVisitorName()); ?>" id="CSChatNick" />
 	</div>
 
-    <div>
+    <div class="pt5">
         <textarea rows="4" name="ChatMessage" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Enter your message')?>" id="CSChatMessage" ></textarea>
         <script type="text/javascript">
         jQuery('#CSChatMessage').bind('keyup', 'return', function (evt){
@@ -33,8 +33,9 @@
         </script>
     </div>
 
-    <input type="button" class="small round button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Send')?>" onclick="lhinst.addmsguserchatbox()" />
-    <br>
+	<div class="pt5">
+    	<input type="button" class="small round button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Send')?>" onclick="lhinst.addmsguserchatbox()" />
+    </div>
 
 <script type="text/javascript">
     lhinst.setChatID('<?php echo $chatbox->chat->id?>');
