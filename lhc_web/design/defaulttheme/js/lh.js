@@ -580,7 +580,7 @@ function lh(){
                             inst.trackLastIDS[item.last_id_identifier] = parseInt(item.last_id);
                         } else if (inst.trackLastIDS[item.last_id_identifier] < parseInt(item.last_id)) {
                             inst.trackLastIDS[item.last_id_identifier] = parseInt(item.last_id);
-                            inst.playSoundNewAction(item.last_id_identifier);
+                            inst.playSoundNewAction(item.last_id_identifier,parseInt(item.last_id));
                         }
                     };
                 });
@@ -592,7 +592,11 @@ function lh(){
     	});
 	};
 
-	this.playSoundNewAction = function(identifier) {
+	this.requestNotificationPermission = function() {
+		window.webkitNotifications.requestPermission();
+	};
+	
+	this.playSoundNewAction = function(identifier,chat_id) {
 	    if (confLH.new_chat_sound_enabled == 1 && identifier == 'pending_chat') {
 	        if (Modernizr.audio) {
         	    var audio = new Audio();
@@ -602,6 +606,25 @@ function lh(){
                 audio.load();
                 audio.play();
     	    }
+	    };
+	    
+	    var inst = this;
+	    
+	    if (identifier == 'pending_chat') {
+	    	 var havePermission = window.webkitNotifications.checkPermission();
+	    	  if (havePermission == 0) {
+	    	    // 0 is PERMISSION_ALLOWED
+	    	    var notification = window.webkitNotifications.createNotification(
+	    	      WWW_DIR_JAVASCRIPT_FILES_NOTIFICATION + '/notification.png',
+	    	      'Live Helper Chat',
+	    	      confLH.transLation.new_chat
+	    	    );	    	    
+	    	    notification.onclick = function () {	    	   
+	    	      inst.startChatNewWindow(chat_id,'ChatRequest');
+	    	      notification.close();
+	    	    };	    	    
+	    	    notification.show();
+	    	  }
 	    }
 	};
 

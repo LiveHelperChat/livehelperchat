@@ -8,3 +8,11 @@
 </div>
 
 <script type="text/javascript" language="javascript" src="<?php echo erLhcoreClassDesign::designJS('js/app.js');?>"></script>
+
+<script>
+/*setTimeout(function(){
+	lhinst.playSoundNewAction('pending_chat',5220);
+},5000)*/
+</script>
+<?php /*
+<input type="button" onclick="lhinst.playSoundNewAction('pending_chat',5220)" value="Show notification" />*/ ?>

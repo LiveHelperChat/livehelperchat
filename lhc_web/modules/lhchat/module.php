@@ -23,6 +23,12 @@ $ViewList['closechatadmin'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['notificationsettings'] = array(
+    'script' => 'notificationsettings.php',
+    'params' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['closechat'] = array(
     'script' => 'closechat.php',
     'params' => array('chat_id'),

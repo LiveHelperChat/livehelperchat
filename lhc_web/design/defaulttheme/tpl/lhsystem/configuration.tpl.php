@@ -10,6 +10,8 @@
     <li><a href="<?php echo erLhcoreClassDesign::baseurl('departament/departaments')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Departments');?></a></li>
     <?php endif; ?>
 
+    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/notificationsettings')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','New chat notification settings');?></a></li>
+        
     <?php if ($currentUser->hasAccessTo('lhchat','allowblockusers')) : ?>
     <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/blockedusers')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Blocked users');?></a></li>
     <?php endif; ?>

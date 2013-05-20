@@ -2537,6 +2537,14 @@
         <translation>El. pašto šablonai</translation>
     </message>
     <message>
+        <source>New chat notification settings</source>
+        <translation>Pranešimų apie naujus pokalbius nustatymai</translation>
+    </message>
+    <message>
+        <source>Request notification permission</source>
+        <translation>Suteikti leidimą rodyti pranešimus</translation>
+    </message>
+    <message>
         <source>Chat embed code</source>
         <translation>Pokalbių generavimo kodas</translation>
     </message>
