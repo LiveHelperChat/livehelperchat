@@ -901,6 +901,10 @@
         <translation>Pokalbių sąrašai</translation>
     </message>
     <message>
+        <source>New chat request</source>
+        <translation>Naujas užklausimas</translation>
+    </message>
+    <message>
         <source>Closed chats</source>
         <translation>Uždaryti pokalbiai</translation>
     </message>

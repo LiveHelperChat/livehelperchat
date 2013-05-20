@@ -593,9 +593,13 @@ function lh(){
 	};
 
 	this.requestNotificationPermission = function() {
-		window.webkitNotifications.requestPermission();
+		if (window.webkitNotifications) {
+			window.webkitNotifications.requestPermission();
+		} else {
+			alert('Notification API in your browser is not supported.');
+		}
 	};
-	
+
 	this.playSoundNewAction = function(identifier,chat_id) {
 	    if (confLH.new_chat_sound_enabled == 1 && identifier == 'pending_chat') {
 	        if (Modernizr.audio) {
@@ -607,10 +611,10 @@ function lh(){
                 audio.play();
     	    }
 	    };
-	    
+
 	    var inst = this;
-	    
-	    if (identifier == 'pending_chat') {
+
+	    if (identifier == 'pending_chat' && window.webkitNotifications) {
 	    	 var havePermission = window.webkitNotifications.checkPermission();
 	    	  if (havePermission == 0) {
 	    	    // 0 is PERMISSION_ALLOWED
@@ -618,11 +622,11 @@ function lh(){
 	    	      WWW_DIR_JAVASCRIPT_FILES_NOTIFICATION + '/notification.png',
 	    	      'Live Helper Chat',
 	    	      confLH.transLation.new_chat
-	    	    );	    	    
-	    	    notification.onclick = function () {	    	   
+	    	    );
+	    	    notification.onclick = function () {
 	    	      inst.startChatNewWindow(chat_id,'ChatRequest');
 	    	      notification.close();
-	    	    };	    	    
+	    	    };
 	    	    notification.show();
 	    	  }
 	    }
