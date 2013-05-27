@@ -61,7 +61,7 @@ class erLhcoreClassUserDep{
 
        foreach ($Departaments as $DepartamentID)
        {
-            $stmt = $db->prepare('INSERT INTO lh_userdep (user_id,dep_id,hide_online) VALUES (:user_id,:dep_id,:hide_online)');
+            $stmt = $db->prepare('INSERT INTO lh_userdep (user_id,dep_id,hide_online,last_activity) VALUES (:user_id,:dep_id,:hide_online,0)');
             $stmt->bindValue( ':user_id',$userID);
             $stmt->bindValue( ':dep_id',$DepartamentID);
             $stmt->bindValue( ':hide_online',$UserData->hide_online);
