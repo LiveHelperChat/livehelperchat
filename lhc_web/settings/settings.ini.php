@@ -28,7 +28,8 @@ return array (
         3 => 'esp',
         4 => 'por',
         5 => 'nld',
-        6 => 'site_admin',
+      	6 => 'ara',
+        7 => 'site_admin',
       ),
     ),
     'default_url' =>
@@ -172,6 +173,22 @@ return array (
           'module' => 'chat',
           'view' => 'startchat',
         ),
+      ),
+      'ara' =>
+      array (
+    	'locale' => 'ar_EG',
+    	'content_language' => 'ar',
+    	'dir_language' => 'rtl',
+    	'title' => '',
+    	'description' => '',
+    	'theme' =>
+      	array (
+    		0 => 'customtheme',
+    		1 => 'defaulttheme'),
+    	   'default_url' =>
+    	array (
+    		'module' => 'chat',
+    		'view' => 'startchat'),
       ),
       'site_admin' =>
       array (
