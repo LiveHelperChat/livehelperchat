@@ -1,3 +1,9 @@
+1.34v
+
+New features:
+1. Option to configure SMTP settings for mail
+2. Chrome dekstop notifications
+
 1.33v
 
 New features:

@@ -11,7 +11,7 @@
     <?php endif; ?>
 
     <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/notificationsettings')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','New chat notification settings');?></a></li>
-        
+
     <?php if ($currentUser->hasAccessTo('lhchat','allowblockusers')) : ?>
     <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/blockedusers')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Blocked users');?></a></li>
     <?php endif; ?>
@@ -29,6 +29,10 @@
 
     <?php if ($currentUser->hasAccessTo('lhabstract','use')) : ?>
     <li><a href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/EmailTemplate"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','E-mail templates');?></a></li>
+    <?php endif; ?>
+
+    <?php if ($currentUser->hasAccessTo('lhsystem','configuresmtp')) : ?>
+    <li><a href="<?php echo erLhcoreClassDesign::baseurl('system/smtp')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','SMTP settings');?></a></li>
     <?php endif; ?>
 
 </ul>

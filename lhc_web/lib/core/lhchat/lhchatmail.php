@@ -2,6 +2,21 @@
 
 class erLhcoreClassChatMail {
 
+	public static function setupSMTP(PHPMailer & $phpMailer)
+	{
+		$smtpData = erLhcoreClassModelChatConfig::fetch('smtp_data');
+		$data = (array)$smtpData->data;
+
+		if ( isset($data['use_smtp']) && $data['use_smtp'] == 1 ) {
+			$phpMailer->IsSMTP();
+			$phpMailer->Host = $data['host'];
+			$phpMailer->Port = $data['port'];
+			$phpMailer->Username = $data['username'];
+			$phpMailer->Password = $data['password'];
+			$phpMailer->SMTPAuth = true;
+		}
+	}
+
 	// Prepare template variables
     public static function prepareSendMail(erLhAbstractModelEmailTemplate & $sendMail)
     {
@@ -96,6 +111,8 @@ class erLhcoreClassChatMail {
     	$mail->Body = $sendMail->content;
     	$mail->AddAddress( $chat->email, $chat->nick);
 
+    	self::setupSMTP($mail);
+
     	$mail->Send();
     	$mail->ClearAddresses();
     }
@@ -129,6 +146,7 @@ class erLhcoreClassChatMail {
     	}
 
     	$mail->AddAddress( $emailRecipient );
+    	self::setupSMTP($mail);
 
     	$mail->Send();
     	$mail->ClearAddresses();

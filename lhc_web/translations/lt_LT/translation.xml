@@ -2545,6 +2545,10 @@
         <translation>Pranešimų apie naujus pokalbius nustatymai</translation>
     </message>
     <message>
+        <source>SMTP settings</source>
+        <translation>SMTP nustatymai</translation>
+    </message>
+    <message>
         <source>Request notification permission</source>
         <translation>Suteikti leidimą rodyti pranešimus</translation>
     </message>
@@ -3198,6 +3202,37 @@
     <message>
         <source>Chatbox active</source>
         <translation>Chatbox aktyvus</translation>
+    </message>
+</context>
+<context>
+    <name>system/smtp</name>
+    <message>
+        <source>SMTP settings</source>
+        <translation>SMTP nustatymai</translation>
+    </message>
+    <message>
+        <source>Settings updated</source>
+        <translation>Nustatymai atnaujinti</translation>
+    </message>
+    <message>
+        <source>SMTP enabled</source>
+        <translation>SMTP įgalintas</translation>
+    </message>
+    <message>
+        <source>Login</source>
+        <translation>Prisijungimas</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Slaptažodis</translation>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation>Adresas</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Prievadas</translation>
     </message>
 </context>
 </TS>
