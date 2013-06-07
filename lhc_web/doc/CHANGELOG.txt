@@ -3,6 +3,7 @@
 New features:
 1. Option to configure SMTP settings for mail
 2. Chrome dekstop notifications
+3. Allow user to change his online offline status
 
 1.33v
 
