@@ -611,6 +611,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 // Operators rules and functions
                 $permissionsArray = array(
                     array('module' => 'lhuser',  'function' => 'selfedit'),
+                    array('module' => 'lhuser',  'function' => 'changeonlinestatus'),
                     array('module' => 'lhchat',  'function' => 'use'),
                     array('module' => 'lhchat',  'function' => 'singlechatwindow'),
                     array('module' => 'lhchat',  'function' => 'allowopenremotechat'),

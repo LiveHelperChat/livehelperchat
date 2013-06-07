@@ -755,6 +755,19 @@ function lh(){
     	return false;
     };
 
+    this.disableUserAsOnline = function(inst)
+    {
+    	if (inst.hasClass('user-online-disabled')){
+    		$.get(this.wwwDir+  'user/setoffline/false');
+    		inst.removeClass('user-online-disabled');
+    	} else {
+    		$.get(this.wwwDir+  'user/setoffline/true');
+    		inst.addClass('user-online-disabled');
+    	}
+    	return false;
+    };
+
+
     this.disableChatSoundUser = function(inst)
     {
     	if (inst.hasClass('sound-disabled')){

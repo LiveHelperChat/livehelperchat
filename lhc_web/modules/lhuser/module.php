@@ -94,6 +94,12 @@ $ViewList['setsettingajax'] = array (
 		'params' => array('identifier','value')
 );
 
+$ViewList['setoffline'] = array (
+		'script' => 'setoffline.php',
+		'functions' => array( 'changeonlinestatus' ),
+		'params' => array('status')
+);
+
 $FunctionList['groupassignuser'] = array('explain' => 'Allow user to assign user to group');
 $FunctionList['editgroup'] = array('explain' => 'Allow user to edit group');
 $FunctionList['creategroup'] = array('explain' => 'Allow user to create group');
@@ -106,5 +112,6 @@ $FunctionList['userlist'] = array('explain' => 'Allow user to list users');
 $FunctionList['selfedit'] = array('explain' => 'Allow user to edit his own data');
 $FunctionList['editdepartaments'] = array('explain' => 'Allow user to edit his responsible departaments');
 $FunctionList['userlistonline'] = array('explain' => 'Allow user to see logged operators list');
+$FunctionList['changeonlinestatus'] = array('explain' => 'Allow user to change his online status');
 
 ?>

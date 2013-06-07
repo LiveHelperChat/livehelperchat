@@ -335,6 +335,10 @@
         <translation>Įjungti/Išjungti garsą apie naujus pranešimus iš vartotojų</translation>
     </message>
     <message>
+        <source>Change my status to online/offline</source>
+        <translation>Pakeisti mano būsena į prisijungusio/atsijungusio</translation>
+    </message>
+    <message>
         <source>Enable/Disable sound about new pending chats</source>
         <translation>Įjungti/Išjungti garsą apie naujas užklausas iš vartotojų</translation>
     </message>

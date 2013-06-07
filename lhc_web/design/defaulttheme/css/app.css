@@ -299,6 +299,7 @@ div.message-row-in {
 }
 
 .sound-newchat-ico,
+.user-online-ico,
 .sound-ico{
 	background:url(../images/icons/sound-message.png) no-repeat center center;
 	width:32px;
@@ -320,6 +321,14 @@ div.message-row-in {
 
 .sound-newchat-disabled{
 	background-image:url(../images/icons/sound_mute.png);
+}
+
+.user-online-ico {
+	background-image:url(../images/icons/user_suit_16.png);
+}
+
+.user-online-disabled {
+	background-image:url(../images/icons/user_suit_16_inactive.png);
 }
 
 ul.user-settings-list {
