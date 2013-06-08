@@ -41,91 +41,91 @@
     <name>questionary/htmlcode</name>
     <message>
         <source>HTML code</source>
-        <translation>HTML kodas</translation>
+        <translation>Código HTML</translation>
     </message>
     <message>
         <source>Status text</source>
-        <translation>Statuso tekstas</translation>
+        <translation>Texto de status</translation>
     </message>
     <message>
         <source>Expand widget automatically for new users</source>
-        <translation>Išskleisti widgetą automatiškai naujiems lankytojams</translation>
+        <translation>Expandir widgets automaticamente para novos usuários</translation>
     </message>
     <message>
         <source>Copy code from textarea to page header or footer</source>
-        <translation>Nukopijuokite tekstą į puslapio head dalį arba footeri</translation>
+        <translation>Copiar código da área de texto para o cabeçalho ao rodapé</translation>
     </message>
 </context>
 <context>
     <name>questionary/votingwidget</name>
     <message>
         <source>Vote</source>
-        <translation>Balsuoti</translation>
+        <translation>Voto</translation>
     </message>
     <message>
         <source>Send</source>
-        <translation>Siųsti</translation>
+        <translation>Enviar</translation>
     </message>
     <message>
         <source>We do not have any requests for now.</source>
-        <translation>Mes neturime aktualių apklausų šiuo metu.</translation>
+        <translation>Não temos nenhum pedido no momento.</translation>
     </message>
     <message>
         <source>You have already voted, thank you!</source>
-        <translation>Jūs jau balsavote, ačiū!</translation>
+        <translation>Você já votou, obrigado!</translation>
     </message>
     <message>
         <source>Thank you!</source>
-        <translation>Ačiū!</translation>
+        <translation>Obrigado!</translation>
     </message>
     <message>
         <source>You have already send your feedback!</source>
-        <translation>Jūs jau atsiuntėte savo atsiliepimą!</translation>
+        <translation>Você já enviou sua sugestão!</translation>
     </message>
     <message>
         <source>No question was detected</source>
-        <translation>Klausimas nerastas</translation>
+        <translation>Nenhuma pergunta foi detectada.</translation>
     </message>
     <message>
         <source>Please enter your feedback!</source>
-        <translation>Įveskite savo atsiliepimą!</translation>
+        <translation>Dê a sua sugestão!</translation>
     </message>
     <message>
         <source>Please choose one of the option!</source>
-        <translation>Pasirinkite vieną iš galimų variantų!</translation>
+        <translation>Escolha uma das opções!</translation>
     </message>
 </context>
 <context>
     <name>questionary/newquestion</name>
     <message>
         <source>Save</source>
-        <translation>Saugoti</translation>
+        <translation>Salvar</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Atšaukti</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Enter new question</source>
-        <translation>Įvesti naują klausimą</translation>
+        <translation>Criar nova pergunta</translation>
     </message>
     <message>
         <source>New question</source>
-        <translation>Naujas klausimas</translation>
+        <translation>Nova pergunta</translation>
     </message>
 </context>
 <context>
     <name>questionary/previewanswer</name>
     <message>
         <source>Answer preview</source>
-        <translation>Atsakymo peržiūra</translation>
+        <translation>Pré-visualizar resposta</translation>
     </message>
 </context>
 <context>
     <name>questionary/answers</name>
     <message>
         <source>Answer</source>
-        <translation>Atsakymas</translation>
+        <translation>Resposta</translation>
     </message>
     <message>
         <source>Date</source>
@@ -137,164 +137,164 @@
     </message>
     <message>
         <source>View</source>
-        <translation>Peržiūra</translation>
+        <translation>Ver</translation>
     </message>
     <message>
         <source>Delete answer</source>
-        <translation>Trinti atsakymą</translation>
+        <translation>Apagar resposta</translation>
     </message>
     <message>
         <source>Option name</source>
-        <translation>Pasirinkimo variantas</translation>
+        <translation>Nome da opção</translation>
     </message>
     <message>
         <source>Progress</source>
-        <translation>Progresas</translation>
+        <translation>Progresso</translation>
     </message>
     <message>
         <source>Votes</source>
-        <translation>Balsai</translation>
+        <translation>Votos</translation>
     </message>
     <message>
         <source>Empty...</source>
-        <translation>Tuščia...</translation>
+        <translation>Vazio...</translation>
     </message>
 </context>
 <context>
     <name>questionary/form_question</name>
     <message>
         <source>Question</source>
-        <translation>Klausimas</translation>
+        <translation>Pergunta</translation>
     </message>
     <message>
         <source>Question intro</source>
-        <translation>Klausimo įžanga</translation>
+        <translation>Introdução da pergunta</translation>
     </message>
     <message>
         <source>Show question for all URL containing this string E.g /shop/basket</source>
-        <translation>Rodyti klausimą visiems url kuriuose yra tekstas Pvz. /shop/basket</translation>
+        <translation>Exibir pergunta para todas as URL que contenham esta frase (exemplo: loja/carrinho):</translation>
     </message>
     <message>
         <source>Priority, if multiple questions matches location, question with higher priority will be shown</source>
-        <translation>Prioritetas, jeigu keletas klausimų atitinką tą patį adresą, klausimas su didesniu prioritetu bus rodomas</translation>
+        <translation>Prioridade, caso multiplas perguntas correspondam, perguntas com prioridade mais altas serão exibidas</translation>
     </message>
     <message>
         <source>Active</source>
-        <translation>Aktyvus</translation>
+        <translation>Ativo</translation>
     </message>
 </context>
 <context>
     <name>questionary/edit</name>
     <message>
         <source>Please enter question!</source>
-        <translation>Prašome įvesti klausimą!</translation>
+        <translation>Digite sua questão!</translation>
     </message>
     <message>
         <source>Edit question</source>
-        <translation>Redaguoti klausimą</translation>
+        <translation>Editar pergunta</translation>
     </message>
     <message>
         <source>Question</source>
-        <translation>Klausimas</translation>
+        <translation>Pergunta</translation>
     </message>
     <message>
         <source>Answers</source>
-        <translation>Atsakymai</translation>
+        <translation>Respostas</translation>
     </message>
     <message>
         <source>Updated</source>
-        <translation>Atnaujinta</translation>
+        <translation>Atualizado</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Saugoti</translation>
+        <translation>Salvar</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation>Atnaujinti</translation>
+        <translation>Atualizar</translation>
     </message>
     <message>
         <source>Embed html code</source>
-        <translation>Įterpimo html kodas</translation>
+        <translation>Incorporar código HTML</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Atšaukti</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Option</source>
-        <translation>Parinktis</translation>
+        <translation>Opção</translation>
     </message>
     <message>
         <source>Option position</source>
-        <translation>Parinkties pozicija</translation>
+        <translation>Opção de posição</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation>Redaguoti</translation>
+        <translation>Editar</translation>
     </message>
     <message>
         <source>Please enter option!</source>
-        <translation>Prašome įvesti parinktį!</translation>
+        <translation>Digite sua opção!</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation>Trinti</translation>
+        <translation>Apagar</translation>
     </message>
     <message>
         <source>Position</source>
-        <translation>Pozicija</translation>
+        <translation>Posição</translation>
     </message>
     <message>
         <source>Enter name...</source>
-        <translation>Įveskite pavadinimą</translation>
+        <translation>Digite o nome...</translation>
     </message>
     <message>
         <source>Voting options</source>
-        <translation>Balsavimo parinktys</translation>
+        <translation>Opção de votação</translation>
     </message>
     <message>
         <source>If there are no options to choose from to user will be shown text field where he will be able to enter his own answer.</source>
-        <translation>Jei nėra įvesta nei viena parinktis, vartotojui bus rodoma užklausaos forma su tekstiniu lauku, kur jis galės pats įvesti atsakymą.</translation>
+        <translation>Caso não haja opções para o usuário escolher, serão exibidos campos de texto para que ele possa digitar sua própria resposta.</translation>
     </message>
 </context>
 <context>
     <name>questionary/list</name>
     <message>
         <source>Questionary</source>
-        <translation>Klausimynas</translation>
+        <translation>Questionário</translation>
     </message>
     <message>
         <source>Questions</source>
-        <translation>Klausimai</translation>
+        <translation>Perguntas</translation>
     </message>
     <message>
         <source>Question</source>
-        <translation>Klausimas</translation>
+        <translation>Pergunta</translation>
     </message>
     <message>
         <source>Location</source>
-        <translation>Puslapis</translation>
+        <translation>Localidade</translation>
     </message>
     <message>
         <source>Priority</source>
-        <translation>Prioritetas</translation>
+        <translation>Prioridade</translation>
     </message>
     <message>
         <source>Edit question</source>
-        <translation>Redaguoti klausimą</translation>
+        <translation>Editar pergunta</translation>
     </message>
     <message>
         <source>Delete question</source>
-        <translation>Trinti klausimą</translation>
+        <translation>Deletar pergunta</translation>
     </message>
     <message>
         <source>New question</source>
-        <translation>Naujas klausimas</translation>
+        <translation>Nova pergunta</translation>
     </message>
     <message>
         <source>Empty...</source>
-        <translation>Tuščia...</translation>
+        <translation>Vazio...</translation>
     </message>
     <message>
         <source>Y</source>
@@ -306,76 +306,76 @@
     </message>
     <message>
         <source>Active</source>
-        <translation>Aktyvus</translation>
+        <translation>Ativo</translation>
     </message>
 </context>
 <context>
     <name>core/paginator</name>
     <message>
         <source>Page</source>
-        <translation>Puslapis</translation>
+        <translation>Página</translation>
     </message>
     <message>
         <source>of</source>
-        <translation>iš</translation>
+        <translation>de</translation>
     </message>
     <message>
         <source>Found</source>
-        <translation>Rasta</translation>
+        <translation>Encontrada</translation>
     </message>
     <message>
         <source>Go to page</source>
-        <translation>Eiti į puslapį</translation>
+        <translation>Ir para a página</translation>
     </message>
 </context>
 <context>
     <name>chat/user_settings</name>
     <message>
         <source>Enable/Disable sound about new messages from users</source>
-        <translation>Įjungti/Išjungti garsą apie naujus pranešimus iš vartotojų</translation>
+        <translation>Ativar/Desativar sons de novas mensagens de usuários</translation>
     </message>
     <message>
         <source>Enable/Disable sound about new pending chats</source>
-        <translation>Įjungti/Išjungti garsą apie naujas užklausas iš vartotojų</translation>
+        <translation>Ativar/Desativar sons de novov chats pendentes</translation>
     </message>
     <message>
         <source>Enable/Disable sound about new messages from operator</source>
-        <translation>Įjungti/Išjungti garsą apie naujus pranešimus iš operatoriaus</translation>
+        <translation>Ativar/Desativar sons de novas mensagens do operador</translation>
     </message>
 </context>
 <context>
     <name>chat/cannedmsg</name>
     <message>
         <source>Canned messages</source>
-        <translation>Paruoštos žinutės</translation>
+        <translation>Mensagens prontas</translation>
     </message>
     <message>
         <source>System configuration</source>
-        <translation>Sistemos konfiguracija</translation>
+        <translation>Configuração do sistema</translation>
     </message>
     <message>
         <source>Delete message</source>
-        <translation>Trinti žinutę</translation>
+        <translation>Apagar mensagem</translation>
     </message>
     <message>
         <source>Edit message</source>
-        <translation>Redaguoti žinutę</translation>
+        <translation>Editar mensagem</translation>
     </message>
     <message>
         <source>Message</source>
-        <translation>Žinutė</translation>
+        <translation>Mensagem</translation>
     </message>
     <message>
         <source>New canned message</source>
-        <translation>Nauja paruošta žinutė</translation>
+        <translation>Nova mensagem pronta</translation>
     </message>
     <message>
         <source>Edit canned message</source>
-        <translation>Redaguoti paruoštą žinutę</translation>
+        <translation>Editar mensagem pronta</translation>
     </message>
     <message>
         <source>Please enter canned message</source>
-        <translation>Prašome įvesti paruoštą žinutę</translation>
+        <translation>Digite a mensagem pronta</translation>
     </message>
 </context>
 <context>
@@ -389,61 +389,61 @@
     <name>system/buttons</name>
     <message>
         <source>Save</source>
-        <translation>Saugoti</translation>
+        <translation>Salvar</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation>Atnaujinti</translation>
+        <translation>Atualizar</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Atšaukti</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Updated</source>
-        <translation>Atnaujinta</translation>
+        <translation>Atualizado</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation>Redaguoti</translation>
+        <translation>Editar</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation>Trinti</translation>
+        <translation>Apagar</translation>
     </message>
     <message>
         <source>New</source>
-        <translation>Naujas</translation>
+        <translation>Novo</translation>
     </message>
     <message>
         <source>Empty...</source>
-        <translation>Tuščia...</translation>
+        <translation>Vazio...</translation>
     </message>
 </context>
 <context>
     <name>system/messages</name>
     <message>
         <source>Updated</source>
-        <translation>Atnaujinta</translation>
+        <translation>Atualizado</translation>
     </message>
 </context>
 <context>
     <name>chat/editchatconfig</name>
     <message>
         <source>Edit</source>
-        <translation>Redagavimas</translation>
+        <translation>Editar</translation>
     </message>
     <message>
         <source>Data updated</source>
-        <translation>Duomenys atnaujinti</translation>
+        <translation>Dados atualizados</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation>Atnaujinti</translation>
+        <translation>Atualizar</translation>
     </message>
     <message>
         <source>Identifier</source>
-        <translation>Identifikatorius</translation>
+        <translation>Identificador</translation>
     </message>
     <message>
         <source>Value in</source>
@@ -451,142 +451,142 @@
     </message>
     <message>
         <source>site access</source>
-        <translation>prieigoje</translation>
+        <translation>acesso ao site</translation>
     </message>
 </context>
 <context>
     <name>user/remindpassword</name>
     <message>
         <source>Password remind - new password</source>
-        <translation>Slaptažodžio atstatymas - naujas slaptažodis</translation>
+        <translation>Lembrar senha - nova senha</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation>Atnaujinti</translation>
+        <translation>Atualizar</translation>
     </message>
     <message>
         <source>New password:</source>
-        <translation>Naujas slaptažodis:</translation>
+        <translation>Nova senha:</translation>
     </message>
     <message>
         <source>New password has been send to your email.</source>
-        <translation>Naujas slaptažodis buvo išiųstas į Jūsų el. paštą.</translation>
+        <translation>Uma nova senha foi enviada ao seu email.</translation>
     </message>
     <message>
         <source>Identifier</source>
-        <translation>Identifikatorius</translation>
+        <translation>Identificador</translation>
     </message>
 </context>
 <context>
     <name>user/forgotpassword</name>
     <message>
         <source>Password remind</source>
-        <translation>Slaptažodžio priminimas</translation>
+        <translation>Lembrar senha</translation>
     </message>
     <message>
         <source>Invalid e-mail address!</source>
-        <translation>Nekorektiškas el. pašto adresas!</translation>
+        <translation>Endereço de email inválido!</translation>
     </message>
     <message>
         <source>Click this link and to You will be send new password</source>
-        <translation>Paspauskite nuorodą ir Jums bus atsiųstas naujas slaptažodis</translation>
+        <translation>Clique neste link e uma nova senha será enviada a você</translation>
     </message>
     <message>
         <source>E-mail</source>
-        <translation>El. paštas</translation>
+        <translation>Email</translation>
     </message>
     <message>
         <source>Restore password</source>
-        <translation>Atstatyti slaptažodį</translation>
+        <translation>Recuperar senha</translation>
     </message>
 </context>
 <context>
     <name>chat/listchatconfig</name>
     <message>
         <source>List chat configuration</source>
-        <translation>Pokalbių nustatymų sąrašas</translation>
+        <translation>Configuração da lista do chat</translation>
     </message>
     <message>
         <source>List</source>
-        <translation>Sąrašas</translation>
+        <translation>Lista</translation>
     </message>
     <message>
         <source>Identifier</source>
-        <translation>Identifikatorius</translation>
+        <translation>Identificador</translation>
     </message>
     <message>
         <source>Explain</source>
-        <translation>Paaiškinimas</translation>
+        <translation>Explicar</translation>
     </message>
     <message>
         <source>Edit value</source>
-        <translation>Redaguoti reikšmę</translation>
+        <translation>Editar valor</translation>
     </message>
 </context>
 <context>
     <name>chat/sendnotice</name>
     <message>
         <source>Send message to user</source>
-        <translation>Siųsti žinutę vartotojui</translation>
+        <translation>Enviar mensagem ao usuário</translation>
     </message>
     <message>
         <source>Message was send to user</source>
-        <translation>Žinutė buvo išsiųsta vartotojui</translation>
+        <translation>A mensagem foi enviada ao usuário</translation>
     </message>
     <message>
         <source>If message was already send, this will mark message as not delivered and to user again will be shown chat message.</source>
-        <translation>Jei žinutė buvo jau išsiųsta, tai pažymės žinutę kaip nepristatytą ir vartotojui bus parodytas naujas pranešimas.</translation>
+        <translation>Caso uma mensagem já tenha sido enviada, isto irá marcar a mensagem como não enviada e novamente será exibida ao usuário a mensagem da conversa.</translation>
     </message>
     <message>
         <source>Type your message to user</source>
-        <translation>Parašykite savo žinutę vartotojui</translation>
+        <translation>Digite sua mensagem ao usuário</translation>
     </message>
     <message>
         <source>Send message</source>
-        <translation>Siųsti žinutę</translation>
+        <translation>Enviar mensagem</translation>
     </message>
 </context>
 <context>
     <name>chat/onlineusers</name>
     <message>
         <source>No one has send any message to user yet</source>
-        <translation>Niekas dar neišsiuntė žinutės vartotojui</translation>
+        <translation>Ninguém enviou nenhuma mensagem ao usuário</translation>
     </message>
     <message>
         <source>Pageviews</source>
-        <translation>Puslapio peržiūrų</translation>
+        <translation>Visualizações de página</translation>
     </message>
     <message>
         <source>last visit</source>
-        <translation>paskutinis apsilankymas</translation>
+        <translation>última visita</translation>
     </message>
     <message>
         <source>first visit</source>
-        <translation>pirmas apsilankymas</translation>
+        <translation>primeira visita</translation>
     </message>
     <message>
         <source>has send message to user</source>
-        <translation>išsiuntė žinutę vartotojui</translation>
+        <translation>enviou mensagem ao usuário</translation>
     </message>
     <message>
         <source>User is chatting</source>
-        <translation>Vartotojas kalba dabar</translation>
+        <translation>Usuário está conversando</translation>
     </message>
     <message>
         <source>User is not having any chat right now</source>
-        <translation>Su vartotoju niekas dabar nekalba</translation>
+        <translation>Usuário não está conversando com ninguém no momento</translation>
     </message>
     <message>
         <source>User does not have any message from operator</source>
-        <translation>Vartotojas neturi jokių žinučių iš operatoriaus</translation>
+        <translation>Usuário não tem nenhum mensagem do operador</translation>
     </message>
     <message>
         <source>User have not seen message from operator, or message window still open.</source>
-        <translation>Vartotojas nematė žinutės dar, arba žinutės langas dar atidarytas.</translation>
+        <translation>Usuário não leu uma mensagem do operador, ou a janela de mensagem ainda está aberta.</translation>
     </message>
     <message>
         <source>User has seen message from operator.</source>
-        <translation>Vartotojas matė žinutę iš operatoriaus.</translation>
+        <translation>Usuário leu uma mensagem do operador.</translation>
     </message>
     <message>
         <source>IP</source>
@@ -594,115 +594,115 @@
     </message>
     <message>
         <source>Send message</source>
-        <translation>Siųsti žinutę</translation>
+        <translation>Enviar mensagem</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation>Būsena</translation>
+        <translation>Status</translation>
     </message>
     <message>
         <source>Action</source>
-        <translation>Veiksmas</translation>
+        <translation>Ação</translation>
     </message>
     <message>
         <source>Send message</source>
-        <translation>Siųsti žinutę</translation>
+        <translation>Enviar mensagem</translation>
     </message>
     <message>
         <source>Empty...</source>
-        <translation>Tuščia...</translation>
+        <translation>Vazio...</translation>
     </message>
     <message>
         <source>Last activity</source>
-        <translation>Paskutinis aktyvumas</translation>
+        <translation>Última atividade</translation>
     </message>
     <message>
         <source>Page</source>
-        <translation>Puslapis</translation>
+        <translation>Página</translation>
     </message>
     <message>
         <source>Browser</source>
-        <translation>Naršyklė</translation>
+        <translation>Navegador</translation>
     </message>
     <message>
         <source>Location</source>
-        <translation>Vieta</translation>
+        <translation>Localidade</translation>
     </message>
     <message>
         <source>Online users</source>
-        <translation>Prisijungę vartotojai</translation>
+        <translation>Usuários online</translation>
     </message>
     <message>
         <source>GEO detection configuration</source>
-        <translation>GEO detekcijos nustatymai</translation>
+        <translation>Configuração de Geolocalidade</translation>
     </message>
     <message>
         <source>Clear list</source>
-        <translation>Išvalyti sąrašą</translation>
+        <translation>Limpar lista</translation>
     </message>
     <message>
         <source>Settings updated</source>
-        <translation>Nustatymai atnaujinti</translation>
+        <translation>Configurações atualizadas</translation>
     </message>
     <message>
         <source>GEO Enabled</source>
-        <translation>GEO Įgalintas</translation>
+        <translation>Geolocalização ativada</translation>
     </message>
     <message>
         <source>Use this service</source>
-        <translation>Naudoti šitą servisą</translation>
+        <translation>Usar este serviço</translation>
     </message>
     <message>
         <source>Use mod_geoip2</source>
-        <translation>Naudoti mod_geoip2</translation>
+        <translation>Usar mod_geoip2</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Saugoti</translation>
+        <translation>Salvar</translation>
     </message>
     <message>
         <source>Requests will be comming from</source>
-        <translation>Užklausos bus siunčiamos iš</translation>
+        <translation>Requisições virão de</translation>
     </message>
     <message>
         <source>See service terms and conditions</source>
-        <translation>Peržiūrėkite paslaugos teikimo sąlygas ir taisykles</translation>
+        <translation>Veja os termos e condições de serviço</translation>
     </message>
     <message>
         <source>Country code variable does not exists!</source>
-        <translation>Šalies kodo kintamsis neegzistuoja!</translation>
+        <translation>Variável de código de país não existe!</translation>
     </message>
     <message>
         <source>Please enter API key!</source>
-        <translation>Prašome įvesti API raktą!</translation>
+        <translation>Por favor, digite a chave API!</translation>
     </message>
     <message>
         <source>Please enter API username!</source>
-        <translation>Prašome įvesti API vartotojo vardą!</translation>
+        <translation>Por favor, digite o nome de usuário da API!</translation>
     </message>
     <message>
         <source>Please choose service provider!</source>
-        <translation>Prašome pasirinkti paslaugos tiekėją!</translation>
+        <translation>Por favor, escolha o provedor de serviço!</translation>
     </message>
     <message>
         <source>Country name variable does not exists!</source>
-        <translation>Šalies pavadinimo kintamsis neegzistuoja!</translation>
+        <translation>Variável de nome do país não existe!</translation>
     </message>
     <message>
         <source>Country code server variable</source>
-        <translation>Šalies nustatymo serverio kintamieji</translation>
+        <translation>Variável do código de país do servidor</translation>
     </message>
     <message>
         <source>Setting service provider failed, please check that your service provider allows to make requests to remote pages!</source>
-        <translation>Nustatyti tiekėją nepavyko, prašome patikrinti ar hostingo tiekėjas leidžia siųsti užklausas į nutolusius puslapius!</translation>
+        <translation>Configurações do provedor de serviço falharam, por favor, veja se seu provedor de serviço permite requisições a página remotas!</translation>
     </message>
     <message>
         <source>User tracking is disabled, enable it at</source>
-        <translation>Vartotojų stėbėjimas išjungtas, įjunkitę jį</translation>
+        <translation>Rastrameanto de usuário está desativado, ative-o agora</translation>
     </message>
     <message>
         <source>Chat configuration</source>
-        <translation>Pokalbių nustatymai</translation>
+        <translation>Configuração de Chat</translation>
     </message>
 </context>
 <context>
@@ -1063,8 +1063,8 @@
         <translation>Nome de usuário</translation>
     </message>
     <message>
-        <source>O usuário ingressou em um grupo!</source>
-        <translation>Vartotojas buvo priskirtas grupei!</translation>
+        <source>User was assigned to group!</source>
+        <translation>O usuário ingressou em um grupo!</translation>
     </message>
     <message>
         <source>E-mail</source>
@@ -1091,7 +1091,7 @@
     </message>
     <message>
         <source>Transfer chat to one of your departments users</source>
-        <translation>Pervesti pokalbį vienam iš departamento darbuotojų</translation>
+        <translation>Transferir a conversa para um usuário de seu departamento</translation>
     </message>
     <message>
         <source>Departments</source>
@@ -1099,11 +1099,11 @@
     </message>
     <message>
         <source>Chat was assigned to selected department</source>
-        <translation>Pokalbis buvo perskirtas pasirinktam departamentui</translation>
+        <translation>Conversa foi atribuída ao departamento selecionado</translation>
     </message>
     <message>
         <source>Chat was assigned to selected user</source>
-        <translation>Pokalbis buvo priskirtas pasirinktam vartotojui</translation>
+        <translation>Conversa foi atribuída ao usuário selecionado</translation>
     </message>
     <message>
         <source>Transfer to user</source>
@@ -1126,77 +1126,77 @@
     <name>kernel/message</name>
     <message>
         <source>Are you sure?</source>
-        <translation>Ar esate tuo tikras?</translation>
+        <translation>Tem certeza?</translation>
     </message>
 </context>
 <context>
     <name>chat/sendmail</name>
     <message>
         <source>Send mail to user</source>
-        <translation>Siųsti laišką vartotojui</translation>
+        <translation>Enviar email ao usuário</translation>
     </message>
     <message>
         <source>Mail was send to user</source>
-        <translation>Laiškas buvo išsiųstas vartotojui</translation>
+        <translation>Email foi enviado ao usuário</translation>
     </message>
     <message>
         <source>Subject</source>
-        <translation>Antraštė</translation>
+        <translation>Assunto</translation>
     </message>
     <message>
         <source>From name</source>
-        <translation>Nuo ko</translation>
+        <translation>Remetente</translation>
     </message>
     <message>
         <source>Reply e-mail</source>
-        <translation>Kam atsakyti, el. paštas</translation>
+        <translation>Email de resposta</translation>
     </message>
     <message>
         <source>From e-mail</source>
-        <translation>Nuo ko, el. paštas</translation>
+        <translation>Email de envio</translation>
     </message>
     <message>
         <source>Type your message to user</source>
-        <translation>Įveskite savo žinutę vartotojui</translation>
+        <translation>Digite sua mensagem ao usuário</translation>
     </message>
     <message>
         <source>Send mail</source>
-        <translation>Siųsti laišką</translation>
+        <translation>Enviar email</translation>
     </message>
     <message>
         <source>User did not entered his e-mail!</source>
-        <translation>Vartotojas neįvedė savo el. pašto adreso!</translation>
+        <translation>Usuário não digitou o email!</translation>
     </message>
     <message>
         <source>From e-mail is missing!</source>
-        <translation>Trūksta siuntėjo el. pašto adreso!</translation>
+        <translation>Email de envio está faltando!</translation>
     </message>
     <message>
         <source>Reply e-mail is missing!</source>
-        <translation>Trūksta atsakovo el. pašto adreso</translation>
+        <translation>Email de resposta está faltando!</translation>
     </message>
     <message>
         <source>Subject is missing!</source>
-        <translation>Neįvesta antraštė</translation>
+        <translation>O assunto está faltando!</translation>
     </message>
 </context>
 <context>
     <name>chat/blockedusers</name>
     <message>
         <source>Blocked users</source>
-        <translation>Blokuoti vartotojai</translation>
+        <translation>Usuários bloqueados</translation>
     </message>
     <message>
         <source>Empty...</source>
-        <translation>Tuščia...</translation>
+        <translation>Vazio...</translation>
     </message>
     <message>
         <source>User was blocked!</source>
-        <translation>Vartotojas buvo užblokuotas!</translation>
+        <translation>Usuário foi bloqueado!</translation>
     </message>
     <message>
         <source>User blocking failed, perhaps you do not have permission to block users?</source>
-        <translation>Blokuoti nepavyko, galbūt Jūs neturite teisės blokuoti vartotojų?</translation>
+        <translation>Não foi possível bloquear o usuário, talvez você não tenha permissão para bloquear usuários?</translation>
     </message>
     <message>
         <source>Date</source>
@@ -1208,11 +1208,11 @@
     </message>
     <message>
         <source>User who blocked</source>
-        <translation>Vartotojas, kuris užblokavo</translation>
+        <translation>Usuário que bloqueou</translation>
     </message>
     <message>
         <source>Remove block</source>
-        <translation>Pašalinti blokavimą</translation>
+        <translation>Remover bloqueio</translation>
     </message>
 </context>
 <context>
@@ -1223,19 +1223,19 @@
     </message>
     <message>
         <source>Phone</source>
-        <translation>Telefonas</translation>
+        <translation>Telefone</translation>
     </message>
     <message>
         <source>Send mail</source>
-        <translation>Siųsti el. laišką</translation>
+        <translation>Enviar email</translation>
     </message>
     <message>
         <source>Select canned message</source>
-        <translation>Pasirinkite paruoštą žinutę</translation>
+        <translation>Selecionar mensagem pronta</translation>
     </message>
     <message>
         <source>Are you sure?</source>
-        <translation>Ar esate tuo tikras?</translation>
+        <translation>Tem certeza?</translation>
     </message>
     <message>
         <source>Transfer chat</source>
@@ -1263,7 +1263,7 @@
     </message>
     <message>
         <source>Block user</source>
-        <translation>Blokuoti vartotoją</translation>
+        <translation>Bloquear usuário</translation>
     </message>
     <message>
         <source>Close chat</source>
@@ -1294,7 +1294,7 @@
     </message>
     <message>
         <source>Support staff member has closed this chat</source>
-        <translation>Priežiūros personalo narys uždarė pokalbį</translation>
+        <translation>Esta conversa foi fechada por um membro do suporte</translation>
     </message>
     <message>
         <source>Support closed chat window, but You can leave messages, administrator will read them later.</source>
@@ -1305,63 +1305,63 @@
     <name>permission/editrole</name>
     <message>
         <source>Abstract module</source>
-        <translation>Abstraktūs objektai</translation>
+        <translation>Módulo abstrato</translation>
     </message>
     <message>
         <source>Allow to use abstract module</source>
-        <translation>Leisti naudotis abstrakčiu moduliu</translation>
+        <translation>Permitir o uso de módulo abstrato</translation>
     </message>
     <message>
         <source>Chat</source>
-        <translation>Pokalbiai</translation>
+        <translation>Chat</translation>
     </message>
     <message>
         <source>General permission to use chat module</source>
-        <translation>Bendras leidimas naudotis pokalbių moduliu</translation>
+        <translation>Permissão geral para usar o módulo de conversa</translation>
     </message>
     <message>
         <source>Allow user to use single chat window functionality</source>
-        <translation>Leisti vartotojui naudotis iššokančio lango funcionalumu</translation>
+        <translation>Permitir ao usuário utilizar a funcionalidade de conversa única em janela</translation>
     </message>
     <message>
         <source>Allow user to user chat rooms functionality</source>
-        <translation>Leisti vartotojui naudotis pokalbių kambarių funkcionalumu</translation>
+        <translation>Permitir ao usuário utilizar funcionalidade de salas de conversa</translation>
     </message>
     <message>
         <source>Allow user to delete his own chats</source>
-        <translation>Leisti vartotojui ištrinti savo paties pokalbius</translation>
+        <translation>Permitir ao usuário apagar suas próprias conversas</translation>
     </message>
     <message>
         <source>Allow to delete all chats</source>
-        <translation>Leisti vartotojui trinti visus pokalbius</translation>
+        <translation>Permitir apagar todas as conversas</translation>
     </message>
     <message>
         <source>Allow user to transfer chat to another user</source>
-        <translation>Leisti vartotojui pervesti pokalbius kitam vartotojui</translation>
+        <translation>Permitir ao usuário transferir conversas para outro usuário</translation>
     </message>
     <message>
         <source>Allow user to close another user chat</source>
-        <translation>Leisti vartotojui uždaryti kito vartotojo pokalbius</translation>
+        <translation>Permitir ao usuário fechar a conversa de outro usuário</translation>
     </message>
     <message>
         <source>Allow user to block visitors</source>
-        <translation>Leisti vartotojui blokuoti lankytojus</translation>
+        <translation>Permitir ao usuário bloquear visitantes</translation>
     </message>
     <message>
         <source>Allow to change chat config</source>
-        <translation>Leisti vartotojui konfiguruoti pokalbių nustatymus</translation>
+        <translation>Permitir ao usuário alterar a configuração da conversa</translation>
     </message>
     <message>
         <source>Allow user to clean online users list</source>
-        <translation>Leisti vartotojui išvalytu prisijungusių lankytojų sąrašą</translation>
+        <translation>Permitir ao usuário limpar a lista de usuários online</translation>
     </message>
     <message>
         <source>Allow user change canned messages</source>
-        <translation>Leisti vartotojui keisti paruoštas žinutes</translation>
+        <translation>Permitir ao usuário alterar mensagens prontas</translation>
     </message>
     <message>
         <source>Allow user to open other users chats from same department</source>
-        <translation>Leisti vartotojui atidarytų kitų vartotojų pokalbius iš to paties departamento</translation>
+        <translation>Permitir ao usuário abrir abrir conversas de outros usuários do mesmo departamento</translation>
     </message>
     <message>
         <source>Chatbox</source>
@@ -1369,163 +1369,163 @@
     </message>
     <message>
         <source>Departments configuration</source>
-        <translation>Departamentų konfiguracija</translation>
+        <translation>Configurações de departamentos</translation>
     </message>
     <message>
         <source>Access to list departments</source>
-        <translation>Prieiga prie departamentų sąrašo</translation>
+        <translation>Acesso à lista de departamentos</translation>
     </message>
     <message>
         <source>Permission to create a new department</source>
-        <translation>Leidimas kurti naują departamentą</translation>
+        <translation>Permissão de criar um novo departamento</translation>
     </message>
     <message>
         <source>Permission to edit department</source>
-        <translation>Leidimas redaguoti departamentą</translation>
+        <translation>Permissão para editar departamento</translation>
     </message>
     <message>
         <source>Permission to delete department</source>
-        <translation>Leidimas trinti departamentą</translation>
+        <translation>Permissão para deletar departamento</translation>
     </message>
     <message>
         <source>Allow user to choose his departments</source>
-        <translation>Leisti vartotojui pasirinkti savo departamentą</translation>
+        <translation>Permitir ao usuário escolher seu departamento</translation>
     </message>
     <message>
         <source>Allow user to manage Chatbox module</source>
-        <translation>Leisti vartotojui tvarkyti Chatbox modulį</translation>
+        <translation>Permitir ao usuário o gerenciamento do módulo chatbox</translation>
     </message>
     <message>
         <source>FAQ</source>
-        <translation>DUK</translation>
+        <translation>FAQ</translation>
     </message>
     <message>
         <source>Allow user to manage FAQ</source>
-        <translation>Leisti vartotojui valdyti DUK</translation>
+        <translation>Permitir ao usuário gerenciar a FAQ</translation>
     </message>
     <message>
         <source>Frontpage</source>
-        <translation>Titulinis</translation>
+        <translation>Página inicial</translation>
     </message>
     <message>
         <source>General frontpage use permission</source>
-        <translation>Leisti naudotis tituliniu puslapiu</translation>
+        <translation>Permissões gerais de uso na página inicial</translation>
     </message>
     <message>
         <source>Live helper Chat installer</source>
-        <translation>Live Helper Chat instaliacinis modulis</translation>
+        <translation>Instalador do Live Helper Chat</translation>
     </message>
     <message>
         <source>Permissions configuration</source>
-        <translation>Teisių valdymas</translation>
+        <translation>Configurações de permissão</translation>
     </message>
     <message>
         <source>Access to edit role</source>
-        <translation>Teisė redaguoti rolę</translation>
+        <translation>Acesso para editar cargo</translation>
     </message>
     <message>
         <source>Access to delete role</source>
-        <translation>Teisė trinti rolę</translation>
+        <translation>Acesso para apagar cargo</translation>
     </message>
     <message>
         <source>Access to list roles</source>
-        <translation>Teisė gauti rolių sąrašą</translation>
+        <translation>Acesso para listar cargos</translation>
     </message>
     <message>
         <source>Access to create new role</source>
-        <translation>Teisė kurti naują rolę</translation>
+        <translation>Acesso para criar novos cargos</translation>
     </message>
     <message>
         <source>Questionary/Voting</source>
-        <translation>Klausimynas/Balsavimas</translation>
+        <translation>Questionário/Votação</translation>
     </message>
     <message>
         <source>Allow user to manage questionary</source>
-        <translation>Leisti vartotojui valdyti klausimyną</translation>
+        <translation>Permitir ao usuário o gerenciamento de questionário</translation>
     </message>
     <message>
         <source>Allow user to see configuration links</source>
-        <translation>Rodyti vartotojui konfiguracines nuorodas</translation>
+        <translation>Permitir ao usuário a visualização dos links de configuração</translation>
     </message>
     <message>
         <source>Allow user to clear cache</source>
-        <translation>Leisti vartotojui išvalyti podelį</translation>
+        <translation>Permitir ao usuário limpar o cache</translation>
     </message>
     <message>
         <source>Users, groups management</source>
-        <translation>Vartotojų, grupių valdymas</translation>
+        <translation>Usuários, gerenciamento de usuários</translation>
     </message>
     <message>
         <source>Allow user to assign user to group</source>
-        <translation>Leisti vartotojui priskirti vartotoją grupei</translation>
+        <translation>Permitir ao usuário adicionar usuário ao grupo</translation>
     </message>
     <message>
         <source>Allow user to edit group</source>
-        <translation>Leisti vartotojui redaguoti grupę</translation>
+        <translation>Permitir ao usuário editar grupo</translation>
     </message>
     <message>
         <source>Allow user to create group</source>
-        <translation>Leisti vartotojui kurti grupę</translation>
+        <translation>Permitir ao usuário criar grupo</translation>
     </message>
     <message>
         <source>Allow user to delete group</source>
-        <translation>Leisti vartotojui trinti grupę</translation>
+        <translation>Permitir ao usuário deletar grupo</translation>
     </message>
     <message>
         <source>Allow user to create another user</source>
-        <translation>Leisti vartotojui kurti kitą vartotoją</translation>
+        <translation>Permitir ao usuário criar outro usuário</translation>
     </message>
     <message>
         <source>Allow user to delete another user</source>
-        <translation>Leisti vartotojui trinti kitą vartotoją</translation>
+        <translation>Permitir ao usuário deletar outro usuário</translation>
     </message>
     <message>
         <source>Allow user to edit another user</source>
-        <translation>Leisti vartotojui redaguoti kitą vartotoją</translation>
+        <translation>Permitir ao usuário editar outro usuário</translation>
     </message>
     <message>
         <source>Allow user to list group</source>
-        <translation>Leisti vartotojui matyti grupių sąrašą</translation>
+        <translation>Permitir ao usuário listar grupo</translation>
     </message>
     <message>
         <source>Allow user to list users</source>
-        <translation>Leisti vartotojui matyti vartotojų sąrašą</translation>
+        <translation>Permitir ao usuário listar usuários</translation>
     </message>
     <message>
         <source>Allow user to edit his own data</source>
-        <translation>Leisti vartotojui redaguoti savo paties duomenis</translation>
+        <translation>Permitir ao usuário editar seus próprios dados</translation>
     </message>
     <message>
         <source>Allow user to edit his responsible departaments</source>
-        <translation>Leisti vartotojui redaguoti kuriam departamentui jis priklauso</translation>
+        <translation>Permitir ao usuário editar o departamento em que ele é o responsável</translation>
     </message>
     <message>
         <source>Allow user to see logged operators list</source>
-        <translation>Leisti vartotojui matyti prisijungusių operatorių sąrašą</translation>
+        <translation>Permitir ao usuário visualizar a lista de operadores</translation>
     </message>
     <message>
         <source>Live helper Chat XML service</source>
-        <translation>Live helper Chat XML servisas</translation>
+        <translation>Serviço de XML do Live Helper Chat</translation>
     </message>
     <message>
         <source>Allow user to access HTML generation</source>
-        <translation>Leisti vartotojui prieigą prie HTML įterpimo generavimo</translation>
+        <translation>Permitir ao usuário acesso à geração de HTML</translation>
     </message>
     <message>
         <source>All modules</source>
-        <translation>Visi moduliai</translation>
+        <translation>Todos os módulos</translation>
     </message>
     <message>
         <source>All functions</source>
-        <translation>Visos funkcijos</translation>
+        <translation>Todas as funções</translation>
     </message>
     <message>
         <source>System configuration</source>
-        <translation>Sistemos konfigūracija</translation>
+        <translation>Configurações do sistema</translation>
     </message>
     <message>
         <source>Please choose module function</source>
-        <translation>Prašome pasirinkti modulio funkciją</translation>
+        <translation>Por favor, selecione a função do módulo</translation>
     </message>
     <message>
         <source>List of roles</source>
@@ -1569,7 +1569,7 @@
     </message>
     <message>
         <source>New policy</source>
-        <translation>Nova politica</translation>
+        <translation>Nova política</translation>
     </message>
     <message>
         <source>Remove selected</source>
@@ -1791,19 +1791,19 @@
     </message>
     <message>
         <source>Close</source>
-        <translation>Uždaryti</translation>
+        <translation>Fechar</translation>
     </message>
     <message>
         <source>Open in a new window</source>
-        <translation>Atidaryti naujame lange</translation>
+        <translation>Abrir em nova janela</translation>
     </message> 
     <message>
         <source>Live help is online...</source>
-        <translation>Live help está online...</translation>
+        <translation>Ajuda online está online...</translation>
     </message>
     <message>
         <source>Live help is offline...</source>
-        <translation>Live help está offline...</translation>
+        <translation>Ajuda online está offline...</translation>
     </message>
 </context>
 <context>
@@ -1885,39 +1885,39 @@
     </message>
     <message>
         <source>Leave a message</source>
-        <translation>Palikite žinutę</translation>
+        <translation>Deixe uma mensagem</translation>
     </message>
     <message>
         <source>There is no online operators at the moment, please leave your message</source>
-        <translation>Šiuo metu nėra prisijungusių operatorių, prašome palikti žinutę</translation>
+        <translation>Não existem operadores online no momento, por favor, deixe uma mensagem</translation>
     </message>
     <message>
         <source>Send my question</source>
-        <translation>Siųsti mano klausimą</translation>
+        <translation>Enviar minha pergunta</translation>
     </message>
     <message>
         <source>Enter your message</source>
-        <translation>Įveskite žinutę</translation>
+        <translation>Digite sua mensagem</translation>
     </message>
     <message>
         <source>Please enter your message</source>
-        <translation>Prašome įvesti savo žinutę</translation>
+        <translation>Por favor, digite sua mensagem</translation>
     </message>
     <message>
         <source>Please enter your phone</source>
-        <translation>Prašome įvesti savo telefoną</translation>
+        <translation>Por favor, digite seu telefone</translation>
     </message>
     <message>
         <source>Your question</source>
-        <translation>Jūsų klausimas</translation>
+        <translation>Sua pergunta</translation>
     </message>
     <message>
         <source>Phone</source>
-        <translation>Telefonas</translation>
+        <translation>Telefone</translation>
     </message>
     <message>
         <source>Fill out this form to start a chat</source>
-        <translation>Complete o formulário para iniciar uma conversa</translation>
+        <translation>Preencha o formulário para iniciar uma conversa</translation>
     </message>
     <message>
         <source>Name</source>
@@ -1925,7 +1925,7 @@
     </message>
     <message>
         <source>You do not have permission to chat! Please contact site owner.</source>
-        <translation>Jūs neturite teisės pradėti pokalbio! Susisiekite su svetinės savininku.</translation>
+        <translation>Você não tem permissão para conversar! Por favor, entre em contato com o proprietário do site.</translation>
     </message>
     <message>
         <source>E-mail</source>
@@ -1937,7 +1937,7 @@
     </message>
     <message>
         <source>Please enter your name</source>
-        <translation>Por favor entre nome</translation>
+        <translation>Por favor, digite seu nome</translation>
     </message>
     <message>
         <source>Wrong email</source>
@@ -1945,11 +1945,11 @@
     </message>
     <message>
         <source>Department</source>
-        <translation>Departamentas</translation>
+        <translation>Departamento</translation>
     </message>
     <message>
         <source>Visitor</source>
-        <translation>Lankytojas</translation>
+        <translation>Visitante</translation>
     </message>
 </context>
 <context>
@@ -1964,15 +1964,15 @@
     </message>
     <message>
         <source>Last activity</source>
-        <translation>Paskutinis aktyvumas</translation>
+        <translation>Última atividade</translation>
     </message>
     <message>
         <source>Send message</source>
-        <translation>Siųsti žinutę</translation>
+        <translation>Enviar mensagem</translation>
     </message>
     <message>
         <source>ago</source>
-        <translation>prieš</translation>
+        <translation>atrás</translation>
     </message>
     <message>
         <source>Empty...</source>
@@ -2007,7 +2007,7 @@
     <name>chat/syncadmin</name>
     <message>
         <source>Me</source>
-        <translation>Meu</translation>
+        <translation>Eu</translation>
     </message>
 </context>
 <context>
@@ -2049,15 +2049,15 @@
     </message>
     <message>
         <source>All unread chats</source>
-        <translation>Visi neperskaityti pokalbiai</translation>
+        <translation>Todas as mensagens não lidas</translation>
     </message>
     <message>
         <source>Unread messages</source>
-        <translation>Neperskaitytos žinutės</translation>
+        <translation>Mensagens não lidas</translation>
     </message>
     <message>
         <source>Online operators</source>
-        <translation>Prisijungę operatoriai</translation>
+        <translation>Operadores online</translation>
     </message>
     <message>
         <source>All active chats</source>
@@ -2104,19 +2104,19 @@
     </message>
     <message>
         <source>Close</source>
-        <translation>Uždaryti</translation>
+        <translation>Fechar</translation>
     </message>
     <message>
         <source>This chat is closed.</source>
-        <translation>Šis pokalbis yra uždarytas</translation>
+        <translation>Este chat está fechado.</translation>
     </message>
     <message>
         <source>Operator is typing now...</source>
-        <translation>Operatorius šiuo metu rašo žinutę...</translation>
+        <translation>O operador está digitando...</translation>
     </message>
     <message>
         <source>User is typing now...</source>
-        <translation>Vartototojas šiuo metu rašo žinutę...</translation>
+        <translation>O usuário está digitando...</translation>
     </message>
     <message>
         <source>Chat started</source>
@@ -2128,7 +2128,7 @@
     </message>
     <message>
         <source>Enter your message</source>
-        <translation>Įveskite savo žinutę</translation>
+        <translation>Digite sua mensagem</translation>
     </message>
     <message>
         <source>Support</source>
@@ -2158,7 +2158,7 @@
     </message>
     <message>
         <source>Support staff member has closed this chat</source>
-        <translation>Priežiūros personalo narys uždarė pokalbį</translation>
+        <translation>Membro da equipe de suporet fechou este chat</translation>
     </message>
 </context>
 <context>
@@ -2173,7 +2173,7 @@
     </message>
     <message>
         <source>E-mail</source>
-        <translation>El. paštas</translation>
+        <translation>Email</translation>
     </message>
     <message>
         <source>Name</source>
@@ -2189,7 +2189,7 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Atšaukti</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>System configuration</source>
@@ -2204,7 +2204,7 @@
     </message>
     <message>
         <source>E-mail</source>
-        <translation>El. paštas</translation>
+        <translation>Email</translation>
     </message>
     <message>
         <source>Name</source>
@@ -2235,119 +2235,119 @@
     </message>
     <message>
         <source>Show leave a message form then there is no online operators</source>
-        <translation>Rodyti palikite žinutę langą, kai nėra prisijungusių operatorių</translation>
+        <translation>Exibir um formulário de mensagem quando operadores não estiverem online</translation>
     </message>
     <message>
         <source>Chatbox messages content height</source>
-        <translation>Chatbox žunučių turinio aukštis</translation>
+        <translation>Altura do conteúdo de mensagens do Chatbox</translation>
     </message>
     <message>
         <source>Page embed code</source>
-        <translation>Įterpimo į puslapį kodas</translation>
+        <translation>Código de incorporação na página</translation>
     </message>
     <message>
         <source>height</source>
-        <translation>aukštis</translation>
+        <translation>altura</translation>
     </message>
     <message>
         <source>Widget embed code</source>
-        <translation>Widget įterpimo kodas</translation>
+        <translation>Código de incorporação do widget</translation>
     </message>
     <message>
         <source>Widget width</source>
-        <translation>Widget plotis</translation>
+        <translation>Largura do widget</translation>
     </message>
     <message>
         <source>Widget height</source>
-        <translation>Widget aukštis</translation>
+        <translation>Altura do widget</translation>
     </message>
     <message>
         <source>Popup window size</source>
-        <translation>Iššokančio lango dydis</translation>
+        <translation>Tamanho da janela do popup</translation>
     </message>
     <message>
         <source>Popup window width in pixels</source>
-        <translation>Iššokančio lango plotis pikseliais</translation>
+        <translation>Largura da janela do popup em pixels</translation>
     </message>
     <message>
         <source>Popup window height in pixels</source>
-        <translation>Iššokančio lango aukštis pikseliais</translation>
+        <translation>Altura da janela do popup em pixels</translation>
     </message>
     <message>
         <source>Widget width in pixels</source>
-        <translation>Widgeto plotis pikseliais</translation>
+        <translation>Largura do widget em pixels</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation>Dydis</translation>
+        <translation>Tamanho</translation>
     </message>
     <message>
         <source>Width</source>
-        <translation>Plotis</translation>
+        <translation>Largura</translation>
     </message>
     <message>
         <source>Height</source>
-        <translation>Aukštis</translation>
+        <translation>Altura</translation>
     </message>
     <message>
         <source>Copy code from textarea to page where you want your status to appear</source>
-        <translation>Copie o código do textarea para a página onde você quer que seu status seja mostrado</translation>
+        <translation>Copie o código da área de texto para a página onde deseja que seu status seja exibido</translation>
     </message>
     <message>
         <source>Copy code from textarea to page where you want page to be rendered</source>
-        <translation>Nukopijuokite žemiau esantį kodą į tą vietą, kur norite kad būtų matomas įskiepis</translation>
+        <translation>Copie o código da área de texto para a página onde deseja exibir</translation>
     </message>
     <message>
         <source>Embed html code</source>
-        <translation>Įterpimo html kodas</translation>
+        <translation>Incorporar código html</translation>
     </message>
     <message>
         <source>Position from top, only used if left middle or right middle is chosen</source>
-        <translation>Pozicija nuo viršaus, naudojamas jei pasirinktas vidurys kairėje arba dešinėje</translation>
+        <translation>Posição a partir do topo, somente usada se centro-esquerda ou centro-direita forem escolhidos</translation>
     </message>
     <message>
         <source>Check for messages from operator</source>
-        <translation>Tikrinti ar nėra žinučių iš operatorių</translation>
+        <translation>Checar por mensagens do operador</translation>
     </message>
     <message>
         <source>On click show page widget</source>
-        <translation>Paspaudus rodyti puslapyje widgetą</translation>
+        <translation>Exibir widget da página quando clicado</translation>
     </message>
     <message>
         <source>Choose a language</source>
-        <translation>Pasirinkite kalbą</translation>
+        <translation>Escolha uma linguagem</translation>
     </message>
     <message>
         <source>Position</source>
-        <translation>Pozicija</translation>
+        <translation>Posição</translation>
     </message>
     <message>
         <source>Native placement - will be shown where html is embeded</source>
-        <translation>Įerpimo pozicija - bus rodoma ten kur įdėtas HTML kodas</translation>
+        <translation>Posição padrão - será exibi onde o html estiver ativado</translation>
     </message>
     <message>
         <source>Bottom right corner of the screen</source>
-        <translation>Rodyti ekrano apačioje, dešinėje pusėje</translation>
+        <translation>Canto direito do rodapé da página</translation>
     </message>
     <message>
         <source>Bottom left corner of the screen</source>
-        <translation>Rodyti ekrano apačioje, kairėje pusėje</translation>
+        <translation>Canto esquerdo do rodapé da página</translation>
     </message>
     <message>
         <source>Middle right side of the screen</source>
-        <translation>Rodyti ekrano dešinėje pusėje per vidurį</translation>
+        <translation>Canto centro-direito da página</translation>
     </message>
     <message>
         <source>Middle left side of the screen</source>
-        <translation>Rodyti ekrano kairėje pusėje per vidurį</translation>
+        <translation>Canto centro-esquerdo da página</translation>
     </message>
     <message>
         <source>Hide status then offline</source>
-        <translation>Nerodyti būsenos, kai nėra prisijungusių operatorių</translation>
+        <translation>Esconder o status e tornar offline</translation>
     </message>
     <message>
         <source>Copy code from textarea to page where you want your status to appear</source>
-        <translation>Nukopijuokite žemiau esantį kodą į tą vietą, kur norite kad būtų matoma jūsų prisijungimo būsena</translation>
+        <translation>Copie o código da área de texto para a página onde deseja que seu status seja exibido</translation>
     </message>
     <message>
         <source>System configuration</source>
@@ -2358,176 +2358,176 @@
     <name>chat/syncandsoundesetting</name>
     <message>
         <source>Save</source>
-        <translation>Saugoti</translation>
+        <translation>Salvar</translation>
     </message>
     <message>
         <source>Check messages from operators, interval in seconds</source>
-        <translation>Tikrint ar nėra žinučių iš operatorių, intervalas sekundėmis</translation>
+        <translation>Checar mensagens de operadores, intervalo em segundos</translation>
     </message>
     <message>
         <source>Please enter valid operator message timeout value!</source>
-        <translation>Prašome įvesti validų žinučių iš operatoriaus tikrinimo intervalą!</translation>
+        <translation>Por favor, digite um valor de limite de tempo válido para mensagens de operadores!</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation>Atnaujinti</translation>
+        <translation>Atualizar</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Atšaukti</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Settings updated</source>
-        <translation>Nustatymai atnaujinti</translation>
+        <translation>Configurações atualizadas</translation>
     </message>
     <message>
         <source>How many seconds user considered for being as online</source>
-        <translation>Kiek sekundžių vartotojas laikomas, kaip prisijungęs</translation>
+        <translation>Quantos segundos até um usuário ser considerado online</translation>
     </message>
     <message>
         <source>Sync for new chats, interval in seconds</source>
-        <translation>Tikrinti ar nėra naujų užklausų, kas nurodytą intervalą</translation>
+        <translation>Sincronização para novos chats, intervalo em segundos</translation>
     </message>
     <message>
         <source>Sync for new user message, interval in seconds</source>
-        <translation>Tikrinti ar neparašė vartotojas, kas nurodytą sekundžių skaičių</translation>
+        <translation>Sincronização para nova mensagem de usuário, intervalo em segundos</translation>
     </message>
     <message>
         <source>Play new pending chat sound on new chat request</source>
-        <translation>Groti pranešimo garsą apie naują užklausimą</translation>
+        <translation>Tocar som de nova conversa pendente em nova requisição de conversa</translation>
     </message>
     <message>
         <source>Play sound on new message for back office user</source>
-        <translation>Groti garsą apie naują žinutę konsultantui</translation>
+        <translation>Tocar som de novas mensagens para usuários do sistema</translation>
     </message>
     <message>
         <source>Play sound on new message for front end user</source>
-        <translation>Groti garsą apie naują žinutę klientui</translation>
+        <translation>Tocar som de novas mensagens para usuários visitantes</translation>
     </message>
     <message>
         <source>Synchronisation and sound settings</source>
-        <translation>Sinchronizacijos ir garso nustatymai</translation>
+        <translation>Sincronização e configurações de som</translation>
     </message>
     <message>
         <source>Please enter valid online timeout value!</source>
-        <translation>Prašome įvesti validų būvimo prisijungus intervalą!</translation>
+        <translation>Por favor, digite valor de limite de tempo válido para online!</translation>
     </message>
     <message>
         <source>Please enter valid back office sync internval!</source>
-        <translation>Prašome įvesti validų naujų užklausų sinchronizavimo intervalą!</translation>
+        <translation>Por favor, digite um intervalo válido de sincronização do sistema!</translation>
     </message>
     <message>
         <source>Please enter valid new messages sync internval!</source>
-        <translation>Prašome įvesti korektišką naujų žinučių sinchronizavimo intervalą!</translation>
+        <translation>Por favor, digite um intervalo válido de sincronização de mensagens!</translation>
     </message>
 </context>
 <context>
     <name>chat/startchatformsettings</name>
     <message>
         <source>Start chat form settings</source>
-        <translation>Pokalbio pradžios formos nustatymai</translation>
+        <translation>Configurações de formulário de chat</translation>
     </message>
     <message>
         <source>At least one field have to be visible and required in popup and page widget</source>
-        <translation>Bent vienas laukas turi būti matomas ir privalomas popupe ir vidiniame puslapio popupe</translation>
+        <translation>Pelo menos um campo precisa estar visível e ser requerido no popup e no widget da página</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>Vardas</translation>
+        <translation>Nome</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Privalomas</translation>
+        <translation>Requerido</translation>
     </message>
     <message>
         <source>Optional</source>
-        <translation>Neprivalomas</translation>
+        <translation>Opcional</translation>
     </message>
     <message>
         <source>This field is visible in popup</source>
-        <translation>Šis laukas matomas popupe</translation>
+        <translation>Este campo é visível no popup</translation>
     </message>
     <message>
         <source>This field is visible in page widget</source>
-        <translation>Šis laukas matomas vidiniame puslapio popupe</translation>
+        <translation>Este campo é visível no widget da página</translation>
     </message>
     <message>
         <source>This field is</source>
-        <translation>Šis laukas yra</translation>
+        <translation>Este campo é</translation>
     </message>
     <message>
         <source>E-mail</source>
-        <translation>El. paštas</translation>
+        <translation>Email</translation>
     </message>
     <message>
         <source>Message</source>
-        <translation>Žinutė</translation>
+        <translation>Mensagem</translation>
     </message>
     <message>
         <source>Please choose at least one field for popup</source>
-        <translation>Prašome prisijungti bent vieną lauką popupui</translation>
+        <translation>Por favor, selecione somente um campo para o popup</translation>
     </message>
     <message>
         <source>Please choose at least one field for page widget</source>
-        <translation>Prašome prisijungti bent vieną lauką vidiniam puslapio popupui</translation>
+        <translation>Por favor, selecione pelo menos um campo para o widget da página</translation>
     </message>
 </context>
 <context>
     <name>abstract/abstract_form</name>
     <message>
         <source>Updated!</source>
-        <translation>Atnaujinta!</translation>
+        <translation>Atualizado!</translation>
     </message>
 </context>
 <context>
     <name>abstract/email_template</name>
     <message>
         <source>E-mail templates</source>
-        <translation>El. pašto šablonai</translation>
+        <translation>Templates de email</translation>
     </message>
     <message>
         <source>Recipient email, this is used if application could not determine who should receive an email.</source>
-        <translation>Gavėjo el. paštas, naudojamas kai nenustatomas konkretus gavėjas.</translation>
+        <translation>Email recipiente, este email será usado caso o aplicativo não consiga determinar quem receberá um email.</translation>
     </message>
     <message>
         <source>Content</source>
-        <translation>Turinys</translation>
+        <translation>Conteúdo</translation>
     </message>
     <message>
         <source>Allow to change reply e-mail</source>
-        <translation>Leisti keisti atsakymo el. pašto adresą</translation>
+        <translation>Permitir alteração do email de resposta</translation>
     </message>
     <message>
         <source>Reply to</source>
-        <translation>Atsakyti kam</translation>
+        <translation>Responder a</translation>
     </message>
     <message>
         <source>Allow to change from e-mail</source>
-        <translation>Leisti keisti siuntėjo el. pašto adresą</translation>
+        <translation>Permitir alteração do email de remetente</translation>
     </message>
     <message>
         <source>From e-mail, if mail was not send for some reason, this mail will get failed delivery message</source>
-        <translation>Siuntėjo el. pašto adresas, jei dėl kažkokios priežasties laiškas nebus pristatytas, šitas el. pašto adresas gaus pranešimą.</translation>
+        <translation>Email de remetente, caso o email não seja enviado por algum motivo, este email receberá as mensagens.</translation>
     </message>
     <message>
         <source>Allow to change from name</source>
-        <translation>Leisti keisti siuntėjo pavadinimą</translation>
+        <translation>Permitir a alteração de nome de remetente</translation>
     </message>
     <message>
         <source>From name</source>
-        <translation>Siuntėjo vardas</translation>
+        <translation>Remetente</translation>
     </message>
     <message>
         <source>Allow user to change subject</source>
-        <translation>Leisti keisti antraštę</translation>
+        <translation>Permitir que o usuário altere o assunto</translation>
     </message>
     <message>
         <source>Subject</source>
-        <translation>Antraštė</translation>
+        <translation>Assunto</translation>
     </message>
     <message>
         <source>Name, for personal purposes</source>
-        <translation>Pavadinimas, asmeniniais tikslais</translation>
+        <translation>Nome, para uso profissional</translation>
     </message>
 </context>
 <context>
@@ -2538,55 +2538,55 @@
     </message>
     <message>
         <source>E-mail templates</source>
-        <translation>El. pašto šablonai</translation>
+        <translation>Templates de email</translation>
     </message>
     <message>
         <source>New chat notification settings</source>
-        <translation>Pranešimų apie naujus pokalbius nustatymai</translation>
+        <translation>Configurações de notificação de novos chats</translation>
     </message>
     <message>
         <source>Request notification permission</source>
-        <translation>Suteikti leidimą rodyti pranešimus</translation>
+        <translation>Requisitar permissão para notificação</translation>
     </message>
     <message>
         <source>Chat embed code</source>
-        <translation>Pokalbių generavimo kodas</translation>
+        <translation>Incorporação de código do Chat</translation>
     </message>
     <message>
         <source>Canned messages</source>
-        <translation>Paruoštos žinutės</translation>
+        <translation>Mensagens prontas</translation>
     </message>
     <message>
         <source>Start chat form settings</source>
-        <translation>Pokalbio pradžios formos nustatymai</translation>
+        <translation>Configurações de formulário inicial de chat</translation>
     </message>
     <message>
         <source>Synchronisation and sound settings</source>
-        <translation>Sinchronizacijos ir garso nustatymai</translation>
+        <translation>Sincronização e configurações de som</translation>
     </message>
     <message>
         <source>Chat configuration</source>
-        <translation>Pokalbių nustatymai</translation>
+        <translation>Configuração do Chat</translation>
     </message>
     <message>
         <source>Chat ralated</source>
-        <translation>Susiję su pokalbiais</translation>
+        <translation>Relacionadas ao Chat</translation>
     </message>
     <message>
         <source>Users and their permissions</source>
-        <translation>Vartotojai ir jų teisės</translation>
+        <translation>Usuários e suas permisões</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation>Kita</translation>
+        <translation>Outros</translation>
     </message>
     <message>
         <source>GEO detection configuration</source>
-        <translation>GEO detekcijos nustatymai</translation>
+        <translation>Configuração de Geolocalidade</translation>
     </message>
     <message>
         <source>Blocked users</source>
-        <translation>Blokuoti vartotojai</translation>
+        <translation>Usuário bloqueados</translation>
     </message>
     <message>
         <source>Users</source>
@@ -2625,7 +2625,7 @@
     </message>
     <message>
         <source>Save</source>
-        <translation>Gravar</translation>
+        <translation>Salvar</translation>
     </message>
     <message>
         <source>Departments</source>
@@ -2660,15 +2660,15 @@
     </message>
     <message>
         <source>Edit</source>
-        <translation>Redaguoti</translation>
+        <translation>Editar</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation>Trinti</translation>
+        <translation>Apagar</translation>
     </message>
     <message>
         <source>Last activity</source>
-        <translation>Paskutinis aktyvumas</translation>
+        <translation>Última atividade</translation>
     </message>
     <message>
         <source>Surname</source>
@@ -2695,7 +2695,7 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Atšaukti</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>System configuration</source>
@@ -2774,27 +2774,27 @@
     </message>
     <message>
         <source>Please choose default user group</source>
-        <translation>Prašome pasirinkti vartotojo grupę</translation>
+        <translation>Por favor, escolhe o grupo padrão de usuários</translation>
     </message>
     <message>
         <source>Disabled</source>
-        <translation>Išjungtas</translation>
+        <translation>Desativado</translation>
     </message>
     <message>
         <source>User group</source>
-        <translation>Vartotojų grupė</translation>
+        <translation>Grupo de usuário</translation>
     </message>
     <message>
         <source>Departaments</source>
-        <translation>Departamentai</translation>
+        <translation>Departamentos</translation>
     </message>
     <message>
         <source>All departments</source>
-        <translation>Visi departamentai</translation>
+        <translation>Todos os departamentos</translation>
     </message>
     <message>
         <source>Do not show user status as online</source>
-        <translation>Nerodyti manęs kaip prisijungusio</translation>
+        <translation>Não exibir a status do usuário como online</translation>
     </message>
     <message>
         <source>Users</source>
@@ -2877,43 +2877,43 @@
     </message>
     <message>
         <source>Account data</source>
-        <translation>Paskyros duomenys</translation>
+        <translation>Dados da conta</translation>
     </message>
     <message>
         <source>Assigned departments</source>
-        <translation>Priskirti departamentai</translation>
+        <translation>Atribuir departamentos</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation>Kita</translation>
+        <translation>Outros</translation>
     </message>
     <message>
         <source>Visible lists</source>
-        <translation>Matomi sąrašai</translation>
+        <translation>Listas visíveis</translation>
     </message>
     <message>
         <source>Pending chats tab enabled</source>
-        <translation>Laukiančių pokalbių kortelė matoma</translation>
+        <translation>Aba de conversas pendentes ativada</translation>
     </message>
     <message>
         <source>Active chats tab enabled</source>
-        <translation>Aktyvių pokalbių kortelė matoma</translation>
+        <translation>Aba de conversas ativas ativada</translation>
     </message>
     <message>
         <source>Unread chats tab enabled</source>
-        <translation>Neperskaitytų žinučių kortelė matoma</translation>
+        <translation>Aba de conversas não lidas ativada</translation>
     </message>
     <message>
         <source>Closed chats tab enabled</source>
-        <translation>Uždarytų pokalbių kortelė matoma</translation>
+        <translation>Aba de conversas fechadas ativada</translation>
     </message>
     <message>
         <source>Enter new password</source>
-        <translation>Įveskite naują slaptažodį</translation>
+        <translation>Digitar nova senha</translation>
     </message>
     <message>
         <source>Repeat new password</source>
-        <translation>Pakartokite naują slaptažodį</translation>
+        <translation>Repetir nova senha</translation>
     </message>
     <message>
         <source>You have global right to see all departments chats</source>
@@ -2945,7 +2945,7 @@
     </message>
     <message>
         <source>Return</source>
-        <translation>Grįžti</translation>
+        <translation>Retornar</translation>
     </message>
     <message>
         <source>Password</source>
@@ -3000,27 +3000,27 @@
     <name>faq/list</name>
     <message>
         <source>FAQ</source>
-        <translation>DUK</translation>
+        <translation>FAQ</translation>
     </message>
     <message>
         <source>Question</source>
-        <translation>Klausimas</translation>
+        <translation>Pergunta</translation>
     </message>
     <message>
         <source>Active</source>
-        <translation>Aktyvus</translation>
+        <translation>Ativo</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation>Redaguoti</translation>
+        <translation>Editar</translation>
     </message>
     <message>
         <source>Delete this question</source>
-        <translation>Pašalinti šį klausimą</translation>
+        <translation>Apagar esta pergunta</translation>
     </message>
     <message>
         <source>New question</source>
-        <translation>Naujas klausimas</translation>
+        <translation>Nova pergunta</translation>
     </message>
     <message>
         <source>Y</source>
@@ -3035,81 +3035,81 @@
     <name>faq/new</name>
     <message>
         <source>Question</source>
-        <translation>Klausimas</translation>
+        <translation>Pergunta</translation>
     </message>
     <message>
         <source>FAQ description</source>
-        <translation>FAQ aprašymas</translation>
+        <translation>Descrição do FAQ</translation>
     </message>
     <message>
         <source>New question</source>
-        <translation>Naujas klausimas</translation>
+        <translation>Nova pergunta</translation>
     </message>
     <message>
         <source>Answer</source>
-        <translation>Atsakymas</translation>
+        <translation>Resposta</translation>
     </message>
     <message>
         <source>URL where this question should appear, leave empty for all</source>
-        <translation>URL kur šis klausimas turėtų būti rodomas, palikite tuščią visiems</translation>
+        <translation>URL em que esta pergunta deve aparecer, deixe em branco para todas</translation>
     </message>
     <message>
         <source>Question active</source>
-        <translation>Klausimas aktyvus</translation>
+        <translation>Perguntas ativas</translation>
     </message>
 </context>
 <context>
     <name>faq/view</name>
     <message>
         <source>Please enter answer!</source>
-        <translation>Prašome įvesti atsakymą!</translation>
+        <translation>Por favor, digite uma resposta!</translation>
     </message>
     <message>
         <source>View</source>
-        <translation>Peržiūra</translation>
+        <translation>Ver</translation>
     </message>
     <message>
         <source>FAQ description</source>
-        <translation>DUK aprašymas</translation>
+        <translation>Descrição do FAQ</translation>
     </message>
     <message>
         <source>Please enter question!</source>
-        <translation>Prašome įvesti klausimą!</translation>
+        <translation>Por favor, digite uma pergunta!</translation>
     </message>
     <message>
         <source>FAQ</source>
-        <translation>DUK</translation>
+        <translation>FAQ</translation>
     </message>
 </context>
 <context>
     <name>faq/faqwidget</name>
     <message>
         <source>FAQ</source>
-        <translation>DUK</translation>
+        <translation>FAQ</translation>
     </message>
     <message>
         <source>Ask a question</source>
-        <translation>Paklauskite klausimo</translation>
+        <translation>Faça uma pergunta</translation>
     </message>
     <message>
         <source>Your question was submitted!</source>
-        <translation>Jūsų klausimas buvo pateiktas!</translation>
+        <translation>Sua pergunta foi enviada!</translation>
     </message>
     <message>
         <source>Type your question</source>
-        <translation>Įveskite savo klausimą</translation>
+        <translation>Digite sua pergunta</translation>
     </message>
     <message>
         <source>Question</source>
-        <translation>Klausimas</translation>
+        <translation>Pergunta</translation>
     </message>
     <message>
         <source>Send question</source>
-        <translation>Siųsti klausimą</translation>
+        <translation>Enviar pergunta</translation>
     </message>
     <message>
         <source>Please enter question!</source>
-        <translation>Prašome įvesti klausima!</translation>
+        <translation>Por favor, digite uma questão!</translation>
     </message>
 </context>
 <context>
@@ -3120,84 +3120,84 @@
     </message>
     <message>
         <source>Chatbox list</source>
-        <translation>Chatbox sąrašas</translation>
+        <translation>Lista de chatbox</translation>
     </message>
     <message>
         <source>General settings</source>
-        <translation>Bendri nustatymai</translation>
+        <translation>Configurações gerais</translation>
     </message>
     <message>
         <source>General</source>
-        <translation>Bendra</translation>
+        <translation>Geral</translation>
     </message>
     <message>
         <source>Embed code generation</source>
-        <translation>Įterpimo kodo generavimas</translation>
+        <translation>Gerar código de incorporação</translation>
     </message>
 </context>
 <context>
     <name>chatbox/generalsettings</name>
     <message>
         <source>Chatbox settings</source>
-        <translation>Chatbox nustatymai</translation>
+        <translation>Configurações do chatbox</translation>
     </message>
     <message>
         <source>Default new chatbox name</source>
-        <translation>Standartinis naujo chatboxo pavadinimas</translation>
+        <translation>Nome padrão para novo chatbox</translation>
     </message>
     <message>
         <source>Default operator name</source>
-        <translation>Standartinis operatoriaus nikas</translation>
+        <translation>Nome do operador padrão</translation>
     </message>
     <message>
         <source>Messages limit in chatbox</source>
-        <translation>Žinučių limitas chatboxe</translation>
+        <translation>Limite de mensagens no chatbox</translation>
     </message>
     <message>
         <source>Auto creation by chatbox identifier enabled</source>
-        <translation>Auto sukūrimas pagal identifikatorių įgalintas</translation>
+        <translation>Auto-criação por identificar do chatbox ativado</translation>
     </message>
     <message>
         <source>Secret hash, used then auto creation is disabled</source>
-        <translation>Slaptas hash, kuriuo remiantis bus tikrininama teisė sukurti chatboxą</translation>
+        <translation>Código secreto, usado quando a auto-criação está desativada</translation>
     </message>
     <message>
         <source>more information how to use it</source>
-        <translation>daugiau informacijos kaip jį naudoti</translation>
+        <translation>mais informações de como usar</translation>
     </message>
 </context>
 <context>
     <name>chatbox/list</name>
     <message>
         <source>Chatbox list</source>
-        <translation>Chatbox sąrašas</translation>
+        <translation>Lista de chatboxes</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>Pavadinimas</translation>
+        <translation>Nome</translation>
     </message>
     <message>
         <source>Identifier</source>
-        <translation>Identifikatorius</translation>
+        <translation>Identificador</translation>
     </message>
 </context>
 <context>
     <name>chatbox/form</name>
     <message>
         <source>Chatbox name</source>
-        <translation>Chatbox pavadinimas</translation>
+        <translation>Nome do chatbox</translation>
     </message>
     <message>
         <source>Name of manager</source>
-        <translation>Operatoriaus nikas</translation>
+        <translation>Nome do gerente</translation>
     </message>
     <message>
         <source>Identifier</source>
-        <translation>Identifikatorius</translation>
+        <translation>Identificador</translation>
     </message>
     <message>
         <source>Chatbox active</source>
-        <translation>Chatbox aktyvus</translation>
+        <translation>Chatbox ativo</translation>
     </message>
 </context>
 </TS>
