@@ -127,7 +127,9 @@ var lh_inst  = {
 	    	if (typeof LHCChatOptions.attr != 'undefined') {
 	    		if (LHCChatOptions.attr.length > 0){
 					for (var index in LHCChatOptions.attr) {
-						argumentsQuery.push('name[]='+encodeURIComponent(LHCChatOptions.attr[index].name)+'&value[]='+encodeURIComponent(LHCChatOptions.attr[index].value)+'&type[]='+encodeURIComponent(LHCChatOptions.attr[index].type)+'&size[]='+encodeURIComponent(LHCChatOptions.attr[index].size));
+						if (typeof LHCChatOptions.attr[index] != 'undefined' && typeof LHCChatOptions.attr[index].type != 'undefined') {
+							argumentsQuery.push('name[]='+encodeURIComponent(LHCChatOptions.attr[index].name)+'&value[]='+encodeURIComponent(LHCChatOptions.attr[index].value)+'&type[]='+encodeURIComponent(LHCChatOptions.attr[index].type)+'&size[]='+encodeURIComponent(LHCChatOptions.attr[index].size));
+						};
 					};
 	    		};
 	    	};
@@ -135,7 +137,9 @@ var lh_inst  = {
 	    	if (typeof LHCChatOptions.attr_prefill != 'undefined') {
 	    		if (LHCChatOptions.attr_prefill.length > 0){
 					for (var index in LHCChatOptions.attr_prefill) {
-						argumentsQuery.push('prefill['+LHCChatOptions.attr_prefill[index].name+']='+encodeURIComponent(LHCChatOptions.attr_prefill[index].value));
+						if (typeof LHCChatOptions.attr_prefill[index] != 'undefined' && typeof LHCChatOptions.attr_prefill[index].name != 'undefined') {
+							argumentsQuery.push('prefill['+LHCChatOptions.attr_prefill[index].name+']='+encodeURIComponent(LHCChatOptions.attr_prefill[index].value));
+						};
 					};
 	    		};
 	    	};
