@@ -1,3 +1,12 @@
+1.35v
+
+New features:
+1. CSS, JS, CSS images now can be overrided in extensions.
+2. Debug output window now will show used CSS and JS including CSS images paths
+
+P.s
+All this was done without any performance loss then cache is enabled.
+
 1.34v
 
 New features:

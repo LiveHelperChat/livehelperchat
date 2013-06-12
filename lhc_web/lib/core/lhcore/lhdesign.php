@@ -4,56 +4,76 @@ class erLhcoreClassDesign
 {
     public static function design($path)
     {
-    	
+
     	$debugOutput = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' );
-    	
+
     	if ($debugOutput == true) {
     		$logString = '';
-    		$debug = ezcDebug::getInstance(); 
+    		$debug = ezcDebug::getInstance();
     	}
-    	   	
-        $instance = erLhcoreClassSystem::instance();  
+
+        $instance = erLhcoreClassSystem::instance();
+
+        // Check extensions directories
+        $extensions = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'extensions' );
+        foreach ($extensions as $ext) {
+        	$tplDir = $instance->SiteDir . '/extension/' . $ext . '/design/' . $ext .  'theme/'. $path;
+        	if (file_exists($tplDir)) {
+        		if ($debugOutput == true) {
+        			$logString .= "Found IN - ".$tplDir."<br/>";
+        			$debug->log( $logString, 0, array( "source"  => "erLhcoreClassDesign", "category" =>  "designtpl - $path" )  );
+        		}
+
+        		return $instance->wwwDir() . '/extension/' . $ext . '/design/' . $ext .  'theme/'. $path;
+        	} else {
+        		if ($debugOutput == true)
+        			$logString .= "Not found IN - ".$tplDir."<br/>";
+        	}
+        }
+
+
         foreach ($instance->ThemeSite as $designDirectory)
         {
-            $fileDir = $instance->SiteDir . '/design/'. $designDirectory .'/' . $path; 
-                       
-            if (file_exists($fileDir)) {  
-            	
+            $fileDir = $instance->SiteDir . '/design/'. $designDirectory .'/' . $path;
+
+            if (file_exists($fileDir)) {
+
             	if ($debugOutput == true) {
-            		$logString .= "Found IN - ".$fileDir."<br/>";          	
+            		$logString .= "Found IN - ".$fileDir."<br/>";
             		$debug->log( $logString, 0, array( "source"  => "erLhcoreClassDesign", "category" =>  "design - $path" )  );
             	}
-            	
+
             	return $instance->wwwDir() . '/design/'. $designDirectory .'/' . $path;
-            } else { 
+            } else {
             	if ($debugOutput == true)
 	            $logString .= "Not found IN - ".$fileDir."<br/>";
             }
-        } 
-        
+        }
+
+
         if ($debugOutput == true)
         $debug->log( $logString, 0, array( "source"  => "shop", "erLhcoreClassDesign" =>  "design - $path" )  );
-       
-    } 
-    
-    public static function designtpl($path)   
+
+    }
+
+    public static function designtpl($path)
     {
     	$debugOutput = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' );
-    	
+
     	if ($debugOutput == true) {
-    		$logString = '';    	
+    		$logString = '';
     		$debug = ezcDebug::getInstance();
     	}
-    	
-        $instance = erLhcoreClassSystem::instance();  
-        
+
+        $instance = erLhcoreClassSystem::instance();
+
         // Check extensions directories
-        $extensions = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'extensions' );        
+        $extensions = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'extensions' );
         foreach ($extensions as $ext) {
-            $tplDir = $instance->SiteDir . '/extension/' . $ext . '/design/' . $ext .  'theme/'. $path;            
+            $tplDir = $instance->SiteDir . '/extension/' . $ext . '/design/' . $ext .  'theme/tpl/'. $path;
             if (file_exists($tplDir)) {
                 if ($debugOutput == true) {
-            		$logString .= "Found IN - ".$tplDir."<br/>";          	
+            		$logString .= "Found IN - ".$tplDir."<br/>";
             		$debug->log( $logString, 0, array( "source"  => "erLhcoreClassDesign", "category" =>  "designtpl - $path" )  );
             	}
             	return $tplDir;
@@ -62,15 +82,15 @@ class erLhcoreClassDesign
             	$logString .= "Not found IN - ".$tplDir."<br/>";
             }
         }
-        
+
         // Check default themes
         foreach ($instance->ThemeSite as $designDirectory)
         {
             $tplDir = $instance->SiteDir .'/design/' . $designDirectory .  '/tpl/'. $path;
-            
+
             if (file_exists($tplDir)) {
             	if ($debugOutput == true) {
-            		$logString .= "Found IN - ".$tplDir."<br/>";          	
+            		$logString .= "Found IN - ".$tplDir."<br/>";
             		$debug->log( $logString, 0, array( "source"  => "erLhcoreClassDesign", "category" =>  "designtpl - $path" )  );
             	}
             	return $tplDir;
@@ -78,106 +98,160 @@ class erLhcoreClassDesign
             	if ($debugOutput == true)
             	$logString .= "Not found IN - ".$tplDir."<br/>";
             }
-        }   
-          
+        }
+
         if ($debugOutput == true)
         $debug->log( $logString, 0, array( "source"  => "shop", "erLhcoreClassDesign" =>  "designtpl - $path" )  );
-          
+
         return ;
     }
-    
-    public static function imagePath($path, $useCDN = false, $id = 0)   
-    {             
+
+    public static function imagePath($path, $useCDN = false, $id = 0)
+    {
         $instance = erLhcoreClassSystem::instance();
         if ($useCDN == false ) {
-        	return erConfigClassLhConfig::getInstance()->getSetting( 'cdn', 'full_img_cdn' ) . $instance->wwwDir() . '/albums/' . $path; 
+        	return erConfigClassLhConfig::getInstance()->getSetting( 'cdn', 'full_img_cdn' ) . $instance->wwwDir() . '/albums/' . $path;
         } else {
     		$cfg = erConfigClassLhConfig::getInstance();
-    		$cdnServers = $cfg->getSetting( 'cdn', 'images' );        		 
-    		return $cdnServers[$id % count($cdnServers)] . $instance->wwwDir() . '/albums/' . $path; 
+    		$cdnServers = $cfg->getSetting( 'cdn', 'images' );
+    		return $cdnServers[$id % count($cdnServers)] . $instance->wwwDir() . '/albums/' . $path;
         }
     }
-    
+
     public static function baseurl($link = '')
     {
         $instance = erLhcoreClassSystem::instance();
         $link = ltrim($link,'/');
         return $instance->WWWDir . $instance->IndexFile .  $instance->WWWDirLang  . '/' . $link;
     }
-    
+
     public static function baseurldirect($link = '')
     {
-        $instance = erLhcoreClassSystem::instance();                      
+        $instance = erLhcoreClassSystem::instance();
         return $instance->WWWDir . $instance->IndexFile . '/' . ltrim($link,'/');
     }
-    
+
     public static function designCSS($files)
     {
         $debugOutput = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' );
     	$items = explode(';',$files);
-        
+
     	if ($debugOutput == true) {
     		$logString = '';
-    		$debug = ezcDebug::getInstance(); 
-    	}
-    	    	
-    	$filesToCompress = '';
-    	foreach ($items as $path)
-    	{	
-            $instance = erLhcoreClassSystem::instance();  
-            foreach ($instance->ThemeSite as $designDirectory)
-            {
-                $fileDir = $instance->SiteDir . 'design/'. $designDirectory .'/' . $path; 
-                           
-                
-                if (file_exists($fileDir)) {  
-                	
-                    $fileContent = file_get_contents($fileDir);
-                                        
-                    if ( preg_match_all("/url\(\s*[\'|\"]?([A-Za-z0-9_\-\/\.\\%?&#]+)[\'|\"]?\s*\)/ix", $fileContent, $urlMatches) )
-                    {
-                       $urlMatches = array_unique( $urlMatches[1] );
-                       $cssPathArray   = explode( '/', '/design/'. $designDirectory .'/' . $path );
-                       // Pop the css file name
-                       array_pop( $cssPathArray );
-                       $cssPathCount = count( $cssPathArray );
-                       foreach( $urlMatches as $match )
-                       {
-                           $match = str_replace( '\\', '/', $match );
-                           $relativeCount = substr_count( $match, '../' );
-                           // Replace path if it is realtive
-                           if ( $match[0] !== '/' and strpos( $match, 'http:' ) === false )
-                           {
-                               $cssPathSlice = $relativeCount === 0 ? $cssPathArray : array_slice( $cssPathArray  , 0, $cssPathCount - $relativeCount  );
-                               $newMatchPath = $instance->wwwDir() . implode('/', $cssPathSlice) . '/' . str_replace('../', '', $match);
-                               $fileContent = str_replace( $match, $newMatchPath, $fileContent );
-                           }
-                       }
-                    }
-                    
-                    $filesToCompress .= $fileContent;
-                	break;
-                	
-                } else { 
-                	if ($debugOutput == true)
-    	            $logString .= "Not found IN - ".$fileDir."<br/>";
-                }
-            } 
+    		$debug = ezcDebug::getInstance();
     	}
 
-    	   	
-        $sys = erLhcoreClassSystem::instance()->SiteDir; 
+    	$extensions = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'extensions' );
+    	$instance = erLhcoreClassSystem::instance();
+
+    	$filesToCompress = '';
+    	foreach ($items as $path)
+    	{
+            $fileFound = false;
+
+            /**
+             * Check extension folders first
+             * */
+            foreach ($extensions as $ext) {
+            	$fileDir = $instance->SiteDir . '/extension/' . $ext . '/design/' . $ext .  'theme/'. $path;
+            	if (file_exists($fileDir)) {
+
+            		$fileContent = file_get_contents($fileDir);
+
+            		if ( preg_match_all("/url\(\s*[\'|\"]?([A-Za-z0-9_\-\/\.\\%?&#]+)[\'|\"]?\s*\)/ix", $fileContent, $urlMatches) )
+            		{
+            			$urlMatches = array_unique( $urlMatches[1] );
+            			foreach( $urlMatches as $match )
+            			{
+            				$match = str_replace( '\\', '/', $match );
+            				// Replace path if it is realtive
+            				if ( $match[0] !== '/' and strpos( $match, 'http:' ) === false )
+            				{
+            					$newMatchPath = self::design(str_replace('../', '', $match))."\n";
+            					$fileContent = str_replace( $match, $newMatchPath, $fileContent );
+            				}
+            			}
+            		}
+
+            		$filesToCompress .= $fileContent;
+            		$fileFound = true;
+
+            		if ($debugOutput == true) {
+            			$logString .= "<b>Found IN - ".$fileDir."</b><br/>";
+            		}
+
+            		break;
+
+            	} else {
+            		if ($debugOutput == true)
+            			$logString .= "Not found IN - ".$fileDir."<br/>";
+            	}
+            }
+
+            /**
+             * If not found in any extension use standard search
+             * */
+            if ($fileFound == false) {
+	            // Check themes directories
+	            foreach ($instance->ThemeSite as $designDirectory)
+	            {
+	                $fileDir = $instance->SiteDir . 'design/'. $designDirectory .'/' . $path;
+
+
+	                if (file_exists($fileDir)) {
+
+	                    $fileContent = file_get_contents($fileDir);
+
+	                    if ( preg_match_all("/url\(\s*[\'|\"]?([A-Za-z0-9_\-\/\.\\%?&#]+)[\'|\"]?\s*\)/ix", $fileContent, $urlMatches) )
+	                    {
+	                       $urlMatches = array_unique( $urlMatches[1] );
+	                       foreach( $urlMatches as $match )
+	                       {
+	                           $match = str_replace( '\\', '/', $match );
+	                           // Replace path if it is realtive
+	                           if ( $match[0] !== '/' and strpos( $match, 'http:' ) === false )
+	                           {
+	                               $newMatchPath = self::design(str_replace('../', '', $match))."\n";
+	                               $fileContent = str_replace( $match, $newMatchPath, $fileContent );
+
+	                           }
+	                       }
+	                    }
+
+	                    $filesToCompress .= $fileContent;
+	                    $fileFound = true;
+
+	                    if ($debugOutput == true) {
+	                    	$logString .= "<b>Found IN - ".$fileDir."</b><br/>";
+	                    }
+
+	                	break;
+
+	                } else {
+	                	if ($debugOutput == true)
+	    	            $logString .= "Not found IN - ".$fileDir."<br/>";
+	                }
+	            }
+            }
+    	}
+
+
+        $sys = erLhcoreClassSystem::instance()->SiteDir;
         $filesToCompress = self::optimizeCSS($filesToCompress,3);
         $fileName = md5($filesToCompress.$instance->WWWDirLang);
-        $file = $sys . 'cache/compiledtemplates/'.$fileName.'.css'; 
-        
-        if (!file_exists($file)) {    		   
+        $file = $sys . 'cache/compiledtemplates/'.$fileName.'.css';
+
+        if (!file_exists($file)) {
             file_put_contents($file,$filesToCompress);
         }
-        
-        return $instance->wwwDir() . '/cache/compiledtemplates/'.$fileName.'.css'; 
+
+        if ($debugOutput == true)
+        	$debug->log( $logString, 0, array( "source"  => "shop", "erLhcoreClassDesign" =>  "designCSS - $path" )  );
+
+
+        return $instance->wwwDir() . '/cache/compiledtemplates/'.$fileName.'.css';
     }
-    
+
     public static function mb_wordwrap($str, $width = 75, $break = "\n", $cut = false) {
     	$lines = explode($break, $str);
     	foreach ($lines as &$line) {
@@ -207,7 +281,7 @@ class erLhcoreClassDesign
     	}
     	return implode($break, $lines);
     }
-            
+
     public static function shrt($string = '',$max = 10,$append = '...', $wordrap = 30)
     {
     	$string = str_replace('&nbsp;',' ',$string);
@@ -215,69 +289,122 @@ class erLhcoreClassDesign
     			array('[b]','[/b]','[b]','[/b]','[ul]','[/ul]','[li]','[/li]','[i]','[/i]'),
     			''
     			,strip_tags($string));
-    
+
     	$string = self::mb_wordwrap($string,$wordrap,"\n",true);
-    
+
     	if (mb_strlen($string) <= $max) return htmlspecialchars($string);
     	$cutted = mb_strcut($string,0,$max,'UTF-8').$append;
-    
+
     	return htmlspecialchars($cutted);
     }
-    
+
     public static function designJS($files)
     {
         $debugOutput = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' );
     	$items = explode(';',$files);
-        
+
     	if ($debugOutput == true) {
     		$logString = '';
-    		$debug = ezcDebug::getInstance(); 
+    		$debug = ezcDebug::getInstance();
     	}
-    	    	
+
     	$filesToCompress = '';
+    	$instance = erLhcoreClassSystem::instance();
+    	$extensions = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'extensions' );
+
+
     	foreach ($items as $path)
-    	{	
-            $instance = erLhcoreClassSystem::instance();  
-            foreach ($instance->ThemeSite as $designDirectory)
-            {
-                $fileDir = $instance->SiteDir . 'design/'. $designDirectory .'/' . $path; 
-                                           
-                if (file_exists($fileDir)) {  
-                	
-                    $fileContent = file_get_contents($fileDir);
-                                        
+    	{
+    		$fileFound = false;
+
+    		/**
+    		 * Check extension folders first
+    		 * */
+    		foreach ($extensions as $ext) {
+    			$fileDir = $instance->SiteDir . '/extension/' . $ext . '/design/' . $ext .  'theme/'. $path;
+    			if (file_exists($fileDir)) {
+
+    				$fileContent = file_get_contents($fileDir);
+
                     // normalize line feeds
                     $script = str_replace( array( "\r\n", "\r" ), "\n", $fileContent );
-        
+
                     // remove multiline comments
                     $script = preg_replace( '!(?:\n|\s|^)/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $script );
                     $script = preg_replace( '!(?:;)/\*[^*]*\*+([^/][^*]*\*+)*/!', ';', $script );
-        
+
                     // remove whitespace from start & end of line + singelline comment + multiple linefeeds
                     $script = preg_replace( array( '/\n\s+/', '/\s+\n/', '#\n\s*//.*#', '/\n+/' ), "\n", $script );
-                                     
+
                     $filesToCompress .= $script."\n";
+
+                    $fileFound = true;
+
+                    if ($debugOutput == true) {
+                    	$logString .= "<b>Found IN - ".$fileDir."</b><br/>";
+                    }
+
                 	break;
-                	
-                } else { 
-                	if ($debugOutput == true)
-    	            $logString .= "Not found IN - ".$fileDir."<br/>";
-                }
-            } 
+
+    			} else {
+    				if ($debugOutput == true)
+    					$logString .= "Not found IN - ".$fileDir."<br/>";
+    			}
+    		}
+
+
+    		if ($fileFound == false) {
+	            foreach ($instance->ThemeSite as $designDirectory)
+	            {
+	                $fileDir = $instance->SiteDir . 'design/'. $designDirectory .'/' . $path;
+
+	                if (file_exists($fileDir)) {
+
+	                    $fileContent = file_get_contents($fileDir);
+
+	                    // normalize line feeds
+	                    $script = str_replace( array( "\r\n", "\r" ), "\n", $fileContent );
+
+	                    // remove multiline comments
+	                    $script = preg_replace( '!(?:\n|\s|^)/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $script );
+	                    $script = preg_replace( '!(?:;)/\*[^*]*\*+([^/][^*]*\*+)*/!', ';', $script );
+
+	                    // remove whitespace from start & end of line + singelline comment + multiple linefeeds
+	                    $script = preg_replace( array( '/\n\s+/', '/\s+\n/', '#\n\s*//.*#', '/\n+/' ), "\n", $script );
+
+	                    $filesToCompress .= $script."\n";
+
+	                    $fileFound = true;
+
+	                    if ($debugOutput == true) {
+	                    	$logString .= "<b>Found IN - ".$fileDir."</b><br/>";
+	                    }
+
+	                	break;
+
+	                } else {
+	                	if ($debugOutput == true)
+	    	            $logString .= "Not found IN - ".$fileDir."<br/>";
+	                }
+	            }
+    		}
     	}
-   	   	
-        $sys = erLhcoreClassSystem::instance()->SiteDir;        
+
+        $sys = erLhcoreClassSystem::instance()->SiteDir;
         $fileName = md5($filesToCompress.$instance->WWWDirLang);
-        $file = $sys . 'cache/compiledtemplates/'.$fileName.'.js'; 
-        
-        if (!file_exists($file)) {    		   
+        $file = $sys . 'cache/compiledtemplates/'.$fileName.'.js';
+
+        if (!file_exists($file)) {
             file_put_contents($file,$filesToCompress);
         }
-        
-        return $instance->wwwDir() . '/cache/compiledtemplates/'.$fileName.'.js'; 
+
+        if ($debugOutput == true)
+        	$debug->log( $logString, 0, array( "source"  => "shop", "erLhcoreClassDesign" =>  "designJS - $path" )  );
+
+        return $instance->wwwDir() . '/cache/compiledtemplates/'.$fileName.'.js';
     }
-    
-    
+
+
     /**
      * 'compress' css code by removing whitespace
      *
@@ -320,8 +447,8 @@ class erLhcoreClassDesign
         }
         return $css;
     }
-    
-    
+
+
     private static $moduleTranslations = null;
 }
 
