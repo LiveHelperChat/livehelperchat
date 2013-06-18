@@ -336,7 +336,7 @@
     </message>
     <message>
         <source>Enable/Disable sound about new pending chats</source>
-        <translation>Ativar/Desativar sons de novos chats pendentes</translation>
+        <translation>Ativar/Desativar sons de novov chats pendentes</translation>
     </message>
     <message>
         <source>Enable/Disable sound about new messages from operator</source>
@@ -882,7 +882,7 @@
     </message>
     <message>
         <source>Unread messages</source>
-        <translation>Mensagens não lidas</translation>
+        <translation>Mensagens são lidas</translation>
     </message>
     <message>
         <source>Online users</source>
@@ -2307,7 +2307,7 @@
     </message>
     <message>
         <source>Check for messages from operator</source>
-        <translation>Verificar por mensagens do operador</translation>
+        <translation>Checar por mensagens do operador</translation>
     </message>
     <message>
         <source>On click show page widget</source>
@@ -2362,7 +2362,7 @@
     </message>
     <message>
         <source>Check messages from operators, interval in seconds</source>
-        <translation>Verificar mensagens de operadores, intervalo em segundos</translation>
+        <translation>Checar mensagens de operadores, intervalo em segundos</translation>
     </message>
     <message>
         <source>Please enter valid operator message timeout value!</source>
