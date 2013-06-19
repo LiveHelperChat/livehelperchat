@@ -167,8 +167,19 @@ class erLhcoreClassDesign
             				// Replace path if it is realtive
             				if ( $match[0] !== '/' and strpos( $match, 'http:' ) === false )
             				{
-            					$newMatchPath = self::design(str_replace('../', '', $match))."\n";
-            					$fileContent = str_replace( $match, $newMatchPath, $fileContent );
+            					$appendMatch = '';
+            					$matchOriginal = $match;
+
+            					if (strpos($match, '?') !== false){
+            						$matchParts = explode('?', $match);
+            						$match = $matchParts[0];
+            						$appendMatch = '?'.$matchParts[1];
+            					}
+
+            					$newMatchPath = self::design(str_replace('../', '', $match)).$appendMatch;
+            					$fileContent = str_replace( $matchOriginal, $newMatchPath, $fileContent );
+
+
             				}
             			}
             		}
@@ -205,14 +216,24 @@ class erLhcoreClassDesign
 	                    if ( preg_match_all("/url\(\s*[\'|\"]?([A-Za-z0-9_\-\/\.\\%?&#]+)[\'|\"]?\s*\)/ix", $fileContent, $urlMatches) )
 	                    {
 	                       $urlMatches = array_unique( $urlMatches[1] );
+
 	                       foreach( $urlMatches as $match )
 	                       {
 	                           $match = str_replace( '\\', '/', $match );
 	                           // Replace path if it is realtive
 	                           if ( $match[0] !== '/' and strpos( $match, 'http:' ) === false )
 	                           {
-	                               $newMatchPath = self::design(str_replace('../', '', $match))."\n";
-	                               $fileContent = str_replace( $match, $newMatchPath, $fileContent );
+	                           	   $appendMatch = '';
+	                           	   $matchOriginal = $match;
+
+	                           	   if (strpos($match, '?') !== false){
+	                           	   		$matchParts = explode('?', $match);
+	                           	   		$match = $matchParts[0];
+	                           	   		$appendMatch = '?'.$matchParts[1];
+	                           	   }
+
+	                               $newMatchPath = self::design(str_replace('../', '', $match)).$appendMatch;
+	                               $fileContent = str_replace( $matchOriginal, $newMatchPath, $fileContent );
 
 	                           }
 	                       }
