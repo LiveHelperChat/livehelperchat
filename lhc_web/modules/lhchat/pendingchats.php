@@ -12,7 +12,7 @@ $tpl->set('pages',$pages);
 $Result['content'] = $tpl->fetch();
 
 $Result['path'] = array(
-array('url' =>erLhcoreClassDesign::baseurl('chat/lists'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Chats lists')),
+array('url' =>erLhcoreClassDesign::baseurl('chat/lists'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Chats list')),
 array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Pending chats'))
 );
 

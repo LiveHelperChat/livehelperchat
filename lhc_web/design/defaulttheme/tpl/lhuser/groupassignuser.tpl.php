@@ -1,5 +1,5 @@
 <?php if (isset($assigned) && $assigned == true) : ?>
-<?php $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('user/groupassignuser','User was assigned to group!'); ?>
+<?php $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('user/groupassignuser','User was assigned to the group!'); ?>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>	
 <script>
 setTimeout(function(){

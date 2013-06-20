@@ -1,4 +1,4 @@
-<?php if (isset($request_send)) : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Your request was send!');?>
+<?php if (isset($request_send)) : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Your request was sent!');?>
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php else : ?>
 <form method="post" action="<?php echo erLhcoreClassDesign::baseurl('chat/startchat')?>/(offline)/true/(leaveamessage)/true">

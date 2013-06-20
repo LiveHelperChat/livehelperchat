@@ -42,7 +42,7 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
     $Errors = array();
         
     if ( !$form->hasValidData( 'Username' ) ) {
-        $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Please enter username!');
+        $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Please enter a username!');
     }  elseif ( $form->hasValidData( 'Username' ) && $form->Username != $UserData->username && !erLhcoreClassModelUser::userExists($form->Username) ) {
     	$UserData->username = $form->Username;
     } elseif ( $form->hasValidData( 'Username' ) && $form->Username != $UserData->username) {
@@ -56,12 +56,12 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
     
     if ( !$form->hasValidData( 'Name' ) || $form->Name == '' )
     {
-        $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Please enter name');
+        $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Please enter a name');
     }
     
     if ( !$form->hasValidData( 'Surname' ) || $form->Surname == '')
     {
-        $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Please enter surname');
+        $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Please enter a surname');
     }
     
     if ( $form->hasInputField( 'Password' ) && (!$form->hasInputField( 'Password1' ) || $form->Password != $form->Password1  ) ) // check for optional field
@@ -72,7 +72,7 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
     if ( $form->hasValidData( 'DefaultGroup' ) ) {
     	$UserData->user_groups_id = $form->DefaultGroup;
     } else {
-    	$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Please choose default user group');
+    	$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Please choose a default user group');
     }
         
     if ( $form->hasValidData( 'UserDisabled' ) && $form->UserDisabled == true )

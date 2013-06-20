@@ -1,4 +1,4 @@
-<h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','Send mail to user');?></h2>
+<h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','Send mail to the user');?></h2>
 
 <?php if (isset($errors)) : ?>
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
@@ -42,7 +42,7 @@ setTimeout(function(){
 	<?php endif;?>
 </div>
 
-<textarea name="Message" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','Type your message to user');?>"><?php echo isset($_POST['Message']) ? htmlspecialchars($_POST['Message']) : ''?></textarea>
-<input type="submit" class="button small" name="SendMail" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','Send mail');?>" />
+<textarea name="Message" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','Type your message to the user');?>"><?php echo isset($_POST['Message']) ? htmlspecialchars($_POST['Message']) : ''?></textarea>
+<input type="submit" class="button small" name="SendMail" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','Send the mail');?>" />
 
 </form>

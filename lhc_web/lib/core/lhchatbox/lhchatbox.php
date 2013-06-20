@@ -114,21 +114,21 @@ class erLhcoreClassChatbox {
 
     	if ( !$form->hasValidData( 'ManagerName' ) || $form->ManagerName == '')
     	{
-    		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('faq/view','Please enter manager name!');
+    		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('faq/view','Please enter a manager name!');
     	} else {
     		$chatbox->chat->nick = $form->ManagerName;
     	}
 
     	if ( !$form->hasValidData( 'ChatboxName' ) || $form->ChatboxName == '')
     	{
-    		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('faq/view','Please enter chatbox name!');
+    		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('faq/view','Please enter a chatbox name!');
     	} else {
     		$chatbox->name = $form->ChatboxName;
     	}
 
     	if ( !$form->hasValidData( 'Identifier' ) || $form->Identifier == '')
     	{
-    		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('faq/view','Please enter chatbox identifier!');
+    		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('faq/view','Please enter a chatbox identifier!');
     	} else {
     		$chatbox->identifier = $form->Identifier;
     	}

@@ -24,7 +24,7 @@ if (isset($_POST['Save_departament']))
 
     if ( !$form->hasValidData( 'Name' ) || $form->Name == '' )
     {
-        $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('department/new','Please enter department name');
+        $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('department/new','Please enter a department name');
     }
 
     if ( $form->hasValidData( 'Email' ) ) {

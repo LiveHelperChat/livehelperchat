@@ -1,7 +1,7 @@
 Live helper chat
 ==============
 
-It's open-source powered application. Which brings simplicity and usability in one place. With live helper chat you can bring live support on your site for free. http://livehelperchat.com
+It's an open-source powered application, which brings simplicity and usability in one place. With live helper chat you can bring live support on your site for free. http://livehelperchat.com
 
 ## Demo
 http://livehelperchat.com/demo-12c.html
@@ -26,10 +26,10 @@ Few main features
  * Override default behaviour without changing kernel
  * MVC structure - separated design/logic/models
  * Web and Desktop client Windows/Mac/Linux support.
- * Multiple chats same time
+ * Multiple chats at the same time
  * Multiple operators
  * Site widget
- * Chats transfering
+ * Chats transferring
  * Departments
  * Asynchronous status loading, not blocking site javascript.
  * Online users tracking, including geo detection
@@ -45,7 +45,7 @@ Few main features
  * Module override system
  * Support for custom extensions
  * Changeable footer and header content
- * Option to send messges to anonymous site visitors, (new)
+ * Option to send messages to anonymous site visitors, (new)
  * Flexible permission system:
    * Roles
    * Groups

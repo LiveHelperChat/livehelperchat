@@ -60,25 +60,25 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
     if ( $form->hasValidData( 'OnlineTimeout' )  ) {
         $settingsInstance->setSetting('chat','online_timeout',$form->OnlineTimeout);
     } else {
-        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Please enter valid online timeout value!');
+        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Please enter a valid online timeout value!');
     }
     
     if ( $form->hasValidData( 'SyncForOperatorMessagesEvery' )  ) {
         $settingsInstance->setSetting('chat','check_for_operator_msg',$form->SyncForOperatorMessagesEvery);
     } else {
-        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Please enter valid operator message timeout value!');
+        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Please enter a valid operator message timeout value!');
     }
     
     if ( $form->hasValidData( 'SyncBackOffice' )  ) {
         $settingsInstance->setSetting('chat','back_office_sinterval',$form->SyncBackOffice);
     } else {
-        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Please enter valid back office sync internval!');
+        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Please enter a valid back office sync interval!');
     }
     
     if ( $form->hasValidData( 'SyncForUserMessagesEvery' )  ) {
         $settingsInstance->setSetting('chat','chat_message_sinterval',$form->SyncForUserMessagesEvery);
     } else {
-        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Please enter valid new messages sync internval!');
+        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Please enter a valid new messages sync interval!');
     }
     
     if ( count($Errors) == 0 ) {
@@ -109,6 +109,6 @@ $Result['content'] = $tpl->fetch();
 
 $Result['path'] = array(
 array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','System configuration')),
-array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Synchronisation and sound settings')));
+array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Synchronization and sound settings')));
 
 ?>

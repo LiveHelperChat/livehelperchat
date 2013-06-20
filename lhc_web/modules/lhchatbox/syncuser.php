@@ -58,11 +58,11 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
     }
 
     // Closed
-    if ($chat->status == 2) $status = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Support closed chat window, but You can leave messages, administrator will read them later.');
+    if ($chat->status == 2) $status = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Support has closed the chat window, but You can leave messages, and the administrator will read them later.');
 
 } else {
     $content = 'false';
-    $status = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','You do not have permission to view this chat, or chat was deleted');
+    $status = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','You do not have permission to view this chat, or the chat was deleted');
     $blocked = 'true';
 }
 

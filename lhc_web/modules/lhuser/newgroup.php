@@ -20,7 +20,7 @@ if (isset($_POST['Save_group']) || isset($_POST['Save_group_and_assign_user']))
         
     if ( !$form->hasValidData( 'Name' ) || $form->Name == '' )
     {
-        $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Please enter group name');
+        $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Please enter a group name');
     }
     
     if (count($Errors) == 0)
