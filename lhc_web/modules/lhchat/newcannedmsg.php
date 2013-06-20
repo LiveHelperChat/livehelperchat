@@ -21,7 +21,7 @@ if (isset($_POST['Save_action']))
     
     if ( !$form->hasValidData( 'Message' ) || $form->Message == '' )
     {
-        $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please enter canned message');
+        $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please enter a canned message');
     }
     
     if (count($Errors) == 0)

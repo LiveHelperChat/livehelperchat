@@ -49,17 +49,17 @@ if (isset($_POST['Update_account']))
     
     if ( !$form->hasValidData( 'Name' ) || $form->Name == '' )
     {
-        $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Please enter name');
+        $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Please enter a name');
     }
     
     if ( !$form->hasValidData( 'Surname' ) || $form->Surname == '')
     {
-        $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Please enter surname');
+        $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Please enter a surname');
     } 
     
     if ( !$form->hasValidData( 'Username' ) || $form->Username == '')
     {
-        $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Please enter username');
+        $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Please enter a username');
     }
     
     if ( $form->hasValidData( 'Username' ) && $form->Username != '' && erLhcoreClassModelUser::userExists($form->Username) === true )
@@ -75,7 +75,7 @@ if (isset($_POST['Update_account']))
     if ( $form->hasValidData( 'DefaultGroup' ) ) {
     	$UserData->user_groups_id = $form->DefaultGroup;
     } else {
-    	$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Please choose default user group');
+    	$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Please choose a default user group');
     }
         
     if ( $form->hasValidData( 'UserDisabled' ) && $form->UserDisabled == true )

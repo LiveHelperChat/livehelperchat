@@ -77,7 +77,7 @@ class erLhAbstractModelEmailTemplate {
    								)),
    				'from_email' => array(
    						'type' => 'text',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','From e-mail, if mail was not send for some reason, this mail will get failed delivery message'),
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','From e-mail, if mail was not sent for some reason, this mail will get failed delivery message'),
    						'required' => false,
    						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(

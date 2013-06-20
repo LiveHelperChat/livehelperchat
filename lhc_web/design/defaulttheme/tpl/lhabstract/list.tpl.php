@@ -62,7 +62,7 @@
 
 <?php if (!isset($hide_add)) : ?>
 	<div class="new-record-control">
-		<a class="small button rounde" href="<?php echo erLhcoreClassDesign::baseurl('abstract/new')?>/<?php echo $identifier?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','New');?></a>
+		<a class="small button round" href="<?php echo erLhcoreClassDesign::baseurl('abstract/new')?>/<?php echo $identifier?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','New');?></a>
 	</div>
 	<br>
 <?php endif;?>

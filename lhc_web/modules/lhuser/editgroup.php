@@ -17,7 +17,7 @@ if (isset($_POST['Update_group']) )
     
     if ( !$form->hasValidData( 'Name' ) || $form->Name == '' )
     {
-        $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Please enter group name');
+        $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Please enter a group name');
     }
     
     if (count($Errors) == 0)

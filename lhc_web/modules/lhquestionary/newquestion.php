@@ -31,7 +31,7 @@ if (isset($_POST['SaveAction']))
 
 	if ( !$form->hasValidData( 'Question' ) || $form->Question == '' )
 	{
-		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Please enter question!');
+		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Please enter a question!');
 	} else {
 		$Data->question = $form->Question;
 	}
