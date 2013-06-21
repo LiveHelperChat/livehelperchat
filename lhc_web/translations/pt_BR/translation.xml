@@ -335,6 +335,10 @@
         <translation>Ativar/Desativar sons de novas mensagens de usuários</translation>
     </message>
     <message>
+        <source>Change my status to online/offline</source>
+        <translation>Alterar meu status para online/offline</translation>
+    </message>
+    <message>
         <source>Enable/Disable sound about new pending chats</source>
         <translation>Ativar/Desativar sons de novos chats pendentes</translation>
     </message>
@@ -2149,7 +2153,7 @@
         <translation>Pendente membro do pessoal de apoio para participar, você pode escrever suas perguntas, assim apoiar funcionário confirmam este bate-papo, ele vai começar suas mensagens.</translation>
     </message>
     <message>
-        <source>Support staff member have joined this chat</source>
+        <source>Support staff member has joined this chat</source>
         <translation>Um membro da equipe de apoio se juntou a esta conversa</translation>
     </message>
     <message>
@@ -2543,6 +2547,10 @@
     <message>
         <source>New chat notification settings</source>
         <translation>Configurações de notificação de novos chats</translation>
+    </message>
+    <message>
+        <source>SMTP settings</source>
+        <translation>Configurações de SMTP</translation>
     </message>
     <message>
         <source>Request notification permission</source>
@@ -3198,6 +3206,37 @@
     <message>
         <source>Chatbox active</source>
         <translation>Chatbox ativo</translation>
+    </message>
+</context>
+<context>
+    <name>system/smtp</name>
+    <message>
+        <source>SMTP settings</source>
+        <translation>Configurações de SMTP</translation>
+    </message>
+    <message>
+        <source>Settings updated</source>
+        <translation>Configurações atualizadas</translation>
+    </message>
+    <message>
+        <source>SMTP enabled</source>
+        <translation>SMTP ativado</translation>
+    </message>
+    <message>
+        <source>Login</source>
+        <translation>Login</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Senha</translation>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation>Endereço</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Porta</translation>
     </message>
 </context>
 </TS>
