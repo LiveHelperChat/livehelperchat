@@ -11,7 +11,7 @@
     </div>
 </div>
 
-<p class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Copy the code from the textarea to page where you want it to be rendered');?></p>
+<p class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Copy the code from the textarea to the page where you want it to be rendered');?></p>
 e 
 <textarea style="width:100%;height:180px;font-size:12px;" id="HMLTContent" ></textarea>
 

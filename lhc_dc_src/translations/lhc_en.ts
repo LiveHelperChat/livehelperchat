@@ -256,7 +256,7 @@
         <translation>Chat rooms</translation>
     </message>
 	<message>
-        <source>About</source>
+        <source>Waiting for action..</source>
         <translation>About</translation>
     </message>
 	<message>

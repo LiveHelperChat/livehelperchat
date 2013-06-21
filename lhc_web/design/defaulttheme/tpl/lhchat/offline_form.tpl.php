@@ -1,4 +1,4 @@
-<h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','There are no online operators at the moment, please leave your message')?></h3>
+<h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','There are no online operators at the moment, please leave a message')?></h3>
 
 <?php if (isset($request_send)) : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Your request was sent!');?>
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
