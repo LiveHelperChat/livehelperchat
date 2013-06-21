@@ -225,7 +225,7 @@
     </message>
 	<message>
         <source>You have a new chat pending. To start the chat click me.</source>
-        <translation>You havea new chat pending. To start the chat click me.</translation>
+        <translation>You have a new chat pending. To start the chat click me.</translation>
     </message>
 	<message>
         <source>A new chat has been transferred to you, to start the chat click me.</source>
@@ -256,7 +256,7 @@
         <translation>Chat rooms</translation>
     </message>
 	<message>
-        <source>About</source>
+        <source>Waiting for action...</source>
         <translation>About</translation>
     </message>
 	<message>
