@@ -16,7 +16,7 @@ setTimeout(function(){
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>	
 <?php endif; ?>
 
-<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','If message was already sent, this will mark the message as not delivered and the user will be shown chat message again.');?></p>
+<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','If message was already sent, this will mark the message as not delivered and the user will be shown the chat message again.');?></p>
 
 <form action="" method="post">
 
