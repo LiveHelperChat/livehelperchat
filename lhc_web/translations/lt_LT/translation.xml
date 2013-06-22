@@ -52,7 +52,7 @@
         <translation>Išskleisti widgetą automatiškai naujiems lankytojams</translation>
     </message>
     <message>
-        <source>Copy code from textarea to page header or footer</source>
+        <source>Copy the code from the textarea to the page header or footer</source>
         <translation>Nukopijuokite tekstą į puslapio head dalį arba footeri</translation>
     </message>
 </context>
@@ -91,7 +91,7 @@
         <translation>Įveskite savo atsiliepimą!</translation>
     </message>
     <message>
-        <source>Please choose one of the option!</source>
+        <source>Please choose one of the options!</source>
         <translation>Pasirinkite vieną iš galimų variantų!</translation>
     </message>
 </context>
@@ -186,7 +186,7 @@
 <context>
     <name>questionary/edit</name>
     <message>
-        <source>Please enter question!</source>
+        <source>Please enter a question!</source>
         <translation>Prašome įvesti klausimą!</translation>
     </message>
     <message>
@@ -234,7 +234,7 @@
         <translation>Redaguoti</translation>
     </message>
     <message>
-        <source>Please enter option!</source>
+        <source>Please enter an option!</source>
         <translation>Prašome įvesti parinktį!</translation>
     </message>
     <message>
@@ -281,7 +281,7 @@
         <translation>Prioritetas</translation>
     </message>
     <message>
-        <source>Edit question</source>
+        <source>Edit a question</source>
         <translation>Redaguoti klausimą</translation>
     </message>
     <message>
@@ -378,7 +378,7 @@
         <translation>Redaguoti paruoštą žinutę</translation>
     </message>
     <message>
-        <source>Please enter canned message</source>
+        <source>Please enter a canned message</source>
         <translation>Prašome įvesti paruoštą žinutę</translation>
     </message>
 </context>
@@ -465,6 +465,10 @@
         <translation>Slaptažodžio atstatymas - naujas slaptažodis</translation>
     </message>
     <message>
+        <source>Hash was not found or was used already</source>
+        <translation>Maišos raktas nebuvo rastas arba buvo jau panaudotas</translation>
+    </message>
+    <message>
         <source>Update</source>
         <translation>Atnaujinti</translation>
     </message>
@@ -473,7 +477,7 @@
         <translation>Naujas slaptažodis:</translation>
     </message>
     <message>
-        <source>New password has been send to your email.</source>
+        <source>New password has been sent to your email.</source>
         <translation>Naujas slaptažodis buvo išiųstas į Jūsų el. paštą.</translation>
     </message>
     <message>
@@ -492,7 +496,7 @@
         <translation>Nekorektiškas el. pašto adresas!</translation>
     </message>
     <message>
-        <source>Click this link and to You will be send new password</source>
+        <source>Click this link and You will be sent a new password</source>
         <translation>Paspauskite nuorodą ir Jums bus atsiųstas naujas slaptažodis</translation>
     </message>
     <message>
@@ -530,23 +534,23 @@
 <context>
     <name>chat/sendnotice</name>
     <message>
-        <source>Send message to user</source>
+        <source>Send message to the user</source>
         <translation>Siųsti žinutę vartotojui</translation>
     </message>
     <message>
-        <source>Message was send to user</source>
+        <source>Message was sent to the user</source>
         <translation>Žinutė buvo išsiųsta vartotojui</translation>
     </message>
     <message>
-        <source>If message was already send, this will mark message as not delivered and to user again will be shown chat message.</source>
+        <source>If message was already sent, this will mark the message as not delivered and the user will be shown the chat message again.</source>
         <translation>Jei žinutė buvo jau išsiųsta, tai pažymės žinutę kaip nepristatytą ir vartotojui bus parodytas naujas pranešimas.</translation>
     </message>
     <message>
-        <source>Type your message to user</source>
+        <source>Type your message to the user</source>
         <translation>Parašykite savo žinutę vartotojui</translation>
     </message>
     <message>
-        <source>Send message</source>
+        <source>Send the message</source>
         <translation>Siųsti žinutę</translation>
     </message>
 </context>
@@ -673,15 +677,15 @@
         <translation>Peržiūrėkite paslaugos teikimo sąlygas ir taisykles</translation>
     </message>
     <message>
-        <source>Country code variable does not exists!</source>
+        <source>Country code variable does not exist!</source>
         <translation>Šalies kodo kintamsis neegzistuoja!</translation>
     </message>
     <message>
-        <source>Please enter API key!</source>
+        <source>Please enter the API key!</source>
         <translation>Prašome įvesti API raktą!</translation>
     </message>
     <message>
-        <source>Please enter API username!</source>
+        <source>Please enter the API username!</source>
         <translation>Prašome įvesti API vartotojo vardą!</translation>
     </message>
     <message>
@@ -689,7 +693,7 @@
         <translation>Prašome pasirinkti paslaugos tiekėją!</translation>
     </message>
     <message>
-        <source>Country name variable does not exists!</source>
+        <source>Country name variable does not exist!</source>
         <translation>Šalies pavadinimo kintamsis neegzistuoja!</translation>
     </message>
     <message>
@@ -697,7 +701,7 @@
         <translation>Šalies nustatymo serverio kintamieji</translation>
     </message>
     <message>
-        <source>Setting service provider failed, please check that your service provider allows to make requests to remote pages!</source>
+        <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages!</source>
         <translation>Nustatyti tiekėją nepavyko, prašome patikrinti ar hostingo tiekėjas leidžia siųsti užklausas į nutolusius puslapius!</translation>
     </message>
     <message>
@@ -720,7 +724,7 @@
         <translation>Tuščia...</translation>
     </message>
     <message>
-        <source>Chats lists</source>
+        <source>Chats list</source>
         <translation>Pokalbių sąrašai</translation>
     </message>
     <message>
@@ -732,7 +736,7 @@
         <translation>Informacija</translation>
     </message>
      <message>
-        <source>Open in new window</source>
+        <source>Open in a new window</source>
         <translation>Atidaryti naujam lange</translation>
     </message>
     <message>
@@ -759,7 +763,7 @@
 <context>
     <name>chat/pendingchats</name>
     <message>
-        <source>Chats lists</source>
+        <source>Chats list</source>
         <translation>Pokalbių sąrašai</translation>
     </message>
     <message>
@@ -779,7 +783,7 @@
         <translation>Informacija</translation>
     </message>
      <message>
-        <source>Open in new window</source>
+        <source>Open in a new window</source>
         <translation>Atidaryti naujam lange</translation>
     </message>
     <message>
@@ -814,7 +818,7 @@
         <translation>Aktyvūs pokalbiai</translation>
     </message>
     <message>
-        <source>Chats lists</source>
+        <source>Chats list</source>
         <translation>Pokalbių sąrašai</translation>
     </message>
     <message>
@@ -826,7 +830,7 @@
         <translation>Informacija</translation>
     </message>
      <message>
-        <source>Open in new window</source>
+        <source>Open in a new window</source>
         <translation>Atidaryti naujam lange</translation>
     </message>
     <message>
@@ -869,7 +873,7 @@
         <translation>Pokalbiai pervesti Jūsų departamentui</translation>
     </message>
     <message>
-        <source>Chats transfered to you directly</source>
+        <source>Chats transferred to you directly</source>
         <translation>Pokalbiai pervesti Jums tiesiogiai</translation>
     </message>
     <message>
@@ -877,11 +881,11 @@
         <translation>Klausimynas</translation>
     </message>
     <message>
-        <source>Transfered to you</source>
+        <source>Transferred to you</source>
         <translation>Pervesti Jums</translation>
     </message>
     <message>
-        <source>Transfered to your department</source>
+        <source>Transferred to your department</source>
         <translation>Pervesti į Jūsų departamentą</translation>
     </message>
     <message>
@@ -901,7 +905,7 @@
         <translation>Titulinis puslapis</translation>
     </message>
     <message>
-        <source>Chats lists</source>
+        <source>Chats list</source>
         <translation>Pokalbių sąrašai</translation>
     </message>
     <message>
@@ -937,7 +941,7 @@
         <translation>Laukiantys patvirtinimo</translation>
     </message>
     <message>
-        <source>Open in new window</source>
+        <source>Open in a new window</source>
         <translation>Atidaryti naujam lange</translation>
     </message>
     <message>
@@ -1067,7 +1071,7 @@
         <translation>Vartotojo vardas</translation>
     </message>
     <message>
-        <source>User was assigned to group!</source>
+        <source>User was assigned to the group!</source>
         <translation>Vartotojas buvo priskirtas grupei!</translation>
     </message>
     <message>
@@ -1136,7 +1140,7 @@
 <context>
     <name>chat/sendmail</name>
     <message>
-        <source>Send mail to user</source>
+        <source>Send mail to the user</source>
         <translation>Siųsti laišką vartotojui</translation>
     </message>
     <message>
@@ -1160,11 +1164,11 @@
         <translation>Nuo ko, el. paštas</translation>
     </message>
     <message>
-        <source>Type your message to user</source>
+        <source>Type your message to the user</source>
         <translation>Įveskite savo žinutę vartotojui</translation>
     </message>
     <message>
-        <source>Send mail</source>
+        <source>Send the mail</source>
         <translation>Siųsti laišką</translation>
     </message>
     <message>
@@ -1211,7 +1215,7 @@
         <translation>IP</translation>
     </message>
     <message>
-        <source>User who blocked</source>
+        <source>Users who are blocked</source>
         <translation>Vartotojas, kuris užblokavo</translation>
     </message>
     <message>
@@ -1289,7 +1293,7 @@
 <context>
     <name>chat/syncuser</name>
     <message>
-        <source>You do not have permission to view this chat, or chat was deleted</source>
+        <source>You do not have permission to view this chat, or the chat was deleted</source>
         <translation>Jūs neturite teisės peržiūrėti šį pokalbį arba pokalbis buvo ištrintas</translation>
     </message>
     <message>
@@ -1297,12 +1301,23 @@
         <translation>Palaikymas</translation>
     </message>
     <message>
-        <source>Support staff member has closed this chat</source>
+        <source>A support staff member has closed this chat</source>
         <translation>Priežiūros personalo narys uždarė pokalbį</translation>
     </message>
     <message>
-        <source>Support closed chat window, but You can leave messages, administrator will read them later.</source>
+        <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
         <translation>Atsakingas asmuo uždarė pokalbio langą, bet Jūs galite palikti žinutes, administratorius perskaitys jas vėliau.</translation>
+    </message>
+</context>
+<context>
+    <name>departament/edit</name>
+    <message>
+        <source>Please enter a department name</source>
+        <translation>Prašome įvesti departamento vardą</translation>
+    </message>
+    <message>
+        <source>Edit a department</source>
+        <translation>Redaguoti departamentą</translation>
     </message>
 </context>
 <context>
@@ -1650,7 +1665,7 @@
     <name>chat/errors/adminchatnopermission</name>
     <message>
         <source>You do not have permission to access current chat!</source>
-        <translation>Jūs neturite teisės prieiti prie šio pokalbio!</translation>
+        <translation>You do not have permission to access the current chat!</translation>
     </message>
 </context>
 <context>
@@ -1783,7 +1798,7 @@
 <context>
     <name>chat/deletechatadmin</name>
     <message>
-        <source>You do not have rights to delete chat</source>
+        <source>You do not have rights to delete a chat</source>
         <translation>Jūs neturite teisės ištrinti šio pokalbio</translation>
     </message>
 </context>
@@ -1873,11 +1888,11 @@
         <translation>Pašalinti rolę iš grupės</translation>
     </message>
     <message>
-        <source>Remove user from group</source>
+        <source>Remove user from the group</source>
         <translation>Pašalinti vartotoją iš grupės</translation>
     </message>
     <message>
-        <source>Please enter group name</source>
+        <source>Please enter a group name</source>
         <translation>Prašome įvesti grupės pavadinimą</translation>
     </message>
 </context>
@@ -1888,11 +1903,23 @@
         <translation>Maksimum 50 ženklų</translation>
     </message>
     <message>
+        <source>Maximum 500 characters for message</source>
+        <translation>Maksimum 500 ženklų žinutėje</translation>
+    </message>
+    <message>
         <source>Leave a message</source>
         <translation>Palikite žinutę</translation>
     </message>
     <message>
-        <source>There is no online operators at the moment, please leave your message</source>
+        <source>Fill form to start chat</source>
+        <translation>Fill in the form to start a chat</translation>
+    </message>
+    <message>
+        <source>There are no online operators at the moment, please leave a message</source>
+        <translation>Šiuo metu nėra prisijungusių operatorių, prašome palikti žinutę</translation>
+    </message>
+    <message>
+        <source>There are no online operators at the moment, please leave your message</source>
         <translation>Šiuo metu nėra prisijungusių operatorių, prašome palikti žinutę</translation>
     </message>
     <message>
@@ -1902,6 +1929,10 @@
     <message>
         <source>Enter your message</source>
         <translation>Įveskite žinutę</translation>
+    </message>
+    <message>
+        <source>Your request was sent!</source>
+        <translation>Jūsų užklausa buvo išsiųsta!</translation>
     </message>
     <message>
         <source>Please enter your message</source>
@@ -1991,7 +2022,7 @@
         <translation>Uždaryti pokalbį</translation>
     </message>
     <message>
-        <source>Open in new window</source>
+        <source>Open in a new window</source>
         <translation>Atidaryti naujam lange</translation>
     </message>
     <message>
@@ -2033,7 +2064,7 @@
         <translation>Patvirtinti pokalbį</translation>
     </message>
     <message>
-        <source>Open in new window</source>
+        <source>Open in a new window</source>
         <translation>Atidaryti naujam lange</translation>
     </message>
     <message>
@@ -2088,7 +2119,7 @@
         <translation>Patvirtinti pokalbį</translation>
     </message>
     <message>
-        <source>Open in new window</source>
+        <source>Open in a new window</source>
         <translation>Atidaryti naujam lange</translation>
     </message>
     <message>
@@ -2149,15 +2180,15 @@
 <context>
     <name>chat/checkchatstatus</name>
     <message>
-        <source>Pending support staff member to join, you can write your questions, as soon support staff member confirm this chat, he will get your messages</source>
+        <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
         <translation>Laukiama priežiūros personalo nario prisijungiant, Jūs galite rašyti žinutes, kai tik atsakingas narys prisijungs jis gaus Jūsų žinutes</translation>
     </message>
     <message>
-        <source>Support staff member has joined this chat</source>
+        <source>A support staff member has joined this chat</source>
         <translation>Priežiūros personalo narys prisijungė prie pokalbio</translation>
     </message>
     <message>
-        <source>At this moment there are no logged members, but you can leave your messages</source>
+        <source>At this moment there are no logged in support staff members, but you can leave your messages</source>
         <translation>Šiuo metu nėra prisijungusių atsakingų asmenų, tačiau jūs galite palikti žinutę</translation>
     </message>
     <message>
@@ -2238,7 +2269,7 @@
         <translation>HTML kodas</translation>
     </message>
     <message>
-        <source>Show leave a message form then there is no online operators</source>
+        <source>Show leave a message form when there are no online operators</source>
         <translation>Rodyti palikite žinutę langą, kai nėra prisijungusių operatorių</translation>
     </message>
     <message>
@@ -2294,11 +2325,11 @@
         <translation>Aukštis</translation>
     </message>
     <message>
-        <source>Copy code from textarea to footer, before closing &lt;/body&gt; tag</source>
+        <source>Copy the code from the textarea to the footer, before the closing &lt;/body&gt; tag</source>
         <translation>Nukopijuokite žemiau esantį kodą į tą vietą, kur norite kad būtų matoma jūsų prisijungimo būsena</translation>
     </message>
     <message>
-        <source>Copy code from textarea to page where you want page to be rendered</source>
+        <source>Copy code from the textarea to the page where you want it to be rendered</source>
         <translation>Nukopijuokite žemiau esantį kodą į tą vietą, kur norite kad būtų matomas įskiepis</translation>
     </message>
     <message>
@@ -2310,7 +2341,7 @@
         <translation>Pozicija nuo viršaus, naudojamas jei pasirinktas vidurys kairėje arba dešinėje</translation>
     </message>
     <message>
-        <source>Check for messages from operator</source>
+        <source>Check for messages from the operator</source>
         <translation>Tikrinti ar nėra žinučių iš operatorių</translation>
     </message>
     <message>
@@ -2326,7 +2357,7 @@
         <translation>Pozicija</translation>
     </message>
     <message>
-        <source>Native placement - will be shown where html is embeded</source>
+        <source>Native placement - will be shown where the html is embedded</source>
         <translation>Įerpimo pozicija - bus rodoma ten kur įdėtas HTML kodas</translation>
     </message>
     <message>
@@ -2346,11 +2377,11 @@
         <translation>Rodyti ekrano kairėje pusėje per vidurį</translation>
     </message>
     <message>
-        <source>Hide status then offline</source>
+        <source>Hide status when offline</source>
         <translation>Nerodyti būsenos, kai nėra prisijungusių operatorių</translation>
     </message>
     <message>
-        <source>Copy code from textarea to page where you want your status to appear</source>
+        <source>Copy the code from the textarea to the page where you want your status to appear</source>
         <translation>Nukopijuokite žemiau esantį kodą į tą vietą, kur norite kad būtų matoma jūsų prisijungimo būsena</translation>
     </message>
     <message>
@@ -2369,7 +2400,7 @@
         <translation>Tikrint ar nėra žinučių iš operatorių, intervalas sekundėmis</translation>
     </message>
     <message>
-        <source>Please enter valid operator message timeout value!</source>
+        <source>Please enter a valid operator message timeout value!</source>
         <translation>Prašome įvesti validų žinučių iš operatoriaus tikrinimo intervalą!</translation>
     </message>
     <message>
@@ -2409,19 +2440,19 @@
         <translation>Groti garsą apie naują žinutę klientui</translation>
     </message>
     <message>
-        <source>Synchronisation and sound settings</source>
+        <source>Synchronization and sound settings</source>
         <translation>Sinchronizacijos ir garso nustatymai</translation>
     </message>
     <message>
-        <source>Please enter valid online timeout value!</source>
+        <source>Please enter a valid online timeout value!</source>
         <translation>Prašome įvesti validų būvimo prisijungus intervalą!</translation>
     </message>
     <message>
-        <source>Please enter valid back office sync internval!</source>
+        <source>Please enter a valid back office sync interval!</source>
         <translation>Prašome įvesti validų naujų užklausų sinchronizavimo intervalą!</translation>
     </message>
     <message>
-        <source>Please enter valid new messages sync internval!</source>
+        <source>Please enter a valid new messages sync interval!</source>
         <translation>Prašome įvesti korektišką naujų žinučių sinchronizavimo intervalą!</translation>
     </message>
 </context>
@@ -2468,11 +2499,11 @@
         <translation>Žinutė</translation>
     </message>
     <message>
-        <source>Please choose at least one field for popup</source>
+        <source>Please choose at least one field for a popup</source>
         <translation>Prašome prisijungti bent vieną lauką popupui</translation>
     </message>
     <message>
-        <source>Please choose at least one field for page widget</source>
+        <source>Please choose at least one field for a page widget</source>
         <translation>Prašome prisijungti bent vieną lauką vidiniam puslapio popupui</translation>
     </message>
 </context>
@@ -2490,7 +2521,7 @@
         <translation>El. pašto šablonai</translation>
     </message>
     <message>
-        <source>Recipient email, this is used if application could not determine who should receive an email.</source>
+        <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
         <translation>Gavėjo el. paštas, naudojamas kai nenustatomas konkretus gavėjas.</translation>
     </message>
     <message>
@@ -2510,7 +2541,7 @@
         <translation>Leisti keisti siuntėjo el. pašto adresą</translation>
     </message>
     <message>
-        <source>From e-mail, if mail was not send for some reason, this mail will get failed delivery message</source>
+        <source>From e-mail, if mail was not sent for some reason, this mail will get a failed delivery message</source>
         <translation>Siuntėjo el. pašto adresas, jei dėl kažkokios priežasties laiškas nebus pristatytas, šitas el. pašto adresas gaus pranešimą.</translation>
     </message>
     <message>
@@ -2569,7 +2600,7 @@
         <translation>Pokalbio pradžios formos nustatymai</translation>
     </message>
     <message>
-        <source>Synchronisation and sound settings</source>
+        <source>Synchronization and sound settings</source>
         <translation>Sinchronizacijos ir garso nustatymai</translation>
     </message>
     <message>
@@ -2577,7 +2608,7 @@
         <translation>Pokalbių nustatymai</translation>
     </message>
     <message>
-        <source>Chat ralated</source>
+        <source>Chat related</source>
         <translation>Susiję su pokalbiais</translation>
     </message>
     <message>
@@ -2620,7 +2651,7 @@
 <context>
     <name>department/new</name>
     <message>
-        <source>Please enter department name</source>
+        <source>Please enter a department name</source>
         <translation>Prašome įvesti departamento vardą</translation>
     </message>
     <message>
@@ -2722,7 +2753,7 @@
         <translation>Slaptažodis</translation>
     </message>
     <message>
-        <source>Repeat password</source>
+        <source>Repeat the password</source>
         <translation>Pakartokite slaptažodį</translation>
     </message>
     <message>
@@ -2750,15 +2781,15 @@
         <translation>Pavardė</translation>
     </message>
     <message>
-        <source>Do not enter password unless you want to change it</source>
+        <source>Do not enter a password unless you want to change it</source>
         <translation>Neveskite slaptažodžio nebent norite jį pakeisti</translation>
     </message>
     <message>
-        <source>Please enter name</source>
+        <source>Please enter a name</source>
         <translation>Prašome įvesti vardą</translation>
     </message>
     <message>
-        <source>Please enter surname</source>
+        <source>Please enter a surname</source>
         <translation>Prašome įvesti pavardę</translation>
     </message>
     <message>
@@ -2781,7 +2812,7 @@
         <translation>Sistemos konfigūracija</translation>
     </message>
     <message>
-        <source>Please choose default user group</source>
+        <source>Please choose a default user group</source>
         <translation>Prašome pasirinkti vartotojo grupę</translation>
     </message>
     <message>
@@ -2849,15 +2880,15 @@
         <translation>Pavardė</translation>
     </message>
     <message>
-        <source>Please enter name</source>
+        <source>Please enter a name</source>
         <translation>Prašome įvesti vardą</translation>
     </message>
     <message>
-        <source>Please enter surname</source>
+        <source>Please enter a surname</source>
         <translation>Prašome įvesti pavardę</translation>
     </message>
     <message>
-        <source>Please enter username</source>
+        <source>Please enter a username</source>
         <translation>Prašome įvesti vartotojo vardą</translation>
     </message>
     <message>
@@ -2916,11 +2947,11 @@
         <translation>Uždarytų pokalbių kortelė matoma</translation>
     </message>
     <message>
-        <source>Enter new password</source>
+        <source>Enter a new password</source>
         <translation>Įveskite naują slaptažodį</translation>
     </message>
     <message>
-        <source>Repeat new password</source>
+        <source>Repeat the new password</source>
         <translation>Pakartokite naują slaptažodį</translation>
     </message>
     <message>
@@ -2940,7 +2971,7 @@
         <translation>Paskyra</translation>
     </message>
     <message>
-        <source>Do not enter password unless you want to change it</source>
+        <source>Do not enter a password unless you want to change it</source>
         <translation>Neveskite slaptažodžio nebent norite jį pakeisti</translation>
     </message>
     <message>
@@ -2996,11 +3027,11 @@
         <translation>Pavardė</translation>
     </message>
     <message>
-        <source>Please enter name</source>
+        <source>Please enter a name</source>
         <translation>Prašome įvesti vardą</translation>
     </message>
     <message>
-        <source>Please enter surname</source>
+        <source>Please enter a surname</source>
         <translation>Prašome įvesti pavardę</translation>
     </message>
 </context>
@@ -3081,12 +3112,24 @@
         <translation>DUK aprašymas</translation>
     </message>
     <message>
-        <source>Please enter question!</source>
+        <source>Please enter a question!</source>
         <translation>Prašome įvesti klausimą!</translation>
     </message>
     <message>
         <source>FAQ</source>
         <translation>DUK</translation>
+    </message>
+    <message>
+        <source>Please enter a manager name!</source>
+        <translation>Prašome įvesti valdytojo vardą!</translation>
+    </message>
+    <message>
+        <source>Please enter a chatbox name!</source>
+        <translation>Prašome įvesti chatbox pavadinimą!</translation>
+    </message>
+    <message>
+        <source>Please enter a chatbox identifier!</source>
+        <translation>Prašome įvesti chatbox dentifikatorių!</translation>
     </message>
 </context>
 <context>
@@ -3116,7 +3159,7 @@
         <translation>Siųsti klausimą</translation>
     </message>
     <message>
-        <source>Please enter question!</source>
+        <source>Please enter a question!</source>
         <translation>Prašome įvesti klausima!</translation>
     </message>
 </context>
@@ -3187,6 +3230,17 @@
     <message>
         <source>Identifier</source>
         <translation>Identifikatorius</translation>
+    </message>
+</context>
+<context>
+    <name>user/forgotpasswordsent</name>
+    <message>
+        <source>Password remind</source>
+        <translation>Slaptažodžio priminimas</translation>
+    </message>
+    <message>
+        <source>E-mail sent. Click the link in the email and You will be sent out a new password.</source>
+        <translation>El. paštas išsiųstas. Paspauskite nuorodą el. laiške ir Jums bus atsiųstas naujas slaptažodis.</translation>
     </message>
 </context>
 <context>

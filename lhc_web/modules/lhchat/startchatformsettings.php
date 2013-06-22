@@ -172,11 +172,11 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
     }
 
     if ($hasValidPopupData == false){
-        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Please choose at least one field for popup');
+        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Please choose at least one field for a popup');
     }
     
     if ($hasWidgetData == false){
-        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Please choose at least one field for page widget');
+        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Please choose at least one field for a page widget');
     }
        
     if ( count($Errors) == 0 ) {

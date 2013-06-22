@@ -44,7 +44,7 @@
 
 			<div class="section-container auto" data-section="auto">
 			  <section>
-			    <p class="title" data-section-title><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Chats transfered to you directly');?>" href="#panel1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Transfered to you');?><span class="tru-cnt"></span></a></p>
+			    <p class="title" data-section-title><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Chats transferred to you directly');?>" href="#panel1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Transferred to you');?><span class="tru-cnt"></span></a></p>
 			    <div class="content" data-section-content>
 			      <div id="right-transfer-chats">
 		        		<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Empty...');?></p>
@@ -52,7 +52,7 @@
 			    </div>
 			  </section>
 			  <section>
-			    <p class="title" data-section-title><a href="#panel2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Transfered to your department');?><span class="trd-cnt"></span></a></p>
+			    <p class="title" data-section-title><a href="#panel2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Transferred to your department');?><span class="trd-cnt"></span></a></p>
 			    <div class="content" data-section-content>
 			      <div id="right-transfer-departments">
 		        		<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Empty...');?></p>

@@ -53,7 +53,7 @@ if ($votingRelative !== false) {
 		{
 			$votingAnswer->option_id = $form->Option;
 		} else {
-			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/votingwidget','Please choose one of the option!');
+			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/votingwidget','Please choose one of the options!');
 		}
 
 		if ( $form->hasValidData( 'QuestionID' ))
