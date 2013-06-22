@@ -109,7 +109,7 @@ if ( isset($_POST['send']) )
 	$Errors = array();
 
 	if ( !$form->hasValidData( 'question' ) || $form->question == '') {
-		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','Please enter question!');
+		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','Please enter a question!');
 	} else {
 		$item_new->question = $form->question;
 	}

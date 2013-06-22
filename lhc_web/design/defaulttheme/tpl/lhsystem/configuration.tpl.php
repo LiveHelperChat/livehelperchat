@@ -4,7 +4,7 @@
 
 <div class="row">
 <div class="columns small-6">
-<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Chat ralated');?></h4>
+<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Chat related');?></h4>
 <ul class="circle small-list">
     <?php if ($currentUser->hasAccessTo('lhdepartament','list')) : ?>
     <li><a href="<?php echo erLhcoreClassDesign::baseurl('departament/departaments')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Departments');?></a></li>
@@ -19,7 +19,7 @@
     <?php if ($currentUser->hasAccessTo('lhchat','administrateconfig')) : ?>
     <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/listchatconfig')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Chat configuration');?></a></li>
     <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/geoconfiguration')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','GEO detection configuration');?></a></li>
-    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/syncandsoundesetting')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Synchronisation and sound settings');?></a></li>
+    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/syncandsoundesetting')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Synchronization and sound settings');?></a></li>
     <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/startchatformsettings')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Start chat form settings');?></a></li>
     <?php endif; ?>
 

@@ -2,7 +2,7 @@
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhuser/remindpassword.tpl.php');
 
-$msg = erTranslationClassLhTranslation::getInstance()->getTranslation('user/remindpassword','Hash not found or was used already');
+$msg = erTranslationClassLhTranslation::getInstance()->getTranslation('user/remindpassword','Hash was not found or was used already');
 
 $hash = $Params['user_parameters']['hash'];
 
@@ -44,7 +44,7 @@ if ($hash != '') {
 			$mail->Send();
 			$mail->ClearAddresses();
 
-			$msg = erTranslationClassLhTranslation::getInstance()->getTranslation('user/remindpassword','New password has been send to your email.');
+			$msg = erTranslationClassLhTranslation::getInstance()->getTranslation('user/remindpassword','New password has been sent to your email.');
 
 			erLhcoreClassModelForgotPassword::deleteHash($hashData['id']);
 

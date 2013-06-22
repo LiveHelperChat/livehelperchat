@@ -55,7 +55,7 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
                 } elseif ($Chat->support_informed == 0 && $Chat->user_status == 0) {
                     $Chat->support_informed = 1;
                     erLhcoreClassChat::getSession()->update($Chat);
-                    $ReturnMessages[] = array('chat_id' => $chat_id, 'content' => $tpl->fetch( 'lhchat/userjoinged.tpl.php'), 'message_id' => $MessageID);
+                    $ReturnMessages[] = array('chat_id' => $chat_id, 'content' => $tpl->fetch( 'lhchat/userjoined.tpl.php'), 'message_id' => $MessageID);
                 }
             }
 

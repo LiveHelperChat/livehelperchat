@@ -59,7 +59,7 @@
     </div>
 </div>
 
-<p class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/htmlcode','Copy code from textarea to footer, before closing &lt;/body&gt; tag');?></p>
+<p class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/htmlcode','Copy the code from the textarea to the footer, before the closing &lt;/body&gt; tag');?></p>
 <textarea style="width:100%;height:180px;font-size:12px;" id="HMLTContent" ></textarea>
 
 <script type="text/javascript">

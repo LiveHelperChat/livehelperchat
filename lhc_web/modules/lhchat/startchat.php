@@ -164,6 +164,6 @@ if (isset($_POST['URLRefer']))
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'userchat';
 
-$Result['path'] = array(array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Fill form to start chat')))
+$Result['path'] = array(array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Fill in the form to start a chat')))
 
 ?>

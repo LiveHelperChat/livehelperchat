@@ -38,7 +38,7 @@ if (isset($_POST['UpdateAction']) || isset($_POST['SaveAction'])  )
 
 	if ( !$form->hasValidData( 'Question' ) || $form->Question == '' )
 	{
-		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Please enter question!');
+		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Please enter a question!');
 	}
 
 	if ( $form->hasValidData( 'QuestionIntro' ) )
@@ -104,7 +104,7 @@ if ( isset($_POST['UpdateO']) )
 
 	if ( !$form->hasValidData( 'Option' ) || $form->Option == '' )
 	{
-		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Please enter option!');
+		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Please enter an option!');
 	}
 
 	if ( $form->hasValidData( 'Priority' ) ) {
@@ -157,7 +157,7 @@ $tpl->set('option',$Option);
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(
 		array('url' => erLhcoreClassDesign::baseurl('questionary/list'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/list','Questionary')),
-		array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Edit question')))
+		array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Edit a question')))
 
 
 ?>

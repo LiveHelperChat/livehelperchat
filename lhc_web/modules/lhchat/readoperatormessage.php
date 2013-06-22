@@ -33,7 +33,7 @@ if (isset($_POST['askQuestion']))
 
     if ($form->hasValidData( 'Question' ) && $form->Question != '' && strlen($form->Question) > 500)
     {
-        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum 500 characters for message');
+        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum 500 characters for a message');
     }
 
     if (count($Errors) == 0)

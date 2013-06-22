@@ -1081,7 +1081,7 @@
     <message>
         <source>Surname</source>
         <translation>Sobrenome</translation>
-    </message> 
+    </message>
     <message>
         <source>Assign</source>
         <translation>Atribuir</translation>
@@ -1546,7 +1546,7 @@
     <message>
         <source>Title</source>
         <translation>Título</translation>
-    </message> 
+    </message>
     <message>
         <source>Assigned functions</source>
         <translation>Funções atribuídas</translation>
@@ -1625,7 +1625,7 @@
     <message>
         <source>Function</source>
         <translation>Função</translation>
-    </message> 
+    </message>
     <message>
         <source>New policy</source>
         <translation>Nova politica</translation>
@@ -1800,7 +1800,7 @@
     <message>
         <source>Open in a new window</source>
         <translation>Abrir em nova janela</translation>
-    </message> 
+    </message>
     <message>
         <source>Live help is online...</source>
         <translation>Ajuda online está online...</translation>
@@ -2027,7 +2027,7 @@
     <message>
         <source>Closed chats</source>
         <translation>Conversas fechadas</translation>
-    </message>    
+    </message>
     <message>
         <source>Accept chat</source>
         <translation>Aceitar conversa</translation>
@@ -2082,7 +2082,7 @@
     <message>
         <source>Closed chats</source>
         <translation>Conversas fechadas</translation>
-    </message>    
+    </message>
     <message>
         <source>Accept chat</source>
         <translation>Aceitar conversa</translation>
@@ -2137,7 +2137,7 @@
     <message>
         <source>Support</source>
         <translation>Suporte</translation>
-    </message> 
+    </message>
 </context>
 <context>
     <name>chat/single</name>
@@ -2615,7 +2615,7 @@
     <message>
         <source>System configuration</source>
         <translation>Configuração de sistema</translation>
-    </message> 
+    </message>
 </context>
 <context>
     <name>department/new</name>
@@ -2649,7 +2649,7 @@
     <message>
         <source>Username</source>
         <translation>Nome de usuário</translation>
-    </message> 
+    </message>
     <message>
         <source>System configuration</source>
         <translation>Configuração de sistema</translation>
@@ -2724,7 +2724,7 @@
     <message>
         <source>Repeat password</source>
         <translation>Repetir senha</translation>
-    </message> 
+    </message>
     <message>
         <source>Contact information</source>
         <translation>Informações de contato</translation>
@@ -2823,7 +2823,7 @@
     <message>
         <source>Repeat password</source>
         <translation>Repetir senha</translation>
-    </message> 
+    </message>
     <message>
         <source>Contact information</source>
         <translation>Informações de contato</translation>
@@ -2926,7 +2926,7 @@
     <message>
         <source>You have global right to see all departments chats</source>
         <translation>Você tem direitos globais para visualizar todos os departamentos</translation>
-    </message> 
+    </message>
     <message>
         <source>Logged user</source>
         <translation>Usuário logado</translation>
@@ -2962,7 +2962,7 @@
     <message>
         <source>Repeat password</source>
         <translation>Repetir senha</translation>
-    </message> 
+    </message>
     <message>
         <source>Contact information</source>
         <translation>Informações de contato</translation>
