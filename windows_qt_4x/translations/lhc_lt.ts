@@ -31,33 +31,29 @@
         <source>Department</source>
         <translation>Departamentas</translation>
     </message>
-    <message>
-        <source>Country</source>
-        <translation type="unfinished"> </translation>
-    </message>
-    <message>
-        <source>Phone</source>
-        <translation type="unfinished"> </translation>
-    </message>
-    <message>
+	<message>
         <source>Browser</source>
-        <translation type="unfinished"> </translation>
+        <translation>Naršyklė</translation>
     </message>
-    <message>
+	<message>
         <source>Last visit</source>
-        <translation type="unfinished"> </translation>
+        <translation>Paskutinis apsilankymas</translation>
     </message>
-    <message>
+	<message>
         <source>First visit</source>
-        <translation type="unfinished"> </translation>
+        <translation>Pirmas apsilankymas</translation>
     </message>
-    <message>
+	<message>
+        <source>Country</source>
+        <translation>Šalis</translation>
+    </message>
+	<message>
         <source>Operator message</source>
-        <translation type="unfinished"> </translation>
+        <translation>Operatoriaus žinutė</translation>
     </message>
-    <message>
+	<message>
         <source>Pages viewed</source>
-        <translation type="unfinished"> </translation>
+        <translation>Puslapio peržiūrų</translation>
     </message>
 </context>
 <context>
@@ -65,6 +61,32 @@
     <message>
         <source>Live helper chat - chat</source>
         <translation>Live helper chat - pokalbis</translation>
+    </message>
+</context>
+<context>
+    <name>privatemessage</name>
+    <message>
+        <source>Type your message:</source>
+        <translation>Įveskite žinutę:</translation>
+    </message>
+	<message>
+        <source>Send message</source>
+        <translation>Siųsti žinutę</translation>
+    </message>
+	<message>
+        <source>Close</source>
+        <translation>Uždaryti</translation>
+    </message>
+</context>
+<context>
+    <name>onlineuserinfo</name>
+    <message>
+        <source>User info</source>
+        <translation>Vartotojo informacija</translation>
+    </message>
+	<message>
+        <source>Close</source>
+        <translation>Uždaryti</translation>
     </message>
 </context>
 <context>
@@ -108,7 +130,7 @@
 <context>
     <name>LoginDialog</name>
     <message>
-        <source>Authentification failed</source>
+        <source>Authentication failed</source>
         <translation>Autentifikacija nepavyko</translation>
     </message>
     <message>
@@ -116,15 +138,15 @@
         <translation>Įspėjimas</translation>
     </message>
     <message>
-        <source>Host field is empty!</source>
+        <source>The host field is empty!</source>
         <translation>Domeno laukas tuščias!</translation>
     </message>
     <message>
-        <source>Password field is empty!</source>
+        <source>The password field is empty!</source>
         <translation>Slaptažodžio laukas tuščias!</translation>
     </message>
     <message>
-        <source>User name field is empty!</source>
+        <source>The username field is empty!</source>
         <translation>Vartotojo laukas tuščias!</translation>
     </message>
 </context>
@@ -153,12 +175,16 @@
         <source>Add chat</source>
         <translation>Pridėti pokalbį</translation>
     </message>
+	<message>
+        <source>Accept chat</source>
+        <translation>Patvirtinti pokalbį</translation>
+    </message>
     <message>
-        <source>Open in new a window</source>
+        <source>Open in a new window</source>
         <translation>Atidaryti naujam lange</translation>
     </message>
     <message>
-        <source>Open in new a separate window</source>
+        <source>Open in a new separate window</source>
         <translation>Atidaryti atskiram lange</translation>
     </message>
     <message>
@@ -185,17 +211,25 @@
         <source>Transfered chats</source>
         <translation>Pervesti pokalbiai</translation>
     </message>
+	<message>
+        <source>Online Users</source>
+        <translation>Prisijungę vartotojai</translation>
+    </message>
     <message>
         <source>Active chats</source>
         <translation>Aktyvūs pokalbiai</translation>
     </message>
+	<message>
+        <source>Send private message</source>
+        <translation>Siųsti privačią žinutę</translation>
+    </message>
+	<message>
+        <source>View user information</source>
+        <translation>Peržiūrėti vartotojo informaciją</translation>
+    </message>
     <message>
         <source>Closed chats</source>
         <translation>Uždaryti pokalbiai</translation>
-    </message>
-    <message>
-        <source>Online Users</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -203,6 +237,14 @@
     <message>
         <source>User left chat</source>
         <translation>Vartotojas paliko pokalbį</translation>
+    </message>
+	<message>
+        <source>Send</source>
+        <translation>Siųsti</translation>
+    </message>
+    <message>
+        <source>Choose canned message</source>
+        <translation>Pasirinkite paruoštą žinutę</translation>
     </message>
     <message>
         <source>User joined chat</source>
@@ -229,8 +271,12 @@
         <translation>atsakovas</translation>
     </message>
     <message>
-        <source>Come from</source>
+        <source>Came from</source>
         <translation>Atėjo iš</translation>
+    </message>
+	<message>
+        <source>Country</source>
+        <translation>Šalis</translation>
     </message>
     <message>
         <source>E-mail</source>
@@ -252,16 +298,16 @@
         <translation>Naujas užklausimas</translation>
     </message>
     <message>
-        <source>You have new chat pending. To start chat click me.</source>
+        <source>You have a new chat pending. To start the chat click me.</source>
         <translation>Jūs turite naują pokalbį. Norėdami pradėti pokalbį paspauskite mane.</translation>
     </message>
     <message>
-        <source>To you have been transfered new chat, start chat click me.</source>
+        <source>A new chat has been transferred to you. To start the chat click me.</source>
         <translation>Jums pervestas naujas pokalbis, norėdami pradėti pokalbį paspauskite mane.</translation>
     </message>
     <message>
         <source>Waiting for action...</source>
-        <translation>Laukiama veiksmų</translation>
+        <translation type="unfinished">Laukiama veiksmų...</translation>
     </message>
     <message>
         <source>&amp;Restore</source>
@@ -288,7 +334,7 @@
         <translation>Apie</translation>
     </message>
     <message>
-        <source>About program</source>
+        <source>About the program</source>
         <translation>Apie programą</translation>
     </message>
     <message>
