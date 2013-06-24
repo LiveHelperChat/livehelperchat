@@ -296,7 +296,7 @@ void ChatRoomsWindow::pendingChatsMenu(QPoint p)
                      *sepAct;
 
             acceptAct = pmenu->addAction( QIcon(":/images/accept.png"), tr("Accept chat"));
-            newwAct  = pmenu->addAction( QIcon(":/images/application_add.png"), tr("Open in new a window"));
+            newwAct  = pmenu->addAction( QIcon(":/images/application_add.png"), tr("Open in a new window"));
             sepAct = pmenu->addAction( QIcon(":/images/application.png"), tr("Open in a new separate window"));
             denyAct = pmenu->addAction( QIcon(":/images/cancel.png"), tr("Reject chat"));
 

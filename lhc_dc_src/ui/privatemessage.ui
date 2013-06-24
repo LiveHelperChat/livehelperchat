@@ -28,7 +28,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Type your message: </string>
+    <string>Type your message:</string>
    </property>
   </widget>
   <widget class="QTextEdit" name="textEdit">
