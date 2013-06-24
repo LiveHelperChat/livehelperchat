@@ -13,15 +13,15 @@
 *Class constructor
 **/
 MainWindow::MainWindow()
-{	
+{
     //QApplication::setStyle(QStyleFactory::create("cleanlooks"));
 
 	mdiArea = new QMdiArea;
     setCentralWidget(mdiArea);
-	
-    setWindowIcon(QIcon(":/images/icon.png"));	
+
+    setWindowIcon(QIcon(":/images/icon.png"));
 	setWindowTitle(tr("Live helper chat"));
-  
+
 	createActions();
 	createTrayIcon();
 	createMainMenu();
@@ -58,7 +58,7 @@ void MainWindow::ChangeStatusBar(const QString &newStatus)
 }
 
 /**
-* 
+*
 */
 void MainWindow::showToolTipNewChat(int chat_id, int chat_mode)
 {
@@ -66,12 +66,12 @@ void MainWindow::showToolTipNewChat(int chat_id, int chat_mode)
 
     if (chat_mode == 0)
     {
-        trayIcon->showMessage(tr("New request"), tr("You have new chat pending. To start chat click me."),icon , 15 * 1000);
+        trayIcon->showMessage(tr("New request"), tr("You have a new chat pending. To start the chat click me."),icon , 15 * 1000);
     }
 
     if (chat_mode == 1)
     {
-        trayIcon->showMessage(tr("New request"), tr("To you have been transfered new chat, start chat click me."),icon , 15 * 1000);
+        trayIcon->showMessage(tr("New request"), tr("A new chat has been transferred to you. To start the chat click me."),icon , 15 * 1000);
     }
 
     this->chatID = chat_id;
@@ -97,7 +97,7 @@ void MainWindow::messageClicked()
 
         // Transfered chat
         if (this->chatMode == 1)
-        { 
+        {
             LhcWebServiceClient::instance()->LhcSendRequest("/xml/accepttransferbychat/"+QString::number(this->chatID));
             ChatWindow *crw = new ChatWindow(this->chatID);
             crw->show();
@@ -111,13 +111,13 @@ void MainWindow::messageClicked()
 */
 void MainWindow::createStatusBar()
 {
-	statusLabel = new QLabel(tr("Waiting for action..."));	
-	statusBar()->addWidget(statusLabel);	
+	statusLabel = new QLabel(tr("Waiting for action..."));
+	statusBar()->addWidget(statusLabel);
 }
 
 void MainWindow::iconActivated(QSystemTrayIcon::ActivationReason reason)
 {
-	
+
     switch (reason) {
     case QSystemTrayIcon::Trigger:
 		// Show window if it's hidden hide if it is shown.
@@ -176,23 +176,23 @@ void MainWindow::createActions()
     connect(chatroomsAct, SIGNAL(triggered()), this, SLOT(chatRooms()));
 
     aboutAct = new QAction(tr("About"), this);
-    aboutAct->setStatusTip(tr("About program"));
+    aboutAct->setStatusTip(tr("About the program"));
     connect(aboutAct, SIGNAL(triggered()), this, SLOT(about()));
-        
+
 }
 
 void MainWindow::chatRooms()
 {
     ChatRoomsWindow *crw = new ChatRoomsWindow(this);
 	mdiArea->addSubWindow(crw);
-    crw->setMdiAreas(mdiArea);    
+    crw->setMdiAreas(mdiArea);
 	crw->show();
 }
 
 void MainWindow::changeConnection()
 {
     LoginDialog *lgnDialog = new LoginDialog();
-   lgnDialog->exec(); 
+   lgnDialog->exec();
 }
 
 void MainWindow::about()
@@ -224,18 +224,18 @@ void MainWindow::createTrayIcon()
 */
 void MainWindow::createMainMenu()
 {
-	mainMenu = menuBar()->addMenu(tr("&Actions"));   
+	mainMenu = menuBar()->addMenu(tr("&Actions"));
     mainMenu->addSeparator();
     mainMenu->addAction(exitAct);
-	    
+
     chatMenu = menuBar()->addMenu(tr("&Chats"));
     chatMenu->addAction(chatroomsAct);
 
 	managementMenu = menuBar()->addMenu(tr("&Management"));
     managementMenu->addAction(connectionAct);
-      
+
     helpMenu =  menuBar()->addMenu(tr("&Help"));
-    helpMenu->addAction(aboutAct);    
+    helpMenu->addAction(aboutAct);
 }
 
 
@@ -243,7 +243,7 @@ void MainWindow::createMainMenu()
 * @brief minimize on close
 */
 void MainWindow::closeEvent(QCloseEvent *event)
-{ 
+{
 	hide();
 	event->ignore();
 }

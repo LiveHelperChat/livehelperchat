@@ -15,7 +15,7 @@ ChatWindow::ChatWindow(int chat_id, QWidget *parent) : QWidget(parent)
 {
 
 	ui.setupUi(this);
-    setAttribute(Qt::WA_DeleteOnClose); 
+    setAttribute(Qt::WA_DeleteOnClose);
 
     /**
     * Avoids closing whole application if main window is hidden.
@@ -33,7 +33,7 @@ ChatWindow::ChatWindow(int chat_id, QWidget *parent) : QWidget(parent)
     this->tabIndex = 0;
     this->mdiArea = 0;
 
-    actionsGroupBox = new QGroupBox(tr("Actions"));  
+    actionsGroupBox = new QGroupBox(tr("Actions"));
     actionButtonsLayout = new QHBoxLayout();
     bottomActionLayout = new QHBoxLayout();
     closeDialogButton = new QPushButton();
@@ -63,7 +63,7 @@ ChatWindow::ChatWindow(int chat_id, QWidget *parent) : QWidget(parent)
     actionButtonsLayout->addWidget(separateWindowButton);
     actionButtonsLayout->setSpacing(1);
     actionsGroupBox->setLayout(actionButtonsLayout);
-  
+
     connect(closeDialogButton, SIGNAL(clicked()), this, SLOT(closeButtonClicked()));
     connect(closeChatButton, SIGNAL(clicked()), this, SLOT(closeChatClicked()));
     connect(deleteChatButton, SIGNAL(clicked()), this, SLOT(deleteChatClicked()));
@@ -112,7 +112,7 @@ ChatWindow::ChatWindow(int chat_id, QWidget *parent) : QWidget(parent)
     splitter->addWidget(newmessageText);
 
     splitter->setStretchFactor ( 0, 5000 );
-    splitter->setStretchFactor ( 1, 1 );    
+    splitter->setStretchFactor ( 1, 1 );
     splitter->setOpaqueResize(false);
 
     // Add main layout
@@ -185,7 +185,7 @@ void ChatWindow::transferChatClicked()
     dialog->exec();
 
     // Perhaps we will show some status here
-    /*if (dialog->exec() == QDialog::Accepted) { 
+    /*if (dialog->exec() == QDialog::Accepted) {
         qDebug("Accepted");
     } else {
         qDebug("Not accepted");
@@ -213,9 +213,9 @@ ChatWindow::~ChatWindow()
 void ChatWindow::separateWindowClicked()
 {
     if (this->mdiArea)
-    {      
+    {
         QMdiSubWindow *currentSub = this->mdiArea->activeSubWindow();
-        if (currentSub){           
+        if (currentSub){
             this->mdiArea->removeSubWindow(currentSub);
             currentSub->show();
         }
@@ -241,7 +241,7 @@ void ChatWindow::closeButtonClicked()
     if (this->mdiArea)
         this->mdiArea->closeActiveSubWindow();
 
-    this->close();      
+    this->close();
 }
 
 void ChatWindow::closeChatClicked()
@@ -251,7 +251,7 @@ void ChatWindow::closeChatClicked()
     if (this->mdiArea)
         this->mdiArea->closeActiveSubWindow();
 
-    this->close(); 
+    this->close();
 }
 
 void ChatWindow::deleteChatClicked()
@@ -267,7 +267,7 @@ void ChatWindow::deleteChatClicked()
 void ChatWindow::receivedMessages(void* pt2Object, QScriptValue result)
 {
     ChatWindow* mySelf = (ChatWindow*) pt2Object;
-  
+
     //qDebug("Received message %s",result.toString().toStdString().c_str());
     QString msgRow = mySelf->messagesText->toPlainText().isEmpty() ? "" : mySelf->messagesText->toHtml();
 
@@ -290,7 +290,7 @@ void ChatWindow::receivedMessages(void* pt2Object, QScriptValue result)
         QDateTime dateTime2 = QDateTime();
 
         while (itt.hasNext()) {
-                itt.next(); 
+                itt.next();
 
                 if (itt.flags() & QScriptValue::SkipInEnumeration)
                          continue;
@@ -299,18 +299,18 @@ void ChatWindow::receivedMessages(void* pt2Object, QScriptValue result)
                 {
                     msgBackground = "background-color:#EEECF5";
                 } else {
-                    msgBackground = "";   
+                    msgBackground = "";
                 }
 
                 msgRow += "<p style=\"margin:0px;"+msgBackground+"\"><div class=\"message-row";
 
-                if (itt.value().property("user_id").toString() == "0") msgRow += " "+tr("responsable");
+                if (itt.value().property("user_id").toString() == "0") msgRow += " "+tr("responsible");
 
                 dateTime2.setTime_t(itt.value().property("time").toString().toInt());
 
                 msgRow += "\"><div class=\"msg-date\">"+dateTime2.toString("yyyy.MM.dd hh:mm:ss") + " </div><span style=\"color:#222222;font-weight:600;\">";
-            
-                if (itt.value().property("user_id").toString() == "0") 
+
+                if (itt.value().property("user_id").toString() == "0")
                     msgRow += mySelf->clientNick;
                 else
                     msgRow += itt.value().property("name_support").toString();
@@ -318,7 +318,7 @@ void ChatWindow::receivedMessages(void* pt2Object, QScriptValue result)
                 msgText = itt.value().property("msg").toString();
                 msgText.replace(QRegExp("\n"), "<br>\n");
 
-                msgRow += ":</span> <span>"+ msgText +"</span></div></p>"; 
+                msgRow += ":</span> <span>"+ msgText +"</span></div></p>";
         }
     // Chat status information
     } else {
@@ -337,7 +337,7 @@ void ChatWindow::receivedMessages(void* pt2Object, QScriptValue result)
 
 
 void ChatWindow::setMdiAreas(QMdiArea *mdiMainArea)
-{    
+{
     this->mdiArea = mdiMainArea;
 }
 
@@ -349,18 +349,18 @@ void ChatWindow::getDataChat(void* pt2Object, QByteArray result)
 
     ChatWindow* mySelf = (ChatWindow*) pt2Object;
 
-    QScriptValue sc; 
+    QScriptValue sc;
     QScriptEngine engine;
     sc = engine.evaluate("("+QString(result)+")");
- 
+
     if (sc.property("error").toBoolean() == false)
-    {      
+    {
         QScriptValue chat = sc.property("chat");
-        mySelf->inforChat->setText("<b>IP</b> - "+chat.property("ip").toString() + " | <b>"+tr("Come from")+"</b> - "+chat.property("referrer").toString()+" | <br/> <b>ID</b> - "+chat.property("id").toString()+" | <b>"+tr("E-mail")+"</b> - "+chat.property("email").toString()+" | <b>"+tr("Country")+"</b> - "+chat.property("country_name").toString());
-        mySelf->infoOwner->setText(sc.property("ownerstring").toString());          
+        mySelf->inforChat->setText("<b>IP</b> - "+chat.property("ip").toString() + " | <b>"+tr("Came from")+"</b> - "+chat.property("referrer").toString()+" | <br/> <b>ID</b> - "+chat.property("id").toString()+" | <b>"+tr("E-mail")+"</b> - "+chat.property("email").toString()+" | <b>"+tr("Country")+"</b> - "+chat.property("country_name").toString());
+        mySelf->infoOwner->setText(sc.property("ownerstring").toString());
         mySelf->clientNick = chat.property("nick").toString();
        // qDebug("Assigned %s ",mySelf->chatScriptObject.property("ip").toString().toStdString().c_str());
-        
+
         if (mySelf->tabIndex > 0)
         {
             mySelf->chatRoomsParent->setTabText(mySelf->tabIndex, mySelf->clientNick);

@@ -108,7 +108,7 @@
 <context>
     <name>LoginDialog</name>
     <message>
-        <source>Authentification failed</source>
+        <source>Authentication failed</source>
         <translation>Falha ao entrar</translation>
     </message>
     <message>
@@ -116,15 +116,15 @@
         <translation>Aviso</translation>
     </message>
     <message>
-        <source>Host field is empty!</source>
+        <source>The host field is empty!</source>
         <translation>Servidor em branco</translation>
     </message>
     <message>
-        <source>Password field is empty!</source>
+        <source>The password field is empty!</source>
         <translation>Senha em branco</translation>
     </message>
     <message>
-        <source>User name field is empty!</source>
+        <source>The username field is empty!</source>
         <translation>Usuario em branco</translation>
     </message>
 </context>
@@ -154,11 +154,11 @@
         <translation>Iniciar Atendimento</translation>
     </message>
     <message>
-        <source>Open in new a window</source>
+        <source>Open in a new window</source>
         <translation>Abrir em uma nova janela</translation>
     </message>
     <message>
-        <source>Open in new a separate window</source>
+        <source>Open in a new separate window</source>
         <translation>Abrir em uma janela separada</translation>
     </message>
     <message>
@@ -252,11 +252,11 @@
         <translation>Nova requisição</translation>
     </message>
     <message>
-        <source>You have new chat pending. To start chat click me.</source>
+        <source>You have a new chat pending. To start the chat click me.</source>
         <translation>Você tem um atendimento. Clique para inicar</translation>
     </message>
     <message>
-        <source>To you have been transfered new chat, start chat click me.</source>
+        <source>A new chat has been transferred to you. To start the chat click me.</source>
         <translation>Você tem uma transferencia de atendimento. Clique para iniciar</translation>
     </message>
     <message>
@@ -288,7 +288,7 @@
         <translation>Sobre</translation>
     </message>
     <message>
-        <source>About program</source>
+        <source>About the program</source>
         <translation>Sobre o programa</translation>
     </message>
     <message>

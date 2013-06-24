@@ -30,21 +30,21 @@
 	<message>
         <source>Department</source>
         <translation>Department</translation>
-    </message>	
+    </message>
 </context>
 <context>
     <name>ChatWidget</name>
      <message>
         <source>Live helper chat - chat</source>
         <translation>Live helper chat - chat</translation>
-    </message>	
+    </message>
 </context>
 <context>
     <name>ChatRoomsWidget</name>
      <message>
         <source>Live helper chat - chat rooms</source>
         <translation>Live helper chat - chat rooms</translation>
-    </message>	
+    </message>
 </context>
 <context>
     <name>LoginDialogBase</name>
@@ -117,14 +117,14 @@
 	<message>
         <source>Cancel</source>
         <translation>Cancel</translation>
-    </message> 
-</context>	
+    </message>
+</context>
 <context>
     <name>ChatRoomsWindow</name>
      <message>
         <source>Add chat</source>
         <translation>Add chat</translation>
-    </message> 
+    </message>
 	<message>
         <source>Open in a new window</source>
         <translation>Open in a new window</translation>
@@ -140,11 +140,11 @@
 	<message>
         <source>Loading...</source>
         <translation>Loading...</translation>
-    </message> 
+    </message>
 	<message>
         <source>Close chat</source>
         <translation>Close chat</translation>
-    </message> 
+    </message>
 	<message>
         <source>Delete chat</source>
         <translation>Delete chat</translation>
@@ -168,7 +168,7 @@
 	<message>
         <source>Closed chats</source>
         <translation>Closed chats</translation>
-    </message> 
+    </message>
 </context>
 <context>
     <name>ChatWindow</name>
@@ -183,7 +183,7 @@
 	<message>
         <source>Actions</source>
         <translation>Actions</translation>
-    </message> 
+    </message>
 	<message>
         <source>Information</source>
         <translation>Information</translation>
@@ -211,14 +211,14 @@
 	<message>
         <source>Error</source>
         <translation>Error</translation>
-    </message> 
+    </message>
 </context>
 <context>
     <name>MainWindow</name>
     <message>
         <source>Live helper chat</source>
         <translation>Live helper chat</translation>
-    </message>  
+    </message>
 	<message>
         <source>New request</source>
         <translation>New request</translation>
@@ -230,11 +230,11 @@
 	<message>
         <source>A new chat has been transferred to you. To start the chat click me.</source>
         <translation>A new chat has been transferred to you. To start the chat click me.</translation>
-    </message> 
+    </message>
 	<message>
         <source>Waiting for action...</source>
         <translation>Waiting for action...</translation>
-    </message> 
+    </message>
 	<message>
         <source>&amp;Restore</source>
         <translation>&amp;Restore</translation>
@@ -246,7 +246,7 @@
 	<message>
         <source>E&amp;xit</source>
         <translation>E&amp;xit</translation>
-    </message> 
+    </message>
 	<message>
         <source>Login as</source>
         <translation>Login as</translation>
@@ -278,6 +278,6 @@
 	<message>
         <source>&amp;Help</source>
         <translation>&amp;Help</translation>
-    </message>    
+    </message>
 </context>
 </TS>

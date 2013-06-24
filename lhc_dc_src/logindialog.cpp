@@ -20,12 +20,12 @@ LoginDialog::LoginDialog(QWidget *parent,bool canautologin) : LoginDialogBase(pa
         delete pmsettings;
 
         if (canautologin == true) canContinue();
-       
+
     } else {
         delete pmsettings;
     }
 
-	
+
 
 }
 
@@ -40,38 +40,38 @@ void LoginDialog::on_cancelButton_clicked()
 }
 
 void LoginDialog::canContinue()
-{   
+{
         PMSettings *pmsettings = new PMSettings();
         if (pmsettings->getAttributeSettings("autologin") == "true")
-        {       
+        {
             LhcWebServiceClient *lhwsc = LhcWebServiceClient::instance();
             lhwsc->setFetchURL(ui.HostEdit->text().replace(QString("index.php"), QString("")).replace(QString("http://"), QString("")));
             delete pmsettings;
 
             QStringList filter;
-            filter.append("username="+ui.UsernameEdit->text());    
+            filter.append("username="+ui.UsernameEdit->text());
             filter.append("password="+ui.PasswordEdit->text());
-                       
+
             lhwsc->setLogins(ui.UsernameEdit->text(),ui.PasswordEdit->text());
-            lhwsc->LhcSendRequestAuthorization(filter,"/xml/checklogin/",(QObject*) this, LoginDialog::LoginCheckedCallback);	
-        }		
-         
+            lhwsc->LhcSendRequestAuthorization(filter,"/xml/checklogin/",(QObject*) this, LoginDialog::LoginCheckedCallback);
+        }
+
 }
 
 void LoginDialog::LoginCheckedCallback(void* pt2Object, QByteArray result)
 {
     LoginDialog* mySelf = (LoginDialog*) pt2Object;
 
-    QScriptValue sc; 
+    QScriptValue sc;
     QScriptEngine engine;
     sc = engine.evaluate("(" +QString(result)+ ")");
- 
+
     if (sc.property("result").toBoolean() == true)
-    {       
+    {
         mySelf->accept();
     } else {
-        QMessageBox::warning(NULL, tr("Authentification failed"),
-									 tr("Authentification failed"),
+        QMessageBox::warning(NULL, tr("Authentication failed"),
+									 tr("Authentication failed"),
 									 tr("&OK"), QString::null , 0, 0, 1);
     }
 }
@@ -79,28 +79,28 @@ void LoginDialog::LoginCheckedCallback(void* pt2Object, QByteArray result)
 void LoginDialog::on_okButton_clicked()
 {
 	lgUserName = ui.UsernameEdit->text();
-	
+
 	if (!lgUserName.isEmpty())
-	{	
-		
+	{
+
 			lgUserPassword = ui.PasswordEdit->text();
-			
+
 			if (!lgUserPassword.isEmpty())
 			{
                 lgHost = ui.HostEdit->text().replace(QString("index.php"), QString("")).replace(QString("http://"), QString(""));
-			
+
 				if (!lgHost.isEmpty())
 				{
-						PMSettings *pmsettings = new PMSettings();						
+						PMSettings *pmsettings = new PMSettings();
 						pmsettings->setAttribute("username",lgUserName);
 						pmsettings->setAttribute("password",lgUserPassword);
 						pmsettings->setAttribute("host",lgHost);
-					
+
 						if (ui.AutoLogincheckBox->isChecked())
 							pmsettings->setAttribute("autologin","true");
 						else
 							pmsettings->setAttribute("autologin","false");
-						
+
 
 						pmsettings->sync();
 
@@ -108,32 +108,32 @@ void LoginDialog::on_okButton_clicked()
 
                         LhcWebServiceClient *lhwsc = LhcWebServiceClient::instance();
                         lhwsc->setFetchURL(lgHost);
-                 
+
                         QStringList filter;
-                        filter.append("username="+lgUserName);    
+                        filter.append("username="+lgUserName);
                         filter.append("password="+lgUserPassword);
 
                         lhwsc->setLogins(lgUserName,lgUserPassword);
                         lhwsc->LhcSendRequestAuthorization(filter,"/xml/checklogin/",(QObject*) this, LoginDialog::LoginCheckedCallback);
-                        		
-				}else { 
+
+				}else {
 					QMessageBox::warning(this, tr("Warning"),
-								 tr("Host field is empty!"),
+								 tr("The host field is empty!"),
 								 tr("&OK"), QString::null , 0, 0, 1);
-					ui.HostEdit->setFocus();  
+					ui.HostEdit->setFocus();
 				}
 
-			}else { 
+			}else {
                 QMessageBox::warning(this, tr("Warning"),
-								 tr("Password field is empty!"),
+								 tr("The password field is empty!"),
 								 tr("&OK"), QString::null , 0, 0, 1);
-				ui.PasswordEdit->setFocus();  
+				ui.PasswordEdit->setFocus();
 			}
-		
+
 
     } else {
 		QMessageBox::warning(this, tr("Warning"),
-                             tr("User name field is empty!"),
+                             tr("The username field is empty!"),
                              tr("&OK"), QString::null , 0, 0, 1);
         ui.UsernameEdit->setFocus();
 	}

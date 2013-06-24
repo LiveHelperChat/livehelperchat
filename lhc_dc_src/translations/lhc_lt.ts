@@ -30,21 +30,21 @@
 	<message>
         <source>Department</source>
         <translation>Departamentas</translation>
-    </message>	
+    </message>
 </context>
 <context>
     <name>ChatWidget</name>
      <message>
         <source>Live helper chat - chat</source>
         <translation>Live helper chat - pokalbis</translation>
-    </message>	
+    </message>
 </context>
 <context>
     <name>ChatRoomsWidget</name>
      <message>
         <source>Live helper chat - chat rooms</source>
         <translation>Live helper chat - pokalbių kambariai</translation>
-    </message>	
+    </message>
 </context>
 <context>
     <name>LoginDialogBase</name>
@@ -80,7 +80,7 @@
 <context>
     <name>LoginDialog</name>
      <message>
-        <source>Authentification failed</source>
+        <source>Authentication failed</source>
         <translation>Autentifikacija nepavyko</translation>
     </message>
 	<message>
@@ -88,15 +88,15 @@
         <translation>Įspėjimas</translation>
     </message>
 	<message>
-        <source>Host field is empty!</source>
+        <source>The host field is empty!</source>
         <translation>Domeno laukas tuščias!</translation>
     </message>
 	<message>
-        <source>Password field is empty!</source>
+        <source>The password field is empty!</source>
         <translation>Slaptažodžio laukas tuščias!</translation>
     </message>
 	<message>
-        <source>User name field is empty!</source>
+        <source>The username field is empty!</source>
         <translation>Vartotojo laukas tuščias!</translation>
     </message>
 </context>
@@ -117,34 +117,34 @@
 	<message>
         <source>Cancel</source>
         <translation>Atšaukti</translation>
-    </message> 
-</context>	
+    </message>
+</context>
 <context>
     <name>ChatRoomsWindow</name>
      <message>
         <source>Add chat</source>
         <translation>Pridėti pokalbį</translation>
-    </message> 
+    </message>
 	<message>
-        <source>Open in new a window</source>
+        <source>Open in a new window</source>
         <translation>Atidaryti naujam lange</translation>
     </message>
 	<message>
-        <source>Open in new a window</source>
+        <source>Open in a new window</source>
         <translation>Atidaryti naujam lange</translation>
     </message>
 	<message>
-        <source>Open in new a separate window</source>
+        <source>Open in a new separate window</source>
         <translation>Atidaryti atskiram lange</translation>
     </message>
 	<message>
         <source>Loading...</source>
         <translation>Kraunama...</translation>
-    </message> 
+    </message>
 	<message>
         <source>Close chat</source>
         <translation>Uždaryti pokalbį</translation>
-    </message> 
+    </message>
 	<message>
         <source>Delete chat</source>
         <translation>Ištrinti pokalbį</translation>
@@ -168,13 +168,17 @@
 	<message>
         <source>Closed chats</source>
         <translation>Uždaryti pokalbiai</translation>
-    </message> 
+    </message>
 </context>
 <context>
     <name>ChatWindow</name>
-     <message>
+    <message>
         <source>User left chat</source>
         <translation>Vartotojas paliko pokalbį</translation>
+    </message>
+    <message>
+        <source>Choose canned message</source>
+        <translation>Pasirinkite paruoštą žinutę</translation>
     </message>
 	<message>
         <source>User joined chat</source>
@@ -183,7 +187,7 @@
 	<message>
         <source>Actions</source>
         <translation>Veiksmai</translation>
-    </message> 
+    </message>
 	<message>
         <source>Information</source>
         <translation>Informacija</translation>
@@ -215,30 +219,30 @@
 	<message>
         <source>Error</source>
         <translation>Klaida</translation>
-    </message> 
+    </message>
 </context>
 <context>
     <name>MainWindow</name>
     <message>
         <source>Live helper chat</source>
         <translation>Live helper chat</translation>
-    </message>  
+    </message>
 	<message>
         <source>New request</source>
         <translation>Naujas užklausimas</translation>
     </message>
 	<message>
-        <source>You have new chat pending. To start chat click me.</source>
+        <source>You have a new chat pending. To start the chat click me.</source>
         <translation>Jūs turite naują pokalbį. Norėdami pradėti pokalbį paspauskite mane.</translation>
     </message>
 	<message>
-        <source>To you have been transfered new chat, start chat click me.</source>
+        <source>A new chat has been transferred to you. To start the chat click me.</source>
         <translation>Jums pervestas naujas pokalbis, norėdami pradėti pokalbį paspauskite mane.</translation>
-    </message> 
+    </message>
 	<message>
         <source>Waiting for action...</source>
         <translation>Laukiama veiksmų</translation>
-    </message> 
+    </message>
 	<message>
         <source>&amp;Restore</source>
         <translation>&amp;Atstatyti</translation>
@@ -250,7 +254,7 @@
 	<message>
         <source>E&amp;xit</source>
         <translation>&amp;Uždaryti</translation>
-    </message> 
+    </message>
 	<message>
         <source>Login as</source>
         <translation>Prisijungti kaip</translation>
@@ -264,7 +268,7 @@
         <translation>Apie</translation>
     </message>
 	<message>
-        <source>About program</source>
+        <source>About the program</source>
         <translation>Apie programą</translation>
     </message>
 	<message>
@@ -282,6 +286,6 @@
 	<message>
         <source>&amp;Help</source>
         <translation>&amp;Pagalba</translation>
-    </message>    
+    </message>
 </context>
 </TS>
