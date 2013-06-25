@@ -108,7 +108,7 @@
 <context>
     <name>LoginDialog</name>
     <message>
-        <source>Authentification failed</source>
+        <source>Authentication failed</source>
         <translation>Autentifikacija nepavyko</translation>
     </message>
     <message>
@@ -116,15 +116,15 @@
         <translation>Įspėjimas</translation>
     </message>
     <message>
-        <source>Host field is empty!</source>
+        <source>The host field is empty!</source>
         <translation>Domeno laukas tuščias!</translation>
     </message>
     <message>
-        <source>Password field is empty!</source>
+        <source>The password field is empty!</source>
         <translation>Slaptažodžio laukas tuščias!</translation>
     </message>
     <message>
-        <source>User name field is empty!</source>
+        <source>The username field is empty!</source>
         <translation>Vartotojo laukas tuščias!</translation>
     </message>
 </context>
@@ -154,11 +154,11 @@
         <translation>Pridėti pokalbį</translation>
     </message>
     <message>
-        <source>Open in new a window</source>
+        <source>Open in a new window</source>
         <translation>Atidaryti naujam lange</translation>
     </message>
     <message>
-        <source>Open in new a separate window</source>
+        <source>Open in a new separate window</source>
         <translation>Atidaryti atskiram lange</translation>
     </message>
     <message>
@@ -182,7 +182,7 @@
         <translation>Laukiantys pokalbiai</translation>
     </message>
     <message>
-        <source>Transfered chats</source>
+        <source>Transferred chats</source>
         <translation>Pervesti pokalbiai</translation>
     </message>
     <message>
@@ -201,11 +201,11 @@
 <context>
     <name>ChatWindow</name>
     <message>
-        <source>User left chat</source>
+        <source>User left the chat</source>
         <translation>Vartotojas paliko pokalbį</translation>
     </message>
     <message>
-        <source>User joined chat</source>
+        <source>User joined the chat</source>
         <translation>Vartotojas prisijungė</translation>
     </message>
     <message>
@@ -225,11 +225,11 @@
         <translation>Savininkas</translation>
     </message>
     <message>
-        <source>responsable</source>
+        <source>responsible</source>
         <translation>atsakovas</translation>
     </message>
     <message>
-        <source>Come from</source>
+        <source>Came from</source>
         <translation>Atėjo iš</translation>
     </message>
     <message>
@@ -252,11 +252,11 @@
         <translation>Naujas užklausimas</translation>
     </message>
     <message>
-        <source>You have new chat pending. To start chat click me.</source>
+        <source>You have a new chat pending. To start the chat click me.</source>
         <translation>Jūs turite naują pokalbį. Norėdami pradėti pokalbį paspauskite mane.</translation>
     </message>
     <message>
-        <source>To you have been transfered new chat, start chat click me.</source>
+        <source>A new chat has been transferred to you. To start the chat click me.</source>
         <translation>Jums pervestas naujas pokalbis, norėdami pradėti pokalbį paspauskite mane.</translation>
     </message>
     <message>
@@ -288,7 +288,7 @@
         <translation>Apie</translation>
     </message>
     <message>
-        <source>About program</source>
+        <source>About the program</source>
         <translation>Apie programą</translation>
     </message>
     <message>
