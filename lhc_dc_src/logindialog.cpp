@@ -70,8 +70,8 @@ void LoginDialog::LoginCheckedCallback(void* pt2Object, QByteArray result)
     {       
         mySelf->accept();
     } else {
-        QMessageBox::warning(NULL, tr("Authentification failed"),
-									 tr("Authentification failed"),
+        QMessageBox::warning(NULL, tr("Authentication failed"),
+									 tr("Authentication failed"),
 									 tr("&OK"), QString::null , 0, 0, 1);
     }
 }
@@ -118,14 +118,14 @@ void LoginDialog::on_okButton_clicked()
                         		
 				}else { 
 					QMessageBox::warning(this, tr("Warning"),
-								 tr("Host field is empty!"),
+								 tr("The host field is empty!"),
 								 tr("&OK"), QString::null , 0, 0, 1);
 					ui.HostEdit->setFocus();  
 				}
 
 			}else { 
                 QMessageBox::warning(this, tr("Warning"),
-								 tr("Password field is empty!"),
+								 tr("The password field is empty!"),
 								 tr("&OK"), QString::null , 0, 0, 1);
 				ui.PasswordEdit->setFocus();  
 			}
@@ -133,7 +133,7 @@ void LoginDialog::on_okButton_clicked()
 
     } else {
 		QMessageBox::warning(this, tr("Warning"),
-                             tr("User name field is empty!"),
+                             tr("The user name field is empty!"),
                              tr("&OK"), QString::null , 0, 0, 1);
         ui.UsernameEdit->setFocus();
 	}

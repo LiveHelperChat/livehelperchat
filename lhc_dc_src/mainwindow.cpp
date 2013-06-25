@@ -66,12 +66,12 @@ void MainWindow::showToolTipNewChat(int chat_id, int chat_mode)
 
     if (chat_mode == 0)
     {
-        trayIcon->showMessage(tr("New request"), tr("You have new chat pending. To start chat click me."),icon , 15 * 1000);
+        trayIcon->showMessage(tr("New request"), tr("You have a new chat pending. To start the chat click me."),icon , 15 * 1000);
     }
 
     if (chat_mode == 1)
     {
-        trayIcon->showMessage(tr("New request"), tr("To you have been transfered new chat, start chat click me."),icon , 15 * 1000);
+        trayIcon->showMessage(tr("New request"), tr("A new chat has been transferred to you. To start the chat click me."),icon , 15 * 1000);
     }
 
     this->chatID = chat_id;
@@ -175,8 +175,8 @@ void MainWindow::createActions()
     chatroomsAct->setShortcut(tr("Ctrl+R"));
     connect(chatroomsAct, SIGNAL(triggered()), this, SLOT(chatRooms()));
 
-    aboutAct = new QAction(tr("About"), this);
-    aboutAct->setStatusTip(tr("About program"));
+    aboutAct = new QAction(tr("About the program"), this);
+    aboutAct->setStatusTip(tr("About the program"));
     connect(aboutAct, SIGNAL(triggered()), this, SLOT(about()));
         
 }

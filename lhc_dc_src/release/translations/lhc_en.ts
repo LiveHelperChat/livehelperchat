@@ -80,24 +80,24 @@
 <context>
     <name>LoginDialog</name>
      <message>
-        <source>Authentification failed</source>
-        <translation>Authentification failed</translation>
+        <source>Authentication failed</source>
+        <translation>Authentication failed</translation>
     </message>
 	<message>
         <source>Warning</source>
         <translation>Warning</translation>
     </message>
 	<message>
-        <source>Host field is empty!</source>
-        <translation>Host field is empty!</translation>
+        <source>The host field is empty!</source>
+        <translation>The host field is empty!</translation>
     </message>
 	<message>
-        <source>Password field is empty!</source>
-        <translation>Password field is empty!</translation>
+        <source>The password field is empty!</source>
+        <translation>the password field is empty!</translation>
     </message>
 	<message>
-        <source>User name field is empty!</source>
-        <translation>User name field is empty!</translation>
+        <source>The user name field is empty!</source>
+        <translation>The user name field is empty!</translation>
     </message>
 </context>
 <context>
@@ -126,16 +126,16 @@
         <translation>Add chat</translation>
     </message> 
 	<message>
-        <source>Open in new a window</source>
-        <translation>Open in new a window</translation>
+        <source>Open in a new  window</source>
+        <translation>Open in a new window</translation>
     </message>
 	<message>
-        <source>Open in new a window</source>
-        <translation>Open in new a window</translation>
+        <source>Open in a new window</source>
+        <translation>Open in new  window</translation>
     </message>
 	<message>
-        <source>Open in new a separate window</source>
-        <translation>Open in new a separate window</translation>
+        <source>Open in a new separate window</source>
+        <translation>Open in a new separate window</translation>
     </message>
 	<message>
         <source>Loading...</source>
@@ -158,8 +158,8 @@
         <translation>Pending chats</translation>
     </message>
 	<message>
-        <source>Transfered chats</source>
-        <translation>Transfered chats</translation>
+        <source>Transferred chats</source>
+        <translation>Transferred chats</translation>
     </message>
 	<message>
         <source>Active chats</source>
@@ -173,12 +173,12 @@
 <context>
     <name>ChatWindow</name>
      <message>
-        <source>User left chat</source>
-        <translation>User left chat</translation>
+        <source>User left the chat</source>
+        <translation>User left the chat</translation>
     </message>
 	<message>
-        <source>User joined chat</source>
-        <translation>User joined chat</translation>
+        <source>User joined the chat</source>
+        <translation>User joined the chat</translation>
     </message>
 	<message>
         <source>Actions</source>
@@ -197,12 +197,12 @@
         <translation>Owner</translation>
     </message>
 	<message>
-        <source>responsable</source>
-        <translation>responsable</translation>
+        <source>responsible</source>
+        <translation>responsible</translation>
     </message>
 	<message>
-        <source>Come from</source>
-        <translation>Come from</translation>
+        <source>Came from</source>
+        <translation>Came from</translation>
     </message>
 	<message>
         <source>E-mail</source>
@@ -224,12 +224,12 @@
         <translation>New request</translation>
     </message>
 	<message>
-        <source>You have new chat pending. To start chat click me.</source>
-        <translation>You have new chat pending. To start chat click me.</translation>
+        <source>You have a new chat pending. To start the chat click me.</source>
+        <translation>You have a new chat pending. To start the chat click me.</translation>
     </message>
 	<message>
-        <source>To you have been transfered new chat, start chat click me.</source>
-        <translation>To you have been transfered new chat, start chat click me.</translation>
+        <source>A new chat has been transferred to you. To start the chat click me. </source>
+        <translation>A new chat has been tranferred to you. To start the chat click me.</translation>
     </message> 
 	<message>
         <source>Waiting for action...</source>
@@ -260,8 +260,8 @@
         <translation>About</translation>
     </message>
 	<message>
-        <source>About program</source>
-        <translation>About program</translation>
+        <source>About the program</source>
+        <translation>About the program</translation>
     </message>
 	<message>
         <source>&amp;Actions</source>

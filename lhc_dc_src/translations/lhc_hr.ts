@@ -15,11 +15,11 @@
         <translation>Dodaj razgovor</translation>
     </message>
     <message>
-        <source>Open in new a window</source>
+        <source>Open in a new window</source>
         <translation>Otvori u novom prozoru</translation>
     </message>
     <message>
-        <source>Open in new a separate window</source>
+        <source>Open in a new separate window</source>
         <translation>Otvori u novom samostalnom prozoru</translation>
     </message>
     <message>
@@ -43,7 +43,7 @@
         <translation>Razgovori na čekanju</translation>
     </message>
     <message>
-        <source>Transfered chats</source>
+        <source>Transferred chats</source>
         <translation>Preseljeni razgovori</translation>
     </message>
     <message>
@@ -65,11 +65,11 @@
 <context>
     <name>ChatWindow</name>
     <message>
-        <source>User left chat</source>
+        <source>User left the chat</source>
         <translation>Korisnik završio razgovor</translation>
     </message>
     <message>
-        <source>User joined chat</source>
+        <source>User joined the chat</source>
         <translation>Korisnik započeo razgovor</translation>
     </message>
     <message>
@@ -89,11 +89,11 @@
         <translation>Vlasnik</translation>
     </message>
     <message>
-        <source>responsable</source>
+        <source>responsible</source>
         <translation>odgovoran</translation>
     </message>
     <message>
-        <source>Come from</source>
+        <source>Came from</source>
         <translation>Stigao od</translation>
     </message>
     <message>
@@ -158,7 +158,7 @@
 <context>
     <name>LoginDialog</name>
     <message>
-        <source>Authentification failed</source>
+        <source>Authentication failed</source>
         <translation>Autentifikacija nije prošla</translation>
     </message>
     <message>
@@ -166,15 +166,15 @@
         <translation>Upozorenje</translation>
     </message>
     <message>
-        <source>Host field is empty!</source>
+        <source>The host field is empty!</source>
         <translation>Host polje je prazno!</translation>
     </message>
     <message>
-        <source>Password field is empty!</source>
+        <source>The password field is empty!</source>
         <translation>Polje lozinke je prazno!</translation>
     </message>
     <message>
-        <source>User name field is empty!</source>
+        <source>The username field is empty!</source>
         <translation>Polje korisničko ime je prazno!</translation>
     </message>
 </context>
@@ -220,11 +220,11 @@
         <translation>Novi zahtjev</translation>
     </message>
     <message>
-        <source>You have new chat pending. To start chat click me.</source>
+        <source>You have a new chat pending. To start the chat click me.</source>
         <translation>Imate nove razgovore na čekanju. Za početak razgovora kliknite ovdje.</translation>
     </message>
     <message>
-        <source>To you have been transfered new chat, start chat click me.</source>
+        <source>A new chat has been transferred to you. To start the chat click me</source>
         <translation>Prabačen vam je novi razgovor, pokrenite razgovor klikom ovdje.</translation>
     </message>
     <message>
@@ -256,7 +256,7 @@
         <translation>O programu</translation>
     </message>
     <message>
-        <source>About program</source>
+        <source>About the program</source>
         <translation>O programu</translation>
     </message>
     <message>

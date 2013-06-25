@@ -64,8 +64,8 @@ void ChatRoomsWindow::transferedChatsMenu(QPoint p)
                      *sepAct;
 
             addAct = pmenu->addAction( QIcon(":/images/add.png"), tr("Add chat"));
-            newwAct  = pmenu->addAction( QIcon(":/images/application_add.png"), tr("Open in new a window"));
-            sepAct = pmenu->addAction( QIcon(":/images/application.png"), tr("Open in new a separate window"));
+            newwAct  = pmenu->addAction( QIcon(":/images/application_add.png"), tr("Open in a new window"));
+            sepAct = pmenu->addAction( QIcon(":/images/application.png"), tr("Open in a new separate window"));
             
             connect(addAct, SIGNAL(triggered()), this, SLOT(addTransferdChatWindow())); 
             connect(newwAct, SIGNAL(triggered()), this, SLOT(newTransferdChatWindow()));
@@ -141,8 +141,8 @@ void ChatRoomsWindow::activeChatsMenu(QPoint p)
                      *sepAct;
 
             addAct = pmenu->addAction( QIcon(":/images/add.png"), tr("Add chat"));
-            newwAct  = pmenu->addAction( QIcon(":/images/application_add.png"), tr("Open in new a window"));
-            sepAct = pmenu->addAction( QIcon(":/images/application.png"), tr("Open in new a separate window"));
+            newwAct  = pmenu->addAction( QIcon(":/images/application_add.png"), tr("Open in a new window"));
+            sepAct = pmenu->addAction( QIcon(":/images/application.png"), tr("Open in a new separate window"));
             closeAct = pmenu->addAction( QIcon(":/images/cancel.png"), tr("Close chat"));
             deleteAct = pmenu->addAction( QIcon(":/images/delete.png"), tr("Delete chat"));
             
@@ -167,7 +167,7 @@ void ChatRoomsWindow::onlineUsersMenu(QPoint p)
 
             QAction  *sendmsg,
                      *info;
-            sendmsg = pmenu->addAction( QIcon(":/images/add.png"), tr("Send private message"));
+             sendmsg = pmenu->addAction( QIcon(":/images/add.png"), tr("Send a private message"));
             info  = pmenu->addAction( QIcon(":/images/application_add.png"), tr("View user information"));
             connect(sendmsg, SIGNAL(triggered()), this, SLOT(sendMessageWindow()));
             connect(info, SIGNAL(triggered()), this, SLOT(userInfoWindow()));
@@ -239,8 +239,8 @@ void ChatRoomsWindow::closedChatsMenu(QPoint p)
                      *sepAct;
 
             addAct = pmenu->addAction( QIcon(":/images/add.png"), tr("Add chat"));
-            newwAct  = pmenu->addAction( QIcon(":/images/application_add.png"), tr("Open in new a window")); 
-            sepAct = pmenu->addAction( QIcon(":/images/application.png"), tr("Open in new a separate window"));
+            newwAct  = pmenu->addAction( QIcon(":/images/application_add.png"), tr("Open in a new window")); 
+            sepAct = pmenu->addAction( QIcon(":/images/application.png"), tr("Open in a new separate window"));
             deleteAct = pmenu->addAction( QIcon(":/images/delete.png"), tr("Delete chat"));
             
             connect(addAct, SIGNAL(triggered()), this, SLOT(addClosedChatWindow())); 
@@ -296,8 +296,8 @@ void ChatRoomsWindow::pendingChatsMenu(QPoint p)
                      *sepAct;
 
             acceptAct = pmenu->addAction( QIcon(":/images/accept.png"), tr("Accept chat"));
-            newwAct  = pmenu->addAction( QIcon(":/images/application_add.png"), tr("Open in new window"));
-            sepAct = pmenu->addAction( QIcon(":/images/application.png"), tr("Open in new a separate window"));
+            newwAct  = pmenu->addAction( QIcon(":/images/application_add.png"), tr("Open in a new window"));
+            sepAct = pmenu->addAction( QIcon(":/images/application.png"), tr("Open in a new separate window"));
             denyAct = pmenu->addAction( QIcon(":/images/cancel.png"), tr("Reject chat"));
             
 
@@ -380,7 +380,7 @@ void ChatRoomsWindow::createOnlineUsersTab()
 void ChatRoomsWindow::createPendingChatsTab()
 {  
     // Create transfered chats groupbox
-    transferedChatsGroupBox = new QGroupBox(tr("Transfered chats"));
+    transferedChatsGroupBox = new QGroupBox(tr("Transferred chats"));
     transferedChatsListVBOX = new QVBoxLayout;
 
     // Table transfered chats
