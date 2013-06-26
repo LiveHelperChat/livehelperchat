@@ -43,7 +43,7 @@
         <translation>Razgovori na čekanju</translation>
     </message>
     <message>
-        <source>Transfered chats</source>
+        <source>Transferred chats</source>
         <translation>Preseljeni razgovori</translation>
     </message>
     <message>
@@ -65,11 +65,11 @@
 <context>
     <name>ChatWindow</name>
     <message>
-        <source>User left chat</source>
+        <source>User left the chat</source>
         <translation>Korisnik završio razgovor</translation>
     </message>
     <message>
-        <source>User joined chat</source>
+        <source>User joined the chat</source>
         <translation>Korisnik započeo razgovor</translation>
     </message>
     <message>
@@ -89,11 +89,11 @@
         <translation>Vlasnik</translation>
     </message>
     <message>
-        <source>responsable</source>
+        <source>responsible</source>
         <translation>odgovoran</translation>
     </message>
     <message>
-        <source>Come from</source>
+        <source>Came from</source>
         <translation>Stigao od</translation>
     </message>
     <message>

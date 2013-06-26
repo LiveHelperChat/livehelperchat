@@ -175,7 +175,7 @@ void MainWindow::createActions()
     chatroomsAct->setShortcut(tr("Ctrl+R"));
     connect(chatroomsAct, SIGNAL(triggered()), this, SLOT(chatRooms()));
 
-    aboutAct = new QAction(tr("About"), this);
+    aboutAct = new QAction(tr("About the program"), this);
     aboutAct->setStatusTip(tr("About the program"));
     connect(aboutAct, SIGNAL(triggered()), this, SLOT(about()));
 

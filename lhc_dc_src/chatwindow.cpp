@@ -8,7 +8,7 @@
 #include "chatwindow.h"
 #include "webservice.h"
 #include "lhchatsynchro.h"
-#include "transferdialog.h"
+#include "transferChatButtonansferdialog.h"
 
 
 ChatWindow::ChatWindow(int chat_id, QWidget *parent) : QWidget(parent)
@@ -357,7 +357,11 @@ void ChatWindow::getDataChat(void* pt2Object, QByteArray result)
     {
         QScriptValue chat = sc.property("chat");
         mySelf->inforChat->setText("<b>IP</b> - "+chat.property("ip").toString() + " | <b>"+tr("Came from")+"</b> - "+chat.property("referrer").toString()+" | <br/> <b>ID</b> - "+chat.property("id").toString()+" | <b>"+tr("E-mail")+"</b> - "+chat.property("email").toString()+" | <b>"+tr("Country")+"</b> - "+chat.property("country_name").toString());
+<<<<<<< HEAD
         mySelf->infoOwner->setText(sc.property("ownerstring").toString());
+=======
+        mySelf->infoOwner->setText(sc.property("ownerstring").toString());          
+>>>>>>> d96ac53f8419a54359bb689699fa5799a8eb17c8
         mySelf->clientNick = chat.property("nick").toString();
        // qDebug("Assigned %s ",mySelf->chatScriptObject.property("ip").toString().toStdString().c_str());
 
