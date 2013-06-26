@@ -111,7 +111,7 @@
 <context>
     <name>LoginDialog</name>
     <message>
-        <source>Authentification failed</source>
+        <source>Authentication failed</source>
         <translation type="unfinished">Inloggen mislukt</translation>
     </message>
     <message>
@@ -119,15 +119,15 @@
         <translation type="unfinished">Waarschuwing</translation>
     </message>
     <message>
-        <source>Host field is empty!</source>
+        <source>The host field is empty!</source>
         <translation type="unfinished">Host adres is leeg!</translation>
     </message>
     <message>
-        <source>Password field is empty!</source>
+        <source>The password field is empty!</source>
         <translation type="unfinished">Wachtwoord niet ingevuld!</translation>
     </message>
     <message>
-        <source>User name field is empty!</source>
+        <source>The username field is empty!</source>
         <translation type="unfinished">Gebruikersnaam niet ingevuld!</translation>
     </message>
 </context>
@@ -157,11 +157,11 @@
         <translation type="unfinished">Chatgesprek toevoegen</translation>
     </message>
     <message>
-        <source>Open in new a window</source>
+        <source>Open in a new window</source>
         <translation type="unfinished">Open in nieuw venster</translation>
     </message>
     <message>
-        <source>Open in new a separate window</source>
+        <source>Open in a new separate window</source>
         <translation type="unfinished">Open in een apart venster</translation>
     </message>
     <message>
@@ -185,7 +185,7 @@
         <translation type="unfinished">Chatgesprekken in wachtrij</translation>
     </message>
     <message>
-        <source>Transfered chats</source>
+        <source>Transferred chats</source>
         <translation type="unfinished">Doorgegeven chatgesprekken</translation>
     </message>
     <message>
@@ -204,11 +204,11 @@
 <context>
     <name>ChatWindow</name>
     <message>
-        <source>User left chat</source>
+        <source>User left the chat</source>
         <translation type="unfinished">Gebruiker heeft chatgesprek verlaten</translation>
     </message>
     <message>
-        <source>User joined chat</source>
+        <source>User joined the chat</source>
         <translation type="unfinished">Gebruiker aangemeld bij chat</translation>
     </message>
     <message>
@@ -228,11 +228,11 @@
         <translation type="unfinished">Eigenaar</translation>
     </message>
     <message>
-        <source>responsable</source>
+        <source>responsible</source>
         <translation type="unfinished">verantwoordelijk</translation>
     </message>
     <message>
-        <source>Come from</source>
+        <source>Came from</source>
         <translation type="unfinished">Komt van</translation>
     </message>
     <message>
@@ -255,11 +255,11 @@
         <translation type="unfinished">Nieuw verzoek</translation>
     </message>
     <message>
-        <source>You have new chat pending. To start chat click me.</source>
+        <source>You have a new chat pending. To start the chat click me.</source>
         <translation type="unfinished">Nieuw binnenkomend chatgesprek.Klik hier om deel te nemen.</translation>
     </message>
     <message>
-        <source>To you have been transfered new chat, start chat click me.</source>
+        <source>A new chat has been transferred to you. To start the chat click me.</source>
         <translation type="unfinished">Een chatgesprek is aan jou overgedragen, klik hier om deel te nemen.</translation>
     </message>
     <message>
@@ -291,7 +291,7 @@
         <translation type="unfinished">Over</translation>
     </message>
     <message>
-        <source>About program</source>
+        <source>About the program</source>
         <translation type="unfinished">Over dit programma</translation>
     </message>
     <message>
