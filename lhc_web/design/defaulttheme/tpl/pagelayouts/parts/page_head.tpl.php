@@ -1,12 +1,12 @@
 <title><?php if (isset($Result['path'])) : ?>
-<?php 
+<?php
 $ReverseOrder = $Result['path'];
 krsort($ReverseOrder);
 foreach ($ReverseOrder as $pathItem) : ?><?php echo htmlspecialchars($pathItem['title']).' '?>&laquo;<?php echo ' ';endforeach;?>
 <?php endif; ?>
 <?php echo htmlspecialchars(erLhcoreClassModelChatConfig::fetch('application_name')->current_value)?></title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 <link rel="icon" type="image/png" href="<?php echo erLhcoreClassDesign::design('images/favicon.ico')?>" />
 <link rel="shortcut icon" type="image/x-icon" href="<?php echo erLhcoreClassDesign::design('images/favicon.ico')?>">
 <meta name="Keywords" content="" />
