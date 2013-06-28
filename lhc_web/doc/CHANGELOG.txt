@@ -1,3 +1,9 @@
+1.36v
+
+1. German translations.
+2. Desktop client translations.
+
+
 1.35v
 
 New features:
