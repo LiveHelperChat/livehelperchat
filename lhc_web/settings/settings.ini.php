@@ -29,7 +29,8 @@ return array (
         4 => 'por',
         5 => 'nld',
       	6 => 'ara',
-        7 => 'site_admin',
+      	7 => 'ger',
+        8 => 'site_admin',
       ),
     ),
     'default_url' =>
@@ -184,11 +185,31 @@ return array (
     	'theme' =>
       	array (
     		0 => 'customtheme',
-    		1 => 'defaulttheme'),
+    		1 => 'defaulttheme'
+      	),
     	   'default_url' =>
     	array (
     		'module' => 'chat',
-    		'view' => 'startchat'),
+    		'view' => 'startchat'
+    	),
+      ),
+      'ger' =>
+      array (
+    	'locale' => 'de_DE',
+    	'content_language' => 'de',
+    	'dir_language' => 'ltr',
+    	'title' => '',
+    	'description' => '',
+    	'theme' =>
+      	array (
+    		0 => 'customtheme',
+    		1 => 'defaulttheme'
+      	),
+    	   'default_url' =>
+    	array (
+    		'module' => 'chat',
+    		'view' => 'startchat'
+    	),
       ),
       'site_admin' =>
       array (
