@@ -40,7 +40,7 @@
 			  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','Question')?>:</label>
 			  <textarea rows="3" name="question"><?php echo htmlspecialchars($item_new->question);?></textarea>
 
-			  <input type="submit" class="small round button" name="send" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','Send question');?>"/>
+			  <input type="submit" class="small round button" name="sendAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','Send question');?>"/>
 			  <input type="hidden" value="<?php echo htmlspecialchars($referer);?>" name="url" />
 			  <input type="hidden" value="1" name="send"/>
 

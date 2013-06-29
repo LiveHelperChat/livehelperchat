@@ -1903,6 +1903,10 @@
         <translation>Maksimum 50 ženklų</translation>
     </message>
     <message>
+        <source>Invalid captcha code, please enable Javascript!</source>
+        <translation>Nekorektiškas apsaugos kodas, prašome įjungti Javascript palaikymą!</translation>
+    </message>
+    <message>
         <source>Maximum 500 characters for message</source>
         <translation>Maksimum 500 ženklų žinutėje</translation>
     </message>
