@@ -34,7 +34,7 @@
 				<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 			<?php endif;?>
 
-		  <form action="<?php echo erLhcoreClassDesign::baseurl('faq/faqwidget')?><?php echo $dynamic_url_append?>" method="post">
+		  <form action="<?php echo erLhcoreClassDesign::baseurl('faq/faqwidget')?><?php echo $dynamic_url_append?>" method="post" onsubmit="return lhinst.addCaptcha('<?php echo time()?>',$(this))">
 			  <h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','Type your question');?></h2>
 
 			  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','Question')?>:</label>
@@ -42,6 +42,8 @@
 
 			  <input type="submit" class="small round button" name="send" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','Send question');?>"/>
 			  <input type="hidden" value="<?php echo htmlspecialchars($referer);?>" name="url" />
+			  <input type="hidden" value="1" name="send"/>
+
 		  </form>
 		  </div>
 

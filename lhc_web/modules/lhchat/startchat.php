@@ -93,6 +93,10 @@ if (isset($_POST['StartChat'])) {
 	           }
 	       }
 
+	       if (isset($_SESSION[$_SERVER['REMOTE_ADDR']]['form'])){
+	       		unset($_SESSION[$_SERVER['REMOTE_ADDR']]['form']);
+	       }
+
 	       // Redirect user
 	       erLhcoreClassModule::redirect('chat/chat/' . $chat->id . '/' . $chat->hash);
 	       exit;

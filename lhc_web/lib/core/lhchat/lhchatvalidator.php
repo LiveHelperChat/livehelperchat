@@ -75,11 +75,23 @@ class erLhcoreClassChatValidator {
         		FILTER_REQUIRE_ARRAY
         );
 
+        // Captcha stuff
+        $hashCaptcha = $_SESSION[$_SERVER['REMOTE_ADDR']]['form'];
+        $nameField = 'captcha_'.$_SESSION[$_SERVER['REMOTE_ADDR']]['form'];
+        $validationFields[$nameField] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
+
+
         $form = new ezcInputForm( INPUT_POST, $validationFields );
         $Errors = array();
 
         if (erLhcoreClassModelChatBlockedUser::getCount(array('filter' => array('ip' => $_SERVER['REMOTE_ADDR']))) > 0) {
             $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You do not have permission to chat! Please contact site owner.');
+        }
+
+        // Captcha validation
+        if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600 || $hashCaptcha != sha1($_SERVER['REMOTE_ADDR'].$form->$nameField.erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' )))
+        {
+        	$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid captcha code, please enable Javascript!');
         }
 
         if (

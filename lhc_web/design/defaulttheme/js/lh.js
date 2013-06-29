@@ -781,6 +781,20 @@ function lh(){
     	}
     	return false;
     };
+
+    this.addCaptcha = function(timestamp,inst) {
+
+    	if (inst.find('.form-protected').size() == 0){
+	    	 $.getJSON(this.wwwDir + 'captcha/captchastring/form/'+timestamp, function(data) {
+	    		 inst.append('<input type="hidden" value="'+timestamp+'" name="captcha_'+data.result+'" /><input type="hidden" class="form-protected" value="1" />');
+	    		 inst.submit();
+	    	 });
+
+	    	 return false;
+    	};
+
+    	return true;
+    };
 }
 
 var lhinst = new lh();

@@ -46,6 +46,11 @@ if ($votingRelative !== false) {
 				)
 		);
 
+		// Captcha stuff
+		$hashCaptcha = $_SESSION[$_SERVER['REMOTE_ADDR']]['form'];
+		$nameField = 'captcha_'.$_SESSION[$_SERVER['REMOTE_ADDR']]['form'];
+		$definition[$nameField] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
+
 		$form = new ezcInputForm( INPUT_POST, $definition );
 		$Errors = array();
 
@@ -63,11 +68,18 @@ if ($votingRelative !== false) {
 			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/votingwidget','No question was detected');
 		}
 
+		// Captcha validation
+		if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600 || $hashCaptcha != sha1($_SERVER['REMOTE_ADDR'].$form->$nameField.erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' )))
+		{
+			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid captcha code, please enable Javascript!');
+		}
+
 		if ( empty($Errors) ) {
 			if (erLhcoreClassQuestionary::getCount(array('filter' => array('question_id' => $votingRelative->id, 'ip' => ip2long($_SERVER['REMOTE_ADDR']))),'lh_question_option_answer') > 0) {
 				$Errors[] = 'You have already voted';
 			}
 		}
+
 
 		if ( count($Errors) == 0) {
 			$votingAnswer->saveThis();

@@ -2,7 +2,7 @@
 
 1. German translations.
 2. Desktop client translations.
-
+3. Captcha protection.
 
 1.35v
 

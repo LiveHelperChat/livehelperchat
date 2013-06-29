@@ -8,7 +8,7 @@
 	<?php elseif (isset($already_voted)) : ?>
 	<h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/votingwidget','You have already voted, thank you!');?></h2>
 	<?php else : ?>
-	<form action="<?php echo erLhcoreClassDesign::baseurl('questionary/votingwidget')?><?php echo $append_mode?>" method="post">
+	<form action="<?php echo erLhcoreClassDesign::baseurl('questionary/votingwidget')?><?php echo $append_mode?>" method="post" onsubmit="return lhinst.addCaptcha('<?php echo time()?>',$(this))">
 	<?php if ($voting !== false) : ?>
 	<h4 class="mt0 mb5"><?php echo htmlspecialchars($voting->question)?></h4>
 
@@ -26,10 +26,12 @@
 		<?php endforeach;?>
 		<br>
 		<input type="submit" class="small round button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/votingwidget','Vote');?>" name="VoteAction">
+		<input type="hidden" value="1" name="VoteAction"/>
 		<?php else : ?>
 		<textarea name="feedBack"><?php echo htmlspecialchars($answer->answer)?></textarea>
 
 		<input type="submit" class="small round button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/votingwidget','Send');?>" name="FeedBackAction">
+		<input type="hidden" value="1" name="FeedBackAction"/>
 		<?php endif;?>
 
 		<input type="hidden" name="QuestionID" value="<?php echo $voting->id ?>" />
