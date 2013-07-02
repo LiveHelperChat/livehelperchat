@@ -18,7 +18,7 @@ ChatWindow::ChatWindow(int chat_id, QWidget *parent) : QWidget(parent)
     setAttribute(Qt::WA_DeleteOnClose);
 
     /**
-    * Avoids closing whole application if main window is hidden.
+    * Avoids closing the whole application if the main window is hidden.
     */
     setAttribute(Qt::WA_QuitOnClose,false);
 
@@ -132,7 +132,7 @@ ChatWindow::ChatWindow(int chat_id, QWidget *parent) : QWidget(parent)
     connect(mediaObject, SIGNAL(stateChanged(Phonon::State,Phonon::State)),
                  this, SLOT(stateChanged(Phonon::State,Phonon::State)));
 
-    // Initial reques, actualy we could take data from parent window. But we have to update it's state so we send initial request.
+    // Initial request, actually we could take data from the parent window, but we have to update its state, so we send an initial request.
     LhcWebServiceClient::instance()->LhcSendRequest("/xml/chatdata/"+QString::number(this->chatID),(QObject*) this, ChatWindow::getDataChat);
 
 }
@@ -207,7 +207,7 @@ void ChatWindow::setIsTabMode(bool tabMode)
 
 ChatWindow::~ChatWindow()
 {
-    // No need to notife lhcChatSynchro Because it'self does all dirty job.
+    // No need to notify lhcChatSynchro because it does all the dirty jobs itself.
 }
 
 void ChatWindow::separateWindowClicked()
@@ -227,7 +227,7 @@ void ChatWindow::separateWindowClicked()
     {
         this->chatRoomsParent->removeTab(this->tabIndex);
 
-        //Neccesary !!!
+        //Necessary !!!
         this->setParent(0);
         this->show();
         this->asTab = false;

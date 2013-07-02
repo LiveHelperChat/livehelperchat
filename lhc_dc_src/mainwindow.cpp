@@ -37,7 +37,7 @@ MainWindow::MainWindow()
 
 	this->createStatusBar();
 
-    QFile file(qApp->applicationDirPath() + "/qss/lhc.qss");
+    QFile file(qApp->applicationDirPath() + "./qss/lhc.qss");
     file.open(QFile::ReadOnly);
     QString styleSheet = QLatin1String(file.readAll());
     qApp->setStyleSheet(styleSheet);
