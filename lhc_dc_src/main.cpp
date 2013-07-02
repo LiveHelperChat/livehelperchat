@@ -15,7 +15,7 @@ QApplication app(argc, argv);
 
 
 // Load style sheet
-QFile styleFile( qApp->applicationDirPath() + "./qss/lhc.qss" );
+QFile styleFile( qApp->applicationDirPath() + "/qss/lhc.qss" );
 styleFile.open( QFile::ReadOnly );
 
 // Apply the loaded stylesheet
@@ -46,8 +46,8 @@ LoginDialog *lgnDialog = new LoginDialog(0,true);
 
 if(!lgnDialog->exec())
 {
-    QTimer::singleShot(250, qApp, SLOT(quit())); 
-} 
+    QTimer::singleShot(250, qApp, SLOT(quit()));
+}
 
 delete lgnDialog;
 
