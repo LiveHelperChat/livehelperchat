@@ -15,6 +15,17 @@
             <?php endforeach; ?>
         </select>
     </div>
+
+    <div class="columns large-6">
+	    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Department')?></label>
+	    <select id="DepartmentID">
+	        	<option value="0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Any');?></option>
+			<?php foreach (erLhcoreClassDepartament::getDepartaments() as $departament) : ?>
+			   <option value="<?php echo $departament['id']?>"><?php echo htmlspecialchars($departament['name'])?></option>
+			<?php endforeach; ?>
+		</select>
+	</div>
+
 </div>
 
 
@@ -28,6 +39,7 @@ function generateEmbedCode() {
     var siteAccess = $('#LocaleID').val() == default_site_access ? '' : $('#LocaleID').val();
     var id_hide_then_offline = $('#id_hide_then_offline').is(':checked') ? '/(hide_offline)/true' : '';
     var id_show_leave_form = $('#id_show_leave_form').is(':checked') ? '/(leaveamessage)/true' : '';
+    var id_department = $('#DepartmentID').val() > 0 ? '/(department)/'+$('#DepartmentID').val() : '';
 
     var id_tag = '<!-- Place this tag where you want the Live Helper Plugin to render. -->'+"\n"+
         '<div id="lhc_status_container_page" ></div>'+"\n\n<!-- Place this tag after the Live Helper Plugin tag. -->\n";
@@ -36,7 +48,7 @@ function generateEmbedCode() {
       'LHCChatOptionsPage.opt = {};\n'+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
-        'po.src = \'<?php echo erLhcoreClassSystem::instance()->baseHTTP?><?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chat/getstatusembed'+id_hide_then_offline+id_show_leave_form+'\';'+"\n"+
+        'po.src = \'<?php echo erLhcoreClassSystem::instance()->baseHTTP?><?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chat/getstatusembed'+id_hide_then_offline+id_show_leave_form+id_department+'\';'+"\n"+
         'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);'+"\n"+
       '})();'+"\n"+
     '</scr'+'ipt>';
@@ -44,7 +56,7 @@ function generateEmbedCode() {
     $('#HMLTContent').text(id_tag+script);
 };
 
-$('#LocaleID,#id_show_leave_form').change(function(){
+$('#LocaleID,#id_show_leave_form,#DepartmentID').change(function(){
     generateEmbedCode();
 });
 
