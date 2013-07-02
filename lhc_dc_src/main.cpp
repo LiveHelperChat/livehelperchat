@@ -15,7 +15,7 @@ QApplication app(argc, argv);
 
 
 // Load style sheet
-QFile styleFile( qApp->applicationDirPath() + "/qss/lhc.qss" );
+QFile styleFile( qApp->applicationDirPath() + "./qss/lhc.qss" );
 styleFile.open( QFile::ReadOnly );
 
 // Apply the loaded stylesheet
