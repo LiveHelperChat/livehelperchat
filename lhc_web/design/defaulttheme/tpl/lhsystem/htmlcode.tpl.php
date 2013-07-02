@@ -20,6 +20,13 @@
             <?php endforeach; ?>
         </select>
 
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Department')?></label>
+        <select id="DepartmentID">
+        	<option value="0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Any');?></option>
+			<?php foreach (erLhcoreClassDepartament::getDepartaments() as $departament) : ?>
+			   <option value="<?php echo $departament['id']?>"><?php echo htmlspecialchars($departament['name'])?></option>
+			<?php endforeach; ?>
+		</select>
 
         <div class="row">
         	<div class="column large-6">
@@ -34,7 +41,6 @@
 		        </div>
         	</div>
         	<div class="column large-6">
-
 	        	<div class="row">
 			        	<div class="column large-6">
 			        		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Widget width')?></label>
@@ -89,6 +95,8 @@ function generateEmbedCode(){
     var id_show_leave_form = $('#id_show_leave_form').is(':checked') ? '/(leaveamessage)/true' : '';
     var id_hide_then_offline = $('#id_hide_then_offline').is(':checked') ? '/(hide_offline)/true' : '';
     var id_check_operator_message = $('#id_check_operator_message').is(':checked') ? '/(check_operator_messages)/true' : '';
+    var id_department = $('#DepartmentID').val() > 0 ? '/(department)/'+$('#DepartmentID').val() : '';
+
 
     var id_position =  '/(position)/'+$('#PositionID').val();
     var id_tag = '';
@@ -104,7 +112,7 @@ function generateEmbedCode(){
       'LHCChatOptions.opt = {widget_height:'+$('#id_widget_height').val()+',widget_width:'+$('#id_widget_width').val()+',popup_height:'+$('#id_popup_height').val()+',popup_width:'+$('#id_popup_width').val()+'};\n'+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
-        'po.src = \'<?php echo erLhcoreClassSystem::instance()->baseHTTP?><?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chat/getstatus'+id_internal_popup+id_position+id_hide_then_offline+id_check_operator_message+top+topposition+id_show_leave_form+'\';'+"\n"+
+        'po.src = \'<?php echo erLhcoreClassSystem::instance()->baseHTTP?><?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chat/getstatus'+id_internal_popup+id_position+id_hide_then_offline+id_check_operator_message+top+topposition+id_show_leave_form+id_department+'\';'+"\n"+
         'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);'+"\n"+
       '})();'+"\n"+
     '</scr'+'ipt>';
@@ -112,7 +120,7 @@ function generateEmbedCode(){
     $('#HMLTContent').text(id_tag+script);
 };
 
-$('#LocaleID,#id_internal_popup,#id_position_bottom,#PositionID,#id_show_leave_form,#id_hide_then_offline,#id_check_operator_message,#UnitsTop,#id_top_text,#id_popup_width,#id_popup_height,#id_widget_width,#id_widget_height').change(function(){
+$('#LocaleID,#DepartmentID,#id_internal_popup,#id_position_bottom,#PositionID,#id_show_leave_form,#id_hide_then_offline,#id_check_operator_message,#UnitsTop,#id_top_text,#id_popup_width,#id_popup_height,#id_widget_width,#id_widget_height').change(function(){
     generateEmbedCode();
 });
 

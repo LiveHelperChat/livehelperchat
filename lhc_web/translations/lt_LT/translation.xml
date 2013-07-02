@@ -2285,6 +2285,14 @@
         <translation>Įterpimo į puslapį kodas</translation>
     </message>
     <message>
+        <source>Department</source>
+        <translation>Departamentas</translation>
+    </message>
+    <message>
+        <source>Any</source>
+        <translation>Betkuris</translation>
+    </message>
+    <message>
         <source>height</source>
         <translation>aukštis</translation>
     </message>

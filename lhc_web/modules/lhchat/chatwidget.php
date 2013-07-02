@@ -33,7 +33,7 @@ $inputData->username = isset($_GET['prefill']['username']) ? (string)$_GET['pref
 $inputData->question = '';
 $inputData->email = isset($_GET['prefill']['email']) ? (string)$_GET['prefill']['email'] : '';
 $inputData->phone = isset($_GET['prefill']['phone']) ? (string)$_GET['prefill']['phone'] : '';
-$inputData->departament_id = 0;
+$inputData->departament_id = (int)$Params['user_parameters_unordered']['department'];
 $inputData->validate_start_chat = false;
 $inputData->name_items = array();
 $inputData->value_items = array();
@@ -41,6 +41,12 @@ $inputData->value_sizes = array();
 
 $chat = new erLhcoreClassModelChat();
 
+// Assign department instantly
+if ($inputData->departament_id > 0) {
+	$chat->dep_id = $inputData->departament_id;
+}
+
+// Leave a message functionality
 $leaveamessage = (string)$Params['user_parameters_unordered']['leaveamessage'] == 'true' ? true : false;
 
 $additionalParams = array();
@@ -49,6 +55,12 @@ if ((string)$Params['user_parameters_unordered']['offline'] == 'true' && $leavea
 }
 
 $tpl->set('leaveamessage',$leaveamessage);
+
+// Department functionality
+$department = (int)$Params['user_parameters_unordered']['department'] > 0 ? (int)$Params['user_parameters_unordered']['department'] : false;
+$tpl->set('department',$department);
+
+
 
 if (isset($_POST['StartChat']))
 {

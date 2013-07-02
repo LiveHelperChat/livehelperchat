@@ -177,25 +177,25 @@ $ViewList['blockedusers'] = array(
 $ViewList['getstatus'] = array(
     'script' => 'getstatus.php',
     'params' => array(),
-    'uparams' => array('click','position','hide_offline','check_operator_messages','top','units','leaveamessage'),
+    'uparams' => array('click','position','hide_offline','check_operator_messages','top','units','leaveamessage','department'),
     );
 
 $ViewList['getstatusembed'] = array(
     'script' => 'getstatusembed.php',
     'params' => array(),
-    'uparams' => array('hide_offline','leaveamessage'),
+    'uparams' => array('hide_offline','leaveamessage','department'),
 );
 
 $ViewList['startchat'] = array (
     'script' => 'startchat.php',
     'params' => array(),
-    'uparams' => array('offline','leaveamessage')
+    'uparams' => array('offline','leaveamessage','department')
 );
 
 $ViewList['chatwidget'] = array(
     'script' => 'chatwidget.php',
     'params' => array(),
-    'uparams' => array('mode','offline','leaveamessage'),
+    'uparams' => array('mode','offline','leaveamessage','department'),
 );
 
 $ViewList['readoperatormessage'] = array(

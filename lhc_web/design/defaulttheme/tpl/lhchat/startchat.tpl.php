@@ -2,11 +2,11 @@
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
-<?php if ($leaveamessage == false || erLhcoreClassChat::isOnline() === true) : ?>
+<?php if ($leaveamessage == false || erLhcoreClassChat::isOnline($department) === true) : ?>
 
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Fill out this form to start a chat');?></h1>
 
-<form method="post" action="<?php echo erLhcoreClassDesign::baseurl('chat/startchat')?>" onsubmit="return lhinst.addCaptcha('<?php echo time()?>',$(this))">
+<form method="post" action="<?php echo erLhcoreClassDesign::baseurl('chat/startchat')?><?php $department !== false ? print '/(department)/'.$department : ''?>" onsubmit="return lhinst.addCaptcha('<?php echo time()?>',$(this))">
 
 <?php if (isset($start_data_fields['name_visible_in_popup']) && $start_data_fields['name_visible_in_popup'] == true) : ?>
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Name');?><?php if (isset($start_data_fields['name_require_option']) && $start_data_fields['name_require_option'] == 'required') : ?>*<?php endif;?></label>
@@ -30,7 +30,9 @@
 
 <?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/user_variables.tpl.php'));?>
 
+<?php if ($department === false) : ?>
 <?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/department.tpl.php'));?>
+<?php endif;?>
 
 <input type="submit" class="small round button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Start chat');?>" name="StartChatAction" />
 <input type="hidden" value="<?php echo htmlspecialchars($referer);?>" name="URLRefer"/>

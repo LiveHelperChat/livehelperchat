@@ -2,8 +2,8 @@
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
-<?php if ($leaveamessage == false || erLhcoreClassChat::isOnline() === true) : ?>
-<form method="post" action="<?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?><?php echo $append_mode?>" onsubmit="return lhinst.addCaptcha('<?php echo time()?>',$(this))">
+<?php if ($leaveamessage == false || erLhcoreClassChat::isOnline($department) === true) : ?>
+<form method="post" action="<?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?><?php echo $append_mode?><?php $department !== false ? print '/(department)/'.$department : ''?>" onsubmit="return lhinst.addCaptcha('<?php echo time()?>',$(this))">
 
 <div class="row">
     <?php if (isset($start_data_fields['name_visible_in_page_widget']) && $start_data_fields['name_visible_in_page_widget'] == true) : ?>
@@ -33,7 +33,9 @@
 
 <?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/user_variables.tpl.php'));?>
 
-<?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/department.tpl.php'));?>
+<?php if ($department === false) : ?>
+	<?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/department.tpl.php'));?>
+<?php endif;?>
 
 <input type="submit" class="small round button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Start chat');?>" name="StartChatAction" />
 <input type="hidden" value="<?php echo htmlspecialchars($referer);?>" name="URLRefer"/>

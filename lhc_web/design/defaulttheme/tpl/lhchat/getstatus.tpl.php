@@ -61,13 +61,13 @@ if (key_exists($position, $positionArgument)){
 	$currentPosition = $positionArgument['bottom_right'];
 }
 
-$isOnlineHelp = erLhcoreClassChat::isOnline();
+$isOnlineHelp = erLhcoreClassChat::isOnline($department);
 
 // Perhaps user do not want to show live help then it's offline
 if ( !($isOnlineHelp == false && $hide_offline == 'true') ) : ?>
 var lh_inst  = {
 
-    urlopen : "<?php echo erLhcoreClassSystem::instance()->baseHTTP?><?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/startchat')?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?>",
+    urlopen : "<?php echo erLhcoreClassSystem::instance()->baseHTTP?><?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/startchat')?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $department !== false ? print '/(department)/'.$department : ''?>",
 
     windowname : "startchatwindow",
 
@@ -159,7 +159,7 @@ var lh_inst  = {
           if ( url_to_open != undefined ) {
                 this.initial_iframe_url = url_to_open+'?URLReferer='+escape(document.location)+this.parseOptions();
           } else {
-                this.initial_iframe_url = "<?php echo erLhcoreClassSystem::instance()->baseHTTP?><?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?>"+'?URLReferer='+escape(document.location)+this.parseOptions();
+                this.initial_iframe_url = "<?php echo erLhcoreClassSystem::instance()->baseHTTP?><?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $department !== false ? print '/(department)/'.$department : ''?>"+'?URLReferer='+escape(document.location)+this.parseOptions();
           };
 
           var widgetWidth = (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.widget_width != 'undefined') ? parseInt(LHCChatOptions.opt.widget_width) : 300;

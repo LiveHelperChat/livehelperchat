@@ -161,7 +161,7 @@ class erLhcoreClassChatValidator {
         $ids = array_keys($departments);
         if ($form->hasValidData( 'DepartamentID' ) && in_array($form->DepartamentID,$ids)) {
             $chat->dep_id = $form->DepartamentID;
-        } else {
+        } elseif ($chat->dep_id == 0 || !in_array($chat->dep_id,$ids)) {
             $id = array_shift($ids);
             $chat->dep_id = $id;
         }

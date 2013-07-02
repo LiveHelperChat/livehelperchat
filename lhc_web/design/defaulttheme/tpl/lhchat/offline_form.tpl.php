@@ -3,7 +3,7 @@
 <?php if (isset($request_send)) : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Your request was sent!');?>
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php else : ?>
-	<form method="post" action="<?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?>/(offline)/true/(leaveamessage)/true<?php echo $append_mode?>" onsubmit="return lhinst.addCaptcha('<?php echo time()?>',$(this))">
+	<form method="post" action="<?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?>/(offline)/true/(leaveamessage)/true<?php echo $append_mode?><?php $department !== false ? print '/(department)/'.$department : ''?>" onsubmit="return lhinst.addCaptcha('<?php echo time()?>',$(this))">
 
 	<div class="row">
 	    <div class="columns small-6 end">
@@ -26,7 +26,9 @@
 
 	<?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/user_variables.tpl.php'));?>
 
-	<?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/department.tpl.php'));?>
+	<?php if ($department === false) : ?>
+		<?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/department.tpl.php'));?>
+	<?php endif;?>
 
 	<input type="submit" class="small round button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Leave a message');?>" name="StartChatAction" />
 	<input type="hidden" value="<?php echo htmlspecialchars($referer);?>" name="URLRefer"/>
