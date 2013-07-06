@@ -38,6 +38,57 @@
     </message>
 </context>
 <context>
+    <name>system/languages</name>
+    <message>
+        <source>Default view</source>
+        <translation>Standartinis view</translation>
+    </message>
+    <message>
+        <source>Default module</source>
+        <translation>Standartinis modulis</translation>
+    </message>
+    <message>
+        <source>Please enter theme</source>
+        <translation>Prašome įvesti temą</translation>
+    </message>
+    <message>
+        <source>Please enter module name</source>
+        <translation>Prašome įvesti modulio pavadinimą</translation>
+    </message>
+    <message>
+        <source>Please enter view name</source>
+        <translation>Prašome įvesti vaizdo pavadinimą</translation>
+    </message>
+    <message>
+        <source>Site access</source>
+        <translation>Puslapio prieiga</translation>
+    </message>
+    <message>
+        <source>Languages configuration</source>
+        <translation>Kalbų nustatymai</translation>
+    </message>
+    <message>
+        <source>Settings updated</source>
+        <translation>Nustatymai atnaujinti</translation>
+    </message>
+    <message>
+        <source>Current site access</source>
+        <translation>Dabartinė puslapio prieiga</translation>
+    </message>
+    <message>
+        <source>Language</source>
+        <translation>Kalba</translation>
+    </message>
+    <message>
+        <source>options for</source>
+        <translation>nustatymai</translation>
+    </message>
+    <message>
+        <source>Theme, separate themes by new line</source>
+        <translation>Tema, atskirkite temas naujos eilutės simboliais</translation>
+    </message>
+</context>
+<context>
     <name>questionary/htmlcode</name>
     <message>
         <source>HTML code</source>
@@ -2590,6 +2641,10 @@
     <message>
         <source>New chat notification settings</source>
         <translation>Pranešimų apie naujus pokalbius nustatymai</translation>
+    </message>
+    <message>
+        <source>Languages configuration</source>
+        <translation>Kalbų nustatymai</translation>
     </message>
     <message>
         <source>SMTP settings</source>

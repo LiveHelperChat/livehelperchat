@@ -85,8 +85,11 @@ return array_merge(array (
 		'erLhcoreClassChatMail' 		 => 'lib/core/lhchat/lhchatmail.php',
 
 		// Chatbox
-		'erLhcoreClassChatbox'			=> 'lib/core/lhchatbox/lhchatbox.php',
-		'erLhcoreClassModelChatbox'		=> 'lib/models/lhchatbox/erlhcoreclassmodelchatbox.php',
+		'erLhcoreClassChatbox'				=> 'lib/core/lhchatbox/lhchatbox.php',
+		'erLhcoreClassModelChatbox'			=> 'lib/models/lhchatbox/erlhcoreclassmodelchatbox.php',
+
+		 // Siteaccess generator
+		'erLhcoreClassSiteaccessGenerator'	=> 'lib/core/lhcore/lhsiteaccessgenerator.php',
 
 ),
 include('var/autoloads/lhextension_autoload.php')
