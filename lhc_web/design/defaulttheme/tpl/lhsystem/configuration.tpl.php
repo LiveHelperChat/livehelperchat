@@ -42,16 +42,25 @@
 </ul>
 </div>
 
-
-<?php if ($currentUser->hasAccessTo('lhsystem','generatejs')) : ?>
 <div class="columns small-6">
+<?php if ($currentUser->hasAccessTo('lhsystem','generatejs')) : ?>
 	<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Chat embed code');?></h4>
 	<ul class="circle small-list">
 	    <li><a href="<?php echo erLhcoreClassDesign::baseurl('system/htmlcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Widget embed code');?></a></li>
 	    <li><a href="<?php echo erLhcoreClassDesign::baseurl('system/embedcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Page embed code');?></a></li>
 	</ul>
-</div>
 <?php endif; ?>
+
+<?php if ($currentUser->hasAccessTo('lhchat','viewstatistic')) : ?>
+	<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Statistic');?></h4>
+	<ul class="circle small-list">
+	    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/statistic')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Statistic');?></a></li>
+	</ul>
+<?php endif; ?>
+
+</div>
+
+
 
 </div>
 

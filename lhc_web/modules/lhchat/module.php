@@ -292,6 +292,12 @@ $ViewList['cannedmsgedit'] = array(
     'functions' => array( 'administratecannedmsg' )
 );
 
+$ViewList['statistic'] = array(
+    'script' => 'statistic.php',
+    'params' => array(),
+    'functions' => array( 'viewstatistic' )
+);
+
 $FunctionList['use'] = array('explain' => 'General permission to use chat module');
 $FunctionList['singlechatwindow'] = array('explain' =>'Allow user to use single chat window functionality');
 $FunctionList['allowchattabs'] = array('explain' =>'Allow user to user chat rooms functionality');
@@ -305,6 +311,7 @@ $FunctionList['allowclearonlinelist'] = array('explain' =>'Allow user to clean o
 $FunctionList['administratecannedmsg'] = array('explain' =>'Allow user change canned messages');
 $FunctionList['allowopenremotechat'] = array('explain' =>'Allow user to open other users chats from same department');
 $FunctionList['allowtransfertoanyuser'] = array('explain' =>'Allow user to transfer chat to any online user, not only his own department users');
+$FunctionList['viewstatistic'] = array('explain' =>'Allow user to view statistic');
 
 
 ?>

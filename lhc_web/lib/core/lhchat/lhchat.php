@@ -98,6 +98,22 @@ class erLhcoreClassChat {
 			           }
 			      }
 
+			      if (isset($params['filterlte']) && count($params['filterlte']) > 0)
+			      {
+				       foreach ($params['filterlte'] as $field => $fieldValue)
+				       {
+				      		$conditions[] = $q->expr->lte( $field, $q->bindValue($fieldValue) );
+				       }
+			      }
+
+			      if (isset($params['filtergte']) && count($params['filtergte']) > 0)
+			      {
+				      	foreach ($params['filtergte'] as $field => $fieldValue)
+				      	{
+				      		$conditions[] = $q->expr->gte( $field,$q->bindValue( $fieldValue ));
+				      	}
+				  }
+
 			      if (isset($params['customfilter']) && count($params['customfilter']) > 0)
 			      {
 				      	foreach ($params['customfilter'] as $fieldValue)
@@ -243,6 +259,22 @@ class erLhcoreClassChat {
     		foreach ($params['filtergt'] as $field => $fieldValue)
     		{
     			$conditions[] = $q->expr->gt( $field,$q->bindValue( $fieldValue ));
+    		}
+    	}
+
+    	if (isset($params['filterlte']) && count($params['filterlte']) > 0)
+    	{
+    		foreach ($params['filterlte'] as $field => $fieldValue)
+    		{
+    			$conditions[] = $q->expr->lte( $field, $q->bindValue($fieldValue) );
+    		}
+    	}
+
+    	if (isset($params['filtergte']) && count($params['filtergte']) > 0)
+    	{
+    		foreach ($params['filtergte'] as $field => $fieldValue)
+    		{
+    			$conditions[] = $q->expr->gte( $field,$q->bindValue( $fieldValue ));
     		}
     	}
 

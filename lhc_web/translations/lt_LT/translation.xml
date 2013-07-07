@@ -38,6 +38,13 @@
     </message>
 </context>
 <context>
+    <name>chat/statistic</name>
+    <message>
+        <source>Statistic</source>
+        <translation>Statistika</translation>
+    </message>
+</context>
+<context>
     <name>system/languages</name>
     <message>
         <source>Default view</source>
@@ -2644,6 +2651,10 @@
     <message>
         <source>HTML code</source>
         <translation>HTML kodas</translation>
+    </message>
+    <message>
+        <source>Statistic</source>
+        <translation>Statistika</translation>
     </message>
     <message>
         <source>E-mail templates</source>

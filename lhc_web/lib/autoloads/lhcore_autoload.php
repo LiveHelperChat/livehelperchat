@@ -91,6 +91,10 @@ return array_merge(array (
 		 // Siteaccess generator
 		'erLhcoreClassSiteaccessGenerator'	=> 'lib/core/lhcore/lhsiteaccessgenerator.php',
 
+		 // Statistic
+		'erLhcoreClassChatStatistic'		=> 'lib/core/lhchat/lhchatstatistic.php',
+
+
 ),
 include('var/autoloads/lhextension_autoload.php')
 );
