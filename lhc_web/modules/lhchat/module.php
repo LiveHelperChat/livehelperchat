@@ -304,6 +304,7 @@ $FunctionList['administrateconfig'] = array('explain' =>'Allow to change chat co
 $FunctionList['allowclearonlinelist'] = array('explain' =>'Allow user to clean online users list');
 $FunctionList['administratecannedmsg'] = array('explain' =>'Allow user change canned messages');
 $FunctionList['allowopenremotechat'] = array('explain' =>'Allow user to open other users chats from same department');
+$FunctionList['allowtransfertoanyuser'] = array('explain' =>'Allow user to transfer chat to any online user, not only his own department users');
 
 
 ?>

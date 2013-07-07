@@ -9,7 +9,6 @@ try {
 
 // Set new chat owner
 $currentUser = erLhcoreClassUser::instance();
-$chat->user_id = $currentUser->getUserID();
 
 if  ($chatTransfer->dep_id > 0) {
 	$chat->dep_id = $chatTransfer->dep_id;
@@ -17,13 +16,22 @@ if  ($chatTransfer->dep_id > 0) {
 	// User does not have access to chat in this department, that mean we do not have to do anything
 	if (!erLhcoreClassChat::hasAccessToRead($chat)){
 		exit;
+	} else {
+		$chat->user_id = $currentUser->getUserID();
 	}
+}
+
+if ($chatTransfer->transfer_to_user_id == $currentUser->getUserID()){
+	$chat->user_id = $currentUser->getUserID();
 }
 
 if ( !erLhcoreClassChat::hasAccessToRead($chat) )
 {
 	if ($currentUser->getUserID() == $chatTransfer->transfer_to_user_id) {
-		$chat->dep_id = erLhcoreClassUserDep::getDefaultUserDepartment();
+		$dep_id = erLhcoreClassUserDep::getDefaultUserDepartment();
+		if ($dep_id > 0) {
+			$chat->dep_id = $dep_id;
+		}
 	} else {
 		exit; // User does not have permission to assign chat to himself
 	}

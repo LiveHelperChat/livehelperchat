@@ -453,16 +453,18 @@ class erLhcoreClassChat {
            $NotUser = ' AND lh_users.id NOT IN ('.implode(',',$UserID).')';
        }
 
-       // User can see online only his department users
-       $limitation = self::getDepartmentLimitation('lh_userdep');
-
-       // Does not have any assigned department
-       if ($limitation === false) { return array(); }
-
        $limitationSQL = '';
 
-       if ($limitation !== true) {
-       		$limitationSQL = ' AND '.$limitation;
+       if (!erLhcoreClassUser::instance()->hasAccessTo('lhchat','allowtransfertoanyuser')){
+	       // User can see online only his department users
+	       $limitation = self::getDepartmentLimitation('lh_userdep');
+
+	       // Does not have any assigned department
+	       if ($limitation === false) { return array(); }
+
+	       if ($limitation !== true) {
+	       		$limitationSQL = ' AND '.$limitation;
+	       }
        }
 
        $SQL = 'SELECT lh_users.* FROM lh_users INNER JOIN lh_userdep ON lh_userdep.user_id = lh_users.id WHERE lh_userdep.last_activity > :last_activity '.$NotUser.$limitationSQL.' GROUP BY lh_users.id';
@@ -474,6 +476,7 @@ class erLhcoreClassChat {
        $rows = $stmt->fetchAll();
        return $rows;
     }
+
 
 
    /**
@@ -533,11 +536,15 @@ class erLhcoreClassChat {
        $userData = $currentUser->getUserData(true);
 
        if ( $userData->all_departments == 0 ) {
+
             /*
-             * From now permission is strictly by assigned department, not by chat owner
+             * --From now permission is strictly by assigned department, not by chat owner
              *
-             * if ($chat->user_id == $currentUser->getUserID()) return true;
+             * Finally decided to keep this check, it allows more advance permissions configuration
              * */
+
+       		if ($chat->user_id == $currentUser->getUserID()) return true;
+
             $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID());
 
             if (count($userDepartaments) == 0) return false;

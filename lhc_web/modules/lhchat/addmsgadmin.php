@@ -34,7 +34,6 @@ if (trim($form->msg) != '')
         	$Chat->updateThis();
         }
 
-
         echo json_encode(array('error' => 'false'));
     }
 

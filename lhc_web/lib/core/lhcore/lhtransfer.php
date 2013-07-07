@@ -23,24 +23,25 @@ class erLhcoreClassTransfer
 		return true;
 	}
 
-
     public static function getTransferChats($params = array())
     {
-    	$limitation = self::getDepartmentLimitation();
-
-    	// Does not have any assigned department
-    	if ($limitation === false) {
-    		return array();
-    	}
-
        $db = ezcDbInstance::get();
        $currentUser = erLhcoreClassUser::instance();
        $limitationSQL = '';
 
        if (isset($params['department_transfers']) && $params['department_transfers'] == true) {
+
+	       	$limitation = self::getDepartmentLimitation();
+
+	       	// Does not have any assigned department
+	       	if ($limitation === false) {
+	       		return array();
+	       	}
+
 	       	if ($limitation !== true) {
 	       		$limitationSQL = ' AND '.$limitation;
 	       	}
+
 	       	$stmt = $db->prepare('SELECT lh_chat.*,lh_transfer.id as transfer_id FROM lh_chat INNER JOIN lh_transfer ON lh_transfer.chat_id = lh_chat.id WHERE transfer_user_id != :transfer_user_id '.$limitationSQL);
 	       	$stmt->bindValue( ':transfer_user_id',$currentUser->getUserID());
 	       	$stmt->setFetchMode(PDO::FETCH_ASSOC);
