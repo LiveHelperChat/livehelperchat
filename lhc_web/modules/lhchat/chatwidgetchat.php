@@ -23,10 +23,40 @@ try {
         $tpl->set('chat',$chat);
         $tpl->set('chat_widget_mode',true);
 
+
+
         // User online
-        $chat->user_status = 0;
-        $chat->support_informed = 1;
-        erLhcoreClassChat::getSession()->update($chat);
+        if ($chat->user_status != 0) {
+
+        	$db = ezcDbInstance::get();
+        	$db->beginTransaction();
+
+	        	$chat->user_status = 0;
+	        	$chat->support_informed = 1;
+
+	        	// Log that user has joined the chat
+	        	$msg = new erLhcoreClassModelmsg();
+	        	$msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userjoined','User has joined the chat!');
+	        	$msg->chat_id = $chat->id;
+	        	$msg->user_id = -1; // System messages get's user_id -1
+
+	        	$chat->last_user_msg_time = $msg->time = time();
+
+	        	erLhcoreClassChat::getSession()->save($msg);
+
+	        	// Set last message ID
+	        	if ($chat->last_msg_id < $msg->id) {
+	        		$chat->last_msg_id = $msg->id;
+	        	}
+
+	        	erLhcoreClassChat::getSession()->update($chat);
+
+        	$db->commit();
+        };
+
+
+
+
 
     } else {
         $tpl->setFile( 'lhchat/errors/chatnotexists.tpl.php');

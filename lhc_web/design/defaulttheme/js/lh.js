@@ -289,8 +289,11 @@ function lh(){
 
 	this.closeActiveChatDialog = function(chat_id, tabs, hidetab)
 	{
-	    $.getJSON(this.wwwDir + this.closechatadmin + chat_id ,{}, function(data){
-
+	    $.ajax({
+	        type: "GET",
+	        url: this.wwwDir + this.closechatadmin + chat_id,
+	        cache: false,
+	        async: false
 	    });
 
 	    if ($('#CSChatMessage-'+chat_id).length != 0){
@@ -453,9 +456,19 @@ function lh(){
 
 	this.userclosedchat = function()
 	{
-	    $.get(this.wwwDir + this.userclosechaturl + this.chat_id + '/' + this.hash,function(data){
+	    $.ajax({
+	        type: "GET",
+	        url: this.wwwDir + this.userclosechaturl + this.chat_id + '/' + this.hash,
+	        cache: false,
+	        async: false
+	    });
+	};
 
-    	});
+	this.userclosedchatandbrowser = function()
+	{
+		 $.get(this.wwwDir + this.userclosechaturl + this.chat_id + '/' + this.hash,function(data){
+			lhinst.closeWindow();
+	     });
 	};
 
 	this.chatsyncuserpending = function ()

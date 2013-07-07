@@ -227,6 +227,10 @@ div.response {
 	background-color:#EEECF5;
 }
 
+div.system-response {
+	color:rgb(100, 100, 100);
+}
+
 div.message-row {
 	padding:4px 2px;
 }

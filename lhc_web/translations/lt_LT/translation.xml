@@ -2099,6 +2099,17 @@
         <source>Me</source>
         <translation>Aš</translation>
     </message>
+    <message>
+        <source>System assistant</source>
+        <translation>Sistemos asistentas</translation>
+    </message>
+</context>
+<context>
+    <name>chat/closechatadmin</name>
+    <message>
+        <source>has closed the chat!</source>
+        <translation>uždarė pokalbį!</translation>
+    </message>
 </context>
 <context>
     <name>chat/chattabs</name>
