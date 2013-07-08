@@ -43,6 +43,74 @@
         <source>Statistic</source>
         <translation>Statistika</translation>
     </message>
+    <message>
+        <source>Total statistic</source>
+        <translation>Bendra statistika</translation>
+    </message>
+    <message>
+        <source>Last 24h statistic</source>
+        <translation>Paskutinių 24 val. statistika</translation>
+    </message>
+    <message>
+        <source>Parameter</source>
+        <translation>Parametras</translation>
+    </message>
+    <message>
+        <source>Total chats</source>
+        <translation>Viso pokalbių</translation>
+    </message>
+    <message>
+        <source>Total pending chats</source>
+        <translation>Viso laukiančių pokalbių</translation>
+    </message>
+    <message>
+        <source>Total active chats</source>
+        <translation>Viso aktyvių pokalbių</translation>
+    </message>
+    <message>
+        <source>Value</source>
+        <translation>Reikšmė</translation>
+    </message>
+    <message>
+        <source>Total closed chats</source>
+        <translation>Viso uždarytų pokalbių</translation>
+    </message>
+    <message>
+        <source>Chatbox chats</source>
+        <translation>Chatbox pokalbių</translation>
+    </message>
+    <message>
+        <source>Total messages (including visitors, system and operators messages)</source>
+        <translation>Viso žinučių (įskaitant lankytojų, sistemos ir operatorių žinutes)</translation>
+    </message>
+    <message>
+        <source>Total messages (only visitors)</source>
+        <translation>Viso žinučių (tik lankytojų)</translation>
+    </message>
+    <message>
+        <source>Total messages (only system messages)</source>
+        <translation>Viso žinučių (tik sistemos žinutės)</translation>
+    </message>
+    <message>
+        <source>Total messages (only operators)</source>
+        <translation>Viso žinučių (tik operatorių žinutės)</translation>
+    </message>
+    <message>
+        <source>Operators last 24h statistic, top 100 by chats number</source>
+        <translation>Operatorių paskutinių 24 val. statistika, top 100 pagal pokalbių skaičių</translation>
+    </message>
+    <message>
+        <source>User</source>
+        <translation>Vartotojas</translation>
+    </message>
+    <message>
+        <source>Total messages</source>
+        <translation>Viso žinučių</translation>
+    </message>
+    <message>
+        <source>Last activity</source>
+        <translation>Paskutinis aktyvumas</translation>
+    </message>
 </context>
 <context>
     <name>system/languages</name>

@@ -54,7 +54,7 @@
 <?php if ($currentUser->hasAccessTo('lhchat','viewstatistic')) : ?>
 	<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Statistic');?></h4>
 	<ul class="circle small-list">
-	    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/statistic')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Statistic');?></a></li>
+	    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/statistic')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Statistic');?></a></li>
 	</ul>
 <?php endif; ?>
 
