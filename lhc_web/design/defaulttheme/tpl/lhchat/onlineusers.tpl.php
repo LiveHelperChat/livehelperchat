@@ -17,6 +17,15 @@
 <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User tracking is disabled, enable it at');?>&nbsp;-&nbsp;<a href="<?php echo erLhcoreClassDesign::baseurl('chat/editchatconfig')?>/track_online_visitors"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Chat configuration');?></a></p>
 <?php endif; ?>
 
+
+<div class="section-container auto" data-section="auto">
+	  <section>
+	    <p class="title" data-section-title><a title="Pokalbiai pervesti Jums tiesiogiai" href="#panel1">List<span class="tru-cnt"></span></a></p>
+	    <div class="content" data-section-content>
+
+
+
+
 <div id="online-users">
 <?php endif; ?>
 
@@ -78,5 +87,23 @@
 
 <?php if ($is_ajax == false) : ?>
 </div>
+</div>
+	  </section>
+	  <section>
+	    <p class="title" data-section-title><a id="map-activator" href="#panel2">Map<span class="trd-cnt"></span></a></p>
+	    <div class="content" data-section-content>
+
+			<img data-tooltip class="tip-right" title="User is having a chat" src="<?php echo erLhcoreClassDesign::design('images/icons/home-chat.png')?>" />
+	    	<img data-tooltip class="tip-right" title="User does not have any message from operator" src="<?php echo erLhcoreClassDesign::design('images/icons/home-unsend.png')?>" />
+	    	<img data-tooltip class="tip-right" title="User has message from operator" src="<?php echo erLhcoreClassDesign::design('images/icons/home-send.png')?>" />
+
+			<div id="map_canvas" style="height:600px;width:100%;"></div>
+		    <script src="https://maps-api-ssl.google.com/maps/api/js?v=3&sensor=false&callback=gMapsCallback"></script>
+
+	    </div>
+	  </section>
+</div>
+
+
 <script>startOnlineSync();</script>
 <?php endif; ?>

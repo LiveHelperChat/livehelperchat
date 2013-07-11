@@ -59,6 +59,21 @@ $def->properties['user_country_name']->columnName   = 'user_country_name';
 $def->properties['user_country_name']->propertyName = 'user_country_name';
 $def->properties['user_country_name']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['lat'] = new ezcPersistentObjectProperty();
+$def->properties['lat']->columnName   = 'lat';
+$def->properties['lat']->propertyName = 'lat';
+$def->properties['lat']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['lon'] = new ezcPersistentObjectProperty();
+$def->properties['lon']->columnName   = 'lon';
+$def->properties['lon']->propertyName = 'lon';
+$def->properties['lon']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['city'] = new ezcPersistentObjectProperty();
+$def->properties['city']->columnName   = 'city';
+$def->properties['city']->propertyName = 'city';
+$def->properties['city']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 // Operator message
 $def->properties['operator_message'] = new ezcPersistentObjectProperty();
 $def->properties['operator_message']->columnName   = 'operator_message';

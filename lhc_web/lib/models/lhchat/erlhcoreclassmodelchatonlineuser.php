@@ -19,6 +19,9 @@ class erLhcoreClassModelChatOnlineUser {
                'operator_user_id'   => $this->operator_user_id,
                'message_seen'       => $this->message_seen,
                'pages_count'        => $this->pages_count,
+               'lat'        		=> $this->lat,
+               'lon'        		=> $this->lon,
+               'city'        		=> $this->city,
        );
    }
 
@@ -223,6 +226,11 @@ class erLhcoreClassModelChatOnlineUser {
                $normalizedObject = new stdClass();
                $normalizedObject->country_code = strtolower($_SERVER[$params['country_code']]);
                $normalizedObject->country_name = strtolower($_SERVER[$params['country_name']]);
+
+               $normalizedObject->lat = '0';
+               $normalizedObject->lon = '0';
+               $normalizedObject->city = '';
+
                return $normalizedObject;
            } else {
                return false;
@@ -237,6 +245,9 @@ class erLhcoreClassModelChatOnlineUser {
                    $normalizedObject = new stdClass();
                    $normalizedObject->country_code = strtolower($responseData->country_code);
                    $normalizedObject->country_name = $responseData->country_name;
+                   $normalizedObject->lat = $responseData->latitude;
+                   $normalizedObject->lon = $responseData->longitude;
+                   $normalizedObject->city = $responseData->city;
 
                    return $normalizedObject;
                }
@@ -253,6 +264,9 @@ class erLhcoreClassModelChatOnlineUser {
                    $normalizedObject = new stdClass();
                    $normalizedObject->country_code = strtolower($responseData->countryCode);
                    $normalizedObject->country_name = $responseData->countryName;
+                   $normalizedObject->lat = $responseData->cityLattitude;
+                   $normalizedObject->lon = $responseData->cityLongitude;
+                   $normalizedObject->city = $responseData->cityName;
 
                    return $normalizedObject;
                }
@@ -284,6 +298,9 @@ class erLhcoreClassModelChatOnlineUser {
            if ($location !== false){
                $instance->user_country_code = $location->country_code;
                $instance->user_country_name = $location->country_name;
+               $instance->lat = $location->lat;
+               $instance->lon = $location->lon;
+               $instance->city = $location->city;
            }
        }
    }
@@ -373,6 +390,9 @@ class erLhcoreClassModelChatOnlineUser {
    public $operator_user_id = 0;
    public $message_seen = 0;
    public $pages_count = 0;
+   public $lat = 0;
+   public $lon = 0;
+   public $city = '';
 
 }
 

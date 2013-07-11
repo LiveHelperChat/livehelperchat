@@ -36,6 +36,15 @@
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Country name server variable'); ?></label>
         <input type="text" name="ServerVariableGEOIP_COUNTRY_NAME" value="<?php isset($geo_data['mod_geo_ip_country_name']) ? print 'checked="checked"' : print 'GEOIP_COUNTRY_NAME' ?>">
 
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','City name server variable'); ?></label>
+        <input type="text" name="ServerVariableGEOIP_CITY" value="<?php isset($geo_data['mod_geo_ip_city_name']) ? print 'checked="checked"' : print 'GEOIP_CITY' ?>">
+
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Latitude variable'); ?></label>
+        <input type="text" name="ServerVariableGEOIP_LATITUDE" value="<?php isset($geo_data['mod_geo_ip_latitude']) ? print 'checked="checked"' : print 'GEOIP_LATITUDE' ?>">
+
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Longitude variable'); ?></label>
+        <input type="text" name="ServerVariableGEOIP_LONGITUDE" value="<?php isset($geo_data['mod_geo_ip_longitude']) ? print 'checked="checked"' : print 'GEOIP_LONGITUDE' ?>">
+
         <input type="submit" class="button small round" name="StoreGeoIPConfiguration" value="Save" />
     	</div>
     </div>

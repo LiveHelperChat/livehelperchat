@@ -812,6 +812,89 @@ function lh(){
 
 var lhinst = new lh();
 
+function gMapsCallback(){
+
+	var $mapCanvas = $('#map_canvas');
+
+	var map = new google.maps.Map($mapCanvas[0], {
+        zoom: 3,
+        center: new google.maps.LatLng(65.635784, -60.156372),
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        disableDefaultUI: true,
+        options: {
+            zoomControl: true,
+            scrollwheel: true,
+            streetViewControl: true
+        }
+    });
+
+	$('#map-activator').click(function(){
+		setTimeout(function(){
+			google.maps.event.trigger(map, 'resize');
+		},500);
+	});
+
+	google.maps.event.addListener(map, 'idle', showMarkers);
+
+	var processing = false;
+	var pendingProcess = false;
+	var pendingProcessTimeout = false;
+
+	function showMarkers() {
+	    if ( processing == false) {
+	        processing = true;
+    		$.ajax({
+    			url : WWW_DIR_JAVASCRIPT + 'chat/jsononlineusers',
+    			dataType: "json",
+    			success : function(response) {
+    				bindMarkers(response);
+    				processing = false;
+    				clearTimeout(pendingProcessTimeout);
+    				if (pendingProcess == true) {
+    				    pendingProcess = false;
+    				    showMarkers();
+    				} else {
+    					pendingProcessTimeout = setTimeout(function(){
+    						showMarkers();
+    					},10000);
+    				}
+    			}
+    		});
+	    } else {
+	       pendingProcess = true;
+	    }
+ 	};
+
+ 	var markers = [];
+ 	var markersObjects = [];
+
+ 	var infoWindow = new google.maps.InfoWindow({ content: 'Loading...' });
+
+ 	function bindMarkers(mapData) {
+		$(mapData.result).each(function(i, e) {
+		    if ($.inArray(e.Id,markers) == -1) {
+    			var latLng = new google.maps.LatLng(e.Latitude, e.Longitude);
+    			var marker = new google.maps.Marker({ position: latLng, icon : e.icon, map : map });
+
+    			google.maps.event.addListener(marker, 'click', function() {
+    				var content = '<div class="map-preview">...</div>';
+    				infoWindow.setContent(content);
+    				infoWindow.open(map, this);
+    				$.get(WWW_DIR_JAVASCRIPT + 'chat/getonlineuserinfo/'+e.Id,function(result){
+    					infoWindow.setContent(result);
+    				});
+    			});
+
+    			marker.setVisible(true);
+    			markersObjects[e.Id] = marker;
+    			markers.push(e.Id);
+            } else {
+            	markersObjects[e.Id].setIcon(e.icon);
+            }
+		});
+	};
+
+};
 
 
 /*Helper functions*/
