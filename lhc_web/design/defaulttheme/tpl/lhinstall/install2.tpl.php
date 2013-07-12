@@ -1,11 +1,15 @@
-<form action="<?php echo erLhcoreClassDesign::baseurl('install/install')?>/2" method="POST">
-<fieldset><legend>Installation step 2</legend>
+<img src="<?php echo erLhcoreClassDesign::design('images/general/logo.png');?>" alt="Live Helper Chat" title="Live Helper Chat" />
+
+<h1>Installation step 2</h1>
+
+<form action="<?php echo erLhcoreClassDesign::baseurl('install/install')?>/2" method="POST" autocomplete="off">
 
 <?php if (isset($errors)) : ?>
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
-<fieldset><legend>Database settings</legend>
+<h2>Database settings</h2>
+
 <table>
     <tr>
         <td>Username</td>
@@ -28,11 +32,9 @@
         <td><input type="text" name="DatabaseDatabaseName" value="<?php echo isset($db_name) ? $db_name : ''?>"></td>
     </tr>
 </table>
-</fieldset>
 <br>
 
 <input type="submit" value="Next" class="small button" name="Install">
 <br /><br />
 
-</fieldset>
 </form>

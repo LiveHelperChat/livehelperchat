@@ -1,11 +1,13 @@
-<form action="<?php echo erLhcoreClassDesign::baseurl('install/install')?>/3" method="post" autocomplete="off">
-<fieldset><legend>Installation step 3</legend> 
+<img src="<?php echo erLhcoreClassDesign::design('images/general/logo.png');?>" alt="Live Helper Chat" title="Live Helper Chat" />
+
+<form action="<?php echo erLhcoreClassDesign::baseurl('install/install')?>/3" method="post" autocomplete="off" >
+<h1>Installation step 3</h1>
+
 <?php if (isset($errors)) : ?>
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
-        
-<fieldset><legend>Initial application settings</legend> 
+<h2>Initial application settings</h2>
 <table>
     <tr>
         <td>Admin username*</td>
@@ -36,11 +38,8 @@
         <td><input type="text" name="DefaultDepartament" value="<?php isset($admin_departament) ? print $admin_departament : ''?>"></td>
     </tr>
 </table>
-</fieldset>
 <br>
-
 <input type="submit" class="small button" value="Finish installation" name="Install">
 <br /><br />
 
-</fieldset>
 </form>
