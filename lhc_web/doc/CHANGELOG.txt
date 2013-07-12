@@ -1,3 +1,10 @@
+1.37v
+
+1. Online users google map https://github.com/remdex/livehelperchat/issues/45
+
+
+execute doc/update_db/update_25.sql
+
 1.36v
 
 1. German translations.
@@ -19,6 +26,8 @@ New features:
 1. Option to configure SMTP settings for mail
 2. Chrome dekstop notifications
 3. Allow user to change his online offline status
+
+execute doc/update_db/update_24.sql
 
 1.33v
 

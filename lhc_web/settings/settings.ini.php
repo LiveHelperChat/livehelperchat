@@ -11,9 +11,9 @@ return array (
       'installed' => false,
       'secrethash' => '',
       'debug_output' => false,
-      'templatecache' => false,
-      'templatecompile' => false,
-      'modulecompile' => false,
+      'templatecache' => true,
+      'templatecompile' => true,
+      'modulecompile' => true,
       'https_port' => 443,
       'default_site_access' => 'eng',
       'extensions' =>

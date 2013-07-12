@@ -687,12 +687,40 @@
         <translation>Niekas dar neišsiuntė žinutės vartotojui</translation>
     </message>
     <message>
+        <source>Marker timeout before it dissapears from map</source>
+        <translation>Žymės laikas prieš jai dingstant iš žemėlapio</translation>
+    </message>
+    <message>
+        <source>seconds</source>
+        <translation>sekundžių</translation>
+    </message>
+    <message>
+        <source>minit</source>
+        <translation>minutė</translation>
+    </message>
+    <message>
+        <source>minits</source>
+        <translation>minutės</translation>
+    </message>
+    <message>
         <source>Pageviews</source>
         <translation>Puslapio peržiūrų</translation>
     </message>
     <message>
+        <source>City</source>
+        <translation>Miestas</translation>
+    </message>
+    <message>
         <source>last visit</source>
         <translation>paskutinis apsilankymas</translation>
+    </message>
+    <message>
+        <source>List</source>
+        <translation>Sąrašas</translation>
+    </message>
+    <message>
+        <source>Map</source>
+        <translation>Žemėlapis</translation>
     </message>
     <message>
         <source>first visit</source>
@@ -709,6 +737,26 @@
     <message>
         <source>User is not having any chat right now</source>
         <translation>Su vartotoju niekas dabar nekalba</translation>
+    </message>
+    <message>
+        <source>Latitude variable</source>
+        <translation>Latitude kintamasis</translation>
+    </message>
+    <message>
+        <source>Longitude variable</source>
+        <translation>Longitude kintamasis</translation>
+    </message>
+    <message>
+        <source>Country name server variable</source>
+        <translation>Miesto pavadinimo kintamasis</translation>
+    </message>
+    <message>
+        <source>City name server variable</source>
+        <translation>Miesto pavadinimo kintamasis</translation>
+    </message>
+    <message>
+        <source>User has message from operator</source>
+        <translation>Vartotojui buvo išsiųstas žinutė iš operatoriaus</translation>
     </message>
     <message>
         <source>User does not have any message from operator</source>

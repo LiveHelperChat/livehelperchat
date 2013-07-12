@@ -226,10 +226,9 @@ class erLhcoreClassModelChatOnlineUser {
                $normalizedObject = new stdClass();
                $normalizedObject->country_code = strtolower($_SERVER[$params['country_code']]);
                $normalizedObject->country_name = strtolower($_SERVER[$params['country_name']]);
-
-               $normalizedObject->lat = '0';
-               $normalizedObject->lon = '0';
-               $normalizedObject->city = '';
+               $normalizedObject->city = isset($_SERVER[$params['mod_geo_ip_city_name']]) ? $_SERVER[$params['mod_geo_ip_city_name']] : '';
+               $normalizedObject->lat = isset($_SERVER[$params['mod_geo_ip_latitude']]) ? $_SERVER[$params['mod_geo_ip_latitude']] : '0';
+               $normalizedObject->lon = isset($_SERVER[$params['mod_geo_ip_longitude']]) ? $_SERVER[$params['mod_geo_ip_longitude']] : '0';
 
                return $normalizedObject;
            } else {

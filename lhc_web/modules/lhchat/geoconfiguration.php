@@ -67,6 +67,24 @@ if ( isset($_POST['StoreGeoIPConfiguration']) ) {
                     $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Country name variable does not exist!');
                 }
 
+                if ( $form->hasValidData( 'ServerVariableGEOIP_CITY' ) && $form->ServerVariableGEOIP_CITY != '' ) {
+                    $data['mod_geo_ip_city_name'] = $form->ServerVariableGEOIP_CITY;
+                } else {
+                    $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Please enter city variable!');
+                }
+
+                if ( $form->hasValidData( 'ServerVariableGEOIP_LATITUDE' ) && $form->ServerVariableGEOIP_LATITUDE != '' ) {
+                    $data['mod_geo_ip_latitude'] = $form->ServerVariableGEOIP_LATITUDE;
+                } else {
+                    $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Please enter latitude variable!');
+                }
+
+                if ( $form->hasValidData( 'ServerVariableGEOIP_LONGITUDE' ) && $form->ServerVariableGEOIP_LONGITUDE != '' ) {
+                    $data['mod_geo_ip_longitude'] = $form->ServerVariableGEOIP_LONGITUDE;
+                } else {
+                    $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Please enter longitude variable!');
+                }
+
 
             } elseif ($form->UseGeoIP == 'freegeoip') {
                 $data['geo_service_identifier'] = 'freegeoip';

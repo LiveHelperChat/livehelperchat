@@ -418,6 +418,9 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `operator_message` varchar(250) NOT NULL,
                   `operator_user_id` int(11) NOT NULL,
                   `message_seen` int(11) NOT NULL,
+        	   	  `lat` varchar(10) NOT NULL,
+  				  `lon` varchar(10) NOT NULL,
+  				  `city` varchar(100) NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `last_visit` (`last_visit`),
                   KEY `vid` (`vid`)

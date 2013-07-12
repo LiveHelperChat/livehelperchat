@@ -872,6 +872,7 @@ function gMapsCallback(){
 
  	function bindMarkers(mapData) {
 		$(mapData.result).each(function(i, e) {
+
 		    if ($.inArray(e.Id,markers) == -1) {
     			var latLng = new google.maps.LatLng(e.Latitude, e.Longitude);
     			var marker = new google.maps.Marker({ position: latLng, icon : e.icon, map : map });
@@ -886,10 +887,27 @@ function gMapsCallback(){
     			});
 
     			marker.setVisible(true);
+    			marker.setAnimation(google.maps.Animation.DROP);
     			markersObjects[e.Id] = marker;
     			markers.push(e.Id);
+    			clearTimeout(markersObjects[e.Id].timeOutMarker);
+
+    			markersObjects[e.Id].timeOutMarker = setTimeout(function(){
+            		markers.splice($.inArray(e.Id,markers), 1);
+            		google.maps.event.clearInstanceListeners(markersObjects[e.Id]);
+            		markersObjects[e.Id].setMap(null);
+            		markersObjects[e.Id] = null;
+            	},parseInt($('#markerTimeout option:selected').val())*1000);
+
             } else {
             	markersObjects[e.Id].setIcon(e.icon);
+            	clearTimeout(markersObjects[e.Id].timeOutMarker);
+            	markersObjects[e.Id].timeOutMarker = setTimeout(function(){
+            		markers.splice($.inArray(e.Id,markers), 1);
+            		google.maps.event.clearInstanceListeners(markersObjects[e.Id]);
+            		markersObjects[e.Id].setMap(null);
+            		markersObjects[e.Id] = null;
+            	},parseInt($('#markerTimeout option:selected').val())*1000);
             }
 		});
 	};
