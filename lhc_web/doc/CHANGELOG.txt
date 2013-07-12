@@ -1,7 +1,12 @@
 1.37v
 
 1. Online users google map https://github.com/remdex/livehelperchat/issues/45
-
+2. Install style update
+3. Statistic module, more updates is coming.
+4. System assistant messages. They indicate does user left chat etc.
+5. More stable detection then user closes chat window etc.
+6. Option to change back office language from back office.
+7. Department status for embed codes.
 
 execute doc/update_db/update_25.sql
 
