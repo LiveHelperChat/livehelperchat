@@ -340,15 +340,20 @@ class erLhcoreClassModelChatOnlineUser {
                    self::cleanupOnlineUsers();
                }
            } else {
-               $item = new erLhcoreClassModelChatOnlineUser();
-               $item->ip = $_SERVER['REMOTE_ADDR'];
-               $item->vid = erLhcoreClassModelForgotPassword::randomPassword(20);
-               setcookie('lhc_vid',$item->vid,time() + (1 * 365 * 24 * 60 * 60),'/');
+	           	if (isset($_SERVER['HTTP_USER_AGENT']) && !preg_match('/bot|crawl|yahoo|bing|msnbot|twittervir|slurp|spider/i', $_SERVER['HTTP_USER_AGENT'])) {
+		               $item = new erLhcoreClassModelChatOnlineUser();
+		               $item->ip = $_SERVER['REMOTE_ADDR'];
+		               $item->vid = erLhcoreClassModelForgotPassword::randomPassword(20);
+		               setcookie('lhc_vid',$item->vid,time() + (1 * 365 * 24 * 60 * 60),'/');
 
-               self::detectLocation($item);
+		               self::detectLocation($item);
 
-               // Cleanup database then new user comes
-               self::cleanupOnlineUsers();
+		               // Cleanup database then new user comes
+		               self::cleanupOnlineUsers();
+	           	} else {
+	           		// Do nothing it's bot
+	           		exit;
+	           	}
            }
 
            $item->user_agent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
