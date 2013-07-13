@@ -1318,6 +1318,10 @@
         <translation>Siųsti laišką vartotojui</translation>
     </message>
     <message>
+        <source>Recipient</source>
+        <translation>Gavėjas</translation>
+    </message>
+    <message>
         <source>Mail was send to user</source>
         <translation>Laiškas buvo išsiųstas vartotojui</translation>
     </message>
@@ -1346,8 +1350,8 @@
         <translation>Siųsti laišką</translation>
     </message>
     <message>
-        <source>User did not entered his e-mail!</source>
-        <translation>Vartotojas neįvedė savo el. pašto adreso!</translation>
+        <source>Please enter recipient e-mail!</source>
+        <translation>Prašome įvesti gavėjo el. pašto adresą!</translation>
     </message>
     <message>
         <source>From e-mail is missing!</source>

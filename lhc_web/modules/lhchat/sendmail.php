@@ -11,6 +11,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
   $tpl = erLhcoreClassTemplate::getInstance('lhchat/sendmail.tpl.php');
   $mailTemplate = erLhAbstractModelEmailTemplate::fetch(1);
   erLhcoreClassChatMail::prepareSendMail($mailTemplate);
+  $mailTemplate->recipient = $chat->email;
 
   if (isset($_POST['SendMail'])) {
 
@@ -19,8 +20,11 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 	  	if (count($Errors) == 0) {
 	  		erLhcoreClassChatMail::sendMail($mailTemplate, $chat);
 
-	  		$chat->mail_send = 1;
-	  		$chat->saveThis();
+	  		// Set as mail send only if recipient is the same as chat user
+	  		if ($chat->email == $mailTemplate->recipient) {
+	  			$chat->mail_send = 1;
+	  			$chat->saveThis();
+	  		}
 
 	  		$tpl->set('message_saved',true);
 	  	} else {

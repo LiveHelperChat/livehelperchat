@@ -45,6 +45,7 @@ class erLhcoreClassChatMail {
     	$validationFields['FromName'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw');
     	$validationFields['FromEmail'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'validate_email');
     	$validationFields['ReplyEmail'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'validate_email');
+    	$validationFields['RecipientEmail'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'validate_email');
 
     	$form = new ezcInputForm( INPUT_POST, $validationFields );
     	$Errors = array();
@@ -79,8 +80,10 @@ class erLhcoreClassChatMail {
     		$sendMail->subject = $form->Subject;
     	}
 
-    	if (empty($chat->email)) {
-    		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','User did not entered his e-mail!');
+    	if ( $form->hasValidData( 'RecipientEmail' ) ) {
+    		$sendMail->recipient = $form->RecipientEmail;
+    	} else {
+    		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','Please enter recipient e-mail!');
     	}
 
     	if (empty($sendMail->from_email)) {
@@ -109,7 +112,7 @@ class erLhcoreClassChatMail {
     	$mail->AddReplyTo($sendMail->reply_to,$sendMail->from_name);
 
     	$mail->Body = $sendMail->content;
-    	$mail->AddAddress( $chat->email, $chat->nick);
+    	$mail->AddAddress( $sendMail->recipient );
 
     	self::setupSMTP($mail);
 

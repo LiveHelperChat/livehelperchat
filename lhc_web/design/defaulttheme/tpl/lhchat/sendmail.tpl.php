@@ -16,6 +16,12 @@ setTimeout(function(){
 <form action="" method="post">
 
 <div class="row">
+
+	<div class="column small-6 end">
+		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','Recipient');?></label>
+		<input type="text" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','Recipient e-mail');?>" name="RecipientEmail" value="<?php echo htmlspecialchars($mail_template->recipient);?>" />
+	</div>
+
 	<?php if ($mail_template->subject_ac == 1) : ?>
 	<div class="column small-12">
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','Subject');?></label>
