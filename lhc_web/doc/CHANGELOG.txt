@@ -1,7 +1,9 @@
-1.37v
+1.38v
 
 Features:
 1. Pro active chat invitations https://github.com/remdex/livehelperchat/issues/49
+2. Detect bots in online users to avoid them appear in online users list
+3. Option to delete online user record from online users list.
 
 Bug fixes:
 1. If in FAQ widget answer is very big it hides under browser window. I have added rule for scrollbar if height is more than 200px.
