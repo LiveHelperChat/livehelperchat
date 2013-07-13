@@ -5,14 +5,14 @@
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/htmlcode','Status text');?></label>
 		<input type="text" id="id_status_text" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Help us to grow');?>" />
 	</div>
-	<div class="columns large-6"><label for="id_show_widget_on_open"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/htmlcode','Expand widget automatically for new users');?></label>
+	<div class="columns large-6"><label for="id_show_widget_on_open"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/htmlcode','Expand the widget automatically for new users');?></label>
 	<input type="checkbox" id="id_show_widget_on_open" value="on">
 	</div>
 </div>
 
 <div class="row">
 	<div class="columns large-6">
-		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Position from top, only used if left middle or right middle is chosen');?></label>
+		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Position from the top, only used if the Middle left or the Middle right side is chosen');?></label>
 	    <div class="row">
 	      <div class="large-8 columns">
 	        <input type="text" id="id_top_text" value="400" />
@@ -59,7 +59,7 @@
     </div>
 </div>
 
-<p class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/htmlcode','Copy the code from the textarea to the footer, before the closing &lt;/body&gt; tag');?></p>
+<p class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/htmlcode','Copy the code from the text area to the footer, before the closing &lt;/body&gt; tag');?></p>
 <textarea style="width:100%;height:180px;font-size:12px;" id="HMLTContent" ></textarea>
 
 <script type="text/javascript">

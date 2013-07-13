@@ -1,5 +1,5 @@
 <?php include(erLhcoreClassDesign::designtpl('lhquestionary/embed_button.tpl.php'));?>
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Edit question');?> - <?php echo htmlspecialchars($question->question)?></h1>
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Edit the question');?> - <?php echo htmlspecialchars($question->question)?></h1>
 
 <div class="section-container auto" data-section>
   <section <?php if ($tab == '') : ?>class="active"<?php endif;?>>

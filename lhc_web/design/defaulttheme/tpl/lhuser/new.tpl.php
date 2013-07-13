@@ -15,7 +15,7 @@
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Password');?></label>
 <input type="password" class="inputfield" name="Password" value=""/>
 
-<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Repeat the password');?></label>
+<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Repeat the new password');?></label>
 <input type="password" class="inputfield" name="Password1" value=""/>
 
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Name');?></label>
@@ -38,7 +38,7 @@
      
 <hr>
 
-<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Departaments')?></h5> 
+<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Departments')?></h5> 
 
 <label><input type="checkbox" value="on" name="all_departments" <?php echo $user->all_departments == 1 ? 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','All departments')?></label>
            

@@ -10,6 +10,6 @@
 
 <ul class="button-group radius">
     <li><input type="submit" class="small button" name="Save_group" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/newgroup','Save');?>"/></li>
-    <li><input type="submit" class="small button" name="Save_group_and_assign_user" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/newgroup','Save and assign user');?>"/></li>
+    <li><input type="submit" class="small button" name="Save_group_and_assign_user" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/newgroup','Save and assign the user');?>"/></li>
 </ul>			
 </form>

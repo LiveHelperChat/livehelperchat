@@ -6,7 +6,7 @@
 		<input type="text" id="id_status_text" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','FAQ');?>" />
 	</div>
     <div class="columns large-6">
-		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Position from top, only used if left middle or right middle is chosen');?></label>
+		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Position from the top, only used if the Middle left or the Middle right side is chosen');?></label>
 	    <div class="row">
 	      <div class="large-8 columns">
 	        <input type="text" id="id_top_text" value="450" />
@@ -41,7 +41,7 @@
     </div>
 </div>
 
-<p class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/htmlcode','Copy the code from the textarea to the page header or footer');?></p>
+<p class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/htmlcode','Copy the code from the text area to the page header or footer');?></p>
 <textarea style="width:100%;height:180px;font-size:12px;" id="HMLTContent" ></textarea>
 
 <script type="text/javascript">

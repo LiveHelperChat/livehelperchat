@@ -19,7 +19,7 @@
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Password');?></label>
 <input type="password" class="inputfield" name="Password" value=""/>
 
-<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Repeat password');?></label>
+<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Repeat the new password');?></label>
 <input type="password" class="inputfield" name="Password1" value=""/>
 
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','E-mail');?></label>

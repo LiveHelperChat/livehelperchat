@@ -1,4 +1,4 @@
-<h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Send message to the user');?></h2>
+<h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Send a message to the user');?></h2>
 
 <?php if (isset($errors)) : ?>
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
@@ -16,7 +16,7 @@ setTimeout(function(){
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>	
 <?php endif; ?>
 
-<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','If message was already sent, this will mark the message as not delivered and the user will be shown the chat message again.');?></p>
+<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.');?></p>
 
 <form action="" method="post">
 

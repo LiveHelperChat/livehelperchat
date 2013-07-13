@@ -63,7 +63,7 @@ if (key_exists($position, $positionArgument)){
 
 $isOnlineHelp = erLhcoreClassChat::isOnline();
 
-// Perhaps user do not want to show live help then it's offline
+// Perhaps user do not want to show live help when it's offline
 if ( !($isOnlineHelp == false && $hide_offline == 'true') ) : ?>
 var lh_inst  = {
 

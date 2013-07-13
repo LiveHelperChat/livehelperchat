@@ -12,8 +12,8 @@ http://livehelperchat.com/documentation-6c.html
 ## Folders structure
 
  * Directories content:
-  * lhc_dc - Compiled desktop clients Windows/Mac.
-  * lhc_dc_src - Desktop client source.
+  * lhc_dc - Compiled desktop for clients Windows/Mac.
+  * lhc_dc_src - Desktop client source code.
   * lhc_web - WEB application folder.
 
 ## Features
@@ -21,11 +21,11 @@ http://livehelperchat.com/documentation-6c.html
 Few main features
 
  * Multilanguage
- * Themes support - override default template files without changing kernel
- * Write custom extensions without changing kernel
- * Override default behaviour without changing kernel
+ * Themes support - override default template files without changing the kernel
+ * Write custom extensions without changing the kernel
+ * Override default behaviour without changing the kernel
  * MVC structure - separated design/logic/models
- * Web and Desktop client Windows/Mac/Linux support.
+ * Web and Desktop clients with Windows/Mac/Linux support.
  * Multiple chats at the same time
  * Multiple operators
  * Site widget

@@ -1,28 +1,28 @@
 1.35v
 
 New features:
-1. CSS, JS, CSS images now can be overrided in extensions.
-2. Debug output window now will show used CSS and JS including CSS images paths
+1. CSS, JS, CSS images now can be overriden in extensions.
+2. Debug output window now will show used CSS and JS, including CSS images paths
 
-P.s
-All this was done without any performance loss then cache is enabled.
+P.S.
+All this was done without any performance loss when the cache is enabled.
 
 1.34v
 
 New features:
 1. Option to configure SMTP settings for mail
-2. Chrome dekstop notifications
-3. Allow user to change his online offline status
+2. Chrome desktop notifications
+3. Allow user to change his online or offline status
 
 1.33v
 
 New features:
-1. New permission for chat, now operators can have or not permission to open already opened chats. This disables reading other persons chats. Except for users who have permission.
-This permission takes effect only if user does not have permission to all chats.
+1. New permissions for chat, now operators can or cannot have permission to open already opened chats. This disables reading other persons chats, except for users who have permission to do so.
+This permission takes effect only if the user does not have permission to all chats.
 2. Leave a message functionality
 
 Enhancements:
-1. Added support for managing permission for extensions. Names will be listed in literal mode not in system mode.
+1. Added support for managing permissions for extensions. Names will be listed in literal mode not in system mode.
 
 Bugfix:
 1. Avoid undefined index expand
@@ -32,14 +32,14 @@ execute doc/update_db/update_23.sql
 1.32v
 
 1. Chatbox/Shoutbox module.
-2. Option to embed Chat, Shoutbox directly in page.
+2. Option to embed Chat, Shoutbox directly in the page.
 
 execute doc/update_db/update_22.sql
 
 1.31v
 
 Feature release:
-1. Option to pass custom argument for chat, these arguments will be visible in chat form
+1. Option to pass custom arguments for chat, these arguments will be visible in the chat form
 Example:
 <script type="text/javascript">
 var LHCChatOptions = {};
@@ -64,11 +64,11 @@ po.src = 'http://<some_domain>/index.php/chat/getstatus/(position)/middle_right'
 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
 })();
 </script>
-3. Option to configure chat popup window width and height, same for chat widget also.
-4. Send mail to user, let say you have missed chat. But still you want to responde to user. So with this feature you will be able to do so.
-5. Dynamic widgets height and width, this will allow to fit content dynamically/ so even more improved usability.
+3. Option to configure a chat popup window width and height, the same for a chat widget also.
+4. Send mail to a user, lets say you have missed a chat, but you still want to respond to the user. With this feature you will be able to do so.
+5. Dynamic widgets height and width, this will allow you to fit your content dynamically and provides even more improved usability.
 6. Improved compatibility with IE8
-7. Option to embed FAQ and Questionary module directly in page
+7. Option to embed FAQ and Questionary module directly in a page
 
 execute doc/update_db/update_21.sql
 
@@ -82,21 +82,21 @@ Feature release:
 
 Feature release:
 1. FAQ module, show FAQ questions to your customers based on their URL.
-2. Custom position from top if middle right or middle right is chosen.
+2. Custom position from top if middle right or middle left is chosen.
 3. Dutch translation, thanks to Robin Stuivenberg
-4. MacOS bundle, requires QT 4.7 or 4.8 runtime library. Anyone can compile without dependency?
+4. MacOS bundle, requires QT 4.7 or 4.8 runtime library. Can anyone compile without dependencies?
 
 execute doc/update_db/update_20.sql
 
 1.28v
 
 Feature release:
-1. Even more smarter way to check for new messages. Avoids query to messages table and first check that user last message id is lower than chat last message id.
-It's better to add one query on message add than execute each time two queries.
+1. An even smarter way to check for new messages. It will avoid a query to the messages table and first check that the user last message id is lower than the chat last message id.
+It's better to add one query on each message add than to execute two queries each time.
 2. Override CSS created in custom theme folders.
 3. Different positions for main live helper widget.
-4. Small other changes, HTML some cleanup, and debug output movement from main footer.
-5. Number of transfered chats will be shown also in transfer tab.
+4. Small other changes, some HTML cleanup, and debug output movement from main footer.
+5. Number of transferred chats will be shown also in transfer tab.
 
 Bugfix:
 1. Close dialog, Close chat, Delete stopped working after I introduced new algorithm for checking messages.
@@ -115,24 +115,24 @@ execute doc/update_db/update_18_questionary.sql
 
 1.26v
 
-Small release compared to previous one, but it does one amazing thing. Now all messages from user or operators will be checked with same query. Last message ID algorithm was implemented.
+Small release compared to previous one, but it does one amazing thing. Now all messages from user or operators will be checked with the same query. Last message ID algorithm was implemented.
 
 Resume:
-1. Removed status column from messages table, not needed anymore.
-2. Same check messages algorithm for admin and user.
-3. Only one index is needed now for messages table. Improves write operations and eliminates update in user sync call.
+1. Removed status column from messages table, it's not needed anymore.
+2. The same check messages algorithm for admin and user.
+3. Only one index is needed now for the messages table. It improves write operations and eliminates update in user sync call.
 
 execute doc/update_db/update_17.sql
 
 1.25v
 
 Summary:
-This release brings whole bunch of changes, most important is the performance ones, I have spend a lot of time optimizing every single query,
+This release brings whole bunch of changes, most important is the performance ones. I have spent a lot of time optimizing every single query,
 and limiting requests number to minimum.
-There is few things I still would like to change, but for the moment it will be just fine. So now every single query is using index.
+There is few things I still would like to change, but for the moment it will be just fine. So now every single query is using an index.
 
 Bugfixes:
-1. Web interface was missing transfered chats lists.
+1. Web interface was missing transferred chats lists.
 
 Performance related:
 1. Removed bunch of not needed queries including updates
@@ -142,13 +142,13 @@ Performance related:
 5. Missing MySQL indexes were added
 
 Features:
-1. Option use to choose which tabs he want's to see. Click account to see options.
-2. Account page now is featured by tabs.
-3. Transfer now can be done to remote department or one of user departments user
+1. Option use to choose which tabs you want to see. Click account to see the options.
+2. Account page is now featured by tabs.
+3. Transfer can now be done to a remote department or one of user departments user.
 
 Stability:
-1. Now if requests fails, for whatever reason, APP will continue synchronization lists.
-2. Within each page refresh there was a sound that user joined chat etc, very annoying. Now this won't be happening.
+1. Now if a request fails, for whatever reason, APP will continue synchronization lists.
+2. Within each page refresh there was a sound that a user joined the chat, etc. It's very annoying, and now this won't be happening.
 
 execute doc/update_db/update_16.sql
 
@@ -168,8 +168,8 @@ execute doc/update_db/update_15.sql
 Enchancements:
 1. Fixed few more short tags.
 2. Implemented - https://github.com/remdex/livehelperchat/issues/9
-3. Usability updates for online users. Then URL is very long it streches the table. So this will be fixed.
-4. Option to turn of online operators tabs completely.
+3. Usability updates for online users. When the URL is very long it stretches the table, so this will be fixed.
+4. Option to turn off online operators tabs completely.
 
 execute doc/update_db/update_14.sql
 
@@ -200,7 +200,7 @@ execute doc/update_db/update_10.sql
 http://livehelperchat.com/canned-messages-feature-93a.html
 http://livehelperchat.com/canned-messages-92a.html
 
-2. Now operator and user can see then each other is typing.
+2. Now the operator and user can see when each is typing.
 https://github.com/remdex/livehelperchat/issues/4
 execute doc/update_db/update_11.sql
 
@@ -208,12 +208,12 @@ execute doc/update_db/update_11.sql
 
 1. Option to send messages to browsing user
 2. Option to change operator message timeout
-3. Redesigned a little bit online users window.
-4. For upgrade please execute doc/update_db/update_9.sql
+3. Redesigned the online users window a little bit.
+4. For upgrading, please execute doc/update_db/update_9.sql
 And add two variables in settings.ini.php file
 'https_port' => 443,
 'check_for_operator_msg' => 10,
-See where these settings have to be putted
+To see where these settings have to be put-
 https://github.com/remdex/livehelperchat/blob/bf02444b9142ef39aba21d1a68c8750468d736ab/lhc_web/settings/settings.ini.php
 
 1.18v
@@ -221,30 +221,30 @@ https://github.com/remdex/livehelperchat/blob/bf02444b9142ef39aba21d1a68c8750468
 1. GEO Detection
 2. Page widget availability
 3. HTML Code generation upgrades
-4. For upgrade please execute doc/update_db/update_4.sql,doc/update_db/update_5.sql,doc/update_db/update_6.sql queries.
-5. Option to block users in back office and chat window.
+4. For upgrading, please execute doc/update_db/update_4.sql,doc/update_db/update_5.sql,doc/update_db/update_6.sql queries.
+5. Option to block users in a back office and chat window.
 6. Option to see users browsing the site
 7. Caching options
 8. Asynchronous status loading
 
 1.17v
 
-1. Updated a little bit database structure to support hide online options.
-2. Now admin have an option to be hidden. Also status for departament is now individual.
-3. To enable 2 feature please resave admin users.
-4. Fixed bug then editing user password was reset.
+1. Updated database structure a little bit to support the hide online options.
+2. Now admin has an option to be hidden. Also status for a departament is now individual.
+3. To enable these 2 features, please save admin users.
+4. Fixed bug when editing the user password was reset.
 5. Status for online will be used lh_userdep instead of users table.
-6. For upgrade please execute doc/update_db/update_3.sql query.
+6. For upgrading, please execute doc/update_db/update_3.sql query.
 
 1.16v
 
-This version changes allows to do the following things.
+This versions changes allows you to do the following things:
 1. Extended core so users can override default templates and create custom themes
-2. Option to write custom modules without overriding kernel.
+2. Option to write custom modules without overriding the kernel.
 3. Option to override custom modules files.
 4. Option to override kernel classes
-5. Site access pattern, each site access can have custom language and so on.
-6. Install checks that cache folder is writable at very beginning.
+5. Site access pattern, each site access can have a custom language and so on.
+6. Install checks so that cache folder is writable at very beginning.
 7. And a lot of other changes...
 
 1.13v
@@ -257,7 +257,7 @@ No new features was implemented.
 1.12v
 
 1. Made completely compaticble with 5.3 PHP version. Removed ereg
-2. Removed lithuanian translations. It will have be now added manualy.
+2. Removed lithuanian translations. It will have be now added manually.
 
 No new features was implemented.
 
@@ -270,14 +270,14 @@ No new features was implemented.
 
 1.1v
 
-1. Implemented module for desktip client of Live helper chat
-2. Fixed bug then chat was transfered always to first user.
+1. Implemented module for desktop client of Live helper chat
+2. Fixed bug when the chat was transferred always to the first user.
 3. Some code cleanup.
 
 1.01v
 
-1. Added header background
-2. Added logo of Live Helper Chat
+1. Added a header background
+2. Added a logo of Live Helper Chat
 
 ******************************
 1.0v Initial release 2009-07-26

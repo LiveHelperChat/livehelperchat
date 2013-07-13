@@ -3,12 +3,12 @@
 
 <div class="section-container auto" data-section>
   <section class="active">
-    <p class="title" data-section-title><a href="#panel1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer to user');?></a></p>
+    <p class="title" data-section-title><a href="#panel1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer to a user');?></a></p>
     <div class="content" data-section-content>
     	<div>
-        <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Logged users');?></h4>
+        <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Logged in users');?></h4>
 
-  		<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer chat to one of your departments users');?></p>
+  		<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer a chat to one of your departments users');?></p>
 
   		<?php foreach (erLhcoreClassChat::getOnlineUsers(array($user_id)) as $key => $user) : ?>
 		    <label><input type="radio" name="TransferTo<?php echo $chat->id?>" value="<?php echo $user['id']?>" <?php echo $key == 0 ? 'checked="checked"' : ''?>> <?php echo htmlspecialchars($user['name'])?> <?php echo htmlspecialchars($user['surname'])?></label>
@@ -19,7 +19,7 @@
     </div>
   </section>
   <section>
-    <p class="title" data-section-title><a href="#panel2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer to department');?></a></p>
+    <p class="title" data-section-title><a href="#panel2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer to a department');?></a></p>
     <div class="content" data-section-content>
     	<div>
       <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Departments');?></h4>

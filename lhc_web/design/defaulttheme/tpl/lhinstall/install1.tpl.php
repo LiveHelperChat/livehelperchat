@@ -1,7 +1,7 @@
 <form action="<?php echo erLhcoreClassDesign::baseurl('install/install')?>/1" method="POST">
 <fieldset><legend>Installation</legend> 
 
-<p>Grant write permissions to red marked folders. You can do this by changing username to apache username or CHMOD 777 displayed files/folders.</p>
+<p>You will need to grant write permissions on any of the red-marked folders. You can do this by changing its username to your web server's username or by changing permissions with a CHMOD 777 on the displayed files/folders.</p>
 <fieldset><legend>Checking folders permission</legend> 
 <table>
     <tr>
@@ -25,7 +25,7 @@
         <td><?php echo is_writable("settings/settings.ini.php") ? '<span class="ok">Yes</span>' : '<span class="error">No</span>'?></td>
     </tr>
     <tr>
-        <td>php-pdo extension installed</td>
+        <td>Is the php-pdo extension installed</td>
         <td><?php echo extension_loaded ('pdo_mysql' ) ? '<span class="ok">Yes</span>' : '<span class="error">No</span>'; ?></td>
     </tr>
 </table>
