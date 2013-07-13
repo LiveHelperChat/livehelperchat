@@ -4,7 +4,20 @@ $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/onlineusers.tpl.php');
 
 if (is_numeric($Params['user_parameters_unordered']['clear_list']) && $Params['user_parameters_unordered']['clear_list'] == 1) {
     erLhcoreClassModelChatOnlineUser::cleanAllRecords();
-    
+
+    erLhcoreClassModule::redirect('chat/onlineusers');
+    exit;
+}
+
+if (is_numeric($Params['user_parameters_unordered']['deletevisitor']) && $Params['user_parameters_unordered']['deletevisitor'] > 0) {
+
+	try {
+		$visitor = erLhcoreClassModelChatOnlineUser::fetch($Params['user_parameters_unordered']['deletevisitor']);
+		$visitor->removeThis();
+	} catch (Exception $e) {
+
+	}
+
     erLhcoreClassModule::redirect('chat/onlineusers');
     exit;
 }

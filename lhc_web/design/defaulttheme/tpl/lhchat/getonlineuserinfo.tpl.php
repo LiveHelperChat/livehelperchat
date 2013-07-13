@@ -1,4 +1,4 @@
-<div class="p10">
+<div class="p10" style="width:450px;">
 <h4><?php echo htmlspecialchars(trim($online_user->current_page))?></h4>
 
 <div class="right">
@@ -28,6 +28,7 @@
     <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','first visit');?> - <?php echo $online_user->first_visit_front?></li>
     <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','last visit');?> - <?php echo $online_user->last_visit_front?></li>
     <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Pageviews');?> - <?php echo $online_user->pages_count?></li>
+    <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Time on site');?> - <?php echo $online_user->time_on_site_front?></li>
 </ul>
 
 <input type="button" class="small button radius" onclick="$.colorbox({'iframe':true,height:'500px',width:'500px', href:'<?php echo erLhcoreClassDesign::baseurl('chat/sendnotice')?>/<?php echo $online_user->id?>'});" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Send message');?>"/>

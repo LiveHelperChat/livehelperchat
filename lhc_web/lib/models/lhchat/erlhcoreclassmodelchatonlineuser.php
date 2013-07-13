@@ -22,6 +22,8 @@ class erLhcoreClassModelChatOnlineUser {
                'lat'        		=> $this->lat,
                'lon'        		=> $this->lon,
                'city'        		=> $this->city,
+               'time_on_site'       => $this->time_on_site,
+               'tt_time_on_site'    => $this->tt_time_on_site,
        );
    }
 
@@ -92,6 +94,10 @@ class erLhcoreClassModelChatOnlineUser {
        	        }
        	        return $this->operator_user;
        	    break;
+
+       	case 'time_on_site_front':
+       			return gmdate('H:i:s',$this->time_on_site);
+       		break;
 
        	case 'lastactivity_ago':
        		   $this->lastactivity_ago = '';
@@ -328,6 +334,16 @@ class erLhcoreClassModelChatOnlineUser {
                $items = erLhcoreClassModelChatOnlineUser::getList(array('filter' => array('vid' => $_COOKIE['lhc_vid'])));
                if (!empty($items)) {
                    $item = array_shift($items);
+
+                   // Visit duration les than 30m. Same as google analytics
+                   // See: https://support.google.com/analytics/answer/2731565?hl=en
+                   if ((time() - $item->last_visit) <= 30*60) {
+                   		$item->time_on_site += time() - $item->last_visit;
+                   		$item->tt_time_on_site += time() - $item->last_visit;
+                   } else {
+                   		$item->time_on_site = 0;
+                   }
+
                } else {
                    $item = new erLhcoreClassModelChatOnlineUser();
                    $item->ip = $_SERVER['REMOTE_ADDR'];
@@ -366,6 +382,12 @@ class erLhcoreClassModelChatOnlineUser {
            // For DEBUG
            //$item->current_page = $cookieData;
            $item->last_visit = time();
+
+           if ($item->operator_message == '') {
+           		//Process pro active chat invitation if this visitor matches any rules
+           		erLhAbstractModelProactiveChatInvitation::processProActiveInvitation($item);
+           }
+
            $item->saveThis();
 
            return $item;
@@ -397,6 +419,8 @@ class erLhcoreClassModelChatOnlineUser {
    public $lat = 0;
    public $lon = 0;
    public $city = '';
+   public $time_on_site = 0;
+   public $tt_time_on_site = 0;
 
 }
 

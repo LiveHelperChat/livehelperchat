@@ -846,6 +846,12 @@ function gMapsCallback(){
     		$.ajax({
     			url : WWW_DIR_JAVASCRIPT + 'chat/jsononlineusers',
     			dataType: "json",
+    			error:function(){
+    				clearTimeout(pendingProcessTimeout);
+    				pendingProcessTimeout = setTimeout(function(){
+						showMarkers();
+					},10000);
+    			},
     			success : function(response) {
     				bindMarkers(response);
     				processing = false;

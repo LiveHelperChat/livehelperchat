@@ -1,4 +1,4 @@
-<h3><?php echo htmlspecialchars($visitor->operator_message); ?></h3>
+<h3><?php echo erLhcoreClassBBCode::make_clickable(htmlspecialchars($visitor->operator_message)); ?></h3>
 
 <form action="" method="post">
 

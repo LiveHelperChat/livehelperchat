@@ -44,6 +44,16 @@ $def->properties['pages_count']->columnName   = 'pages_count';
 $def->properties['pages_count']->propertyName = 'pages_count';
 $def->properties['pages_count']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['time_on_site'] = new ezcPersistentObjectProperty();
+$def->properties['time_on_site']->columnName   = 'time_on_site';
+$def->properties['time_on_site']->propertyName = 'time_on_site';
+$def->properties['time_on_site']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['tt_time_on_site'] = new ezcPersistentObjectProperty();
+$def->properties['tt_time_on_site']->columnName   = 'tt_time_on_site';
+$def->properties['tt_time_on_site']->propertyName = 'tt_time_on_site';
+$def->properties['tt_time_on_site']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['user_agent'] = new ezcPersistentObjectProperty();
 $def->properties['user_agent']->columnName   = 'user_agent';
 $def->properties['user_agent']->propertyName = 'user_agent';

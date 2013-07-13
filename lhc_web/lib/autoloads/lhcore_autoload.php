@@ -80,7 +80,8 @@ return array_merge(array (
 		'erLhcoreClassModelFaq' 	=> 'lib/models/lhfaq/erlhcoreclassmodelfaq.php',
 
 		// Abstract module
-		'erLhAbstractModelEmailTemplate' => 'lib/models/lhabstract/erlhabstractmodelemailtemplate.php',
+		'erLhAbstractModelEmailTemplate' 			=> 'lib/models/lhabstract/erlhabstractmodelemailtemplate.php',
+		'erLhAbstractModelProactiveChatInvitation'  => 'lib/models/lhabstract/erlhabstractmodeleproactivechatinvitation.php',
 		'erLhcoreClassAbstract' 		 => 'lib/core/lhabstract/lhabstract.php',
 		'erLhcoreClassChatMail' 		 => 'lib/core/lhchat/lhchatmail.php',
 

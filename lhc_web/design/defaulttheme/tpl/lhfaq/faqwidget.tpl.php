@@ -3,7 +3,7 @@
     <p class="title" data-section-title><a href="#panel1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','FAQ');?></a></p>
     <div class="content" data-section-content>
 
-      <ul class="accordion-lhc">
+      <ul class="accordion-lhc accordion-faq">
 	  <?php foreach ($items as $item) : ?>
 		  <li>
 		  	 <div class="title-lhc">

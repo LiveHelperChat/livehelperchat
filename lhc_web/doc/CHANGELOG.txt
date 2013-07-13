@@ -1,5 +1,15 @@
 1.37v
 
+Features:
+1. Pro active chat invitations https://github.com/remdex/livehelperchat/issues/49
+
+Bug fixes:
+1. If in FAQ widget answer is very big it hides under browser window. I have added rule for scrollbar if height is more than 200px.
+
+execute doc/update_db/update_26.sql
+
+1.37v
+
 1. Online users google map https://github.com/remdex/livehelperchat/issues/45
 2. Install style update
 3. Statistic module, more updates is coming.

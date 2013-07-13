@@ -421,10 +421,25 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  `lat` varchar(10) NOT NULL,
   				  `lon` varchar(10) NOT NULL,
   				  `city` varchar(100) NOT NULL,
+        	   	  `time_on_site` int(11) NOT NULL,
+  				  `tt_time_on_site` int(11) NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `last_visit` (`last_visit`),
                   KEY `vid` (`vid`)
                 ) DEFAULT CHARSET=utf8;");
+
+        	   $db->query("CREATE TABLE `lh_abstract_proactive_chat_invitation` (
+				  `id` int(11) NOT NULL AUTO_INCREMENT,
+				  `siteaccess` varchar(10) NOT NULL,
+				  `time_on_site` int(11) NOT NULL,
+				  `pageviews` int(11) NOT NULL,
+				  `message` text NOT NULL,
+				  `executed_times` int(11) NOT NULL,
+				  `name` varchar(50) NOT NULL,
+				  `position` int(11) NOT NULL,
+				  PRIMARY KEY (`id`),
+				  KEY `time_on_site_pageviews_siteaccess_position` (`time_on_site`,`pageviews`,`siteaccess`,`position`)
+				) DEFAULT CHARSET=utf8;");
 
         	   //Default departament
         	   $db->query("CREATE TABLE `lh_departament` (

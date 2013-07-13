@@ -232,7 +232,7 @@ $ViewList['userclosechat'] = array(
 $ViewList['onlineusers'] = array(
     'script' => 'onlineusers.php',
     'params' => array(),
-    'uparams' => array('clear_list','method'),
+    'uparams' => array('clear_list','method','deletevisitor'),
     'functions' => array( 'use' )
 );
 

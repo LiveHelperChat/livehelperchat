@@ -395,3 +395,9 @@ ul.accordion-lhc > li.active-lhc { border-top: 3px solid #2ba6cb; }
 ul.accordion-lhc > li.active-lhc .title-lhc { background: white; padding-top: 13px; }
 ul.accordion-lhc > li.active-lhc .title-lhc:after { content: ""; display: block; width: 0; height: 0; border: solid 6px; border-color: #9d9d9d transparent transparent transparent; }
 ul.accordion-lhc > li.active-lhc .content-lhc { background: white; display: block; border-left: 1px solid #e9e9e9; border-right: 1px solid #e9e9e9; }
+
+
+ul.accordion-faq li {
+	max-height:200px;
+	overflow-y:auto;
+}

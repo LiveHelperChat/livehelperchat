@@ -29,6 +29,7 @@
 
     <?php if ($currentUser->hasAccessTo('lhabstract','use')) : ?>
     <li><a href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/EmailTemplate"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','E-mail templates');?></a></li>
+    <li><a href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/ProactiveChatInvitation"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Pro active chat invitations');?></a></li>
     <?php endif; ?>
 
     <?php if ($currentUser->hasAccessTo('lhsystem','configuresmtp')) : ?>
