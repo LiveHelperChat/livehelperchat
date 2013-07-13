@@ -235,7 +235,7 @@ class erLhAbstractModelProactiveChatInvitation {
 	public $time_on_site = 0;
 	public $pageviews = 0;
 	public $message = '';
-	public $position = '';
+	public $position = 0;
 	public $name = '';
 	public $executed_times = 0;
 
