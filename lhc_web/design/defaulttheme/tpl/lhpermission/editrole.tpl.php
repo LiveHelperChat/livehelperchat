@@ -38,7 +38,7 @@
 			     <?php endforeach; ?>
 			</table>
 			<ul class="button-group radius">
-			<li><input type="submit" class="small button" name="Delete_policy" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Remove selected');?>"/></li>
+			<li><input type="submit" class="small button" name="Delete_policy" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Remove selected policy');?>"/></li>
 			<li><input type="submit" class="small button" name="New_policy" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','New policy');?>"/></li>
             </ul>
 		</form>
@@ -62,8 +62,8 @@
 			     <?php endforeach; ?>
 			</table>
 			<ul class="button-group radius">
-            <li><input type="submit" class="small button" name="Remove_group_from_role" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Remove selected');?>"/></li>
-			<li><input type="button" class="small button" onclick="$.colorbox({width:'600px',href:'<?php echo erLhcoreClassDesign::baseurl('permission/roleassigngroup')?>/<?php echo $role->id?>'});" name="Assign_group_role" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Assign group');?>"/></li>
+            <li><input type="submit" class="small button" name="Remove_group_from_role" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Remove selected role');?>"/></li>
+			<li><input type="button" class="small button" onclick="$.colorbox({width:'600px',href:'<?php echo erLhcoreClassDesign::baseurl('permission/roleassigngroup')?>/<?php echo $role->id?>'});" name="Assign_group_role" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Assign a group');?>"/></li>
 			</ul>
 		</form>
 

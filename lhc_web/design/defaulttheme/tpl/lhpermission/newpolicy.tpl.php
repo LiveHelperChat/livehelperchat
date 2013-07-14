@@ -9,7 +9,7 @@
 	<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','Assigned functions');?></h5> 			
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-	     <td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','Choose module');?></td>
+	     <td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','Choose a module');?></td>
 	     <td>			    
 	     <select id="ModuleSelectedID" name="Module">			     
 	         <option value="*">---<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','All modules');?>---</option>
@@ -20,7 +20,7 @@
 	     </td>			  
 	 </tr>
 	 <tr>
-	     <td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','Choose module function');?></td>
+	     <td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','Choose a module function');?></td>
 	     <td id="ModuleFunctionsID">
 	        <select name="ModuleFunction" >
 	         <option value="*"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','All functions');?></option>

@@ -1,5 +1,5 @@
 <?php include(erLhcoreClassDesign::designtpl('lhquestionary/embed_button.tpl.php'));?>
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/newquestion','Enter new question');?></h1>
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/newquestion','Enter a new question');?></h1>
 
 <?php if (isset($errors)) : ?>
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>

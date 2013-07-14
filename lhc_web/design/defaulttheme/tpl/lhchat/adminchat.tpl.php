@@ -17,7 +17,7 @@
 		<ul class="square params-list">
     		<?php if ( !empty($chat->country_code) ) : ?><li><img src="<?php echo erLhcoreClassDesign::design('images/flags');?>/<?php echo $chat->country_code?>.png" alt="<?php echo htmlspecialchars($chat->country_name)?>" title="<?php echo htmlspecialchars($chat->country_name)?>" /></li><?php endif; ?>
     		<li>IP - <?php echo $chat->ip?></li>
-    		<?php if (!empty($chat->referrer)) : ?><li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Come from')?> -  <?php echo $chat->referrer != '' ? htmlspecialchars($chat->referrer) : ''?></li><?php endif;?>
+    		<?php if (!empty($chat->referrer)) : ?><li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Came from')?> -  <?php echo $chat->referrer != '' ? htmlspecialchars($chat->referrer) : ''?></li><?php endif;?>
     		<li>ID - <?php echo $chat->id;?></li>
     		<?php if (!empty($chat->email)) : ?><li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','E-mail')?> - <a href="mailto:<?php echo $chat->email?>"><?php echo $chat->email?></a></li><?php endif;?>
     		<?php if (!empty($chat->phone)) : ?><li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Phone')?> - <?php echo htmlspecialchars($chat->phone)?></li><?php endif;?>
@@ -49,7 +49,7 @@
     <?php if ($chat->user_status == 1) : ?>
     	<?php include(erLhcoreClassDesign::designtpl('lhchat/userleftchat.tpl.php')); ?>
     <?php elseif ($chat->user_status == 0) : ?>
-    	<?php include(erLhcoreClassDesign::designtpl('lhchat/userjoinged.tpl.php')); ?>
+    	<?php include(erLhcoreClassDesign::designtpl('lhchat/userjoined.tpl.php')); ?>
     <?php endif;?>
 
     </div>
@@ -73,7 +73,7 @@ lhinst.initTypingMonitoringAdmin('<?php echo $chat->id?>');
     <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
                     'input_name'     => 'CannedMessage-'.$chat->id,
                     'on_change'      => "$('#CSChatMessage-".$chat->id."').val(($(this).val() > 0) ? $(this).find(':selected').text() : '')",
-                    'optional_field' =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Select canned message'),
+                    'optional_field' =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Select a canned message'),
                     'display_name'   => 'msg',
     				'selected_id'    => '',
                     'list_function'  => 'erLhcoreClassModelCannedMsg::getList'

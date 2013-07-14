@@ -2,7 +2,7 @@
 
 $isOnlineHelp = erLhcoreClassChat::isOnline($department);
 
-// Perhaps user do not want to show live help then it's offline
+// Perhaps user does not want to show live help when it's offline
 if ( !($isOnlineHelp == false && $hide_offline == 'true') ) : ?>
 var lh_inst_page  = {
 

@@ -1,12 +1,12 @@
 <h1 class="attr-header"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','HTML code');?></h1>
 
 <div class="row">
-    <div class="columns large-6"><label><input type="checkbox" id="id_internal_popup" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','On click show page widget');?></label></div>
+    <div class="columns large-6"><label><input type="checkbox" id="id_internal_popup" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','On a mouse click show the page widget');?></label></div>
     <div class="columns large-6"><label><input type="checkbox" id="id_hide_then_offline" value="on" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Hide status when offline');?></label></div>
 </div>
 <div class="row">
     <div class="columns large-6"><label><input type="checkbox" id="id_check_operator_message" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Check for messages from the operator');?></label></div>
-    <div class="columns large-6"><label><input type="checkbox" id="id_show_leave_form" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Show leave a message form when there are no online operators');?></label></div>
+    <div class="columns large-6"><label><input type="checkbox" id="id_show_leave_form" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Show a leave a message form when there are no online operators');?></label></div>
 </div>
 
 <br />
@@ -48,7 +48,7 @@
 			        	</div>
 			        	<div class="column large-6">
 			        		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','height')?></label>
-		                    <input type="text" id="id_widget_height" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Widget height in px')?>" value="340" />
+		                    <input type="text" id="id_widget_height" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Widget height in pixels')?>" value="340" />
 		                </div>
 			     </div>
         	</div>
@@ -58,14 +58,14 @@
     <div class="columns large-6">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Position');?></label>
         <select id="PositionID">
-               <option value="original"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Native placement - will be shown where the html is embedded');?></option>
+               <option value="original"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Native placement - it will be shown where the html is embedded');?></option>
                <option value="bottom_right"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Bottom right corner of the screen');?></option>
                <option value="bottom_left"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Bottom left corner of the screen');?></option>
                <option value="middle_right"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Middle right side of the screen');?></option>
                <option value="middle_left"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Middle left side of the screen');?></option>
         </select>
 
-        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Position from top, only used if left middle or right middle is chosen');?></label>
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Position from the top, only used if the Middle left or the Middle right side is chosen');?></label>
 	    <div class="row">
 	      <div class="large-8 columns">
 	        <input type="text" id="id_top_text" value="350" />
@@ -82,7 +82,7 @@
 
 
 
-<p class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Copy the code from the textarea to the page where you want your status to appear');?></p>
+<p class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Copy the code from the text area to the page where you want your status to appear');?></p>
 <textarea style="width:100%;height:180px;font-size:12px;" id="HMLTContent" ><?php echo htmlspecialchars('<script type="text/javascript" src="http://'.$_SERVER['HTTP_HOST'].erLhcoreClassDesign::baseurl('chat/getstatus').'"></script>')?></textarea>
 
 <script type="text/javascript">

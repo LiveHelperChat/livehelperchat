@@ -14,7 +14,7 @@
         <translation>Slaptažodis</translation>
     </message>
     <message>
-        <source>Password remind</source>
+        <source>Password reminder</source>
         <translation>Slaptažodžio priminimas</translation>
     </message>
     <message>
@@ -209,11 +209,11 @@
         <translation>Statuso tekstas</translation>
     </message>
     <message>
-        <source>Expand widget automatically for new users</source>
+        <source>Expand the widget automatically for new users</source>
         <translation>Išskleisti widgetą automatiškai naujiems lankytojams</translation>
     </message>
     <message>
-        <source>Copy the code from the textarea to the page header or footer</source>
+        <source>Copy the code from the text area to the page header or footer</source>
         <translation>Nukopijuokite tekstą į puslapio head dalį arba footeri</translation>
     </message>
 </context>
@@ -267,7 +267,7 @@
         <translation>Atšaukti</translation>
     </message>
     <message>
-        <source>Enter new question</source>
+        <source>Enter a new question</source>
         <translation>Įvesti naują klausimą</translation>
     </message>
     <message>
@@ -278,7 +278,7 @@
 <context>
     <name>questionary/previewanswer</name>
     <message>
-        <source>Answer preview</source>
+        <source>Preview the answer</source>
         <translation>Atsakymo peržiūra</translation>
     </message>
 </context>
@@ -301,7 +301,7 @@
         <translation>Peržiūra</translation>
     </message>
     <message>
-        <source>Delete answer</source>
+        <source>Delete the answer</source>
         <translation>Trinti atsakymą</translation>
     </message>
     <message>
@@ -332,11 +332,11 @@
         <translation>Klausimo įžanga</translation>
     </message>
     <message>
-        <source>Show question for all URL containing this string E.g /shop/basket</source>
+        <source>Show questions for all the URLs containing this string E.g /shop/basket</source>
         <translation>Rodyti klausimą visiems url kuriuose yra tekstas Pvz. /shop/basket</translation>
     </message>
     <message>
-        <source>Priority, if multiple questions matches location, question with higher priority will be shown</source>
+        <source>Priority, if multiple questions match a location, the question with the higher priority will be shown</source>
         <translation>Prioritetas, jeigu keletas klausimų atitinką tą patį adresą, klausimas su didesniu prioritetu bus rodomas</translation>
     </message>
     <message>
@@ -351,7 +351,7 @@
         <translation>Prašome įvesti klausimą!</translation>
     </message>
     <message>
-        <source>Edit question</source>
+        <source>Edit the question</source>
         <translation>Redaguoti klausimą</translation>
     </message>
     <message>
@@ -415,7 +415,7 @@
         <translation>Balsavimo parinktys</translation>
     </message>
     <message>
-        <source>If there are no options to choose from to user will be shown text field where he will be able to enter his own answer.</source>
+        <source>If there are no options to choose from, the user will be shown a text field where he will be able to enter his own answer.</source>
         <translation>Jei nėra įvesta nei viena parinktis, vartotojui bus rodoma užklausaos forma su tekstiniu lauku, kur jis galės pats įvesti atsakymą.</translation>
     </message>
 </context>
@@ -504,7 +504,7 @@
         <translation>Įjungti/Išjungti garsą apie naujas užklausas iš vartotojų</translation>
     </message>
     <message>
-        <source>Enable/Disable sound about new messages from operator</source>
+        <source>Enable/Disable sound about new messages from the operator</source>
         <translation>Įjungti/Išjungti garsą apie naujus pranešimus iš operatoriaus</translation>
     </message>
 </context>
@@ -622,7 +622,7 @@
 <context>
     <name>user/remindpassword</name>
     <message>
-        <source>Password remind - new password</source>
+        <source>Password reminder - new password</source>
         <translation>Slaptažodžio atstatymas - naujas slaptažodis</translation>
     </message>
     <message>
@@ -649,7 +649,7 @@
 <context>
     <name>user/forgotpassword</name>
     <message>
-        <source>Password remind</source>
+        <source>Password reminder</source>
         <translation>Slaptažodžio priminimas</translation>
     </message>
     <message>
@@ -695,7 +695,7 @@
 <context>
     <name>chat/sendnotice</name>
     <message>
-        <source>Send message to the user</source>
+        <source>Send a message to the user</source>
         <translation>Siųsti žinutę vartotojui</translation>
     </message>
     <message>
@@ -703,7 +703,7 @@
         <translation>Žinutė buvo išsiųsta vartotojui</translation>
     </message>
     <message>
-        <source>If message was already sent, this will mark the message as not delivered and the user will be shown the chat message again.</source>
+        <source>If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.</source>
         <translation>Jei žinutė buvo jau išsiųsta, tai pažymės žinutę kaip nepristatytą ir vartotojui bus parodytas naujas pranešimas.</translation>
     </message>
     <message>
@@ -722,7 +722,7 @@
         <translation>Laikas praleistas puslapyje</translation>
     </message>
     <message>
-        <source>No one has send any message to user yet</source>
+        <source>No one has sent a message to the user yet</source>
         <translation>Niekas dar neišsiuntė žinutės vartotojui</translation>
     </message>
     <message>
@@ -766,7 +766,7 @@
         <translation>pirmas apsilankymas</translation>
     </message>
     <message>
-        <source>has send message to user</source>
+        <source>has sent a message to the user</source>
         <translation>išsiuntė žinutę vartotojui</translation>
     </message>
     <message>
@@ -798,11 +798,11 @@
         <translation>Vartotojui buvo išsiųstas žinutė iš operatoriaus</translation>
     </message>
     <message>
-        <source>User does not have any message from operator</source>
+        <source>User does not have any messages from the operator</source>
         <translation>Vartotojas neturi jokių žinučių iš operatoriaus</translation>
     </message>
     <message>
-        <source>User have not seen message from operator, or message window still open.</source>
+        <source>User has not seen a message from the operator, or the message window is still open.</source>
         <translation>Vartotojas nematė žinutės dar, arba žinutės langas dar atidarytas.</translation>
     </message>
     <message>
@@ -1238,7 +1238,7 @@
         <translation>Saugoti</translation>
     </message>
     <message>
-        <source>Save and assign user</source>
+        <source>Save and assign the user</source>
         <translation>Saugoti ir priskirti vartotoją</translation>
     </message>
     <message>
@@ -1311,7 +1311,7 @@
         <translation>Perskirti pokalbį</translation>
     </message>
     <message>
-        <source>Transfer chat to one of your departments users</source>
+        <source>Transfer a chat to one of your departments users</source>
         <translation>Pervesti pokalbį vienam iš departamento darbuotojų</translation>
     </message>
     <message>
@@ -1327,11 +1327,11 @@
         <translation>Pokalbis buvo priskirtas pasirinktam vartotojui</translation>
     </message>
     <message>
-        <source>Transfer to user</source>
+        <source>Transfer to a user</source>
         <translation>Pervesti vartotojui</translation>
     </message>
     <message>
-        <source>Transfer to department</source>
+        <source>Transfer to a department</source>
         <translation>Pervesti departamentui</translation>
     </message>
     <message>
@@ -1339,7 +1339,7 @@
         <translation>Perskirti</translation>
     </message>
     <message>
-        <source>Logged users</source>
+        <source>Logged in users</source>
         <translation>Prisijungę vartotojai</translation>
     </message>
 </context>
@@ -1361,7 +1361,7 @@
         <translation>Gavėjas</translation>
     </message>
     <message>
-        <source>Mail was send to user</source>
+        <source>Mail was sent to the user</source>
         <translation>Laiškas buvo išsiųstas vartotojui</translation>
     </message>
     <message>
@@ -1455,7 +1455,7 @@
         <translation>Siųsti el. laišką</translation>
     </message>
     <message>
-        <source>Select canned message</source>
+        <source>Select a canned message</source>
         <translation>Pasirinkite paruoštą žinutę</translation>
     </message>
     <message>
@@ -1483,7 +1483,7 @@
         <translation>Informacija</translation>
     </message>
     <message>
-        <source>Come from</source>
+        <source>Came from</source>
         <translation>Atėjo iš</translation>
     </message>
     <message>
@@ -1808,15 +1808,19 @@
         <translation>Nauja teisė</translation>
     </message>
     <message>
-        <source>Remove selected</source>
-        <translation>Šalinti pasirinktas</translation>
+        <source>Remove selected policy</source>
+        <translation>Šalinti pasirinktas teises</translation>
+    </message>
+    <message>
+        <source>Remove selected role</source>
+        <translation>Šalinti pasirinktas roles</translation>
     </message>
     <message>
         <source>Title</source>
         <translation>Pavadinimas</translation>
     </message>
     <message>
-        <source>Assign group</source>
+        <source>Assign a group</source>
         <translation>Priskirti grupę</translation>
     </message>
     <message>
@@ -1909,7 +1913,7 @@
 <context>
     <name>kernel/nopermission</name>
     <message>
-        <source>You do not have permission to access module</source>
+        <source>You do not have permission to access the module</source>
         <translation>Jūs neturite teisės naudotis moduliu</translation>
     </message>
     <message>
@@ -1940,11 +1944,11 @@
         <translation>Nauja rolė</translation>
     </message>
     <message>
-        <source>Edit role</source>
+        <source>Edit a role</source>
         <translation>Redaguoti rolę</translation>
     </message>
     <message>
-        <source>Delete role</source>
+        <source>Delete a role</source>
         <translation>Trinti rolę</translation>
     </message>
 </context>
@@ -1970,7 +1974,7 @@
         <translation>Priskirtos funkcijos</translation>
     </message>
     <message>
-        <source>Choose module</source>
+        <source>Choose a module</source>
         <translation>Pasirinkite modulį</translation>
     </message>
     <message>
@@ -1978,7 +1982,7 @@
         <translation>Visi moduliai</translation>
     </message>
     <message>
-        <source>Choose module function</source>
+        <source>Choose a module function</source>
         <translation>Pasirinkite modulio funkciją</translation>
     </message>
     <message>
@@ -2501,7 +2505,7 @@
         <translation>HTML kodas</translation>
     </message>
     <message>
-        <source>Show leave a message form when there are no online operators</source>
+        <source>Show a leave a message form when there are no online operators</source>
         <translation>Rodyti palikite žinutę langą, kai nėra prisijungusių operatorių</translation>
     </message>
     <message>
@@ -2537,6 +2541,10 @@
         <translation>Widget aukštis</translation>
     </message>
     <message>
+        <source>Widget height in pixels</source>
+        <translation>Widget aukštis pikseliais</translation>
+    </message>
+    <message>
         <source>Popup window size</source>
         <translation>Iššokančio lango dydis</translation>
     </message>
@@ -2565,11 +2573,11 @@
         <translation>Aukštis</translation>
     </message>
     <message>
-        <source>Copy the code from the textarea to the footer, before the closing &lt;/body&gt; tag</source>
+        <source>Copy the code from the tex tarea to the footer, before the closing &lt;/body&gt; tag</source>
         <translation>Nukopijuokite žemiau esantį kodą į tą vietą, kur norite kad būtų matoma jūsų prisijungimo būsena</translation>
     </message>
     <message>
-        <source>Copy code from the textarea to the page where you want it to be rendered</source>
+        <source>Copy the code from the text area to the page where you want it to be rendered</source>
         <translation>Nukopijuokite žemiau esantį kodą į tą vietą, kur norite kad būtų matomas įskiepis</translation>
     </message>
     <message>
@@ -2577,7 +2585,7 @@
         <translation>Įterpimo html kodas</translation>
     </message>
     <message>
-        <source>Position from top, only used if left middle or right middle is chosen</source>
+        <source>Position from the top, only used if the Middle left or the Middle right side is chosen</source>
         <translation>Pozicija nuo viršaus, naudojamas jei pasirinktas vidurys kairėje arba dešinėje</translation>
     </message>
     <message>
@@ -2585,7 +2593,7 @@
         <translation>Tikrinti ar nėra žinučių iš operatorių</translation>
     </message>
     <message>
-        <source>On click show page widget</source>
+        <source>On a mouse click show the page widget</source>
         <translation>Paspaudus rodyti puslapyje widgetą</translation>
     </message>
     <message>
@@ -2597,7 +2605,7 @@
         <translation>Pozicija</translation>
     </message>
     <message>
-        <source>Native placement - will be shown where the html is embedded</source>
+        <source>Native placement - it will be shown where the html is embedded</source>
         <translation>Įerpimo pozicija - bus rodoma ten kur įdėtas HTML kodas</translation>
     </message>
     <message>
@@ -2621,7 +2629,7 @@
         <translation>Nerodyti būsenos, kai nėra prisijungusių operatorių</translation>
     </message>
     <message>
-        <source>Copy the code from the textarea to the page where you want your status to appear</source>
+        <source>Copy the code from the text area to the page where you want your status to appear</source>
         <translation>Nukopijuokite žemiau esantį kodą į tą vietą, kur norite kad būtų matoma jūsų prisijungimo būsena</translation>
     </message>
     <message>
@@ -2636,7 +2644,7 @@
         <translation>Saugoti</translation>
     </message>
     <message>
-        <source>Check messages from operators, interval in seconds</source>
+        <source>Check for messages from the operators, interval in seconds</source>
         <translation>Tikrint ar nėra žinučių iš operatorių, intervalas sekundėmis</translation>
     </message>
     <message>
@@ -2656,7 +2664,7 @@
         <translation>Nustatymai atnaujinti</translation>
     </message>
     <message>
-        <source>How many seconds user considered for being as online</source>
+        <source>How many seconds for a user to be considered as being online</source>
         <translation>Kiek sekundžių vartotojas laikomas, kaip prisijungęs</translation>
     </message>
     <message>
@@ -2664,19 +2672,19 @@
         <translation>Tikrinti ar nėra naujų užklausų, kas nurodytą intervalą</translation>
     </message>
     <message>
-        <source>Sync for new user message, interval in seconds</source>
+        <source>Sync for a new user message, interval in seconds</source>
         <translation>Tikrinti ar neparašė vartotojas, kas nurodytą sekundžių skaičių</translation>
     </message>
     <message>
-        <source>Play new pending chat sound on new chat request</source>
+        <source>Play a new pending chat sound on a new chat request</source>
         <translation>Groti pranešimo garsą apie naują užklausimą</translation>
     </message>
     <message>
-        <source>Play sound on new message for back office user</source>
+        <source>Play a sound on a new message for a back office user</source>
         <translation>Groti garsą apie naują žinutę konsultantui</translation>
     </message>
     <message>
-        <source>Play sound on new message for front end user</source>
+        <source>Play a sound on a new message for a front end user</source>
         <translation>Groti garsą apie naują žinutę klientui</translation>
     </message>
     <message>
@@ -2699,11 +2707,11 @@
 <context>
     <name>chat/startchatformsettings</name>
     <message>
-        <source>Start chat form settings</source>
+        <source>Start a chat form settings</source>
         <translation>Pokalbio pradžios formos nustatymai</translation>
     </message>
     <message>
-        <source>At least one field have to be visible and required in popup and page widget</source>
+        <source>At least one field has to be visible and required in the popup and page widget</source>
         <translation>Bent vienas laukas turi būti matomas ir privalomas popupe ir vidiniame puslapio popupe</translation>
     </message>
     <message>
@@ -2719,11 +2727,11 @@
         <translation>Neprivalomas</translation>
     </message>
     <message>
-        <source>This field is visible in popup</source>
+        <source>This field is visible in the popup</source>
         <translation>Šis laukas matomas popupe</translation>
     </message>
     <message>
-        <source>This field is visible in page widget</source>
+        <source>This field is visible in the page widget</source>
         <translation>Šis laukas matomas vidiniame puslapio popupe</translation>
     </message>
     <message>
@@ -3005,7 +3013,7 @@
         <translation>Slaptažodis</translation>
     </message>
     <message>
-        <source>Repeat the password</source>
+        <source>Repeat the new password</source>
         <translation>Pakartokite slaptažodį</translation>
     </message>
     <message>
@@ -3076,7 +3084,7 @@
         <translation>Vartotojų grupė</translation>
     </message>
     <message>
-        <source>Departaments</source>
+        <source>Departments</source>
         <translation>Departamentai</translation>
     </message>
     <message>
@@ -3104,7 +3112,7 @@
         <translation>Slaptažodis</translation>
     </message>
     <message>
-        <source>Repeat password</source>
+        <source>Repeat the new password</source>
         <translation>Pakartokite slaptažodį</translation>
     </message>
     <message>
@@ -3341,11 +3349,11 @@
         <translation>Atsakymas</translation>
     </message>
     <message>
-        <source>URL where this question should appear, leave empty for all</source>
+        <source>The URL where this question should appear, leave it empty for all</source>
         <translation>URL kur šis klausimas turėtų būti rodomas, palikite tuščią visiems</translation>
     </message>
     <message>
-        <source>Question active</source>
+        <source>Question is active</source>
         <translation>Klausimas aktyvus</translation>
     </message>
 </context>
@@ -3407,7 +3415,7 @@
         <translation>Klausimas</translation>
     </message>
     <message>
-        <source>Send question</source>
+        <source>Send your question</source>
         <translation>Siųsti klausimą</translation>
     </message>
     <message>
@@ -3453,19 +3461,19 @@
         <translation>Standartinis operatoriaus nikas</translation>
     </message>
     <message>
-        <source>Messages limit in chatbox</source>
+        <source>Messages limit in the chatbox</source>
         <translation>Žinučių limitas chatboxe</translation>
     </message>
     <message>
-        <source>Auto creation by chatbox identifier enabled</source>
+        <source>Auto creation by chatbox identifier is enabled</source>
         <translation>Auto sukūrimas pagal identifikatorių įgalintas</translation>
     </message>
     <message>
-        <source>Secret hash, used then auto creation is disabled</source>
+        <source>Secret hash, this is used when auto creation is disabled</source>
         <translation>Slaptas hash, kuriuo remiantis bus tikrininama teisė sukurti chatboxą</translation>
     </message>
     <message>
-        <source>more information how to use it</source>
+        <source>more information on how to use it</source>
         <translation>daugiau informacijos kaip jį naudoti</translation>
     </message>
 </context>
@@ -3487,7 +3495,7 @@
 <context>
     <name>user/forgotpasswordsent</name>
     <message>
-        <source>Password remind</source>
+        <source>Password reminder</source>
         <translation>Slaptažodžio priminimas</translation>
     </message>
     <message>
