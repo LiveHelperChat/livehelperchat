@@ -186,6 +186,11 @@ table tr td {
 .tabs {
 	height: 30px;
 }
+.section-container.tabs > section > .title a,
+.section-container.tabs > .section > .title a{
+	font-size: 0.75em;
+	padding:0.5em 0.7em;
+}
 
 .msgBlock{
 	height:120px;
