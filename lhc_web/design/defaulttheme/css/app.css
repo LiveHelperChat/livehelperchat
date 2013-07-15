@@ -44,14 +44,6 @@ form {
 	margin-bottom:0;
 }
 
-ul.breadcrumbs li span {
-    padding-left:0;
-}
-
-ul.breadcrumbs li:last-child span {
-    padding-left:12px;
-}
-
 .user-settings-list,
 .user-account-list {
 	float:right;
