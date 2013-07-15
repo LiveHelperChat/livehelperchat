@@ -102,6 +102,7 @@
 </div>
 </div>
 </div>
+
 <script type="text/javascript">chatsyncadmininterface();</script>
 
 <?php if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true) {
