@@ -2,6 +2,10 @@ body {
 	margin:5px;
 }
 
+html{
+	background: none;
+}
+
 body.embed-widget {
 	background:none;
 }
