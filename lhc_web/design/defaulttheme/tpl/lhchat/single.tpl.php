@@ -8,7 +8,7 @@
 
 <?php include(erLhcoreClassDesign::designtpl('lhchat/user_settings.tpl.php'));?>
 
-<div class="section-container tabs" data-section="tabs" id="tabs">
+<div class="section-container auto" data-section="auto" id="tabs">
 
 </div>
 
