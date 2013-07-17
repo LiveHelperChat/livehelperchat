@@ -7,7 +7,7 @@ $def->class = "erLhcoreClassModelChatOnlineUser";
 $def->idProperty = new ezcPersistentObjectIdProperty();
 $def->idProperty->columnName = 'id';
 $def->idProperty->propertyName = 'id';
-$def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentSequenceGenerator' );
+$def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentNativeGenerator' );
 
 $def->properties['vid'] = new ezcPersistentObjectProperty();
 $def->properties['vid']->columnName   = 'vid';

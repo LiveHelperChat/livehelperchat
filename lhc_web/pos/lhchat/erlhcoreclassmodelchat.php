@@ -79,6 +79,21 @@ $def->properties['country_name']->columnName   = 'country_name';
 $def->properties['country_name']->propertyName = 'country_name';
 $def->properties['country_name']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['lat'] = new ezcPersistentObjectProperty();
+$def->properties['lat']->columnName   = 'lat';
+$def->properties['lat']->propertyName = 'lat';
+$def->properties['lat']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['lon'] = new ezcPersistentObjectProperty();
+$def->properties['lon']->columnName   = 'lon';
+$def->properties['lon']->propertyName = 'lon';
+$def->properties['lon']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['city'] = new ezcPersistentObjectProperty();
+$def->properties['city']->columnName   = 'city';
+$def->properties['city']->propertyName = 'city';
+$def->properties['city']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $def->properties['user_typing'] = new ezcPersistentObjectProperty();
 $def->properties['user_typing']->columnName   = 'user_typing';
 $def->properties['user_typing']->propertyName = 'user_typing';

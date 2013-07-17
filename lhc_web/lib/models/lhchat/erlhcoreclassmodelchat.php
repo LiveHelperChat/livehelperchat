@@ -26,6 +26,9 @@ class erLhcoreClassModelChat {
                'last_user_msg_time'     => $this->last_user_msg_time,
                'last_msg_id'     		=> $this->last_msg_id,
                'mail_send'     			=> $this->mail_send,
+               'lat'     				=> $this->lat,
+               'lon'     				=> $this->lon,
+               'city'     				=> $this->city,
                'additional_data'     	=> $this->additional_data
        );
    }
@@ -138,6 +141,9 @@ class erLhcoreClassModelChat {
            if ($location !== false){
                $instance->country_code = $location->country_code;
                $instance->country_name = $location->country_name;
+               $instance->lat = $location->lat;
+               $instance->lon = $location->lon;
+               $instance->city = $location->city;
            }
        }
    }
@@ -179,6 +185,9 @@ class erLhcoreClassModelChat {
    public $last_user_msg_time = 0;
    public $last_msg_id = 0;
    public $mail_send = 0;
+   public $lat = 0;
+   public $lon = 0;
+   public $city = '';
    public $additional_data = '';
 
 }

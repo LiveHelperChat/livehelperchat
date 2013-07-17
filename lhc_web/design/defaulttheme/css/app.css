@@ -399,3 +399,35 @@ ul.accordion-faq li {
 	max-height:200px;
 	overflow-y:auto;
 }
+
+.overflow-x-scrollbar,
+.foot-print-content{
+	overflow-x:auto;
+	overflow-y:hidden;
+}
+
+
+.overflow-x-scrollbar::-webkit-scrollbar,
+.foot-print-content::-webkit-scrollbar {
+	width: 1em;
+	height: 0.8em;
+	background-color: #FFF;
+	border-left:1px solid #CCC;
+	padding-left:1px;
+	border-right: 1px;
+}
+
+.overflow-x-scrollbar::-webkit-scrollbar-thumb,
+.foot-print-content::-webkit-scrollbar-thumb {
+	min-height: 0.8em;
+	min-width: 0.7em;
+	background-color: #ddd;
+	border-radius:6px;
+}
+
+.foot-print-content li {
+	font-size: 12px;
+	white-space:nowrap;
+	padding-bottom: 2px;
+
+}

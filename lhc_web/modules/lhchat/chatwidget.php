@@ -96,6 +96,10 @@ if (isset($_POST['StartChat']))
 	            if ($userInstance !== false) {
 	                $userInstance->chat_id = $chat->id;
 	                $userInstance->saveThis();
+
+	                if ( erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1) {
+	            		erLhcoreClassModelChatOnlineUserFootprint::assignChatToPageviews($userInstance);
+	            	}
 	            }
 	       }
 

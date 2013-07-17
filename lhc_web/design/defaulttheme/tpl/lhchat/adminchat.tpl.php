@@ -63,7 +63,7 @@ lhinst.initTypingMonitoringAdmin('<?php echo $chat->id?>');
 				<p class="title" data-section-title>
 					<a href="#panel1">Visitor</a>
 				</p>
-				<div class="content" data-section-content>
+				<div class="content overflow-x-scrollbar" data-section-content>
 
 					<h5>
 						<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Information')?>
@@ -78,11 +78,17 @@ lhinst.initTypingMonitoringAdmin('<?php echo $chat->id?>');
 						</thead>
 						<?php if ( !empty($chat->country_code) ) : ?>
 						<tr>
-							<td>Country</td>
+							<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Country')?></td>
 							<td><img
 							src="<?php echo erLhcoreClassDesign::design('images/flags');?>/<?php echo $chat->country_code?>.png"
 							alt="<?php echo htmlspecialchars($chat->country_name)?>"
 							title="<?php echo htmlspecialchars($chat->country_name)?>" /></td>
+						</tr>
+						<?php endif;?>
+						<?php if ( !empty($chat->city) ) : ?>
+						<tr>
+							<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','City')?></td>
+							<td><?php echo htmlspecialchars($chat->city);?></td>
 						</tr>
 						<?php endif;?>
 						<tr>
@@ -130,7 +136,6 @@ lhinst.initTypingMonitoringAdmin('<?php echo $chat->id?>');
 						<?php endif; ?>
 					</p>
 
-
 					<h5>
 						<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Actions')?>
 					</h5>
@@ -169,22 +174,32 @@ lhinst.initTypingMonitoringAdmin('<?php echo $chat->id?>');
 
 				</div>
 			</section>
+
+			<?php if ( erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1) : ?>
 			<section>
 				<p class="title" data-section-title>
-					<a href="#panel2">Footprint</a>
+					<a href="#panel2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Footprint')?></a>
 				</p>
 				<div class="content" data-section-content>
-					<p>Footprint location</p>
+					<?php include(erLhcoreClassDesign::designtpl('lhchat/footprint.tpl.php'));?>
 				</div>
 			</section>
+			<?php endif;?>
+
 			<section>
 				<p class="title" data-section-title>
-					<a href="#panel2">Map</a>
+					<a href="#panel2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Map')?></a>
 				</p>
 				<div class="content" data-section-content>
-					<p>Location in map</p>
+					<?php if ($chat->lat != 0 && $chat->lon) : ?>
+					<img src="http://maps.google.com/maps/api/staticmap?zoom=13&size=400x300&maptype=roadmap&center=<?php echo $chat->lat?>,<?php echo $chat->lon?>&sensor=false&markers=color:green|<?php echo $chat->lat?>,<?php echo $chat->lon?>" alt="" title="<?php echo $chat->lat?>,<?php echo $chat->lon?>" />
+					<?php else : ?>
+					<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Could not detect. Make sure geo detection is enabled')?>
+					<?php endif;?>
 				</div>
 			</section>
+
+
 		</div>
 
 	</div>
