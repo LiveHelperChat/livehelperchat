@@ -201,6 +201,14 @@ function lh(){
         }
     };
 
+    this.refreshFootPrint = function(inst) {
+    	 inst.addClass('disabled');
+    	 $.get(this.wwwDir + 'chat/chatfootprint/' + inst.attr('rel'),{ }, function(data){
+    		 $('#footprint-'+inst.attr('rel')).html(data);
+    		 inst.removeClass('disabled');
+         });
+    };
+
     this.chatUnderSynchronization = function(chat_id)
     {
         var j = 0;
@@ -889,6 +897,12 @@ function gMapsCallback(){
     				infoWindow.open(map, this);
     				$.get(WWW_DIR_JAVASCRIPT + 'chat/getonlineuserinfo/'+e.Id,function(result){
     					infoWindow.setContent(result);
+
+    					setTimeout(function(){
+    						$(document).foundation('section', 'reflow');
+    					},250);
+
+
     				});
     			});
 

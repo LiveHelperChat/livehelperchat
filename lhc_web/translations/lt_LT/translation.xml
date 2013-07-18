@@ -1455,6 +1455,18 @@
         <translation>Siųsti el. laišką</translation>
     </message>
     <message>
+        <source>Map</source>
+        <translation>Žemėlapis</translation>
+    </message>
+    <message>
+        <source>Footprint</source>
+        <translation>Naršymo istorija</translation>
+    </message>
+    <message>
+        <source>Visitor</source>
+        <translation>Lankytojas</translation>
+    </message>
+    <message>
         <source>Select a canned message</source>
         <translation>Pasirinkite paruoštą žinutę</translation>
     </message>

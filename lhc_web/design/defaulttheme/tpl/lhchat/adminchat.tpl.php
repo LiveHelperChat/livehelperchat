@@ -61,7 +61,7 @@ lhinst.initTypingMonitoringAdmin('<?php echo $chat->id?>');
 		<div class="section-container auto" data-section>
 			<section>
 				<p class="title" data-section-title>
-					<a href="#panel1">Visitor</a>
+					<a href="#panel1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Visitor')?></a>
 				</p>
 				<div class="content overflow-x-scrollbar" data-section-content>
 
@@ -70,12 +70,6 @@ lhinst.initTypingMonitoringAdmin('<?php echo $chat->id?>');
 					</h5>
 
 					<table class="small-12">
-						<thead>
-							<tr>
-								<th>Parameter</th>
-								<th>Value</th>
-							</tr>
-						</thead>
 						<?php if ( !empty($chat->country_code) ) : ?>
 						<tr>
 							<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Country')?></td>

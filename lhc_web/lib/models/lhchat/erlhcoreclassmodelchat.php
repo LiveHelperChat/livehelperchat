@@ -55,6 +55,16 @@ class erLhcoreClassModelChat {
 	   	$stmt = $q->prepare();
 	   	$stmt->execute();
 
+	   	// Delete user footprint
+	   	$q->deleteFrom( 'lh_chat_online_user_footprint' )->where( $q->expr->eq( 'chat_id', $this->id ) );
+	   	$stmt = $q->prepare();
+	   	$stmt->execute();
+
+	   	// Delete online user record
+	   	$q->deleteFrom( 'lh_chat_online_user' )->where( $q->expr->eq( 'chat_id', $this->id ) );
+	   	$stmt = $q->prepare();
+	   	$stmt->execute();
+
 	   	erLhcoreClassChat::getSession()->delete($this);
    }
 

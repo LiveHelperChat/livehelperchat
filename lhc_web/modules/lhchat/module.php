@@ -89,6 +89,12 @@ $ViewList['single'] = array(
     'functions' => array( 'singlechatwindow' )
 );
 
+$ViewList['chatfootprint'] = array(
+    'script' => 'chatfootprint.php',
+    'params' => array('chat_id'),
+    'functions' => array( 'use' )
+);
+
 $ViewList['operatortyping'] = array(
     'script' => 'operatortyping.php',
     'params' => array('chat_id','status'),

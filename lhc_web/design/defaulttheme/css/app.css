@@ -11,6 +11,10 @@ body {
 	white-space: nowrap;
 }
 
+.mb0{
+	margin-bottom:0 !important;
+}
+
 .content-row {
 	margin: 10px;
 	background-color: rgb(255, 255, 255); /* The Fallback */
@@ -403,7 +407,7 @@ ul.accordion-faq li {
 .overflow-x-scrollbar,
 .foot-print-content{
 	overflow-x:auto;
-	overflow-y:hidden;
+	overflow-y:auto;
 }
 
 
