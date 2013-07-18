@@ -39,21 +39,7 @@ class erLhcoreClassSiteaccessGenerator {
     		$languages[$translation] = array('locale' => $translation,'content_language' => substr($translation, 0,2), 'dir_language' => in_array($translation, $rtl) ? 'rtl' : 'ltr');
     	}
 
-
-
-
-    	/* $siteAccessItems = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'available_site_access' );
-    	$languages = array();
-    	foreach ($siteAccessItems as $siteAcces) {
-    		$siteaccessData = erConfigClassLhConfig::getInstance()->getSetting( 'site_access_options', $siteAcces );
-    		if (!isset($languages[$siteaccessData['locale']])) {
-    			$languages[$siteaccessData['locale']] = array('locale' => $siteaccessData['locale'],'content_language' => $siteaccessData['content_language'],'dir_language' => $siteaccessData['dir_language']);
-    		}
-    	} */
-
     	return $languages;
-
-
     }
 
     public static function updateSiteAccess(stdClass $input)

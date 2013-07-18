@@ -30,7 +30,8 @@ return array (
         5 => 'nld',
       	6 => 'ara',
       	7 => 'ger',
-        8 => 'site_admin',
+      	8 => 'pol',
+        9 => 'site_admin',
       ),
     ),
     'default_url' =>
@@ -197,6 +198,24 @@ return array (
       array (
     	'locale' => 'de_DE',
     	'content_language' => 'de',
+    	'dir_language' => 'ltr',
+    	'title' => '',
+    	'description' => '',
+    	'theme' =>
+      	array (
+    		0 => 'customtheme',
+    		1 => 'defaulttheme'
+      	),
+    	   'default_url' =>
+    	array (
+    		'module' => 'chat',
+    		'view' => 'startchat'
+    	),
+      ),
+      'pol' =>
+      array (
+    	'locale' => 'pl_PL',
+    	'content_language' => 'pl',
     	'dir_language' => 'ltr',
     	'title' => '',
     	'description' => '',
