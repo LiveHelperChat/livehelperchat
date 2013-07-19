@@ -243,6 +243,9 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `last_user_msg_time` int(11) NOT NULL,
 				  `last_msg_id` int(11) NOT NULL,
 				  `additional_data` varchar(250) NOT NULL,
+				  `lat` varchar(10) NOT NULL,
+				  `lon` varchar(10) NOT NULL,
+				  `city` varchar(100) NOT NULL,
 				  `mail_send` int(11) NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `status` (`status`),
@@ -347,13 +350,22 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  KEY `identifier` (`identifier`)
 				) DEFAULT CHARSET=utf8;");
 
-
-
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_canned_msg` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
                   `msg` text NOT NULL,
                   PRIMARY KEY (`id`)
                 ) DEFAULT CHARSET=utf8;");
+
+        	   $db->query("CREATE TABLE `lh_chat_online_user_footprint` (
+				  `id` int(11) NOT NULL AUTO_INCREMENT,
+				  `chat_id` int(11) NOT NULL,
+				  `online_user_id` int(11) NOT NULL,
+				  `page` varchar(250) NOT NULL,
+				  `vtime` varchar(250) NOT NULL,
+				  PRIMARY KEY (`id`),
+				  KEY `chat_id_vtime` (`chat_id`,`vtime`),
+				  KEY `online_user_id` (`online_user_id`)
+				) DEFAULT CHARSET=utf8;");
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_users_setting` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -401,6 +413,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	    ('chatbox_data',	'a:6:{i:0;b:0;s:20:\"chatbox_auto_enabled\";i:0;s:19:\"chatbox_secret_hash\";s:9:\"{$randomHash}\";s:20:\"chatbox_default_name\";s:7:\"Chatbox\";s:17:\"chatbox_msg_limit\";i:50;s:22:\"chatbox_default_opname\";s:7:\"Manager\";}',	0,	'Chatbox configuration',	1),
                 ('start_chat_data',	'a:10:{i:0;b:0;s:21:\"name_visible_in_popup\";b:1;s:27:\"name_visible_in_page_widget\";b:1;s:19:\"name_require_option\";s:8:\"required\";s:22:\"email_visible_in_popup\";b:1;s:28:\"email_visible_in_page_widget\";b:1;s:20:\"email_require_option\";s:8:\"required\";s:24:\"message_visible_in_popup\";b:1;s:30:\"message_visible_in_page_widget\";b:1;s:22:\"message_require_option\";s:8:\"required\";}',	0,	'',	1),
                 ('application_name',	'a:6:{s:3:\"eng\";s:31:\"Live Helper Chat - live support\";s:3:\"lit\";s:26:\"Live Helper Chat - pagalba\";s:3:\"hrv\";s:0:\"\";s:3:\"esp\";s:0:\"\";s:3:\"por\";s:0:\"\";s:10:\"site_admin\";s:31:\"Live Helper Chat - live support\";}',	1,	'Support application name, visible in browser title.',	0),
+                ('track_footprint',	'0',	0,	'Track users footprint. For this also online visitors tracking should be enabled',	0),
                 ('geo_data', '', '0', '', '1')");
 
         	   $db->query("CREATE TABLE `lh_chat_online_user` (

@@ -5,12 +5,9 @@
 			<div class="msgBlock" id="messagesBlock-<?php echo $chat->id?>">
 				<?php
 				$LastMessageID = 0;
-    $messages = erLhcoreClassChat::getChatMessages($chat->id); ?>
-
+    			$messages = erLhcoreClassChat::getChatMessages($chat->id); ?>
 				<?php include(erLhcoreClassDesign::designtpl('lhchat/syncadmin.tpl.php'));?>
-				<?php if (isset($msg)) {
-					$LastMessageID = $msg['id'];
-} ?>
+				<?php if (isset($msg)) {	$LastMessageID = $msg['id'];} ?>
 
 				<?php if ($chat->user_status == 1) : ?>
 				<?php include(erLhcoreClassDesign::designtpl('lhchat/userleftchat.tpl.php')); ?>
@@ -29,7 +26,7 @@
 
 		<textarea rows="4" name="ChatMessage"
 			id="CSChatMessage-<?php echo $chat->id?>"></textarea>
-		<script type="text/javascript">
+<script type="text/javascript">
 jQuery('#CSChatMessage-<?php echo $chat->id?>').bind('keyup', 'return', function (evt){
     lhinst.addmsgadmin('<?php echo $chat->id?>');
 });
@@ -120,15 +117,9 @@ lhinst.initTypingMonitoringAdmin('<?php echo $chat->id?>');
 						<?php endif;?>
 					</table>
 
-					<h5>
-						<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Chat owner')?>
-					</h5>
-					<p>
-						<?php $user = $chat->getChatOwner();  if ($user !== false) : ?>
-						<?php echo htmlspecialchars($user->name)?>
-						<?php echo htmlspecialchars($user->surname)?>
-						<?php endif; ?>
-					</p>
+
+					<div class="row">
+						<div class="columns small-6">
 
 					<h5>
 						<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Actions')?>
@@ -166,6 +157,25 @@ lhinst.initTypingMonitoringAdmin('<?php echo $chat->id?>');
 							title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Send mail')?>">
 					</p>
 
+
+						</div>
+						<div class="columns small-6">
+
+						<h5>
+						<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Chat owner')?>
+						</h5>
+						<p>
+							<?php $user = $chat->getChatOwner();  if ($user !== false) : ?>
+							<?php echo htmlspecialchars($user->name)?>
+							<?php echo htmlspecialchars($user->surname)?>
+							<?php endif; ?>
+						</p>
+
+
+						</div>
+					</div>
+
+
 				</div>
 			</section>
 
@@ -188,7 +198,7 @@ lhinst.initTypingMonitoringAdmin('<?php echo $chat->id?>');
 					<?php if ($chat->lat != 0 && $chat->lon) : ?>
 					<img src="http://maps.google.com/maps/api/staticmap?zoom=13&size=400x300&maptype=roadmap&center=<?php echo $chat->lat?>,<?php echo $chat->lon?>&sensor=false&markers=color:green|<?php echo $chat->lat?>,<?php echo $chat->lon?>" alt="" title="<?php echo $chat->lat?>,<?php echo $chat->lon?>" />
 					<?php else : ?>
-					<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Could not detect. Make sure geo detection is enabled')?>
+					<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Could not detect. Make sure GEO that detection is enabled')?></p>
 					<?php endif;?>
 				</div>
 			</section>

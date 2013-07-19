@@ -1447,6 +1447,14 @@
         <translation>El. paštas</translation>
     </message>
     <message>
+        <source>Refresh</source>
+        <translation>Atnaujinti</translation>
+    </message>
+    <message>
+        <source>Could not detect. Make sure GEO that detection is enabled</source>
+        <translation>Negalima nustatyti. Patikrinkite kad GEO detekcija įjungta.</translation>
+    </message>
+    <message>
         <source>Phone</source>
         <translation>Telefonas</translation>
     </message>

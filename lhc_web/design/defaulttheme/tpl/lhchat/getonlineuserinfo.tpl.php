@@ -55,7 +55,7 @@
 		<ul class="foot-print-content circle mb0" style="max-height: 170px;">
 		<?php foreach (erLhcoreClassModelChatOnlineUserFootprint::getList(array('filter' => array('online_user_id' => $online_user->id))) as $footprintItems) : ?>
 		<li>
-		<a target="_blank" href="<?php echo htmlspecialchars($footprintItems->page);?>"><?php echo $footprintItems->vtime_front?> | <?php echo htmlspecialchars($footprintItems->page);?></a>
+		<a target="_blank" href="<?php echo htmlspecialchars($footprintItems->page);?>"><?php echo $footprintItems->time_ago?> | <?php echo htmlspecialchars($footprintItems->page);?></a>
 		</li>
 		<?php endforeach;?>
 		</ul>

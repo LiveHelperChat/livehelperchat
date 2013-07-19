@@ -1,3 +1,15 @@
+1.39v
+
+Features:
+1. Russian language by http://phone-home.ru
+2. Polish language by http://poliman.pl
+3. Footprint for user browsing
+4. Google map user info with footprint
+5. Reworked chat window with additional user info
+5. Preview chat window listing update
+
+execute doc/update_db/update_27.sql
+
 1.38v
 
 Features:

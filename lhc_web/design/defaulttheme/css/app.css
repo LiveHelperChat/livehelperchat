@@ -3,6 +3,18 @@ body {
 	background: url(../images/general/subtle_grunge.png);
 }
 
+::-webkit-scrollbar{width:0.7em;height:0.8em;background-color:#fff;}
+::-webkit-scrollbar:hover{background-color:#ddd}
+::-webkit-resizer{-webkit-border-radius:4px;background-color:#ddd}
+::-webkit-scrollbar-thumb{min-height:0.8em;min-width:1em;background-color:#ddd; border-radius: 10px;    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);}
+::-webkit-scrollbar-thumb:hover{background-color:#bbb}
+::-webkit-scrollbar-thumb:active{background-color:#888}
+::-webkit-scrollbar-track{-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);    border-radius: 10px;}
+
+.wb{
+	background-color:white;
+}
+
 .row {
 	max-width: 100%;
 }
@@ -13,6 +25,15 @@ body {
 
 .mb0{
 	margin-bottom:0 !important;
+}
+
+.p10 {
+	padding:10px;
+}
+
+
+.border-grey {
+	border:1px solid #CCC;
 }
 
 .content-row {
@@ -204,22 +225,6 @@ table tr td {
 	padding:2px;
 }
 
-.msgBlock::-webkit-scrollbar {
-	width: 1em;
-	height: 0.8em;
-	background-color: #FFF;
-	border-left:1px solid #CCC;
-	padding-left:1px;
-	border-right: 1px;
-}
-
-.msgBlock::-webkit-scrollbar-thumb {
-	min-height: 0.8em;
-	min-width: 0.7em;
-	background-color: #ddd;
-	border-radius:6px;
-}
-
 .msg-date {
 	float:right;color:#7D7D7D;
 	font-size:11px;
@@ -408,25 +413,6 @@ ul.accordion-faq li {
 .foot-print-content{
 	overflow-x:auto;
 	overflow-y:auto;
-}
-
-
-.overflow-x-scrollbar::-webkit-scrollbar,
-.foot-print-content::-webkit-scrollbar {
-	width: 1em;
-	height: 0.8em;
-	background-color: #FFF;
-	border-left:1px solid #CCC;
-	padding-left:1px;
-	border-right: 1px;
-}
-
-.overflow-x-scrollbar::-webkit-scrollbar-thumb,
-.foot-print-content::-webkit-scrollbar-thumb {
-	min-height: 0.8em;
-	min-width: 0.7em;
-	background-color: #ddd;
-	border-radius:6px;
 }
 
 .foot-print-content li {

@@ -37,6 +37,28 @@ class erLhcoreClassModelChatOnlineUserFootprint {
        		  return date('Y-m-d H:i:s',$this->vtime);
        		break;
 
+       	case 'time_ago':
+       			$this->time_ago = '';
+
+       			if ( $this->vtime > 0 ) {
+
+       				$periods         = array("s.", "m.", "h.", "d.", "w.", "m.", "y.", "dec.");
+       				$lengths         = array("60","60","24","7","4.35","12","10");
+
+       				$difference     = time() - $this->vtime;
+
+       				for ($j = 0; $difference >= $lengths[$j] && $j < count($lengths)-1; $j++) {
+       					$difference /= $lengths[$j];
+       				}
+
+       				$difference = round($difference);
+
+       				$this->time_ago = "$difference $periods[$j]";
+       			};
+
+       			return $this->time_ago;
+       		break;
+
        	default:
        		break;
        }
