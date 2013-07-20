@@ -850,7 +850,7 @@
         <translation>Vieta</translation>
     </message>
     <message>
-        <source>Online users</source>
+        <source>Online visitors</source>
         <translation>Prisijungę vartotojai</translation>
     </message>
     <message>
@@ -1106,7 +1106,7 @@
         <translation>Neperskaitytos žinutės</translation>
     </message>
     <message>
-        <source>Online users</source>
+        <source>Online visitors</source>
         <translation>Prisijungę vartotojai</translation>
     </message>
     <message>
@@ -1608,7 +1608,7 @@
         <translation>Leisti vartotojui konfiguruoti pokalbių nustatymus</translation>
     </message>
     <message>
-        <source>Allow user to clean online users list</source>
+        <source>Allow user to clean online visitors list</source>
         <translation>Leisti vartotojui išvalytu prisijungusių lankytojų sąrašą</translation>
     </message>
     <message>

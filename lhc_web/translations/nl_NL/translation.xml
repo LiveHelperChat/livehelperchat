@@ -606,7 +606,7 @@
         <translation>Locatie</translation>
     </message>
     <message>
-        <source>Online users</source>
+        <source>Online visitors</source>
         <translation>Online gebruikers</translation>
     </message>
     <message>
@@ -858,7 +858,7 @@
         <translation>Ongelezen berichten</translation>
     </message>
     <message>
-        <source>Online users</source>
+        <source>Online visitors</source>
         <translation>Online gebruikers</translation>
     </message>
     <message>
@@ -1046,7 +1046,7 @@
     <message>
         <source>Surname</source>
         <translation>Achternaam</translation>
-    </message> 
+    </message>
     <message>
         <source>Assign</source>
         <translation>Toewijzen</translation>
@@ -1240,7 +1240,7 @@
     <message>
         <source>Title</source>
         <translation>Titel</translation>
-    </message> 
+    </message>
     <message>
         <source>Assigned functions</source>
         <translation>Toegewezen functies</translation>
@@ -1319,7 +1319,7 @@
     <message>
         <source>Function</source>
         <translation>Functie</translation>
-    </message> 
+    </message>
     <message>
         <source>New policy</source>
         <translation>Nieuw beleid</translation>
@@ -1487,7 +1487,7 @@
     <message>
         <source>Start chat</source>
         <translation>Start chat</translation>
-    </message> 
+    </message>
     <message>
         <source>Close</source>
         <translation>Sluiten</translation>
@@ -1714,7 +1714,7 @@
     <message>
         <source>Closed chats</source>
         <translation>Gesloten chats</translation>
-    </message>    
+    </message>
     <message>
         <source>Accept chat</source>
         <translation>Accepteer chat</translation>
@@ -1769,7 +1769,7 @@
     <message>
         <source>Closed chats</source>
         <translation>Gesloten chats</translation>
-    </message>    
+    </message>
     <message>
         <source>Accept chat</source>
         <translation>Accepteer chat</translation>
@@ -1820,7 +1820,7 @@
     <message>
         <source>Support</source>
         <translation>Support</translation>
-    </message> 
+    </message>
 </context>
 <context>
     <name>chat/single</name>
@@ -1844,7 +1844,7 @@
         <source>At this moment there are no logged members, but you can leave your messages.</source>
         <translation>Op dit moment zijn er geen medewerkers aanwezig, wel kunt u een berichtje achter laten.</translation>
 
-    </message> 
+    </message>
 </context>
 <context>
     <name>department/edit</name>
@@ -2139,7 +2139,7 @@
     <message>
         <source>System configuration</source>
         <translation>Systeemconfiguratie</translation>
-    </message> 
+    </message>
 </context>
 <context>
     <name>department/new</name>
@@ -2173,7 +2173,7 @@
     <message>
         <source>Username</source>
         <translation>Gebruikersnaam</translation>
-    </message> 
+    </message>
     <message>
         <source>System configuration</source>
         <translation>Systeem Configuratie</translation>
@@ -2248,7 +2248,7 @@
     <message>
         <source>Repeat password</source>
         <translation>Herhaal wachtwoord</translation>
-    </message> 
+    </message>
     <message>
         <source>Contact information</source>
         <translation>Contact informatie</translation>
@@ -2347,7 +2347,7 @@
     <message>
         <source>Repeat password</source>
         <translation>Herhaal wachtwoord</translation>
-    </message> 
+    </message>
     <message>
         <source>Contact information</source>
         <translation>Contact informatie</translation>
@@ -2406,7 +2406,7 @@
     <message>
         <source>Assigned departments</source>
         <translation>Toegewezen afdelingen</translation>
-		</message> 
+		</message>
 <message>
         <source>Account data</source>
         <translation>Account gegevens</translation>
@@ -2450,7 +2450,7 @@
     <message>
         <source>You have global right to see all departments chats</source>
         <translation>Je hebt rechten om de chats te zien</translation>
-    </message> 
+    </message>
     <message>
         <source>Logged user</source>
         <translation>Ingelogde gebruiker</translation>
@@ -2487,7 +2487,7 @@
     <message>
         <source>Repeat password</source>
         <translation>Herhaal wachtwoord</translation>
-    </message> 
+    </message>
     <message>
         <source>Contact information</source>
         <translation>COntact informatie</translation>

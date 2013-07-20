@@ -647,6 +647,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                     array('module' => 'lhchat',  'function' => 'singlechatwindow'),
                     array('module' => 'lhchat',  'function' => 'allowopenremotechat'),
                     array('module' => 'lhchat',  'function' => 'allowchattabs'),
+                    array('module' => 'lhchat',  'function' => 'use_onlineusers'),
                     array('module' => 'lhfront', 'function' => 'use'),
                     array('module' => 'lhsystem','function' => 'use'),
                     array('module' => 'lhchat',  'function' => 'allowblockusers'),

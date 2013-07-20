@@ -11,7 +11,7 @@
 
 </ul>
 
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Online users');?></h1>
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Online visitors');?></h1>
 
 <?php if($tracking_enabled == false) : ?>
 <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User tracking is disabled, enable it at');?>&nbsp;-&nbsp;<a href="<?php echo erLhcoreClassDesign::baseurl('chat/editchatconfig')?>/track_online_visitors"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Chat configuration');?></a></p>
@@ -20,7 +20,7 @@
 
 <div class="section-container auto" data-section="auto">
 	  <section>
-	    <p class="title" data-section-title><a href="#panel1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','List');?><span class="tru-cnt"></span></a></p>
+	    <p class="title" data-section-title><a href="#panel1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','List');?></a></p>
 	    <div class="content" data-section-content>
 
 
@@ -95,7 +95,7 @@
 </div>
 	  </section>
 	  <section>
-	    <p class="title" data-section-title><a id="map-activator" href="#panel2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Map');?><span class="trd-cnt"></span></a></p>
+	    <p class="title" data-section-title><a id="map-activator" href="#panel2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Map');?></a></p>
 	    <div class="content" data-section-content>
 
 				<div class="row">

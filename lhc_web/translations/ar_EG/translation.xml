@@ -629,7 +629,7 @@
         <translation>المكان</translation>
     </message>
     <message>
-        <source>Online users</source>
+        <source>Online visitors</source>
         <translation>المستخدمون المتصلون</translation>
     </message>
     <message>
@@ -885,7 +885,7 @@
         <translation>الرسائل غير المقروءة</translation>
     </message>
     <message>
-        <source>Online users</source>
+        <source>Online visitors</source>
         <translation>المستخدمون المتصلون</translation>
     </message>
     <message>
@@ -1348,7 +1348,7 @@
         <translation>السماح بتعديل ضبط وحدة المحادثة</translation>
     </message>
     <message>
-        <source>Allow user to clean online users list</source>
+        <source>Allow user to clean online visitors list</source>
         <translation>السماح بإفراغ قائمة المستخدمين المتصلين</translation>
     </message>
     <message>

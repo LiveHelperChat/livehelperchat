@@ -633,7 +633,7 @@
         <translation>Localidade</translation>
     </message>
     <message>
-        <source>Online users</source>
+        <source>Online visitors</source>
         <translation>Usuários online</translation>
     </message>
     <message>
@@ -889,7 +889,7 @@
         <translation>Mensagens não lidas</translation>
     </message>
     <message>
-        <source>Online users</source>
+        <source>Online visitors</source>
         <translation>Usuários online</translation>
     </message>
     <message>
@@ -1356,7 +1356,7 @@
         <translation>Permitir ao usuário alterar a configuração da conversa</translation>
     </message>
     <message>
-        <source>Allow user to clean online users list</source>
+        <source>Allow user to clean online visitors list</source>
         <translation>Permitir ao usuário limpar a lista de usuários online</translation>
     </message>
     <message>

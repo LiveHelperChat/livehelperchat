@@ -239,7 +239,7 @@ $ViewList['onlineusers'] = array(
     'script' => 'onlineusers.php',
     'params' => array(),
     'uparams' => array('clear_list','method','deletevisitor'),
-    'functions' => array( 'use' )
+    'functions' => array( 'use_onlineusers' )
 );
 
 $ViewList['jsononlineusers'] = array(
@@ -332,6 +332,7 @@ $FunctionList['administratecannedmsg'] = array('explain' =>'Allow user change ca
 $FunctionList['allowopenremotechat'] = array('explain' =>'Allow user to open other users chats from same department');
 $FunctionList['allowtransfertoanyuser'] = array('explain' =>'Allow user to transfer chat to any online user, not only his own department users');
 $FunctionList['viewstatistic'] = array('explain' =>'Allow user to view statistic');
+$FunctionList['use_onlineusers'] = array('explain' =>'Allow user to view online visitors');
 
 
 ?>

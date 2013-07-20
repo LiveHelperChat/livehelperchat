@@ -850,7 +850,7 @@
         <translation>Viet</translation>
     </message>
     <message>
-        <source>Online users</source>
+        <source>Online visitors</source>
         <translation>Użytkownicy on-line</translation>
     </message>
     <message>
@@ -1106,7 +1106,7 @@
         <translation>Nieprzeczytane wiadomości</translation>
     </message>
     <message>
-        <source>Online users</source>
+        <source>Online visitors</source>
         <translation>Użytkownicy on-line</translation>
     </message>
     <message>
@@ -1588,7 +1588,7 @@
         <translation>Pozwala zmienić konfigurację rozmowy</translation>
     </message>
     <message>
-        <source>Allow user to clean online users list</source>
+        <source>Allow user to clean online visitors list</source>
         <translation>Pozwala użytkownikowi na wyczyszczenie listy użytkowników on-line</translation>
     </message>
     <message>

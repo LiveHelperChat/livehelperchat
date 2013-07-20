@@ -850,7 +850,7 @@
         <translation>Местонахождение</translation>
     </message>
     <message>
-        <source>Online users</source>
+        <source>Online visitors</source>
         <translation>Онлайн пользователи</translation>
     </message>
     <message>
@@ -1106,7 +1106,7 @@
         <translation>Не прочитанные сообщения</translation>
     </message>
     <message>
-        <source>Online users</source>
+        <source>Online visitors</source>
         <translation>Пользователи онлайн</translation>
     </message>
     <message>
@@ -1588,7 +1588,7 @@
         <translation>разрешить изменять конфиг чата</translation>
     </message>
     <message>
-        <source>Allow user to clean online users list</source>
+        <source>Allow user to clean online visitors list</source>
         <translation>Разрешить очищать список онлайн пользователей</translation>
     </message>
     <message>

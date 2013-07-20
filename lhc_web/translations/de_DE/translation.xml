@@ -637,8 +637,8 @@
         <translation>Ort</translation>
     </message>
     <message>
-        <source>Online users</source>
-        <translation>Online User</translation>
+        <source>Online visitors</source>
+        <translation>Online visitors</translation>
     </message>
     <message>
         <source>GEO detection configuration</source>
@@ -893,7 +893,7 @@
         <translation>Ungelesenen Nachrichten</translation>
     </message>
     <message>
-        <source>Online users</source>
+        <source>Online visitors</source>
         <translation>Nutzer online</translation>
     </message>
     <message>
@@ -1371,7 +1371,7 @@
         <translation>Chat Konfiguration darf geaendert werden</translation>
     </message>
     <message>
-        <source>Allow user to clean online users list</source>
+        <source>Allow user to clean online visitors list</source>
         <translation>Nutzer duerfen die Online-Nutzer-Listen loeschen</translation>
     </message>
     <message>
