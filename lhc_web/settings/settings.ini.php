@@ -32,7 +32,9 @@ return array (
       	7 => 'ger',
       	8 => 'pol',
       	9 => 'rus',
-        10 => 'site_admin',
+      	10 => 'ita',
+      	11 => 'fre',
+        12 => 'site_admin',
       ),
     ),
     'default_url' =>
@@ -235,6 +237,42 @@ return array (
       array (
     	'locale' => 'ru_RU',
     	'content_language' => 'ru',
+    	'dir_language' => 'ltr',
+    	'title' => '',
+    	'description' => '',
+    	'theme' =>
+      	array (
+    		0 => 'customtheme',
+    		1 => 'defaulttheme'
+      	),
+    	   'default_url' =>
+    	array (
+    		'module' => 'chat',
+    		'view' => 'startchat'
+    	),
+      ),
+      'ita' =>
+      array (
+    	'locale' => 'it_IT',
+    	'content_language' => 'it',
+    	'dir_language' => 'ltr',
+    	'title' => '',
+    	'description' => '',
+    	'theme' =>
+      	array (
+    		0 => 'customtheme',
+    		1 => 'defaulttheme'
+      	),
+    	   'default_url' =>
+    	array (
+    		'module' => 'chat',
+    		'view' => 'startchat'
+    	),
+      ),
+      'fre' =>
+      array (
+    	'locale' => 'fr_FR',
+    	'content_language' => 'fr',
     	'dir_language' => 'ltr',
     	'title' => '',
     	'description' => '',

@@ -1,3 +1,15 @@
+1.39.1v
+
+Features:
+1. French translation from icime.me
+2. Italian translation from cliccaprezzi.it
+3. Option to hide online users tab from operators.
+Chat -> Allow user to view online visitors
+4. Renamed "Online users" to "Online visitors"
+
+Bugfix:
+1. Removed not needed span element in online visitors section.
+
 1.39v
 
 Features:
