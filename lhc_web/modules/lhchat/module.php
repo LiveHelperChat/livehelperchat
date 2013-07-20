@@ -246,14 +246,14 @@ $ViewList['jsononlineusers'] = array(
     'script' => 'jsononlineusers.php',
     'params' => array(),
     'uparams' => array(),
-    'functions' => array( 'use' )
+    'functions' => array( 'use_onlineusers' )
 );
 
 $ViewList['getonlineuserinfo'] = array(
     'script' => 'getonlineuserinfo.php',
     'params' => array('id'),
     'uparams' => array(),
-    'functions' => array( 'use' )
+    'functions' => array( 'use_onlineusers' )
 );
 
 $ViewList['sendnotice'] = array(
