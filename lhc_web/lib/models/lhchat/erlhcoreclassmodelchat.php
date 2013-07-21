@@ -173,6 +173,7 @@ class erLhcoreClassModelChat {
    const STATUS_ACTIVE_CHAT = 1;
    const STATUS_CLOSED_CHAT = 2;
    const STATUS_CHATBOX_CHAT = 3;
+   const STATUS_OPERATORS_CHAT = 4;
 
    public $id = null;
    public $nick = '';

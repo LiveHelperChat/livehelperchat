@@ -29,6 +29,12 @@ $ViewList['notificationsettings'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['startchatwithoperator'] = array(
+    'script' => 'startchatwithoperator.php',
+    'params' => array('user_id'),
+    'functions' => array( 'use' )
+);
+
 $ViewList['closechat'] = array(
     'script' => 'closechat.php',
     'params' => array('chat_id'),
