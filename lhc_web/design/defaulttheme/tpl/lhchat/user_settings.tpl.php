@@ -11,13 +11,15 @@ if ( $currentUser->hasAccessTo('lhuser','changeonlinestatus') ) {
 		$UserData = $currentUser->getUserData(true);
 	}
 }
-
 ?>
-
+<?php if (!isset($hideULSetting)) : ?>
 <ul class="no-bullet inline-list user-settings-list hide-for-small">
-	<li><a href="#" class="sound-ico<?php $soundMessageEnabled == 0 ? print ' sound-disabled' : ''?>" onclick="return lhinst.disableChatSoundAdmin($(this))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Enable/Disable sound about new messages from users');?>"></a></li>
-	<li><a href="#" class="sound-newchat-ico<?php $soundNewChatEnabled == 0 ? print ' sound-newchat-disabled' : ''?>" onclick="return lhinst.disableNewChatSoundAdmin($(this))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Enable/Disable sound about new pending chats');?>"></a></li>
+<?php endif;?>
+	<li><a href="#"><i class="icon-sound<?php $soundMessageEnabled == 0 ? print ' icon-mute' : ''?>" onclick="return lhinst.disableChatSoundAdmin($(this))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Enable/Disable sound about new messages from users');?>"></i></a></li>
+	<li><a href="#"><i class="icon-sound<?php $soundNewChatEnabled == 0 ? print ' icon-mute' : ''?>" onclick="return lhinst.disableNewChatSoundAdmin($(this))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Enable/Disable sound about new pending chats');?>"></i></a></li>
 	<?php if ($canChangeOnlineStatus == true) : ?>
-		<li><a href="#" class="user-online-ico<?php $UserData->hide_online == 1 ? print ' user-online-disabled' : ''?>" onclick="return lhinst.disableUserAsOnline($(this))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my status to online/offline');?>"></a></li>
+		<li><a href="#"><i class="icon-user<?php $UserData->hide_online == 1 ? print ' user-online-disabled' : ''?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my status to online/offline');?>" onclick="return lhinst.disableUserAsOnline($(this))"></i></a></li>
 	<?php endif;?>
+<?php if (!isset($hideULSetting)) : ?>
 </ul>
+<?php endif;?>

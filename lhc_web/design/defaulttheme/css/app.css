@@ -43,7 +43,8 @@ body {
 	-webkit-box-shadow: 0px 0px 7px rgba(50, 50, 50, 0.3);
 	-moz-box-shadow:    0px 0px 7px rgba(50, 50, 50, 0.3);
 	box-shadow:         0px 0px 7px rgba(50, 50, 50, 0.3);
-	padding-top:10px;
+	padding-top:0px;
+	margin-top:0px;
 }
 
 .params-list li {
@@ -87,19 +88,6 @@ form {
 	float:right;
 }
 
-.top-bar,
-.top-bar-section li a:not(.button){
-	background-color:#4d4d4d;
-}
-
-.top-bar{
-	height:auto;
-}
-
-.top-bar-section li a:not(.button):hover {
-	background-color:#000;
-}
-
 .section-container section .title a,
 .section-container .section .title a,
 .section-container.auto section .title a,
@@ -108,9 +96,63 @@ form {
 	font-size: 0.75em;
 }
 
+/* Top bar ---------------------- */
+.top-bar,
+.top-bar-section li a:not(.button){
+	background-color:#f6f6f6;
+	color: #696969;
+}
+
+.top-bar-section li a:not(.button){
+	padding: 0 12px;
+}
+.top-bar{
+	box-shadow: 0 0 1px #ccc;
+}
+.top-bar-section li a:not(.button):hover {
+	background-color:transparent;
+	color: #333;
+}
+
 .top-bar {
 	margin-bottom:0.75em;
 }
+.top-bar.expanded .title-area{
+	background: #F6F6F6;
+}
+.top-bar .name h1 a{
+	padding: 0 18px;
+}
+.top-bar .name h1{
+	line-height: 44px;
+}
+.top-bar .name h1 a img{
+	height: 39px;
+}
+
+.user-settings-list a,
+.top-bar .toggle-topbar.menu-icon a{
+	color: #999;
+}
+.top-bar .toggle-topbar.menu-icon a span{
+	box-shadow: 0 10px 0 1px #999, 0 16px 0 1px #999, 0 22px 0 1px #999;
+}
+.top-bar .top-bar-section ul{
+	background: transparent;
+}
+.top-bar .top-bar-section a{
+
+}
+.top-bar .top-bar-section i{
+	padding-top: 12px;
+	font-size: 1.1em;
+}
+.top-bar-section > ul > .divider{
+	border-right-color: #ddd;
+	border-left-color: #fff;
+}
+
+
 
 select {
 	font-size: 0.75em;
@@ -338,13 +380,20 @@ div.message-row-in {
 	background-image:url(../images/icons/sound_mute.png);
 }
 
-.user-online-ico {
-	background-image:url(../images/icons/user_suit_16.png);
+.user-online-disabled {
+	color: #ffb3b8;
 }
 
-.user-online-disabled {
-	background-image:url(../images/icons/user_suit_16_inactive.png);
+.top-bar-section .icon-user,
+.user-settings-list .icon-user{
+	color:#a3ff60;
 }
+
+.top-bar-section .user-online-disabled,
+.user-settings-list .user-online-disabled {
+	color: #ffb3b8;
+}
+
 
 ul.user-settings-list {
 	margin-bottom:0;

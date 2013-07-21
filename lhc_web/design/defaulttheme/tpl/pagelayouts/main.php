@@ -1,5 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html lang="<?php echo erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'content_language')?>" dir="<?php echo erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'dir_language')?>">
 	<head>
@@ -8,22 +7,11 @@
 <body>
 
 <div class="content-row">
-<div class="row">
-<div class="columns large-12">
-
-<div class="row">
-    <div class="columns large-6">
-        <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_logo_back_office.tpl.php'));?>
-    </div>
-    <div class="columns large-6">
-        <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/user_box.tpl.php'));?>
-        <div class="float-break">
-        <?php include(erLhcoreClassDesign::designtpl('lhchat/user_settings.tpl.php'));?>
-        </div>
-    </div>
-</div>
 
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/top_menu.tpl.php'));?>
+
+<div class="row">
+<div class="columns large-12">
 
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/path.tpl.php'));?>
 

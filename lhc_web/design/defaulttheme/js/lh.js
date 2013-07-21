@@ -763,28 +763,28 @@ function lh(){
 
     this.disableChatSoundAdmin = function(inst)
     {
-    	if (inst.hasClass('sound-disabled')){
+    	if (inst.hasClass('icon-mute')){
     		$.get(this.wwwDir+  'user/setsettingajax/chat_message/1');
     		confLH.new_message_sound_admin_enabled = 1;
-    		inst.removeClass('sound-disabled');
+    		inst.removeClass('icon-mute');
     	} else {
     		$.get(this.wwwDir+  'user/setsettingajax/chat_message/0');
     		confLH.new_message_sound_admin_enabled = 0;
-    		inst.addClass('sound-disabled');
+    		inst.addClass('icon-mute');
     	}
     	return false;
     };
 
     this.disableNewChatSoundAdmin = function(inst)
     {
-    	if (inst.hasClass('sound-newchat-disabled')){
+    	if (inst.hasClass('icon-mute')){
     		$.get(this.wwwDir+  'user/setsettingajax/new_chat_sound/1');
     		confLH.new_chat_sound_enabled = 1;
-    		inst.removeClass('sound-newchat-disabled');
+    		inst.removeClass('icon-mute');
     	} else {
     		$.get(this.wwwDir+  'user/setsettingajax/new_chat_sound/0');
     		confLH.new_chat_sound_enabled = 0;
-    		inst.addClass('sound-newchat-disabled');
+    		inst.addClass('icon-mute');
     	}
     	return false;
     };
