@@ -41,6 +41,11 @@ if ( !erLhcoreClassChat::hasAccessToRead($chat) )
 erLhcoreClassChat::getSession()->update($chat);
 erLhcoreClassTransfer::getSession()->delete($chatTransfer);
 
-echo json_encode(array('error' => 'false'));
+if ($Params['user_parameters_unordered']['postaction'] == 'singlewindow') {
+	erLhcoreClassModule::redirect('chat/single/' . $chat->id);
+	exit;
+}
+
+echo json_encode(array('error' => 'false', 'chat_id' => $chat->id));
 exit;
 ?>

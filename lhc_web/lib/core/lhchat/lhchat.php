@@ -452,6 +452,46 @@ class erLhcoreClassChat {
     	return self::getCount($filter);
     }
 
+    public static function getOperatorsChats($limit = 50, $offset = 0)
+    {
+    	$limitation = self::getDepartmentLimitation();
+
+    	// Does not have any assigned department
+    	if ($limitation === false) { return array(); }
+
+    	$filter = array();
+    	$filter['filter'] = array('status' => 4);
+
+    	if ($limitation !== true) {
+    		$filter['customfilter'][] = $limitation;
+    		$filter['use_index'] = 'status_dep_id_id';
+    	}
+
+    	$filter['limit'] = $limit;
+    	$filter['offset'] = $offset;
+    	$filter['smart_select'] = true;
+
+    	return self::getList($filter);
+    }
+
+    public static function getOperatorsChatsCount()
+    {
+    	$limitation = self::getDepartmentLimitation();
+
+    	// Does not have any assigned department
+    	if ($limitation === false) { return 0; }
+
+    	$filter = array();
+    	$filter['filter'] = array('status' => 4);
+
+    	if ($limitation !== true) {
+    		$filter['customfilter'][] = $limitation;
+    		$filter['use_index'] = 'status_dep_id_id';
+    	}
+
+    	return self::getCount($filter);
+    }
+
     public static function isOnline($dep_id = false)
     {
        $isOnlineUser = (int)erConfigClassLhConfig::getInstance()->getSetting('chat','online_timeout');

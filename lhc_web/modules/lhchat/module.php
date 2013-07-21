@@ -29,6 +29,12 @@ $ViewList['notificationsettings'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['startchatwithoperator'] = array(
+    'script' => 'startchatwithoperator.php',
+    'params' => array('user_id'),
+    'functions' => array( 'use' )
+);
+
 $ViewList['closechat'] = array(
     'script' => 'closechat.php',
     'params' => array('chat_id'),
@@ -50,6 +56,7 @@ $ViewList['transferchat'] = array(
 $ViewList['accepttransfer'] = array(
     'script' => 'accepttransfer.php',
     'params' => array('transfer_id'),
+    'uparams' => array('postaction'),
     'functions' => array( 'use' )
 );
 
@@ -115,6 +122,12 @@ $ViewList['activechats'] = array(
 
 $ViewList['closedchats'] = array(
     'script' => 'closedchats.php',
+    'params' => array(),
+    'functions' => array( 'use' )
+);
+
+$ViewList['operatorschats'] = array(
+    'script' => 'operatorschats.php',
     'params' => array(),
     'functions' => array( 'use' )
 );

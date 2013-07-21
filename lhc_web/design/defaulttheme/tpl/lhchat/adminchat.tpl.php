@@ -158,6 +158,11 @@ lhinst.initTypingMonitoringAdmin('<?php echo $chat->id?>');
 						</div>
 						<div class="columns small-6">
 
+						<?php if ($chat->status == erLhcoreClassModelChat::STATUS_OPERATORS_CHAT) : ?>
+						<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Chat between operators, chat initializer')?></h5>
+						<p><?php echo htmlspecialchars($chat->nick)?></p>
+						<?php endif;?>
+
 						<h5>
 						<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Chat owner')?>
 						</h5>

@@ -1185,6 +1185,10 @@
         <translation>Laukiantys patvirtinimo</translation>
     </message>
     <message>
+        <source>Operators chats</source>
+        <translation>Operatorių pokalbiai</translation>
+    </message>
+    <message>
         <source>Active chats</source>
         <translation>Aktyvūs pokalbiai</translation>
     </message>
@@ -1441,10 +1445,25 @@
     </message>
 </context>
 <context>
+    <name>chat/operatorschats</name>
+    <message>
+        <source>Operators chats</source>
+        <translation>Operatorių pokalbiai</translation>
+    </message>
+    <message>
+        <source>Operators chats list</source>
+        <translation>Operatorių pokalbių sąrašas</translation>
+    </message>
+</context>
+<context>
     <name>chat/adminchat</name>
     <message>
         <source>E-mail</source>
         <translation>El. paštas</translation>
+    </message>
+    <message>
+        <source>Chat between operators, chat initializer</source>
+        <translation>Pokalbis tarp operatorių, pokalbio iniciatorius</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -2234,6 +2253,10 @@
 </context>
 <context>
     <name>chat/syncadmininterface</name>
+    <message>
+        <source>Start chat</source>
+        <translation>Pradėti pokalbį</translation>
+    </message>
     <message>
         <source>Add chat</source>
         <translation>Pridėti pokalbį</translation>
