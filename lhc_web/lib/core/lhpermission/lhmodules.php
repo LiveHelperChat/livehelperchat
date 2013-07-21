@@ -12,13 +12,15 @@ class erLhcoreClassModules{
         $ModulesDir = 'modules';
 
         $ModuleList = array();
+		$dirSeparator = DIRECTORY_SEPARATOR;
+
 
         $Modules = ezcBaseFile::findRecursive( $ModulesDir,array( '@module.php@' ) );
 
         foreach ($Modules as $ModuleInclude)
         {
             include($ModuleInclude);
-            $ModuleList[str_replace('modules/','',dirname($ModuleInclude))] = array('name' => erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole',$Module['name']));
+            $ModuleList[str_replace("modules{$dirSeparator}",'',dirname($ModuleInclude))] = array('name' => erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole',$Module['name']));
         }
 
         // Add extensions modules
@@ -30,10 +32,10 @@ class erLhcoreClassModules{
         	foreach ($Modules as $ModuleInclude)
         	{
         		include($ModuleInclude);
-        		if (isset($ModuleList[str_replace("extension/{$extension}/{$ModulesDir}/",'',dirname($ModuleInclude))]['name'])){
-        			$ModuleList[str_replace("extension/{$extension}/{$ModulesDir}/",'',dirname($ModuleInclude))]['name'] .= ', EX - '.erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole',$Module['name']);
+        		if (isset($ModuleList[str_replace("extension/{$extension}/{$ModulesDir}{$dirSeparator}",'',dirname($ModuleInclude))]['name'])){
+        			$ModuleList[str_replace("extension/{$extension}/{$ModulesDir}{$dirSeparator}",'',dirname($ModuleInclude))]['name'] .= ', EX - '.erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole',$Module['name']);
         		} else {
-        			$ModuleList[str_replace("extension/{$extension}/{$ModulesDir}/",'',dirname($ModuleInclude))] = array('name' => erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole',$Module['name']));
+        			$ModuleList[str_replace("extension/{$extension}/{$ModulesDir}{$dirSeparator}",'',dirname($ModuleInclude))] = array('name' => erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole',$Module['name']));
         		}
         	}
         }

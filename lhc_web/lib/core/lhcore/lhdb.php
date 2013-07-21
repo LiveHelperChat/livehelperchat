@@ -54,7 +54,13 @@ class erLhcoreClassLazyDatabaseConfiguration implements ezcBaseConfigurationInit
                     self::$connectionMaster = $db;
                     return $db;
                 } catch (Exception $e) {
-                  die('Cannot connect to database. If you are installing application please use /index.php/install/install url. If you keep getting this error please check that application can write to cache folder and cgi.fix_pathinfo = 1') ;
+                	// Are we installed?
+                	if ($cfg->getSetting( 'site', 'installed' ) == false) {
+                		header('Location: ' .erLhcoreClassDesign::baseurldirect('site_admin/install/install') );
+                		exit;
+                  	}
+
+                  	die('Cannot connect to database. If you are installing application please use /index.php/install/install url. If you keep getting this error please check that application can write to cache folder and cgi.fix_pathinfo = 1') ;
                 }
              }
 
