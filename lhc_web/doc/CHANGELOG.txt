@@ -1,3 +1,10 @@
+1.40.1v
+
+Features:
+1. Top meniu remaked based on
+1.1 https://github.com/raphaelsuzuki/lhc_web-defaulttheme2
+1.2 https://github.com/remdex/livehelperchat/issues/36
+
 1.40v
 
 Features:

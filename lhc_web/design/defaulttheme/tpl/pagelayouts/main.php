@@ -10,7 +10,7 @@
 
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/top_menu.tpl.php'));?>
 
-<div class="row">
+<div class="row pt10 border-top-grey">
 <div class="columns large-12">
 
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/path.tpl.php'));?>
