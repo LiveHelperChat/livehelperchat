@@ -1,3 +1,14 @@
+1.40v
+
+Features:
+1. Operator to Operator chat
+2. Sound on transfered chat
+
+Bugfix:
+1. Windows OS support
+
+No database update needed this time :)
+
 1.39.1v
 
 Features:

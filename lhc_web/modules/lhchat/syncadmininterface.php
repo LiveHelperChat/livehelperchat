@@ -54,18 +54,35 @@ if ($pendingTabEnabled == true) {
 }
 
 // Transfered chats
-$transferchats = erLhcoreClassTransfer::getTransferChats();
-$tpl->set('transferchats',$transferchats);
-$ReturnMessages[] = array('dom_id_status' => '.tru-cnt', 'dom_item_count' => count($transferchats), 'dom_id' => '#right-transfer-chats', 'content' => trim($tpl->fetch('lhchat/lists/transferedchats.tpl.php')));
+$transferchatsUser = erLhcoreClassTransfer::getTransferChats();
+$lastPendingTransferID = 0;
+if (!empty($transferchatsUser)){
+	    reset($transferchatsUser);
+	    $chatPending = current($transferchatsUser);
+	    $lastPendingTransferID = $chatPending['transfer_id'];
+}
 
 // Transfered chats to departments
-$transferchats = erLhcoreClassTransfer::getTransferChats(array('department_transfers' => true));
-$tpl->set('transferchats',$transferchats);
-$ReturnMessages[] = array('dom_id_status' => '.trd-cnt', 'dom_item_count' => count($transferchats), 'dom_id' => '#right-transfer-departments', 'content' => trim($tpl->fetch('lhchat/lists/transferedchats.tpl.php')));
+$transferchatsDep = erLhcoreClassTransfer::getTransferChats(array('department_transfers' => true));
+if (!empty($transferchatsDep)){
+	reset($transferchatsDep);
+	$chatPending = current($transferchatsDep);
+	if ($chatPending['transfer_id'] > $lastPendingTransferID) {
+		$lastPendingTransferID = $chatPending['transfer_id'];
+	}
+}
+
+$tpl->set('transferchats',$transferchatsUser);
+$ReturnMessages[] = array('dom_id_status' => '.tru-cnt', 'dom_item_count' => count($transferchats), 'dom_id' => '#right-transfer-chats','last_id_identifier' => 'transfer_chat','last_id' => $lastPendingTransferID, 'content' => trim($tpl->fetch('lhchat/lists/transferedchats.tpl.php')));
+
+$tpl->set('transferchats',$transferchatsDep);
+$ReturnMessages[] = array('dom_id_status' => '.trd-cnt', 'dom_item_count' => count($transferchats), 'dom_id' => '#right-transfer-departments','last_id_identifier' => 'transfer_chat','last_id' => $lastPendingTransferID, 'content' => trim($tpl->fetch('lhchat/lists/transferedchats.tpl.php')));
+
 
 if ($canListOnlineUsers == true) {
 	$onlineOperators = erLhcoreClassModelUserDep::getOnlineOperators($currentUser);
 	$tpl->set('online_operators',$onlineOperators);
+	$tpl->set('current_user',$currentUser);
 	$ReturnMessages[] = array('dom_id_status' => '.onp-cnt', 'dom_item_count' => count($onlineOperators), 'dom_id' => '#online-operator-list', 'content' => trim($tpl->fetch('lhchat/lists/onlineoperators.tpl.php')));
 }
 

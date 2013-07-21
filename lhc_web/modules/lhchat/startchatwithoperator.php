@@ -37,7 +37,7 @@ if ( isset($_POST['SendMessage']) ) {
     	$chat->setIP();
     	$chat->hash = erLhcoreClassChat::generateHash();
     	$chat->referrer = '';
-    	$chat->nick = (string)$currentUserData;
+    	$chat->nick = $currentUserData->name.' '.$currentUserData->surname;
     	$chat->user_id = $user->id; // Assign chat to receiver operator, this way he will get permission to open chat
     	$chat->dep_id = erLhcoreClassUserDep::getDefaultUserDepartment(); // Set default department to chat creator, this way current user will get permission to open it
 
@@ -48,11 +48,13 @@ if ( isset($_POST['SendMessage']) ) {
     	$msg->chat_id = $chat->id;
     	$msg->user_id = $currentUser->getUserID();
     	$msg->time = time();
-    	$msg->name_support = (string)$currentUserData;
+    	$msg->name_support = $currentUserData->name.' '.$currentUserData->surname;
     	erLhcoreClassChat::getSession()->save($msg);
 
     	$transfer = new erLhcoreClassModelTransfer();
     	$transfer->chat_id = $chat->id;
+
+    	$transfer->from_dep_id = $chat->dep_id;
 
     	// User which is transfering
     	$transfer->transfer_user_id = $currentUser->getUserID();

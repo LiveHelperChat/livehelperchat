@@ -401,7 +401,7 @@ function lh(){
 
 	this.startChatNewWindow = function(chat_id,name)
 	{
-	    window.open(this.wwwDir + 'chat/single/'+chat_id,'chatwindow'+name+chat_id,"menubar=1,resizable=1,width=600,height=450");
+	    window.open(this.wwwDir + 'chat/single/'+chat_id,'chatwindow'+name+chat_id,"menubar=1,resizable=1,width=780,height=450");
 	    this.syncadmininterfacestatic();
         return false;
 	};
@@ -417,10 +417,17 @@ function lh(){
 
 	this.startChatNewWindowTransfer = function(chat_id,name,transfer_id)
 	{
-	    $.getJSON(this.wwwDir + this.accepttransfer + transfer_id ,{}, function(data){
+		$.getJSON(this.wwwDir + this.accepttransfer + transfer_id ,{}, function(data){
 
-	    });
-	    return this.startChatNewWindow(chat_id,name);
+		});
+		return this.startChatNewWindow(chat_id,name);
+	};
+
+	this.startChatNewWindowTransferByTransfer = function(transfer_id)
+	{
+	    window.open(this.wwwDir + 'chat/accepttransfer/'+transfer_id+'/(postaction)/singlewindow','chatwindow-'+transfer_id,"menubar=1,resizable=1,width=780,height=450");
+	    this.syncadmininterfacestatic();
+        return false;
 	};
 
 	this.blockUser = function(chat_id,msg) {
@@ -458,7 +465,7 @@ function lh(){
 
 	this.chatTabsOpen = function ()
 	{
-	    window.open(this.wwwDir + 'chat/chattabs/','chatwindows',"menubar=1,resizable=1,width=580,height=460");
+	    window.open(this.wwwDir + 'chat/chattabs/','chatwindows',"menubar=1,resizable=1,width=780,height=460");
 	    return false;
 	};
 
@@ -622,7 +629,7 @@ function lh(){
 	};
 
 	this.playSoundNewAction = function(identifier,chat_id) {
-	    if (confLH.new_chat_sound_enabled == 1 && identifier == 'pending_chat') {
+	    if (confLH.new_chat_sound_enabled == 1 && (identifier == 'pending_chat' || identifier == 'transfer_chat' )) {
 	        if (Modernizr.audio) {
         	    var audio = new Audio();
                 audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + '/new_chat.ogg' :
@@ -635,7 +642,7 @@ function lh(){
 
 	    var inst = this;
 
-	    if (identifier == 'pending_chat' && window.webkitNotifications) {
+	    if ( (identifier == 'pending_chat' || identifier == 'transfer_chat' ) && window.webkitNotifications) {
 	    	 var havePermission = window.webkitNotifications.checkPermission();
 	    	  if (havePermission == 0) {
 	    	    // 0 is PERMISSION_ALLOWED
@@ -645,8 +652,14 @@ function lh(){
 	    	      confLH.transLation.new_chat
 	    	    );
 	    	    notification.onclick = function () {
-	    	      inst.startChatNewWindow(chat_id,'ChatRequest');
-	    	      notification.close();
+
+	    	    	if (identifier == 'pending_chat'){
+	    	    		inst.startChatNewWindow(chat_id,'ChatRequest');
+	    	    	} else {
+	    	    		inst.startChatNewWindowTransferByTransfer(chat_id);
+	    	    	}
+
+	    	        notification.close();
 	    	    };
 	    	    notification.show();
 	    	  }
