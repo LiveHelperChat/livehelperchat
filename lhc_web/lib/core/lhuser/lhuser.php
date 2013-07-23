@@ -17,7 +17,7 @@ class erLhcoreClassUser{
        $options->validity = 3600*24;
        $options->idKey = 'lhc_ezcAuth_id';
        $options->timestampKey = 'lhc_ezcAuth_timestamp';
-       
+
        $this->session = new ezcAuthenticationSession($options);
        $this->session->start();
 
@@ -250,8 +250,10 @@ class erLhcoreClassUser{
            $this->AccessArray = $_SESSION['lhc_access_array'];
            $this->AccessTimestamp =  $_SESSION['lhc_access_timestamp'];
 
-           $cacheObj = CSCacheAPC::getMem();
+           return $this->AccessArray;
 
+           /* For future
+            * $cacheObj = CSCacheAPC::getMem();
            if (($AccessTimestamp = $cacheObj->restore('cachetimestamp_accessfile_version_'.$cacheObj->getCacheVersion('site_version'))) === false)
            {
                $cfg = erConfigClassLhCacheConfig::getInstance();
@@ -262,68 +264,22 @@ class erLhcoreClassUser{
            if ( $this->AccessTimestamp === $AccessTimestamp)
            {
                return $this->AccessArray;
-           }
+           }*/
        }
-
-       if ($this->cacheCreated == false) {
-           $this->cacheCreated = true;
-           ezcCacheManager::createCache( 'userinfo', 'cache/userinfo', 'ezcCacheStorageFileArray', array('ttl'   => 60*60*24*1 ) );
-       }
-
-       $cache = ezcCacheManager::getCache( 'userinfo' );
-
-       $id = $this->userid;
 
        $cfg = erConfigClassLhCacheConfig::getInstance();
 
-       $AccessTimestamp = $cfg->getSetting( 'cachetimestamps', 'accessfile' );
-       $CheckExpire = false;
+       $_SESSION['lhc_access_timestamp'] = $this->AccessTimestamp = $cfg->getSetting( 'cachetimestamps', 'accessfile' );
+       $_SESSION['lhc_access_array'] = $this->AccessArray = $this->generateAccessArray();
 
-       if ( ( $data = $cache->restore( $id ) ) === false || $AccessTimestamp < time() )
+       if ($this->AccessTimestamp < time() )
        {
-            $this->AccessArray = $this->generateAccessArray();
+           $AccessTimestamp = time() + 60*60*24*1;
+           $cfg->setSetting( 'cachetimestamps', 'accessfile', $AccessTimestamp );
+           $cfg->save();
 
-            $data['access_array'] = $this->AccessArray;
-            $data['access_timestamp'] = $AccessTimestamp;
-            $this->AccessTimestamp = $AccessTimestamp;
-
-            if ($AccessTimestamp < time() )
-            {
-                $AccessTimestamp = time() + 60*60*24*1;
-                $cfg->setSetting( 'cachetimestamps', 'accessfile', $AccessTimestamp );
-                $cfg->save();
-                $data['access_timestamp'] = $AccessTimestamp;
-                $this->AccessTimestamp = $AccessTimestamp;
-            }
-
-            // Do not store empty access_array
-            if ( !empty($data['access_array']) ) {
-                $cache->store( $id, $data );
-            }
-
-            $_SESSION['lhc_access_array'] = $this->AccessArray;
-
-
-       } else {
-           $CheckExpire = true;
-           $this->AccessArray = $data['access_array'];
-           $this->AccessTimestamp = $data['access_timestamp'];
+           $_SESSION['lhc_access_timestamp'] = $this->AccessTimestamp = $AccessTimestamp;
        }
-
-       if ( $CheckExpire === true && $data['access_timestamp'] != $AccessTimestamp)
-       {
-           $this->AccessArray = $this->generateAccessArray();
-           $this->AccessTimestamp = $AccessTimestamp;
-           $data['access_timestamp'] = $AccessTimestamp;
-           $data['access_array'] = $this->AccessArray;
-
-           if ( !empty($data['access_array']) ) {
-               $cache->store( $id, $data );
-           }
-       }
-
-       $_SESSION['lhc_access_array'] = $this->AccessArray;
-       $_SESSION['lhc_access_timestamp'] = $this->AccessTimestamp;
 
        return $this->AccessArray;
    }
@@ -386,7 +342,6 @@ class erLhcoreClassUser{
    private $userid;
    private $AccessArray = false;
    private $AccessTimestamp = false;
-   private $cacheCreated = false;
 
 
    // Authentification things
