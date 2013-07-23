@@ -142,11 +142,13 @@ class erLhcoreClassTemplate {
 
     	$instance = erLhcoreClassSystem::instance();
 
+    	$port = isset($_SERVER['REMOTE_PORT']) ? $_SERVER['REMOTE_PORT'] : 80;
+
     	if(!$fileTemplate) { $fileTemplate = $this->file; }
-        if ($this->cacheEnabled == true && key_exists(md5($fileTemplate.$instance->WWWDirLang),$this->cacheTemplates))
+        if ($this->cacheEnabled == true && key_exists(md5($fileTemplate.$instance->WWWDirLang.$port),$this->cacheTemplates))
         {
         	try {
-        		return $this->fetchExecute($this->cacheTemplates[md5($fileTemplate.$instance->WWWDirLang)]);
+        		return $this->fetchExecute($this->cacheTemplates[md5($fileTemplate.$instance->WWWDirLang.$port)]);
         	} catch (Exception $e) {
         		// Do nothing
         	}
@@ -334,12 +336,12 @@ class erLhcoreClassTemplate {
 
 
 			$sys = erLhcoreClassSystem::instance()->SiteDir;
-			$file = $sys . 'cache/compiledtemplates/'.md5($file.$instance->WWWDirLang).'.php';
+			$file = $sys . 'cache/compiledtemplates/'.md5($file.$instance->WWWDirLang.$port).'.php';
 
 
 			file_put_contents($file,erLhcoreClassTemplate::strip_html($contentFile));
 
-	 	    $this->cacheTemplates[md5($fileTemplate.$instance->WWWDirLang)] = $file;
+	 	    $this->cacheTemplates[md5($fileTemplate.$instance->WWWDirLang.$port)] = $file;
 			$this->storeCache();
         }
 
