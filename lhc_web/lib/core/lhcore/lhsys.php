@@ -245,8 +245,6 @@ class erLhcoreClassSystem{
         return null;
     }
 
-
-
     static function init()
     {
         $index = 'index.php';

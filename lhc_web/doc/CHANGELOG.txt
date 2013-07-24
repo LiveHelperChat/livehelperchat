@@ -1,3 +1,21 @@
+1.41v
+
+Features:
+1. Site identifier in code generation it's use full filter for having different messages for different domains if they use different identifiers.
+This way we can have different messages by different domains etc.
+
+Enhancements:
+1. Template cache by port.
+https://github.com/remdex/livehelperchat/issues/66
+
+2. Simpler permission access generation.
+https://github.com/remdex/livehelperchat/issues/62
+
+Bugfixes:
+1. User who did not had permission to close chat was able to do that because of typo error. It's fixed now.
+
+execute doc/update_db/update_28.sql
+
 1.40.1v
 
 Features:

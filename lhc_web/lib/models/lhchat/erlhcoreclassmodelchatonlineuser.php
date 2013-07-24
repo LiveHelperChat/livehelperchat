@@ -22,6 +22,7 @@ class erLhcoreClassModelChatOnlineUser {
                'lat'        		=> $this->lat,
                'lon'        		=> $this->lon,
                'city'        		=> $this->city,
+               'identifier'        	=> $this->identifier,
                'time_on_site'       => $this->time_on_site,
                'tt_time_on_site'    => $this->tt_time_on_site,
        );
@@ -352,10 +353,13 @@ class erLhcoreClassModelChatOnlineUser {
                    		$item->time_on_site = 0;
                    }
 
+                   $item->identifier = (isset($paramsHandle['identifier']) && !empty($paramsHandle['identifier'])) ? $paramsHandle['identifier'] : $item->identifier;
+
                } else {
                    $item = new erLhcoreClassModelChatOnlineUser();
                    $item->ip = $_SERVER['REMOTE_ADDR'];
                    $item->vid = erLhcoreClassModelForgotPassword::randomPassword(20);
+                   $item->identifier = (isset($paramsHandle['identifier']) && !empty($paramsHandle['identifier'])) ? $paramsHandle['identifier'] : '';
                    setcookie('lhc_vid',$item->vid,time() + (1 * 365 * 24 * 60 * 60),'/');
 
                    self::detectLocation($item);
@@ -368,6 +372,7 @@ class erLhcoreClassModelChatOnlineUser {
 		               $item = new erLhcoreClassModelChatOnlineUser();
 		               $item->ip = $_SERVER['REMOTE_ADDR'];
 		               $item->vid = erLhcoreClassModelForgotPassword::randomPassword(20);
+		               $item->identifier = (isset($paramsHandle['identifier']) && !empty($paramsHandle['identifier'])) ? $paramsHandle['identifier'] : '';
 		               setcookie('lhc_vid',$item->vid,time() + (1 * 365 * 24 * 60 * 60),'/');
 
 		               self::detectLocation($item);
@@ -421,6 +426,7 @@ class erLhcoreClassModelChatOnlineUser {
    public $user_country_name = '';
    public $user_country_code = '';
    public $operator_message = '';
+   public $identifier = '';
    public $operator_user_id = 0;
    public $message_seen = 0;
    public $pages_count = 0;

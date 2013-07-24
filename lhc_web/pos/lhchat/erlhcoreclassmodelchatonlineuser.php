@@ -102,6 +102,11 @@ $def->properties['message_seen']->columnName   = 'message_seen';
 $def->properties['message_seen']->propertyName = 'message_seen';
 $def->properties['message_seen']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['identifier'] = new ezcPersistentObjectProperty();
+$def->properties['identifier']->columnName   = 'identifier';
+$def->properties['identifier']->propertyName = 'identifier';
+$def->properties['identifier']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 return $def;
 
 ?>

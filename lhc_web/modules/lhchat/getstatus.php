@@ -7,7 +7,7 @@ $tpl = erLhcoreClassTemplate::getInstance('lhchat/getstatus.tpl.php');
 
 if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 ) {
     // To track online users
-    $visitor = erLhcoreClassModelChatOnlineUser::handleRequest(array('pages_count' => true));
+    $visitor = erLhcoreClassModelChatOnlineUser::handleRequest(array('pages_count' => true, 'identifier' => (string)$Params['user_parameters_unordered']['identifier']));
 
     if ( erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1 && isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])) {
     	erLhcoreClassModelChatOnlineUserFootprint::addPageView($visitor);

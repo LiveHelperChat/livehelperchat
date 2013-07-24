@@ -34,6 +34,11 @@ $def->properties['name']->columnName   = 'name';
 $def->properties['name']->propertyName = 'name';
 $def->properties['name']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['identifier'] = new ezcPersistentObjectProperty();
+$def->properties['identifier']->columnName   = 'identifier';
+$def->properties['identifier']->propertyName = 'identifier';
+$def->properties['identifier']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $def->properties['executed_times'] = new ezcPersistentObjectProperty();
 $def->properties['executed_times']->columnName   = 'executed_times';
 $def->properties['executed_times']->propertyName = 'executed_times';

@@ -72,7 +72,7 @@
 
         <img src="<?php echo erLhcoreClassDesign::design('images/icons/ip.png');?>" title="<?php echo $departament->ip?>" />
 
-        <img src="<?php echo erLhcoreClassDesign::design('images/icons/information.png');?>" title="<?php echo $departament->first_visit_front?> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','first visit');?><?php echo "\n";?><?php echo $departament->last_visit_front?> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','last visit');?><?php echo "\n"?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Pageviews');?> - <?php echo $departament->pages_count?>" />
+        <img src="<?php echo erLhcoreClassDesign::design('images/icons/information.png');?>" title="<?php echo $departament->first_visit_front?> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','first visit');?><?php echo "\n";?><?php echo $departament->last_visit_front?> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','last visit');?><?php echo "\n"?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Pageviews');?> - <?php echo $departament->pages_count?><?php if (!empty($departament->identifier)) : echo "\n"?>Identifier - <?php echo htmlspecialchars($departament->identifier)?><?php endif;?>" />
 
 
 

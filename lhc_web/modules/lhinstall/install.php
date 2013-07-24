@@ -436,6 +436,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
   				  `city` varchar(100) NOT NULL,
         	   	  `time_on_site` int(11) NOT NULL,
   				  `tt_time_on_site` int(11) NOT NULL,
+        	   	  `identifier` varchar(50) NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `last_visit` (`last_visit`),
                   KEY `vid` (`vid`)
@@ -450,6 +451,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `executed_times` int(11) NOT NULL,
 				  `name` varchar(50) NOT NULL,
 				  `position` int(11) NOT NULL,
+        	   	  `identifier` varchar(50) NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `time_on_site_pageviews_siteaccess_position` (`time_on_site`,`pageviews`,`siteaccess`,`position`)
 				) DEFAULT CHARSET=utf8;");

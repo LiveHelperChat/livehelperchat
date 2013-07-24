@@ -202,14 +202,14 @@ class erLhcoreClassUser{
    function updateLastVisit()
    {
        $db = ezcDbInstance::get();
-       $db->query('UPDATE lh_userdep SET last_activity = '.time().' WHERE user_id = '.$this->userid);
+       $db->query('UPDATE `lh_userdep SET` `last_activity` = '.time().' WHERE `user_id` = '.$this->userid);
    }
 
    function getUserList()
    {
      $db = ezcDbInstance::get();
 
-     $stmt = $db->prepare('SELECT * FROM lh_users ORDER BY id ASC');
+     $stmt = $db->prepare('SELECT * FROM `lh_users` ORDER BY `id` ASC');
      $stmt->execute();
      $rows = $stmt->fetchAll();
 

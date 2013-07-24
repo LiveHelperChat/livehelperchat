@@ -11,6 +11,7 @@ class erLhAbstractModelProactiveChatInvitation {
 			'time_on_site'  => $this->time_on_site,
 			'pageviews' 	=> $this->pageviews,
 			'message' 		=> $this->message,
+			'identifier' 	=> $this->identifier,
 			'executed_times'=> $this->executed_times,
 			'position'		=> $this->position,
 		);
@@ -69,6 +70,14 @@ class erLhAbstractModelProactiveChatInvitation {
    						'required' => false,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
+   				'identifier' => array (
+   						'type' => 'text',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Identifier, for what identifier this message should be shown, leave empty for all'),
+   						'required' => false,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'string'
    						)),
    				'executed_times' => array (
    						'type' => 'none',
@@ -212,7 +221,9 @@ class erLhAbstractModelProactiveChatInvitation {
 
 		$session = erLhcoreClassAbstract::getSession();
 		$q = $session->createFindQuery( 'erLhAbstractModelProactiveChatInvitation' );
-		$q->where( $q->expr->lte( 'time_on_site', $q->bindValue( $item->time_on_site ) ).' AND '.$q->expr->lte( 'pageviews', $q->bindValue( $item->pages_count ) ).' AND ('.$q->expr->eq( 'siteaccess', $q->bindValue( erLhcoreClassSystem::instance()->SiteAccess ) ).' OR siteaccess = \'\')' )
+		$q->where( $q->expr->lte( 'time_on_site', $q->bindValue( $item->time_on_site ) ).' AND '.$q->expr->lte( 'pageviews', $q->bindValue( $item->pages_count ) ).'
+				AND ('.$q->expr->eq( 'siteaccess', $q->bindValue( erLhcoreClassSystem::instance()->SiteAccess ) ).' OR `siteaccess` = \'\')
+				AND ('.$q->expr->eq( 'identifier', $q->bindValue( $item->identifier ) ).' OR `identifier` = \'\')' )
 		->orderBy('position ASC')
 		->limit( 1 );
 
@@ -237,6 +248,7 @@ class erLhAbstractModelProactiveChatInvitation {
 	public $message = '';
 	public $position = 0;
 	public $name = '';
+	public $identifier = '';
 	public $executed_times = 0;
 
 	public $hide_add = false;
