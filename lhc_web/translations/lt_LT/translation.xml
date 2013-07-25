@@ -754,6 +754,10 @@
         <translation>minutė</translation>
     </message>
     <message>
+        <source>Identifier</source>
+        <translation>Identifikatorius</translation>
+    </message>
+    <message>
         <source>minits</source>
         <translation>minutės</translation>
     </message>
