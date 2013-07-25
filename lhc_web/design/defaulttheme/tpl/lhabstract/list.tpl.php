@@ -1,5 +1,9 @@
 <h1><?php echo htmlspecialchars($object_trans['name'])?></h1>
 
+<?php if ($identifier == 'ProactiveChatInvitation' && (erLhcoreClassModelChatConfig::fetch('pro_active_invite')->current_value == 0 || erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 0)) : ?>
+<div class="alert-box secondary round"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','If you want pro active chat invitation to work it has to be enabled in')?>&nbsp;<a href="<?php echo erLhcoreClassDesign::baseurl('chat/editchatconfig')?>/pro_active_invite"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','chat configuration')?></a>&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','also online users tracking has to be')?>&nbsp;<a href="<?php echo erLhcoreClassDesign::baseurl('chat/editchatconfig')?>/track_online_visitors"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','enabled')?></a></div>
+<?php endif;?>
+
 <?php if ($pages->items_total > 0) : ?>
 	<table cellpadding="0" cellspacing="0" width="100%">
 		<thead>

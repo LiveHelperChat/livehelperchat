@@ -79,9 +79,8 @@
 	    </div>
     </div>
     <div class="columns large-6">
-    	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Identifier, this can be used as filter for pro active chat invitations and is usefull having different messages for different domains. Only string without spaces or special characters');?></label>
-    	<input type="text" id="id_site_identifier" value="" />
-
+    	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.');?></label>
+    	<input type="text" id="id_site_identifier" maxlength="50" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Leave empty if it is not important to you');?>" value="" />
 	</div>
 </div>
 

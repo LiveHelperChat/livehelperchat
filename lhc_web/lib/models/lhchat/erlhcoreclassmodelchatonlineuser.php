@@ -396,7 +396,7 @@ class erLhcoreClassModelChatOnlineUser {
            //$item->current_page = $cookieData;
            $item->last_visit = time();
 
-           if ($item->operator_message == '') {
+           if ($item->operator_message == '' && isset($paramsHandle['pro_active_invite']) && $paramsHandle['pro_active_invite'] == 1) {
            		//Process pro active chat invitation if this visitor matches any rules
            		erLhAbstractModelProactiveChatInvitation::processProActiveInvitation($item);
            }

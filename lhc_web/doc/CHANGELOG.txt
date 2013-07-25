@@ -1,8 +1,9 @@
 1.41v
 
 Features:
-1. Site identifier in code generation it's use full filter for having different messages for different domains if they use different identifiers.
-This way we can have different messages by different domains etc.
+1. Site identifier in code generation. Tt can be used to have different invite messages for different domains etc.
+https://github.com/remdex/livehelperchat/issues/73
+2. Option to turn of online users tracking but completely remove pro active chats invitations table scan and save a little bit of performance.
 
 Enhancements:
 1. Template cache by port.

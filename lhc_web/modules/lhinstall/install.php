@@ -407,6 +407,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	('list_online_operators', '0', '0', 'List online operators, 0 - no, 1 - yes.', '0'),
         	   	('voting_days_limit',	'7',	0,	'How many days voting widget should not be expanded after last show',	0),
                 ('track_online_visitors',	'0',	0,	'Enable online site visitors tracking, 0 - no, 1 - yes',	0),
+        	   	('pro_active_invite',	'0',	0,	'Is pro active chat invitation active. Online users tracking also has to be enabled',	0),
                 ('customer_company_name',	'Live Helper Chat',	0,	'Your company name - visible in bottom left corner',	0),
                 ('customer_site_url',	'http://livehelperchat.com',	0,	'Your site URL address',	0),
         	   	('smtp_data',	'a:5:{s:4:\"host\";s:0:\"\";s:4:\"port\";s:2:\"25\";s:8:\"use_smtp\";i:0;s:8:\"username\";s:0:\"\";s:8:\"password\";s:0:\"\";}',	0,	'SMTP configuration',	1),
@@ -453,7 +454,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `position` int(11) NOT NULL,
         	   	  `identifier` varchar(50) NOT NULL,
 				  PRIMARY KEY (`id`),
-				  KEY `time_on_site_pageviews_siteaccess_position` (`time_on_site`,`pageviews`,`siteaccess`,`position`)
+				  KEY `time_on_site_pageviews_siteaccess_position` (`time_on_site`,`pageviews`,`siteaccess`,`identifier`,`position`)
 				) DEFAULT CHARSET=utf8;");
 
         	   //Default departament

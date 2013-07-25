@@ -44,6 +44,22 @@
         <translation>Pavadinimas asmeniniais tikslais</translation>
     </message>
     <message>
+        <source>If you want pro active chat invitation to work it has to be enabled in</source>
+        <translation>Jei Jūs norite, jog žinutės būtų rodomos vartotojoms jos turi būti aktyvuotos</translation>
+    </message>
+    <message>
+        <source>chat configuration</source>
+        <translation>pokalbių nustatymuose</translation>
+    </message>
+    <message>
+        <source>also online users tracking has to be</source>
+        <translation>taip pat turi būti vartotojų fiksavimas</translation>
+    </message>
+    <message>
+        <source>enabled</source>
+        <translation>įjungtas</translation>
+    </message>
+    <message>
         <source>Position</source>
         <translation>Pozicija</translation>
     </message>
@@ -2548,6 +2564,10 @@
         <translation>HTML kodas</translation>
     </message>
     <message>
+        <source>Leave empty if it is not important to you</source>
+        <translation>Palikite tuščią jei Jums jis nėra aktualus</translation>
+    </message>
+    <message>
         <source>Show a leave a message form when there are no online operators</source>
         <translation>Rodyti palikite žinutę langą, kai nėra prisijungusių operatorių</translation>
     </message>
@@ -2562,6 +2582,10 @@
     <message>
         <source>Department</source>
         <translation>Departamentas</translation>
+    </message>
+    <message>
+        <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
+        <translation>Identifikatoriu, jis gali būti naudojamas kaip filtras kvietimui pokalbiui pagal domenus etc. Tik tekstas be tarpų ar specialių ženklų.</translation>
     </message>
     <message>
         <source>Any</source>
