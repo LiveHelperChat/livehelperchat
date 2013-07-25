@@ -1490,8 +1490,8 @@
         <translation>Atnaujinti</translation>
     </message>
     <message>
-        <source>Could not detect. Make sure GEO that detection is enabled</source>
-        <translation>Negalima nustatyti. Patikrinkite kad GEO detekcija įjungta.</translation>
+        <source>Could not detect. Make sure that GEO detection is enabled.</source>
+        <translation>Negalima nustatyti. Patikrinkite jog GEO detekcija įjungta.</translation>
     </message>
     <message>
         <source>Phone</source>
