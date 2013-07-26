@@ -335,8 +335,10 @@ class erLhcoreClassModelChatOnlineUser {
    public static function handleRequest($paramsHandle = array()) {
 
        // For DEBUG
-       //$cookieData = print_r($_COOKIE,true);
-       //$cookieData .= print_r($_SESSION,true);
+       /*$cookieData = print_r($_COOKIE,true);
+       $cookieData .= print_r($_SESSION,true);
+       $cookieData .= print_r($_SERVER,true);
+       $cookieData .= print_r($_GET,true);*/
 
        // Track only not logged users
            if ( isset($_COOKIE['lhc_vid']) ) {
@@ -402,7 +404,11 @@ class erLhcoreClassModelChatOnlineUser {
            }
 
            $item->saveThis();
-
+           
+           // For DEBUG
+           //erLhcoreClassLog::write($cookieData);
+           
+           
            return $item;
    }
 
