@@ -107,6 +107,11 @@ $def->properties['identifier']->columnName   = 'identifier';
 $def->properties['identifier']->propertyName = 'identifier';
 $def->properties['identifier']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['referrer'] = new ezcPersistentObjectProperty();
+$def->properties['referrer']->columnName   = 'referrer';
+$def->properties['referrer']->propertyName = 'referrer';
+$def->properties['referrer']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 return $def;
 
 ?>

@@ -1,3 +1,11 @@
+1.42v
+
+Features:
+1. Referer tracking. This allows to see from where initially user has came from.
+2. Some other small changes
+
+execute doc/update_db/update_29.sql
+
 1.41v
 
 Features:

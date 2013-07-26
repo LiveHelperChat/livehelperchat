@@ -34,9 +34,10 @@
 <thead>
 <tr>
     <th width="1%">ID</th>
-    <th width="17%" nowrap><img src="<?php echo erLhcoreClassDesign::design('images/icons/clock.png');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Last activity');?>" /></th>
-    <th width="17%" nowrap><img src="<?php echo erLhcoreClassDesign::design('images/icons/clock.png');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Time on site');?>" /></th>
-    <th width="80%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Page');?></th>
+    <th width="5%" nowrap><img src="<?php echo erLhcoreClassDesign::design('images/icons/clock.png');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Last activity');?>" /></th>
+    <th width="5%" nowrap><img src="<?php echo erLhcoreClassDesign::design('images/icons/clock.png');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Time on site');?>" /></th>
+    <th width="40%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Page');?></th>
+    <th width="40%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Came from');?></th>
     <th width="1%" nowrap><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Status');?></th>
     <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Action');?></th>
     <th width="1%"></th>
@@ -48,7 +49,8 @@
         <td><?php echo $departament->id?></td>
         <td nowrap><?php echo htmlspecialchars($departament->lastactivity_ago)?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','ago');?></td>
         <td><?php echo $departament->time_on_site_front?></td>
-        <td><div class="page-url"><span><?php echo htmlspecialchars($departament->current_page)?></span></div></td>
+        <td><div class="page-url"><span><a target="_blank" href="<?php echo htmlspecialchars($departament->current_page)?>"><?php echo htmlspecialchars($departament->current_page)?></a></span></div></td>
+        <td><div class="page-url"><span><a target="_blank" href="<?php echo htmlspecialchars($departament->referrer)?>"><?php echo htmlspecialchars($departament->referrer)?></a></span></div></td>
         <td>
         <div style="width:230px">
         <?php if ( !empty($departament->user_country_code) ) : ?>

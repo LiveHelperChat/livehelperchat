@@ -64,10 +64,17 @@ $def->properties['phone']->columnName   = 'phone';
 $def->properties['phone']->propertyName = 'phone';
 $def->properties['phone']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+// Page from which user starts chat
 $def->properties['referrer'] = new ezcPersistentObjectProperty();
 $def->properties['referrer']->columnName   = 'referrer';
 $def->properties['referrer']->propertyName = 'referrer';
 $def->properties['referrer']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+// Initial referrer from where user has come to site
+$def->properties['session_referrer'] = new ezcPersistentObjectProperty();
+$def->properties['session_referrer']->columnName   = 'session_referrer';
+$def->properties['session_referrer']->propertyName = 'session_referrer';
+$def->properties['session_referrer']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 $def->properties['country_code'] = new ezcPersistentObjectProperty();
 $def->properties['country_code']->columnName   = 'country_code';

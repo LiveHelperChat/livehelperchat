@@ -16,6 +16,10 @@ if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value
     $tpl->set('visitor',$visitor);
 }
 
+if ( !isset($_SESSION['lhc_site_referrer']) ) {
+	$_SESSION['lhc_site_referrer'] = urldecode($_GET['r']);
+}
+
 $validUnits = array('pixels' => 'px','percents' => '%');
 
 $tpl->set('click',$Params['user_parameters_unordered']['click']);

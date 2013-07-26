@@ -25,6 +25,7 @@ class erLhcoreClassModelChatOnlineUser {
                'identifier'        	=> $this->identifier,
                'time_on_site'       => $this->time_on_site,
                'tt_time_on_site'    => $this->tt_time_on_site,
+               'referrer'    		=> $this->referrer,
        );
    }
 
@@ -362,6 +363,8 @@ class erLhcoreClassModelChatOnlineUser {
                    $item->ip = $_SERVER['REMOTE_ADDR'];
                    $item->vid = erLhcoreClassModelForgotPassword::randomPassword(20);
                    $item->identifier = (isset($paramsHandle['identifier']) && !empty($paramsHandle['identifier'])) ? $paramsHandle['identifier'] : '';
+                   $item->referrer = isset($_GET['r']) ? urldecode($_GET['r']) : '';                   
+                   
                    setcookie('lhc_vid',$item->vid,time() + (1 * 365 * 24 * 60 * 60),'/');
 
                    self::detectLocation($item);
@@ -375,6 +378,8 @@ class erLhcoreClassModelChatOnlineUser {
 		               $item->ip = $_SERVER['REMOTE_ADDR'];
 		               $item->vid = erLhcoreClassModelForgotPassword::randomPassword(20);
 		               $item->identifier = (isset($paramsHandle['identifier']) && !empty($paramsHandle['identifier'])) ? $paramsHandle['identifier'] : '';
+		               $item->referrer = isset($_GET['r']) ? urldecode($_GET['r']) : '';
+		               
 		               setcookie('lhc_vid',$item->vid,time() + (1 * 365 * 24 * 60 * 60),'/');
 
 		               self::detectLocation($item);
@@ -441,6 +446,7 @@ class erLhcoreClassModelChatOnlineUser {
    public $city = '';
    public $time_on_site = 0;
    public $tt_time_on_site = 0;
+   public $referrer = '';
 
 }
 

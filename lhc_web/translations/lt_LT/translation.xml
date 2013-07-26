@@ -754,6 +754,14 @@
         <translation>minutė</translation>
     </message>
     <message>
+        <source>Came from</source>
+        <translation>Atėjo iš</translation>
+    </message>
+    <message>
+        <source>Current page</source>
+        <translation>Dabartinis puslapis</translation>
+    </message>
+    <message>
         <source>Identifier</source>
         <translation>Identifikatorius</translation>
     </message>
@@ -1480,6 +1488,22 @@
     <message>
         <source>E-mail</source>
         <translation>El. paštas</translation>
+    </message>
+    <message>
+        <source>Page</source>
+        <translation>Puslapis</translation>
+    </message>
+    <message>
+        <source>Country</source>
+        <translation>Šalis</translation>
+    </message>
+    <message>
+        <source>City</source>
+        <translation>Miestas</translation>
+    </message>
+    <message>
+        <source>Additional data</source>
+        <translation>Papildomi duomenys</translation>
     </message>
     <message>
         <source>Chat between operators, chat initializer</source>

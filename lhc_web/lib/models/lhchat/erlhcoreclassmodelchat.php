@@ -29,7 +29,8 @@ class erLhcoreClassModelChat {
                'lat'     				=> $this->lat,
                'lon'     				=> $this->lon,
                'city'     				=> $this->city,
-               'additional_data'     	=> $this->additional_data
+               'additional_data'     	=> $this->additional_data,
+               'session_referrer'     	=> $this->session_referrer
        );
    }
 
@@ -200,6 +201,7 @@ class erLhcoreClassModelChat {
    public $lon = 0;
    public $city = '';
    public $additional_data = '';
+   public $session_referrer = '';
 
 }
 

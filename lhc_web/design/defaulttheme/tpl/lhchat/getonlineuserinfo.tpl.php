@@ -1,5 +1,5 @@
-<div class="" style="width:490px;min-height:260px;position:relative;overflow:hidden;">
-<a href="<?php echo htmlspecialchars(trim($online_user->current_page))?>" class="no-wrap fs11"><?php echo htmlspecialchars(trim($online_user->current_page))?></a>
+<div class="online-user-info">
+<a href="<?php echo htmlspecialchars(trim($online_user->current_page))?>" class="no-wrap fs11"><?php echo htmlspecialchars(trim($online_user->referrer))?></a>
 
 <div class="mt10 section-container auto mb0" data-section >
   <section id="online-user-info">
@@ -14,8 +14,7 @@
 		<?php if ( !empty($online_user->city) ) :?><br/><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','City');?>: <?php echo htmlspecialchars($online_user->city) ?><?php endif;?>
 		<?php if ( !empty($online_user->lat) ) :?><br/><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Lat.');?> <?php echo htmlspecialchars($online_user->lat) ?><?php endif;?>
 		<?php if ( !empty($online_user->lon) ) :?><br/><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Lon.');?> <?php echo htmlspecialchars($online_user->lon) ?><?php endif;?>
-		<?php if (!empty($online_user->identifier)) : ?><br/><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Identifier');?> - <?php echo htmlspecialchars($online_user->identifier)?></li><?php endif;?>
-
+		<?php if (!empty($online_user->identifier)) : ?><br/><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Identifier');?> - <?php echo htmlspecialchars($online_user->identifier)?><?php endif;?>
 		</p>
 		</div>
 
@@ -38,6 +37,8 @@
 		    <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','last visit');?> - <?php echo $online_user->last_visit_front?></li>
 		    <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Pageviews');?> - <?php echo $online_user->pages_count?></li>
 		    <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Time on site');?> - <?php echo $online_user->time_on_site_front?></li>
+		    <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Current page');?> - <a target="_blank" href="<?php echo htmlspecialchars($online_user->current_page)?>"><?php echo htmlspecialchars($online_user->current_page)?></a></li>
+		    <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Came from');?> - <a target="_blank" href="<?php echo htmlspecialchars($online_user->referrer)?>"><?php echo htmlspecialchars($online_user->referrer)?></a></li>
 		</ul>
 
 		<input type="button" class="small button radius mb0" onclick="$.colorbox({'iframe':true,height:'500px',width:'500px', href:'<?php echo erLhcoreClassDesign::baseurl('chat/sendnotice')?>/<?php echo $online_user->id?>'});" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Send message');?>"/>

@@ -37,6 +37,7 @@ if ( isset($_POST['SendMessage']) ) {
     	$chat->setIP();
     	$chat->hash = erLhcoreClassChat::generateHash();
     	$chat->referrer = '';
+    	$chat->session_referrer = isset($_SESSION['lhc_site_referrer']) ? $_SESSION['lhc_site_referrer'] : '';
     	$chat->nick = $currentUserData->name.' '.$currentUserData->surname;
     	$chat->user_id = $user->id; // Assign chat to receiver operator, this way he will get permission to open chat
     	$chat->dep_id = erLhcoreClassUserDep::getDefaultUserDepartment(); // Set default department to chat creator, this way current user will get permission to open it
