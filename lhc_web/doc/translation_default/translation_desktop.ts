@@ -307,7 +307,7 @@
     </message>
     <message>
         <source>Waiting for action...</source>
-        <translation type="unfinished">Laukiama veiksmų...</translation>
+        <translation></translation>
     </message>
     <message>
         <source>&amp;Restore</source>
