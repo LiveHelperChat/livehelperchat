@@ -230,6 +230,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `hash` varchar(40) NOT NULL,
 				  `referrer` text NOT NULL,
         	   	  `session_referrer` text NOT NULL,
+        	   	  `chat_variables` text NOT NULL,
 				  `ip` varchar(100) NOT NULL,
 				  `dep_id` int(11) NOT NULL,
 				  `user_status` int(11) NOT NULL DEFAULT '0',
