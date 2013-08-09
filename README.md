@@ -9,6 +9,9 @@ http://livehelperchat.com/demo-12c.html
 ## Documentation
 http://livehelperchat.com/documentation-6c.html
 
+## Translations contribution
+https://www.transifex.com/projects/p/live-helper-chat/
+
 ## Folders structure
 
  * Directories content:
