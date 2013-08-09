@@ -363,8 +363,8 @@ class erLhcoreClassModelChatOnlineUser {
                    $item->ip = $_SERVER['REMOTE_ADDR'];
                    $item->vid = erLhcoreClassModelForgotPassword::randomPassword(20);
                    $item->identifier = (isset($paramsHandle['identifier']) && !empty($paramsHandle['identifier'])) ? $paramsHandle['identifier'] : '';
-                   $item->referrer = isset($_GET['r']) ? urldecode($_GET['r']) : '';                   
-                   
+                   $item->referrer = isset($_GET['r']) ? urldecode($_GET['r']) : '';
+
                    setcookie('lhc_vid',$item->vid,time() + (1 * 365 * 24 * 60 * 60),'/');
 
                    self::detectLocation($item);
@@ -379,7 +379,7 @@ class erLhcoreClassModelChatOnlineUser {
 		               $item->vid = erLhcoreClassModelForgotPassword::randomPassword(20);
 		               $item->identifier = (isset($paramsHandle['identifier']) && !empty($paramsHandle['identifier'])) ? $paramsHandle['identifier'] : '';
 		               $item->referrer = isset($_GET['r']) ? urldecode($_GET['r']) : '';
-		               
+
 		               setcookie('lhc_vid',$item->vid,time() + (1 * 365 * 24 * 60 * 60),'/');
 
 		               self::detectLocation($item);
@@ -403,17 +403,17 @@ class erLhcoreClassModelChatOnlineUser {
            //$item->current_page = $cookieData;
            $item->last_visit = time();
 
-           if ($item->operator_message == '' && isset($paramsHandle['pro_active_invite']) && $paramsHandle['pro_active_invite'] == 1) {
+           if ($item->operator_message == '' && isset($paramsHandle['pro_active_invite']) && $paramsHandle['pro_active_invite'] == 1 && isset($paramsHandle['pro_active_limitation']) && ($paramsHandle['pro_active_limitation'] == -1 || erLhcoreClassChat::getPendingChatsCount() <= $paramsHandle['pro_active_limitation']) ) {
            		//Process pro active chat invitation if this visitor matches any rules
            		erLhAbstractModelProactiveChatInvitation::processProActiveInvitation($item);
            }
 
            $item->saveThis();
-           
+
            // For DEBUG
            //erLhcoreClassLog::write($cookieData);
-           
-           
+
+
            return $item;
    }
 

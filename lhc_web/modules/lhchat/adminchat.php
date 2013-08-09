@@ -9,8 +9,9 @@ $tpl->set('chat',$chat);
 if ( erLhcoreClassChat::hasAccessToRead($chat) )
 {
     // If status is pending change status to active
-    if ($chat->status == 0) {
-    	$chat->status = 1;
+    if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
+    	$chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
+    	$chat->wait_time = time() - $chat->time;
     }
 
     if ($chat->user_id == 0)

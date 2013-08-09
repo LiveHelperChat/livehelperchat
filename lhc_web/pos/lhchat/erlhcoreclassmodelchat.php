@@ -136,6 +136,16 @@ $def->properties['additional_data']->columnName   = 'additional_data';
 $def->properties['additional_data']->propertyName = 'additional_data';
 $def->properties['additional_data']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['wait_time'] = new ezcPersistentObjectProperty();
+$def->properties['wait_time']->columnName   = 'wait_time';
+$def->properties['wait_time']->propertyName = 'wait_time';
+$def->properties['wait_time']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['chat_duration'] = new ezcPersistentObjectProperty();
+$def->properties['chat_duration']->columnName   = 'chat_duration';
+$def->properties['chat_duration']->propertyName = 'chat_duration';
+$def->properties['chat_duration']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 return $def;
 
 ?>

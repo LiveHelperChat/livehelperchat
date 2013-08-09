@@ -638,6 +638,44 @@ class erLhcoreClassChat {
        return true;
    }
 
+   public static function formatSeconds($seconds) {
+
+	    $y = floor($seconds / (86400*365.25));
+	    $d = floor(($seconds - ($y*(86400*365.25))) / 86400);
+	    $h = gmdate('H', $seconds);
+	    $m = gmdate('i', $seconds);
+	    $s = gmdate('s', $seconds);
+
+	    $parts = array();
+
+	    if($y > 0)
+	    {
+	    	$parts[] = $y . ' .y';
+	    }
+
+	    if($d > 0)
+	    {
+	    	$parts[] = $d . ' d.';
+	    }
+
+	    if($h > 0)
+	    {
+	    	$parts[] = $h . ' h.';
+	    }
+
+	    if($m > 0)
+	    {
+	    	$parts[] = $m . ' m.';
+	    }
+
+	    if($s > 0)
+	    {
+	    	$parts[] = $s . ' s.';
+	    }
+
+	    return implode($parts,' ');
+   }
+
    /**
     * Is chat activated and user can send messages.
     *

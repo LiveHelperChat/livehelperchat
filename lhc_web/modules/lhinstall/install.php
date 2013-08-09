@@ -248,6 +248,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `lon` varchar(10) NOT NULL,
 				  `city` varchar(100) NOT NULL,
 				  `mail_send` int(11) NOT NULL,
+        	   	  `wait_time` int(11) NOT NULL,
+  				  `chat_duration` int(11) NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `status` (`status`),
 				  KEY `user_id` (`user_id`),
@@ -417,6 +419,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('start_chat_data',	'a:10:{i:0;b:0;s:21:\"name_visible_in_popup\";b:1;s:27:\"name_visible_in_page_widget\";b:1;s:19:\"name_require_option\";s:8:\"required\";s:22:\"email_visible_in_popup\";b:1;s:28:\"email_visible_in_page_widget\";b:1;s:20:\"email_require_option\";s:8:\"required\";s:24:\"message_visible_in_popup\";b:1;s:30:\"message_visible_in_page_widget\";b:1;s:22:\"message_require_option\";s:8:\"required\";}',	0,	'',	1),
                 ('application_name',	'a:6:{s:3:\"eng\";s:31:\"Live Helper Chat - live support\";s:3:\"lit\";s:26:\"Live Helper Chat - pagalba\";s:3:\"hrv\";s:0:\"\";s:3:\"esp\";s:0:\"\";s:3:\"por\";s:0:\"\";s:10:\"site_admin\";s:31:\"Live Helper Chat - live support\";}',	1,	'Support application name, visible in browser title.',	0),
                 ('track_footprint',	'0',	0,	'Track users footprint. For this also online visitors tracking should be enabled',	0),
+                ('pro_active_limitation',	'-1',	0,	'Pro active chats invitations limitation based on pending chats, (-1) do not limit, (0,1,n+1) number of pending chats can be for invitation to be shown.',	0),
                 ('geo_data', '', '0', '', '1')");
 
         	   $db->query("CREATE TABLE `lh_chat_online_user` (

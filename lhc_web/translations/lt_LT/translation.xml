@@ -72,6 +72,10 @@
         <translation>Laikas praleistas puslapyje sekundėmis</translation>
     </message>
     <message>
+        <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
+        <translation>Identifikatorius, kuriam identifikatoriui ši žinutė turėtų būti rodoma. Palikite tuščia visiems</translation>
+    </message>
+    <message>
         <source>Pageviews</source>
         <translation>Puslapio peržiūrų</translation>
     </message>
@@ -1492,6 +1496,18 @@
     <message>
         <source>Page</source>
         <translation>Puslapis</translation>
+    </message>
+    <message>
+        <source>Chat duration</source>
+        <translation>Pokalbio trukmė</translation>
+    </message>
+    <message>
+        <source>Waited</source>
+        <translation>Laukta</translation>
+    </message>
+    <message>
+        <source>Created</source>
+        <translation>Sukurtas</translation>
     </message>
     <message>
         <source>Country</source>

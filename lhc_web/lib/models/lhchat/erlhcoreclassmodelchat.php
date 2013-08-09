@@ -30,9 +30,12 @@ class erLhcoreClassModelChat {
                'lon'     				=> $this->lon,
                'city'     				=> $this->city,
                'additional_data'     	=> $this->additional_data,
-               'session_referrer'     	=> $this->session_referrer
+               'session_referrer'     	=> $this->session_referrer,
+               'wait_time'     			=> $this->wait_time,
+               'chat_duration'     		=> $this->chat_duration,
        );
    }
+
 
    public function setState( array $properties )
    {
@@ -109,6 +112,16 @@ class erLhcoreClassModelChat {
        	case 'is_user_typing':
        		   $this->is_user_typing = $this->user_typing > (time()-6); // typing is considered if status did not changed for 10 seconds
        		   return $this->is_user_typing;
+       		break;
+
+       	case 'wait_time_front':
+       		   $this->wait_time_front = erLhcoreClassChat::formatSeconds($this->wait_time); // typing is considered if status did not changed for 10 seconds
+       		   return $this->wait_time_front;
+       		break;
+
+       	case 'chat_duration_front':
+       		   $this->chat_duration_front = erLhcoreClassChat::formatSeconds($this->chat_duration); // typing is considered if status did not changed for 10 seconds
+       		   return $this->chat_duration_front;
        		break;
 
        	case 'department':
@@ -202,6 +215,8 @@ class erLhcoreClassModelChat {
    public $city = '';
    public $additional_data = '';
    public $session_referrer = '';
+   public $wait_time = 0;
+   public $chat_duration = 0;
 
 }
 

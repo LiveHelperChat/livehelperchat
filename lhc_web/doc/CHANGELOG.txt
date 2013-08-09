@@ -1,3 +1,13 @@
+1.43v
+
+Features:
+1. Wait time tracking
+2. Chat duration tracking
+3. Separated admin chat tabs to separate templates for easier override.
+4. Option to limit invitations based on pending chats number.
+
+execute doc/update_db/update_30.sql
+
 1.42v
 
 Features:
