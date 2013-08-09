@@ -2931,6 +2931,10 @@
         <translation>HTML kodas</translation>
     </message>
     <message>
+        <source>Chats list</source>
+        <translation>Pokalbių sąrašai</translation>
+    </message>
+    <message>
         <source>Pro active chat invitations</source>
         <translation>Vartotojo veiksmais paremtos žinutės lankytojams</translation>
     </message>
