@@ -2608,6 +2608,10 @@
         <translation>HTML kodas</translation>
     </message>
     <message>
+        <source>Disable pro active invitations, usefull if you want disable them from site part.</source>
+        <translation>Išjungti pro active kvietimus, naudinga jei norite juos valdyti iš puslapio.</translation>
+    </message>
+    <message>
         <source>Leave empty if it is not important to you</source>
         <translation>Palikite tuščią jei Jums jis nėra aktualus</translation>
     </message>

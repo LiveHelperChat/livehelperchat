@@ -263,7 +263,7 @@ if ( window.addEventListener ){
 	window.addEventListener("message", lh_inst.handleMessage, false);
 };
 
-<?php if ($check_operator_messages == 'true') : ?>
+<?php if ($check_operator_messages == 'true' && $disable_pro_active == false) : ?>
 lh_inst.startNewMessageCheck();
 <?php endif; ?>
 
@@ -278,7 +278,7 @@ lh_inst.showStatusWidget();
 if (($hashSession = CSCacheAPC::getMem()->getSession('chat_hash_widget')) !== false) : ?>
    lh_inst.stopCheckNewMessage();
    lh_inst.showStartWindow();
-<?php elseif (isset($visitor) && is_object($visitor) && $visitor->has_message_from_operator == true && (erLhcoreClassModelChatConfig::fetch('pro_active_limitation')->current_value == -1 || erLhcoreClassChat::getPendingChatsCount() <= erLhcoreClassModelChatConfig::fetch('pro_active_limitation')->current_value )) : ?>
+<?php elseif (isset($visitor) && is_object($visitor) && $disable_pro_active == false && $visitor->has_message_from_operator == true && (erLhcoreClassModelChatConfig::fetch('pro_active_limitation')->current_value == -1 || erLhcoreClassChat::getPendingChatsCount() <= erLhcoreClassModelChatConfig::fetch('pro_active_limitation')->current_value )) : ?>
    lh_inst.stopCheckNewMessage();
    lh_inst.showStartWindow('<?php echo erLhcoreClassSystem::instance()->baseHTTP?><?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/readoperatormessage')?>');
 <?php endif;

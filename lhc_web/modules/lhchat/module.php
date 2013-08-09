@@ -196,7 +196,7 @@ $ViewList['blockedusers'] = array(
 $ViewList['getstatus'] = array(
     'script' => 'getstatus.php',
     'params' => array(),
-    'uparams' => array('click','position','hide_offline','check_operator_messages','top','units','leaveamessage','department','identifier'),
+    'uparams' => array('disable_pro_active','click','position','hide_offline','check_operator_messages','top','units','leaveamessage','department','identifier'),
     );
 
 $ViewList['getstatusembed'] = array(
