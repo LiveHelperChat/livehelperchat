@@ -115,12 +115,12 @@ class erLhcoreClassModelChat {
        		break;
 
        	case 'wait_time_front':
-       		   $this->wait_time_front = erLhcoreClassChat::formatSeconds($this->wait_time); // typing is considered if status did not changed for 10 seconds
+       		   $this->wait_time_front = erLhcoreClassChat::formatSeconds($this->wait_time);
        		   return $this->wait_time_front;
        		break;
 
        	case 'chat_duration_front':
-       		   $this->chat_duration_front = erLhcoreClassChat::formatSeconds($this->chat_duration); // typing is considered if status did not changed for 10 seconds
+       		   $this->chat_duration_front = erLhcoreClassChat::formatSeconds($this->chat_duration);
        		   return $this->chat_duration_front;
        		break;
 
