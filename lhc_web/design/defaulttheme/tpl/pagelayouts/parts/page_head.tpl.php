@@ -17,3 +17,5 @@ foreach ($ReverseOrder as $pathItem) : ?><?php echo htmlspecialchars($pathItem['
 
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_js.tpl.php'));?>
 
+<?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_js_extension.tpl.php'));?>
+

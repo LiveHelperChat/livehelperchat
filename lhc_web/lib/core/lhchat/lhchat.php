@@ -709,6 +709,19 @@ class erLhcoreClassChat {
         return self::$persistentSession;
    }
 
+   public static function closeChatCallback($chat) {
+	   	$extensions = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'extensions' );
+
+	   	$instance = erLhcoreClassSystem::instance();
+
+	   	foreach ($extensions as $ext) {
+	   		$callbackFile = $instance->SiteDir . '/extension/' . $ext . '/callbacks/close_chat.php';
+	   		if (file_exists($callbackFile)) {
+	   			include $callbackFile;
+	   		}
+	   	}
+   }
+
    private static $persistentSession;
 }
 
