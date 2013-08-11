@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="columns large-7">
 
-		<div class="message-block">
+		<div class="message-block pb10">
 			<div class="msgBlock" id="messagesBlock-<?php echo $chat->id?>">
 				<?php
 				$LastMessageID = 0;
@@ -22,9 +22,11 @@
 				</i>
 			</div>
 		</div>
-		<br />
+
+		<?php include(erLhcoreClassDesign::designtpl('lhchat/part/above_textarea.tpl.php')); ?>
 
 		<textarea rows="4" name="ChatMessage" id="CSChatMessage-<?php echo $chat->id?>"></textarea>
+
 		<script type="text/javascript">
 		jQuery('#CSChatMessage-<?php echo $chat->id?>').bind('keyup', 'return', function (evt){
 		    lhinst.addmsgadmin('<?php echo $chat->id?>');

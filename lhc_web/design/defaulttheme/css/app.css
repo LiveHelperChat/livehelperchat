@@ -31,6 +31,13 @@ body {
 	padding:10px;
 }
 
+.pb10 {
+	padding-bottom:10px;
+}
+
+.pb0{
+	padding-bottom:0px;
+}
 
 .border-grey {
 	border:1px solid #CCC;
@@ -247,7 +254,11 @@ table tr td {
 }
 
 .fs11 {
-	font-size: 12px !important;
+	font-size: 12p !important;
+}
+
+.fs12 {
+	font-size: 12px;
 }
 
 .mb5 {
