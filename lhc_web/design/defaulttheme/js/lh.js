@@ -287,13 +287,14 @@ function lh(){
 		               $('#ChatSendButtonContainer').remove();
 		           }
 		        };
+
 		        inst.syncroRequestSend = false;
 	    	}).fail(function(){
 	    		inst.syncroRequestSend = false;
 	    		inst.userTimeout = setTimeout(chatsyncuser,confLH.chat_message_sinterval);
 	    	});
 	    }
-	},
+	};
 
 	this.closeActiveChatDialog = function(chat_id, tabs, hidetab)
 	{

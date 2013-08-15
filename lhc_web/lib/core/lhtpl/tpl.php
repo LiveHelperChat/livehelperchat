@@ -48,7 +48,6 @@ class erLhcoreClassTemplate {
         if (($this->cacheTemplates = $cacheObj->restore('templateCacheArray_version_'.$cacheObj->getCacheVersion('site_version'))) === false)
         {
             $sys = erLhcoreClassSystem::instance()->SiteDir;
-
             try {
             	$this->cacheWriter = new ezcCacheStorageFileArray($sys . 'cache/cacheconfig/');
             } catch (Exception $e) {
@@ -142,19 +141,18 @@ class erLhcoreClassTemplate {
 
     	$instance = erLhcoreClassSystem::instance();
 
-    	$port = isset($_SERVER['REMOTE_PORT']) ? $_SERVER['REMOTE_PORT'] : 80;
+    	$port = isset($_SERVER['SERVER_PORT']) ? $_SERVER['SERVER_PORT'] : 80;
 
     	if(!$fileTemplate) { $fileTemplate = $this->file; }
+
         if ($this->cacheEnabled == true && key_exists(md5($fileTemplate.$instance->WWWDirLang.$port),$this->cacheTemplates))
         {
         	try {
         		return $this->fetchExecute($this->cacheTemplates[md5($fileTemplate.$instance->WWWDirLang.$port)]);
         	} catch (Exception $e) {
-        		// Do nothing
+
         	}
         }
-
-
 
         $cfg = erConfigClassLhConfig::getInstance();
         $file = erLhcoreClassDesign::designtpl($fileTemplate);
