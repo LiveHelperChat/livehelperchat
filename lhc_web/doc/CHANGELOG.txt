@@ -1,3 +1,17 @@
+1.44v
+
+Bugfix.
+1. Templates were loosing cache because for template cache identifier was used incorrect server variable. Performance FIX
+
+Updates.
+1. Separte template for page header in user part. This allows us to override front end without influencing back office style.
+2. Updated to latest colorbox version.
+3. Renamed translations files from xml to ts
+4. Updated translations
+4.1 Chinese
+4.2 Czech, new translations
+4.3 German
+
 1.43v
 
 Features:

@@ -20,7 +20,7 @@ class erTranslationClassLhTranslation
         $cfg = erConfigClassLhCacheConfig::getInstance();
         if ($this->languageCode != 'en_EN')
         {
-            $this->translationFileModifyTime = filemtime($sys . '/translations/' . $this->languageCode . '/translation.xml');
+            $this->translationFileModifyTime = filemtime($sys . '/translations/' . $this->languageCode . '/translation.ts');
 
             if ($cfg->getSetting( 'cachetimestamps', 'translationfile' ) != $this->translationFileModifyTime)
             {
@@ -94,7 +94,7 @@ class erTranslationClassLhTranslation
     	try {
 	        $sys = erLhcoreClassSystem::instance()->SiteDir;
 	        $reader = new ezcTranslationTsBackend( $sys . '/translations/' . $this->languageCode );
-	        $reader->setOptions( array( 'format' => 'translation.xml' ) );
+	        $reader->setOptions( array( 'format' => 'translation.ts' ) );
 	        $reader->initReader( $this->languageCode );
 
 	        $cacheObj = new ezcCacheStorageFileArray( $sys . '/cache/translations' );
@@ -118,7 +118,7 @@ class erTranslationClassLhTranslation
         $sys = erLhcoreClassSystem::instance()->SiteDir;
 
         $reader = new ezcTranslationTsBackend( $sys . '/translations/' . $this->languageCode );
-        $reader->setOptions( array( 'format' => 'translation.xml' ) );
+        $reader->setOptions( array( 'format' => 'translation.ts' ) );
 
         $manager = new ezcTranslationManager( $reader );
         $ContextTranslation = $manager->getContext( $this->languageCode, $context );
