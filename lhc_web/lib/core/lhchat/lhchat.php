@@ -54,6 +54,14 @@ class erLhcoreClassChat {
     	return self::getCount($filter);
     }
 
+    public static function getPendingChatsCountPublic()
+    {
+    	$filter = array();
+    	$filter['filter'] = array('status' => 0);
+
+    	return self::getCount($filter);
+    }
+
     public static function getList($paramsSearch = array(), $class = 'erLhcoreClassModelChat', $tableName = 'lh_chat')
     {
 	       $paramsDefault = array('limit' => 32, 'offset' => 0);
