@@ -34,7 +34,7 @@
     </div>
 
 	<div class="pt5">
-    	<input type="button" class="small round button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Send')?>" onclick="lhinst.addmsguserchatbox()" />
+    	<input type="button" class="tiny round button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Send')?>" onclick="lhinst.addmsguserchatbox()" />
     </div>
 
 <script type="text/javascript">
