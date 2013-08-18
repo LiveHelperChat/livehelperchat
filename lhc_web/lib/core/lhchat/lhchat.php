@@ -730,15 +730,8 @@ class erLhcoreClassChat {
 	   	}
    }
 
-   public static function canReopen(erLhcoreClassModelChat $chat) {
-   		if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT && ($chatPart = CSCacheAPC::getMem()->getSession('chat_hash_widget_resume')) !== false) {
-			$parts = explode('_', $chatPart);
-			return $parts[0] == $chat->id;
-   		}
-   }
-
-   public static function canReopen(erLhcoreClassModelChat $chat) {
-   		if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT && ($chatPart = CSCacheAPC::getMem()->getSession('chat_hash_widget_resume')) !== false) {
+   public static function canReopen(erLhcoreClassModelChat $chat, $skipStatusCheck = false) {
+   		if ( ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT || $skipStatusCheck == true) && ($chatPart = CSCacheAPC::getMem()->getSession('chat_hash_widget_resume')) !== false) {
 			$parts = explode('_', $chatPart);
 			return $parts[0] == $chat->id;
    		}
@@ -746,15 +739,14 @@ class erLhcoreClassChat {
    		return false;
    }
 
-   public static function canReopenDirectly(){
+   public static function canReopenDirectly() {
 	   	if (($chatPart = CSCacheAPC::getMem()->getSession('chat_hash_widget_resume')) !== false) {
+	   		$parts = explode('_', $chatPart);
 	   		return array('id' => $parts[0],'hash' => $parts[1]);
 	   	}
 
 	   	return false;
    }
-
-
 
    private static $persistentSession;
 }

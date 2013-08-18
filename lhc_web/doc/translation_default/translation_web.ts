@@ -1258,6 +1258,10 @@
         <source>Waiting for confirmation</source>
         <translation></translation>
     </message>
+    <message>
+        <source>Resume chat</source>
+        <translation></translation>
+    </message>
 </context>
 <context>
     <name>user/newgroup</name>

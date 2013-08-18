@@ -1258,6 +1258,10 @@
         <source>Waiting for confirmation</source>
         <translation>Laukiama patvirtinimo</translation>
     </message>
+    <message>
+        <source>Resume chat</source>
+        <translation>Pratęsti pokalbį</translation>
+    </message>
 </context>
 <context>
     <name>user/newgroup</name>

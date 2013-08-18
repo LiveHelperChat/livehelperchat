@@ -11,13 +11,13 @@ if ((string)$Params['user_parameters_unordered']['embedmode'] == 'embed') {
 	$modeAppend = '/(mode)/embed';
 }
 
-
 try {
 
 	$chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
 
-	if ($chat->hash == $Params['user_parameters']['hash'] && erLhcoreClassChat::canReopen($chat) )
+	if ($chat->hash == $Params['user_parameters']['hash'] && erLhcoreClassChat::canReopen($chat,true) )
 	{
+
 		$chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
 		$chat->updateThis();
 
