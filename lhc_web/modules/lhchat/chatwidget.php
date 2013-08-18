@@ -79,7 +79,7 @@ if (isset($_POST['StartChat']))
 	       $chat->hash = erLhcoreClassChat::generateHash();
 	       $chat->referrer = isset($_POST['URLRefer']) ? $_POST['URLRefer'] : '';
 	       $chat->session_referrer = isset($_SESSION['lhc_site_referrer']) ? $_SESSION['lhc_site_referrer'] : '';
-	       
+
 	       if ( empty($chat->nick) ) {
 	           $chat->nick = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor');
 	       }
@@ -119,6 +119,9 @@ if (isset($_POST['StartChat']))
 
 	       // Store hash if user reloads page etc, we show widget
 	       CSCacheAPC::getMem()->setSession('chat_hash_widget',$chat->id.'_'.$chat->hash);
+
+	       // Store hash for user previous chat, so user after main chat close can reopen old chat
+	       CSCacheAPC::getMem()->setSession('chat_hash_widget_resume',$chat->id.'_'.$chat->hash);
 
 	       // Redirect user
 	       erLhcoreClassModule::redirect('chat/chatwidgetchat','/' . $chat->id . '/' . $chat->hash . $modeAppend);

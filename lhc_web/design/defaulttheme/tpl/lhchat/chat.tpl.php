@@ -9,11 +9,9 @@
 		<?php endif; ?>
 		</h2>
 
-		<?php /*
-		@todo reopen old chat action
-		if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>
-			<a href="<?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?>" class="tiny button round success" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatnotexists','Start a new chat');?></a>
-		<?php endif;*/?>
+		<?php if ( erLhcoreClassChat::canReopen($chat) ) : ?>
+			<a href="<?php echo erLhcoreClassDesign::baseurl('chat/reopen')?>/<?php echo $chat->id?>/<?php echo $chat->hash?><?php if ( isset($chat_widget_mode) && $chat_widget_mode == true ) : ?>/(mode)/widget<?php endif; ?><?php if ( isset($chat_embed_mode) && $chat_embed_mode == true ) : ?>/(embedmode)/embed<?php endif;?>" class="tiny button round success" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatnotexists','Resume chat');?></a>
+		<?php endif; ?>
 	</div>
 
 	<div class="columns small-2">

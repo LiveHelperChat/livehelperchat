@@ -83,6 +83,9 @@ if (isset($_POST['askQuestion']))
        // Store hash if user reloads page etc, we show widget
        CSCacheAPC::getMem()->setSession('chat_hash_widget',$chat->id.'_'.$chat->hash);
 
+       // Store hash for user previous chat, so user after main chat close can reopen old chat
+       CSCacheAPC::getMem()->setSession('chat_hash_widget_resume',$chat->id.'_'.$chat->hash);
+
        // Redirect user
        erLhcoreClassModule::redirect('chat/chatwidgetchat/' . $chat->id . '/' . $chat->hash);
        exit;

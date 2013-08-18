@@ -22,6 +22,7 @@ try {
         $tpl->set('hash',$Params['user_parameters']['hash']);
         $tpl->set('chat',$chat);
         $tpl->set('chat_widget_mode',true);
+        $tpl->set('chat_embed_mode',$embedMode);
 
         $Result['chat'] = $chat;
 

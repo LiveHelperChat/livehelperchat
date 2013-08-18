@@ -217,6 +217,12 @@ $ViewList['chatwidget'] = array(
     'uparams' => array('mode','offline','leaveamessage','department'),
 );
 
+$ViewList['reopen'] = array(
+    'script' => 'reopen.php',
+    'params' => array('chat_id','hash'),
+    'uparams' => array('mode','embedmode'),
+);
+
 $ViewList['readoperatormessage'] = array(
     'script' => 'readoperatormessage.php',
     'params' => array()

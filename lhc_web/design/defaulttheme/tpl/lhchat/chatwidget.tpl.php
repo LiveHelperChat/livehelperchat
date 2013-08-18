@@ -37,7 +37,13 @@
 	<?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/department.tpl.php'));?>
 <?php endif;?>
 
-<input type="submit" class="small round button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Start chat');?>" name="StartChatAction" />
+<ul class="button-group round">
+  <li><input type="submit" class="tiny round button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Start chat');?>" name="StartChatAction" /></li>
+  <?php /*if ( ($reopenData = erLhcoreClassChat::canReopenDirectly()) !== false ) : ?>
+  <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/reopen')?>/<?php echo $reopenData['id']?>/<?php echo $reopenData['hash']?>/(mode)/widget<?php if ( isset($modeAppend) && $modeAppend != '' ) : ?>/(embedmode)/embed<?php endif;?>" class="tiny button round success" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatnotexists','Resume chat');?></a></li>
+  <?php endif;*/ ?>
+</ul>
+
 <input type="hidden" value="<?php echo htmlspecialchars($referer);?>" name="URLRefer"/>
 <input type="hidden" value="1" name="StartChat"/>
 
