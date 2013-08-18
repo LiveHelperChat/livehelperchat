@@ -48,7 +48,7 @@
     </div>
 
     <div class="pt5" id="ChatSendButtonContainer">
-    	<input type="button" class="small round button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Send')?>" onclick="lhinst.addmsguser()" />
+    	<input type="button" class="tiny round button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Send')?>" onclick="lhinst.addmsguser()" />
     </div>
 
 
