@@ -8,6 +8,12 @@
 			<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Pending confirm')?>
 		<?php endif; ?>
 		</h2>
+
+		<?php /*
+		@todo reopen old chat action
+		if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>
+			<a href="<?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?>" class="tiny button round success" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatnotexists','Start a new chat');?></a>
+		<?php endif;*/?>
 	</div>
 
 	<div class="columns small-2">

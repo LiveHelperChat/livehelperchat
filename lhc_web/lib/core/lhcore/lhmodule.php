@@ -57,7 +57,7 @@ class erLhcoreClassModule{
                 }
             }
 
-            include_once(self::getModuleFile(self::$currentModuleName,self::$currentView));
+            include(self::getModuleFile(self::$currentModuleName,self::$currentView));
 
             if (isset($Params['module']['pagelayout']) && !isset($Result['pagelayout'])) {
                 $Result['pagelayout'] = $Params['module']['pagelayout'];
@@ -117,7 +117,7 @@ class erLhcoreClassModule{
             	return $cacheModules[$cacheKey];
             }
 
-            $cacheWriter = new ezcCacheStorageFileArray(erLhcoreClassSystem::instance()->SiteDir . 'cache/cacheconfig/');
+            $cacheWriter = new erLhcoreClassCacheStorage('cache/cacheconfig/');
             if (($cacheModules = $cacheWriter->restore('moduleCache_'.self::$currentModuleName)) == false)
             {
             	$cacheWriter->store('moduleCache_'.self::$currentModuleName,array());
@@ -132,9 +132,6 @@ class erLhcoreClassModule{
 
             $file = self::$currentModule[self::$currentView]['script_path'];
             $contentFile = php_strip_whitespace($file);
-
-
-            $fileCompiled = $instance->SiteDir . 'cache/compiledtemplates/'.md5($file.$instance->WWWDirLang).'.php';
 
             $Matches = array();
 			preg_match_all('/erTranslationClassLhTranslation::getInstance\(\)->getTranslation\(\'(.*?)\',\'(.*?)\'\)/i',$contentFile,$Matches);
@@ -190,9 +187,17 @@ class erLhcoreClassModule{
                 $contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
             }
 
-			file_put_contents($fileCompiled,$contentFile);
+            $fileCompiled = 'cache/compiledtemplates/'.md5($file.$instance->WWWDirLang).'.php';
+
+            // Atomoc template compilation to avoid concurent request compiling and writing to the same file
+            $fileTemp = 'cache/cacheconfig/'.md5(time().microtime().rand(0, 1000).$file.$instance->WWWDirLang).'.php';
+            file_put_contents($fileTemp,$contentFile);
+
+            // Atomic file write
+            rename($fileTemp,$fileCompiled);
 
 			$cacheModules[$cacheKey] = $fileCompiled;
+
 
 			$cacheWriter->store('moduleCache_'.self::$currentModuleName,$cacheModules);
 			self::$cacheInstance->store('moduleCache_'.self::$currentModuleName.'_version_'.self::$cacheVersionSite,$cacheModules);
@@ -218,10 +223,9 @@ class erLhcoreClassModule{
             	return $cacheModules;
             }
 
-            $cacheWriter = new ezcCacheStorageFileArray(erLhcoreClassSystem::instance()->SiteDir . 'cache/cacheconfig/');
+            $cacheWriter = new erLhcoreClassCacheStorage('cache/cacheconfig/');
             if ( ($cacheModules = $cacheWriter->restore('moduleFunctionsCache_'.$module)) == false)
             {
-            	//$cacheWriter->store('moduleFunctionsCache_'.$module,array());
             	$cacheModules = array();
             }
 

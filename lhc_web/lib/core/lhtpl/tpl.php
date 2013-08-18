@@ -1,11 +1,52 @@
 <?php
+
+
+/**
+ * Atomic cache writer
+ * */
+class erLhcoreClassCacheStorage {
+
+	private $cacheDir = false;
+
+	public function __construct($cacheDir) {
+		if (is_writable($cacheDir)) {
+			$this->cacheDir = $cacheDir;
+		} else {
+			throw new Exception("Directory {$cacheDir} not writable!");
+		}
+	}
+
+	public function store($identifier, array $data) {
+		try {
+			// Temporary storage
+			$fileName = $this->cacheDir . md5($identifier. time() . microtime() . rand(0, 1000)) . '.php';
+
+			file_put_contents($fileName,"<?php\n return ".var_export($data,true).";\n?>");
+
+			// Atomic operation
+			rename($fileName,'cache/cacheconfig/'.$identifier.'.cache.php');
+
+		} catch (Exception $e) {
+			throw $e;
+		}
+	}
+
+	public function restore($identifier) {
+		try {
+			return include ($this->cacheDir . $identifier.'.cache.php');
+		} catch (Exception $e) {
+			return false;
+		}
+	}
+}
+
+
 /**
  * Main part of code from :
  * http://www.massassi.com/php/articles/template_engines/
  *
  * Modified by remdex
  * */
-
 class erLhcoreClassTemplate {
     private $vars = array(); /// Holds all the template variables
 
@@ -47,9 +88,8 @@ class erLhcoreClassTemplate {
         $cacheObj = CSCacheAPC::getMem();
         if (($this->cacheTemplates = $cacheObj->restore('templateCacheArray_version_'.$cacheObj->getCacheVersion('site_version'))) === false)
         {
-            $sys = erLhcoreClassSystem::instance()->SiteDir;
             try {
-            	$this->cacheWriter = new ezcCacheStorageFileArray($sys . 'cache/cacheconfig/');
+            	$this->cacheWriter = new erLhcoreClassCacheStorage('cache/cacheconfig/');
             } catch (Exception $e) {
 
             	$instance = erLhcoreClassSystem::instance();
@@ -322,7 +362,6 @@ class erLhcoreClassTemplate {
                 $contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
             }
 
-
 			// Compile content language
 			$contentFile = str_replace('<?php echo erLhcoreClassSystem::instance()->ContentLanguage?>',erLhcoreClassSystem::instance()->ContentLanguage,$contentFile);
 
@@ -333,11 +372,12 @@ class erLhcoreClassTemplate {
 			$contentFile = str_replace('erLhcoreClassSystem::instance()->SiteAccess','\''.erLhcoreClassSystem::instance()->SiteAccess.'\'',$contentFile);
 
 
-			$sys = erLhcoreClassSystem::instance()->SiteDir;
-			$file = $sys . 'cache/compiledtemplates/'.md5($file.$instance->WWWDirLang.$port).'.php';
+			// Atomoc template compilation to avoid concurent request compiling and writing to the same file
+			$fileName = 'cache/compiledtemplates/'.md5(time().rand(0, 1000).microtime().$file.$instance->WWWDirLang.$port).'.php';
+			file_put_contents($fileName,erLhcoreClassTemplate::strip_html($contentFile));
 
-
-			file_put_contents($file,erLhcoreClassTemplate::strip_html($contentFile));
+			$file = 'cache/compiledtemplates/'.md5($file.$instance->WWWDirLang.$port).'.php';
+			rename($fileName,$file);
 
 	 	    $this->cacheTemplates[md5($fileTemplate.$instance->WWWDirLang.$port)] = $file;
 			$this->storeCache();
@@ -349,9 +389,8 @@ class erLhcoreClassTemplate {
 
 	function storeCache()
 	{
-	    if (is_null($this->cacheWriter)){
-    	    $sys = erLhcoreClassSystem::instance()->SiteDir;
-            $this->cacheWriter = new ezcCacheStorageFileArray($sys . 'cache/cacheconfig/');
+	    if (is_null($this->cacheWriter)) {
+            $this->cacheWriter = new erLhcoreClassCacheStorage( 'cache/cacheconfig/');
 	    }
 
 		try {
