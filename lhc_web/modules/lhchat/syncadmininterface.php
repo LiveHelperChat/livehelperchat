@@ -73,10 +73,10 @@ if (!empty($transferchatsDep)){
 }
 
 $tpl->set('transferchats',$transferchatsUser);
-$ReturnMessages[] = array('dom_id_status' => '.tru-cnt', 'dom_item_count' => count($transferchats), 'dom_id' => '#right-transfer-chats','last_id_identifier' => 'transfer_chat','last_id' => $lastPendingTransferID, 'content' => trim($tpl->fetch('lhchat/lists/transferedchats.tpl.php')));
+$ReturnMessages[] = array('dom_id_status' => '.tru-cnt', 'dom_item_count' => count($transferchatsUser), 'dom_id' => '#right-transfer-chats','last_id_identifier' => 'transfer_chat','last_id' => $lastPendingTransferID, 'content' => trim($tpl->fetch('lhchat/lists/transferedchats.tpl.php')));
 
 $tpl->set('transferchats',$transferchatsDep);
-$ReturnMessages[] = array('dom_id_status' => '.trd-cnt', 'dom_item_count' => count($transferchats), 'dom_id' => '#right-transfer-departments','last_id_identifier' => 'transfer_chat','last_id' => $lastPendingTransferID, 'content' => trim($tpl->fetch('lhchat/lists/transferedchats.tpl.php')));
+$ReturnMessages[] = array('dom_id_status' => '.trd-cnt', 'dom_item_count' => count($transferchatsDep), 'dom_id' => '#right-transfer-departments','last_id_identifier' => 'transfer_chat','last_id' => $lastPendingTransferID, 'content' => trim($tpl->fetch('lhchat/lists/transferedchats.tpl.php')));
 
 
 if ($canListOnlineUsers == true) {
