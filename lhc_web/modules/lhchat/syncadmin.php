@@ -28,6 +28,8 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
             		 $Chat->saveThis();
             	}
 
+            	$newMessagesNumber = count($Messages);
+
                 $tpl->set('messages',$Messages);
                 $tpl->set('chat',$Chat);
 
@@ -44,7 +46,7 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
 
                 $templateResult = $tpl->fetch();
 
-                $ReturnMessages[] = array('chat_id' => $chat_id, 'content' => $templateResult, 'message_id' => $LastMessageIDs['id']);
+                $ReturnMessages[] = array('chat_id' => $chat_id, 'mn' => $newMessagesNumber, 'content' => $templateResult, 'message_id' => $LastMessageIDs['id']);
             } else {
                 // User left chat
                 if ($Chat->support_informed == 0 && $Chat->user_status == 1)

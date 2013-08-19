@@ -487,5 +487,9 @@ ul.accordion-faq li {
 	font-size: 12px;
 	white-space:nowrap;
 	padding-bottom: 2px;
+}
 
+.msg-nm {
+	font-weight:bold;
+	color: #c60f13;
 }

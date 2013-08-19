@@ -86,19 +86,36 @@ function lh(){
         this.underMessageAdd = status;
     };
 
-    this.addTab = function(tabs, url, name) {
+    this.addTab = function(tabs, url, name, chat_id) {
     	tabs.find('> section.active').removeClass("active").attr('style','');
     	var nextElement = tabs.find('> section').size() + 5; // Leave some numbering for custom tabs
-    	tabs.append('<section class="active"><p class="title"><a href="#">' + name + '</a></p><div class="content" id="simple'+nextElement+'Tab">...</div></section>');
+    	tabs.append('<section class="active"><p class="title"><a class="chat-tab-item" id="chat-id-'+chat_id+'" href="#">' + name + '</a></p><div class="content" id="simple'+nextElement+'Tab">...</div></section>');
+
+    	$('#chat-id-'+chat_id).click(function() {
+    		var inst = $(this);
+    		setTimeout(function(){
+    			inst.find('.msg-nm').remove();
+    			inst.removeClass('has-pm');
+    			$(document).foundation('section', 'resize');
+    		},500);
+    	});
+
     	$.get(url, function(data) {
     		  $('#simple'+nextElement+'Tab').html(data);
     		  $(document).foundation('section', 'resize');
     	});
     };
 
+    this.attachTabNavigator = function(){
+    	$('#tabs > section > p.title > a.chat-tab-item').click(function(){
+    		$(this).find('.msg-nm').remove();
+    		$(this).removeClass('has-pm');
+    	});
+    };
+
     this.startChat = function (chat_id,tabs,name) {
         if ( this.chatUnderSynchronization(chat_id) == false ) {
-        	this.addTab(tabs, this.wwwDir +'chat/adminchat/'+chat_id, name);
+        	this.addTab(tabs, this.wwwDir +'chat/adminchat/'+chat_id, name, chat_id);
         }
     };
 
@@ -542,6 +559,18 @@ function lh(){
                                   $('#messagesBlock-'+item.chat_id).append(item.content);
         		                  $('#messagesBlock-'+item.chat_id).animate({ scrollTop: $("#messagesBlock-"+item.chat_id).prop("scrollHeight") }, 1000);
         		                  lhinst.updateChatLastMessageID(item.chat_id,item.message_id);
+
+        		                  var mainElement = $('#chat-id-'+item.chat_id);
+
+        		                  if (!mainElement.parent().parent().hasClass('active')) {
+        		                	  if (mainElement.find('span.msg-nm').length > 0) {
+        		                		  mainElement.find('span.msg-nm').html(' (' + (parseInt(mainElement.find('span.msg-nm').attr('rel')) + item.mn) + ')' );
+        		                	  } else {
+        		                		  mainElement.append('<span rel="'+item.mn+'" class="msg-nm"> ('+item.mn+')</span>');
+        		                		  mainElement.addClass('has-pm');
+        		                		  $(document).foundation('section', 'resize');
+        		                	  }
+        		                  }
                             });
 
                             if ( confLH.new_message_sound_admin_enabled == 1  && data.uw == 'false') {
@@ -801,6 +830,7 @@ function lh(){
     	}
     	return false;
     };
+
 
 
     this.disableChatSoundUser = function(inst)

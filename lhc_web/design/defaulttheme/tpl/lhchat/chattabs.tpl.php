@@ -69,7 +69,9 @@ $(function() {
 
 function addChat(chat_id,name)
 {
-    lhinst.startChat(chat_id,$('#tabs'),name);
+    lhinst.startChat(chat_id,$('#tabs'),name,chat_id);
     window.focus();
-}
+};
+
+lhinst.attachTabNavigator();
 </script>
