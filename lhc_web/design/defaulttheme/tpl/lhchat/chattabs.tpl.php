@@ -69,7 +69,7 @@ $(function() {
 
 function addChat(chat_id,name)
 {
-    lhinst.startChat(chat_id,$('#tabs'),name,chat_id);
+    lhinst.startChat(chat_id,$('#tabs'),name);
     window.focus();
 };
 
