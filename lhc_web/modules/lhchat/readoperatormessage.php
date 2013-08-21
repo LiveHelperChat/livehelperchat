@@ -67,9 +67,9 @@ if (isset($_POST['askQuestion']))
        $msg = new erLhcoreClassModelmsg();
        $msg->msg = trim($userInstance->operator_message);
        $msg->chat_id = $chat->id;
-       $msg->user_id = $userInstance->operator_user_id;
+       $msg->user_id = $userInstance->operator_user_id > 0 ? $userInstance->operator_user_id : 1;
        $msg->time = time();
-       $msg->name_support = $userInstance->operator_user->name.' '.$userInstance->operator_user->surname;
+       $msg->name_support = $userInstance->operator_user !== false ? ($userInstance->operator_user->name.' '.$userInstance->operator_user->surname) : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
        erLhcoreClassChat::getSession()->save($msg);
 
        // Store User Message
