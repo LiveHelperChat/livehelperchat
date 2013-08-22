@@ -57,7 +57,16 @@ class erLhcoreClassModule{
                 }
             }
 
-            include(self::getModuleFile(self::$currentModuleName,self::$currentView));
+            try {
+            	include(self::getModuleFile(self::$currentModuleName,self::$currentView));
+            } catch (Exception $e) {
+            	$CacheManager = erConfigClassLhCacheConfig::getInstance();
+            	$CacheManager->expireCache();
+            	header('HTTP/1.1 503 Service Temporarily Unavailable');
+            	header('Status: 503 Service Temporarily Unavailable');
+            	header('Retry-After: 300');
+            	exit;
+            }
 
             if (isset($Params['module']['pagelayout']) && !isset($Result['pagelayout'])) {
                 $Result['pagelayout'] = $Params['module']['pagelayout'];
