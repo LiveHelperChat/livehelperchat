@@ -38,6 +38,7 @@ $inputData->validate_start_chat = false;
 $inputData->name_items = array();
 $inputData->value_items = array();
 $inputData->value_sizes = array();
+$inputData->value_types = array();
 
 $chat = new erLhcoreClassModelChat();
 
