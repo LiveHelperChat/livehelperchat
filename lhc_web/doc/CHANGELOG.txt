@@ -1,3 +1,20 @@
+1.45v
+
+1. Spanish translation update from https://www.transifex.com/projects/p/live-helper-chat/
+P.s you can find the latest translation on https://www.transifex.com/projects/p/live-helper-chat/
+
+2. Option to override easier embed widget code.
+Just override this template
+design/defaulttheme/tpl/lhchat/getstatus/container.tpl.php
+
+3. Pro active chat a little bit usability update, no label and sends message on enter click.
+
+4. If user started chat based on proactive chat invitation, assign this message live support user.
+
+Bugfix.
+Undefined variable in start chat form.
+
+
 1.44v
 
 Bugfix.

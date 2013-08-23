@@ -2303,6 +2303,10 @@
         <translation>Prašome įvesti vardą</translation>
     </message>
     <message>
+        <source>Type your message here and hit enter to send...</source>
+        <translation>Įveskite savo žinute ir paspauskite enter norėdami nusiųsti...</translation>
+    </message>
+    <message>
         <source>Wrong email</source>
         <translation>Nekorektiškas el. pašto adresas</translation>
     </message>
@@ -2313,6 +2317,10 @@
     <message>
         <source>Visitor</source>
         <translation>Lankytojas</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation>Siųsti</translation>
     </message>
 </context>
 <context>
