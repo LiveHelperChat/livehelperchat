@@ -266,7 +266,7 @@ class erLhcoreClassModelChatOnlineUser {
        	   $ip = (isset($params['ip']) && !empty($params['ip'])) ? $params['ip'] : $ip;
 
            $response = self::executeRequest("http://api.locatorhq.com/?user={$params['username']}&key={$params['api_key']}&ip={$ip}&format=json");
-
+                    
            if ( !empty($response) ) {
                $responseData = json_decode($response);
                if (is_object($responseData)) {
@@ -274,10 +274,10 @@ class erLhcoreClassModelChatOnlineUser {
                    $normalizedObject = new stdClass();
                    $normalizedObject->country_code = strtolower($responseData->countryCode);
                    $normalizedObject->country_name = $responseData->countryName;
-                   $normalizedObject->lat = $responseData->cityLattitude;
-                   $normalizedObject->lon = $responseData->cityLongitude;
-                   $normalizedObject->city = $responseData->cityName;
-
+                   $normalizedObject->lat = $responseData->latitude;
+                   $normalizedObject->lon = $responseData->longitude;
+                   $normalizedObject->city = $responseData->city;
+                   
                    return $normalizedObject;
                }
                return false;
