@@ -8,6 +8,7 @@ class erLhcoreClassModelDepartament {
                'id'       => $this->id,
                'name'     => $this->name,
                'email'     => $this->email,
+               'priority'     => $this->priority,
        );
    }
 
@@ -122,6 +123,7 @@ class erLhcoreClassModelDepartament {
     public $id = null;
     public $name = '';
     public $email = '';
+    public $priority = 0;
 }
 
 ?>

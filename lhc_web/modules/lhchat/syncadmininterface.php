@@ -44,12 +44,10 @@ if ($pendingTabEnabled == true) {
 	 * Get last pending chat
 	 * */
 	$lastPendingChatID = 0;
-	if (!empty($pendingChats)){
-	    reset($pendingChats);
-	    $chatPending = current($pendingChats);
-	    $lastPendingChatID = $chatPending->id;
+	if (!empty($pendingChats)) {
+		$lastPendingChatID = max(array_keys($pendingChats));	
 	}
-
+	
 	$ReturnMessages[] = array('dom_id_status' => '.pn-cnt', 'dom_item_count' => count($pendingChats),'dom_id' => '#right-pending-chats,#pending-chat-list', 'last_id_identifier' => 'pending_chat', 'last_id' => $lastPendingChatID, 'content' => trim($tpl->fetch('lhchat/lists/pendingchats.tpl.php')));
 }
 

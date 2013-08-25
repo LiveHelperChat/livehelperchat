@@ -16,6 +16,9 @@ if (isset($_POST['Save_departament']))
         ),
         'Email' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'validate_email'
+        ),
+        'Priority' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int'
         )
     );
 
@@ -32,7 +35,13 @@ if (isset($_POST['Save_departament']))
     } else {
     	$Departament->email = '';
     }
-
+    
+    if ( $form->hasValidData( 'Priority' ) ) {
+    	$Departament->priority = $form->Priority;
+    } else {
+    	$Departament->priority = 0;
+    }
+    
     if (count($Errors) == 0)
     {
         $Departament->name = $form->Name;

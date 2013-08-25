@@ -168,6 +168,12 @@ class erLhcoreClassChatValidator {
 
         $inputForm->departament_id = $chat->dep_id;
 
+        if ( $inputForm->priority !== false && is_numeric($inputForm->priority) ) {
+        	$chat->priority = (int)$inputForm->priority;
+        } else {
+        	$chat->priority = $departments[$chat->dep_id]->priority;
+        }
+        
         if ( $form->hasValidData( 'name_items' ) && !empty($form->name_items))
         {
         	$valuesArray = array();

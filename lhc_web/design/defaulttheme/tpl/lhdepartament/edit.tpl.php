@@ -16,6 +16,9 @@
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','E-mail');?></label>
     <input type="text" name="Email"  value="<?php echo htmlspecialchars($departament->email);?>" />
 
+    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Priority');?></label>
+    <input type="text" name="Priority"  value="<?php echo htmlspecialchars($departament->priority);?>" />
+
 	<ul class="button-group radius">
       <li><input type="submit" class="small button" name="Save_departament" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/></li>
       <li><input type="submit" class="small button" name="Update_departament" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update');?>"/></li>

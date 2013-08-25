@@ -196,25 +196,25 @@ $ViewList['blockedusers'] = array(
 $ViewList['getstatus'] = array(
     'script' => 'getstatus.php',
     'params' => array(),
-    'uparams' => array('disable_pro_active','click','position','hide_offline','check_operator_messages','top','units','leaveamessage','department','identifier'),
+    'uparams' => array('priority','disable_pro_active','click','position','hide_offline','check_operator_messages','top','units','leaveamessage','department','identifier'),
     );
 
 $ViewList['getstatusembed'] = array(
     'script' => 'getstatusembed.php',
     'params' => array(),
-    'uparams' => array('hide_offline','leaveamessage','department'),
+    'uparams' => array('hide_offline','leaveamessage','department','priority'),
 );
 
 $ViewList['startchat'] = array (
     'script' => 'startchat.php',
     'params' => array(),
-    'uparams' => array('offline','leaveamessage','department')
+    'uparams' => array('offline','leaveamessage','department','priority')
 );
 
 $ViewList['chatwidget'] = array(
     'script' => 'chatwidget.php',
     'params' => array(),
-    'uparams' => array('mode','offline','leaveamessage','department'),
+    'uparams' => array('mode','offline','leaveamessage','department','priority'),
 );
 
 $ViewList['reopen'] = array(
@@ -225,12 +225,14 @@ $ViewList['reopen'] = array(
 
 $ViewList['readoperatormessage'] = array(
     'script' => 'readoperatormessage.php',
-    'params' => array()
+    'params' => array(),
+    'uparams' => array('priority')
 );
 
 $ViewList['chatcheckoperatormessage'] = array(
     'script' => 'chatcheckoperatormessage.php',
-    'params' => array()
+    'params' => array(),
+    'uparams' => array('priority')
 );
 
 $ViewList['chatwidgetclosed'] = array(

@@ -34,6 +34,7 @@ class erLhcoreClassModelChat {
                'wait_time'     			=> $this->wait_time,
                'chat_duration'     		=> $this->chat_duration,
                'chat_variables'     	=> $this->chat_variables,
+               'priority'     			=> $this->priority,
        );
    }
 
@@ -218,6 +219,7 @@ class erLhcoreClassModelChat {
    public $session_referrer = '';
    public $wait_time = 0;
    public $chat_duration = 0;
+   public $priority = 0;
    public $chat_variables = '';
 
 }

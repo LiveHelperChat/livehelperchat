@@ -151,6 +151,11 @@ $def->properties['chat_variables']->columnName   = 'chat_variables';
 $def->properties['chat_variables']->propertyName = 'chat_variables';
 $def->properties['chat_variables']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['priority'] = new ezcPersistentObjectProperty();
+$def->properties['priority']->columnName   = 'priority';
+$def->properties['priority']->propertyName = 'priority';
+$def->properties['priority']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

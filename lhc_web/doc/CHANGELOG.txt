@@ -1,3 +1,9 @@
+1.46v
+
+1. Now chats can have priority. It can be either embed variable either department attribute. Pending chats with higher priority will appear higher in the list.
+
+execute doc/update_db/update_31.sql
+
 1.45v
 
 1. Spanish translation update from https://www.transifex.com/projects/p/live-helper-chat/

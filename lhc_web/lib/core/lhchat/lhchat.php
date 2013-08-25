@@ -24,13 +24,16 @@ class erLhcoreClassChat {
     	$filter['filter'] = array('status' => 0);
 
     	if ($limitation !== true) {
-    		$filter['customfilter'][] = $limitation;
-    		$filter['use_index'] = 'status_dep_id_id';
+    		$filter['customfilter'][] = $limitation;    	
+    		$filter['use_index'] = 'status_dep_id_priority_id';
+    	} else {
+    		$filter['use_index'] = 'status_priority_id';
     	}
 
     	$filter['limit'] = $limit;
     	$filter['offset'] = $offset;
     	$filter['smart_select'] = true;
+    	$filter['sort'] = 'priority DESC, id DESC';
 
     	return self::getList($filter);
     }

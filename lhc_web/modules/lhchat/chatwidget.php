@@ -39,6 +39,7 @@ $inputData->name_items = array();
 $inputData->value_items = array();
 $inputData->value_sizes = array();
 $inputData->value_types = array();
+$inputData->priority = is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : false;
 
 $chat = new erLhcoreClassModelChat();
 

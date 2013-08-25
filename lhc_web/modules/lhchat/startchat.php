@@ -26,6 +26,7 @@ $inputData->question = '';
 $inputData->email = isset($_GET['prefill']['email']) ? (string)$_GET['prefill']['email'] : '';
 $inputData->phone = isset($_GET['prefill']['phone']) ? (string)$_GET['prefill']['phone'] : '';
 $inputData->departament_id = (int)$Params['user_parameters_unordered']['department'];
+$inputData->priority = is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : false;
 $inputData->validate_start_chat = true;
 $inputData->name_items = array();
 $inputData->value_items = array();

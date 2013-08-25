@@ -251,14 +251,17 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `mail_send` int(11) NOT NULL,
         	   	  `wait_time` int(11) NOT NULL,
   				  `chat_duration` int(11) NOT NULL,
+        	   	  `priority` int(11) NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `status` (`status`),
 				  KEY `user_id` (`user_id`),
 				  KEY `dep_id` (`dep_id`),
 				  KEY `has_unread_messages_dep_id_id` (`has_unread_messages`,`dep_id`,`id`),
-				  KEY `status_dep_id_id` (`status`,`dep_id`,`id`)
+				  KEY `status_dep_id_id` (`status`,`dep_id`,`id`),
+        	   	  KEY `status_dep_id_priority_id` (`status`,`dep_id`,`priority`,`id`),
+        	   	  KEY `status_priority_id` (`status`,`priority`,`id`)
 				) DEFAULT CHARSET=utf8;");
-
+       	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_blocked_user` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
                   `ip` varchar(100) NOT NULL,
@@ -469,6 +472,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
 				  `name` varchar(100) NOT NULL,
 				  `email` varchar(100) NOT NULL,
+				  `priority` int(11) NOT NULL,
 				  PRIMARY KEY (`id`)
 				) DEFAULT CHARSET=utf8;");
 

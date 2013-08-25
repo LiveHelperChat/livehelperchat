@@ -25,7 +25,7 @@ if (isset($_POST['askQuestion']))
     $form = new ezcInputForm( INPUT_POST, $validationFields );
     $Errors = array();
 
-    if ( !$form->hasValidData( 'Question' ) || $form->Question == '' ) {
+    if ( !$form->hasValidData( 'Question' ) || trim($form->Question) == '' ) {
         $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your message');
     } elseif ($form->hasValidData( 'Question' )) {
         $inputData->question = $form->Question;
@@ -53,8 +53,9 @@ if (isset($_POST['askQuestion']))
        $departments = erLhcoreClassModelDepartament::getList();
        $ids = array_keys($departments);
        $id = array_shift($ids);
-       $chat->dep_id = $id;
-
+       $chat->dep_id = $id;   
+       $chat->priority = is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : $departments[$chat->dep_id]->priority;
+                   
        // Store chat
        erLhcoreClassChat::getSession()->save($chat);
 
