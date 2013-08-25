@@ -22,7 +22,7 @@ class erLhcoreClassRenderHelper {
         }
           
         $nameSelect = isset($params['display_name']) ? $params['display_name'] : 'name';
-        
+
         foreach ($items as $item)
         {
             $selected = ( (isset($params['is_editing']) && $params['is_editing'] == false && $item->{$params['use_default']} == 1 && (!is_array($params['selected_id']) && ($params['selected_id'] === null || $params['selected_id'] === '') )) || (is_array($params['selected_id']) && in_array($item->$attrId,$params['selected_id'])) || $params['selected_id'] == $item->$attrId) ? 'selected="selected"' : '';  
