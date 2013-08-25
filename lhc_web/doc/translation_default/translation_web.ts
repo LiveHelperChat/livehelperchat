@@ -2585,6 +2585,10 @@
         <source>System configuration</source>
         <translation></translation>
     </message>
+    <message>
+        <source>Priority</source>
+        <translation></translation>
+    </message>
 </context>
 <context>
     <name>department/departments</name>
