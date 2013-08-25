@@ -62,9 +62,6 @@ class erLhcoreClassModule{
             } catch (Exception $e) {
             	$CacheManager = erConfigClassLhCacheConfig::getInstance();
             	$CacheManager->expireCache();
-            	
-            	print_r($e);
-            	
             	header('HTTP/1.1 503 Service Temporarily Unavailable');
             	header('Status: 503 Service Temporarily Unavailable');
             	header('Retry-After: 300');
