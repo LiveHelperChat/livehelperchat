@@ -262,6 +262,9 @@ class erLhcoreClassModelChatOnlineUser {
 
            return false;
        } elseif ($service == 'locatorhq') {
+
+       	   $ip = (isset($params['ip']) && !empty($params['ip'])) ? $params['ip'] : $ip;
+
            $response = self::executeRequest("http://api.locatorhq.com/?user={$params['username']}&key={$params['api_key']}&ip={$ip}&format=json");
 
            if ( !empty($response) ) {

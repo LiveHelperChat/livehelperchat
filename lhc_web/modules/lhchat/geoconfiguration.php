@@ -34,6 +34,9 @@ if ( isset($_POST['StoreGeoIPConfiguration']) ) {
         ),
         'locatorhqUsername' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
+        ),
+        'locatorhqIP' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
         )
     );
 
@@ -111,8 +114,15 @@ if ( isset($_POST['StoreGeoIPConfiguration']) ) {
                     $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Please enter the API username!');
                 }
 
+                if ( $form->hasValidData( 'locatorhqIP' ) && $form->locatorhqIP != '' ) {
+                    $data['locatorhqip'] = $form->locatorhqIP;
+                } else {
+                    $filledAPIData = false;
+                    $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Please enter IP!');
+                }
+
                 if ($filledAPIData == true) {
-                    $responseDetection = erLhcoreClassModelChatOnlineUser::getUserData('locatorhq',$_SERVER['SERVER_ADDR'],array('username' => $data['locatorhqusername'], 'api_key' => $data['locatorhq_api_key']));
+                    $responseDetection = erLhcoreClassModelChatOnlineUser::getUserData('locatorhq',$_SERVER['SERVER_ADDR'],array('ip' => $data['locatorhqip'], 'username' => $data['locatorhqusername'], 'api_key' => $data['locatorhq_api_key']));
                     if ($responseDetection == false || !isset($responseDetection->country_code)){
                         $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key and username is correct!');
                     }
