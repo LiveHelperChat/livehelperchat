@@ -14,6 +14,7 @@
 			<?php if ($currentUser->hasAccessTo('lhchat','use_onlineusers')) : ?>
 			<li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/onlineusers')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Online visitors');?></a></li>
 			<?php endif;?>
+			<li class="divider"></li>
 			<?php if ($currentUser->hasAccessTo('lhquestionary','manage_questionary')) : ?>
 			<li><a href="<?php echo erLhcoreClassDesign::baseurl('questionary/list')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Questionary');?></a></li>
 			<?php endif;?>

@@ -2987,7 +2987,19 @@
         <translation></translation>
     </message>
     <message>
-        <source>Chat embed code</source>
+        <source>Live help embed code</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>FAQ embed code</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Questionary embed code</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Chatbox embed code</source>
         <translation></translation>
     </message>
     <message>
