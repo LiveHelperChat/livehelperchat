@@ -77,4 +77,7 @@ $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_lis
   </section>
   <?php endif; ?>
 </div>
-<script>lhinst.attachTabNavigator();</script>
+<script>
+lhinst.attachTabNavigator();
+<?php include(erLhcoreClassDesign::designtpl('lhchat/part/opened_chats_js.tpl.php')); ?>
+</script>

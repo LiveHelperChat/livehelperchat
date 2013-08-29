@@ -88,11 +88,14 @@
 		<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Actions')?>
 	</h5>
 	<p>
+		<img class="action-image" align="absmiddle" onclick="lhinst.startChatCloseTabNewWindow('<?php echo $chat->id;?>',$('#tabs'),'<?php echo htmlspecialchars($chat->nick);?>')" src="<?php echo erLhcoreClassDesign::design('images/icons/application_add.png');?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Open in a new window');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Open in a new window');?>">
+		
 		<img class="action-image" align="absmiddle"
 			onclick="lhinst.removeDialogTab('<?php echo $chat->id?>',$('#tabs'),true)"
 			src="<?php echo erLhcoreClassDesign::design('images/icons/application_delete.png');?>"
 			alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Close dialog')?>"
 			title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Close dialog')?>">
+
 		<img class="action-image" align="absmiddle"
 			onclick="lhinst.closeActiveChatDialog('<?php echo $chat->id?>',$('#tabs'),true)"
 			src="<?php echo erLhcoreClassDesign::design('images/icons/cancel.png');?>"

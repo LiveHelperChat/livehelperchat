@@ -21,6 +21,7 @@ function lh(){
     this.accepttransfer = "chat/accepttransfer/";
     this.trasnsferuser = "chat/transferuser/";
     this.userclosechaturl = "chat/userclosechat/";
+    this.disableremember = false;
 
     // On chat hash and chat_id is based web user chating. Hash make sure chat security.
     this.chat_id = null;
@@ -75,10 +76,15 @@ function lh(){
     this.setwwwDir = function (wwwdir){
         this.wwwDir = wwwdir;
     };
-
+    
     this.setCloseWindowOnEvent = function (value)
     {
-        this.closeWindowOnChatCloseDelete = value;
+    	this.closeWindowOnChatCloseDelete = value;
+    };
+
+    this.setDisableRemember = function (value)
+    {
+        this.disableremember = value;
     };
 
     this.setSynchronizationStatus = function(status)
@@ -114,8 +120,9 @@ function lh(){
     };
 
     this.startChat = function (chat_id,tabs,name) {
-        if ( this.chatUnderSynchronization(chat_id) == false ) {
-        	this.addTab(tabs, this.wwwDir +'chat/adminchat/'+chat_id, name, chat_id);
+        if ( this.chatUnderSynchronization(chat_id) == false ) {        	
+        	var rememberAppend = this.disableremember == false ? '/(remember)/true' : '';
+        	this.addTab(tabs, this.wwwDir +'chat/adminchat/'+chat_id+rememberAppend, name, chat_id);
         }
     };
 
@@ -328,8 +335,10 @@ function lh(){
 
 	    if (hidetab == true) {
 
-	    	tabs.find('section.active').remove();
-			tabs.find('section:eq(0)').addClass("active");
+	    	var index = tabs.find(' > section.active').index();
+	    	tabs.find(' > section.active').remove();
+			tabs.find(' > section:eq(' + (index - 1) + ')').addClass("active");
+			
 			$(document).foundation('section', 'resize');
 
 	        if (this.closeWindowOnChatCloseDelete == true)
@@ -343,7 +352,34 @@ function lh(){
 	    this.syncadmininterfacestatic();
 
 	};
+	
+	this.startChatCloseTabNewWindow = function(chat_id, tabs, name)
+	{
+		window.open(this.wwwDir + 'chat/single/'+chat_id,'chatwindow'+name+chat_id,"menubar=1,resizable=1,width=780,height=450");
+	    	    
+	    $.ajax({
+	        type: "GET",
+	        url: this.wwwDir + 'chat/adminleftchat/' + chat_id,		       
+	        async: true
+	    });
+    	
+    	var index = tabs.find(' > section.active').index();
+    	tabs.find(' > section.active').remove();
+		tabs.find(' > section:eq(' + (index - 1) + ')').addClass("active");
+				
+		$(document).foundation('section', 'resize');
 
+        if (this.closeWindowOnChatCloseDelete == true)
+        {
+            window.close();
+        };
+	    
+        this.removeSynchroChat(chat_id);
+	    this.syncadmininterfacestatic();
+	    
+	    return false;
+	};
+	
 	this.removeDialogTab = function(chat_id, tabs, hidetab)
 	{
 	    if ($('#CSChatMessage-'+chat_id).length != 0){
@@ -352,8 +388,17 @@ function lh(){
 
 	    if (hidetab == true) {
 
-	    	tabs.find('section.active').remove();
-			tabs.find('section:eq(0)').addClass("active");
+	    	$.ajax({
+		        type: "GET",
+		        url: this.wwwDir + 'chat/adminleftchat/' + chat_id,		       
+		        async: true
+		    });
+	    	
+	    	var index = tabs.find(' > section.active').index();
+	    	tabs.find(' > section.active').remove();
+			tabs.find(' > section:eq(' + (index - 1) + ')').addClass("active");
+			
+			
 			$(document).foundation('section', 'resize');
 
 	        if (this.closeWindowOnChatCloseDelete == true)
@@ -368,8 +413,10 @@ function lh(){
 
 	this.removeActiveDialogTag = function(tabs) {
 
-		tabs.find('section.active').remove();
-		tabs.find('section:eq(0)').addClass("active");
+		var index = tabs.find(' > section.active').index();
+    	tabs.find(' > section.active').remove();
+		tabs.find(' > section:eq(' + (index - 1) + ')').addClass("active");
+		
 		$(document).foundation('section', 'resize');
 
         if (this.closeWindowOnChatCloseDelete == true)
@@ -394,8 +441,10 @@ function lh(){
 	     if (hidetab == true) {
 
 	        // Remove active tab
-	    	tabs.find('section.active').remove();
-			tabs.find('section:eq(0)').addClass("active");
+	    	var index = tabs.find(' > section.active').index();
+		    tabs.find(' > section.active').remove();
+			tabs.find(' > section:eq(' + (index - 1) + ')').addClass("active");
+				
 			$(document).foundation('section', 'resize');
 
 

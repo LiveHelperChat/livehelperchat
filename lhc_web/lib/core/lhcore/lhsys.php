@@ -24,6 +24,31 @@ class CSCacheAPC {
     	}
     }
 
+    function appendToArray($identifier, $value)
+    {
+    	if (isset($_SESSION[$identifier]) && in_array($value, $_SESSION[$identifier])){
+    		return ;
+    	}
+    	
+    	$_SESSION[$identifier][] = $value;    	
+    }
+
+    function removeFromArray($identifier, $value)
+    {    	
+    	if (isset($_SESSION[$identifier]) && is_array($_SESSION[$identifier]) && ($index = array_search($value, $_SESSION[$identifier])) !== false){
+    		unset($_SESSION[$identifier][$index]);
+    	}    	
+    }
+
+    function getArray($identifier)
+    {    	
+    	if (isset($_SESSION[$identifier]) && is_array($_SESSION[$identifier])){
+    		return $_SESSION[$identifier];
+    	}    	
+    	
+    	return array();
+    }
+        
     function getSession($identifier, $useGlobalCache = false) {
 
     	if (isset($_SESSION[$identifier])){

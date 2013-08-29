@@ -24,7 +24,9 @@ if ($chat->user_id == $currentUser->getUserID() || $currentUser->hasAccessTo('lh
 	    erLhcoreClassChat::getSession()->save($msg);
 
 	    erLhcoreClassChat::getSession()->update($chat);
-
+	    
+	    CSCacheAPC::getMem()->removeFromArray('lhc_open_chats', $chat->id);
+	    
 	    // Execute callback for close chat
 	    erLhcoreClassChat::closeChatCallback($chat);
 	}

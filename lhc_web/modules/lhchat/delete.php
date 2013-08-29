@@ -7,7 +7,8 @@ $currentUser = erLhcoreClassUser::instance();
 
 if ($currentUser->hasAccessTo('lhchat','deleteglobalchat') || ($currentUser->hasAccessTo('lhchat','deletechat') && $chat->user_id == $currentUser->getUserID()))
 {
-	$chat->removeThis();
+	$chat->removeThis();	
+	CSCacheAPC::getMem()->removeFromArray('lhc_open_chats', $chat->id);
 }
 
 header('Location: ' . $_SERVER['HTTP_REFERER']);

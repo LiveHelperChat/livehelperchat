@@ -23,6 +23,10 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
     $chat->support_informed = 1;
     $chat->has_unread_messages = 0;
     erLhcoreClassChat::getSession()->update($chat);
+    
+    if ($Params['user_parameters_unordered']['remember'] == 'true') {
+    	CSCacheAPC::getMem()->appendToArray('lhc_open_chats',$chat->id);
+    }
 
 } else {
     $tpl->setFile( 'lhchat/errors/adminchatnopermission.tpl.php');

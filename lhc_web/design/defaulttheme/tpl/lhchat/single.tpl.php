@@ -15,8 +15,9 @@
 <script type="text/javascript">
 function addChat(chat_id,name)
 {
-    lhinst.startChat(chat_id,$('#tabs'),name);
-    lhinst.setCloseWindowOnEvent(true);
+	lhinst.setCloseWindowOnEvent(true);
+	lhinst.setDisableRemember(true);
+    lhinst.startChat(chat_id,$('#tabs'),name);    
     window.focus();
 }
 </script>

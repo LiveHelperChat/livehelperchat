@@ -8,17 +8,24 @@ $ViewList = array();
 $ViewList['adminchat'] = array(
     'script' => 'adminchat.php',
     'params' => array('chat_id'),
+    'uparams' => array('remember'),
     'functions' => array( 'use' )
-    );
+);
 
 $ViewList['previewchat'] = array(
     'script' => 'previewchat.php',
     'params' => array('chat_id'),
     'functions' => array( 'use' )
-    );
+);
 
 $ViewList['closechatadmin'] = array(
     'script' => 'closechatadmin.php',
+    'params' => array('chat_id'),
+    'functions' => array( 'use' )
+);
+
+$ViewList['adminleftchat'] = array(
+    'script' => 'adminleftchat.php',
     'params' => array('chat_id'),
     'functions' => array( 'use' )
 );
