@@ -354,9 +354,7 @@ class erLhcoreClassSystem{
     {
         return $this->WWWDir;
     }
-
-    public $baseHTTP;
-
+   
     /// The path to where all the code resides
     public $SiteDir;
     /// The access path of the current site view

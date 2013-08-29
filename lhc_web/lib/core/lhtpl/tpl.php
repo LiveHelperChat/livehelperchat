@@ -364,10 +364,7 @@ class erLhcoreClassTemplate {
 
 			// Compile content language
 			$contentFile = str_replace('<?php echo erLhcoreClassSystem::instance()->ContentLanguage?>',erLhcoreClassSystem::instance()->ContentLanguage,$contentFile);
-
-			// Compile http or https
-			$contentFile = str_replace('<?php echo erLhcoreClassSystem::instance()->baseHTTP?>',erLhcoreClassSystem::instance()->baseHTTP,$contentFile);
-
+			
 			// Compile siteaccess
 			$contentFile = str_replace('erLhcoreClassSystem::instance()->SiteAccess','\''.erLhcoreClassSystem::instance()->SiteAccess.'\'',$contentFile);
 

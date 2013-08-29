@@ -3,7 +3,7 @@ var lhc_QuestionaryPage = function() {
 
 	this.showVotingForm = function() {
 
-   		  this.initial_iframe_url = "<?php echo erLhcoreClassSystem::instance()->baseHTTP?><?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('questionary/votingwidget')?>/(mode)/embed"+'?URLReferer='+escape(document.location);
+   		  this.initial_iframe_url = "//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('questionary/votingwidget')?>/(mode)/embed"+'?URLReferer='+escape(document.location);
 
    		  this.iframe_html = '<iframe id="lhc_sizing_questionary_page" allowTransparency="true" scrolling="no" frameborder="0" ' +
                        ( this.initial_iframe_url != '' ? ' src="'    + this.initial_iframe_url + '"' : '' ) +
