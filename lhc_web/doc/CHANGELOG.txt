@@ -11,7 +11,7 @@
 9. Department chosing box will show status of department is it online or offline. First will be shown online departments.
 10. Now Surname is optional field, so you can have only name filled.
 11. Print option for user and admin.
-
+12. Now you can see what user is typing before he sends message to operator.
 
 execute doc/update_db/update_32.sql
 
