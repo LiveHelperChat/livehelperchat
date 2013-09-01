@@ -239,6 +239,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `country_code` varchar(100) NOT NULL,
 				  `country_name` varchar(100) NOT NULL,
 				  `user_typing` int(11) NOT NULL,
+				  `user_typing_txt` varchar(50) NOT NULL,
 				  `operator_typing` int(11) NOT NULL,
 				  `phone` varchar(100) NOT NULL,
 				  `has_unread_messages` int(11) NOT NULL,
@@ -424,7 +425,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('application_name',	'a:6:{s:3:\"eng\";s:31:\"Live Helper Chat - live support\";s:3:\"lit\";s:26:\"Live Helper Chat - pagalba\";s:3:\"hrv\";s:0:\"\";s:3:\"esp\";s:0:\"\";s:3:\"por\";s:0:\"\";s:10:\"site_admin\";s:31:\"Live Helper Chat - live support\";}',	1,	'Support application name, visible in browser title.',	0),
                 ('track_footprint',	'0',	0,	'Track users footprint. For this also online visitors tracking should be enabled',	0),
                 ('pro_active_limitation',	'-1',	0,	'Pro active chats invitations limitation based on pending chats, (-1) do not limit, (0,1,n+1) number of pending chats can be for invitation to be shown.',	0),
-                ('pro_active_show_if_offline',	'0',	0,	'Should invitation logic be run if there is no online operators, 0 - no, 1 - yes',	0),
+                ('pro_active_show_if_offline',	'0',	0,	'Should invitation logic be executed if there is no online operators, 0 - no, 1 - yes',	0),
                 ('geo_data', '', '0', '', '1')");
 
         	   $db->query("CREATE TABLE `lh_chat_online_user` (

@@ -106,6 +106,11 @@ $def->properties['user_typing']->columnName   = 'user_typing';
 $def->properties['user_typing']->propertyName = 'user_typing';
 $def->properties['user_typing']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['user_typing_txt'] = new ezcPersistentObjectProperty();
+$def->properties['user_typing_txt']->columnName   = 'user_typing_txt';
+$def->properties['user_typing_txt']->propertyName = 'user_typing_txt';
+$def->properties['user_typing_txt']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $def->properties['operator_typing'] = new ezcPersistentObjectProperty();
 $def->properties['operator_typing']->columnName   = 'operator_typing';
 $def->properties['operator_typing']->propertyName = 'operator_typing';

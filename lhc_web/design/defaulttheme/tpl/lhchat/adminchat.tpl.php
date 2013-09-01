@@ -16,10 +16,8 @@
 				<?php endif;?>
 
 			</div>
-			<div class="user-is-typing"
-				id="user-is-typing-<?php echo $chat->id?>">
-				<i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','User is typing now...')?>
-				</i>
+			<div class="user-is-typing" id="user-is-typing-<?php echo $chat->id?>">
+				<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','User is typing now...')?>
 			</div>
 		</div>
 

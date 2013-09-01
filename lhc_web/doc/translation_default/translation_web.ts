@@ -2263,6 +2263,10 @@
         <translation></translation>
     </message>
     <message>
+        <source>Offline</source>
+        <translation></translation>
+    </message>
+    <message>
         <source>Leave a message</source>
         <translation></translation>
     </message>

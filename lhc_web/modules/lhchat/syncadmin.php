@@ -62,7 +62,7 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
             }
 
             if ($Chat->is_user_typing) {
-                $ReturnStatuses[] = array('chat_id' => $chat_id,'tp' => 'true');
+                $ReturnStatuses[] = array('chat_id' => $chat_id,'tp' => 'true','tx' => htmlspecialchars($Chat->user_typing_txt));
             } else {
                 $ReturnStatuses[] = array('chat_id' => $chat_id,'tp' => 'false');
             }

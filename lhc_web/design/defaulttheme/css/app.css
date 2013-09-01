@@ -349,6 +349,7 @@ div.message-row-in {
 #id-operator-typing {
     display:none;
     font-weight:bold;
+    font-style:italic;
     position:absolute;
     right:1px;
     background-color: rgba(250, 250, 250, 0.95);
