@@ -89,7 +89,7 @@
 	</h5>
 	<p>
 		<img class="action-image" align="absmiddle" onclick="lhinst.startChatCloseTabNewWindow('<?php echo $chat->id;?>',$('#tabs'),'<?php echo htmlspecialchars($chat->nick);?>')" src="<?php echo erLhcoreClassDesign::design('images/icons/application_add.png');?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Open in a new window');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Open in a new window');?>">
-		
+
 		<img class="action-image" align="absmiddle"
 			onclick="lhinst.removeDialogTab('<?php echo $chat->id?>',$('#tabs'),true)"
 			src="<?php echo erLhcoreClassDesign::design('images/icons/application_delete.png');?>"
@@ -121,6 +121,10 @@
 			src="<?php if ($chat->mail_send == 0) : ?><?php echo erLhcoreClassDesign::design('images/icons/email.png');?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/email-send.png');?><?php endif; ?>"
 			alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Send mail')?>"
 			title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Send mail')?>">
+
+
+		<a target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('chat/printchatadmin')?>/<?php echo $chat->id?>" class="print-ico-admin" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Print')?>"></a>
+
 	</p>
 
 

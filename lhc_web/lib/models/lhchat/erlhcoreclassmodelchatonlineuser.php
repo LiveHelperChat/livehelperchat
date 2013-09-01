@@ -266,7 +266,7 @@ class erLhcoreClassModelChatOnlineUser {
        	   $ip = (isset($params['ip']) && !empty($params['ip'])) ? $params['ip'] : $ip;
 
            $response = self::executeRequest("http://api.locatorhq.com/?user={$params['username']}&key={$params['api_key']}&ip={$ip}&format=json");
-                    
+
            if ( !empty($response) ) {
                $responseData = json_decode($response);
                if (is_object($responseData)) {
@@ -277,7 +277,7 @@ class erLhcoreClassModelChatOnlineUser {
                    $normalizedObject->lat = $responseData->latitude;
                    $normalizedObject->lon = $responseData->longitude;
                    $normalizedObject->city = $responseData->city;
-                   
+
                    return $normalizedObject;
                }
                return false;
@@ -395,8 +395,7 @@ class erLhcoreClassModelChatOnlineUser {
 	           	}
            }
 
-           $item->user_agent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
-           $item->current_page = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
+
 
            if (isset($paramsHandle['pages_count']) && $paramsHandle['pages_count'] == true) {
            		$item->pages_count++;
@@ -404,7 +403,13 @@ class erLhcoreClassModelChatOnlineUser {
 
            // For DEBUG
            //$item->current_page = $cookieData;
-           $item->last_visit = time();
+
+           // Update variables only if it's not JS to check for operator message
+           if (!isset($paramsHandle['check_message_operator'])) {
+           		$item->user_agent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
+           		$item->current_page = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
+           		$item->last_visit = time();
+           }
 
            if ($item->operator_message == '' && isset($paramsHandle['pro_active_invite']) && $paramsHandle['pro_active_invite'] == 1 && isset($paramsHandle['pro_active_limitation']) && ($paramsHandle['pro_active_limitation'] == -1 || erLhcoreClassChat::getPendingChatsCountPublic() <= $paramsHandle['pro_active_limitation']) ) {
            		//Process pro active chat invitation if this visitor matches any rules

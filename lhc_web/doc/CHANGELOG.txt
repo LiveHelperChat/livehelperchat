@@ -1,3 +1,20 @@
+1.47v
+
+1. From chat tab you can open popup. Let say you were chatting in tab and you want to open popup. So you can do that now. There is very first icon for that.
+2. Then you open let say three chats at the same time and close one. I now activate the very first tab to left. Feels very natural closing workflow.
+3. Fixed bug, then closing chat in tab it removed subtabs from other chat tabs.
+4. Added more clear way what embed codes system can generate
+5. Switched to https support by using double slash E.g //demo.livehelperchat.com -  so I do not have to detect in what enviroment we are running.
+6. You now can disable or enable invitation if there is or not online operators.
+7. You can set online visitors timeout, to see only the recent visitors.
+8. Check messages from operator JS call won't be counted as last visit.
+9. Department chosing box will show status of department is it online or offline. First will be shown online departments.
+10. Now Surname is optional field, so you can have only name filled.
+11. Print option for user and admin.
+
+
+execute doc/update_db/update_32.sql
+
 1.46v
 
 1. Now chats can have priority. It can be either embed variable either department attribute. Pending chats with higher priority will appear higher in the list.

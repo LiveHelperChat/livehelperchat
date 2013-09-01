@@ -33,6 +33,19 @@ class erLhcoreClassModelDepartament {
    		return $this->name;
    }
 
+   public function __get($var) {
+	   	switch ($var) {
+	   		case 'is_online':
+	   			$this->is_online = erLhcoreClassChat::isOnline($this->id);
+	   			return $this->is_online;
+	   		break;
+
+	   		default:
+	   			;
+	   		break;
+	   	}
+   }
+
    public static function getCount($params = array())
    {
        $session = erLhcoreClassDepartament::getSession();
@@ -112,7 +125,7 @@ class erLhcoreClassModelDepartament {
 
       $q->limit($params['limit'],$params['offset']);
 
-      $q->orderBy(isset($params['sort']) ? $params['sort'] : 'id DESC' );
+      $q->orderBy(isset($params['sort']) ? $params['sort'] : 'id ASC' );
 
 
        $objects = $session->find( $q );

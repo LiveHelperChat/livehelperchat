@@ -63,7 +63,7 @@ if (key_exists($position, $positionArgument)){
 
 $isOnlineHelp = erLhcoreClassChat::isOnline($department);
 
-if ($isOnlineHelp == false) {
+if ($isOnlineHelp == false && erLhcoreClassModelChatConfig::fetch('pro_active_show_if_offline')->current_value == 0) {
 	$disable_pro_active = true;
 };
 

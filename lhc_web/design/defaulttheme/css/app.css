@@ -168,6 +168,10 @@ select {
 	font-size: 0.75em;
 }
 
+option.offline-dep{
+	color:#970b0e;
+}
+
 ul.small-list,
 .section-container.auto section.active .content p,
 .section-container.auto .section.active .content p {
@@ -369,13 +373,26 @@ div.message-row-in {
 	padding-top:20px;
 }
 
+.print-ico-admin,
 .sound-newchat-ico,
 .user-online-ico,
+.print-ico,
 .sound-ico{
 	background:url(../images/icons/sound-message.png) no-repeat center center;
 	width:32px;
 	height:32px;
 	display:block;
+}
+
+.print-ico-admin,
+.print-ico{
+	background-image:url(../images/icons/printer.png);
+}
+
+.print-ico-admin {
+	float:left;
+	width:18px;
+	height:18px;
 }
 
 .sound-disabled {
@@ -411,6 +428,7 @@ div.message-row-in {
 
 ul.user-settings-list {
 	margin-bottom:0;
+	margin-left:0;
 }
 
 ul.user-settings-list li{

@@ -12,6 +12,13 @@ $ViewList['adminchat'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['printchatadmin'] = array(
+    'script' => 'printchatadmin.php',
+    'params' => array('chat_id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['previewchat'] = array(
     'script' => 'previewchat.php',
     'params' => array('chat_id'),
@@ -252,6 +259,11 @@ $ViewList['chat'] = array(
     'params' => array('chat_id','hash')
 );
 
+$ViewList['printchat'] = array(
+    'script' => 'printchat.php',
+    'params' => array('chat_id','hash')
+);
+
 $ViewList['chatwidgetchat'] = array(
     'script' => 'chatwidgetchat.php',
     'params' => array('chat_id','hash'),
@@ -266,7 +278,7 @@ $ViewList['userclosechat'] = array(
 $ViewList['onlineusers'] = array(
     'script' => 'onlineusers.php',
     'params' => array(),
-    'uparams' => array('clear_list','method','deletevisitor'),
+    'uparams' => array('clear_list','method','deletevisitor','timeout'),
     'functions' => array( 'use_onlineusers' )
 );
 

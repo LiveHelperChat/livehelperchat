@@ -20,12 +20,11 @@ if (trim($form->msg) != '')
         $userData = $currentUser->getUserData();
 
         $msg = new erLhcoreClassModelmsg();
-        $msg->nick = $userData->name.' '.$userData->surname;
         $msg->msg = trim($form->msg);
         $msg->chat_id = $Params['user_parameters']['chat_id'];
         $msg->user_id = $userData->id;
         $msg->time = time();
-        $msg->name_support = $userData->name.' '.$userData->surname;
+        $msg->name_support = $userData->name_support;
         erLhcoreClassChat::getSession()->save($msg);
 
         // Set last message ID

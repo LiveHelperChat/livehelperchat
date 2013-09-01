@@ -109,7 +109,6 @@ class erLhcoreClassModelmsg {
    }
 
     public $id = null;
-    public $nick = '';
     public $time = '';
     public $chat_id = null;
     public $user_id = null;

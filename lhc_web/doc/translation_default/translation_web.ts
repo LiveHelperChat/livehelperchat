@@ -527,6 +527,10 @@
         <source>Enable/Disable sound about new messages from the operator</source>
         <translation></translation>
     </message>
+    <message>
+        <source>Print</source>
+        <translation></translation>
+    </message>
 </context>
 <context>
     <name>chat/cannedmsg</name>
@@ -755,6 +759,14 @@
     </message>
     <message>
         <source>minit</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>hour</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Show visitors who visited site in the past</source>
         <translation></translation>
     </message>
     <message>
@@ -1499,6 +1511,10 @@
     </message>
     <message>
         <source>Page</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Print</source>
         <translation></translation>
     </message>
     <message>

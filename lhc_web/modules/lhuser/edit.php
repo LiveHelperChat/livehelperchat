@@ -59,9 +59,11 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
         $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Please enter a name');
     }
 
-    if ( !$form->hasValidData( 'Surname' ) || $form->Surname == '')
+    if ( $form->hasValidData( 'Surname' ) && $form->Surname != '')
     {
-        $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Please enter a surname');
+        $UserData->surname = $form->Surname;
+    } else {
+    	$UserData->surname = '';
     }
 
     if ( $form->hasInputField( 'Password' ) && (!$form->hasInputField( 'Password1' ) || $form->Password != $form->Password1  ) ) // check for optional field
@@ -99,7 +101,7 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
 
         $UserData->email   = $form->Email;
         $UserData->name    = $form->Name;
-        $UserData->surname = $form->Surname;
+
 
         erLhcoreClassUser::getSession()->update($UserData);
 

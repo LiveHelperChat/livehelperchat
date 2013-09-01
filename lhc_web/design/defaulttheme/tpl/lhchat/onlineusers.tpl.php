@@ -24,7 +24,23 @@
 	    <div class="content" data-section-content>
 
 
-
+<div class="row">
+	<div class="columns small-6">
+		<label for="userTimeout" class="inline"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Show visitors who visited site in the past');?></label>
+	</div>
+	<div class="columns small-6">
+		<select id="userTimeout" onchange="lhinst.syncOnlineUsers()">
+		    	<option value="30">30 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','seconds');?></option>
+		    	<option value="60">1 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','minit');?></option>
+		    	<option value="120">2 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','minits');?></option>
+		    	<option value="300">5 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','minits');?></option>
+		    	<option value="600">10 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','minits');?></option>
+		    	<option value="1200">20 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','minits');?></option>
+		    	<option value="1800">30 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','minits');?></option>
+		    	<option value="3600" selected="selected">1 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','hour');?></option>
+		</select>
+	</div>
+</div>
 
 <div id="online-users">
 <?php endif; ?>

@@ -65,6 +65,8 @@ function lh(){
 
     this.userTimeout = false;
 
+    this.lastOnlineSyncTimeout = false;
+
     this.setLastUserMessageID = function(message_id) {
     	this.last_message_id = message_id;
     };
@@ -76,7 +78,7 @@ function lh(){
     this.setwwwDir = function (wwwdir){
         this.wwwDir = wwwdir;
     };
-    
+
     this.setCloseWindowOnEvent = function (value)
     {
     	this.closeWindowOnChatCloseDelete = value;
@@ -120,7 +122,7 @@ function lh(){
     };
 
     this.startChat = function (chat_id,tabs,name) {
-        if ( this.chatUnderSynchronization(chat_id) == false ) {        	
+        if ( this.chatUnderSynchronization(chat_id) == false ) {
         	var rememberAppend = this.disableremember == false ? '/(remember)/true' : '';
         	this.addTab(tabs, this.wwwDir +'chat/adminchat/'+chat_id+rememberAppend, name, chat_id);
         }
@@ -338,7 +340,7 @@ function lh(){
 	    	var index = tabs.find(' > section.active').index();
 	    	tabs.find(' > section.active').remove();
 			tabs.find(' > section:eq(' + (index - 1) + ')').addClass("active");
-			
+
 			$(document).foundation('section', 'resize');
 
 	        if (this.closeWindowOnChatCloseDelete == true)
@@ -352,34 +354,34 @@ function lh(){
 	    this.syncadmininterfacestatic();
 
 	};
-	
+
 	this.startChatCloseTabNewWindow = function(chat_id, tabs, name)
 	{
 		window.open(this.wwwDir + 'chat/single/'+chat_id,'chatwindow'+name+chat_id,"menubar=1,resizable=1,width=780,height=450");
-	    	    
+
 	    $.ajax({
 	        type: "GET",
-	        url: this.wwwDir + 'chat/adminleftchat/' + chat_id,		       
+	        url: this.wwwDir + 'chat/adminleftchat/' + chat_id,
 	        async: true
 	    });
-    	
+
     	var index = tabs.find(' > section.active').index();
     	tabs.find(' > section.active').remove();
 		tabs.find(' > section:eq(' + (index - 1) + ')').addClass("active");
-				
+
 		$(document).foundation('section', 'resize');
 
         if (this.closeWindowOnChatCloseDelete == true)
         {
             window.close();
         };
-	    
+
         this.removeSynchroChat(chat_id);
 	    this.syncadmininterfacestatic();
-	    
+
 	    return false;
 	};
-	
+
 	this.removeDialogTab = function(chat_id, tabs, hidetab)
 	{
 	    if ($('#CSChatMessage-'+chat_id).length != 0){
@@ -390,15 +392,15 @@ function lh(){
 
 	    	$.ajax({
 		        type: "GET",
-		        url: this.wwwDir + 'chat/adminleftchat/' + chat_id,		       
+		        url: this.wwwDir + 'chat/adminleftchat/' + chat_id,
 		        async: true
 		    });
-	    	
+
 	    	var index = tabs.find(' > section.active').index();
 	    	tabs.find(' > section.active').remove();
 			tabs.find(' > section:eq(' + (index - 1) + ')').addClass("active");
-			
-			
+
+
 			$(document).foundation('section', 'resize');
 
 	        if (this.closeWindowOnChatCloseDelete == true)
@@ -416,7 +418,7 @@ function lh(){
 		var index = tabs.find(' > section.active').index();
     	tabs.find(' > section.active').remove();
 		tabs.find(' > section:eq(' + (index - 1) + ')').addClass("active");
-		
+
 		$(document).foundation('section', 'resize');
 
         if (this.closeWindowOnChatCloseDelete == true)
@@ -444,7 +446,7 @@ function lh(){
 	    	var index = tabs.find(' > section.active').index();
 		    tabs.find(' > section.active').remove();
 			tabs.find(' > section:eq(' + (index - 1) + ')').addClass("active");
-				
+
 			$(document).foundation('section', 'resize');
 
 
@@ -828,13 +830,17 @@ function lh(){
 
     this.syncOnlineUsers = function()
     {
-        $.getJSON(this.wwwDir + 'chat/onlineusers/(method)/ajax', {} , function(data) {
+    	var inst = this;
+
+    	clearTimeout(inst.lastOnlineSyncTimeout);
+
+        $.getJSON(this.wwwDir + 'chat/onlineusers/(method)/ajax/(timeout)/'+$('#userTimeout').val(), {} , function(data) {
            $('#online-users').html(data.result);
-           setTimeout(function(){
+           inst.lastOnlineSyncTimeout = setTimeout(function(){
                lhinst.syncOnlineUsers();
            },10000); // Check online users for every 10 seconds
 		}).fail(function(){
-			setTimeout(function(){
+			inst.lastOnlineSyncTimeout = setTimeout(function(){
 	               lhinst.syncOnlineUsers();
 	        },10000); // Check online users for every 10 seconds
 		});
