@@ -1,3 +1,7 @@
+1.48v
+
+1. CSFR protection in sensitive locations and form posts.
+
 1.47v
 
 1. From chat tab you can open popup. Let say you were chatting in tab and you want to open popup. So you can do that now. There is very first icon for that.
