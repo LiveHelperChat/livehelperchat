@@ -8,6 +8,11 @@ if ( isset($_POST['Save']) )
 {
 	$Errors = erLhcoreClassChatbox::validateChatbox($chatbox);
 
+	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+		erLhcoreClassModule::redirect();
+		exit;
+	}
+
 	if (count($Errors) == 0) {
 
 		// Predefine some default variables

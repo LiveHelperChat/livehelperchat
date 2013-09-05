@@ -109,6 +109,19 @@ class erLhcoreClassUser{
        return $this->authenticated;
    }
 
+   function getCSFRToken() {
+
+   		if (!isset($_SESSION['lhc_csfr_token'])){
+   			$_SESSION['lhc_csfr_token'] = md5(rand(0, 99999999).time().$this->userid);
+   		}
+
+   		return $_SESSION['lhc_csfr_token'];
+   }
+
+   public function validateCSFRToken($token) {
+   		return $this->getCSFRToken() == $token;
+   }
+
    function setLoggedUser($user_id)
    {
 	   	if ($user_id != $this->userid) {
@@ -157,6 +170,7 @@ class erLhcoreClassUser{
        if (isset($_SESSION['lhc_access_array'])){ unset($_SESSION['lhc_access_array']); }
        if (isset($_SESSION['lhc_access_timestamp'])){ unset($_SESSION['lhc_access_timestamp']); }
        if (isset($_SESSION['lhc_user_id'])){ unset($_SESSION['lhc_user_id']); }
+       if (isset($_SESSION['lhc_csfr_token'])){ unset($_SESSION['lhc_csfr_token']); }
 
        if ( isset($_COOKIE['lhc_rm_u']) ) {
        		unset($_COOKIE['lhc_rm_u']);

@@ -4,11 +4,17 @@ $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/blockedusers.tpl.php');
 
 if (is_numeric($Params['user_parameters_unordered']['remove_block'])){
     try {
+
+    	if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
+    		die('Invalid CSFR Token');
+    		exit;
+    	}
+
         $block = erLhcoreClassModelChatBlockedUser::fetch($Params['user_parameters_unordered']['remove_block']);
         $block->removeThis();
     } catch (Exception $e) {
         // Do nothing
-    } 
+    }
 }
 
 $pages = new lhPaginator();

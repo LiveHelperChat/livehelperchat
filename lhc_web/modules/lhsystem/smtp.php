@@ -25,6 +25,11 @@ if ( isset($_POST['StoreSMTPSettings']) ) {
 			),
 	);
 
+	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+		erLhcoreClassModule::redirect('system/smtp');
+		exit;
+	}
+
 	$Errors = array();
 
 	$form = new ezcInputForm( INPUT_POST, $definition );

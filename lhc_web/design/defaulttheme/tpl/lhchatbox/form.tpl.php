@@ -1,3 +1,5 @@
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatbox/form','Chatbox name');?>:</label>
 <input type="text" name="ChatboxName" value="<?php echo htmlspecialchars($chatbox->name)?>" >
 

@@ -6,7 +6,7 @@
       <?php endif; ?>
 
       <?php if ($currentUser->hasAccessTo('lhchat','allowclearonlinelist')) : ?>
-      <li><a class="small button alert" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('chat/onlineusers')?>/(clear_list)/1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Clear list');?></a></li>
+      <li><a class="small button alert csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('chat/onlineusers')?>/(clear_list)/1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Clear list');?></a></li>
       <?php endif; ?>
 
 </ul>
@@ -141,6 +141,6 @@
 	  </section>
 </div>
 
-
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/secure_links.tpl.php')); ?>
 <script>startOnlineSync();</script>
 <?php endif; ?>

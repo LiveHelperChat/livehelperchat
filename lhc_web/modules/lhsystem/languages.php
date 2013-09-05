@@ -37,6 +37,11 @@ if (isset($_POST['StoreLanguageSettings'])) {
 			)
 	);
 
+	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+		erLhcoreClassModule::redirect('system/languages');
+		exit;
+	}
+
 	$Errors = array();
 
 	$form = new ezcInputForm( INPUT_POST, $definition );

@@ -8,7 +8,9 @@
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<form action="" method="post">
+<form action="<?php echo erLhcoreClassDesign::baseurl('chatbox/generalsettings')?>" method="post">
+
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatbox/generalsettings','Default new chatbox name');?></label>
 <input type="text" name="DefaultName" value="<?php (isset($chatbox_data['chatbox_default_name']) && $chatbox_data['chatbox_default_name'] != '') ? print $chatbox_data['chatbox_default_name'] : print 'Chatbox' ?>" />

@@ -3,6 +3,12 @@
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/onlineusers.tpl.php');
 
 if (is_numeric($Params['user_parameters_unordered']['clear_list']) && $Params['user_parameters_unordered']['clear_list'] == 1) {
+
+	if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
+		die('Invalid CSFR Token');
+		exit;
+	}
+
     erLhcoreClassModelChatOnlineUser::cleanAllRecords();
 
     erLhcoreClassModule::redirect('chat/onlineusers');

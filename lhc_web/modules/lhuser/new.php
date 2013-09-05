@@ -39,6 +39,11 @@ if (isset($_POST['Update_account']))
 		)
     );
 
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+   		erLhcoreClassModule::redirect('user/new');
+   		exit;
+    }
+
     $form = new ezcInputForm( INPUT_POST, $definition );
     $Errors = array();
 

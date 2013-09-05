@@ -11,32 +11,37 @@ if (isset($_POST['Cancel_role']))
 }
 
 if (isset($_POST['Update_role']))
-{    
+{
    $definition = array(
         'Name' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
-        )       
+        )
     );
-    
+
+   if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+   		erLhcoreClassModule::redirect();
+   		exit;
+   }
+
     $form = new ezcInputForm( INPUT_POST, $definition );
     $Errors = array();
-    
+
     if ( !$form->hasValidData( 'Name' ) || $form->Name == '' )
     {
         $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Please enter role name');
     }
-    
+
     if (count($Errors) == 0)
-    {     
+    {
         $Role->name = $form->Name;
-    
-    
-        
+
+
+
         erLhcoreClassRole::getSession()->update($Role);
-       
+
         erLhcoreClassModule::redirect('permission/roles');
         exit ;
-        
+
     }  else {
         $tpl->set('errors',$Errors);
     }
@@ -58,29 +63,34 @@ if (isset($_POST['Store_policy']))
         ),
         'ModuleFunction' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::REQUIRED, 'string'
-        )       
+        )
     );
-    
+
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+    	erLhcoreClassModule::redirect();
+    	exit;
+    }
+
     $form = new ezcInputForm( INPUT_POST, $definition );
     $Errors = array();
-    
+
     if ( !$form->hasValidData( 'Module' ) || $form->Module == '' )
     {
         $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Please choose module');
     }
-    
+
     if ( !$form->hasValidData( 'ModuleFunction' ) || $form->ModuleFunction == '' )
     {
         $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Please choose module function');
     }
-    
+
     if (count($Errors) == 0)
     {
         $RoleFunction = new erLhcoreClassModelRoleFunction();
         $RoleFunction->role_id = $Role->id;
         $RoleFunction->module = $form->Module;
         $RoleFunction->function = $form->ModuleFunction;
-        
+
         erLhcoreClassRole::getSession()->save($RoleFunction);
     } else {
          $tpl->setFile( 'lhpermission/newpolicy.tpl.php');
@@ -89,6 +99,11 @@ if (isset($_POST['Store_policy']))
 
 if (isset($_POST['Delete_policy']))
 {
+	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+		erLhcoreClassModule::redirect();
+		exit;
+	}
+
     if (isset($_POST['PolicyID']) && count($_POST['PolicyID']) > 0)
     {
         foreach ($_POST['PolicyID'] as $PolicyID)
@@ -100,19 +115,29 @@ if (isset($_POST['Delete_policy']))
 
 if (isset($_POST['Remove_group_from_role']) && isset($_POST['AssignedID']) && count($_POST['AssignedID']) > 0)
 {
+	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+		erLhcoreClassModule::redirect();
+		exit;
+	}
+
     foreach ($_POST['AssignedID'] as $AssignedID)
-    {                
+    {
         erLhcoreClassGroupRole::deleteGroupRole($AssignedID);
     }
 }
 
 if (isset($_POST['AssignGroups']) && isset($_POST['GroupID']) && count($_POST['GroupID']) > 0)
 {
+	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+		erLhcoreClassModule::redirect();
+		exit;
+	}
+
     foreach ($_POST['GroupID'] as $GroupID)
-    {                
-        $GroupRole = new erLhcoreClassModelGroupRole();        
+    {
+        $GroupRole = new erLhcoreClassModelGroupRole();
         $GroupRole->group_id =$GroupID;
-        $GroupRole->role_id = $Role->id;;        
+        $GroupRole->role_id = $Role->id;;
         erLhcoreClassRole::getSession()->save($GroupRole);
     }
 }

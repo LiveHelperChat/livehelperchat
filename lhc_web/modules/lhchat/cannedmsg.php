@@ -3,15 +3,21 @@
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/cannedmsg.tpl.php');
 
 if (is_numeric($Params['user_parameters_unordered']['id']) && $Params['user_parameters_unordered']['action'] == 'delete'){
-    
+
     // Delete selected canned message
     try {
+
+    	if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
+    		die('Invalid CSFR Token');
+    		exit;
+    	}
+
         $Msg = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelCannedMsg', (int)$Params['user_parameters_unordered']['id'] );
         $Msg->removeThis();
     } catch (Exception $e) {
         // Do nothing
     }
-    
+
     erLhcoreClassModule::redirect('chat/cannedmsg');
     exit;
 }

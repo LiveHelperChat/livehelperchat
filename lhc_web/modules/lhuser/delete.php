@@ -1,5 +1,10 @@
 <?php
 
+if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
+	die('Invalid CSFR Token');
+	exit;
+}
+
 $departament = erLhcoreClassUser::getSession()->load( 'erLhcoreClassModelUser', $Params['user_parameters']['user_id']);
 erLhcoreClassUser::getSession()->delete($departament);
 

@@ -13,6 +13,7 @@ $ViewList['list'] = array(
 $ViewList['delete'] = array(
 		'script' => 'delete.php',
 		'params' => array('id'),
+		'uparams' => array('csfr'),
 		'functions' => array( 'manage_faq' )
 );
 

@@ -1,3 +1,17 @@
+function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+
+$.ajaxSetup({
+    crossDomain: false, // obviates need for sameOrigin test
+    beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type)) {
+            xhr.setRequestHeader("X-CSRFToken", confLH.csrf_token);
+        }
+    }
+});
+
 
 $.postJSON = function(url, data, callback) {
 	return $.post(url, data, callback, "json");
@@ -128,6 +142,17 @@ function lh(){
         	var rememberAppend = this.disableremember == false ? '/(remember)/true' : '';
         	this.addTab(tabs, this.wwwDir +'chat/adminchat/'+chat_id+rememberAppend, name, chat_id);
         }
+    };
+
+    this.protectCSFR = function()
+    {
+    	$('a.csfr-required').click(function(){
+    		var inst = $(this);
+    		if (!inst.attr('data-secured')){
+        		inst.attr('href',inst.attr('href')+'/(csfr)/'+confLH.csrf_token);
+        		inst.attr('data-secured',1);
+        	}
+    	});
     };
 
     this.setChatHash = function (hash)
@@ -336,9 +361,8 @@ function lh(){
 	this.closeActiveChatDialog = function(chat_id, tabs, hidetab)
 	{
 	    $.ajax({
-	        type: "GET",
+	        type: "POST",
 	        url: this.wwwDir + this.closechatadmin + chat_id,
-	        cache: false,
 	        async: false
 	    });
 
@@ -444,7 +468,7 @@ function lh(){
 	       $('#CSChatMessage-'+chat_id).unbind('keyup', 'enter', function(){});
 	    }
 
-	    $.getJSON(this.wwwDir + this.deletechatadmin + chat_id ,{}, function(data){
+	    $.postJSON(this.wwwDir + this.deletechatadmin + chat_id ,{}, function(data){
 	       if (data.error == 'true')
 	       {
 	           alert(data.result);
@@ -473,7 +497,7 @@ function lh(){
 
 	this.rejectPendingChat = function(chat_id, tabs)
 	{
-	    $.getJSON(this.wwwDir + this.deletechatadmin + chat_id ,{}, function(data){
+	    $.postJSON(this.wwwDir + this.deletechatadmin + chat_id ,{}, function(data){
 
 	    });
 	    this.syncadmininterfacestatic();

@@ -23,10 +23,12 @@
 	       <?php echo $chat->id;?>. <?php echo htmlspecialchars($chat->nick);?> <?php echo date('Y-m-d H:i:s',$chat->chat->time);?>
         </td>
         <td class="small-1" nowrap><a class="small button round" href="<?php echo erLhcoreClassDesign::baseurl('chatbox/edit')?>/<?php echo $chat->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Edit');?></a></td>
-        <td class="small-1" nowrap><a class="small alert button round" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/messages','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('chatbox/delete')?>/<?php echo $chat->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Delete');?></a></td>
+        <td class="small-1" nowrap><a class="csfr-required small alert button round" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/messages','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('chatbox/delete')?>/<?php echo $chat->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Delete');?></a></td>
     </tr>
     <?php endforeach; ?>
 </table>
+
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/secure_links.tpl.php')); ?>
 
 <?php if (isset($pages)) : ?>
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/paginator.tpl.php')); ?>

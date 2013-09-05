@@ -9,6 +9,21 @@ if ( isset($_POST['Cancel_departament']) ) {
     exit;
 }
 
+if ( isset($_POST['Delete_departament']) ) {
+
+	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+		erLhcoreClassModule::redirect('departament/departaments');
+		exit;
+	}
+
+	$Departament->removeThis();
+
+    erLhcoreClassModule::redirect('departament/departaments');
+    exit;
+}
+
+
+
 if (isset($_POST['Update_departament']) || isset($_POST['Save_departament'])  )
 {
    $definition = array(
@@ -29,6 +44,11 @@ if (isset($_POST['Update_departament']) || isset($_POST['Save_departament'])  )
     if ( !$form->hasValidData( 'Name' ) || $form->Name == '' )
     {
         $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Please enter a department name');
+    }
+
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+     	erLhcoreClassModule::redirect('departament/departaments');
+    	exit;
     }
 
     if ( $form->hasValidData( 'Email' ) ) {

@@ -13,6 +13,11 @@ if (isset($_POST['CancelAction'])) {
 
 if ( isset($_POST['SaveClient']) || isset($_POST['UpdateClient']) ) {
 
+	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+		erLhcoreClassModule::redirect();
+		exit;
+	}
+
 	$Errors = erLhcoreClassAbstract::validateInput($objectData);
 
     if (count($Errors) == 0)

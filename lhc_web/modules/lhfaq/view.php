@@ -6,6 +6,11 @@ $faq = erLhcoreClassModelFaq::fetch($Params['user_parameters']['id']);
 
 if ( isset($_POST['Update']) )
 {
+	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+		erLhcoreClassModule::redirect();
+		exit;
+	}
+
 	$Errors = erLhcoreClassFaq::validateFaq($faq);
 
 	if (count($Errors) == 0) {

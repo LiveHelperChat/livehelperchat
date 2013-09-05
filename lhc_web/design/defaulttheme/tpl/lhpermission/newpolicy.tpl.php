@@ -5,19 +5,21 @@
 <?php endif; ?>
 
 <form action="<?php echo erLhcoreClassDesign::baseurl('permission/editrole')?>/<?php echo $role->id?>" method="post">
-				
-	<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','Assigned functions');?></h5> 			
+
+	<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
+	<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','Assigned functions');?></h5>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 	     <td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','Choose a module');?></td>
-	     <td>			    
-	     <select id="ModuleSelectedID" name="Module">			     
+	     <td>
+	     <select id="ModuleSelectedID" name="Module">
 	         <option value="*">---<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','All modules');?>---</option>
 		     <?php foreach (erLhcoreClassModules::getModuleList() as $key => $Module) : ?>
 		         <option value="<?php echo $key?>"><?php echo htmlspecialchars($Module['name']);?></option>
 		     <?php endforeach; ?>
-	     </select>			     
-	     </td>			  
+	     </select>
+	     </td>
 	 </tr>
 	 <tr>
 	     <td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','Choose a module function');?></td>
@@ -27,7 +29,7 @@
 	        </select>
 	     </td>
 	 </tr>
-	</table>			
+	</table>
 
 	<ul class="button-group radius">
 	 <li><input type="submit" class="small button" name="Store_policy" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','Save');?>"/></li>
@@ -35,20 +37,20 @@
 	</ul>
 
 </form>
-	
+
 
 
 <script type="text/javascript">
-$( "#ModuleSelectedID" ).change( function () { 
+$( "#ModuleSelectedID" ).change( function () {
 	var module_val = $( "#ModuleSelectedID" ).val();
 	if (module_val != '*'){
-	    
-	    $.getJSON('<?php echo erLhcoreClassDesign::baseurl('permission/modulefunctions')?>/'+module_val ,{ }, function(data){ 
+
+	    $.getJSON('<?php echo erLhcoreClassDesign::baseurl('permission/modulefunctions')?>/'+module_val ,{ }, function(data){
 	        // If no error
 	        if (data.error == 'false')
-	        {	 
+	        {
                 $( "#ModuleFunctionsID" ).html(data.result);
-	        }		
+	        }
     	});
 	} else {
 	    $( "#ModuleFunctionsID" ).html( '<select name="ModuleFunction" ><option value="*"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','All functions');?></option></select>');

@@ -1,5 +1,10 @@
 <?php
 
+if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
+	die('Invalid CSFR Token');
+	exit;
+}
+
 $question = erLhcoreClassModelQuestionOption::fetch((int)$Params['user_parameters']['id']);
 $question->removeThis();
 

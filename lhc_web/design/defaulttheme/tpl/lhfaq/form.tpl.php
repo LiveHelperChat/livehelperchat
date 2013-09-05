@@ -1,3 +1,5 @@
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/new','Question');?></label>
 <textarea rows="5" cols="50" name="question"><?php echo htmlspecialchars($faq->question)?></textarea>
 

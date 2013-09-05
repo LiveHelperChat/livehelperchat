@@ -33,6 +33,16 @@ class erLhcoreClassModelDepartament {
    		return $this->name;
    }
 
+   public function removeThis() {
+	   	erLhcoreClassDepartament::getSession()->delete($this);
+
+	   	// Delete user assigned departaments
+	   	$q = ezcDbInstance::get()->createDeleteQuery();
+	   	$q->deleteFrom( 'lh_departament' )->where( $q->expr->eq( 'id', $this->id ) );
+	   	$stmt = $q->prepare();
+	   	$stmt->execute();
+   }
+
    public function __get($var) {
 	   	switch ($var) {
 	   		case 'is_online':

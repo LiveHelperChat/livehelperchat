@@ -32,7 +32,8 @@ $ViewList['edit'] = array(
 $ViewList['delete'] = array(
     'script' => 'delete.php',
     'functions' => array( 'use' ),
-    'params' => array('identifier','object_id')
+    'params' => array('identifier','object_id'),
+    'uparams' => array('csfr')
 );
 
 $ViewList['index'] = array(

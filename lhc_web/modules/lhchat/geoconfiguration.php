@@ -51,6 +51,11 @@ if ( isset($_POST['StoreGeoIPConfiguration']) ) {
         $data['geo_detection_enabled'] = 0;
     }
 
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+    	erLhcoreClassModule::redirect('chat/geoconfiguration');
+    	exit;
+    }
+
     if ($data['geo_detection_enabled'] == 1) {
         if ( $form->hasValidData( 'UseGeoIP' ) ) {
 

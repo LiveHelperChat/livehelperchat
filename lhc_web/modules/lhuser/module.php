@@ -41,6 +41,7 @@ $ViewList['edit'] = array(
 $ViewList['delete'] = array(
     'script' => 'delete.php',
     'params' => array('user_id'),
+    'uparams' => array('csfr'),
     'functions' => array( 'deleteuser' )
     );
 
@@ -71,6 +72,7 @@ $ViewList['groupassignuser'] = array(
 $ViewList['deletegroup'] = array(
     'script' => 'deletegroup.php',
     'params' => array('group_id'),
+	'uparams' => array('csfr'),
     'functions' => array( 'deletegroup' )
     );
 

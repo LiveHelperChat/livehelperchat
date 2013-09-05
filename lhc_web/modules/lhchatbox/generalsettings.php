@@ -30,6 +30,11 @@ if ( isset($_POST['StoreChatboxSettings']) ) {
 	$form = new ezcInputForm( INPUT_POST, $definition );
 	$Errors = array();
 
+	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+		erLhcoreClassModule::redirect();
+		exit;
+	}
+
 	if ( $form->hasValidData( 'AutoCreation' ) && $form->AutoCreation == true ) {
 		$data['chatbox_auto_enabled'] = 1;
 	} else {

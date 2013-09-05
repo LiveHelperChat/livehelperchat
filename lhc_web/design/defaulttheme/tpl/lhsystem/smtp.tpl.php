@@ -24,6 +24,8 @@
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Port');?></label>
 <input type="text" name="port" value="<?php (isset($smtp_data['port']) && $smtp_data['port'] != '') ? print $smtp_data['port'] : print '25' ?>" />
 
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
 <input type="submit" class="button small round" name="StoreSMTPSettings" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
 
 </form>

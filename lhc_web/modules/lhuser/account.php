@@ -24,6 +24,11 @@ if (isset($_POST['UpdateTabsSettings_account']))
 			)
 	);
 
+	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+		erLhcoreClassModule::redirect('user/account');
+		exit;
+	}
+
 	$form = new ezcInputForm( INPUT_POST, $definition );
 	$Errors = array();
 
@@ -83,6 +88,11 @@ if (isset($_POST['Update']))
         )
     );
 
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+   		erLhcoreClassModule::redirect('user/account');
+   		exit;
+    }
+
     $form = new ezcInputForm( INPUT_POST, $definition );
     $Errors = array();
 
@@ -141,6 +151,11 @@ $allowEditDepartaments = $currentUser->hasAccessTo('lhuser','editdepartaments');
 
 if ($allowEditDepartaments && isset($_POST['UpdateDepartaments_account']))
 {
+
+   if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+		erLhcoreClassModule::redirect('user/account');
+		exit;
+   }
 
    $globalDepartament = array();
    if (isset($_POST['all_departments']) && $_POST['all_departments'] == 'on') {

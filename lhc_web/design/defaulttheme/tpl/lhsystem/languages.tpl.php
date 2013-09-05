@@ -18,12 +18,18 @@
 		      <option value="<?php echo $locale?>" <?php $input->siteaccess == $locale ? print 'selected="selected"' : ''?>><?php echo $locale?></option>
 		<?php endforeach; ?>
 	</select>
+
+	<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
 	<input type="hidden" name="changeSiteAccess" value="1" />
 </form>
 
 
 
 <form action="<?php echo erLhcoreClassDesign::baseurl('system/languages')?>" method="post" name="siteaccess">
+
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
 <input type="hidden" name="siteaccess" value="<?php echo $input->siteaccess?>" />
 
 <?php $siteAccessOptions = erConfigClassLhConfig::getInstance()->getSetting( 'site_access_options', $input->siteaccess ); ?>

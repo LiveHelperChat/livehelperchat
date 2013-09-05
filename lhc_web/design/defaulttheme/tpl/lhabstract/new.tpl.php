@@ -2,5 +2,6 @@
 
 <form method="post" enctype="multipart/form-data" action="<?php echo erLhcoreClassDesign::baseurl('abstract/new')?>/<?php echo $identifier?>">
 	<?php include_once(erLhcoreClassDesign::designtpl('lhabstract/abstract_form.tpl.php'));?>
+	<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 </form>
 

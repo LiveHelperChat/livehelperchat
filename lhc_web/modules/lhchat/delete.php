@@ -5,9 +5,14 @@ $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params
 
 $currentUser = erLhcoreClassUser::instance();
 
+if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
+	die('Invalid CSFR Token');
+	exit;
+}
+
 if ($currentUser->hasAccessTo('lhchat','deleteglobalchat') || ($currentUser->hasAccessTo('lhchat','deletechat') && $chat->user_id == $currentUser->getUserID()))
 {
-	$chat->removeThis();	
+	$chat->removeThis();
 	CSCacheAPC::getMem()->removeFromArray('lhc_open_chats', $chat->id);
 }
 

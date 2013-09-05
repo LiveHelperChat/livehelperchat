@@ -52,6 +52,7 @@ $ViewList['startchatwithoperator'] = array(
 $ViewList['closechat'] = array(
     'script' => 'closechat.php',
     'params' => array('chat_id'),
+    'uparams' => array('csfr'),
     'functions' => array( 'use' )
 );
 
@@ -83,6 +84,7 @@ $ViewList['deletechatadmin'] = array(
 $ViewList['delete'] = array(
     'script' => 'delete.php',
     'params' => array('chat_id'),
+    'uparams' => array('csfr'),
     'functions' => array( 'deletechat' )
     );
 
@@ -203,7 +205,7 @@ $ViewList['blockuser'] = array(
 $ViewList['blockedusers'] = array(
     'script' => 'blockedusers.php',
     'params' => array(),
-    'uparams' => array('remove_block'),
+    'uparams' => array('remove_block','csfr'),
     'functions' => array( 'allowblockusers' )
 );
 
@@ -278,7 +280,7 @@ $ViewList['userclosechat'] = array(
 $ViewList['onlineusers'] = array(
     'script' => 'onlineusers.php',
     'params' => array(),
-    'uparams' => array('clear_list','method','deletevisitor','timeout'),
+    'uparams' => array('clear_list','method','deletevisitor','timeout','csfr'),
     'functions' => array( 'use_onlineusers' )
 );
 
@@ -336,7 +338,7 @@ $ViewList['startchatformsettings'] = array(
 $ViewList['cannedmsg'] = array(
     'script' => 'cannedmsg.php',
     'params' => array(),
-    'uparams' => array('action','id'),
+    'uparams' => array('action','id','csfr'),
     'functions' => array( 'administratecannedmsg' )
 );
 

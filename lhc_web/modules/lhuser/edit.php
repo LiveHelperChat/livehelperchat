@@ -38,6 +38,11 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
 		)
     );
 
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+   		erLhcoreClassModule::redirect('user/userlist');
+   		exit;
+    }
+
     $form = new ezcInputForm( INPUT_POST, $definition );
     $Errors = array();
 
@@ -133,6 +138,11 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
 
 if (isset($_POST['UpdateDepartaments_account']))
 {
+	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+		erLhcoreClassModule::redirect('user/userlist');
+		exit;
+	}
+
    $globalDepartament = array();
    if (isset($_POST['all_departments']) && $_POST['all_departments'] == 'on') {
        $UserData->all_departments = 1;

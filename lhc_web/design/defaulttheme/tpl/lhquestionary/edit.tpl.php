@@ -42,3 +42,5 @@
     </div>
   </section>
 </div>
+
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/secure_links.tpl.php')); ?>

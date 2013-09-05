@@ -12,6 +12,11 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
     $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/syncadmin.tpl.php');
     $currentUser = erLhcoreClassUser::instance();
 
+    if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+    	echo json_encode(array('error' => 'true', 'result' => 'Invalid CSFR Token' ));
+    	exit;
+    }
+
     foreach ($_POST['chats'] as $chat_id_list)
     {
         list($chat_id,$MessageID) = explode(',',$chat_id_list);

@@ -6,6 +6,11 @@ $chatbox = erLhcoreClassModelChatbox::fetch($Params['user_parameters']['id']);
 
 if ( isset($_POST['Update']) )
 {
+	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+		erLhcoreClassModule::redirect();
+		exit;
+	}
+
 	$Errors = erLhcoreClassChatbox::validateChatbox($chatbox);
 
 	if (count($Errors) == 0) {

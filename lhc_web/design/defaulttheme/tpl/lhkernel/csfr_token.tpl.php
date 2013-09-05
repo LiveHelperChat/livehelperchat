@@ -1,0 +1,1 @@
+<input type="hidden" name="csfr_token" value="<?php echo erLhcoreClassUser::instance()->getCSFRToken()?>" />

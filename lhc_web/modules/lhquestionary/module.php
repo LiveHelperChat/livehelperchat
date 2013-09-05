@@ -19,18 +19,21 @@ $ViewList['list'] = array(
 $ViewList['delete'] = array(
 		'script' => 'delete.php',
 		'params' => array('id'),
+		'uparams' => array('csfr'),
 		'functions' => array( 'manage_questionary' )
 );
 
 $ViewList['deleteanswer'] = array(
 		'script' => 'deleteanswer.php',
 		'params' => array('id'),
+		'uparams' => array('csfr'),
 		'functions' => array( 'manage_questionary' )
 );
 
 $ViewList['deleteoption'] = array(
 		'script' => 'deleteoption.php',
 		'params' => array('id'),
+		'uparams' => array('csfr'),
 		'functions' => array( 'manage_questionary' )
 );
 

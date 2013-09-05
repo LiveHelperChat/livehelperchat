@@ -17,6 +17,12 @@ if (trim($form->msg) != '')
     if ( erLhcoreClassChat::hasAccessToRead($Chat) )
     {
         $currentUser = erLhcoreClassUser::instance();
+
+        if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+        	echo json_encode(array('error' => 'true', 'result' => 'Invalid CSFR Token' ));
+        	exit;
+        }
+
         $userData = $currentUser->getUserData();
 
         $msg = new erLhcoreClassModelmsg();

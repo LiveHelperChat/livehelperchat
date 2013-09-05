@@ -74,6 +74,7 @@ $ViewList['edit'] = array(
 
 $ViewList['delete'] = array(
 		'params' => array('id'),
+		'uparams' => array('csfr'),
 		'functions' => array('manage_chatbox')
 );
 

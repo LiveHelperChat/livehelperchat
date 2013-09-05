@@ -17,6 +17,8 @@
       <li><input type="submit" class="small button" name="CancelO" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Cancel');?>"/></li>
     </ul>
 
+	<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
 </form>
 
 <?php $optionsItems = erLhcoreClassQuestionary::getList(array('sort' => 'priority DESC','filter' => array('question_id' => $question->id)),'erLhcoreClassModelQuestionOption','lh_question_option'); if (!(empty($optionsItems))) : ?>
@@ -36,7 +38,7 @@
         <td><?php echo htmlspecialchars($optionsItem->option_name)?></td>
         <td><?php echo $optionsItem->priority?></td>
         <td nowrap><a class="small button round" href="<?php echo erLhcoreClassDesign::baseurl('questionary/edit')?>/<?php echo $question->id?>/(option_id)/<?php echo $optionsItem->id?>/(tab)/voting"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Edit');?></a></td>
-        <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="small alert button round" href="<?php echo erLhcoreClassDesign::baseurl('questionary/deleteoption')?>/<?php echo $optionsItem->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Delete');?></a></td>
+        <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required small alert button round" href="<?php echo erLhcoreClassDesign::baseurl('questionary/deleteoption')?>/<?php echo $optionsItem->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Delete');?></a></td>
 </tr>
 <?php endforeach;?>
 </table>

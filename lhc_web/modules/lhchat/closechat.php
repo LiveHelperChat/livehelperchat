@@ -10,6 +10,11 @@ $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params
 if ($chat->user_id == $currentUser->getUserID() || $currentUser->hasAccessTo('lhchat','allowcloseremote'))
 {
 
+	if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
+		die('Invalid CSFR Token');
+		exit;
+	}
+
 	if ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT){
 
 	    $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
@@ -29,7 +34,7 @@ if ($chat->user_id == $currentUser->getUserID() || $currentUser->hasAccessTo('lh
 	    erLhcoreClassChat::getSession()->update($chat);
 
 	    CSCacheAPC::getMem()->removeFromArray('lhc_open_chats', $chat->id);
-	    
+
 	    // Execute callback for close chat
 	    erLhcoreClassChat::closeChatCallback($chat);
 	}

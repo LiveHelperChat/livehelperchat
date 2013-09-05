@@ -33,6 +33,11 @@ if (isset($_POST['UpdateAction']) || isset($_POST['SaveAction'])  )
 			)
 	);
 
+	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+		erLhcoreClassModule::redirect();
+		exit;
+	}
+
 	$form = new ezcInputForm( INPUT_POST, $definition );
 	$Errors = array();
 
@@ -101,6 +106,11 @@ if ( isset($_POST['UpdateO']) )
 	);
 	$form = new ezcInputForm( INPUT_POST, $definition );
 	$Errors = array();
+
+	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+		erLhcoreClassModule::redirect();
+		exit;
+	}
 
 	if ( !$form->hasValidData( 'Option' ) || $form->Option == '' )
 	{
