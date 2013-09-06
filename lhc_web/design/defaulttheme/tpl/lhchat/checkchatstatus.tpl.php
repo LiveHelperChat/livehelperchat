@@ -1,4 +1,4 @@
-<?php if ($is_activated == true) : ?>
+<?php if ($is_activated == true || $is_proactive_based == true) : ?>
      <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','A support staff member has joined this chat'); ?>
 <?php elseif ($is_closed == true) : ?>
 	<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','A support staff member has closed this chat'); ?>

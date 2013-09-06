@@ -96,6 +96,12 @@ $def->properties['operator_user_id']->columnName   = 'operator_user_id';
 $def->properties['operator_user_id']->propertyName = 'operator_user_id';
 $def->properties['operator_user_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+// This field get's filled by pro active message operator name if it's based on this
+$def->properties['operator_user_proactive'] = new ezcPersistentObjectProperty();
+$def->properties['operator_user_proactive']->columnName   = 'operator_user_proactive';
+$def->properties['operator_user_proactive']->propertyName = 'operator_user_proactive';
+$def->properties['operator_user_proactive']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 // Have the user seen the message and closed the window
 $def->properties['message_seen'] = new ezcPersistentObjectProperty();
 $def->properties['message_seen']->columnName   = 'message_seen';

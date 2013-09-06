@@ -161,6 +161,11 @@ $def->properties['priority']->columnName   = 'priority';
 $def->properties['priority']->propertyName = 'priority';
 $def->properties['priority']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['chat_initiator'] = new ezcPersistentObjectProperty();
+$def->properties['chat_initiator']->columnName   = 'chat_initiator';
+$def->properties['chat_initiator']->propertyName = 'chat_initiator';
+$def->properties['chat_initiator']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

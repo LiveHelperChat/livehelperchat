@@ -34,30 +34,14 @@ try {
 
 	        	$chat->user_status = 0;
 	        	$chat->support_informed = 1;
-
-	        	// Log that user has joined the chat
-	        	$msg = new erLhcoreClassModelmsg();
-	        	$msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userjoined','User has joined the chat!');
-	        	$msg->chat_id = $chat->id;
-	        	$msg->user_id = -1; // System messages get's user_id -1
-
-	        	$chat->last_user_msg_time = $msg->time = time();
-
-	        	erLhcoreClassChat::getSession()->save($msg);
-
-	        	// Set last message ID
-	        	if ($chat->last_msg_id < $msg->id) {
-	        		$chat->last_msg_id = $msg->id;
-	        	}
+	        	$chat->user_typing = time()-5;// Show for shorter period these status messages
+	        	$chat->is_user_typing = 1;
+	        	$chat->user_typing_txt = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userjoined','User has joined the chat!');
 
 	        	erLhcoreClassChat::getSession()->update($chat);
 
         	$db->commit();
         };
-
-
-
-
 
     } else {
         $tpl->setFile( 'lhchat/errors/chatnotexists.tpl.php');

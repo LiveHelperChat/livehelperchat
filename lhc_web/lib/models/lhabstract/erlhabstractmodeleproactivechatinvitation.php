@@ -14,6 +14,7 @@ class erLhAbstractModelProactiveChatInvitation {
 			'identifier' 	=> $this->identifier,
 			'executed_times'=> $this->executed_times,
 			'position'		=> $this->position,
+			'operator_name'	=> $this->operator_name,
 		);
 
 		return $stateArray;
@@ -42,10 +43,18 @@ class erLhAbstractModelProactiveChatInvitation {
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
+   				'operator_name' => array(
+   						'type' => 'text',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Operator name'),
+   						'required' => false,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
    				'position' => array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Position'),
    						'required' => true,
+   						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
@@ -61,6 +70,7 @@ class erLhAbstractModelProactiveChatInvitation {
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Time on site in seconds'),
    						'required' => false,
+   						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'int'
    						)),
@@ -232,6 +242,7 @@ class erLhAbstractModelProactiveChatInvitation {
 		if ( !empty($messagesToUser) ) {
 			$message = array_shift($messagesToUser);
 			$item->operator_message = $message->message;
+			$item->operator_user_proactive = $message->operator_name;
 			$message->executed_times += 1;
 			$message->updateThis();
 		}
@@ -250,6 +261,7 @@ class erLhAbstractModelProactiveChatInvitation {
 	public $name = '';
 	public $identifier = '';
 	public $executed_times = 0;
+	public $operator_name = '';
 
 	public $hide_add = false;
 	public $hide_delete = false;

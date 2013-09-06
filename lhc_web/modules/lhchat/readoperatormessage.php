@@ -53,9 +53,10 @@ if (isset($_POST['askQuestion']))
        $departments = erLhcoreClassModelDepartament::getList();
        $ids = array_keys($departments);
        $id = array_shift($ids);
-       $chat->dep_id = $id;   
+       $chat->dep_id = $id;
        $chat->priority = is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : $departments[$chat->dep_id]->priority;
-                   
+       $chat->chat_initiator = erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE;
+
        // Store chat
        erLhcoreClassChat::getSession()->save($chat);
 
@@ -68,9 +69,10 @@ if (isset($_POST['askQuestion']))
        $msg = new erLhcoreClassModelmsg();
        $msg->msg = trim($userInstance->operator_message);
        $msg->chat_id = $chat->id;
+       $msg->name_support = $userInstance->operator_user !== false ? trim($userInstance->operator_user->name.' '.$userInstance->operator_user->surname) : (!empty($userInstance->operator_user_proactive) ? $userInstance->operator_user_proactive : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support'));
        $msg->user_id = $userInstance->operator_user_id > 0 ? $userInstance->operator_user_id : 1;
        $msg->time = time();
-       $msg->name_support = $userInstance->operator_user !== false ? ($userInstance->operator_user->name.' '.$userInstance->operator_user->surname) : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
+
        erLhcoreClassChat::getSession()->save($msg);
 
        // Store User Message

@@ -44,6 +44,10 @@
         <translation></translation>
     </message>
     <message>
+        <source>Operator name</source>
+        <translation></translation>
+    </message>
+    <message>
         <source>If you want pro active chat invitation to work it has to be enabled in</source>
         <translation></translation>
     </message>

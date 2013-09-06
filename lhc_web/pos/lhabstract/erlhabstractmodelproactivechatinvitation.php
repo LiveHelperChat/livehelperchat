@@ -49,6 +49,11 @@ $def->properties['position']->columnName   = 'position';
 $def->properties['position']->propertyName = 'position';
 $def->properties['position']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['operator_name'] = new ezcPersistentObjectProperty();
+$def->properties['operator_name']->columnName   = 'operator_name';
+$def->properties['operator_name']->propertyName = 'operator_name';
+$def->properties['operator_name']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 return $def;
 
 ?>

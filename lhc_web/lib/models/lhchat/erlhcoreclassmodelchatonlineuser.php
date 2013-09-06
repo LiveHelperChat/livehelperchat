@@ -16,7 +16,8 @@ class erLhcoreClassModelChatOnlineUser {
                'user_country_name'  => $this->user_country_name,
                'user_country_code'  => $this->user_country_code,
                'operator_message'   => $this->operator_message,
-               'operator_user_id'   => $this->operator_user_id,
+               'operator_user_id'   	   => $this->operator_user_id,
+               'operator_user_proactive'   => $this->operator_user_proactive,
                'message_seen'       => $this->message_seen,
                'pages_count'        => $this->pages_count,
                'lat'        		=> $this->lat,
@@ -447,6 +448,7 @@ class erLhcoreClassModelChatOnlineUser {
    public $operator_message = '';
    public $identifier = '';
    public $operator_user_id = 0;
+   public $operator_user_proactive = '';
    public $message_seen = 0;
    public $pages_count = 0;
    public $lat = 0;

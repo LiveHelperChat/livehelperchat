@@ -36,6 +36,7 @@ class erLhcoreClassModelChat {
                'chat_duration'     		=> $this->chat_duration,
                'chat_variables'     	=> $this->chat_variables,
                'priority'     			=> $this->priority,
+               'chat_initiator'     	=> $this->chat_initiator,
        );
    }
 
@@ -192,6 +193,9 @@ class erLhcoreClassModelChat {
    const STATUS_CHATBOX_CHAT = 3;
    const STATUS_OPERATORS_CHAT = 4;
 
+   const CHAT_INITIATOR_DEFAULT = 0;
+   const CHAT_INITIATOR_PROACTIVE = 1;
+
    public $id = null;
    public $nick = '';
    public $status = self::STATUS_PENDING_CHAT;
@@ -222,6 +226,7 @@ class erLhcoreClassModelChat {
    public $wait_time = 0;
    public $chat_duration = 0;
    public $priority = 0;
+   public $chat_initiator = self::CHAT_INITIATOR_DEFAULT;
    public $chat_variables = '';
 
 }

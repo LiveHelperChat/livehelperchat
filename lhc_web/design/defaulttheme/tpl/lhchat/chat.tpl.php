@@ -1,6 +1,6 @@
-<div class="row">
+<div class="row collapse">
 
-	<div class="columns small-10">
+	<div class="columns small-9">
 		<h2 id="status-chat">
 		<?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>
 			<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','This chat is closed.'); ?>
@@ -14,7 +14,7 @@
 		<?php endif; ?>
 	</div>
 
-	<div class="columns small-2">
+	<div class="columns small-3">
 		<?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings.tpl.php'));?>
 	</div>
 

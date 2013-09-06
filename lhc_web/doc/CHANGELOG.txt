@@ -1,3 +1,12 @@
+1.49v
+
+1. From now messages like "user has left chat", "user has joined chat" will be shown where you see what user is typing or user is typing message. This will avoid flood in chat itself.
+2. You can configure default Operator name for proactive chats.
+3. If user starts chat from proactive widget, to user won't be shown message that we are pending operator to join chat.
+4. Adjusted how print icon is shown in widget.
+
+execute doc/update_db/update_32.sql
+
 1.48v
 
 1. CSFR protection in sensitive locations and form posts.
