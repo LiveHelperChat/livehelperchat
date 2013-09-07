@@ -34,6 +34,8 @@
 
 		<?php include(erLhcoreClassDesign::designtpl('lhchat/part/action_block.tpl.php')); ?>
 
+		<?php include(erLhcoreClassDesign::designtpl('lhchat/part/below_action_block.tpl.php')); ?>
+
 	</div>
 	<div class="columns large-5">
 		<?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/chat_tabs_container.tpl.php')); ?>
