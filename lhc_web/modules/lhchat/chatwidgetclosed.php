@@ -1,7 +1,7 @@
 <?php
 
 // For IE to support headers if chat is installed on different domain
-header('P3P: CP="NOI ADM DEV COM NAV OUR STP"');
+header('P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"');
 
 // Check is there online user instance and user has messsages from operator in that case he have seen message from operator
 if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 ) {

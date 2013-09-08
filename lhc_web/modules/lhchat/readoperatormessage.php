@@ -1,6 +1,6 @@
 <?php
 
-header('P3P: CP="NOI ADM DEV COM NAV OUR STP"');
+header('P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"');
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/readoperatormessage.tpl.php');
 $tpl->set('referer','');
