@@ -1,8 +1,8 @@
-<?php 
+<?php
 $chatsOpen = CSCacheAPC::getMem()->getArray('lhc_open_chats');
 if (!empty($chatsOpen)){
-	$chats = erLhcoreClassChat::getList(array('filterin' => array('id' => $chatsOpen)));	
-	
+	$chats = erLhcoreClassChat::getList(array('filterin' => array('id' => $chatsOpen)));
+
 	// Delete any old chat if it exists
 	$deleteKeys = array_diff($chatsOpen, array_keys($chats));
 	foreach ($deleteKeys as $chat_id) {
@@ -11,7 +11,7 @@ if (!empty($chatsOpen)){
 
 	foreach ($chats as $chat ){
 		if (erLhcoreClassChat::hasAccessToRead($chat)){
-			echo "lhinst.startChat('$chat->id',$('#tabs'),'".htmlspecialchars($chat->nick)."');";
+			echo "lhinst.startChat('$chat->id',$('#tabs'),'".htmlspecialchars($chat->nick,ENT_QUOTES)."');";
 		} else {
 			CSCacheAPC::getMem()->removeFromArray('lhc_open_chats', $chat->id);
 		}

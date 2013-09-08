@@ -36,7 +36,7 @@ try {
 	        	$chat->support_informed = 1;
 	        	$chat->user_typing = time()-5;// Show for shorter period these status messages
 	        	$chat->is_user_typing = 1;
-	        	$chat->user_typing_txt = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userjoined','User has joined the chat!');
+	        	$chat->user_typing_txt = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userjoined','User has joined the chat!'),ENT_QUOTES);
 
 	        	erLhcoreClassChat::getSession()->update($chat);
 

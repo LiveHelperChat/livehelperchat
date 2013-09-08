@@ -60,7 +60,7 @@ class erTranslationClassLhTranslation
     public function getTranslation($context, $string, $params = array())
     {
         if ($this->languageCode == 'en_EN') {
-            return $this->insertarguments($string,$params);
+            return htmlspecialchars($this->insertarguments($string,$params),ENT_QUOTES);
         }
 
         try {
@@ -68,12 +68,12 @@ class erTranslationClassLhTranslation
            try {
                 $translated = $context->getTranslation($string, $params);
 
-                if ($translated == '') return $this->insertarguments($string, $params);
+                if ($translated == '') return htmlspecialchars($this->insertarguments($string, $params),ENT_QUOTES);
 
-                return $translated;
+                return htmlspecialchars($translated,ENT_QUOTES);
 
            } catch (Exception $e){
-                return $this->insertarguments($string, $params);
+                return htmlspecialchars($this->insertarguments($string, $params),ENT_QUOTES);
            }
 
         } catch (Exception $e) {
@@ -85,7 +85,7 @@ class erTranslationClassLhTranslation
                 $translated = $this->insertarguments($string, $params);
             }
 
-            return $translated;
+            return htmlspecialchars($translated,ENT_QUOTES);
         }
     }
 

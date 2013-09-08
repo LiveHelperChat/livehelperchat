@@ -1,7 +1,7 @@
 <script type="text/javascript">
 	$(function() {
             <?php if (is_numeric($chat_id)) : ?>
-            addChat(<?php echo $chat_id;?>,'<?php echo $chat_to_load->nick;?>');
+            addChat(<?php echo $chat_id;?>,'<?php echo htmlspecialchars($chat_to_load->nick,ENT_QUOTES);?>');
             <?php endif; ?>
 	});
 </script>
@@ -17,7 +17,7 @@ function addChat(chat_id,name)
 {
 	lhinst.setCloseWindowOnEvent(true);
 	lhinst.setDisableRemember(true);
-    lhinst.startChat(chat_id,$('#tabs'),name);    
+    lhinst.startChat(chat_id,$('#tabs'),name);
     window.focus();
 }
 </script>

@@ -88,7 +88,7 @@
 		<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Actions')?>
 	</h5>
 	<p>
-		<img class="action-image" align="absmiddle" onclick="lhinst.startChatCloseTabNewWindow('<?php echo $chat->id;?>',$('#tabs'),'<?php echo htmlspecialchars($chat->nick);?>')" src="<?php echo erLhcoreClassDesign::design('images/icons/application_add.png');?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Open in a new window');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Open in a new window');?>">
+		<img class="action-image" data-title="<?php echo htmlspecialchars($chat->nick,ENT_QUOTES);?>" align="absmiddle" onclick="lhinst.startChatCloseTabNewWindow('<?php echo $chat->id;?>',$('#tabs'),$(this).attr('data-title'))" src="<?php echo erLhcoreClassDesign::design('images/icons/application_add.png');?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Open in a new window');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Open in a new window');?>">
 
 		<img class="action-image" align="absmiddle"
 			onclick="lhinst.removeDialogTab('<?php echo $chat->id?>',$('#tabs'),true)"
@@ -106,13 +106,11 @@
 			src="<?php echo erLhcoreClassDesign::design('images/icons/delete.png');?>"
 			alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Delete chat')?>"
 			title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Delete chat')?>">
-		<img class="action-image" align="absmiddle"
-			onclick="lhinst.transferUserDialog('<?php echo $chat->id?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Transfer chat')?>')"
+		<img class="action-image" align="absmiddle" onclick="lhinst.transferUserDialog('<?php echo $chat->id?>',$(this).attr('title'))"
 			src="<?php echo erLhcoreClassDesign::design('images/icons/user_go.png');?>"
 			alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Transfer chat')?>"
 			title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Transfer chat')?>">
-		<img class="action-image" align="absmiddle"
-			onclick="lhinst.blockUser('<?php echo $chat->id?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Are you sure?')?>')"
+		<img class="action-image" align="absmiddle" data-title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Are you sure?')?>" onclick="lhinst.blockUser('<?php echo $chat->id?>',$(this).attr('data-title'))"
 			src="<?php echo erLhcoreClassDesign::design('images/icons/user_delete.png');?>"
 			alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Block user')?>"
 			title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Block user')?>">

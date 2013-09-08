@@ -1,4 +1,4 @@
-<!DOCTYPE TS><TS>
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="lt">
 <context>
     <name>user/login</name>
     <message>
@@ -42,6 +42,10 @@
     <message>
         <source>Name for personal purposes</source>
         <translation>Pavadinimas asmeniniais tikslais</translation>
+    </message>
+    <message>
+        <source>Operator name</source>
+        <translation>Operatoriaus vardas</translation>
     </message>
     <message>
         <source>If you want pro active chat invitation to work it has to be enabled in</source>
@@ -527,6 +531,10 @@
         <source>Enable/Disable sound about new messages from the operator</source>
         <translation>Įjungti/Išjungti garsą apie naujus pranešimus iš operatoriaus</translation>
     </message>
+    <message>
+        <source>Print</source>
+        <translation>Spausdinti</translation>
+    </message>
 </context>
 <context>
     <name>chat/cannedmsg</name>
@@ -756,6 +764,14 @@
     <message>
         <source>minit</source>
         <translation>minutė</translation>
+    </message>
+    <message>
+        <source>hour</source>
+        <translation>valandą</translation>
+    </message>
+    <message>
+        <source>Show visitors who visited site in the past</source>
+        <translation>Rodyti lankytojus, kurie aplankė per pastarasias</translation>
     </message>
     <message>
         <source>Came from</source>
@@ -1502,6 +1518,10 @@
         <translation>Puslapis</translation>
     </message>
     <message>
+        <source>Print</source>
+        <translation>Spausdinti</translation>
+    </message>
+    <message>
         <source>Chat duration</source>
         <translation>Pokalbio trukmė</translation>
     </message>
@@ -2227,12 +2247,28 @@
         <translation>Maksimum 50 ženklų</translation>
     </message>
     <message>
+        <source>Live Support</source>
+        <translation>Pagalba</translation>
+    </message>
+    <message>
         <source>Invalid captcha code, please enable Javascript!</source>
         <translation>Nekorektiškas apsaugos kodas, prašome įjungti Javascript palaikymą!</translation>
     </message>
     <message>
         <source>Maximum 500 characters for message</source>
         <translation>Maksimum 500 ženklų žinutėje</translation>
+    </message>
+    <message>
+        <source>Type your message here and hit enter to send...</source>
+        <translation>Įveskite savo žinutę ir paspauskite enter</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation>Siųsti</translation>
+    </message>
+    <message>
+        <source>Offline</source>
+        <translation>Neprisijunges</translation>
     </message>
     <message>
         <source>Leave a message</source>
@@ -2303,10 +2339,6 @@
         <translation>Prašome įvesti vardą</translation>
     </message>
     <message>
-        <source>Type your message here and hit enter to send...</source>
-        <translation>Įveskite savo žinute ir paspauskite enter norėdami nusiųsti...</translation>
-    </message>
-    <message>
         <source>Wrong email</source>
         <translation>Nekorektiškas el. pašto adresas</translation>
     </message>
@@ -2317,10 +2349,6 @@
     <message>
         <source>Visitor</source>
         <translation>Lankytojas</translation>
-    </message>
-    <message>
-        <source>Send</source>
-        <translation>Siųsti</translation>
     </message>
 </context>
 <context>
@@ -2580,6 +2608,10 @@
     <message>
         <source>System configuration</source>
         <translation>Sistemos konfigūracija</translation>
+    </message>
+    <message>
+        <source>Priority</source>
+        <translation>Prioritetas</translation>
     </message>
 </context>
 <context>
@@ -2979,8 +3011,20 @@
         <translation>Suteikti leidimą rodyti pranešimus</translation>
     </message>
     <message>
-        <source>Chat embed code</source>
-        <translation>Pokalbių generavimo kodas</translation>
+        <source>Live help embed code</source>
+        <translation>Live Help įterpimo kodas</translation>
+    </message>
+    <message>
+        <source>FAQ embed code</source>
+        <translation>DUK įterpimo kodas</translation>
+    </message>
+    <message>
+        <source>Questionary embed code</source>
+        <translation>Klausimyno įterpimo kodas</translation>
+    </message>
+    <message>
+        <source>Chatbox embed code</source>
+        <translation>Chatbox įterpimo kodas</translation>
     </message>
     <message>
         <source>Canned messages</source>

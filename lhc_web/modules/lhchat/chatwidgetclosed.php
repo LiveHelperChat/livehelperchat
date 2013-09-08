@@ -19,7 +19,6 @@ if (($hashSession = CSCacheAPC::getMem()->getSession('chat_hash_widget')) !== fa
     list($chatID,$hash) = explode('_',$hashSession);
 
     try {
-
 	        $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $chatID);
 
 	        if ($chat->user_status != 1) {
@@ -30,20 +29,9 @@ if (($hashSession = CSCacheAPC::getMem()->getSession('chat_hash_widget')) !== fa
 			        // User closed chat
 			        $chat->user_status = 1;
 			        $chat->support_informed = 1;
-
-			        $msg = new erLhcoreClassModelmsg();
-			        $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat','User has left the chat!');
-			        $msg->chat_id = $chat->id;
-			        $msg->user_id = -1; // System messages get's user_id -1
-
-			        $chat->last_user_msg_time = $msg->time = time();
-
-			        erLhcoreClassChat::getSession()->save($msg);
-
-			        // Set last message ID
-			        if ($chat->last_msg_id < $msg->id) {
-			        	$chat->last_msg_id = $msg->id;
-			        }
+			        $chat->user_typing = time()-5;// Show for shorter period these status messages
+			        $chat->is_user_typing = 1;
+			        $chat->user_typing_txt = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat','User has left the chat!'),ENT_QUOTES);
 
 			        erLhcoreClassChat::getSession()->update($chat);
 
@@ -57,7 +45,6 @@ if (($hashSession = CSCacheAPC::getMem()->getSession('chat_hash_widget')) !== fa
     // This is called then user closes chat widget
     // We mark session variable as user closed the chat
     CSCacheAPC::getMem()->setSession('chat_hash_widget',false);
-
 
 }
 
