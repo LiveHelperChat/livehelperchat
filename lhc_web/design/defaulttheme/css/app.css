@@ -512,3 +512,24 @@ ul.accordion-faq li {
 	font-weight:bold;
 	color: #c60f13;
 }
+
+.chat-closed,
+.chat-unread,
+.chat-active,
+.chat-pending{
+	font-size:12px;
+}
+
+.chat-closed:before,
+.chat-unread:before,
+.chat-active:before,
+.chat-pending:before{
+	line-height:0.9em !important;
+}
+
+
+
+.chat-pending{color:#99AC11;}
+.chat-active{color:#5da423;}
+.chat-unread{color:#c60f13;}
+.chat-closed{color:#BB474A;}

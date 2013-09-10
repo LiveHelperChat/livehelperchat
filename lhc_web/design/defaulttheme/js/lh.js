@@ -113,7 +113,7 @@ function lh(){
     this.addTab = function(tabs, url, name, chat_id) {
     	tabs.find('> section.active').removeClass("active").attr('style','');
     	var nextElement = tabs.find('> section').size() + 5; // Leave some numbering for custom tabs
-    	tabs.append('<section class="active"><p class="title"><a class="chat-tab-item" id="chat-id-'+chat_id+'" href="#">' + name + '</a></p><div class="content" id="simple'+nextElement+'Tab">...</div></section>');
+    	tabs.append('<section class="active"><p class="title"><a class="chat-tab-item" id="chat-id-'+chat_id+'" href="#">' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</a></p><div class="content" id="simple'+nextElement+'Tab">...</div></section>');
 
     	$('#chat-id-'+chat_id).click(function() {
     		var inst = $(this);

@@ -1,5 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html lang="<?php echo erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'content_language')?>" dir="<?php echo erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'dir_language')?>">
 <head>
@@ -9,7 +8,7 @@
 
 
     <div class="row">
-        <div class="columns marge-12 pt10">
+        <div class="columns large-12 pt10">
             <?php echo $Result['content']; ?>
         </div>
     </div>

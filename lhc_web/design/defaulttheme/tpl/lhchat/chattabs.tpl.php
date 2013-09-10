@@ -10,7 +10,7 @@ $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_lis
 <div class="section-container auto" data-section="auto" id="tabs">
   <?php if ($pendingTabEnabled == true) : ?>
   <section>
-    <p class="title" data-section-title><a href="#panel1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Pending confirm');?><span class="pn-cnt"></span></a></p>
+    <p class="title" data-section-title><a href="#panel1" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Pending confirm');?>"><i class="icon-chat chat-pending"></i><span class="pn-cnt"></span></a></p>
     <div class="content" data-section-content>
       <div>
       	<div id="pending-chat-list"></div>
@@ -23,7 +23,7 @@ $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_lis
 
   <?php if ($activeTabEnabled == true) : ?>
   <section>
-    <p class="title" data-section-title><a href="#panel2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Active chats');?><span class="ac-cnt"></span></a></p>
+    <p class="title" data-section-title><a href="#panel2" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Active chats');?>"><i class="icon-chat chat-active"></i><span class="ac-cnt"></span></a></p>
     <div class="content" data-section-content>
       <div>
      	<div id="active-chat-list"></div>
@@ -36,7 +36,7 @@ $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_lis
 
   <?php if ($unreadTabEnabled == true) : ?>
   <section>
-    <p class="title" data-section-title><a href="#panel3"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Unread messages');?><span class="un-cnt"></span></a></p>
+    <p class="title" data-section-title><a href="#panel3" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Unread messages');?>"><i class="icon-comment chat-unread"></i><span class="un-cnt"></span></a></p>
     <div class="content" data-section-content>
       <div>
      	<div id="unread-chat-list"></div>
@@ -49,7 +49,7 @@ $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_lis
 
   <?php if ($closedTabEnabled == true) : ?>
   <section>
-    <p class="title" data-section-title><a href="#panel4"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Closed chats');?><span class="cl-cnt"></span></a></p>
+    <p class="title" data-section-title><a href="#panel4" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Closed chats');?>"><i class="icon-cancel-circled chat-closed"></i><span class="cl-cnt"></span></a></p>
     <div class="content" data-section-content>
       <div>
      	<div id="closed-chat-list"></div>
