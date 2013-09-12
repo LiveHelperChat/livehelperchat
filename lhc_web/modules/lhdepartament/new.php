@@ -15,7 +15,7 @@ if (isset($_POST['Save_departament']))
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
         'Email' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'validate_email'
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
         'Priority' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int'
@@ -31,17 +31,27 @@ if (isset($_POST['Save_departament']))
     }
 
     if ( $form->hasValidData( 'Email' ) ) {
-    	$Departament->email = $form->Email;
+
+    	$partsEmail = explode(',', $form->Email);
+    	$validatedEmail = array();
+    	foreach ($partsEmail as $email){
+    		if (filter_var(trim($email), FILTER_VALIDATE_EMAIL)){
+    			$validatedEmail[] = trim($email);
+    		}
+    	}
+
+        $Departament->email = implode(',', $validatedEmail);
+
     } else {
     	$Departament->email = '';
     }
-    
+
     if ( $form->hasValidData( 'Priority' ) ) {
     	$Departament->priority = $form->Priority;
     } else {
     	$Departament->priority = 0;
     }
-    
+
     if (count($Errors) == 0)
     {
         $Departament->name = $form->Name;

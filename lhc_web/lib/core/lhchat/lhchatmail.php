@@ -137,18 +137,21 @@ class erLhcoreClassChatMail {
     	$mail->AddReplyTo($chat->email,$chat->nick);
     	$mail->Body = str_replace(array('{phone}','{name}','{email}','{message}','{additional_data}','{url_request}','{ip}','{department}'), array($chat->phone,$chat->nick,$chat->email,$inputData->question,$chat->additional_data,(isset($_POST['URLRefer']) ? $_POST['URLRefer'] : ''),$_SERVER['REMOTE_ADDR'],(string)$chat->department), $sendMail->content);
 
-    	$emailRecipient = '';
+    	$emailRecipient = array();
     	if ($chat->department !== false && $chat->department->email != '') { // Perhaps department has assigned email
-    		$emailRecipient = $chat->department->email;
+    		$emailRecipient = explode(',',$chat->department->email);
     	} elseif ($sendMail->recipient != '') { // Perhaps template has default recipient
-    		$emailRecipient = $sendMail->recipient;
+    		$emailRecipient = explode(',',$sendMail->recipient);
     	} else { // Lets find first user and send him an e-mail
     		$list = erLhcoreClassModelUser::getUserList(array('limit' => 1,'sort' => 'id ASC'));
     		$user = array_pop($list);
-    		$emailRecipient = $user->email;
+    		$emailRecipient = array($user->email);
     	}
 
-    	$mail->AddAddress( $emailRecipient );
+    	foreach ($emailRecipient as $receiver) {
+    		$mail->AddAddress( $receiver );
+    	}
+
     	self::setupSMTP($mail);
 
     	$mail->Send();
