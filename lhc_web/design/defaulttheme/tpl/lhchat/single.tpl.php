@@ -1,7 +1,7 @@
 <script type="text/javascript">
 	$(function() {
             <?php if (is_numeric($chat_id)) : ?>
-            addChat(<?php echo $chat_id;?>,'<?php echo htmlspecialchars($chat_to_load->nick,ENT_QUOTES);?>');
+            addChat(<?php echo $chat_id;?>,'<?php echo erLhcoreClassDesign::shrt($chat_to_load->nick,10,'...',30,ENT_QUOTES);?>');
             <?php endif; ?>
 	});
 </script>

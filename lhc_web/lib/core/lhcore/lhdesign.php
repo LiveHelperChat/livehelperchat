@@ -303,7 +303,7 @@ class erLhcoreClassDesign
     	return implode($break, $lines);
     }
 
-    public static function shrt($string = '',$max = 10,$append = '...', $wordrap = 30)
+    public static function shrt($string = '',$max = 10,$append = '...', $wordrap = 30, $encQuates = null)
     {
     	$string = str_replace('&nbsp;',' ',$string);
     	$string = str_replace(
@@ -313,10 +313,10 @@ class erLhcoreClassDesign
 
     	$string = self::mb_wordwrap($string,$wordrap,"\n",true);
 
-    	if (mb_strlen($string) <= $max) return htmlspecialchars($string);
+    	if (mb_strlen($string) <= $max) return htmlspecialchars($string,$encQuates);
     	$cutted = mb_strcut($string,0,$max,'UTF-8').$append;
 
-    	return htmlspecialchars($cutted);
+    	return htmlspecialchars($cutted,$encQuates);
     }
 
     public static function designJS($files)

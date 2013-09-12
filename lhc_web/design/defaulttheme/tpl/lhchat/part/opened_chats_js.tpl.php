@@ -11,7 +11,7 @@ if (!empty($chatsOpen)){
 
 	foreach ($chats as $chat ){
 		if (erLhcoreClassChat::hasAccessToRead($chat)){
-			echo "lhinst.startChat('$chat->id',$('#tabs'),'".htmlspecialchars($chat->nick,ENT_QUOTES)."');";
+			echo "lhinst.startChat('$chat->id',$('#tabs'),'".erLhcoreClassDesign::shrt($chat->nick,10,'...',30,ENT_QUOTES)."');";
 		} else {
 			CSCacheAPC::getMem()->removeFromArray('lhc_open_chats', $chat->id);
 		}
