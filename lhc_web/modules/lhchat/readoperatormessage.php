@@ -5,7 +5,7 @@ header('P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/readoperatormessage.tpl.php');
 $tpl->set('referer','');
 
-$userInstance = erLhcoreClassModelChatOnlineUser::handleRequest();
+$userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('vid' => $Params['user_parameters_unordered']['vid']));
 $tpl->set('visitor',$userInstance);
 
 $inputData = new stdClass();
@@ -84,10 +84,10 @@ if (isset($_POST['askQuestion']))
        erLhcoreClassChat::getSession()->save($msg);
 
        // Store hash if user reloads page etc, we show widget
-       CSCacheAPC::getMem()->setSession('chat_hash_widget',$chat->id.'_'.$chat->hash);
+       //USING COOKIES NOW - CSCacheAPC::getMem()->setSession('chat_hash_widget',$chat->id.'_'.$chat->hash);
 
        // Store hash for user previous chat, so user after main chat close can reopen old chat
-       CSCacheAPC::getMem()->setSession('chat_hash_widget_resume',$chat->id.'_'.$chat->hash);
+       //USING COOKIES NOW - CSCacheAPC::getMem()->setSession('chat_hash_widget_resume',$chat->id.'_'.$chat->hash);
 
        // Redirect user
        erLhcoreClassModule::redirect('chat/chatwidgetchat/' . $chat->id . '/' . $chat->hash);

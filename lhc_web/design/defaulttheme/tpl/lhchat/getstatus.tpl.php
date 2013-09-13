@@ -69,11 +69,22 @@ if ($isOnlineHelp == false && erLhcoreClassModelChatConfig::fetch('pro_active_sh
 
 // Perhaps user do not want to show live help when it's offline
 if ( !($isOnlineHelp == false && $hide_offline == 'true') ) : ?>
+
+/*! Cookies.js - 0.3.1; Copyright (c) 2013, Scott Hamper; http://www.opensource.org/licenses/MIT */
+(function(e){"use strict";var a=function(b,d,c){return 1===arguments.length?a.get(b):a.set(b,d,c)};a._document=document;a._navigator=navigator;a.defaults={path:"/"};a.get=function(b){a._cachedDocumentCookie!==a._document.cookie&&a._renewCache();return a._cache[b]};a.set=function(b,d,c){c=a._getExtendedOptions(c);c.expires=a._getExpiresDate(d===e?-1:c.expires);a._document.cookie=a._generateCookieString(b,d,c);return a};a.expire=function(b,d){return a.set(b,e,d)};a._getExtendedOptions=function(b){return{path:b&&
+b.path||a.defaults.path,domain:b&&b.domain||a.defaults.domain,expires:b&&b.expires||a.defaults.expires,secure:b&&b.secure!==e?b.secure:a.defaults.secure}};a._isValidDate=function(b){return"[object Date]"===Object.prototype.toString.call(b)&&!isNaN(b.getTime())};a._getExpiresDate=function(b,d){d=d||new Date;switch(typeof b){case "number":b=new Date(d.getTime()+1E3*b);break;case "string":b=new Date(b)}if(b&&!a._isValidDate(b))throw Error("`expires` parameter cannot be converted to a valid Date instance");
+return b};a._generateCookieString=function(b,a,c){b=encodeURIComponent(b);a=(a+"").replace(/[^!#$&-+\--:<-\[\]-~]/g,encodeURIComponent);c=c||{};b=b+"="+a+(c.path?";path="+c.path:"");b+=c.domain?";domain="+c.domain:"";b+=c.expires?";expires="+c.expires.toUTCString():"";return b+=c.secure?";secure":""};a._getCookieObjectFromString=function(b){var d={};b=b?b.split("; "):[];for(var c=0;c<b.length;c++){var f=a._getKeyValuePairFromCookieString(b[c]);d[f.key]===e&&(d[f.key]=f.value)}return d};a._getKeyValuePairFromCookieString=
+function(b){var a=b.indexOf("="),a=0>a?b.length:a;return{key:decodeURIComponent(b.substr(0,a)),value:decodeURIComponent(b.substr(a+1))}};a._renewCache=function(){a._cache=a._getCookieObjectFromString(a._document.cookie);a._cachedDocumentCookie=a._document.cookie};a._areEnabled=function(){return a._navigator.cookieEnabled||"1"===a.set("cookies.js",1).get("cookies.js")};a.enabled=a._areEnabled();"function"===typeof define&&define.amd?define(function(){return a}):"undefined"!==typeof exports?("undefined"!==
+typeof module&&module.exports&&(exports=module.exports=a),exports.Cookies=a):window.Cookies=a})();
+
+
 var lh_inst  = {
 
     urlopen : "//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/startchat')?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?>",
 
     windowname : "startchatwindow",
+
+    cookieData : {},
 
     addCss : function(css_content) {
         var head = document.getElementsByTagName('head')[0];
@@ -109,19 +120,28 @@ var lh_inst  = {
         var th = document.getElementsByTagName('head')[0];
         var s = document.createElement('script');
         s.setAttribute('type','text/javascript');
-        s.setAttribute('src','//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatwidgetclosed')?>');
+        s.setAttribute('src','//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatwidgetclosed')?>'+this.getAppendCookieArguments());
         th.appendChild(s);
         this.removeById('lhc_container');
+        this.removeCookieAttr('hash');
         <?php if ($check_operator_messages == 'true') : ?>
         this.startNewMessageCheck();
         <?php endif; ?>
+    },
+
+    getAppendCookieArguments : function() {
+		    var hashAppend = this.cookieData.hash ? '/(hash)/'+this.cookieData.hash : '';
+		    var vidAppend = this.cookieData.vid ? '/(vid)/'+this.cookieData.vid : '';
+		    var hashResume = this.cookieData.hash_resume ? '/(hash_resume)/'+this.cookieData.hash_resume : '';
+		    return hashAppend+vidAppend+hashResume;
     },
 
     openRemoteWindow : function() {
         this.removeById('lhc_container');
         var popupHeight = (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.popup_height != 'undefined') ? parseInt(LHCChatOptions.opt.popup_height) : 520;
         var popupWidth = (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.popup_width != 'undefined') ? parseInt(LHCChatOptions.opt.popup_width) : 500;
-        window.open(this.urlopen+'?URLReferer='+escape(document.location)+this.parseOptions(),this.windowname,"menubar=1,resizable=1,width="+popupWidth+",height="+popupHeight);
+        window.open(this.urlopen+this.getAppendCookieArguments()+'?URLReferer='+escape(document.location)+this.parseOptions(),this.windowname,"menubar=1,resizable=1,width="+popupWidth+",height="+popupHeight);
+        this.removeCookieAttr('hash');
     },
 
     parseOptions : function() {
@@ -163,7 +183,7 @@ var lh_inst  = {
           if ( url_to_open != undefined ) {
                 this.initial_iframe_url = url_to_open+'?URLReferer='+escape(document.location)+this.parseOptions();
           } else {
-                this.initial_iframe_url = "//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?>"+'?URLReferer='+escape(document.location)+this.parseOptions();
+                this.initial_iframe_url = "//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?>"+this.getAppendCookieArguments()+'?URLReferer='+escape(document.location)+this.parseOptions();
           };
 
           var widgetWidth = (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.widget_width != 'undefined') ? parseInt(LHCChatOptions.opt.widget_width) : 300;
@@ -223,16 +243,42 @@ var lh_inst  = {
     },
 
     startNewMessageCheck : function() {
+    	var vid = this.cookieData.vid;
         this.timeoutInstance = setTimeout(function() {
             lh_inst.removeById('lhc_operator_message');
             var th = document.getElementsByTagName('head')[0];
             var s = document.createElement('script');
             s.setAttribute('id','lhc_operator_message');
             s.setAttribute('type','text/javascript');
-            s.setAttribute('src','//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatcheckoperatormessage')?><?php $priority !== false ? print '/(priority)/'.$priority : ''?>?l='+escape(document.location));
+            s.setAttribute('src','//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatcheckoperatormessage')?><?php $priority !== false ? print '/(priority)/'.$priority : ''?>/(vid)/'+vid+'?l='+escape(document.location));
             th.appendChild(s);
             lh_inst.startNewMessageCheck();
         }, <?php echo (int)(erConfigClassLhConfig::getInstance()->getSetting('chat','check_for_operator_msg')*1000) ?> );
+    },
+
+    startNewMessageCheckSingle : function() {
+    	var vid = this.cookieData.vid;
+        lh_inst.removeById('lhc_operator_message');
+        var th = document.getElementsByTagName('head')[0];
+        var s = document.createElement('script');
+        s.setAttribute('id','lhc_operator_message');
+        s.setAttribute('type','text/javascript');
+        s.setAttribute('src','//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatcheckoperatormessage')?><?php $priority !== false ? print '/(priority)/'.$priority : ''?>/(vid)/'+vid+'?l='+escape(document.location));
+        th.appendChild(s);
+    },
+
+    removeCookieAttr : function(attr){
+    	if (this.cookieData[attr]) {
+    		delete this.cookieData[attr];
+    		Cookies('lhc_vid',JSON.stringify(this.cookieData));
+    	}
+    },
+
+    addCookieAttribute : function(attr, value){
+    	if (!this.cookieData[attr] || this.cookieData[attr] != value){
+	    	this.cookieData[attr] = value;
+	    	Cookies('lhc_vid',JSON.stringify(this.cookieData));
+    	}
     },
 
     handleMessage : function(e) {
@@ -245,7 +291,12 @@ var lh_inst  = {
     		elementObject.style.height = height+'px';
     		iframeContainer.className = iframeContainer.className;
     		iframeContainer.style.height = (parseInt(height)+26)+'px';
-    	};
+    	} else if (action == 'lhc_ch') {
+    		var parts = e.data.split(':');
+    		if (parts[1] != '' && parts[2] != '') {
+    			lh_inst.addCookieAttribute(parts[1],parts[2]);
+    		}
+    	}
     }
 };
 
@@ -264,17 +315,40 @@ if ( window.addEventListener ){
 	window.addEventListener("message", lh_inst.handleMessage, false);
 };
 
-<?php if ($check_operator_messages == 'true' && $disable_pro_active == false) : ?>
-lh_inst.startNewMessageCheck();
-<?php endif; ?>
+var cookieData = Cookies('lhc_vid');
+
+if ( typeof cookieData === "string" && cookieData ) {
+	lh_inst.cookieData = JSON.parse(cookieData);
+	console.log(lh_inst.cookieData);
+} else {
+	lh_inst.cookieData = {<?php isset($vid) ? print 'vid:\''.$vid.'\'' : ''?>};
+	Cookies('lhc_vid',JSON.stringify(lh_inst.cookieData));
+}
 
 <?php if ($position == 'original' || $position == '') :
 // You can style bottom HTML whatever you want. ?>
 document.getElementById('lhc_status_container').innerHTML = '<p><a href="#" onclick="return lh_inst.lh_openchatWindow()"><?php if ($isOnlineHelp == true) : ?><img src="//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/icons/user_green_chat.png');?>" alt="" /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus',"Live help is online...")?><?php else : ?><img src="//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/icons/user_gray_chat.png');?>" alt="" /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus',"Live help is offline...")?><?php endif;?></a></p>';
 <?php elseif (in_array($position, array('bottom_right','bottom_left','middle_right','middle_left'))) : ?>
 lh_inst.showStatusWidget();
-<?php endif;
+<?php endif; ?>
 
+if (lh_inst.cookieData.hash) {
+	lh_inst.stopCheckNewMessage();
+    lh_inst.showStartWindow();
+}
+
+
+<?php if ($check_operator_messages == 'true' && $disable_pro_active == false) : ?>
+lh_inst.startNewMessageCheck();
+<?php endif; ?>
+
+<?php if ($disable_pro_active == false) : ?>
+lh_inst.startNewMessageCheckSingle();
+<?php endif;?>
+
+
+<?php
+/*
 // User has pending chat
 if (($hashSession = CSCacheAPC::getMem()->getSession('chat_hash_widget')) !== false) : ?>
    lh_inst.stopCheckNewMessage();
@@ -283,6 +357,7 @@ if (($hashSession = CSCacheAPC::getMem()->getSession('chat_hash_widget')) !== fa
    lh_inst.stopCheckNewMessage();
    lh_inst.showStartWindow('//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/readoperatormessage')?><?php $priority !== false ? print '/(priority)/'.$priority : ''?>');
 <?php endif;
+*/
 
 endif; // hide if offline
 

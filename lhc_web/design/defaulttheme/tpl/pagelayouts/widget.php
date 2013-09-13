@@ -31,6 +31,10 @@ if (!!window.postMessage) {
 			};
 		};
 	},200);
+	<?php if (isset($Result['chat']) && is_numeric($Result['chat']->id)) : ?>
+	parent.postMessage("lhc_ch:hash:<?php echo $Result['chat']->id,'_',$Result['chat']->hash?>", '*');
+	parent.postMessage("lhc_ch:hash_resume:<?php echo $Result['chat']->id,'_',$Result['chat']->hash?>", '*');
+	<?php endif; ?>
 };
 </script>
 <?php endif;?>

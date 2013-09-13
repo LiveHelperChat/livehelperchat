@@ -7,13 +7,16 @@ $tpl = erLhcoreClassTemplate::getInstance('lhchat/getstatus.tpl.php');
 
 if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 ) {
     // To track online users
-    $visitor = erLhcoreClassModelChatOnlineUser::handleRequest(array('pages_count' => true, 'pro_active_limitation' => erLhcoreClassModelChatConfig::fetch('pro_active_limitation')->current_value, 'pro_active_invite' => erLhcoreClassModelChatConfig::fetch('pro_active_invite')->current_value, 'identifier' => (string)$Params['user_parameters_unordered']['identifier']));
+    /* $visitor = erLhcoreClassModelChatOnlineUser::handleRequest(array('pages_count' => true, 'pro_active_limitation' => erLhcoreClassModelChatConfig::fetch('pro_active_limitation')->current_value, 'pro_active_invite' => erLhcoreClassModelChatConfig::fetch('pro_active_invite')->current_value, 'identifier' => (string)$Params['user_parameters_unordered']['identifier']));
 
     if ( erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1 && isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])) {
     	erLhcoreClassModelChatOnlineUserFootprint::addPageView($visitor);
     }
 
-    $tpl->set('visitor',$visitor);
+    $tpl->set('visitor',$visitor); */
+
+	$tpl->set('vid',erLhcoreClassModelForgotPassword::randomPassword(20));
+
 }
 
 if ( !isset($_SESSION['lhc_site_referrer']) ) {

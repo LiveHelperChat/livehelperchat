@@ -10,6 +10,7 @@ if ((string)$Params['user_parameters_unordered']['mode'] == 'embed') {
 	$modeAppend = '/(mode)/embed';
 }
 
+// Perhaps it existed in session
 if (($hashSession = CSCacheAPC::getMem()->getSession('chat_hash_widget')) !== false) {
 
     list($chatID,$hash) = explode('_',$hashSession);
@@ -18,6 +19,21 @@ if (($hashSession = CSCacheAPC::getMem()->getSession('chat_hash_widget')) !== fa
     erLhcoreClassModule::redirect('chat/chatwidgetchat','/' . $chatID . '/' . $hash . $modeAppend );
     exit;
 }
+
+// Perhaps it's direct argument
+if ((string)$Params['user_parameters_unordered']['hash'] != '') {
+	list($chatID,$hash) = explode('_',$Params['user_parameters_unordered']['hash']);
+
+	// Redirect user
+	erLhcoreClassModule::redirect('chat/chatwidgetchat','/' . $chatID . '/' . $hash . $modeAppend );
+	exit;
+}
+
+// Perhaps it's direct argument
+if ((string)$Params['user_parameters_unordered']['hash_resume'] != '') {
+	CSCacheAPC::getMem()->setSession('chat_hash_widget_resume',(string)$Params['user_parameters_unordered']['hash_resume'],true);
+}
+
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/chatwidget.tpl.php');
 $tpl->set('referer','');
@@ -91,10 +107,11 @@ if (isset($_POST['StartChat']))
 	       // Store chat
 	       erLhcoreClassChat::getSession()->save($chat);
 
+
 	       // Assign chat to user
 	       if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 ) {
 	            // To track online users
-	            $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest();
+	            $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('vid' => $Params['user_parameters_unordered']['vid']));
 
 	            if ($userInstance !== false) {
 	                $userInstance->chat_id = $chat->id;
@@ -105,6 +122,7 @@ if (isset($_POST['StartChat']))
 	            	}
 	            }
 	       }
+
 
 	       // Store message if required
 	       if (isset($startDataFields['message_visible_in_page_widget']) && $startDataFields['message_visible_in_page_widget'] == true) {
@@ -124,6 +142,8 @@ if (isset($_POST['StartChat']))
 
 	       // Store hash for user previous chat, so user after main chat close can reopen old chat
 	       CSCacheAPC::getMem()->setSession('chat_hash_widget_resume',$chat->id.'_'.$chat->hash);
+
+
 
 	       // Redirect user
 	       erLhcoreClassModule::redirect('chat/chatwidgetchat','/' . $chat->id . '/' . $chat->hash . $modeAppend);

@@ -224,13 +224,13 @@ $ViewList['getstatusembed'] = array(
 $ViewList['startchat'] = array (
     'script' => 'startchat.php',
     'params' => array(),
-    'uparams' => array('offline','leaveamessage','department','priority')
+    'uparams' => array('hash','offline','leaveamessage','department','priority')
 );
 
 $ViewList['chatwidget'] = array(
     'script' => 'chatwidget.php',
     'params' => array(),
-    'uparams' => array('mode','offline','leaveamessage','department','priority'),
+    'uparams' => array('hash','hash_resume','mode','offline','leaveamessage','department','priority'),
 );
 
 $ViewList['reopen'] = array(
@@ -242,18 +242,19 @@ $ViewList['reopen'] = array(
 $ViewList['readoperatormessage'] = array(
     'script' => 'readoperatormessage.php',
     'params' => array(),
-    'uparams' => array('priority')
+    'uparams' => array('priority','vid')
 );
 
 $ViewList['chatcheckoperatormessage'] = array(
     'script' => 'chatcheckoperatormessage.php',
     'params' => array(),
-    'uparams' => array('priority')
+    'uparams' => array('priority','vid')
 );
 
 $ViewList['chatwidgetclosed'] = array(
     'script' => 'chatwidgetclosed.php',
-    'params' => array()
+    'params' => array(),
+    'uparams' => array('vid','hash'),
 );
 
 $ViewList['chat'] = array(

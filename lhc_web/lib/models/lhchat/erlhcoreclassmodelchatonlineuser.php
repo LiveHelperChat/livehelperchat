@@ -346,8 +346,8 @@ class erLhcoreClassModelChatOnlineUser {
        $cookieData .= print_r($_GET,true);*/
 
        // Track only not logged users
-           if ( isset($_COOKIE['lhc_vid']) ) {
-               $items = erLhcoreClassModelChatOnlineUser::getList(array('filter' => array('vid' => $_COOKIE['lhc_vid'])));
+           if ( isset($paramsHandle['vid']) ) {
+               $items = erLhcoreClassModelChatOnlineUser::getList(array('filter' => array('vid' => $paramsHandle['vid'])));
                if (!empty($items)) {
                    $item = array_shift($items);
 
@@ -365,7 +365,7 @@ class erLhcoreClassModelChatOnlineUser {
                } else {
                    $item = new erLhcoreClassModelChatOnlineUser();
                    $item->ip = $_SERVER['REMOTE_ADDR'];
-                   $item->vid = erLhcoreClassModelForgotPassword::randomPassword(20);
+                   $item->vid = $paramsHandle['vid'];
                    $item->identifier = (isset($paramsHandle['identifier']) && !empty($paramsHandle['identifier'])) ? $paramsHandle['identifier'] : '';
                    $item->referrer = isset($_GET['r']) ? urldecode($_GET['r']) : '';
 
@@ -378,7 +378,7 @@ class erLhcoreClassModelChatOnlineUser {
                }
            } else {
 	           	if (isset($_SERVER['HTTP_USER_AGENT']) && !preg_match('/bot|crawl|yahoo|bing|msnbot|twittervir|slurp|spider/i', $_SERVER['HTTP_USER_AGENT'])) {
-		               $item = new erLhcoreClassModelChatOnlineUser();
+		               /* $item = new erLhcoreClassModelChatOnlineUser();
 		               $item->ip = $_SERVER['REMOTE_ADDR'];
 		               $item->vid = erLhcoreClassModelForgotPassword::randomPassword(20);
 		               $item->identifier = (isset($paramsHandle['identifier']) && !empty($paramsHandle['identifier'])) ? $paramsHandle['identifier'] : '';
@@ -387,16 +387,15 @@ class erLhcoreClassModelChatOnlineUser {
 		               setcookie('lhc_vid',$item->vid,time() + (1 * 365 * 24 * 60 * 60),'/');
 
 		               self::detectLocation($item);
-
+ 						*/
 		               // Cleanup database then new user comes
 		               self::cleanupOnlineUsers();
+		               return false;
 	           	} else {
 	           		// Do nothing it's bot
 	           		exit;
 	           	}
            }
-
-
 
            if (isset($paramsHandle['pages_count']) && $paramsHandle['pages_count'] == true) {
            		$item->pages_count++;
@@ -409,8 +408,9 @@ class erLhcoreClassModelChatOnlineUser {
            if (!isset($paramsHandle['check_message_operator'])) {
            		$item->user_agent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
            		$item->current_page = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
-           		$item->last_visit = time();
            }
+
+           $item->last_visit = time();
 
            if ($item->operator_message == '' && isset($paramsHandle['pro_active_invite']) && $paramsHandle['pro_active_invite'] == 1 && isset($paramsHandle['pro_active_limitation']) && ($paramsHandle['pro_active_limitation'] == -1 || erLhcoreClassChat::getPendingChatsCountPublic() <= $paramsHandle['pro_active_limitation']) ) {
            		//Process pro active chat invitation if this visitor matches any rules

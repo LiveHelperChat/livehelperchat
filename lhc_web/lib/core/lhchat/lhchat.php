@@ -24,7 +24,7 @@ class erLhcoreClassChat {
     	$filter['filter'] = array('status' => 0);
 
     	if ($limitation !== true) {
-    		$filter['customfilter'][] = $limitation;    	
+    		$filter['customfilter'][] = $limitation;
     		$filter['use_index'] = 'status_dep_id_priority_id';
     	} else {
     		$filter['use_index'] = 'status_priority_id';
@@ -743,7 +743,7 @@ class erLhcoreClassChat {
    }
 
    public static function canReopenDirectly() {
-	   	if (($chatPart = CSCacheAPC::getMem()->getSession('chat_hash_widget_resume')) !== false) {
+	   	if (($chatPart = CSCacheAPC::getMem()->getSession('chat_hash_widget_resume',true)) !== false) {
 	   		$parts = explode('_', $chatPart);
 	   		return array('id' => $parts[0],'hash' => $parts[1]);
 	   	}

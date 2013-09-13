@@ -3,7 +3,7 @@
 <?php endif; ?>
 
 <?php if ($leaveamessage == false || erLhcoreClassChat::isOnline($department) === true) : ?>
-<form method="post" action="<?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?><?php echo $append_mode?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $input_data->priority !== false ? print '/(priority)/'.$input_data->priority : ''?>" onsubmit="return lhinst.addCaptcha('<?php echo time()?>',$(this))">
+<form method="post" action="<?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?><?php echo $append_mode?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $input_data->priority !== false ? print '/(priority)/'.$input_data->priority : ''?>" onsubmit="return lhinst.addCaptchaNoSession('<?php echo time()?>',$(this))">
 
 <div class="row">
     <?php if (isset($start_data_fields['name_visible_in_page_widget']) && $start_data_fields['name_visible_in_page_widget'] == true) : ?>

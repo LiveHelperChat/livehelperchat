@@ -12,6 +12,15 @@ if (($hashSession = CSCacheAPC::getMem()->getSession('chat_hash_widget')) !== fa
     exit;
 }
 
+// Perhaps it's direct argument
+if ((string)$Params['user_parameters_unordered']['hash'] != '') {
+	list($chatID,$hash) = explode('_',$Params['user_parameters_unordered']['hash']);
+
+	// Redirect user
+	erLhcoreClassModule::redirect('chat/chat/' . $chatID . '/' . $hash);
+	exit;
+}
+
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/startchat.tpl.php');
 $tpl->set('referer','');
 

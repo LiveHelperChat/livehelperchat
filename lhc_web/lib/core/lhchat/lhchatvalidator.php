@@ -89,10 +89,10 @@ class erLhcoreClassChatValidator {
         }
 
         // Captcha validation
-        if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600 || $hashCaptcha != sha1($_SERVER['REMOTE_ADDR'].$form->$nameField.erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' )))
+        /* if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600 || $hashCaptcha != sha1($_SERVER['REMOTE_ADDR'].$form->$nameField.erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' )))
         {
         	$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid captcha code, please enable Javascript!');
-        }
+        } */
 
         if (
         ($inputForm->validate_start_chat == true && isset($start_data_fields['name_visible_in_popup']) && $start_data_fields['name_visible_in_popup'] == true) ||
@@ -173,7 +173,7 @@ class erLhcoreClassChatValidator {
         } else {
         	$chat->priority = $departments[$chat->dep_id]->priority;
         }
-        
+
         if ( $form->hasValidData( 'name_items' ) && !empty($form->name_items))
         {
         	$valuesArray = array();
