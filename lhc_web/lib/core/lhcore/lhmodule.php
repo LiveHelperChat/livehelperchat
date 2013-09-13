@@ -40,9 +40,14 @@ class erLhcoreClassModule{
             {
                 if (!$currentUser->hasAccessTo('lh'.self::$currentModuleName,$Params['module']['functions']))
                 {
-                 	include_once('modules/lhkernel/nopermission.php');
-                 	$Result['pagelayout'] = 'login';
-                   	return $Result;
+                	if ($currentUser->isLogged()) {
+	                 	include_once('modules/lhkernel/nopermission.php');
+	                 	$Result['pagelayout'] = 'login';
+	                   	return $Result;
+                   	} else {
+                   		self::redirect('user/login');
+                   		exit;
+                   	}
                 }
             }
 
