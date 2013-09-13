@@ -16,7 +16,7 @@ if ($pages->items_total > 0) {
     $tpl->set('groups',array());
 }
 
-
+$tpl->set('currentUser',$currentUser);
 $Result['content'] = $tpl->fetch();
 
 $Result['path'] = array(

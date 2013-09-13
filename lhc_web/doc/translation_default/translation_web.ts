@@ -2044,6 +2044,14 @@
         <translation></translation>
     </message>
     <message>
+        <source>Go back</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>You do not have permission to edit selected object</source>
+        <translation></translation>
+    </message>
+    <message>
         <source>function</source>
         <translation></translation>
     </message>

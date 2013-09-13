@@ -40,8 +40,9 @@ class erLhcoreClassModule{
             {
                 if (!$currentUser->hasAccessTo('lh'.self::$currentModuleName,$Params['module']['functions']))
                 {
-                   self::redirect('user/login');
-                   exit;
+                 	include_once('modules/lhkernel/nopermission.php');
+                 	$Result['pagelayout'] = 'login';
+                   	return $Result;
                 }
             }
 
@@ -51,6 +52,7 @@ class erLhcoreClassModule{
 
                 if ($access == false) {
                 	include_once('modules/lhkernel/nopermissionobject.php');
+                	$Result['pagelayout'] = 'login';
                    	return $Result;
                 } else {
                 	$Params['user_object'] = $access;

@@ -30,6 +30,7 @@ if ($closedTabEnabled == true) {
 	 * */
 	$chats = erLhcoreClassChat::getClosedChats(10);
 	$tpl->set('chats',$chats);
+	//{"mID":"Kud9owYXYYY7rI","sid":"130912.306771.4MMue3WE"}
 	$ReturnMessages[] = array('dom_id_status' => '.cl-cnt', 'dom_item_count' => count($chats), 'dom_id' => '#closed-chat-list,#right-closed-chats', 'content' => trim($tpl->fetch( 'lhchat/lists/closedchats.tpl.php')));
 }
 

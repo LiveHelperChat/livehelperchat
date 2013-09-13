@@ -12,6 +12,7 @@ $userlist = erLhcoreClassModelUser::getUserList(array('offset' => $pages->low, '
 
 $tpl->set('userlist',$userlist);
 $tpl->set('pages',$pages);
+$tpl->set('currentUser',$currentUser);
 
 $Result['content'] = $tpl->fetch();
 
