@@ -51,9 +51,17 @@ class erLhcoreClassModule{
                 $access = call_user_func($Params['module']['limitations']['self']['method'],$Params['user_parameters'][$Params['module']['limitations']['self']['param']],$currentUser->hasAccessTo('lh'.self::$currentModuleName,$Params['module']['limitations']['global']));
 
                 if ($access == false) {
-                	include_once('modules/lhkernel/nopermissionobject.php');
-                	$Result['pagelayout'] = 'login';
-                   	return $Result;
+
+                	if ($currentUser->isLogged()) {
+	                	include_once('modules/lhkernel/nopermissionobject.php');
+	                	$Result['pagelayout'] = 'login';
+	                   	return $Result;
+                	} else {
+                		self::redirect('user/login');
+                		exit;
+                	}
+
+
                 } else {
                 	$Params['user_object'] = $access;
                 }
