@@ -1,7 +1,7 @@
 <?php
 
-if ((string)$Params['user_parameters_unordered']['sound'] == 0 || (string)$Params['user_parameters_unordered']['sound'] == 1) {
-	erLhcoreClassModelUserSetting::setSetting('chat_message',(int)$Params['user_parameters_unordered']['sound']);
+if ($Params['user_parameters_unordered']['sound'] !== null && is_numeric($Params['user_parameters_unordered']['sound'])) {
+	erLhcoreClassModelUserSetting::setSetting('chat_message',(int)$Params['user_parameters_unordered']['sound'] == 1 ? 1 : 0);
 }
 
 // Perhaps it's direct argument

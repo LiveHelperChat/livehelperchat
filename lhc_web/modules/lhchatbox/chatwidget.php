@@ -7,10 +7,9 @@ $referer = '';
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchatbox/chatwidget.tpl.php');
 $tpl->set('chatbox_chat_height',(!is_null($Params['user_parameters_unordered']['chat_height']) && (int)$Params['user_parameters_unordered']['chat_height'] > 0) ? (int)$Params['user_parameters_unordered']['chat_height'] : 220);
 
-if ((string)$Params['user_parameters_unordered']['sound'] == 0 || (string)$Params['user_parameters_unordered']['sound'] == 1) {
-	erLhcoreClassModelUserSetting::setSetting('chat_message',(int)$Params['user_parameters_unordered']['sound']);
+if ($Params['user_parameters_unordered']['sound'] !== null && is_numeric($Params['user_parameters_unordered']['sound'])) {
+	erLhcoreClassModelUserSetting::setSetting('chat_message',(int)$Params['user_parameters_unordered']['sound'] == 1 ? 1 : 0);
 }
-
 
 $chatbox = erLhcoreClassChatbox::getInstance((string)$Params['user_parameters_unordered']['identifier'],(string)$Params['user_parameters_unordered']['hashchatbox']);
 $tpl->set('chatbox',$chatbox);
