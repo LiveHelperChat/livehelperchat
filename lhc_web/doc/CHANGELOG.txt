@@ -1,7 +1,7 @@
 1.50v
 
 1. Multiple domains support. No third parties cookies dependency.
-It's a relativy big updated. Because the biggest part of front end logic was rewrite to drop the need of session.
+It's a relative big updated. Because the biggest part of front end logic was rewrite to drop the need of session.
 
 Bug fix.
 1. IE sometimes cached messages checks from operators.
@@ -13,7 +13,7 @@ Bug fix.
 3. If user starts chat from proactive widget, to user won't be shown message that we are pending operator to join chat.
 4. Adjusted how print icon is shown in widget.
 
-execute doc/update_db/update_32.sql
+execute doc/update_db/update_33.sql
 
 1.48v
 
