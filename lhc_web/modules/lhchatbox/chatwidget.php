@@ -7,6 +7,11 @@ $referer = '';
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchatbox/chatwidget.tpl.php');
 $tpl->set('chatbox_chat_height',(!is_null($Params['user_parameters_unordered']['chat_height']) && (int)$Params['user_parameters_unordered']['chat_height'] > 0) ? (int)$Params['user_parameters_unordered']['chat_height'] : 220);
 
+if ((string)$Params['user_parameters_unordered']['sound'] == 0 || (string)$Params['user_parameters_unordered']['sound'] == 1) {
+	erLhcoreClassModelUserSetting::setSetting('chat_message',(int)$Params['user_parameters_unordered']['sound']);
+}
+
+
 $chatbox = erLhcoreClassChatbox::getInstance((string)$Params['user_parameters_unordered']['identifier'],(string)$Params['user_parameters_unordered']['hashchatbox']);
 $tpl->set('chatbox',$chatbox);
 
@@ -42,8 +47,8 @@ $Result['pagelayout'] = 'widget';
 $Result['pagelayout_css_append'] = 'widget-chat';
 $Result['dynamic_height'] = true;
 $Result['dynamic_height_message'] = 'lhc_sizing_chatbox';
-
 $Result['dynamic_height_append'] = 20;
+$Result['additional_post_message'] = 'lhc_chb:nick:'.htmlspecialchars(erLhcoreClassChatbox::getVisitorName(),ENT_QUOTES);
 
 if ($embedMode == true) {
 	$Result['dynamic_height_message'] = 'lhc_sizing_chatbox_page';

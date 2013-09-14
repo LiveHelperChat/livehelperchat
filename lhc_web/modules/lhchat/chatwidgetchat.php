@@ -12,6 +12,10 @@ if ((string)$Params['user_parameters_unordered']['mode'] == 'embed') {
 	$modeAppend = '/(mode)/embed';
 }
 
+if ((string)$Params['user_parameters_unordered']['sound'] == 0 || (string)$Params['user_parameters_unordered']['sound'] == 1) {
+	erLhcoreClassModelUserSetting::setSetting('chat_message',(int)$Params['user_parameters_unordered']['sound']);
+}
+
 try {
 
     $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);

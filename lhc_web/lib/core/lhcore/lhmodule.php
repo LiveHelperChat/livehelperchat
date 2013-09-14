@@ -6,8 +6,7 @@ class erLhcoreClassModule{
     {
         if (isset(self::$currentModule[self::$currentView]))
         {
-            // Just to start session
-            $currentUser = erLhcoreClassUser::instance();
+        	$currentUser = erLhcoreClassUser::instance();
 
             $Params = array();
             $Params['module'] = self::$currentModule[self::$currentView];
@@ -38,6 +37,9 @@ class erLhcoreClassModule{
             // Function set, check permission
             if (isset($Params['module']['functions']))
             {
+            	// Just to start session
+            	$currentUser = erLhcoreClassUser::instance();
+
                 if (!$currentUser->hasAccessTo('lh'.self::$currentModuleName,$Params['module']['functions']))
                 {
                 	if ($currentUser->isLogged()) {
@@ -53,6 +55,9 @@ class erLhcoreClassModule{
 
             if (isset($Params['module']['limitations']))
             {
+            	// Just to start session
+            	$currentUser = erLhcoreClassUser::instance();
+
                 $access = call_user_func($Params['module']['limitations']['self']['method'],$Params['user_parameters'][$Params['module']['limitations']['self']['param']],$currentUser->hasAccessTo('lh'.self::$currentModuleName,$Params['module']['limitations']['global']));
 
                 if ($access == false) {

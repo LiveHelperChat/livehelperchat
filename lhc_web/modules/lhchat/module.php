@@ -224,13 +224,13 @@ $ViewList['getstatusembed'] = array(
 $ViewList['startchat'] = array (
     'script' => 'startchat.php',
     'params' => array(),
-    'uparams' => array('hash','offline','leaveamessage','department','priority')
+    'uparams' => array('vid','hash_resume','sound','hash','offline','leaveamessage','department','priority')
 );
 
 $ViewList['chatwidget'] = array(
     'script' => 'chatwidget.php',
     'params' => array(),
-    'uparams' => array('hash','hash_resume','mode','offline','leaveamessage','department','priority'),
+    'uparams' => array('vid','sound','hash','hash_resume','mode','offline','leaveamessage','department','priority'),
 );
 
 $ViewList['reopen'] = array(
@@ -248,7 +248,7 @@ $ViewList['readoperatormessage'] = array(
 $ViewList['chatcheckoperatormessage'] = array(
     'script' => 'chatcheckoperatormessage.php',
     'params' => array(),
-    'uparams' => array('priority','vid')
+    'uparams' => array('priority','vid','count_page')
 );
 
 $ViewList['chatwidgetclosed'] = array(
@@ -270,7 +270,7 @@ $ViewList['printchat'] = array(
 $ViewList['chatwidgetchat'] = array(
     'script' => 'chatwidgetchat.php',
     'params' => array('chat_id','hash'),
-	'uparams' => array('mode')
+	'uparams' => array('sound','mode')
 );
 
 $ViewList['userclosechat'] = array(

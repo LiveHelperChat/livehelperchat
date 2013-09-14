@@ -24,19 +24,19 @@ if (($hashSession = CSCacheAPC::getMem()->getSession('chat_hash_widget')) !== fa
 if ((string)$Params['user_parameters_unordered']['hash'] != '') {
 	list($chatID,$hash) = explode('_',$Params['user_parameters_unordered']['hash']);
 
+	$sound = is_numeric($Params['user_parameters_unordered']['sound']) ? '/(sound)/'.$Params['user_parameters_unordered']['sound'] : '';
+
 	// Redirect user
-	erLhcoreClassModule::redirect('chat/chatwidgetchat','/' . $chatID . '/' . $hash . $modeAppend );
+	erLhcoreClassModule::redirect('chat/chatwidgetchat','/' . $chatID . '/' . $hash . $modeAppend . $sound );
 	exit;
 }
 
-// Perhaps it's direct argument
-if ((string)$Params['user_parameters_unordered']['hash_resume'] != '') {
-	CSCacheAPC::getMem()->setSession('chat_hash_widget_resume',(string)$Params['user_parameters_unordered']['hash_resume'],true);
-}
+
 
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/chatwidget.tpl.php');
 $tpl->set('referer','');
+$tpl->set('referer_site','');
 
 $tpl->set('append_mode',$modeAppend);
 
@@ -46,6 +46,8 @@ $startDataFields = (array)$startData->data;
 
 $inputData = new stdClass();
 $inputData->username = isset($_GET['prefill']['username']) ? (string)$_GET['prefill']['username'] : '';
+$inputData->hash_resume = false;
+$inputData->vid = false;
 $inputData->question = '';
 $inputData->email = isset($_GET['prefill']['email']) ? (string)$_GET['prefill']['email'] : '';
 $inputData->phone = isset($_GET['prefill']['phone']) ? (string)$_GET['prefill']['phone'] : '';
@@ -56,6 +58,16 @@ $inputData->value_items = array();
 $inputData->value_sizes = array();
 $inputData->value_types = array();
 $inputData->priority = is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : false;
+
+// Perhaps it's direct argument
+if ((string)$Params['user_parameters_unordered']['hash_resume'] != '') {
+	CSCacheAPC::getMem()->setSession('chat_hash_widget_resume',(string)$Params['user_parameters_unordered']['hash_resume'],true);
+	$inputData->hash_resume = (string)$Params['user_parameters_unordered']['hash_resume'];
+}
+
+if ((string)$Params['user_parameters_unordered']['vid'] != '') {
+	$inputData->vid = (string)$Params['user_parameters_unordered']['vid'];
+}
 
 $chat = new erLhcoreClassModelChat();
 
@@ -96,7 +108,7 @@ if (isset($_POST['StartChat']))
 	       $chat->setIP();
 	       $chat->hash = erLhcoreClassChat::generateHash();
 	       $chat->referrer = isset($_POST['URLRefer']) ? $_POST['URLRefer'] : '';
-	       $chat->session_referrer = isset($_SESSION['lhc_site_referrer']) ? $_SESSION['lhc_site_referrer'] : '';
+	       $chat->session_referrer = isset($_POST['r']) ? $_POST['r'] : '';
 
 	       if ( empty($chat->nick) ) {
 	           $chat->nick = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor');
@@ -214,6 +226,17 @@ if (isset($_POST['URLRefer']))
 {
     $tpl->set('referer',$_POST['URLRefer']);
 }
+
+if (isset($_GET['r']))
+{
+    $tpl->set('referer_site',$_GET['r']);
+}
+
+if (isset($_POST['r']))
+{
+    $tpl->set('referer_site',$_POST['r']);
+}
+
 
 
 $Result['content'] = $tpl->fetch();

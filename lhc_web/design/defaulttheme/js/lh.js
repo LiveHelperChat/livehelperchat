@@ -825,6 +825,8 @@ function lh(){
 
     this.addmsguserchatbox = function (chat_id)
     {
+    	var nickCurrent = false;
+
     	var pdata = {
     			msg	: $("#CSChatMessage").val(),
 				nick: $("#CSChatNick").val()
@@ -837,6 +839,11 @@ function lh(){
         $.postJSON(this.wwwDir + this.addmsgurluserchatbox + this.chat_id + '/' + this.hash + modeWindow, pdata , function(data) {
         	inst.syncusercall();
 		});
+
+        if (nickCurrent != $("#CSChatNick").val() && !!window.postMessage && parent) {
+			parent.postMessage('lhc_chb:nick:'+ $("#CSChatNick").val(), '*');
+			nickCurrent = $("#CSChatNick").val();
+        }
     };
 
     this.addmsguser = function ()
@@ -933,36 +940,29 @@ function lh(){
     		$.get(this.wwwDir+  'user/setsettingajax/chat_message/0');
     		confLH.new_message_sound_user_enabled = 0;
     		inst.addClass('sound-disabled');
-    	}
+    	};
+
+    	if (!!window.postMessage && parent) {
+    		if (inst.hasClass('sound-disabled')){
+    			parent.postMessage("lhc_ch:s:0", '*');
+    		} else {
+    			parent.postMessage("lhc_ch:s:1", '*');
+    		}
+    	};
+
     	return false;
     };
 
     this.addCaptcha = function(timestamp,inst) {
-
     	if (inst.find('.form-protected').size() == 0){
-    		$.getJSON(this.wwwDir + 'captcha/captchastring/form/'+timestamp, function(data) {
-    			inst.append('<input type="hidden" value="'+timestamp+'" name="captcha_'+data.result+'" /><input type="hidden" class="form-protected" value="1" />');
-    			inst.submit();
-    		});
+		    	 $.getJSON(this.wwwDir + 'captcha/captchastring/form/'+timestamp, function(data) {
+		    		 inst.append('<input type="hidden" value="'+timestamp+'" name="captcha_'+data.result+'" /><input type="hidden" value="'+timestamp+'" name="tscaptcha" /><input type="hidden" class="form-protected" value="1" />');
+		    		 inst.submit();
+		    	 });
+		    	 return false;
+	   	};
 
-    		return false;
-    	};
-
-    	return true;
-    };
-
-    this.addCaptchaNoSession = function(timestamp,inst) {
-
-    	if (inst.find('.form-protected').size() == 0){
-	    	 $.getJSON(this.wwwDir + 'captcha/captchastring/form/'+timestamp, function(data) {
-	    		 inst.append('<input type="hidden" value="'+timestamp+'" name="captcha_'+data.result+'" /><input type="hidden" class="form-protected" value="1" />');
-	    		 inst.submit();
-	    	 });
-
-	    	 return false;
-    	};
-
-    	return true;
+	   	return true;
     };
 }
 

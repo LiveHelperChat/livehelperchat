@@ -43,7 +43,7 @@ $ViewList['new'] = array(
 $ViewList['chatwidget'] = array(
 		'script' => 'chatwidget.php',
 		'params' => array(),
-		'uparams' => array('mode','identifier','chat_height','hashchatbox'),
+		'uparams' => array('sound','mode','identifier','chat_height','hashchatbox'),
 );
 
 $ViewList['getstatus'] = array(

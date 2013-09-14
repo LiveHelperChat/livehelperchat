@@ -369,7 +369,6 @@ class erLhcoreClassModelChatOnlineUser {
                    $item->identifier = (isset($paramsHandle['identifier']) && !empty($paramsHandle['identifier'])) ? $paramsHandle['identifier'] : '';
                    $item->referrer = isset($_GET['r']) ? urldecode($_GET['r']) : '';
 
-                   setcookie('lhc_vid',$item->vid,time() + (1 * 365 * 24 * 60 * 60),'/');
 
                    self::detectLocation($item);
 
@@ -405,12 +404,11 @@ class erLhcoreClassModelChatOnlineUser {
            //$item->current_page = $cookieData;
 
            // Update variables only if it's not JS to check for operator message
-           if (!isset($paramsHandle['check_message_operator'])) {
+           if (!isset($paramsHandle['check_message_operator']) || (isset($paramsHandle['pages_count']) && $paramsHandle['pages_count'] == true)) {
            		$item->user_agent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
            		$item->current_page = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
+           		$item->last_visit = time();
            }
-
-           $item->last_visit = time();
 
            if ($item->operator_message == '' && isset($paramsHandle['pro_active_invite']) && $paramsHandle['pro_active_invite'] == 1 && isset($paramsHandle['pro_active_limitation']) && ($paramsHandle['pro_active_limitation'] == -1 || erLhcoreClassChat::getPendingChatsCountPublic() <= $paramsHandle['pro_active_limitation']) ) {
            		//Process pro active chat invitation if this visitor matches any rules

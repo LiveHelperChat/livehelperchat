@@ -107,9 +107,9 @@ if ( isset($_POST['send']) )
 	);
 
 	// Captcha stuff
-	$hashCaptcha = $_SESSION[$_SERVER['REMOTE_ADDR']]['form'];
-	$nameField = 'captcha_'.$_SESSION[$_SERVER['REMOTE_ADDR']]['form'];
+	$nameField = 'captcha_'.sha1($_SERVER['REMOTE_ADDR'].$_POST['tscaptcha'].erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 	$definition[$nameField] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
+
 
 	$form = new ezcInputForm( INPUT_POST, $definition );
 	$Errors = array();
@@ -126,7 +126,7 @@ if ( isset($_POST['send']) )
 	}
 
 	// Captcha validation
-	if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600 || $hashCaptcha != sha1($_SERVER['REMOTE_ADDR'].$form->$nameField.erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' )))
+	if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600)
 	{
 		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid captcha code, please enable Javascript!');
 	}

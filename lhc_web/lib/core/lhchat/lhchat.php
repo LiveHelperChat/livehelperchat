@@ -734,18 +734,31 @@ class erLhcoreClassChat {
    }
 
    public static function canReopen(erLhcoreClassModelChat $chat, $skipStatusCheck = false) {
-   		if ( ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT || $skipStatusCheck == true) && ($chatPart = CSCacheAPC::getMem()->getSession('chat_hash_widget_resume')) !== false) {
-			$parts = explode('_', $chatPart);
-			return $parts[0] == $chat->id;
+   		if ( ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT || $skipStatusCheck == true)) {
+			if ($chat->last_user_msg_time > time()-600){
+				return true;
+			} else {
+				return false;
+			}
    		}
-
    		return false;
    }
 
    public static function canReopenDirectly() {
 	   	if (($chatPart = CSCacheAPC::getMem()->getSession('chat_hash_widget_resume',true)) !== false) {
-	   		$parts = explode('_', $chatPart);
-	   		return array('id' => $parts[0],'hash' => $parts[1]);
+	   		try {
+		   		$parts = explode('_', $chatPart);
+		   		$chat = erLhcoreClassModelChat::fetch($parts[0]);
+
+		   		if ($chat->last_user_msg_time > time()-600) {
+		   			return array('id' => $parts[0],'hash' => $parts[1]);
+		   		} else {
+					return false;
+				}
+
+	   		} catch (Exception $e) {
+	   			return false;
+	   		}
 	   	}
 
 	   	return false;

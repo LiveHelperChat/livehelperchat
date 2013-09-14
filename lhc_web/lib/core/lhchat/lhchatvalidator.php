@@ -76,8 +76,10 @@ class erLhcoreClassChatValidator {
         );
 
         // Captcha stuff
-        $hashCaptcha = $_SESSION[$_SERVER['REMOTE_ADDR']]['form'];
-        $nameField = 'captcha_'.$_SESSION[$_SERVER['REMOTE_ADDR']]['form'];
+        /* $hashCaptcha = $_SESSION[$_SERVER['REMOTE_ADDR']]['form'];
+        $nameField = 'captcha_'.$_SESSION[$_SERVER['REMOTE_ADDR']]['form']; */
+
+        $nameField = 'captcha_'.sha1($_SERVER['REMOTE_ADDR'].$_POST['tscaptcha'].erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
         $validationFields[$nameField] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
 
 
@@ -89,10 +91,11 @@ class erLhcoreClassChatValidator {
         }
 
         // Captcha validation
-        /* if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600 || $hashCaptcha != sha1($_SERVER['REMOTE_ADDR'].$form->$nameField.erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' )))
+        if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600 )
         {
         	$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid captcha code, please enable Javascript!');
-        } */
+        }
+
 
         if (
         ($inputForm->validate_start_chat == true && isset($start_data_fields['name_visible_in_popup']) && $start_data_fields['name_visible_in_popup'] == true) ||

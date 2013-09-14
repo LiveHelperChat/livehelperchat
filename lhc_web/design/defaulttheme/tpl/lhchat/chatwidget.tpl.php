@@ -1,9 +1,10 @@
+
 <?php if (isset($errors)) : ?>
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
 <?php if ($leaveamessage == false || erLhcoreClassChat::isOnline($department) === true) : ?>
-<form method="post" action="<?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?><?php echo $append_mode?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $input_data->priority !== false ? print '/(priority)/'.$input_data->priority : ''?>" onsubmit="return lhinst.addCaptchaNoSession('<?php echo time()?>',$(this))">
+<form method="post" action="<?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?><?php echo $append_mode?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $input_data->priority !== false ? print '/(priority)/'.$input_data->priority : ''?><?php $input_data->vid !== false ? print '/(vid)/'.htmlspecialchars($input_data->vid) : ''?><?php $input_data->hash_resume !== false ? print '/(hash_resume)/'.htmlspecialchars($input_data->hash_resume) : ''?>" onsubmit="return lhinst.addCaptcha('<?php echo time()?>',$(this))">
 
 <div class="row">
     <?php if (isset($start_data_fields['name_visible_in_page_widget']) && $start_data_fields['name_visible_in_page_widget'] == true) : ?>
@@ -47,7 +48,8 @@
   <?php endif; ?>
 </ul>
 
-<input type="hidden" value="<?php echo htmlspecialchars($referer);?>" name="URLRefer"/>
+<input type="hidden" value="<?php echo htmlspecialchars($referer);?>" name="URLRefer" />
+<input type="hidden" value="<?php echo htmlspecialchars($referer_site);?>" name="r" />
 <input type="hidden" value="1" name="StartChat"/>
 
 </form>

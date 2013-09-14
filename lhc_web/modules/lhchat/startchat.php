@@ -12,6 +12,10 @@ if (($hashSession = CSCacheAPC::getMem()->getSession('chat_hash_widget')) !== fa
     exit;
 }
 
+if ((string)$Params['user_parameters_unordered']['sound'] == 0 || (string)$Params['user_parameters_unordered']['sound'] == 1) {
+	erLhcoreClassModelUserSetting::setSetting('chat_message',(int)$Params['user_parameters_unordered']['sound']);
+}
+
 // Perhaps it's direct argument
 if ((string)$Params['user_parameters_unordered']['hash'] != '') {
 	list($chatID,$hash) = explode('_',$Params['user_parameters_unordered']['hash']);
@@ -23,6 +27,7 @@ if ((string)$Params['user_parameters_unordered']['hash'] != '') {
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/startchat.tpl.php');
 $tpl->set('referer','');
+$tpl->set('referer_site','');
 
 // Start chat field options
 $startData = erLhcoreClassModelChatConfig::fetch('start_chat_data');
@@ -41,6 +46,20 @@ $inputData->name_items = array();
 $inputData->value_items = array();
 $inputData->value_types = array();
 $inputData->value_sizes = array();
+$inputData->hash_resume = false;
+$inputData->vid = false;
+
+// Perhaps it's direct argument
+if ((string)$Params['user_parameters_unordered']['hash_resume'] != '') {
+	CSCacheAPC::getMem()->setSession('chat_hash_widget_resume',(string)$Params['user_parameters_unordered']['hash_resume'],true);
+	$inputData->hash_resume = (string)$Params['user_parameters_unordered']['hash_resume'];
+}
+
+if ((string)$Params['user_parameters_unordered']['vid'] != '') {
+	$inputData->vid = (string)$Params['user_parameters_unordered']['vid'];
+}
+
+
 
 $chat = new erLhcoreClassModelChat();
 
@@ -78,7 +97,7 @@ if (isset($_POST['StartChat'])) {
 	       $chat->setIP();
 	       $chat->hash = erLhcoreClassChat::generateHash();
 	       $chat->referrer = isset($_POST['URLRefer']) ? $_POST['URLRefer'] : '';
-	       $chat->session_referrer = isset($_SESSION['lhc_site_referrer']) ? $_SESSION['lhc_site_referrer'] : '';
+	       $chat->session_referrer = isset($_POST['r']) ? $_POST['r'] : '';
 
 	       if ( empty($chat->nick) ) {
 	           $chat->nick = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor');
@@ -92,7 +111,7 @@ if (isset($_POST['StartChat'])) {
 	       // Assign chat to user
 	       if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 ) {
 	            // To track online users
-	            $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest();
+	            $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('vid' => (string)$Params['user_parameters_unordered']['vid']));
 
 	            if ($userInstance !== false) {
 	                $userInstance->chat_id = $chat->id;
@@ -188,6 +207,16 @@ if (isset($_GET['URLReferer']))
 if (isset($_POST['URLRefer']))
 {
     $tpl->set('referer',$_POST['URLRefer']);
+}
+
+if (isset($_GET['r']))
+{
+	$tpl->set('referer_site',$_GET['r']);
+}
+
+if (isset($_POST['r']))
+{
+	$tpl->set('referer_site',$_POST['r']);
 }
 
 $Result['content'] = $tpl->fetch();

@@ -1,7 +1,12 @@
 <?php
 
 header('P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"');
-header("Content-type: text/javascript");
+header('Content-type: text/javascript');
+header('Expires: Sat, 26 Jul 1997 05:00:00 GMT' );
+header('Last-Modified: ' . gmdate( 'D, d M Y H:i:s',time()+60*60*8 ) . ' GMT' );
+header('Cache-Control: no-store, no-cache, must-revalidate' );
+header('Cache-Control: post-check=0, pre-check=0', false );
+header('Pragma: no-cache' );
 
 $tpl = erLhcoreClassTemplate::getInstance('lhchat/getstatus.tpl.php');
 
@@ -19,12 +24,13 @@ if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value
 
 }
 
-if ( !isset($_SESSION['lhc_site_referrer']) ) {
+/* if ( !isset($_SESSION['lhc_site_referrer']) ) {
 	$_SESSION['lhc_site_referrer'] = urldecode($_GET['r']);
-}
+} */
 
 $validUnits = array('pixels' => 'px','percents' => '%');
 
+$tpl->set('referrer',urldecode($_GET['r']));
 $tpl->set('click',$Params['user_parameters_unordered']['click']);
 $tpl->set('position',$Params['user_parameters_unordered']['position']);
 $tpl->set('leaveamessage',(string)$Params['user_parameters_unordered']['leaveamessage'] == 'true');

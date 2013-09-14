@@ -5,7 +5,7 @@ header('P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/readoperatormessage.tpl.php');
 $tpl->set('referer','');
 
-$userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('vid' => $Params['user_parameters_unordered']['vid']));
+$userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('vid' => (string)$Params['user_parameters_unordered']['vid']));
 $tpl->set('visitor',$userInstance);
 
 $inputData = new stdClass();

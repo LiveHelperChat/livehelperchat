@@ -21,7 +21,7 @@
     </div>
 
     <div>
-    <input type="text" class="mt5 mb0" placholder="Nick" title="Nick" value="<?php echo htmlspecialchars(erLhcoreClassChatbox::getVisitorName()); ?>" id="CSChatNick" />
+    <input type="text" class="mt5 mb0" placholder="Nick" title="Nick" value="<?php echo htmlspecialchars(erLhcoreClassChatbox::getVisitorName(),ENT_QUOTES); ?>" id="CSChatNick" />
 	</div>
 
     <div class="pt5">

@@ -22,7 +22,7 @@ try {
 		$chat->updateThis();
 
 		// Store hash if user reloads page etc, we show widget
-		CSCacheAPC::getMem()->setSession('chat_hash_widget',$chat->id.'_'.$chat->hash);
+		// CSCacheAPC::getMem()->setSession('chat_hash_widget',$chat->id.'_'.$chat->hash);
 
 		if ($Params['user_parameters_unordered']['mode'] == 'widget'){
 			// Redirect user
