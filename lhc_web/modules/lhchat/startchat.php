@@ -97,7 +97,7 @@ if (isset($_POST['StartChat'])) {
 	       erLhcoreClassChat::getSession()->save($chat);
 
 	       // Assign chat to user
-	       if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 ) {
+	       if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 && (string)$Params['user_parameters_unordered']['vid'] != '') {
 	            // To track online users
 	            $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('vid' => (string)$Params['user_parameters_unordered']['vid']));
 
