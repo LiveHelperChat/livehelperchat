@@ -275,7 +275,7 @@ var lh_inst  = {
         var s = document.createElement('script');
         s.setAttribute('id','lhc_operator_message');
         s.setAttribute('type','text/javascript');
-        s.setAttribute('src','//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatcheckoperatormessage')?><?php $priority !== false ? print '/(priority)/'.$priority : ''?>/(count_page)/1/(vid)/'+vid+'?l='+escape(document.location));
+        s.setAttribute('src','//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatcheckoperatormessage')?><?php $priority !== false ? print '/(priority)/'.$priority : ''?>/(count_page)/1/(vid)/'+vid+'?l='+escape(document.location)+this.parseStorageArguments());
         th.appendChild(s);
     },
 
