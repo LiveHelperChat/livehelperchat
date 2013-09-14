@@ -12,17 +12,11 @@ if ((string)$Params['user_parameters_unordered']['embedmode'] == 'embed') {
 }
 
 try {
-
 	$chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
-
 	if ($chat->hash == $Params['user_parameters']['hash'] && erLhcoreClassChat::canReopen($chat,true) )
 	{
-
 		$chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
 		$chat->updateThis();
-
-		// Store hash if user reloads page etc, we show widget
-		// CSCacheAPC::getMem()->setSession('chat_hash_widget',$chat->id.'_'.$chat->hash);
 
 		if ($Params['user_parameters_unordered']['mode'] == 'widget'){
 			// Redirect user

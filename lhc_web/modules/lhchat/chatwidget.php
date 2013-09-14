@@ -10,16 +10,6 @@ if ((string)$Params['user_parameters_unordered']['mode'] == 'embed') {
 	$modeAppend = '/(mode)/embed';
 }
 
-// Perhaps it existed in session
-if (($hashSession = CSCacheAPC::getMem()->getSession('chat_hash_widget')) !== false) {
-
-    list($chatID,$hash) = explode('_',$hashSession);
-
-    // Redirect user
-    erLhcoreClassModule::redirect('chat/chatwidgetchat','/' . $chatID . '/' . $hash . $modeAppend );
-    exit;
-}
-
 // Perhaps it's direct argument
 if ((string)$Params['user_parameters_unordered']['hash'] != '') {
 	list($chatID,$hash) = explode('_',$Params['user_parameters_unordered']['hash']);
@@ -61,7 +51,7 @@ $inputData->priority = is_numeric($Params['user_parameters_unordered']['priority
 
 // Perhaps it's direct argument
 if ((string)$Params['user_parameters_unordered']['hash_resume'] != '') {
-	CSCacheAPC::getMem()->setSession('chat_hash_widget_resume',(string)$Params['user_parameters_unordered']['hash_resume'],true);
+	CSCacheAPC::getMem()->setSession('chat_hash_widget_resume',(string)$Params['user_parameters_unordered']['hash_resume'],true,true);
 	$inputData->hash_resume = (string)$Params['user_parameters_unordered']['hash_resume'];
 }
 
@@ -148,14 +138,6 @@ if (isset($_POST['StartChat']))
 	               erLhcoreClassChat::getSession()->save($msg);
 	           }
 	       }
-
-	       // Store hash if user reloads page etc, we show widget
-	       CSCacheAPC::getMem()->setSession('chat_hash_widget',$chat->id.'_'.$chat->hash);
-
-	       // Store hash for user previous chat, so user after main chat close can reopen old chat
-	       CSCacheAPC::getMem()->setSession('chat_hash_widget_resume',$chat->id.'_'.$chat->hash);
-
-
 
 	       // Redirect user
 	       erLhcoreClassModule::redirect('chat/chatwidgetchat','/' . $chat->id . '/' . $chat->hash . $modeAppend);

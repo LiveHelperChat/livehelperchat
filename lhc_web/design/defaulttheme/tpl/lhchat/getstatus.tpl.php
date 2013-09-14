@@ -382,7 +382,6 @@ if (lh_inst.cookieData.hash) {
     lh_inst.showStartWindow();
 }
 
-
 <?php if ($check_operator_messages == 'true' && $disable_pro_active == false) : ?>
 lh_inst.startNewMessageCheck();
 <?php endif; ?>
@@ -391,19 +390,6 @@ lh_inst.startNewMessageCheck();
 lh_inst.startNewMessageCheckSingle();
 <?php endif;?>
 
-
 <?php
-/*
-// User has pending chat
-if (($hashSession = CSCacheAPC::getMem()->getSession('chat_hash_widget')) !== false) : ?>
-   lh_inst.stopCheckNewMessage();
-   lh_inst.showStartWindow();
-<?php elseif (isset($visitor) && is_object($visitor) && $disable_pro_active == false && $visitor->has_message_from_operator == true && (erLhcoreClassModelChatConfig::fetch('pro_active_limitation')->current_value == -1 || erLhcoreClassChat::getPendingChatsCountPublic() <= erLhcoreClassModelChatConfig::fetch('pro_active_limitation')->current_value )) : ?>
-   lh_inst.stopCheckNewMessage();
-   lh_inst.showStartWindow('//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/readoperatormessage')?><?php $priority !== false ? print '/(priority)/'.$priority : ''?>');
-<?php endif;
-*/
-
 endif; // hide if offline
-
 exit; ?>

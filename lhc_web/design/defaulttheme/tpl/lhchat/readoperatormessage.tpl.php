@@ -9,6 +9,7 @@
 <textarea placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Type your message here and hit enter to send...');?>" id="id_Question" name="Question"><?php echo htmlspecialchars($input_data->question);?></textarea>
 
 <input type="hidden" value="<?php echo htmlspecialchars($referer);?>" name="URLRefer"/>
+<input type="hidden" value="<?php echo htmlspecialchars($referer_site);?>" name="r"/>
 
 <input type="submit" name="askQuestionAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Send');?>" class="tiny button round"/>
 

@@ -4,6 +4,7 @@ header('P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/readoperatormessage.tpl.php');
 $tpl->set('referer','');
+$tpl->set('referer_site','');
 
 $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('vid' => (string)$Params['user_parameters_unordered']['vid']));
 $tpl->set('visitor',$userInstance);
@@ -43,7 +44,7 @@ if (isset($_POST['askQuestion']))
        $chat->setIP();
        $chat->hash = erLhcoreClassChat::generateHash();
        $chat->referrer = isset($_POST['URLRefer']) ? $_POST['URLRefer'] : '';
-       $chat->session_referrer = isset($_SESSION['lhc_site_referrer']) ? $_SESSION['lhc_site_referrer'] : '';
+       $chat->session_referrer = isset($_POST['r']) ? $_POST['r'] : '';
 
        $chat->nick = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor');
 
@@ -83,12 +84,6 @@ if (isset($_POST['askQuestion']))
        $msg->time = time();
        erLhcoreClassChat::getSession()->save($msg);
 
-       // Store hash if user reloads page etc, we show widget
-       //USING COOKIES NOW - CSCacheAPC::getMem()->setSession('chat_hash_widget',$chat->id.'_'.$chat->hash);
-
-       // Store hash for user previous chat, so user after main chat close can reopen old chat
-       //USING COOKIES NOW - CSCacheAPC::getMem()->setSession('chat_hash_widget_resume',$chat->id.'_'.$chat->hash);
-
        // Redirect user
        erLhcoreClassModule::redirect('chat/chatwidgetchat/' . $chat->id . '/' . $chat->hash);
        exit;
@@ -109,6 +104,17 @@ if (isset($_POST['URLRefer']))
 {
     $tpl->set('referer',$_POST['URLRefer']);
 }
+
+if (isset($_GET['r']))
+{
+	$tpl->set('referer_site',$_GET['r']);
+}
+
+if (isset($_POST['r']))
+{
+	$tpl->set('referer_site',$_POST['r']);
+}
+
 
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'widget';

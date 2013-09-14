@@ -1,17 +1,5 @@
 <?php
 
-if (($hashSession = CSCacheAPC::getMem()->getSession('chat_hash_widget')) !== false) {
-
-    list($chatID,$hash) = explode('_',$hashSession);
-
-    // Remove chat from chat widget, from now user will be communicating using popup window
-    CSCacheAPC::getMem()->setSession('chat_hash_widget',false);
-
-    // Redirect user
-    erLhcoreClassModule::redirect('chat/chat/' . $chatID . '/' . $hash);
-    exit;
-}
-
 if ((string)$Params['user_parameters_unordered']['sound'] == 0 || (string)$Params['user_parameters_unordered']['sound'] == 1) {
 	erLhcoreClassModelUserSetting::setSetting('chat_message',(int)$Params['user_parameters_unordered']['sound']);
 }
@@ -51,7 +39,7 @@ $inputData->vid = false;
 
 // Perhaps it's direct argument
 if ((string)$Params['user_parameters_unordered']['hash_resume'] != '') {
-	CSCacheAPC::getMem()->setSession('chat_hash_widget_resume',(string)$Params['user_parameters_unordered']['hash_resume'],true);
+	CSCacheAPC::getMem()->setSession('chat_hash_widget_resume',(string)$Params['user_parameters_unordered']['hash_resume'],true,true);
 	$inputData->hash_resume = (string)$Params['user_parameters_unordered']['hash_resume'];
 }
 
@@ -135,10 +123,6 @@ if (isset($_POST['StartChat'])) {
 
 	               erLhcoreClassChat::getSession()->save($msg);
 	           }
-	       }
-
-	       if (isset($_SESSION[$_SERVER['REMOTE_ADDR']]['form'])){
-	       		unset($_SESSION[$_SERVER['REMOTE_ADDR']]['form']);
 	       }
 
 	       // Redirect user

@@ -1,3 +1,11 @@
+1.50v
+
+1. Multiple domains support. No third parties cookies dependency.
+It's a relativy big updated. Because the biggest part of front end logic was rewrite to drop the need of session.
+
+Bug fix.
+1. IE sometimes cached messages checks from operators.
+
 1.49v
 
 1. From now messages like "user has left chat", "user has joined chat" will be shown where you see what user is typing or user is typing message. This will avoid flood in chat itself.

@@ -37,10 +37,6 @@ try {
 
 } catch(Exception $e) {
    $tpl->setFile('lhchat/errors/chatnotexists.tpl.php');
-
-   // This is called then user closes chat widget
-   // We mark session variable as user closed the chat
-   CSCacheAPC::getMem()->setSession('chat_hash_widget',false);
 }
 
 

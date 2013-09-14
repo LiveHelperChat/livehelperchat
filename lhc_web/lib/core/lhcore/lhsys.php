@@ -15,9 +15,11 @@ class CSCacheAPC {
         $this->increaseCacheVersion('site_version');
     }
 
-    function setSession($identifier,$value, $useGlobalCache = false)
+    function setSession($identifier, $value, $useGlobalCache = false, $skipSession = false)
     {
-    	$_SESSION[$identifier] = $value;
+    	if ($skipSession == false){
+    		$_SESSION[$identifier] = $value;
+    	}
 
     	if ($useGlobalCache == true) {
     		$GLOBALS[$identifier] = $value;
@@ -29,26 +31,26 @@ class CSCacheAPC {
     	if (isset($_SESSION[$identifier]) && in_array($value, $_SESSION[$identifier])){
     		return ;
     	}
-    	
-    	$_SESSION[$identifier][] = $value;    	
+
+    	$_SESSION[$identifier][] = $value;
     }
 
     function removeFromArray($identifier, $value)
-    {    	
+    {
     	if (isset($_SESSION[$identifier]) && is_array($_SESSION[$identifier]) && ($index = array_search($value, $_SESSION[$identifier])) !== false){
     		unset($_SESSION[$identifier][$index]);
-    	}    	
+    	}
     }
 
     function getArray($identifier)
-    {    	
+    {
     	if (isset($_SESSION[$identifier]) && is_array($_SESSION[$identifier])){
     		return $_SESSION[$identifier];
-    	}    	
-    	
+    	}
+
     	return array();
     }
-        
+
     function getSession($identifier, $useGlobalCache = false) {
 
     	if (isset($_SESSION[$identifier])){
@@ -379,7 +381,7 @@ class erLhcoreClassSystem{
     {
         return $this->WWWDir;
     }
-   
+
     /// The path to where all the code resides
     public $SiteDir;
     /// The access path of the current site view

@@ -20,7 +20,7 @@ if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value
 }
 
 if ($Params['user_parameters_unordered']['hash'] != '') {
-    list($chatID,$hash) = explode('_',$hashSession);
+    list($chatID,$hash) = explode('_',$Params['user_parameters_unordered']['hash']);
     try {
 	        $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $chatID);
 	        if ($chat->hash == $hash && $chat->user_status != 1) {
