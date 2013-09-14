@@ -36,11 +36,6 @@ if ((string)$Params['user_parameters_unordered']['mode'] == 'embed') {
 
 $tpl->set('append_mode',$modeAppend);
 
-if ($embedMode == false) {
-	// Store status, if user reloads page etc, we show widget
-	CSCacheAPC::getMem()->setSession('lhc_chatbox_is_opened',1);
-}
-
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'widget';
 $Result['pagelayout_css_append'] = 'widget-chat';
