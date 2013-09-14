@@ -11,22 +11,16 @@ header('Pragma: no-cache' );
 $tpl = erLhcoreClassTemplate::getInstance('lhchat/getstatus.tpl.php');
 
 if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 ) {
-    // To track online users
-    /* $visitor = erLhcoreClassModelChatOnlineUser::handleRequest(array('pages_count' => true, 'pro_active_limitation' => erLhcoreClassModelChatConfig::fetch('pro_active_limitation')->current_value, 'pro_active_invite' => erLhcoreClassModelChatConfig::fetch('pro_active_invite')->current_value, 'identifier' => (string)$Params['user_parameters_unordered']['identifier']));
 
-    if ( erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1 && isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])) {
-    	erLhcoreClassModelChatOnlineUserFootprint::addPageView($visitor);
-    }
+	$allchar = "abcdefghijklmnopqrstuvwxyz1234567890";
+	$str = "" ;
+	mt_srand (( double) microtime() * 1000000 );
+	for ( $i = 0; $i < 20 ; $i++ ) {
+		$str .= substr( $allchar, mt_rand (0,36), 1 );
+	}
 
-    $tpl->set('visitor',$visitor); */
-
-	$tpl->set('vid',erLhcoreClassModelForgotPassword::randomPassword(20));
-
+	$tpl->set('vid', $str);
 }
-
-/* if ( !isset($_SESSION['lhc_site_referrer']) ) {
-	$_SESSION['lhc_site_referrer'] = urldecode($_GET['r']);
-} */
 
 $validUnits = array('pixels' => 'px','percents' => '%');
 

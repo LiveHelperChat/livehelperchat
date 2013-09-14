@@ -75,7 +75,7 @@ if ($votingRelative !== false) {
 
 		if ( empty($Errors) ) {
 			if (erLhcoreClassQuestionary::getCount(array('filter' => array('question_id' => $votingRelative->id, 'ip' => ip2long($_SERVER['REMOTE_ADDR']))),'lh_question_option_answer') > 0) {
-				$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/votingwidget','You have already voted');
+				$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/votingwidget','You have already voted, thank you!');
 			}
 		}
 
