@@ -1,21 +1,22 @@
 #include <QApplication>
 #include <QDebug>
+#include <QSslConfiguration>
 
 #include "webservice.h"
 #include "logindialog.h"
 
 
-#define DEBUG
+//#define DEBUG
 
 
 LhcWebServiceClient *LhcWebServiceClient::instance() {
 static LhcWebServiceClient* fac = 0;
 if (fac == 0 ) {
     fac = new LhcWebServiceClient();
-		
-    if (qApp != 0) { 
+
+    if (qApp != 0) {
         try {
-           fac->setParent(qApp); 		  
+           fac->setParent(qApp);
         }
         catch (...) {
             qDebug() << QString("%1 %2")
@@ -24,61 +25,70 @@ if (fac == 0 ) {
         }
     }
 }
-return fac; 
+return fac;
 };
 
 
 LhcWebServiceClient::LhcWebServiceClient()
 {
 
-	URL = new QString();
-	DomainURL = new QString();
-	URLPostAddress = new QString();
-	QhttpClient = new QHttp();
-	QHttpHeader = new QHttpRequestHeader();
-	connect(QhttpClient, SIGNAL(requestFinished(int,bool)), this, SLOT(requestFinished(int,bool)));
+    QSslConfiguration sslCfg = QSslConfiguration::defaultConfiguration();
+    QList<QSslCertificate> ca_list = sslCfg.caCertificates();
+    QList<QSslCertificate> ca_new = QSslCertificate::fromData("CaCertificates");
+    ca_list += ca_new;
+    sslCfg.setCaCertificates(ca_list);
+    sslCfg.setProtocol(QSsl::TlsV1);
+    QSslConfiguration::setDefaultConfiguration(sslCfg);
 
-	#ifdef DEBUG
-		qDebug("URL fetch constructor - %s", URL->toStdString().c_str());
-	#endif
+
+    URL = new QString();
+    DomainURL = new QString();
+    URLPostAddress = new QString();
+    QhttpClient = new QHttp();
+    QHttpHeader = new QHttpRequestHeader();
+    connect(QhttpClient, SIGNAL(requestFinished(int,bool)), this, SLOT(requestFinished(int,bool)));
+
+    #ifdef DEBUG
+        qDebug("URL fetch constructor - %s", URL->toStdString().c_str());
+    #endif
 }
 
 
 /**
 * Sets main fetch url and headers
 */
-void LhcWebServiceClient::setFetchURL(QString urlFetch)
+void LhcWebServiceClient::setFetchURL(QString urlFetch, QHttp::ConnectionMode mode)
 {
-	*URL = urlFetch;
-	QStringList lst( URL->split ("/") );
-	QStringList::Iterator it2 = lst.begin();
-	*DomainURL= *it2;
-	*URLPostAddress = URL->replace(*DomainURL,"");
-		
-    QhttpClient->setHost(*DomainURL);
+    *URL = urlFetch;
+    QStringList lst( URL->split ("/") );
+    QStringList::Iterator it2 = lst.begin();
+    *DomainURL= *it2;
+    *URLPostAddress = URL->replace(*DomainURL,"");
 
-	QHttpHeader->setRequest("POST", *URLPostAddress);
-	QHttpHeader->setValue("Host", *DomainURL);
-	QHttpHeader->setValue("User-Agent", "Live helper chat XML client");
-	QHttpHeader->setContentType("application/x-www-form-urlencoded");
+    QhttpClient->setHost(*DomainURL,mode);
 
-	#ifdef DEBUG
-		//qDebug("URL fetch assigned - %s", URL->toStdString().c_str());
-	#endif
+    QHttpHeader->setRequest("POST", *URLPostAddress);
+    QHttpHeader->setValue("Host", *DomainURL);
+    QHttpHeader->setValue("User-Agent", "Live helper chat XML client");
+    QHttpHeader->setContentType("application/x-www-form-urlencoded");
+
+    #ifdef DEBUG
+        qDebug("URL fetch assigned - %s", URLPostAddress->toStdString().c_str());
+    #endif
 
 }
 
 void LhcWebServiceClient::LhcSendRequestAuthorization(QStringList query,QString address,QObject* pt2Object, void (*pt2Function)(void* pt2Object, QByteArray))
 {
 
-	QString searchStrin = query.join("&");
-    QHttpHeader->setRequest("POST", *URLPostAddress+"index.php"+address); 
+    QString searchStrin = query.join("&");
+    QHttpHeader->setRequest("POST", *URLPostAddress+"index.php"+address);
 
     OperationQueStruc reqstruc;
     reqstruc.pt2Function = pt2Function;
     reqstruc.pt2Object = pt2Object;
 
-	this->OperQuee.insert(QhttpClient->request(*QHttpHeader,searchStrin.toUtf8()), reqstruc);
+    this->OperQuee.insert(QhttpClient->request(*QHttpHeader,searchStrin.toUtf8()), reqstruc);
 }
 
 /**
@@ -87,25 +97,25 @@ void LhcWebServiceClient::LhcSendRequestAuthorization(QStringList query,QString 
 void LhcWebServiceClient::LhcSendRequest(QStringList query,QString address,QObject* pt2Object, void (*pt2Function)(void* pt2Object, QByteArray))
 {
 
-	QString searchStrin = query.join("&")+"&username="+username+"&password="+password;
-    QHttpHeader->setRequest("POST", *URLPostAddress+"index.php"+address); 
+    QString searchStrin = query.join("&")+"&username="+username+"&password="+password;
+    QHttpHeader->setRequest("POST", *URLPostAddress+"index.php"+address);
 
     OperationQueStruc reqstruc;
     reqstruc.pt2Function = pt2Function;
     reqstruc.pt2Object = pt2Object;
 
-	this->OperQuee.insert(QhttpClient->request(*QHttpHeader,searchStrin.toUtf8()), reqstruc);
+    this->OperQuee.insert(QhttpClient->request(*QHttpHeader,searchStrin.toUtf8()), reqstruc);
 }
 
 /**
 * Request without parameters additional,
-* @TODO: 
+* @TODO:
 * make GET from post.
 */
 void LhcWebServiceClient::LhcSendRequest(QString address,QObject* pt2Object, void (*pt2Function)(void* pt2Object, QByteArray))
 {
 
-    QHttpHeader->setRequest("POST", *URLPostAddress+"index.php"+address); 
+    QHttpHeader->setRequest("POST", *URLPostAddress+"index.php"+address);
 
     OperationQueStruc reqstruc;
     reqstruc.pt2Function = pt2Function;
@@ -113,22 +123,22 @@ void LhcWebServiceClient::LhcSendRequest(QString address,QObject* pt2Object, voi
 
     QString auth = "username="+username+"&password="+password;
 
-	this->OperQuee.insert(QhttpClient->request(*QHttpHeader,auth.toUtf8()), reqstruc);
+    this->OperQuee.insert(QhttpClient->request(*QHttpHeader,auth.toUtf8()), reqstruc);
 }
 
 void LhcWebServiceClient::LhcSendRequest(QStringList query,QString address)
 {
     QString searchString = query.join("&");
     QHttpHeader->setRequest("POST", *URLPostAddress+"index.php"+address);
-    searchString = searchString + "&username="+username+"&password="+password;    
+    searchString = searchString + "&username="+username+"&password="+password;
     QhttpClient->request(*QHttpHeader,searchString.toUtf8());
 }
 
 
 void LhcWebServiceClient::LhcSendRequest(QString address)
-{   
+{
     QHttpHeader->setRequest("POST", *URLPostAddress+"index.php"+address);
-    QString auth = "username="+username+"&password="+password;   
+    QString auth = "username="+username+"&password="+password;
     QhttpClient->request(*QHttpHeader,auth.toUtf8());
     //qDebug("Debug %s",address.toStdString().c_str());
 }
@@ -136,35 +146,34 @@ void LhcWebServiceClient::LhcSendRequest(QString address)
 void LhcWebServiceClient::requestFinished(int requestID,bool error)
 {
 
-	#ifdef DEBUG
-		if (error == true)
-			qDebug("Could not connect - %s",QhttpClient->errorString().toStdString().c_str());
-		else
-			//qDebug("Succesfuly connected - %s",QhttpClient->errorString().toStdString().c_str());
-			//qDebug("Request finished %d",requestID);
-			//qDebug("Request finished value %d",this->OperQuee.value(requestID));			
-			//qDebug("Queq size %d", error);		
-			//this->OperQuee.value(requestID);
-	#endif
-		
+    #ifdef DEBUG
+        if (error == true)
+            qDebug("Could not connect - %s",QhttpClient->errorString().toStdString().c_str());
+        else
+            //qDebug("Succesfuly connected - %s",QhttpClient->errorString().toStdString().c_str());
+            //qDebug("Request finished %d",requestID);
+            //qDebug("Request finished value %d",this->OperQuee.value(requestID));
+            //qDebug("Queq size %d", error);
+            //this->OperQuee.value(requestID);
+    #endif
 
-	if (!this->OperQuee.isEmpty())
-	{    
+
+    if (!this->OperQuee.isEmpty())
+    {
         if (this->OperQuee.contains(requestID) && error == false)
-        {   
-            QByteArray result = QhttpClient->readAll();            
+        {
+            QByteArray result = QhttpClient->readAll();
             OperationQueStruc reqstruc = static_cast< OperationQueStruc > (this->OperQuee.take(requestID));
 
-            // Associated with Quarded pointers, 
+            // Associated with Quarded pointers,
             // if some object destroyed before request finishes.
             if (reqstruc.pt2Object)
             reqstruc.pt2Function(reqstruc.pt2Object,result);
 
         } else {
             this->OperQuee.take(requestID);
-        } 
-	}
+        }
+    }
 }
-
 
 

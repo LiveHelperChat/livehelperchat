@@ -7,7 +7,7 @@
 #include "lhchatsynchro.h"
 #include "webservice.h"
 
-#define DEBUG
+//#define DEBUG
 
 
 LhcChatSynchro *LhcChatSynchro::instance() {

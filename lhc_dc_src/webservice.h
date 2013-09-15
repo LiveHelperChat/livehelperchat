@@ -2,6 +2,7 @@
 #include <QHttpRequestHeader>
 #include <QStringList>
 #include <QPointer>
+#include <QNetworkAccessManager>
 #include "objectfactory.h"
 
 // Used quarded pointer to avoid dandling pointers.
@@ -52,13 +53,19 @@ protected:
 
 
 public slots:
-		void setFetchURL(QString urlFetch);
+        void setFetchURL(QString urlFetch, QHttp::ConnectionMode mode = QHttp::ConnectionModeHttp);
 
 private slots:
-		void requestFinished(int requestID,bool error);
-		
+        void requestFinished(int requestID,bool error);
 private:
-	QHttp *QhttpClient;
-	QHttpRequestHeader *QHttpHeader;
+    //QNetworkAccessManager *QhttpClient;
+    //QNetworkRequest *QHttpHeader;
+    //QNetworkReply *currentReply;
+
+    QHttp *QhttpClient;
+    QHttpRequestHeader *QHttpHeader;
+
+
+    //QHttpRequestHeader *QHttpHeader;
 
 };

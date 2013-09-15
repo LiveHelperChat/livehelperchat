@@ -45,7 +45,23 @@ void LoginDialog::canContinue()
         if (pmsettings->getAttributeSettings("autologin") == "true")
         {
             LhcWebServiceClient *lhwsc = LhcWebServiceClient::instance();
-            lhwsc->setFetchURL(ui.HostEdit->text().replace(QString("index.php"), QString("")).replace(QString("http://"), QString("")));
+            QString host = ui.HostEdit->text().replace(QString("index.php"), QString(""));
+
+            QHttp::ConnectionMode mode;
+
+            if (host.indexOf("https://") != -1){
+                mode = QHttp::ConnectionModeHttps;
+                host = host.replace(QString("https://"),QString(""));
+            } else {
+                mode = QHttp::ConnectionModeHttp;
+                host = host.replace(QString("http://"),QString(""));
+            }
+
+            if (!host.endsWith("/")){
+                host += "/";
+            }
+
+            lhwsc->setFetchURL(host,mode);
             delete pmsettings;
 
             QStringList filter;
@@ -87,14 +103,27 @@ void LoginDialog::on_okButton_clicked()
 
 			if (!lgUserPassword.isEmpty())
 			{
-                lgHost = ui.HostEdit->text().replace(QString("index.php"), QString("")).replace(QString("http://"), QString(""));
+                QString host = ui.HostEdit->text().replace(QString("index.php"), QString(""));
+                QHttp::ConnectionMode mode;
 
-				if (!lgHost.isEmpty())
+                if (host.indexOf("https://") != -1){
+                    mode = QHttp::ConnectionModeHttps;
+                    host = host.replace(QString("https://"),QString(""));
+                } else {
+                    mode = QHttp::ConnectionModeHttp;
+                    host = host.replace(QString("http://"),QString(""));
+                }
+
+                if (!host.endsWith("/")){
+                    host += "/";
+                }
+
+                if (!host.isEmpty())
 				{
 						PMSettings *pmsettings = new PMSettings();
 						pmsettings->setAttribute("username",lgUserName);
 						pmsettings->setAttribute("password",lgUserPassword);
-						pmsettings->setAttribute("host",lgHost);
+                        pmsettings->setAttribute("host", (mode == QHttp::ConnectionModeHttp ? "http://" : "https://")+host);
 
 						if (ui.AutoLogincheckBox->isChecked())
 							pmsettings->setAttribute("autologin","true");
@@ -107,7 +136,7 @@ void LoginDialog::on_okButton_clicked()
 						delete pmsettings;
 
                         LhcWebServiceClient *lhwsc = LhcWebServiceClient::instance();
-                        lhwsc->setFetchURL(lgHost);
+                        lhwsc->setFetchURL(host,mode);
 
                         QStringList filter;
                         filter.append("username="+lgUserName);
