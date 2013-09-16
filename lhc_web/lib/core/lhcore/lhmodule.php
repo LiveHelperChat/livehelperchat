@@ -78,7 +78,19 @@ class erLhcoreClassModule{
             }
 
             try {
-            	include(self::getModuleFile(self::$currentModuleName,self::$currentView));
+            	            
+            	$includeStatus = include(self::getModuleFile(self::$currentModuleName,self::$currentView));
+            	 
+            	// Inclusion failed
+            	if ($includeStatus === false) {
+            		$CacheManager = erConfigClassLhCacheConfig::getInstance();
+            		$CacheManager->expireCache();
+            		header('HTTP/1.1 503 Service Temporarily Unavailable');
+            		header('Status: 503 Service Temporarily Unavailable');
+            		header('Retry-After: 5');
+            		exit;
+            	}
+            	
             } catch (Exception $e) {
             	$CacheManager = erConfigClassLhCacheConfig::getInstance();
             	$CacheManager->expireCache();
