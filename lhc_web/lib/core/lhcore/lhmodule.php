@@ -85,10 +85,9 @@ class erLhcoreClassModule{
             	if ($includeStatus === false) {
             		$CacheManager = erConfigClassLhCacheConfig::getInstance();
             		$CacheManager->expireCache();
-            		header('HTTP/1.1 503 Service Temporarily Unavailable');
-            		header('Status: 503 Service Temporarily Unavailable');
-            		header('Retry-After: 5');
-            		exit;
+            		
+            		// Just try reinclude
+            		include(self::getModuleFile(self::$currentModuleName,self::$currentView));            		
             	}
             	
             } catch (Exception $e) {
