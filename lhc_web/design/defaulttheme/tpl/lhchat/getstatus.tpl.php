@@ -383,11 +383,15 @@ if (lh_inst.cookieData.hash) {
 }
 
 <?php if ($check_operator_messages == 'true' && $disable_pro_active == false) : ?>
-lh_inst.startNewMessageCheck();
+if (!lh_inst.cookieData.hash) {
+	lh_inst.startNewMessageCheck();
+}
 <?php endif; ?>
 
 <?php if ($disable_pro_active == false) : ?>
-lh_inst.startNewMessageCheckSingle();
+if (!lh_inst.cookieData.hash) {
+	lh_inst.startNewMessageCheckSingle();
+}
 <?php endif;?>
 
 <?php
