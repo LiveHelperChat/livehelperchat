@@ -735,7 +735,7 @@ class erLhcoreClassChat {
 
    public static function canReopen(erLhcoreClassModelChat $chat, $skipStatusCheck = false) {
    		if ( ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT || $skipStatusCheck == true)) {
-			if ($chat->last_user_msg_time > time()-600){
+			if ($chat->last_user_msg_time > time()-600 || $chat->last_user_msg_time == 0){
 				return true;
 			} else {
 				return false;
@@ -750,7 +750,7 @@ class erLhcoreClassChat {
 		   		$parts = explode('_', $chatPart);
 		   		$chat = erLhcoreClassModelChat::fetch($parts[0]);
 
-		   		if ($chat->last_user_msg_time > time()-600) {
+		   		if ($chat->last_user_msg_time > time()-600 || $chat->last_user_msg_time == 0) {
 		   			return array('id' => $parts[0],'hash' => $parts[1]);
 		   		} else {
 					return false;
