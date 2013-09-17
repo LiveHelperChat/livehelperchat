@@ -64,7 +64,10 @@ if (key_exists($position, $positionArgument)){
 ?>
 
 var lhc_Chatbox = {
-
+	JSON : {
+            parse: window.JSON && (window.JSON.parse || window.JSON.decode) || String.prototype.evalJSON && function(str){return String(str).evalJSON();} || $.parseJSON || $.evalJSON,
+            stringify:  Object.toJSON || window.JSON && (window.JSON.stringify || window.JSON.encode) || $.toJSON
+    },
 	cookieData : {},
 
 	addCss : function(css_content) {
@@ -166,13 +169,13 @@ var lhc_Chatbox = {
 
    storeSesCookie : function(){
     	if (sessionStorage) {
-    		sessionStorage.setItem('lhc_chb',window.JSON.stringify(this.cookieData));
+    		sessionStorage.setItem('lhc_chb',this.JSON.stringify(this.cookieData));
     	}
    },
 
    initSessionStorage : function(){
     	if (sessionStorage && sessionStorage.getItem('lhc_chb')) {
-    		this.cookieData = window.JSON.parse(sessionStorage.getItem('lhc_chb'));
+    		this.cookieData = this.JSON.parse(sessionStorage.getItem('lhc_chb'));
     	}
    },
 

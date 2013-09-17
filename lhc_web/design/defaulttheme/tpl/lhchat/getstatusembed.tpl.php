@@ -13,7 +13,10 @@ function(b){var a=b.indexOf("="),a=0>a?b.length:a;return{key:decodeURIComponent(
 typeof module&&module.exports&&(exports=module.exports=a),exports.Cookies=a):window.Cookies=a})();
 
 var lh_inst_page  = {
-
+	JSON : {
+            parse: window.JSON && (window.JSON.parse || window.JSON.decode) || String.prototype.evalJSON && function(str){return String(str).evalJSON();} || $.parseJSON || $.evalJSON,
+            stringify:  Object.toJSON || window.JSON && (window.JSON.stringify || window.JSON.encode) || $.toJSON
+    },
 	cookieData : {},
 
     hide : function() {
@@ -81,19 +84,19 @@ var lh_inst_page  = {
 
 	storeSesCookie : function(){
     	if (sessionStorage) {
-    		sessionStorage.setItem('lhc_ses',window.JSON.stringify(this.cookieData));
+    		sessionStorage.setItem('lhc_ses',this.JSON.stringify(this.cookieData));
     	} else {
-	    	Cookies('lhc_ses',window.JSON.stringify(this.cookieData));
+	    	Cookies('lhc_ses',this.JSON.stringify(this.cookieData));
 	    }
     },
 
     initSessionStorage : function(){
     	if (sessionStorage && sessionStorage.getItem('lhc_ses')) {
-    		this.cookieData = window.JSON.parse(sessionStorage.getItem('lhc_ses'));
+    		this.cookieData = this.JSON.parse(sessionStorage.getItem('lhc_ses'));
     	} else {
 	    	var cookieData = Cookies('lhc_ses');
 			if ( typeof cookieData === "string" && cookieData ) {
-				this.cookieData = window.JSON.parse(cookieData);
+				this.cookieData = this.JSON.parse(cookieData);
 			}
 		}
     },

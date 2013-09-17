@@ -64,6 +64,10 @@ if (key_exists($position, $positionArgument)){
 ?>
 
 var lhc_Questionary = {
+	JSON : {
+            parse: window.JSON && (window.JSON.parse || window.JSON.decode) || String.prototype.evalJSON && function(str){return String(str).evalJSON();} || $.parseJSON || $.evalJSON,
+            stringify:  Object.toJSON || window.JSON && (window.JSON.stringify || window.JSON.encode) || $.toJSON
+    },
 	cookieData : {},
 	addCss : function(css_content) {
         var head = document.getElementsByTagName('head')[0];
@@ -165,13 +169,13 @@ var lhc_Questionary = {
 
    storeSesCookie : function(){
     	if (sessionStorage) {
-    		sessionStorage.setItem('lhc_vb',JSON.stringify(this.cookieData));
+    		sessionStorage.setItem('lhc_vb',this.JSON.stringify(this.cookieData));
     	}
    },
 
    initSessionStorage : function(){
     	if (sessionStorage && sessionStorage.getItem('lhc_vb')) {
-    		this.cookieData = JSON.parse(sessionStorage.getItem('lhc_vb'));
+    		this.cookieData = this.JSON.parse(sessionStorage.getItem('lhc_vb'));
     	}
    },
 
