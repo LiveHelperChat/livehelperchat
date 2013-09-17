@@ -294,24 +294,24 @@ var lh_inst  = {
     },
 
     storePersistenCookie : function(){
-	    Cookies('lhc_per',JSON.stringify(this.cookieDataPers),{expires:16070400});
+	    Cookies('lhc_per',window.JSON.stringify(this.cookieDataPers),{expires:16070400});
     },
 
     storeSesCookie : function(){
     	if (sessionStorage) {
-    		sessionStorage.setItem('lhc_ses',JSON.stringify(this.cookieData));
+    		sessionStorage.setItem('lhc_ses',window.JSON.stringify(this.cookieData));
     	} else {
-	    	Cookies('lhc_ses',JSON.stringify(this.cookieData));
+	    	Cookies('lhc_ses',window.JSON.stringify(this.cookieData));
 	    }
     },
 
     initSessionStorage : function(){
     	if (sessionStorage && sessionStorage.getItem('lhc_ses')) {
-    		this.cookieData = JSON.parse(sessionStorage.getItem('lhc_ses'));
+    		this.cookieData = window.JSON.parse(sessionStorage.getItem('lhc_ses'));
     	} else {
 	    	var cookieData = Cookies('lhc_ses');
 			if ( typeof cookieData === "string" && cookieData ) {
-				this.cookieData = JSON.parse(cookieData);
+				this.cookieData = window.JSON.parse(cookieData);
 			}
 		}
     },
@@ -358,7 +358,7 @@ if ( window.addEventListener ){
 
 var cookieData = Cookies('lhc_per');
 if ( typeof cookieData === "string" && cookieData ) {
-	lh_inst.cookieDataPers = JSON.parse(cookieData);
+	lh_inst.cookieDataPers = window.JSON.parse(cookieData);
 } else {
 	lh_inst.cookieDataPers = {<?php isset($vid) ? print 'vid:\''.$vid.'\'' : ''?>};
 	lh_inst.storePersistenCookie();

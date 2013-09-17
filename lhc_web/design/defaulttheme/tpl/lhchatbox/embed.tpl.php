@@ -55,13 +55,13 @@ var lhc_ChatboxPage = {
 
    storeSesCookie : function(){
     	if (sessionStorage) {
-    		sessionStorage.setItem('lhc_chb',JSON.stringify(this.cookieData));
+    		sessionStorage.setItem('lhc_chb',window.JSON.stringify(this.cookieData));
     	}
    },
 
    initSessionStorage : function(){
     	if (sessionStorage && sessionStorage.getItem('lhc_chb')) {
-    		this.cookieData = JSON.parse(sessionStorage.getItem('lhc_chb'));
+    		this.cookieData = window.JSON.parse(sessionStorage.getItem('lhc_chb'));
     	}
    },
 

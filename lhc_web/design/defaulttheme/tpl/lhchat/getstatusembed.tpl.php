@@ -81,19 +81,19 @@ var lh_inst_page  = {
 
 	storeSesCookie : function(){
     	if (sessionStorage) {
-    		sessionStorage.setItem('lhc_ses',JSON.stringify(this.cookieData));
+    		sessionStorage.setItem('lhc_ses',window.JSON.stringify(this.cookieData));
     	} else {
-	    	Cookies('lhc_ses',JSON.stringify(this.cookieData));
+	    	Cookies('lhc_ses',window.JSON.stringify(this.cookieData));
 	    }
     },
 
     initSessionStorage : function(){
     	if (sessionStorage && sessionStorage.getItem('lhc_ses')) {
-    		this.cookieData = JSON.parse(sessionStorage.getItem('lhc_ses'));
+    		this.cookieData = window.JSON.parse(sessionStorage.getItem('lhc_ses'));
     	} else {
 	    	var cookieData = Cookies('lhc_ses');
 			if ( typeof cookieData === "string" && cookieData ) {
-				this.cookieData = JSON.parse(cookieData);
+				this.cookieData = window.JSON.parse(cookieData);
 			}
 		}
     },
