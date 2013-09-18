@@ -364,7 +364,7 @@ class erLhcoreClassTemplate {
 
 			// Compile content language
 			$contentFile = str_replace('<?php echo erLhcoreClassSystem::instance()->ContentLanguage?>',erLhcoreClassSystem::instance()->ContentLanguage,$contentFile);
-			
+
 			// Compile siteaccess
 			$contentFile = str_replace('erLhcoreClassSystem::instance()->SiteAccess','\''.erLhcoreClassSystem::instance()->SiteAccess.'\'',$contentFile);
 

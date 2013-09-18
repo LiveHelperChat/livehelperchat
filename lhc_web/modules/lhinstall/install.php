@@ -411,6 +411,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 
         	   $randomHash = erLhcoreClassModelForgotPassword::randomPassword(9);
         	   $randomHashLength = strlen($randomHash);
+			   $exportHash = erLhcoreClassModelForgotPassword::randomPassword(9);
 
         	   $db->query("INSERT INTO `lh_chat_config` (`identifier`, `value`, `type`, `explain`, `hidden`) VALUES
                 ('tracked_users_cleanup',	'7',	0,	'How many days keep records of online users.',	0),
@@ -427,7 +428,10 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('track_footprint',	'0',	0,	'Track users footprint. For this also online visitors tracking should be enabled',	0),
                 ('pro_active_limitation',	'-1',	0,	'Pro active chats invitations limitation based on pending chats, (-1) do not limit, (0,1,n+1) number of pending chats can be for invitation to be shown.',	0),
                 ('pro_active_show_if_offline',	'0',	0,	'Should invitation logic be executed if there is no online operators, 0 - no, 1 - yes',	0),
+                ('export_hash',	'{$exportHash}',	0,	'Chats export secret hash',	0),
                 ('geo_data', '', '0', '', '1')");
+
+
 
         	   $db->query("CREATE TABLE `lh_chat_online_user` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
