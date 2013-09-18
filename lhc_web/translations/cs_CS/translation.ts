@@ -15,7 +15,7 @@
     </message>
     <message>
         <source>Password reminder</source>
-        <translation>Připomenutí hesla</translation>
+        <translation>Vytvoření nového hesla</translation>
     </message>
     <message>
         <source>Login</source>
@@ -44,6 +44,10 @@
         <translation>Jmého pro osobní účely</translation>
     </message>
     <message>
+        <source>Operator name</source>
+        <translation>Jméno operátora</translation>
+    </message>
+    <message>
         <source>If you want pro active chat invitation to work it has to be enabled in</source>
         <translation>pokud chcete zasílat proaktivní pozvánky k rozhovoru, musíte tuto funkci aktivovat</translation>
     </message>
@@ -53,7 +57,7 @@
     </message>
     <message>
         <source>also online users tracking has to be</source>
-        <translation type="unfinished"/>
+        <translation>také monitorování uživatelů by mělo být</translation>
     </message>
     <message>
         <source>enabled</source>
@@ -73,7 +77,7 @@
     </message>
     <message>
         <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-        <translation type="unfinished"/>
+        <translation>Identifikátor, který označí tuto zprávu, nechte prázdné pokud nechcete označovat</translation>
     </message>
     <message>
         <source>Pageviews</source>
@@ -89,7 +93,7 @@
     </message>
     <message>
         <source>Pro active chat invitations</source>
-        <translation>Proaktivní pozvánka k rozhovoru</translation>
+        <translation>Proaktivní pozvánky k rozhovoru</translation>
     </message>
 </context>
 <context>
@@ -100,11 +104,11 @@
     </message>
     <message>
         <source>Total statistic</source>
-        <translation>Kompletní statistika</translation>
+        <translation>Celková statistika</translation>
     </message>
     <message>
         <source>Last 24h statistic</source>
-        <translation>Statistika posledních 24 hodin</translation>
+        <translation>Statistika za posledních 24 hodin</translation>
     </message>
     <message>
         <source>Parameter</source>
@@ -527,6 +531,10 @@
         <source>Enable/Disable sound about new messages from the operator</source>
         <translation>Zapnout/vypnout zvukovou signalizaci nových zpráv od operátora</translation>
     </message>
+    <message>
+        <source>Print</source>
+        <translation>Tisk</translation>
+    </message>
 </context>
 <context>
     <name>chat/cannedmsg</name>
@@ -643,7 +651,7 @@
     <name>user/remindpassword</name>
     <message>
         <source>Password reminder - new password</source>
-        <translation>Připomínač hesla - nové heslo</translation>
+        <translation>Vytvoření nového hesla - nové heslo</translation>
     </message>
     <message>
         <source>Hash was not found or was used already</source>
@@ -670,7 +678,7 @@
     <name>user/forgotpassword</name>
     <message>
         <source>Password reminder</source>
-        <translation>Připomínač hesla</translation>
+        <translation>Vytvoření nového hesla</translation>
     </message>
     <message>
         <source>Invalid e-mail address!</source>
@@ -678,7 +686,7 @@
     </message>
     <message>
         <source>Click this link and You will be sent a new password</source>
-        <translation>Kliknutím na odkaz odešlete nové heslo</translation>
+        <translation>Kliknutím na odkaz v tomto e-mailu Vám odešlete nové heslo</translation>
     </message>
     <message>
         <source>E-mail</source>
@@ -747,15 +755,23 @@
     </message>
     <message>
         <source>Marker timeout before it dissapears from map</source>
-        <translation type="unfinished"/>
+        <translation>Doba, za jakou zmizí značka z mapy</translation>
     </message>
     <message>
         <source>seconds</source>
-        <translation>sekund</translation>
+        <translation>sekundami</translation>
     </message>
     <message>
         <source>minit</source>
-        <translation>minut</translation>
+        <translation>minutou</translation>
+    </message>
+    <message>
+        <source>hour</source>
+        <translation>hodinou</translation>
+    </message>
+    <message>
+        <source>Show visitors who visited site in the past</source>
+        <translation>Zobrazit návštěvníky, kteří byli na stránce před </translation>
     </message>
     <message>
         <source>Came from</source>
@@ -771,7 +787,7 @@
     </message>
     <message>
         <source>minits</source>
-        <translation>minuty</translation>
+        <translation>minutami</translation>
     </message>
     <message>
         <source>Pageviews</source>
@@ -803,7 +819,7 @@
     </message>
     <message>
         <source>User is chatting</source>
-        <translation>Uživatel píšee</translation>
+        <translation>Uživatel píše</translation>
     </message>
     <message>
         <source>User is not having any chat right now</source>
@@ -1159,7 +1175,7 @@
     </message>
     <message>
         <source>Closed chats</source>
-        <translation>Ukončené chaty</translation>
+        <translation>Ukončené rozhovory</translation>
     </message>
     <message>
         <source>Transfered chats</source>
@@ -1222,7 +1238,7 @@
     </message>
     <message>
         <source>Active chats</source>
-        <translation>Aktivní chaty</translation>
+        <translation>Aktivní rozhovory</translation>
     </message>
     <message>
         <source>Closed chats</source>
@@ -1230,7 +1246,7 @@
     </message>
     <message>
         <source>Chats with unread messages</source>
-        <translation>Rozhovor s nepřečtenými zprávami</translation>
+        <translation>Seznamy nepřečtených rozhovorů</translation>
     </message>
 </context>
 <context>
@@ -1257,6 +1273,10 @@
     <message>
         <source>Waiting for confirmation</source>
         <translation>Čekám na potvrzení</translation>
+    </message>
+    <message>
+        <source>Resume chat</source>
+        <translation>Obnovit rozhovor</translation>
     </message>
 </context>
 <context>
@@ -1498,12 +1518,16 @@
         <translation>Strana</translation>
     </message>
     <message>
+        <source>Print</source>
+        <translation>Tisk</translation>
+    </message>
+    <message>
         <source>Chat duration</source>
         <translation>Délka rozhovoru</translation>
     </message>
     <message>
         <source>Waited</source>
-        <translation type="unfinished"/>
+        <translation>Čekal</translation>
     </message>
     <message>
         <source>Created</source>
@@ -1622,7 +1646,7 @@
     </message>
     <message>
         <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-        <translation type="unfinished"/>
+        <translation>Pracovník podpory ukončil tento rozhovor. Můžete však zanechat vzkaz, který si operátor přečte později.</translation>
     </message>
 </context>
 <context>
@@ -1648,7 +1672,7 @@
     </message>
     <message>
         <source>Chat</source>
-        <translation>Chat</translation>
+        <translation>Rozhovor</translation>
     </message>
     <message>
         <source>General permission to use chat module</source>
@@ -1724,11 +1748,11 @@
     </message>
     <message>
         <source>Allow user to choose his departments</source>
-        <translation>Leisti vartotojui pasirinkti savo departamentą</translation>
+        <translation>Povolit uživateli zvolit si oddělení</translation>
     </message>
     <message>
         <source>Allow user to manage Chatbox module</source>
-        <translation>Leisti vartotojui tvarkyti Chatbox modulį</translation>
+        <translation>Povolit uživateli spravovat modul Chatboxu</translation>
     </message>
     <message>
         <source>FAQ</source>
@@ -1748,7 +1772,7 @@
     </message>
     <message>
         <source>Live helper Chat installer</source>
-        <translation>Live Helper Chat instaliacinis modulis</translation>
+        <translation>Instalátor Live Helper Chatu</translation>
     </message>
     <message>
         <source>Permissions configuration</source>
@@ -1840,7 +1864,7 @@
     </message>
     <message>
         <source>Live helper Chat XML service</source>
-        <translation>Live helper Chat XML servisas</translation>
+        <translation>Live helper Chat XML služby</translation>
     </message>
     <message>
         <source>Allow user to access HTML generation</source>
@@ -1985,28 +2009,28 @@
     <name>chat/errors/adminchatnopermission</name>
     <message>
         <source>You do not have permission to access current chat!</source>
-        <translation>Jūs neturite teisės prieiti prie šio pokalbio!</translation>
+        <translation>Nemáte oprávnění pro přístup k probíhajícímu rozhovoru!</translation>
     </message>
 </context>
 <context>
     <name>chat/errors/entertext</name>
     <message>
         <source>Please enter text!</source>
-        <translation>Prašome įvesti tekstą!</translation>
+        <translation>Prosím, zadejte text!</translation>
     </message>
 </context>
 <context>
     <name>chat/userleftchat</name>
     <message>
         <source>User has left the chat!</source>
-        <translation>Vartotojas paliko pokalbių kambarį!</translation>
+        <translation>Uživatel opustil rozhovor!</translation>
     </message>
 </context>
 <context>
     <name>chat/userjoined</name>
     <message>
         <source>User has joined the chat!</source>
-        <translation>Vartotojas prisijungė prie pokalbių kambario!</translation>
+        <translation>Uživatel se připojil k rozhovoru!</translation>
     </message>
 </context>
 <context>
@@ -2018,6 +2042,14 @@
     <message>
         <source>and use</source>
         <translation>ir naudotis</translation>
+    </message>
+    <message>
+        <source>Go back</source>
+        <translation>Jít zpět</translation>
+    </message>
+    <message>
+        <source>You do not have permission to edit selected object</source>
+        <translation>Nemáte oprávnění upravovat vybraný objekt</translation>
     </message>
     <message>
         <source>function</source>
@@ -2126,7 +2158,7 @@
     <name>chat/getstatus</name>
     <message>
         <source>Start chat</source>
-        <translation>Spustit chat</translation>
+        <translation>Spustit rozhovor</translation>
     </message>
     <message>
         <source>Close</source>
@@ -2223,12 +2255,28 @@
         <translation>Maxium je 50 znaků</translation>
     </message>
     <message>
+        <source>Live Support</source>
+        <translation>Online podpora</translation>
+    </message>
+    <message>
         <source>Invalid captcha code, please enable Javascript!</source>
-        <translation>Nesprávný captcha kód, povolte použití Javascriptu ve vašem prohlížeči!</translation>
+        <translation>Nesprávný captcha kód, povolte používání Javascriptu ve vašem prohlížeči!</translation>
     </message>
     <message>
         <source>Maximum 500 characters for message</source>
         <translation>Maximální délka zprávy je 500 znaků</translation>
+    </message>
+    <message>
+        <source>Type your message here and hit enter to send...</source>
+        <translation>Zadejte text své zprávy a odešlete ji stisknutím enter...</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation>Odeslat</translation>
+    </message>
+    <message>
+        <source>Offline</source>
+        <translation>Offline</translation>
     </message>
     <message>
         <source>Leave a message</source>
@@ -2343,11 +2391,11 @@
     </message>
     <message>
         <source>Delete chat</source>
-        <translation>Smazat chat</translation>
+        <translation>Smazat rozhovor</translation>
     </message>
     <message>
         <source>Close chat</source>
-        <translation>Ukončit chat</translation>
+        <translation>Ukončit rozhovor</translation>
     </message>
     <message>
         <source>Open in a new window</source>
@@ -2520,7 +2568,7 @@
     <name>chat/checkchatstatus</name>
     <message>
         <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
-        <translation type="unfinished"/>
+        <translation>Vyčkejte, než se operátor online podpory připojí. Můžete zatím napsat svůj dotaz, jakmile se operátor připojí, obdrží Vaše zprávy.</translation>
     </message>
     <message>
         <source>A support staff member has joined this chat</source>
@@ -2568,6 +2616,10 @@
     <message>
         <source>System configuration</source>
         <translation>Nastavení systému</translation>
+    </message>
+    <message>
+        <source>Priority</source>
+        <translation>Priorita</translation>
     </message>
 </context>
 <context>
@@ -2625,7 +2677,7 @@
     </message>
     <message>
         <source>Page embed code</source>
-        <translation>Embed kód na stránku</translation>
+        <translation>Embedovaný kód na stránku</translation>
     </message>
     <message>
         <source>Department</source>
@@ -2637,7 +2689,7 @@
     </message>
     <message>
         <source>Any</source>
-        <translation>Libovolný</translation>
+        <translation>libovolné</translation>
     </message>
     <message>
         <source>height</source>
@@ -2645,7 +2697,7 @@
     </message>
     <message>
         <source>Widget embed code</source>
-        <translation>Widget embed kód</translation>
+        <translation>Embedovaný kód Widgetu</translation>
     </message>
     <message>
         <source>Widget width</source>
@@ -2697,7 +2749,7 @@
     </message>
     <message>
         <source>Embed html code</source>
-        <translation>Embed html kód</translation>
+        <translation>Embedovaný html kód</translation>
     </message>
     <message>
         <source>Position from the top, only used if the Middle left or the Middle right side is chosen</source>
@@ -2967,8 +3019,20 @@
         <translation>Právo na vyžadování upozornění</translation>
     </message>
     <message>
-        <source>Chat embed code</source>
-        <translation>Embedovaný kód okna aplikace</translation>
+        <source>Live help embed code</source>
+        <translation>Embedovaný kód online pomoci</translation>
+    </message>
+    <message>
+        <source>FAQ embed code</source>
+        <translation>Embedovaný kód FAQ</translation>
+    </message>
+    <message>
+        <source>Questionary embed code</source>
+        <translation>Embedovaný kód dotazníku</translation>
+    </message>
+    <message>
+        <source>Chatbox embed code</source>
+        <translation>Embedovaný kód okna chatboxu</translation>
     </message>
     <message>
         <source>Canned messages</source>
@@ -3311,7 +3375,7 @@
     </message>
     <message>
         <source>Pending chats tab enabled</source>
-        <translation>Laukiančių pokalbių kortelė matoma</translation>
+        <translation>Záložka čekajících rozhovorů aktivní</translation>
     </message>
     <message>
         <source>Active chats tab enabled</source>
@@ -3319,11 +3383,11 @@
     </message>
     <message>
         <source>Unread chats tab enabled</source>
-        <translation>Neperskaitytų žinučių kortelė matoma</translation>
+        <translation>Záložka nepřečtených rozhovorů aktivní</translation>
     </message>
     <message>
         <source>Closed chats tab enabled</source>
-        <translation>Uždarytų pokalbių kortelė matoma</translation>
+        <translation>Záložka ukončených rozhovorů aktivní</translation>
     </message>
     <message>
         <source>Enter a new password</source>
@@ -3363,7 +3427,7 @@
     </message>
     <message>
         <source>Return</source>
-        <translation>Return</translation>
+        <translation>Vrátit</translation>
     </message>
     <message>
         <source>Password</source>
@@ -3480,7 +3544,7 @@
     <name>faq/view</name>
     <message>
         <source>Please enter answer!</source>
-        <translation>Prašome įvesti atsakymą!</translation>
+        <translation>Prosím, zadejte odpověď!</translation>
     </message>
     <message>
         <source>View</source>
@@ -3562,7 +3626,7 @@
     </message>
     <message>
         <source>Embed code generation</source>
-        <translation>Generování embed kódu</translation>
+        <translation>Generování embedovaného kódu</translation>
     </message>
 </context>
 <context>
@@ -3615,11 +3679,11 @@
     <name>user/forgotpasswordsent</name>
     <message>
         <source>Password reminder</source>
-        <translation>Připomínač hesla</translation>
+        <translation>Zaslání nového hesla</translation>
     </message>
     <message>
         <source>E-mail sent. Click the link in the email and You will be sent out a new password.</source>
-        <translation>E-mail odeslán. Po kliknutím na odkaz v e-mailu vám odešleme nové heslo.</translation>
+        <translation>E-mail odeslán. Po kliknutí na odkaz v e-mailu vám odešleme zpět nové heslo.</translation>
     </message>
 </context>
 <context>
