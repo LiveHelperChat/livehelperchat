@@ -97,6 +97,9 @@ return array_merge(array (
 		 // Statistic
 		'erLhcoreClassChatStatistic'		=> 'lib/core/lhchat/lhchatstatistic.php',
 
+		 // Chat export
+		'erLhcoreClassChatExport'				=> 'lib/core/lhchat/lhchatexport.php',
+
 
 ),
 include('var/autoloads/lhextension_autoload.php')

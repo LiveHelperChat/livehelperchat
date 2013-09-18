@@ -1,3 +1,17 @@
+1.51v
+
+Features:
+1. Half spornsored kernel export module. Tutorial will be available on the site.
+
+Changes, Bugfixes:
+1. SSL support for desktop client. Just enter URL with https
+2. Allow reopen chat if it does not have any messages.
+3. If user is chatting do not show proactive message.
+4. Just proper JSON support check. Avoids conflict with third party libraries.
+5. Mark proactive message as seen during chat starting process.
+
+execute doc/update_db/update_34.sql
+
 1.50v
 
 1. Multiple domains support. No third parties cookies dependency.

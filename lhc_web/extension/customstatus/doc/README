@@ -6,11 +6,13 @@ design - here you can override the default templates
 
 modules - contains an example of how to write your own module, or override the default module files.
 
+callbacks - callbacks then something happens. At the moment there are only chat_close callback. It get's included then chat is closed. You can have your own logic there. E.g send request with XML to some service.
+
 To activate a module-
 
 Adjust the settings to the following:
 
-'extensions' => 
+'extensions' =>
       array (
         0 => 'customstatus',
 ),

@@ -5,7 +5,8 @@ $Module = array( "name" => "Chats export module");
 $ViewList = array();
 
 $ViewList['getchat'] = array(
-    'params' => array('hash','chat_id')
+    'params' => array('hash','chat_id'),
+	'uparams' => array('format')
 );
 
 $ViewList['getcount'] = array(
@@ -17,10 +18,10 @@ $ViewList['getcount'] = array(
 
 $ViewList['getlist'] = array(
     'params' => array('hash'),
-    'uparams' => array('limit','format'),
-    'functions' => array( 'selfedit' )
+    'uparams' => array('limit','format','status'),
+    'functions' => array(),
+	'multiple_arguments' => array('status')
 );
-
 
 $FunctionList = array();
 
