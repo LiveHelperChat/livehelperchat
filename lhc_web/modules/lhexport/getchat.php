@@ -11,12 +11,12 @@ try {
 		$chat = erLhcoreClassModelChat::fetch((string)$Params['user_parameters']['chat_id']);
 
 		if ($format =='json') {
-				echo erLhcoreClassChatExport::chatExportJSON($chat);
 				header('Content-type: application/json');
+				echo erLhcoreClassChatExport::chatExportJSON($chat);
 			exit;
 		} else {
-				echo erLhcoreClassChatExport::chatExportXML($chat);
 				header('Content-type: text/xml');
+				echo erLhcoreClassChatExport::chatExportXML($chat);				
 			exit;
 		}
 
@@ -27,12 +27,12 @@ try {
 } catch (Exception $e) {
 
 	if ($format =='json') {
-		echo json_encode(array('error' => $e->getMessage()));
 		header('Content-type: application/json');
+		echo json_encode(array('error' => $e->getMessage()));		
 		exit;
 	} else {
-		echo '<?xml version="1.0" encoding="utf-8" ?>',"<lhc><error><![CDATA[".htmlspecialchars($e->getMessage())."]]></error></lhc>";
 		header('Content-type: text/xml');
+		echo '<?xml version="1.0" encoding="utf-8" ?>',"<lhc><error><![CDATA[".htmlspecialchars($e->getMessage())."]]></error></lhc>";	
 		exit;
 	}
 }
