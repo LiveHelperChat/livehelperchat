@@ -94,7 +94,7 @@ if (isset($_POST['StartChat'])) {
 	       erLhcoreClassModelChat::detectLocation($chat);
 
 	       // Store chat
-	       erLhcoreClassChat::getSession()->save($chat);
+	       $chat->saveThis();
 
 	       // Assign chat to user
 	       if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 && (string)$Params['user_parameters_unordered']['vid'] != '') {
@@ -121,8 +121,10 @@ if (isset($_POST['StartChat'])) {
 	               $msg->chat_id = $chat->id;
 	               $msg->user_id = 0;
 	               $msg->time = time();
-
 	               erLhcoreClassChat::getSession()->save($msg);
+
+	               $chat->last_msg_id = $msg->id;
+	               $chat->saveThis();
 	           }
 	       }
 
