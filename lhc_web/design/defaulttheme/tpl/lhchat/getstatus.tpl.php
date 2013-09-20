@@ -83,7 +83,7 @@ var lh_inst  = {
             parse: window.JSON && (window.JSON.parse || window.JSON.decode) || String.prototype.evalJSON && function(str){return String(str).evalJSON();} || $.parseJSON || $.evalJSON,
             stringify:  Object.toJSON || window.JSON && (window.JSON.stringify || window.JSON.encode) || $.toJSON
     },
-        
+
     urlopen : "//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/startchat')?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?>",
 
     windowname : "startchatwindow",
@@ -205,7 +205,7 @@ var lh_inst  = {
           var widgetWidth = (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.widget_width != 'undefined') ? parseInt(LHCChatOptions.opt.widget_width) : 300;
 		  var widgetHeight = (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.widget_height != 'undefined') ? parseInt(LHCChatOptions.opt.widget_height) : 340;
 
-          this.iframe_html = '<iframe id="fdbk_iframe" allowTransparency="true" scrolling="no" class="loading" frameborder="0" ' +
+          this.iframe_html = '<iframe id="lhc_iframe" allowTransparency="true" scrolling="no" class="lhc-loading" frameborder="0" ' +
                        ( this.initial_iframe_url != '' ? ' src="'    + this.initial_iframe_url + '"' : '' ) +
                        ' width="'+widgetWidth+'"' +
                        ' height="'+widgetHeight+'"' +
@@ -330,7 +330,7 @@ var lh_inst  = {
     	var action = e.data.split(':')[0];
     	if (action == 'lhc_sizing_chat') {
     		var height = e.data.split(':')[1];
-    		var elementObject = document.getElementById('fdbk_iframe');
+    		var elementObject = document.getElementById('lhc_iframe');
     		var iframeContainer = document.getElementById('lhc_container');
     		elementObject.height = height;
     		elementObject.style.height = height+'px';
