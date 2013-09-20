@@ -185,6 +185,9 @@ class erLhcoreClassUser{
        $stmt->execute();
 
        $this->session->destroy();
+
+       $db = ezcDbInstance::get();
+       $db->query('UPDATE `lh_userdep` SET `last_activity` = 0 WHERE `user_id` = '.$this->userid);
    }
 
    public static function getSession()

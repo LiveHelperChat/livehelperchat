@@ -339,14 +339,9 @@ class erLhcoreClassModelChatOnlineUser {
 
    public static function handleRequest($paramsHandle = array()) {
 
-       // For DEBUG
-       /*$cookieData = print_r($_COOKIE,true);
-       $cookieData .= print_r($_SESSION,true);
-       $cookieData .= print_r($_SERVER,true);
-       $cookieData .= print_r($_GET,true);*/
 
        // Track only not logged users
-           if ( isset($paramsHandle['vid']) ) {
+           if ( isset($paramsHandle['vid']) && !empty($paramsHandle['vid']) ) {
                $items = erLhcoreClassModelChatOnlineUser::getList(array('filter' => array('vid' => $paramsHandle['vid'])));
                if (!empty($items)) {
                    $item = array_shift($items);
@@ -377,17 +372,6 @@ class erLhcoreClassModelChatOnlineUser {
                }
            } else {
 	           	if (isset($_SERVER['HTTP_USER_AGENT']) && !preg_match('/bot|crawl|yahoo|bing|msnbot|twittervir|slurp|spider/i', $_SERVER['HTTP_USER_AGENT'])) {
-		               /* $item = new erLhcoreClassModelChatOnlineUser();
-		               $item->ip = $_SERVER['REMOTE_ADDR'];
-		               $item->vid = erLhcoreClassModelForgotPassword::randomPassword(20);
-		               $item->identifier = (isset($paramsHandle['identifier']) && !empty($paramsHandle['identifier'])) ? $paramsHandle['identifier'] : '';
-		               $item->referrer = isset($_GET['r']) ? urldecode($_GET['r']) : '';
-
-		               setcookie('lhc_vid',$item->vid,time() + (1 * 365 * 24 * 60 * 60),'/');
-
-		               self::detectLocation($item);
- 						*/
-		               // Cleanup database then new user comes
 		               self::cleanupOnlineUsers();
 		               return false;
 	           	} else {
