@@ -591,7 +591,7 @@
     </message>
     <message>
         <source>Last activity</source>
-        <translation>LAatste activiteit</translation>
+        <translation>Laatste activiteit</translation>
     </message>
     <message>
         <source>Page</source>
@@ -1165,7 +1165,7 @@
     </message>
     <message>
         <source>Send</source>
-        <translation>Zend</translation>
+        <translation>Verstuur</translation>
     </message>
     <message>
         <source>Information</source>
