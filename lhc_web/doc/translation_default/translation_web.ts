@@ -48,6 +48,18 @@
         <translation></translation>
     </message>
     <message>
+        <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Wait timeout. Time in seconds before timeout message is shown.</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Show visitor this message then wait timeout passes.</source>
+        <translation></translation>
+    </message>
+    <message>
         <source>If you want pro active chat invitation to work it has to be enabled in</source>
         <translation></translation>
     </message>
@@ -2984,6 +2996,10 @@
     <name>system/configuration</name>
     <message>
         <source>HTML code</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Auto responder</source>
         <translation></translation>
     </message>
     <message>
