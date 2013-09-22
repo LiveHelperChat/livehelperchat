@@ -352,75 +352,78 @@ class erLhcoreClassModelChatOnlineUser {
        $stmt->execute();
    }
 
+   public static function isBot($userAgent)
+   {
+	   	$crawlers = 'Google|msnbot|Rambler|Yahoo|AbachoBOT|accoona|' .
+	   			'AcioRobot|ASPSeek|CocoCrawler|Dumbot|FAST-WebCrawler|' .
+	   			'GeonaBot|Gigabot|Lycos|MSRBOT|Scooter|AltaVista|IDBot|eStyle|Scrubby';
+	   	$isCrawler = (preg_match("/$crawlers/", $userAgent) > 0);
+
+	   	return $isCrawler;
+   }
+
    public static function handleRequest($paramsHandle = array()) {
 
+	   	if (isset($_SERVER['HTTP_USER_AGENT']) && !self::isBot($_SERVER['HTTP_USER_AGENT'])) {
 
-       // Track only not logged users
-           if ( isset($paramsHandle['vid']) && !empty($paramsHandle['vid']) ) {
-               $items = erLhcoreClassModelChatOnlineUser::getList(array('filter' => array('vid' => $paramsHandle['vid'])));
-               if (!empty($items)) {
-                   $item = array_shift($items);
+	           if ( isset($paramsHandle['vid']) && !empty($paramsHandle['vid']) ) {
+	               $items = erLhcoreClassModelChatOnlineUser::getList(array('filter' => array('vid' => $paramsHandle['vid'])));
+	               if (!empty($items)) {
+	                   $item = array_shift($items);
 
-                   // Visit duration les than 30m. Same as google analytics
-                   // See: https://support.google.com/analytics/answer/2731565?hl=en
-                   if ((time() - $item->last_visit) <= 30*60) {
-                   		$item->time_on_site += time() - $item->last_visit;
-                   		$item->tt_time_on_site += time() - $item->last_visit;
-                   } else {
-                   		$item->time_on_site = 0;
-                   }
+	                   // Visit duration les than 30m. Same as google analytics
+	                   // See: https://support.google.com/analytics/answer/2731565?hl=en
+	                   if ((time() - $item->last_visit) <= 30*60) {
+	                   		$item->time_on_site += time() - $item->last_visit;
+	                   		$item->tt_time_on_site += time() - $item->last_visit;
+	                   } else {
+	                   		$item->time_on_site = 0;
+	                   }
 
-                   $item->identifier = (isset($paramsHandle['identifier']) && !empty($paramsHandle['identifier'])) ? $paramsHandle['identifier'] : $item->identifier;
+	                   $item->identifier = (isset($paramsHandle['identifier']) && !empty($paramsHandle['identifier'])) ? $paramsHandle['identifier'] : $item->identifier;
 
-               } else {
-                   $item = new erLhcoreClassModelChatOnlineUser();
-                   $item->ip = $_SERVER['REMOTE_ADDR'];
-                   $item->vid = $paramsHandle['vid'];
-                   $item->identifier = (isset($paramsHandle['identifier']) && !empty($paramsHandle['identifier'])) ? $paramsHandle['identifier'] : '';
-                   $item->referrer = isset($_GET['r']) ? urldecode($_GET['r']) : '';
+	               } else {
+	                   $item = new erLhcoreClassModelChatOnlineUser();
+	                   $item->ip = $_SERVER['REMOTE_ADDR'];
+	                   $item->vid = $paramsHandle['vid'];
+	                   $item->identifier = (isset($paramsHandle['identifier']) && !empty($paramsHandle['identifier'])) ? $paramsHandle['identifier'] : '';
+	                   $item->referrer = isset($_GET['r']) ? urldecode($_GET['r']) : '';
 
 
-                   self::detectLocation($item);
+	                   self::detectLocation($item);
 
-                   // Cleanup database then new user comes
-                   self::cleanupOnlineUsers();
-               }
-           } else {
-	           	if (isset($_SERVER['HTTP_USER_AGENT']) && !preg_match('/bot|crawl|yahoo|bing|msnbot|twittervir|slurp|spider/i', $_SERVER['HTTP_USER_AGENT'])) {
+	                   // Cleanup database then new user comes
+	                   self::cleanupOnlineUsers();
+	               }
+	           } else {
 		               self::cleanupOnlineUsers();
 		               return false;
-	           	} else {
-	           		// Do nothing it's bot
-	           		exit;
-	           	}
-           }
+	           }
 
-           if (isset($paramsHandle['pages_count']) && $paramsHandle['pages_count'] == true) {
-           		$item->pages_count++;
-           }
+	           if (isset($paramsHandle['pages_count']) && $paramsHandle['pages_count'] == true) {
+	           		$item->pages_count++;
+	           }
 
-           // For DEBUG
-           //$item->current_page = $cookieData;
+	           // Update variables only if it's not JS to check for operator message
+	           if (!isset($paramsHandle['check_message_operator']) || (isset($paramsHandle['pages_count']) && $paramsHandle['pages_count'] == true)) {
+	           		$item->user_agent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
+	           		$item->current_page = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
+	           		$item->last_visit = time();
+	           }
 
-           // Update variables only if it's not JS to check for operator message
-           if (!isset($paramsHandle['check_message_operator']) || (isset($paramsHandle['pages_count']) && $paramsHandle['pages_count'] == true)) {
-           		$item->user_agent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
-           		$item->current_page = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
-           		$item->last_visit = time();
-           }
+	           if ($item->operator_message == '' && isset($paramsHandle['pro_active_invite']) && $paramsHandle['pro_active_invite'] == 1 && isset($paramsHandle['pro_active_limitation']) && ($paramsHandle['pro_active_limitation'] == -1 || erLhcoreClassChat::getPendingChatsCountPublic() <= $paramsHandle['pro_active_limitation']) ) {
+	           		//Process pro active chat invitation if this visitor matches any rules
+	           		erLhAbstractModelProactiveChatInvitation::processProActiveInvitation($item);
+	           }
 
-           if ($item->operator_message == '' && isset($paramsHandle['pro_active_invite']) && $paramsHandle['pro_active_invite'] == 1 && isset($paramsHandle['pro_active_limitation']) && ($paramsHandle['pro_active_limitation'] == -1 || erLhcoreClassChat::getPendingChatsCountPublic() <= $paramsHandle['pro_active_limitation']) ) {
-           		//Process pro active chat invitation if this visitor matches any rules
-           		erLhAbstractModelProactiveChatInvitation::processProActiveInvitation($item);
-           }
+	           $item->saveThis();
 
-           $item->saveThis();
+	           return $item;
+	   	} else {
+	   		// Stop execution on google bot
+	   		exit;
+	   	}
 
-           // For DEBUG
-           //erLhcoreClassLog::write($cookieData);
-
-
-           return $item;
    }
 
    public function saveThis() {
