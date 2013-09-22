@@ -116,13 +116,7 @@ if (isset($_POST['askQuestion']))
 	       			$msg->user_id = 1;
 	       			$msg->time = time();
 	       			erLhcoreClassChat::getSession()->save($msg);
-
-	       			if ($chat->last_msg_id < $msg->id) {
-	       				$chat->last_msg_id = $msg->id;
-	       			}
 	       		}
-
-	       		$chat->saveThis();
 	       	}
        }
 
