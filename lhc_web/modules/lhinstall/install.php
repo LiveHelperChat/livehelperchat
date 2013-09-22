@@ -246,11 +246,14 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `last_user_msg_time` int(11) NOT NULL,
 				  `last_msg_id` int(11) NOT NULL,
 				  `additional_data` varchar(250) NOT NULL,
+				  `timeout_message` varchar(250) NOT NULL,
 				  `lat` varchar(10) NOT NULL,
 				  `lon` varchar(10) NOT NULL,
 				  `city` varchar(100) NOT NULL,
 				  `mail_send` int(11) NOT NULL,
         	   	  `wait_time` int(11) NOT NULL,
+        	   	  `wait_timeout` int(11) NOT NULL,
+        	   	  `wait_timeout_send` int(11) NOT NULL,
   				  `chat_duration` int(11) NOT NULL,
         	   	  `priority` int(11) NOT NULL,
         	   	  `chat_initiator` int(11) NOT NULL,
@@ -272,6 +275,19 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   PRIMARY KEY (`id`),
                   KEY `ip` (`ip`)
                 ) DEFAULT CHARSET=utf8;");
+
+
+        	   $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_auto_responder` (
+				  `id` int(11) NOT NULL AUTO_INCREMENT,
+				  `siteaccess` varchar(3) NOT NULL,
+				  `wait_message` varchar(250) NOT NULL,
+				  `wait_timeout` int(11) NOT NULL,
+				  `position` int(11) NOT NULL,
+				  `timeout_message` varchar(250) NOT NULL,
+				  PRIMARY KEY (`id`),
+				  KEY `siteaccess_position` (`siteaccess`,`position`)
+				) DEFAULT CHARSET=utf8;");
+
 
         	   $db->query("CREATE TABLE `lh_faq` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -440,6 +456,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `current_page` text NOT NULL,
                   `referrer` text NOT NULL,
                   `chat_id` int(11) NOT NULL,
+        	   	  `invitation_id` int(11) NOT NULL,
                   `last_visit` int(11) NOT NULL,
         	   	  `first_visit` int(11) NOT NULL,
         	   	  `pages_count` int(11) NOT NULL,
@@ -469,6 +486,9 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `message` text NOT NULL,
 				  `executed_times` int(11) NOT NULL,
 				  `name` varchar(50) NOT NULL,
+				  `wait_message` varchar(250) NOT NULL,
+				  `timeout_message` varchar(250) NOT NULL,
+				  `wait_timeout` int(11) NOT NULL,
 				  `operator_name` varchar(100) NOT NULL,
 				  `position` int(11) NOT NULL,
         	   	  `identifier` varchar(50) NOT NULL,

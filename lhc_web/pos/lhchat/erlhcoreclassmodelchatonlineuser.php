@@ -108,6 +108,11 @@ $def->properties['message_seen']->columnName   = 'message_seen';
 $def->properties['message_seen']->propertyName = 'message_seen';
 $def->properties['message_seen']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['invitation_id'] = new ezcPersistentObjectProperty();
+$def->properties['invitation_id']->columnName   = 'invitation_id';
+$def->properties['invitation_id']->propertyName = 'invitation_id';
+$def->properties['invitation_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['identifier'] = new ezcPersistentObjectProperty();
 $def->properties['identifier']->columnName   = 'identifier';
 $def->properties['identifier']->propertyName = 'identifier';

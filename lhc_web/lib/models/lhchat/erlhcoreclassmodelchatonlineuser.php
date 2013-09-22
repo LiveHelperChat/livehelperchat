@@ -27,6 +27,7 @@ class erLhcoreClassModelChatOnlineUser {
                'time_on_site'       => $this->time_on_site,
                'tt_time_on_site'    => $this->tt_time_on_site,
                'referrer'    		=> $this->referrer,
+               'invitation_id'    	=> $this->invitation_id,
        );
    }
 
@@ -55,6 +56,20 @@ class erLhcoreClassModelChatOnlineUser {
 
        	case 'first_visit_front':
        		  return date('Y-m-d H:i:s',$this->first_visit);
+       		break;
+
+       	case 'invitation':
+       		  $this->invitation = false;
+
+       		  if ($this->invitation_id > 0){
+	       		  	try {
+	       		  		$this->invitation = erLhAbstractModelProactiveChatInvitation::fetch($this->invitation_id);
+	       		  	} catch (Exception $e) {
+	       		  		$this->invitation = false;
+	       		  	}
+       		  }
+
+       		  return $this->invitation;
        		break;
 
        	case 'has_message_from_operator':
@@ -435,6 +450,7 @@ class erLhcoreClassModelChatOnlineUser {
    public $pages_count = 0;
    public $lat = 0;
    public $lon = 0;
+   public $invitation_id = 0;
    public $city = '';
    public $time_on_site = 0;
    public $tt_time_on_site = 0;

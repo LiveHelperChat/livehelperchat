@@ -37,9 +37,11 @@ class erLhcoreClassModelChat {
                'chat_variables'     	=> $this->chat_variables,
                'priority'     			=> $this->priority,
                'chat_initiator'     	=> $this->chat_initiator,
+               'wait_timeout'     		=> $this->wait_timeout,
+               'wait_timeout_send'     	=> $this->wait_timeout_send,
+               'timeout_message'     	=> $this->timeout_message,
        );
    }
-
 
    public function setState( array $properties )
    {
@@ -226,6 +228,12 @@ class erLhcoreClassModelChat {
    public $wait_time = 0;
    public $chat_duration = 0;
    public $priority = 0;
+
+   // Wait timeout attributes
+   public $wait_timeout = 0;
+   public $wait_timeout_send = 0;
+   public $timeout_message = '';
+
    public $chat_initiator = self::CHAT_INITIATOR_DEFAULT;
    public $chat_variables = '';
 

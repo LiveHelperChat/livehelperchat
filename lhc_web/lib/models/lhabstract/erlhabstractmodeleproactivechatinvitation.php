@@ -15,6 +15,9 @@ class erLhAbstractModelProactiveChatInvitation {
 			'executed_times'=> $this->executed_times,
 			'position'		=> $this->position,
 			'operator_name'	=> $this->operator_name,
+			'wait_message'		=> $this->wait_message,
+			'timeout_message'	=> $this->timeout_message,
+			'wait_timeout'		=> $this->wait_timeout
 		);
 
 		return $stateArray;
@@ -104,7 +107,31 @@ class erLhAbstractModelProactiveChatInvitation {
    								'hidden' => true,
    								'validation_definition' => new ezcInputFormDefinitionElement(
    										ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   								))
+   								)),
+   				'wait_message' => array(
+   						'type' => 'text',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Wait message. Visible then users starts chat and is waiting for someone to accept a chat.'),
+   						'required' => false,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
+   				'wait_timeout' => array(
+   						'type' => 'text',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Wait timeout. Time in seconds before timout message is shown.'),
+   						'required' => false,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
+   				'timeout_message' => array(
+   						'type' => 'text',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Show visitor this message then wait timeout passes.'),
+   						'required' => false,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
    		);
 	}
 
@@ -243,6 +270,7 @@ class erLhAbstractModelProactiveChatInvitation {
 			$message = array_shift($messagesToUser);
 			$item->operator_message = $message->message;
 			$item->operator_user_proactive = $message->operator_name;
+			$item->invitation_id = $message->id;
 			$message->executed_times += 1;
 			$message->updateThis();
 		}
@@ -262,6 +290,9 @@ class erLhAbstractModelProactiveChatInvitation {
 	public $identifier = '';
 	public $executed_times = 0;
 	public $operator_name = '';
+	public $wait_message = '';
+	public $timeout_message = '';
+	public $wait_timeout = 0;
 
 	public $hide_add = false;
 	public $hide_delete = false;

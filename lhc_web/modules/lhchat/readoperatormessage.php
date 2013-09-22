@@ -84,6 +84,52 @@ if (isset($_POST['askQuestion']))
        $msg->time = time();
        erLhcoreClassChat::getSession()->save($msg);
 
+       if ($userInstance->invitation !== false) {
+
+       		if ($userInstance->invitation->wait_message != '') {
+		       	$msg = new erLhcoreClassModelmsg();
+		       	$msg->msg = trim($userInstance->invitation->wait_message);
+		       	$msg->chat_id = $chat->id;
+		       	$msg->name_support = $userInstance->operator_user !== false ? trim($userInstance->operator_user->name.' '.$userInstance->operator_user->surname) : (!empty($userInstance->operator_user_proactive) ? $userInstance->operator_user_proactive : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support'));
+		       	$msg->user_id = $userInstance->operator_user_id > 0 ? $userInstance->operator_user_id : 1;
+		       	$msg->time = time();
+		       	erLhcoreClassChat::getSession()->save($msg);
+       		}
+
+	       	// Store wait timeout attribute for future
+	       	$chat->wait_timeout = $userInstance->invitation->wait_timeout;
+	       	$chat->timeout_message = $userInstance->invitation->timeout_message;
+       } else {
+
+       		// Default auto responder
+	       	$responder = erLhAbstractModelAutoResponder::processAutoResponder();
+
+	       	if ($responder instanceof erLhAbstractModelAutoResponder) {
+	       		$chat->wait_timeout = $responder->wait_timeout;
+	       		$chat->timeout_message = $responder->timeout_message;
+
+	       		if ($responder->wait_message != '') {
+	       			$msg = new erLhcoreClassModelmsg();
+	       			$msg->msg = trim($responder->wait_message);
+	       			$msg->chat_id = $chat->id;
+	       			$msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
+	       			$msg->user_id = 1;
+	       			$msg->time = time();
+	       			erLhcoreClassChat::getSession()->save($msg);
+
+	       			if ($chat->last_msg_id < $msg->id) {
+	       				$chat->last_msg_id = $msg->id;
+	       			}
+	       		}
+
+	       		$chat->saveThis();
+	       	}
+       }
+
+       $chat->last_msg_id = $msg->id;
+       $chat->last_user_msg_time = time();
+       $chat->saveThis();
+
        // Redirect user
        erLhcoreClassModule::redirect('chat/chatwidgetchat/' . $chat->id . '/' . $chat->hash);
        exit;

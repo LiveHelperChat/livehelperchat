@@ -126,7 +126,6 @@ if (isset($_POST['StartChat']))
 	            }
 	       }
 
-
 	       // Store message if required
 	       if (isset($startDataFields['message_visible_in_page_widget']) && $startDataFields['message_visible_in_page_widget'] == true) {
 	           if ( $inputData->question != '' ) {
@@ -142,6 +141,31 @@ if (isset($_POST['StartChat']))
 	               $chat->saveThis();
 	           }
 	       }
+
+	       // Auto responder
+	       $responder = erLhAbstractModelAutoResponder::processAutoResponder();
+
+	       if ($responder instanceof erLhAbstractModelAutoResponder) {
+	       		$chat->wait_timeout = $responder->wait_timeout;
+	       		$chat->timeout_message = $responder->timeout_message;
+
+	       		if ($responder->wait_message != '') {
+		       		$msg = new erLhcoreClassModelmsg();
+		       		$msg->msg = trim($responder->wait_message);
+		       		$msg->chat_id = $chat->id;
+		       		$msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
+		       		$msg->user_id = 1;
+		       		$msg->time = time();
+		       		erLhcoreClassChat::getSession()->save($msg);
+
+		       		if ($chat->last_msg_id < $msg->id) {
+		       			$chat->last_msg_id = $msg->id;
+		       		}
+	       		}
+
+	       		$chat->saveThis();
+	       }
+
 
 	       // Redirect user
 	       erLhcoreClassModule::redirect('chat/chatwidgetchat','/' . $chat->id . '/' . $chat->hash . $modeAppend);

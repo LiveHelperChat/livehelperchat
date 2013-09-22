@@ -54,6 +54,23 @@ $def->properties['operator_name']->columnName   = 'operator_name';
 $def->properties['operator_name']->propertyName = 'operator_name';
 $def->properties['operator_name']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['wait_message'] = new ezcPersistentObjectProperty();
+$def->properties['wait_message']->columnName   = 'wait_message';
+$def->properties['wait_message']->propertyName = 'wait_message';
+$def->properties['wait_message']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+// Timeout in seconds.
+$def->properties['wait_timeout'] = new ezcPersistentObjectProperty();
+$def->properties['wait_timeout']->columnName   = 'wait_timeout';
+$def->properties['wait_timeout']->propertyName = 'wait_timeout';
+$def->properties['wait_timeout']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+// Then timeout passes show visitor this message.
+$def->properties['timeout_message'] = new ezcPersistentObjectProperty();
+$def->properties['timeout_message']->columnName   = 'timeout_message';
+$def->properties['timeout_message']->propertyName = 'timeout_message';
+$def->properties['timeout_message']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 return $def;
 
 ?>

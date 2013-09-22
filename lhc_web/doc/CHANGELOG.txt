@@ -1,3 +1,17 @@
+1.52v
+
+Features, sponsored release:
+
+Auto responder.
+a. Auto responder in proactive chat invitations.
+b. Independent responder.
+
+This allow you to have the following workflow.
+1. Then users starts chat. He receives preconfigured message. E.g. "one moment please..."
+2. If the agent doesn’t accept within a time period (e.g. 1 minute) to user is send message. "we are currenty busy with another patient right now, can you leave your name and email and we will follow up"
+
+execute doc/update_db/update_35.sql
+
 1.51v
 
 Features:
