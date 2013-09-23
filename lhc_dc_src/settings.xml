@@ -5,4 +5,5 @@
  <host></host>
  <autologin>en</autologin>
  <language>en</language>
+ <remember>false</remember>
 </pmsettings>

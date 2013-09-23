@@ -49,6 +49,9 @@
 
     <div class="pt5" id="ChatSendButtonContainer">
     	<input type="button" class="tiny round button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Send')?>" onclick="lhinst.addmsguser()" />
+    	<?php if ( isset($chat_embed_mode) && $chat_embed_mode == true ) : ?>
+    	<input type="button" class="secondary tiny button round right" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>" onclick="lhinst.userclosedchatembed();" />
+    	<?php endif;?>
     </div>
 
 

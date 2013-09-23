@@ -583,6 +583,13 @@ function lh(){
 	    });
 	};
 
+	this.userclosedchatembed = function()
+	{
+	    if (!!window.postMessage) {
+	    	parent.postMessage("lhc_close", '*');
+	    };
+	};
+
 	this.userclosedchatandbrowser = function()
 	{
 		 $.get(this.wwwDir + this.userclosechaturl + this.chat_id + '/' + this.hash,function(data){

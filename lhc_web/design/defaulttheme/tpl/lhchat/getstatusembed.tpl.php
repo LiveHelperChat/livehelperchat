@@ -69,7 +69,7 @@ var lh_inst_page  = {
     	}
     },
 
-    showStartWindow : function(url_to_open) {
+    showStartWindow : function() {
 
          this.initial_iframe_url = "//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?>/(mode)/embed"+this.getAppendCookieArguments()+'?URLReferer='+escape(document.location)+this.parseOptions();
 
@@ -101,6 +101,23 @@ var lh_inst_page  = {
 		}
     },
 
+	removeCookieAttr : function(attr){
+    	if (this.cookieData[attr]) {
+    		delete this.cookieData[attr];
+    		this.storeSesCookie();
+    	}
+    },
+
+    hide : function() {
+        var th = document.getElementsByTagName('head')[0];
+        var s = document.createElement('script');
+        s.setAttribute('type','text/javascript');
+        s.setAttribute('src','//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatwidgetclosed')?>'+this.getAppendCookieArguments());
+        th.appendChild(s);
+        this.removeCookieAttr('hash');
+        this.showStartWindow();
+    },
+
     handleMessage : function(e) {
     	var action = e.data.split(':')[0];
     	if (action == 'lhc_sizing_chat_page') {
@@ -112,7 +129,9 @@ var lh_inst_page  = {
     		var parts = e.data.split(':');
     		if (parts[1] != '' && parts[2] != '') {
     			lh_inst_page.addCookieAttribute(parts[1],parts[2]);
-    		}
+    		};
+    	} else if (action == 'lhc_close') {
+    		lh_inst_page.hide();
     	}
     }
 };

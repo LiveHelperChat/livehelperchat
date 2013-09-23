@@ -24,6 +24,8 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 
 	    $db->commit();
 	}
+
+
 }
 
 echo json_encode(array('error' => 'false', 'result' => 'ok'));
