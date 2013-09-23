@@ -14,6 +14,12 @@ LoginDialog::LoginDialog(QWidget *parent,bool canautologin) : LoginDialogBase(pa
 	ui.HostEdit->setText(pmsettings->getAttributeSettings("host"));
 	ui.UsernameEdit->setText(pmsettings->getAttributeSettings("username"));
 
+    if (pmsettings->getAttributeSettings("remember") == "true"){
+        ui.RememberLoginsChk->setChecked(true);
+    } else {
+        ui.RememberLoginsChk->setChecked(false);
+    }
+
 	if (pmsettings->getAttributeSettings("autologin") == "true")
     {
         ui.AutoLogincheckBox->setChecked(true);
@@ -24,9 +30,6 @@ LoginDialog::LoginDialog(QWidget *parent,bool canautologin) : LoginDialogBase(pa
     } else {
         delete pmsettings;
     }
-
-
-
 }
 
 LoginDialog::~LoginDialog()
@@ -120,18 +123,29 @@ void LoginDialog::on_okButton_clicked()
 
                 if (!host.isEmpty())
 				{
-						PMSettings *pmsettings = new PMSettings();
-						pmsettings->setAttribute("username",lgUserName);
-						pmsettings->setAttribute("password",lgUserPassword);
+                        PMSettings *pmsettings = new PMSettings();
+
+                        if (ui.RememberLoginsChk->isChecked()){
+                            pmsettings->setAttribute("username",lgUserName);
+                            pmsettings->setAttribute("password",lgUserPassword);
+                            pmsettings->setAttribute("remember","true");
+                        } else {
+                            pmsettings->setAttribute("username","");
+                            pmsettings->setAttribute("password","");
+                            pmsettings->setAttribute("remember","false");
+                        }
+
                         pmsettings->setAttribute("host", (mode == QHttp::ConnectionModeHttp ? "http://" : "https://")+host);
 
-						if (ui.AutoLogincheckBox->isChecked())
+                        if (ui.AutoLogincheckBox->isChecked())
 							pmsettings->setAttribute("autologin","true");
 						else
 							pmsettings->setAttribute("autologin","false");
 
 
 						pmsettings->sync();
+
+
 
 						delete pmsettings;
 
