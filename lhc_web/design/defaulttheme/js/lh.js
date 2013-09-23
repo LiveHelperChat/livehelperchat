@@ -678,7 +678,14 @@ function lh(){
                                       $('#user-is-typing-'+item.chat_id).html(item.tx).fadeIn();
         	                      } else {
         	                          $('#user-is-typing-'+item.chat_id).fadeOut();
-        	                      }
+        	                      };
+
+        	                      if (item.us == 0){
+        	                    	  $('#user-chat-status-'+item.chat_id).addClass('icon-user-online');
+        	                      } else {
+        	                    	  $('#user-chat-status-'+item.chat_id).removeClass('icon-user-online');
+        	                      };
+
                             });
         	            };
 

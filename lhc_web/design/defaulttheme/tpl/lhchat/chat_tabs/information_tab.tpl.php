@@ -5,7 +5,7 @@
 <div class="content overflow-x-scrollbar" data-section-content>
 
 	<h5>
-		<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Information')?>
+		<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Information')?> <i id="user-chat-status-<?php echo $chat->id?>" class="fs16 right icon-user-status icon-user<?php if ($chat->user_status == 0) : ?> icon-user-online<?php endif;?>"></i>
 	</h5>
 
 	<table class="small-12">

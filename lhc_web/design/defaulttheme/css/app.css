@@ -265,6 +265,22 @@ table tr td {
 	font-size: 12px;
 }
 
+.fs14 {
+	font-size: 14px;
+}
+
+.fs16 {
+	font-size: 16px;
+}
+
+.icon-user-status{
+	color:#CCC;
+}
+
+.icon-user-online{
+	color:#a3ff60;
+}
+
 .mb5 {
 	margin-bottom: 5px;
 }

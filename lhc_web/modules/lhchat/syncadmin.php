@@ -52,24 +52,12 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
                 $templateResult = $tpl->fetch();
 
                 $ReturnMessages[] = array('chat_id' => $chat_id, 'mn' => $newMessagesNumber, 'content' => $templateResult, 'message_id' => $LastMessageIDs['id']);
-            } else {
-                // User left chat
-                if ($Chat->support_informed == 0 && $Chat->user_status == 1)
-                {
-                    $Chat->support_informed = 1;
-                    erLhcoreClassChat::getSession()->update($Chat);
-                    $ReturnMessages[] = array('chat_id' => $chat_id, 'content' => $tpl->fetch( 'lhchat/userleftchat.tpl.php'), 'message_id' => $MessageID);
-                } elseif ($Chat->support_informed == 0 && $Chat->user_status == 0) {
-                    $Chat->support_informed = 1;
-                    erLhcoreClassChat::getSession()->update($Chat);
-                    $ReturnMessages[] = array('chat_id' => $chat_id, 'content' => $tpl->fetch( 'lhchat/userjoined.tpl.php'), 'message_id' => $MessageID);
-                }
             }
 
             if ($Chat->is_user_typing) {
-                $ReturnStatuses[] = array('chat_id' => $chat_id,'tp' => 'true','tx' => htmlspecialchars($Chat->user_typing_txt));
+                $ReturnStatuses[] = array('chat_id' => $chat_id, 'us' => $Chat->user_status, 'tp' => 'true','tx' => htmlspecialchars($Chat->user_typing_txt));
             } else {
-                $ReturnStatuses[] = array('chat_id' => $chat_id,'tp' => 'false');
+                $ReturnStatuses[] = array('chat_id' => $chat_id, 'us' => $Chat->user_status, 'tp' => 'false');
             }
         }
 
