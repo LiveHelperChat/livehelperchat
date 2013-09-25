@@ -27,6 +27,10 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'] && ($c
 			$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Wrong email address');
 		}
 
+		if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !isset($_POST['csfr_token']) || $_POST['csfr_token'] != $_SERVER['HTTP_X_CSRFTOKEN']) {
+			$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Invalid CSRF token!');
+		}
+
 		if ( empty($Errors) ) {
 
 			$tpl = erLhcoreClassTemplate::getInstance('lhchat/sendmail.tpl.php');

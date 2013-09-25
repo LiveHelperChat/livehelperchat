@@ -227,10 +227,11 @@ function lh(){
     };
 
     this.sendemail = function(){
-    	 $.postJSON(this.wwwDir + 'chat/sendchat/' + this.chat_id+'/'+this.hash,{email:$('input[name="UserEmail"]').val()}, function(data){
+    	 $.postJSON(this.wwwDir + 'chat/sendchat/' + this.chat_id+'/'+this.hash,{csfr_token:confLH.csrf_token, email:$('input[name="UserEmail"]').val()}, function(data){
              if (data.error == 'false') {
             	 $.colorbox.remove();
              } else {
+            	 $('#user-action .alert-box').remove();
             	 $('#user-action').prepend(data.result);
             	 $.colorbox.resize();
              }
