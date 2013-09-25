@@ -410,8 +410,21 @@ div.message-row-in {
 	width:auto;
 	background-position:7px 5px;
 }
+
 .widget-options{
 	width:50px !important;
+}
+
+.widget-options li a{
+	padding-left:5px;
+}
+
+.pos-rel{
+	position:relative;
+}
+
+.user-action-colorbox #cboxLoadedContent{
+	margin-bottom: 0;
 }
 
 .print-ico-admin,

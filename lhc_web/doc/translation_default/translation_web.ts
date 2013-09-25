@@ -532,6 +532,10 @@
         <translation></translation>
     </message>
     <message>
+        <source>Send chat transcript to your e-mail</source>
+        <translation></translation>
+    </message>
+    <message>
         <source>Change my status to online/offline</source>
         <translation></translation>
     </message>
@@ -591,9 +595,20 @@
     </message>
 </context>
 <context>
+    <name>chat/sendchat</name>
+    <message>
+        <source>Enter your e-mail</source>
+        <translation></translation>
+    </message>
+</context>
+<context>
     <name>system/buttons</name>
     <message>
         <source>Save</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Send</source>
         <translation></translation>
     </message>
     <message>

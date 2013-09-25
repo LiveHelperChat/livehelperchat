@@ -1,3 +1,13 @@
+1.53v
+
+Features
+
+1. Option for user to send chat transcript to his e-mail.
+2. User options as dropdown menu.
+3. User status icon in tab.
+
+execute doc/update_db/update_36.sql
+
 1.52v
 
 Features, sponsored release:

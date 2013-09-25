@@ -267,6 +267,11 @@ $ViewList['printchat'] = array(
     'params' => array('chat_id','hash')
 );
 
+$ViewList['sendchat'] = array(
+		'script' => 'sendchat.php',
+		'params' => array('chat_id','hash')
+);
+
 $ViewList['chatwidgetchat'] = array(
     'script' => 'chatwidgetchat.php',
     'params' => array('chat_id','hash'),

@@ -222,6 +222,21 @@ function lh(){
         }
     };
 
+    this.cancelcolorbox = function(){
+    	$.colorbox.remove();
+    };
+
+    this.sendemail = function(){
+    	 $.postJSON(this.wwwDir + 'chat/sendchat/' + this.chat_id+'/'+this.hash,{email:$('input[name="UserEmail"]').val()}, function(data){
+             if (data.error == 'false') {
+            	 $.colorbox.remove();
+             } else {
+            	 $('#user-action').prepend(data.result);
+            	 $.colorbox.resize();
+             }
+         });
+    };
+
     this.initTypingMonitoringUser = function(chat_id) {
 
         var www_dir = this.wwwDir;
