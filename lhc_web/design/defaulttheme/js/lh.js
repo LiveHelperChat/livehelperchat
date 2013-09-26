@@ -637,6 +637,35 @@ function lh(){
     	});
 	};
 
+	this.isBlinking = false;
+
+	this.startBlinking = function(){
+		if (this.isBlinking == false) {
+        	var inst = this;
+            var newExcitingAlerts = (function () {
+            	  var oldTitle = document.title;
+            	  var msg = "!!! "+document.title;
+            	  var timeoutId;
+            	  var blink = function() { document.title = document.title == msg ? ' ' : msg; };
+            	  var clear = function() {
+            	    clearInterval(timeoutId);
+            	    document.title = oldTitle;
+            	    window.onmousemove = null;
+            	    timeoutId = null;
+            	    inst.isBlinking = false;
+            	  };
+            	  return function () {
+            	    if (!timeoutId) {
+            	      timeoutId = setInterval(blink, 1000);
+            	      window.onmousemove = clear;
+            	    }
+            	  };
+            }());
+            newExcitingAlerts();
+            this.isBlinking = true;
+        };
+	};
+
 	this.playNewMessageSound = function() {
 
 	    if (Modernizr.audio) {
@@ -646,7 +675,8 @@ function lh(){
 
             audio.load();
             audio.play();
-	    }
+	    };
+	    this.startBlinking();
 	};
 
     this.syncadmincall = function()
@@ -786,8 +816,9 @@ function lh(){
     	    }
 	    };
 
-	    var inst = this;
+	    this.startBlinking();
 
+	    var inst = this;
 	    if ( (identifier == 'pending_chat' || identifier == 'transfer_chat' ) && window.webkitNotifications) {
 	    	 var havePermission = window.webkitNotifications.checkPermission();
 	    	  if (havePermission == 0) {
