@@ -1535,9 +1535,24 @@
     </message>
 </context>
 <context>
+    <name>chat/reopenchat</name>
+    <message>
+        <source>has reopened the chat!</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>No permission to reopen the chat!</source>
+        <translation></translation>
+    </message>
+</context>
+<context>
     <name>chat/adminchat</name>
     <message>
         <source>E-mail</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Reopen chat</source>
         <translation></translation>
     </message>
     <message>
@@ -1654,6 +1669,26 @@
     </message>
     <message>
         <source>Actions</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Pending chat</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Active chat</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Closed chat</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Chatbox chat</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Operators chat</source>
         <translation></translation>
     </message>
 </context>

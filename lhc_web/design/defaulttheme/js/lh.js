@@ -121,6 +121,7 @@ function lh(){
     			inst.find('.msg-nm').remove();
     			inst.removeClass('has-pm');
     			$(document).foundation('section', 'resize');
+    			$('#messagesBlock-'+chat_id).animate({ scrollTop: $('#messagesBlock-'+chat_id).prop('scrollHeight') }, 1000);
     		},500);
     	});
 
@@ -227,13 +228,26 @@ function lh(){
     };
 
     this.sendemail = function(){
-    	 $.postJSON(this.wwwDir + 'chat/sendchat/' + this.chat_id+'/'+this.hash,{csfr_token:confLH.csrf_token, email:$('input[name="UserEmail"]').val()}, function(data){
-             if (data.error == 'false') {
-            	 $.colorbox.remove();
+    	$.postJSON(this.wwwDir + 'chat/sendchat/' + this.chat_id+'/'+this.hash,{csfr_token:confLH.csrf_token, email:$('input[name="UserEmail"]').val()}, function(data){
+    		if (data.error == 'false') {
+    			$.colorbox.remove();
+    		} else {
+    			$('#user-action .alert-box').remove();
+    			$('#user-action').prepend(data.result);
+    			$.colorbox.resize();
+    		}
+    	});
+    };
+
+    this.reopenchat = function(inst){
+    	 $.postJSON(this.wwwDir + 'chat/reopenchat/' + inst.attr('data-id'), function(data){
+             if (data.error == 'true') {
+            	 alert(data.result);
              } else {
-            	 $('#user-action .alert-box').remove();
-            	 $('#user-action').prepend(data.result);
-            	 $.colorbox.resize();
+            	 $('#action-block-row-'+ inst.attr('data-id')+' .send-row').removeClass('hide');
+            	 $('#CSChatMessage-'+inst.attr('data-id')).removeAttr('readonly').focus();
+            	 $('#chat-status-text-'+inst.attr('data-id')).text(data.status);
+            	 inst.remove();
              }
          });
     };
@@ -676,7 +690,10 @@ function lh(){
             audio.load();
             audio.play();
 	    };
-	    this.startBlinking();
+
+	    if(!$("textarea[name=ChatMessage]").is(":focus")) {
+	    	this.startBlinking();
+    	};
 	};
 
     this.syncadmincall = function()
@@ -816,7 +833,9 @@ function lh(){
     	    }
 	    };
 
-	    this.startBlinking();
+	    if(!$("textarea[name=ChatMessage]").is(":focus")) {
+	    	this.startBlinking();
+    	};
 
 	    var inst = this;
 	    if ( (identifier == 'pending_chat' || identifier == 'transfer_chat' ) && window.webkitNotifications) {

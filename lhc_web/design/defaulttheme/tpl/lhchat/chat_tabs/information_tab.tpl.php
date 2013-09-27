@@ -4,6 +4,22 @@
 </p>
 <div class="content overflow-x-scrollbar" data-section-content>
 
+	<div class="right">
+		<span class="radius secondary label fs11" id="chat-status-text-<?php echo $chat->id?>">
+			<?php if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) : ?>
+				<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Pending chat')?>
+			<?php elseif ($chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) : ?>
+				<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Active chat')?>
+			<?php elseif ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>
+				<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Closed chat')?>
+			<?php elseif ($chat->status == erLhcoreClassModelChat::STATUS_CHATBOX_CHAT) : ?>
+				<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Chatbox chat')?>
+			<?php elseif ($chat->status == erLhcoreClassModelChat::STATUS_OPERATORS_CHAT) : ?>
+				<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Operators chat')?>
+			<?php endif;?>
+		</span>
+	</div>
+
 	<h5>
 		<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Information')?>
 	</h5>

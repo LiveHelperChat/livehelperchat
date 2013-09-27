@@ -31,6 +31,12 @@ $ViewList['closechatadmin'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['reopenchat'] = array(
+    'script' => 'reopenchat.php',
+    'params' => array('chat_id'),
+    'functions' => array( 'use' )
+);
+
 $ViewList['adminleftchat'] = array(
     'script' => 'adminleftchat.php',
     'params' => array('chat_id'),
@@ -378,6 +384,7 @@ $FunctionList['administrateconfig'] = array('explain' =>'Allow to change chat co
 $FunctionList['allowclearonlinelist'] = array('explain' =>'Allow user to clean online users list');
 $FunctionList['administratecannedmsg'] = array('explain' =>'Allow user change canned messages');
 $FunctionList['allowopenremotechat'] = array('explain' =>'Allow user to open other users chats from same department');
+$FunctionList['allowreopenremote'] = array('explain' =>'Allow user to reopen other users chats');
 $FunctionList['allowtransfertoanyuser'] = array('explain' =>'Allow user to transfer chat to any online user, not only his own department users');
 $FunctionList['viewstatistic'] = array('explain' =>'Allow user to view statistic');
 $FunctionList['use_onlineusers'] = array('explain' =>'Allow user to view online visitors');

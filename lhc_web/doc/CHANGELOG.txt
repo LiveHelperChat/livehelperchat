@@ -1,3 +1,17 @@
+1.54v
+
+Features:
+1. Option to turn off or on Resume chat functionality.
+2. Reopen chat permission in back office.
+3. If chat is closed operator won't be able to send messages untill it's reopened. What user reopened the chat also is logged.
+
+Bugfixes:
+1. Footprint was not detected if chat was started from proactive chat message.
+2. Messages scroll was lost sometimes during tab's switching.
+3. Don't blink title if textarea is active.
+
+execute doc/update_db/update_37.sql
+
 1.53v
 
 Features

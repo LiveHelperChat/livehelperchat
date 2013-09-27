@@ -23,7 +23,7 @@
 
 		<?php include(erLhcoreClassDesign::designtpl('lhchat/part/above_textarea.tpl.php')); ?>
 
-		<textarea rows="4" name="ChatMessage" id="CSChatMessage-<?php echo $chat->id?>"></textarea>
+		<textarea rows="4" <?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>readonly="readonly"<?php endif;?> name="ChatMessage" id="CSChatMessage-<?php echo $chat->id?>"></textarea>
 
 		<script type="text/javascript">
 		jQuery('#CSChatMessage-<?php echo $chat->id?>').bind('keyup', 'return', function (evt){
