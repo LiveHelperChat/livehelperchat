@@ -3,7 +3,7 @@
     <name>user/login</name>
     <message>
         <source>Please login</source>
-        <translation>Bitte anmelden</translation>
+        <translation>Please login</translation>
     </message>
     <message>
         <source>Username</source>
@@ -42,6 +42,22 @@
     <message>
         <source>Name for personal purposes</source>
         <translation>Name, für persönliche Zwecke</translation>
+    </message>
+    <message>
+        <source>Operator name</source>
+        <translation>Operator Name</translation>
+    </message>
+    <message>
+        <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Wait timeout. Time in seconds before timeout message is shown.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show visitor this message then wait timeout passes.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>If you want pro active chat invitation to work it has to be enabled in</source>
@@ -516,6 +532,10 @@
         <translation>Benachrichtigung für neue Nutzer-Nachrichten aktivieren / deaktivieren</translation>
     </message>
     <message>
+        <source>Send chat transcript to your e-mail</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Change my status to online/offline</source>
         <translation>Status zwischen offline und online wechseln</translation>
     </message>
@@ -526,6 +546,10 @@
     <message>
         <source>Enable/Disable sound about new messages from the operator</source>
         <translation>Aktiviere/deaktiviere den Ton für neue Nachrichten vom Operator</translation>
+    </message>
+    <message>
+        <source>Print</source>
+        <translation>Drucken</translation>
     </message>
 </context>
 <context>
@@ -571,10 +595,21 @@
     </message>
 </context>
 <context>
+    <name>chat/sendchat</name>
+    <message>
+        <source>Enter your e-mail</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>system/buttons</name>
     <message>
         <source>Save</source>
         <translation>Speichern</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Update</source>
@@ -756,6 +791,14 @@
     <message>
         <source>minit</source>
         <translation>Minute</translation>
+    </message>
+    <message>
+        <source>hour</source>
+        <translation>Stunde</translation>
+    </message>
+    <message>
+        <source>Show visitors who visited site in the past</source>
+        <translation>Zeige die Besucher an, die die Seite in der Vergangenheit besucht haben</translation>
     </message>
     <message>
         <source>Came from</source>
@@ -1258,6 +1301,10 @@
         <source>Waiting for confirmation</source>
         <translation>Warten auf Bestaetigung</translation>
     </message>
+    <message>
+        <source>Resume chat</source>
+        <translation>Chat fortführen</translation>
+    </message>
 </context>
 <context>
     <name>user/newgroup</name>
@@ -1496,6 +1543,10 @@
     <message>
         <source>Page</source>
         <translation>Seite</translation>
+    </message>
+    <message>
+        <source>Print</source>
+        <translation>Drucken</translation>
     </message>
     <message>
         <source>Chat duration</source>
@@ -2020,6 +2071,14 @@
         <translation>und benutzen</translation>
     </message>
     <message>
+        <source>Go back</source>
+        <translation>Zurück</translation>
+    </message>
+    <message>
+        <source>You do not have permission to edit selected object</source>
+        <translation>Sie haben nicht das Recht auf das ausgewählte Objekt zu bearbeiten</translation>
+    </message>
+    <message>
         <source>function</source>
         <translation>Funktion</translation>
     </message>
@@ -2223,12 +2282,28 @@
         <translation>Maximal 50 Buchstaben</translation>
     </message>
     <message>
+        <source>Live Support</source>
+        <translation>Live Support</translation>
+    </message>
+    <message>
         <source>Invalid captcha code, please enable Javascript!</source>
         <translation>Ungültiger Captcha Code, bitte Javascript aktivieren!</translation>
     </message>
     <message>
         <source>Maximum 500 characters for message</source>
         <translation>Maximal 500 Buchstaben</translation>
+    </message>
+    <message>
+        <source>Type your message here and hit enter to send...</source>
+        <translation>Hier die Nachricht eingeben und für das Senden auf Enter drücken...</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation>Senden</translation>
+    </message>
+    <message>
+        <source>Offline</source>
+        <translation>Offline</translation>
     </message>
     <message>
         <source>Leave a message</source>
@@ -2244,7 +2319,7 @@
     </message>
     <message>
         <source>There are no online operators at the moment, please leave your message</source>
-        <translation>Momentan ist der Support nicht besetzt. Bitte hinterlassen Sie eine Naxchricht.</translation>
+        <translation>Momentan ist der Support nicht besetzt. Bitte hinterlassen Sie eine Nachricht.</translation>
     </message>
     <message>
         <source>Send my question</source>
@@ -2568,6 +2643,10 @@
     <message>
         <source>System configuration</source>
         <translation>Systemkonfiguration</translation>
+    </message>
+    <message>
+        <source>Priority</source>
+        <translation>Priorität</translation>
     </message>
 </context>
 <context>
@@ -2935,6 +3014,10 @@
         <translation>HTML-Code</translation>
     </message>
     <message>
+        <source>Auto responder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Chats list</source>
         <translation>Chat Liste</translation>
     </message>
@@ -2967,8 +3050,20 @@
         <translation>Erlaubnis fuer Benachrichtigung anfordern</translation>
     </message>
     <message>
-        <source>Chat embed code</source>
-        <translation>Code zum Einbetten des Chats</translation>
+        <source>Live help embed code</source>
+        <translation>Code zum einbetten der Live Hilfe</translation>
+    </message>
+    <message>
+        <source>FAQ embed code</source>
+        <translation>FAQ für eingebetteten Code</translation>
+    </message>
+    <message>
+        <source>Questionary embed code</source>
+        <translation>Code zum einbetten des Fragebogens</translation>
+    </message>
+    <message>
+        <source>Chatbox embed code</source>
+        <translation>Code zum Einbetten der Chatbox</translation>
     </message>
     <message>
         <source>Canned messages</source>

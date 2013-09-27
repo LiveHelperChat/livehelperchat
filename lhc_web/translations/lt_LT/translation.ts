@@ -48,6 +48,18 @@
         <translation>Operatoriaus vardas</translation>
     </message>
     <message>
+        <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Wait timeout. Time in seconds before timeout message is shown.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show visitor this message then wait timeout passes.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>If you want pro active chat invitation to work it has to be enabled in</source>
         <translation>Jei Jūs norite, jog žinutės būtų rodomos vartotojoms jos turi būti aktyvuotos</translation>
     </message>
@@ -520,6 +532,10 @@
         <translation>Įjungti/Išjungti garsą apie naujus pranešimus iš vartotojų</translation>
     </message>
     <message>
+        <source>Send chat transcript to your e-mail</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Change my status to online/offline</source>
         <translation>Pakeisti mano būsena į prisijungusio/atsijungusio</translation>
     </message>
@@ -579,10 +595,21 @@
     </message>
 </context>
 <context>
+    <name>chat/sendchat</name>
+    <message>
+        <source>Enter your e-mail</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>system/buttons</name>
     <message>
         <source>Save</source>
         <translation>Saugoti</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Update</source>
@@ -2044,6 +2071,14 @@
         <translation>ir naudotis</translation>
     </message>
     <message>
+        <source>Go back</source>
+        <translation>Grįžti atgal</translation>
+    </message>
+    <message>
+        <source>You do not have permission to edit selected object</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>function</source>
         <translation>funkcija</translation>
     </message>
@@ -2977,6 +3012,10 @@
     <message>
         <source>HTML code</source>
         <translation>HTML kodas</translation>
+    </message>
+    <message>
+        <source>Auto responder</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Chats list</source>

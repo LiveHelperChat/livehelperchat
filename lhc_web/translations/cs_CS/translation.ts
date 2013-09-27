@@ -48,6 +48,18 @@
         <translation>Jméno operátora</translation>
     </message>
     <message>
+        <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Wait timeout. Time in seconds before timeout message is shown.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show visitor this message then wait timeout passes.</source>
+        <translation>Zobrazovat návštěvníkům tuto zprávu pokud vypší časový limit.</translation>
+    </message>
+    <message>
         <source>If you want pro active chat invitation to work it has to be enabled in</source>
         <translation>pokud chcete zasílat proaktivní pozvánky k rozhovoru, musíte tuto funkci aktivovat</translation>
     </message>
@@ -520,6 +532,10 @@
         <translation>Zapnout/vypnout zvukovou signalizaci nových zpráv od uživatelů</translation>
     </message>
     <message>
+        <source>Send chat transcript to your e-mail</source>
+        <translation>Odeslat záznam rozhovoru na váš e-mail</translation>
+    </message>
+    <message>
         <source>Change my status to online/offline</source>
         <translation>Změnit stav na online/offline</translation>
     </message>
@@ -579,10 +595,21 @@
     </message>
 </context>
 <context>
+    <name>chat/sendchat</name>
+    <message>
+        <source>Enter your e-mail</source>
+        <translation>Zadejte váš e-mail</translation>
+    </message>
+</context>
+<context>
     <name>system/buttons</name>
     <message>
         <source>Save</source>
         <translation>Uložit</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation>Odeslat</translation>
     </message>
     <message>
         <source>Update</source>
@@ -2985,6 +3012,10 @@
     <message>
         <source>HTML code</source>
         <translation>HTML kód</translation>
+    </message>
+    <message>
+        <source>Auto responder</source>
+        <translation>Automatický odpovídač</translation>
     </message>
     <message>
         <source>Chats list</source>

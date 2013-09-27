@@ -1,3770 +1,3770 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ar_EG">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="nb">
 <context>
     <name>user/login</name>
     <message>
         <source>Please login</source>
-        <translation>من فضلك، لُج</translation>
+        <translation>Vennligst logg inn</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>اسم المستخدم</translation>
+        <translation>Brukernavn</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>كلمة السر</translation>
+        <translation>Passord</translation>
     </message>
     <message>
         <source>Password reminder</source>
-        <translation type="unfinished"/>
+        <translation>Passord påminnelse</translation>
     </message>
     <message>
         <source>Login</source>
-        <translation>الولوج</translation>
+        <translation>Logg inn</translation>
     </message>
     <message>
         <source>Incorrect username or password</source>
-        <translation>اسم المستخدم أو كلمة المرور خطأ</translation>
+        <translation>Feil brukernavn eller passord</translation>
     </message>
     <message>
         <source>Remember me</source>
-        <translation>تذكّرني</translation>
+        <translation>Husk innlogging</translation>
     </message>
 </context>
 <context>
     <name>chat/previewchat</name>
     <message>
         <source>Last 100 messages rows</source>
-        <translation>آخر ١٠٠ صف رسائل</translation>
+        <translation>Siste 100 meldingsrader</translation>
     </message>
 </context>
 <context>
     <name>abstract/proactivechatinvitation</name>
     <message>
         <source>Name for personal purposes</source>
-        <translation type="unfinished"/>
+        <translation>Navn for personlige formål</translation>
     </message>
     <message>
         <source>Operator name</source>
-        <translation type="unfinished"/>
+        <translation>Operatørnavn</translation>
     </message>
     <message>
         <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
-        <translation type="unfinished"/>
+        <translation>Ventemelding. Synlig når brukere starter samtaler og venter på en operatør.</translation>
     </message>
     <message>
         <source>Wait timeout. Time in seconds before timeout message is shown.</source>
-        <translation type="unfinished"/>
+        <translation>Vent timeout. Tid i sekunder før timeoutmelding vises.</translation>
     </message>
     <message>
         <source>Show visitor this message then wait timeout passes.</source>
-        <translation type="unfinished"/>
+        <translation>Vis besøkende denne meldingen, vent så til timeout utgår.</translation>
     </message>
     <message>
         <source>If you want pro active chat invitation to work it has to be enabled in</source>
-        <translation type="unfinished"/>
+        <translation>Hvis pro active chat invitasjon skal fungere må det være aktiver i </translation>
     </message>
     <message>
         <source>chat configuration</source>
-        <translation type="unfinished"/>
+        <translation>chat konfigurasjon</translation>
     </message>
     <message>
         <source>also online users tracking has to be</source>
-        <translation type="unfinished"/>
+        <translation>følging av påloggede brukere må være</translation>
     </message>
     <message>
         <source>enabled</source>
-        <translation type="unfinished"/>
+        <translation>aktivert</translation>
     </message>
     <message>
         <source>Position</source>
-        <translation type="unfinished"/>
+        <translation>Posisjon</translation>
     </message>
     <message>
         <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-        <translation type="unfinished"/>
+        <translation>Språk, la så blank for alle. Eks. nor, rus, ger</translation>
     </message>
     <message>
         <source>Time on site in seconds</source>
-        <translation type="unfinished"/>
+        <translation>Tid brukt på side i sekunder</translation>
     </message>
     <message>
         <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-        <translation type="unfinished"/>
+        <translation>Identifikator, for hva denne meldingen skal vise, la stå tomt for alle</translation>
     </message>
     <message>
         <source>Pageviews</source>
-        <translation type="unfinished"/>
+        <translation>Sidevisninger</translation>
     </message>
     <message>
         <source>Matched times</source>
-        <translation type="unfinished"/>
+        <translation>matchet ganger</translation>
     </message>
     <message>
         <source>Message to user</source>
-        <translation type="unfinished"/>
+        <translation>Melding til bruker</translation>
     </message>
     <message>
         <source>Pro active chat invitations</source>
-        <translation type="unfinished"/>
+        <translation>Pro active chat invitasjoner</translation>
     </message>
 </context>
 <context>
     <name>chat/statistic</name>
     <message>
         <source>Statistic</source>
-        <translation type="unfinished"/>
+        <translation>Statistikk</translation>
     </message>
     <message>
         <source>Total statistic</source>
-        <translation type="unfinished"/>
+        <translation>Total statistikk</translation>
     </message>
     <message>
         <source>Last 24h statistic</source>
-        <translation type="unfinished"/>
+        <translation>Siste 24t statistikk</translation>
     </message>
     <message>
         <source>Parameter</source>
-        <translation type="unfinished"/>
+        <translation>Parameter</translation>
     </message>
     <message>
         <source>Total chats</source>
-        <translation type="unfinished"/>
+        <translation>Alle samtaler</translation>
     </message>
     <message>
         <source>Total pending chats</source>
-        <translation type="unfinished"/>
+        <translation>Alle samtaler på vent</translation>
     </message>
     <message>
         <source>Total active chats</source>
-        <translation type="unfinished"/>
+        <translation>Alle aktive samtaler</translation>
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished"/>
+        <translation>Verdi</translation>
     </message>
     <message>
         <source>Total closed chats</source>
-        <translation type="unfinished"/>
+        <translation>Alle stengte samtaler</translation>
     </message>
     <message>
         <source>Chatbox chats</source>
-        <translation type="unfinished"/>
+        <translation>Chatbox samtaler</translation>
     </message>
     <message>
         <source>Total messages (including visitors, system and operators messages)</source>
-        <translation type="unfinished"/>
+        <translation>Alle meldinger (inkludert gjester, system og operatør meldinger)</translation>
     </message>
     <message>
         <source>Total messages (only visitors)</source>
-        <translation type="unfinished"/>
+        <translation>Alle meldinger (kun besøkende)</translation>
     </message>
     <message>
         <source>Total messages (only system messages)</source>
-        <translation type="unfinished"/>
+        <translation>Alle meldinger (kun systemmeldinger)</translation>
     </message>
     <message>
         <source>Total messages (only operators)</source>
-        <translation type="unfinished"/>
+        <translation>Alle meldinger (kun operatører)</translation>
     </message>
     <message>
         <source>Operators last 24h statistic, top 100 by chats number</source>
-        <translation type="unfinished"/>
+        <translation>Statistikk siste 24t for operatører, top 100 fra samtalenummer</translation>
     </message>
     <message>
         <source>User</source>
-        <translation type="unfinished"/>
+        <translation>Bruker</translation>
     </message>
     <message>
         <source>Total messages</source>
-        <translation type="unfinished"/>
+        <translation>Alle meldinger</translation>
     </message>
     <message>
         <source>Last activity</source>
-        <translation type="unfinished"/>
+        <translation>Siste aktivitet</translation>
     </message>
 </context>
 <context>
     <name>system/languages</name>
     <message>
         <source>Default view</source>
-        <translation type="unfinished"/>
+        <translation>Standard visning</translation>
     </message>
     <message>
         <source>Default module</source>
-        <translation type="unfinished"/>
+        <translation>Standard modul</translation>
     </message>
     <message>
         <source>Please enter theme</source>
-        <translation type="unfinished"/>
+        <translation>Venligst skriv tema</translation>
     </message>
     <message>
         <source>Please enter module name</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst skriv navn på modul</translation>
     </message>
     <message>
         <source>Please enter view name</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst skriv visningsnavn</translation>
     </message>
     <message>
         <source>Site access</source>
-        <translation type="unfinished"/>
+        <translation>Sideadgang</translation>
     </message>
     <message>
         <source>Languages configuration</source>
-        <translation type="unfinished"/>
+        <translation>Språk konfigurasjon</translation>
     </message>
     <message>
         <source>Settings updated</source>
-        <translation type="unfinished"/>
+        <translation>Instillinger er oppdatert</translation>
     </message>
     <message>
         <source>Current site access</source>
-        <translation type="unfinished"/>
+        <translation>Nåværende adgang til siden</translation>
     </message>
     <message>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Språk</translation>
     </message>
     <message>
         <source>options for</source>
-        <translation type="unfinished"/>
+        <translation>instillinger for</translation>
     </message>
     <message>
         <source>Theme, separate themes by new line</source>
-        <translation type="unfinished"/>
+        <translation>Tema, separer tema med linjeskift</translation>
     </message>
 </context>
 <context>
     <name>questionary/htmlcode</name>
     <message>
         <source>HTML code</source>
-        <translation>كود HTML</translation>
+        <translation>HTML kode</translation>
     </message>
     <message>
         <source>Status text</source>
-        <translation>نص الحالة</translation>
+        <translation>Status tekst</translation>
     </message>
     <message>
         <source>Expand the widget automatically for new users</source>
-        <translation type="unfinished"/>
+        <translation>Utvid widget automatisk for nye brukere</translation>
     </message>
     <message>
         <source>Copy the code from the text area to the page header or footer</source>
-        <translation type="unfinished"/>
+        <translation>Kopier kode fra tekstfeltet til sidens header eller footer</translation>
     </message>
 </context>
 <context>
     <name>questionary/votingwidget</name>
     <message>
         <source>Vote</source>
-        <translation>التصويت</translation>
+        <translation>Stemme</translation>
     </message>
     <message>
         <source>Send</source>
-        <translation>أرسِل</translation>
+        <translation>Send</translation>
     </message>
     <message>
         <source>We do not have any requests for now.</source>
-        <translation>ليس لدينا أي طلبات حتى الآن.</translation>
+        <translation>Vi har ingen forespørsler akkurat nå</translation>
     </message>
     <message>
         <source>You have already voted, thank you!</source>
-        <translation>لقد صوّتت بالفعل، شكرًا لك!</translation>
+        <translation>Du har allerede stemt, takk!</translation>
     </message>
     <message>
         <source>Thank you!</source>
-        <translation>شكرًا لك!</translation>
+        <translation>Tusen takk!</translation>
     </message>
     <message>
         <source>You have already send your feedback!</source>
-        <translation>لقد أرسلتَ رأيَك بالفعل!</translation>
+        <translation>Du har allerede gitt tilbakemelding!</translation>
     </message>
     <message>
         <source>No question was detected</source>
-        <translation>لم يُعثر على أية أسئلة</translation>
+        <translation>Ingen spørsmål ble funnet</translation>
     </message>
     <message>
         <source>Please enter your feedback!</source>
-        <translation>من فضلك أدخل رأيَك!</translation>
+        <translation>Vennligst skriv din tilbakemelding</translation>
     </message>
     <message>
         <source>Please choose one of the options!</source>
-        <translation type="unfinished"/>
+        <translation>Velg ett av alternativene!</translation>
     </message>
 </context>
 <context>
     <name>questionary/newquestion</name>
     <message>
         <source>Save</source>
-        <translation>احفظ</translation>
+        <translation>Lagre</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ألغِ</translation>
+        <translation>Avbryt</translation>
     </message>
     <message>
         <source>Enter a new question</source>
-        <translation type="unfinished"/>
+        <translation>Skriv et nytt spørsmål</translation>
     </message>
     <message>
         <source>New question</source>
-        <translation>سؤال جديد</translation>
+        <translation>Nytt spørsmål</translation>
     </message>
 </context>
 <context>
     <name>questionary/previewanswer</name>
     <message>
         <source>Preview the answer</source>
-        <translation type="unfinished"/>
+        <translation>Forhåndsvis svaret</translation>
     </message>
 </context>
 <context>
     <name>questionary/answers</name>
     <message>
         <source>Answer</source>
-        <translation>الإجابة</translation>
+        <translation>Svar</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation>التاريخ</translation>
+        <translation>Dato</translation>
     </message>
     <message>
         <source>IP</source>
-        <translation>ع.ا</translation>
+        <translation>IP</translation>
     </message>
     <message>
         <source>View</source>
-        <translation>اعرض</translation>
+        <translation>Vis</translation>
     </message>
     <message>
         <source>Delete the answer</source>
-        <translation type="unfinished"/>
+        <translation>Slett svaret</translation>
     </message>
     <message>
         <source>Option name</source>
-        <translation>الاسم الاختياري</translation>
+        <translation>Valgnavn</translation>
     </message>
     <message>
         <source>Progress</source>
-        <translation>التقدم</translation>
+        <translation>Fremgang</translation>
     </message>
     <message>
         <source>Votes</source>
-        <translation>الاستطلاعات</translation>
+        <translation>Stemmer</translation>
     </message>
     <message>
         <source>Empty...</source>
-        <translation>فارغ...</translation>
+        <translation>Tom...</translation>
     </message>
 </context>
 <context>
     <name>questionary/form_question</name>
     <message>
         <source>Question</source>
-        <translation>السؤال</translation>
+        <translation>Spørsmål</translation>
     </message>
     <message>
         <source>Question intro</source>
-        <translation>مقدمة السؤال</translation>
+        <translation>Introduksjonsspørsmål</translation>
     </message>
     <message>
         <source>Show questions for all the URLs containing this string E.g /shop/basket</source>
-        <translation type="unfinished"/>
+        <translation>Vis spørsmål for alle URLer som inneholder f.eks /shop/basket</translation>
     </message>
     <message>
         <source>Priority, if multiple questions match a location, the question with the higher priority will be shown</source>
-        <translation type="unfinished"/>
+        <translation>Prioritet, hvis flere spørsmål matcher en lokasjon, vil spørsmålet med høyest prioritet bli vist</translation>
     </message>
     <message>
         <source>Active</source>
-        <translation>فعّال</translation>
+        <translation>Aktiv</translation>
     </message>
 </context>
 <context>
     <name>questionary/edit</name>
     <message>
         <source>Please enter a question!</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst skriv et spørmål!</translation>
     </message>
     <message>
         <source>Edit the question</source>
-        <translation type="unfinished"/>
+        <translation>Rediger spørsmålet</translation>
     </message>
     <message>
         <source>Question</source>
-        <translation>السؤال</translation>
+        <translation>Spørsmål</translation>
     </message>
     <message>
         <source>Answers</source>
-        <translation>الإجابات</translation>
+        <translation>Svar</translation>
     </message>
     <message>
         <source>Updated</source>
-        <translation>مُحَدَّث</translation>
+        <translation>Oppdatert</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>احفظ</translation>
+        <translation>Lagre</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation>حَدِّث</translation>
+        <translation>Oppdater</translation>
     </message>
     <message>
         <source>Embed html code</source>
-        <translation>ضَمِّن شفرة HTML</translation>
+        <translation>Integrer html kode</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ألغِ</translation>
+        <translation>Avbryt</translation>
     </message>
     <message>
         <source>Option</source>
-        <translation>الخيار</translation>
+        <translation>Alternativ</translation>
     </message>
     <message>
         <source>Option position</source>
-        <translation>مكان الخيار</translation>
+        <translation>Alternativ posisjon</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation>حَرِّر</translation>
+        <translation>Rediger</translation>
     </message>
     <message>
         <source>Please enter an option!</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst skriv inn et alternativ</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation>أزِل</translation>
+        <translation>Slett</translation>
     </message>
     <message>
         <source>Position</source>
-        <translation>المكان</translation>
+        <translation>Posisjon</translation>
     </message>
     <message>
         <source>Enter name...</source>
-        <translation>أدخل اسمًا...</translation>
+        <translation>Skriv inn navn...</translation>
     </message>
     <message>
         <source>Voting options</source>
-        <translation>خيارت التصويت</translation>
+        <translation>Avstemmingsvalg</translation>
     </message>
     <message>
         <source>If there are no options to choose from, the user will be shown a text field where he will be able to enter his own answer.</source>
-        <translation type="unfinished"/>
+        <translation>Hvis ingen alternativer er tilgjengelige kan brukere skrive sine egne svar</translation>
     </message>
 </context>
 <context>
     <name>questionary/list</name>
     <message>
         <source>Questionary</source>
-        <translation>الأسئلة</translation>
+        <translation>Spørreskjema</translation>
     </message>
     <message>
         <source>Questions</source>
-        <translation type="unfinished"/>
+        <translation>Spørsmål</translation>
     </message>
     <message>
         <source>Question</source>
-        <translation>السؤال</translation>
+        <translation>Spørsmål</translation>
     </message>
     <message>
         <source>Location</source>
-        <translation>المكان</translation>
+        <translation>Lokasjon</translation>
     </message>
     <message>
         <source>Priority</source>
-        <translation>الأولوية</translation>
+        <translation>Prioritet</translation>
     </message>
     <message>
         <source>Edit a question</source>
-        <translation type="unfinished"/>
+        <translation>Redigere et spørsmål</translation>
     </message>
     <message>
         <source>Delete question</source>
-        <translation>أزِل السؤال</translation>
+        <translation>Slett spørsmål</translation>
     </message>
     <message>
         <source>New question</source>
-        <translation>سؤالٌ جديد</translation>
+        <translation>Nytt spørsmål</translation>
     </message>
     <message>
         <source>Empty...</source>
-        <translation>فارغ...</translation>
+        <translation>Tom...</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation>نعم</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>N</source>
-        <translation>لا</translation>
+        <translation>N</translation>
     </message>
     <message>
         <source>Active</source>
-        <translation>فعّال</translation>
+        <translation>Aktiv</translation>
     </message>
 </context>
 <context>
     <name>core/paginator</name>
     <message>
         <source>Page</source>
-        <translation>الصفحة</translation>
+        <translation>Side</translation>
     </message>
     <message>
         <source>of</source>
-        <translation>من</translation>
+        <translation>av</translation>
     </message>
     <message>
         <source>Found</source>
-        <translation>موجود</translation>
+        <translation>Funnet</translation>
     </message>
     <message>
         <source>Go to page</source>
-        <translation>إذهب لصفحة</translation>
+        <translation>Gå til side</translation>
     </message>
 </context>
 <context>
     <name>chat/user_settings</name>
     <message>
         <source>Enable/Disable sound about new messages from users</source>
-        <translation>فَعِّل/عَطِّل صوت رسائل الزوار الجديدة</translation>
+        <translation>Aktivere/deaktivere lyd om nye meldinger fra brukere</translation>
     </message>
     <message>
         <source>Send chat transcript to your e-mail</source>
-        <translation type="unfinished"/>
+        <translation>Send samtalelogg til din e-post</translation>
     </message>
     <message>
         <source>Change my status to online/offline</source>
-        <translation type="unfinished"/>
+        <translation>Endre status til online/offline</translation>
     </message>
     <message>
         <source>Enable/Disable sound about new pending chats</source>
-        <translation>فَعِّل/عَطِّل صوت طلبات المحادثة الجديدة</translation>
+        <translation>Aktivere/deaktivere lyd om nye samtaler</translation>
     </message>
     <message>
         <source>Enable/Disable sound about new messages from the operator</source>
-        <translation type="unfinished"/>
+        <translation>Aktivere/deaktivere lyd om nye meldinger fra operatør</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"/>
+        <translation>Print</translation>
     </message>
 </context>
 <context>
     <name>chat/cannedmsg</name>
     <message>
         <source>Canned messages</source>
-        <translation>الرّسائل الجاهزة</translation>
+        <translation>Forhåndsmeldinger</translation>
     </message>
     <message>
         <source>System configuration</source>
-        <translation>ضبط النظام</translation>
+        <translation>Systemkonfigurasjon</translation>
     </message>
     <message>
         <source>Delete message</source>
-        <translation>أزِل رسالة</translation>
+        <translation>Slett melding</translation>
     </message>
     <message>
         <source>Edit message</source>
-        <translation>حَرِّر رسالة</translation>
+        <translation>Endre melding</translation>
     </message>
     <message>
         <source>Message</source>
-        <translation>الرسالة</translation>
+        <translation>Melding</translation>
     </message>
     <message>
         <source>New canned message</source>
-        <translation>رسالة جاهزة جديدة</translation>
+        <translation>Ny forhåndsmelding</translation>
     </message>
     <message>
         <source>Edit canned message</source>
-        <translation>حَرِّر الرسالة الجاهزة</translation>
+        <translation>Redigere forhåndsmelding</translation>
     </message>
     <message>
         <source>Please enter a canned message</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst skriv inn forhåndsmelding</translation>
     </message>
 </context>
 <context>
     <name>install/install</name>
     <message>
         <source>Installation of software</source>
-        <translation>ثثبيت البرمجية</translation>
+        <translation>Installasjon av software</translation>
     </message>
 </context>
 <context>
     <name>chat/sendchat</name>
     <message>
         <source>Enter your e-mail</source>
-        <translation type="unfinished"/>
+        <translation>Skriv inn din e-postadresse</translation>
     </message>
 </context>
 <context>
     <name>system/buttons</name>
     <message>
         <source>Save</source>
-        <translation>احفظ</translation>
+        <translation>lagre</translation>
     </message>
     <message>
         <source>Send</source>
-        <translation type="unfinished"/>
+        <translation>Send</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation>حدّث</translation>
+        <translation>Oppdatere</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ألغِ</translation>
+        <translation>Avbryt</translation>
     </message>
     <message>
         <source>Updated</source>
-        <translation>مُحدّث</translation>
+        <translation>Oppdatert</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation>حَرِِّر</translation>
+        <translation>Rediger</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation>أَزِل</translation>
+        <translation>Slette</translation>
     </message>
     <message>
         <source>New</source>
-        <translation>جديد</translation>
+        <translation>Ny</translation>
     </message>
     <message>
         <source>Empty...</source>
-        <translation>فارغ...</translation>
+        <translation>Tom...</translation>
     </message>
 </context>
 <context>
     <name>system/messages</name>
     <message>
         <source>Updated</source>
-        <translation>مُحدّث</translation>
+        <translation>Oppdatert</translation>
     </message>
 </context>
 <context>
     <name>chat/editchatconfig</name>
     <message>
         <source>Edit</source>
-        <translation>حَرِّر</translation>
+        <translation>Redigere</translation>
     </message>
     <message>
         <source>Data updated</source>
-        <translation>حُدِّثَت البيانات</translation>
+        <translation>Data oppdatert</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation>حُدِّث</translation>
+        <translation>Oppdater</translation>
     </message>
     <message>
         <source>Identifier</source>
-        <translation>المعرف</translation>
+        <translation>Identifikasjon</translation>
     </message>
     <message>
         <source>Value in</source>
-        <translation>القيمة في</translation>
+        <translation>Verdi inn</translation>
     </message>
     <message>
         <source>site access</source>
-        <translation>وصول الموقع</translation>
+        <translation>siteadgang </translation>
     </message>
 </context>
 <context>
     <name>user/remindpassword</name>
     <message>
         <source>Password reminder - new password</source>
-        <translation type="unfinished"/>
+        <translation>Passordpåminnelse - nytt passord</translation>
     </message>
     <message>
         <source>Hash was not found or was used already</source>
-        <translation type="unfinished"/>
+        <translation>Hash ble ikke funnet eller er allerede ibruk</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation>حَدِّث</translation>
+        <translation>Oppdater</translation>
     </message>
     <message>
         <source>New password:</source>
-        <translation>كلمة السر الجديدة:</translation>
+        <translation>Nytt passord:</translation>
     </message>
     <message>
         <source>New password has been sent to your email.</source>
-        <translation type="unfinished"/>
+        <translation>Nytt passord har blitt sendt til din e-post adresse</translation>
     </message>
     <message>
         <source>Identifier</source>
-        <translation>المعرف</translation>
+        <translation>Identifikator</translation>
     </message>
 </context>
 <context>
     <name>user/forgotpassword</name>
     <message>
         <source>Password reminder</source>
-        <translation type="unfinished"/>
+        <translation>Passordpåminner</translation>
     </message>
     <message>
         <source>Invalid e-mail address!</source>
-        <translation>عنوان بريد إليكتروني غير صالح!</translation>
+        <translation>Feil epost adresse!</translation>
     </message>
     <message>
         <source>Click this link and You will be sent a new password</source>
-        <translation type="unfinished"/>
+        <translation>Klikk her så sender vi deg et nytt passord</translation>
     </message>
     <message>
         <source>E-mail</source>
-        <translation>البريد الإلكتروني</translation>
+        <translation>E-post</translation>
     </message>
     <message>
         <source>Restore password</source>
-        <translation>استعِد كلمة السر</translation>
+        <translation>Gjennoprett passord</translation>
     </message>
 </context>
 <context>
     <name>chat/listchatconfig</name>
     <message>
         <source>List chat configuration</source>
-        <translation>ضبط قائمة المحادثة</translation>
+        <translation>Liste over samtalekonfigurajon</translation>
     </message>
     <message>
         <source>List</source>
-        <translation>القائمة</translation>
+        <translation>Liste</translation>
     </message>
     <message>
         <source>Identifier</source>
-        <translation>المعرف</translation>
+        <translation>Identifikator</translation>
     </message>
     <message>
         <source>Explain</source>
-        <translation>اشرح</translation>
+        <translation>Forklare</translation>
     </message>
     <message>
         <source>Edit value</source>
-        <translation>حرِّر القيمة</translation>
+        <translation>Rediger verdi</translation>
     </message>
 </context>
 <context>
     <name>chat/sendnotice</name>
     <message>
         <source>Send a message to the user</source>
-        <translation type="unfinished"/>
+        <translation>Send en melding til brukeren</translation>
     </message>
     <message>
         <source>Message was sent to the user</source>
-        <translation type="unfinished"/>
+        <translation>Meldingen ble sendt til brukeren</translation>
     </message>
     <message>
         <source>If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.</source>
-        <translation type="unfinished"/>
+        <translation>Hvis meldingen ble sendt vil dette markere at at den ikke er mottatt og blir vist i samtalen igjen.</translation>
     </message>
     <message>
         <source>Type your message to the user</source>
-        <translation type="unfinished"/>
+        <translation>Skriv melding til brukeren</translation>
     </message>
     <message>
         <source>Send the message</source>
-        <translation type="unfinished"/>
+        <translation>Send meldingen</translation>
     </message>
 </context>
 <context>
     <name>chat/onlineusers</name>
     <message>
         <source>Time on site</source>
-        <translation type="unfinished"/>
+        <translation>Online tid</translation>
     </message>
     <message>
         <source>No one has sent a message to the user yet</source>
-        <translation type="unfinished"/>
+        <translation>Ingen har svart brukeren enda</translation>
     </message>
     <message>
         <source>Marker timeout before it dissapears from map</source>
-        <translation type="unfinished"/>
+        <translation>Marker timeout før det forsvinner fra kartet</translation>
     </message>
     <message>
         <source>seconds</source>
-        <translation type="unfinished"/>
+        <translation>sekunder</translation>
     </message>
     <message>
         <source>minit</source>
-        <translation type="unfinished"/>
+        <translation>minit</translation>
     </message>
     <message>
         <source>hour</source>
-        <translation type="unfinished"/>
+        <translation>time</translation>
     </message>
     <message>
         <source>Show visitors who visited site in the past</source>
-        <translation type="unfinished"/>
+        <translation>Vis besøkende hvem som besøkte siden tidligere</translation>
     </message>
     <message>
         <source>Came from</source>
-        <translation type="unfinished"/>
+        <translation>Kommer fra</translation>
     </message>
     <message>
         <source>Current page</source>
-        <translation type="unfinished"/>
+        <translation>Gjeldene side</translation>
     </message>
     <message>
         <source>Identifier</source>
-        <translation type="unfinished"/>
+        <translation>Identifikator</translation>
     </message>
     <message>
         <source>minits</source>
-        <translation type="unfinished"/>
+        <translation>minits</translation>
     </message>
     <message>
         <source>Pageviews</source>
-        <translation>استعراض الصفحات</translation>
+        <translation>Sidevisninger</translation>
     </message>
     <message>
         <source>City</source>
-        <translation type="unfinished"/>
+        <translation>By</translation>
     </message>
     <message>
         <source>last visit</source>
-        <translation>آخر زيارة</translation>
+        <translation>sist besøk</translation>
     </message>
     <message>
         <source>List</source>
-        <translation type="unfinished"/>
+        <translation>Liste</translation>
     </message>
     <message>
         <source>Map</source>
-        <translation type="unfinished"/>
+        <translation>Kart</translation>
     </message>
     <message>
         <source>first visit</source>
-        <translation>أول زيارة</translation>
+        <translation>første besøk</translation>
     </message>
     <message>
         <source>has sent a message to the user</source>
-        <translation type="unfinished"/>
+        <translation>har sendt en melding til brukeren</translation>
     </message>
     <message>
         <source>User is chatting</source>
-        <translation>المستخدِم يُحادِث</translation>
+        <translation>Brukeren er i en samtale</translation>
     </message>
     <message>
         <source>User is not having any chat right now</source>
-        <translation>ليس لدى المستخدم أي محادثة الآن</translation>
+        <translation>Brukeren er ikke i en samtale</translation>
     </message>
     <message>
         <source>Latitude variable</source>
-        <translation type="unfinished"/>
+        <translation>Breddegrad variabel</translation>
     </message>
     <message>
         <source>Longitude variable</source>
-        <translation type="unfinished"/>
+        <translation>Lengdegrad variabel</translation>
     </message>
     <message>
         <source>Country name server variable</source>
-        <translation type="unfinished"/>
+        <translation>Navneserver variabel</translation>
     </message>
     <message>
         <source>City name server variable</source>
-        <translation type="unfinished"/>
+        <translation>City name server variabel</translation>
     </message>
     <message>
         <source>User has message from operator</source>
-        <translation type="unfinished"/>
+        <translation>Brukeren har en melding fra operatør</translation>
     </message>
     <message>
         <source>User does not have any messages from the operator</source>
-        <translation type="unfinished"/>
+        <translation>Brukeren har ingen meldinger fra operatør</translation>
     </message>
     <message>
         <source>User has not seen a message from the operator, or the message window is still open.</source>
-        <translation type="unfinished"/>
+        <translation>Brukeren har en melding fra operatør, eller at samtalevinduet enda er åpent.</translation>
     </message>
     <message>
         <source>User has seen message from operator.</source>
-        <translation>لقد رأى المستخدم رسالةَ مقدمِ الدعم.</translation>
+        <translation>Brukeren har sett meldingen fra operatør</translation>
     </message>
     <message>
         <source>IP</source>
-        <translation>ع.ا</translation>
+        <translation>IP</translation>
     </message>
     <message>
         <source>Send message</source>
-        <translation>أرسل الرسالة</translation>
+        <translation>Send melding</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation>الحالة</translation>
+        <translation>Status</translation>
     </message>
     <message>
         <source>Action</source>
-        <translation>الإجراء</translation>
+        <translation>Handling</translation>
     </message>
     <message>
         <source>Send message</source>
-        <translation>أرسل الرسالة</translation>
+        <translation>Send melding</translation>
     </message>
     <message>
         <source>Empty...</source>
-        <translation>فارغ...</translation>
+        <translation>Tom...</translation>
     </message>
     <message>
         <source>Last activity</source>
-        <translation>آخر نشاط</translation>
+        <translation>Sist aktivitet</translation>
     </message>
     <message>
         <source>Page</source>
-        <translation>الصفحة</translation>
+        <translation>Side</translation>
     </message>
     <message>
         <source>Browser</source>
-        <translation>المتصفح</translation>
+        <translation>Nettleser</translation>
     </message>
     <message>
         <source>Location</source>
-        <translation>المكان</translation>
+        <translation>Lokasjon</translation>
     </message>
     <message>
         <source>Online visitors</source>
-        <translation>المستخدمون المتصلون</translation>
+        <translation>Online besøkende</translation>
     </message>
     <message>
         <source>GEO detection configuration</source>
-        <translation>ضبط التقاط المكان الجيوغرافي</translation>
+        <translation>GEO detection configuration</translation>
     </message>
     <message>
         <source>Clear list</source>
-        <translation>أفرِغ القائمة</translation>
+        <translation>Tøm liste</translation>
     </message>
     <message>
         <source>Settings updated</source>
-        <translation>حُدِّثَت الإعْدَادَات</translation>
+        <translation>Instillinger oppdatert</translation>
     </message>
     <message>
         <source>GEO Enabled</source>
-        <translation>التقاط المكان الجيوغرافي مُفَعَّل</translation>
+        <translation>GEO aktivert</translation>
     </message>
     <message>
         <source>Use this service</source>
-        <translation>استخدم هذه الخدمة</translation>
+        <translation>Bruk denne tjenesten</translation>
     </message>
     <message>
         <source>Use mod_geoip2</source>
-        <translation>استخدم mod_geoip2</translation>
+        <translation>Use mod_geoip2</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>احفظ</translation>
+        <translation>Lagre</translation>
     </message>
     <message>
         <source>Requests will be comming from</source>
-        <translation>ستأتي الطلبات من</translation>
+        <translation>Forespørsel kommer fra</translation>
     </message>
     <message>
         <source>See service terms and conditions</source>
-        <translation>انظر قوانين استخدام الخدمة</translation>
+        <translation>Se service vilkår og betingelser</translation>
     </message>
     <message>
         <source>Country code variable does not exist!</source>
-        <translation type="unfinished"/>
+        <translation>Landkode variabel finnes ikke!</translation>
     </message>
     <message>
         <source>Please enter the API key!</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst skriv inn API nøkkel!</translation>
     </message>
     <message>
         <source>Please enter the API username!</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst skriv inn API brukernavn</translation>
     </message>
     <message>
         <source>Please choose service provider!</source>
-        <translation>من فضلك اختر مزوِّد خدمة!</translation>
+        <translation>Vennligst velg tjenesteleverandør</translation>
     </message>
     <message>
         <source>Country name variable does not exist!</source>
-        <translation type="unfinished"/>
+        <translation>Landkode variable finnes ikke!</translation>
     </message>
     <message>
         <source>Country code server variable</source>
-        <translation>متغير خادم كود الدولة</translation>
+        <translation>Landkode server er ute av drift.</translation>
     </message>
     <message>
         <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages!</source>
-        <translation type="unfinished"/>
+        <translation>Valg av tjenesteleverandør mislykkes, vennligst sjekk at leverandøren tillater forespørsler til eksterne sider!</translation>
     </message>
     <message>
         <source>User tracking is disabled, enable it at</source>
-        <translation>تَتَبُّع المستخدم مُعَطَّل، فَعِّله في</translation>
+        <translation>Brukerfølging er deaktivert, aktivert det på</translation>
     </message>
     <message>
         <source>Chat configuration</source>
-        <translation>ضبط المحادثة</translation>
+        <translation>Samtalekonfigurasjon </translation>
     </message>
 </context>
 <context>
     <name>chat/closedchats</name>
     <message>
         <source>Closed chats</source>
-        <translation>المُحادثات المغلقة</translation>
+        <translation>Stengte samtaler</translation>
     </message>
     <message>
         <source>Empty...</source>
-        <translation>فارغ...</translation>
+        <translation>Tom...</translation>
     </message>
     <message>
         <source>Chats list</source>
-        <translation type="unfinished"/>
+        <translation>Samtaleliste</translation>
     </message>
     <message>
         <source>Closed chats list</source>
-        <translation>قائمة المحادثات المغلقة</translation>
+        <translation>Lukkede samltalelister</translation>
     </message>
     <message>
         <source>Information</source>
-        <translation>المعلومات</translation>
+        <translation>Informasjon</translation>
     </message>
      <message>
         <source>Open in a new window</source>
-        <translation type="unfinished"/>
+        <translation>Åpne i nytt vindu</translation>
     </message>
     <message>
         <source>Previous</source>
-        <translation>السابق</translation>
+        <translation>Forrige</translation>
     </message>
     <message>
         <source>Go to page %item of %numpages</source>
-        <translation>إذهب إلى صفحة %item من %numpages</translation>
+        <translation>Gå til side %item av %numpages</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation>التالي</translation>
+        <translation>Neste</translation>
     </message>
     <message>
         <source>Page %currentpage of %totalpage</source>
-        <translation>صفحة %currentpage من %totalpage</translation>
+        <translation>Side %currentpage av %totalpage</translation>
     </message>
     <message>
         <source>Delete chat</source>
-        <translation>أَزِل المحادثة</translation>
+        <translation>Slett samtale</translation>
     </message>
 </context>
 <context>
     <name>chat/pendingchats</name>
     <message>
         <source>Chats list</source>
-        <translation type="unfinished"/>
+        <translation>Samtaleliste</translation>
     </message>
     <message>
         <source>Empty...</source>
-        <translation>فارغ...</translation>
+        <translation>Tom...</translation>
     </message>
     <message>
         <source>Pending chats</source>
-        <translation>المحادثات المعلقة</translation>
+        <translation>Avventente samtaler</translation>
     </message>
     <message>
         <source>Pending chats list</source>
-        <translation>قائمة المحادثات المعلقة</translation>
+        <translation>Avventende samtaleliste</translation>
     </message>
     <message>
         <source>Information</source>
-        <translation>المعلومات</translation>
+        <translation>Informasjon</translation>
     </message>
      <message>
         <source>Open in a new window</source>
-        <translation type="unfinished"/>
+        <translation>Åpne i nytt vindu</translation>
     </message>
     <message>
         <source>Previous</source>
-        <translation>السابق</translation>
+        <translation>Forrige</translation>
     </message>
     <message>
         <source>Go to page %item of %numpages</source>
-        <translation>اذهب إلى صفحة %item من %numpages</translation>
+        <translation>Gå til side %item av %numpages</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation>التالي</translation>
+        <translation>Neste</translation>
     </message>
     <message>
         <source>Page %currentpage of %totalpage</source>
-        <translation>صفحة %currentpage من %totalpage</translation>
+        <translation>Side %currentpage av %totalpage</translation>
     </message>
     <message>
         <source>Reject chat</source>
-        <translation>ارفُض المحادثة</translation>
+        <translation>Avvis samtale</translation>
     </message>
 </context>
 <context>
     <name>chat/activechats</name>
     <message>
         <source>Empty...</source>
-        <translation>فارغ...</translation>
+        <translation>Tom...</translation>
     </message>
     <message>
         <source>Active chats</source>
-        <translation>المحادثات الفعالة</translation>
+        <translation>Aktive samtaler</translation>
     </message>
     <message>
         <source>Chats list</source>
-        <translation type="unfinished"/>
+        <translation>Samtaleliste</translation>
     </message>
     <message>
         <source>Active chats list</source>
-        <translation>قائمة المحادثات الفعالة</translation>
+        <translation>Aktiv samtaleliste</translation>
     </message>
     <message>
         <source>Information</source>
-        <translation>المعلومات</translation>
+        <translation>Informasjon</translation>
     </message>
      <message>
         <source>Open in a new window</source>
-        <translation type="unfinished"/>
+        <translation>Åpne i nytt vindu</translation>
     </message>
     <message>
         <source>Previous</source>
-        <translation>السابق</translation>
+        <translation>Forrige</translation>
     </message>
     <message>
         <source>Go to page %item of %numpages</source>
-        <translation>اذهب إلى صفحة %item من %numpages</translation>
+        <translation>Gå til side %item av %numpages</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation>التالي</translation>
+        <translation>Neste</translation>
     </message>
     <message>
         <source>Page %currentpage of %totalpage</source>
-        <translation>صفحة %currentpage من %totalpage</translation>
+        <translation>Side %currentpage av %totalpage</translation>
     </message>
     <message>
         <source>Delete chat</source>
-        <translation>أزِل المحادثة</translation>
+        <translation>Slett samtale</translation>
     </message>
     <message>
         <source>Close chat</source>
-        <translation>أغلِق المحادثة</translation>
+        <translation>Lukk samtale</translation>
     </message>
 </context>
 <context>
     <name>pagelayout/pagelayout</name>
     <message>
         <source>Logged user</source>
-        <translation>المستخدم المسجل</translation>
+        <translation>Logget bruker</translation>
     </message>
     <message>
         <source>FAQ</source>
-        <translation>الأسئلة الشائعة</translation>
+        <translation>FAQ</translation>
     </message>
     <message>
         <source>Chats transfered to your department</source>
-        <translation>المحادثات المُحَوَّلة إلى قِسمِك</translation>
+        <translation>Samtaler flyttet til din avdeling</translation>
     </message>
     <message>
         <source>Chats transferred to you directly</source>
-        <translation type="unfinished"/>
+        <translation>Samtaler flyttet til deg direkte</translation>
     </message>
     <message>
         <source>Questionary</source>
-        <translation>الأسئلة</translation>
+        <translation>Spørreskjema</translation>
     </message>
     <message>
         <source>Transferred to you</source>
-        <translation type="unfinished"/>
+        <translation>Overført til deg</translation>
     </message>
     <message>
         <source>Transferred to your department</source>
-        <translation type="unfinished"/>
+        <translation>Overført til din avdeling</translation>
     </message>
     <message>
         <source>Unread messages</source>
-        <translation>الرسائل غير المقروءة</translation>
+        <translation>Uleste meldinger</translation>
     </message>
     <message>
         <source>Online visitors</source>
-        <translation>المستخدمون المتصلون</translation>
+        <translation>Påloggede besøkende</translation>
     </message>
     <message>
         <source>Live helper chat homepage</source>
-        <translation>الصفحة الرئيسية لمساعد المحادثة المباشرة</translation>
+        <translation>Live helper chat hjemmeside</translation>
     </message>
     <message>
         <source>Home</source>
-        <translation>الرئيسيّة</translation>
+        <translation>Hjem</translation>
     </message>
     <message>
         <source>Chats list</source>
-        <translation type="unfinished"/>
+        <translation>Samtaleliste</translation>
     </message>
     <message>
         <source>New chat request</source>
-        <translation type="unfinished"/>
+        <translation>Ny samtaleforespørsel</translation>
     </message>
     <message>
         <source>Closed chats</source>
-        <translation>المحادثات المغلقة</translation>
+        <translation>Lukkede samtaler</translation>
     </message>
     <message>
         <source>Transfered chats</source>
-        <translation>المحادثات المحولة</translation>
+        <translation>Overførte samtaler</translation>
     </message>
     <message>
         <source>Empty...</source>
-        <translation>فارغ...</translation>
+        <translation>Tom...</translation>
     </message>
     <message>
         <source>Logout</source>
-        <translation>اخرُج</translation>
+        <translation>Logg ut</translation>
     </message>
     <message>
         <source>Clean cache</source>
-        <translation>أفْرِغ الخبيئة</translation>
+        <translation>Tøm buffer</translation>
     </message>
     <message>
         <source>Account</source>
-        <translation>الحساب</translation>
+        <translation>Konto</translation>
     </message>
     <message>
         <source>Pending chats</source>
-        <translation>المحادثات المعلقة</translation>
+        <translation>Avventende samtaler</translation>
     </message>
     <message>
         <source>Open in a new window</source>
-        <translation type="unfinished"/>
+        <translation>Åpne i nytt vindu</translation>
     </message>
     <message>
         <source>Chat rooms</source>
-        <translation>غرف الدردرشة</translation>
+        <translation>Samtalerom</translation>
     </message>
     <message>
         <source>Configuration</source>
-        <translation>الضبط</translation>
+        <translation>Konfigurasjon</translation>
     </message>
     <message>
         <source>Active chats</source>
-        <translation>المحادثات الفعالة</translation>
+        <translation>Aktive samtaler</translation>
     </message>
 </context>
 <context>
     <name>chat/lists</name>
     <message>
         <source>Chat lists</source>
-        <translation>قوائم المحادثة</translation>
+        <translation>Samtaleliste</translation>
     </message>
     <message>
         <source>Choose what type of list you want to see</source>
-        <translation>اختر أي نوعٍ من القوائم تود أن ترى</translation>
+        <translation>Velg hvilken type liste du vil se</translation>
     </message>
     <message>
         <source>Pending chats</source>
-        <translation>المحادثات المعلقة</translation>
+        <translation>Avventende samtaler</translation>
     </message>
     <message>
         <source>Operators chats</source>
-        <translation type="unfinished"/>
+        <translation>Operatørsamtaler </translation>
     </message>
     <message>
         <source>Active chats</source>
-        <translation>المحادثات الفعالة</translation>
+        <translation>Aktive samtaler</translation>
     </message>
     <message>
         <source>Closed chats</source>
-        <translation>المحادثات المغلقة</translation>
+        <translation>Lukkede samtaler</translation>
     </message>
     <message>
         <source>Chats with unread messages</source>
-        <translation>المحادثات ذات الرسائل غير المقروءة</translation>
+        <translation>Samtaler med uleste meldinger</translation>
     </message>
 </context>
 <context>
     <name>chat/unreadchats</name>
     <message>
         <source>Unread chats list</source>
-        <translation>قائمة المحادثات غير المقروءة</translation>
+        <translation>Uleste samtalelister</translation>
     </message>
     <message>
         <source>Information</source>
-        <translation>المعلومات</translation>
+        <translation>Infomasjon</translation>
     </message>
     <message>
         <source>Empty...</source>
-        <translation>فارغ...</translation>
+        <translation>Tom...</translation>
     </message>
 </context>
 <context>
     <name>chat/chatnotexists</name>
     <message>
         <source>Chat was deleted</source>
-        <translation>أُزِيلَت المحادثة</translation>
+        <translation>Samtale ble slettet</translation>
     </message>
     <message>
         <source>Waiting for confirmation</source>
-        <translation>بانتظار الموافقة</translation>
+        <translation>Venter på bekreftelse</translation>
     </message>
     <message>
         <source>Resume chat</source>
-        <translation type="unfinished"/>
+        <translation>Gjennoppta samtale</translation>
     </message>
 </context>
 <context>
     <name>user/newgroup</name>
     <message>
         <source>New group</source>
-        <translation>مجموعة جديدة</translation>
+        <translation>Ny gruppe</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation>العنوان</translation>
+        <translation>Tittel</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>احفظ</translation>
+        <translation>Lagre</translation>
     </message>
     <message>
         <source>Save and assign the user</source>
-        <translation type="unfinished"/>
+        <translation>Lagre og tilordne brukeren</translation>
     </message>
     <message>
         <source>Groups</source>
-        <translation>المجموعات</translation>
+        <translation>Grupper</translation>
     </message>
     <message>
         <source>System configuration</source>
-        <translation>ضبط النظام</translation>
+        <translation>Systemkonfigurasjon</translation>
     </message>
 </context>
 <context>
     <name>user/grouplist</name>
     <message>
         <source>System configuration</source>
-        <translation>ضبط النظام</translation>
+        <translation>Systemkonfigurasjon</translation>
     </message>
     <message>
         <source>Groups</source>
-        <translation>المجموعات</translation>
+        <translation>Grupper</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation>العنوان</translation>
+        <translation>Tittel</translation>
     </message>
     <message>
         <source>Edit group</source>
-        <translation>حرر المجموعة</translation>
+        <translation>Redigere gruppe</translation>
     </message>
     <message>
         <source>Delete group</source>
-        <translation>أزِل المجموعة</translation>
+        <translation>Slette gruppe</translation>
     </message>
     <message>
         <source>New group</source>
-        <translation>مجموعة جديدة</translation>
+        <translation>Ny gruppe</translation>
     </message>
 </context>
 <context>
     <name>user/groupassignuser</name>
     <message>
         <source>Username</source>
-        <translation>اسم المستخدم</translation>
+        <translation>Brukernavn</translation>
     </message>
     <message>
         <source>User was assigned to the group!</source>
-        <translation type="unfinished"/>
+        <translation>Brukeren ble tilordnet gruppen!</translation>
     </message>
     <message>
         <source>E-mail</source>
-        <translation>البريد الإلكتروني</translation>
+        <translation>E-post</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>الاسم</translation>
+        <translation>Navn</translation>
     </message>
     <message>
         <source>Surname</source>
-        <translation>اللقب</translation>
+        <translation>Etternavn</translation>
     </message>
     <message>
         <source>Assign</source>
-        <translation>ألحِق</translation>
+        <translation>Tilordne</translation>
     </message>
 </context>
 <context>
     <name>chat/transferchat</name>
     <message>
         <source>Transfer chat</source>
-        <translation>حَوِّل المحادثة</translation>
+        <translation>Overføre samtale</translation>
     </message>
     <message>
         <source>Transfer a chat to one of your departments users</source>
-        <translation type="unfinished"/>
+        <translation>Øverføre en samtale til en i din avdeling</translation>
     </message>
     <message>
         <source>Departments</source>
-        <translation>الأقسام</translation>
+        <translation>Avdelinger</translation>
     </message>
     <message>
         <source>Chat was assigned to selected department</source>
-        <translation>كانت المحادثة مُلحقَة بالقسم المُحدّد</translation>
+        <translation>Samtale ble tilordnet den valgte avdelingen</translation>
     </message>
     <message>
         <source>Chat was assigned to selected user</source>
-        <translation>كانت المحادثة مُلحَقة بالمستخدم المحدد</translation>
+        <translation>Samtale ble tilordnet den valgte brukeren</translation>
     </message>
     <message>
         <source>Transfer to a user</source>
-        <translation type="unfinished"/>
+        <translation>Overføre til en bruker</translation>
     </message>
     <message>
         <source>Transfer to a department</source>
-        <translation type="unfinished"/>
+        <translation>Overføre til en avdeling</translation>
     </message>
     <message>
         <source>Transfer</source>
-        <translation>حوِّل</translation>
+        <translation>Overføre</translation>
     </message>
     <message>
         <source>Logged in users</source>
-        <translation type="unfinished"/>
+        <translation>Innloggede brukere</translation>
     </message>
 </context>
 <context>
     <name>kernel/message</name>
     <message>
         <source>Are you sure?</source>
-        <translation>أأنت متأكد؟</translation>
+        <translation>Er du sikker?</translation>
     </message>
 </context>
 <context>
     <name>chat/sendmail</name>
     <message>
         <source>Send mail to the user</source>
-        <translation type="unfinished"/>
+        <translation>Send mail to brukeren</translation>
     </message>
     <message>
         <source>Recipient</source>
-        <translation type="unfinished"/>
+        <translation>Mottaker</translation>
     </message>
     <message>
         <source>Mail was sent to the user</source>
-        <translation type="unfinished"/>
+        <translation>Mailen ble sendt til brukeren</translation>
     </message>
     <message>
         <source>Subject</source>
-        <translation>الموضوع</translation>
+        <translation>Emne</translation>
     </message>
     <message>
         <source>From name</source>
-        <translation>اسم المرسِل/الراسِل</translation>
+        <translation>Fra</translation>
     </message>
     <message>
         <source>Reply e-mail</source>
-        <translation>بريد الرد</translation>
+        <translation>Reply e-post</translation>
     </message>
     <message>
         <source>From e-mail</source>
-        <translation>بريد المُرسِل/الراسِل</translation>
+        <translation>Fra e-post</translation>
     </message>
     <message>
         <source>Type your message to the user</source>
-        <translation type="unfinished"/>
+        <translation>Skriv din melding til brukeren</translation>
     </message>
     <message>
         <source>Send the mail</source>
-        <translation type="unfinished"/>
+        <translation>Send eposten</translation>
     </message>
     <message>
         <source>Please enter recipient e-mail!</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst skriv mottaker e-post</translation>
     </message>
     <message>
         <source>From e-mail is missing!</source>
-        <translation>بريد المُرسِل مفقود!</translation>
+        <translation>Fra e-post mangler!</translation>
     </message>
     <message>
         <source>Reply e-mail is missing!</source>
-        <translation>بريد الرد مفقود!</translation>
+        <translation>Reply e-post mangler!</translation>
     </message>
     <message>
         <source>Subject is missing!</source>
-        <translation>الموضوع مفقود!</translation>
+        <translation>Emne mangler!</translation>
     </message>
 </context>
 <context>
     <name>chat/blockedusers</name>
     <message>
         <source>Blocked users</source>
-        <translation>المستخدمون المحجوبون</translation>
+        <translation>Blokkerte brukere</translation>
     </message>
     <message>
         <source>Empty...</source>
-        <translation>فارغ...</translation>
+        <translation>Tom...</translation>
     </message>
     <message>
         <source>User was blocked!</source>
-        <translation>حُجِبَ المستخدم!</translation>
+        <translation>Brukeren ble blokkert!</translation>
     </message>
     <message>
         <source>User blocking failed, perhaps you do not have permission to block users?</source>
-        <translation>تعذَّر حجب المستخدم، ربما لا تملك الصلاحيات اللازمة لحجب المستخدمين؟</translation>
+        <translation>Blokkering av bruker feilet, kanskje du ikke har riktige rettigheter for å blokkere brukere?</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation>التاريخ</translation>
+        <translation>Dato</translation>
     </message>
     <message>
         <source>IP</source>
-        <translation>ع.إ</translation>
+        <translation>IP</translation>
     </message>
     <message>
         <source>Users who are blocked</source>
-        <translation type="unfinished"/>
+        <translation>Brukere som er blokkerte</translation>
     </message>
     <message>
         <source>Remove block</source>
-        <translation>أَزِل الحجب</translation>
+        <translation>Fjern blokkering</translation>
     </message>
 </context>
 <context>
     <name>chat/operatorschats</name>
     <message>
         <source>Operators chats</source>
-        <translation type="unfinished"/>
+        <translation>Operatør samtaler</translation>
     </message>
     <message>
         <source>Operators chats list</source>
-        <translation type="unfinished"/>
+        <translation>Operatør samtalelister</translation>
     </message>
 </context>
 <context>
     <name>chat/adminchat</name>
     <message>
         <source>E-mail</source>
-        <translation>البريد الإلكتروني</translation>
+        <translation>E-post</translation>
     </message>
     <message>
         <source>Page</source>
-        <translation type="unfinished"/>
+        <translation>Side</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"/>
+        <translation>Print</translation>
     </message>
     <message>
         <source>Chat duration</source>
-        <translation type="unfinished"/>
+        <translation>Samtale varighet</translation>
     </message>
     <message>
         <source>Waited</source>
-        <translation type="unfinished"/>
+        <translation>Ventet</translation>
     </message>
     <message>
         <source>Created</source>
-        <translation type="unfinished"/>
+        <translation>Laget</translation>
     </message>
     <message>
         <source>Country</source>
-        <translation type="unfinished"/>
+        <translation>Land</translation>
     </message>
     <message>
         <source>City</source>
-        <translation type="unfinished"/>
+        <translation>By</translation>
     </message>
     <message>
         <source>Additional data</source>
-        <translation type="unfinished"/>
+        <translation>Tilleggsdata</translation>
     </message>
     <message>
         <source>Chat between operators, chat initializer</source>
-        <translation type="unfinished"/>
+        <translation>Samtale mellom operatører, samtalestarter</translation>
     </message>
     <message>
         <source>Refresh</source>
-        <translation type="unfinished"/>
+        <translation>Oppdater</translation>
     </message>
     <message>
         <source>Could not detect. Make sure that GEO detection is enabled.</source>
-        <translation type="unfinished"/>
+        <translation>Fant ikke GEO. Pass på at GEO oppdagelse er aktivert.</translation>
     </message>
     <message>
         <source>Phone</source>
-        <translation>الهاتف</translation>
+        <translation>Telefon</translation>
     </message>
     <message>
         <source>Send mail</source>
-        <translation>أرسِل رسالة بريدية</translation>
+        <translation>Send epost</translation>
     </message>
     <message>
         <source>Map</source>
-        <translation type="unfinished"/>
+        <translation>Kart</translation>
     </message>
     <message>
         <source>Footprint</source>
-        <translation type="unfinished"/>
+        <translation>Fotavtrykk</translation>
     </message>
     <message>
         <source>Visitor</source>
-        <translation type="unfinished"/>
+        <translation>Besøkende</translation>
     </message>
     <message>
         <source>Select a canned message</source>
-        <translation type="unfinished"/>
+        <translation>Velg en forhåndsmelding</translation>
     </message>
     <message>
         <source>Are you sure?</source>
-        <translation>أأنت متأكد?</translation>
+        <translation>Er du sikker?</translation>
     </message>
     <message>
         <source>Transfer chat</source>
-        <translation>حَوِّل المحادثة</translation>
+        <translation>Overføre samtale</translation>
     </message>
     <message>
         <source>Close dialog</source>
-        <translation>أغلق الحوار</translation>
+        <translation>Lukke dialog</translation>
     </message>
     <message>
         <source>Chat owner</source>
-        <translation>مالك المحادثة</translation>
+        <translation>Samtale eier</translation>
     </message>
     <message>
         <source>Send</source>
-        <translation>أرسِل</translation>
+        <translation>Send</translation>
     </message>
     <message>
         <source>Information</source>
-        <translation>المعلومات</translation>
+        <translation>Informasjon</translation>
     </message>
     <message>
         <source>Came from</source>
-        <translation type="unfinished"/>
+        <translation>Kommer fra</translation>
     </message>
     <message>
         <source>Block user</source>
-        <translation>احجب المستخدم</translation>
+        <translation>Blokkert bruker</translation>
     </message>
     <message>
         <source>Close chat</source>
-        <translation>أغلق المحادثة</translation>
+        <translation>Lukk samtale</translation>
     </message>
     <message>
         <source>Delete chat</source>
-        <translation>أزِل المحادثة</translation>
+        <translation>Slett samtale</translation>
     </message>
     <message>
         <source>Me</source>
-        <translation>أنا</translation>
+        <translation>Meg</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation>الإجراءات</translation>
+        <translation>Handlinger</translation>
     </message>
 </context>
 <context>
     <name>chat/syncuser</name>
     <message>
         <source>You do not have permission to view this chat, or the chat was deleted</source>
-        <translation type="unfinished"/>
+        <translation>Du har ikke rettigheter til å se samtale, samtalen kan også være slettet</translation>
     </message>
     <message>
         <source>Support</source>
-        <translation>الدعم</translation>
+        <translation>Support</translation>
     </message>
     <message>
         <source>A support staff member has closed this chat</source>
-        <translation type="unfinished"/>
+        <translation>En fra support har lukke samtalen</translation>
     </message>
     <message>
         <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-        <translation type="unfinished"/>
+        <translation>Support har lukket samtalevinduet, men du kan legge igjen beskjed slik at den blir lest senere.</translation>
     </message>
 </context>
 <context>
     <name>departament/edit</name>
     <message>
         <source>Please enter a department name</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst skriv inn ditt avdelingsnavn</translation>
     </message>
     <message>
         <source>Edit a department</source>
-        <translation type="unfinished"/>
+        <translation>Redigere avdeling</translation>
     </message>
 </context>
 <context>
     <name>permission/editrole</name>
     <message>
         <source>Abstract module</source>
-        <translation>الوحدة المجردة</translation>
+        <translation>Abstrakt modul</translation>
     </message>
     <message>
         <source>Allow to use abstract module</source>
-        <translation>اسمح باستخدام الوحدة المجردة</translation>
+        <translation>Godkjenn bruk av abstrakte moduler</translation>
     </message>
     <message>
         <source>Chat</source>
-        <translation>المحادثة</translation>
+        <translation>Samtale</translation>
     </message>
     <message>
         <source>General permission to use chat module</source>
-        <translation>تصريحٌ عام لاستخدام وحدة المحادثة</translation>
+        <translation>Generelle rettigheter å bruke samtale modulen</translation>
     </message>
     <message>
         <source>Allow user to use single chat window functionality</source>
-        <translation>السماح بنافذة محادثة شخص لشخص واحدة</translation>
+        <translation>Tillat bruker å bruke samtalevindu funksjonen</translation>
     </message>
     <message>
         <source>Allow user to user chat rooms functionality</source>
-        <translation>السماح بميزة غرف محادثة شخص لشص</translation>
+        <translation>Allow user to user chat rooms functionality</translation>
     </message>
     <message>
         <source>Allow user to delete his own chats</source>
-        <translation>السماح للمستخدم بحذف محادثاته الخاصة</translation>
+        <translation>Tillat bruke å slette egne samtaler</translation>
     </message>
     <message>
         <source>Allow to delete all chats</source>
-        <translation>السماح للمستخدم بحذف كافة المحادثات</translation>
+        <translation>Tillat sletting av alle samtaler</translation>
     </message>
     <message>
         <source>Allow user to transfer chat to another user</source>
-        <translation>السماح بتحويل المحادثة من مستخدم إلى آخر</translation>
+        <translation>Tillat bruker å overføre samtale til en annen bruker</translation>
     </message>
     <message>
         <source>Allow user to close another user chat</source>
-        <translation>السماح بإغلاق محادثة مستخدم آخر</translation>
+        <translation>Tillat bruker å lukke en annen brukes samtale</translation>
     </message>
     <message>
         <source>Allow user to block visitors</source>
-        <translation>السماح بحجب الزوار</translation>
+        <translation>Tillat brukere å blokkere gjester</translation>
     </message>
     <message>
         <source>Allow to change chat config</source>
-        <translation>السماح بتعديل ضبط وحدة المحادثة</translation>
+        <translation>Tillat å endre samtale konfig</translation>
     </message>
     <message>
         <source>Allow user to clean online visitors list</source>
-        <translation>السماح بإفراغ قائمة المستخدمين المتصلين</translation>
+        <translation>Tillat bruker å rengjøre online listen</translation>
     </message>
     <message>
         <source>Allow user change canned messages</source>
-        <translation>السماح للمستخدم بتعديل الرسائل الجاهزة</translation>
+        <translation>Tillat bruker å skifte forhåndsmeldinger</translation>
     </message>
     <message>
         <source>Allow user to open other users chats from same department</source>
-        <translation>السماح للمستخدم بفتح محادثات المستخدمين الآخرين بنفس القسم</translation>
+        <translation>Tillat bruker å åpne andre samtaler fra samme avdeling</translation>
     </message>
     <message>
         <source>Chatbox</source>
-        <translation>صندوق المحادثة</translation>
+        <translation>Samtaleboks</translation>
     </message>
     <message>
         <source>Departments configuration</source>
-        <translation>ضبط الأقسام</translation>
+        <translation>Departementets konfigurasjon</translation>
     </message>
     <message>
         <source>Access to list departments</source>
-        <translation>الوصول لقائمة الأقسام</translation>
+        <translation>Tilgang til avdelingslisten  </translation>
     </message>
     <message>
         <source>Permission to create a new department</source>
-        <translation>تصريحٌ لإنشاء قسم جديد</translation>
+        <translation>Rettighet til å lage ny avdeling</translation>
     </message>
     <message>
         <source>Permission to edit department</source>
-        <translation>تصريح لتحرير قسم</translation>
+        <translation>Tigang til å redigere avdeling</translation>
     </message>
     <message>
         <source>Permission to delete department</source>
-        <translation>تصريح لحذف قسم</translation>
+        <translation>Rettighet til å slette departemang</translation>
     </message>
     <message>
         <source>Allow user to choose his departments</source>
-        <translation>السماح للمستخدم باختيار أقسامه</translation>
+        <translation>Tillat bruker å velge departement</translation>
     </message>
     <message>
         <source>Allow user to manage Chatbox module</source>
-        <translation>السماح للمستخدم بإدارة وحدةChatbox</translation>
+        <translation>Tillat bruker å redigere Chatbox module</translation>
     </message>
     <message>
         <source>FAQ</source>
-        <translation>الأسئلة الشائعة</translation>
+        <translation>FAQ</translation>
     </message>
     <message>
         <source>Allow user to manage FAQ</source>
-        <translation>السماح للمستخدم بإدارة وحدة الأسئلة الشائعة</translation>
+        <translation>Tillate bruk å endre FAQ</translation>
     </message>
     <message>
         <source>Frontpage</source>
-        <translation>الصفحة الرئيسية</translation>
+        <translation>Fremside</translation>
     </message>
     <message>
         <source>General frontpage use permission</source>
-        <translation>الصفحة الرئيسية العامة تستخدم هذا التصريح</translation>
+        <translation>Generell fremside, bruk rettigheter</translation>
     </message>
     <message>
         <source>Live helper Chat installer</source>
-        <translation>مثبت Live Helper Chat</translation>
+        <translation>Live helper chat installasjon</translation>
     </message>
     <message>
         <source>Permissions configuration</source>
-        <translation>ضبط الصلاحيات</translation>
+        <translation>Tilgangskonfigurasjon</translation>
     </message>
     <message>
         <source>Access to edit role</source>
-        <translation>الوصول لتحرير دور</translation>
+        <translation>Tilgang til å redigere rolle</translation>
     </message>
     <message>
         <source>Access to delete role</source>
-        <translation>الوصول لحذف دور</translation>
+        <translation>Tilgang til å slette rolle</translation>
     </message>
     <message>
         <source>Access to list roles</source>
-        <translation>الوصول لقائمة الأدوار</translation>
+        <translation>Tilgang til rolleliste</translation>
     </message>
     <message>
         <source>Access to create new role</source>
-        <translation>الوصول ﻹنشاء دور جديد</translation>
+        <translation>Tilgang til å lage ny rolle</translation>
     </message>
     <message>
         <source>Questionary/Voting</source>
-        <translation>الأسئلة/التصويت</translation>
+        <translation>Spørreskjema/Stemming</translation>
     </message>
     <message>
         <source>Allow user to manage questionary</source>
-        <translation>السماح للمستخدم بإدارة الأسئلة</translation>
+        <translation>Tillat brukere å behandle spørreskjema</translation>
     </message>
     <message>
         <source>Allow user to see configuration links</source>
-        <translation>السماح للمستخدم برؤية روابط الضبط</translation>
+        <translation>Tillat brukere å se konfigurasjonslinker</translation>
     </message>
     <message>
         <source>Allow user to clear cache</source>
-        <translation>السماح للمستخدم بإفراغ الخبيئة</translation>
+        <translation>Tillat brukere å tømme buffer</translation>
     </message>
     <message>
         <source>Users, groups management</source>
-        <translation>إدارة المستخدمين والمجموعات.</translation>
+        <translation>Brukere, gruppe innstillinger</translation>
     </message>
     <message>
         <source>Allow user to assign user to group</source>
-        <translation>السماح للمستخدم بإلحاق مستخدم آخر بمجموعة</translation>
+        <translation>Tillat bruker å tildele en bruker til gruppe</translation>
     </message>
     <message>
         <source>Allow user to edit group</source>
-        <translation>السماح للمستخدم بتحرير مجموعة</translation>
+        <translation>Tillat bruker til å redigere gruppe</translation>
     </message>
     <message>
         <source>Allow user to create group</source>
-        <translation>السماح للمستخدم بإنشاء مجموعة</translation>
+        <translation>Tillat bruker å lage gruppe</translation>
     </message>
     <message>
         <source>Allow user to delete group</source>
-        <translation>السماح للمستخدم بإزالة مجموعة</translation>
+        <translation>Tillat bruker å slette gruppe</translation>
     </message>
     <message>
         <source>Allow user to create another user</source>
-        <translation>السماح للمستخدم بإنشاء مستخدم آخر</translation>
+        <translation>Tillat bruker å lage en ny bruker</translation>
     </message>
     <message>
         <source>Allow user to delete another user</source>
-        <translation>السماح للمستخدم بحذف مستخدمٍ آخر</translation>
+        <translation>Tillat bruker å slette en annen bruker</translation>
     </message>
     <message>
         <source>Allow user to edit another user</source>
-        <translation>السماح للمستخدم بتحرير مستخدمٍ آخر</translation>
+        <translation>Tillat bruker å redigere en annen bruker</translation>
     </message>
     <message>
         <source>Allow user to list group</source>
-        <translation>السماح للمستخدم بسرد مجموعة</translation>
+        <translation>Tillat bruker til å se gruppeliste</translation>
     </message>
     <message>
         <source>Allow user to list users</source>
-        <translation>السماح للمستخدم بسر المستخدمين</translation>
+        <translation>Tillat bruker til å se gruppeliste</translation>
     </message>
     <message>
         <source>Allow user to edit his own data</source>
-        <translation>السماح للمستخدم بتحرير بياناته الخاصة</translation>
+        <translation>Tillat bruker å redigere sin egen informasjon</translation>
     </message>
     <message>
         <source>Allow user to edit his responsible departaments</source>
-        <translation>السماح للمستخدم بتحرير الأقسام المسؤول عنها</translation>
+        <translation>Tillat bruker å redigere egne avdelinger</translation>
     </message>
     <message>
         <source>Allow user to see logged operators list</source>
-        <translation>السماح للمستخدم برؤية قائمة مقدمي الدعم المتصلين</translation>
+        <translation>Tillat bruker å se logget operatørliste</translation>
     </message>
     <message>
         <source>Live helper Chat XML service</source>
-        <translation>خدمة Live helper Chat XML</translation>
+        <translation>Live helper chat  XML service</translation>
     </message>
     <message>
         <source>Allow user to access HTML generation</source>
-        <translation>السماح للمستخدم بالوصول لتوليد شفرة HTML</translation>
+        <translation>Tillat bruker å ha adgang til HTML generering</translation>
     </message>
     <message>
         <source>All modules</source>
-        <translation>كل الوحدات</translation>
+        <translation>Alle moduler</translation>
     </message>
     <message>
         <source>All functions</source>
-        <translation>كل الوظائف</translation>
+        <translation>Alle funksjoner</translation>
     </message>
     <message>
         <source>System configuration</source>
-        <translation>ضبط النظام</translation>
+        <translation>Systemkonfigurasjon</translation>
     </message>
     <message>
         <source>Please choose module function</source>
-        <translation>من فضلك اختر وظيفة للوحدة</translation>
+        <translation>Vennligst velg modul funksjon</translation>
     </message>
     <message>
         <source>List of roles</source>
-        <translation>قائمة الأدوار</translation>
+        <translation>Liste over roller</translation>
     </message>
     <message>
         <source>Please enter role name</source>
-        <translation>من فضلك أدخل اسم الدور</translation>
+        <translation>Vennligst skriv inn rollenavn</translation>
     </message>
     <message>
         <source>Role edit</source>
-        <translation>تحرير الدور</translation>
+        <translation>Redigere rolle</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation>العنوان</translation>
+        <translation>Tittel</translation>
     </message>
     <message>
         <source>Assigned functions</source>
-        <translation>الوظائف الملحقة</translation>
+        <translation>Tildelte funksjoner</translation>
     </message>
     <message>
         <source>Module</source>
-        <translation>الوحدة</translation>
+        <translation>Modul</translation>
     </message>
     <message>
         <source>Function</source>
-        <translation>الوظيفة</translation>
+        <translation>Funksjon</translation>
     </message>
     <message>
         <source>Role assigned groups</source>
-        <translation>المجموعات الملحقة بالدور</translation>
+        <translation>Rolletildelte grupper</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation>حَدِّث</translation>
+        <translation>Oppdatere</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ألغِ</translation>
+        <translation>Avbryt</translation>
     </message>
     <message>
         <source>New policy</source>
-        <translation>سياسة جديدة</translation>
+        <translation>Ny policy</translation>
     </message>
     <message>
         <source>Remove selected policy</source>
-        <translation type="unfinished"/>
+        <translation>Fjern valgt policy</translation>
     </message>
     <message>
         <source>Remove selected role</source>
-        <translation type="unfinished"/>
+        <translation>Fjern valgt rolle</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation>العنوان</translation>
+        <translation>Tittel</translation>
     </message>
     <message>
         <source>Assign a group</source>
-        <translation type="unfinished"/>
+        <translation>Tildele en gruppe</translation>
     </message>
     <message>
         <source>Group assignement to role</source>
-        <translation>إلحاق المجموعة بدور</translation>
+        <translation>Gruppetilordning til rollen</translation>
     </message>
 </context>
 <context>
     <name>permission/newrole</name>
     <message>
         <source>System configuration</source>
-        <translation>ضبط النظام</translation>
+        <translation>Systemkonfigurasjon</translation>
     </message>
     <message>
         <source>List of roles</source>
-        <translation>قائمة الأدوار</translation>
+        <translation>Liste over roller</translation>
     </message>
     <message>
         <source>Please enter role name</source>
-        <translation>يُرجى إدخال اسم الدور</translation>
+        <translation>Vennligst skriv inn rollenavn</translation>
     </message>
     <message>
         <source>New role</source>
-        <translation>دور جديد</translation>
+        <translation>Ny rolle</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation>العنوان</translation>
+        <translation>Tittel</translation>
     </message>
     <message>
         <source>Policy list</source>
-        <translation>قائمة السياسات</translation>
+        <translation>Policy liste</translation>
     </message>
     <message>
         <source>Module</source>
-        <translation>الوحدة</translation>
+        <translation>Modul</translation>
     </message>
     <message>
         <source>Function</source>
-        <translation>الوظيفة</translation>
+        <translation>Funksjon</translation>
     </message>
     <message>
         <source>New policy</source>
-        <translation>سياسة جديدة</translation>
+        <translation>Ny policy</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>احفظ</translation>
+        <translation>Lagre</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ألغِ</translation>
+        <translation>Avbryt</translation>
     </message>
 </context>
 <context>
     <name>permission/modulefunctions</name>
     <message>
         <source>All functions</source>
-        <translation>كافة الوظائف</translation>
+        <translation>Alle funksjoner</translation>
     </message>
 </context>
 <context>
     <name>chat/errors/adminchatnopermission</name>
     <message>
         <source>You do not have permission to access current chat!</source>
-        <translation>ليس لديك الصلاحيات اللازمة للوصول لهذه المحادثة!</translation>
+        <translation>Du har ikke tilgang til denne samtalen</translation>
     </message>
 </context>
 <context>
     <name>chat/errors/entertext</name>
     <message>
         <source>Please enter text!</source>
-        <translation>من فضلك أدخِل نصًا!</translation>
+        <translation>Vennligst skriv inn tekst!</translation>
     </message>
 </context>
 <context>
     <name>chat/userleftchat</name>
     <message>
         <source>User has left the chat!</source>
-        <translation>غادر المستخدم المحادثة!</translation>
+        <translation>Brukeren har forlatt samtalen</translation>
     </message>
 </context>
 <context>
     <name>chat/userjoined</name>
     <message>
         <source>User has joined the chat!</source>
-        <translation>دخل المستخدم المحادثة!</translation>
+        <translation>Brukeren har blitt med i samtalen!</translation>
     </message>
 </context>
 <context>
     <name>kernel/nopermission</name>
     <message>
         <source>You do not have permission to access the module</source>
-        <translation type="unfinished"/>
+        <translation>Du har ikke tilgang til denne modulen</translation>
     </message>
     <message>
         <source>and use</source>
-        <translation>واستخدم</translation>
+        <translation>og bruke</translation>
     </message>
     <message>
         <source>Go back</source>
-        <translation type="unfinished"/>
+        <translation>Gå tilbake</translation>
     </message>
     <message>
         <source>You do not have permission to edit selected object</source>
-        <translation type="unfinished"/>
+        <translation>Du har ikke rettigheter til å redigere det valgte objektet</translation>
     </message>
     <message>
         <source>function</source>
-        <translation>وظيفة</translation>
+        <translation>funksjon</translation>
     </message>
 </context>
 <context>
     <name>permission/roles</name>
     <message>
         <source>List of roles</source>
-        <translation>قائمة الأدوار</translation>
+        <translation>Rolleliste</translation>
     </message>
     <message>
         <source>System configuration</source>
-        <translation>ضبط النظام</translation>
+        <translation>Systemkonfigurasjon</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation>العنوان</translation>
+        <translation>Tittel</translation>
     </message>
     <message>
         <source>New role</source>
-        <translation>دور جديد</translation>
+        <translation>Ny rolle</translation>
     </message>
     <message>
         <source>Edit a role</source>
-        <translation type="unfinished"/>
+        <translation>Redigere en rolle</translation>
     </message>
     <message>
         <source>Delete a role</source>
-        <translation type="unfinished"/>
+        <translation>Slett en rolle</translation>
     </message>
 </context>
 <context>
     <name>permission/roleassigngroup</name>
     <message>
         <source>Title</source>
-        <translation>العنوان</translation>
+        <translation>Tittel</translation>
     </message>
     <message>
         <source>Assign</source>
-        <translation>ألحِق</translation>
+        <translation>Tildele</translation>
     </message>
 </context>
 <context>
     <name>permission/newpolicy</name>
     <message>
         <source>New policy</source>
-        <translation>سياسة جديدة</translation>
+        <translation>Ny policy</translation>
     </message>
     <message>
         <source>Assigned functions</source>
-        <translation>الوظائِف المُلحَقَة</translation>
+        <translation>Tildelte funksjoner</translation>
     </message>
     <message>
         <source>Choose a module</source>
-        <translation type="unfinished"/>
+        <translation>Velg en modul</translation>
     </message>
     <message>
         <source>All modules</source>
-        <translation>كل الوحدات</translation>
+        <translation>Alle moduler</translation>
     </message>
     <message>
         <source>Choose a module function</source>
-        <translation type="unfinished"/>
+        <translation>Vel den modulfunksjon</translation>
     </message>
     <message>
         <source>All functions</source>
-        <translation>كل الوظائف</translation>
+        <translation>Alle funksjoner</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>احفظ</translation>
+        <translation>Lagre</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ألغِ</translation>
+        <translation>Avbryt</translation>
     </message>
 </context>
 <context>
     <name>permission/groupassignrole</name>
     <message>
         <source>Title</source>
-        <translation>العنوان</translation>
+        <translation>Tittel</translation>
     </message>
     <message>
         <source>Assign</source>
-        <translation>ألحِق</translation>
+        <translation>Tildele</translation>
     </message>
 </context>
 <context>
     <name>chat/transferuser</name>
     <message>
         <source>Chat was assigned to selected user</source>
-        <translation>أُلحِقت المحادثة بالمستخدم المحدد</translation>
+        <translation>Samtalen ble tildelt valg bruker</translation>
     </message>
 </context>
 <context>
     <name>chat/deletechatadmin</name>
     <message>
         <source>You do not have rights to delete a chat</source>
-        <translation type="unfinished"/>
+        <translation>Du har ikke rettigheter til å slette en samtale</translation>
     </message>
 </context>
 <context>
     <name>chat/getstatus</name>
     <message>
         <source>Start chat</source>
-        <translation>ابدأ المحادثة</translation>
+        <translation>Start samtale</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation>أغلق</translation>
+        <translation>Lukk</translation>
     </message>
     <message>
         <source>Open in a new window</source>
-        <translation>افتح بنافذة جديدة</translation>
+        <translation>Åpne i nytt vindu</translation>
     </message>
     <message>
         <source>Live help is online...</source>
-        <translation>تحدث مع الدعم المباشر ...</translation>
+        <translation>Reklameservice er online</translation>
     </message>
     <message>
         <source>Live help is offline...</source>
-        <translation>اترك لنا رسالتك ...</translation>
+        <translation>Reklameservice er avlogget</translation>
     </message>
 </context>
 <context>
     <name>user/editgroup</name>
     <message>
         <source>Group edit</source>
-        <translation>حرِّر المجموعة</translation>
+        <translation>Rediger gruppe</translation>
     </message>
     <message>
         <source>Groups</source>
-        <translation>المجموعات</translation>
+        <translation>Grupper</translation>
     </message>
     <message>
         <source>System configuration</source>
-        <translation>ضبط النظام</translation>
+        <translation>Systemkonfigurasjon</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation>العنوان</translation>
+        <translation>Tittel</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation>حدِّث</translation>
+        <translation>Oppdatering</translation>
     </message>
     <message>
         <source>Assigned users</source>
-        <translation>المستخدمون الملحقون</translation>
+        <translation>Tildelte brukere</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>اسم المستخدم</translation>
+        <translation>Brukernavn</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>الاسم</translation>
+        <translation>Navn</translation>
     </message>
     <message>
         <source>Surname</source>
-        <translation>اللقب</translation>
+        <translation>Etternavn</translation>
     </message>
     <message>
         <source>Assign user</source>
-        <translation>ألحق مستخدمًا</translation>
+        <translation>Tildele bruker</translation>
     </message>
     <message>
         <source>User assignment</source>
-        <translation>إلحاق المستخدم</translation>
+        <translation>Brukertildeling</translation>
     </message>
     <message>
         <source>Assigned roles</source>
-        <translation>الأدوار الملحقة</translation>
+        <translation>Tildelte roller</translation>
     </message>
     <message>
         <source>Assign role</source>
-        <translation>ألحق دورًا</translation>
+        <translation>Tildele rolle</translation>
     </message>
     <message>
         <source>Role assignment</source>
-        <translation>إلحاق الدور</translation>
+        <translation>Rolletildeling</translation>
     </message>
     <message>
         <source>Remove role from group</source>
-        <translation>أزِل الدور من المجموعة</translation>
+        <translation>Fjern rolle fra gruppe</translation>
     </message>
     <message>
         <source>Remove user from the group</source>
-        <translation type="unfinished"/>
+        <translation>Fjern bruker fra gruppen</translation>
     </message>
     <message>
         <source>Please enter a group name</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst skriv inn gruppenavn</translation>
     </message>
 </context>
 <context>
     <name>chat/startchat</name>
     <message>
         <source>Maximum 50 characters</source>
-        <translation>الحد الأقصى ٥٠ حرفًا</translation>
+        <translation>Maks 50 bokstaver</translation>
     </message>
     <message>
         <source>Live Support</source>
-        <translation type="unfinished"/>
+        <translation>Live support</translation>
     </message>
     <message>
         <source>Invalid captcha code, please enable Javascript!</source>
-        <translation type="unfinished"/>
+        <translation>Feil capthca kode, vennligst aktiver javascript!</translation>
     </message>
     <message>
         <source>Maximum 500 characters for message</source>
-        <translation type="unfinished"/>
+        <translation>Maks 500 bokstaver for melding</translation>
     </message>
     <message>
         <source>Type your message here and hit enter to send...</source>
-        <translation type="unfinished"/>
+        <translation>Skriv din melding her og trykk send...</translation>
     </message>
     <message>
         <source>Send</source>
-        <translation type="unfinished"/>
+        <translation>Send</translation>
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished"/>
+        <translation>Avkoblet</translation>
     </message>
     <message>
         <source>Leave a message</source>
-        <translation>اترك رسالتك</translation>
+        <translation>Legg igjen en beskjed</translation>
     </message>
     <message>
         <source>Fill form to start chat</source>
-        <translation type="unfinished"/>
+        <translation>Fyll ut skjema for å starte samtale</translation>
     </message>
     <message>
         <source>There are no online operators at the moment, please leave a message</source>
-        <translation type="unfinished"/>
+        <translation>Det er ingen online for øyeblikket, vennligst legg igjen en beskjed :)</translation>
     </message>
     <message>
         <source>There are no online operators at the moment, please leave your message</source>
-        <translation type="unfinished"/>
+        <translation>Det er ingen operatører online for øyeblikket, vennligst legg igjen en beskjed :)</translation>
     </message>
     <message>
         <source>Send my question</source>
-        <translation>أرسل سؤالي</translation>
+        <translation>Send mitt spørsmål</translation>
     </message>
     <message>
         <source>Enter your message</source>
-        <translation>أدخل رسالتك</translation>
+        <translation>Skriv inn din melding</translation>
     </message>
     <message>
         <source>Your request was sent!</source>
-        <translation type="unfinished"/>
+        <translation>Din forespørsel ble sendt!</translation>
     </message>
     <message>
         <source>Please enter your message</source>
-        <translation>من فضلك أدخل رسالتك</translation>
+        <translation>Vennligst skriv inn din melding</translation>
     </message>
     <message>
         <source>Please enter your phone</source>
-        <translation>من فضلك أدخل هاتفك</translation>
+        <translation>Vennligst skriv inn telefonnummer</translation>
     </message>
     <message>
         <source>Your question</source>
-        <translation>سؤالك</translation>
+        <translation>Ditt spørsmål</translation>
     </message>
     <message>
         <source>Phone</source>
-        <translation>الهاتف</translation>
+        <translation>Telefon</translation>
     </message>
     <message>
         <source>Fill out this form to start a chat</source>
-        <translation>املأ هذه النموذج لبدء المحادثة</translation>
+        <translation>Fyll ut skjema for å starte samtale</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>الاسم</translation>
+        <translation>Navn</translation>
     </message>
     <message>
         <source>You do not have permission to chat! Please contact site owner.</source>
-        <translation>لا تملك صلاحية الوصول لهذه المحادثة! من فضلك اتصل بمسؤول الموقع.</translation>
+        <translation>Du har ikke tilgang til å starte samtale, vennligst ta kontakt med Reklameservice AS på 71 20 19 00.</translation>
     </message>
     <message>
         <source>E-mail</source>
-        <translation>البريد الإلكتروني</translation>
+        <translation>E-post</translation>
     </message>
     <message>
         <source>Start chat</source>
-        <translation>ابدأ المحادثة</translation>
+        <translation>Start samtale</translation>
     </message>
     <message>
         <source>Please enter your name</source>
-        <translation>من فضلك أدخل اسمك</translation>
+        <translation>Vennligst skriv inn ditt navn</translation>
     </message>
     <message>
         <source>Wrong email</source>
-        <translation>بريد غير صالح</translation>
+        <translation>Feil epost</translation>
     </message>
     <message>
         <source>Department</source>
-        <translation>القسم</translation>
+        <translation>Avdeling</translation>
     </message>
     <message>
         <source>Visitor</source>
-        <translation>الزائر</translation>
+        <translation>Gjest</translation>
     </message>
 </context>
 <context>
     <name>chat/syncadmininterface</name>
     <message>
         <source>Start chat</source>
-        <translation type="unfinished"/>
+        <translation>Start samtale</translation>
     </message>
     <message>
         <source>Add chat</source>
-        <translation>أضِف محادثة</translation>
+        <translation>Legg til samtale</translation>
     </message>
     <message>
         <source>h.</source>
-        <translation>س.</translation>
+        <translation>h.</translation>
     </message>
     <message>
         <source>Last activity</source>
-        <translation>آخر نشاط</translation>
+        <translation>siste aktivitet</translation>
     </message>
     <message>
         <source>Send message</source>
-        <translation>أرسِل رسالة</translation>
+        <translation>Send melding</translation>
     </message>
     <message>
         <source>ago</source>
-        <translation>مَضَت</translation>
+        <translation>siden</translation>
     </message>
     <message>
         <source>Empty...</source>
-        <translation>فارغ...</translation>
+        <translation>Tom...</translation>
     </message>
     <message>
         <source>Delete chat</source>
-        <translation>أزِل المحادثة</translation>
+        <translation>Slett samtale</translation>
     </message>
     <message>
         <source>Close chat</source>
-        <translation>أغلِق المحادثة</translation>
+        <translation>Lukk samtale</translation>
     </message>
     <message>
         <source>Open in a new window</source>
-        <translation type="unfinished"/>
+        <translation>Åpne i nytt vindu</translation>
     </message>
     <message>
         <source>Reject chat</source>
-        <translation>ارفُض المحادثة</translation>
+        <translation>Avvis samtale</translation>
     </message>
     <message>
         <source>Accept chat</source>
-        <translation>اقبَل المحادثة</translation>
+        <translation>Godta samtale</translation>
     </message>
     <message>
         <source>Transfered chats</source>
-        <translation>المحادثات المحولة</translation>
+        <translation>Overførte samtaler</translation>
     </message>
 </context>
 <context>
     <name>chat/syncadmin</name>
     <message>
         <source>Me</source>
-        <translation>أنا</translation>
+        <translation>Meg</translation>
     </message>
     <message>
         <source>System assistant</source>
-        <translation type="unfinished"/>
+        <translation>System assistent</translation>
     </message>
 </context>
 <context>
     <name>chat/closechatadmin</name>
     <message>
         <source>has closed the chat!</source>
-        <translation type="unfinished"/>
+        <translation>har lukket samtalen!</translation>
     </message>
 </context>
 <context>
     <name>chat/chattabs</name>
     <message>
         <source>Pending confirm</source>
-        <translation>بانتظار الموافقة</translation>
+        <translation>Avventer bekreftelse</translation>
     </message>
     <message>
         <source>Active chats</source>
-        <translation>المحادثات الفعالة</translation>
+        <translation>Aktive samtaler</translation>
     </message>
     <message>
         <source>Closed chats</source>
-        <translation>المحادثات المغلقة</translation>
+        <translation>Lukkede samtaler</translation>
     </message>
     <message>
         <source>Accept chat</source>
-        <translation>اقبل المحادثة</translation>
+        <translation>Godta samtale</translation>
     </message>
     <message>
         <source>Open in a new window</source>
-        <translation type="unfinished"/>
+        <translation>Åpne i nytt vindu</translation>
     </message>
     <message>
         <source>Reject chat</source>
-        <translation>ارفُض المحادثة</translation>
+        <translation>Avvis samtale</translation>
     </message>
     <message>
         <source>Delete chat</source>
-        <translation>أزِل المحادثة</translation>
+        <translation>Slett samtale</translation>
     </message>
 </context>
 <context>
     <name>front/default</name>
     <message>
         <source>All pending chats</source>
-        <translation>كافة المحادثات المعلقة</translation>
+        <translation>Alle avventende samtaler</translation>
     </message>
     <message>
         <source>All unread chats</source>
-        <translation>كافة المحادثة غير المقروءة</translation>
+        <translation>Alle uleste samtaler</translation>
     </message>
     <message>
         <source>Unread messages</source>
-        <translation>الرسائل غير المقروءة</translation>
+        <translation>Uleste meldinger</translation>
     </message>
     <message>
         <source>Online operators</source>
-        <translation>مقدمو الدعم المتصلون</translation>
+        <translation>Påloggede operatører</translation>
     </message>
     <message>
         <source>All active chats</source>
-        <translation>كافة المحادثات الفعالة</translation>
+        <translation>Alle aktive samtaler</translation>
     </message>
     <message>
         <source>All closed chats</source>
-        <translation>كافة المحادثات المغلقة</translation>
+        <translation>Alle lukkede samtaler</translation>
     </message>
     <message>
         <source>Pending confirm</source>
-        <translation>بانتظار الموافقة</translation>
+        <translation>Avventer godkjenning</translation>
     </message>
     <message>
         <source>Active chats</source>
-        <translation>المحادثات الفعالة</translation>
+        <translation>Aktive samtaler</translation>
     </message>
     <message>
         <source>Closed chats</source>
-        <translation>المحادثات المغلقة</translation>
+        <translation>Lukkede samtaler</translation>
     </message>
     <message>
         <source>Accept chat</source>
-        <translation>اقبل المحادثة</translation>
+        <translation>Godta samtale</translation>
     </message>
     <message>
         <source>Open in a new window</source>
-        <translation type="unfinished"/>
+        <translation>Åpne i nytt vindu</translation>
     </message>
     <message>
         <source>Reject chat</source>
-        <translation>ارفُض المحادثة</translation>
+        <translation>Avvise samtale</translation>
     </message>
     <message>
         <source>Delete chat</source>
-        <translation>أزِل المحادثة</translation>
+        <translation>Slette samtale</translation>
     </message>
 </context>
 <context>
     <name>chat/chat</name>
     <message>
         <source>Pending confirm</source>
-        <translation>بانتظار الموافقة</translation>
+        <translation>Avvente godkjenning</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation>أغلق</translation>
+        <translation>Lukk</translation>
     </message>
     <message>
         <source>This chat is closed.</source>
-        <translation>هذه المحادثة مغلقة.</translation>
+        <translation>Denne samtalen er lukket</translation>
     </message>
     <message>
         <source>Operator is typing now...</source>
-        <translation>يكتب مقدم الدعم الآن ...</translation>
+        <translation>Operatør skriver nå...</translation>
     </message>
     <message>
         <source>User is typing now...</source>
-        <translation>يكتب العميل الآن...</translation>
+        <translation>Bruker skriver nå...</translation>
     </message>
     <message>
         <source>Chat started</source>
-        <translation>بدأت المحادثة</translation>
+        <translation>Samtale startet</translation>
     </message>
     <message>
         <source>Send</source>
-        <translation>أرسل</translation>
+        <translation>Send</translation>
     </message>
     <message>
         <source>Enter your message</source>
-        <translation>أدخل رسالتك</translation>
+        <translation>Skriv inn din melding</translation>
     </message>
     <message>
         <source>Support</source>
-        <translation>الدعم</translation>
+        <translation>Support</translation>
     </message>
 </context>
 <context>
     <name>chat/single</name>
     <message>
         <source>Chat started with</source>
-        <translation>بدأت المحادثة مع</translation>
+        <translation>Samtale startet med</translation>
     </message>
 </context>
 <context>
     <name>chat/checkchatstatus</name>
     <message>
         <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
-        <translation type="unfinished"/>
+        <translation>Venter på at support deltar i samtalen....  Du kan skrive spørsmålet ditt mens du venter.</translation>
     </message>
     <message>
         <source>A support staff member has joined this chat</source>
-        <translation type="unfinished"/>
+        <translation>Support har blitt med i samtalen</translation>
     </message>
     <message>
         <source>At this moment there are no logged in support staff members, but you can leave your messages</source>
-        <translation type="unfinished"/>
+        <translation>Det er ingen innloggede fra support, men du kan legge igjen en beskjed.</translation>
     </message>
     <message>
         <source>Support staff member has closed this chat</source>
-        <translation>أغلق مقدم الدعم هذه المحادثة</translation>
+        <translation>Support har lukket samtalen</translation>
     </message>
 </context>
 <context>
     <name>department/edit</name>
     <message>
         <source>Waiting for confirmation</source>
-        <translation>بانتظار الموافقة</translation>
+        <translation>Venter på bekreftelse</translation>
     </message>
     <message>
         <source>Edit department</source>
-        <translation>حَرِّر القسم</translation>
+        <translation>Rediger avdeling</translation>
     </message>
     <message>
         <source>E-mail</source>
-        <translation>البريد الإلكتروني</translation>
+        <translation>E-post</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>الاسم</translation>
+        <translation>Navn</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation>حدِّث</translation>
+        <translation>Oppdatering</translation>
     </message>
     <message>
         <source>Departments</source>
-        <translation>القسم</translation>
+        <translation>Avdelinger</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ألغِ</translation>
+        <translation>Avbryt</translation>
     </message>
     <message>
         <source>System configuration</source>
-        <translation>ضبط النظام</translation>
+        <translation>Systemkonfigurasjon</translation>
     </message>
     <message>
         <source>Priority</source>
-        <translation type="unfinished"/>
+        <translation>Prioritet</translation>
     </message>
 </context>
 <context>
     <name>department/departments</name>
     <message>
         <source>Departments</source>
-        <translation>القسم</translation>
+        <translation>Avdelinger</translation>
     </message>
     <message>
         <source>E-mail</source>
-        <translation>البريد الإلكتروني</translation>
+        <translation>E-post</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>الاسم</translation>
+        <translation>Fornavn</translation>
     </message>
     <message>
         <source>Edit department</source>
-        <translation>حَرِّر القسم</translation>
+        <translation>Rediger avdeling</translation>
     </message>
     <message>
         <source>Delete department</source>
-        <translation>أزِل القِسم</translation>
+        <translation>Slett avdeling</translation>
     </message>
     <message>
         <source>New department</source>
-        <translation>قسم جديد</translation>
+        <translation>Ny avdeling</translation>
     </message>
     <message>
         <source>System configuration</source>
-        <translation>ضبط النظام</translation>
+        <translation>Systemkonfigurasjon</translation>
     </message>
 </context>
 <context>
     <name>system/htmlcode</name>
     <message>
         <source>HTML code</source>
-        <translation>شفرة HTML</translation>
+        <translation>HTML kode</translation>
     </message>
     <message>
         <source>Disable pro active invitations, usefull if you want disable them from site part.</source>
-        <translation type="unfinished"/>
+        <translation>Deaktiver pro active invitasjoner</translation>
     </message>
     <message>
         <source>Leave empty if it is not important to you</source>
-        <translation type="unfinished"/>
+        <translation>La stå tom hvis dette ikke er relevant for deg</translation>
     </message>
     <message>
         <source>Show a leave a message form when there are no online operators</source>
-        <translation type="unfinished"/>
+        <translation>Vis &quot;legg igjen beskjed&quot; melding hvis ingen er online.</translation>
     </message>
     <message>
         <source>Chatbox messages content height</source>
-        <translation>ارتفاع محتوى رسائل صندوق المحادثة</translation>
+        <translation>Samtaleboks høyde</translation>
     </message>
     <message>
         <source>Page embed code</source>
-        <translation>شفرة تضمين الصفحة</translation>
+        <translation>Sideinnbakt kode</translation>
     </message>
     <message>
         <source>Department</source>
-        <translation type="unfinished"/>
+        <translation>Avdleing</translation>
     </message>
     <message>
         <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
-        <translation type="unfinished"/>
+        <translation>Identifikator</translation>
     </message>
     <message>
         <source>Any</source>
-        <translation type="unfinished"/>
+        <translation>Noen</translation>
     </message>
     <message>
         <source>height</source>
-        <translation>الارتفاع</translation>
+        <translation>høyde</translation>
     </message>
     <message>
         <source>Widget embed code</source>
-        <translation>شفرة تضمين الودجة</translation>
+        <translation>Widgetinnbakt kode</translation>
     </message>
     <message>
         <source>Widget width</source>
-        <translation>عرض الودجة</translation>
+        <translation>Widget bredde</translation>
     </message>
     <message>
         <source>Widget height</source>
-        <translation>ارتفاع الودجة</translation>
+        <translation>Widget høyde</translation>
     </message>
     <message>
         <source>Widget height in pixels</source>
-        <translation type="unfinished"/>
+        <translation>Widget høyde i px</translation>
     </message>
     <message>
         <source>Popup window size</source>
-        <translation>حجم النافذة المنبثقة</translation>
+        <translation>Popup vindustørrelse</translation>
     </message>
     <message>
         <source>Popup window width in pixels</source>
-        <translation>عرض النافذة المنبثقة بالبكسل</translation>
+        <translation>Popup vindubredde i px</translation>
     </message>
     <message>
         <source>Popup window height in pixels</source>
-        <translation>ارتفاع النافذة المنبثقة بالبكسل</translation>
+        <translation>Popup vinduhøyde i px</translation>
     </message>
     <message>
         <source>Widget width in pixels</source>
-        <translation>عرض الودجة بالبكسل</translation>
+        <translation>Widget bredde i px</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation>الحجم</translation>
+        <translation>Størrelse</translation>
     </message>
     <message>
         <source>Width</source>
-        <translation>العرض</translation>
+        <translation>Bredd</translation>
     </message>
     <message>
         <source>Height</source>
-        <translation>الارتفاع</translation>
+        <translation>Høyde</translation>
     </message>
     <message>
         <source>Copy the code from the tex tarea to the footer, before the closing &lt;/body&gt; tag</source>
-        <translation type="unfinished"/>
+        <translation>Kopier koden fra tekstfeltet til bunntekst, før den avsluttende &lt;/ body&gt;-koden</translation>
     </message>
     <message>
         <source>Copy the code from the text area to the page where you want it to be rendered</source>
-        <translation type="unfinished"/>
+        <translation>Copy the code from the text area to the page where you want it to be rendered</translation>
     </message>
     <message>
         <source>Embed html code</source>
-        <translation>ضمِّن شفرة HTML</translation>
+        <translation>Integrert html kode</translation>
     </message>
     <message>
         <source>Position from the top, only used if the Middle left or the Middle right side is chosen</source>
-        <translation type="unfinished"/>
+        <translation>Posisjon fra toppen, bruk kun hvis midt-venstre eller midt-høyre side er valgt</translation>
     </message>
     <message>
         <source>Check for messages from the operator</source>
-        <translation type="unfinished"/>
+        <translation>Sjekk etter meldinger fra operatør</translation>
     </message>
     <message>
         <source>On a mouse click show the page widget</source>
-        <translation type="unfinished"/>
+        <translation>Ved museklikk vis side widget</translation>
     </message>
     <message>
         <source>Choose a language</source>
-        <translation>اختَر لغةً</translation>
+        <translation>Velg språk</translation>
     </message>
     <message>
         <source>Position</source>
-        <translation>الموضِع</translation>
+        <translation>Posisjon</translation>
     </message>
     <message>
         <source>Native placement - it will be shown where the html is embedded</source>
-        <translation type="unfinished"/>
+        <translation>Native plassering - den viser hvor html-koden er innebygd</translation>
     </message>
     <message>
         <source>Bottom right corner of the screen</source>
-        <translation>الركن السفلي الأيمن من الشاشة</translation>
+        <translation>Nede til høyre av skjermen</translation>
     </message>
     <message>
         <source>Bottom left corner of the screen</source>
-        <translation>الركن السفلي الأيسر من الشاشة</translation>
+        <translation>Nede til venstre av skjermen</translation>
     </message>
     <message>
         <source>Middle right side of the screen</source>
-        <translation>الجانب المتوسط الأيمن من الشاشة</translation>
+        <translation>Midt på høyre side av skjermen</translation>
     </message>
     <message>
         <source>Middle left side of the screen</source>
-        <translation>الجانب المتوسط الأيسر من الشاشة</translation>
+        <translation>Midt på venstre side av skjermen</translation>
     </message>
     <message>
         <source>Hide status when offline</source>
-        <translation type="unfinished"/>
+        <translation>Skjul status når du er offline</translation>
     </message>
     <message>
         <source>Copy the code from the text area to the page where you want your status to appear</source>
-        <translation type="unfinished"/>
+        <translation>Kopier koden fra tekstfeltet til siden der du vil at statusen skal vises</translation>
     </message>
     <message>
         <source>System configuration</source>
-        <translation>ضبط النظام</translation>
+        <translation>Systemkonfigurasjon</translation>
     </message>
 </context>
 <context>
     <name>chat/syncandsoundesetting</name>
     <message>
         <source>Save</source>
-        <translation>احفظ</translation>
+        <translation>Lagre</translation>
     </message>
     <message>
         <source>Check for messages from the operators, interval in seconds</source>
-        <translation type="unfinished"/>
+        <translation>Se etter meldinger fra operatørene, intervall i sekunder</translation>
     </message>
     <message>
         <source>Please enter a valid operator message timeout value!</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst skriv inn en gyldig operatør melding timeout verdi!</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation>حدِّث</translation>
+        <translation>Oppdatering</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ألغِ</translation>
+        <translation>Avbryt</translation>
     </message>
     <message>
         <source>Settings updated</source>
-        <translation>حُدِّثت الإعدادات</translation>
+        <translation>Instillinger er oppdatert</translation>
     </message>
     <message>
         <source>How many seconds for a user to be considered as being online</source>
-        <translation type="unfinished"/>
+        <translation>Hvor mange sekund før en bruker blir erklært online</translation>
     </message>
     <message>
         <source>Sync for new chats, interval in seconds</source>
-        <translation>مزامنة المحادثات الجديدة، الفاصل بالثواني</translation>
+        <translation>Synk. for nye samtaler, intervall i sekunder</translation>
     </message>
     <message>
         <source>Sync for a new user message, interval in seconds</source>
-        <translation type="unfinished"/>
+        <translation>Synk. for ny brukermelding, intervall i sekunder</translation>
     </message>
     <message>
         <source>Play a new pending chat sound on a new chat request</source>
-        <translation type="unfinished"/>
+        <translation>Spill av en ny avventende samtale-lyd ved en ny samtaleforespørsel</translation>
     </message>
     <message>
         <source>Play a sound on a new message for a back office user</source>
-        <translation type="unfinished"/>
+        <translation>Spill av lyd på ny melding til en kontorbruker</translation>
     </message>
     <message>
         <source>Play a sound on a new message for a front end user</source>
-        <translation type="unfinished"/>
+        <translation>Spill av lyd på en ny melding til en front-end bruker</translation>
     </message>
     <message>
         <source>Synchronization and sound settings</source>
-        <translation type="unfinished"/>
+        <translation>Synk. og lydinstillinger</translation>
     </message>
     <message>
         <source>Please enter a valid online timeout value!</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst skriv inn en gyldig online timeout verdi!</translation>
     </message>
     <message>
         <source>Please enter a valid back office sync interval!</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst skriv inn en gyldig back office sync intervall!</translation>
     </message>
     <message>
         <source>Please enter a valid new messages sync interval!</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst skriv inn en gyldig ny melding sync intervall!</translation>
     </message>
 </context>
 <context>
     <name>chat/startchatformsettings</name>
     <message>
         <source>Start a chat form settings</source>
-        <translation type="unfinished"/>
+        <translation>Start samtaleskjema innstillinger</translation>
     </message>
     <message>
         <source>At least one field has to be visible and required in the popup and page widget</source>
-        <translation type="unfinished"/>
+        <translation>Minst ett felt må være synlig og nødvendig i popup og siden widget</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>الاسم</translation>
+        <translation>Navn</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>مطلوب</translation>
+        <translation>Obligatorisk</translation>
     </message>
     <message>
         <source>Optional</source>
-        <translation>اختياري</translation>
+        <translation>Alternativ</translation>
     </message>
     <message>
         <source>This field is visible in the popup</source>
-        <translation type="unfinished"/>
+        <translation>Dette feltet er synlig i popupen</translation>
     </message>
     <message>
         <source>This field is visible in the page widget</source>
-        <translation type="unfinished"/>
+        <translation>Dette feltet er synlig i side widgeten</translation>
     </message>
     <message>
         <source>This field is</source>
-        <translation>هذا الحقل</translation>
+        <translation>Dette feltet er</translation>
     </message>
     <message>
         <source>E-mail</source>
-        <translation>البريد الإلكتروني</translation>
+        <translation>E-post</translation>
     </message>
     <message>
         <source>Message</source>
-        <translation>الرسالة</translation>
+        <translation>Melding</translation>
     </message>
     <message>
         <source>Please choose at least one field for a popup</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst velg et va feltene for en popup</translation>
     </message>
     <message>
         <source>Please choose at least one field for a page widget</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst velg et av feltene for en side widget</translation>
     </message>
 </context>
 <context>
     <name>abstract/abstract_form</name>
     <message>
         <source>Updated!</source>
-        <translation>حُدِّث!</translation>
+        <translation>Oppdatert!</translation>
     </message>
 </context>
 <context>
     <name>abstract/email_template</name>
     <message>
         <source>E-mail templates</source>
-        <translation>قوالب البريد الإلكتروني</translation>
+        <translation>E-mail maler</translation>
     </message>
     <message>
         <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
-        <translation type="unfinished"/>
+        <translation>Mottakerens e-post, er dette brukes hvis søknaden ikke kunne bestemme hvem som skal motta en e-post.</translation>
     </message>
     <message>
         <source>Content</source>
-        <translation>المحتوى</translation>
+        <translation>Innhold</translation>
     </message>
     <message>
         <source>Allow to change reply e-mail</source>
-        <translation>السماح بتغيير بريد الرد</translation>
+        <translation>Tillat å endre reply-epost</translation>
     </message>
     <message>
         <source>Reply to</source>
-        <translation>ردًا على</translation>
+        <translation>Svar til</translation>
     </message>
     <message>
         <source>Allow to change from e-mail</source>
-        <translation>السماح بتغيير بريد المرسل</translation>
+        <translation>Tillat å endre &quot;fra&quot; epost</translation>
     </message>
     <message>
         <source>From e-mail, if mail was not sent for some reason, this mail will get a failed delivery message</source>
-        <translation type="unfinished"/>
+        <translation>Fra e-post, hvis posten ikke ble sendt for noen grunn, vil denne mailen får en leveringsmelding om at e-posten ikke kunne leveres</translation>
     </message>
     <message>
         <source>Allow to change from name</source>
-        <translation>السماح بتغيير اسم المرسل</translation>
+        <translation>Tillat å endre fra navn</translation>
     </message>
     <message>
         <source>From name</source>
-        <translation>اسم المرسل</translation>
+        <translation>Fra navn</translation>
     </message>
     <message>
         <source>Allow user to change subject</source>
-        <translation>السماح للمستخدم بتغيير الموضوع</translation>
+        <translation>Tillat brukere å endre emne</translation>
     </message>
     <message>
         <source>Subject</source>
-        <translation>الموضوع</translation>
+        <translation>Emne</translation>
     </message>
     <message>
         <source>Name, for personal purposes</source>
-        <translation>الاسم، للأغراض الشخصية</translation>
+        <translation>Navn, for personlige grunner</translation>
     </message>
 </context>
 <context>
     <name>system/configuration</name>
     <message>
         <source>HTML code</source>
-        <translation>شفرة HTML</translation>
+        <translation>HTML kode</translation>
     </message>
     <message>
         <source>Auto responder</source>
-        <translation type="unfinished"/>
+        <translation>Autosvar</translation>
     </message>
     <message>
         <source>Chats list</source>
-        <translation type="unfinished"/>
+        <translation>Samtaleliste</translation>
     </message>
     <message>
         <source>Pro active chat invitations</source>
-        <translation type="unfinished"/>
+        <translation>Pro active chat invitasjoner</translation>
     </message>
     <message>
         <source>Statistic</source>
-        <translation type="unfinished"/>
+        <translation>Statistikk</translation>
     </message>
     <message>
         <source>E-mail templates</source>
-        <translation>قوالب البريد الإلكتروني</translation>
+        <translation>E-post maler</translation>
     </message>
     <message>
         <source>New chat notification settings</source>
-        <translation type="unfinished"/>
+        <translation>Ny chat notifikasjonsinstillinger</translation>
     </message>
     <message>
         <source>Languages configuration</source>
-        <translation type="unfinished"/>
+        <translation>Språkkonfigurasjon</translation>
     </message>
     <message>
         <source>SMTP settings</source>
-        <translation type="unfinished"/>
+        <translation>SMTP instillinger</translation>
     </message>
     <message>
         <source>Request notification permission</source>
-        <translation type="unfinished"/>
+        <translation>Be om meldingstillatelse</translation>
     </message>
     <message>
         <source>Live help embed code</source>
-        <translation type="unfinished"/>
+        <translation>Live hjelpe innebygd kode</translation>
     </message>
     <message>
         <source>FAQ embed code</source>
-        <translation type="unfinished"/>
+        <translation>FAQ innebygget kode</translation>
     </message>
     <message>
         <source>Questionary embed code</source>
-        <translation type="unfinished"/>
+        <translation>Spørreskjema innebygd kode</translation>
     </message>
     <message>
         <source>Chatbox embed code</source>
-        <translation type="unfinished"/>
+        <translation>Samtalevindu innebygd kode</translation>
     </message>
     <message>
         <source>Canned messages</source>
-        <translation>الرسائل الجاهزة</translation>
+        <translation>Forhåndsmeldinger</translation>
     </message>
     <message>
         <source>Start chat form settings</source>
-        <translation>اعدادات نموذج بدء المحادثة</translation>
+        <translation>Start samtlaleskjema instillinger</translation>
     </message>
     <message>
         <source>Synchronization and sound settings</source>
-        <translation type="unfinished"/>
+        <translation>Synk. og lydinstillinger</translation>
     </message>
     <message>
         <source>Chat configuration</source>
-        <translation>ضبط المحادثة</translation>
+        <translation>Samtaleinstillinger</translation>
     </message>
     <message>
         <source>Chat related</source>
-        <translation type="unfinished"/>
+        <translation>Samtalesammenhengende</translation>
     </message>
     <message>
         <source>Users and their permissions</source>
-        <translation>المستخدمون وصلاحياتهم</translation>
+        <translation>Brukere og deres rettigheter</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation>أخرى</translation>
+        <translation>Andre</translation>
     </message>
     <message>
         <source>GEO detection configuration</source>
-        <translation>ضبط التقاط الموضع الجيوغرافي GEO</translation>
+        <translation>GEO deteksjonskonfigurasjon</translation>
     </message>
     <message>
         <source>Blocked users</source>
-        <translation>المستخدمون المحجوبون</translation>
+        <translation>Blokkede brukere</translation>
     </message>
     <message>
         <source>Users</source>
-        <translation>المستخدمون</translation>
+        <translation>Brukere</translation>
     </message>
     <message>
         <source>List of groups</source>
-        <translation>قائمة المجموعات</translation>
+        <translation>Liste over grupper</translation>
     </message>
     <message>
         <source>List of roles</source>
-        <translation>قائمة الأدوار</translation>
+        <translation>Liste over roller</translation>
     </message>
     <message>
         <source>Departments</source>
-        <translation>القسم</translation>
+        <translation>Avdelinger</translation>
     </message>
     <message>
         <source>System configuration</source>
-        <translation>ضبط النظام</translation>
+        <translation>Systemkonfigurasjon</translation>
     </message>
 </context>
 <context>
     <name>department/new</name>
     <message>
         <source>Please enter a department name</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst skriv inn en avdelingsnavn</translation>
     </message>
     <message>
         <source>New department</source>
-        <translation>قسم جديد</translation>
+        <translation>Ny avdeling</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>الاسم</translation>
+        <translation>Navn</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>احفظ</translation>
+        <translation>lagre</translation>
     </message>
     <message>
         <source>Departments</source>
-        <translation>القسم</translation>
+        <translation>Avdelinger</translation>
     </message>
     <message>
         <source>System configuration</source>
-        <translation>ضبط النظام</translation>
+        <translation>Systemkonfigurasjon</translation>
     </message>
 </context>
 <context>
     <name>user/userlist</name>
     <message>
         <source>Username</source>
-        <translation>اسم المستخدم</translation>
+        <translation>Brukernavn</translation>
     </message>
     <message>
         <source>System configuration</source>
-        <translation>ضبط النظام</translation>
+        <translation>Systemkonfigurasjon</translation>
     </message>
     <message>
         <source>Users</source>
-        <translation>المستخدمون</translation>
+        <translation>Brukere</translation>
     </message>
     <message>
         <source>E-mail</source>
-        <translation>البريد الإلكتروني</translation>
+        <translation>E-post</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>الاسم</translation>
+        <translation>navn</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation>حَرِّر</translation>
+        <translation>Rediger</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation>أَزِل</translation>
+        <translation>Slett</translation>
     </message>
     <message>
         <source>Last activity</source>
-        <translation>آخر نشاط</translation>
+        <translation>Siste aktivitet</translation>
     </message>
     <message>
         <source>Surname</source>
-        <translation>اللقب</translation>
+        <translation>Etternavn</translation>
     </message>
     <message>
         <source>Edit user</source>
-        <translation>حَرِّر المستخدم</translation>
+        <translation>Rediger bruker</translation>
     </message>
     <message>
         <source>Delete user</source>
-        <translation>أَزِل المستخدم</translation>
+        <translation>Slett bruker</translation>
     </message>
     <message>
         <source>New user</source>
-        <translation>مستخدم جديد</translation>
+        <translation>Ny bruker</translation>
     </message>
 </context>
 <context>
     <name>user/edit</name>
      <message>
         <source>Assigned departments</source>
-        <translation>الأقسام الملحقة</translation>
+        <translation>Tildelte avdelinger</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ألغِ</translation>
+        <translation>Avbryt</translation>
     </message>
     <message>
         <source>System configuration</source>
-        <translation>ضبط النظام</translation>
+        <translation>Systemkonfigurasjon</translation>
     </message>
     <message>
         <source>Users</source>
-        <translation>المستخدمون</translation>
+        <translation>Brukere</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>اسم المستخدم</translation>
+        <translation>Brukernavn</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>كلمة السر</translation>
+        <translation>Passord</translation>
     </message>
     <message>
         <source>Repeat the new password</source>
-        <translation type="unfinished"/>
+        <translation>Gjenta den nye passordet</translation>
     </message>
     <message>
         <source>Contact information</source>
-        <translation>معلومات الاتصال</translation>
+        <translation>Kontaktinformasjon</translation>
     </message>
     <message>
         <source>E-mail</source>
-        <translation>البريد الإلكتروني</translation>
+        <translation>E-post</translation>
     </message>
     <message>
         <source>User edit</source>
-        <translation>تحرير المستخدم</translation>
+        <translation>Rediger bruker</translation>
     </message>
     <message>
         <source>Login information</source>
-        <translation>معلومات الولوج</translation>
+        <translation>Logg inn informasjon</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>الاسم</translation>
+        <translation>Navn</translation>
     </message>
     <message>
         <source>Surname</source>
-        <translation>اللقب</translation>
+        <translation>Etternavn</translation>
     </message>
     <message>
         <source>Do not enter a password unless you want to change it</source>
-        <translation type="unfinished"/>
+        <translation>Skriv ikke inn et passord med mindre du vil endre det.</translation>
     </message>
     <message>
         <source>Please enter a name</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst skriv inn et navn</translation>
     </message>
     <message>
         <source>Please enter a surname</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst skriv inn et etternavn</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation>حدِّث</translation>
+        <translation>Oppdater</translation>
     </message>
     <message>
         <source>Wrong email address</source>
-        <translation>عنوان بريد إليكتروني خاطئ</translation>
+        <translation>Feil epost</translation>
     </message>
     <message>
         <source>Passwords mismatch</source>
-        <translation>كلمات السر غير متطابقة</translation>
+        <translation>Passordene stemmer ikke overens</translation>
     </message>
 </context>
 <context>
     <name>user/new</name>
     <message>
         <source>System configuration</source>
-        <translation>ضبط النظام</translation>
+        <translation>Systemkonfigurasjon</translation>
     </message>
     <message>
         <source>Please choose a default user group</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst velg en standard brukergruppe</translation>
     </message>
     <message>
         <source>Disabled</source>
-        <translation>مُعَطَّل</translation>
+        <translation>Deaktivert</translation>
     </message>
     <message>
         <source>User group</source>
-        <translation>مجموعة المستخدم</translation>
+        <translation>Brukergruppe</translation>
     </message>
     <message>
         <source>Departments</source>
-        <translation type="unfinished"/>
+        <translation>Avdelinger</translation>
     </message>
     <message>
         <source>All departments</source>
-        <translation>كافة الأقسام</translation>
+        <translation>Alle avdelinger</translation>
     </message>
     <message>
         <source>Do not show user status as online</source>
-        <translation>لا تعرض حالة المستخدم كمُتَّصِل</translation>
+        <translation>Ikke vis brukerstatus som online</translation>
     </message>
     <message>
         <source>Users</source>
-        <translation>المستخدمون</translation>
+        <translation>Brukere</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>اسم المستخدم</translation>
+        <translation>Brukernavn</translation>
     </message>
     <message>
         <source>Assigned departments</source>
-        <translation>الأقسام الملحقة</translation>
+        <translation>Tildelte avdelinger</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>كلمة السر</translation>
+        <translation>Passor</translation>
     </message>
     <message>
         <source>Repeat the new password</source>
-        <translation type="unfinished"/>
+        <translation>Gjenta det nye passordet</translation>
     </message>
     <message>
         <source>Contact information</source>
-        <translation>معلومات الاتصال</translation>
+        <translation>Kontakinformasjon</translation>
     </message>
     <message>
         <source>E-mail</source>
-        <translation>البريد الإلكتروني</translation>
+        <translation>E-post</translation>
     </message>
     <message>
         <source>New user</source>
-        <translation>مستخدم جديد</translation>
+        <translation>Ny bruker</translation>
     </message>
     <message>
         <source>Login information</source>
-        <translation>معلومات الولوج</translation>
+        <translation>Logininformasjon</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>الاسم</translation>
+        <translation>navn</translation>
     </message>
     <message>
         <source>Surname</source>
-        <translation>اللقب</translation>
+        <translation>Etternavn</translation>
     </message>
     <message>
         <source>Please enter a name</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst skriv inn et navn</translation>
     </message>
     <message>
         <source>Please enter a surname</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst skriv inn et etternavn</translation>
     </message>
     <message>
         <source>Please enter a username</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst skriv inn et brukernavn</translation>
     </message>
     <message>
         <source>User exists</source>
-        <translation>المستخدم موجود</translation>
+        <translation>Brukeren eksisterer</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>احفظ</translation>
+        <translation>Lagre</translation>
     </message>
     <message>
         <source>Wrong email address</source>
-        <translation>بريد إليكتروني خاطئ</translation>
+        <translation>Feil epostadresse</translation>
     </message>
     <message>
         <source>Passwords mismatch</source>
-        <translation>كلمات السر غير متطابقة</translation>
+        <translation>Passordene stemmer ikke</translation>
     </message>
 </context>
 <context>
     <name>user/account</name>
     <message>
         <source>Assigned departments</source>
-        <translation>الأقسام الملحقة</translation>
+        <translation>Tildelte avdelinger</translation>
     </message>
     <message>
         <source>Account data</source>
-        <translation>بيانات الحساب</translation>
+        <translation>Kontodata</translation>
     </message>
     <message>
         <source>Assigned departments</source>
-        <translation>الأقسام الملحقة</translation>
+        <translation>Tildelte avdelinger</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation>أخرى</translation>
+        <translation>Andre</translation>
     </message>
     <message>
         <source>Visible lists</source>
-        <translation>القوائم الظاهرة</translation>
+        <translation>Synlige lsiter</translation>
     </message>
     <message>
         <source>Pending chats tab enabled</source>
-        <translation>فُعِّل لسان المحادثات المُعلقة</translation>
+        <translation>Avventende samtale tabs aktivert</translation>
     </message>
     <message>
         <source>Active chats tab enabled</source>
-        <translation>فُعِّل لسان المحادثات الفعالة</translation>
+        <translation>Aktive samtale tabs aktivert</translation>
     </message>
     <message>
         <source>Unread chats tab enabled</source>
-        <translation>فُعِّل لسان المحادثات غير المقروءة</translation>
+        <translation>Uleste samtalekategorier aktivert</translation>
     </message>
     <message>
         <source>Closed chats tab enabled</source>
-        <translation>فُعِّل لسان المحادثات المُغلقة</translation>
+        <translation>Stengte samtalekategorier aktivert</translation>
     </message>
     <message>
         <source>Enter a new password</source>
-        <translation type="unfinished"/>
+        <translation>Skriv inn et nytt passord</translation>
     </message>
     <message>
         <source>Repeat the new password</source>
-        <translation type="unfinished"/>
+        <translation>Gjenta et nytt passord</translation>
     </message>
     <message>
         <source>You have global right to see all departments chats</source>
-        <translation>لديك صلاحية شاملة لرؤية جميع محادثات الأقسام</translation>
+        <translation>Du har globale rettigheter til å se alle avdelingssamtaler</translation>
     </message>
     <message>
         <source>Logged user</source>
-        <translation>المستخدم المسجل</translation>
+        <translation>Logget bruker</translation>
     </message>
     <message>
         <source>Logout</source>
-        <translation>اخرج</translation>
+        <translation>Logg ut</translation>
     </message>
     <message>
         <source>Account</source>
-        <translation>الحساب</translation>
+        <translation>Konto</translation>
     </message>
     <message>
         <source>Do not enter a password unless you want to change it</source>
-        <translation type="unfinished"/>
+        <translation>Skriv ikke inn en passord med mindre du vil endre det</translation>
     </message>
     <message>
         <source>Login information</source>
-        <translation>معلومات الولوج</translation>
+        <translation>Logg inn informasjon</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>اسم المستخدم</translation>
+        <translation>Brukernavn</translation>
     </message>
     <message>
         <source>Return</source>
-        <translation>عُد</translation>
+        <translation>Tilbake</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>كلمة السر</translation>
+        <translation>Passor</translation>
     </message>
     <message>
         <source>Repeat password</source>
-        <translation>إعادة كلمة السر</translation>
+        <translation>Gjenta passord</translation>
     </message>
     <message>
         <source>Contact information</source>
-        <translation>معلومات الاتصال</translation>
+        <translation>Kontaktinformasjon</translation>
     </message>
     <message>
         <source>E-mail</source>
-        <translation>البريد الإلكتروني</translation>
+        <translation>E-post</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation>حدِّث</translation>
+        <translation>Oppdatere</translation>
     </message>
     <message>
         <source>Account updated</source>
-        <translation>حدِّث الحساب</translation>
+        <translation>Konto oppdatert</translation>
     </message>
     <message>
         <source>Wrong email address</source>
-        <translation>عنوان بريد إليكتروني خاطئ</translation>
+        <translation>Feil epost adresse</translation>
     </message>
     <message>
         <source>Passwords mismatch</source>
-        <translation>كلمتي السر غير متطابقتين</translation>
+        <translation>Passord stemmer ikke</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>الاسم</translation>
+        <translation>Navn</translation>
     </message>
     <message>
         <source>Surname</source>
-        <translation>اللقب</translation>
+        <translation>Etternavn</translation>
     </message>
     <message>
         <source>Please enter a name</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst skriv inn et navn</translation>
     </message>
     <message>
         <source>Please enter a surname</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst skriv inn et etternavn</translation>
     </message>
 </context>
 <context>
     <name>faq/list</name>
     <message>
         <source>FAQ</source>
-        <translation>الأسئلة الشائعة</translation>
+        <translation>FAQ</translation>
     </message>
     <message>
         <source>Question</source>
-        <translation>السؤال</translation>
+        <translation>Spørsmål</translation>
     </message>
     <message>
         <source>Active</source>
-        <translation>فعّال</translation>
+        <translation>Aktiv</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation>حَرِّر</translation>
+        <translation>Rediger</translation>
     </message>
     <message>
         <source>Delete this question</source>
-        <translation>أَزِل هذا السؤال</translation>
+        <translation>Slette dette spørsmålet</translation>
     </message>
     <message>
         <source>New question</source>
-        <translation>سؤالٌ جديد</translation>
+        <translation>Nytt spørsmål</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation>نعم</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>N</source>
-        <translation>لا</translation>
+        <translation>N</translation>
     </message>
 </context>
 <context>
     <name>faq/new</name>
     <message>
         <source>Question</source>
-        <translation>السؤال</translation>
+        <translation>Spørsmål</translation>
     </message>
     <message>
         <source>FAQ description</source>
-        <translation>وصف الأسئلة الشائعة</translation>
+        <translation>FAQ beskrivelse</translation>
     </message>
     <message>
         <source>New question</source>
-        <translation>سؤالٌ جديد</translation>
+        <translation>Nytt spørsmål</translation>
     </message>
     <message>
         <source>Answer</source>
-        <translation>الإجابة</translation>
+        <translation>Svar</translation>
     </message>
     <message>
         <source>The URL where this question should appear, leave it empty for all</source>
-        <translation type="unfinished"/>
+        <translation>Nettadressen hvor dette spørsmålet skal vises, la det tomt for alle</translation>
     </message>
     <message>
         <source>Question is active</source>
-        <translation type="unfinished"/>
+        <translation>Spørsmål er aktiv</translation>
     </message>
 </context>
 <context>
     <name>faq/view</name>
     <message>
         <source>Please enter answer!</source>
-        <translation>من فضلك أدخل سؤالًا!</translation>
+        <translation>Vennligst skriv inn et svar!</translation>
     </message>
     <message>
         <source>View</source>
-        <translation>اعرض</translation>
+        <translation>Se</translation>
     </message>
     <message>
         <source>FAQ description</source>
-        <translation>وصف الأسئلة الشائعة</translation>
+        <translation>FAQ beskrivelse</translation>
     </message>
     <message>
         <source>Please enter a question!</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst skriv et spørmål!</translation>
     </message>
     <message>
         <source>FAQ</source>
-        <translation>الأسئلة الشائعة</translation>
+        <translation>FAQ</translation>
     </message>
     <message>
         <source>Please enter a manager name!</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst skriv inn managernavn!</translation>
     </message>
     <message>
         <source>Please enter a chatbox name!</source>
-        <translation type="unfinished"/>
+        <translation>vennligst skriv inn et samtaleboksnavn!</translation>
     </message>
     <message>
         <source>Please enter a chatbox identifier!</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst skriv inn et samtaleboks identifikator!</translation>
     </message>
 </context>
 <context>
     <name>faq/faqwidget</name>
     <message>
         <source>FAQ</source>
-        <translation>الأسئلة الشائعة</translation>
+        <translation>FAQ</translation>
     </message>
     <message>
         <source>Ask a question</source>
-        <translation>اسأل سؤالًا</translation>
+        <translation>Spør et spørsmål</translation>
     </message>
     <message>
         <source>Your question was submitted!</source>
-        <translation>أُرْسِل سُؤَالُك!</translation>
+        <translation>Spørsmålet ditt ble innlevert!</translation>
     </message>
     <message>
         <source>Type your question</source>
-        <translation>اكتب سؤالك</translation>
+        <translation>Skriv ditt spørsmål</translation>
     </message>
     <message>
         <source>Question</source>
-        <translation>السؤال</translation>
+        <translation>Spørsmål</translation>
     </message>
     <message>
         <source>Send your question</source>
-        <translation type="unfinished"/>
+        <translation>Send ditt spørsmål</translation>
     </message>
     <message>
         <source>Please enter a question!</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst skriv inn et spørsmål!</translation>
     </message>
 </context>
 <context>
     <name>chatbox/configuration</name>
     <message>
         <source>Chatbox</source>
-        <translation>صندوق المحادثة</translation>
+        <translation>Samtaleboks</translation>
     </message>
     <message>
         <source>Chatbox list</source>
-        <translation>قائمة صندوق المحادثة</translation>
+        <translation>Samtaleboksliste</translation>
     </message>
     <message>
         <source>General settings</source>
-        <translation>الإعدادات العامة</translation>
+        <translation>Generelle instillinger</translation>
     </message>
     <message>
         <source>General</source>
-        <translation>عام</translation>
+        <translation>Generell</translation>
     </message>
     <message>
         <source>Embed code generation</source>
-        <translation>توليد الشفرة المضمنة</translation>
+        <translation>Integrert kode generering</translation>
     </message>
 </context>
 <context>
     <name>chatbox/generalsettings</name>
     <message>
         <source>Chatbox settings</source>
-        <translation>إعدادات صندوق المحادثة</translation>
+        <translation>Samtaleboks instillinger</translation>
     </message>
     <message>
         <source>Default new chatbox name</source>
-        <translation>اسم افتراضي جديد لصندوق المحادثة</translation>
+        <translation>Standard nytt samtalevindu navn</translation>
     </message>
     <message>
         <source>Default operator name</source>
-        <translation>اسم مقدم الدعم الافتراضي</translation>
+        <translation>Standard operatørnavn</translation>
     </message>
     <message>
         <source>Messages limit in the chatbox</source>
-        <translation type="unfinished"/>
+        <translation>Meldingsbegrensning i samtalevindu</translation>
     </message>
     <message>
         <source>Auto creation by chatbox identifier is enabled</source>
-        <translation type="unfinished"/>
+        <translation>Auto opprettelse av chatbox identifikator er aktivert</translation>
     </message>
     <message>
         <source>Secret hash, this is used when auto creation is disabled</source>
-        <translation type="unfinished"/>
+        <translation>Secret hash, dette brukes når automatisk oppretting er deaktivert</translation>
     </message>
     <message>
         <source>more information on how to use it</source>
-        <translation type="unfinished"/>
+        <translation>mer informasjon om hvordan en kan bruke det</translation>
     </message>
 </context>
 <context>
     <name>chatbox/list</name>
     <message>
         <source>Chatbox list</source>
-        <translation>قائمة صندوق المحادثة</translation>
+        <translation>Samtalevinduliste</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>الاسم</translation>
+        <translation>Navn</translation>
     </message>
     <message>
         <source>Identifier</source>
-        <translation>المعرف</translation>
+        <translation>Identifikator</translation>
     </message>
 </context>
 <context>
     <name>user/forgotpasswordsent</name>
     <message>
         <source>Password reminder</source>
-        <translation type="unfinished"/>
+        <translation>Passord påminnelse</translation>
     </message>
     <message>
         <source>E-mail sent. Click the link in the email and You will be sent out a new password.</source>
-        <translation type="unfinished"/>
+        <translation>E-post sendes. Klikk på linken i e-posten og du vil bli sendt ut et nytt passord.</translation>
     </message>
 </context>
 <context>
     <name>chatbox/form</name>
     <message>
         <source>Chatbox name</source>
-        <translation>اسم صندوق المحادثة</translation>
+        <translation>Samtalevindu navn</translation>
     </message>
     <message>
         <source>Name of manager</source>
-        <translation>اسم المدير</translation>
+        <translation>Navnet til daglig leder</translation>
     </message>
     <message>
         <source>Identifier</source>
-        <translation>المعرف</translation>
+        <translation>Identifikator</translation>
     </message>
     <message>
         <source>Chatbox active</source>
-        <translation>تفعيل صندوق المحادثة</translation>
+        <translation>Samtalevindu aktivt</translation>
     </message>
 </context>
 <context>
     <name>system/smtp</name>
     <message>
         <source>SMTP settings</source>
-        <translation type="unfinished"/>
+        <translation>SMTP instillinger</translation>
     </message>
     <message>
         <source>Settings updated</source>
-        <translation type="unfinished"/>
+        <translation>Instillinger er oppdatert</translation>
     </message>
     <message>
         <source>SMTP enabled</source>
-        <translation type="unfinished"/>
+        <translation>SMTP aktivert</translation>
     </message>
     <message>
         <source>Login</source>
-        <translation type="unfinished"/>
+        <translation>Logg inn</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>Passord</translation>
     </message>
     <message>
         <source>Host</source>
-        <translation type="unfinished"/>
+        <translation>Vert</translation>
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished"/>
+        <translation>Port</translation>
     </message>
 </context>
 </TS>

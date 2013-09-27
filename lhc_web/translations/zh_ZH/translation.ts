@@ -44,6 +44,22 @@
         <translation>用于个人目的的名称</translation>
     </message>
     <message>
+        <source>Operator name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Wait timeout. Time in seconds before timeout message is shown.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show visitor this message then wait timeout passes.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>If you want pro active chat invitation to work it has to be enabled in</source>
         <translation>如果你想親主動聊天邀請工作，它必須啟用</translation>
     </message>
@@ -516,6 +532,10 @@
         <translation>启用/禁用用户的新邮件的声音</translation>
     </message>
     <message>
+        <source>Send chat transcript to your e-mail</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Change my status to online/offline</source>
         <translation>我的状态更改为联机/脱机</translation>
     </message>
@@ -526,6 +546,10 @@
     <message>
         <source>Enable/Disable sound about new messages from the operator</source>
         <translation>启用/禁用声音从运营商新的消息</translation>
+    </message>
+    <message>
+        <source>Print</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -571,10 +595,21 @@
     </message>
 </context>
 <context>
+    <name>chat/sendchat</name>
+    <message>
+        <source>Enter your e-mail</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>system/buttons</name>
     <message>
         <source>Save</source>
         <translation>节省</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Update</source>
@@ -756,6 +791,14 @@
     <message>
         <source>minit</source>
         <translation>分钟</translation>
+    </message>
+    <message>
+        <source>hour</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show visitors who visited site in the past</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Came from</source>
@@ -1258,6 +1301,10 @@
         <source>Waiting for confirmation</source>
         <translation>等待确认</translation>
     </message>
+    <message>
+        <source>Resume chat</source>
+        <translation>恢复聊天</translation>
+    </message>
 </context>
 <context>
     <name>user/newgroup</name>
@@ -1496,6 +1543,10 @@
     <message>
         <source>Page</source>
         <translation>页</translation>
+    </message>
+    <message>
+        <source>Print</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Chat duration</source>
@@ -2020,6 +2071,14 @@
         <translation>并使用</translation>
     </message>
     <message>
+        <source>Go back</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You do not have permission to edit selected object</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>function</source>
         <translation>功能</translation>
     </message>
@@ -2223,12 +2282,28 @@
         <translation>最大50个字符</translation>
     </message>
     <message>
+        <source>Live Support</source>
+        <translation>現場支持</translation>
+    </message>
+    <message>
         <source>Invalid captcha code, please enable Javascript!</source>
         <translation>无效的图形验证码，请启用Javascript！</translation>
     </message>
     <message>
         <source>Maximum 500 characters for message</source>
         <translation>最多500个字符的消息</translation>
+    </message>
+    <message>
+        <source>Type your message here and hit enter to send...</source>
+        <translation>輸入您的留言，並按下回車鍵發送...</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation>发送</translation>
+    </message>
+    <message>
+        <source>Offline</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Leave a message</source>
@@ -2568,6 +2643,10 @@
     <message>
         <source>System configuration</source>
         <translation>系统配置</translation>
+    </message>
+    <message>
+        <source>Priority</source>
+        <translation>优先</translation>
     </message>
 </context>
 <context>
@@ -2935,6 +3014,10 @@
         <translation>HTML代码</translation>
     </message>
     <message>
+        <source>Auto responder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Chats list</source>
         <translation>聊天列表</translation>
     </message>
@@ -2967,8 +3050,20 @@
         <translation>请求通知权限</translation>
     </message>
     <message>
-        <source>Chat embed code</source>
-        <translation>聊天嵌入代码</translation>
+        <source>Live help embed code</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>FAQ embed code</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Questionary embed code</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Chatbox embed code</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Canned messages</source>
