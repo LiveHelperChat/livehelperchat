@@ -4,7 +4,9 @@
 		<a href="#panel2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Footprint')?></a>
 	</p>
 	<div class="content" data-section-content>
-		<?php include(erLhcoreClassDesign::designtpl('lhchat/footprint.tpl.php'));?>
+		<div class="mx170">
+			<?php include(erLhcoreClassDesign::designtpl('lhchat/footprint.tpl.php'));?>
+		</div>
 	</div>
 </section>
 <?php endif;?>

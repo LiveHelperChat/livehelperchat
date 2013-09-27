@@ -23,7 +23,10 @@ body {
 	white-space: nowrap;
 }
 
-
+.mx170{
+	max-height:170px;
+	overflow:auto;
+}
 
 .mb0{
 	margin-bottom:0 !important;

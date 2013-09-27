@@ -15,25 +15,6 @@ $userOwner = 'true';
 
 if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 {
-	// Auto responder
-	if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && $chat->wait_timeout_send == 0 && $chat->wait_timeout > 0 && !empty($chat->timeout_message) && (time() - $chat->time) > $chat->wait_timeout) {
-		$msg = new erLhcoreClassModelmsg();
-		$msg->msg = trim($chat->timeout_message);
-		$msg->chat_id = $chat->id;
-		$msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
-		$msg->user_id = 1;
-		$msg->time = time();
-		erLhcoreClassChat::getSession()->save($msg);
-
-		if ($chat->last_msg_id < $msg->id) {
-			$chat->last_msg_id = $msg->id;
-		}
-
-		$chat->timeout_message = '';
-		$chat->wait_timeout_send = 1;
-		$chat->saveThis();
-	}
-
 	// Sync only if chat is pending or active
 	if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) {
 		// Check for new messages only if chat last message id is greater than user last message id
@@ -62,6 +43,25 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		if ( $chat->is_operator_typing == true ) {
 			$is_operator_typing = 'true';
 		}
+	}
+
+	// Auto responder
+	if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && $chat->wait_timeout_send == 0 && $chat->wait_timeout > 0 && !empty($chat->timeout_message) && (time() - $chat->time) > $chat->wait_timeout) {
+		$msg = new erLhcoreClassModelmsg();
+		$msg->msg = trim($chat->timeout_message);
+		$msg->chat_id = $chat->id;
+		$msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
+		$msg->user_id = 1;
+		$msg->time = time()+3;
+		erLhcoreClassChat::getSession()->save($msg);
+
+		if ($chat->last_msg_id < $msg->id) {
+			$chat->last_msg_id = $msg->id;
+		}
+
+		$chat->timeout_message = '';
+		$chat->wait_timeout_send = 1;
+		$chat->saveThis();
 	}
 
     // Closed

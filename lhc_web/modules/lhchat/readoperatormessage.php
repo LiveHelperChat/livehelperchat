@@ -66,6 +66,10 @@ if (isset($_POST['askQuestion']))
        $userInstance->chat_id = $chat->id;
        $userInstance->saveThis();
 
+       if ( erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1) {
+       		erLhcoreClassModelChatOnlineUserFootprint::assignChatToPageviews($userInstance);
+       }
+
        // Store Message from operator
        $msg = new erLhcoreClassModelmsg();
        $msg->msg = trim($userInstance->operator_message);
