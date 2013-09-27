@@ -52,7 +52,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		$msg->chat_id = $chat->id;
 		$msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
 		$msg->user_id = 1;
-		$msg->time = time()+3;
+		$msg->time = time();
 		erLhcoreClassChat::getSession()->save($msg);
 
 		if ($chat->last_msg_id < $msg->id) {

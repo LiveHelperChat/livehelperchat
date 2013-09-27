@@ -141,7 +141,7 @@ if (isset($_POST['StartChat'])) {
 		       		$msg->chat_id = $chat->id;
 		       		$msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
 		       		$msg->user_id = 1;
-		       		$msg->time = time();
+		       		$msg->time = time()+5;
 		       		erLhcoreClassChat::getSession()->save($msg);
 
 		       		if ($chat->last_msg_id < $msg->id) {
