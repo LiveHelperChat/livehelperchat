@@ -37,7 +37,8 @@ return array (
       	12 => 'chn',
       	13 => 'cse',
       	14 => 'nor',
-      	15 => 'site_admin'
+      	15 => 'tur',
+      	16 => 'site_admin'
       ),
     ),
     'default_url' =>
@@ -258,6 +259,24 @@ return array (
       array (
     	'locale' => 'it_IT',
     	'content_language' => 'it',
+    	'dir_language' => 'ltr',
+    	'title' => '',
+    	'description' => '',
+    	'theme' =>
+      	array (
+    		0 => 'customtheme',
+    		1 => 'defaulttheme'
+      	),
+    	   'default_url' =>
+    	array (
+    		'module' => 'chat',
+    		'view' => 'startchat'
+    	),
+      ),
+      'tur' =>
+      array (
+    	'locale' => 'tr_TR',
+    	'content_language' => 'tr',
     	'dir_language' => 'ltr',
     	'title' => '',
     	'description' => '',
