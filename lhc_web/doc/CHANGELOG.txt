@@ -12,6 +12,7 @@ Features:
 Bugfix:
 1. Footpath was stopped tracking if user was having a chat in chatwidget.
 2. Online users were tracked even if online users tracking was disabled.
+3. There was a bug which coused double time for online user if checking for messages from operator was enabled. Also now we do not update database within each check for message.
 
 execute doc/update_db/update_38.sql
 
