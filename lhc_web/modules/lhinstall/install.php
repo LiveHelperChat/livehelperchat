@@ -244,6 +244,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `phone` varchar(100) NOT NULL,
 				  `has_unread_messages` int(11) NOT NULL,
 				  `last_user_msg_time` int(11) NOT NULL,
+				  `online_user_id` int(11) NOT NULL,
 				  `last_msg_id` int(11) NOT NULL,
 				  `additional_data` varchar(250) NOT NULL,
 				  `timeout_message` varchar(250) NOT NULL,
@@ -260,6 +261,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  PRIMARY KEY (`id`),
 				  KEY `status` (`status`),
 				  KEY `user_id` (`user_id`),
+				  KEY `online_user_id` (`online_user_id`),
 				  KEY `dep_id` (`dep_id`),
 				  KEY `has_unread_messages_dep_id_id` (`has_unread_messages`,`dep_id`,`id`),
 				  KEY `status_dep_id_id` (`status`,`dep_id`,`id`),
@@ -431,7 +433,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 			   $exportHash = erLhcoreClassModelForgotPassword::randomPassword(9);
 
         	   $db->query("INSERT INTO `lh_chat_config` (`identifier`, `value`, `type`, `explain`, `hidden`) VALUES
-                ('tracked_users_cleanup',	'7',	0,	'How many days keep records of online users.',	0),
+                ('tracked_users_cleanup',	'160',	0,	'How many days keep records of online users.',	0),
         	   	('list_online_operators', '0', '0', 'List online operators, 0 - no, 1 - yes.', '0'),
         	   	('voting_days_limit',	'7',	0,	'How many days voting widget should not be expanded after last show',	0),
                 ('track_online_visitors',	'0',	0,	'Enable online site visitors tracking, 0 - no, 1 - yes',	0),
@@ -446,6 +448,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('pro_active_limitation',	'-1',	0,	'Pro active chats invitations limitation based on pending chats, (-1) do not limit, (0,1,n+1) number of pending chats can be for invitation to be shown.',	0),
                 ('pro_active_show_if_offline',	'0',	0,	'Should invitation logic be executed if there is no online operators, 0 - no, 1 - yes',	0),
                 ('export_hash',	'{$exportHash}',	0,	'Chats export secret hash',	0),
+                ('message_seen_timeout', 24, 0, 'Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.',	0),
                 ('reopen_chat_enabled',1,	0,	'Reopen chat functionality enabled, 0 - No, 1 - Yes',	0),
                 ('geo_data', '', '0', '', '1')");
 
@@ -459,7 +462,10 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  `invitation_id` int(11) NOT NULL,
                   `last_visit` int(11) NOT NULL,
         	   	  `first_visit` int(11) NOT NULL,
+        	   	  `total_visits` int(11) NOT NULL,
         	   	  `pages_count` int(11) NOT NULL,
+        	   	  `tt_pages_count` int(11) NOT NULL,
+        	   	  `invitation_count` int(11) NOT NULL,
                   `user_agent` varchar(250) NOT NULL,
                   `user_country_code` varchar(50) NOT NULL,
                   `user_country_name` varchar(50) NOT NULL,
@@ -467,6 +473,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `operator_user_proactive` varchar(100) NOT NULL,
                   `operator_user_id` int(11) NOT NULL,
                   `message_seen` int(11) NOT NULL,
+                  `message_seen_ts` int(11) NOT NULL,
         	   	  `lat` varchar(10) NOT NULL,
   				  `lon` varchar(10) NOT NULL,
   				  `city` varchar(100) NOT NULL,

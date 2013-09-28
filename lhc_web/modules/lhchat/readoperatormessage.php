@@ -63,8 +63,11 @@ if (isset($_POST['askQuestion']))
 
        // Mark as user has read message from operator.
        $userInstance->message_seen = 1;
+       $userInstance->message_seen_ts = time();
        $userInstance->chat_id = $chat->id;
        $userInstance->saveThis();
+
+       $chat->online_user_id = $userInstance->id;
 
        if ( erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1) {
        		erLhcoreClassModelChatOnlineUserFootprint::assignChatToPageviews($userInstance);

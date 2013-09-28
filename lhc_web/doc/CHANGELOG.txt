@@ -1,3 +1,15 @@
+1.55v
+
+Features:
+1. Total pageviews tracking - pageviews during all the visits
+2. Visits counting.
+3. Option to set, after how many hours pro active chat message should be shown again.
+4. Previous users chats in chat tab window.
+5. How many times proactive chat message logic was applied counter.
+6. User browsing information in chat window.
+
+execute doc/update_db/update_38.sql
+
 1.54v
 
 Features:

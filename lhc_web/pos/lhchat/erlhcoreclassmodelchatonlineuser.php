@@ -39,16 +39,31 @@ $def->properties['first_visit']->columnName   = 'first_visit';
 $def->properties['first_visit']->propertyName = 'first_visit';
 $def->properties['first_visit']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+// Current visit session pages count
 $def->properties['pages_count'] = new ezcPersistentObjectProperty();
 $def->properties['pages_count']->columnName   = 'pages_count';
 $def->properties['pages_count']->propertyName = 'pages_count';
 $def->properties['pages_count']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+// Total pages count including previous sessions
+$def->properties['tt_pages_count'] = new ezcPersistentObjectProperty();
+$def->properties['tt_pages_count']->columnName   = 'tt_pages_count';
+$def->properties['tt_pages_count']->propertyName = 'tt_pages_count';
+$def->properties['tt_pages_count']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+// How many times invitation message was assigned
+$def->properties['invitation_count'] = new ezcPersistentObjectProperty();
+$def->properties['invitation_count']->columnName   = 'invitation_count';
+$def->properties['invitation_count']->propertyName = 'invitation_count';
+$def->properties['invitation_count']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+// Time on site for curent visit session
 $def->properties['time_on_site'] = new ezcPersistentObjectProperty();
 $def->properties['time_on_site']->columnName   = 'time_on_site';
 $def->properties['time_on_site']->propertyName = 'time_on_site';
 $def->properties['time_on_site']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+// Total time on site including previous visits
 $def->properties['tt_time_on_site'] = new ezcPersistentObjectProperty();
 $def->properties['tt_time_on_site']->columnName   = 'tt_time_on_site';
 $def->properties['tt_time_on_site']->propertyName = 'tt_time_on_site';
@@ -108,6 +123,12 @@ $def->properties['message_seen']->columnName   = 'message_seen';
 $def->properties['message_seen']->propertyName = 'message_seen';
 $def->properties['message_seen']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+// Time then message seen action accured
+$def->properties['message_seen_ts'] = new ezcPersistentObjectProperty();
+$def->properties['message_seen_ts']->columnName   = 'message_seen_ts';
+$def->properties['message_seen_ts']->propertyName = 'message_seen_ts';
+$def->properties['message_seen_ts']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['invitation_id'] = new ezcPersistentObjectProperty();
 $def->properties['invitation_id']->columnName   = 'invitation_id';
 $def->properties['invitation_id']->propertyName = 'invitation_id';
@@ -122,6 +143,12 @@ $def->properties['referrer'] = new ezcPersistentObjectProperty();
 $def->properties['referrer']->columnName   = 'referrer';
 $def->properties['referrer']->propertyName = 'referrer';
 $def->properties['referrer']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+// Total visits to site, visit counts if 30 minits has passed since last page view
+$def->properties['total_visits'] = new ezcPersistentObjectProperty();
+$def->properties['total_visits']->columnName   = 'total_visits';
+$def->properties['total_visits']->propertyName = 'total_visits';
+$def->properties['total_visits']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 return $def;
 

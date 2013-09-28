@@ -19,7 +19,9 @@ class erLhcoreClassModelChatOnlineUser {
                'operator_user_id'   	   => $this->operator_user_id,
                'operator_user_proactive'   => $this->operator_user_proactive,
                'message_seen'       => $this->message_seen,
+               'message_seen_ts'    => $this->message_seen_ts,
                'pages_count'        => $this->pages_count,
+               'tt_pages_count'     => $this->tt_pages_count,
                'lat'        		=> $this->lat,
                'lon'        		=> $this->lon,
                'city'        		=> $this->city,
@@ -28,6 +30,8 @@ class erLhcoreClassModelChatOnlineUser {
                'tt_time_on_site'    => $this->tt_time_on_site,
                'referrer'    		=> $this->referrer,
                'invitation_id'    	=> $this->invitation_id,
+               'total_visits'    	=> $this->total_visits,
+               'invitation_count'   => $this->invitation_count,
        );
    }
 
@@ -45,6 +49,14 @@ class erLhcoreClassModelChatOnlineUser {
    }
 
    public function removeThis() {
+
+   	   $q = ezcDbInstance::get()->createDeleteQuery();
+
+	   // Delete user footprint
+	   $q->deleteFrom( 'lh_chat_online_user_footprint' )->where( $q->expr->eq( 'chat_id', 0 ), $q->expr->eq( 'online_user_id', $this->id ) );
+	   $stmt = $q->prepare();
+	   $stmt->execute();
+
        erLhcoreClassChat::getSession()->delete($this);
    }
 
@@ -115,6 +127,29 @@ class erLhcoreClassModelChatOnlineUser {
 
        	case 'time_on_site_front':
        			return gmdate('H:i:s',$this->time_on_site);
+       		break;
+
+       	case 'tt_time_on_site_front':
+
+	       		$this->tt_time_on_site_front = null;
+
+	       		$diff = $this->tt_time_on_site;
+	       		$days = floor($diff/(3600*24));
+	       		$hours = floor(($diff-($days * 3600*24))/3600);
+	       		$minits = floor(($diff - ($hours * 3600) - ($days * 3600*24))/60);
+	       		$seconds = ($diff - ($hours * 3600) - ($minits * 60) - ($days * 3600*24));
+
+	       		if ($days > 0) {
+	       			$this->tt_time_on_site_front = $days.' d.';
+	       		} elseif ($hours > 0) {
+	       			$this->tt_time_on_site_front = $hours.' h.';
+	       		} elseif ($minits > 0) {
+	       			$this->tt_time_on_site_front = $minits.' m.';
+	       		} elseif ($seconds >= 0) {
+	       			$this->tt_time_on_site_front = $seconds.' s.';
+	       		}
+
+	       		return $this->tt_time_on_site_front;
        		break;
 
        	case 'lastactivity_ago':
@@ -378,6 +413,16 @@ class erLhcoreClassModelChatOnlineUser {
 	                   		$item->tt_time_on_site += time() - $item->last_visit;
 	                   } else {
 	                   		$item->time_on_site = 0;
+	                   		$item->total_visits++;
+	                   		$item->last_visit = time();
+	                   		$item->pages_count = 0;
+	                   		$item->chat_id = 0; // Reset chat id to no chat
+
+	                   		if ($item->message_seen == 1 && $item->message_seen_ts < (time() - (erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value*3600))) {
+	                   			$item->message_seen = 0;
+	                   			$item->message_seen_ts = 0;
+	                   			$item->operator_message = '';
+	                   		}
 	                   }
 
 	                   $item->identifier = (isset($paramsHandle['identifier']) && !empty($paramsHandle['identifier'])) ? $paramsHandle['identifier'] : $item->identifier;
@@ -388,7 +433,7 @@ class erLhcoreClassModelChatOnlineUser {
 	                   $item->vid = $paramsHandle['vid'];
 	                   $item->identifier = (isset($paramsHandle['identifier']) && !empty($paramsHandle['identifier'])) ? $paramsHandle['identifier'] : '';
 	                   $item->referrer = isset($_GET['r']) ? urldecode($_GET['r']) : '';
-
+	                   $item->total_visits = 1;
 
 	                   self::detectLocation($item);
 
@@ -402,6 +447,7 @@ class erLhcoreClassModelChatOnlineUser {
 
 	           if (isset($paramsHandle['pages_count']) && $paramsHandle['pages_count'] == true) {
 	           		$item->pages_count++;
+	           		$item->tt_pages_count++;
 	           }
 
 	           // Update variables only if it's not JS to check for operator message
@@ -450,7 +496,9 @@ class erLhcoreClassModelChatOnlineUser {
    public $operator_user_id = 0;
    public $operator_user_proactive = '';
    public $message_seen = 0;
+   public $message_seen_ts = 0;
    public $pages_count = 0;
+   public $tt_pages_count = 0;
    public $lat = 0;
    public $lon = 0;
    public $invitation_id = 0;
@@ -458,6 +506,8 @@ class erLhcoreClassModelChatOnlineUser {
    public $time_on_site = 0;
    public $tt_time_on_site = 0;
    public $referrer = '';
+   public $total_visits = 0;
+   public $invitation_count = 0;
 
 }
 

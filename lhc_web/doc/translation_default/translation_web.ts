@@ -777,6 +777,18 @@
         <translation></translation>
     </message>
     <message>
+        <source>time(s) invitation logic was applied</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Total time on site</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Total pageviews</source>
+        <translation></translation>
+    </message>
+    <message>
         <source>No one has sent a message to the user yet</source>
         <translation></translation>
     </message>
@@ -825,7 +837,7 @@
         <translation></translation>
     </message>
     <message>
-        <source>last visit</source>
+        <source>Last visit</source>
         <translation></translation>
     </message>
     <message>
@@ -837,7 +849,11 @@
         <translation></translation>
     </message>
     <message>
-        <source>first visit</source>
+        <source>First visit</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Total visits</source>
         <translation></translation>
     </message>
     <message>
@@ -1550,6 +1566,18 @@
     <message>
         <source>E-mail</source>
         <translation></translation>
+    </message>
+    <message>
+        <source>Browsing information</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>User chats</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Chats</source>
+        <translation>Chats</translation>
     </message>
     <message>
         <source>Reopen chat</source>

@@ -294,9 +294,17 @@ function lh(){
     };
 
     this.refreshFootPrint = function(inst) {
+    	inst.addClass('disabled');
+    	$.get(this.wwwDir + 'chat/chatfootprint/' + inst.attr('rel'),{ }, function(data){
+    		$('#footprint-'+inst.attr('rel')).html(data);
+    		inst.removeClass('disabled');
+    	});
+    };
+
+    this.refreshOnlineUserInfo = function(inst) {
     	 inst.addClass('disabled');
-    	 $.get(this.wwwDir + 'chat/chatfootprint/' + inst.attr('rel'),{ }, function(data){
-    		 $('#footprint-'+inst.attr('rel')).html(data);
+    	 $.get(this.wwwDir + 'chat/refreshonlineinfo/' + inst.attr('rel'),{ }, function(data){
+    		 $('#online-user-info-'+inst.attr('rel')).html(data);
     		 inst.removeClass('disabled');
          });
     };

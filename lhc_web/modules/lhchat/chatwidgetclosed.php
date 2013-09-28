@@ -15,6 +15,7 @@ if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value
 
     if ($userInstance !== false && $userInstance->has_message_from_operator == true) {
         $userInstance->message_seen = 1;
+        $userInstance->message_seen_ts = time();
         $userInstance->saveThis();
     }
 }

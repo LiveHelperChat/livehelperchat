@@ -124,6 +124,12 @@ $ViewList['chatfootprint'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['refreshonlineinfo'] = array(
+    'script' => 'refreshonlineinfo.php',
+    'params' => array('chat_id'),
+    'functions' => array( 'use' )
+);
+
 $ViewList['operatortyping'] = array(
     'script' => 'operatortyping.php',
     'params' => array('chat_id','status'),

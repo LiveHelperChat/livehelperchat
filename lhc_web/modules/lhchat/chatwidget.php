@@ -16,6 +16,14 @@ if ((string)$Params['user_parameters_unordered']['hash'] != '') {
 
 	$sound = is_numeric($Params['user_parameters_unordered']['sound']) ? '/(sound)/'.$Params['user_parameters_unordered']['sound'] : '';
 
+	if ((string)$Params['user_parameters_unordered']['vid'] != '') {
+		$userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('pages_count' => true, 'vid' => (string)$Params['user_parameters_unordered']['vid'], 'check_message_operator' => false));
+
+		if (erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1 && isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])) {
+			erLhcoreClassModelChatOnlineUserFootprint::addPageView($userInstance);
+		}
+	}
+
 	// Redirect user
 	erLhcoreClassModule::redirect('chat/chatwidgetchat','/' . $chatID . '/' . $hash . $modeAppend . $sound );
 	exit;
@@ -118,7 +126,10 @@ if (isset($_POST['StartChat']))
 	            if ($userInstance !== false) {
 	                $userInstance->chat_id = $chat->id;
 	                $userInstance->message_seen = 1;
+	                $userInstance->message_seen_ts = time();
 	                $userInstance->saveThis();
+
+	                $chat->online_user_id = $userInstance->id;
 
 	                if ( erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1) {
 	            		erLhcoreClassModelChatOnlineUserFootprint::assignChatToPageviews($userInstance);

@@ -504,7 +504,7 @@ ul.user-settings-list li{
 }
 
 .online-user-info{
-	min-width:490px;max-width:600px;min-height:310px;position:relative;overflow:hidden;
+	min-width:490px;max-width:600px;min-height:400px;position:relative;overflow:hidden;
 }
 
 .page-url:hover span {

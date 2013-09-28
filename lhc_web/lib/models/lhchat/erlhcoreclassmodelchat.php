@@ -40,6 +40,7 @@ class erLhcoreClassModelChat {
                'wait_timeout'     		=> $this->wait_timeout,
                'wait_timeout_send'     	=> $this->wait_timeout_send,
                'timeout_message'     	=> $this->timeout_message,
+               'online_user_id'     	=> $this->online_user_id
        );
    }
 
@@ -67,11 +68,6 @@ class erLhcoreClassModelChat {
 
 	   	// Delete user footprint
 	   	$q->deleteFrom( 'lh_chat_online_user_footprint' )->where( $q->expr->eq( 'chat_id', $this->id ) );
-	   	$stmt = $q->prepare();
-	   	$stmt->execute();
-
-	   	// Delete online user record
-	   	$q->deleteFrom( 'lh_chat_online_user' )->where( $q->expr->eq( 'chat_id', $this->id ) );
 	   	$stmt = $q->prepare();
 	   	$stmt->execute();
 
@@ -128,6 +124,18 @@ class erLhcoreClassModelChat {
        	case 'chat_duration_front':
        		   $this->chat_duration_front = erLhcoreClassChat::formatSeconds($this->chat_duration);
        		   return $this->chat_duration_front;
+       		break;
+
+       	case 'online_user':
+       			$this->online_user = false;
+       			if ($this->online_user_id > 0){
+       				try {
+       					$this->online_user = erLhcoreClassModelChatOnlineUser::fetch($this->online_user_id);
+       				} catch (Exception $e) {
+       					$this->online_user = false;
+       				}
+       			}
+       			return $this->online_user;
        		break;
 
        	case 'department':
@@ -228,6 +236,7 @@ class erLhcoreClassModelChat {
    public $wait_time = 0;
    public $chat_duration = 0;
    public $priority = 0;
+   public $online_user_id = 0;
 
    // Wait timeout attributes
    public $wait_timeout = 0;
