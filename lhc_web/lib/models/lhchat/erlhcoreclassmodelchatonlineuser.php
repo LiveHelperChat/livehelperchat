@@ -383,7 +383,11 @@ class erLhcoreClassModelChatOnlineUser {
 
    public static function cleanAllRecords() {
        $db = ezcDbInstance::get();
+
        $stmt = $db->prepare('DELETE FROM lh_chat_online_user');
+       $stmt->execute();
+
+       $stmt = $db->prepare('DELETE FROM lh_chat_online_user_footprint WHERE chat_id = 0');
        $stmt->execute();
    }
 
@@ -423,6 +427,8 @@ class erLhcoreClassModelChatOnlineUser {
 	                   			$item->message_seen_ts = 0;
 	                   			$item->operator_message = '';
 	                   		}
+
+	                   		$item->store_chat = true;
 	                   }
 
 	                   $item->identifier = (isset($paramsHandle['identifier']) && !empty($paramsHandle['identifier'])) ? $paramsHandle['identifier'] : $item->identifier;
@@ -439,6 +445,8 @@ class erLhcoreClassModelChatOnlineUser {
 
 	                   // Cleanup database then new user comes
 	                   self::cleanupOnlineUsers();
+
+	                   $item->store_chat = true;
 	               }
 	           } else {
 		               self::cleanupOnlineUsers();
@@ -448,6 +456,7 @@ class erLhcoreClassModelChatOnlineUser {
 	           if (isset($paramsHandle['pages_count']) && $paramsHandle['pages_count'] == true) {
 	           		$item->pages_count++;
 	           		$item->tt_pages_count++;
+	           		$item->store_chat = true;
 	           }
 
 	           // Update variables only if it's not JS to check for operator message
@@ -455,6 +464,7 @@ class erLhcoreClassModelChatOnlineUser {
 	           		$item->user_agent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
 	           		$item->current_page = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
 	           		$item->last_visit = time();
+	           		$item->store_chat = true;
 	           }
 
 	           if ($item->operator_message == '' && isset($paramsHandle['pro_active_invite']) && $paramsHandle['pro_active_invite'] == 1 && isset($paramsHandle['pro_active_limitation']) && ($paramsHandle['pro_active_limitation'] == -1 || erLhcoreClassChat::getPendingChatsCountPublic() <= $paramsHandle['pro_active_limitation']) ) {
@@ -462,7 +472,10 @@ class erLhcoreClassModelChatOnlineUser {
 	           		erLhAbstractModelProactiveChatInvitation::processProActiveInvitation($item);
 	           }
 
-	           $item->saveThis();
+	           // Save only then we have to, in general only then page view appears
+	           if ($item->store_chat == true) {
+	           		$item->saveThis();
+	           }
 
 	           return $item;
 	   	} else {
@@ -508,6 +521,9 @@ class erLhcoreClassModelChatOnlineUser {
    public $referrer = '';
    public $total_visits = 0;
    public $invitation_count = 0;
+
+   // Logical attributes
+   public $store_chat = false;
 
 }
 

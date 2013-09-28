@@ -272,6 +272,7 @@ class erLhAbstractModelProactiveChatInvitation {
 			$item->operator_user_proactive = $message->operator_name;
 			$item->invitation_id = $message->id;
 			$item->invitation_count++;
+			$item->store_chat = true;
 			$message->executed_times += 1;
 			$message->updateThis();
 		}
