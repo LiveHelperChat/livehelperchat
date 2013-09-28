@@ -392,7 +392,7 @@ if (!lh_inst.cookieData.hash) {
 }
 <?php endif; ?>
 
-<?php if ($disable_pro_active == false) : ?>
+<?php if ($disable_pro_active == false && $track_online_users == true) : ?>
 if (!lh_inst.cookieData.hash) {
 	lh_inst.startNewMessageCheckSingle();
 }

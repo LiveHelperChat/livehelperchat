@@ -7,6 +7,11 @@ Features:
 4. Previous users chats in chat tab window.
 5. How many times proactive chat message logic was applied counter.
 6. User browsing information in chat window.
+7. Colors for install step 1
+
+Bugfix:
+1. Footpath was stopped tracking if user was having a chat in chatwidget.
+2. Online users were tracked even if online users tracking was disabled.
 
 execute doc/update_db/update_38.sql
 
