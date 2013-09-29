@@ -1535,10 +1535,25 @@
     </message>
 </context>
 <context>
+    <name>chat/reopenchat</name>
+    <message>
+        <source>has reopened the chat!</source>
+        <translation>Znovuotevřel rozhovor!</translation>
+    </message>
+    <message>
+        <source>No permission to reopen the chat!</source>
+        <translation>Nemáte oprávnění ke znovuotevření rozhovoru!</translation>
+    </message>
+</context>
+<context>
     <name>chat/adminchat</name>
     <message>
         <source>E-mail</source>
         <translation>E-mail</translation>
+    </message>
+    <message>
+        <source>Reopen chat</source>
+        <translation>Znovuotevřít rozhovor</translation>
     </message>
     <message>
         <source>Page</source>
@@ -1655,6 +1670,26 @@
     <message>
         <source>Actions</source>
         <translation>Akce</translation>
+    </message>
+    <message>
+        <source>Pending chat</source>
+        <translation>Nevyřízený rozhovor</translation>
+    </message>
+    <message>
+        <source>Active chat</source>
+        <translation>Aktivní rozhovor</translation>
+    </message>
+    <message>
+        <source>Closed chat</source>
+        <translation>Uzavřený rozhovor</translation>
+    </message>
+    <message>
+        <source>Chatbox chat</source>
+        <translation>Rozhovor v chatboxu</translation>
+    </message>
+    <message>
+        <source>Operators chat</source>
+        <translation>Rozhovor operátorů</translation>
     </message>
 </context>
 <context>

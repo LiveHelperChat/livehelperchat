@@ -1535,10 +1535,25 @@
     </message>
 </context>
 <context>
+    <name>chat/reopenchat</name>
+    <message>
+        <source>has reopened the chat!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No permission to reopen the chat!</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>chat/adminchat</name>
     <message>
         <source>E-mail</source>
         <translation>电子邮件</translation>
+    </message>
+    <message>
+        <source>Reopen chat</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Page</source>
@@ -1655,6 +1670,26 @@
     <message>
         <source>Actions</source>
         <translation>操作</translation>
+    </message>
+    <message>
+        <source>Pending chat</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Active chat</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Closed chat</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Chatbox chat</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Operators chat</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
