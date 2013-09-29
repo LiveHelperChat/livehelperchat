@@ -258,6 +258,10 @@ switch ((int)$Params['user_parameters']['step_id']) {
   				  `chat_duration` int(11) NOT NULL,
         	   	  `priority` int(11) NOT NULL,
         	   	  `chat_initiator` int(11) NOT NULL,
+        	   	  `transfer_timeout_ts` int(11) NOT NULL,
+        	   	  `transfer_timeout_ac` int(11) NOT NULL,
+        	   	  `transfer_if_na` int(11) NOT NULL,
+        	   	  `na_cb_executed` int(11) NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `status` (`status`),
 				  KEY `user_id` (`user_id`),
@@ -450,7 +454,10 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('export_hash',	'{$exportHash}',	0,	'Chats export secret hash',	0),
                 ('message_seen_timeout', 24, 0, 'Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.',	0),
                 ('reopen_chat_enabled',1,	0,	'Reopen chat functionality enabled, 0 - No, 1 - Yes',	0),
+                ('run_departments_workflow', 0, 0, 'Should cronjob run departments tranfer workflow, even if user leaves a chat, 0 - no, 1 - yes',	0),
+                ('run_unaswered_chat_workflow', 0, 0, 'Should cronjob run unanswered chats workflow and execute unaswered chats callback, 0 - no, any other number bigger than 0 is a minits how long chat have to be not accepted before executing callback.',0),
                 ('geo_data', '', '0', '', '1')");
+
 
         	   $db->query("CREATE TABLE `lh_chat_online_user` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -509,6 +516,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `name` varchar(100) NOT NULL,
 				  `email` varchar(100) NOT NULL,
 				  `priority` int(11) NOT NULL,
+				  `department_transfer_id` int(11) NOT NULL,
+				  `transfer_timeout` int(11) NOT NULL,
 				  PRIMARY KEY (`id`)
 				) DEFAULT CHARSET=utf8;");
 

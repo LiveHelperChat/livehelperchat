@@ -24,6 +24,15 @@ $def->properties['priority']->columnName   = 'priority';
 $def->properties['priority']->propertyName = 'priority';
 $def->properties['priority']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['department_transfer_id'] = new ezcPersistentObjectProperty();
+$def->properties['department_transfer_id']->columnName   = 'department_transfer_id';
+$def->properties['department_transfer_id']->propertyName = 'department_transfer_id';
+$def->properties['department_transfer_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['transfer_timeout'] = new ezcPersistentObjectProperty();
+$def->properties['transfer_timeout']->columnName   = 'transfer_timeout';
+$def->properties['transfer_timeout']->propertyName = 'transfer_timeout';
+$def->properties['transfer_timeout']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 return $def;
 

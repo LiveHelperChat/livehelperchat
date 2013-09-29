@@ -35,6 +35,12 @@ if (isset($_POST['Update_departament']) || isset($_POST['Save_departament'])  )
         ),
         'Priority' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int'
+        ),
+        'TansferDepartmentID' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1)
+        ),
+        'TransferTimeout' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 5)
         )
     );
 
@@ -44,6 +50,16 @@ if (isset($_POST['Update_departament']) || isset($_POST['Save_departament'])  )
     if ( !$form->hasValidData( 'Name' ) || $form->Name == '' )
     {
         $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Please enter a department name');
+    }
+
+    if ( $form->hasValidData( 'TansferDepartmentID' ) )
+    {
+        $Departament->department_transfer_id = $form->TansferDepartmentID;
+    }
+
+    if ( $form->hasValidData( 'TransferTimeout' ) )
+    {
+        $Departament->transfer_timeout = $form->TransferTimeout;
     }
 
     if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {

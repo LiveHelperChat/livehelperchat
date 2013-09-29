@@ -37,10 +37,21 @@ class erLhcoreClassModelChat {
                'chat_variables'     	=> $this->chat_variables,
                'priority'     			=> $this->priority,
                'chat_initiator'     	=> $this->chat_initiator,
+
+       		   'online_user_id'     	=> $this->online_user_id,
+
+       		   // Wait timeout attribute
                'wait_timeout'     		=> $this->wait_timeout,
                'wait_timeout_send'     	=> $this->wait_timeout_send,
                'timeout_message'     	=> $this->timeout_message,
-               'online_user_id'     	=> $this->online_user_id
+
+       		    // Transfer workflow attributes
+               'transfer_timeout_ts'    => $this->transfer_timeout_ts,
+               'transfer_if_na'    		=> $this->transfer_if_na,
+               'transfer_timeout_ac'    => $this->transfer_timeout_ac,
+
+       			// Callback status
+               'na_cb_executed'    		=> $this->na_cb_executed
        );
    }
 
@@ -238,10 +249,21 @@ class erLhcoreClassModelChat {
    public $priority = 0;
    public $online_user_id = 0;
 
+   // Transfer attributes
+   public $transfer_if_na = 0;
+   public $transfer_timeout_ts = 0;
+   public $transfer_timeout_ac = 0;
+
    // Wait timeout attributes
    public $wait_timeout = 0;
    public $wait_timeout_send = 0;
    public $timeout_message = '';
+
+
+   public $na_cb_executed = 0;
+
+
+
 
    public $chat_initiator = self::CHAT_INITIATOR_DEFAULT;
    public $chat_variables = '';

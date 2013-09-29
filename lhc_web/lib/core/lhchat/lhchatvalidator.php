@@ -169,6 +169,13 @@ class erLhcoreClassChatValidator {
             $chat->dep_id = $id;
         }
 
+        // Set chat attributes for transfer workflow logic
+        if ($chat->department !== false && $chat->department->department_transfer_id > 0) {
+        	$chat->transfer_if_na = 1;
+        	$chat->transfer_timeout_ts = time();
+        	$chat->transfer_timeout_ac = $chat->department->transfer_timeout;
+        }
+
         $inputForm->departament_id = $chat->dep_id;
 
         if ( $inputForm->priority !== false && is_numeric($inputForm->priority) ) {

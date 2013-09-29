@@ -31,7 +31,7 @@ if ($chat->user_id == $currentUser->getUserID() || $currentUser->hasAccessTo('lh
 
 	    erLhcoreClassChat::getSession()->save($msg);
 
-	    erLhcoreClassChat::getSession()->update($chat);
+	    $chat->updateThis();
 
 	    CSCacheAPC::getMem()->removeFromArray('lhc_open_chats', $chat->id);
 

@@ -1731,6 +1731,14 @@
         <translation></translation>
     </message>
     <message>
+        <source>Chat was automatically transferred to</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>from</source>
+        <translation></translation>
+    </message>
+    <message>
         <source>A support staff member has closed this chat</source>
         <translation></translation>
     </message>
@@ -2681,6 +2689,18 @@
     </message>
     <message>
         <source>Edit department</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>To what department chat should be transfered if it is not accepted</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
         <translation></translation>
     </message>
     <message>

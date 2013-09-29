@@ -186,6 +186,31 @@ $def->properties['timeout_message']->columnName   = 'timeout_message';
 $def->properties['timeout_message']->propertyName = 'timeout_message';
 $def->properties['timeout_message']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+// TS then transfer accoured, get's updated then chat is transfered, stores current TS
+// We cannot user just chat time attribute because, there can be multiple transfer for the same chat.
+$def->properties['transfer_timeout_ts'] = new ezcPersistentObjectProperty();
+$def->properties['transfer_timeout_ts']->columnName   = 'transfer_timeout_ts';
+$def->properties['transfer_timeout_ts']->propertyName = 'transfer_timeout_ts';
+$def->properties['transfer_timeout_ts']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+// Number of seconds after transfer action should be executed
+$def->properties['transfer_timeout_ac'] = new ezcPersistentObjectProperty();
+$def->properties['transfer_timeout_ac']->columnName   = 'transfer_timeout_ac';
+$def->properties['transfer_timeout_ac']->propertyName = 'transfer_timeout_ac';
+$def->properties['transfer_timeout_ac']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+// This chat requires transfer action if not accepted
+$def->properties['transfer_if_na'] = new ezcPersistentObjectProperty();
+$def->properties['transfer_if_na']->columnName   = 'transfer_if_na';
+$def->properties['transfer_if_na']->propertyName = 'transfer_if_na';
+$def->properties['transfer_if_na']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+// Was callback for unaccepted chat executed? 0 - no, 1 - yes
+$def->properties['na_cb_executed'] = new ezcPersistentObjectProperty();
+$def->properties['na_cb_executed']->columnName   = 'na_cb_executed';
+$def->properties['na_cb_executed']->propertyName = 'na_cb_executed';
+$def->properties['na_cb_executed']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

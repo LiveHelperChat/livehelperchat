@@ -5,10 +5,12 @@ class erLhcoreClassModelDepartament {
     public function getState()
    {
        return array(
-               'id'       => $this->id,
-               'name'     => $this->name,
-               'email'     => $this->email,
-               'priority'     => $this->priority,
+               'id'       				=> $this->id,
+               'name'     				=> $this->name,
+               'email'     				=> $this->email,
+               'priority'     			=> $this->priority,
+               'department_transfer_id' => $this->department_transfer_id,
+               'transfer_timeout'    	=> $this->transfer_timeout,
        );
    }
 
@@ -48,6 +50,21 @@ class erLhcoreClassModelDepartament {
 	   		case 'is_online':
 	   			$this->is_online = erLhcoreClassChat::isOnline($this->id);
 	   			return $this->is_online;
+	   		break;
+
+	   		case 'department_transfer':
+
+	   			$this->department_transfer = false;
+
+	   			if ($this->department_transfer_id > 0) {
+	   				try {
+	   					$this->department_transfer = self::fetch($this->department_transfer_id,true);
+	   				} catch (Exception $e) {
+
+	   				}
+	   			}
+
+	   			return $this->department_transfer;
 	   		break;
 
 	   		default:
@@ -147,6 +164,8 @@ class erLhcoreClassModelDepartament {
     public $name = '';
     public $email = '';
     public $priority = 0;
+    public $department_transfer_id = 0;
+    public $transfer_timeout = 0;
 }
 
 ?>

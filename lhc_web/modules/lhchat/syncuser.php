@@ -17,21 +17,11 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 {
 	// Auto responder
 	if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && $chat->wait_timeout_send == 0 && $chat->wait_timeout > 0 && !empty($chat->timeout_message) && (time() - $chat->time) > $chat->wait_timeout) {
-		$msg = new erLhcoreClassModelmsg();
-		$msg->msg = trim($chat->timeout_message);
-		$msg->chat_id = $chat->id;
-		$msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
-		$msg->user_id = 1;
-		$msg->time = time();
-		erLhcoreClassChat::getSession()->save($msg);
+		erLhcoreClassChatWorkflow::timeoutWorkflow($chat);
+	}
 
-		if ($chat->last_msg_id < $msg->id) {
-			$chat->last_msg_id = $msg->id;
-		}
-
-		$chat->timeout_message = '';
-		$chat->wait_timeout_send = 1;
-		$chat->saveThis();
+	if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && $chat->transfer_if_na == 1 && $chat->transfer_timeout_ts < (time()-$chat->transfer_timeout_ac) ) {
+		erLhcoreClassChatWorkflow::transferWorkflow($chat);
 	}
 
 	// Sync only if chat is pending or active

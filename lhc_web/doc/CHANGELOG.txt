@@ -1,3 +1,13 @@
+1.56v
+
+Features:
+1. Automatic transfers between departments.
+2. Cronjob
+
+Visit the site for more information how to use these features.
+
+execute doc/update_db/update_39.sql
+
 1.55v
 
 Features:

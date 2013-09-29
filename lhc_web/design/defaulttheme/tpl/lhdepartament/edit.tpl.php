@@ -10,14 +10,7 @@
 
 <form action="<?php echo erLhcoreClassDesign::baseurl('departament/edit')?>/<?php echo $departament->id?>" method="post">
 
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Name');?></label>
-    <input type="text" name="Name"  value="<?php echo htmlspecialchars($departament->name);?>" />
-
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','E-mail');?></label>
-    <input type="text" name="Email"  value="<?php echo htmlspecialchars($departament->email);?>" />
-
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Priority');?></label>
-    <input type="text" name="Priority"  value="<?php echo htmlspecialchars($departament->priority);?>" />
+	<?php include(erLhcoreClassDesign::designtpl('lhdepartament/form.tpl.php'));?>
 
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
