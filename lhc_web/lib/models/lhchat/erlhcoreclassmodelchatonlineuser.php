@@ -427,8 +427,6 @@ class erLhcoreClassModelChatOnlineUser {
 	                   			$item->message_seen_ts = 0;
 	                   			$item->operator_message = '';
 	                   		}
-
-	                   		$item->store_chat = true;
 	                   }
 
 	                   $item->identifier = (isset($paramsHandle['identifier']) && !empty($paramsHandle['identifier'])) ? $paramsHandle['identifier'] : $item->identifier;
