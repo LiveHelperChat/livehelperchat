@@ -20,5 +20,5 @@
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.');?></label>
 <input type="text" name="TransferTimeout" value="<?php echo htmlspecialchars($departament->transfer_timeout);?>" />
 
-<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','This field is max 50 characters length and canbe used for any purpose by extensions. This field is also indexed.');?></label>
+<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.');?></label>
 <input type="text" name="Identifier"  value="<?php echo htmlspecialchars($departament->identifier);?>" />
