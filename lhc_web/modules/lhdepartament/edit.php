@@ -33,6 +33,9 @@ if (isset($_POST['Update_departament']) || isset($_POST['Save_departament'])  )
         'Email' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
+        'Identifier' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+        ),
         'Priority' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int'
         ),
@@ -55,11 +58,20 @@ if (isset($_POST['Update_departament']) || isset($_POST['Save_departament'])  )
     if ( $form->hasValidData( 'TansferDepartmentID' ) )
     {
         $Departament->department_transfer_id = $form->TansferDepartmentID;
+    } else {
+    	$Departament->department_transfer_id = 0;
+    }
+
+    if ( $form->hasValidData( 'Identifier' ) )
+    {
+        $Departament->identifier = $form->Identifier;
     }
 
     if ( $form->hasValidData( 'TransferTimeout' ) )
     {
         $Departament->transfer_timeout = $form->TransferTimeout;
+    } else {
+    	$Departament->transfer_timeout = 0;
     }
 
     if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {

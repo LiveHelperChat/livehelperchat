@@ -60,9 +60,11 @@ if (key_exists($position, $positionArgument)){
 } else {
 	$currentPosition = $positionArgument['bottom_right'];
 }
+?>
 
-$isOnlineHelp = erLhcoreClassChat::isOnline($department);
+<?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/is_online_help.tpl.php')); ?>
 
+<?php
 if ($isOnlineHelp == false && erLhcoreClassModelChatConfig::fetch('pro_active_show_if_offline')->current_value == 0) {
 	$disable_pro_active = true;
 };

@@ -34,6 +34,11 @@ $def->properties['transfer_timeout']->columnName   = 'transfer_timeout';
 $def->properties['transfer_timeout']->propertyName = 'transfer_timeout';
 $def->properties['transfer_timeout']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['identifier'] = new ezcPersistentObjectProperty();
+$def->properties['identifier']->columnName   = 'identifier';
+$def->properties['identifier']->propertyName = 'identifier';
+$def->properties['identifier']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 return $def;
 
 ?>

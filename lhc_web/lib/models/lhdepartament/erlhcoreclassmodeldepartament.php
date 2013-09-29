@@ -11,6 +11,7 @@ class erLhcoreClassModelDepartament {
                'priority'     			=> $this->priority,
                'department_transfer_id' => $this->department_transfer_id,
                'transfer_timeout'    	=> $this->transfer_timeout,
+               'identifier'    			=> $this->identifier,
        );
    }
 
@@ -50,6 +51,11 @@ class erLhcoreClassModelDepartament {
 	   		case 'is_online':
 	   			$this->is_online = erLhcoreClassChat::isOnline($this->id);
 	   			return $this->is_online;
+	   		break;
+
+	   		case 'is_online_exclipic':
+	   			$this->is_online_exclipic = erLhcoreClassChat::isOnline($this->id,true);
+	   			return $this->is_online_exclipic;
 	   		break;
 
 	   		case 'department_transfer':
@@ -166,6 +172,7 @@ class erLhcoreClassModelDepartament {
     public $priority = 0;
     public $department_transfer_id = 0;
     public $transfer_timeout = 0;
+    public $identifier = '';
 }
 
 ?>

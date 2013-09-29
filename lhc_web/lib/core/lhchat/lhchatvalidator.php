@@ -160,14 +160,23 @@ class erLhcoreClassChatValidator {
             }
         }
 
-        $departments = erLhcoreClassModelDepartament::getList();
+       /*  $departments = erLhcoreClassModelDepartament::getList();
         $ids = array_keys($departments);
         if ($form->hasValidData( 'DepartamentID' ) && in_array($form->DepartamentID,$ids)) {
             $chat->dep_id = $form->DepartamentID;
         } elseif ($chat->dep_id == 0 || !in_array($chat->dep_id,$ids)) {
             $id = array_shift($ids);
             $chat->dep_id = $id;
+        } */
+
+        if ($form->hasValidData( 'DepartamentID' ) && erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $form->DepartamentID))) > 0) {
+        	$chat->dep_id = $form->DepartamentID;
+        } elseif ($chat->dep_id == 0 || erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $chat->dep_id))) == 0) {
+        	$departments = erLhcoreClassModelDepartament::getList(array('limit' => 1,'filter' => array('department_transfer_id' => 0)));
+        	$department = array_shift($departments);
+        	$chat->dep_id = $department->id;
         }
+
 
         // Set chat attributes for transfer workflow logic
         if ($chat->department !== false && $chat->department->department_transfer_id > 0) {
@@ -181,7 +190,7 @@ class erLhcoreClassChatValidator {
         if ( $inputForm->priority !== false && is_numeric($inputForm->priority) ) {
         	$chat->priority = (int)$inputForm->priority;
         } else {
-        	$chat->priority = $departments[$chat->dep_id]->priority;
+        	$chat->priority = $chat->department->priority;
         }
 
         if ( $form->hasValidData( 'name_items' ) && !empty($form->name_items))

@@ -515,10 +515,12 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
 				  `name` varchar(100) NOT NULL,
 				  `email` varchar(100) NOT NULL,
+				  `identifier` varchar(50) NOT NULL,
 				  `priority` int(11) NOT NULL,
 				  `department_transfer_id` int(11) NOT NULL,
 				  `transfer_timeout` int(11) NOT NULL,
-				  PRIMARY KEY (`id`)
+				  PRIMARY KEY (`id`),
+        	   	  KEY `identifier` (`identifier`)
 				) DEFAULT CHARSET=utf8;");
 
         	   $Departament = new erLhcoreClassModelDepartament();

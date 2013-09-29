@@ -122,10 +122,11 @@
 			src="<?php echo erLhcoreClassDesign::design('images/icons/delete.png');?>"
 			alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Delete chat')?>"
 			title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Delete chat')?>">
-		<img class="action-image" align="absmiddle" onclick="lhinst.transferUserDialog('<?php echo $chat->id?>',$(this).attr('title'))"
-			src="<?php echo erLhcoreClassDesign::design('images/icons/user_go.png');?>"
-			alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Transfer chat')?>"
-			title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Transfer chat')?>">
+
+		<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat', 'allowtransfer')) : ?>
+		<img class="action-image" align="absmiddle" onclick="lhinst.transferUserDialog('<?php echo $chat->id?>',$(this).attr('title'))" src="<?php echo erLhcoreClassDesign::design('images/icons/user_go.png');?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Transfer chat')?>"	title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Transfer chat')?>">
+		<?php endif; ?>
+
 		<img class="action-image" align="absmiddle" data-title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Are you sure?')?>" onclick="lhinst.blockUser('<?php echo $chat->id?>',$(this).attr('data-title'))"
 			src="<?php echo erLhcoreClassDesign::design('images/icons/user_delete.png');?>"
 			alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Block user')?>"
