@@ -260,7 +260,7 @@ $ViewList['readoperatormessage'] = array(
 $ViewList['chatcheckoperatormessage'] = array(
     'script' => 'chatcheckoperatormessage.php',
     'params' => array(),
-    'uparams' => array('priority','vid','count_page')
+    'uparams' => array('priority','vid','count_page','identifier')
 );
 
 $ViewList['chatwidgetclosed'] = array(
