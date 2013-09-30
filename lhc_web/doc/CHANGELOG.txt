@@ -2,7 +2,7 @@
 
 Features:
 1. Automatic transfers between departments.
-2. Cronjob
+2. Cronjobs support
 
 Visit the site for more information how to use these features.
 
