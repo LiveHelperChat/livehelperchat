@@ -9,12 +9,16 @@ $tpl->set('referer_site','');
 $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('vid' => (string)$Params['user_parameters_unordered']['vid']));
 $tpl->set('visitor',$userInstance);
 
+$department = (int)$Params['user_parameters_unordered']['department'] > 0 ? (int)$Params['user_parameters_unordered']['department'] : false;
+
 $inputData = new stdClass();
 $inputData->username = '';
 $inputData->question = '';
 $inputData->email = '';
-$inputData->departament_id = (int)$Params['user_parameters_unordered']['department'];
+$inputData->departament_id = $department;
 $inputData->validate_start_chat = false;
+
+$tpl->set('department',$department);
 
 $chat = new erLhcoreClassModelChat();
 
@@ -50,6 +54,8 @@ if (isset($_POST['askQuestion']))
        $chat->nick = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor');
 
        erLhcoreClassModelChat::detectLocation($chat);
+
+       $chat->dep_id = $inputData->departament_id;
 
        // Assign default department
        if ($form->hasValidData( 'DepartamentID' ) && erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $form->DepartamentID))) > 0) {
@@ -130,6 +136,13 @@ if (isset($_POST['askQuestion']))
 	       			erLhcoreClassChat::getSession()->save($msg);
 	       		}
 	       	}
+       }
+
+       // Set chat attributes for transfer workflow logic
+       if ($chat->department !== false && $chat->department->department_transfer_id > 0) {
+	       	$chat->transfer_if_na = 1;
+	       	$chat->transfer_timeout_ts = time();
+	       	$chat->transfer_timeout_ac = $chat->department->transfer_timeout;
        }
 
        $chat->last_msg_id = $msg->id;

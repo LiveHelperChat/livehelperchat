@@ -57,10 +57,14 @@ class erLhcoreClassChat {
     	return self::getCount($filter);
     }
 
-    public static function getPendingChatsCountPublic()
+    public static function getPendingChatsCountPublic($department = false)
     {
     	$filter = array();
     	$filter['filter'] = array('status' => 0);
+
+    	if ($department !== false) {
+    		$filter['filter']['dep_id'] = $department;
+    	}
 
     	return self::getCount($filter);
     }
