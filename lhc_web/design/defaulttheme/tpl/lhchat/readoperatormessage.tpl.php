@@ -11,9 +11,13 @@
 <input type="hidden" value="<?php echo htmlspecialchars($referer);?>" name="URLRefer"/>
 <input type="hidden" value="<?php echo htmlspecialchars($referer_site);?>" name="r"/>
 
+<?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/department.tpl.php'));?>
+
 <input type="submit" name="askQuestionAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Send');?>" class="tiny button round"/>
 
 <input type="hidden" name="askQuestion" value="1" />
+
+
 
 </form>
 
