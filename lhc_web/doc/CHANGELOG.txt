@@ -1,3 +1,12 @@
+1.57v
+
+1. Option to configure default map position.
+2. Departments transfer workflow will pay attention to how many pending chat's there are.
+
+Bugfixes
+
+execute doc/update_db/update_40.sql
+
 1.56v
 
 Features:

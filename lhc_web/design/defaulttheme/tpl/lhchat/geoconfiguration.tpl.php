@@ -8,22 +8,29 @@
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<form action="" method="post">
+
+<div class="section-container auto" data-section>
+  <section class="active">
+    <p class="title" data-section-title><a href="#"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','GEO detection configuration');?></a></p>
+    <div class="content" data-section-content>
+
+    <div>
+    <form action="" method="post">
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
 <label><input type="checkbox" id="id_GeoDetectionEnabled" name="GeoDetectionEnabled" value="on" <?php isset($geo_data['geo_detection_enabled']) && $geo_data['geo_detection_enabled'] == 1 ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','GEO Enabled');?></label>
 <br />
 
-<div class="section-container accordion<?php (!isset($geo_data['geo_detection_enabled']) || $geo_data['geo_detection_enabled'] == 0) ? print ' hide' : '' ?>" data-section="accordion" id="settings-geo">
+<div class="section-container auto<?php (!isset($geo_data['geo_detection_enabled']) || $geo_data['geo_detection_enabled'] == 0) ? print ' hide' : '' ?>" data-section id="settings-geo">
   <section <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'freegeoip') ? print 'class="active"' : ''?>>
-    <p class="title" data-section-title><a href="#panel1">http://freegeoip.net/static/index.html - http://freegeoip.net/static/index.html</a></p>
+    <p class="title" data-section-title><a href="#panel1">http://freegeoip.net/static/index.html</a></p>
     <div class="content" data-section-content>
-    	<div>
-      <label class="inline"><input type="radio" name="UseGeoIP" value="freegeoip" <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'freegeoip') ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Use this service'); ?></label>
+    <div>
 
-      <input type="submit" class="button small round" name="StoreGeoIPConfiguration" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Save'); ?>" />
-</div>
+      	<label class="inline"><input type="radio" name="UseGeoIP" value="freegeoip" <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'freegeoip') ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Use this service'); ?></label>
+      	<input type="submit" class="button small round" name="StoreGeoIPConfiguration" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Save'); ?>" />
+	</div>
     </div>
   </section>
   <section <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'mod_geoip2') ? print 'class="active"' : ''?>>
@@ -80,9 +87,76 @@
 
 </form>
 
+</div>
 
+    </div>
+  </section>
+  <section>
+    <p class="title" data-section-title><a id="map-activator" href="#"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Map location')?></a></p>
+    <div class="content" data-section-content>
+
+    	<div>
+    		<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Drag a marker where you want to have map centered by default. Zoom is also saved.')?></p>
+      		<div id="map_canvas" style="height:600px;width:100%;"></div>
+			<script src="https://maps-api-ssl.google.com/maps/api/js?v=3&sensor=false&callback=loadMapLocationChoosing"></script>
+		 </div>
+
+    </div>
+  </section>
+</div>
 
 <script>
+var marker;
+var map;
+
+function loadMapLocationChoosing(){
+
+	$('#map-activator').click(function(){
+		setTimeout(function(){
+			google.maps.event.trigger(map, 'resize');
+			map.setCenter(marker.getPosition());
+		},500);
+	});
+
+	var mapOptions = {
+		    zoom: <?php echo $geo_location_data['zoom'] ?>,
+		    mapTypeId: google.maps.MapTypeId.ROADMAP,
+		    disableDefaultUI: true,
+	        options: {
+	            zoomControl: true,
+	            scrollwheel: true,
+	            streetViewControl: true
+	        },
+		    center: new google.maps.LatLng(<?php echo $geo_location_data['lat'] ?>,<?php echo $geo_location_data['lng']?>)
+		  };
+
+	map = new google.maps.Map(document.getElementById('map_canvas'),mapOptions);
+
+	var marker = new google.maps.Marker(
+	{
+	    map:map,
+	    draggable:true,
+	    animation: google.maps.Animation.DROP,
+	    position: new google.maps.LatLng(<?php echo $geo_location_data['lat'] ?>,<?php echo $geo_location_data['lng']?>)
+	});
+
+	google.maps.event.addListener(map, 'zoom_changed', function() {
+		 var pos = marker.getPosition();
+		 $.postJSON('<?php echo erLhcoreClassDesign::baseurl('chat/geoconfiguration')?>/',{zoom:map.getZoom(),store_map:1,csfr_token:confLH.csrf_token,lat:pos.lat().toFixed(4),lng:pos.lng().toFixed(4)}, function(data){
+
+	     });
+	});
+
+	google.maps.event.addListener(marker, 'dragend', function(evt) {
+	    $.postJSON('<?php echo erLhcoreClassDesign::baseurl('chat/geoconfiguration')?>/',{zoom:map.getZoom(),store_map:1,csfr_token:confLH.csrf_token,lat:evt.latLng.lat().toFixed(4),lng:evt.latLng.lng().toFixed(4)}, function(data){
+
+    	});
+	});
+};
+
+
+
+
 $('#id_GeoDetectionEnabled').change(function(){
     if ($(this).is(':checked')){
         $('#settings-geo').removeClass('hide');

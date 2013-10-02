@@ -1061,8 +1061,8 @@ function gMapsCallback(){
 	var $mapCanvas = $('#map_canvas');
 
 	var map = new google.maps.Map($mapCanvas[0], {
-        zoom: 3,
-        center: new google.maps.LatLng(65.635784, -60.156372),
+        zoom: GeoLocationData.zoom,
+        center: new google.maps.LatLng(GeoLocationData.lat, GeoLocationData.lng),
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         disableDefaultUI: true,
         options: {
@@ -1072,9 +1072,15 @@ function gMapsCallback(){
         }
     });
 
+	var locationSet = false;
+
 	$('#map-activator').click(function(){
 		setTimeout(function(){
 			google.maps.event.trigger(map, 'resize');
+			if (locationSet == false) {
+				locationSet = true;
+				map.setCenter(new google.maps.LatLng(GeoLocationData.lat, GeoLocationData.lng));
+			}
 		},500);
 	});
 

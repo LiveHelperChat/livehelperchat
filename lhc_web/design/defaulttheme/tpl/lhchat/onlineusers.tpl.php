@@ -135,6 +135,9 @@
 				</div>
 
 			<div id="map_canvas" style="height:600px;width:100%;"></div>
+			<script type="text/javascript">
+			var GeoLocationData = {zoom:<?php echo $geo_location_data['zoom']?>,lat:<?php echo $geo_location_data['lat']?>,lng:<?php echo $geo_location_data['lng']?>};
+			</script>
 		    <script src="https://maps-api-ssl.google.com/maps/api/js?v=3&sensor=false&callback=gMapsCallback"></script>
 
 	    </div>
