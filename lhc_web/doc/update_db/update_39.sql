@@ -18,3 +18,10 @@ INSERT INTO `lh_chat_config` (`identifier`, `value`, `type`, `explain`, `hidden`
 ALTER TABLE `lh_chat`
 ADD `na_cb_executed` int(11) NOT NULL,
 COMMENT='';
+
+ALTER TABLE `lh_departament`
+ADD `identifier` varchar(50) NOT NULL,
+COMMENT='';
+
+ALTER TABLE `lh_departament`
+ADD INDEX `identifier` (`identifier`);

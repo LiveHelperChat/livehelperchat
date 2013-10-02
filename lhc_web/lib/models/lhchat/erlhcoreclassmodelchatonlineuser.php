@@ -465,7 +465,7 @@ class erLhcoreClassModelChatOnlineUser {
 	           		$item->store_chat = true;
 	           }
 
-	           if ($item->operator_message == '' && isset($paramsHandle['pro_active_invite']) && $paramsHandle['pro_active_invite'] == 1 && isset($paramsHandle['pro_active_limitation']) && ($paramsHandle['pro_active_limitation'] == -1 || erLhcoreClassChat::getPendingChatsCountPublic() <= $paramsHandle['pro_active_limitation']) ) {
+	           if ($item->operator_message == '' && isset($paramsHandle['pro_active_invite']) && $paramsHandle['pro_active_invite'] == 1 && isset($paramsHandle['pro_active_limitation']) && ($paramsHandle['pro_active_limitation'] == -1 || erLhcoreClassChat::getPendingChatsCountPublic((isset($paramsHandle['department']) && $paramsHandle['department'] > 0) ? (int)$paramsHandle['department'] : false) <= $paramsHandle['pro_active_limitation']) ) {
 	           		//Process pro active chat invitation if this visitor matches any rules
 	           		erLhAbstractModelProactiveChatInvitation::processProActiveInvitation($item);
 	           }

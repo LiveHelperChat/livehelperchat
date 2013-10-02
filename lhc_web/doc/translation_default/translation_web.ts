@@ -2635,6 +2635,10 @@
         <translation></translation>
     </message>
     <message>
+        <source>is typing now...</source>
+        <translation></translation>
+    </message>
+    <message>
         <source>User is typing now...</source>
         <translation></translation>
     </message>
@@ -2693,6 +2697,10 @@
     </message>
     <message>
         <source>None</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
         <translation></translation>
     </message>
     <message>

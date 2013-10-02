@@ -13,6 +13,9 @@ Features:
 1. Automatic transfers between departments.
 2. Cronjobs support
 
+Bugfixes:
+After upgrade for third parties cookies drop, identifier functionality was lost.
+
 Visit the site for more information how to use these features.
 
 execute doc/update_db/update_39.sql

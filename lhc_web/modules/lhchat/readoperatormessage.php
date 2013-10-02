@@ -9,12 +9,16 @@ $tpl->set('referer_site','');
 $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('vid' => (string)$Params['user_parameters_unordered']['vid']));
 $tpl->set('visitor',$userInstance);
 
+$department = (int)$Params['user_parameters_unordered']['department'] > 0 ? (int)$Params['user_parameters_unordered']['department'] : false;
+
 $inputData = new stdClass();
 $inputData->username = '';
 $inputData->question = '';
 $inputData->email = '';
-$inputData->departament_id = 0;
+$inputData->departament_id = $department;
 $inputData->validate_start_chat = false;
+
+$tpl->set('department',$department);
 
 $chat = new erLhcoreClassModelChat();
 
@@ -22,6 +26,7 @@ if (isset($_POST['askQuestion']))
 {
     $validationFields = array();
     $validationFields['Question'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
+    $validationFields['DepartamentID'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1) );
 
     $form = new ezcInputForm( INPUT_POST, $validationFields );
     $Errors = array();
@@ -50,12 +55,18 @@ if (isset($_POST['askQuestion']))
 
        erLhcoreClassModelChat::detectLocation($chat);
 
+       $chat->dep_id = $inputData->departament_id;
+
        // Assign default department
-       $departments = erLhcoreClassModelDepartament::getList();
-       $ids = array_keys($departments);
-       $id = array_shift($ids);
-       $chat->dep_id = $id;
-       $chat->priority = is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : $departments[$chat->dep_id]->priority;
+       if ($form->hasValidData( 'DepartamentID' ) && erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $form->DepartamentID))) > 0) {
+       		$chat->dep_id = $form->DepartamentID;
+       } elseif ($chat->dep_id == 0 || erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $chat->dep_id))) == 0) {
+	       	$departments = erLhcoreClassModelDepartament::getList(array('limit' => 1,'filter' => array('department_transfer_id' => 0)));
+	       	$department = array_shift($departments);
+	       	$chat->dep_id = $department->id;
+       }
+
+       $chat->priority = is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : $chat->department->priority;
        $chat->chat_initiator = erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE;
 
        // Store chat
@@ -125,6 +136,13 @@ if (isset($_POST['askQuestion']))
 	       			erLhcoreClassChat::getSession()->save($msg);
 	       		}
 	       	}
+       }
+
+       // Set chat attributes for transfer workflow logic
+       if ($chat->department !== false && $chat->department->department_transfer_id > 0) {
+	       	$chat->transfer_if_na = 1;
+	       	$chat->transfer_timeout_ts = time();
+	       	$chat->transfer_timeout_ac = $chat->department->transfer_timeout;
        }
 
        $chat->last_msg_id = $msg->id;

@@ -66,7 +66,7 @@ $instance->ThemeSite = $optionsSiteAccess['theme'];
 $instance->WWWDirLang = '/'.$helpOption->value;
 
 // php cron.php -s site_admin -c cron/workflow
-
+// php cron.php -s site_admin -e customstatus -c cron/customcron
 if ($extensionPartOption->value) {
 	include_once('extension/'.$extensionPartOption->value.'/modules/lh'.$cronjobPartOption->value.'.php');
 } else {

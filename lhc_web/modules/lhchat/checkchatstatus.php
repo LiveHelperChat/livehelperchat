@@ -2,6 +2,7 @@
 
 $activated = 'false';
 $result = 'false';
+$ott = '';
 
 $tpl = erLhcoreClassTemplate::getInstance('lhchat/checkchatstatus.tpl.php');
 
@@ -25,6 +26,7 @@ try {
 	    if ($chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) {
 	       $activated = 'true';
 	       $tpl->set('is_activated',true);
+	       $ott = ($chat->user !== false) ? $chat->user->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','is typing now...') : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Operator is typing now...');
 	    } else {
 	       $tpl->set('is_activated',false);
 	    }
@@ -42,6 +44,6 @@ try {
     exit;
 }
 
-echo json_encode(array('error' => 'false', 'result' => $tpl->fetch(),'activated' => $activated));
+echo json_encode(array('error' => 'false','ott' => $ott, 'result' => $tpl->fetch(),'activated' => $activated));
 exit;
 ?>

@@ -254,13 +254,13 @@ $ViewList['reopen'] = array(
 $ViewList['readoperatormessage'] = array(
     'script' => 'readoperatormessage.php',
     'params' => array(),
-    'uparams' => array('priority','vid')
+    'uparams' => array('priority','vid','department')
 );
 
 $ViewList['chatcheckoperatormessage'] = array(
     'script' => 'chatcheckoperatormessage.php',
     'params' => array(),
-    'uparams' => array('priority','vid','count_page')
+    'uparams' => array('priority','vid','count_page','identifier','department')
 );
 
 $ViewList['chatwidgetclosed'] = array(

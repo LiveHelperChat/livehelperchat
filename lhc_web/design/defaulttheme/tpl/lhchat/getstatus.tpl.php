@@ -60,9 +60,11 @@ if (key_exists($position, $positionArgument)){
 } else {
 	$currentPosition = $positionArgument['bottom_right'];
 }
+?>
 
-$isOnlineHelp = erLhcoreClassChat::isOnline($department);
+<?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/is_online_help.tpl.php')); ?>
 
+<?php
 if ($isOnlineHelp == false && erLhcoreClassModelChatConfig::fetch('pro_active_show_if_offline')->current_value == 0) {
 	$disable_pro_active = true;
 };
@@ -266,7 +268,7 @@ var lh_inst  = {
             var s = document.createElement('script');
             s.setAttribute('id','lhc_operator_message');
             s.setAttribute('type','text/javascript');
-            s.setAttribute('src','//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatcheckoperatormessage')?><?php $priority !== false ? print '/(priority)/'.$priority : ''?>/(vid)/'+vid+'?l='+escape(document.location));
+            s.setAttribute('src','//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatcheckoperatormessage')?><?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?>/(vid)/'+vid+'?l='+escape(document.location));
             th.appendChild(s);
             lh_inst.startNewMessageCheck();
         }, <?php echo (int)(erConfigClassLhConfig::getInstance()->getSetting('chat','check_for_operator_msg')*1000) ?> );
@@ -279,7 +281,7 @@ var lh_inst  = {
         var s = document.createElement('script');
         s.setAttribute('id','lhc_operator_message');
         s.setAttribute('type','text/javascript');
-        s.setAttribute('src','//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatcheckoperatormessage')?><?php $priority !== false ? print '/(priority)/'.$priority : ''?>/(count_page)/1/(vid)/'+vid+'?l='+escape(document.location)+this.parseStorageArguments());
+        s.setAttribute('src','//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatcheckoperatormessage')?><?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?>/(count_page)/1/(vid)/'+vid+'?l='+escape(document.location)+this.parseStorageArguments());
         th.appendChild(s);
     },
 

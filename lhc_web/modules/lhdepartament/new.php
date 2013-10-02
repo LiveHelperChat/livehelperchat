@@ -17,6 +17,9 @@ if (isset($_POST['Save_departament']))
         'Email' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
+   		'Identifier' => new ezcInputFormDefinitionElement(
+   				ezcInputFormDefinitionElement::OPTIONAL, 'string'
+   		),
         'Priority' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int'
         ),
@@ -34,6 +37,11 @@ if (isset($_POST['Save_departament']))
     if ( !$form->hasValidData( 'Name' ) || $form->Name == '' )
     {
         $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('department/new','Please enter a department name');
+    }
+
+    if ( $form->hasValidData( 'Identifier' ) )
+    {
+    	$Departament->identifier = $form->Identifier;
     }
 
     if ( $form->hasValidData( 'TansferDepartmentID' ) )
