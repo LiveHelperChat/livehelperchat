@@ -21,7 +21,18 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 	}
 
 	if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && $chat->transfer_if_na == 1 && $chat->transfer_timeout_ts < (time()-$chat->transfer_timeout_ac) ) {
-		erLhcoreClassChatWorkflow::transferWorkflow($chat);
+
+		$canExecuteWorkflow = true;
+
+		if (erLhcoreClassModelChatConfig::fetch('pro_active_limitation')->current_value >= 0) {
+			if ($chat->department !== false && $chat->department->department_transfer_id > 0) {
+				$canExecuteWorkflow = erLhcoreClassChat::getPendingChatsCountPublic($chat->department->department_transfer_id) <= erLhcoreClassModelChatConfig::fetch('pro_active_limitation')->current_value;
+			}
+		}
+
+		if ($canExecuteWorkflow == true) {
+			erLhcoreClassChatWorkflow::transferWorkflow($chat);
+		}
 	}
 
 	// Sync only if chat is pending or active
