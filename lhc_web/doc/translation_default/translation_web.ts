@@ -2635,6 +2635,10 @@
         <translation></translation>
     </message>
     <message>
+        <source>is typing now...</source>
+        <translation></translation>
+    </message>
+    <message>
         <source>User is typing now...</source>
         <translation></translation>
     </message>

@@ -651,7 +651,8 @@ function lh(){
 	               setTimeout(chatsyncuserpending,confLH.chat_message_sinterval);
 
 	            } else {
-	               $('#status-chat').html(data.result);
+	            	$('#status-chat').html(data.result);
+	                $('#id-operator-typing i').html(data.ott);
 	            }
 	        }
     	}).fail(function(){
