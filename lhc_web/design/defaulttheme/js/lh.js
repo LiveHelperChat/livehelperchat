@@ -825,6 +825,8 @@ function lh(){
 	this.requestNotificationPermission = function() {
 		if (window.webkitNotifications) {
 			window.webkitNotifications.requestPermission();
+		} else if(window.Notification){
+			Notification.requestPermission(function(permission){});
 		} else {
 			alert('Notification API in your browser is not supported.');
 		}
@@ -847,27 +849,41 @@ function lh(){
     	};
 
 	    var inst = this;
-	    if ( (identifier == 'pending_chat' || identifier == 'transfer_chat' ) && window.webkitNotifications) {
-	    	 var havePermission = window.webkitNotifications.checkPermission();
-	    	  if (havePermission == 0) {
-	    	    // 0 is PERMISSION_ALLOWED
-	    	    var notification = window.webkitNotifications.createNotification(
-	    	      WWW_DIR_JAVASCRIPT_FILES_NOTIFICATION + '/notification.png',
-	    	      'Live Helper Chat',
-	    	      confLH.transLation.new_chat
-	    	    );
-	    	    notification.onclick = function () {
+	    if ( (identifier == 'pending_chat' || identifier == 'transfer_chat' ) && (window.webkitNotifications || window.Notification)) {
 
-	    	    	if (identifier == 'pending_chat'){
-	    	    		inst.startChatNewWindow(chat_id,'ChatRequest');
-	    	    	} else {
-	    	    		inst.startChatNewWindowTransferByTransfer(chat_id);
-	    	    	}
-
-	    	        notification.close();
-	    	    };
-	    	    notification.show();
+	    	 if (window.webkitNotifications) {
+		    	  var havePermission = window.webkitNotifications.checkPermission();
+		    	  if (havePermission == 0) {
+		    	    // 0 is PERMISSION_ALLOWED
+		    	    var notification = window.webkitNotifications.createNotification(
+		    	      WWW_DIR_JAVASCRIPT_FILES_NOTIFICATION + '/notification.png',
+		    	      'Live Helper Chat',
+		    	      confLH.transLation.new_chat
+		    	    );
+		    	    notification.onclick = function () {
+		    	    	if (identifier == 'pending_chat'){
+		    	    		inst.startChatNewWindow(chat_id,'ChatRequest');
+		    	    	} else {
+		    	    		inst.startChatNewWindowTransferByTransfer(chat_id);
+		    	    	};
+		    	        notification.close();
+		    	    };
+		    	    notification.show();
+		    	  }
+	    	  } else if(window.Notification) {
+	    		  if (window.Notification.permission == 'granted') {
+		  				var notification = new Notification('Live Helper Chat', { icon: WWW_DIR_JAVASCRIPT_FILES_NOTIFICATION + '/notification.png', body: confLH.transLation.new_chat });
+		  				notification.onclick = function () {
+			    	    	if (identifier == 'pending_chat'){
+			    	    		inst.startChatNewWindow(chat_id,'ChatRequest');
+			    	    	} else {
+			    	    		inst.startChatNewWindowTransferByTransfer(chat_id);
+			    	    	};
+			    	        notification.close();
+			    	    };
+		    	   }
 	    	  }
+
 	    }
 	};
 
