@@ -2,6 +2,8 @@
 
 1. Option to configure default map position.
 2. Departments transfer workflow will pay attention to how many pending chat's there are.
+3. Firefox support for notification added.
+4. Desktop client will support user typing messages. User status will be shown.
 
 Bugfixes
 
