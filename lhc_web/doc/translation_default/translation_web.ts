@@ -1169,6 +1169,10 @@
         <translation></translation>
     </message>
     <message>
+        <source>Menu</source>
+        <translation></translation>
+    </message>
+    <message>
         <source>FAQ</source>
         <translation></translation>
     </message>
