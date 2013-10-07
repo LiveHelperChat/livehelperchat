@@ -26,18 +26,16 @@ class erLhcoreClassModelChatArchiveRange {
 
    public function removeThis() {
 
+   	   // Set proper archive tables
    	   $this->setTables();
 
-   	   // Drop arhive tables
+   	   // Drop archive tables
    	   $db = ezcDbInstance::get();
    	   $db->query("DROP TABLE IF EXISTS `". self::$archiveTable . "`");
    	   $db->query("DROP TABLE IF EXISTS `". self::$archiveMsgTable . "`");
 
        erLhcoreClassChat::getSession()->delete($this);
    }
-
-   public static $archiveTable;
-   public static $archiveMsgTable;
 
    public function setTables(){
    		self::$archiveTable = "lh_chat_archive_{$this->id}";
@@ -178,6 +176,9 @@ class erLhcoreClassModelChatArchiveRange {
    public $ip = '';
    public $range_from = 0;
    public $range_to = 0;
+
+   public static $archiveTable;
+   public static $archiveMsgTable;
 }
 
 ?>

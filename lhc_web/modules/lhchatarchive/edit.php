@@ -14,6 +14,7 @@ if (isset($_POST['Cancel_archive']) )
 if (isset($_POST['Delete_archive']) )
 {
 	$archive->removeThis();
+	erLhcoreClassModule::redirect('chatarchive/list');
 	exit;
 }
 

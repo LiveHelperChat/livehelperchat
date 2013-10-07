@@ -17,7 +17,8 @@ $form = new ezcInputForm( INPUT_POST, $definition );
 $Errors = array();
 
 if ( !$form->hasValidData( 'id' ) ) {
-	$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Please enter a valid from date range!');
+	echo json_encode(array('error' => 'true', 'result' => 'Invalid archive ID' ));
+	exit;
 } else {
 	$archiveChat = erLhcoreClassModelChatArchiveRange::fetch($form->id);
 	$status = $archiveChat->process();
