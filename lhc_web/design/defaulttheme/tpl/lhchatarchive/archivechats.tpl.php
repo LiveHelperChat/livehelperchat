@@ -1,0 +1,1 @@
+<div><?php echo date('Y-m-d H:i:s')?>, FCID - <?php echo $status['fcid']?>, LCID - <?php echo $status['lcid']?>, AC - <?php echo $status['chats_archived']?>, AM - <?php echo $status['messages_archived']?></div>

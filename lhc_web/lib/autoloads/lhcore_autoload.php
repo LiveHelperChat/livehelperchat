@@ -102,6 +102,11 @@ return array_merge(array (
 		 // Chat export
 		'erLhcoreClassChatExport'				=> 'lib/core/lhchat/lhchatexport.php',
 
+		// Chat archive
+		'erLhcoreClassModelChatArchiveRange' 	=> 'lib/models/lhchat/erlhcoreclassmodelchatarchiverange.php',
+		'erLhcoreClassModelChatArchive' 		=> 'lib/models/lhchat/erlhcoreclassmodelchatarchive.php',
+		'erLhcoreClassModelChatArchiveMsg' 		=> 'lib/models/lhchat/erlhcoreclassmodelchatarchivemsg.php'
+
 
 ),
 include('var/autoloads/lhextension_autoload.php')
