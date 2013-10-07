@@ -43,6 +43,11 @@
 		    <?php endif; ?>
 
 		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/lists')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Chats list');?></a></li>
+
+		    <?php if ($currentUser->hasAccessTo('lhchatarchive','archive')) : ?>
+		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chatarchive/archive')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Chat archive');?></a></li>
+		    <?php endif; ?>
+
 		</ul>
 	</div>
 

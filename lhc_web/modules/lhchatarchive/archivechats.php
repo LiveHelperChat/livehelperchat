@@ -24,6 +24,7 @@ if ( !$form->hasValidData( 'id' ) ) {
 
 	$tpl = erLhcoreClassTemplate::getInstance( 'lhchatarchive/archivechats.tpl.php');
 	$tpl->set('status', $status);
+	$tpl->set('archive', $archiveChat);
 	$status['result'] = $tpl->fetch();
 
 	echo json_encode($status);

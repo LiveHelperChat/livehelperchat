@@ -19,16 +19,6 @@ $def->properties['range_to']->columnName   = 'range_to';
 $def->properties['range_to']->propertyName = 'range_to';
 $def->properties['range_to']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
-$def->properties['id_range_from'] = new ezcPersistentObjectProperty();
-$def->properties['id_range_from']->columnName   = 'id_range_from';
-$def->properties['id_range_from']->propertyName = 'id_range_from';
-$def->properties['id_range_from']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['id_range_to'] = new ezcPersistentObjectProperty();
-$def->properties['id_range_to']->columnName   = 'id_range_to';
-$def->properties['id_range_to']->propertyName = 'id_range_to';
-$def->properties['id_range_to']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
 return $def;
 
 ?>

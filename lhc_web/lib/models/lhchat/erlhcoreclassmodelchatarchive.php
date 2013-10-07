@@ -7,7 +7,7 @@ class erLhcoreClassModelChatArchive extends erLhcoreClassModelChat{
 	   	$q = ezcDbInstance::get()->createDeleteQuery();
 
 	   	// Messages
-	   	$q->deleteFrom( 'lh_msg' )->where( $q->expr->eq( 'chat_id', $this->id ) );
+	   	$q->deleteFrom( erLhcoreClassModelChatArchiveRange::$archiveMsgTable )->where( $q->expr->eq( 'chat_id', $this->id ) );
 	   	$stmt = $q->prepare();
 	   	$stmt->execute();
 

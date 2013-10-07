@@ -608,6 +608,10 @@
         <translation></translation>
     </message>
     <message>
+        <source>Return</source>
+        <translation></translation>
+    </message>
+    <message>
         <source>Send</source>
         <translation></translation>
     </message>
@@ -3106,6 +3110,10 @@
     <name>system/configuration</name>
     <message>
         <source>HTML code</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Chat archive</source>
         <translation></translation>
     </message>
     <message>

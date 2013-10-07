@@ -17,7 +17,7 @@ if ($currentUser->hasAccessTo('lhchat','deleteglobalchat') || ($currentUser->has
 }
 
 header('Location: ' . $_SERVER['HTTP_REFERER']);
-return;
+exit;
 
 
 ?>

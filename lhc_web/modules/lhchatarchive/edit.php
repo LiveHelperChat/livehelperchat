@@ -1,15 +1,23 @@
 <?php
 
-$tpl = erLhcoreClassTemplate::getInstance( 'lhchatarchive/newarchive.tpl.php');
-$archive = new erLhcoreClassModelChatArchiveRange();
+$tpl = erLhcoreClassTemplate::getInstance( 'lhchatarchive/edit.tpl.php');
+
+$archive = erLhcoreClassModelChatArchiveRange::fetch($Params['user_parameters']['id']);
+
 
 if (isset($_POST['Cancel_archive']) )
 {
-	erLhcoreClassModule::redirect('chatarchive/archive');
+	erLhcoreClassModule::redirect('chatarchive/list');
 	exit;
 }
 
-if (isset($_POST['Save_archive']))
+if (isset($_POST['Delete_archive']) )
+{
+	$archive->removeThis();
+	exit;
+}
+
+if (isset($_POST['Save_archive']) || isset($_POST['Save_and_continue_archive']))
 {
 	$definition = array(
 			'RangeFrom' => new ezcInputFormDefinitionElement(
@@ -54,20 +62,27 @@ if (isset($_POST['Save_archive']))
 
 	if (count($Errors) == 0)
 	{
-		$tpl->set('step_2',true);
+		if (isset($_POST['Save_and_continue_archive'])){
+			erLhcoreClassModule::redirect('chatarchive/process','/'.$archive->id);
+			exit;
+		}
+
+		$tpl->set('updated',true);
+
 	}  else {
 		$tpl->set('errors',$Errors);
 	}
-
 }
 
 $tpl->set('archive',$archive);
-
 $Result['content'] = $tpl->fetch();
+
+
 
 $Result['path'] = array(
 		array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','System configuration')),
-		array('url' => erLhcoreClassDesign::baseurl('chatarchive/archive'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/archive','Chat archive')));
-$Result['path'][] = array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/newarchive','New archive'));
+		array('url' => erLhcoreClassDesign::baseurl('chatarchive/archive'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/archive','Chat archive')),
+		array('url' => erLhcoreClassDesign::baseurl('chatarchive/list'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','Archives list')));
+$Result['path'][] = array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/editarchive','Edit archive'));
 
 ?>

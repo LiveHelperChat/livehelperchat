@@ -7,9 +7,7 @@ class erLhcoreClassModelChatArchiveRange {
        return array(
                'id'            => $this->id,
                'range_from'    => $this->range_from,
-               'range_to'      => $this->range_to,
-               'id_range_from' => $this->id_range_from,
-               'id_range_to'   => $this->id_range_to
+               'range_to'      => $this->range_to
        );
    }
 
@@ -27,11 +25,24 @@ class erLhcoreClassModelChatArchiveRange {
    }
 
    public function removeThis() {
+
+   	   $this->setTables();
+
+   	   // Drop arhive tables
+   	   $db = ezcDbInstance::get();
+   	   $db->query("DROP TABLE IF EXISTS `". self::$archiveTable . "`");
+   	   $db->query("DROP TABLE IF EXISTS `". self::$archiveMsgTable . "`");
+
        erLhcoreClassChat::getSession()->delete($this);
    }
 
    public static $archiveTable;
    public static $archiveMsgTable;
+
+   public function setTables(){
+   		self::$archiveTable = "lh_chat_archive_{$this->id}";
+   		self::$archiveMsgTable = "lh_chat_archive_msg_{$this->id}";
+   }
 
    public function process() {
 
@@ -167,8 +178,6 @@ class erLhcoreClassModelChatArchiveRange {
    public $ip = '';
    public $range_from = 0;
    public $range_to = 0;
-   public $id_range_from = 0;
-   public $id_range_to = 0;
 }
 
 ?>

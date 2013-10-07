@@ -34,6 +34,29 @@ $ViewList['list'] = array(
     'functions' => array( 'archive' )
 );
 
+$ViewList['listarchivechats'] = array(
+    'script' => 'listarchivechats.php',
+    'params' => array('id'),
+    'functions' => array( 'archive' )
+);
+
+$ViewList['edit'] = array(
+    'params' => array('id'),
+    'functions' => array( 'archive' )
+);
+
+$ViewList['viewarchivedchat'] = array(
+    'script' => 'viewarchivedchat.php',
+    'params' => array('archive_id','chat_id'),
+    'functions' => array( 'archive' )
+);
+
+$ViewList['deletearchivechat'] = array(
+    'params' => array('archive_id','chat_id'),
+    'uparams' => array('csfr'),
+    'functions' => array( 'archive' )
+);
+
 $ViewList['process'] = array(
     'script' => 'process.php',
     'params' => array('id'),
