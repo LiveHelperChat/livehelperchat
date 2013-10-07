@@ -777,6 +777,18 @@
         <translation>Online tid</translation>
     </message>
     <message>
+        <source>time(s) invitation logic was applied</source>
+        <translation>Antall gang(er) invitasjon logikken ble brukt</translation>
+    </message>
+    <message>
+        <source>Total time on site</source>
+        <translation>Total tid på siden</translation>
+    </message>
+    <message>
+        <source>Total pageviews</source>
+        <translation>Totale sidevisninger</translation>
+    </message>
+    <message>
         <source>No one has sent a message to the user yet</source>
         <translation>Ingen har svart brukeren enda</translation>
     </message>
@@ -825,8 +837,8 @@
         <translation>By</translation>
     </message>
     <message>
-        <source>last visit</source>
-        <translation>sist besøk</translation>
+        <source>Last visit</source>
+        <translation>Siste besøk</translation>
     </message>
     <message>
         <source>List</source>
@@ -837,8 +849,12 @@
         <translation>Kart</translation>
     </message>
     <message>
-        <source>first visit</source>
-        <translation>første besøk</translation>
+        <source>First visit</source>
+        <translation>Første besøk</translation>
+    </message>
+    <message>
+        <source>Total visits</source>
+        <translation>Antall besøk</translation>
     </message>
     <message>
         <source>has sent a message to the user</source>
@@ -1538,11 +1554,11 @@
     <name>chat/reopenchat</name>
     <message>
         <source>has reopened the chat!</source>
-        <translation type="unfinished"/>
+        <translation>har gjenåpnet chatten!</translation>
     </message>
     <message>
         <source>No permission to reopen the chat!</source>
-        <translation type="unfinished"/>
+        <translation>Mangler tilgang til å gjenåpne chatten!</translation>
     </message>
 </context>
 <context>
@@ -1552,8 +1568,20 @@
         <translation>E-post</translation>
     </message>
     <message>
+        <source>Browsing information</source>
+        <translation>Nettleser informasjon</translation>
+    </message>
+    <message>
+        <source>User chats</source>
+        <translation>Bruker chat</translation>
+    </message>
+    <message>
+        <source>Chats</source>
+        <translation>Samtaler</translation>
+    </message>
+    <message>
         <source>Reopen chat</source>
-        <translation type="unfinished"/>
+        <translation>Gjenåpne chat</translation>
     </message>
     <message>
         <source>Page</source>
@@ -1673,23 +1701,23 @@
     </message>
     <message>
         <source>Pending chat</source>
-        <translation type="unfinished"/>
+        <translation>Avventende samtale</translation>
     </message>
     <message>
         <source>Active chat</source>
-        <translation type="unfinished"/>
+        <translation>Aktiv chat</translation>
     </message>
     <message>
         <source>Closed chat</source>
-        <translation type="unfinished"/>
+        <translation>Lukket chat</translation>
     </message>
     <message>
         <source>Chatbox chat</source>
-        <translation type="unfinished"/>
+        <translation>Samtalevindu</translation>
     </message>
     <message>
         <source>Operators chat</source>
-        <translation type="unfinished"/>
+        <translation>Operatørchat</translation>
     </message>
 </context>
 <context>
@@ -1701,6 +1729,14 @@
     <message>
         <source>Support</source>
         <translation>Support</translation>
+    </message>
+    <message>
+        <source>Chat was automatically transferred to</source>
+        <translation>Samtalen ble automatisk flyttet til</translation>
+    </message>
+    <message>
+        <source>from</source>
+        <translation>fra</translation>
     </message>
     <message>
         <source>A support staff member has closed this chat</source>
@@ -2599,6 +2635,10 @@
         <translation>Operatør skriver nå...</translation>
     </message>
     <message>
+        <source>is typing now...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>User is typing now...</source>
         <translation>Bruker skriver nå...</translation>
     </message>
@@ -2654,6 +2694,22 @@
     <message>
         <source>Edit department</source>
         <translation>Rediger avdeling</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Ingen</translation>
+    </message>
+    <message>
+        <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
+        <translation>Dette feltet har tillater maks 50 tegn og kan brukes av alle tillegg. Dette feltet er også indeksert.</translation>
+    </message>
+    <message>
+        <source>To what department chat should be transfered if it is not accepted</source>
+        <translation>Hvilken avdeling skal samtalen automatisk flyttes til hvis den ikke aksepteres</translation>
+    </message>
+    <message>
+        <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+        <translation>TIdsavbrudd før samtalen blir flyttet til en annen avdeling. Minimum 5 sekunder.</translation>
     </message>
     <message>
         <source>E-mail</source>

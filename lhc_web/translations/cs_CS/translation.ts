@@ -53,7 +53,7 @@
     </message>
     <message>
         <source>Wait timeout. Time in seconds before timeout message is shown.</source>
-        <translation type="unfinished"/>
+        <translation>Prodleva čekání. Čas v sekundách, po kterém se zobrazí hláška o vypšení časového limitu.</translation>
     </message>
     <message>
         <source>Show visitor this message then wait timeout passes.</source>
@@ -777,6 +777,18 @@
         <translation>Délka návštěvy</translation>
     </message>
     <message>
+        <source>time(s) invitation logic was applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Total time on site</source>
+        <translation>Celkový čas strávený na stránce</translation>
+    </message>
+    <message>
+        <source>Total pageviews</source>
+        <translation>Počet shlédnutých stran</translation>
+    </message>
+    <message>
         <source>No one has sent a message to the user yet</source>
         <translation>Zatím nikdo uživateli neodpověděl</translation>
     </message>
@@ -825,8 +837,8 @@
         <translation>Město</translation>
     </message>
     <message>
-        <source>last visit</source>
-        <translation>poslední návštěva</translation>
+        <source>Last visit</source>
+        <translation>Poslední návštěva</translation>
     </message>
     <message>
         <source>List</source>
@@ -837,8 +849,12 @@
         <translation>Mapa</translation>
     </message>
     <message>
-        <source>first visit</source>
-        <translation>první návštěva</translation>
+        <source>First visit</source>
+        <translation>První návštěva</translation>
+    </message>
+    <message>
+        <source>Total visits</source>
+        <translation>Celkem návštěv</translation>
     </message>
     <message>
         <source>has sent a message to the user</source>
@@ -1552,6 +1568,18 @@
         <translation>E-mail</translation>
     </message>
     <message>
+        <source>Browsing information</source>
+        <translation>Informace o prohlížeči</translation>
+    </message>
+    <message>
+        <source>User chats</source>
+        <translation>Rozhovory uživatelů</translation>
+    </message>
+    <message>
+        <source>Chats</source>
+        <translation>Rozhovory</translation>
+    </message>
+    <message>
         <source>Reopen chat</source>
         <translation>Znovuotevřít rozhovor</translation>
     </message>
@@ -1701,6 +1729,14 @@
     <message>
         <source>Support</source>
         <translation>Podpora</translation>
+    </message>
+    <message>
+        <source>Chat was automatically transferred to</source>
+        <translation>Rozhovor automaticky přesunut</translation>
+    </message>
+    <message>
+        <source>from</source>
+        <translation>od</translation>
     </message>
     <message>
         <source>A support staff member has closed this chat</source>
@@ -2599,6 +2635,10 @@
         <translation>Operátor píše…</translation>
     </message>
     <message>
+        <source>is typing now...</source>
+        <translation>nyní píše ...</translation>
+    </message>
+    <message>
         <source>User is typing now...</source>
         <translation>Uživatel píše...</translation>
     </message>
@@ -2654,6 +2694,22 @@
     <message>
         <source>Edit department</source>
         <translation>Upravit oddělení</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Žádný</translation>
+    </message>
+    <message>
+        <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To what department chat should be transfered if it is not accepted</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>E-mail</source>
@@ -3599,7 +3655,7 @@
     </message>
     <message>
         <source>The URL where this question should appear, leave it empty for all</source>
-        <translation type="unfinished"/>
+        <translation>URL stránky, kde se má tato otázka zobrazit. Nevyplňujte pokud ji chcete zobrazit všude</translation>
     </message>
     <message>
         <source>Question is active</source>

@@ -45,19 +45,19 @@
     </message>
     <message>
         <source>Operator name</source>
-        <translation type="unfinished"/>
+        <translation>操作者姓名</translation>
     </message>
     <message>
         <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
-        <translation type="unfinished"/>
+        <translation>等待消息。可見，那麼用戶開始聊天，等著別人來接受一個聊天。</translation>
     </message>
     <message>
         <source>Wait timeout. Time in seconds before timeout message is shown.</source>
-        <translation type="unfinished"/>
+        <translation>等待超時。秒超時之前消息中的時間顯示。</translation>
     </message>
     <message>
         <source>Show visitor this message then wait timeout passes.</source>
-        <translation type="unfinished"/>
+        <translation>顯示遊客這個消息，然後等待超時的推移。</translation>
     </message>
     <message>
         <source>If you want pro active chat invitation to work it has to be enabled in</source>
@@ -533,7 +533,7 @@
     </message>
     <message>
         <source>Send chat transcript to your e-mail</source>
-        <translation type="unfinished"/>
+        <translation>聊天記錄發送到您的電子郵箱</translation>
     </message>
     <message>
         <source>Change my status to online/offline</source>
@@ -549,7 +549,7 @@
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"/>
+        <translation>打印</translation>
     </message>
 </context>
 <context>
@@ -598,7 +598,7 @@
     <name>chat/sendchat</name>
     <message>
         <source>Enter your e-mail</source>
-        <translation type="unfinished"/>
+        <translation>輸入您的電子郵件</translation>
     </message>
 </context>
 <context>
@@ -609,7 +609,7 @@
     </message>
     <message>
         <source>Send</source>
-        <translation type="unfinished"/>
+        <translation>发送</translation>
     </message>
     <message>
         <source>Update</source>
@@ -777,6 +777,18 @@
         <translation>网站停留时间</translation>
     </message>
     <message>
+        <source>time(s) invitation logic was applied</source>
+        <translation>時間邀請邏輯</translation>
+    </message>
+    <message>
+        <source>Total time on site</source>
+        <translation>網站上的總時間</translation>
+    </message>
+    <message>
+        <source>Total pageviews</source>
+        <translation>總瀏覽量</translation>
+    </message>
+    <message>
         <source>No one has sent a message to the user yet</source>
         <translation>没有人传话给用户</translation>
     </message>
@@ -794,11 +806,11 @@
     </message>
     <message>
         <source>hour</source>
-        <translation type="unfinished"/>
+        <translation>小時</translation>
     </message>
     <message>
         <source>Show visitors who visited site in the past</source>
-        <translation type="unfinished"/>
+        <translation>顯示在過去的遊客誰訪問的網站</translation>
     </message>
     <message>
         <source>Came from</source>
@@ -825,7 +837,7 @@
         <translation>城市</translation>
     </message>
     <message>
-        <source>last visit</source>
+        <source>Last visit</source>
         <translation>最后的访问</translation>
     </message>
     <message>
@@ -837,8 +849,12 @@
         <translation>Žemėlapis</translation>
     </message>
     <message>
-        <source>first visit</source>
+        <source>First visit</source>
         <translation>首次访华</translation>
+    </message>
+    <message>
+        <source>Total visits</source>
+        <translation>總訪問量</translation>
     </message>
     <message>
         <source>has sent a message to the user</source>
@@ -1538,11 +1554,11 @@
     <name>chat/reopenchat</name>
     <message>
         <source>has reopened the chat!</source>
-        <translation type="unfinished"/>
+        <translation>已經重新開放了聊天！</translation>
     </message>
     <message>
         <source>No permission to reopen the chat!</source>
-        <translation type="unfinished"/>
+        <translation>權限重新打開聊天！</translation>
     </message>
 </context>
 <context>
@@ -1552,8 +1568,20 @@
         <translation>电子邮件</translation>
     </message>
     <message>
+        <source>Browsing information</source>
+        <translation>瀏覽信息</translation>
+    </message>
+    <message>
+        <source>User chats</source>
+        <translation>用戶聊天</translation>
+    </message>
+    <message>
+        <source>Chats</source>
+        <translation>聊天</translation>
+    </message>
+    <message>
         <source>Reopen chat</source>
-        <translation type="unfinished"/>
+        <translation>重新打開聊天</translation>
     </message>
     <message>
         <source>Page</source>
@@ -1561,7 +1589,7 @@
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"/>
+        <translation>打印</translation>
     </message>
     <message>
         <source>Chat duration</source>
@@ -1673,23 +1701,23 @@
     </message>
     <message>
         <source>Pending chat</source>
-        <translation type="unfinished"/>
+        <translation>待聊天</translation>
     </message>
     <message>
         <source>Active chat</source>
-        <translation type="unfinished"/>
+        <translation>主動聊天</translation>
     </message>
     <message>
         <source>Closed chat</source>
-        <translation type="unfinished"/>
+        <translation>閉聊天</translation>
     </message>
     <message>
         <source>Chatbox chat</source>
-        <translation type="unfinished"/>
+        <translation>客艙聊天</translation>
     </message>
     <message>
         <source>Operators chat</source>
-        <translation type="unfinished"/>
+        <translation>運營聊天</translation>
     </message>
 </context>
 <context>
@@ -1701,6 +1729,14 @@
     <message>
         <source>Support</source>
         <translation>支持</translation>
+    </message>
+    <message>
+        <source>Chat was automatically transferred to</source>
+        <translation>聊天被自動轉移到</translation>
+    </message>
+    <message>
+        <source>from</source>
+        <translation>從</translation>
     </message>
     <message>
         <source>A support staff member has closed this chat</source>
@@ -2107,11 +2143,11 @@
     </message>
     <message>
         <source>Go back</source>
-        <translation type="unfinished"/>
+        <translation>回去</translation>
     </message>
     <message>
         <source>You do not have permission to edit selected object</source>
-        <translation type="unfinished"/>
+        <translation>您沒有權限編輯所選對象</translation>
     </message>
     <message>
         <source>function</source>
@@ -2338,7 +2374,7 @@
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished"/>
+        <translation>當前離線</translation>
     </message>
     <message>
         <source>Leave a message</source>
@@ -2599,6 +2635,10 @@
         <translation>运营商现在打字...</translation>
     </message>
     <message>
+        <source>is typing now...</source>
+        <translation>現在打字...</translation>
+    </message>
+    <message>
         <source>User is typing now...</source>
         <translation>用户现在打字...</translation>
     </message>
@@ -2654,6 +2694,22 @@
     <message>
         <source>Edit department</source>
         <translation>编辑部门</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>無</translation>
+    </message>
+    <message>
+        <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
+        <translation>此字段是最多50個字符的長度，並通過擴展可以用於任何用途。此字段索引。</translation>
+    </message>
+    <message>
+        <source>To what department chat should be transfered if it is not accepted</source>
+        <translation>部門聊天，如果不接受，應該被轉移</translation>
+    </message>
+    <message>
+        <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+        <translation>超時聊天秒前被轉移到另一個部門。至少5秒。</translation>
     </message>
     <message>
         <source>E-mail</source>
@@ -3050,7 +3106,7 @@
     </message>
     <message>
         <source>Auto responder</source>
-        <translation type="unfinished"/>
+        <translation>自動應答</translation>
     </message>
     <message>
         <source>Chats list</source>
@@ -3086,19 +3142,19 @@
     </message>
     <message>
         <source>Live help embed code</source>
-        <translation type="unfinished"/>
+        <translation>在線幫助嵌入代碼</translation>
     </message>
     <message>
         <source>FAQ embed code</source>
-        <translation type="unfinished"/>
+        <translation>常見問題嵌入代碼</translation>
     </message>
     <message>
         <source>Questionary embed code</source>
-        <translation type="unfinished"/>
+        <translation>問卷嵌入代碼</translation>
     </message>
     <message>
         <source>Chatbox embed code</source>
-        <translation type="unfinished"/>
+        <translation>客艙嵌入代碼</translation>
     </message>
     <message>
         <source>Canned messages</source>

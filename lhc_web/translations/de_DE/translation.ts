@@ -3,7 +3,7 @@
     <name>user/login</name>
     <message>
         <source>Please login</source>
-        <translation>Please login</translation>
+        <translation>Bitte anmelden</translation>
     </message>
     <message>
         <source>Username</source>
@@ -49,15 +49,15 @@
     </message>
     <message>
         <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
-        <translation type="unfinished"/>
+        <translation>Warte-Nachricht. Sichtbar, wenn der Nutzer einen Chat startet und auf jemanden wartet, der den Chat akzeptiert.</translation>
     </message>
     <message>
         <source>Wait timeout. Time in seconds before timeout message is shown.</source>
-        <translation type="unfinished"/>
+        <translation>Warte-Zeitlimit. Zeit in Sekunden, bevor die Zeitlimit-Nachricht gezeigt wird.</translation>
     </message>
     <message>
         <source>Show visitor this message then wait timeout passes.</source>
-        <translation type="unfinished"/>
+        <translation>Zeige dem Besucher diese Nachricht, dann warte bis das Zeitlimit erreicht ist.</translation>
     </message>
     <message>
         <source>If you want pro active chat invitation to work it has to be enabled in</source>
@@ -85,7 +85,7 @@
     </message>
     <message>
         <source>Time on site in seconds</source>
-        <translation>Die Zeit wur der Webseite wird in Sekunden dargestellt.</translation>
+        <translation>Zeit auf der Webseite in Sekunden</translation>
     </message>
     <message>
         <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
@@ -533,7 +533,7 @@
     </message>
     <message>
         <source>Send chat transcript to your e-mail</source>
-        <translation type="unfinished"/>
+        <translation>Chat-Verlauf per E-Mail versenden</translation>
     </message>
     <message>
         <source>Change my status to online/offline</source>
@@ -598,7 +598,7 @@
     <name>chat/sendchat</name>
     <message>
         <source>Enter your e-mail</source>
-        <translation type="unfinished"/>
+        <translation>E-Mail-Adresse eingeben</translation>
     </message>
 </context>
 <context>
@@ -609,7 +609,7 @@
     </message>
     <message>
         <source>Send</source>
-        <translation type="unfinished"/>
+        <translation>Senden</translation>
     </message>
     <message>
         <source>Update</source>
@@ -777,6 +777,18 @@
         <translation>Die Zeit der Webseite wird in Sekunden dargestellt.</translation>
     </message>
     <message>
+        <source>time(s) invitation logic was applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Total time on site</source>
+        <translation>Gesamt-Zeit auf der Webseite</translation>
+    </message>
+    <message>
+        <source>Total pageviews</source>
+        <translation>Gesamten Seitenbesuche</translation>
+    </message>
+    <message>
         <source>No one has sent a message to the user yet</source>
         <translation>Noch keiner hat eine Nachricht an den Nutzer gesendet</translation>
     </message>
@@ -825,7 +837,7 @@
         <translation>Stadt</translation>
     </message>
     <message>
-        <source>last visit</source>
+        <source>Last visit</source>
         <translation>Letzter Besuch</translation>
     </message>
     <message>
@@ -837,8 +849,12 @@
         <translation>Karte</translation>
     </message>
     <message>
-        <source>first visit</source>
+        <source>First visit</source>
         <translation>Erster Besuch</translation>
+    </message>
+    <message>
+        <source>Total visits</source>
+        <translation>Gesamten Besuche</translation>
     </message>
     <message>
         <source>has sent a message to the user</source>
@@ -1538,11 +1554,11 @@
     <name>chat/reopenchat</name>
     <message>
         <source>has reopened the chat!</source>
-        <translation type="unfinished"/>
+        <translation>hat den Chat wiedereröffnet!</translation>
     </message>
     <message>
         <source>No permission to reopen the chat!</source>
-        <translation type="unfinished"/>
+        <translation>Keine Berechtigung den Chat wiederzueröffnen!</translation>
     </message>
 </context>
 <context>
@@ -1552,8 +1568,20 @@
         <translation>E-Mail</translation>
     </message>
     <message>
+        <source>Browsing information</source>
+        <translation>Browsing-Information</translation>
+    </message>
+    <message>
+        <source>User chats</source>
+        <translation>Nutzer-Chats</translation>
+    </message>
+    <message>
+        <source>Chats</source>
+        <translation>Chats</translation>
+    </message>
+    <message>
         <source>Reopen chat</source>
-        <translation type="unfinished"/>
+        <translation>Chat wiedereröffnen</translation>
     </message>
     <message>
         <source>Page</source>
@@ -1673,23 +1701,23 @@
     </message>
     <message>
         <source>Pending chat</source>
-        <translation type="unfinished"/>
+        <translation>Offener Chat</translation>
     </message>
     <message>
         <source>Active chat</source>
-        <translation type="unfinished"/>
+        <translation>Aktiver Chat</translation>
     </message>
     <message>
         <source>Closed chat</source>
-        <translation type="unfinished"/>
+        <translation>Geschlossener Chat</translation>
     </message>
     <message>
         <source>Chatbox chat</source>
-        <translation type="unfinished"/>
+        <translation>Chatbox Chat</translation>
     </message>
     <message>
         <source>Operators chat</source>
-        <translation type="unfinished"/>
+        <translation>Operatoren Chat</translation>
     </message>
 </context>
 <context>
@@ -1701,6 +1729,14 @@
     <message>
         <source>Support</source>
         <translation>Support</translation>
+    </message>
+    <message>
+        <source>Chat was automatically transferred to</source>
+        <translation>Chat wurde automatisch übergeben an</translation>
+    </message>
+    <message>
+        <source>from</source>
+        <translation>von</translation>
     </message>
     <message>
         <source>A support staff member has closed this chat</source>
@@ -2599,6 +2635,10 @@
         <translation>Ihr Berater schreibt gerade...</translation>
     </message>
     <message>
+        <source>is typing now...</source>
+        <translation>schreibt gerade...</translation>
+    </message>
+    <message>
         <source>User is typing now...</source>
         <translation>Nutzer schreibt gerade...</translation>
     </message>
@@ -2654,6 +2694,22 @@
     <message>
         <source>Edit department</source>
         <translation>Abteilung bearbeiten</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Keine</translation>
+    </message>
+    <message>
+        <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
+        <translation>Dieses Feld ist max. 50 Zeichen lang und kann für jeden Zweck von Erweiterungen verwendet werden. Dieses Feld ist auch indiziert.</translation>
+    </message>
+    <message>
+        <source>To what department chat should be transfered if it is not accepted</source>
+        <translation>Zu welcher Abteilung der Chat übergeben werden soll, wenn er nicht akzeptiert wurde</translation>
+    </message>
+    <message>
+        <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+        <translation>Zeitlimit in Sekunden, bevor der Chat einer anderen Abteilung übergeben wird. Minimum 5 Sekunden.</translation>
     </message>
     <message>
         <source>E-mail</source>
@@ -3050,7 +3106,7 @@
     </message>
     <message>
         <source>Auto responder</source>
-        <translation type="unfinished"/>
+        <translation>Automatische Antwort</translation>
     </message>
     <message>
         <source>Chats list</source>

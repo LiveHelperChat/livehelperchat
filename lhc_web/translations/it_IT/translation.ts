@@ -45,7 +45,7 @@
     </message>
     <message>
         <source>Operator name</source>
-        <translation type="unfinished"/>
+        <translation>Nome operatore</translation>
     </message>
     <message>
         <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
@@ -549,7 +549,7 @@
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"/>
+        <translation>Stampa</translation>
     </message>
 </context>
 <context>
@@ -777,6 +777,18 @@
         <translation>Tempo sul sito</translation>
     </message>
     <message>
+        <source>time(s) invitation logic was applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Total time on site</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Total pageviews</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>No one has sent a message to the user yet</source>
         <translation>Nessuno ha ancora inviato messaggi all&apos;utente</translation>
     </message>
@@ -794,11 +806,11 @@
     </message>
     <message>
         <source>hour</source>
-        <translation type="unfinished"/>
+        <translation>ora</translation>
     </message>
     <message>
         <source>Show visitors who visited site in the past</source>
-        <translation type="unfinished"/>
+        <translation>Mostra visitatori che hanno visitato il sito in passato</translation>
     </message>
     <message>
         <source>Came from</source>
@@ -825,8 +837,8 @@
         <translation>Città</translation>
     </message>
     <message>
-        <source>last visit</source>
-        <translation>Ultima visita</translation>
+        <source>Last visit</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>List</source>
@@ -837,8 +849,12 @@
         <translation>Mappa</translation>
     </message>
     <message>
-        <source>first visit</source>
-        <translation>Prima visita</translation>
+        <source>First visit</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Total visits</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>has sent a message to the user</source>
@@ -1303,7 +1319,7 @@
     </message>
     <message>
         <source>Resume chat</source>
-        <translation type="unfinished"/>
+        <translation>Richiama chat</translation>
     </message>
 </context>
 <context>
@@ -1552,6 +1568,18 @@
         <translation>E-Mail</translation>
     </message>
     <message>
+        <source>Browsing information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User chats</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Chats</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Reopen chat</source>
         <translation type="unfinished"/>
     </message>
@@ -1561,7 +1589,7 @@
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"/>
+        <translation>Stampa</translation>
     </message>
     <message>
         <source>Chat duration</source>
@@ -1701,6 +1729,14 @@
     <message>
         <source>Support</source>
         <translation>Supporto</translation>
+    </message>
+    <message>
+        <source>Chat was automatically transferred to</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>from</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>A support staff member has closed this chat</source>
@@ -2107,11 +2143,11 @@
     </message>
     <message>
         <source>Go back</source>
-        <translation type="unfinished"/>
+        <translation>Indietro</translation>
     </message>
     <message>
         <source>You do not have permission to edit selected object</source>
-        <translation type="unfinished"/>
+        <translation>Non hai permessi per modificare l&apos;oggetto selezionato</translation>
     </message>
     <message>
         <source>function</source>
@@ -2318,7 +2354,7 @@
     </message>
     <message>
         <source>Live Support</source>
-        <translation type="unfinished"/>
+        <translation>Supporto live</translation>
     </message>
     <message>
         <source>Invalid captcha code, please enable Javascript!</source>
@@ -2330,15 +2366,15 @@
     </message>
     <message>
         <source>Type your message here and hit enter to send...</source>
-        <translation type="unfinished"/>
+        <translation>Scrivi qui la tua richiesta e premi il tasto invia...</translation>
     </message>
     <message>
         <source>Send</source>
-        <translation type="unfinished"/>
+        <translation>Invia</translation>
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished"/>
+        <translation>Offline</translation>
     </message>
     <message>
         <source>Leave a message</source>
@@ -2599,6 +2635,10 @@
         <translation>Operatore sta scrivendo...</translation>
     </message>
     <message>
+        <source>is typing now...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>User is typing now...</source>
         <translation>Utente sta scrivendo...</translation>
     </message>
@@ -2656,6 +2696,22 @@
         <translation>Modifica dipartimenti</translation>
     </message>
     <message>
+        <source>None</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To what department chat should be transfered if it is not accepted</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>E-mail</source>
         <translation>E-Mail</translation>
     </message>
@@ -2681,7 +2737,7 @@
     </message>
     <message>
         <source>Priority</source>
-        <translation type="unfinished"/>
+        <translation>Priorità</translation>
     </message>
 </context>
 <context>
@@ -3086,19 +3142,19 @@
     </message>
     <message>
         <source>Live help embed code</source>
-        <translation type="unfinished"/>
+        <translation>Supporto live codice incluso</translation>
     </message>
     <message>
         <source>FAQ embed code</source>
-        <translation type="unfinished"/>
+        <translation>FAQ codice incluso</translation>
     </message>
     <message>
         <source>Questionary embed code</source>
-        <translation type="unfinished"/>
+        <translation>Questionario codice incluso</translation>
     </message>
     <message>
         <source>Chatbox embed code</source>
-        <translation type="unfinished"/>
+        <translation>Chatbox codice incluso</translation>
     </message>
     <message>
         <source>Canned messages</source>
@@ -3745,7 +3801,7 @@
     <name>user/forgotpasswordsent</name>
     <message>
         <source>Password reminder</source>
-        <translation type="unfinished"/>
+        <translation>Ricorda password</translation>
     </message>
     <message>
         <source>E-mail sent. Click the link in the email and You will be sent out a new password.</source>

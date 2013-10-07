@@ -49,15 +49,15 @@
     </message>
     <message>
         <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
-        <translation type="unfinished"/>
+        <translation>Laukimo žinutė. Matoma vartotojui, kai pradedamas pokalbis ir vartotojas laukia, kol jo pokalbis bus patvirtintas operatoriaus.</translation>
     </message>
     <message>
         <source>Wait timeout. Time in seconds before timeout message is shown.</source>
-        <translation type="unfinished"/>
+        <translation>Laukimo intervalas. Laikas sekundėmis prieš parodant laukimo žinutę.</translation>
     </message>
     <message>
         <source>Show visitor this message then wait timeout passes.</source>
-        <translation type="unfinished"/>
+        <translation>Rodyti vartotojui šį pranešimąm kai viršijamas laikimo intervalas.</translation>
     </message>
     <message>
         <source>If you want pro active chat invitation to work it has to be enabled in</source>
@@ -533,7 +533,7 @@
     </message>
     <message>
         <source>Send chat transcript to your e-mail</source>
-        <translation type="unfinished"/>
+        <translation>Siųsti pokalbį į savo el. paštą</translation>
     </message>
     <message>
         <source>Change my status to online/offline</source>
@@ -598,7 +598,7 @@
     <name>chat/sendchat</name>
     <message>
         <source>Enter your e-mail</source>
-        <translation type="unfinished"/>
+        <translation>Įveskite savo el. pašto adresą</translation>
     </message>
 </context>
 <context>
@@ -609,7 +609,7 @@
     </message>
     <message>
         <source>Send</source>
-        <translation type="unfinished"/>
+        <translation>Siųsti</translation>
     </message>
     <message>
         <source>Update</source>
@@ -777,6 +777,18 @@
         <translation>Laikas praleistas puslapyje</translation>
     </message>
     <message>
+        <source>time(s) invitation logic was applied</source>
+        <translation>kartas(ai) pakvietimo logika buvo pritaikyta</translation>
+    </message>
+    <message>
+        <source>Total time on site</source>
+        <translation>Viso praleista laiko puslapyje</translation>
+    </message>
+    <message>
+        <source>Total pageviews</source>
+        <translation>Viso puslapio peržiūrų</translation>
+    </message>
+    <message>
         <source>No one has sent a message to the user yet</source>
         <translation>Niekas dar neišsiuntė žinutės vartotojui</translation>
     </message>
@@ -825,8 +837,8 @@
         <translation>Miestas</translation>
     </message>
     <message>
-        <source>last visit</source>
-        <translation>paskutinis apsilankymas</translation>
+        <source>Last visit</source>
+        <translation>Paskutis apsilankymas</translation>
     </message>
     <message>
         <source>List</source>
@@ -837,8 +849,12 @@
         <translation>Žemėlapis</translation>
     </message>
     <message>
-        <source>first visit</source>
-        <translation>pirmas apsilankymas</translation>
+        <source>First visit</source>
+        <translation>Pirmas apsilankymas</translation>
+    </message>
+    <message>
+        <source>Total visits</source>
+        <translation>Viso apsilankymų</translation>
     </message>
     <message>
         <source>has sent a message to the user</source>
@@ -1538,11 +1554,11 @@
     <name>chat/reopenchat</name>
     <message>
         <source>has reopened the chat!</source>
-        <translation type="unfinished"/>
+        <translation>atidarė pokalbį</translation>
     </message>
     <message>
         <source>No permission to reopen the chat!</source>
-        <translation type="unfinished"/>
+        <translation>Jūs neturite teisės atidaryti pokalbio!</translation>
     </message>
 </context>
 <context>
@@ -1552,8 +1568,20 @@
         <translation>El. paštas</translation>
     </message>
     <message>
+        <source>Browsing information</source>
+        <translation>Naršymo informacija</translation>
+    </message>
+    <message>
+        <source>User chats</source>
+        <translation>Vartotojo pokalbiai</translation>
+    </message>
+    <message>
+        <source>Chats</source>
+        <translation>Pokalbiai</translation>
+    </message>
+    <message>
         <source>Reopen chat</source>
-        <translation type="unfinished"/>
+        <translation>Atidaryti pokalbį</translation>
     </message>
     <message>
         <source>Page</source>
@@ -1673,23 +1701,23 @@
     </message>
     <message>
         <source>Pending chat</source>
-        <translation type="unfinished"/>
+        <translation>Laukiantis patvirtinimo</translation>
     </message>
     <message>
         <source>Active chat</source>
-        <translation type="unfinished"/>
+        <translation>Aktyvus pokalbis</translation>
     </message>
     <message>
         <source>Closed chat</source>
-        <translation type="unfinished"/>
+        <translation>Uždarytas pokalbis</translation>
     </message>
     <message>
         <source>Chatbox chat</source>
-        <translation type="unfinished"/>
+        <translation>Chatbox pokalbis</translation>
     </message>
     <message>
         <source>Operators chat</source>
-        <translation type="unfinished"/>
+        <translation>Operatorių pokalbis</translation>
     </message>
 </context>
 <context>
@@ -1701,6 +1729,14 @@
     <message>
         <source>Support</source>
         <translation>Palaikymas</translation>
+    </message>
+    <message>
+        <source>Chat was automatically transferred to</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>from</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>A support staff member has closed this chat</source>
@@ -2111,7 +2147,7 @@
     </message>
     <message>
         <source>You do not have permission to edit selected object</source>
-        <translation type="unfinished"/>
+        <translation>Jūs neturite teisės redaguoti pasirinktą objektą</translation>
     </message>
     <message>
         <source>function</source>
@@ -2599,6 +2635,10 @@
         <translation>Operatorius šiuo metu rašo žinutę...</translation>
     </message>
     <message>
+        <source>is typing now...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>User is typing now...</source>
         <translation>Vartototojas šiuo metu rašo žinutę...</translation>
     </message>
@@ -2654,6 +2694,22 @@
     <message>
         <source>Edit department</source>
         <translation>Departamento redagavimas</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To what department chat should be transfered if it is not accepted</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>E-mail</source>
@@ -3050,7 +3106,7 @@
     </message>
     <message>
         <source>Auto responder</source>
-        <translation type="unfinished"/>
+        <translation>Auto atsakiklis</translation>
     </message>
     <message>
         <source>Chats list</source>
