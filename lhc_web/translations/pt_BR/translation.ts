@@ -53,11 +53,11 @@
     </message>
     <message>
         <source>Wait timeout. Time in seconds before timeout message is shown.</source>
-        <translation type="unfinished"/>
+        <translation>Esperar tempo limite Tempo em segundos antes de o tempo limite de mensagem ser mostrado.</translation>
     </message>
     <message>
         <source>Show visitor this message then wait timeout passes.</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar ao visitante esta mensagem quando ultrapassar o tempo limite.</translation>
     </message>
     <message>
         <source>If you want pro active chat invitation to work it has to be enabled in</source>
@@ -533,7 +533,7 @@
     </message>
     <message>
         <source>Send chat transcript to your e-mail</source>
-        <translation type="unfinished"/>
+        <translation>Enviar a transcrição da conversa para o seu e-mail</translation>
     </message>
     <message>
         <source>Change my status to online/offline</source>
@@ -598,7 +598,7 @@
     <name>chat/sendchat</name>
     <message>
         <source>Enter your e-mail</source>
-        <translation type="unfinished"/>
+        <translation>Informe seu e-mail</translation>
     </message>
 </context>
 <context>
@@ -609,7 +609,7 @@
     </message>
     <message>
         <source>Send</source>
-        <translation type="unfinished"/>
+        <translation>Enviar</translation>
     </message>
     <message>
         <source>Update</source>
@@ -777,6 +777,18 @@
         <translation>Tempo local</translation>
     </message>
     <message>
+        <source>time(s) invitation logic was applied</source>
+        <translation>veze(s) que a lógica de convite foi aplicada</translation>
+    </message>
+    <message>
+        <source>Total time on site</source>
+        <translation>Tempo total no site</translation>
+    </message>
+    <message>
+        <source>Total pageviews</source>
+        <translation>Total de visualizações de página</translation>
+    </message>
+    <message>
         <source>No one has sent a message to the user yet</source>
         <translation>Ninguém ainda mandou mensagem para o usuário</translation>
     </message>
@@ -825,8 +837,8 @@
         <translation>Cidade</translation>
     </message>
     <message>
-        <source>last visit</source>
-        <translation>última visita</translation>
+        <source>Last visit</source>
+        <translation>Última visita</translation>
     </message>
     <message>
         <source>List</source>
@@ -837,8 +849,12 @@
         <translation>Mapa</translation>
     </message>
     <message>
-        <source>first visit</source>
-        <translation>primeira visita</translation>
+        <source>First visit</source>
+        <translation>Primeira visita</translation>
+    </message>
+    <message>
+        <source>Total visits</source>
+        <translation>Total de visitas</translation>
     </message>
     <message>
         <source>has sent a message to the user</source>
@@ -1538,11 +1554,11 @@
     <name>chat/reopenchat</name>
     <message>
         <source>has reopened the chat!</source>
-        <translation type="unfinished"/>
+        <translation>reabriu o chat!</translation>
     </message>
     <message>
         <source>No permission to reopen the chat!</source>
-        <translation type="unfinished"/>
+        <translation>Sem permissão para reabrir o chat!</translation>
     </message>
 </context>
 <context>
@@ -1552,8 +1568,20 @@
         <translation>E-mail</translation>
     </message>
     <message>
+        <source>Browsing information</source>
+        <translation>Informação de navegação</translation>
+    </message>
+    <message>
+        <source>User chats</source>
+        <translation>Chats do usuário</translation>
+    </message>
+    <message>
+        <source>Chats</source>
+        <translation>Chats</translation>
+    </message>
+    <message>
         <source>Reopen chat</source>
-        <translation type="unfinished"/>
+        <translation>Reabrir o chat</translation>
     </message>
     <message>
         <source>Page</source>
@@ -1673,23 +1701,23 @@
     </message>
     <message>
         <source>Pending chat</source>
-        <translation type="unfinished"/>
+        <translation>Chat pendente</translation>
     </message>
     <message>
         <source>Active chat</source>
-        <translation type="unfinished"/>
+        <translation>Chat ativo</translation>
     </message>
     <message>
         <source>Closed chat</source>
-        <translation type="unfinished"/>
+        <translation>Chat fechado</translation>
     </message>
     <message>
         <source>Chatbox chat</source>
-        <translation type="unfinished"/>
+        <translation>Chatbox</translation>
     </message>
     <message>
         <source>Operators chat</source>
-        <translation type="unfinished"/>
+        <translation>Operadores do chat</translation>
     </message>
 </context>
 <context>
@@ -1701,6 +1729,14 @@
     <message>
         <source>Support</source>
         <translation>Suporte</translation>
+    </message>
+    <message>
+        <source>Chat was automatically transferred to</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>from</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>A support staff member has closed this chat</source>
@@ -2318,7 +2354,7 @@
     </message>
     <message>
         <source>Live Support</source>
-        <translation type="unfinished"/>
+        <translation>Suporte ao vivo</translation>
     </message>
     <message>
         <source>Invalid captcha code, please enable Javascript!</source>
@@ -2330,7 +2366,7 @@
     </message>
     <message>
         <source>Type your message here and hit enter to send...</source>
-        <translation type="unfinished"/>
+        <translation>Digitesua mensagem aqui e clique enter para enviar...</translation>
     </message>
     <message>
         <source>Send</source>
@@ -2599,6 +2635,10 @@
         <translation>O operador está digitando...</translation>
     </message>
     <message>
+        <source>is typing now...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>User is typing now...</source>
         <translation>O usuário está digitando...</translation>
     </message>
@@ -2654,6 +2694,22 @@
     <message>
         <source>Edit department</source>
         <translation>Editar departamento</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To what department chat should be transfered if it is not accepted</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>E-mail</source>
@@ -2878,7 +2934,7 @@
     </message>
     <message>
         <source>Please enter a valid operator message timeout value!</source>
-        <translation type="unfinished"/>
+        <translation>Por favor informe um tempo limite válido para a mensagem do operador!</translation>
     </message>
     <message>
         <source>Update</source>
@@ -2906,15 +2962,15 @@
     </message>
     <message>
         <source>Play a new pending chat sound on a new chat request</source>
-        <translation type="unfinished"/>
+        <translation>Tocar o som de novo chat quando houver uma nova requisição de chat</translation>
     </message>
     <message>
         <source>Play a sound on a new message for a back office user</source>
-        <translation type="unfinished"/>
+        <translation>Tocar um som em uma nova mensagem de um usuário de back office</translation>
     </message>
     <message>
         <source>Play a sound on a new message for a front end user</source>
-        <translation type="unfinished"/>
+        <translation>Tocar um som em uma nova mensagem de um usuário de frontend</translation>
     </message>
     <message>
         <source>Synchronization and sound settings</source>
@@ -2930,7 +2986,7 @@
     </message>
     <message>
         <source>Please enter a valid new messages sync interval!</source>
-        <translation type="unfinished"/>
+        <translation>Por favor insira um novo intervalo de sincronização de mensagens válido!</translation>
     </message>
 </context>
 <context>
@@ -2941,7 +2997,7 @@
     </message>
     <message>
         <source>At least one field has to be visible and required in the popup and page widget</source>
-        <translation type="unfinished"/>
+        <translation>Pelo menos um campo tem de ser visível e requerido no popup e widget</translation>
     </message>
     <message>
         <source>Name</source>
@@ -2981,7 +3037,7 @@
     </message>
     <message>
         <source>Please choose at least one field for a page widget</source>
-        <translation type="unfinished"/>
+        <translation>Por favor escolha pelo menos um campo para o widget</translation>
     </message>
 </context>
 <context>
@@ -2999,7 +3055,7 @@
     </message>
     <message>
         <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
-        <translation type="unfinished"/>
+        <translation>E-mail do destinatário, isto é usado se o aplicativo não pôde determinar quem deve receber um e-mail.</translation>
     </message>
     <message>
         <source>Content</source>
@@ -3019,7 +3075,7 @@
     </message>
     <message>
         <source>From e-mail, if mail was not sent for some reason, this mail will get a failed delivery message</source>
-        <translation type="unfinished"/>
+        <translation>Do e-mail, se o email não foi enviado, por algum motivo, este e-mail irá receber uma mensagem de falha na entrega</translation>
     </message>
     <message>
         <source>Allow to change from name</source>
@@ -3054,15 +3110,15 @@
     </message>
     <message>
         <source>Chats list</source>
-        <translation type="unfinished"/>
+        <translation>Lista de chats</translation>
     </message>
     <message>
         <source>Pro active chat invitations</source>
-        <translation type="unfinished"/>
+        <translation>Convites de chat pró ativos</translation>
     </message>
     <message>
         <source>Statistic</source>
-        <translation type="unfinished"/>
+        <translation>Estatística</translation>
     </message>
     <message>
         <source>E-mail templates</source>
@@ -3074,7 +3130,7 @@
     </message>
     <message>
         <source>Languages configuration</source>
-        <translation type="unfinished"/>
+        <translation>Configuração de idiomas</translation>
     </message>
     <message>
         <source>SMTP settings</source>
@@ -3086,19 +3142,19 @@
     </message>
     <message>
         <source>Live help embed code</source>
-        <translation type="unfinished"/>
+        <translation>Código de incorporação do suporte online</translation>
     </message>
     <message>
         <source>FAQ embed code</source>
-        <translation type="unfinished"/>
+        <translation>Código de incorporação da FAQ</translation>
     </message>
     <message>
         <source>Questionary embed code</source>
-        <translation type="unfinished"/>
+        <translation>Código de incorporação do questionário</translation>
     </message>
     <message>
         <source>Chatbox embed code</source>
-        <translation type="unfinished"/>
+        <translation>Código de incorporação do chatbox</translation>
     </message>
     <message>
         <source>Canned messages</source>
@@ -3110,7 +3166,7 @@
     </message>
     <message>
         <source>Synchronization and sound settings</source>
-        <translation type="unfinished"/>
+        <translation>Sincronização e configurações de som</translation>
     </message>
     <message>
         <source>Chat configuration</source>
@@ -3118,7 +3174,7 @@
     </message>
     <message>
         <source>Chat related</source>
-        <translation type="unfinished"/>
+        <translation>Chat relacionado</translation>
     </message>
     <message>
         <source>Users and their permissions</source>
@@ -3161,7 +3217,7 @@
     <name>department/new</name>
     <message>
         <source>Please enter a department name</source>
-        <translation type="unfinished"/>
+        <translation>Por favor informe o nome do departamento</translation>
     </message>
     <message>
         <source>New department</source>
@@ -3263,7 +3319,7 @@
     </message>
     <message>
         <source>Repeat the new password</source>
-        <translation type="unfinished"/>
+        <translation>Repetir a nova senha</translation>
     </message>
     <message>
         <source>Contact information</source>
@@ -3291,15 +3347,15 @@
     </message>
     <message>
         <source>Do not enter a password unless you want to change it</source>
-        <translation type="unfinished"/>
+        <translation>Não informe uma senha a não ser que você deseje alterá-la</translation>
     </message>
     <message>
         <source>Please enter a name</source>
-        <translation type="unfinished"/>
+        <translation>Por favor Informe um nome</translation>
     </message>
     <message>
         <source>Please enter a surname</source>
-        <translation type="unfinished"/>
+        <translation>Por favor informe um sobrenome</translation>
     </message>
     <message>
         <source>Update</source>
@@ -3322,7 +3378,7 @@
     </message>
     <message>
         <source>Please choose a default user group</source>
-        <translation type="unfinished"/>
+        <translation>Por favor escolha um grupo padrão</translation>
     </message>
     <message>
         <source>Disabled</source>
@@ -3334,7 +3390,7 @@
     </message>
     <message>
         <source>Departments</source>
-        <translation type="unfinished"/>
+        <translation>Departamentos</translation>
     </message>
     <message>
         <source>All departments</source>
@@ -3362,7 +3418,7 @@
     </message>
     <message>
         <source>Repeat the new password</source>
-        <translation type="unfinished"/>
+        <translation>Repetir a nova senha</translation>
     </message>
     <message>
         <source>Contact information</source>
@@ -3390,15 +3446,15 @@
     </message>
     <message>
         <source>Please enter a name</source>
-        <translation type="unfinished"/>
+        <translation>Por favor informe um nome</translation>
     </message>
     <message>
         <source>Please enter a surname</source>
-        <translation type="unfinished"/>
+        <translation>Por favor informe um sobrenome</translation>
     </message>
     <message>
         <source>Please enter a username</source>
-        <translation type="unfinished"/>
+        <translation>Por favor informe um nome de usuário</translation>
     </message>
     <message>
         <source>User exists</source>
@@ -3457,11 +3513,11 @@
     </message>
     <message>
         <source>Enter a new password</source>
-        <translation type="unfinished"/>
+        <translation>Informe uma nova senha</translation>
     </message>
     <message>
         <source>Repeat the new password</source>
-        <translation type="unfinished"/>
+        <translation>Repita a nova senha</translation>
     </message>
     <message>
         <source>You have global right to see all departments chats</source>
@@ -3481,7 +3537,7 @@
     </message>
     <message>
         <source>Do not enter a password unless you want to change it</source>
-        <translation type="unfinished"/>
+        <translation>Não informe uma senha a não ser que você deseje alterá-la</translation>
     </message>
     <message>
         <source>Login information</source>
@@ -3537,11 +3593,11 @@
     </message>
     <message>
         <source>Please enter a name</source>
-        <translation type="unfinished"/>
+        <translation>Por favor informe um nome</translation>
     </message>
     <message>
         <source>Please enter a surname</source>
-        <translation type="unfinished"/>
+        <translation>Por favor informe um sobrenome</translation>
     </message>
 </context>
 <context>
@@ -3599,11 +3655,11 @@
     </message>
     <message>
         <source>The URL where this question should appear, leave it empty for all</source>
-        <translation type="unfinished"/>
+        <translation>A URL onde esta questão deve aparecer, deixe-o vazio para todos</translation>
     </message>
     <message>
         <source>Question is active</source>
-        <translation type="unfinished"/>
+        <translation>Pergunta está ativa</translation>
     </message>
 </context>
 <context>
@@ -3622,7 +3678,7 @@
     </message>
     <message>
         <source>Please enter a question!</source>
-        <translation type="unfinished"/>
+        <translation>Por favor informe uma pergunta!</translation>
     </message>
     <message>
         <source>FAQ</source>
@@ -3630,15 +3686,15 @@
     </message>
     <message>
         <source>Please enter a manager name!</source>
-        <translation type="unfinished"/>
+        <translation>Por favor insira um nome de gerente!</translation>
     </message>
     <message>
         <source>Please enter a chatbox name!</source>
-        <translation type="unfinished"/>
+        <translation>Por favor, informe um nome para o chatbox!</translation>
     </message>
     <message>
         <source>Please enter a chatbox identifier!</source>
-        <translation type="unfinished"/>
+        <translation>Por favor, informe um identificador para o chatbox!</translation>
     </message>
 </context>
 <context>
@@ -3665,7 +3721,7 @@
     </message>
     <message>
         <source>Send your question</source>
-        <translation type="unfinished"/>
+        <translation>Enviar sua pergunta</translation>
     </message>
     <message>
         <source>Please enter a question!</source>
@@ -3749,7 +3805,7 @@
     </message>
     <message>
         <source>E-mail sent. Click the link in the email and You will be sent out a new password.</source>
-        <translation type="unfinished"/>
+        <translation>E-mail enviado. Clique no link no e-mail e será enviada uma nova senha.</translation>
     </message>
 </context>
 <context>

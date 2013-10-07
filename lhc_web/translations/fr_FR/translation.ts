@@ -777,6 +777,18 @@
         <translation>Heure sur le site</translation>
     </message>
     <message>
+        <source>time(s) invitation logic was applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Total time on site</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Total pageviews</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>No one has sent a message to the user yet</source>
         <translation>Aucun message n&apos;a été envoyé à l&apos;utilisateur</translation>
     </message>
@@ -825,8 +837,8 @@
         <translation>Ville</translation>
     </message>
     <message>
-        <source>last visit</source>
-        <translation>Dernière Visite</translation>
+        <source>Last visit</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>List</source>
@@ -837,8 +849,12 @@
         <translation>Carte</translation>
     </message>
     <message>
-        <source>first visit</source>
-        <translation>Première visite</translation>
+        <source>First visit</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Total visits</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>has sent a message to the user</source>
@@ -1552,6 +1568,18 @@
         <translation>Email</translation>
     </message>
     <message>
+        <source>Browsing information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User chats</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Chats</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Reopen chat</source>
         <translation type="unfinished"/>
     </message>
@@ -1701,6 +1729,14 @@
     <message>
         <source>Support</source>
         <translation>Support</translation>
+    </message>
+    <message>
+        <source>Chat was automatically transferred to</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>from</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>A support staff member has closed this chat</source>
@@ -2599,6 +2635,10 @@
         <translation>O operador está digitando...</translation>
     </message>
     <message>
+        <source>is typing now...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>User is typing now...</source>
         <translation>O usuário está digitando...</translation>
     </message>
@@ -2654,6 +2694,22 @@
     <message>
         <source>Edit department</source>
         <translation>Editar departamento</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To what department chat should be transfered if it is not accepted</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>E-mail</source>
