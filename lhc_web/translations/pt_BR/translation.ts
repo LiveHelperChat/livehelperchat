@@ -1732,11 +1732,11 @@
     </message>
     <message>
         <source>Chat was automatically transferred to</source>
-        <translation type="unfinished"/>
+        <translation>O chat foi automaticamente transferido para</translation>
     </message>
     <message>
         <source>from</source>
-        <translation type="unfinished"/>
+        <translation>para</translation>
     </message>
     <message>
         <source>A support staff member has closed this chat</source>
@@ -2636,7 +2636,7 @@
     </message>
     <message>
         <source>is typing now...</source>
-        <translation type="unfinished"/>
+        <translation>está digitando...</translation>
     </message>
     <message>
         <source>User is typing now...</source>
@@ -2697,19 +2697,19 @@
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>nenhum</translation>
     </message>
     <message>
         <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
-        <translation type="unfinished"/>
+        <translation>Este campo possui  comprimento máximo de 50 caracteres e pode ser usado para qualquer finalidade, por extensões. Este campo também é indexado.</translation>
     </message>
     <message>
         <source>To what department chat should be transfered if it is not accepted</source>
-        <translation type="unfinished"/>
+        <translation>Para qual departamento o chat deve ser transferido caso não seja aceito</translation>
     </message>
     <message>
         <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
-        <translation type="unfinished"/>
+        <translation>Tempo limite em segundos antes do chat ser transferido para outro departamento. Mínimo de 5 segundos.</translation>
     </message>
     <message>
         <source>E-mail</source>
