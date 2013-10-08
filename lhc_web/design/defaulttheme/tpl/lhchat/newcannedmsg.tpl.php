@@ -9,10 +9,10 @@
     <textarea name="Message"><?php echo htmlspecialchars($msg->msg);?></textarea>
 
 	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delay in seconds');?></label>
-    <input type="text" name="Delay" value="<?php echo $canned_message->delay?>" />
+    <input type="text" name="Delay" value="<?php echo $msg->delay?>" />
 
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Position');?></label>
-    <input type="text" name="Position" value="<?php echo $canned_message->position?>" />
+    <input type="text" name="Position" value="<?php echo $msg->position?>" />
 
     <ul class="button-group radius">
     <li><input type="submit" class="small button" name="Save_action" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/></li>
