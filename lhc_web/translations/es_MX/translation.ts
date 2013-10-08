@@ -1173,6 +1173,10 @@
         <translation>Usuarios conectado</translation>
     </message>
     <message>
+        <source>Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>FAQ</source>
         <translation>Preguntas más frecuentes</translation>
     </message>

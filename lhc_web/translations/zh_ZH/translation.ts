@@ -1169,6 +1169,10 @@
         <translation>登录的用户</translation>
     </message>
     <message>
+        <source>Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>FAQ</source>
         <translation>常问问题</translation>
     </message>

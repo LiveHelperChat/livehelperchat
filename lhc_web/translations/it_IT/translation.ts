@@ -1169,6 +1169,10 @@
         <translation>Utente loggato</translation>
     </message>
     <message>
+        <source>Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>FAQ</source>
         <translation>FAQ</translation>
     </message>

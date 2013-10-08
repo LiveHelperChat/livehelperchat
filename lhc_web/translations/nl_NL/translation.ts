@@ -1169,6 +1169,10 @@
         <translation>Ingelogde gebruiker</translation>
     </message>
     <message>
+        <source>Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>FAQ</source>
         <translation type="unfinished"/>
     </message>

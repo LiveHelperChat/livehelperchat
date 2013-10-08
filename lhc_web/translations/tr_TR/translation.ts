@@ -1170,6 +1170,10 @@
         <translation>Giriş yapmış kullanıcı</translation>
     </message>
     <message>
+        <source>Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>FAQ</source>
         <translation>SSS</translation>
     </message>

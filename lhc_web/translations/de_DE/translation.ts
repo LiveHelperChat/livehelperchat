@@ -1169,6 +1169,10 @@
         <translation>Angemeldeter Nutzer</translation>
     </message>
     <message>
+        <source>Menu</source>
+        <translation>Menü</translation>
+    </message>
+    <message>
         <source>FAQ</source>
         <translation>FAQ</translation>
     </message>
