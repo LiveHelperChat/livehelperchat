@@ -635,6 +635,51 @@ function lh(){
 	     });
 	};
 
+	this.sendCannedMessage = function(chat_id,link_inst)
+	{
+		if ($('#id_CannedMessage-'+chat_id).val() > 0) {
+			link_inst.addClass('secondary');
+			var delayMiliseconds = parseInt($('#id_CannedMessage-'+chat_id).find(':selected').attr('data-delay'))*1000;
+			var www_dir = this.wwwDir;
+			var inst  = this;
+			if (inst.is_typing == false) {
+	            inst.is_typing = true;
+	            clearTimeout(inst.typing_timeout);
+	            $.getJSON(www_dir + 'chat/operatortyping/' + chat_id+'/true',{ }, function(data){
+	               inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);link_inst.removeClass('secondary');},(delayMiliseconds > 3000 ? delayMiliseconds : 3000));
+	            }).fail(function(){
+	            	inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);},3000);
+	            });
+	        } else {
+	             clearTimeout(inst.typing_timeout);
+	             inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);},3000);
+	             link_inst.removeClass('secondary');
+	        };
+	        if (delayMiliseconds > 0) {
+	        	setTimeout(function(){
+	        		var pdata = {
+		    				msg	: $('#id_CannedMessage-'+chat_id).find(':selected').text()
+		    		};
+		    		$('#CSChatMessage-'+chat_id).val('');
+		    		$.postJSON(www_dir + inst.addmsgurl + chat_id, pdata , function(data){
+		    			lhinst.syncadmincall();
+		    			return true;
+		    		});
+	        	},delayMiliseconds);
+	        } else {
+	        	var pdata = {
+	    				msg	: $('#id_CannedMessage-'+chat_id).find(':selected').text()
+	    		};
+	    		$('#CSChatMessage-'+chat_id).val('');
+	    		$.postJSON(this.wwwDir + this.addmsgurl + chat_id, pdata , function(data){
+	    			lhinst.syncadmincall();
+	    			return true;
+	    		});
+	        }
+		};
+		return false;
+	};
+
 	this.chatsyncuserpending = function ()
 	{
 	    $.getJSON(this.wwwDir + this.checkchatstatus + this.chat_id + '/' + this.hash ,{}, function(data){

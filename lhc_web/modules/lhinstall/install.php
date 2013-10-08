@@ -390,6 +390,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_canned_msg` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
                   `msg` text NOT NULL,
+        	   	  `position` int(11) NOT NULL,
+  				  `delay` int(11) NOT NULL,
                   PRIMARY KEY (`id`)
                 ) DEFAULT CHARSET=utf8;");
 
