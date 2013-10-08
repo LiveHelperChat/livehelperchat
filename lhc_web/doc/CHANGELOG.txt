@@ -4,6 +4,7 @@
 This feature took over 20 hours to implement.
 2. Indonesian language.
 3. Delay for canned messages.
+4. Operator is typing will be shown in a different location to avoid it appearing over message text.
 
 execute doc/update_db/update_41.sql
 

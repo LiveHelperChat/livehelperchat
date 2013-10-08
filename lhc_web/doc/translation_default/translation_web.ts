@@ -199,11 +199,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Operator is typing now...</source>
+      <source>Enter your message</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Enter your message</source>
+      <source>Operator is typing now...</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -288,6 +288,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Delay</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Position</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Edit message</source>
       <translation type="unfinished"/>
     </message>
@@ -301,6 +309,10 @@
     </message>
     <message>
       <source>Edit canned message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delay in seconds</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -475,6 +487,14 @@
     </message>
     <message>
       <source>Select a canned message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Fill textarea with canned message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send delayed canned message instantly</source>
       <translation type="unfinished"/>
     </message>
   </context>

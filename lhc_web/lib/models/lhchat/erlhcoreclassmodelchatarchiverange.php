@@ -106,18 +106,28 @@ class erLhcoreClassModelChatArchiveRange {
        		break;
 
        	case 'chats_in_archive':
-       			self::$archiveTable = "lh_chat_archive_{$this->id}";
-       			self::$archiveMsgTable = "lh_chat_archive_msg_{$this->id}";
-       			$this->chats_in_archive = erLhcoreClassChat::getCount(array(),self::$archiveTable);
+
+       			$this->chats_in_archive = 0;
+
+       			if ($this->id > 0){
+	       			self::$archiveTable = "lh_chat_archive_{$this->id}";
+	       			self::$archiveMsgTable = "lh_chat_archive_msg_{$this->id}";
+	       			$this->chats_in_archive = erLhcoreClassChat::getCount(array(),self::$archiveTable);
+       			}
 
        			return $this->chats_in_archive;
        		break;
 
        	case 'messages_in_archive':
-       			self::$archiveTable = "lh_chat_archive_{$this->id}";
-       			self::$archiveMsgTable = "lh_chat_archive_msg_{$this->id}";
 
-       			$this->messages_in_archive = erLhcoreClassChat::getCount(array(),self::$archiveMsgTable);
+       			$this->messages_in_archive = 0;
+
+       			if ($this->id > 0){
+	       			self::$archiveTable = "lh_chat_archive_{$this->id}";
+	       			self::$archiveMsgTable = "lh_chat_archive_msg_{$this->id}";
+	       			$this->messages_in_archive = erLhcoreClassChat::getCount(array(),self::$archiveMsgTable);
+       			}
+
        			return $this->messages_in_archive;
        		break;
 

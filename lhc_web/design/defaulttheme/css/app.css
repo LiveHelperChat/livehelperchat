@@ -387,6 +387,10 @@ div.message-row-in {
     box-shadow:         -1px -1px 3px rgba(50, 50, 50, 0.16);
 }
 
+#id-operator-typing{
+	font-size:11px;
+}
+
 .button.very-tiny {
 	padding:3px 5px;
 }
@@ -572,7 +576,9 @@ ul.accordion-faq li {
 	line-height:0.9em !important;
 }
 
-
+#ChatMessageContainer{
+	position:relative;
+}
 
 .chat-pending{color:#99AC11;}
 .chat-active{color:#5da423;}
