@@ -778,7 +778,7 @@
     </message>
     <message>
         <source>time(s) invitation logic was applied</source>
-        <translation type="unfinished"/>
+        <translation>mal wurde die Einladungslogik angewendet</translation>
     </message>
     <message>
         <source>Total time on site</source>
@@ -1167,6 +1167,10 @@
     <message>
         <source>Logged user</source>
         <translation>Angemeldeter Nutzer</translation>
+    </message>
+    <message>
+        <source>Menu</source>
+        <translation>Menü</translation>
     </message>
     <message>
         <source>FAQ</source>

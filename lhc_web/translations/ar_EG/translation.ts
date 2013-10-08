@@ -1169,6 +1169,10 @@
         <translation>المستخدم المسجل</translation>
     </message>
     <message>
+        <source>Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>FAQ</source>
         <translation>الأسئلة الشائعة</translation>
     </message>

@@ -1169,6 +1169,10 @@
         <translation>Prisijungęs vartotojas</translation>
     </message>
     <message>
+        <source>Menu</source>
+        <translation>Meniu</translation>
+    </message>
+    <message>
         <source>FAQ</source>
         <translation>DUK</translation>
     </message>
@@ -1732,11 +1736,11 @@
     </message>
     <message>
         <source>Chat was automatically transferred to</source>
-        <translation type="unfinished"/>
+        <translation>Pokalbis buvo automatiškai pervestas</translation>
     </message>
     <message>
         <source>from</source>
-        <translation type="unfinished"/>
+        <translation>iš</translation>
     </message>
     <message>
         <source>A support staff member has closed this chat</source>
@@ -2636,7 +2640,7 @@
     </message>
     <message>
         <source>is typing now...</source>
-        <translation type="unfinished"/>
+        <translation>dabar rašo...</translation>
     </message>
     <message>
         <source>User is typing now...</source>
@@ -2697,19 +2701,19 @@
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>Niekam</translation>
     </message>
     <message>
         <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
-        <translation type="unfinished"/>
+        <translation>Šis laukas yra max. 50 ženklų ilgio ir gali būti naudojamas įskiepiuose. Šis laukas taip pat yra indeksuotas.</translation>
     </message>
     <message>
         <source>To what department chat should be transfered if it is not accepted</source>
-        <translation type="unfinished"/>
+        <translation>Kokiam departamentui pokalbis turėtų būti pervestas jei pokalbis nebuvo priimtas.</translation>
     </message>
     <message>
         <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
-        <translation type="unfinished"/>
+        <translation>Laikas sekundėmis prieš tai kol pokalbis priskiriamas paveldinčiam departamentui. Minimum 5 sekundės.</translation>
     </message>
     <message>
         <source>E-mail</source>
