@@ -44,8 +44,8 @@ foreach ($filesToCheck as $filePath)
 }
 
 
-$reader = new ezcTranslationTsBackend( 'translations/'.$locale );
-$reader->setOptions( array( 'format' => 'translation.xml' ) );
+$reader = new ezcTranslationTsBackend( 'doc/translation_default' );
+$reader->setOptions( array( 'format' => 'translation_web.ts' ) );
 $reader->initReader( $locale );
 
 $manager = new ezcTranslationManager( $reader );

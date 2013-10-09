@@ -1509,7 +1509,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Open in new a window</source>
+      <source>Open in a new window</source>
       <translation type="unfinished"/>
     </message>
     <message>
