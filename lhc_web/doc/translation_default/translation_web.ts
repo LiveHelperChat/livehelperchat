@@ -1143,6 +1143,14 @@
   <context>
     <name>chat/getstatus</name>
     <message>
+      <source>Live help is online...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live help is offline...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Close</source>
       <translation type="unfinished"/>
     </message>
@@ -3851,6 +3859,13 @@
     <message>
       <source>View archived chat</source>
       <translation type="unfinished"></translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/deletechatadmin</name>
+    <message>
+      <source>You do not have rights to delete a chat</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

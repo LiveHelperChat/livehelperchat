@@ -16,7 +16,7 @@ if ($currentUser->hasAccessTo('lhchat','deleteglobalchat') || ($currentUser->has
 
     echo json_encode(array('error' => 'false', 'result' => 'ok' ));
 } else {
-   echo json_encode(array('error' => 'true', 'result' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/deletechatadmin',"You do not have rights to delete a chat") ));
+   echo json_encode(array('error' => 'true', 'result' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/deletechatadmin','You do not have rights to delete a chat') ));
 }
 
 exit;
