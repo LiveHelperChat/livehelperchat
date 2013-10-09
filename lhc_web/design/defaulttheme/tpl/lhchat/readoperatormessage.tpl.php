@@ -6,6 +6,13 @@
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
+<?php if ($visitor->requires_email == 1) : ?>
+<div class="small-6">
+	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','E-mail');?>*</label>
+	<input type="text" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
+</div>
+<?php endif; ?>
+
 <textarea placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Type your message here and hit enter to send...');?>" id="id_Question" name="Question"><?php echo htmlspecialchars($input_data->question);?></textarea>
 
 <input type="hidden" value="<?php echo htmlspecialchars($referer);?>" name="URLRefer"/>
@@ -16,10 +23,7 @@
 <?php endif;?>
 
 <input type="submit" name="askQuestionAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Send');?>" class="tiny button round"/>
-
 <input type="hidden" name="askQuestion" value="1" />
-
-
 
 </form>
 

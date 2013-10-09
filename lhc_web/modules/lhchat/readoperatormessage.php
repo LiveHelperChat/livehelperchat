@@ -27,6 +27,7 @@ if (isset($_POST['askQuestion']))
     $validationFields = array();
     $validationFields['Question'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
     $validationFields['DepartamentID'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1) );
+    $validationFields['Email'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'validate_email' );
 
     $form = new ezcInputForm( INPUT_POST, $validationFields );
     $Errors = array();
@@ -40,6 +41,14 @@ if (isset($_POST['askQuestion']))
     if ($form->hasValidData( 'Question' ) && $form->Question != '' && strlen($form->Question) > 500)
     {
         $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum 500 characters for a message');
+    }
+
+    if ($userInstance->requires_email == 1) {
+    	if ( !$form->hasValidData( 'Email' ) ) {
+    		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a valid email address');
+    	} else {
+    		$inputData->email = $chat->email = $form->Email;
+    	}
     }
 
     if (count($Errors) == 0)

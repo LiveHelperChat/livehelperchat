@@ -1,3 +1,13 @@
+1.59v
+
+1. Option to disable restore icon in widget. Disables popup opening in site.
+2. In proactive message you can set, is mail required or not.
+
+Bugfix.
+Small grammar fix.
+
+execute doc/update_db/update_42.sql
+
 1.58v
 
 1. Arhchive module for chats. Now we have unlimited number of chats support. I'm talking about tens of millions of records. If main table becames to big you can just archive the old chats.

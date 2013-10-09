@@ -464,6 +464,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('run_departments_workflow', 0, 0, 'Should cronjob run departments tranfer workflow, even if user leaves a chat, 0 - no, 1 - yes',	0),
                 ('geo_location_data', 'a:3:{s:4:\"zoom\";i:4;s:3:\"lat\";s:7:\"49.8211\";s:3:\"lng\";s:7:\"11.7835\";}', '0', '', '1'),
                 ('run_unaswered_chat_workflow', 0, 0, 'Should cronjob run unanswered chats workflow and execute unaswered chats callback, 0 - no, any other number bigger than 0 is a minits how long chat have to be not accepted before executing callback.',0),
+                ('disable_popup_restore', 0, 0, 'Disable option in widget to open new window. 0 - no, 1 - restore icon will be hidden',	0),
                 ('geo_data', '', '0', '', '1')");
 
 
@@ -494,6 +495,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
   				  `city` varchar(100) NOT NULL,
         	   	  `time_on_site` int(11) NOT NULL,
   				  `tt_time_on_site` int(11) NOT NULL,
+        	   	  `requires_email` int(11) NOT NULL,
         	   	  `identifier` varchar(50) NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `last_visit` (`last_visit`),
@@ -514,6 +516,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `operator_name` varchar(100) NOT NULL,
 				  `position` int(11) NOT NULL,
         	   	  `identifier` varchar(50) NOT NULL,
+        	   	  `requires_email` int(11) NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `time_on_site_pageviews_siteaccess_position` (`time_on_site`,`pageviews`,`siteaccess`,`identifier`,`position`)
 				) DEFAULT CHARSET=utf8;");

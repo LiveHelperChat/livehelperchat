@@ -120,7 +120,7 @@ class erLhcoreClassChatValidator {
         ($inputForm->validate_start_chat == false && isset($start_data_fields['email_visible_in_page_widget']) && $start_data_fields['email_visible_in_page_widget'] == true) || isset($additionalParams['offline']) ) {
 
             if ( (!$form->hasValidData( 'Email' ) && $start_data_fields['email_require_option'] == 'required') || (!$form->hasValidData( 'Email' ) && isset($additionalParams['offline'])) ) {
-                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Wrong email');
+                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a valid email address');
             } elseif ( $form->hasValidData( 'Email' ) ) {
                 $chat->email = $inputForm->email = $form->Email;
             } else {
@@ -160,15 +160,6 @@ class erLhcoreClassChatValidator {
             }
         }
 
-       /*  $departments = erLhcoreClassModelDepartament::getList();
-        $ids = array_keys($departments);
-        if ($form->hasValidData( 'DepartamentID' ) && in_array($form->DepartamentID,$ids)) {
-            $chat->dep_id = $form->DepartamentID;
-        } elseif ($chat->dep_id == 0 || !in_array($chat->dep_id,$ids)) {
-            $id = array_shift($ids);
-            $chat->dep_id = $id;
-        } */
-
         if ($form->hasValidData( 'DepartamentID' ) && erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $form->DepartamentID))) > 0) {
         	$chat->dep_id = $form->DepartamentID;
         } elseif ($chat->dep_id == 0 || erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $chat->dep_id))) == 0) {
@@ -176,7 +167,6 @@ class erLhcoreClassChatValidator {
         	$department = array_shift($departments);
         	$chat->dep_id = $department->id;
         }
-
 
         // Set chat attributes for transfer workflow logic
         if ($chat->department !== false && $chat->department->department_transfer_id > 0) {

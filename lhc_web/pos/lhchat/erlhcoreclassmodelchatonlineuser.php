@@ -134,6 +134,11 @@ $def->properties['invitation_id']->columnName   = 'invitation_id';
 $def->properties['invitation_id']->propertyName = 'invitation_id';
 $def->properties['invitation_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['requires_email'] = new ezcPersistentObjectProperty();
+$def->properties['requires_email']->columnName   = 'requires_email';
+$def->properties['requires_email']->propertyName = 'requires_email';
+$def->properties['requires_email']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['identifier'] = new ezcPersistentObjectProperty();
 $def->properties['identifier']->columnName   = 'identifier';
 $def->properties['identifier']->propertyName = 'identifier';

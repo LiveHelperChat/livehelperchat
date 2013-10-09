@@ -223,8 +223,9 @@ var lh_inst  = {
 
           var lhc_obj = this;
           document.getElementById('lhc_close').onclick = function() { lhc_obj.hide(); return false; };
+          <?php if (erLhcoreClassModelChatConfig::fetch('disable_popup_restore')->current_value == 0) : ?>
           document.getElementById('lhc_remote_window').onclick = function() { lhc_obj.openRemoteWindow(); return false; };
-
+		  <?php endif; ?>
 
     },
 

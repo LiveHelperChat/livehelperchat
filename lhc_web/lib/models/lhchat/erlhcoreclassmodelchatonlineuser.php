@@ -32,6 +32,7 @@ class erLhcoreClassModelChatOnlineUser {
                'invitation_id'    	=> $this->invitation_id,
                'total_visits'    	=> $this->total_visits,
                'invitation_count'   => $this->invitation_count,
+               'requires_email'   	=> $this->requires_email,
        );
    }
 
@@ -519,6 +520,7 @@ class erLhcoreClassModelChatOnlineUser {
    public $referrer = '';
    public $total_visits = 0;
    public $invitation_count = 0;
+   public $requires_email = 0;
 
    // Logical attributes
    public $store_chat = false;
