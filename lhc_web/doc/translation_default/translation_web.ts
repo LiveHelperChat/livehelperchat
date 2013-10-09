@@ -126,6 +126,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Requires e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
       <translation type="unfinished"/>
     </message>
@@ -671,7 +675,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Wrong email</source>
+      <source>Please enter a valid email address</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1133,6 +1137,17 @@
     </message>
     <message>
       <source>Online users</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/getstatus</name>
+    <message>
+      <source>Close</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Open in a new window</source>
       <translation type="unfinished"/>
     </message>
   </context>

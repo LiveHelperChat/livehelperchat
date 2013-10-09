@@ -65,7 +65,6 @@ $def->properties['wait_timeout']->columnName   = 'wait_timeout';
 $def->properties['wait_timeout']->propertyName = 'wait_timeout';
 $def->properties['wait_timeout']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
-// Timeout in seconds.
 $def->properties['requires_email'] = new ezcPersistentObjectProperty();
 $def->properties['requires_email']->columnName   = 'requires_email';
 $def->properties['requires_email']->propertyName = 'requires_email';
