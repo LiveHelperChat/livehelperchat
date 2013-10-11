@@ -1,21 +1,21 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="lt" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="es" version="2.0">
 <context>
     <name>LHQTableWidget</name>
     <message>
         <source>ID</source>
-        <translation>ID</translation>
+        <translation>identificación</translation>
     </message>
     <message>
         <source>Nick</source>
-        <translation>Nikas</translation>
+        <translation>nick</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation>Laikas</translation>
+        <translation>tiempo</translation>
     </message>
     <message>
         <source>Referrer</source>
-        <translation>Referrer</translation>
+        <translation>referente</translation>
     </message>
     <message>
         <source>IP</source>
@@ -23,333 +23,333 @@
     </message>
     <message>
         <source>E-mail</source>
-        <translation>El. paštas</translation>
+        <translation>E-mail</translation>
     </message>
     <message>
         <source>Department</source>
-        <translation>Departamentas</translation>
+        <translation>departamento</translation>
     </message>
 	<message>
         <source>Browser</source>
-        <translation>Naršyklė</translation>
+        <translation>navegador</translation>
     </message>
 	<message>
         <source>Last visit</source>
-        <translation>Paskutinis apsilankymas</translation>
+        <translation>Su última visita</translation>
     </message>
 	<message>
         <source>First visit</source>
-        <translation>Pirmas apsilankymas</translation>
+        <translation>Primera visita</translation>
     </message>
 	<message>
         <source>Country</source>
-        <translation>Šalis</translation>
+        <translation>país</translation>
     </message>
 	<message>
         <source>Operator message</source>
-        <translation>Operatoriaus žinutė</translation>
+        <translation>mensaje del operador</translation>
     </message>
 	<message>
         <source>Pages viewed</source>
-        <translation>Puslapio peržiūrų</translation>
+        <translation>Páginas vistas</translation>
     </message>
 </context>
 <context>
     <name>ChatWidget</name>
     <message>
         <source>Live helper chat - chat</source>
-        <translation>Live helper chat - pokalbis</translation>
+        <translation>Ayudante de chat en vivo - Chat</translation>
     </message>
 </context>
 <context>
     <name>privatemessage</name>
     <message>
         <source>Type your message:</source>
-        <translation>Įveskite žinutę:</translation>
+        <translation>Escriba su mensaje:</translation>
     </message>
 	<message>
         <source>Send message</source>
-        <translation>Siųsti žinutę</translation>
+        <translation>Enviar mensaje</translation>
     </message>
 	<message>
         <source>Close</source>
-        <translation>Uždaryti</translation>
+        <translation>cerrar</translation>
     </message>
 </context>
 <context>
     <name>onlineuserinfo</name>
     <message>
         <source>User info</source>
-        <translation>Vartotojo informacija</translation>
+        <translation>información del usuario</translation>
     </message>
 	<message>
         <source>Close</source>
-        <translation>Uždaryti</translation>
+        <translation>cerrar</translation>
     </message>
 </context>
 <context>
     <name>ChatRoomsWidget</name>
     <message>
         <source>Live helper chat - chat rooms</source>
-        <translation>Live helper chat - pokalbių kambariai</translation>
+        <translation>Vivo ayudante chat - salas de chat</translation>
     </message>
 </context>
 <context>
     <name>LoginDialogBase</name>
     <message>
         <source>Please login</source>
-        <translation>Prašome prisijungti</translation>
+        <translation>Por favor, inicie sesión</translation>
     </message>
     <message>
         <source>Ok</source>
-        <translation>Gerai</translation>
+        <translation>bueno</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Atšaukti</translation>
+        <translation>cancelar</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>Vartotojas</translation>
+        <translation>Nombre de usuario</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Slaptažodis</translation>
+        <translation>contraseña</translation>
     </message>
     <message>
         <source>Host</source>
-        <translation>Adresas</translation>
+        <translation>anfitrión</translation>
     </message>
     <message>
         <source>Autologin</source>
-        <translation>Prisijungti automatiškai</translation>
+        <translation>Inicio de sesión automático</translation>
     </message>
 </context>
 <context>
     <name>LoginDialog</name>
     <message>
         <source>Authentication failed</source>
-        <translation>Autentifikacija nepavyko</translation>
+        <translation>Error de autenticación</translation>
     </message>
     <message>
         <source>Warning</source>
-        <translation>Įspėjimas</translation>
+        <translation>Advertencia</translation>
     </message>
     <message>
         <source>The host field is empty!</source>
-        <translation>Domeno laukas tuščias!</translation>
+        <translation>El campo de host está vacía!</translation>
     </message>
     <message>
         <source>The password field is empty!</source>
-        <translation>Slaptažodžio laukas tuščias!</translation>
+        <translation>El campo de la contraseña está vacía!</translation>
     </message>
     <message>
         <source>The username field is empty!</source>
-        <translation>Vartotojo laukas tuščias!</translation>
+        <translation>El nombre de usuario está vacío!</translation>
     </message>
 </context>
 <context>
     <name>LhcTransferDialog</name>
     <message>
         <source>Chat transfer</source>
-        <translation>Pokalbio perskyrimas</translation>
+        <translation>chatear transferencia</translation>
     </message>
     <message>
         <source>Online users</source>
-        <translation>Prisijungę vartotojai</translation>
+        <translation>usuarios en línea</translation>
     </message>
     <message>
         <source>Ok</source>
-        <translation>Gerai</translation>
+        <translation>bueno</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Atšaukti</translation>
+        <translation>cancelar</translation>
     </message>
 </context>
 <context>
     <name>ChatRoomsWindow</name>
     <message>
         <source>Add chat</source>
-        <translation>Pridėti pokalbį</translation>
+        <translation>Añadir chatear</translation>
     </message>
 	<message>
         <source>Accept chat</source>
-        <translation>Patvirtinti pokalbį</translation>
+        <translation>Aceptar chatear</translation>
     </message>
     <message>
         <source>Open in a new window</source>
-        <translation>Atidaryti naujam lange</translation>
+        <translation>Abrir en una nueva ventana</translation>
     </message>
     <message>
         <source>Open in a new separate window</source>
-        <translation>Atidaryti atskiram lange</translation>
+        <translation>Abrir en una nueva ventana independiente</translation>
     </message>
     <message>
         <source>Loading...</source>
-        <translation>Kraunama...</translation>
+        <translation>Cargando ...</translation>
     </message>
     <message>
         <source>Close chat</source>
-        <translation>Uždaryti pokalbį</translation>
+        <translation>Cerrar chatear</translation>
     </message>
     <message>
         <source>Delete chat</source>
-        <translation>Ištrinti pokalbį</translation>
+        <translation>Eliminar chatear</translation>
     </message>
     <message>
         <source>Reject chat</source>
-        <translation>Atmesti pokalbį</translation>
+        <translation>Rechazar chatear</translation>
     </message>
     <message>
         <source>Pending chats</source>
-        <translation>Laukiantys pokalbiai</translation>
+        <translation>chats pendientes</translation>
     </message>
     <message>
         <source>Transfered chats</source>
-        <translation>Pervesti pokalbiai</translation>
+        <translation>chats transferidos</translation>
     </message>
 	<message>
         <source>Online Users</source>
-        <translation>Prisijungę vartotojai</translation>
+        <translation>Usuarios en línea</translation>
     </message>
     <message>
         <source>Active chats</source>
-        <translation>Aktyvūs pokalbiai</translation>
+        <translation>chats activos</translation>
     </message>
 	<message>
         <source>Send private message</source>
-        <translation>Siųsti privačią žinutę</translation>
+        <translation>Enviar mensaje privado</translation>
     </message>
 	<message>
         <source>View user information</source>
-        <translation>Peržiūrėti vartotojo informaciją</translation>
+        <translation>Ver la información del usuario</translation>
     </message>
     <message>
         <source>Closed chats</source>
-        <translation>Uždaryti pokalbiai</translation>
+        <translation>chats cerrados</translation>
     </message>
 </context>
 <context>
     <name>ChatWindow</name>
     <message>
         <source>User left chat</source>
-        <translation>Vartotojas paliko pokalbį</translation>
+        <translation>Usuario dejó chatear</translation>
     </message>
 	<message>
         <source>Send</source>
-        <translation>Siųsti</translation>
+        <translation>enviar</translation>
     </message>
     <message>
         <source>Choose canned message</source>
-        <translation>Pasirinkite paruoštą žinutę</translation>
+        <translation>Elija mensaje predefinido</translation>
     </message>
     <message>
         <source>User joined chat</source>
-        <translation>Vartotojas prisijungė</translation>
+        <translation>Usuario Registrado chatear</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation>Veiksmai</translation>
+        <translation>Acciones</translation>
     </message>
     <message>
         <source>Information</source>
-        <translation>Informacija</translation>
+        <translation>información</translation>
     </message>
     <message>
         <source>Loading...</source>
-        <translation>Kraunama...</translation>
+        <translation>Cargando ...</translation>
     </message>
     <message>
         <source>Owner</source>
-        <translation>Savininkas</translation>
+        <translation>propietario</translation>
     </message>
     <message>
         <source>responsable</source>
-        <translation>atsakovas</translation>
+        <translation>responsable</translation>
     </message>
     <message>
         <source>Came from</source>
-        <translation>Atėjo iš</translation>
+        <translation>Vino de</translation>
     </message>
 	<message>
         <source>Country</source>
-        <translation>Šalis</translation>
+        <translation>país</translation>
     </message>
     <message>
         <source>E-mail</source>
-        <translation>El. paštas</translation>
+        <translation>E-mail</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation>Klaida</translation>
+        <translation>error</translation>
     </message>
 </context>
 <context>
     <name>MainWindow</name>
     <message>
         <source>Live helper chat</source>
-        <translation>Live helper chat</translation>
+        <translation>Vivir ayudante de chat</translation>
     </message>
     <message>
         <source>New request</source>
-        <translation>Naujas užklausimas</translation>
+        <translation>Nueva petición</translation>
     </message>
     <message>
         <source>You have a new chat pending. To start the chat click me.</source>
-        <translation>Jūs turite naują pokalbį. Norėdami pradėti pokalbį paspauskite mane.</translation>
+        <translation>Usted tiene una nueva conversación pendiente. Para iniciar el chat me haz clic.</translation>
     </message>
     <message>
         <source>A new chat has been transferred to you. To start the chat click me.</source>
-        <translation>Jums pervestas naujas pokalbis, norėdami pradėti pokalbį paspauskite mane.</translation>
+        <translation>Un nuevo chat se ha transferido a usted. Para iniciar el chat me haz clic.</translation>
     </message>
     <message>
         <source>Waiting for action...</source>
-        <translation>Laukiama veiksmų...</translation>
+        <translation>Esperando la actuación ...</translation>
     </message>
     <message>
         <source>&amp;Restore</source>
-        <translation>&amp;Atstatyti</translation>
+        <translation>y restauración</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation>&amp;Išeiti</translation>
+        <translation>&amp;Quit</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
-        <translation>&amp;Uždaryti</translation>
+        <translation>E&amp;xit</translation>
     </message>
     <message>
         <source>Login as</source>
-        <translation>Prisijungti kaip</translation>
+        <translation>Entrar como</translation>
     </message>
     <message>
         <source>Chat rooms</source>
-        <translation>Pokalbių kambariai</translation>
+        <translation>Las salas de chat</translation>
     </message>
     <message>
         <source>About</source>
-        <translation>Apie</translation>
+        <translation>acerca de</translation>
     </message>
     <message>
         <source>About the program</source>
-        <translation>Apie programą</translation>
+        <translation>Acerca del programa</translation>
     </message>
     <message>
         <source>&amp;Actions</source>
-        <translation>&amp;Veiksmai</translation>
+        <translation>&amp;Actions</translation>
     </message>
     <message>
         <source>&amp;Chats</source>
-        <translation>&amp;Pokalbiai</translation>
+        <translation>&amp;Chats</translation>
     </message>
     <message>
         <source>&amp;Management</source>
-        <translation>&amp;Valdymas</translation>
+        <translation>&amp;Management</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation>&amp;Pagalba</translation>
+        <translation>&amp;Help</translation>
     </message>
 </context>
 </TS>
