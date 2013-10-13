@@ -3210,6 +3210,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Your language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>General language settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Current site access</source>
       <translation type="unfinished"/>
     </message>
@@ -3219,10 +3231,6 @@
     </message>
     <message>
       <source>options for</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Language</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3239,6 +3247,10 @@
     </message>
     <message>
       <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose correct language</source>
       <translation type="unfinished"/>
     </message>
     <message>

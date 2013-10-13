@@ -724,6 +724,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                     array('module' => 'lhsystem','function' => 'use'),
                     array('module' => 'lhchat',  'function' => 'allowblockusers'),
                     array('module' => 'lhsystem','function' => 'generatejs'),
+                    array('module' => 'lhsystem','function' => 'changelanguage'),
                     array('module' => 'lhchat',  'function' => 'allowtransfer'),
                     array('module' => 'lhchat',  'function' => 'administratecannedmsg'),
                     array('module' => 'lhquestionary',  'function' => 'manage_questionary'),

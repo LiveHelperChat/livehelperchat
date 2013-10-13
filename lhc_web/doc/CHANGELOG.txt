@@ -1,3 +1,16 @@
+1.60v
+
+Features
+1. Option fo user to change language in back office. Just for him alone. Usefull if back office is used by people who speaks different languages.
+2. Chatbox now supports predefined nick and option to disable nick.
+
+Improvements, Bugfixes
+1. Few PHP calls were not compiled. So a little bit more performance gain.
+2. Seems if user disabled chat sound, he could not start chat next time. Not sure still.
+3. Various other small improvements.
+
+No database update this time.
+
 1.59v
 
 1. Option to disable restore icon in widget. Disables popup opening in site.
