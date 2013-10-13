@@ -195,6 +195,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Show/Hide right column</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>This chat is closed.</source>
       <translation type="unfinished"/>
     </message>

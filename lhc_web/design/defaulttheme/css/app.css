@@ -584,6 +584,14 @@ ul.accordion-faq li {
 	position:relative;
 }
 
+.collapse-right,
+.collapse-right:hover{
+	position:absolute;
+	right:-3px;
+	margin-top:-15px;
+	color:#CCC;
+}
+
 .chat-pending{color:#99AC11;}
 .chat-active{color:#5da423;}
 .chat-unread{color:#c60f13;}
