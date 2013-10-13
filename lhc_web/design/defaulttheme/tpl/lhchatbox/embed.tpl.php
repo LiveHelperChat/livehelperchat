@@ -19,8 +19,9 @@ var lhc_ChatboxPage = {
     },
 
     getAppendRequestArguments : function() {
-		    var nickOption = this.cookieData.nick ? '&nick='+escape(this.cookieData.nick) : '';
-		    return nickOption;
+		    var nickOption = (typeof LHCChatboxOptionsEmbed.nick !== 'undefined') ?  '&nick='+escape(LHCChatboxOptionsEmbed.nick) : (this.cookieData.nick ? '&nick='+escape(this.cookieData.nick) : '');
+		    var disableOption = (typeof LHCChatboxOptionsEmbed.disable_nick_change !== 'undefined') ?  '&dnc=true' : '';
+		    return nickOption+disableOption;
     },
 
 	getAppendCookieArguments : function() {

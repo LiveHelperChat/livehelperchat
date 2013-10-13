@@ -116,8 +116,9 @@ var lhc_Chatbox = {
     },
 
  	getAppendRequestArguments : function() {
-		    var nickOption = this.cookieData.nick ? '&nick='+escape(this.cookieData.nick) : '';
-		    return nickOption;
+		    var nickOption = (typeof LHCChatboxOptions.nick !== 'undefined') ?  '&nick='+escape(LHCChatboxOptions.nick) : (this.cookieData.nick ? '&nick='+escape(this.cookieData.nick) : '');
+		    var disableOption = (typeof LHCChatboxOptions.disable_nick_change !== 'undefined') ?  '&dnc=true' : '';
+		    return nickOption+disableOption;
     },
 
 	showVotingForm : function() {
