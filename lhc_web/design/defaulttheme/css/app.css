@@ -304,6 +304,10 @@ table tr td {
 	overflow-y:auto;
 	border: 1px solid #CCCCCC;
 	padding:2px;
+	resize: vertical;
+}
+textarea[name=ChatMessage]{
+	resize: vertical;
 }
 
 .msg-date {
