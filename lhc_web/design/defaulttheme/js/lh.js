@@ -113,7 +113,7 @@ function lh(){
     this.addTab = function(tabs, url, name, chat_id) {
     	tabs.find('> section.active').removeClass("active").attr('style','');
     	var nextElement = tabs.find('> section').size() + 5; // Leave some numbering for custom tabs
-    	tabs.append('<section class="active"><p class="title"><a class="chat-tab-item" id="chat-id-'+chat_id+'" href="#">'+ '<i id="user-chat-status-'+chat_id+'" class="icon-user-status icon-user icon-user-online"></i>' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</a></p><div class="content" id="simple'+nextElement+'Tab">...</div></section>');
+    	tabs.append('<section class="active"><p class="title"><a class="chat-tab-item" id="chat-id-'+chat_id+'" href="#">'+ '<i id="user-chat-status-'+chat_id+'" class="icon-user-status icon-user icon-user-online"></i>' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</a><a href="#" onclick="return lhinst.removeDialogTab('+chat_id+',$(\'#tabs\'),true)" class="icon-cancel icon-close-chat"></a></p><div class="content" id="simple'+nextElement+'Tab">...</div></section>');
 
     	$('#chat-id-'+chat_id).click(function() {
     		var inst = $(this);
@@ -319,6 +319,7 @@ function lh(){
     		$('#chat-right-column-'+chat_id).show();
 	    	$('#chat-main-column-'+chat_id).removeClass('large-12');
 	    	$('#chat-main-column-'+chat_id+' .collapse-right').removeClass('icon-left-circled').addClass('icon-right-circled');
+	    	$(document).foundation('section', 'reflow');
     	};
     };
 
