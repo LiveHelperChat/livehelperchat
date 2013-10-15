@@ -18,7 +18,7 @@
       <li><input type="submit" class="small button" name="Save_departament" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/></li>
       <li><input type="submit" class="small button" name="Update_departament" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update');?>"/></li>
       <li><input type="submit" class="small button" name="Cancel_departament" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/></li>
-      <li><input type="submit" class="small alert button" name="Delete_departament" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Are you sure?');?>')" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Delete department');?>"/></li>
+      <?php if ($departament->id != 1) : ?><li><input type="submit" class="small alert button" name="Delete_departament" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Are you sure?');?>')" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Delete department');?>"/></li><?php endif;?>
     </ul>
 
 </form>

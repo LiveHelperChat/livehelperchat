@@ -350,6 +350,9 @@ class erLhcoreClassModelChatOnlineUser {
            if ($geo_data['geo_service_identifier'] == 'mod_geoip2'){
                $params['country_code'] = $geo_data['mod_geo_ip_country_code'];
                $params['country_name'] = $geo_data['mod_geo_ip_country_name'];
+               $params['mod_geo_ip_city_name'] = $geo_data['mod_geo_ip_city_name'];
+               $params['mod_geo_ip_latitude'] = $geo_data['mod_geo_ip_latitude'];
+               $params['mod_geo_ip_longitude'] = $geo_data['mod_geo_ip_longitude'];
            } elseif ($geo_data['geo_service_identifier'] == 'locatorhq') {
                $params['username'] = $geo_data['locatorhqusername'];
                $params['api_key'] = $geo_data['locatorhq_api_key'];

@@ -17,7 +17,7 @@
         <td width="1%"><?php echo $group->id?></td>
         <td><?php echo htmlspecialchars($group->name)?></td>
         <?php if ($canEdit) : ?><td nowrap><a class="small button round" href="<?php echo erLhcoreClassDesign::baseurl('user/editgroup')?>/<?php echo $group->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/grouplist','Edit group');?></a></td><?php endif;?>
-        <?php if ($canDelete) : ?><td nowrap><a class="small alert button round csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('gallery/album_list_admin','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('user/deletegroup')?>/<?php echo $group->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/grouplist','Delete group');?></a></td><?php endif;?>
+        <?php if ($canDelete) : ?><td nowrap><?php if ($group->id != 1) : ?><a class="small alert button round csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('gallery/album_list_admin','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('user/deletegroup')?>/<?php echo $group->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/grouplist','Delete group');?></a><?php endif;?></td><?php endif;?>
     </tr>
 <?php endforeach; ?>
 </table>
