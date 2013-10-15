@@ -10,7 +10,7 @@ class erLhcoreClassChatStatistic {
     {
     	$time = (time()-(24*3600));
 
-    	$SQL = 'SELECT lh_chat.user_id,count(lh_chat.id) as assigned_chats FROM lh_chat WHERE `time` > :time GROUP BY user_id';
+    	$SQL = 'SELECT lh_chat.user_id,count(lh_chat.id) as assigned_chats FROM lh_chat WHERE `time` > :time AND user_id > 0 GROUP BY user_id';
 
     	$db = ezcDbInstance::get();
     	$stmt = $db->prepare($SQL);
