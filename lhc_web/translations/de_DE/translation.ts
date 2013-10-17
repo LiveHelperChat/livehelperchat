@@ -193,6 +193,10 @@
       <translation>Besucher schreibt gerade...</translation>
     </message>
     <message>
+      <source>Show/Hide right column</source>
+      <translation>Rechte Spalte anzeigen/verbergen</translation>
+    </message>
+    <message>
       <source>This chat is closed.</source>
       <translation>Dieser Chat wurde geschlossen.</translation>
     </message>
@@ -3208,6 +3212,18 @@
       <translation>Sprachen-Einstellungen</translation>
     </message>
     <message>
+      <source>Your language</source>
+      <translation>Eigene Sprache</translation>
+    </message>
+    <message>
+      <source>Language</source>
+      <translation>Sprache</translation>
+    </message>
+    <message>
+      <source>General language settings</source>
+      <translation>Allgemeine Sprach-Einstellungen</translation>
+    </message>
+    <message>
       <source>Current site access</source>
       <translation>Aktueller Seiten-Zugang</translation>
     </message>
@@ -3218,10 +3234,6 @@
     <message>
       <source>options for</source>
       <translation>Optionen für</translation>
-    </message>
-    <message>
-      <source>Language</source>
-      <translation>Sprache</translation>
     </message>
     <message>
       <source>Theme, separate themes by new line</source>
@@ -3238,6 +3250,10 @@
     <message>
       <source>Settings updated</source>
       <translation>Einstellungen aktualisiert</translation>
+    </message>
+    <message>
+      <source>Please choose correct language</source>
+      <translation>Bitte korrekte Sprache wählen</translation>
     </message>
     <message>
       <source>Please enter theme</source>

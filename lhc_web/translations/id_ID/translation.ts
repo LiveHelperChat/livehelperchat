@@ -193,6 +193,10 @@
       <translation>Saat ini pengguna sedang mengetik...</translation>
     </message>
     <message>
+      <source>Show/Hide right column</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>This chat is closed.</source>
       <translation>Percakapan ini sudah tertutup</translation>
     </message>
@@ -323,7 +327,7 @@
     </message>
     <message>
       <source>Please enter canned message</source>
-      <translation>Masukkan pesan kaleng</translation>
+      <translation>Silakan masukkan pesan kaleng</translation>
     </message>
     <message>
       <source>Please enter a canned message</source>
@@ -674,7 +678,7 @@
     </message>
     <message>
       <source>Please enter a valid email address</source>
-      <translation type="unfinished"/>
+      <translation>Silakan masukkan alamat email yang sah</translation>
     </message>
     <message>
       <source>Please enter your message</source>
@@ -717,7 +721,7 @@
     </message>
     <message>
       <source>A support staff member has closed this chat</source>
-      <translation>Anggota staf pendukung telah menutup percakapan ini</translation>
+      <translation>Anggota personel pendukung telah menutup percakapan ini</translation>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
@@ -813,7 +817,7 @@
     <name>chat/errors/adminchatnopermission</name>
     <message>
       <source>You do not have permission to access the current chat!</source>
-      <translation>Anda tidak memiliki ijin untuk mengakses percakapan saat ini!</translation>
+      <translation>Anda tidak memiliki izin untuk mengakses percakapan ini!</translation>
     </message>
   </context>
   <context>
@@ -887,7 +891,7 @@
     </message>
     <message>
       <source>Drag a marker where you want to have map centered by default. Zoom is also saved.</source>
-      <translation>Tarik sebuah penanda di tempat yang Anda inginkan untuk sentralisasi peta secara default. Pembesaran juga tersimpan.</translation>
+      <translation>Tarik penanda ke tempat yang Anda inginkan untuk sentralisasi peta secara default. Pembesaran juga tersimpan.</translation>
     </message>
     <message>
       <source>Settings updated</source>
@@ -903,11 +907,11 @@
     </message>
     <message>
       <source>Lat.</source>
-      <translation>Lat.</translation>
+      <translation>Lintang.</translation>
     </message>
     <message>
       <source>Lon.</source>
-      <translation>Lon.</translation>
+      <translation>Bujur.</translation>
     </message>
     <message>
       <source>Identifier</source>
@@ -1067,11 +1071,11 @@
     </message>
     <message>
       <source>first visit</source>
-      <translation>Kunjungan pertama</translation>
+      <translation>kunjungan pertama</translation>
     </message>
     <message>
       <source>last visit</source>
-      <translation>Kunjungan terakhir</translation>
+      <translation>kunjungan terakhir</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -1099,15 +1103,15 @@
     </message>
     <message>
       <source>Please enter city variable!</source>
-      <translation>Silahkan masukkan variabel kota!</translation>
+      <translation>Silakan masukkan variabel kota!</translation>
     </message>
     <message>
       <source>Please enter latitude variable!</source>
-      <translation>Silahkan masukkan variabel latitude!</translation>
+      <translation>Silakan masukkan variabel lintang!</translation>
     </message>
     <message>
       <source>Please enter longitude variable!</source>
-      <translation>Silahkan masukkan variable longitude!</translation>
+      <translation>Silakan masukkan variable bujur!</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages!</source>
@@ -1123,7 +1127,7 @@
     </message>
     <message>
       <source>Please enter IP!</source>
-      <translation>Silahkan masukkan IP!</translation>
+      <translation>Silakan masukkan IP!</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key and username is correct!</source>
@@ -1131,11 +1135,11 @@
     </message>
     <message>
       <source>Please choose a service provider!</source>
-      <translation type="unfinished"/>
+      <translation>Silakan pilih penyedia layanan!</translation>
     </message>
     <message>
       <source>Online users</source>
-      <translation type="unfinished"/>
+      <translation>Pengguna online</translation>
     </message>
   </context>
   <context>
@@ -1204,7 +1208,7 @@
     </message>
     <message>
       <source>Chatbox</source>
-      <translation type="unfinished"/>
+      <translation>Kotak percakapan</translation>
     </message>
     <message>
       <source>Position from the top, is only used if the Middle left or the Middle right side is chosen</source>
@@ -1212,11 +1216,11 @@
     </message>
     <message>
       <source>Pixels</source>
-      <translation type="unfinished"/>
+      <translation>Piksel</translation>
     </message>
     <message>
       <source>Percents</source>
-      <translation type="unfinished"/>
+      <translation>Persen</translation>
     </message>
     <message>
       <source>Size</source>
@@ -1260,11 +1264,11 @@
     </message>
     <message>
       <source>Status text</source>
-      <translation type="unfinished"/>
+      <translation>Teks status</translation>
     </message>
     <message>
       <source>FAQ</source>
-      <translation type="unfinished"/>
+      <translation>pertanyaan yang sering diajukan</translation>
     </message>
     <message>
       <source>Position from the top, only used if the Middle left or the Middle right side is chosen</source>
@@ -1272,7 +1276,7 @@
     </message>
     <message>
       <source>Help us to grow</source>
-      <translation type="unfinished"/>
+      <translation>Bantu kami untuk berkembang</translation>
     </message>
     <message>
       <source>Hide status when offline</source>
@@ -1352,7 +1356,7 @@
     </message>
     <message>
       <source>Embed code</source>
-      <translation type="unfinished"/>
+      <translation>Kode pencantuman</translation>
     </message>
   </context>
   <context>
@@ -1433,7 +1437,7 @@
     </message>
     <message>
       <source>Start chat form settings</source>
-      <translation>Memulai pengaturan formulir percakapan</translation>
+      <translation>Pengaturan Formulir &quot;Mulai Percakapan&quot;</translation>
     </message>
     <message>
       <source>Canned messages</source>
@@ -1465,7 +1469,7 @@
     </message>
     <message>
       <source>Chat archive</source>
-      <translation type="unfinished"/>
+      <translation>Arsip percakapan</translation>
     </message>
     <message>
       <source>Live help embed code</source>
@@ -1576,7 +1580,7 @@
     </message>
     <message>
       <source>Recipient e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Penerima E-mail</translation>
     </message>
     <message>
       <source>Subject</source>
@@ -1647,18 +1651,18 @@
     </message>
     <message>
       <source>Start chat with operator</source>
-      <translation type="unfinished"/>
+      <translation>Mulai chat dengan operator</translation>
     </message>
     <message>
       <source>Type your message to the operator</source>
-      <translation type="unfinished"/>
+      <translation>Ketik pesan Anda ke operator</translation>
     </message>
   </context>
   <context>
     <name>chat/startchatformsettings</name>
     <message>
       <source>Start a chat form settings</source>
-      <translation>Mulai pengaturan formulir percakapan</translation>
+      <translation>Pengaturan Formulir &quot;Mulai Percakapan&quot;</translation>
     </message>
     <message>
       <source>At least one field has to be visible and required in the popup and page widget</source>
@@ -1698,7 +1702,7 @@
     </message>
     <message>
       <source>Phone</source>
-      <translation type="unfinished"/>
+      <translation>Telepon</translation>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>
@@ -1710,7 +1714,7 @@
     </message>
     <message>
       <source>Start chat form settings</source>
-      <translation type="unfinished"/>
+      <translation>Pengaturan Formulir &quot;Mulai Percakapan&quot;</translation>
     </message>
   </context>
   <context>
@@ -1733,7 +1737,7 @@
     </message>
     <message>
       <source>Synchronisation and sound settings</source>
-      <translation type="unfinished"/>
+      <translation>Pengaturan sinkronisasi dan suara</translation>
     </message>
     <message>
       <source>How many seconds for a user to be considered as being online</source>
@@ -1741,7 +1745,7 @@
     </message>
     <message>
       <source>Value in seconds</source>
-      <translation type="unfinished"/>
+      <translation>Nilai dalam detik</translation>
     </message>
     <message>
       <source>Sync for new chats, interval in seconds</source>
@@ -1769,19 +1773,19 @@
     </message>
     <message>
       <source>Please enter a valid online timeout value!</source>
-      <translation>Silakan masukkan nilai batas waktu online valid!</translation>
+      <translation>Silakan masukkan nilai batas waktu online yang sah!</translation>
     </message>
     <message>
       <source>Please enter a valid operator message timeout value!</source>
-      <translation>Silakan masukkan nilai batas waktu pesan operator valid!</translation>
+      <translation>Silakan masukkan nilai batas waktu pesan operator yang sah!</translation>
     </message>
     <message>
       <source>Please enter a valid back office sync interval!</source>
-      <translation>Silakan masukkan interval sinkronisasi back office valid!</translation>
+      <translation>Silakan masukkan selang waktu sinkronisasi back office yang sah!</translation>
     </message>
     <message>
       <source>Please enter a valid new messages sync interval!</source>
-      <translation>Silakan masukkan interval sinkronisasi pesan baru valid!</translation>
+      <translation>Silakan masukkan selang waktu sinkronisasi pesan baru yang sah!</translation>
     </message>
     <message>
       <source>Synchronization and sound settings</source>
@@ -1864,7 +1868,7 @@
     </message>
     <message>
       <source>ago</source>
-      <translation type="unfinished"/>
+      <translation>yang lalu</translation>
     </message>
   </context>
   <context>
@@ -1927,136 +1931,136 @@
     <name>chatarchive/archive</name>
     <message>
       <source>Chat archive</source>
-      <translation type="unfinished"/>
+      <translation>Arsip percakapan</translation>
     </message>
     <message>
       <source>Archives list</source>
-      <translation type="unfinished"/>
+      <translation>Daftar arsip</translation>
     </message>
     <message>
       <source>New archive</source>
-      <translation type="unfinished"/>
+      <translation>Arsip baru</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/archivechats</name>
     <message>
       <source>Archiving has finished.</source>
-      <translation type="unfinished"/>
+      <translation>Pengarsipan telah selesai.</translation>
     </message>
     <message>
       <source>See archived chats</source>
-      <translation type="unfinished"/>
+      <translation>Lihat arsip percakapan</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/editarchive</name>
     <message>
       <source>Edit archive</source>
-      <translation type="unfinished"/>
+      <translation>Ubah arsip</translation>
     </message>
     <message>
       <source>Archive updated</source>
-      <translation type="unfinished"/>
+      <translation>Arsip telah diperbarui</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/newarchive</name>
     <message>
       <source>Date from</source>
-      <translation type="unfinished"/>
+      <translation>Tanggal awal</translation>
     </message>
     <message>
       <source>E.g</source>
-      <translation type="unfinished"/>
+      <translation>Cth:</translation>
     </message>
     <message>
       <source>Date to</source>
-      <translation type="unfinished"/>
+      <translation>Tanggal akhir</translation>
     </message>
     <message>
       <source>New archive</source>
-      <translation type="unfinished"/>
+      <translation>Arsip baru</translation>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>
-      <translation type="unfinished"/>
+      <translation>Silakan masukkan susunan tanggal awal yang sah!</translation>
     </message>
     <message>
       <source>Please enter a valid to date range!</source>
-      <translation type="unfinished"/>
+      <translation>Silakan masukkan susunan tanggal akhir yang sah!</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/list</name>
     <message>
       <source>Archives list</source>
-      <translation type="unfinished"/>
+      <translation>Daftar arsip</translation>
     </message>
     <message>
       <source>From date</source>
-      <translation type="unfinished"/>
+      <translation>Tanggal awal</translation>
     </message>
     <message>
       <source>Till date</source>
-      <translation type="unfinished"/>
+      <translation>Tanggal akhir</translation>
     </message>
     <message>
       <source>Chats in archive</source>
-      <translation type="unfinished"/>
+      <translation>Percakapan dalam arsip</translation>
     </message>
     <message>
       <source>Messages in archive</source>
-      <translation type="unfinished"/>
+      <translation>Pesan dalam arsip</translation>
     </message>
     <message>
       <source>List chats</source>
-      <translation type="unfinished"/>
+      <translation>Daftar percakapan</translation>
     </message>
     <message>
       <source>Process again</source>
-      <translation type="unfinished"/>
+      <translation>Proses lagi</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation type="unfinished"/>
+      <translation>Ubah</translation>
     </message>
     <message>
       <source>Archived chats</source>
-      <translation type="unfinished"/>
+      <translation>Percakapan yang terarsip</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/listarchivechats</name>
     <message>
       <source>Archived chats</source>
-      <translation type="unfinished"/>
+      <translation>Percakapan yang terarsip</translation>
     </message>
     <message>
       <source>Information</source>
-      <translation type="unfinished"/>
+      <translation>Informasi</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/process</name>
     <message>
       <source>Process archive</source>
-      <translation type="unfinished"/>
+      <translation>Proses arsip</translation>
     </message>
     <message>
       <source>Process</source>
-      <translation type="unfinished"/>
+      <translation>Proses</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/process_content</name>
     <message>
       <source>Date from</source>
-      <translation type="unfinished"/>
+      <translation>Dari tanggal</translation>
     </message>
     <message>
       <source>Date to</source>
-      <translation type="unfinished"/>
+      <translation>Sampai tanggal</translation>
     </message>
     <message>
       <source>Potential chats to archive</source>
@@ -2064,11 +2068,11 @@
     </message>
     <message>
       <source>Archived chats</source>
-      <translation type="unfinished"/>
+      <translation>Percakapan yang terarsip</translation>
     </message>
     <message>
       <source>Archive progress</source>
-      <translation type="unfinished"/>
+      <translation>Progres yang terarsip</translation>
     </message>
     <message>
       <source>Pending for action...</source>
@@ -2119,7 +2123,7 @@
     </message>
     <message>
       <source>Embed code generation</source>
-      <translation>Cantumkan kode generation</translation>
+      <translation>Hasilkan kode pencantuman</translation>
     </message>
   </context>
   <context>
@@ -2176,7 +2180,7 @@
     </message>
     <message>
       <source>more information on how to use it</source>
-      <translation>Informasi lebih lanjut mengenai bagaimana menggunakannya</translation>
+      <translation>informasi lebih lanjut mengenai bagaimana menggunakannya</translation>
     </message>
   </context>
   <context>
@@ -2195,7 +2199,7 @@
     </message>
     <message>
       <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation type="unfinished"/>
+      <translation>Salin kode dari textarea ke footer, sebelum tanda penutup &lt;/body&gt;</translation>
     </message>
     <message>
       <source>HTML code</source>
@@ -2218,7 +2222,7 @@
     </message>
     <message>
       <source>Chatbox</source>
-      <translation type="unfinished"/>
+      <translation>Kotak percakapan</translation>
     </message>
   </context>
   <context>
@@ -2260,18 +2264,18 @@
     <name>kernel/messages</name>
     <message>
       <source>Are you sure?</source>
-      <translation type="unfinished"/>
+      <translation>Apa kamu yakin?</translation>
     </message>
   </context>
   <context>
     <name>chatbox/new</name>
     <message>
       <source>New chatbox</source>
-      <translation type="unfinished"/>
+      <translation>Kotak percakapan baru</translation>
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>Baru</translation>
     </message>
   </context>
   <context>
@@ -2298,7 +2302,7 @@
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation type="unfinished"/>
+      <translation>Apa kamu yakin?</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -2345,18 +2349,18 @@
     </message>
     <message>
       <source>departments</source>
-      <translation type="unfinished"/>
+      <translation>departemen</translation>
     </message>
     <message>
       <source>Edit a department</source>
-      <translation type="unfinished"/>
+      <translation>Ubah departemen</translation>
     </message>
   </context>
   <context>
     <name>user/account</name>
     <message>
       <source>Updated</source>
-      <translation type="unfinished"/>
+      <translation>Telah diperbarui</translation>
     </message>
     <message>
       <source>Logged user</source>
@@ -2392,7 +2396,7 @@
     </message>
     <message>
       <source>Email</source>
-      <translation type="unfinished"/>
+      <translation>Email</translation>
     </message>
     <message>
       <source>Name</source>
@@ -2440,11 +2444,11 @@
     </message>
     <message>
       <source>Please enter a username!</source>
-      <translation type="unfinished"/>
+      <translation>Silahkan masukkan nama pengguna!</translation>
     </message>
     <message>
       <source>User exists!</source>
-      <translation type="unfinished"/>
+      <translation>Pengguna ada!</translation>
     </message>
     <message>
       <source>Wrong email address</source>
@@ -2595,7 +2599,7 @@
     </message>
     <message>
       <source>Please enter question!</source>
-      <translation type="unfinished"/>
+      <translation>Silahkan masukkan pertanyaan!</translation>
     </message>
     <message>
       <source>FAQ</source>
@@ -2712,7 +2716,7 @@
     </message>
     <message>
       <source>Please choose module</source>
-      <translation type="unfinished"/>
+      <translation>Silahkan pilih modul</translation>
     </message>
     <message>
       <source>Please choose module function</source>
@@ -2972,7 +2976,7 @@
     </message>
     <message>
       <source>Edit a question</source>
-      <translation type="unfinished"/>
+      <translation>Ubah sebuah pertanyaan</translation>
     </message>
   </context>
   <context>
@@ -3007,11 +3011,11 @@
     </message>
     <message>
       <source>Edit the question</source>
-      <translation type="unfinished"/>
+      <translation>Ubah pertanyaan</translation>
     </message>
     <message>
       <source>Delete the question</source>
-      <translation type="unfinished"/>
+      <translation>Hapus pertanyaan</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -3190,7 +3194,7 @@
     </message>
     <message>
       <source>Chatbox</source>
-      <translation type="unfinished"/>
+      <translation>Kotak percakapan</translation>
     </message>
     <message>
       <source>Account</source>
@@ -3208,6 +3212,18 @@
       <translation>Konfigurasi bahasa</translation>
     </message>
     <message>
+      <source>Your language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Language</source>
+      <translation>Bahasa</translation>
+    </message>
+    <message>
+      <source>General language settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Current site access</source>
       <translation>Akses situs saat ini</translation>
     </message>
@@ -3218,10 +3234,6 @@
     <message>
       <source>options for</source>
       <translation>pilihan untuk</translation>
-    </message>
-    <message>
-      <source>Language</source>
-      <translation>Bahasa</translation>
     </message>
     <message>
       <source>Theme, separate themes by new line</source>
@@ -3238,6 +3250,10 @@
     <message>
       <source>Settings updated</source>
       <translation>Pengaturan telah diperbarui</translation>
+    </message>
+    <message>
+      <source>Please choose correct language</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter theme</source>
@@ -3319,7 +3335,7 @@
     </message>
     <message>
       <source>Save</source>
-      <translation type="unfinished"/>
+      <translation>Simpan</translation>
     </message>
     <message>
       <source>Update</source>
@@ -3841,11 +3857,11 @@
     <name>departament/edit</name>
     <message>
       <source>Please enter a valid from date range!</source>
-      <translation type="unfinished"/>
+      <translation>Silakan masukkan susunan tanggal awal yang sah!</translation>
     </message>
     <message>
       <source>Please enter a valid to date range!</source>
-      <translation type="unfinished"/>
+      <translation>Silakan masukkan susunan tanggal akhir yang sah!</translation>
     </message>
     <message>
       <source>Please enter a department name</source>

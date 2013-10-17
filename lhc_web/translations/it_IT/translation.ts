@@ -125,7 +125,7 @@
     </message>
     <message>
       <source>Requires e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Email richiesta</translation>
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
@@ -148,7 +148,7 @@
     <name>abstract/list</name>
     <message>
       <source>Are you sure?</source>
-      <translation type="unfinished"/>
+      <translation>Sei sicuro?</translation>
     </message>
   </context>
   <context>
@@ -179,7 +179,7 @@
     </message>
     <message>
       <source>Chats lists</source>
-      <translation type="unfinished"/>
+      <translation>Liste chat</translation>
     </message>
     <message>
       <source>Active chats</source>
@@ -191,6 +191,10 @@
     <message>
       <source>User is typing now...</source>
       <translation>Utente sta scrivendo...</translation>
+    </message>
+    <message>
+      <source>Show/Hide right column</source>
+      <translation>Mostra/nascondi colonna destra</translation>
     </message>
     <message>
       <source>This chat is closed.</source>
@@ -218,7 +222,7 @@
     </message>
     <message>
       <source>Chatbox is disabled.</source>
-      <translation type="unfinished"/>
+      <translation>Chatbox è disabilitata</translation>
     </message>
     <message>
       <source>Invalid hash or auto creation is disabled</source>
@@ -226,7 +230,7 @@
     </message>
     <message>
       <source>Visitor</source>
-      <translation type="unfinished"/>
+      <translation>Visitatore</translation>
     </message>
     <message>
       <source>Chat started</source>
@@ -291,11 +295,11 @@
     </message>
     <message>
       <source>Delay</source>
-      <translation type="unfinished"/>
+      <translation>Ritardo</translation>
     </message>
     <message>
       <source>Position</source>
-      <translation type="unfinished"/>
+      <translation>Posizione</translation>
     </message>
     <message>
       <source>Edit message</source>
@@ -315,7 +319,7 @@
     </message>
     <message>
       <source>Delay in seconds</source>
-      <translation type="unfinished"/>
+      <translation>Ritardo in secondi</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -1142,19 +1146,19 @@
     <name>chat/getstatus</name>
     <message>
       <source>Live help is online...</source>
-      <translation type="unfinished"/>
+      <translation>Supporto live online...</translation>
     </message>
     <message>
       <source>Live help is offline...</source>
-      <translation type="unfinished"/>
+      <translation>Supporto live offline...</translation>
     </message>
     <message>
       <source>Close</source>
-      <translation type="unfinished"/>
+      <translation>Chiudi</translation>
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation type="unfinished"/>
+      <translation>Apri in una nuova finestra</translation>
     </message>
   </context>
   <context>
@@ -1531,7 +1535,7 @@
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation type="unfinished"/>
+      <translation>Apri in una nuova finestra</translation>
     </message>
     <message>
       <source>Reject chat</source>
@@ -3208,6 +3212,18 @@
       <translation>Configurazione lingua</translation>
     </message>
     <message>
+      <source>Your language</source>
+      <translation>La tua lingua</translation>
+    </message>
+    <message>
+      <source>Language</source>
+      <translation>Lingua</translation>
+    </message>
+    <message>
+      <source>General language settings</source>
+      <translation>Configurazione generale lingua</translation>
+    </message>
+    <message>
       <source>Current site access</source>
       <translation>Accesso sito corrente</translation>
     </message>
@@ -3218,10 +3234,6 @@
     <message>
       <source>options for</source>
       <translation>opzioni per</translation>
-    </message>
-    <message>
-      <source>Language</source>
-      <translation>Lingua</translation>
     </message>
     <message>
       <source>Theme, separate themes by new line</source>
@@ -3238,6 +3250,10 @@
     <message>
       <source>Settings updated</source>
       <translation>Impostazioni aggiornate</translation>
+    </message>
+    <message>
+      <source>Please choose correct language</source>
+      <translation>Scegli il linguaggio corretto</translation>
     </message>
     <message>
       <source>Please enter theme</source>
@@ -3863,7 +3879,7 @@
     <name>chat/deletechatadmin</name>
     <message>
       <source>You do not have rights to delete a chat</source>
-      <translation type="unfinished"/>
+      <translation>Non si dispone dei diritti per eliminare una chat</translation>
     </message>
   </context>
 </TS>

@@ -195,6 +195,10 @@
       <translation>El usuario está escribiendo ahora ...</translation>
     </message>
     <message>
+      <source>Show/Hide right column</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>This chat is closed.</source>
       <translation>Este chat está cerrado.</translation>
     </message>
@@ -3216,6 +3220,18 @@ Lista de funciones</translation>
       <translation>Configuración de Idiomas</translation>
     </message>
     <message>
+      <source>Your language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Language</source>
+      <translation>Idioma</translation>
+    </message>
+    <message>
+      <source>General language settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Current site access</source>
       <translation>Acceso al sitio actual</translation>
     </message>
@@ -3226,10 +3242,6 @@ Lista de funciones</translation>
     <message>
       <source>options for</source>
       <translation>Opciones para</translation>
-    </message>
-    <message>
-      <source>Language</source>
-      <translation>Idioma</translation>
     </message>
     <message>
       <source>Theme, separate themes by new line</source>
@@ -3246,6 +3258,10 @@ Lista de funciones</translation>
     <message>
       <source>Settings updated</source>
       <translation>Configuración actualizada</translation>
+    </message>
+    <message>
+      <source>Please choose correct language</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter theme</source>

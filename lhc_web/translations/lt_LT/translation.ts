@@ -193,6 +193,10 @@
       <translation>Vartototojas šiuo metu rašo žinutę...</translation>
     </message>
     <message>
+      <source>Show/Hide right column</source>
+      <translation>Rodyti/Slėpti dešinę pusę</translation>
+    </message>
+    <message>
       <source>This chat is closed.</source>
       <translation>Šis pokalbis yra uždarytas</translation>
     </message>
@@ -3208,6 +3212,18 @@
       <translation>Kalbų nustatymai</translation>
     </message>
     <message>
+      <source>Your language</source>
+      <translation>Jūsų kalba</translation>
+    </message>
+    <message>
+      <source>Language</source>
+      <translation>Kalba</translation>
+    </message>
+    <message>
+      <source>General language settings</source>
+      <translation>Bendri kalbos nustatymai</translation>
+    </message>
+    <message>
       <source>Current site access</source>
       <translation>Dabartinė puslapio prieiga</translation>
     </message>
@@ -3218,10 +3234,6 @@
     <message>
       <source>options for</source>
       <translation>nustatymai</translation>
-    </message>
-    <message>
-      <source>Language</source>
-      <translation>Kalba</translation>
     </message>
     <message>
       <source>Theme, separate themes by new line</source>
@@ -3238,6 +3250,10 @@
     <message>
       <source>Settings updated</source>
       <translation>Nustatymai atnaujinti</translation>
+    </message>
+    <message>
+      <source>Please choose correct language</source>
+      <translation>Prašome pasirinkti kalbą</translation>
     </message>
     <message>
       <source>Please enter theme</source>

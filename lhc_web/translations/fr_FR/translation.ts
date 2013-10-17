@@ -193,6 +193,10 @@
       <translation>O usuário está digitando...</translation>
     </message>
     <message>
+      <source>Show/Hide right column</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>This chat is closed.</source>
       <translation>Este chat está fechado.</translation>
     </message>
@@ -3208,6 +3212,18 @@
       <translation>Configuration langue</translation>
     </message>
     <message>
+      <source>Your language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Language</source>
+      <translation>Langue</translation>
+    </message>
+    <message>
+      <source>General language settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Current site access</source>
       <translation>Accès au site courant</translation>
     </message>
@@ -3218,10 +3234,6 @@
     <message>
       <source>options for</source>
       <translation>Options pour</translation>
-    </message>
-    <message>
-      <source>Language</source>
-      <translation>Langue</translation>
     </message>
     <message>
       <source>Theme, separate themes by new line</source>
@@ -3238,6 +3250,10 @@
     <message>
       <source>Settings updated</source>
       <translation>Réglages enregistrés</translation>
+    </message>
+    <message>
+      <source>Please choose correct language</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter theme</source>
