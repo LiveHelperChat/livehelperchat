@@ -41,7 +41,7 @@ return array (
       	16 => 'vnm',
       	17 => 'idn',
       	18 => 'ger_informal',
-      	19 => 'site_admin'
+      	19 => 'site_admin' 
       ),
     ),
     'default_url' =>
