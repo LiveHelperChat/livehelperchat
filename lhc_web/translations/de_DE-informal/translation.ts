@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="de">
+<?xml version="1.0" ?><TS>
   <context>
     <name>system/buttons</name>
     <message>
@@ -148,7 +148,7 @@
     <name>abstract/list</name>
     <message>
       <source>Are you sure?</source>
-      <translation>Sind Sie sicher?</translation>
+      <translation>Bist Du sicher?</translation>
     </message>
   </context>
   <context>
@@ -210,7 +210,7 @@
     </message>
     <message>
       <source>Operator is typing now...</source>
-      <translation>Berater schreibt gerade...</translation>
+      <translation>Operator tippt gerade...</translation>
     </message>
     <message>
       <source>Send</source>
@@ -280,7 +280,7 @@
     <name>kernel/message</name>
     <message>
       <source>Are you sure?</source>
-      <translation>Sind Sie sicher?</translation>
+      <translation>Bist Du sicher?</translation>
     </message>
   </context>
   <context>
@@ -441,7 +441,7 @@
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation>Sind Sie sicher?</translation>
+      <translation>Bist Du sicher?</translation>
     </message>
     <message>
       <source>Block user</source>
@@ -614,7 +614,7 @@
     </message>
     <message>
       <source>Your question</source>
-      <translation>Ihre Frage</translation>
+      <translation>Deine Frage</translation>
     </message>
     <message>
       <source>Enter your message</source>
@@ -626,7 +626,7 @@
     </message>
     <message>
       <source>There are no online operators at the moment, please leave a message</source>
-      <translation>Derzeit ist die Live Hilfe leider nicht besetzt. Bitte hinterlassen Sie eine Nachricht.</translation>
+      <translation>Derzeit ist die Live Hilfe leider nicht besetzt. Bitte hinterlasse eine Nachricht.</translation>
     </message>
     <message>
       <source>Leave a message</source>
@@ -658,11 +658,11 @@
     </message>
     <message>
       <source>There are no online operators at the moment, please leave your message</source>
-      <translation>Derzeit ist die Live Hilfe leider nicht besetzt. Bitte hinterlassen Sie eine Nachricht.</translation>
+      <translation>Derzeit ist die Live Hilfe leider nicht besetzt. Bitte hinterlasse eine Nachricht.</translation>
     </message>
     <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
-      <translation>Sie dürfen leider keine Chat führen! Bitte kontaktieren Sie ggf. den Seiten-Betreiber.</translation>
+      <translation>Du hast leider keine Berechtigung zu chatten! Bitte kontaktiere ggf. den Seiten-Betreiber.</translation>
     </message>
     <message>
       <source>Invalid captcha code, please enable Javascript!</source>
@@ -717,19 +717,19 @@
     <name>chat/checkchatstatus</name>
     <message>
       <source>A support staff member has joined this chat</source>
-      <translation>Ein Berater nimmt am Chat teil</translation>
+      <translation>Operator nimmt am Chat teil</translation>
     </message>
     <message>
       <source>A support staff member has closed this chat</source>
-      <translation>Ein Support-Mitarbeiter hat diesen Chat geschlossen</translation>
+      <translation>Operator hat diesen Chat geschlossen</translation>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
-      <translation>Während Sie auf eine Antwort warten, können Sie bereits weitere Fragen stellen.</translation>
+      <translation>Während Du auf eine Antwort wartest, kannst Du bereits weitere Fragen stellen.</translation>
     </message>
     <message>
       <source>At this moment there are no logged in support staff members, but you can leave your messages</source>
-      <translation>Derzeit ist die Live Hilfe leider nicht besetzt, aber Sie können eine Nachricht hinterlassen.</translation>
+      <translation>Derzeit ist die Live Hilfe leider nicht besetzt, aber Du kannst eine Nachricht hinterlassen.</translation>
     </message>
   </context>
   <context>
@@ -995,7 +995,7 @@
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation>Sind Sie sicher?</translation>
+      <translation>Bist Du sicher?</translation>
     </message>
     <message>
       <source>Clear list</source>
@@ -1276,7 +1276,7 @@
     </message>
     <message>
       <source>Help us to grow</source>
-      <translation>Helfen Sie uns zu wachsen</translation>
+      <translation>Hilf uns zu wachsen</translation>
     </message>
     <message>
       <source>Hide status when offline</source>
@@ -1304,7 +1304,7 @@
     </message>
     <message>
       <source>Check for messages from the operator</source>
-      <translation>Auf Nachrichten vom Berater ueberpruefen</translation>
+      <translation>Auf Nachrichten vom Operator ueberpruefen</translation>
     </message>
     <message>
       <source>Disable pro active invitations, usefull if you want disable them from site part.</source>
@@ -1773,19 +1773,19 @@
     </message>
     <message>
       <source>Please enter a valid online timeout value!</source>
-      <translation>Geben Sie einen Wert fuer das Timeout ein!</translation>
+      <translation>Gib einen Wert fuer das Timeout ein!</translation>
     </message>
     <message>
       <source>Please enter a valid operator message timeout value!</source>
-      <translation>Bitte einen validen Timeout-Wert eingeben!</translation>
+      <translation>Bitte einen gültigen Timeout-Wert eingeben!</translation>
     </message>
     <message>
       <source>Please enter a valid back office sync interval!</source>
-      <translation>Bitte geben Sie einen Wert fuer den Office-Sync-Intervall ein!</translation>
+      <translation>Bitte gib einen Wert fuer den Office-Sync-Intervall ein!</translation>
     </message>
     <message>
       <source>Please enter a valid new messages sync interval!</source>
-      <translation>Bitte geben Sie einen Wert fuer den Nachrichten-Sync-Intervall ein!</translation>
+      <translation>Bitte gib einen Wert fuer den Nachrichten-Sync-Intervall ein!</translation>
     </message>
     <message>
       <source>Synchronization and sound settings</source>
@@ -2141,7 +2141,7 @@
     </message>
     <message>
       <source>Name of manager</source>
-      <translation>Name des Beraters</translation>
+      <translation>Name des Operators</translation>
     </message>
     <message>
       <source>Identifier</source>
@@ -2164,7 +2164,7 @@
     </message>
     <message>
       <source>Default operator name</source>
-      <translation>Standard Beratername</translation>
+      <translation>Standard Operatorname</translation>
     </message>
     <message>
       <source>Messages limit in the chatbox</source>
@@ -2264,7 +2264,7 @@
     <name>kernel/messages</name>
     <message>
       <source>Are you sure?</source>
-      <translation>Sind Sie sicher?</translation>
+      <translation>Bist Du sicher?</translation>
     </message>
   </context>
   <context>
@@ -2302,7 +2302,7 @@
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation>Sind Sie sicher?</translation>
+      <translation>Bist Du sicher?</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -2372,7 +2372,7 @@
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
-      <translation>Geben Sie hier nur ein Passwort ein, wenn Sie es aendern wollen</translation>
+      <translation>Geben Sie hie nur ein Passwort ein, wenn Sie es aendern wollen</translation>
     </message>
     <message>
       <source>Username</source>
@@ -2475,7 +2475,7 @@
     </message>
     <message>
       <source>Please enter a department name</source>
-      <translation>Bitte geben Sie einen Abteilungsnamen ein</translation>
+      <translation>Bitte gib einen Abteilungsnamen ein</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -2494,7 +2494,7 @@
     </message>
     <message>
       <source>Ask a question</source>
-      <translation>Stellen Sie eine Frage</translation>
+      <translation>Stelle eine Frage</translation>
     </message>
     <message>
       <source>Type your question</source>
@@ -2506,15 +2506,15 @@
     </message>
     <message>
       <source>Send your question</source>
-      <translation>Meine Frage absenden</translation>
+      <translation>Meine Frage senden</translation>
     </message>
     <message>
       <source>Your question was submitted!</source>
-      <translation>Ihre Frage wurde an uns uebermittelt!</translation>
+      <translation>Deine Frage wurde an uns uebermittelt!</translation>
     </message>
     <message>
       <source>Please enter a question!</source>
-      <translation>Bitte geben Sie eine Frage ein!</translation>
+      <translation>Bitte gib eine Frage ein!</translation>
     </message>
   </context>
   <context>
@@ -2583,7 +2583,7 @@
     </message>
     <message>
       <source>Please enter a manager name!</source>
-      <translation>Bitte geben Sie den Namen des Bearbeiters ein!</translation>
+      <translation>Bitte gib den Namen des Operators ein!</translation>
     </message>
     <message>
       <source>Please enter a chatbox name!</source>
@@ -2630,7 +2630,7 @@
     </message>
     <message>
       <source>You do not have permission to edit selected object</source>
-      <translation>Sie haben nicht das Recht auf das ausgewählte Objekt zu bearbeiten</translation>
+      <translation>Du bist nicht berechtigt, das ausgewählte Objekt zu bearbeiten</translation>
     </message>
   </context>
   <context>
@@ -3091,7 +3091,7 @@
     </message>
     <message>
       <source>You have already voted, thank you!</source>
-      <translation>Sie haben bereits abgestimmt. Vielen Dank!</translation>
+      <translation>Du hast bereits abgestimmt. Vielen Dank!</translation>
     </message>
     <message>
       <source>Vote</source>
@@ -3119,7 +3119,7 @@
     </message>
     <message>
       <source>You have already send your feedback!</source>
-      <translation>Sie haben uns Ihr Feedback bereits gesendet!</translation>
+      <translation>Du hast uns Dein Feedback bereits gesendet!</translation>
     </message>
   </context>
   <context>
@@ -3307,7 +3307,7 @@
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
-      <translation>Geben Sie hier nur dann ein Passwort ein, wenn Sie es aendern wollen</translation>
+      <translation>Gib hier nur dann ein Passwort ein, wenn Du es ändern möchtest</translation>
     </message>
     <message>
       <source>Username</source>
@@ -3559,7 +3559,7 @@
     </message>
     <message>
       <source>E-mail sent. Click the link in the email and You will be sent out a new password.</source>
-      <translation>E-Mail gesendet. Klicken Sie auf den Link in der E-Mail, um ein neues Passwort anzufordern.</translation>
+      <translation>E-Mail gesendet. Klicke auf den Link in der E-Mail, um ein neues Passwort anzufordern.</translation>
     </message>
   </context>
   <context>
@@ -3620,7 +3620,7 @@
     <name>gallery/album_list_admin</name>
     <message>
       <source>Are you sure?</source>
-      <translation>Sind Sie sicher?</translation>
+      <translation>Bist Du sicher?</translation>
     </message>
   </context>
   <context>
@@ -3751,7 +3751,7 @@
     </message>
     <message>
       <source>Support staff member has closed this chat</source>
-      <translation>Support-Mitarbeiter hat den Chat geschlossen</translation>
+      <translation>Operator hat den Chat geschlossen</translation>
     </message>
     <message>
       <source>You do not have permission to view this chat, or chat was deleted</source>
@@ -3759,7 +3759,7 @@
     </message>
     <message>
       <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-      <translation>Der Chat wurde geschlossen, aber Sie können eine Nachricht hinterlassen, die dann später bearbeitet wird.</translation>
+      <translation>Der Chat wurde geschlossen, aber Du kannst eine Nachricht hinterlassen, die dann später bearbeitet wird.</translation>
     </message>
     <message>
       <source>You do not have permission to view this chat, or the chat was deleted</source>
