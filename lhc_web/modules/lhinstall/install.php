@@ -174,9 +174,9 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 $Errors[] = 'Please enter admin username';
             }
 
-            if ($form->hasValidData( 'AdminUsername' ) && $form->AdminUsername != '' && strlen($form->AdminUsername) > 10)
+            if ($form->hasValidData( 'AdminUsername' ) && $form->AdminUsername != '' && strlen($form->AdminUsername) > 40)
             {
-                $Errors[] = 'Maximum 10 characters for admin username';
+                $Errors[] = 'Maximum 40 characters for admin username';
             }
 
     	    if ( !$form->hasValidData( 'AdminPassword' ) || $form->AdminPassword == '')
@@ -184,12 +184,12 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 $Errors[] = 'Please enter admin password';
             }
 
-    	    if ($form->hasValidData( 'AdminPassword' ) && $form->AdminPassword != '' && strlen($form->AdminPassword) > 10)
+    	    if ($form->hasValidData( 'AdminPassword' ) && $form->AdminPassword != '' && strlen($form->AdminPassword) > 40)
             {
-                $Errors[] = 'Maximum 10 characters for admin password';
+                $Errors[] = 'Maximum 40 characters for admin password';
             }
 
-    	    if ($form->hasValidData( 'AdminPassword' ) && $form->AdminPassword != '' && strlen($form->AdminPassword) <= 10 && $form->AdminPassword1 != $form->AdminPassword)
+    	    if ($form->hasValidData( 'AdminPassword' ) && $form->AdminPassword != '' && strlen($form->AdminPassword) <= 40 && $form->AdminPassword1 != $form->AdminPassword)
             {
                 $Errors[] = 'Passwords missmatch';
             }
