@@ -1662,11 +1662,11 @@
     <name>chat/startchatformsettings</name>
     <message>
       <source>Start a chat form settings</source>
-      <translation>Strate einen Chat von den Einstellungen aus</translation>
+      <translation>Starte einen Chat von den Einstellungen aus</translation>
     </message>
     <message>
       <source>At least one field has to be visible and required in the popup and page widget</source>
-      <translation>Mindestens ein Feld muss sichtbar sein und muss in einen Popup oder Seitenwidget vorhanden sein</translation>
+      <translation>Mindestens ein Feld muss sichtbar sein und muss in einem Popup oder Seitenwidget vorhanden sein</translation>
     </message>
     <message>
       <source>Name</source>
@@ -1773,7 +1773,7 @@
     </message>
     <message>
       <source>Please enter a valid online timeout value!</source>
-      <translation>Geben Sie einen Wert fuer den Timeout ein!</translation>
+      <translation>Geben Sie einen Wert fuer das Timeout ein!</translation>
     </message>
     <message>
       <source>Please enter a valid operator message timeout value!</source>
@@ -1781,11 +1781,11 @@
     </message>
     <message>
       <source>Please enter a valid back office sync interval!</source>
-      <translation>Geben Sie einen Wert fuer den Office-Sync-Intervall ein!</translation>
+      <translation>Bitte geben Sie einen Wert fuer den Office-Sync-Intervall ein!</translation>
     </message>
     <message>
       <source>Please enter a valid new messages sync interval!</source>
-      <translation>Geben Sie einen Wert fuer den Nachrichten-Sync-Intervall ein!</translation>
+      <translation>Bitte geben Sie einen Wert fuer den Nachrichten-Sync-Intervall ein!</translation>
     </message>
     <message>
       <source>Synchronization and sound settings</source>
@@ -2372,7 +2372,7 @@
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
-      <translation>Geben Sie hie nur ein Passwort ein, wenn Sie es aendern wollen</translation>
+      <translation>Geben Sie hier nur ein Passwort ein, wenn Sie es aendern wollen</translation>
     </message>
     <message>
       <source>Username</source>
@@ -3296,7 +3296,7 @@
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Einstellungen geupdated</translation>
+      <translation>Einstellungen aktualisiert</translation>
     </message>
   </context>
   <context>
