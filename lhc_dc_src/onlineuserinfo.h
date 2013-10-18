@@ -2,7 +2,7 @@
 #define ONLINEUSERINFO_H
 
 #include <QDialog>
- #include <QTableWidget>
+#include <QTableWidget>
 
 namespace Ui {
 class onlineuserinfo;
