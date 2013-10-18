@@ -40,8 +40,8 @@ return array (
       	15 => 'tur',
       	16 => 'vnm',
       	17 => 'idn',
-      	18 => 'site_admin',
-      	19 => 'ger_informal'
+      	18 => 'ger_informal',
+      	19 => 'site_admin' 
       ),
     ),
     'default_url' =>
@@ -222,6 +222,24 @@ return array (
     		'view' => 'startchat'
     	),
       ),
+      'ger_informal' =>
+      array (
+    	'locale' => 'de_DE-informal',
+    	'content_language' => 'de',
+    	'dir_language' => 'ltr',
+    	'title' => '',
+    	'description' => '',
+    	'theme' =>
+      	array (
+    		0 => 'customtheme',
+    		1 => 'defaulttheme'
+      	),
+    	   'default_url' =>
+    	array (
+    		'module' => 'chat',
+    		'view' => 'startchat'
+    	),
+      ),	  
       'pol' =>
       array (
     	'locale' => 'pl_PL',
@@ -418,24 +436,6 @@ return array (
           'module' => 'front',
           'view' => 'default',
         ),
-      ),
-      'ger_informal' =>
-      array (
-    	'locale' => 'de_DE-informal',
-    	'content_language' => 'de',
-    	'dir_language' => 'ltr',
-    	'title' => '',
-    	'description' => '',
-    	'theme' =>
-      	array (
-    		0 => 'customtheme',
-    		1 => 'defaulttheme'
-      	),
-    	   'default_url' =>
-    	array (
-    		'module' => 'chat',
-    		'view' => 'startchat'
-    	),
       ),
     ),
     'cacheEngine' =>
