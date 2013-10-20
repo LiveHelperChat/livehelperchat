@@ -105,7 +105,12 @@ return array_merge(array (
 		// Chat archive
 		'erLhcoreClassModelChatArchiveRange' 	=> 'lib/models/lhchat/erlhcoreclassmodelchatarchiverange.php',
 		'erLhcoreClassModelChatArchive' 		=> 'lib/models/lhchat/erlhcoreclassmodelchatarchive.php',
-		'erLhcoreClassModelChatArchiveMsg' 		=> 'lib/models/lhchat/erlhcoreclassmodelchatarchivemsg.php'
+		'erLhcoreClassModelChatArchiveMsg' 		=> 'lib/models/lhchat/erlhcoreclassmodelchatarchivemsg.php',
+
+		// Files upload
+		'UploadHandler' 						=> 'lib/core/lhcore/UploadHandler.php',
+		'erLhcoreClassFileUpload' 				=> 'lib/core/lhcore/lhfileupload.php',
+		'erLhcoreClassModelChatFile' 			=> 'lib/models/lhchat/erlhcoreclassmodelchatfile.php'
 
 
 ),

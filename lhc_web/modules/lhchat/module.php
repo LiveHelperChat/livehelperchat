@@ -185,6 +185,12 @@ $ViewList['addmsguser'] = array(
     'uparams' => array('mode'),
 );
 
+$ViewList['uploadfile'] = array(
+    'script' => 'uploadfile.php',
+    'params' => array('chat_id','hash'),
+    'uparams' => array(),
+);
+
 $ViewList['syncuser'] = array(
     'script' => 'syncuser.php',
     'params' => array('chat_id','message_id','hash'),

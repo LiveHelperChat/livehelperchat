@@ -11,4 +11,4 @@ confLH.new_message_sound_user_enabled = <?php echo (int)erLhcoreClassModelUserSe
 confLH.transLation = {'new_chat':'<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','New chat request')?>'};
 confLH.csrf_token = '<?php echo erLhcoreClassUser::instance()->getCSFRToken()?>';
 </script>
-<script type="text/javascript" language="javascript" src="<?php echo erLhcoreClassDesign::designJS('js/jquery.js;js/modernizr.js;js/foundation.min.js;js/jquery.colorbox-min.js;js/lh.js;js/jquery.hotkeys-0.7.9.min.js');?>"></script>
+<script type="text/javascript" language="javascript" src="<?php echo erLhcoreClassDesign::designJS('js/jquery.js;js/modernizr.js;js/foundation.min.js;js/jquery.colorbox-min.js;js/lh.js;js/jquery.hotkeys-0.7.9.min.js;js/fileupload/jquery.ui.widget.js;js/fileupload/jquery.iframe-transport.js;js/fileupload/jquery.fileupload.js');?>"></script>

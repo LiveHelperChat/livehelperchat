@@ -8,6 +8,26 @@
 	     <?php if ( isset($chat) ) : ?>
 		 <li><a target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('chat/printchat')?>/<?php echo $chat->id?>/<?php echo $chat->hash?>" class="icon-print" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Print')?>"></a></li>
 		 <li><a target="_blank" onclick="$.colorbox({className:'user-action-colorbox',closeButton:false,href:'<?php echo erLhcoreClassDesign::baseurl('chat/sendchat')?>/<?php echo $chat->id?>/<?php echo $chat->hash?>'});return false;" href="#" class="icon-mail" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Send chat transcript to your e-mail')?>"></a></li>
+		 <li>
+		 <a class="file-uploader icon-attach" href="#">
+		        <!-- The file input field used as target for the file upload widget -->
+		        <input id="fileupload" type="file" name="files[]" multiple>
+		 </a>
+		 </li>
 		 <?php endif;?>
 	</ul>
 </div>
+
+<?php if ( isset($chat) ) : ?>
+<script>
+$(function () {
+    'use strict';
+    // Change this to the location of your server-side upload handler:
+    $('#fileupload').fileupload({
+        url: '<?php echo erLhcoreClassDesign::baseurl('chat/uploadfile')?>/<?php echo $chat->id?>/<?php echo $chat->hash?>',
+        dataType: 'json'
+    }).prop('disabled', !$.support.fileInput)
+        .parent().addClass($.support.fileInput ? undefined : 'disabled');
+});
+</script>
+<?php endif;?>
