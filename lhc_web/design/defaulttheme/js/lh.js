@@ -1128,6 +1128,20 @@ function lh(){
 
 	   	return true;
     };
+
+    this.addFileUpload = function(chat_id) {
+    	$('#fileupload-'+chat_id).fileupload({
+            url: this.wwwDir + 'chat/uploadfileadmin/'+chat_id,
+            dataType: 'json',
+            dropZone: $('#drop-zone-'+chat_id),
+            pasteZone: $('#CSChatMessage-'+chat_id),
+            progressall: function (e, data) {
+                var progress = parseInt(data.loaded / data.total * 100, 10);
+                $('#user-is-typing-'+chat_id).show();
+                $('#user-is-typing-'+chat_id).html(progress+'%');
+            }}).prop('disabled', !$.support.fileInput)
+            .parent().addClass($.support.fileInput ? undefined : 'disabled');
+    };
 }
 
 var lhinst = new lh();

@@ -24,6 +24,11 @@ $def->properties['size']->columnName   = 'size';
 $def->properties['size']->propertyName = 'size';
 $def->properties['size']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['chat_id'] = new ezcPersistentObjectProperty();
+$def->properties['chat_id']->columnName   = 'chat_id';
+$def->properties['chat_id']->propertyName = 'chat_id';
+$def->properties['chat_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['type'] = new ezcPersistentObjectProperty();
 $def->properties['type']->columnName   = 'type';
 $def->properties['type']->propertyName = 'type';
@@ -33,6 +38,11 @@ $def->properties['file_path'] = new ezcPersistentObjectProperty();
 $def->properties['file_path']->columnName   = 'file_path';
 $def->properties['file_path']->propertyName = 'file_path';
 $def->properties['file_path']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['extension'] = new ezcPersistentObjectProperty();
+$def->properties['extension']->columnName   = 'extension';
+$def->properties['extension']->propertyName = 'extension';
+$def->properties['extension']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 return $def;
 

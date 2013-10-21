@@ -25,7 +25,12 @@ $(function () {
     // Change this to the location of your server-side upload handler:
     $('#fileupload').fileupload({
         url: '<?php echo erLhcoreClassDesign::baseurl('chat/uploadfile')?>/<?php echo $chat->id?>/<?php echo $chat->hash?>',
-        dataType: 'json'
+        dataType: 'json',
+        progressall: function (e, data) {
+            var progress = parseInt(data.loaded / data.total * 100, 10);
+            $('#id-operator-typing').show();
+            $('#id-operator-typing').html('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Uploading')?> '+progress+'%');
+        }
     }).prop('disabled', !$.support.fileInput)
         .parent().addClass($.support.fileInput ? undefined : 'disabled');
 });

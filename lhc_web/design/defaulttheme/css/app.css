@@ -626,6 +626,19 @@ ul.accordion-faq li {
 }
 
 
+.drop-zone{
+	border:1px solid #2ba6cb;
+	min-height:50px;
+}
+
+.drop-title{
+	font-size:16px;
+	color:#CCC;
+	font-weight:bold;
+	text-align: center;
+	padding:20px;
+}
+
 .chat-pending{color:#99AC11;}
 .chat-active{color:#5da423;}
 .chat-unread{color:#c60f13;}

@@ -191,6 +191,12 @@ $ViewList['uploadfile'] = array(
     'uparams' => array(),
 );
 
+$ViewList['downloadfile'] = array(
+    'script' => 'downloadfile.php',
+    'params' => array('file_id','hash'),
+    'uparams' => array(),
+);
+
 $ViewList['syncuser'] = array(
     'script' => 'syncuser.php',
     'params' => array('chat_id','message_id','hash'),

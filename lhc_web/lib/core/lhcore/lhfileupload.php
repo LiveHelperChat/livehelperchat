@@ -19,20 +19,45 @@ class erLhcoreClassFileUpload extends UploadHandler {
         );
 
         if (empty($file->error)) {
-			/* $sql = 'INSERT INTO `'.$this->options['db_table']
-				.'` (`name`, `size`, `type`, `title`, `description`)'
-				.' VALUES (?, ?, ?, ?, ?)';
-	        $query = $this->db->prepare($sql);
-	        $query->bind_param(
-	        	'sisss',
-	        	$file->name,
-	        	$file->size,
-	        	$file->type,
-	        	$file->title,
-	        	$file->description
-	        );
-	        $query->execute();
-	        $file->id = $this->db->insert_id; */
+
+        	$fileUpload = new erLhcoreClassModelChatFile();
+        	$fileUpload->size = $file->size;
+        	$fileUpload->type = $file->type;
+        	$fileUpload->name = $file->name;
+        	$fileUpload->upload_name = $name;
+        	$fileUpload->file_path = $this->options['upload_dir'];
+        	$fileUpload->chat_id = $this->options['chat']->id;
+
+        	$matches = array();
+        	if (strpos($name, '.') === false && preg_match('/^image\/(gif|jpe?g|png)/', $fileUpload->type, $matches)) {
+        		$fileUpload->extension = $matches[1];
+        	} else {
+        		$fileUpload->extension = end(explode('.', $fileUpload->upload_name));
+        	}
+
+        	$fileUpload->saveThis();
+
+	        $file->id = $fileUpload->id;
+
+	        // Chat assign
+	        $chat = $this->options['chat'];
+
+	        // Format message
+	        $msg = new erLhcoreClassModelmsg();
+	        $msg->msg = '[file='.$file->id.'_'.md5($fileUpload->name.'_'.$fileUpload->chat_id).']';
+	        $msg->chat_id = $chat->id;
+	        $msg->user_id = 0;
+	        $chat->last_user_msg_time = $msg->time = time();
+
+	        erLhcoreClassChat::getSession()->save($msg);
+
+	        // Set last message ID
+	        if ($chat->last_msg_id < $msg->id) {
+	        	$chat->last_msg_id = $msg->id;
+	        }
+
+	        $chat->has_unread_messages = 1;
+	        $chat->updateThis();
         }
 
         return $file;
