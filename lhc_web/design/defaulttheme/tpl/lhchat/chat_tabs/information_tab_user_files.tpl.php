@@ -1,7 +1,7 @@
 <div>
 	<ul class="circle fs11">
 		<?php foreach (erLhcoreClassChat::getList(array('filter' => array('chat_id' => $chat->id)),'erLhcoreClassModelChatFile','lh_chat_file') as $file) : ?>
-			<li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/downloadfile')?>/<?php echo $file->id?>/<?php echo $file->security_hash?>" class="link" target="_blank"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Download file')?> - <?php echo htmlspecialchars($file->upload_name).' ['.$file->extension.']'?> </a></li>
+			<li><a href="<?php echo erLhcoreClassDesign::baseurl('file/downloadfile')?>/<?php echo $file->id?>/<?php echo $file->security_hash?>" class="link" target="_blank"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Download file')?> - <?php echo htmlspecialchars($file->upload_name).' ['.$file->extension.']'?> </a></li>
 		<?php endforeach;?>
 	</ul>
 </div>

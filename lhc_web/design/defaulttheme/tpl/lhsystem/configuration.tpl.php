@@ -113,6 +113,28 @@
     <?php endif; ?>
 
 </ul>
+<hr>
+
+
+<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Files uploads configuration');?></h4>
+<ul class="circle small-list">
+    <li><a href="<?php echo erLhcoreClassDesign::baseurl('file/configuration')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Files upload configuration');?></a></li>
+    <li><a href="<?php echo erLhcoreClassDesign::baseurl('file/list')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','List of files');?></a></li>
+</ul>
+<hr>
+
+
+
+<?php if ($currentUser->hasAccessTo('lhchat','viewstatistic')) : ?>
+	<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Statistic');?></h4>
+	<ul class="circle small-list">
+	    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/statistic')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Statistic');?></a></li>
+	</ul>
+<?php endif; ?>
+
+
+
+
 <?php if ($currentUser->hasAccessTo('lhsystem','expirecache')) : ?>
 <hr>
 <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Other');?></h4>

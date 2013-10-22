@@ -1131,7 +1131,7 @@ function lh(){
 
     this.addFileUpload = function(chat_id) {
     	$('#fileupload-'+chat_id).fileupload({
-            url: this.wwwDir + 'chat/uploadfileadmin/'+chat_id,
+            url: this.wwwDir + 'file/uploadfileadmin/'+chat_id,
             dataType: 'json',
             dropZone: $('#drop-zone-'+chat_id),
             pasteZone: $('#CSChatMessage-'+chat_id),

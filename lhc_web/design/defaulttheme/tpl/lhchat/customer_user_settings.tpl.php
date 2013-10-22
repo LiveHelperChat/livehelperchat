@@ -24,8 +24,23 @@ $(function () {
     'use strict';
     // Change this to the location of your server-side upload handler:
     $('#fileupload').fileupload({
-        url: '<?php echo erLhcoreClassDesign::baseurl('chat/uploadfile')?>/<?php echo $chat->id?>/<?php echo $chat->hash?>',
+        url: '<?php echo erLhcoreClassDesign::baseurl('file/uploadfile')?>/<?php echo $chat->id?>/<?php echo $chat->hash?>',
         dataType: 'json',
+        add: function(e, data) {
+            var uploadErrors = [];
+            var acceptFileTypes = /(\.|\/)(gif|jpe?g|png)$/i;
+            if(!acceptFileTypes.test(data.originalFiles[0]['type'])) {
+                uploadErrors.push('Not an accepted file type');
+            };
+            if(data.originalFiles[0]['size'] > 5000000) {
+                uploadErrors.push('Filesize is too big');
+            };
+            if(uploadErrors.length > 0) {
+                alert(uploadErrors.join("\n"));
+            } else {
+                data.submit();
+            };
+   		 },
         progressall: function (e, data) {
             var progress = parseInt(data.loaded / data.total * 100, 10);
             $('#id-operator-typing').show();

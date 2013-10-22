@@ -14,6 +14,13 @@ class erLhcoreClassFileUpload extends UploadHandler {
 
     protected function handle_file_upload($uploaded_file, $name, $size, $type, $error, $index = null, $content_range = null) {
 
+    	/* if (!preg_match($this->options['accept_file_types_lhc'], $name)) {
+    		$file->error = $this->get_error_message('accept_file_types');
+    		return false;
+    	} */
+
+
+
         $file = parent::handle_file_upload(
         	$uploaded_file, $name, $size, $type, $error, $index, $content_range
         );
