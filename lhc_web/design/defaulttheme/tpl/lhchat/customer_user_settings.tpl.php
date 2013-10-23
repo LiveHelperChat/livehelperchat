@@ -8,6 +8,9 @@
 	     <?php if ( isset($chat) ) : ?>
 		 <li><a target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('chat/printchat')?>/<?php echo $chat->id?>/<?php echo $chat->hash?>" class="icon-print" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Print')?>"></a></li>
 		 <li><a target="_blank" onclick="$.colorbox({className:'user-action-colorbox',closeButton:false,href:'<?php echo erLhcoreClassDesign::baseurl('chat/sendchat')?>/<?php echo $chat->id?>/<?php echo $chat->hash?>'});return false;" href="#" class="icon-mail" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Send chat transcript to your e-mail')?>"></a></li>
+		 <?php $fileData = (array)erLhcoreClassModelChatConfig::fetch('file_configuration')->data ?>
+
+		 <?php if (isset($fileData['active_user_upload']) && $fileData['active_user_upload'] == true) : ?>
 		 <li>
 		 <a class="file-uploader icon-attach" href="#">
 		        <!-- The file input field used as target for the file upload widget -->
@@ -15,39 +18,13 @@
 		 </a>
 		 </li>
 		 <?php endif;?>
+
+		 <?php endif;?>
 	</ul>
 </div>
 
-<?php if ( isset($chat) ) : ?>
+<?php if ( isset($chat) && isset($fileData['active_user_upload']) && $fileData['active_user_upload'] == true ) : ?>
 <script>
-$(function () {
-    'use strict';
-    // Change this to the location of your server-side upload handler:
-    $('#fileupload').fileupload({
-        url: '<?php echo erLhcoreClassDesign::baseurl('file/uploadfile')?>/<?php echo $chat->id?>/<?php echo $chat->hash?>',
-        dataType: 'json',
-        add: function(e, data) {
-            var uploadErrors = [];
-            var acceptFileTypes = /(\.|\/)(gif|jpe?g|png)$/i;
-            if(!acceptFileTypes.test(data.originalFiles[0]['type'])) {
-                uploadErrors.push('Not an accepted file type');
-            };
-            if(data.originalFiles[0]['size'] > 5000000) {
-                uploadErrors.push('Filesize is too big');
-            };
-            if(uploadErrors.length > 0) {
-                alert(uploadErrors.join("\n"));
-            } else {
-                data.submit();
-            };
-   		 },
-        progressall: function (e, data) {
-            var progress = parseInt(data.loaded / data.total * 100, 10);
-            $('#id-operator-typing').show();
-            $('#id-operator-typing').html('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Uploading')?> '+progress+'%');
-        }
-    }).prop('disabled', !$.support.fileInput)
-        .parent().addClass($.support.fileInput ? undefined : 'disabled');
-});
+lhinst.addFileUserUpload({ft_msg:'<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('files/files','Not an accepted file type')?>',fs_msg:'<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('files/files','Filesize is too big')?>',hash:'<?php echo $chat->hash?>',chat_id:'<?php echo $chat->id?>',fs:<?php echo $fileData['fs_max']*1024?>,ft_us:/(\.|\/)(<?php echo $fileData['ft_us']?>)$/i});
 </script>
 <?php endif;?>

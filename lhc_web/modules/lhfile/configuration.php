@@ -16,6 +16,12 @@ if ( isset($_POST['StoreFileConfiguration']) ) {
 			),
 			'MaximumFileSize' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'int'
+			),
+			'ActiveFileUploadUser' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+			),
+			'ActiveFileUploadAdmin' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 			)
 	);
 
@@ -24,6 +30,17 @@ if ( isset($_POST['StoreFileConfiguration']) ) {
 	$form = new ezcInputForm( INPUT_POST, $definition );
 	$Errors = array();
 
+	if ( $form->hasValidData( 'ActiveFileUploadUser' ) && $form->ActiveFileUploadUser == true ) {
+		$data['active_user_upload'] = true;
+	} else {
+		$data['active_user_upload'] = false;
+	}
+
+	if ( $form->hasValidData( 'ActiveFileUploadAdmin' ) && $form->ActiveFileUploadAdmin == true ) {
+		$data['active_admin_upload'] = true;
+	} else {
+		$data['active_admin_upload'] = false;
+	}
 
 	if ( $form->hasValidData( 'AllowedFileTypes' ) && $form->AllowedFileTypes != '' ) {
 		$data['ft_op'] = $form->AllowedFileTypes;

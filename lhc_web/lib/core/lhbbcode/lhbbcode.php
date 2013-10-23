@@ -258,7 +258,7 @@ class erLhcoreClassBBCode
 
    				// Check that user has permission to see the chat. Let say if user purposely types file bbcode
    				if ($hash == md5($file->name.'_'.$file->chat_id)) {
-   					return "<a href=\"" . erLhcoreClassDesign::baseurl('file/downloadfile')."/{$file->id}/{$hash}\" class=\"link\" target=\"_blank\">" . erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Download file').' - '.htmlspecialchars($file->upload_name).' ['.$file->extension.']' . "</a>";
+   					return "<a href=\"" . erLhcoreClassDesign::baseurl('file/downloadfile')."/{$file->id}/{$hash}\" class=\"link\" >" . erTranslationClassLhTranslation::getInstance()->getTranslation('file/file','Download file').' - '.htmlspecialchars($file->upload_name).' ['.$file->extension.']' . "</a>";
    				}
    			} catch (Exception $e) {
 

@@ -12,14 +12,23 @@ class erLhcoreClassFileUpload extends UploadHandler {
 		));
 	}
 
+	protected function generate_response($content, $print_response = true) {
+		parent::generate_response($content,false);
+	}
+
     protected function handle_file_upload($uploaded_file, $name, $size, $type, $error, $index = null, $content_range = null) {
 
-    	/* if (!preg_match($this->options['accept_file_types_lhc'], $name)) {
+    	$matches = array();
+    	if (strpos($name, '.') === false && preg_match('/^image\/(gif|jpe?g|png)/', $type, $matches)) {
+    		$name = $uploadFileName = 'clipboard.'.$matches[1];
+    	} else {
+    		$uploadFileName = $name;
+    	}
+
+    	if (!preg_match($this->options['accept_file_types_lhc'], $uploadFileName)) {
     		$file->error = $this->get_error_message('accept_file_types');
     		return false;
-    	} */
-
-
+    	}
 
         $file = parent::handle_file_upload(
         	$uploaded_file, $name, $size, $type, $error, $index, $content_range
@@ -31,6 +40,8 @@ class erLhcoreClassFileUpload extends UploadHandler {
         	$fileUpload->size = $file->size;
         	$fileUpload->type = $file->type;
         	$fileUpload->name = $file->name;
+        	$fileUpload->date = time();
+        	$fileUpload->user_id = isset($this->options['user_id']) ? $this->options['user_id'] : 0;
         	$fileUpload->upload_name = $name;
         	$fileUpload->file_path = $this->options['upload_dir'];
         	$fileUpload->chat_id = $this->options['chat']->id;
@@ -72,6 +83,72 @@ class erLhcoreClassFileUpload extends UploadHandler {
 
     public function delete($print_response = true) {
         return false;
+    }
+
+    public static function mkdirRecursive($path, $chown = false) {
+    	$partsPath = explode('/',$path);
+    	$pathCurrent = '';
+
+    	$config = erConfigClassLhConfig::getInstance();
+    	$wwwUser = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'default_www_user' );
+    	$wwwUserGroup = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'default_www_group' );
+
+    	foreach ($partsPath as $key => $path)
+    	{
+    		$pathCurrent .= $path . '/';
+    		if ( !is_dir($pathCurrent) ) {
+    			mkdir($pathCurrent,$config->getSetting( 'site', 'StorageDirPermissions' ));
+    			if ($chown == true){
+    				chown($pathCurrent,$wwwUser);
+    				chgrp($pathCurrent,$wwwUserGroup);
+    			}
+    		}
+    	}
+    }
+
+    public static function hasFiles($sourceDir)
+    {
+    	if ( !is_dir( $sourceDir ) )
+    	{
+    		return true;
+    	}
+
+    	$elements = array();
+    	$d = @dir( $sourceDir );
+    	if ( !$d )
+    	{
+    		return true;
+    	}
+
+    	while ( ( $entry = $d->read() ) !== false )
+    	{
+    		if ( $entry == '.' || $entry == '..' )
+    		{
+    			continue;
+    		}
+
+    		return true;
+    	}
+
+    	return false;
+    }
+
+    public static function removeRecursiveIfEmpty($basePath,$removePath)
+    {
+    	$removePath = trim($removePath,'/');
+    	$partsRemove = explode('/',$removePath);
+
+    	$pathElementsCount = count($partsRemove);
+    	foreach ($partsRemove as $part) {
+    		// We found some files/folders, so we have to exit
+    		if (self::hasFiles( $basePath . implode('/',$partsRemove) ) === true) {
+    			return ;
+    		} else {
+    			//Folder is empty, delete this folder
+    			@rmdir($basePath . implode('/',$partsRemove));
+    		}
+    		array_pop($partsRemove);
+    	}
     }
 }
 

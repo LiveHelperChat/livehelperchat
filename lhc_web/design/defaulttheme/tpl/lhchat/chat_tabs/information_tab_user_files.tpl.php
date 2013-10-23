@@ -1,21 +1,17 @@
 <div>
-	<ul class="circle fs11">
+	<ul class="circle fs11" id="chat-files-list-<?php echo $chat->id?>">
 		<?php foreach (erLhcoreClassChat::getList(array('filter' => array('chat_id' => $chat->id)),'erLhcoreClassModelChatFile','lh_chat_file') as $file) : ?>
-			<li><a href="<?php echo erLhcoreClassDesign::baseurl('file/downloadfile')?>/<?php echo $file->id?>/<?php echo $file->security_hash?>" class="link" target="_blank"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Download file')?> - <?php echo htmlspecialchars($file->upload_name).' ['.$file->extension.']'?> </a></li>
+			<li id="file-id-<?php echo $file->id?>"><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('files/files','Delete file')?>" onclick="return lhinst.deleteChatfile('<?php echo $file->id?>')" class="button tiny round icon-trash"></a> <a href="<?php echo erLhcoreClassDesign::baseurl('file/downloadfile')?>/<?php echo $file->id?>/<?php echo $file->security_hash?>" class="link" target="_blank"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('files/files','Download file')?> - <?php echo htmlspecialchars($file->upload_name).' ['.$file->extension.']'?> </a></li>
 		<?php endforeach;?>
 	</ul>
 </div>
 
-
-<!-- The file input field used as target for the file upload widget -->
 <input id="fileupload-<?php echo $chat->id?>" class="fs11" type="file" name="files[]" multiple>
 
-
-
 <div class="drop-zone" id="drop-zone-<?php echo $chat->id?>">
-	<div class="drop-title"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Drop your files here.')?></div>
+	<div class="drop-title"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('files/files','Drop your files here.')?></div>
 </div>
 
 <script>
-lhinst.addFileUpload(<?php echo $chat->id?>);
+lhinst.addFileUpload({ft_msg:'<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('files/files','Not an accepted file type')?>',fs_msg:'<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('files/files','Filesize is too big')?>',chat_id:'<?php echo $chat->id?>',fs:<?php echo $fileData['fs_max']*1024?>,ft_op:/(\.|\/)(<?php echo $fileData['ft_op']?>)$/i});
 </script>

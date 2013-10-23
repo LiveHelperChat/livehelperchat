@@ -13,6 +13,8 @@ class erLhcoreClassModelChatFile {
                'file_path'   	=> $this->file_path,
                'extension'   	=> $this->extension,
                'chat_id'   		=> $this->chat_id,
+               'user_id'   		=> $this->user_id,
+               'date'   		=> $this->date,
               );
    }
 
@@ -29,6 +31,24 @@ class erLhcoreClassModelChatFile {
 	   	}
    }
 
+   public static function deleteByChatId($chat_id) {
+   		foreach (erLhcoreClassChat::getList(array('filter' => array('chat_id' => $chat_id)),'erLhcoreClassModelChatFile','lh_chat_file') as $file) {
+   			$file->removeThis();
+   		}
+   }
+
+   public function removeThis()
+   {
+	   	if (file_exists($this->file_path_server)){
+	   		unlink($this->file_path_server);
+	   	}
+
+	   	erLhcoreClassFileUpload::removeRecursiveIfEmpty('var/', str_replace('var/', '', $this->file_path));
+
+	   	erLhcoreClassChat::getSession()->delete($this);
+   }
+
+
    public function __get($var){
 
    		switch ($var) {
@@ -44,11 +64,43 @@ class erLhcoreClassModelChatFile {
    			;
    			break;
 
+   			case 'chat':
+   					$this->chat = false;
+   					if ($this->chat_id > 0){
+   						try {
+   							$this->chat = erLhcoreClassModelChat::fetch($this->chat_id);
+   						} catch (Exception $e) {
+   							$this->chat = new erLhcoreClassModelChat();
+   						}
+   					}
+   				return $this->chat;
+   			;
+   			break;
+
+   			case 'user':
+   					$this->user = false;
+   					if ($this->user_id > 0 ){
+   						try {
+   							$this->user = erLhcoreClassModelUser::fetch($this->user_id);
+   						} catch (Exception $e) {
+   							$this->user = false;
+   						}
+   					}
+   					return $this->user;
+   				break;
+
+   			case 'date_front':
+   					$this->date_front = date('Y-m-d H:i:s',$this->date);
+   					return $this->date_front;
+   				break;
+
+
    			default:
    				;
    			break;
    		}
    }
+
 
    public function saveThis() {
    		erLhcoreClassChat::getSession()->saveOrUpdate($this);

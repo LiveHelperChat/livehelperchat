@@ -1129,16 +1129,77 @@ function lh(){
 	   	return true;
     };
 
-    this.addFileUpload = function(chat_id) {
-    	$('#fileupload-'+chat_id).fileupload({
-            url: this.wwwDir + 'file/uploadfileadmin/'+chat_id,
+    this.deleteChatfile = function(file_id){
+    	$.postJSON(this.wwwDir + 'file/deletechatfile/' + file_id, function(data){
+    		if (data.error == 'false') {
+    			$('#file-id-'+file_id).remove();
+    		} else {
+    			alert(data.result);
+    		}
+    	});
+    };
+
+    this.addFileUserUpload = function(data_config) {
+    	$('#fileupload').fileupload({
+            url: this.wwwDir + 'file/uploadfile/'+data_config.chat_id+'/'+data_config.hash,
             dataType: 'json',
-            dropZone: $('#drop-zone-'+chat_id),
-            pasteZone: $('#CSChatMessage-'+chat_id),
+            add: function(e, data) {
+                var uploadErrors = [];
+                var acceptFileTypes = data_config.ft_us;
+                if(!acceptFileTypes.test(data.originalFiles[0]['type'])) {
+                    uploadErrors.push(data_config.ft_msg);
+                };
+                if(data.originalFiles[0]['size'] > data_config.fs) {
+                    uploadErrors.push(data_config.fs_msg);
+                };
+                if(uploadErrors.length > 0) {
+                    alert(uploadErrors.join("\n"));
+                } else {
+                    data.submit();
+                };
+       		},
             progressall: function (e, data) {
                 var progress = parseInt(data.loaded / data.total * 100, 10);
-                $('#user-is-typing-'+chat_id).show();
-                $('#user-is-typing-'+chat_id).html(progress+'%');
+                $('#id-operator-typing').show();
+                $('#id-operator-typing').html(progress+'%');
+            }}).prop('disabled', !$.support.fileInput)
+            .parent().addClass($.support.fileInput ? undefined : 'disabled');
+    };
+
+    this.updateChatFiles = function(chat_id) {
+    	$.postJSON(this.wwwDir + 'file/chatfileslist/' + chat_id, function(data){
+    		$('#chat-files-list-'+chat_id).html(data.result);
+    	});
+    };
+
+    this.addFileUpload = function(data_config) {
+    	$('#fileupload-'+data_config.chat_id).fileupload({
+            url: this.wwwDir + 'file/uploadfileadmin/'+data_config.chat_id,
+            dataType: 'json',
+            add: function(e, data) {
+                var uploadErrors = [];
+                var acceptFileTypes = data_config.ft_op;
+                if(!acceptFileTypes.test(data.originalFiles[0]['type'])) {
+                    uploadErrors.push(data_config.ft_msg);
+                };
+                if(data.originalFiles[0]['size'] > data_config.fs) {
+                    uploadErrors.push(data_config.fs_msg);
+                };
+                if(uploadErrors.length > 0) {
+                    alert(uploadErrors.join("\n"));
+                } else {
+                    data.submit();
+                };
+       		},
+       		done: function(e,data) {
+       			lhinst.updateChatFiles(data_config.chat_id);
+       		},
+            dropZone: $('#drop-zone-'+data_config.chat_id),
+            pasteZone: $('#CSChatMessage-'+data_config.chat_id),
+            progressall: function (e, data) {
+                var progress = parseInt(data.loaded / data.total * 100, 10);
+                $('#user-is-typing-'+data_config.chat_id).show();
+                $('#user-is-typing-'+data_config.chat_id).html(progress+'%');
             }}).prop('disabled', !$.support.fileInput)
             .parent().addClass($.support.fileInput ? undefined : 'disabled');
     };

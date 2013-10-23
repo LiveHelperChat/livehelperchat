@@ -82,6 +82,8 @@ class erLhcoreClassModelChat {
 	   	$stmt = $q->prepare();
 	   	$stmt->execute();
 
+	   	erLhcoreClassModelChatFile::deleteByChatId($this->id);
+
 	   	erLhcoreClassChat::getSession()->delete($this);
    }
 
