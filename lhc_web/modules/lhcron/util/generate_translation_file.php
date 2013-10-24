@@ -1,5 +1,5 @@
 <?php
-
+// php cron.php -s site_admin -c cron/util/generate_translation_file
 $filesToCheck = ezcBaseFile::findRecursive('.',
 array( '@\.php$@' ),
 array( '@/albums|ezcomponents|doc|translations|var|extension|cache|bin|Zend|setttings|pos/@' ));

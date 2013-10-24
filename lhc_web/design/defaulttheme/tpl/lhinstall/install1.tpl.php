@@ -32,6 +32,10 @@
         <td><?php echo is_writable("settings/settings.ini.php") ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'?></td>
     </tr>
     <tr>
+        <td>I can write to &quot;var/storage&quot; directory</td>
+        <td><?php echo is_writable("var/storage") ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'?></td>
+    </tr>
+    <tr>
         <td>Is the php-pdo extension installed</td>
         <td><?php echo extension_loaded ('pdo_mysql' ) ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'; ?></td>
     </tr>

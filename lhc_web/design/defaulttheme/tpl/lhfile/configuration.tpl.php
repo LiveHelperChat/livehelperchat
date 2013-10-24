@@ -1,10 +1,10 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','File configuration');?></h1>
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','File configuration');?></h1>
 
 <?php if (isset($errors)) : ?>
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
-<?php if (isset($updated) && $updated == 'done') : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Settings updated'); ?>
+<?php if (isset($updated) && $updated == 'done') : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Settings updated'); ?>
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
@@ -15,18 +15,18 @@
 
 <div class="row">
 	<div class="columns large-6">
-		<label>Allowed files types for operators</label>
+		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Allowed files types for operators'); ?></label>
 		<input type="text" name="AllowedFileTypes" value="<?php isset($file_data['ft_op']) ? print $file_data['ft_op'] : '' ?>" />
 	</div>
 	<div class="columns large-6">
-		<label>Allowed files types for users</label>
+		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Allowed files types for users'); ?></label>
 		<input type="text" name="AllowedFileTypesUser" value="<?php isset($file_data['ft_us']) ? print $file_data['ft_us'] : '' ?>" />
 	</div>
 </div>
 
 <div class="row">
 	<div class="columns large-6">
-		<label>Maximum file size in KB</label>
+		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Maximum file size in KB'); ?></label>
 		<input type="text" name="MaximumFileSize" value="<?php isset($file_data['fs_max']) ? print $file_data['fs_max'] : '' ?>" />
 	</div>
 </div>

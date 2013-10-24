@@ -362,6 +362,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>General information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Files</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Pending chat</source>
       <translation type="unfinished"/>
     </message>
@@ -1100,6 +1108,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Files upload for users is active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Files upload for operators is active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Country code variable does not exist!</source>
       <translation type="unfinished"/>
     </message>
@@ -1514,7 +1530,23 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Files uploads configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Files upload configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List of files</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Other</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File configuration</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -3878,7 +3910,7 @@
     <name>chatarchive/viewarchivedchat</name>
     <message>
       <source>View archived chat</source>
-      <translation type="unfinished"></translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -3886,6 +3918,109 @@
     <message>
       <source>You do not have rights to delete a chat</source>
       <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>files/files</name>
+    <message>
+      <source>Delete file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Download file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Drop your files here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Not an accepted file type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Filesize is too big</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>file/configuration</name>
+    <message>
+      <source>File configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Allowed files types for operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Allowed files types for users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Maximum file size in KB</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter valid file type!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter valid maximum file size!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>file/list</name>
+    <message>
+      <source>List of files</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Upload name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File size</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Extension</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete the file</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>file/file</name>
+    <message>
+      <source>Download file</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>file/configurations</name>
+    <message>
+      <source>Please enter valid file type!</source>
+      <translation type="unfinished"></translation>
     </message>
   </context>
 </TS>

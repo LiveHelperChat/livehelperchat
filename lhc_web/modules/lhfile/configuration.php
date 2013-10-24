@@ -45,19 +45,19 @@ if ( isset($_POST['StoreFileConfiguration']) ) {
 	if ( $form->hasValidData( 'AllowedFileTypes' ) && $form->AllowedFileTypes != '' ) {
 		$data['ft_op'] = $form->AllowedFileTypes;
 	} else {
-		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Please enter valid file type!');
+		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('file/configurations','Please enter valid file type!');
 	}
 
 	if ( $form->hasValidData( 'AllowedFileTypesUser' ) && $form->AllowedFileTypesUser != '' ) {
 		$data['ft_us'] = $form->AllowedFileTypesUser;
 	} else {
-		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Please enter valid file type!');
+		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Please enter valid file type!');
 	}
 
 	if ( $form->hasValidData( 'MaximumFileSize' ) ) {
 		$data['fs_max'] = $form->MaximumFileSize;
 	} else {
-		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Please enter valid maximum file size!');
+		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Please enter valid maximum file size!');
 	}
 
 	if (empty($Errors) ) {
@@ -74,6 +74,8 @@ if ( isset($_POST['StoreFileConfiguration']) ) {
 
 $tpl->set('file_data',$data);
 $Result['content'] = $tpl->fetch();
-$Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','File configuration')))
+$Result['path'] = array(
+		array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','System configuration')),
+		array('url' => erLhcoreClassDesign::baseurl('file/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','File configuration')))
 
 ?>

@@ -115,13 +115,19 @@
 </ul>
 <hr>
 
-
+<?php if ($currentUser->hasAccessTo('lhfile','use') || $currentUser->hasAccessTo('lhfile','file_list')) : ?>
 <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Files uploads configuration');?></h4>
 <ul class="circle small-list">
+	<?php if ($currentUser->hasAccessTo('lhfile','use')) : ?>
     <li><a href="<?php echo erLhcoreClassDesign::baseurl('file/configuration')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Files upload configuration');?></a></li>
+    <?php endif; ?>
+
+    <?php if ($currentUser->hasAccessTo('lhfile','file_list')) : ?>
     <li><a href="<?php echo erLhcoreClassDesign::baseurl('file/list')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','List of files');?></a></li>
+    <?php endif; ?>
 </ul>
 <hr>
+<?php endif; ?>
 
 
 

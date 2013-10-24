@@ -1,15 +1,15 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Files');?></h1>
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','List of files');?></h1>
 
 <table class="twelve" cellpadding="0" cellspacing="0">
 <thead>
 <tr>
     <th width="1%">ID</th>
-    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','User');?></th>
-    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Chat');?></th>
-    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Upload name');?></th>
-    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','File size');?></th>
-    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Extension');?></th>
-    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Date');?></th>
+    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','User');?></th>
+    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Chat');?></th>
+    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Upload name');?></th>
+    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','File size');?></th>
+    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Extension');?></th>
+    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Date');?></th>
     <th width="1%">&nbsp;</th>
 </tr>
 </thead>
