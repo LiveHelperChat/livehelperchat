@@ -92,7 +92,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
+      <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -137,6 +137,10 @@
     </message>
     <message>
       <source>Message to user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -189,11 +193,11 @@
   <context>
     <name>chat/chat</name>
     <message>
-      <source>User is typing now...</source>
+      <source>Show/Hide right column</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Show/Hide right column</source>
+      <source>User is typing now...</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -507,20 +511,24 @@
   <context>
     <name>chat/syncadmininterface</name>
     <message>
-      <source>Open in a new window</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Add chat</source>
-      <translation>Dodaj razgovor</translation>
-    </message>
-    <message>
       <source>Close chat</source>
       <translation>Završi razgovor</translation>
     </message>
     <message>
       <source>Delete chat</source>
       <translation>Obriši razgovor</translation>
+    </message>
+    <message>
+      <source>Reject chat</source>
+      <translation>Odbaci razgovor</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add chat</source>
+      <translation>Dodaj razgovor</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -541,10 +549,6 @@
     <message>
       <source>Accept chat</source>
       <translation>Prihvati razgovor</translation>
-    </message>
-    <message>
-      <source>Reject chat</source>
-      <translation>Odbaci razgovor</translation>
     </message>
     <message>
       <source>h.</source>

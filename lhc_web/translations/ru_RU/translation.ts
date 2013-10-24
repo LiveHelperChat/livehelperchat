@@ -92,7 +92,7 @@
       <translation>Позиция</translation>
     </message>
     <message>
-      <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
+      <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -138,6 +138,10 @@
     <message>
       <source>Message to user</source>
       <translation>Сообщение пользователю</translation>
+    </message>
+    <message>
+      <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -189,12 +193,12 @@
   <context>
     <name>chat/chat</name>
     <message>
-      <source>User is typing now...</source>
-      <translation>Посетитель печатает текст...</translation>
-    </message>
-    <message>
       <source>Show/Hide right column</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User is typing now...</source>
+      <translation>Посетитель печатает текст...</translation>
     </message>
     <message>
       <source>This chat is closed.</source>
@@ -507,20 +511,24 @@
   <context>
     <name>chat/syncadmininterface</name>
     <message>
-      <source>Open in a new window</source>
-      <translation>Открыть в новом окне</translation>
-    </message>
-    <message>
-      <source>Add chat</source>
-      <translation>Добавить диалог</translation>
-    </message>
-    <message>
       <source>Close chat</source>
       <translation>Закрыть чат</translation>
     </message>
     <message>
       <source>Delete chat</source>
       <translation>Удалить диалог</translation>
+    </message>
+    <message>
+      <source>Reject chat</source>
+      <translation>Отклонить чат</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Открыть в новом окне</translation>
+    </message>
+    <message>
+      <source>Add chat</source>
+      <translation>Добавить диалог</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -541,10 +549,6 @@
     <message>
       <source>Accept chat</source>
       <translation>Принять диалог</translation>
-    </message>
-    <message>
-      <source>Reject chat</source>
-      <translation>Отклонить чат</translation>
     </message>
     <message>
       <source>h.</source>

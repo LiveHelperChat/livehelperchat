@@ -92,7 +92,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
+      <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -137,6 +137,10 @@
     </message>
     <message>
       <source>Message to user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -189,12 +193,12 @@
   <context>
     <name>chat/chat</name>
     <message>
-      <source>User is typing now...</source>
-      <translation>Gebruiker is aan het typen...</translation>
-    </message>
-    <message>
       <source>Show/Hide right column</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User is typing now...</source>
+      <translation>Gebruiker is aan het typen...</translation>
     </message>
     <message>
       <source>This chat is closed.</source>
@@ -507,20 +511,24 @@
   <context>
     <name>chat/syncadmininterface</name>
     <message>
-      <source>Open in a new window</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Add chat</source>
-      <translation>Voeg chat toe</translation>
-    </message>
-    <message>
       <source>Close chat</source>
       <translation>Sluit chat</translation>
     </message>
     <message>
       <source>Delete chat</source>
       <translation>Verwijder chat</translation>
+    </message>
+    <message>
+      <source>Reject chat</source>
+      <translation>Weiger chat</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add chat</source>
+      <translation>Voeg chat toe</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -541,10 +549,6 @@
     <message>
       <source>Accept chat</source>
       <translation>Accepteer chat</translation>
-    </message>
-    <message>
-      <source>Reject chat</source>
-      <translation>Weiger chat</translation>
     </message>
     <message>
       <source>h.</source>

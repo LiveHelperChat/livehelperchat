@@ -3923,6 +3923,10 @@
   <context>
     <name>files/files</name>
     <message>
+      <source>Refresh</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Delete file</source>
       <translation type="unfinished"/>
     </message>

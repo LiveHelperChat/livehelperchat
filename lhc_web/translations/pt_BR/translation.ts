@@ -69,11 +69,11 @@
     <name>abstract/proactivechatinvitation</name>
     <message>
       <source>If you want pro active chat invitation to work it has to be enabled in</source>
-      <translation>Se quiser convite de batepapo proativo tem que habilitar</translation>
+      <translation>Se quiser convite de batepapo proativo isso tem que estar habilitado</translation>
     </message>
     <message>
       <source>chat configuration</source>
-      <translation>Configuração de conversa</translation>
+      <translation>Configuração do chat</translation>
     </message>
     <message>
       <source>also online users tracking has to be</source>
@@ -92,8 +92,8 @@
       <translation>Posição</translation>
     </message>
     <message>
-      <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
-      <translation>Mensagem de espera. Visíveis quando usuários iniciam um bate-papo e estão esperando por alguém a aceitar uma conversa.</translation>
+      <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
+      <translation>Mensagem de espera. Visíval quando usuários iniciam um chat e aguardam a alguém aceitar o mesmo.</translation>
     </message>
     <message>
       <source>Wait timeout. Time in seconds before timeout message is shown.</source>
@@ -129,15 +129,19 @@
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation>Identificador, identificador que deve ser mostrada nesta mensagem, deixe em branco para todos</translation>
+      <translation>Identificador, para qual identificador esta mensagem deve ser mostrada, deixe em branco para todos</translation>
     </message>
     <message>
       <source>Matched times</source>
-      <translation>Vezes combinadas</translation>
+      <translation>Vezes detectado(a)</translation>
     </message>
     <message>
       <source>Message to user</source>
       <translation>Mensagem para o usuário</translation>
+    </message>
+    <message>
+      <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
+      <translation>Mensagem de espera. Visíveis quando usuários iniciam um bate-papo e estão esperando por alguém a aceitar uma conversa.</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -155,7 +159,7 @@
     <name>chat/activechats</name>
     <message>
       <source>Active chats list</source>
-      <translation>Lista de arquivos de conversas</translation>
+      <translation>Lista de chats ativos</translation>
     </message>
     <message>
       <source>Information</source>
@@ -163,15 +167,15 @@
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation>Abrir em nova janela</translation>
+      <translation>Abrir em uma nova janela</translation>
     </message>
     <message>
       <source>Close chat</source>
-      <translation>Fechar conversa</translation>
+      <translation>Fechar chat</translation>
     </message>
     <message>
       <source>Delete chat</source>
-      <translation>Apagar conversa</translation>
+      <translation>Apagar chat</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -183,18 +187,18 @@
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Conversas ativas</translation>
+      <translation>Chats ativos</translation>
     </message>
   </context>
   <context>
     <name>chat/chat</name>
     <message>
-      <source>User is typing now...</source>
-      <translation>O usuário está digitando...</translation>
-    </message>
-    <message>
       <source>Show/Hide right column</source>
       <translation>Mostrar / Ocultar coluna da direita</translation>
+    </message>
+    <message>
+      <source>User is typing now...</source>
+      <translation>O usuário está digitando...</translation>
     </message>
     <message>
       <source>This chat is closed.</source>
@@ -287,7 +291,7 @@
     <name>chat/cannedmsg</name>
     <message>
       <source>Canned messages</source>
-      <translation>Mensagens prontas</translation>
+      <translation>Mensagens predefinidas</translation>
     </message>
     <message>
       <source>Message</source>
@@ -311,11 +315,11 @@
     </message>
     <message>
       <source>New canned message</source>
-      <translation>Nova mensagem pronta</translation>
+      <translation>Nova mensagem predefinida</translation>
     </message>
     <message>
       <source>Edit canned message</source>
-      <translation>Editar mensagem pronta</translation>
+      <translation>Editar mensagem predefinida</translation>
     </message>
     <message>
       <source>Delay in seconds</source>
@@ -331,7 +335,7 @@
     </message>
     <message>
       <source>Please enter a canned message</source>
-      <translation>Por favor digite uma &quot;mensagem pronta&quot;</translation>
+      <translation>Por favor insira uma mensagem predefinida</translation>
     </message>
   </context>
   <context>
@@ -342,7 +346,7 @@
     </message>
     <message>
       <source>Chat was deleted</source>
-      <translation>Conversa foi apagada</translation>
+      <translation>O chat foi apagado</translation>
     </message>
   </context>
   <context>
@@ -493,7 +497,7 @@
     </message>
     <message>
       <source>Select a canned message</source>
-      <translation>Selecione uma mensagem a preservar</translation>
+      <translation>Selecione uma mensagem predefinida</translation>
     </message>
     <message>
       <source>Fill textarea with canned message</source>
@@ -501,19 +505,11 @@
     </message>
     <message>
       <source>Send delayed canned message instantly</source>
-      <translation>Enviar mensagem predefinida com atraso instantaneamente</translation>
+      <translation>Enviar mensagem predefinida com atraso</translation>
     </message>
   </context>
   <context>
     <name>chat/syncadmininterface</name>
-    <message>
-      <source>Open in a new window</source>
-      <translation>Abrir em uma nova janela</translation>
-    </message>
-    <message>
-      <source>Add chat</source>
-      <translation>Adicionar conversa</translation>
-    </message>
     <message>
       <source>Close chat</source>
       <translation>Fechar conversa</translation>
@@ -521,6 +517,18 @@
     <message>
       <source>Delete chat</source>
       <translation>Apagar conversa</translation>
+    </message>
+    <message>
+      <source>Reject chat</source>
+      <translation>Rejeitar conversa</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Abrir em uma nova janela</translation>
+    </message>
+    <message>
+      <source>Add chat</source>
+      <translation>Adicionar conversa</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -541,10 +549,6 @@
     <message>
       <source>Accept chat</source>
       <translation>Aceitar conversa</translation>
-    </message>
-    <message>
-      <source>Reject chat</source>
-      <translation>Rejeitar conversa</translation>
     </message>
     <message>
       <source>h.</source>
@@ -736,7 +740,7 @@
     <name>chat/closedchats</name>
     <message>
       <source>Closed chats list</source>
-      <translation>Lista de conversas fechadas</translation>
+      <translation>Lista de chats fechados</translation>
     </message>
     <message>
       <source>Information</source>
@@ -744,11 +748,11 @@
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation>Abrir em nova janela</translation>
+      <translation>Abrir em uma nova janela</translation>
     </message>
     <message>
       <source>Delete chat</source>
-      <translation>Apagar conversa</translation>
+      <translation>Apagar chat</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -756,11 +760,11 @@
     </message>
     <message>
       <source>Chats list</source>
-      <translation>Lista de conversas</translation>
+      <translation>Lista de chats</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Fechar conversas</translation>
+      <translation>Chats fechados</translation>
     </message>
   </context>
   <context>
@@ -798,7 +802,7 @@
     </message>
     <message>
       <source>Value in</source>
-      <translation>Reikšmė</translation>
+      <translation>Valor em</translation>
     </message>
     <message>
       <source>site access</source>
@@ -851,11 +855,11 @@
     </message>
     <message>
       <source>Country code server variable</source>
-      <translation>Variável do código de país do servidor</translation>
+      <translation>Variável código de país do servidor</translation>
     </message>
     <message>
       <source>Country name server variable</source>
-      <translation>Variável do código de país do servidor</translation>
+      <translation>Variável Nome de país do servidor</translation>
     </message>
     <message>
       <source>City name server variable</source>
@@ -935,15 +939,15 @@
     </message>
     <message>
       <source>User has seen message from operator.</source>
-      <translation>Usuário leu uma mensagem do operador.</translation>
+      <translation>Usuário viu a mensagem do operador.</translation>
     </message>
     <message>
       <source>User is chatting</source>
-      <translation>Usuário está conversando</translation>
+      <translation>Usuário está em chat</translation>
     </message>
     <message>
       <source>User is not having any chat right now</source>
-      <translation>Usuário não está conversando com ninguém no momento</translation>
+      <translation>Usuário não está em nenhum chat no momento</translation>
     </message>
     <message>
       <source>has send message to user</source>
@@ -979,7 +983,7 @@
     </message>
     <message>
       <source>Time on site</source>
-      <translation>Tempo local</translation>
+      <translation>Tempo no local</translation>
     </message>
     <message>
       <source>Total time on site</source>
@@ -1007,11 +1011,11 @@
     </message>
     <message>
       <source>User tracking is disabled, enable it at</source>
-      <translation>Rastrameanto de usuário está desativado, ative-o agora</translation>
+      <translation>Rastrameanto de usuário está desativado, ative-o em</translation>
     </message>
     <message>
       <source>Chat configuration</source>
-      <translation>Configuração de Chat</translation>
+      <translation>Configuração do Chat</translation>
     </message>
     <message>
       <source>List</source>
@@ -1027,7 +1031,7 @@
     </message>
     <message>
       <source>minit</source>
-      <translation>minit</translation>
+      <translation>minuto</translation>
     </message>
     <message>
       <source>minits</source>
@@ -1051,11 +1055,11 @@
     </message>
     <message>
       <source>User does not have any messages from the operator</source>
-      <translation>Usuário não tem nenhuma mensagem do operador</translation>
+      <translation>Usuário não recebeu nenhuma mensagem do operador</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation>Usuário não viu a mensagem do operador, ou a janela de mensagem ainda está em aberto.</translation>
+      <translation>Usuário não viu uma mensagem do operador, ou a janela de mensagem ainda está em aberta.</translation>
     </message>
     <message>
       <source>User has seen the message from the operator.</source>
@@ -1067,7 +1071,7 @@
     </message>
     <message>
       <source>No one has sent a message to the user yet</source>
-      <translation>Ninguém ainda mandou mensagem para o usuário</translation>
+      <translation>Ninguém enviou uma mensagem para o usuário ainda</translation>
     </message>
     <message>
       <source>first visit</source>
@@ -1087,7 +1091,7 @@
     </message>
     <message>
       <source>User has message from operator</source>
-      <translation>Usuário leu uma mensagem do operador</translation>
+      <translation>Usuário recebeu mensagem do operador</translation>
     </message>
     <message>
       <source>Marker timeout before it dissapears from map</source>
@@ -1095,7 +1099,7 @@
     </message>
     <message>
       <source>Country code variable does not exist!</source>
-      <translation>A variável do código de país não existe!</translation>
+      <translation>A variável código do país não existe!</translation>
     </message>
     <message>
       <source>Country name variable does not exist!</source>
@@ -1367,27 +1371,27 @@
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>Conversas pendentes</translation>
+      <translation>Chats pendentes</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Arquivo de conversas</translation>
+      <translation>Chats ativos</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Conversas fechadas</translation>
+      <translation>Chats fechados</translation>
     </message>
     <message>
       <source>Operators chats</source>
-      <translation>Conversas de operadores</translation>
+      <translation>Chats de operadores</translation>
     </message>
     <message>
       <source>Chats with unread messages</source>
-      <translation>Conversas com mensagens não lidas</translation>
+      <translation>Chats com mensagens não lidas</translation>
     </message>
     <message>
       <source>Chat lists</source>
-      <translation>Lista de conversas</translation>
+      <translation>Lista de chats</translation>
     </message>
   </context>
   <context>
@@ -1441,7 +1445,7 @@
     </message>
     <message>
       <source>Canned messages</source>
-      <translation>Mensagens prontas</translation>
+      <translation>Mensagens predefinidas</translation>
     </message>
     <message>
       <source>E-mail templates</source>
@@ -1527,7 +1531,7 @@
     <name>chat/pendingchats</name>
     <message>
       <source>Pending chats list</source>
-      <translation>Lista de conversas pendentes</translation>
+      <translation>Lista de chats pendentes</translation>
     </message>
     <message>
       <source>Information</source>
@@ -1539,7 +1543,7 @@
     </message>
     <message>
       <source>Reject chat</source>
-      <translation>Rejeitar conversa</translation>
+      <translation>Rejeitar chat</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -1547,11 +1551,11 @@
     </message>
     <message>
       <source>Chats list</source>
-      <translation>Lista de conversas</translation>
+      <translation>Lista de chats</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>Conversas pendentes</translation>
+      <translation>Chats pendentes</translation>
     </message>
   </context>
   <context>
@@ -1592,7 +1596,7 @@
     </message>
     <message>
       <source>Reply e-mail</source>
-      <translation>Email de resposta</translation>
+      <translation>Responder e-mail</translation>
     </message>
     <message>
       <source>From e-mail</source>
@@ -1604,11 +1608,11 @@
     </message>
     <message>
       <source>Send the mail</source>
-      <translation>Enviar email</translation>
+      <translation>Enviar o email</translation>
     </message>
     <message>
       <source>Mail was sent to the user</source>
-      <translation>O email foi enviado para o usuário</translation>
+      <translation>O e-mail foi enviado para o usuário</translation>
     </message>
     <message>
       <source>Please enter recipient e-mail!</source>
@@ -1616,11 +1620,11 @@
     </message>
     <message>
       <source>From e-mail is missing!</source>
-      <translation>Email de envio está faltando!</translation>
+      <translation>Está faltando o e-mail de envio !</translation>
     </message>
     <message>
       <source>Reply e-mail is missing!</source>
-      <translation>Email de resposta está faltando!</translation>
+      <translation>Está faltando o e-mail de resposta!</translation>
     </message>
     <message>
       <source>Subject is missing!</source>
@@ -1804,7 +1808,7 @@
     </message>
     <message>
       <source>Parameter</source>
-      <translation>Parâmetros</translation>
+      <translation>Parâmetro</translation>
     </message>
     <message>
       <source>Value</source>
@@ -1812,23 +1816,23 @@
     </message>
     <message>
       <source>Total chats</source>
-      <translation>Total de conversas</translation>
+      <translation>Total de chats</translation>
     </message>
     <message>
       <source>Total pending chats</source>
-      <translation>Total de conversas pendentes</translation>
+      <translation>Total de chats pendentes</translation>
     </message>
     <message>
       <source>Total active chats</source>
-      <translation>Total de conversas ativas</translation>
+      <translation>Total de chats ativos</translation>
     </message>
     <message>
       <source>Total closed chats</source>
-      <translation>Total de conversas fechadas</translation>
+      <translation>Total de chats fechados</translation>
     </message>
     <message>
       <source>Chatbox chats</source>
-      <translation>Caixas de conversas</translation>
+      <translation>Caixas de chats</translation>
     </message>
     <message>
       <source>Total messages (including visitors, system and operators messages)</source>
@@ -1852,7 +1856,7 @@
     </message>
     <message>
       <source>Operators last 24h statistic, top 100 by chats number</source>
-      <translation>Últimas 24h de estatística de operadores, máximo de 100 conversas</translation>
+      <translation>Últimas 24h de estatística de operadores, Top 100 por chats</translation>
     </message>
     <message>
       <source>User</source>
@@ -1879,11 +1883,11 @@
     </message>
     <message>
       <source>Logged in users</source>
-      <translation>Usuários registrados</translation>
+      <translation>Usuários autenticados</translation>
     </message>
     <message>
       <source>Transfer a chat to one of your departments users</source>
-      <translation>Transferir uma conversa para um dos usuários do departamento</translation>
+      <translation>Transferir um cchat para um dos usuários do seu departamento</translation>
     </message>
     <message>
       <source>Transfer</source>
@@ -1902,7 +1906,7 @@
     <name>chat/unreadchats</name>
     <message>
       <source>Unread chats list</source>
-      <translation>Lista de conversas são lidas</translation>
+      <translation>Lista de chats não lidos</translation>
     </message>
     <message>
       <source>Information</source>
@@ -2645,7 +2649,7 @@
     </message>
     <message>
       <source>Found</source>
-      <translation>Encontrada</translation>
+      <translation>Encontrado</translation>
     </message>
     <message>
       <source>Go to page</source>
@@ -2889,7 +2893,7 @@
     </message>
     <message>
       <source>Delete the answer</source>
-      <translation>Excluir resposta</translation>
+      <translation>Apagar a resposta</translation>
     </message>
     <message>
       <source>Option name</source>
@@ -2908,7 +2912,7 @@
     <name>questionary/edit</name>
     <message>
       <source>Edit the question</source>
-      <translation>Editar pergunta</translation>
+      <translation>Editar a pergunta</translation>
     </message>
     <message>
       <source>Question</source>
@@ -2991,7 +2995,7 @@
     </message>
     <message>
       <source>Location</source>
-      <translation>Localidade</translation>
+      <translation>Localização</translation>
     </message>
     <message>
       <source>Priority</source>
@@ -3003,7 +3007,7 @@
     </message>
     <message>
       <source>Y</source>
-      <translation>T</translation>
+      <translation>Y</translation>
     </message>
     <message>
       <source>N</source>
@@ -3064,11 +3068,11 @@
     </message>
     <message>
       <source>Question intro</source>
-      <translation>Introdução da pergunta</translation>
+      <translation>Pergunta de introdução</translation>
     </message>
     <message>
       <source>Show questions for all the URLs containing this string E.g /shop/basket</source>
-      <translation>Mostrar perguntas para todas as URLs que contém essa seqüência. Por exemplo /shop/basket</translation>
+      <translation>Mostrar perguntas para todas as URLs que contém essa seqüência. Ex.: /shop/basket</translation>
     </message>
     <message>
       <source>Priority, if multiple questions match a location, the question with the higher priority will be shown</source>
@@ -3103,7 +3107,7 @@
     </message>
     <message>
       <source>We do not have any requests for now.</source>
-      <translation>Não temos nenhum pedido no momento.</translation>
+      <translation>Nós não temos nenhuma requisição no momento.</translation>
     </message>
     <message>
       <source>Please choose one of the options!</source>
@@ -3134,7 +3138,7 @@
     </message>
     <message>
       <source>Chats transferred to you directly</source>
-      <translation>Conversas transferidas diretamente para você</translation>
+      <translation>Chats transferidos diretamente para você</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -3142,15 +3146,15 @@
     </message>
     <message>
       <source>Transferred to your department</source>
-      <translation>Transferida para o seu departamento</translation>
+      <translation>Transferido para o seu departamento</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>Conversas pendentes</translation>
+      <translation>Chats pendentes</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Arquivo de conversas</translation>
+      <translation>Chats ativos</translation>
     </message>
     <message>
       <source>Unread messages</source>
@@ -3158,7 +3162,7 @@
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Conversas encerradas</translation>
+      <translation>Chats fechados</translation>
     </message>
     <message>
       <source>Configuration</source>
@@ -3166,15 +3170,15 @@
     </message>
     <message>
       <source>Chats list</source>
-      <translation>Lista de conversas</translation>
+      <translation>Lista de chats</translation>
     </message>
     <message>
       <source>Chat rooms</source>
-      <translation>Salas de conversa</translation>
+      <translation>Salas de chat</translation>
     </message>
     <message>
       <source>New chat request</source>
-      <translation>Requisição de nova conversa</translation>
+      <translation>Nova requisição de chat</translation>
     </message>
     <message>
       <source>Menu</source>
@@ -3182,7 +3186,7 @@
     </message>
     <message>
       <source>Online visitors</source>
-      <translation>Usuários online</translation>
+      <translation>Visitantes online</translation>
     </message>
     <message>
       <source>Questionary</source>
@@ -3217,7 +3221,7 @@
     </message>
     <message>
       <source>Language</source>
-      <translation>Linguagem</translation>
+      <translation>Idioma</translation>
     </message>
     <message>
       <source>General language settings</source>
@@ -3237,7 +3241,7 @@
     </message>
     <message>
       <source>Theme, separate themes by new line</source>
-      <translation>Tema, temas separados linha</translation>
+      <translation>Tema, temas separados por uma nova linha</translation>
     </message>
     <message>
       <source>Default module</source>
@@ -3257,15 +3261,15 @@
     </message>
     <message>
       <source>Please enter theme</source>
-      <translation>Por favor, digite o tema</translation>
+      <translation>Por favor, informe o tema</translation>
     </message>
     <message>
       <source>Please enter module name</source>
-      <translation>Por favor, digite o nome do módulo</translation>
+      <translation>Por favor, informe o nome do módulo</translation>
     </message>
     <message>
       <source>Please enter view name</source>
-      <translation>Por favor, digite o nome de exibição</translation>
+      <translation>Por favor, informe o nome de exibição</translation>
     </message>
   </context>
   <context>
@@ -3532,7 +3536,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Email</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Restore password</source>
@@ -3548,7 +3552,7 @@
     </message>
     <message>
       <source>Click this link and You will be sent a new password</source>
-      <translation>Clique neste link para que uma nova senha seja enviada a você</translation>
+      <translation>Clique neste link e uma nova senha será enviada a você</translation>
     </message>
   </context>
   <context>
@@ -3647,7 +3651,7 @@
     </message>
     <message>
       <source>Password reminder</source>
-      <translation>Lembrar senha</translation>
+      <translation>Lembrete de senha</translation>
     </message>
     <message>
       <source>Incorrect username or password</source>
@@ -3666,7 +3670,7 @@
     </message>
     <message>
       <source>Save</source>
-      <translation>Gravar</translation>
+      <translation>Salvar</translation>
     </message>
     <message>
       <source>Save and assign the user</source>

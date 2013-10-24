@@ -1,6 +1,7 @@
 1.61v
 
 1. Files upload module
+1.1 You may have to grant operators few permissions for file upload to work correctly.
 
 execute doc/update_db/update_43.sql
 

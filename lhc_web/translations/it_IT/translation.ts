@@ -92,7 +92,7 @@
       <translation>Posizione</translation>
     </message>
     <message>
-      <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
+      <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -138,6 +138,10 @@
     <message>
       <source>Message to user</source>
       <translation>Messaggio all&apos;utente</translation>
+    </message>
+    <message>
+      <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -189,12 +193,12 @@
   <context>
     <name>chat/chat</name>
     <message>
-      <source>User is typing now...</source>
-      <translation>Utente sta scrivendo...</translation>
-    </message>
-    <message>
       <source>Show/Hide right column</source>
       <translation>Mostra/nascondi colonna destra</translation>
+    </message>
+    <message>
+      <source>User is typing now...</source>
+      <translation>Utente sta scrivendo...</translation>
     </message>
     <message>
       <source>This chat is closed.</source>
@@ -507,20 +511,24 @@
   <context>
     <name>chat/syncadmininterface</name>
     <message>
-      <source>Open in a new window</source>
-      <translation>Apri in una nuova finestra</translation>
-    </message>
-    <message>
-      <source>Add chat</source>
-      <translation>Aggiungi Chat</translation>
-    </message>
-    <message>
       <source>Close chat</source>
       <translation>Chiudi Chat</translation>
     </message>
     <message>
       <source>Delete chat</source>
       <translation>Elimina chat</translation>
+    </message>
+    <message>
+      <source>Reject chat</source>
+      <translation>Rifiuta chat</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Apri in una nuova finestra</translation>
+    </message>
+    <message>
+      <source>Add chat</source>
+      <translation>Aggiungi Chat</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -541,10 +549,6 @@
     <message>
       <source>Accept chat</source>
       <translation>Accetta Chat</translation>
-    </message>
-    <message>
-      <source>Reject chat</source>
-      <translation>Rifiuta chat</translation>
     </message>
     <message>
       <source>h.</source>

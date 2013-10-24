@@ -92,7 +92,7 @@
       <translation>Pozicija</translation>
     </message>
     <message>
-      <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
+      <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
       <translation>Laukimo žinutė. Matoma vartotojui, kai pradedamas pokalbis ir vartotojas laukia, kol jo pokalbis bus patvirtintas operatoriaus.</translation>
     </message>
     <message>
@@ -138,6 +138,10 @@
     <message>
       <source>Message to user</source>
       <translation>Žinutė vartotojui</translation>
+    </message>
+    <message>
+      <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
+      <translation>Laukimo žinutė. Matoma vartotojui, kai pradedamas pokalbis ir vartotojas laukia, kol jo pokalbis bus patvirtintas operatoriaus.</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -189,12 +193,12 @@
   <context>
     <name>chat/chat</name>
     <message>
-      <source>User is typing now...</source>
-      <translation>Vartototojas šiuo metu rašo žinutę...</translation>
-    </message>
-    <message>
       <source>Show/Hide right column</source>
       <translation>Rodyti/Slėpti dešinę pusę</translation>
+    </message>
+    <message>
+      <source>User is typing now...</source>
+      <translation>Vartototojas šiuo metu rašo žinutę...</translation>
     </message>
     <message>
       <source>This chat is closed.</source>
@@ -507,20 +511,24 @@
   <context>
     <name>chat/syncadmininterface</name>
     <message>
-      <source>Open in a new window</source>
-      <translation>Atidaryti naujam lange</translation>
-    </message>
-    <message>
-      <source>Add chat</source>
-      <translation>Pridėti pokalbį</translation>
-    </message>
-    <message>
       <source>Close chat</source>
       <translation>Uždaryti pokalbį</translation>
     </message>
     <message>
       <source>Delete chat</source>
       <translation>Ištrinti pokalbį</translation>
+    </message>
+    <message>
+      <source>Reject chat</source>
+      <translation>Atmesti pokalbį</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Atidaryti naujam lange</translation>
+    </message>
+    <message>
+      <source>Add chat</source>
+      <translation>Pridėti pokalbį</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -541,10 +549,6 @@
     <message>
       <source>Accept chat</source>
       <translation>Patvirtinti pokalbį</translation>
-    </message>
-    <message>
-      <source>Reject chat</source>
-      <translation>Atmesti pokalbį</translation>
     </message>
     <message>
       <source>h.</source>

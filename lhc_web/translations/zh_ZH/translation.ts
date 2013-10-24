@@ -92,8 +92,8 @@
       <translation>位置</translation>
     </message>
     <message>
-      <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
-      <translation>等待消息。可見，那麼用戶開始聊天，等著別人來接受一個聊天。</translation>
+      <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Wait timeout. Time in seconds before timeout message is shown.</source>
@@ -138,6 +138,10 @@
     <message>
       <source>Message to user</source>
       <translation>给用户的消息</translation>
+    </message>
+    <message>
+      <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
+      <translation>等待消息。可見，那麼用戶開始聊天，等著別人來接受一個聊天。</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -189,12 +193,12 @@
   <context>
     <name>chat/chat</name>
     <message>
-      <source>User is typing now...</source>
-      <translation>用户现在打字...</translation>
-    </message>
-    <message>
       <source>Show/Hide right column</source>
       <translation>顯示/​​隱藏右列</translation>
+    </message>
+    <message>
+      <source>User is typing now...</source>
+      <translation>用户现在打字...</translation>
     </message>
     <message>
       <source>This chat is closed.</source>
@@ -507,20 +511,24 @@
   <context>
     <name>chat/syncadmininterface</name>
     <message>
-      <source>Open in a new window</source>
-      <translation>在新窗口中打开</translation>
-    </message>
-    <message>
-      <source>Add chat</source>
-      <translation>新增聊天</translation>
-    </message>
-    <message>
       <source>Close chat</source>
       <translation>关闭聊天</translation>
     </message>
     <message>
       <source>Delete chat</source>
       <translation>删除聊天</translation>
+    </message>
+    <message>
+      <source>Reject chat</source>
+      <translation>拒绝聊天</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>在新窗口中打开</translation>
+    </message>
+    <message>
+      <source>Add chat</source>
+      <translation>新增聊天</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -541,10 +549,6 @@
     <message>
       <source>Accept chat</source>
       <translation>接受聊天</translation>
-    </message>
-    <message>
-      <source>Reject chat</source>
-      <translation>拒绝聊天</translation>
     </message>
     <message>
       <source>h.</source>

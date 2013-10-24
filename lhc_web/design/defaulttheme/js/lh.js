@@ -1092,8 +1092,6 @@ function lh(){
     	return false;
     };
 
-
-
     this.disableChatSoundUser = function(inst)
     {
     	if (inst.hasClass('sound-disabled')){

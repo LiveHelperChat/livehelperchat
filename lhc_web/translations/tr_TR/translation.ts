@@ -92,7 +92,7 @@
       <translation>Pozisyon</translation>
     </message>
     <message>
-      <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
+      <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -138,6 +138,10 @@
     <message>
       <source>Message to user</source>
       <translation>Kullanıcıya mesaj gönder</translation>
+    </message>
+    <message>
+      <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -189,12 +193,12 @@
   <context>
     <name>chat/chat</name>
     <message>
-      <source>User is typing now...</source>
-      <translation>Kullanıcı şu anda mesajlaşıyor...</translation>
-    </message>
-    <message>
       <source>Show/Hide right column</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User is typing now...</source>
+      <translation>Kullanıcı şu anda mesajlaşıyor...</translation>
     </message>
     <message>
       <source>This chat is closed.</source>
@@ -507,20 +511,24 @@
   <context>
     <name>chat/syncadmininterface</name>
     <message>
-      <source>Open in a new window</source>
-      <translation>Yeni pencerede aç</translation>
-    </message>
-    <message>
-      <source>Add chat</source>
-      <translation>Konuşma ekle</translation>
-    </message>
-    <message>
       <source>Close chat</source>
       <translation>Konuşmayı kapat</translation>
     </message>
     <message>
       <source>Delete chat</source>
       <translation>Konuşmayı sil</translation>
+    </message>
+    <message>
+      <source>Reject chat</source>
+      <translation>Konuşmayı reddet</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Yeni pencerede aç</translation>
+    </message>
+    <message>
+      <source>Add chat</source>
+      <translation>Konuşma ekle</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -541,10 +549,6 @@
     <message>
       <source>Accept chat</source>
       <translation>Konuşmayı kabul et</translation>
-    </message>
-    <message>
-      <source>Reject chat</source>
-      <translation>Konuşmayı reddet</translation>
     </message>
     <message>
       <source>h.</source>

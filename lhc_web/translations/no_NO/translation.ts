@@ -39,23 +39,23 @@
     </message>
     <message>
       <source>Save and continue</source>
-      <translation type="unfinished"/>
+      <translation>Lagre og fortsett</translation>
     </message>
     <message>
       <source>Continue</source>
-      <translation type="unfinished"/>
+      <translation>Fortsett</translation>
     </message>
     <message>
       <source>Start archiving</source>
-      <translation type="unfinished"/>
+      <translation>Start arkivering</translation>
     </message>
     <message>
       <source>Return</source>
-      <translation type="unfinished"/>
+      <translation>Tilbake</translation>
     </message>
     <message>
       <source>Delete department</source>
-      <translation type="unfinished"/>
+      <translation>Slett avdeling</translation>
     </message>
   </context>
   <context>
@@ -92,7 +92,7 @@
       <translation>Posisjon</translation>
     </message>
     <message>
-      <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
+      <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
       <translation>Ventemelding. Synlig når brukere starter samtaler og venter på en operatør.</translation>
     </message>
     <message>
@@ -105,7 +105,7 @@
     </message>
     <message>
       <source>Auto responder</source>
-      <translation type="unfinished"/>
+      <translation>Autosvar</translation>
     </message>
     <message>
       <source>Name for personal purposes</source>
@@ -125,7 +125,7 @@
     </message>
     <message>
       <source>Requires e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Krever epost</translation>
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
@@ -140,6 +140,10 @@
       <translation>Melding til bruker</translation>
     </message>
     <message>
+      <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
+      <translation>Ventemelding. Synlig når brukere starter samtaler og venter på en operatør.</translation>
+    </message>
+    <message>
       <source>Pro active chat invitations</source>
       <translation>Pro active chat invitasjoner</translation>
     </message>
@@ -148,7 +152,7 @@
     <name>abstract/list</name>
     <message>
       <source>Are you sure?</source>
-      <translation type="unfinished"/>
+      <translation>Er du sikker?</translation>
     </message>
   </context>
   <context>
@@ -179,7 +183,7 @@
     </message>
     <message>
       <source>Chats lists</source>
-      <translation type="unfinished"/>
+      <translation>Samtaleliste</translation>
     </message>
     <message>
       <source>Active chats</source>
@@ -189,12 +193,12 @@
   <context>
     <name>chat/chat</name>
     <message>
-      <source>User is typing now...</source>
-      <translation>Bruker skriver nå...</translation>
+      <source>Show/Hide right column</source>
+      <translation>Vis/Skjul høyre kolonne</translation>
     </message>
     <message>
-      <source>Show/Hide right column</source>
-      <translation type="unfinished"/>
+      <source>User is typing now...</source>
+      <translation>Bruker skriver nå...</translation>
     </message>
     <message>
       <source>This chat is closed.</source>
@@ -222,15 +226,15 @@
     </message>
     <message>
       <source>Chatbox is disabled.</source>
-      <translation type="unfinished"/>
+      <translation>Chat vindu er deaktivert</translation>
     </message>
     <message>
       <source>Invalid hash or auto creation is disabled</source>
-      <translation type="unfinished"/>
+      <translation>Feil hash eller auto oppretting er deaktivert</translation>
     </message>
     <message>
       <source>Visitor</source>
-      <translation type="unfinished"/>
+      <translation>Gjest</translation>
     </message>
     <message>
       <source>Chat started</source>
@@ -238,7 +242,7 @@
     </message>
     <message>
       <source>is typing now...</source>
-      <translation type="unfinished"/>
+      <translation>skriver en melding...</translation>
     </message>
   </context>
   <context>
@@ -295,11 +299,11 @@
     </message>
     <message>
       <source>Delay</source>
-      <translation type="unfinished"/>
+      <translation>Forsinkelse</translation>
     </message>
     <message>
       <source>Position</source>
-      <translation type="unfinished"/>
+      <translation>Posisjon</translation>
     </message>
     <message>
       <source>Edit message</source>
@@ -319,7 +323,7 @@
     </message>
     <message>
       <source>Delay in seconds</source>
-      <translation type="unfinished"/>
+      <translation>Forsinkelse i sekunder</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -327,7 +331,7 @@
     </message>
     <message>
       <source>Please enter canned message</source>
-      <translation type="unfinished"/>
+      <translation>Skriv inn ferdig-melding</translation>
     </message>
     <message>
       <source>Please enter a canned message</source>
@@ -497,23 +501,15 @@
     </message>
     <message>
       <source>Fill textarea with canned message</source>
-      <translation type="unfinished"/>
+      <translation>Fyll tekstområde med ferdigmelding</translation>
     </message>
     <message>
       <source>Send delayed canned message instantly</source>
-      <translation type="unfinished"/>
+      <translation>Send forsinkede forhåndsmeldinger umiddelbart</translation>
     </message>
   </context>
   <context>
     <name>chat/syncadmininterface</name>
-    <message>
-      <source>Open in a new window</source>
-      <translation>Åpne i nytt vindu</translation>
-    </message>
-    <message>
-      <source>Add chat</source>
-      <translation>Legg til samtale</translation>
-    </message>
     <message>
       <source>Close chat</source>
       <translation>Lukk samtale</translation>
@@ -521,6 +517,18 @@
     <message>
       <source>Delete chat</source>
       <translation>Slett samtale</translation>
+    </message>
+    <message>
+      <source>Reject chat</source>
+      <translation>Avvis samtale</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Åpne i nytt vindu</translation>
+    </message>
+    <message>
+      <source>Add chat</source>
+      <translation>Legg til samtale</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -543,20 +551,16 @@
       <translation>Godta samtale</translation>
     </message>
     <message>
-      <source>Reject chat</source>
-      <translation>Avvis samtale</translation>
-    </message>
-    <message>
       <source>h.</source>
       <translation>h.</translation>
     </message>
     <message>
       <source>m.</source>
-      <translation type="unfinished"/>
+      <translation>m.</translation>
     </message>
     <message>
       <source>s.</source>
-      <translation type="unfinished"/>
+      <translation>s.</translation>
     </message>
   </context>
   <context>
@@ -662,7 +666,7 @@
     </message>
     <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
-      <translation>Du har ikke tilgang til å starte samtale, vennligst ta kontakt med Reklameservice AS på 71 20 19 00.</translation>
+      <translation>Du har ikke tilgang til å starte samtale, vennligst kontakt sidens eier.</translation>
     </message>
     <message>
       <source>Invalid captcha code, please enable Javascript!</source>
@@ -678,7 +682,7 @@
     </message>
     <message>
       <source>Please enter a valid email address</source>
-      <translation type="unfinished"/>
+      <translation>Vennligst fyll inn en gyldig epost</translation>
     </message>
     <message>
       <source>Please enter your message</source>
@@ -694,7 +698,7 @@
     </message>
     <message>
       <source>Maximum 100 characters for phone</source>
-      <translation type="unfinished"/>
+      <translation>Maks 100 tegn for mobiltelefon</translation>
     </message>
     <message>
       <source>Live Support</source>
@@ -706,11 +710,11 @@
     </message>
     <message>
       <source>Maximum 500 characters for a message</source>
-      <translation type="unfinished"/>
+      <translation>Maks 500 bokstaver for melding</translation>
     </message>
     <message>
       <source>Fill in the form to start a chat</source>
-      <translation type="unfinished"/>
+      <translation>Fyll ut skjema for å starte samtale</translation>
     </message>
   </context>
   <context>
@@ -721,7 +725,7 @@
     </message>
     <message>
       <source>A support staff member has closed this chat</source>
-      <translation type="unfinished"/>
+      <translation>En fra support har lukke samtalen</translation>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
@@ -817,7 +821,7 @@
     <name>chat/errors/adminchatnopermission</name>
     <message>
       <source>You do not have permission to access the current chat!</source>
-      <translation type="unfinished"/>
+      <translation>Du har ikke tilgang til denne samtalen</translation>
     </message>
   </context>
   <context>
@@ -875,23 +879,23 @@
     </message>
     <message>
       <source>API Key</source>
-      <translation type="unfinished"/>
+      <translation>API Nøkkel</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation type="unfinished"/>
+      <translation>Brukernavn</translation>
     </message>
     <message>
       <source>IP, if your site remote IP is different from detected one, please provide correct remote IP address</source>
-      <translation type="unfinished"/>
+      <translation>IP, Hvis ip adressen til ditt nettsted er forskjellig fra oppdaget ip adresse. Vennligst fyll inn korrekt ip adresse</translation>
     </message>
     <message>
       <source>Map location</source>
-      <translation type="unfinished"/>
+      <translation>Kartlokasjon</translation>
     </message>
     <message>
       <source>Drag a marker where you want to have map centered by default. Zoom is also saved.</source>
-      <translation type="unfinished"/>
+      <translation>Dra en markør hvor du ønsker å ha kartet sentrert. Zoom nivå blir også lagret</translation>
     </message>
     <message>
       <source>Settings updated</source>
@@ -907,11 +911,11 @@
     </message>
     <message>
       <source>Lat.</source>
-      <translation type="unfinished"/>
+      <translation>Breddegrad</translation>
     </message>
     <message>
       <source>Lon.</source>
-      <translation type="unfinished"/>
+      <translation>Lengdegrad</translation>
     </message>
     <message>
       <source>Identifier</source>
@@ -923,15 +927,15 @@
     </message>
     <message>
       <source>ago</source>
-      <translation type="unfinished"/>
+      <translation>siden</translation>
     </message>
     <message>
       <source>User does not have any message from operator</source>
-      <translation type="unfinished"/>
+      <translation>Brukeren har ingen meldinger fra operatør</translation>
     </message>
     <message>
       <source>User have not seen message from operator, or message window still open.</source>
-      <translation type="unfinished"/>
+      <translation>Brukeren har en melding fra operatør, eller at samtalevinduet enda er åpent.</translation>
     </message>
     <message>
       <source>User has seen message from operator.</source>
@@ -947,11 +951,11 @@
     </message>
     <message>
       <source>has send message to user</source>
-      <translation type="unfinished"/>
+      <translation>har sendt en melding til brukeren</translation>
     </message>
     <message>
       <source>No one has send any message to user yet</source>
-      <translation type="unfinished"/>
+      <translation>Ingen har svart brukeren enda</translation>
     </message>
     <message>
       <source>First visit</source>
@@ -995,7 +999,7 @@
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation type="unfinished"/>
+      <translation>Er du sikker?</translation>
     </message>
     <message>
       <source>Clear list</source>
@@ -1059,7 +1063,7 @@
     </message>
     <message>
       <source>User has seen the message from the operator.</source>
-      <translation type="unfinished"/>
+      <translation>Brukeren har sett meldingen fra operatør</translation>
     </message>
     <message>
       <source>has sent a message to the user</source>
@@ -1071,11 +1075,11 @@
     </message>
     <message>
       <source>first visit</source>
-      <translation type="unfinished"/>
+      <translation>første besøk</translation>
     </message>
     <message>
       <source>last visit</source>
-      <translation type="unfinished"/>
+      <translation>sist besøk</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -1103,15 +1107,15 @@
     </message>
     <message>
       <source>Please enter city variable!</source>
-      <translation type="unfinished"/>
+      <translation>Vennligst fyll in by</translation>
     </message>
     <message>
       <source>Please enter latitude variable!</source>
-      <translation type="unfinished"/>
+      <translation>Vennligst skriv inn lengdegrad!</translation>
     </message>
     <message>
       <source>Please enter longitude variable!</source>
-      <translation type="unfinished"/>
+      <translation>Vennligst skriv inn breddegrad!</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages!</source>
@@ -1127,38 +1131,38 @@
     </message>
     <message>
       <source>Please enter IP!</source>
-      <translation type="unfinished"/>
+      <translation>Fyll inn ip adresse!</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key and username is correct!</source>
-      <translation type="unfinished"/>
+      <translation>Valg av tjenesteleverandør mislykkes, vennligst sjekk at leverandøren tillater forespørsler til eksterne sider!</translation>
     </message>
     <message>
       <source>Please choose a service provider!</source>
-      <translation type="unfinished"/>
+      <translation>Vennligst velg tjenesteleverandør</translation>
     </message>
     <message>
       <source>Online users</source>
-      <translation type="unfinished"/>
+      <translation>Påloggede brukere</translation>
     </message>
   </context>
   <context>
     <name>chat/getstatus</name>
     <message>
       <source>Live help is online...</source>
-      <translation type="unfinished"/>
+      <translation>Support er online</translation>
     </message>
     <message>
       <source>Live help is offline...</source>
-      <translation type="unfinished"/>
+      <translation>Support er offline</translation>
     </message>
     <message>
       <source>Close</source>
-      <translation type="unfinished"/>
+      <translation>Lukk</translation>
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation type="unfinished"/>
+      <translation>Åpne i nytt vindu</translation>
     </message>
   </context>
   <context>
@@ -1208,19 +1212,19 @@
     </message>
     <message>
       <source>Chatbox</source>
-      <translation type="unfinished"/>
+      <translation>Samtaleboks</translation>
     </message>
     <message>
       <source>Position from the top, is only used if the Middle left or the Middle right side is chosen</source>
-      <translation type="unfinished"/>
+      <translation>Posisjon fra toppen, bruk kun hvis midt-venstre eller midt-høyre side er valgt</translation>
     </message>
     <message>
       <source>Pixels</source>
-      <translation type="unfinished"/>
+      <translation>Piksler</translation>
     </message>
     <message>
       <source>Percents</source>
-      <translation type="unfinished"/>
+      <translation>Prosent</translation>
     </message>
     <message>
       <source>Size</source>
@@ -1256,19 +1260,19 @@
     </message>
     <message>
       <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation type="unfinished"/>
+      <translation>Kopier koden fra tekstfeltet til bunntekst, før den avsluttende &lt;/ body&gt;-koden</translation>
     </message>
     <message>
       <source>Copy the code from the textarea to page where you want it to be rendered</source>
-      <translation type="unfinished"/>
+      <translation>Koper koden fra tekst området til en side hvor du vil vise den.</translation>
     </message>
     <message>
       <source>Status text</source>
-      <translation type="unfinished"/>
+      <translation>Status tekst</translation>
     </message>
     <message>
       <source>FAQ</source>
-      <translation type="unfinished"/>
+      <translation>FAQ</translation>
     </message>
     <message>
       <source>Position from the top, only used if the Middle left or the Middle right side is chosen</source>
@@ -1276,7 +1280,7 @@
     </message>
     <message>
       <source>Help us to grow</source>
-      <translation type="unfinished"/>
+      <translation>Hjelp oss vokse</translation>
     </message>
     <message>
       <source>Hide status when offline</source>
@@ -1356,7 +1360,7 @@
     </message>
     <message>
       <source>Embed code</source>
-      <translation type="unfinished"/>
+      <translation>Integrer html kode</translation>
     </message>
   </context>
   <context>
@@ -1469,7 +1473,7 @@
     </message>
     <message>
       <source>Chat archive</source>
-      <translation type="unfinished"/>
+      <translation>Chat arkiv</translation>
     </message>
     <message>
       <source>Live help embed code</source>
@@ -1535,7 +1539,7 @@
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation type="unfinished"/>
+      <translation>Åpne i nytt vindu</translation>
     </message>
     <message>
       <source>Reject chat</source>
@@ -1580,7 +1584,7 @@
     </message>
     <message>
       <source>Recipient e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Mottakers epost</translation>
     </message>
     <message>
       <source>Subject</source>
@@ -1651,11 +1655,11 @@
     </message>
     <message>
       <source>Start chat with operator</source>
-      <translation type="unfinished"/>
+      <translation>Start chat med operatør</translation>
     </message>
     <message>
       <source>Type your message to the operator</source>
-      <translation type="unfinished"/>
+      <translation>Skriv melding til operatør</translation>
     </message>
   </context>
   <context>
@@ -1702,7 +1706,7 @@
     </message>
     <message>
       <source>Phone</source>
-      <translation type="unfinished"/>
+      <translation>Mobiltelefon</translation>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>
@@ -1714,7 +1718,7 @@
     </message>
     <message>
       <source>Start chat form settings</source>
-      <translation type="unfinished"/>
+      <translation>Start samtlaleskjema instillinger</translation>
     </message>
   </context>
   <context>
@@ -1737,7 +1741,7 @@
     </message>
     <message>
       <source>Synchronisation and sound settings</source>
-      <translation type="unfinished"/>
+      <translation>Synk. og lydinstillinger</translation>
     </message>
     <message>
       <source>How many seconds for a user to be considered as being online</source>
@@ -1745,7 +1749,7 @@
     </message>
     <message>
       <source>Value in seconds</source>
-      <translation type="unfinished"/>
+      <translation>verdi i sekunder</translation>
     </message>
     <message>
       <source>Sync for new chats, interval in seconds</source>
@@ -1868,7 +1872,7 @@
     </message>
     <message>
       <source>ago</source>
-      <translation type="unfinished"/>
+      <translation>siden</translation>
     </message>
   </context>
   <context>
@@ -1931,176 +1935,176 @@
     <name>chatarchive/archive</name>
     <message>
       <source>Chat archive</source>
-      <translation type="unfinished"/>
+      <translation>Chat arkiv</translation>
     </message>
     <message>
       <source>Archives list</source>
-      <translation type="unfinished"/>
+      <translation>Arkiv liste</translation>
     </message>
     <message>
       <source>New archive</source>
-      <translation type="unfinished"/>
+      <translation>Nytt arkiv</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/archivechats</name>
     <message>
       <source>Archiving has finished.</source>
-      <translation type="unfinished"/>
+      <translation>Arkivering utført</translation>
     </message>
     <message>
       <source>See archived chats</source>
-      <translation type="unfinished"/>
+      <translation>Se arkiverte samtaler</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/editarchive</name>
     <message>
       <source>Edit archive</source>
-      <translation type="unfinished"/>
+      <translation>Rediger arkiv</translation>
     </message>
     <message>
       <source>Archive updated</source>
-      <translation type="unfinished"/>
+      <translation>Arkiv oppdatert</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/newarchive</name>
     <message>
       <source>Date from</source>
-      <translation type="unfinished"/>
+      <translation>Dato fra</translation>
     </message>
     <message>
       <source>E.g</source>
-      <translation type="unfinished"/>
+      <translation>F.eks</translation>
     </message>
     <message>
       <source>Date to</source>
-      <translation type="unfinished"/>
+      <translation>Dato til</translation>
     </message>
     <message>
       <source>New archive</source>
-      <translation type="unfinished"/>
+      <translation>Nytt arkiv</translation>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>
-      <translation type="unfinished"/>
+      <translation>Vennligst velg et gyldig fra tid!</translation>
     </message>
     <message>
       <source>Please enter a valid to date range!</source>
-      <translation type="unfinished"/>
+      <translation>Vennligst velg et gyldig til tid!</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/list</name>
     <message>
       <source>Archives list</source>
-      <translation type="unfinished"/>
+      <translation>Arkiv liste</translation>
     </message>
     <message>
       <source>From date</source>
-      <translation type="unfinished"/>
+      <translation>Fra dato</translation>
     </message>
     <message>
       <source>Till date</source>
-      <translation type="unfinished"/>
+      <translation>Til dato</translation>
     </message>
     <message>
       <source>Chats in archive</source>
-      <translation type="unfinished"/>
+      <translation>samtaler i arkivet</translation>
     </message>
     <message>
       <source>Messages in archive</source>
-      <translation type="unfinished"/>
+      <translation>Meldinger i arkivet</translation>
     </message>
     <message>
       <source>List chats</source>
-      <translation type="unfinished"/>
+      <translation>List opp samtaler</translation>
     </message>
     <message>
       <source>Process again</source>
-      <translation type="unfinished"/>
+      <translation>Prosesser igjen</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation type="unfinished"/>
+      <translation>Rediger</translation>
     </message>
     <message>
       <source>Archived chats</source>
-      <translation type="unfinished"/>
+      <translation>Arkiverte samtaler</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/listarchivechats</name>
     <message>
       <source>Archived chats</source>
-      <translation type="unfinished"/>
+      <translation>Arkiverte samtaler</translation>
     </message>
     <message>
       <source>Information</source>
-      <translation type="unfinished"/>
+      <translation>Informasjon</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/process</name>
     <message>
       <source>Process archive</source>
-      <translation type="unfinished"/>
+      <translation>Prosesser arkiv</translation>
     </message>
     <message>
       <source>Process</source>
-      <translation type="unfinished"/>
+      <translation>Prosess</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/process_content</name>
     <message>
       <source>Date from</source>
-      <translation type="unfinished"/>
+      <translation>Dato fra</translation>
     </message>
     <message>
       <source>Date to</source>
-      <translation type="unfinished"/>
+      <translation>Dato til</translation>
     </message>
     <message>
       <source>Potential chats to archive</source>
-      <translation type="unfinished"/>
+      <translation>samtaler som vil bli arkivert</translation>
     </message>
     <message>
       <source>Archived chats</source>
-      <translation type="unfinished"/>
+      <translation>Arkiverte samtaler</translation>
     </message>
     <message>
       <source>Archive progress</source>
-      <translation type="unfinished"/>
+      <translation>Arkivering pågår</translation>
     </message>
     <message>
       <source>Pending for action...</source>
-      <translation type="unfinished"/>
+      <translation>Venter på behandling...</translation>
     </message>
     <message>
       <source>Terms dictionary</source>
-      <translation type="unfinished"/>
+      <translation>Vilkår ordbok</translation>
     </message>
     <message>
       <source>first archived chat ID</source>
-      <translation type="unfinished"/>
+      <translation>Første arkiverte chat ID</translation>
     </message>
     <message>
       <source>last archived chat ID</source>
-      <translation type="unfinished"/>
+      <translation>Siste arkiverte chat ID</translation>
     </message>
     <message>
       <source>number of archived chats</source>
-      <translation type="unfinished"/>
+      <translation>antall arkiverte samtaler</translation>
     </message>
     <message>
       <source>number of archived messages</source>
-      <translation type="unfinished"/>
+      <translation>antall arkiverte meldinger</translation>
     </message>
     <message>
       <source>Error accoured during archive process</source>
-      <translation type="unfinished"/>
+      <translation>En feil oppstod under arkiverings prosessen</translation>
     </message>
   </context>
   <context>
@@ -2199,7 +2203,7 @@
     </message>
     <message>
       <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation type="unfinished"/>
+      <translation>Kopier koden fra tekstfeltet til bunntekst, før den avsluttende &lt;/ body&gt;-koden</translation>
     </message>
     <message>
       <source>HTML code</source>
@@ -2222,7 +2226,7 @@
     </message>
     <message>
       <source>Chatbox</source>
-      <translation type="unfinished"/>
+      <translation>Samtaleboks</translation>
     </message>
   </context>
   <context>
@@ -2264,18 +2268,18 @@
     <name>kernel/messages</name>
     <message>
       <source>Are you sure?</source>
-      <translation type="unfinished"/>
+      <translation>Er du sikker?</translation>
     </message>
   </context>
   <context>
     <name>chatbox/new</name>
     <message>
       <source>New chatbox</source>
-      <translation type="unfinished"/>
+      <translation>Ny samtaleboks</translation>
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>Ny</translation>
     </message>
   </context>
   <context>
@@ -2302,7 +2306,7 @@
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation type="unfinished"/>
+      <translation>Er du sikker?</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -2349,18 +2353,18 @@
     </message>
     <message>
       <source>departments</source>
-      <translation type="unfinished"/>
+      <translation>Avdelinger</translation>
     </message>
     <message>
       <source>Edit a department</source>
-      <translation type="unfinished"/>
+      <translation>Redigere avdeling</translation>
     </message>
   </context>
   <context>
     <name>user/account</name>
     <message>
       <source>Updated</source>
-      <translation type="unfinished"/>
+      <translation>Oppdatert</translation>
     </message>
     <message>
       <source>Logged user</source>
@@ -2396,7 +2400,7 @@
     </message>
     <message>
       <source>Email</source>
-      <translation type="unfinished"/>
+      <translation>epost</translation>
     </message>
     <message>
       <source>Name</source>
@@ -2444,11 +2448,11 @@
     </message>
     <message>
       <source>Please enter a username!</source>
-      <translation type="unfinished"/>
+      <translation>Vennligst skriv inn et brukernavn</translation>
     </message>
     <message>
       <source>User exists!</source>
-      <translation type="unfinished"/>
+      <translation>Brukeren eksisterer</translation>
     </message>
     <message>
       <source>Wrong email address</source>
@@ -2599,7 +2603,7 @@
     </message>
     <message>
       <source>Please enter question!</source>
-      <translation type="unfinished"/>
+      <translation>Vennligst skriv et spørmål!</translation>
     </message>
     <message>
       <source>FAQ</source>
@@ -2716,7 +2720,7 @@
     </message>
     <message>
       <source>Please choose module</source>
-      <translation type="unfinished"/>
+      <translation>Velg en modul</translation>
     </message>
     <message>
       <source>Please choose module function</source>
@@ -2976,7 +2980,7 @@
     </message>
     <message>
       <source>Edit a question</source>
-      <translation type="unfinished"/>
+      <translation>Redigere et spørsmål</translation>
     </message>
   </context>
   <context>
@@ -3011,11 +3015,11 @@
     </message>
     <message>
       <source>Edit the question</source>
-      <translation type="unfinished"/>
+      <translation>Rediger spørsmålet</translation>
     </message>
     <message>
       <source>Delete the question</source>
-      <translation type="unfinished"/>
+      <translation>Slett dette spørsmålet</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -3083,7 +3087,7 @@
     <name>questionary/votingwidget</name>
     <message>
       <source>Questionary</source>
-      <translation type="unfinished"/>
+      <translation>Spørreskjema</translation>
     </message>
     <message>
       <source>Thank you!</source>
@@ -3178,7 +3182,7 @@
     </message>
     <message>
       <source>Menu</source>
-      <translation type="unfinished"/>
+      <translation>Meny</translation>
     </message>
     <message>
       <source>Online visitors</source>
@@ -3194,7 +3198,7 @@
     </message>
     <message>
       <source>Chatbox</source>
-      <translation type="unfinished"/>
+      <translation>Samtaleboks</translation>
     </message>
     <message>
       <source>Account</source>
@@ -3213,7 +3217,7 @@
     </message>
     <message>
       <source>Your language</source>
-      <translation type="unfinished"/>
+      <translation>Ditt språk</translation>
     </message>
     <message>
       <source>Language</source>
@@ -3221,7 +3225,7 @@
     </message>
     <message>
       <source>General language settings</source>
-      <translation type="unfinished"/>
+      <translation>Generelle språkinstillinger</translation>
     </message>
     <message>
       <source>Current site access</source>
@@ -3253,7 +3257,7 @@
     </message>
     <message>
       <source>Please choose correct language</source>
-      <translation type="unfinished"/>
+      <translation>Vennligst velg korrekt språk</translation>
     </message>
     <message>
       <source>Please enter theme</source>
@@ -3335,7 +3339,7 @@
     </message>
     <message>
       <source>Save</source>
-      <translation type="unfinished"/>
+      <translation>Lagre</translation>
     </message>
     <message>
       <source>Update</source>
@@ -3355,7 +3359,7 @@
     </message>
     <message>
       <source>Invalid CSRF token!</source>
-      <translation type="unfinished"/>
+      <translation>Ugyldig CSRF-nøkkel</translation>
     </message>
     <message>
       <source>Please enter a name</source>
@@ -3462,7 +3466,7 @@
     </message>
     <message>
       <source>Please enter a group name</source>
-      <translation type="unfinished"/>
+      <translation>Vennligst skriv inn gruppenavn</translation>
     </message>
   </context>
   <context>
@@ -3544,7 +3548,7 @@
     </message>
     <message>
       <source>Password remind</source>
-      <translation type="unfinished"/>
+      <translation>Passord påminnelse</translation>
     </message>
     <message>
       <source>Click this link and You will be sent a new password</source>
@@ -3597,7 +3601,7 @@
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Navn</translation>
     </message>
     <message>
       <source>Edit group</source>
@@ -3620,7 +3624,7 @@
     <name>gallery/album_list_admin</name>
     <message>
       <source>Are you sure?</source>
-      <translation type="unfinished"/>
+      <translation>Er du sikker?</translation>
     </message>
   </context>
   <context>
@@ -3685,7 +3689,7 @@
     <name>user/remindpassword</name>
     <message>
       <source>New password</source>
-      <translation type="unfinished"/>
+      <translation>Nytt passord</translation>
     </message>
     <message>
       <source>Hash was not found or was used already</source>
@@ -3693,7 +3697,7 @@
     </message>
     <message>
       <source>Password remind - new password</source>
-      <translation type="unfinished"/>
+      <translation>Passordpåminnelse - nytt passord</translation>
     </message>
     <message>
       <source>New password:</source>
@@ -3708,35 +3712,35 @@
     <name>lhxml/userinfo</name>
     <message>
       <source>ID</source>
-      <translation type="unfinished"/>
+      <translation>ID</translation>
     </message>
     <message>
       <source>IP address</source>
-      <translation type="unfinished"/>
+      <translation>IP adresse</translation>
     </message>
     <message>
       <source>Current page</source>
-      <translation type="unfinished"/>
+      <translation>Gjeldene side</translation>
     </message>
     <message>
       <source>Last visit</source>
-      <translation type="unfinished"/>
+      <translation>Siste besøk</translation>
     </message>
     <message>
       <source>User agent</source>
-      <translation type="unfinished"/>
+      <translation>Nettleser</translation>
     </message>
     <message>
       <source>Country code</source>
-      <translation type="unfinished"/>
+      <translation>Landskode</translation>
     </message>
     <message>
       <source>Country name</source>
-      <translation type="unfinished"/>
+      <translation>Land</translation>
     </message>
     <message>
       <source>Message seen</source>
-      <translation type="unfinished"/>
+      <translation>Meldingen sett</translation>
     </message>
   </context>
   <context>
@@ -3751,11 +3755,11 @@
     </message>
     <message>
       <source>Support staff member has closed this chat</source>
-      <translation type="unfinished"/>
+      <translation>Support har lukket samtalen</translation>
     </message>
     <message>
       <source>You do not have permission to view this chat, or chat was deleted</source>
-      <translation type="unfinished"/>
+      <translation>Du har ikke rettigheter til å se samtale, samtalen kan også være slettet</translation>
     </message>
     <message>
       <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
@@ -3846,7 +3850,7 @@
     <name>chat/transferuser</name>
     <message>
       <source>Chat was assigned to selected department</source>
-      <translation type="unfinished"/>
+      <translation>Samtale ble tilordnet den valgte avdelingen</translation>
     </message>
     <message>
       <source>Chat was assigned to selected user</source>
@@ -3857,11 +3861,11 @@
     <name>departament/edit</name>
     <message>
       <source>Please enter a valid from date range!</source>
-      <translation type="unfinished"/>
+      <translation>Venligst velg en gyldig fra dato</translation>
     </message>
     <message>
       <source>Please enter a valid to date range!</source>
-      <translation type="unfinished"/>
+      <translation>Venligst velg en gyldig til dato</translation>
     </message>
     <message>
       <source>Please enter a department name</source>
@@ -3872,14 +3876,14 @@
     <name>chatarchive/viewarchivedchat</name>
     <message>
       <source>View archived chat</source>
-      <translation type="unfinished"/>
+      <translation>Vis arkivert chat</translation>
     </message>
   </context>
   <context>
     <name>chat/deletechatadmin</name>
     <message>
       <source>You do not have rights to delete a chat</source>
-      <translation type="unfinished"/>
+      <translation>Du har ikke rettigheter til å slette en samtale</translation>
     </message>
   </context>
 </TS>

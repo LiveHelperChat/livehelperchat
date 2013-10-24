@@ -749,7 +749,9 @@ switch ((int)$Params['user_parameters']['step_id']) {
                     array('module' => 'lhquestionary',  'function' => 'manage_questionary'),
                     array('module' => 'lhfaq',   		'function' => 'manage_faq'),
                     array('module' => 'lhchatbox',   	'function' => 'manage_chatbox'),
-                    array('module' => 'lhxml',   		'function' => '*')
+                    array('module' => 'lhxml',   		'function' => '*'),
+                    array('module' => 'lhfile',   		'function' => 'use_operator'),
+                    array('module' => 'lhfile',   		'function' => 'file_delete_chat')
                 );
 
                 foreach ($permissionsArray as $paramsPermission) {
