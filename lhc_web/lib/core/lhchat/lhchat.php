@@ -573,6 +573,20 @@ class erLhcoreClassChat {
        return $rows;
     }
 
+    public static function isOnlineUser($user_id) {
+    	$isOnlineUser = (int)erConfigClassLhConfig::getInstance()->getSetting('chat','online_timeout');
+
+    	$db = ezcDbInstance::get();
+
+    	$stmt = $db->prepare('SELECT count(lh_users.id) FROM lh_users INNER JOIN lh_userdep ON lh_userdep.user_id = lh_users.id WHERE lh_userdep.last_activity > :last_activity AND lh_users.id = :user_id');
+    	$stmt->bindValue(':last_activity',(time()-$isOnlineUser));
+    	$stmt->bindValue(':user_id',$user_id);
+    	$stmt->execute();
+
+    	$rows = $stmt->fetchColumn();
+
+    	return $rows > 0;
+    }
 
 
    /**
