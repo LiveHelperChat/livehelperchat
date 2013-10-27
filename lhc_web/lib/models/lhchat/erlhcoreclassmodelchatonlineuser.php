@@ -528,6 +528,9 @@ class erLhcoreClassModelChatOnlineUser {
    // Logical attributes
    public $store_chat = false;
 
+   // Invitation assigned
+   public $invitation_assigned = false;
+
 }
 
 ?>

@@ -1,4 +1,8 @@
-<h3><?php echo erLhcoreClassBBCode::make_clickable(htmlspecialchars($visitor->operator_message)); ?></h3>
+<div id="messages" class="mb10">
+     <div class="msgBlock" id="messagesBlock">
+       	<div class="message-row response"><div class="msg-date"><?php echo date('H:i:s',time()-5); ?></div><span class="usr-tit"><img src="<?php echo erLhcoreClassDesign::design('images/icons/user_suit.png');?>" title="" alt="" />&nbsp;</span><?php echo erLhcoreClassBBCode::make_clickable(htmlspecialchars($visitor->operator_message)); ?></div>
+     </div>
+</div>
 
 <form action="" id="ReadOperatorMessage" method="post">
 
@@ -31,4 +35,7 @@
 jQuery('#id_Question').bind('keyup', 'return', function (evt){
 	document.getElementById("ReadOperatorMessage").submit();
 });
+<?php if ($playsound == true) : ?>
+$(function() {lhinst.playInvitationSound();});
+<?php endif; ?>
 </script>

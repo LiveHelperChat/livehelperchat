@@ -282,6 +282,7 @@ class erLhAbstractModelProactiveChatInvitation {
 			$item->requires_email = $message->requires_email;
 			$item->invitation_count++;
 			$item->store_chat = true;
+			$item->invitation_assigned = true;
 			$item->last_visit = time();
 			$message->executed_times += 1;
 			$message->updateThis();

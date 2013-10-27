@@ -254,7 +254,7 @@ $ViewList['reopen'] = array(
 $ViewList['readoperatormessage'] = array(
     'script' => 'readoperatormessage.php',
     'params' => array(),
-    'uparams' => array('priority','vid','department')
+    'uparams' => array('priority','vid','department','playsound')
 );
 
 $ViewList['chatcheckoperatormessage'] = array(

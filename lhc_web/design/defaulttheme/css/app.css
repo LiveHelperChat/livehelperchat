@@ -646,3 +646,7 @@ ul.accordion-faq li {
 .chat-active{color:#5da423;}
 .chat-unread{color:#c60f13;}
 .chat-closed{color:#BB474A;}
+
+.mb10{
+	margin-bottom: 10px;
+}

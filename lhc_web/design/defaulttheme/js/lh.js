@@ -764,6 +764,18 @@ function lh(){
     	};
 	};
 
+	this.playInvitationSound = function() {
+
+		if (Modernizr.audio) {
+    	    var audio = new Audio();
+            audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + '/invitation.ogg' :
+                        Modernizr.audio.mp3 ? WWW_DIR_JAVASCRIPT_FILES + '/invitation.mp3' : WWW_DIR_JAVASCRIPT_FILES + '/invitation.wav';
+
+            audio.load();
+            audio.play();
+	    }
+	};
+
     this.syncadmincall = function()
 	{
 	    if (this.chatsSynchronising.length > 0)
