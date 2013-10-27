@@ -309,6 +309,11 @@ table tr td {
 	padding:2px;
 	resize: vertical;
 }
+
+.msgBlock-admin{
+	height:200px;
+}
+
 textarea[name=ChatMessage]{
 	resize: vertical;
 }

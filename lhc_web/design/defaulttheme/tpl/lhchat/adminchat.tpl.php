@@ -3,7 +3,7 @@
 		<a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Show/Hide right column')?>" href="#" class="icon-right-circled collapse-right" onclick="lhinst.processCollapse('<?php echo $chat->id;?>')"></a>
 
 		<div class="message-block pb10">
-			<div class="msgBlock" id="messagesBlock-<?php echo $chat->id?>">
+			<div class="msgBlock msgBlock-admin" id="messagesBlock-<?php echo $chat->id?>">
 				<?php
 				$LastMessageID = 0;
     			$messages = erLhcoreClassChat::getChatMessages($chat->id); ?>
