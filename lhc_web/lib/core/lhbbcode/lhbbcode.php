@@ -158,7 +158,7 @@ class erLhcoreClassBBCode
 			$in = 'http://' . $in;
 		}
 
-        return '<a href="'.$in.'">'.$matches[2].'</a>';
+        return '<a class=\"link\" target=\"_blank\" href="'.$in.'">'.$matches[2].'</a>';
    }
 
    public static function _make_flattr_embed($matches){
