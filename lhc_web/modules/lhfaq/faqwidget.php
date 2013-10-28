@@ -62,16 +62,23 @@ if (!empty($dynamic_url_append)) {
 $session = erLhcoreClassFaq::getSession();
 $q = $session->database->createSelectQuery();
 $q->select( "COUNT(id)" )->from( "lh_faq" );
+
 $q->where(
 		$q->expr->eq( 'active', 1 ),
 		$q->expr->lOr(
-		$q->expr->eq( 'url', $q->bindValue('') ),
-		$q->expr->eq( 'url', $q->bindValue( trim($matchStringURL) ) ) )
+				$q->expr->eq( 'url', $q->bindValue('') ),
+				$q->expr->eq( 'url', $q->bindValue( trim($matchStringURL) ) ),
+				$q->expr->lAnd(
+						$q->expr->eq( 'is_wildcard', $q->bindValue(1) ),
+						$q->expr->like( $session->database->quote(trim($matchStringURL)),'concat(left(url,length(url)-1),\'%\')'))
+		)
 
 );
+
 $stmt = $q->prepare();
 $stmt->execute();
 $result = $stmt->fetchColumn();
+
 
 $pages = new lhPaginator();
 $pages->serverURL = erLhcoreClassDesign::baseurl('faq/faqwidget').$dynamic_url_append;
@@ -86,7 +93,10 @@ if ($pages->items_total > 0) {
 			$q->expr->eq( 'active', 1 ),
 			$q->expr->lOr(
 					$q->expr->eq( 'url', $q->bindValue('') ),
-					$q->expr->eq( 'url', $q->bindValue( trim($matchStringURL) ) ) )
+					$q->expr->eq( 'url', $q->bindValue( trim($matchStringURL) ) ),
+					$q->expr->lAnd(
+						$q->expr->eq( 'is_wildcard', $q->bindValue(1) ),
+						$q->expr->like( $session->database->quote(trim($matchStringURL)),'concat(left(url,length(url)-1),\'%\')')) )
 
 	);
 	$q->limit($pages->items_per_page, $pages->low);

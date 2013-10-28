@@ -1,3 +1,17 @@
+1.62v
+
+Features
+1. FAQ modules URL now supports wildcard at the end.
+E.g /shop/basket/*
+2. Invitation widget new style. Sound on first invitation.
+
+Changes from github for summary:
+https://github.com/remdex/livehelperchat/issues/164
+https://github.com/remdex/livehelperchat/issues/162
+https://github.com/remdex/livehelperchat/issues/163
+
+execute doc/update_db/update_44.sql for update
+
 1.61v
 
 1. Files upload module

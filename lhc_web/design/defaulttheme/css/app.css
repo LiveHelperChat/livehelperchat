@@ -647,6 +647,10 @@ ul.accordion-faq li {
 	padding:20px;
 }
 
+.tooltip{
+	font-size:12px;
+}
+
 .chat-pending{color:#99AC11;}
 .chat-active{color:#5da423;}
 .chat-unread{color:#c60f13;}

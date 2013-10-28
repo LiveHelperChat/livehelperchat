@@ -310,10 +310,12 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `url` varchar(250) NOT NULL,
 				  `active` int(11) NOT NULL,
 				  `has_url` tinyint(1) NOT NULL,
+				  `is_wildcard` tinyint(1) NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `active` (`active`),
 				  KEY `active_url` (`active`,`url`),
-				  KEY `has_url` (`has_url`)
+				  KEY `has_url` (`has_url`),
+				  KEY `is_wildcard` (`is_wildcard`)
 				) DEFAULT CHARSET=utf8;");
 
         	   $db->query("CREATE TABLE `lh_chat_file` (
@@ -329,7 +331,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   `date` int(11) NOT NULL,
         	   PRIMARY KEY (`id`),
         	   KEY `chat_id` (`chat_id`)
-        	   ) CHARSET=utf8;");
+        	   ) DEFAULT CHARSET=utf8;");
 
         	   $db->query("CREATE TABLE `lh_abstract_email_template` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,

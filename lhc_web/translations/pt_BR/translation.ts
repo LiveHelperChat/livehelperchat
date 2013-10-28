@@ -277,7 +277,7 @@
     </message>
     <message>
       <source>User blocking failed, perhaps you do not have permission to block users?</source>
-      <translation>Não foi possível bloquear o usuário, talvez você não tenha permissão para bloquear usuários?</translation>
+      <translation>O bloqueio do usuário falhou, talvez você não tenha permissão para bloquear usuários?</translation>
     </message>
   </context>
   <context>
@@ -353,11 +353,19 @@
     <name>chat/adminchat</name>
     <message>
       <source>Footprint</source>
-      <translation>Pegada</translation>
+      <translation>Rastro</translation>
     </message>
     <message>
       <source>Visitor</source>
       <translation>Visitante</translation>
+    </message>
+    <message>
+      <source>General information</source>
+      <translation>Informações gerais</translation>
+    </message>
+    <message>
+      <source>Files</source>
+      <translation>Arquivos</translation>
     </message>
     <message>
       <source>Pending chat</source>
@@ -421,7 +429,7 @@
     </message>
     <message>
       <source>Chat duration</source>
-      <translation>Duração da conversa</translation>
+      <translation>Duração do chat</translation>
     </message>
     <message>
       <source>Actions</source>
@@ -429,19 +437,19 @@
     </message>
     <message>
       <source>Close dialog</source>
-      <translation>Fechar dialogo</translation>
+      <translation>Fechar janela</translation>
     </message>
     <message>
       <source>Close chat</source>
-      <translation>Fechar conversa</translation>
+      <translation>Fechar chat</translation>
     </message>
     <message>
       <source>Delete chat</source>
-      <translation>Apagar conversa</translation>
+      <translation>Apagar chat</translation>
     </message>
     <message>
       <source>Transfer chat</source>
-      <translation>Transferir conversa</translation>
+      <translation>Transferir chat</translation>
     </message>
     <message>
       <source>Are you sure?</source>
@@ -461,11 +469,11 @@
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
-      <translation>Conversa entre operadores, conversa iniciada</translation>
+      <translation>Chat entre operadores, Inicializador de chat</translation>
     </message>
     <message>
       <source>Chat owner</source>
-      <translation>Dono da conversa</translation>
+      <translation>Dono do chat</translation>
     </message>
     <message>
       <source>Map</source>
@@ -473,7 +481,7 @@
     </message>
     <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
-      <translation>Não pôde detectar. Certifique-se que a GEO detecção está ativada.</translation>
+      <translation>Não pôde detectar. Certifique-se que a geolocalização está ativada.</translation>
     </message>
     <message>
       <source>Browsing information</source>
@@ -512,7 +520,7 @@
     <name>chat/syncadmininterface</name>
     <message>
       <source>Close chat</source>
-      <translation>Fechar conversa</translation>
+      <translation>Fechar chat</translation>
     </message>
     <message>
       <source>Delete chat</source>
@@ -520,7 +528,7 @@
     </message>
     <message>
       <source>Reject chat</source>
-      <translation>Rejeitar conversa</translation>
+      <translation>Rejeitar chat</translation>
     </message>
     <message>
       <source>Open in a new window</source>
@@ -528,7 +536,7 @@
     </message>
     <message>
       <source>Add chat</source>
-      <translation>Adicionar conversa</translation>
+      <translation>Adicionar chat</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -536,7 +544,7 @@
     </message>
     <message>
       <source>Start chat</source>
-      <translation>Iniciar bate-papo</translation>
+      <translation>Iniciar chat</translation>
     </message>
     <message>
       <source>Last activity</source>
@@ -552,7 +560,7 @@
     </message>
     <message>
       <source>h.</source>
-      <translation>val.</translation>
+      <translation>h.</translation>
     </message>
     <message>
       <source>m.</source>
@@ -567,19 +575,19 @@
     <name>front/default</name>
     <message>
       <source>Pending confirm</source>
-      <translation>Conversas pendentes</translation>
+      <translation>Aguardando confirmação</translation>
     </message>
     <message>
       <source>All pending chats</source>
-      <translation>Todas as conversas pendentes</translation>
+      <translation>Todas os chats pendentes</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Arquivo de conversas</translation>
+      <translation>Chats ativos</translation>
     </message>
     <message>
       <source>All active chats</source>
-      <translation>Todas as conversas arquivadas</translation>
+      <translation>Todos os chats ativos</translation>
     </message>
     <message>
       <source>Unread messages</source>
@@ -587,15 +595,15 @@
     </message>
     <message>
       <source>All unread chats</source>
-      <translation>Todas as mensagens não lidas</translation>
+      <translation>Todas os chats não lidos</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Conversas fechadas</translation>
+      <translation>Chats fechados</translation>
     </message>
     <message>
       <source>All closed chats</source>
-      <translation>Todas as conversas fechadas</translation>
+      <translation>Todos os chats fechados</translation>
     </message>
     <message>
       <source>Online operators</source>
@@ -626,7 +634,7 @@
     </message>
     <message>
       <source>Start chat</source>
-      <translation>Iniciar conversa</translation>
+      <translation>Iniciar chat</translation>
     </message>
     <message>
       <source>There are no online operators at the moment, please leave a message</source>
@@ -658,7 +666,7 @@
     </message>
     <message>
       <source>Fill out this form to start a chat</source>
-      <translation>Preencha o formulário para iniciar uma conversa</translation>
+      <translation>Preencha este formulário para iniciar uma conversa</translation>
     </message>
     <message>
       <source>There are no online operators at the moment, please leave your message</source>
@@ -666,11 +674,11 @@
     </message>
     <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
-      <translation>Você não tem permissão para conversar! Por favor, entre em contato com o proprietário do site.</translation>
+      <translation>Você não tem permissão para o chat! Por favor, contate o proprietário do site.</translation>
     </message>
     <message>
       <source>Invalid captcha code, please enable Javascript!</source>
-      <translation>Código captcha inválido, ative o javascript!</translation>
+      <translation>Código captcha inválido, por favor ative o javascript!</translation>
     </message>
     <message>
       <source>Please enter your name</source>
@@ -828,7 +836,7 @@
     <name>chat/errors/entertext</name>
     <message>
       <source>Please enter text!</source>
-      <translation>Por favor entre com um texto!</translation>
+      <translation>Por favor informe o texto!</translation>
     </message>
   </context>
   <context>
@@ -1096,6 +1104,14 @@
     <message>
       <source>Marker timeout before it dissapears from map</source>
       <translation>Marcador de limite de tempo antes de desaparecer do mapa</translation>
+    </message>
+    <message>
+      <source>Files upload for users is active</source>
+      <translation>Envio de arquivos para usuários está ativo</translation>
+    </message>
+    <message>
+      <source>Files upload for operators is active</source>
+      <translation>Envio de arquivos para operadores está ativo</translation>
     </message>
     <message>
       <source>Country code variable does not exist!</source>
@@ -1512,19 +1528,35 @@
       <translation>Lista de regras</translation>
     </message>
     <message>
+      <source>Files uploads configuration</source>
+      <translation>Configurações de envio de arquivos</translation>
+    </message>
+    <message>
+      <source>Files upload configuration</source>
+      <translation>Configurações de envio de arquivos</translation>
+    </message>
+    <message>
+      <source>List of files</source>
+      <translation>Lista de arquivos</translation>
+    </message>
+    <message>
       <source>Other</source>
       <translation>Outros</translation>
+    </message>
+    <message>
+      <source>File configuration</source>
+      <translation>Configuração de arquivo</translation>
     </message>
   </context>
   <context>
     <name>chat/operatorschats</name>
     <message>
       <source>Operators chats list</source>
-      <translation>Lista de conversas de operadores</translation>
+      <translation>Lista de chats de operadores</translation>
     </message>
     <message>
       <source>Operators chats</source>
-      <translation>Conversas de operadores</translation>
+      <translation>Chats de operadores</translation>
     </message>
   </context>
   <context>
@@ -1921,14 +1953,14 @@
     <name>chat/userjoined</name>
     <message>
       <source>User has joined the chat!</source>
-      <translation>O usuário entrou na conversa!</translation>
+      <translation>Usuário entrou no chat!</translation>
     </message>
   </context>
   <context>
     <name>chat/userleftchat</name>
     <message>
       <source>User has left the chat!</source>
-      <translation>O usuário deixou a conversa!</translation>
+      <translation>Usuário deixou o chat!</translation>
     </message>
   </context>
   <context>
@@ -2716,7 +2748,7 @@
     </message>
     <message>
       <source>Please enter role name</source>
-      <translation>Por favor escolha o nome da regra</translation>
+      <translation>Por favor informe o nome da regra</translation>
     </message>
     <message>
       <source>Please choose module</source>
@@ -2757,7 +2789,7 @@
     <name>permission/newpolicy</name>
     <message>
       <source>New policy</source>
-      <translation>Nova politica</translation>
+      <translation>Nova política</translation>
     </message>
     <message>
       <source>Assigned functions</source>
@@ -2773,7 +2805,7 @@
     </message>
     <message>
       <source>Choose a module function</source>
-      <translation>Escolha uma função módulo</translation>
+      <translation>Escolha uma função do módulo</translation>
     </message>
     <message>
       <source>All functions</source>
@@ -2781,7 +2813,7 @@
     </message>
     <message>
       <source>Save</source>
-      <translation>Gravar</translation>
+      <translation>Salvar</translation>
     </message>
     <message>
       <source>Cancel</source>
@@ -2800,7 +2832,7 @@
     </message>
     <message>
       <source>Policy list</source>
-      <translation>Lista de politicas</translation>
+      <translation>Lista de políticas</translation>
     </message>
     <message>
       <source>Module</source>
@@ -2812,11 +2844,11 @@
     </message>
     <message>
       <source>New policy</source>
-      <translation>Nova politica</translation>
+      <translation>Nova política</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Gravar</translation>
+      <translation>Salvar</translation>
     </message>
     <message>
       <source>Cancel</source>
@@ -2824,7 +2856,7 @@
     </message>
     <message>
       <source>Please enter role name</source>
-      <translation>Por favor entre com um nome de regra</translation>
+      <translation>Por favor informe o nome de regra</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -2870,7 +2902,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Configuração de sistema</translation>
+      <translation>Configuração do sistema</translation>
     </message>
   </context>
   <context>
@@ -3485,7 +3517,7 @@
     </message>
     <message>
       <source>Assigned users</source>
-      <translation>Atribuir usuários</translation>
+      <translation>Usuários atribuídos</translation>
     </message>
     <message>
       <source>Username</source>
@@ -3493,11 +3525,11 @@
     </message>
     <message>
       <source>Remove user from the group</source>
-      <translation>Remover o usuário do grupo</translation>
+      <translation>Remover usuário do grupo</translation>
     </message>
     <message>
       <source>Assign user</source>
-      <translation>Atribuir usuários</translation>
+      <translation>Atribuir usuário</translation>
     </message>
     <message>
       <source>Assigned roles</source>
@@ -3513,15 +3545,15 @@
     </message>
     <message>
       <source>Assign role</source>
-      <translation>Atribuir regras</translation>
+      <translation>Atribuir regra</translation>
     </message>
     <message>
       <source>Please enter a group name</source>
-      <translation>Informar o nome do grupo</translation>
+      <translation>Por favor Informe um nome do grupo</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Configuração de sistema</translation>
+      <translation>Configuração do sistema</translation>
     </message>
     <message>
       <source>Groups</source>
@@ -3767,7 +3799,7 @@
     </message>
     <message>
       <source>You do not have permission to view this chat, or the chat was deleted</source>
-      <translation>Você não tem permissão para visualizar esta conversa ou a conversa foi apagada</translation>
+      <translation>Você não tem permissão para visualizar este chat ou o chat foi apagado</translation>
     </message>
   </context>
   <context>
@@ -3854,7 +3886,7 @@
     </message>
     <message>
       <source>Chat was assigned to selected user</source>
-      <translation>Conversa foi atribuida ao usuário selecionado</translation>
+      <translation>O chat foi atribuído ao usuário selecionado</translation>
     </message>
   </context>
   <context>
@@ -3884,6 +3916,113 @@
     <message>
       <source>You do not have rights to delete a chat</source>
       <translation>Você não possui permissão para apagar um chat</translation>
+    </message>
+  </context>
+  <context>
+    <name>files/files</name>
+    <message>
+      <source>Refresh</source>
+      <translation>Atualizar</translation>
+    </message>
+    <message>
+      <source>Delete file</source>
+      <translation>Apagar arquivo</translation>
+    </message>
+    <message>
+      <source>Download file</source>
+      <translation>Baixar arquivo</translation>
+    </message>
+    <message>
+      <source>Drop your files here.</source>
+      <translation>Arraste seus arquivos aqui.</translation>
+    </message>
+    <message>
+      <source>Not an accepted file type</source>
+      <translation>Não é um tipo de arquivo aceito</translation>
+    </message>
+    <message>
+      <source>Filesize is too big</source>
+      <translation>Arquivo muito grande</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/configuration</name>
+    <message>
+      <source>File configuration</source>
+      <translation>Configuração de arquivo</translation>
+    </message>
+    <message>
+      <source>Allowed files types for operators</source>
+      <translation>Tipos de arquivos permitidos para operadores</translation>
+    </message>
+    <message>
+      <source>Allowed files types for users</source>
+      <translation>tipos de arquivos permitidos para usuários</translation>
+    </message>
+    <message>
+      <source>Maximum file size in KB</source>
+      <translation>Tamanho máximo do arquivo em KB</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Configirações atualizadas</translation>
+    </message>
+    <message>
+      <source>Please enter valid file type!</source>
+      <translation>Por favor informe um tipo de arquivo válido!</translation>
+    </message>
+    <message>
+      <source>Please enter valid maximum file size!</source>
+      <translation>Por favor informe um tamanho máximo de arquivo válido!</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/list</name>
+    <message>
+      <source>List of files</source>
+      <translation>Listade arquivos</translation>
+    </message>
+    <message>
+      <source>User</source>
+      <translation>Usuário</translation>
+    </message>
+    <message>
+      <source>Chat</source>
+      <translation>Chat</translation>
+    </message>
+    <message>
+      <source>Upload name</source>
+      <translation>Nome do envio</translation>
+    </message>
+    <message>
+      <source>File size</source>
+      <translation>Tamaho do arquivo</translation>
+    </message>
+    <message>
+      <source>Extension</source>
+      <translation>Extensão</translation>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>Data</translation>
+    </message>
+    <message>
+      <source>Delete the file</source>
+      <translation>Apagar o arquivo</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/file</name>
+    <message>
+      <source>Download file</source>
+      <translation>Baixar arquivo</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/configurations</name>
+    <message>
+      <source>Please enter valid file type!</source>
+      <translation>Por favor insira um tipo de arquivo válido!</translation>
     </message>
   </context>
 </TS>
