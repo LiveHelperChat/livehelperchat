@@ -4,6 +4,7 @@ Features
 1. FAQ modules URL now supports wildcard at the end.
 E.g /shop/basket/*
 2. Invitation widget new style. Sound on first invitation.
+3. Chat API module for getting users status.
 
 Changes from github for summary:
 https://github.com/remdex/livehelperchat/issues/164
