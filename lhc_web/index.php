@@ -1,5 +1,11 @@
 <?php
 
+if (date('i') == 10 ||  date('i') == 11){
+	echo "Demo is being reinstalling right now";
+	exit;
+}
+
+
 @ini_set('error_reporting', 0);
 @ini_set('display_errors', 0);
 @ini_set('session.gc_probability', 1);
