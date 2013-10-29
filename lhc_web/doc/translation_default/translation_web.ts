@@ -59,6 +59,10 @@
       <source>Delete department</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Test</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>abstract/abstract_form</name>

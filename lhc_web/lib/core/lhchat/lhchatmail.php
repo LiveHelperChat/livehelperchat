@@ -17,6 +17,32 @@ class erLhcoreClassChatMail {
 		}
 	}
 
+	public static function sendTestMail($userData) {
+
+		$mail = new PHPMailer(true);
+		$mail->CharSet = "UTF-8";
+
+		if ($sendMail->from_email != '') {
+			$mail->Sender = $userData->email;
+		}
+
+		$mail->From = $userData->email;
+		$mail->FromName = $userData->email;
+		$mail->Subject = 'LHC Test mail';
+		$mail->AddReplyTo($userData->email,(string)$userData);
+		$mail->Body = 'This is test mail. If you received this mail. That means that your SMTP settings is correct.';
+		$mail->AddAddress( $userData->email );
+
+		self::setupSMTP($mail);
+
+		try {
+			return $mail->Send();
+		} catch (Exception $e) {
+			throw $e;
+		}
+		$mail->ClearAddresses();
+	}
+
 	// Prepare template variables
     public static function prepareSendMail(erLhAbstractModelEmailTemplate & $sendMail)
     {
