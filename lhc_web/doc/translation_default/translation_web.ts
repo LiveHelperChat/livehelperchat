@@ -4054,6 +4054,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Date range from to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Search</source>
       <translation type="unfinished"/>
     </message>
