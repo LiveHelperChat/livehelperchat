@@ -26,6 +26,32 @@ $fieldsSearch['nick'] = array (
     )
 );
 
+$fieldsSearch['timefrom'] = array (
+    'type' => 'text',
+    'trans' => 'Timefrom',
+    'required' => false,
+    'valid_if_filled' => false,
+    'datatype' => 'date',
+    'filter_type' => 'filtergte',
+    'filter_table_field' => 'time',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+    )
+);
+
+$fieldsSearch['timeto'] = array (
+    'type' => 'text',
+    'trans' => 'Timeto',
+    'required' => false,
+    'valid_if_filled' => false,
+    'datatype' => 'date',
+    'filter_type' => 'filterlte',
+    'filter_table_field' => 'time',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+    )
+);
+
 /*
 $fieldsSearch['user'] = array (
 	'type' => 'text',

@@ -20,6 +20,7 @@ $archive->setArchiveTables();
 $pages = new lhPaginator();
 $pages->serverURL = erLhcoreClassDesign::baseurl('chatarchive/listarchivechats').'/'.$archive->id.$append;
 $pages->items_total = erLhcoreClassChat::getCount($filterParams['filter'],erLhcoreClassModelChatArchiveRange::$archiveTable);
+$pages->setItemsPerPage(2);
 $pages->paginate();
 
 $items = array();

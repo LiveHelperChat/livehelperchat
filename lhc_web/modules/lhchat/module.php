@@ -122,32 +122,32 @@ $ViewList['syncadmin'] = array(
 
 $ViewList['activechats'] = array(
     'params' => array(),
-    'uparams' => array('nick','email'),
+    'uparams' => array('nick','email','timefrom','timeto'),
     'functions' => array( 'use' )
 );
 
 $ViewList['closedchats'] = array(
     'params' => array(),
-    'uparams' => array('nick','email'),
+    'uparams' => array('nick','email','timefrom','timeto'),
     'functions' => array( 'use' )
 );
 
 $ViewList['operatorschats'] = array(
     'params' => array(),
-	'uparams' => array('nick','email'),
+	'uparams' => array('nick','email','timefrom','timeto'),
     'functions' => array( 'use' )
 );
 
 $ViewList['unreadchats'] = array(
     'script' => 'unreadchats.php',
     'params' => array(),
-	'uparams' => array('nick','email'),
+	'uparams' => array('nick','email','timefrom','timeto'),
     'functions' => array( 'use' )
 );
 
 $ViewList['pendingchats'] = array(
     'params' => array(),
-    'uparams' => array('nick','email'),
+    'uparams' => array('nick','email','timefrom','timeto'),
     'functions' => array( 'use' )
     );
 
