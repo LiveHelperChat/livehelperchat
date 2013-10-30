@@ -57,6 +57,10 @@
       <source>Delete department</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Test</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>abstract/abstract_form</name>
@@ -1203,6 +1207,10 @@
   <context>
     <name>system/htmlcode</name>
     <message>
+      <source>Check for messages from the operator</source>
+      <translation>Sprawdź wiadomości od operatora</translation>
+    </message>
+    <message>
       <source>Widget embed code</source>
       <translation>Kod osadzonego widgeta</translation>
     </message>
@@ -1323,8 +1331,12 @@
       <translation>Pokaż widget strony, po kliknięciu myszką</translation>
     </message>
     <message>
-      <source>Check for messages from the operator</source>
-      <translation>Sprawdź wiadomości od operatora</translation>
+      <source>Automatically check for messages from the operator/invitation messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>It increases server load, because every 15 seconds is checked for operator message or invitation message.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Disable pro active invitations, usefull if you want disable them from site part.</source>
@@ -2562,6 +2574,10 @@
     <message>
       <source>Answer</source>
       <translation>Odpowiedź</translation>
+    </message>
+    <message>
+      <source>URL, enter * at the end for the wildcard</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>The URL where this question should appear, leave it empty for all</source>

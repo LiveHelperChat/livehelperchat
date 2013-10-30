@@ -57,6 +57,10 @@
       <source>Delete department</source>
       <translation>Apagar departamento</translation>
     </message>
+    <message>
+      <source>Test</source>
+      <translation>Teste</translation>
+    </message>
   </context>
   <context>
     <name>abstract/abstract_form</name>
@@ -238,7 +242,7 @@
     </message>
     <message>
       <source>Chat started</source>
-      <translation>Conversa iniciada</translation>
+      <translation>Chat iniciado</translation>
     </message>
     <message>
       <source>is typing now...</source>
@@ -729,7 +733,7 @@
     <name>chat/checkchatstatus</name>
     <message>
       <source>A support staff member has joined this chat</source>
-      <translation>Um membro da equipe de apoio juntou este bate-papo</translation>
+      <translation>Um membro da equipe se juntou a este chat</translation>
     </message>
     <message>
       <source>A support staff member has closed this chat</source>
@@ -737,11 +741,11 @@
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
-      <translation>Na pendência de um membro da equipe de apoio para te atender, você pode escrever suas perguntas, e assim que um membro da equipe de apoio confirmar este bate-papo, ele vai receber suas mensagens</translation>
+      <translation>Na pendência de um membro da equipe para te atender, você pode escrever suas perguntas, e assim que este chat for confirmado, ele vai receber suas mensagens</translation>
     </message>
     <message>
       <source>At this moment there are no logged in support staff members, but you can leave your messages</source>
-      <translation>Neste momento não existe logado membros da equipe de apoio, mas você pode deixar suas mensagens</translation>
+      <translation>Neste momento não existe logado membros da equipe, mas você pode deixar suas mensagens</translation>
     </message>
   </context>
   <context>
@@ -1203,6 +1207,10 @@
   <context>
     <name>system/htmlcode</name>
     <message>
+      <source>Check for messages from the operator</source>
+      <translation>Verificar se há mensagens do operador</translation>
+    </message>
+    <message>
       <source>Widget embed code</source>
       <translation>Código de incorporação do widget</translation>
     </message>
@@ -1212,15 +1220,15 @@
     </message>
     <message>
       <source>HTML code</source>
-      <translation>HTML código</translation>
+      <translation>Código HTML</translation>
     </message>
     <message>
       <source>Choose a language</source>
-      <translation>Escolha uma linguagem</translation>
+      <translation>Escolha um idioma</translation>
     </message>
     <message>
       <source>Chatbox messages content height</source>
-      <translation>Altura do conteúdo de mensagens do Chatbox</translation>
+      <translation>Altura do conteúdo das mensagens no Chatbox</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>
@@ -1300,11 +1308,11 @@
     </message>
     <message>
       <source>Hide status when offline</source>
-      <translation>Esconder o estado quando estiver offline</translation>
+      <translation>Ocultar status quando offline</translation>
     </message>
     <message>
       <source>Show a leave a message form when there are no online operators</source>
-      <translation>Mostrar o formulário de mensagem quando não há operadores on-line</translation>
+      <translation>Mostrar o formulário de deixar mensagem quando não há operadores on-line</translation>
     </message>
     <message>
       <source>Department</source>
@@ -1316,15 +1324,19 @@
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want your status to appear</source>
-      <translation>Copie o código da área de texto para a página onde você quer que seu status apareça</translation>
+      <translation>Copie o código de área de texto para a página onde você deseja que seu status apareça</translation>
     </message>
     <message>
       <source>On a mouse click show the page widget</source>
-      <translation>Mostrar a página do widget com um clique do mouse</translation>
+      <translation>Um clique do mouse mostra a página do widget </translation>
     </message>
     <message>
-      <source>Check for messages from the operator</source>
-      <translation>Verifique as mensagens do operador</translation>
+      <source>Automatically check for messages from the operator/invitation messages</source>
+      <translation>Verificar automaticamente se há mensagens do operador ou convites</translation>
+    </message>
+    <message>
+      <source>It increases server load, because every 15 seconds is checked for operator message or invitation message.</source>
+      <translation>Isso aumenta a carga do servidor, pois a cada 15 segundos é verificado por mensagens do operador ou mensagens de convite.</translation>
     </message>
     <message>
       <source>Disable pro active invitations, usefull if you want disable them from site part.</source>
@@ -1360,11 +1372,11 @@
     </message>
     <message>
       <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>Localização Nativa - será mostrado onde o html é incorporado</translation>
+      <translation>Localização nativa - será mostrado onde o html é incorporado</translation>
     </message>
     <message>
       <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
-      <translation>Identificador, este pode ser utilizado como filtro para convites de chat pró-ativo e tendo completo, mensagens diferentes para os diferentes domínios. Apenas seqüência de caracteres sem espaços ou caracteres especiais.</translation>
+      <translation>Identificador, este pode ser utilizado como filtro para convites de chat pró-ativo é útil quando se tem mensagens diferentes para domínios diferentes. Apenas seqüência de caracteres sem espaços ou caracteres especiais.</translation>
     </message>
     <message>
       <source>Leave empty if it is not important to you</source>
@@ -1372,7 +1384,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Configuração de sistema</translation>
+      <translation>Configuração do sistema</translation>
     </message>
     <message>
       <source>Embed code</source>
@@ -1698,7 +1710,7 @@
     <name>chat/startchatformsettings</name>
     <message>
       <source>Start a chat form settings</source>
-      <translation>iniciar configuração de formulário de bate-papo</translation>
+      <translation>Iniciar uma configuração de formulário de chat</translation>
     </message>
     <message>
       <source>At least one field has to be visible and required in the popup and page widget</source>
@@ -1730,7 +1742,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Email</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Message</source>
@@ -1793,7 +1805,7 @@
     </message>
     <message>
       <source>Check for messages from the operators, interval in seconds</source>
-      <translation>Verificar se há mensagens de operadores, intervalo em segundos</translation>
+      <translation>Intervalo em segundos para verificar se há mensagens de operadores </translation>
     </message>
     <message>
       <source>Play a new pending chat sound on a new chat request</source>
@@ -2322,11 +2334,11 @@
     </message>
     <message>
       <source>Name</source>
-      <translation>Título</translation>
+      <translation>Nome</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Email</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Edit department</source>
@@ -2342,7 +2354,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Configuração de sistema</translation>
+      <translation>Configuração do sistema</translation>
     </message>
   </context>
   <context>
@@ -2353,11 +2365,11 @@
     </message>
     <message>
       <source>Name</source>
-      <translation>Título</translation>
+      <translation>Nome</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Email</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Priority</source>
@@ -2381,7 +2393,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Configuração de sistema</translation>
+      <translation>Configuração do sistema</translation>
     </message>
     <message>
       <source>departments</source>
@@ -2562,6 +2574,10 @@
     <message>
       <source>Answer</source>
       <translation>Resposta</translation>
+    </message>
+    <message>
+      <source>URL, enter * at the end for the wildcard</source>
+      <translation>URL, digite * no final do caractere curinga</translation>
     </message>
     <message>
       <source>The URL where this question should appear, leave it empty for all</source>
@@ -3834,7 +3850,7 @@
     </message>
     <message>
       <source>Reply to</source>
-      <translation>Responder a</translation>
+      <translation>Responder para</translation>
     </message>
     <message>
       <source>Allow to change reply e-mail</source>
@@ -3850,7 +3866,7 @@
     </message>
     <message>
       <source>E-mail templates</source>
-      <translation>Templates de email</translation>
+      <translation>Modelos de e-mail</translation>
     </message>
   </context>
   <context>
@@ -3875,7 +3891,7 @@
     <name>chat/single</name>
     <message>
       <source>Chat started with</source>
-      <translation>Conversa iniciada com</translation>
+      <translation>Chat iniciado com</translation>
     </message>
   </context>
   <context>
