@@ -64,7 +64,10 @@ class erLhcoreClassFileUpload extends UploadHandler {
 	        $msg = new erLhcoreClassModelmsg();
 	        $msg->msg = '[file='.$file->id.'_'.md5($fileUpload->name.'_'.$fileUpload->chat_id).']';
 	        $msg->chat_id = $chat->id;
-	        $msg->user_id = 0;
+	        $msg->user_id = isset($this->options['user_id']) ? $this->options['user_id'] : 0;
+	        if ($msg->user_id > 0 && isset($this->options['name_support'])){
+	        	$msg->name_support = (string)$this->options['name_support'];
+	        }
 	        $chat->last_user_msg_time = $msg->time = time();
 
 	        erLhcoreClassChat::getSession()->save($msg);
