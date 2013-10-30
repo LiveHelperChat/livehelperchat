@@ -142,6 +142,24 @@ class erLhcoreClassRenderHelper {
         return $returnArray;
     }
 
+    public static function renderArray($params)
+    {
+    	$items = call_user_func($params['list_function'],isset($params['list_function_params']) ? $params['list_function_params'] : array());
+    	$array = array();
+
+    	foreach ($items as $item){
+
+    		$itemsElement = array();
+    		foreach ($params['elements_items'] as $identifier => $value){
+    			$itemsElement[$identifier] = $item->{$value};
+    		}
+
+    		$array[$item->{$params['identifier']}] = $itemsElement;
+    	}
+
+    	return $array;
+    }
+
 
 
 }

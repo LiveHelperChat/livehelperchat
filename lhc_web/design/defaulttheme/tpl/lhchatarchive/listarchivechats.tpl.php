@@ -1,5 +1,7 @@
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/listarchivechats','Archived chats');?> (<?php echo htmlspecialchars($archive->range_from_front)?> - <?php echo htmlspecialchars($archive->range_to_front)?>)</h1>
 
+<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/search_panel.tpl.php')); ?>
+
 <?php if ($pages->items_total > 0) { ?>
 
 <table class="lentele" cellpadding="0" cellspacing="0" width="100%">

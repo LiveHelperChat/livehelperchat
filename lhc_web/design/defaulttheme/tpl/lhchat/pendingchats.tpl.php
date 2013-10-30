@@ -1,6 +1,9 @@
 <h1 class="attr-header"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Pending chats list');?></h1>
 
+<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/search_panel.tpl.php')); ?>
+
 <?php if ($pages->items_total > 0) { ?>
+
 <table class="lentele" cellpadding="0" cellspacing="0" width="100%">
     <thead>
         <tr>
@@ -8,7 +11,7 @@
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Information');?></th>
         </tr>
     </thead>
-    <?php foreach (erLhcoreClassChat::getPendingChats($pages->items_per_page,$pages->low) as $chat) : ?>
+    <?php foreach ($items as $chat) : ?>
     <tr>
         <td><?php echo $chat->id?></td>
         <td>

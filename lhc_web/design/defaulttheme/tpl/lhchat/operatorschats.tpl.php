@@ -1,6 +1,8 @@
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorschats','Operators chats list');?></h1>
-<?php if ($pages->items_total > 0) { ?>
 
+<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/search_panel.tpl.php')); ?>
+
+<?php if ($pages->items_total > 0) { ?>
 <table class="lentele" cellpadding="0" cellspacing="0" width="100%">
 <thead>
     <tr>
@@ -8,7 +10,7 @@
         <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closedchats','Information');?></th>
     </tr>
 </thead>
-    <?php foreach (erLhcoreClassChat::getOperatorsChats($pages->items_per_page,$pages->low) as $chat) : ?>
+    <?php foreach ($items as $chat) : ?>
     <tr>
         <td><?php echo $chat->id?></td>
         <td>

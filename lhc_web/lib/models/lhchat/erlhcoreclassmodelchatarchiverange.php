@@ -83,6 +83,11 @@ class erLhcoreClassModelChatArchiveRange {
    		return array('error' => 'false','fcid' => $firstChatID, 'lcid' => $lastChatID, 'messages_archived' => $messagesArchived, 'chats_archived' => count($list), 'pending_archive' => ($pending_archive == 100 ? 'true' : 'false'));
    }
 
+   public function setArchiveTables() {
+   		self::$archiveTable = "lh_chat_archive_{$this->id}";
+   		self::$archiveMsgTable = "lh_chat_archive_msg_{$this->id}";
+   }
+
    public function __get($var) {
        switch ($var) {
 

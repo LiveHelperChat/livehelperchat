@@ -45,7 +45,7 @@
  *     {
  *         $text = $form->textfield;
  *     }
- * 
+ *
  *     try
  *     {
  *         $xml = $form->xmlfield; // Uses dynamic properties through __get().
@@ -56,7 +56,7 @@
  *     {
  *         // one of the required fields didn't have valid data.
  *         $invalidProperties = $form->getInvalidProperties();
- * 
+ *
  *         // Retrieve RAW data for invalid properties so that we can fill in the
  *         // forms online with this RAW data again - Make sure to escape it on
  *         // output though, but that should be done for all data anyway.
@@ -65,7 +65,7 @@
  *             $xml = $form->getUnsafeRawData( 'xmlfield' );
  *         }
  *     }
- * 
+ *
  *     // Checking optional fields
  *     foreach ( $form->getOptionalProperties() as $property )
  *     {
@@ -115,7 +115,7 @@ class ezcInputForm
      * Contains the definition for this form (as passed in the constructor).
      * @var array(string=>ezcInputFormDefinitionElement)
      */
-    private $definition;
+    protected $definition;
 
     /**
      * Contains a list of all retrieved properties and their status.  The key
@@ -123,7 +123,7 @@ class ezcInputForm
      * this key is one of the constants VALID or INVALID.
      * @var array
      */
-    private $properties;
+    protected $properties;
 
     /**
      * Contains the values of the input variables.  The key for each array
@@ -138,12 +138,12 @@ class ezcInputForm
      * Contains the input source to be used.
      * @var int
      */
-    private $inputSource;
+    protected $inputSource;
 
     /**
      * Whether all the input elements are valid
      */
-    private $allElementsValid;
+    protected $allElementsValid;
 
     /**
      * Constructs a new ezcInputForm for $inputSource with $definition.
@@ -205,7 +205,7 @@ class ezcInputForm
      * @throws ezcInputFormInvalidDefinitionException when one of the required
      *         input variables is missing or when the input source was invalid.
       */
-    private function parseInput()
+    protected function parseInput()
     {
         $this->allElementsValid = true;
 
