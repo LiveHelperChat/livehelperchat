@@ -4041,4 +4041,23 @@
       <translation type="unfinished"/>
     </message>
   </context>
+  <context>
+    <name>chat/lists/search_panel</name>
+    <message>
+      <source>Nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date range from to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Search</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
 </TS>
