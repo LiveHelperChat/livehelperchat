@@ -1,0 +1,1 @@
+<div><strong><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/errors/entertext','Please enter text!')?></strong></div>

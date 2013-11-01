@@ -7,7 +7,7 @@ return array (
       'title' => 'Live helper Chat',
       'site_admin_email' => '',
       'locale' => 'en_EN',
-      'theme' => 'defaulttheme',
+      'theme' => 'rusfix-one',
       'installed' => false,
       'secrethash' => '',
       'debug_output' => false,
@@ -93,6 +93,7 @@ return array (
         array (
           0 => 'customtheme',
           1 => 'defaulttheme',
+          2 => 'rusfix-one',
         ),
       ),
       'lit' =>
@@ -106,6 +107,7 @@ return array (
         array (
           0 => 'customtheme',
           1 => 'defaulttheme',
+          2 => 'rusfix-one',
         ),
         'default_url' =>
         array (
@@ -124,6 +126,7 @@ return array (
         array (
           0 => 'customtheme',
           1 => 'defaulttheme',
+          2 => 'rusfix-one',
         ),
         'default_url' =>
         array (
@@ -142,6 +145,7 @@ return array (
         array (
           0 => 'customtheme',
           1 => 'defaulttheme',
+          2 => 'rusfix-one',
         ),
         'default_url' =>
         array (
@@ -160,6 +164,7 @@ return array (
         array (
           0 => 'customtheme',
           1 => 'defaulttheme',
+          2 => 'rusfix-one',
         ),
         'default_url' =>
         array (
@@ -178,6 +183,7 @@ return array (
         array (
           0 => 'customtheme',
           1 => 'defaulttheme',
+          2 => 'rusfix-one',
         ),
         'default_url' =>
         array (
@@ -195,7 +201,8 @@ return array (
     	'theme' =>
       	array (
     		0 => 'customtheme',
-    		1 => 'defaulttheme'
+    		1 => 'defaulttheme',
+    		2 => 'rusfix-one',
       	),
     	   'default_url' =>
     	array (
@@ -213,7 +220,8 @@ return array (
     	'theme' =>
       	array (
     		0 => 'customtheme',
-    		1 => 'defaulttheme'
+    		1 => 'defaulttheme',
+    		2 => 'rusfix-one',
       	),
     	   'default_url' =>
     	array (
@@ -231,7 +239,8 @@ return array (
     	'theme' =>
       	array (
     		0 => 'customtheme',
-    		1 => 'defaulttheme'
+    		1 => 'defaulttheme',
+    		2 => 'rusfix-one',
       	),
     	   'default_url' =>
     	array (
@@ -249,7 +258,8 @@ return array (
     	'theme' =>
       	array (
     		0 => 'customtheme',
-    		1 => 'defaulttheme'
+    		1 => 'defaulttheme',
+    		2 => 'rusfix-one',
       	),
     	   'default_url' =>
     	array (
@@ -267,7 +277,8 @@ return array (
     	'theme' =>
       	array (
     		0 => 'customtheme',
-    		1 => 'defaulttheme'
+    		1 => 'defaulttheme',
+    		2 => 'rusfix-one',
       	),
     	   'default_url' =>
     	array (
@@ -285,7 +296,8 @@ return array (
     	'theme' =>
       	array (
     		0 => 'customtheme',
-    		1 => 'defaulttheme'
+    		1 => 'defaulttheme',
+    		2 => 'rusfix-one',
       	),
     	   'default_url' =>
     	array (
@@ -303,7 +315,8 @@ return array (
     	'theme' =>
       	array (
     		0 => 'customtheme',
-    		1 => 'defaulttheme'
+    		1 => 'defaulttheme',
+    		2 => 'rusfix-one',
       	),
     	   'default_url' =>
     	array (
@@ -321,7 +334,8 @@ return array (
     	'theme' =>
       	array (
     		0 => 'customtheme',
-    		1 => 'defaulttheme'
+    		1 => 'defaulttheme',
+    		2 => 'rusfix-one',
       	),
     	   'default_url' =>
     	array (
@@ -339,7 +353,8 @@ return array (
     	'theme' =>
       	array (
     		0 => 'customtheme',
-    		1 => 'defaulttheme'
+    		1 => 'defaulttheme',
+    		2 => 'rusfix-one',
       	),
     	   'default_url' =>
     	array (
@@ -357,7 +372,8 @@ return array (
     	'theme' =>
       	array (
     		0 => 'customtheme',
-    		1 => 'defaulttheme'
+    		1 => 'defaulttheme',
+    		2 => 'rusfix-one',
       	),
     	   'default_url' =>
     	array (
@@ -375,7 +391,8 @@ return array (
     	'theme' =>
       	array (
     		0 => 'customtheme',
-    		1 => 'defaulttheme'
+    		1 => 'defaulttheme',
+    		2 => 'rusfix-one',
       	),
     	   'default_url' =>
     	array (
@@ -393,7 +410,8 @@ return array (
     	'theme' =>
       	array (
     		0 => 'customtheme',
-    		1 => 'defaulttheme'
+    		1 => 'defaulttheme',
+    		2 => 'rusfix-one',
       	),
     	   'default_url' =>
     	array (
@@ -410,6 +428,7 @@ return array (
         array (
           0 => 'customtheme',
           1 => 'defaulttheme',
+          2 => 'rusfix-one',
         ),
         'login_pagelayout' => 'login',
         'default_url' =>

@@ -57,10 +57,6 @@
       <source>Delete department</source>
       <translation type="unfinished"/>
     </message>
-    <message>
-      <source>Test</source>
-      <translation type="unfinished"/>
-    </message>
   </context>
   <context>
     <name>abstract/abstract_form</name>
@@ -238,7 +234,7 @@
     </message>
     <message>
       <source>Visitor</source>
-      <translation type="unfinished"/>
+      <translation>Постетитель</translation>
     </message>
     <message>
       <source>Chat started</source>
@@ -346,7 +342,7 @@
     <name>chat/chatnotexists</name>
     <message>
       <source>Resume chat</source>
-      <translation>Возобновить диалог</translation>
+      <translation>Возобновить</translation>
     </message>
     <message>
       <source>Chat was deleted</source>
@@ -413,7 +409,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Емаил</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Phone</source>
@@ -622,7 +618,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Емаил</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Phone</source>
@@ -634,19 +630,19 @@
     </message>
     <message>
       <source>Enter your message</source>
-      <translation>Введите сообшение</translation>
+      <translation>Введите сообщение</translation>
     </message>
     <message>
       <source>Start chat</source>
-      <translation>начать чат</translation>
+      <translation>Hачать чат</translation>
     </message>
     <message>
       <source>There are no online operators at the moment, please leave a message</source>
-      <translation>На линии нет активных операторов, пожалуйста оставьте свое сообщение и вам ответят на Емаил</translation>
+      <translation>Операторов нет на месте. Вы можете отправить ваше сообщение, ответ придет вам на e-mail.</translation>
     </message>
     <message>
       <source>Leave a message</source>
-      <translation>Выйти из сообшщения</translation>
+      <translation>Оставить сообщение</translation>
     </message>
     <message>
       <source>Your request was sent!</source>
@@ -674,7 +670,7 @@
     </message>
     <message>
       <source>There are no online operators at the moment, please leave your message</source>
-      <translation>В настоящий момент операторы отсутствуют, пожалуйтста оставьте свое сообщение и вам ответят на Емаил</translation>
+      <translation>В настоящий момент операторы отсутствуют. Пожалуйтста оставьте свое сообщение и вам ответят на E-mail</translation>
     </message>
     <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
@@ -690,19 +686,19 @@
     </message>
     <message>
       <source>Maximum 50 characters</source>
-      <translation>50 Знаков максимум</translation>
+      <translation>Максимальная длина имени - 50 знаков</translation>
     </message>
     <message>
       <source>Please enter a valid email address</source>
-      <translation type="unfinished"/>
+      <translation>Введите ваш e-mail</translation>
     </message>
     <message>
       <source>Please enter your message</source>
-      <translation>Напишите свое сообщение</translation>
+      <translation>Введите ваше сообщение</translation>
     </message>
     <message>
       <source>Maximum 500 characters for message</source>
-      <translation>Максимум 500 символов для сообщения</translation>
+      <translation>Максимальная длина сообщения - 500 знаков</translation>
     </message>
     <message>
       <source>Please enter your phone</source>
@@ -733,19 +729,19 @@
     <name>chat/checkchatstatus</name>
     <message>
       <source>A support staff member has joined this chat</source>
-      <translation>Тех поддержка подключилась в онлайн и готова к диалогу</translation>
+      <translation>Здравствуйте, оператор онлайн.</translation>
     </message>
     <message>
       <source>A support staff member has closed this chat</source>
-      <translation type="unfinished"/>
+      <translation>Оператор покинул диалог.</translation>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
-      <translation>Ожидаем подключения поддержки, для ускорения решения проблеммы, опишите вопрос и как только менеджер подключится к диалогу Ваше сообщение будет прочитано.</translation>
+      <translation>Пожалуйста, подождите. Вам ответит первый освободившийся оператор.</translation>
     </message>
     <message>
       <source>At this moment there are no logged in support staff members, but you can leave your messages</source>
-      <translation>В настоящий момент нет ни одного менеджера в онлайн. Но Вы можете послать сообщение на которое получите ответ по Емаил.</translation>
+      <translation>Операторов нет на месте. Вы можете отправить ваше сообщение, ответ придет вам на e-mail.</translation>
     </message>
   </context>
   <context>
@@ -1207,10 +1203,6 @@
   <context>
     <name>system/htmlcode</name>
     <message>
-      <source>Check for messages from the operator</source>
-      <translation>Check for messages from the operator</translation>
-    </message>
-    <message>
       <source>Widget embed code</source>
       <translation>Widget embed code</translation>
     </message>
@@ -1331,12 +1323,8 @@
       <translation>On a mouse click show the page widget</translation>
     </message>
     <message>
-      <source>Automatically check for messages from the operator/invitation messages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>It increases server load, because every 15 seconds is checked for operator message or invitation message.</source>
-      <translation type="unfinished"/>
+      <source>Check for messages from the operator</source>
+      <translation>Check for messages from the operator</translation>
     </message>
     <message>
       <source>Disable pro active invitations, usefull if you want disable them from site part.</source>
@@ -1656,7 +1644,7 @@
     </message>
     <message>
       <source>Mail was sent to the user</source>
-      <translation>сообшение отправлено пользователю</translation>
+      <translation>сообщение отправлено пользователю</translation>
     </message>
     <message>
       <source>Please enter recipient e-mail!</source>
@@ -1687,7 +1675,7 @@
     </message>
     <message>
       <source>Type your message to the user</source>
-      <translation>Напишите сообшение пользователю</translation>
+      <translation>Напишите сообщение пользователю</translation>
     </message>
     <message>
       <source>Send the message</source>
@@ -1880,7 +1868,7 @@
     </message>
     <message>
       <source>Total messages (including visitors, system and operators messages)</source>
-      <translation>Всего сообщений (включая посетителей, сообшения системы и администратора)</translation>
+      <translation>Всего сообщений (включая посетителей, сообщения системы и администратора)</translation>
     </message>
     <message>
       <source>Total messages (only visitors)</source>
@@ -2289,7 +2277,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Емаил</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Last activity</source>
@@ -2338,7 +2326,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Емаил</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Edit department</source>
@@ -2369,7 +2357,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Емаил</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Priority</source>
@@ -2500,7 +2488,7 @@
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation>неправильный емаил адрес</translation>
+      <translation>неправильный e-mail адрес</translation>
     </message>
     <message>
       <source>Please enter a name</source>
@@ -2574,10 +2562,6 @@
     <message>
       <source>Answer</source>
       <translation>Ответ</translation>
-    </message>
-    <message>
-      <source>URL, enter * at the end for the wildcard</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>The URL where this question should appear, leave it empty for all</source>
@@ -3375,7 +3359,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Емаил</translation>
+      <translation>E-Mail</translation>
     </message>
     <message>
       <source>Name</source>
@@ -3403,7 +3387,7 @@
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation>Неправильный Емаил адрес</translation>
+      <translation>Неправильный E-mail адрес</translation>
     </message>
     <message>
       <source>Invalid CSRF token!</source>
@@ -3454,7 +3438,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Емаил</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Password</source>
@@ -3486,7 +3470,7 @@
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation>Неправильный Емаил адрес</translation>
+      <translation>Неправильный e-mail адрес</translation>
     </message>
     <message>
       <source>Please enter a name</source>
@@ -3584,7 +3568,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Емаил</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Restore password</source>
@@ -3592,7 +3576,7 @@
     </message>
     <message>
       <source>Invalid e-mail address!</source>
-      <translation>Неверный емаил адрес!</translation>
+      <translation>Неверный e-mail адрес!</translation>
     </message>
     <message>
       <source>Password remind</source>
@@ -3611,7 +3595,7 @@
     </message>
     <message>
       <source>E-mail sent. Click the link in the email and You will be sent out a new password.</source>
-      <translation>Емаил отправлен. Кликните по ссылке содержащейся в писме которое вы получили на свой емаил для восстановления пароля.</translation>
+      <translation>Письмо отправлено. Кликните по ссылке содержащейся в письме которое вы получили на свой e-mail для восстановления пароля.</translation>
     </message>
   </context>
   <context>
@@ -3622,7 +3606,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Емаил</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Name</source>
@@ -3753,7 +3737,7 @@
     </message>
     <message>
       <source>New password has been sent to your email.</source>
-      <translation>Новый пароль выслан на ваш емаил адрес.</translation>
+      <translation>Новый пароль выслан на ваш e-mail адрес.</translation>
     </message>
   </context>
   <context>

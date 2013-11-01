@@ -1,0 +1,4 @@
+<?php $errors = array(erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/nopermission','You do not have permission to access the module').' &quot;'.htmlspecialchars($module_name).'&quot; '.erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/nopermission','and use').' &quot;'.implode(',',$module['module']['functions']).'&quot; '.erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/nopermission','function'))?>
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
+
+<a class="button round secondary tiny" href="javascript:window.history.back()"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/nopermission','Go back')?></a>

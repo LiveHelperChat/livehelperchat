@@ -13,7 +13,7 @@ class erLhcoreClassChat {
     /**
      * Gets pending chats
      */
-    public static function getPendingChats($limit = 50, $offset = 0, $filterAdditional = array())
+    public static function getPendingChats($limit = 50, $offset = 0)
     {
     	$limitation = self::getDepartmentLimitation();
 
@@ -35,15 +35,11 @@ class erLhcoreClassChat {
     	$filter['smart_select'] = true;
     	$filter['sort'] = 'priority DESC, id DESC';
 
-    	if (!empty($filterAdditional)) {
-    		$filter = array_merge_recursive($filter,$filterAdditional);
-    	}
-
     	return self::getList($filter);
     }
 
 
-    public static function getPendingChatsCount($filterAdditional = array())
+    public static function getPendingChatsCount()
     {
     	$limitation = self::getDepartmentLimitation();
 
@@ -56,10 +52,6 @@ class erLhcoreClassChat {
     	if ($limitation !== true) {
     		$filter['customfilter'][] = $limitation;
     		$filter['use_index'] = 'status_dep_id_id';
-    	}
-
-    	if (!empty($filterAdditional)) {
-    		$filter = array_merge_recursive($filter,$filterAdditional);
     	}
 
     	return self::getCount($filter);
@@ -344,7 +336,7 @@ class erLhcoreClassChat {
     }
 
     // Get's unread messages from users
-    public static function getUnreadMessagesChats($limit = 10, $offset = 0, $filterAdditional = array()) {
+    public static function getUnreadMessagesChats($limit = 10, $offset = 0) {
 
     	$limitation = self::getDepartmentLimitation();
 
@@ -366,15 +358,13 @@ class erLhcoreClassChat {
     	$filter['offset'] = $offset;
     	$filter['smart_select'] = true;
 
-    	if (!empty($filterAdditional)) {
-    		$filter = array_merge_recursive($filter,$filterAdditional);
-    	}
+    	$rows = self::getList($filter);
 
-    	return self::getList($filter);
+    	return $rows;
     }
 
     // Get's unread messages from users | COUNT
-    public static function getUnreadMessagesChatsCount($filterAdditional = array()) {
+    public static function getUnreadMessagesChatsCount() {
 
     	$limitation = self::getDepartmentLimitation();
 
@@ -392,14 +382,12 @@ class erLhcoreClassChat {
     		$filter['use_index'] = 'has_unread_messages_dep_id_id';
     	}
 
-    	if (!empty($filterAdditional)) {
-    		$filter = array_merge_recursive($filter,$filterAdditional);
-    	}
+    	$rows = self::getCount($filter);
 
-    	return self::getCount($filter);
+    	return $rows;
     }
 
-    public static function getActiveChats($limit = 50, $offset = 0, $filterAdditional = array())
+    public static function getActiveChats($limit = 50, $offset = 0)
     {
     	$limitation = self::getDepartmentLimitation();
 
@@ -418,14 +406,10 @@ class erLhcoreClassChat {
     	$filter['offset'] = $offset;
     	$filter['smart_select'] = true;
 
-    	if (!empty($filterAdditional)) {
-    		$filter = array_merge_recursive($filter,$filterAdditional);
-    	}
-
     	return self::getList($filter);
     }
 
-    public static function getActiveChatsCount($filterAdditional = array())
+    public static function getActiveChatsCount()
     {
     	$limitation = self::getDepartmentLimitation();
 
@@ -440,14 +424,10 @@ class erLhcoreClassChat {
     		$filter['use_index'] = 'status_dep_id_id';
     	}
 
-    	if (!empty($filterAdditional)) {
-    		$filter = array_merge_recursive($filter,$filterAdditional);
-    	}
-
     	return self::getCount($filter);
     }
 
-    public static function getClosedChats($limit = 50, $offset = 0, $filterAdditional = array())
+    public static function getClosedChats($limit = 50, $offset = 0)
     {
     	$limitation = self::getDepartmentLimitation();
 
@@ -466,14 +446,10 @@ class erLhcoreClassChat {
     	$filter['offset'] = $offset;
     	$filter['smart_select'] = true;
 
-    	if (!empty($filterAdditional)) {
-    		$filter = array_merge_recursive($filter,$filterAdditional);
-    	}
-
     	return self::getList($filter);
     }
 
-    public static function getClosedChatsCount($filterAdditional = array())
+    public static function getClosedChatsCount()
     {
     	$limitation = self::getDepartmentLimitation();
 
@@ -488,14 +464,10 @@ class erLhcoreClassChat {
     		$filter['use_index'] = 'status_dep_id_id';
     	}
 
-    	if (!empty($filterAdditional)) {
-    		$filter = array_merge_recursive($filter,$filterAdditional);
-    	}
-
     	return self::getCount($filter);
     }
 
-    public static function getOperatorsChats($limit = 50, $offset = 0, $filterAdditional = array())
+    public static function getOperatorsChats($limit = 50, $offset = 0)
     {
     	$limitation = self::getDepartmentLimitation();
 
@@ -514,14 +486,10 @@ class erLhcoreClassChat {
     	$filter['offset'] = $offset;
     	$filter['smart_select'] = true;
 
-    	if (!empty($filterAdditional)) {
-    		$filter = array_merge_recursive($filter, $filterAdditional);
-    	}
-
     	return self::getList($filter);
     }
 
-    public static function getOperatorsChatsCount($filterAdditional = array())
+    public static function getOperatorsChatsCount()
     {
     	$limitation = self::getDepartmentLimitation();
 
@@ -534,10 +502,6 @@ class erLhcoreClassChat {
     	if ($limitation !== true) {
     		$filter['customfilter'][] = $limitation;
     		$filter['use_index'] = 'status_dep_id_id';
-    	}
-
-    	if (!empty($filterAdditional)) {
-    		$filter = array_merge_recursive($filter, $filterAdditional);
     	}
 
     	return self::getCount($filter);

@@ -35,7 +35,7 @@
     </message>
     <message>
       <source>Send</source>
-      <translation>Invia</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Save and continue</source>
@@ -55,10 +55,6 @@
     </message>
     <message>
       <source>Delete department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Test</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -694,7 +690,7 @@
     </message>
     <message>
       <source>Please enter a valid email address</source>
-      <translation>Scrivi un indirizzo email valido</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter your message</source>
@@ -1207,10 +1203,6 @@
   <context>
     <name>system/htmlcode</name>
     <message>
-      <source>Check for messages from the operator</source>
-      <translation>Verificare la presenza di messaggi da parte dell&apos;operatore</translation>
-    </message>
-    <message>
       <source>Widget embed code</source>
       <translation>Widget embed code</translation>
     </message>
@@ -1331,12 +1323,8 @@
       <translation>Con un click del mouse sopra visualizza il widget</translation>
     </message>
     <message>
-      <source>Automatically check for messages from the operator/invitation messages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>It increases server load, because every 15 seconds is checked for operator message or invitation message.</source>
-      <translation type="unfinished"/>
+      <source>Check for messages from the operator</source>
+      <translation>Verificare la presenza di messaggi da parte dell&apos;operatore</translation>
     </message>
     <message>
       <source>Disable pro active invitations, usefull if you want disable them from site part.</source>
@@ -1613,7 +1601,7 @@
     <name>chat/sendchat</name>
     <message>
       <source>Enter your e-mail</source>
-      <translation>Scrivi la tua email</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -2124,7 +2112,7 @@
     </message>
     <message>
       <source>Pending for action...</source>
-      <translation>In attesa comando...</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Terms dictionary</source>
@@ -2408,7 +2396,7 @@
     <name>user/account</name>
     <message>
       <source>Updated</source>
-      <translation>Aggiornato</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Logged user</source>
@@ -2574,10 +2562,6 @@
     <message>
       <source>Answer</source>
       <translation>Risposta</translation>
-    </message>
-    <message>
-      <source>URL, enter * at the end for the wildcard</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>The URL where this question should appear, leave it empty for all</source>
@@ -3063,11 +3047,11 @@
     </message>
     <message>
       <source>Edit the question</source>
-      <translation>Modifica la domanda</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Delete the question</source>
-      <translation>Cancella la domanda</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Empty...</source>
@@ -3135,7 +3119,7 @@
     <name>questionary/votingwidget</name>
     <message>
       <source>Questionary</source>
-      <translation>Questionario</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Thank you!</source>
@@ -3387,7 +3371,7 @@
     </message>
     <message>
       <source>Save</source>
-      <translation>Salva</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Update</source>
@@ -3649,7 +3633,7 @@
     </message>
     <message>
       <source>Name</source>
-      <translation>Nome</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Edit group</source>
@@ -3672,7 +3656,7 @@
     <name>gallery/album_list_admin</name>
     <message>
       <source>Are you sure?</source>
-      <translation>Sei sicuro?</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -3737,7 +3721,7 @@
     <name>user/remindpassword</name>
     <message>
       <source>New password</source>
-      <translation>Nuova password</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Hash was not found or was used already</source>
@@ -3745,7 +3729,7 @@
     </message>
     <message>
       <source>Password remind - new password</source>
-      <translation>Ricorda password - nuova password</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>New password:</source>
@@ -3764,7 +3748,7 @@
     </message>
     <message>
       <source>IP address</source>
-      <translation>Indirizzo IP</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Current page</source>
@@ -3772,11 +3756,11 @@
     </message>
     <message>
       <source>Last visit</source>
-      <translation>Ultima visita</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User agent</source>
-      <translation>Operatore</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Country code</source>
@@ -3803,7 +3787,7 @@
     </message>
     <message>
       <source>Support staff member has closed this chat</source>
-      <translation>Un operatore della chat ha chiuso questa sessione</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You do not have permission to view this chat, or chat was deleted</source>
@@ -3880,7 +3864,7 @@
     <name>chat/reopenchat</name>
     <message>
       <source>has reopened the chat!</source>
-      <translation>ha riaperto la chat</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>No permission to reopen the chat!</source>
@@ -3898,7 +3882,7 @@
     <name>chat/transferuser</name>
     <message>
       <source>Chat was assigned to selected department</source>
-      <translation>La chat è stata assegnata al reparto selezionato</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat was assigned to selected user</source>
@@ -4031,7 +4015,7 @@
     <name>file/file</name>
     <message>
       <source>Download file</source>
-      <translation>Scarica il file</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

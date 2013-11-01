@@ -5,7 +5,7 @@ $tpl = erLhcoreClassTemplate::getInstance( 'lhsystem/smtp.tpl.php');
 $smtpData = erLhcoreClassModelChatConfig::fetch('smtp_data');
 $data = (array)$smtpData->data;
 
-if ( isset($_POST['StoreSMTPSettings']) || isset($_POST['StoreSMTPSettingsTest']) ) {
+if ( isset($_POST['StoreSMTPSettings']) ) {
 
 	$definition = array(
 			'host' => new ezcInputFormDefinitionElement(
@@ -67,14 +67,6 @@ if ( isset($_POST['StoreSMTPSettings']) || isset($_POST['StoreSMTPSettingsTest']
 
 	$smtpData->value = serialize($data);
 	$smtpData->saveThis();
-
-	if (isset($_POST['StoreSMTPSettingsTest'])){
-		try {
-			erLhcoreClassChatMail::sendTestMail($currentUser->getUserData());
-		} catch (Exception $e) {
-			$tpl->set('errors',array($e->getMessage()));
-		}
-	}
 
 	$tpl->set('updated','done');
 }

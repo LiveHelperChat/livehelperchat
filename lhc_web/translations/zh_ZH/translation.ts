@@ -57,10 +57,6 @@
       <source>Delete department</source>
       <translation>删除部门</translation>
     </message>
-    <message>
-      <source>Test</source>
-      <translation type="unfinished"/>
-    </message>
   </context>
   <context>
     <name>abstract/abstract_form</name>
@@ -1207,10 +1203,6 @@
   <context>
     <name>system/htmlcode</name>
     <message>
-      <source>Check for messages from the operator</source>
-      <translation>检查来自运营商的消息</translation>
-    </message>
-    <message>
       <source>Widget embed code</source>
       <translation>小工具嵌入代码</translation>
     </message>
@@ -1331,12 +1323,8 @@
       <translation>点击鼠标显示的页面部件</translation>
     </message>
     <message>
-      <source>Automatically check for messages from the operator/invitation messages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>It increases server load, because every 15 seconds is checked for operator message or invitation message.</source>
-      <translation type="unfinished"/>
+      <source>Check for messages from the operator</source>
+      <translation>检查来自运营商的消息</translation>
     </message>
     <message>
       <source>Disable pro active invitations, usefull if you want disable them from site part.</source>
@@ -2574,10 +2562,6 @@
     <message>
       <source>Answer</source>
       <translation>回答</translation>
-    </message>
-    <message>
-      <source>URL, enter * at the end for the wildcard</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>The URL where this question should appear, leave it empty for all</source>
