@@ -1,6 +1,6 @@
 html,
 body {
-	background: url(../images/general/subtle_grunge.png);
+	background: url(../images/general/cream_dust.png);
 }
 
 ::-webkit-scrollbar{width:0.7em;height:0.8em;background-color:#fff;}
@@ -308,6 +308,7 @@ table tr td {
 	border: 1px solid #CCCCCC;
 	padding:2px;
 	resize: vertical;
+	background-color:#FFF;
 }
 
 .msgBlock-admin{
