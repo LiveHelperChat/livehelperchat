@@ -1,0 +1,193 @@
+body {
+	margin:5px;
+}
+
+.content-row {
+background-color:rgb(231, 231, 231);
+}
+
+body.embed-widget {
+	background:none;
+}
+
+#widget-layout .row { min-width: 0;  }
+#widget-layout > .columns { padding: 0;  }
+
+.widget-chat #widget-layout > .columns{
+padding:10px;
+padding-top:0;
+}
+
+input.mb0 {
+	margin-bottom:0;
+}
+
+input.mb5 {
+	margin-bottom:5px;
+}
+
+input.mt5 {
+	margin-top:5px;
+}
+
+.widget-chat #widget-layout {
+	padding-top:10px;
+}
+
+#widget-layout #status-chat{
+	font-size:12px;
+	margin:3px 0px 6px;
+}
+
+#widget-layout #CSChatMessage {
+	font-size:12px;
+}
+
+::-webkit-scrollbar {
+width: 0.7em;
+height: 0.8em;
+background-color: #fff;
+}
+
+.chatbox-row .usr-tit{
+	display:block;
+	border: 1px solid #dcdcdc;
+	padding:5px;
+	border-radius:6px;
+	margin-bottom: 4px;
+	font-size: 11px;
+	background:url(../images/icons/user_green.png) no-repeat 3px 2px;
+	padding-left: 20px;
+}
+
+.chatbox-row-response .usr-tit{
+	background-image:url(../images/icons/user_suit.png);
+}
+
+
+.section-container,
+.section-container.auto,
+.button {
+	margin-bottom:0;
+}
+
+::-webkit-scrollbar-thumb {
+min-height: 0.8em;
+min-width: 0.7em;
+background-color: #ddd;
+}
+
+.button
+{
+border-radius: 3px;
+}
+
+input[name="Username"].inputfield
+{
+line-height: 25px;
+font-size: 16px;
+height: 25px;
+padding: 0px 3px;
+margin: 0px;
+border: medium none;
+outline: medium none;
+background-color: rgb(246, 246, 246);
+width: 270px;
+height: 30px;
+background-image: url("../images/general/input-name.png");
+background-repeat: no-repeat;
+background-position: left top;
+padding: 4px 4px 4px 33px;
+margin-top: 5px;
+}
+textarea[name="Question"]
+{
+width: 270px;
+height: 146px;
+margin-top: 3px;
+outline: medium none;
+background-color: rgb(255, 255, 255);
+overflow-y: auto;
+overflow-x: hidden;
+resize: none;
+color: rgb(153, 153, 153);
+border: 1px solid rgb(153, 153, 153);
+border-radius: 3px;
+box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.5);
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+padding: 5px;
+}
+
+.message-row
+{
+width: 100%;
+display: inline-block;
+margin-top: 0px;
+margin-bottom: 0px;
+border: 1px solid rgb(255, 255, 255);
+border-radius: 3px;
+box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.32);
+font-size: 12px;
+line-height: normal;
+font-family: Arial;
+background: rgb(236, 236, 236);
+padding: 15px;
+transition: all 0.5s ease 0s;
+color: rgb(51, 51, 51) !important;
+text-decoration: none !important;
+margin-bottom: 5px;
+}
+.response
+{
+background:#23c0c5 !important;
+border-color:#23c0c5;
+color: #fff !important;
+}
+.msgBlock
+{
+border: 0;
+padding: 0;
+height: 220px;
+}
+
+textarea[name="ChatMessage"]
+{
+line-height: 27px;
+font-size: 14px;
+width: 100%;
+height: 27px;
+padding: 3px 5px;
+outline: medium none;
+background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
+border: 1px solid rgb(153, 153, 153);
+border-radius: 3px 3px 3px 3px;
+box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+select
+{
+border: 0;
+width: 100%;
+height: 32px;
+background-image: url("../images/general/select.png");
+background-repeat: no-repeat;
+background-position: left top;
+padding: 5px;
+margin-top: 5px;
+}
+select > option
+{
+height: 22px;
+padding: 5px;
+line-height: 22px;
+overflow: hidden;
+}
+span.usr-tit > img{display: none;}
+label{display: none;}
+label,
+input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea
+{
+	font-size: 12px;
+}

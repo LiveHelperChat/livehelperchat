@@ -1,0 +1,1 @@
+<?php foreach ($messages as $msg ) : ?>[<?php echo date('Y-m-d H:i:s',$msg->time);?>] [<?php echo $msg->user_id == 0 ? htmlspecialchars($chat->nick) : htmlspecialchars($msg->name_support) ?>] <?php echo htmlspecialchars($msg->msg),"\n"?><?php endforeach; ?>

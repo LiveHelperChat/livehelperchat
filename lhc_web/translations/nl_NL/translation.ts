@@ -57,10 +57,6 @@
       <source>Delete department</source>
       <translation type="unfinished"/>
     </message>
-    <message>
-      <source>Test</source>
-      <translation type="unfinished"/>
-    </message>
   </context>
   <context>
     <name>abstract/abstract_form</name>
@@ -1207,10 +1203,6 @@
   <context>
     <name>system/htmlcode</name>
     <message>
-      <source>Check for messages from the operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Widget embed code</source>
       <translation type="unfinished"/>
     </message>
@@ -1331,11 +1323,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Automatically check for messages from the operator/invitation messages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>It increases server load, because every 15 seconds is checked for operator message or invitation message.</source>
+      <source>Check for messages from the operator</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2573,10 +2561,6 @@
     </message>
     <message>
       <source>Answer</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>URL, enter * at the end for the wildcard</source>
       <translation type="unfinished"/>
     </message>
     <message>

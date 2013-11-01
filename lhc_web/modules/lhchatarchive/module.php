@@ -31,7 +31,6 @@ $ViewList['list'] = array(
 
 $ViewList['listarchivechats'] = array(
     'params' => array('id'),
-    'uparams' => array('nick','email','timefrom','timeto'),
     'functions' => array( 'archive' )
 );
 
