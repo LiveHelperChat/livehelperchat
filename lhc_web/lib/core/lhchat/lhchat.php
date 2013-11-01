@@ -105,6 +105,14 @@ class erLhcoreClassChat {
 			           }
 			      }
 
+			      if (isset($params['filterlike']) && count($params['filterlike']) > 0)
+			      {
+			      	   foreach ($params['filterlike'] as $field => $fieldValue)
+			      	   {
+			      	   		$conditions[] = $q->expr->like( $field, $q->bindValue('%'.$fieldValue.'%') );
+			      	   }
+			      }
+
 			      if (isset($params['filterlt']) && count($params['filterlt']) > 0)
 			      {
 			           foreach ($params['filterlt'] as $field => $fieldValue)
@@ -169,6 +177,14 @@ class erLhcoreClassChat {
 		      		foreach ($params['filter'] as $field => $fieldValue)
 		      		{
 		      			$conditions[] = $q2->expr->eq( $field, $q->bindValue($fieldValue) );
+		      		}
+		      	}
+
+		      	if (isset($params['filterlike']) && count($params['filterlike']) > 0)
+		      	{
+		      		foreach ($params['filterlike'] as $field => $fieldValue)
+		      		{
+		      			$conditions[] = $q->expr->like( $field, $q->bindValue('%'.$fieldValue.'%') );
 		      		}
 		      	}
 
@@ -298,6 +314,14 @@ class erLhcoreClassChat {
     		foreach ($params['filtergte'] as $field => $fieldValue)
     		{
     			$conditions[] = $q->expr->gte( $field,$q->bindValue( $fieldValue ));
+    		}
+    	}
+
+    	if (isset($params['filterlike']) && count($params['filterlike']) > 0)
+    	{
+    		foreach ($params['filterlike'] as $field => $fieldValue)
+    		{
+    			$conditions[] = $q->expr->like( $field, $q->bindValue('%'.$fieldValue.'%') );
     		}
     	}
 

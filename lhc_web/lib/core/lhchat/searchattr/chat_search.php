@@ -7,7 +7,7 @@ $fieldsSearch['email'] = array (
     'trans' => 'Sort by',
     'required' => false,
     'valid_if_filled' => false,
-    'filter_type' => 'filter',
+    'filter_type' => 'like',
     'filter_table_field' => 'email',
     'validation_definition' => new ezcInputFormDefinitionElement (
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
@@ -19,7 +19,7 @@ $fieldsSearch['nick'] = array (
     'trans' => 'Nick',
     'required' => false,
     'valid_if_filled' => false,
-    'filter_type' => 'filter',
+    'filter_type' => 'like',
     'filter_table_field' => 'nick',
     'validation_definition' => new ezcInputFormDefinitionElement (
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
