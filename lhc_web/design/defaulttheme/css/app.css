@@ -660,3 +660,13 @@ ul.accordion-faq li {
 .mb10{
 	margin-bottom: 10px;
 }
+
+.return-user{
+	font-size:24px;
+}
+.return-user{
+	color:#448657;
+}
+.returned-user{
+	color:#CCC;
+}

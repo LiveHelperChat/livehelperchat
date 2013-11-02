@@ -68,7 +68,7 @@
         <td><div class="page-url"><span><a target="_blank" href="<?php echo htmlspecialchars($departament->current_page)?>"><?php echo htmlspecialchars($departament->current_page)?></a></span></div></td>
         <td><div class="page-url"><span><a target="_blank" href="<?php echo htmlspecialchars($departament->referrer)?>"><?php echo htmlspecialchars($departament->referrer)?></a></span></div></td>
         <td>
-        <div style="width:230px">
+        <div style="width:270px">
         <?php if ( !empty($departament->user_country_code) ) : ?>
         <img src="<?php echo erLhcoreClassDesign::design('images/flags');?>/<?php echo $departament->user_country_code?>.png" alt="<?php echo htmlspecialchars($departament->user_country_name)?>" title="<?php echo htmlspecialchars($departament->user_country_name)?> | <?php echo htmlspecialchars($departament->city)?>" />
         <?php endif; ?>
@@ -92,7 +92,7 @@
 
         <img src="<?php echo erLhcoreClassDesign::design('images/icons/information.png');?>" title="<?php echo $departament->first_visit_front?> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','first visit');?><?php echo "\n";?><?php echo $departament->last_visit_front?> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','last visit');?><?php echo "\n"?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Pageviews');?> - <?php echo $departament->pages_count?><?php if (!empty($departament->identifier)) : echo "\n"?>Identifier - <?php echo htmlspecialchars($departament->identifier)?><?php endif;?>" />
 
-
+		<i class="icon-reply return-user<?php if ($departament->total_visits > 1) : ?> returned-user<?php endif;?>" title="<?php echo $departament->total_visits?>"></i>
 
         </div>
 
