@@ -85,24 +85,26 @@ void MainWindow::parseOnlineStatus(void* pt2Object, QByteArray result)
 */
 void MainWindow::showToolTipNewChat(int chat_id, int chat_mode)
 {
-    QSystemTrayIcon::MessageIcon icon = QSystemTrayIcon::MessageIcon(QStyle::SP_MessageBoxInformation);
+    if (this->onlineofflineAct->isChecked()){
+        QSystemTrayIcon::MessageIcon icon = QSystemTrayIcon::MessageIcon(QStyle::SP_MessageBoxInformation);
 
-    if (chat_mode == 0)
-    {
-        trayIcon->showMessage(tr("New request"), tr("You have a new chat pending. To start the chat click me."),icon , 15 * 1000);
-    }
+        if (chat_mode == 0)
+        {
+            trayIcon->showMessage(tr("New request"), tr("You have a new chat pending. To start the chat click me."),icon , 15 * 1000);
+        }
 
-    if (chat_mode == 1)
-    {
-        trayIcon->showMessage(tr("New request"), tr("A new chat has been transferred to you. To start the chat click me."),icon , 15 * 1000);
-    }
+        if (chat_mode == 1)
+        {
+            trayIcon->showMessage(tr("New request"), tr("A new chat has been transferred to you. To start the chat click me."),icon , 15 * 1000);
+        }
 
-    this->chatID = chat_id;
-    this->chatMode = chat_mode;
+        this->chatID = chat_id;
+        this->chatMode = chat_mode;
 
-    if ( QFile::exists(qApp->applicationDirPath() + "/sounds/new_chat.mp3") ) {
-        this->mediaObject->setCurrentSource(Phonon::MediaSource(qApp->applicationDirPath() + "/sounds/new_chat.mp3"));
-        this->mediaObject->play();
+        if ( QFile::exists(qApp->applicationDirPath() + "/sounds/new_chat.mp3") ) {
+            this->mediaObject->setCurrentSource(Phonon::MediaSource(qApp->applicationDirPath() + "/sounds/new_chat.mp3"));
+            this->mediaObject->play();
+        }
     }
 
 }

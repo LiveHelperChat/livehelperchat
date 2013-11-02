@@ -21,6 +21,12 @@ class MainWindow : public QMainWindow
 public:
     MainWindow();
     static void parseOnlineStatus(void* pt2Object, QByteArray result);
+
+    /**
+    * Change online offline action
+    */
+    QAction *onlineofflineAct;
+
 protected:
     void closeEvent(QCloseEvent *event);
 
@@ -103,10 +109,7 @@ private:
 	*/
     QAction *chatroomsAct;
 
-    /**
-    * Change online offline action
-    */
-    QAction *onlineofflineAct;
+
 	/**
 	* Try icon actions
 	*/

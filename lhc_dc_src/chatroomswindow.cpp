@@ -10,7 +10,7 @@
 #include "onlineuserinfo.h"
 
 
-ChatRoomsWindow::ChatRoomsWindow( QWidget *parent) : QWidget(parent)
+ChatRoomsWindow::ChatRoomsWindow( MainWindow *parent) : QWidget(parent)
 {
 	ui.setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
@@ -167,7 +167,7 @@ void ChatRoomsWindow::onlineUsersMenu(QPoint p)
 
             QAction  *sendmsg,
                      *info;
-             sendmsg = pmenu->addAction( QIcon(":/images/add.png"), tr("Send a private message"));
+            sendmsg = pmenu->addAction( QIcon(":/images/add.png"), tr("Send private message"));
             info  = pmenu->addAction( QIcon(":/images/application_add.png"), tr("View user information"));
             connect(sendmsg, SIGNAL(triggered()), this, SLOT(sendMessageWindow()));
             connect(info, SIGNAL(triggered()), this, SLOT(userInfoWindow()));
@@ -379,6 +379,7 @@ void ChatRoomsWindow::createOnlineUsersTab()
 
 void ChatRoomsWindow::createPendingChatsTab()
 {
+    // Create transferred chats groupbox
     transferedChatsGroupBox = new QGroupBox(tr("Transferred chats"));
     transferedChatsListVBOX = new QVBoxLayout;
 
@@ -443,7 +444,7 @@ void ChatRoomsWindow::receivedDataCallback(void* pt2Object, QByteArray result)
     mySelf->OnlineUsersList->setData(sc.property("online_users"));
 
     // Avoid tooltips on initial request
-    if (mySelf->balloonEnabled == false)
+    if (mySelf->balloonEnabled == false && mySelf->parentWidget->onlineofflineAct->isChecked())
     {
         mySelf->transferedChatsList->setTableMode(1);
         mySelf->pendingChatsList->setTableMode(0);

@@ -108,10 +108,10 @@ void LHQTableWidget::setData(QScriptValue sc)
 
 
             //Emit signal if needed
-            if (tmpLastChatID != lastChatID) {
-                lastChatID = tmpLastChatID;
+            //if (tmpLastChatID != lastChatID) {
+            //    lastChatID = tmpLastChatID;
                 emit newChatAdded(tmpLastChatID,tableMode);
-            }
+            //}
     }
 }
 
