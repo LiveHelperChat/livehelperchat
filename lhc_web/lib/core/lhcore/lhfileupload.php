@@ -92,15 +92,14 @@ class erLhcoreClassFileUpload extends UploadHandler {
     	$partsPath = explode('/',$path);
     	$pathCurrent = '';
 
-    	$config = erConfigClassLhConfig::getInstance();
-    	$wwwUser = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'default_www_user' );
-    	$wwwUserGroup = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'default_www_group' );
+    	$wwwUser = 'apache';
+    	$wwwUserGroup = 'apache';
 
     	foreach ($partsPath as $key => $path)
     	{
     		$pathCurrent .= $path . '/';
     		if ( !is_dir($pathCurrent) ) {
-    			mkdir($pathCurrent,$config->getSetting( 'site', 'StorageDirPermissions' ));
+    			mkdir($pathCurrent,0755);
     			if ($chown == true){
     				chown($pathCurrent,$wwwUser);
     				chgrp($pathCurrent,$wwwUserGroup);

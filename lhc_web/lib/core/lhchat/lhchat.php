@@ -597,6 +597,32 @@ class erLhcoreClassChat {
        return $rows[0]['found'] >= 1;
     }
 
+    public static function getRandomOnlineUserID(){
+
+    	$isOnlineUser = (int)erConfigClassLhConfig::getInstance()->getSetting('chat','online_timeout');
+    	$db = ezcDbInstance::get();
+		$agoTime = time()-$isOnlineUser;
+
+    	$SQL = 'SELECT count(*) FROM (SELECT count(lh_users.id) FROM lh_users INNER JOIN lh_userdep ON lh_userdep.user_id = lh_users.id WHERE lh_userdep.last_activity > :last_activity AND lh_userdep.hide_online = 0 GROUP BY lh_users.id) as online_users';
+    	$stmt = $db->prepare($SQL);
+    	$stmt->bindValue(':last_activity',$agoTime);
+    	$stmt->execute();
+    	$count = $stmt->fetchColumn();
+
+    	if ($count > 0){
+	    	$offsetRandom = rand(0, $count-1);
+
+	    	$SQL = "SELECT lh_users.id FROM lh_users INNER JOIN lh_userdep ON lh_userdep.user_id = lh_users.id WHERE lh_userdep.last_activity > :last_activity AND lh_userdep.hide_online = 0 GROUP BY lh_users.id LIMIT {$offsetRandom},1";
+	    	$stmt = $db->prepare($SQL);
+	    	$stmt->bindValue(':last_activity',$agoTime);
+	    	$stmt->execute();
+
+	    	return $stmt->fetchColumn();
+    	}
+
+    	return 0;
+    }
+
     public static function getOnlineUsers($UserID = array())
     {
        $isOnlineUser = (int)erConfigClassLhConfig::getInstance()->getSetting('chat','online_timeout');

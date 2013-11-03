@@ -116,6 +116,14 @@ return array_merge(array (
 		'erLhcoreClassSearchHandler' 			=> 'lib/core/lhcore/lhsearchhandler.php',
 		'erLhcoreClassInputForm' 				=> 'lib/core/lhcore/lhform.php',
 
+		// Profile
+		'erLhcoreClassImageConverter'               => 'lib/core/lhcore/lhimageconverter.php',
+		'qqFileUploader'                            => 'lib/core/lhcore/lhimageconverter.php',
+		'qqUploadedFileForm'                        => 'lib/core/lhcore/lhimageconverter.php',
+		'qqUploadedFileXhr'                         => 'lib/core/lhcore/lhimageconverter.php',
+		'erLhcoreClassGalleryImagemagickHandler'    => 'lib/core/lhcore/lhgalleryconverterhandler.php',
+		'erLhcoreClassGalleryGDHandler'             => 'lib/core/lhcore/lhgallerygdconverterhandler.php',
+
 
 ),
 include('var/autoloads/lhextension_autoload.php')

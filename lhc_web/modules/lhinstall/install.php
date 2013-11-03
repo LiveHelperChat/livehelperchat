@@ -47,6 +47,9 @@ switch ((int)$Params['user_parameters']['step_id']) {
 		if (!is_writable("var/storage"))
 	       $Errors[] = "var/storage is not writable";
 
+		if (!is_writable("var/userphoto"))
+	       $Errors[] = "var/userphoto is not writable";
+
 		if (!extension_loaded ('pdo_mysql' ))
 	       $Errors[] = "php-pdo extension not detected. Please install php extension";
 
@@ -247,6 +250,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `phone` varchar(100) NOT NULL,
 				  `has_unread_messages` int(11) NOT NULL,
 				  `last_user_msg_time` int(11) NOT NULL,
+				  `fbst` tinyint(1) NOT NULL,
 				  `online_user_id` int(11) NOT NULL,
 				  `last_msg_id` int(11) NOT NULL,
 				  `additional_data` varchar(250) NOT NULL,
@@ -549,6 +553,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `email` varchar(100) NOT NULL,
 				  `identifier` varchar(50) NOT NULL,
 				  `priority` int(11) NOT NULL,
+				  `show_random_operator` int(11) NOT NULL,
 				  `department_transfer_id` int(11) NOT NULL,
 				  `transfer_timeout` int(11) NOT NULL,
 				  PRIMARY KEY (`id`),
@@ -622,6 +627,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `email` varchar(100) NOT NULL,
                   `name` varchar(100) NOT NULL,
                   `surname` varchar(100) NOT NULL,
+                  `filepath` varchar(200) NOT NULL,
+                  `filename` varchar(200) NOT NULL,
                   `disabled` tinyint(4) NOT NULL,
                   `hide_online` tinyint(1) NOT NULL,
                   `all_departments` tinyint(1) NOT NULL,

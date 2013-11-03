@@ -211,6 +211,13 @@ $def->properties['na_cb_executed']->columnName   = 'na_cb_executed';
 $def->properties['na_cb_executed']->propertyName = 'na_cb_executed';
 $def->properties['na_cb_executed']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+// Feedback status
+// 0 - not votes, 1 - upvote, 2 - novote
+$def->properties['fbst'] = new ezcPersistentObjectProperty();
+$def->properties['fbst']->columnName   = 'fbst';
+$def->properties['fbst']->propertyName = 'fbst';
+$def->properties['fbst']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

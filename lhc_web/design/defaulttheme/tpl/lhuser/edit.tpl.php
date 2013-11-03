@@ -11,7 +11,7 @@
 <div class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Do not enter a password unless you want to change it');?></div>
 <br />
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $user->id?>" method="post" autocomplete="off">
+<form action="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $user->id?>" method="post" autocomplete="off" enctype="multipart/form-data">
 
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Username');?></label>
 <input class="inputfield" type="text" name="Username" value="<?php echo htmlspecialchars($user->username);?>" />
@@ -30,6 +30,19 @@
 
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Surname');?></label>
 <input type="text" class="inputfield" name="Surname" value="<?php echo htmlspecialchars($user->surname);?>"/>
+
+
+<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Photo');?>, (jpg,png)</label>
+<input type="file" name="UserPhoto" value="" />
+
+<?php if ($user->has_photo) : ?>
+<div>
+	<img src="<?=$user->photo_path?>" alt="" width="50" /><br />
+	<label><input type="checkbox" name="DeletePhoto" value="1" /> <?=erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Delete')?></label>
+</div>
+<?php endif;?>
+
+
 
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','User group')?></label>
 <?php echo erLhcoreClassRenderHelper::renderCombobox( array (

@@ -1,3 +1,14 @@
+1.63v
+
+Features
+1. Avatars.
+2. Chat feedback by voting thumbs down and up.
+2. Option to show virtual assistant profile for invitation message.
+
+execute doc/update_db/update_45.sql for update
+
+create directory var/userphoto make sure that php can write to it. just chmod 664 var/userphoto
+
 1.62v
 
 Features

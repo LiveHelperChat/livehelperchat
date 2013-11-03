@@ -135,6 +135,23 @@ if (isset($_POST['Update_account']))
         	$groupUser->saveThis();
         }
 
+        // Store photo
+        if ( isset($_FILES["UserPhoto"]) && is_uploaded_file($_FILES["UserPhoto"]["tmp_name"]) && $_FILES["UserPhoto"]["error"] == 0 && erLhcoreClassImageConverter::isPhoto('UserPhoto') ) {
+        	$dir = 'var/userphoto/' . date('Y') . 'y/' . date('m') . '/' . date('d') .'/' . $UserData->id . '/';
+        	erLhcoreClassFileUpload::mkdirRecursive( $dir );
+        	$file = qqFileUploader::upload($_FILES,'UserPhoto',$dir);
+
+        	if ( empty($file["errors"]) ) {
+        		$UserData->filename           = $file["data"]["filename"];
+        		$UserData->filepath           = $file["data"]["dir"];
+
+        		erLhcoreClassImageConverter::getInstance()->converter->transform( 'photow_150', $UserData->file_path_server, $UserData->file_path_server );
+        		chmod($UserData->file_path_server, 0644);
+
+        		$UserData->saveThis();
+        	}
+        }
+
         erLhcoreClassModule::redirect('user/userlist');
         exit;
 

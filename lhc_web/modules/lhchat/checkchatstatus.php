@@ -17,7 +17,6 @@ try {
 	    }
 
 	    if ( $chat->chat_initiator == erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE ) {
-	    	 $activated = 'true';
 	         $tpl->set('is_proactive_based',true);
 	    } else {
 	         $tpl->set('is_proactive_based',false);
@@ -37,6 +36,8 @@ try {
 	    } else {
 	    	$tpl->set('is_closed',false);
 	    }
+
+	    $tpl->set('chat', $chat);
     }
 
 

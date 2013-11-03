@@ -18,7 +18,8 @@ class erLhAbstractModelProactiveChatInvitation {
 			'wait_message'		=> $this->wait_message,
 			'timeout_message'	=> $this->timeout_message,
 			'wait_timeout'		=> $this->wait_timeout,
-			'requires_email'	=> $this->requires_email
+			'requires_email'		=> $this->requires_email,
+			'show_random_operator'	=> $this->show_random_operator,
 		);
 
 		return $stateArray;
@@ -89,6 +90,14 @@ class erLhAbstractModelProactiveChatInvitation {
    						'type' => 'checkbox',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Requires e-mail'),
    						'required' => false,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+   						)),
+   				'show_random_operator' => array (
+   						'type' => 'checkbox',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Show random operator profile'),
+   						'required' => false,
+   						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
    						)),
@@ -284,6 +293,11 @@ class erLhAbstractModelProactiveChatInvitation {
 			$item->store_chat = true;
 			$item->invitation_assigned = true;
 			$item->last_visit = time();
+
+			if ($message->show_random_operator == 1) {
+				$item->operator_user_id = erLhcoreClassChat::getRandomOnlineUserID();
+			}
+
 			$message->executed_times += 1;
 			$message->updateThis();
 		}
@@ -307,6 +321,7 @@ class erLhAbstractModelProactiveChatInvitation {
 	public $wait_message = '';
 	public $timeout_message = '';
 	public $wait_timeout = 0;
+	public $show_random_operator = 0;
 
 	public $hide_add = false;
 	public $hide_delete = false;

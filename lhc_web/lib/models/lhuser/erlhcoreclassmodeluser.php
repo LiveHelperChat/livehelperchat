@@ -13,7 +13,9 @@ class erLhcoreClassModelUser {
                'surname'         => $this->surname,
                'disabled'        => $this->disabled,
                'hide_online'     => $this->hide_online,
-               'all_departments' => $this->all_departments
+               'all_departments' => $this->all_departments,
+               'filepath'     	 => $this->filepath,
+			   'filename'     	 => $this->filename,
        );
    }
 
@@ -100,6 +102,19 @@ class erLhcoreClassModelUser {
                 return $this->lastactivity;
 
        	    break;
+
+       	case 'has_photo':
+       	    	return $this->filename != '';
+       	    break;
+
+       	case 'photo_path':
+       			$this->photo_path = erLhcoreClassSystem::instance()->wwwDir() .'/'. $this->filepath . $this->filename;
+       			return $this->photo_path;
+       		break;
+
+       	case 'file_path_server':
+       			return $this->filepath . $this->filename;
+       		break;
 
        	case 'lastactivity_front':
        		   $this->lastactivity_front = '';
@@ -271,11 +286,32 @@ class erLhcoreClassModelUser {
        }
    }
 
+   public function saveThis(){
+   		erLhcoreClassUser::getSession()->saveOrUpdate($this);
+   }
+
+   public function removeFile()
+   {
+	   	if ($this->filepath != '') {
+	   		if ( file_exists($this->filepath . $this->filename) ) {
+	   			unlink($this->filepath . $this->filename);
+	   		}
+
+	   		erLhcoreClassFileUpload::removeRecursiveIfEmpty('var/userphoto/',str_replace('var/userphoto/','',$this->filepath));
+
+	   		$this->filepath = '';
+	   		$this->filename = '';
+	   		$this->saveThis();
+	   	}
+   }
+
     public $id = null;
     public $username = '';
     public $password = '';
     public $email = '';
     public $name = '';
+    public $filepath = '';
+    public $filename = '';
     public $surname = '';
     public $disabled = 0;
     public $hide_online = 0;

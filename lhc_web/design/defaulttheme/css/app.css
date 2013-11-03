@@ -670,3 +670,72 @@ ul.accordion-faq li {
 .returned-user{
 	color:#CCC;
 }
+
+.operator-info{
+	background-color:#FFF;
+	border:1px solid #D3D3D3;
+	padding:5px;
+	border-bottom:0;
+
+	position: relative;
+z-index: 1;
+font-size:12px;
+
+-webkit-box-shadow:inset  0px 1px 3px rgba(50, 50, 50, 0.2);
+-moz-box-shadow:inset     0px 1px 3px rgba(50, 50, 50, 0.2);
+box-shadow:inset          0px 1px 3px rgba(50, 50, 50, 0.2);
+
+-webkit-border-top-left-radius: 6px;
+-webkit-border-top-right-radius: 6px;
+-moz-border-radius-topleft: 6px;
+-moz-border-radius-topright: 6px;
+border-top-left-radius: 6px;
+border-top-right-radius: 6px;
+
+}
+
+.operator-info img{
+	border:1px solid #e7e7e7;
+	border-radius:6px;
+	max-width:50px;
+}
+
+.operator-info .icon-thumbs-down,
+.operator-info .icon-thumbs-up{
+	color:#CCC;
+	cursor:pointer;
+	font-size:16px;
+}
+
+.operator-info .down-voted{
+	color:#c60f13;
+}
+
+.operator-info .up-voted{
+	color:#5da423;
+}
+
+.pt5{
+	padding-top:5px !important;
+}
+
+.pr5{
+	padding-right:5px;
+}
+
+.pl10{
+	padding-left:10px;
+}
+
+.pl20{
+	padding-left:20px;
+}
+
+.pl15{
+	padding-left:15px;
+}
+
+.icon-assistant{
+	font-size:36px;
+	color:#CCC;
+}

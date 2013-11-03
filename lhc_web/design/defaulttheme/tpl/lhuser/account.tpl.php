@@ -21,7 +21,7 @@
 
     <div class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Do not enter a password unless you want to change it');?></div>
 	<br />
-	<form action="<?php echo erLhcoreClassDesign::baseurl('user/account')?>" method="post" autocomplete="off">
+	<form action="<?php echo erLhcoreClassDesign::baseurl('user/account')?>" method="post" autocomplete="off" enctype="multipart/form-data">
 
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
@@ -42,6 +42,16 @@
 
 	    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Surname');?></label>
 	    <input type="text" name="Surname" value="<?php echo htmlspecialchars($user->surname);?>"/>
+
+	    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Photo');?>, (jpg,png)</label>
+		<input type="file" name="UserPhoto" value="" />
+
+		<?php if ($user->has_photo) : ?>
+		<div>
+			<img src="<?=$user->photo_path?>" alt="" width="50" /><br />
+			<label><input type="checkbox" name="DeletePhoto" value="1" /> <?=erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Delete')?></label>
+		</div>
+		<?php endif;?>
 
 	    <ul class="button-group radius">
 	    <li><input type="submit" name="Update" class="small button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>"></li>

@@ -162,6 +162,11 @@ $ViewList['addmsguser'] = array(
     'uparams' => array('mode'),
 );
 
+$ViewList['voteaction'] = array(
+    'params' => array('chat_id','hash','type'),
+    'uparams' => array(),
+);
+
 $ViewList['syncuser'] = array(
     'params' => array('chat_id','message_id','hash'),
 	'uparams' => array('mode')

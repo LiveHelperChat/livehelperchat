@@ -51,7 +51,8 @@ class erLhcoreClassModelChat {
                'transfer_timeout_ac'    => $this->transfer_timeout_ac,
 
        			// Callback status
-               'na_cb_executed'    		=> $this->na_cb_executed
+               'na_cb_executed'    		=> $this->na_cb_executed,
+               'fbst'    				=> $this->fbst,
        );
    }
 
@@ -279,8 +280,8 @@ class erLhcoreClassModelChat {
 
    public $na_cb_executed = 0;
 
-
-
+   // Feedback status
+   public $fbst = 0;
 
    public $chat_initiator = self::CHAT_INITIATOR_DEFAULT;
    public $chat_variables = '';

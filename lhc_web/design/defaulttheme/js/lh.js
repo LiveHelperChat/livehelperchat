@@ -694,6 +694,24 @@ function lh(){
 		return false;
 	};
 
+	this.voteAction = function(inst) {
+		$.postJSON(this.wwwDir + 'chat/voteaction/' + this.chat_id + '/' + this.hash + '/' + inst.attr('data-id') ,{}, function(data){
+			if (data.error == 'false')
+	        {
+				if (data.status == 0) {
+					$('.icon-thumbs-up').removeClass('up-voted');
+					$('.icon-thumbs-down').removeClass('down-voted');
+				} else if (data.status == 1) {
+					$('.icon-thumbs-up').addClass('up-voted');
+					$('.icon-thumbs-down').removeClass('down-voted');
+				} else if (data.status == 2) {
+					$('.icon-thumbs-up').removeClass('up-voted');
+					$('.icon-thumbs-down').addClass('down-voted');
+				}
+	        }
+    	});
+	};
+
 	this.chatsyncuserpending = function ()
 	{
 	    $.getJSON(this.wwwDir + this.checkchatstatus + this.chat_id + '/' + this.hash ,{}, function(data){
@@ -710,7 +728,7 @@ function lh(){
 	               setTimeout(chatsyncuserpending,confLH.chat_message_sinterval);
 
 	            } else {
-	            	$('#status-chat').html(data.result);
+	            	$('#status-chat').parent().html(data.result);
 	                $('#id-operator-typing i').html(data.ott);
 	            }
 	        }

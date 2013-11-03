@@ -1,3 +1,8 @@
+<?php if (($user = $visitor->operator_user) !== false) : ?>
+<?php $hideThumbs = true;$extraMessage = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Personal assistant');?>
+<?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile.tpl.php'));?>
+<?php endif;?>
+
 <div id="messages" class="mb10">
      <div class="msgBlock" id="messagesBlock">
        	<div class="message-row response"><div class="msg-date"><?php echo date('H:i:s',time()-5); ?></div><span class="usr-tit"><img src="<?php echo erLhcoreClassDesign::design('images/icons/user_suit.png');?>" title="" alt="" />&nbsp;</span><?php echo erLhcoreClassBBCode::make_clickable(htmlspecialchars($visitor->operator_message)); ?></div>
