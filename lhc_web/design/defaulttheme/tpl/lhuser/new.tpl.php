@@ -26,7 +26,7 @@
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Surname');?></label>
 <input class="inputfield" type="text" name="Surname" value="<?php echo htmlspecialchars($user->surname);?>" />
 
-<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Photo');?>, (jpg,png)</label>
+<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Photo');?>, (jpg,png)</label>
 <input type="file" name="UserPhoto" value="" />
 
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','User group')?></label>
