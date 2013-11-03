@@ -295,7 +295,7 @@
     <name>chat/cannedmsg</name>
     <message>
       <source>Canned messages</source>
-      <translation>Отменить сообщения</translation>
+      <translation>Шаблоны сообщений</translation>
     </message>
     <message>
       <source>Message</source>
@@ -847,7 +847,7 @@
     <name>chat/onlineusers</name>
     <message>
       <source>GEO detection configuration</source>
-      <translation>GEO детект конфиг</translation>
+      <translation>Конфигурация GEO-обнаружения</translation>
     </message>
     <message>
       <source>GEO Enabled</source>
@@ -911,7 +911,7 @@
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Обновить настройки</translation>
+      <translation>Настройки обновлены</translation>
     </message>
     <message>
       <source>Send message</source>
@@ -1189,19 +1189,19 @@
     <name>chat/listchatconfig</name>
     <message>
       <source>List</source>
-      <translation>Последний</translation>
+      <translation>Опции</translation>
     </message>
     <message>
       <source>Explain</source>
-      <translation>Пояснения</translation>
+      <translation>Описание</translation>
     </message>
     <message>
       <source>Edit value</source>
-      <translation>Редактирование уровня</translation>
+      <translation>Изменить</translation>
     </message>
     <message>
       <source>List chat configuration</source>
-      <translation>Конфигурация диалога</translation>
+      <translation>Конфигурация чата</translation>
     </message>
   </context>
   <context>
@@ -1212,11 +1212,11 @@
     </message>
     <message>
       <source>Widget embed code</source>
-      <translation>Widget embed code</translation>
+      <translation>Код виджета</translation>
     </message>
     <message>
       <source>Page embed code</source>
-      <translation>Page embed code</translation>
+      <translation>Код блока страницы</translation>
     </message>
     <message>
       <source>HTML code</source>
@@ -1395,7 +1395,7 @@
     <name>chat/lists</name>
     <message>
       <source>Choose what type of list you want to see</source>
-      <translation>Choose what type of list you want to see</translation>
+      <translation>Выберите тип чата для просмотра</translation>
     </message>
     <message>
       <source>Pending chats</source>
@@ -1445,7 +1445,7 @@
     </message>
     <message>
       <source>Chat related</source>
-      <translation>Связанные диалоги</translation>
+      <translation>Связанные с чатом</translation>
     </message>
     <message>
       <source>Departments</source>
@@ -1453,7 +1453,7 @@
     </message>
     <message>
       <source>Blocked users</source>
-      <translation>Блокированные пользователи</translation>
+      <translation>Заблокированные пользователи</translation>
     </message>
     <message>
       <source>Chat configuration</source>
@@ -1461,27 +1461,27 @@
     </message>
     <message>
       <source>GEO detection configuration</source>
-      <translation>GEO detect конфигурация</translation>
+      <translation>Конфигурация GEO-обнаружения</translation>
     </message>
     <message>
       <source>Synchronization and sound settings</source>
-      <translation>Настройки звуков синхронизации</translation>
+      <translation>Настройки синхронизации и звука</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
-      <translation>Начать чат из настроек</translation>
+      <translation>Настройки формы начала чата</translation>
     </message>
     <message>
       <source>Canned messages</source>
-      <translation>Отввергнуть сообщение</translation>
+      <translation>Шаблоны сообщений</translation>
     </message>
     <message>
       <source>E-mail templates</source>
-      <translation>E-mail templates</translation>
+      <translation>Шаблоны писем</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
-      <translation>Pro active chat invitations</translation>
+      <translation>Проактивные приглашения</translation>
     </message>
     <message>
       <source>Auto responder</source>
@@ -1505,19 +1505,19 @@
     </message>
     <message>
       <source>Live help embed code</source>
-      <translation>Код Онлайн помощи</translation>
+      <translation>Код Чата</translation>
     </message>
     <message>
       <source>FAQ embed code</source>
-      <translation>Код FAQ</translation>
+      <translation>Код ЧаВо</translation>
     </message>
     <message>
       <source>Questionary embed code</source>
-      <translation>Код для вставки FAQ&apos;а (Вопросника)</translation>
+      <translation>Код для вставки Вопросника</translation>
     </message>
     <message>
       <source>Chatbox embed code</source>
-      <translation>Код для вставки Чатбокса</translation>
+      <translation>Код Чатбокса</translation>
     </message>
     <message>
       <source>Statistic</source>
@@ -1710,7 +1710,7 @@
     <name>chat/startchatformsettings</name>
     <message>
       <source>Start a chat form settings</source>
-      <translation>Начать чат из настроек</translation>
+      <translation>Настройки формы начала чата</translation>
     </message>
     <message>
       <source>At least one field has to be visible and required in the popup and page widget</source>
@@ -1781,7 +1781,7 @@
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Обновить установки</translation>
+      <translation>Настройки обновлены</translation>
     </message>
     <message>
       <source>Synchronisation and sound settings</source>
@@ -1837,7 +1837,7 @@
     </message>
     <message>
       <source>Synchronization and sound settings</source>
-      <translation>Синхронизация и звуковые установки</translation>
+      <translation>Настройки синхронизации и звука</translation>
     </message>
   </context>
   <context>
@@ -2417,7 +2417,7 @@
     </message>
     <message>
       <source>Account data</source>
-      <translation>Дата аккаунта</translation>
+      <translation>Данные аккаунта</translation>
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
@@ -2469,23 +2469,23 @@
     </message>
     <message>
       <source>Visible lists</source>
-      <translation>Видимый лист</translation>
+      <translation>Отображение чатов</translation>
     </message>
     <message>
       <source>Pending chats tab enabled</source>
-      <translation>Диалоги в очереди тав доступен</translation>
+      <translation>Ожидающие чаты</translation>
     </message>
     <message>
       <source>Active chats tab enabled</source>
-      <translation>Активные диалоги таб доступен</translation>
+      <translation>Активные чаты</translation>
     </message>
     <message>
       <source>Unread chats tab enabled</source>
-      <translation>Непрочитанные диалоги таб доступен</translation>
+      <translation>Непрочитанные чаты</translation>
     </message>
     <message>
       <source>Closed chats tab enabled</source>
-      <translation>Закрытые диалоги таб доступен</translation>
+      <translation>Закрытые чаты</translation>
     </message>
     <message>
       <source>Account updated</source>
@@ -2539,7 +2539,7 @@
     <name>faq/faqwidget</name>
     <message>
       <source>FAQ</source>
-      <translation>FAQ</translation>
+      <translation>ЧаВо</translation>
     </message>
     <message>
       <source>Ask a question</source>
@@ -2597,7 +2597,7 @@
     <name>faq/list</name>
     <message>
       <source>FAQ</source>
-      <translation>FAQ</translation>
+      <translation>ЧаВо</translation>
     </message>
     <message>
       <source>Question</source>
@@ -2656,11 +2656,11 @@
     </message>
     <message>
       <source>FAQ</source>
-      <translation>FAQ</translation>
+      <translation>ЧаВо</translation>
     </message>
     <message>
       <source>FAQ description</source>
-      <translation>FAQ описание</translation>
+      <translation>Описание вопросов</translation>
     </message>
   </context>
   <context>
@@ -3080,7 +3080,7 @@
     </message>
     <message>
       <source>Questionary</source>
-      <translation>вопросник</translation>
+      <translation>Вопросник</translation>
     </message>
   </context>
   <context>
@@ -3136,7 +3136,7 @@
     <name>questionary/votingwidget</name>
     <message>
       <source>Questionary</source>
-      <translation>ЧаВо</translation>
+      <translation>Вопросник</translation>
     </message>
     <message>
       <source>Thank you!</source>
@@ -3239,11 +3239,11 @@
     </message>
     <message>
       <source>Questionary</source>
-      <translation>Анкета</translation>
+      <translation>Вопросник</translation>
     </message>
     <message>
       <source>FAQ</source>
-      <translation>FAQ</translation>
+      <translation>ЧаВо</translation>
     </message>
     <message>
       <source>Chatbox</source>
@@ -3302,7 +3302,7 @@
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Настройки применены</translation>
+      <translation>Настройки обновлены</translation>
     </message>
     <message>
       <source>Please choose correct language</source>
@@ -3349,7 +3349,7 @@
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Установки обновлены</translation>
+      <translation>Настройки обновлены</translation>
     </message>
   </context>
   <context>
@@ -3867,7 +3867,7 @@
     </message>
     <message>
       <source>E-mail templates</source>
-      <translation>E-mail templates</translation>
+      <translation>Шаблоны писем</translation>
     </message>
   </context>
   <context>
