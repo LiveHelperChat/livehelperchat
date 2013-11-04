@@ -4,6 +4,8 @@ class erLhcoreClassModule{
 
     static function runModule()
     {
+
+
         if (isset(self::$currentModule[self::$currentView]))
         {
         	$currentUser = erLhcoreClassUser::instance();
@@ -78,7 +80,6 @@ class erLhcoreClassModule{
             }
 
             try {
-
             	$includeStatus = include(self::getModuleFile(self::$currentModuleName,self::$currentView));
 
             	// Inclusion failed
@@ -87,12 +88,20 @@ class erLhcoreClassModule{
             		$CacheManager->expireCache();
 
             		// Just try reinclude
-            		include(self::getModuleFile(self::$currentModuleName,self::$currentView));
+            		@include(self::getModuleFile(self::$currentModuleName,self::$currentView));
             	}
 
             } catch (Exception $e) {
             	$CacheManager = erConfigClassLhCacheConfig::getInstance();
             	$CacheManager->expireCache();
+
+				if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true) {
+					echo "<pre>";
+					print_r($e);
+					echo "</pre>";
+					exit;
+				}
+
             	header('HTTP/1.1 503 Service Temporarily Unavailable');
             	header('Status: 503 Service Temporarily Unavailable');
             	header('Retry-After: 300');
