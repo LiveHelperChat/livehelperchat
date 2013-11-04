@@ -59,7 +59,7 @@
     </message>
     <message>
       <source>Test</source>
-      <translation type="unfinished"/>
+      <translation>Tes</translation>
     </message>
   </context>
   <context>
@@ -130,6 +130,10 @@
     <message>
       <source>Requires e-mail</source>
       <translation>Membutuhkan e-mail</translation>
+    </message>
+    <message>
+      <source>Show random operator profile</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
@@ -234,7 +238,7 @@
     </message>
     <message>
       <source>Invalid hash or auto creation is disabled</source>
-      <translation>Hash tidak valid atau pembuatan otomatis dimatikan</translation>
+      <translation>Hash tidak sah atau pembuatan otomatis dimatikan</translation>
     </message>
     <message>
       <source>Visitor</source>
@@ -365,11 +369,11 @@
     </message>
     <message>
       <source>General information</source>
-      <translation type="unfinished"/>
+      <translation>Informasi umum</translation>
     </message>
     <message>
       <source>Files</source>
-      <translation type="unfinished"/>
+      <translation>Berkas</translation>
     </message>
     <message>
       <source>Pending chat</source>
@@ -667,6 +671,10 @@
     <message>
       <source>Send</source>
       <translation>Kirim</translation>
+    </message>
+    <message>
+      <source>Personal assistant</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Fill out this form to start a chat</source>
@@ -1111,11 +1119,11 @@
     </message>
     <message>
       <source>Files upload for users is active</source>
-      <translation type="unfinished"/>
+      <translation>Unggah berkas untuk pengguna aktif</translation>
     </message>
     <message>
       <source>Files upload for operators is active</source>
-      <translation type="unfinished"/>
+      <translation>Unggah berkas untuk operator aktif</translation>
     </message>
     <message>
       <source>Country code variable does not exist!</source>
@@ -1332,11 +1340,11 @@
     </message>
     <message>
       <source>Automatically check for messages from the operator/invitation messages</source>
-      <translation type="unfinished"/>
+      <translation>Periksa pesan dari operator/pesan undangan secara otomatis</translation>
     </message>
     <message>
       <source>It increases server load, because every 15 seconds is checked for operator message or invitation message.</source>
-      <translation type="unfinished"/>
+      <translation>Hal ini meningkatkan beban server, karena pesan operator tau pesan undangan diperiksa setiap 15 detik.</translation>
     </message>
     <message>
       <source>Disable pro active invitations, usefull if you want disable them from site part.</source>
@@ -1541,15 +1549,15 @@
     </message>
     <message>
       <source>Files uploads configuration</source>
-      <translation type="unfinished"/>
+      <translation>Konfigurasi unggah berkas</translation>
     </message>
     <message>
       <source>Files upload configuration</source>
-      <translation type="unfinished"/>
+      <translation>Konfigurasi unggah berkas</translation>
     </message>
     <message>
       <source>List of files</source>
-      <translation type="unfinished"/>
+      <translation>Daftar berkas</translation>
     </message>
     <message>
       <source>Other</source>
@@ -1557,7 +1565,7 @@
     </message>
     <message>
       <source>File configuration</source>
-      <translation type="unfinished"/>
+      <translation>Konfigurasi berkas</translation>
     </message>
   </context>
   <context>
@@ -1628,7 +1636,7 @@
     </message>
     <message>
       <source>Recipient e-mail</source>
-      <translation>Penerima E-mail</translation>
+      <translation>E-mail Penerima</translation>
     </message>
     <message>
       <source>Subject</source>
@@ -1699,7 +1707,7 @@
     </message>
     <message>
       <source>Start chat with operator</source>
-      <translation>Mulai chat dengan operator</translation>
+      <translation>Mulai percakapan dengan operator</translation>
     </message>
     <message>
       <source>Type your message to the operator</source>
@@ -1998,7 +2006,7 @@
     </message>
     <message>
       <source>See archived chats</source>
-      <translation>Lihat arsip percakapan</translation>
+      <translation>Lihat percakapan yang terarsip</translation>
     </message>
   </context>
   <context>
@@ -2120,11 +2128,11 @@
     </message>
     <message>
       <source>Archive progress</source>
-      <translation>Progres yang terarsip</translation>
+      <translation>Kemajuan pengarsipan</translation>
     </message>
     <message>
       <source>Pending for action...</source>
-      <translation>Menunda untuk tindakan...</translation>
+      <translation>Menunggu tindakan...</translation>
     </message>
     <message>
       <source>Terms dictionary</source>
@@ -2455,6 +2463,10 @@
       <translation>Nama keluarga</translation>
     </message>
     <message>
+      <source>Photo</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Update</source>
       <translation>Perbarui</translation>
     </message>
@@ -2491,8 +2503,12 @@
       <translation>Akun diperbarui</translation>
     </message>
     <message>
+      <source>Delete</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a username!</source>
-      <translation>Silahkan masukkan nama pengguna!</translation>
+      <translation>Silakan masukkan nama pengguna!</translation>
     </message>
     <message>
       <source>User exists!</source>
@@ -2577,7 +2593,7 @@
     </message>
     <message>
       <source>URL, enter * at the end for the wildcard</source>
-      <translation type="unfinished"/>
+      <translation>URL, masukkan * pada akhir untuk wildcard</translation>
     </message>
     <message>
       <source>The URL where this question should appear, leave it empty for all</source>
@@ -2651,7 +2667,7 @@
     </message>
     <message>
       <source>Please enter question!</source>
-      <translation>Silahkan masukkan pertanyaan!</translation>
+      <translation>Silakan masukkan pertanyaan!</translation>
     </message>
     <message>
       <source>FAQ</source>
@@ -2768,7 +2784,7 @@
     </message>
     <message>
       <source>Please choose module</source>
-      <translation>Silahkan pilih modul</translation>
+      <translation>Silakan pilih modul</translation>
     </message>
     <message>
       <source>Please choose module function</source>
@@ -3386,6 +3402,10 @@
       <translation>Nama keluarga</translation>
     </message>
     <message>
+      <source>Photo</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Save</source>
       <translation>Simpan</translation>
     </message>
@@ -3407,7 +3427,7 @@
     </message>
     <message>
       <source>Invalid CSRF token!</source>
-      <translation>Token CSRF tidak valid!</translation>
+      <translation>Token CSRF tidak sah!</translation>
     </message>
     <message>
       <source>Please enter a name</source>
@@ -3471,6 +3491,10 @@
     <message>
       <source>Surname</source>
       <translation>Nama keluarga</translation>
+    </message>
+    <message>
+      <source>Photo</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Departments</source>
@@ -3938,125 +3962,140 @@
     <name>files/files</name>
     <message>
       <source>Refresh</source>
-      <translation type="unfinished"/>
+      <translation>Segarkan</translation>
     </message>
     <message>
       <source>Delete file</source>
-      <translation type="unfinished"/>
+      <translation>Hapus berkas</translation>
     </message>
     <message>
       <source>Download file</source>
-      <translation type="unfinished"/>
+      <translation>Unduh berkas</translation>
     </message>
     <message>
       <source>Drop your files here.</source>
-      <translation type="unfinished"/>
+      <translation>Jatuhkan berkas anda di sini.</translation>
     </message>
     <message>
       <source>Not an accepted file type</source>
-      <translation type="unfinished"/>
+      <translation>Bukan tipe berkas yang diterima</translation>
     </message>
     <message>
       <source>Filesize is too big</source>
-      <translation type="unfinished"/>
+      <translation>Ukuran berkas terlalu besar</translation>
     </message>
   </context>
   <context>
     <name>file/configuration</name>
     <message>
       <source>File configuration</source>
-      <translation type="unfinished"/>
+      <translation>Konfigurasi berkas</translation>
     </message>
     <message>
       <source>Allowed files types for operators</source>
-      <translation type="unfinished"/>
+      <translation>Tipe berkas yang diizinkan untuk operator</translation>
     </message>
     <message>
       <source>Allowed files types for users</source>
-      <translation type="unfinished"/>
+      <translation>Tipe berkas yang diizinkan untuk pengguna</translation>
     </message>
     <message>
       <source>Maximum file size in KB</source>
-      <translation type="unfinished"/>
+      <translation>Ukuran berkas maksimum dalam KB</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Pengaturan telah diperbarui</translation>
     </message>
     <message>
       <source>Please enter valid file type!</source>
-      <translation type="unfinished"/>
+      <translation>Silakan masukkan tipe berkas yang sah!</translation>
     </message>
     <message>
       <source>Please enter valid maximum file size!</source>
-      <translation type="unfinished"/>
+      <translation>Silakan masukkan ukuran maksimum berkas yang sah!</translation>
     </message>
   </context>
   <context>
     <name>file/list</name>
     <message>
       <source>List of files</source>
-      <translation type="unfinished"/>
+      <translation>Daftar berkas</translation>
     </message>
     <message>
       <source>User</source>
-      <translation type="unfinished"/>
+      <translation>Pengguna</translation>
     </message>
     <message>
       <source>Chat</source>
-      <translation type="unfinished"/>
+      <translation>Percakapan</translation>
     </message>
     <message>
       <source>Upload name</source>
-      <translation type="unfinished"/>
+      <translation>Nama unggah</translation>
     </message>
     <message>
       <source>File size</source>
-      <translation type="unfinished"/>
+      <translation>Ukuran berkas</translation>
     </message>
     <message>
       <source>Extension</source>
-      <translation type="unfinished"/>
+      <translation>Ekstensi</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation type="unfinished"/>
+      <translation>Tanggal</translation>
     </message>
     <message>
       <source>Delete the file</source>
-      <translation type="unfinished"/>
+      <translation>Hapus berkas</translation>
     </message>
   </context>
   <context>
     <name>file/file</name>
     <message>
       <source>Download file</source>
-      <translation type="unfinished"/>
+      <translation>Unduh berkas</translation>
     </message>
   </context>
   <context>
     <name>file/configurations</name>
     <message>
       <source>Please enter valid file type!</source>
-      <translation type="unfinished"/>
+      <translation>Silakan masukkan tipe berkas yang sah!</translation>
     </message>
   </context>
   <context>
     <name>chat/lists/search_panel</name>
     <message>
       <source>Nick</source>
-      <translation type="unfinished"/>
+      <translation>Panggilan</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Date range from to</source>
-      <translation type="unfinished"/>
+      <translation>Susunan tanggal awal akhir</translation>
     </message>
     <message>
       <source>Search</source>
+      <translation>Cari</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/voteaction</name>
+    <message>
+      <source>Thumbs up</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Thumbs down</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Removed thumb vote</source>
       <translation type="unfinished"/>
     </message>
   </context>

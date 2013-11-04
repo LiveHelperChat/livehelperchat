@@ -132,6 +132,10 @@
       <translation>Reikalingas e-pašto adresas</translation>
     </message>
     <message>
+      <source>Show random operator profile</source>
+      <translation>Rodyti atsitiktinį operatoriaus profilį</translation>
+    </message>
+    <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
       <translation>Identifikatorius, kuriam identifikatoriui ši žinutė turėtų būti rodoma. Palikite tuščia visiems</translation>
     </message>
@@ -667,6 +671,10 @@
     <message>
       <source>Send</source>
       <translation>Siųsti</translation>
+    </message>
+    <message>
+      <source>Personal assistant</source>
+      <translation>Asmeninis asistentas</translation>
     </message>
     <message>
       <source>Fill out this form to start a chat</source>
@@ -2455,6 +2463,10 @@
       <translation>Pavardė</translation>
     </message>
     <message>
+      <source>Photo</source>
+      <translation>Nuotrauka</translation>
+    </message>
+    <message>
       <source>Update</source>
       <translation>Atnaujinti</translation>
     </message>
@@ -2489,6 +2501,10 @@
     <message>
       <source>Account updated</source>
       <translation>Paskyros duomenys buvo atnaujinti</translation>
+    </message>
+    <message>
+      <source>Delete</source>
+      <translation>Trinti</translation>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -3386,6 +3402,10 @@
       <translation>Pavardė</translation>
     </message>
     <message>
+      <source>Photo</source>
+      <translation>Nuotrauka</translation>
+    </message>
+    <message>
       <source>Save</source>
       <translation>Saugoti</translation>
     </message>
@@ -3471,6 +3491,10 @@
     <message>
       <source>Surname</source>
       <translation>Pavardė</translation>
+    </message>
+    <message>
+      <source>Photo</source>
+      <translation>Nuotrauka</translation>
     </message>
     <message>
       <source>Departments</source>
@@ -4058,6 +4082,21 @@
     <message>
       <source>Search</source>
       <translation>Ieškoti</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/voteaction</name>
+    <message>
+      <source>Thumbs up</source>
+      <translation>Geras aptarnavimas</translation>
+    </message>
+    <message>
+      <source>Thumbs down</source>
+      <translation>Blogas aptarnavimas</translation>
+    </message>
+    <message>
+      <source>Removed thumb vote</source>
+      <translation>Pašalino aptarnavimo atsiliepimą</translation>
     </message>
   </context>
 </TS>

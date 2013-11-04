@@ -132,6 +132,10 @@
       <translation>Benötigt eine E-Mail-Adresse</translation>
     </message>
     <message>
+      <source>Show random operator profile</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
       <translation>Merkmal, für welches Merkmal diese Nachricht angezeigt werden soll, für alle leer lassen</translation>
     </message>
@@ -667,6 +671,10 @@
     <message>
       <source>Send</source>
       <translation>Senden</translation>
+    </message>
+    <message>
+      <source>Personal assistant</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Fill out this form to start a chat</source>
@@ -2455,6 +2463,10 @@
       <translation>Nachname</translation>
     </message>
     <message>
+      <source>Photo</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Update</source>
       <translation>Update</translation>
     </message>
@@ -2489,6 +2501,10 @@
     <message>
       <source>Account updated</source>
       <translation>Konto-Update</translation>
+    </message>
+    <message>
+      <source>Delete</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -3386,6 +3402,10 @@
       <translation>Nachname</translation>
     </message>
     <message>
+      <source>Photo</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Save</source>
       <translation>Speichern</translation>
     </message>
@@ -3471,6 +3491,10 @@
     <message>
       <source>Surname</source>
       <translation>Vorname</translation>
+    </message>
+    <message>
+      <source>Photo</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Departments</source>
@@ -4057,6 +4081,21 @@
     </message>
     <message>
       <source>Search</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/voteaction</name>
+    <message>
+      <source>Thumbs up</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Thumbs down</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Removed thumb vote</source>
       <translation type="unfinished"/>
     </message>
   </context>
