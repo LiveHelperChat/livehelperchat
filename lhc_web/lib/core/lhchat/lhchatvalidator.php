@@ -76,17 +76,14 @@ class erLhcoreClassChatValidator {
         );
 
         // Captcha stuff
-        /* $hashCaptcha = $_SESSION[$_SERVER['REMOTE_ADDR']]['form'];
-        $nameField = 'captcha_'.$_SESSION[$_SERVER['REMOTE_ADDR']]['form']; */
-
-        $nameField = 'captcha_'.sha1($_SERVER['REMOTE_ADDR'].$_POST['tscaptcha'].erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
+        $nameField = 'captcha_'.sha1(erLhcoreClassIPDetect::getIP().$_POST['tscaptcha'].erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
         $validationFields[$nameField] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
 
 
         $form = new ezcInputForm( INPUT_POST, $validationFields );
         $Errors = array();
 
-        if (erLhcoreClassModelChatBlockedUser::getCount(array('filter' => array('ip' => $_SERVER['REMOTE_ADDR']))) > 0) {
+        if (erLhcoreClassModelChatBlockedUser::getCount(array('filter' => array('ip' => erLhcoreClassIPDetect::getIP()))) > 0) {
             $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You do not have permission to chat! Please contact site owner.');
         }
 

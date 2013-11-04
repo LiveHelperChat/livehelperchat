@@ -103,7 +103,7 @@ class erLhcoreClassModelChat {
 
    public function setIP()
    {
-       $this->ip = $_SERVER['REMOTE_ADDR'];
+       $this->ip = erLhcoreClassIPDetect::getIP();
    }
 
    public function getChatOwner()

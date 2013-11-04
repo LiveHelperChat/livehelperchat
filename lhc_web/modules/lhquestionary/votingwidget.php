@@ -47,7 +47,7 @@ if ($votingRelative !== false) {
 		);
 
 		// Captcha stuff
-		$nameField = 'captcha_'.sha1($_SERVER['REMOTE_ADDR'].$_POST['tscaptcha'].erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
+		$nameField = 'captcha_'.sha1(erLhcoreClassIPDetect::getIP().$_POST['tscaptcha'].erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
         $definition[$nameField] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
 
 		$form = new ezcInputForm( INPUT_POST, $definition );
@@ -74,7 +74,7 @@ if ($votingRelative !== false) {
         }
 
 		if ( empty($Errors) ) {
-			if (erLhcoreClassQuestionary::getCount(array('filter' => array('question_id' => $votingRelative->id, 'ip' => ip2long($_SERVER['REMOTE_ADDR']))),'lh_question_option_answer') > 0) {
+			if (erLhcoreClassQuestionary::getCount(array('filter' => array('question_id' => $votingRelative->id, 'ip' => ip2long(erLhcoreClassIPDetect::getIP()))),'lh_question_option_answer') > 0) {
 				$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/votingwidget','You have already voted, thank you!');
 			}
 		}
@@ -117,7 +117,7 @@ if ($votingRelative !== false) {
 		}
 
 		if ( empty($Errors) ) {
-			if (erLhcoreClassQuestionary::getCount(array('filter' => array('question_id' => $votingRelative->id, 'ip' => ip2long($_SERVER['REMOTE_ADDR']))),'lh_question_answer') > 0) {
+			if (erLhcoreClassQuestionary::getCount(array('filter' => array('question_id' => $votingRelative->id, 'ip' => ip2long(erLhcoreClassIPDetect::getIP()))),'lh_question_answer') > 0) {
 				$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/votingwidget','You have already send your feedback!');
 			}
 		}
@@ -133,10 +133,10 @@ if ($votingRelative !== false) {
 
 if ($votingRelative !== false){
 	if ($votingRelative->is_voting == 1) {
-		if (erLhcoreClassQuestionary::getCount(array('filter' => array('question_id' => $votingRelative->id, 'ip' => ip2long($_SERVER['REMOTE_ADDR']))),'lh_question_option_answer') > 0) {
+		if (erLhcoreClassQuestionary::getCount(array('filter' => array('question_id' => $votingRelative->id, 'ip' => ip2long(erLhcoreClassIPDetect::getIP()))),'lh_question_option_answer') > 0) {
 			$tpl->set('already_voted',true);
 		}
-	} elseif (erLhcoreClassQuestionary::getCount(array('filter' => array('question_id' => $votingRelative->id, 'ip' => ip2long($_SERVER['REMOTE_ADDR']))),'lh_question_answer') > 0) {
+	} elseif (erLhcoreClassQuestionary::getCount(array('filter' => array('question_id' => $votingRelative->id, 'ip' => ip2long(erLhcoreClassIPDetect::getIP()))),'lh_question_answer') > 0) {
 		$tpl->set('already_voted',true);
 	}
 }

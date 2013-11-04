@@ -161,7 +161,7 @@ class erLhcoreClassChatMail {
     	$mail->FromName = $chat->nick;
     	$mail->Subject = $sendMail->subject;
     	$mail->AddReplyTo($chat->email,$chat->nick);
-    	$mail->Body = str_replace(array('{phone}','{name}','{email}','{message}','{additional_data}','{url_request}','{ip}','{department}'), array($chat->phone,$chat->nick,$chat->email,$inputData->question,$chat->additional_data,(isset($_POST['URLRefer']) ? $_POST['URLRefer'] : ''),$_SERVER['REMOTE_ADDR'],(string)$chat->department), $sendMail->content);
+    	$mail->Body = str_replace(array('{phone}','{name}','{email}','{message}','{additional_data}','{url_request}','{ip}','{department}'), array($chat->phone,$chat->nick,$chat->email,$inputData->question,$chat->additional_data,(isset($_POST['URLRefer']) ? $_POST['URLRefer'] : ''),erLhcoreClassIPDetect::getIP(),(string)$chat->department), $sendMail->content);
 
     	$emailRecipient = array();
     	if ($chat->department !== false && $chat->department->email != '') { // Perhaps department has assigned email

@@ -117,7 +117,7 @@ if ( isset($_POST['send']) )
 	);
 
 	// Captcha stuff
-	$nameField = 'captcha_'.sha1($_SERVER['REMOTE_ADDR'].$_POST['tscaptcha'].erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
+	$nameField = 'captcha_'.sha1(erLhcoreClassIPDetect::getIP().$_POST['tscaptcha'].erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 	$definition[$nameField] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
 
 
@@ -154,8 +154,8 @@ if ( isset($_POST['send']) )
 		$item_new = new erLhcoreClassFaq();
 		$tpl->set('success',true);
 
-		if (isset($_SESSION[$_SERVER['REMOTE_ADDR']]['form'])) {
-			unset($_SESSION[$_SERVER['REMOTE_ADDR']]['form']);
+		if (isset($_SESSION[erLhcoreClassIPDetect::getIP()]['form'])) {
+			unset($_SESSION[erLhcoreClassIPDetect::getIP()]['form']);
 		}
 
 	} else {

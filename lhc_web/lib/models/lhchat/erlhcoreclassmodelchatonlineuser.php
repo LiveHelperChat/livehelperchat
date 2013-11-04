@@ -437,7 +437,7 @@ class erLhcoreClassModelChatOnlineUser {
 
 	               } else {
 	                   $item = new erLhcoreClassModelChatOnlineUser();
-	                   $item->ip = $_SERVER['REMOTE_ADDR'];
+	                   $item->ip = erLhcoreClassIPDetect::getIP();
 	                   $item->vid = $paramsHandle['vid'];
 	                   $item->identifier = (isset($paramsHandle['identifier']) && !empty($paramsHandle['identifier'])) ? $paramsHandle['identifier'] : '';
 	                   $item->referrer = isset($_GET['r']) ? urldecode($_GET['r']) : '';

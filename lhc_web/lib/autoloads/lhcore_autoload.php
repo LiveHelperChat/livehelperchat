@@ -12,6 +12,7 @@ return array_merge(array (
         'lhPaginator'           => 'lib/core/lhexternal/lhpagination.php',
         'erLhcoreClassLog'      => 'lib/core/lhcore/lhlog.php',
         'erLhcoreClassLazyDatabaseConfiguration' => 'lib/core/lhcore/lhdb.php',
+        'erLhcoreClassIPDetect' => 'lib/core/lhcore/lhipdetect.php',
 
         'erConfigClassLhCacheConfig' => 'lib/core/lhconfig/lhcacheconfig.php',
 

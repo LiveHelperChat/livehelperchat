@@ -35,7 +35,7 @@ class erLhcoreClassModelQuestionAnswer {
    public function saveThis()
    {
    	   $this->ctime = time();
-   	   $this->ip = ip2long($_SERVER['REMOTE_ADDR']);
+   	   $this->ip = ip2long(erLhcoreClassIPDetect::getIP());
        erLhcoreClassQuestionary::getSession()->saveOrUpdate($this);
    }
 
