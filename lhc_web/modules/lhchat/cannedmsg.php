@@ -8,7 +8,7 @@ if (is_numeric($Params['user_parameters_unordered']['id']) && $Params['user_para
     try {
 
     	if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
-    		die('Invalid CSFR Token');
+    		die('Invalid CSRF Token');
     		exit;
     	}
 

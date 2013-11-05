@@ -11,7 +11,7 @@ if ($chat->user_id == $currentUser->getUserID() || $currentUser->hasAccessTo('lh
 {
 
 	if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
-		die('Invalid CSFR Token');
+		die('Invalid CSRF Token');
 		exit;
 	}
 
