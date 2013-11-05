@@ -517,11 +517,11 @@
     </message>
     <message>
       <source>Fill textarea with canned message</source>
-      <translation type="unfinished"/>
+      <translation>Riempi area testo con messaggio predefinito</translation>
     </message>
     <message>
       <source>Send delayed canned message instantly</source>
-      <translation type="unfinished"/>
+      <translation>Invia messaggio predefinito scelto subito!</translation>
     </message>
   </context>
   <context>
@@ -572,11 +572,11 @@
     </message>
     <message>
       <source>m.</source>
-      <translation type="unfinished"/>
+      <translation>m.</translation>
     </message>
     <message>
       <source>s.</source>
-      <translation type="unfinished"/>
+      <translation>s.</translation>
     </message>
   </context>
   <context>
@@ -718,7 +718,7 @@
     </message>
     <message>
       <source>Maximum 100 characters for phone</source>
-      <translation type="unfinished"/>
+      <translation>Massimo 100 caratteri per telefono</translation>
     </message>
     <message>
       <source>Live Support</source>
@@ -730,11 +730,11 @@
     </message>
     <message>
       <source>Maximum 500 characters for a message</source>
-      <translation type="unfinished"/>
+      <translation>Massimo 500 caratteri per messaggio</translation>
     </message>
     <message>
       <source>Fill in the form to start a chat</source>
-      <translation type="unfinished"/>
+      <translation>Compila questo modulo per avviare una chat</translation>
     </message>
   </context>
   <context>
@@ -745,7 +745,7 @@
     </message>
     <message>
       <source>A support staff member has closed this chat</source>
-      <translation type="unfinished"/>
+      <translation>Un membro del personale di supporto ha chiuso questa chat</translation>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
@@ -841,7 +841,7 @@
     <name>chat/errors/adminchatnopermission</name>
     <message>
       <source>You do not have permission to access the current chat!</source>
-      <translation type="unfinished"/>
+      <translation>Non si dispone dell&apos;autorizzazione per accedere chat corrente!</translation>
     </message>
   </context>
   <context>
@@ -899,11 +899,11 @@
     </message>
     <message>
       <source>API Key</source>
-      <translation type="unfinished"/>
+      <translation>Chiave API</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation type="unfinished"/>
+      <translation>Username</translation>
     </message>
     <message>
       <source>IP, if your site remote IP is different from detected one, please provide correct remote IP address</source>
@@ -911,7 +911,7 @@
     </message>
     <message>
       <source>Map location</source>
-      <translation type="unfinished"/>
+      <translation>Posizione</translation>
     </message>
     <message>
       <source>Drag a marker where you want to have map centered by default. Zoom is also saved.</source>
@@ -955,7 +955,7 @@
     </message>
     <message>
       <source>User have not seen message from operator, or message window still open.</source>
-      <translation type="unfinished"/>
+      <translation>Utente non ha visto il messaggio dell&apos;operatore, oppure la finestra del messaggio è ancora aperta</translation>
     </message>
     <message>
       <source>User has seen message from operator.</source>
@@ -971,7 +971,7 @@
     </message>
     <message>
       <source>has send message to user</source>
-      <translation type="unfinished"/>
+      <translation>ha inviato un messaggio all&apos;utente</translation>
     </message>
     <message>
       <source>No one has send any message to user yet</source>
@@ -1083,7 +1083,7 @@
     </message>
     <message>
       <source>User has seen the message from the operator.</source>
-      <translation type="unfinished"/>
+      <translation>L&apos;utente ha visto il messaggio dall&apos;operatore.</translation>
     </message>
     <message>
       <source>has sent a message to the user</source>
@@ -1171,7 +1171,7 @@
     </message>
     <message>
       <source>Online users</source>
-      <translation type="unfinished"/>
+      <translation>Utenti online</translation>
     </message>
   </context>
   <context>
@@ -1509,7 +1509,7 @@
     </message>
     <message>
       <source>Chat archive</source>
-      <translation type="unfinished"/>
+      <translation>Archivio chat</translation>
     </message>
     <message>
       <source>Live help embed code</source>
