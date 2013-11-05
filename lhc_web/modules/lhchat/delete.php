@@ -6,7 +6,7 @@ $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params
 $currentUser = erLhcoreClassUser::instance();
 
 if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
-	die('Invalid CSFR Token');
+	die('Invalid CSRF Token');
 	exit;
 }
 

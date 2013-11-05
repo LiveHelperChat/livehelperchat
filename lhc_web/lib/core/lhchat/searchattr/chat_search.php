@@ -70,7 +70,7 @@ $fieldSortAttr = array (
 'default'    => false,
 'serialised' => true,
 'disabled'   => true,
-'options'    => erLhcoreClassRenderHelper::renderArray(array('list_function_params' => array('filter' => array('sort_type' => 'account')), 'list_function' => 'erLhAbstractModelSortOption::getList','identifier' => 'identifier', 'elements_items' => array('sort_column' => 'value')))
+'options'    => array()
 );
 
 return array(
