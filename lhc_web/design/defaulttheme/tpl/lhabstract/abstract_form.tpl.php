@@ -9,9 +9,9 @@
 <?php foreach ($object->getFields() as $fieldName => $attr) : ?>
 	<?php if (!isset($attr['hide_edit'])) : ?>
 		<?php if ($attr['type'] == 'checkbox') : ?>
-		<label><?php echo erLhcoreClassAbstract::renderInput($fieldName, $attr, $object)?> <?php echo htmlspecialchars($attr['trans']);?><?php echo $attr['required'] == true ? ' *' : ''?><br/><br/></label>
+		<label><?php echo erLhcoreClassAbstract::renderInput($fieldName, $attr, $object)?> <?php echo $attr['trans'];?><?php echo $attr['required'] == true ? ' *' : ''?><br/><br/></label>
 		<?php else : ?>
-		<label><?php echo htmlspecialchars($attr['trans']);?><?php echo $attr['required'] == true ? ' *' : ''?></label>
+		<label><?php echo $attr['trans'];?><?php echo $attr['required'] == true ? ' *' : ''?></label>
 		<?php echo erLhcoreClassAbstract::renderInput($fieldName, $attr, $object)?>
 		<?php endif;?>
 	<?php endif;?>
