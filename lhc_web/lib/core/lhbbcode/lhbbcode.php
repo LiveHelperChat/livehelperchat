@@ -29,7 +29,7 @@ class erLhcoreClassBBCode
     	$in = array( 	 ':)',
     					 ':D',
     					 ':(',
-    					 ':o',
+    					 ':o:',
     					 ':p',
     					 ';)'
     	);
