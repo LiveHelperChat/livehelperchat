@@ -133,7 +133,7 @@
     </message>
     <message>
       <source>Show random operator profile</source>
-      <translation type="unfinished"/>
+      <translation>Показать профиль случайного оператора</translation>
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
@@ -674,7 +674,7 @@
     </message>
     <message>
       <source>Personal assistant</source>
-      <translation type="unfinished"/>
+      <translation>Личный помощник</translation>
     </message>
     <message>
       <source>Fill out this form to start a chat</source>
@@ -2465,7 +2465,7 @@
     </message>
     <message>
       <source>Photo</source>
-      <translation type="unfinished"/>
+      <translation>Фото</translation>
     </message>
     <message>
       <source>Update</source>
@@ -2505,7 +2505,7 @@
     </message>
     <message>
       <source>Delete</source>
-      <translation type="unfinished"/>
+      <translation>Удалить</translation>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -3404,7 +3404,7 @@
     </message>
     <message>
       <source>Photo</source>
-      <translation type="unfinished"/>
+      <translation>Фото</translation>
     </message>
     <message>
       <source>Save</source>
@@ -3495,7 +3495,7 @@
     </message>
     <message>
       <source>Photo</source>
-      <translation type="unfinished"/>
+      <translation>Фото</translation>
     </message>
     <message>
       <source>Departments</source>
@@ -4089,15 +4089,15 @@
     <name>chat/voteaction</name>
     <message>
       <source>Thumbs up</source>
-      <translation type="unfinished"/>
+      <translation>Хорошо</translation>
     </message>
     <message>
       <source>Thumbs down</source>
-      <translation type="unfinished"/>
+      <translation>Плохо</translation>
     </message>
     <message>
       <source>Removed thumb vote</source>
-      <translation type="unfinished"/>
+      <translation>Удаленная оценка</translation>
     </message>
   </context>
 </TS>

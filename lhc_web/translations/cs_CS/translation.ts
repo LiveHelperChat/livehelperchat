@@ -202,7 +202,7 @@
     <name>chat/chat</name>
     <message>
       <source>Show/Hide right column</source>
-      <translation type="unfinished"/>
+      <translation>Zobrazit/skrýt pravý sloupec</translation>
     </message>
     <message>
       <source>User is typing now...</source>
@@ -234,7 +234,7 @@
     </message>
     <message>
       <source>Chatbox is disabled.</source>
-      <translation type="unfinished"/>
+      <translation>Chatbox je deaktivovaný.</translation>
     </message>
     <message>
       <source>Invalid hash or auto creation is disabled</source>
@@ -311,7 +311,7 @@
     </message>
     <message>
       <source>Position</source>
-      <translation type="unfinished"/>
+      <translation>Umístění</translation>
     </message>
     <message>
       <source>Edit message</source>
@@ -560,7 +560,7 @@
     </message>
     <message>
       <source>ago</source>
-      <translation>zpět</translation>
+      <translation>zpátky</translation>
     </message>
     <message>
       <source>Accept chat</source>
@@ -702,7 +702,7 @@
     </message>
     <message>
       <source>Please enter a valid email address</source>
-      <translation type="unfinished"/>
+      <translation>Prosím zadejte platný e-mail</translation>
     </message>
     <message>
       <source>Please enter your message</source>
@@ -903,7 +903,7 @@
     </message>
     <message>
       <source>Username</source>
-      <translation>Uživateleské jméno</translation>
+      <translation>Uživatelské jméno</translation>
     </message>
     <message>
       <source>IP, if your site remote IP is different from detected one, please provide correct remote IP address</source>
@@ -947,7 +947,7 @@
     </message>
     <message>
       <source>ago</source>
-      <translation>zpět</translation>
+      <translation>zpátky</translation>
     </message>
     <message>
       <source>User does not have any message from operator</source>
@@ -991,7 +991,7 @@
     </message>
     <message>
       <source>time(s) invitation logic was applied</source>
-      <translation type="unfinished"/>
+      <translation>byla použita časová logika pozvánek</translation>
     </message>
     <message>
       <source>Pageviews</source>
@@ -1178,19 +1178,19 @@
     <name>chat/getstatus</name>
     <message>
       <source>Live help is online...</source>
-      <translation type="unfinished"/>
+      <translation>Online pomoc je dostupná...</translation>
     </message>
     <message>
       <source>Live help is offline...</source>
-      <translation type="unfinished"/>
+      <translation>Online pomoc je nyní nedostupná...</translation>
     </message>
     <message>
       <source>Close</source>
-      <translation type="unfinished"/>
+      <translation>Zavřít</translation>
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation type="unfinished"/>
+      <translation>Otevřít v novém okně</translation>
     </message>
   </context>
   <context>
@@ -1244,7 +1244,7 @@
     </message>
     <message>
       <source>Chatbox</source>
-      <translation type="unfinished"/>
+      <translation>Chatbox</translation>
     </message>
     <message>
       <source>Position from the top, is only used if the Middle left or the Middle right side is chosen</source>
@@ -1509,7 +1509,7 @@
     </message>
     <message>
       <source>Chat archive</source>
-      <translation type="unfinished"/>
+      <translation>Archiv rozhovorů</translation>
     </message>
     <message>
       <source>Live help embed code</source>
@@ -1591,7 +1591,7 @@
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation type="unfinished"/>
+      <translation>Otevřít v novém okně</translation>
     </message>
     <message>
       <source>Reject chat</source>
@@ -1924,7 +1924,7 @@
     </message>
     <message>
       <source>ago</source>
-      <translation>zpět</translation>
+      <translation>zpátky</translation>
     </message>
   </context>
   <context>
@@ -2124,7 +2124,7 @@
     </message>
     <message>
       <source>Archived chats</source>
-      <translation type="unfinished"/>
+      <translation>Archivované rozhovory</translation>
     </message>
     <message>
       <source>Archive progress</source>
@@ -2278,7 +2278,7 @@
     </message>
     <message>
       <source>Chatbox</source>
-      <translation type="unfinished"/>
+      <translation>Chatbox</translation>
     </message>
   </context>
   <context>
@@ -2293,7 +2293,7 @@
     </message>
     <message>
       <source>Username</source>
-      <translation>Uživateleské jméno</translation>
+      <translation>Uživatelské jméno</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -2464,7 +2464,7 @@
     </message>
     <message>
       <source>Photo</source>
-      <translation type="unfinished"/>
+      <translation>Fotografie</translation>
     </message>
     <message>
       <source>Update</source>
@@ -2756,7 +2756,7 @@
     </message>
     <message>
       <source>New policy</source>
-      <translation>Nauja teisė</translation>
+      <translation>Nové pravidlo</translation>
     </message>
     <message>
       <source>Role assigned groups</source>
@@ -2796,7 +2796,7 @@
     </message>
     <message>
       <source>List of roles</source>
-      <translation>Rolių sąrašas</translation>
+      <translation>Seznam rolí</translation>
     </message>
   </context>
   <context>
@@ -2821,7 +2821,7 @@
     <name>permission/newpolicy</name>
     <message>
       <source>New policy</source>
-      <translation>Nauja teisė</translation>
+      <translation>Nové pravidlo</translation>
     </message>
     <message>
       <source>Assigned functions</source>
@@ -2856,7 +2856,7 @@
     <name>permission/newrole</name>
     <message>
       <source>New role</source>
-      <translation>Nauja rolė</translation>
+      <translation>Nová role</translation>
     </message>
     <message>
       <source>Title</source>
@@ -2876,7 +2876,7 @@
     </message>
     <message>
       <source>New policy</source>
-      <translation>Nauja teisė</translation>
+      <translation>Nové pravidlo</translation>
     </message>
     <message>
       <source>Save</source>
@@ -2896,7 +2896,7 @@
     </message>
     <message>
       <source>List of roles</source>
-      <translation>Rolių sąrašas</translation>
+      <translation>Seznam rolí</translation>
     </message>
   </context>
   <context>
@@ -2914,7 +2914,7 @@
     <name>permission/roles</name>
     <message>
       <source>List of roles</source>
-      <translation>Rolių sąrašas</translation>
+      <translation>Seznam rolí</translation>
     </message>
     <message>
       <source>Title</source>
@@ -2930,7 +2930,7 @@
     </message>
     <message>
       <source>New role</source>
-      <translation>Nauja rolė</translation>
+      <translation>Nová role</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -3262,7 +3262,7 @@
     </message>
     <message>
       <source>Chatbox</source>
-      <translation type="unfinished"/>
+      <translation>Chatbox</translation>
     </message>
     <message>
       <source>Account</source>
@@ -3281,7 +3281,7 @@
     </message>
     <message>
       <source>Your language</source>
-      <translation type="unfinished"/>
+      <translation>Váš jazyk</translation>
     </message>
     <message>
       <source>Language</source>
@@ -3289,7 +3289,7 @@
     </message>
     <message>
       <source>General language settings</source>
-      <translation type="unfinished"/>
+      <translation>Základní nastavení jazyka</translation>
     </message>
     <message>
       <source>Current site access</source>
@@ -3321,7 +3321,7 @@
     </message>
     <message>
       <source>Please choose correct language</source>
-      <translation type="unfinished"/>
+      <translation>Prosím zvolte správný jazyk</translation>
     </message>
     <message>
       <source>Please enter theme</source>
@@ -3407,7 +3407,7 @@
     </message>
     <message>
       <source>Save</source>
-      <translation type="unfinished"/>
+      <translation>Uložit</translation>
     </message>
     <message>
       <source>Update</source>
@@ -3427,7 +3427,7 @@
     </message>
     <message>
       <source>Invalid CSRF token!</source>
-      <translation type="unfinished"/>
+      <translation>Neplaný CSRF token!</translation>
     </message>
     <message>
       <source>Please enter a name</source>
@@ -3470,7 +3470,7 @@
     </message>
     <message>
       <source>Username</source>
-      <translation>Uživateleské jméno</translation>
+      <translation>Uživatelské jméno</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -3538,7 +3538,7 @@
     </message>
     <message>
       <source>Please enter a group name</source>
-      <translation type="unfinished"/>
+      <translation>Prosím zadejte název skupiny</translation>
     </message>
   </context>
   <context>
@@ -3561,7 +3561,7 @@
     </message>
     <message>
       <source>Username</source>
-      <translation>Uživateleské jméno</translation>
+      <translation>Uživatelské jméno</translation>
     </message>
     <message>
       <source>Remove user from the group</source>
@@ -3673,7 +3673,7 @@
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Jméno</translation>
     </message>
     <message>
       <source>Edit group</source>
@@ -3696,7 +3696,7 @@
     <name>gallery/album_list_admin</name>
     <message>
       <source>Are you sure?</source>
-      <translation type="unfinished"/>
+      <translation>Jste si jistý/á?</translation>
     </message>
   </context>
   <context>
@@ -3761,7 +3761,7 @@
     <name>user/remindpassword</name>
     <message>
       <source>New password</source>
-      <translation type="unfinished"/>
+      <translation>Nové heslo</translation>
     </message>
     <message>
       <source>Hash was not found or was used already</source>
@@ -3784,19 +3784,19 @@
     <name>lhxml/userinfo</name>
     <message>
       <source>ID</source>
-      <translation type="unfinished"/>
+      <translation>ID</translation>
     </message>
     <message>
       <source>IP address</source>
-      <translation type="unfinished"/>
+      <translation>IP adresa</translation>
     </message>
     <message>
       <source>Current page</source>
-      <translation type="unfinished"/>
+      <translation>Aktuální strana</translation>
     </message>
     <message>
       <source>Last visit</source>
-      <translation type="unfinished"/>
+      <translation>Poslední návštěva</translation>
     </message>
     <message>
       <source>User agent</source>
@@ -3804,11 +3804,11 @@
     </message>
     <message>
       <source>Country code</source>
-      <translation type="unfinished"/>
+      <translation>Kód země</translation>
     </message>
     <message>
       <source>Country name</source>
-      <translation type="unfinished"/>
+      <translation>Název země</translation>
     </message>
     <message>
       <source>Message seen</source>
@@ -3955,7 +3955,7 @@
     <name>chat/deletechatadmin</name>
     <message>
       <source>You do not have rights to delete a chat</source>
-      <translation type="unfinished"/>
+      <translation>Nemáte práva ke smazání rozhovoru</translation>
     </message>
   </context>
   <context>
