@@ -124,8 +124,6 @@ return array_merge(array (
 		'qqUploadedFileXhr'                         => 'lib/core/lhcore/lhimageconverter.php',
 		'erLhcoreClassGalleryImagemagickHandler'    => 'lib/core/lhcore/lhgalleryconverterhandler.php',
 		'erLhcoreClassGalleryGDHandler'             => 'lib/core/lhcore/lhgallerygdconverterhandler.php',
-
-
 ),
 include('var/autoloads/lhextension_autoload.php')
 );
