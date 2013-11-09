@@ -97,9 +97,9 @@ Few main features
  * Protection against spammers using advanced captcha technique without requiring users to enter any captcha code.
  * Option for operator set online or offline mode.
  * Desktop client for
- * Windows
- * Linux 
- * Mac
+  * Windows
+  * Linux 
+  * Mac
  * Flexible permission system:
   * Roles
   * Groups
