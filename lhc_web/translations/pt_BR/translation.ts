@@ -646,7 +646,7 @@
     </message>
     <message>
       <source>There are no online operators at the moment, please leave a message</source>
-      <translation>Não existem operadores online no momento, por favor deixe uma mensagem.</translation>
+      <translation>Não existem operadores online no momento, por favor deixe uma mensagem e entraremos em contato com você.</translation>
     </message>
     <message>
       <source>Leave a message</source>
@@ -1445,11 +1445,11 @@
     </message>
     <message>
       <source>Request notification permission</source>
-      <translation>Requisitar permissão para notificação</translation>
+      <translation>Requisitar permissão de notificação</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Configuração de sistema</translation>
+      <translation>Configuração do sistema</translation>
     </message>
     <message>
       <source>Chat related</source>
@@ -1469,7 +1469,7 @@
     </message>
     <message>
       <source>GEO detection configuration</source>
-      <translation>Configuração de Geolocalidade</translation>
+      <translation>Configuração de Geolocalização</translation>
     </message>
     <message>
       <source>Synchronization and sound settings</source>
@@ -1485,7 +1485,7 @@
     </message>
     <message>
       <source>E-mail templates</source>
-      <translation>Templates de email</translation>
+      <translation>Modelos de e-mail</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -1533,7 +1533,7 @@
     </message>
     <message>
       <source>Users and their permissions</source>
-      <translation>Usuários e suas permisões</translation>
+      <translation>Usuários e suas permissões</translation>
     </message>
     <message>
       <source>Users</source>
@@ -1561,7 +1561,7 @@
     </message>
     <message>
       <source>Other</source>
-      <translation>Outros</translation>
+      <translation>Outro</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -1722,7 +1722,7 @@
     </message>
     <message>
       <source>At least one field has to be visible and required in the popup and page widget</source>
-      <translation>Pelo menos um campo tem de ser visível e requerido no popup e widget</translation>
+      <translation>Pelo menos um campo tem que ser visível e requerido no popup e widget</translation>
     </message>
     <message>
       <source>Name</source>
@@ -1825,7 +1825,7 @@
     </message>
     <message>
       <source>Play a sound on a new message for a front end user</source>
-      <translation>Tocar um som em uma nova mensagem de um usuário de frontend</translation>
+      <translation>Tocar um som em uma nova mensagem de um usuário de front end</translation>
     </message>
     <message>
       <source>Please enter a valid online timeout value!</source>
@@ -2313,7 +2313,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Configuração de sistema</translation>
+      <translation>Configuração do sistema</translation>
     </message>
   </context>
   <context>
@@ -2539,11 +2539,11 @@
     </message>
     <message>
       <source>Please enter a department name</source>
-      <translation>Por favor informe o nome do departamento</translation>
+      <translation>Por favor informe um nome de departamento</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Configuração de sistema</translation>
+      <translation>Configuração do sistema</translation>
     </message>
     <message>
       <source>Departments</source>
@@ -3439,7 +3439,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Configuração de sistema</translation>
+      <translation>Configuração do sistema</translation>
     </message>
     <message>
       <source>Users</source>
@@ -3530,7 +3530,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Configuração de sistema</translation>
+      <translation>Configuração do sistema</translation>
     </message>
     <message>
       <source>Users</source>
@@ -3846,7 +3846,7 @@
     <name>abstract/email_template</name>
     <message>
       <source>Name, for personal purposes</source>
-      <translation>Nome, para uso profissional</translation>
+      <translation>Nome, para fins pessoais</translation>
     </message>
     <message>
       <source>Subject</source>
@@ -3862,11 +3862,11 @@
     </message>
     <message>
       <source>Allow to change from name</source>
-      <translation>Permitir a alteração de nome de remetente</translation>
+      <translation>Permitir a alteração do nome de remetente</translation>
     </message>
     <message>
       <source>From e-mail, if mail was not sent for some reason, this mail will get a failed delivery message</source>
-      <translation>Do e-mail, se o email não foi enviado, por algum motivo, este e-mail irá receber uma mensagem de falha na entrega</translation>
+      <translation>E-mail remetente, se por algum motivo o e-mail não foi enviado, este e-mail irá receber uma mensagem de falha na entrega</translation>
     </message>
     <message>
       <source>Allow to change from e-mail</source>
