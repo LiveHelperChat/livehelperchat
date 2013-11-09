@@ -593,9 +593,13 @@ function lh(){
 			});
 		}
 	};
-
+	
 	this.sendMail = function(chat_id) {
 		$.colorbox({iframe:true, width:'550px',height:'500px', href:this.wwwDir + 'chat/sendmail/'+chat_id});
+	};
+
+	this.sendMailArchive = function(archive_id,chat_id) {
+		$.colorbox({iframe:true, width:'550px',height:'500px', href:this.wwwDir + 'chatarchive/sendmail/'+archive_id+'/'+chat_id});
 	};
 
 	this.transferChat = function(chat_id)

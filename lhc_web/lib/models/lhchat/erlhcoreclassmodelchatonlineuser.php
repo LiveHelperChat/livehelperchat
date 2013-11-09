@@ -9,6 +9,7 @@ class erLhcoreClassModelChatOnlineUser {
                'ip'                 => $this->ip,
                'vid'                => $this->vid,
                'current_page'       => $this->current_page,
+               'page_title'         => $this->page_title,
                'chat_id'            => $this->chat_id, // For future
                'last_visit'         => $this->last_visit,
                'first_visit'        => $this->first_visit,
@@ -465,6 +466,7 @@ class erLhcoreClassModelChatOnlineUser {
 	           if (!isset($paramsHandle['check_message_operator']) || (isset($paramsHandle['pages_count']) && $paramsHandle['pages_count'] == true)) {
 	           		$item->user_agent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
 	           		$item->current_page = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
+	           		$item->page_title = isset($_GET['dt']) ? (string)$_GET['dt'] : '';
 	           		$item->last_visit = time();
 	           		$item->store_chat = true;
 	           }
@@ -521,6 +523,7 @@ class erLhcoreClassModelChatOnlineUser {
    public $time_on_site = 0;
    public $tt_time_on_site = 0;
    public $referrer = '';
+   public $page_title = '';
    public $total_visits = 0;
    public $invitation_count = 0;
    public $requires_email = 0;

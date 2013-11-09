@@ -1,4 +1,3 @@
-<?php include(erLhcoreClassDesign::designtpl('lhchatbox/embed_button.tpl.php'));?>
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatbox/new','New chatbox');?></h1>
 
 <?php if (isset($errors)) : ?>

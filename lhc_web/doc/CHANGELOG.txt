@@ -1,3 +1,15 @@
+1.64v
+
+Features
+1. Online visitors list will show page title insead of url. URL will be shown as link title.
+2. Option to print and mail archived chat.
+3. Option to add IP which should not be presented in online visitors list. Also this will avoid Proactive chat invitations to them.
+
+Changes
+1. Embed code generation can be reached only from configuration to avoid users misunderstandings.
+
+execute doc/update_db/update_46.sql for update
+
 1.63v
 
 Features

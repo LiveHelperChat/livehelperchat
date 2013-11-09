@@ -60,12 +60,13 @@
 
 </tr>
 </thead>
-<?php foreach ($items as $departament) : ?>
+<?php 
+foreach ($items as $departament) : ?>
     <tr>
         <td><?php echo $departament->id?></td>
         <td nowrap><?php echo htmlspecialchars($departament->lastactivity_ago)?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','ago');?></td>
         <td><?php echo $departament->time_on_site_front?></td>
-        <td><div class="page-url"><span><a target="_blank" href="<?php echo htmlspecialchars($departament->current_page)?>"><?php echo htmlspecialchars($departament->current_page)?></a></span></div></td>
+        <td><div class="page-url"><span><a target="_blank" href="<?php echo htmlspecialchars($departament->current_page)?>" title="<?php echo htmlspecialchars($departament->current_page)?>"><?php echo htmlspecialchars($departament->page_title != '' ? $departament->page_title : $departament->current_page)?></a></span></div></td>
         <td><div class="page-url"><span><a target="_blank" href="<?php echo htmlspecialchars($departament->referrer)?>"><?php echo htmlspecialchars($departament->referrer)?></a></span></div></td>
         <td>
         <div style="width:270px">

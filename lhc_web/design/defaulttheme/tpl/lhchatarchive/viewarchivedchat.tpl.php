@@ -23,6 +23,6 @@
 	</div>
 	<div class="columns large-5">
 		<?php $hideActionBlock = true;?>
-		<?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/chat_tabs_container.tpl.php')); ?>
+		<?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/chat_tabs_container.tpl.php')); ?>		
 	</div>
 </div>

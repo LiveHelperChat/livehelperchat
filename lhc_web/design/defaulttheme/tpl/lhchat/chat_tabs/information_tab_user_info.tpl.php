@@ -135,8 +135,10 @@
 
 		<a target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('chat/printchatadmin')?>/<?php echo $chat->id?>" class="print-ico-admin" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Print')?>"></a>
 	</p>
+	<?php else : ?>
+	<a class="icon-print" target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('chatarchive/printchatadmin')?>/<?php echo $archive->id?>/<?php echo $chat->id?>"></a>
+	<a class="icon-mail" onclick="return lhinst.sendMailArchive('<?php echo $archive->id?>','<?php echo $chat->id?>')"></a>
 	<?php endif; ?>
-
 
 
 	</div>

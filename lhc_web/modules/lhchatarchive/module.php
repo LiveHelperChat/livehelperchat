@@ -45,6 +45,16 @@ $ViewList['viewarchivedchat'] = array(
     'functions' => array( 'archive' )
 );
 
+$ViewList['printchatadmin'] = array(
+    'params' => array('archive_id','chat_id'),
+    'functions' => array( 'archive' )
+);
+
+$ViewList['sendmail'] = array(
+    'params' => array('archive_id','chat_id'),
+    'functions' => array( 'archive' )
+);
+
 $ViewList['deletearchivechat'] = array(
     'params' => array('archive_id','chat_id'),
     'uparams' => array('csfr'),

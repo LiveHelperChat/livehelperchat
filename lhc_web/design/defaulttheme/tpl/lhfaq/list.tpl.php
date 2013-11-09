@@ -1,4 +1,3 @@
-<?php include(erLhcoreClassDesign::designtpl('lhfaq/embed_button.tpl.php'));?>
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/list','FAQ');?></h1>
 
 <?php if ($pages->items_total > 0) : ?>

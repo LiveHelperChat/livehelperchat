@@ -1,4 +1,3 @@
-<?php include(erLhcoreClassDesign::designtpl('lhfaq/embed_button.tpl.php'));?>
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/new','New question');?></h1>
 
 <?php if (isset($errors)) : ?>

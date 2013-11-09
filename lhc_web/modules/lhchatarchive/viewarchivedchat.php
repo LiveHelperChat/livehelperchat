@@ -9,7 +9,6 @@ $chat = erLhcoreClassModelChatArchive::fetch($Params['user_parameters']['chat_id
 
 $tpl->set('chat',$chat);
 $tpl->set('messages', erLhcoreClassChat::getList(array('limit' => 1000,'filter' => array('chat_id' => $chat->id)),'erLhcoreClassModelChatArchiveMsg',erLhcoreClassModelChatArchiveRange::$archiveMsgTable));
-$tpl->set('pages',$pages);
 $tpl->set('archive',$archive);
 
 $Result['content'] = $tpl->fetch();

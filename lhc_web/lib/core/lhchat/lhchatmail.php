@@ -61,7 +61,7 @@ class erLhcoreClassChatMail {
     }
 
     // Validate send mail
-    public static function validateSendMail(erLhAbstractModelEmailTemplate & $sendMail, erLhcoreClassModelChat & $chat)
+    public static function validateSendMail(erLhAbstractModelEmailTemplate & $sendMail, & $chat, $params = array())
     {
     	$Errors = array();
 
@@ -76,8 +76,14 @@ class erLhcoreClassChatMail {
     	$form = new ezcInputForm( INPUT_POST, $validationFields );
     	$Errors = array();
 
-    	$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 100,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
+    	if (isset($params['archive_mode']) && $params['archive_mode'] == true){
+    		$messages = array_reverse(erLhcoreClassChat::getList(array('limit' => 100, 'sort' => 'id DESC', 'filter' => array('chat_id' => $chat->id)),'erLhcoreClassModelChatArchiveMsg',erLhcoreClassModelChatArchiveRange::$archiveMsgTable));
+    	} else {
+    		$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 100,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
+    	}
+    	
 
+    	
     	// Fetch chat messages
     	$tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/plain.tpl.php');
     	$tpl->set('chat', $chat);
@@ -128,7 +134,7 @@ class erLhcoreClassChatMail {
     }
 
     // Send mail
-    public static function sendMail(erLhAbstractModelEmailTemplate & $sendMail, erLhcoreClassModelChat & $chat) {
+    public static function sendMail(erLhAbstractModelEmailTemplate & $sendMail, & $chat) {
 
     	$mail = new PHPMailer();
     	$mail->CharSet = "UTF-8";
