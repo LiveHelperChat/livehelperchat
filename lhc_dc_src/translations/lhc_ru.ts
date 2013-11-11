@@ -3,7 +3,7 @@
     <name>LHQTableWidget</name>
     <message>
         <source>ID</source>
-        <translation type="unfinished"/>
+        <translation>ID</translation>
     </message>
     <message>
         <source>Nick</source>
@@ -47,7 +47,7 @@
     </message>
 	<message>
         <source>Operator message</source>
-        <translation type="unfinished"/>
+        <translation>Сообщение оператора</translation>
     </message>
 	<message>
         <source>Pages viewed</source>
@@ -58,7 +58,7 @@
     <name>ChatWidget</name>
     <message>
         <source>Live helper chat - chat</source>
-        <translation type="unfinished"/>
+        <translation>Чат</translation>
     </message>
 </context>
 <context>
@@ -91,7 +91,7 @@
     <name>ChatRoomsWidget</name>
     <message>
         <source>Live helper chat - chat rooms</source>
-        <translation type="unfinished"/>
+        <translation>Чатбоксы</translation>
     </message>
 </context>
 <context>
@@ -152,7 +152,7 @@
     <name>LhcTransferDialog</name>
     <message>
         <source>Chat transfer</source>
-        <translation type="unfinished"/>
+        <translation>Перевод чата</translation>
     </message>
     <message>
         <source>Online users</source>
@@ -171,11 +171,11 @@
     <name>ChatRoomsWindow</name>
     <message>
         <source>Add chat</source>
-        <translation type="unfinished"/>
+        <translation>Добавить чат</translation>
     </message>
 	<message>
         <source>Accept chat</source>
-        <translation type="unfinished"/>
+        <translation>Принять чат</translation>
     </message>
     <message>
         <source>Open in a new window</source>
@@ -183,7 +183,7 @@
     </message>
     <message>
         <source>Open in a new separate window</source>
-        <translation type="unfinished"/>
+        <translation>Открыть в отдельном окне</translation>
     </message>
     <message>
         <source>Loading...</source>
@@ -203,11 +203,11 @@
     </message>
     <message>
         <source>Pending chats</source>
-        <translation type="unfinished"/>
+        <translation>Ожидающие чаты</translation>
     </message>
     <message>
         <source>Transfered chats</source>
-        <translation type="unfinished"/>
+        <translation>Переведенные чаты</translation>
     </message>
 	<message>
         <source>Online Users</source>
@@ -242,7 +242,7 @@
     </message>
     <message>
         <source>Choose canned message</source>
-        <translation type="unfinished"/>
+        <translation>Выберите шаблон сообщения</translation>
     </message>
     <message>
         <source>User joined chat</source>
@@ -262,15 +262,15 @@
     </message>
     <message>
         <source>Owner</source>
-        <translation type="unfinished"/>
+        <translation>Владелец</translation>
     </message>
     <message>
         <source>responsable</source>
-        <translation type="unfinished"/>
+        <translation>ответственный</translation>
     </message>
     <message>
         <source>Came from</source>
-        <translation type="unfinished"/>
+        <translation>Пришел от</translation>
     </message>
 	<message>
         <source>Country</source>
@@ -278,7 +278,7 @@
     </message>
     <message>
         <source>E-mail</source>
-        <translation type="unfinished"/>
+        <translation>E-mail</translation>
     </message>
     <message>
         <source>Error</source>
@@ -289,23 +289,23 @@
     <name>MainWindow</name>
     <message>
         <source>Live helper chat</source>
-        <translation type="unfinished"/>
+        <translation>Live Helper Chat</translation>
     </message>
     <message>
         <source>New request</source>
-        <translation type="unfinished"/>
+        <translation>Новый запрос</translation>
     </message>
     <message>
         <source>You have a new chat pending. To start the chat click me.</source>
-        <translation type="unfinished"/>
+        <translation>Новый посетитель! Кликните, чтобы начать чат.</translation>
     </message>
     <message>
         <source>A new chat has been transferred to you. To start the chat click me.</source>
-        <translation type="unfinished"/>
+        <translation>На Вас перевели новый чат. Кликните, чтобы начать чат</translation>
     </message>
     <message>
         <source>Waiting for action...</source>
-        <translation type="unfinished"/>
+        <translation>Ожидание действия....</translation>
     </message>
     <message>
         <source>&amp;Restore</source>
@@ -325,7 +325,7 @@
     </message>
     <message>
         <source>Chat rooms</source>
-        <translation type="unfinished"/>
+        <translation>Чатбоксы</translation>
     </message>
     <message>
         <source>About</source>
@@ -337,7 +337,7 @@
     </message>
     <message>
         <source>&amp;Actions</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Действия</translation>
     </message>
     <message>
         <source>&amp;Chats</source>
@@ -345,7 +345,7 @@
     </message>
     <message>
         <source>&amp;Management</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Управление</translation>
     </message>
     <message>
         <source>&amp;Help</source>

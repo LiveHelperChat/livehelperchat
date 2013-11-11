@@ -2162,6 +2162,10 @@
   <context>
     <name>chatbox/configuration</name>
     <message>
+      <source>Embed code generation</source>
+      <translation>Hasilkan kode pencantuman</translation>
+    </message>
+    <message>
       <source>Chatbox</source>
       <translation>Kotak percakapan</translation>
     </message>
@@ -2176,10 +2180,6 @@
     <message>
       <source>Chatbox list</source>
       <translation>Daftar kotak percakapan</translation>
-    </message>
-    <message>
-      <source>Embed code generation</source>
-      <translation>Hasilkan kode pencantuman</translation>
     </message>
   </context>
   <context>

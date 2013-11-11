@@ -2162,6 +2162,10 @@
   <context>
     <name>chatbox/configuration</name>
     <message>
+      <source>Embed code generation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chatbox</source>
       <translation type="unfinished"/>
     </message>
@@ -2175,10 +2179,6 @@
     </message>
     <message>
       <source>Chatbox list</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Embed code generation</source>
       <translation type="unfinished"/>
     </message>
   </context>

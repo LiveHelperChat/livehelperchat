@@ -40,7 +40,8 @@ return array (
       	15 => 'tur',
       	16 => 'vnm',
       	17 => 'idn',
-      	18 => 'site_admin'
+      	18 => 'sve',
+      	19 => 'site_admin'
       ),
     ),
     'default_url' =>
@@ -387,6 +388,24 @@ return array (
       array (
     	'locale' => 'id_ID',
     	'content_language' => 'in',
+    	'dir_language' => 'ltr',
+    	'title' => '',
+    	'description' => '',
+    	'theme' =>
+      	array (
+    		0 => 'customtheme',
+    		1 => 'defaulttheme'
+      	),
+    	   'default_url' =>
+    	array (
+    		'module' => 'chat',
+    		'view' => 'startchat'
+    	),
+      ),
+      'sve' =>
+      array (
+    	'locale' => 'sv_SV',
+    	'content_language' => 'sv',
     	'dir_language' => 'ltr',
     	'title' => '',
     	'description' => '',

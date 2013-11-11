@@ -1,21 +1,21 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="pt_BR" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sv" version="2.0">
 <context>
     <name>LHQTableWidget</name>
     <message>
         <source>ID</source>
-        <translation>ID</translation>
+        <translation>Id</translation>
     </message>
     <message>
         <source>Nick</source>
-        <translation>Nome</translation>
+        <translation>Smeknamn</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation>Horário</translation>
+        <translation>Tid</translation>
     </message>
     <message>
         <source>Referrer</source>
-        <translation>Referenciador</translation>
+        <translation>Hänvisad från</translation>
     </message>
     <message>
         <source>IP</source>
@@ -23,140 +23,82 @@
     </message>
     <message>
         <source>E-mail</source>
-        <translation>E-mail</translation>
+        <translation>E-post</translation>
     </message>
     <message>
         <source>Department</source>
-        <translation>Departamento</translation>
+        <translation>Avdelning</translation>
     </message>
 	<message>
         <source>Browser</source>
-        <translation>Navegador</translation>
+        <translation>Webbläsare</translation>
     </message>
 	<message>
         <source>Last visit</source>
-        <translation>Última visita</translation>
+        <translation>Senaste besök</translation>
     </message>
 	<message>
         <source>First visit</source>
-        <translation>Primeira visita</translation>
+        <translation>Första besök</translation>
     </message>
 	<message>
         <source>Country</source>
-        <translation>País</translation>
+        <translation>Land</translation>
     </message>
 	<message>
         <source>Operator message</source>
-        <translation>Mensagem do operador</translation>
+        <translation>Operatörsmeddelande</translation>
     </message>
 	<message>
         <source>Pages viewed</source>
-        <translation>Páginas vistas</translation>
+        <translation>Sidor besökta</translation>
     </message>
 </context>
 <context>
     <name>ChatWidget</name>
     <message>
         <source>Live helper chat - chat</source>
-        <translation>Live helper chat - chat</translation>
+        <translation>Live hjälp chatt - chatt</translation>
     </message>
 </context>
 <context>
     <name>privatemessage</name>
     <message>
         <source>Type your message:</source>
-        <translation>Digite sua mensagem:</translation>
+        <translation>Skriv in ditt meddelande:</translation>
     </message>
 	<message>
         <source>Send message</source>
-        <translation>Enviar mensagem</translation>
+        <translation>Skicka meddelande</translation>
     </message>
 	<message>
         <source>Close</source>
-        <translation>Fechar</translation>
+        <translation>Stäng</translation>
     </message>
 </context>
 <context>
     <name>onlineuserinfo</name>
     <message>
         <source>User info</source>
-        <translation>Informações do usuário</translation>
+        <translation>Användarinformation</translation>
     </message>
 	<message>
         <source>Close</source>
-        <translation>Fechar</translation>
+        <translation>Stäng</translation>
     </message>
 </context>
 <context>
     <name>ChatRoomsWidget</name>
     <message>
         <source>Live helper chat - chat rooms</source>
-        <translation>Live helper chat - Lista de chats</translation>
+        <translation>Live hjälp chatt - chattrum</translation>
     </message>
 </context>
 <context>
     <name>LoginDialogBase</name>
     <message>
         <source>Please login</source>
-        <translation>Entrar</translation>
-    </message>
-    <message>
-        <source>Ok</source>
-        <translation>OK</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>Cancelar</translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation>Usuário</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation>Senha</translation>
-    </message>
-    <message>
-        <source>Host</source>
-        <translation>Servidor</translation>
-    </message>
-    <message>
-        <source>Autologin</source>
-        <translation>Entrar automático</translation>
-    </message>
-</context>
-<context>
-    <name>LoginDialog</name>
-    <message>
-        <source>Authentication failed</source>
-        <translation>Falha ao autenticar</translation>
-    </message>
-    <message>
-        <source>Warning</source>
-        <translation>Aviso</translation>
-    </message>
-    <message>
-        <source>The host field is empty!</source>
-        <translation>O campo Servidor está vazio!</translation>
-    </message>
-    <message>
-        <source>The password field is empty!</source>
-        <translation>O campo Senha está vazio!</translation>
-    </message>
-    <message>
-        <source>The username field is empty!</source>
-        <translation>O campo Usuário está vazio!</translation>
-    </message>
-</context>
-<context>
-    <name>LhcTransferDialog</name>
-    <message>
-        <source>Chat transfer</source>
-        <translation>Transferir chat</translation>
-    </message>
-    <message>
-        <source>Online users</source>
-        <translation>Usuários online</translation>
+        <translation>Logga in</translation>
     </message>
     <message>
         <source>Ok</source>
@@ -164,192 +106,250 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Avbryt</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Användarnamn</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Lösenord</translation>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation>Värd</translation>
+    </message>
+    <message>
+        <source>Autologin</source>
+        <translation>Autologin</translation>
+    </message>
+</context>
+<context>
+    <name>LoginDialog</name>
+    <message>
+        <source>Authentication failed</source>
+        <translation>Autentisering misslyckades</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation>Varning</translation>
+    </message>
+    <message>
+        <source>The host field is empty!</source>
+        <translation>Fältet för värdnamn är tomt!</translation>
+    </message>
+    <message>
+        <source>The password field is empty!</source>
+        <translation>Fältet för lösenord är tomt!</translation>
+    </message>
+    <message>
+        <source>The username field is empty!</source>
+        <translation>Fältet för användarnamn är tomt!</translation>
+    </message>
+</context>
+<context>
+    <name>LhcTransferDialog</name>
+    <message>
+        <source>Chat transfer</source>
+        <translation>Vidarebefodra chatt</translation>
+    </message>
+    <message>
+        <source>Online users</source>
+        <translation>Användare online</translation>
+    </message>
+    <message>
+        <source>Ok</source>
+        <translation>Ok</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Avbryt</translation>
     </message>
 </context>
 <context>
     <name>ChatRoomsWindow</name>
     <message>
         <source>Add chat</source>
-        <translation>Adicionar chat</translation>
+        <translation>Lägg till en chatt</translation>
     </message>
 	<message>
         <source>Accept chat</source>
-        <translation>Aceitar chat</translation>
+        <translation>Acceptera chatt</translation>
     </message>
     <message>
         <source>Open in a new window</source>
-        <translation>Abrir em uma nova janela</translation>
+        <translation>Öppna i ett nytt fönster</translation>
     </message>
     <message>
         <source>Open in a new separate window</source>
-        <translation>Abrir em uma janela separada</translation>
+        <translation>Öppna i ett nytt separat fönster</translation>
     </message>
     <message>
         <source>Loading...</source>
-        <translation>Carregando...</translation>
+        <translation>Laddar...</translation>
     </message>
     <message>
         <source>Close chat</source>
-        <translation>Fechar chat</translation>
+        <translation>Stäng chatt</translation>
     </message>
     <message>
         <source>Delete chat</source>
-        <translation>Apagar chat</translation>
+        <translation>Ta bort chatt</translation>
     </message>
     <message>
         <source>Reject chat</source>
-        <translation>Rejeitar chat</translation>
+        <translation>Neka chatt</translation>
     </message>
     <message>
         <source>Pending chats</source>
-        <translation>Chats pendentes</translation>
+        <translation>Väntande chattar</translation>
     </message>
     <message>
         <source>Transfered chats</source>
-        <translation>Chats transferidos</translation>
+        <translation>Vidarebefodrade chattar</translation>
     </message>
 	<message>
         <source>Online Users</source>
-        <translation>Usuários online</translation>
+        <translation>Användare online</translation>
     </message>
     <message>
         <source>Active chats</source>
-        <translation>Chats ativos</translation>
+        <translation>Aktiva chattar</translation>
     </message>
 	<message>
         <source>Send private message</source>
-        <translation>Enviar mensagem privada</translation>
+        <translation>Skicka privat meddelande</translation>
     </message>
 	<message>
         <source>View user information</source>
-        <translation>Ver informação do usuário</translation>
+        <translation>Visa användarinformation</translation>
     </message>
     <message>
         <source>Closed chats</source>
-        <translation>Chats fechados</translation>
+        <translation>Avslutade chattar</translation>
     </message>
 </context>
 <context>
     <name>ChatWindow</name>
     <message>
         <source>User left chat</source>
-        <translation>Usuário saiu do chat</translation>
+        <translation>Användare lämnade chatten</translation>
     </message>
 	<message>
         <source>Send</source>
-        <translation>Enviar</translation>
+        <translation>Skicka</translation>
     </message>
     <message>
         <source>Choose canned message</source>
-        <translation>Escolha mensagem predefinida</translation>
+        <translation>Visa snabbmeddelande</translation>
     </message>
     <message>
         <source>User joined chat</source>
-        <translation>Usuário entrou no chat</translation>
+        <translation>Användare anslöt till chatten</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation>Ações</translation>
+        <translation>Aktiviteter</translation>
     </message>
     <message>
         <source>Information</source>
-        <translation>Informação</translation>
+        <translation>Information</translation>
     </message>
     <message>
         <source>Loading...</source>
-        <translation>Carregando...</translation>
+        <translation>Laddar...</translation>
     </message>
     <message>
         <source>Owner</source>
-        <translation>Proprietário</translation>
+        <translation>Ägare</translation>
     </message>
     <message>
         <source>responsable</source>
-        <translation>Responsável</translation>
+        <translation>ansvarig</translation>
     </message>
     <message>
         <source>Came from</source>
-        <translation>Veio de</translation>
+        <translation>Kom från</translation>
     </message>
 	<message>
         <source>Country</source>
-        <translation>País</translation>
+        <translation>Land</translation>
     </message>
     <message>
         <source>E-mail</source>
-        <translation>E-mail</translation>
+        <translation>E-post</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation>Erro</translation>
+        <translation>Fel</translation>
     </message>
 </context>
 <context>
     <name>MainWindow</name>
     <message>
         <source>Live helper chat</source>
-        <translation>Atendimento Online</translation>
+        <translation>Live hjälp chatt</translation>
     </message>
     <message>
         <source>New request</source>
-        <translation>Nova requisição</translation>
+        <translation>Ny förfrågan</translation>
     </message>
     <message>
         <source>You have a new chat pending. To start the chat click me.</source>
-        <translation>Você tem um chat pendente. Clique para inicar</translation>
+        <translation>Du har en ny chatt som väntar. För att starta chatten klicka här.</translation>
     </message>
     <message>
         <source>A new chat has been transferred to you. To start the chat click me.</source>
-        <translation>Um novo chat foi transferido para você. Clique para iniciar</translation>
+        <translation>En ny chatt har blivit vidarebefordrad till dig. För att starta chatten klicka här. </translation>
     </message>
     <message>
         <source>Waiting for action...</source>
-        <translation>Esperando uma ação</translation>
+        <translation>Väntar på aktivitet...</translation>
     </message>
     <message>
         <source>&amp;Restore</source>
-        <translation>&amp;Restaurar</translation>
+        <translation>&amp;Återställ</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation>&amp;Fechar</translation>
+        <translation>&amp;Avsluta</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
-        <translation>&amp;Sair</translation>
+        <translation>&amp;Stäng</translation>
     </message>
     <message>
         <source>Login as</source>
-        <translation>Entrar como</translation>
+        <translation>Logga in som</translation>
     </message>
     <message>
         <source>Chat rooms</source>
-        <translation>Salas de chat</translation>
+        <translation>Chattrum</translation>
     </message>
     <message>
         <source>About</source>
-        <translation>Sobre</translation>
+        <translation>Om</translation>
     </message>
     <message>
         <source>About the program</source>
-        <translation>Sobre o programa</translation>
+        <translation>Om programmet</translation>
     </message>
     <message>
         <source>&amp;Actions</source>
-        <translation>&amp;Ações</translation>
+        <translation>&amp;Aktiviteter</translation>
     </message>
     <message>
         <source>&amp;Chats</source>
-        <translation>&amp;Chats</translation>
+        <translation>&amp;Chattar</translation>
     </message>
     <message>
         <source>&amp;Management</source>
-        <translation>&amp;Gerenciamento</translation>
+        <translation>&amp;Ansvariga</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation>&amp;Ajuda</translation>
+        <translation>&amp;Hjälp</translation>
     </message>
 </context>
 </TS>

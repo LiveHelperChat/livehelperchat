@@ -3,7 +3,7 @@
     <name>LHQTableWidget</name>
     <message>
         <source>ID</source>
-        <translation type="unfinished"/>
+        <translation>ID</translation>
     </message>
     <message>
         <source>Nick</source>

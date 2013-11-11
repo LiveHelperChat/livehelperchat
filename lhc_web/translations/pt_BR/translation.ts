@@ -2162,6 +2162,10 @@
   <context>
     <name>chatbox/configuration</name>
     <message>
+      <source>Embed code generation</source>
+      <translation>Gerar código de incorporação</translation>
+    </message>
+    <message>
       <source>Chatbox</source>
       <translation>Chatbox</translation>
     </message>
@@ -2176,10 +2180,6 @@
     <message>
       <source>Chatbox list</source>
       <translation>Lista de chatbox</translation>
-    </message>
-    <message>
-      <source>Embed code generation</source>
-      <translation>Gerar código de incorporação</translation>
     </message>
   </context>
   <context>
@@ -2472,11 +2472,11 @@
     </message>
     <message>
       <source>Return</source>
-      <translation>Retornar</translation>
+      <translation>Voltar</translation>
     </message>
     <message>
       <source>Assigned departments</source>
-      <translation>Atribuir departamentos</translation>
+      <translation>Departamentos atribuídos</translation>
     </message>
     <message>
       <source>Visible lists</source>
@@ -2484,19 +2484,19 @@
     </message>
     <message>
       <source>Pending chats tab enabled</source>
-      <translation>Aba de conversas pendentes ativada</translation>
+      <translation>Aba de chats pendentes ativada</translation>
     </message>
     <message>
       <source>Active chats tab enabled</source>
-      <translation>Aba de conversas ativas ativada</translation>
+      <translation>Aba de chats ativos ativada</translation>
     </message>
     <message>
       <source>Unread chats tab enabled</source>
-      <translation>Aba de conversas não lidas ativada</translation>
+      <translation>Aba de chats não lidos ativada</translation>
     </message>
     <message>
       <source>Closed chats tab enabled</source>
-      <translation>Aba de conversas fechadas ativada</translation>
+      <translation>Aba de chats fechados ativada</translation>
     </message>
     <message>
       <source>Account updated</source>
@@ -2675,7 +2675,7 @@
     </message>
     <message>
       <source>FAQ description</source>
-      <translation>Descrição do FAQ</translation>
+      <translation>Descrição da FAQ</translation>
     </message>
   </context>
   <context>
@@ -3454,11 +3454,11 @@
     </message>
     <message>
       <source>Disabled</source>
-      <translation>Desativado</translation>
+      <translation>Desabilitado</translation>
     </message>
     <message>
       <source>Do not show user status as online</source>
-      <translation>Não exibir a status do usuário como online</translation>
+      <translation>Não mostrar o status do usuário como on-line</translation>
     </message>
     <message>
       <source>All departments</source>
@@ -3502,7 +3502,7 @@
     </message>
     <message>
       <source>Save</source>
-      <translation>Gravar</translation>
+      <translation>Salvar</translation>
     </message>
     <message>
       <source>Please choose a default user group</source>

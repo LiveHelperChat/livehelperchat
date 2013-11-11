@@ -2163,6 +2163,10 @@
   <context>
     <name>chatbox/configuration</name>
     <message>
+      <source>Embed code generation</source>
+      <translation>Gömülü kod serisi</translation>
+    </message>
+    <message>
       <source>Chatbox</source>
       <translation>Konuşma kutusu</translation>
     </message>
@@ -2177,10 +2181,6 @@
     <message>
       <source>Chatbox list</source>
       <translation>Konuşma kutusu listeleri</translation>
-    </message>
-    <message>
-      <source>Embed code generation</source>
-      <translation>Gömülü kod serisi</translation>
     </message>
   </context>
   <context>

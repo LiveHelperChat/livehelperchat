@@ -2162,6 +2162,10 @@
   <context>
     <name>chatbox/configuration</name>
     <message>
+      <source>Embed code generation</source>
+      <translation>توليد الشفرة المضمنة</translation>
+    </message>
+    <message>
       <source>Chatbox</source>
       <translation>صندوق المحادثة</translation>
     </message>
@@ -2176,10 +2180,6 @@
     <message>
       <source>Chatbox list</source>
       <translation>قائمة صندوق المحادثة</translation>
-    </message>
-    <message>
-      <source>Embed code generation</source>
-      <translation>توليد الشفرة المضمنة</translation>
     </message>
   </context>
   <context>

@@ -2162,6 +2162,10 @@
   <context>
     <name>chatbox/configuration</name>
     <message>
+      <source>Embed code generation</source>
+      <translation>嵌入代码生成</translation>
+    </message>
+    <message>
       <source>Chatbox</source>
       <translation>客舱</translation>
     </message>
@@ -2176,10 +2180,6 @@
     <message>
       <source>Chatbox list</source>
       <translation>客舱列表</translation>
-    </message>
-    <message>
-      <source>Embed code generation</source>
-      <translation>嵌入代码生成</translation>
     </message>
   </context>
   <context>

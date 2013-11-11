@@ -2162,6 +2162,10 @@
   <context>
     <name>chatbox/configuration</name>
     <message>
+      <source>Embed code generation</source>
+      <translation>Generazione embed codice</translation>
+    </message>
+    <message>
       <source>Chatbox</source>
       <translation>Chatbox</translation>
     </message>
@@ -2176,10 +2180,6 @@
     <message>
       <source>Chatbox list</source>
       <translation>Chatbox Liste</translation>
-    </message>
-    <message>
-      <source>Embed code generation</source>
-      <translation>Generazione embed codice</translation>
     </message>
   </context>
   <context>
