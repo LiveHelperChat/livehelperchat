@@ -162,6 +162,7 @@ $('#id_GeoDetectionEnabled').change(function(){
         $('#settings-geo').removeClass('hide');
     } else {
         $('#settings-geo').addClass('hide');
-    }
+    };
+    $(document).foundation('section', 'resize');
 });
 </script>
