@@ -38,7 +38,7 @@ class erLhcoreClassURL extends ezcUrl {
             if ($defaultSiteAccess != $siteaccess && in_array($siteaccess,$availableSiteaccess))
             {
                 $optionsSiteAccess = $cfgSite->getSetting('site_access_options',$siteaccess);
-                $sysConfiguration->Language = erLhcoreClassModelUserSetting::getSetting('user_language',$optionsSiteAccess['locale'],false,true);
+                $sysConfiguration->Language = $siteaccess == 'site_admin' ? erLhcoreClassModelUserSetting::getSetting('user_language',$optionsSiteAccess['locale'],false,true) : $optionsSiteAccess['locale'];
                 $sysConfiguration->ThemeSite = $optionsSiteAccess['theme'];
                 $sysConfiguration->ContentLanguage = $optionsSiteAccess['content_language'];
 
@@ -57,7 +57,7 @@ class erLhcoreClassURL extends ezcUrl {
 
                 // Falling back
                 $sysConfiguration->SiteAccess = $defaultSiteAccess;
-                $sysConfiguration->Language = erLhcoreClassModelUserSetting::getSetting('user_language',$optionsSiteAccess['locale'],false,true);
+                $sysConfiguration->Language = $siteaccess == 'site_admin' ? erLhcoreClassModelUserSetting::getSetting('user_language',$optionsSiteAccess['locale'],false,true) : $optionsSiteAccess['locale'];
                 $sysConfiguration->ThemeSite = $optionsSiteAccess['theme'];
                 $sysConfiguration->ContentLanguage = $optionsSiteAccess['content_language'];
 

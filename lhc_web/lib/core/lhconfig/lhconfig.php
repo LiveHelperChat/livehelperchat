@@ -60,22 +60,28 @@ class erConfigClassLhConfig
         if ($this->hasSetting('site',$attribute))
         $value = $this->getSetting('site',$attribute);
 
-        $valueOverride = $this->getSetting('site_access_options',erLhcoreClassSystem::instance()->SiteAccess);
-
-        if (key_exists($attribute,$valueOverride)){
-        	// User has not changed default site access language. So just return current value.
-        	if (erLhcoreClassModelUserSetting::getSetting('user_language',$valueOverride['locale']) == $valueOverride['locale']){
-              	return $valueOverride[$attribute];
-        	} else { // User has changed default siteaccess language, we need to check does ltr or rtl matches
-        		foreach ($this->getSetting( 'site','available_site_access' ) as $siteaccess) { // Loop untill we find our locate siteaccess and check it's language direction
-        			$siteAccessOptions = $this->getSetting('site_access_options',$siteaccess);
-        			if ($siteAccessOptions['locale'] == erLhcoreClassModelUserSetting::getSetting('user_language',$valueOverride['locale'])){
-        				return $siteAccessOptions[$attribute];
-        			}
-        		}
-        	}
+        $siteAccess = erLhcoreClassSystem::instance()->SiteAccess;
+        
+        if ($siteAccess == 'site_admin') {
+	        $valueOverride = $this->getSetting('site_access_options',$siteAccess);
+	
+	        if (key_exists($attribute,$valueOverride)){
+	        	// User has not changed default site access language. So just return current value.
+	        	if (erLhcoreClassModelUserSetting::getSetting('user_language',$valueOverride['locale']) == $valueOverride['locale']){
+	              	return $valueOverride[$attribute];
+	        	} else { // User has changed default siteaccess language, we need to check does ltr or rtl matches
+	        		foreach ($this->getSetting( 'site','available_site_access' ) as $siteaccess) { // Loop untill we find our locate siteaccess and check it's language direction
+	        			$siteAccessOptions = $this->getSetting('site_access_options',$siteaccess);
+	        			if ($siteAccessOptions['locale'] == erLhcoreClassModelUserSetting::getSetting('user_language',$valueOverride['locale'])){
+	        				return $siteAccessOptions[$attribute];
+	        			}
+	        		}
+	        	}
+	        }
+        } else {
+        	$value = $this->getOverrideValue('site', $attribute);        	
         }
-
+        
         return $value;
     }
 
