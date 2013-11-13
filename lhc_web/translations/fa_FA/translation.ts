@@ -1,265 +1,263 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="es">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="fa">
   <context>
     <name>system/buttons</name>
     <message>
       <source>Save</source>
-      <translation>Guardar</translation>
+      <translation>ذخیره</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Actualizar</translation>
+      <translation>به روزرسانی</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Cancelar</translation>
+      <translation>لغو</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation>Editar
-</translation>
+      <translation>ویرایش</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation>Borrar</translation>
+      <translation>حذف</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Vacío ...</translation>
+      <translation>خالی ...</translation>
     </message>
     <message>
       <source>New</source>
-      <translation>Nuevo
-</translation>
+      <translation>جدید</translation>
     </message>
     <message>
       <source>Updated</source>
-      <translation>Actualizado</translation>
+      <translation>به روز شده</translation>
     </message>
     <message>
       <source>Send</source>
-      <translation>Enviar</translation>
+      <translation>ارسال</translation>
     </message>
     <message>
       <source>Save and continue</source>
-      <translation>Guardar y continuar</translation>
+      <translation>ذخیره و ادامه</translation>
     </message>
     <message>
       <source>Continue</source>
-      <translation>Continuar</translation>
+      <translation>ادامه</translation>
     </message>
     <message>
       <source>Start archiving</source>
-      <translation>Iniciar archivado</translation>
+      <translation>شروع بایگانی</translation>
     </message>
     <message>
       <source>Return</source>
-      <translation>Volver</translation>
+      <translation>بازگشت</translation>
     </message>
     <message>
       <source>Delete department</source>
-      <translation>Borrar departamento</translation>
+      <translation>حذف دپارتمان</translation>
     </message>
     <message>
       <source>Test</source>
-      <translation>Test</translation>
+      <translation>تست</translation>
     </message>
   </context>
   <context>
     <name>abstract/abstract_form</name>
     <message>
       <source>Updated!</source>
-      <translation>Actualizada!</translation>
+      <translation>به روز شده!</translation>
     </message>
   </context>
   <context>
     <name>abstract/proactivechatinvitation</name>
     <message>
       <source>If you want pro active chat invitation to work it has to be enabled in</source>
-      <translation>Habilitar si se desea una invitación de chat proactiva para trabajar</translation>
+      <translation>اگر میخواهید دعوتنامه چت کار کند باید آن را فعال کنید</translation>
     </message>
     <message>
       <source>chat configuration</source>
-      <translation>Configuración del chat</translation>
+      <translation>تنظیمات چت</translation>
     </message>
     <message>
       <source>also online users tracking has to be</source>
-      <translation>También para usuarios en línea que han sido rastreados</translation>
+      <translation>ردیابی اعضا آنلاین</translation>
     </message>
     <message>
       <source>enabled</source>
-      <translation>Activado</translation>
+      <translation>فعال شده</translation>
     </message>
     <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation>Idioma, deje vacío para todos. Eg. lit, rus, ger etc...</translation>
+      <translation>انتخاب زبان</translation>
     </message>
     <message>
       <source>Position</source>
-      <translation>Posición</translation>
+      <translation>موقعیت</translation>
     </message>
     <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
-      <translation>Mensaje de espera. Visible cuando los usuarios inician un chat y están esperando que alguien acepte el chat.</translation>
+      <translation>پیام در حال انتظار، این پیام زمانی نمایش داده میشود که کاربران چت را شروع کرده و در انتظار پاسخ به چت هستند</translation>
     </message>
     <message>
       <source>Wait timeout. Time in seconds before timeout message is shown.</source>
-      <translation>Tiempo de espera. Tiempo en segundos antes de que el mensaje de tiempo de espera sea mostrado.</translation>
+      <translation>زمان انتظار، زمان بر اساس ثانیه برای نمایش پیام قطع ارتباط</translation>
     </message>
     <message>
       <source>Show visitor this message then wait timeout passes.</source>
-      <translation>Mostrar a los visitantes este mensaje cuando el tiempo de espera termine</translation>
+      <translation>بازدیدکننده وقتی این پیام را میبیند که، زمان انتظار به پایان رسیده باشد.</translation>
     </message>
     <message>
       <source>Auto responder</source>
-      <translation>Auto responder</translation>
+      <translation>پاسخگوی خودکار</translation>
     </message>
     <message>
       <source>Name for personal purposes</source>
-      <translation>Nombre para fines personales</translation>
+      <translation>نام مستعار</translation>
     </message>
     <message>
       <source>Operator name</source>
-      <translation>Nombre del Operador</translation>
+      <translation>نام اپراتور</translation>
     </message>
     <message>
       <source>Time on site in seconds</source>
-      <translation>Tiempo en el sitio expresado en segundos</translation>
+      <translation>زمان حضور در سایت به ثانیه</translation>
     </message>
     <message>
       <source>Pageviews</source>
-      <translation>Páginas Vistas</translation>
+      <translation>بازدید</translation>
     </message>
     <message>
       <source>Requires e-mail</source>
-      <translation>Necesario e-mail</translation>
+      <translation>درخواست ایمیل</translation>
     </message>
     <message>
       <source>Show random operator profile</source>
-      <translation>Mostrar perfil de operador aleatorio</translation>
+      <translation>نمایش تصادفی پروفایل اپراتور</translation>
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation>Identificador, para que aparezca el mensaje del identificador, dejar vacío todos</translation>
+      <translation>شناسه، برای شناسه مشخصی این پیام نمایش داده شود.</translation>
     </message>
     <message>
       <source>Matched times</source>
-      <translation>Veces coincidentes</translation>
+      <translation>زمان همسان</translation>
     </message>
     <message>
       <source>Message to user</source>
-      <translation>Mensaje para el usuario</translation>
+      <translation>پیام به کاربر</translation>
     </message>
     <message>
       <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
-      <translation>Mensaje de espera. Visible cuando los usuarios inician un chat y están esperando que alguien acepte el chat.</translation>
+      <translation>پیام در حال انتظار، این پیام زمانی نمایش داده میشود که کاربران چت را شروع کرده و در انتظار پاسخ به چت هستند.</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
-      <translation>Invitaciones a chat activas</translation>
+      <translation>فعالسازی دعوت به چت</translation>
     </message>
   </context>
   <context>
     <name>abstract/list</name>
     <message>
       <source>Are you sure?</source>
-      <translation>¿Está seguro?</translation>
+      <translation>آیا مطمئن هستید؟</translation>
     </message>
   </context>
   <context>
     <name>chat/activechats</name>
     <message>
       <source>Active chats list</source>
-      <translation>Lista de chats activos</translation>
+      <translation>فهرست چت های فعال</translation>
     </message>
     <message>
       <source>Information</source>
-      <translation>Información</translation>
+      <translation>اطلاعات</translation>
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation>Abrir en una nueva ventana</translation>
+      <translation>در یک پنجره جدید باز کن</translation>
     </message>
     <message>
       <source>Close chat</source>
-      <translation>Cerrar chat</translation>
+      <translation>بستن چت</translation>
     </message>
     <message>
       <source>Delete chat</source>
-      <translation>Eliminar chat</translation>
+      <translation>حذف چت</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Vacío ...</translation>
+      <translation>خالی ...</translation>
     </message>
     <message>
       <source>Chats lists</source>
-      <translation>Lista de Chats</translation>
+      <translation>فهرست چت ها</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Chats activos</translation>
+      <translation>چت های فعال</translation>
     </message>
   </context>
   <context>
     <name>chat/chat</name>
     <message>
       <source>Show/Hide right column</source>
-      <translation>Mostrar/Ocultar columna derecha</translation>
+      <translation>نمایش/عدم نمایش ستون راست</translation>
     </message>
     <message>
       <source>User is typing now...</source>
-      <translation>El usuario está escribiendo ahora ...</translation>
+      <translation>کاربر در حال تایپ کردن است...</translation>
     </message>
     <message>
       <source>This chat is closed.</source>
-      <translation>Este chat está cerrado.</translation>
+      <translation>این چت بسته شده است.</translation>
     </message>
     <message>
       <source>Pending confirm</source>
-      <translation>En espera de confirmar</translation>
+      <translation>در انتظار تایید</translation>
     </message>
     <message>
       <source>Enter your message</source>
-      <translation>Ingrese su mensaje</translation>
+      <translation>پیام خود را وارد کنید</translation>
     </message>
     <message>
       <source>Operator is typing now...</source>
-      <translation>Operador está escribiendo ahora ...</translation>
+      <translation>اپراتور در حال تایپ کردن است...</translation>
     </message>
     <message>
       <source>Send</source>
-      <translation>Enviar</translation>
+      <translation>ارسال</translation>
     </message>
     <message>
       <source>Close</source>
-      <translation>Cerrar</translation>
+      <translation>بستن</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
-      <translation>Chatbox está deshabilitado.</translation>
+      <translation>جعبه چت غیرفعال شده است.</translation>
     </message>
     <message>
       <source>Invalid hash or auto creation is disabled</source>
-      <translation>Hash inválido o la creación automática está deshabilitada</translation>
+      <translation>کلید امنیتی غیرمعتبر و یا تولید خودکار غیرفعال شده</translation>
     </message>
     <message>
       <source>Visitor</source>
-      <translation>visitante</translation>
+      <translation>بازدیدکننده</translation>
     </message>
     <message>
       <source>Chat started</source>
-      <translation>Chatear comenzado</translation>
+      <translation>چت شروع شده</translation>
     </message>
     <message>
       <source>is typing now...</source>
-      <translation>Está escribiendo...</translation>
+      <translation>در حال تایپ ...</translation>
     </message>
   </context>
   <context>
     <name>chat/blockedusers</name>
     <message>
       <source>Blocked users</source>
-      <translation>Usuario bloqueados</translation>
+      <translation>کاربران مسدود شده</translation>
     </message>
     <message>
       <source>IP</source>
@@ -267,2364 +265,2362 @@
     </message>
     <message>
       <source>Date</source>
-      <translation>Fecha</translation>
+      <translation>تاریخ</translation>
     </message>
     <message>
       <source>Users who are blocked</source>
-      <translation>Usuario bloqueados</translation>
+      <translation>کاربران مسدود شده</translation>
     </message>
     <message>
       <source>Remove block</source>
-      <translation>Retirar bloqueo</translation>
+      <translation>برداشتن بلاک</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Vacío ...</translation>
+      <translation>خالی...</translation>
     </message>
     <message>
       <source>User was blocked!</source>
-      <translation>El usuario fue bloqueado!</translation>
+      <translation>کاربر مسدود شده است!</translation>
     </message>
     <message>
       <source>User blocking failed, perhaps you do not have permission to block users?</source>
-      <translation>La acción de bloquear usuario ha fallado, probablemente no tiene permisos suficientes.</translation>
+      <translation>مسدود کردن کاربر ناموفق بود، شاید شما دسترسی این کار را ندارد.</translation>
     </message>
   </context>
   <context>
     <name>kernel/message</name>
     <message>
       <source>Are you sure?</source>
-      <translation>¿Está seguro?</translation>
+      <translation>آیا مطمئن هستید؟</translation>
     </message>
   </context>
   <context>
     <name>chat/cannedmsg</name>
     <message>
       <source>Canned messages</source>
-      <translation>Mensajes predefinidos</translation>
+      <translation>پیام های مسدود شده</translation>
     </message>
     <message>
       <source>Message</source>
-      <translation>Mensaje</translation>
+      <translation>پیام</translation>
     </message>
     <message>
       <source>Delay</source>
-      <translation>Retraso</translation>
+      <translation>تاخیر</translation>
     </message>
     <message>
       <source>Position</source>
-      <translation>Posición</translation>
+      <translation>جایگاه</translation>
     </message>
     <message>
       <source>Edit message</source>
-      <translation>Editar mensaje</translation>
+      <translation>ویرایش پیام</translation>
     </message>
     <message>
       <source>Delete message</source>
-      <translation>Eliminar mensaje</translation>
+      <translation>حذف پیام</translation>
     </message>
     <message>
       <source>New canned message</source>
-      <translation>Nuevo mensaje predefinido</translation>
+      <translation>پیام مسدود شده جدید</translation>
     </message>
     <message>
       <source>Edit canned message</source>
-      <translation>Editar mensaje predefinido</translation>
+      <translation>ویرایش پیام مسدود شده</translation>
     </message>
     <message>
       <source>Delay in seconds</source>
-      <translation>Retraso en segundos</translation>
+      <translation>تاخیر به ثانیه</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Configuración del sistema</translation>
+      <translation>تنظیمات سیستم</translation>
     </message>
     <message>
       <source>Please enter canned message</source>
-      <translation>Por favor, introduzca un mensaje predefinido</translation>
+      <translation>لطفا پیام مسدود شده وارد کنید</translation>
     </message>
     <message>
       <source>Please enter a canned message</source>
-      <translation>Por favor, introduzca un mensaje predefinido</translation>
+      <translation>لطفا یک پیام مسدود شده وارد کنید</translation>
     </message>
   </context>
   <context>
     <name>chat/chatnotexists</name>
     <message>
       <source>Resume chat</source>
-      <translation>Reanudar el chat anterior</translation>
+      <translation>رزومه چت</translation>
     </message>
     <message>
       <source>Chat was deleted</source>
-      <translation>El chat ha sido eliminado</translation>
+      <translation>چت حذف شده است.</translation>
     </message>
   </context>
   <context>
     <name>chat/adminchat</name>
     <message>
       <source>Footprint</source>
-      <translation>Huella/Footprint</translation>
+      <translation>رد پا</translation>
     </message>
     <message>
       <source>Visitor</source>
-      <translation>Visitante</translation>
+      <translation>بازدید کننده</translation>
     </message>
     <message>
       <source>General information</source>
-      <translation>Información general</translation>
+      <translation>اطلاعات عمومی</translation>
     </message>
     <message>
       <source>Files</source>
-      <translation>Archivos</translation>
+      <translation>فایل ها</translation>
     </message>
     <message>
       <source>Pending chat</source>
-      <translation>Chat pendiente</translation>
+      <translation>چت معلق</translation>
     </message>
     <message>
       <source>Active chat</source>
-      <translation>Chat activo</translation>
+      <translation>چت فعال</translation>
     </message>
     <message>
       <source>Closed chat</source>
-      <translation>Chat cerrado</translation>
+      <translation>چت بسته شده</translation>
     </message>
     <message>
       <source>Chatbox chat</source>
-      <translation>Chatbox chat</translation>
+      <translation>جعبه چت </translation>
     </message>
     <message>
       <source>Operators chat</source>
-      <translation>Operadores del chat</translation>
+      <translation>چت اپراتورها</translation>
     </message>
     <message>
       <source>Information</source>
-      <translation>Información</translation>
+      <translation>اطلاعات</translation>
     </message>
     <message>
       <source>Country</source>
-      <translation>País</translation>
+      <translation>کشور</translation>
     </message>
     <message>
       <source>City</source>
-      <translation>Ciudad</translation>
+      <translation>شهر</translation>
     </message>
     <message>
       <source>Page</source>
-      <translation>Página</translation>
+      <translation>صفحه</translation>
     </message>
     <message>
       <source>Came from</source>
-      <translation>Vino de</translation>
+      <translation>از طرف</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-mail</translation>
+      <translation>ایمیل</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation>Teléfono</translation>
+      <translation>تلفن</translation>
     </message>
     <message>
       <source>Additional data</source>
-      <translation>Datos adicionales</translation>
+      <translation>اطلاعات اضافی</translation>
     </message>
     <message>
       <source>Created</source>
-      <translation>Creado</translation>
+      <translation>ایجاد شده</translation>
     </message>
     <message>
       <source>Waited</source>
-      <translation>Esperó</translation>
+      <translation>منتظر</translation>
     </message>
     <message>
       <source>Chat duration</source>
-      <translation>Duración del chat</translation>
+      <translation>مدت چت</translation>
     </message>
     <message>
       <source>Actions</source>
-      <translation>Acciones</translation>
+      <translation>فعالیت ها</translation>
     </message>
     <message>
       <source>Close dialog</source>
-      <translation>Cerrar diálogo</translation>
+      <translation>بستن گفتگو</translation>
     </message>
     <message>
       <source>Close chat</source>
-      <translation>Cerrar chat</translation>
+      <translation>بستن چت</translation>
     </message>
     <message>
       <source>Delete chat</source>
-      <translation>Eliminar chat</translation>
+      <translation>حذف چت</translation>
     </message>
     <message>
       <source>Transfer chat</source>
-      <translation>Transferir de chat</translation>
+      <translation>انتقال چت</translation>
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation>¿Está seguro?</translation>
+      <translation>آیا مطمئن هستید؟</translation>
     </message>
     <message>
       <source>Block user</source>
-      <translation>Bloquear usuario</translation>
+      <translation>بلاک کاربر</translation>
     </message>
     <message>
       <source>Send mail</source>
-      <translation>Enviar correo</translation>
+      <translation>ارسال ایمیل</translation>
     </message>
     <message>
       <source>Print</source>
-      <translation>Imprimir</translation>
+      <translation>چاپ</translation>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
-      <translation>Chat entre los operadores, chat inicializador</translation>
+      <translation>چت بین اپراتورها، چت منسوب</translation>
     </message>
     <message>
       <source>Chat owner</source>
-      <translation>Propietario del chat</translation>
+      <translation>مالک چت</translation>
     </message>
     <message>
       <source>Map</source>
-      <translation>Mapa</translation>
+      <translation>نقشه</translation>
     </message>
     <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
-      <translation>No se ha detectado. Asegúrese de que la detección GEO está habilitada.</translation>
+      <translation>شناسایی نشد. مطمئن شوید قابلیت موقعیت جغرافیایی فعال باشد.</translation>
     </message>
     <message>
       <source>Browsing information</source>
-      <translation>Buscando información</translation>
+      <translation>مرور اطلاعات</translation>
     </message>
     <message>
       <source>Refresh</source>
-      <translation>Actualizar</translation>
+      <translation>بازنشانی</translation>
     </message>
     <message>
       <source>Chats</source>
-      <translation>Chats</translation>
+      <translation>چت ها</translation>
     </message>
     <message>
       <source>Send</source>
-      <translation>Enviar</translation>
+      <translation>ارسال</translation>
     </message>
     <message>
       <source>Reopen chat</source>
-      <translation>Reabrir chat</translation>
+      <translation>باز کردن مجدد چت</translation>
     </message>
     <message>
       <source>Select a canned message</source>
-      <translation>Seleccione un mensaje predefinido</translation>
+      <translation>انتخاب پیام مسدود شده</translation>
     </message>
     <message>
       <source>Fill textarea with canned message</source>
-      <translation>Rellene el campo con un mensaje predefinido</translation>
+      <translation>پر کردن محدوده متنی با پیام مسدود شده</translation>
     </message>
     <message>
       <source>Send delayed canned message instantly</source>
-      <translation>Enviar mensaje prederteminado de retraso inmediatamente</translation>
+      <translation>ارسال فوری پیام مسدود شده تاخیردار</translation>
     </message>
   </context>
   <context>
     <name>chat/syncadmininterface</name>
     <message>
       <source>Close chat</source>
-      <translation>Cerrar chatear</translation>
+      <translation>بستن چت</translation>
     </message>
     <message>
       <source>Delete chat</source>
-      <translation>Eliminar chatear</translation>
+      <translation>حذف چت</translation>
     </message>
     <message>
       <source>Reject chat</source>
-      <translation>Rechazar chatear</translation>
+      <translation>رد چت</translation>
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation>Abrir en una nueva ventana</translation>
+      <translation>بازکردن در پنجره جدید</translation>
     </message>
     <message>
       <source>Add chat</source>
-      <translation>Añadir chatear</translation>
+      <translation>افزودن چت</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Vacío ...</translation>
+      <translation>خالی...</translation>
     </message>
     <message>
       <source>Start chat</source>
-      <translation>Iniciar chat</translation>
+      <translation>شروع چت</translation>
     </message>
     <message>
       <source>Last activity</source>
-      <translation>La última actividad</translation>
+      <translation>فعالیت اخیر</translation>
     </message>
     <message>
       <source>ago</source>
-      <translation>hace</translation>
+      <translation>قبل</translation>
     </message>
     <message>
       <source>Accept chat</source>
-      <translation>Aceptar chatear</translation>
+      <translation>پذیرفتن چت</translation>
     </message>
     <message>
       <source>h.</source>
-      <translation>h.</translation>
+      <translation>.h</translation>
     </message>
     <message>
       <source>m.</source>
-      <translation>m.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>s.</source>
-      <translation>s.</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>front/default</name>
     <message>
       <source>Pending confirm</source>
-      <translation>En espera de confirmar</translation>
+      <translation>در انتظار تایید</translation>
     </message>
     <message>
       <source>All pending chats</source>
-      <translation>Todos los chats pendientes</translation>
+      <translation>تمام چت های معلق</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation>chats activos</translation>
+      <translation>چت های فعال</translation>
     </message>
     <message>
       <source>All active chats</source>
-      <translation>Todos los chats activos</translation>
+      <translation>تمام چت های فعال</translation>
     </message>
     <message>
       <source>Unread messages</source>
-      <translation>Los mensajes no leídos</translation>
+      <translation>پیام های خوانده نشده</translation>
     </message>
     <message>
       <source>All unread chats</source>
-      <translation>Todos los chats no leídos</translation>
+      <translation>تمام چت های خوانده نشده</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>chats cerrados</translation>
+      <translation>چت های بسته شده</translation>
     </message>
     <message>
       <source>All closed chats</source>
-      <translation>Todos los chats cerrados</translation>
+      <translation>تمام چت های بسته شده</translation>
     </message>
     <message>
       <source>Online operators</source>
-      <translation>operadores en línea</translation>
+      <translation>اپراتورهای آنلاین</translation>
     </message>
   </context>
   <context>
     <name>chat/startchat</name>
     <message>
       <source>Name</source>
-      <translation>Nombre</translation>
+      <translation>نام</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-mail</translation>
+      <translation>ایمیل</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation>teléfono</translation>
+      <translation>تلفن</translation>
     </message>
     <message>
       <source>Your question</source>
-      <translation>Su pregunta</translation>
+      <translation>پرسش شما</translation>
     </message>
     <message>
       <source>Enter your message</source>
-      <translation>Ingrese su mensaje</translation>
+      <translation>پیام خود را وارد کنید</translation>
     </message>
     <message>
       <source>Start chat</source>
-      <translation>Iniciar chat</translation>
+      <translation>شروع چت</translation>
     </message>
     <message>
       <source>There are no online operators at the moment, please leave a message</source>
-      <translation>No hay operadores en línea en este momento, por favor deje un mensaje</translation>
+      <translation>در حال حاظر اپراتوری آنلاین نیست، لطفا پیام بگذارید.</translation>
     </message>
     <message>
       <source>Leave a message</source>
-      <translation>Deje su mensaje</translation>
+      <translation>پیام گذاشتن</translation>
     </message>
     <message>
       <source>Your request was sent!</source>
-      <translation>Su solicitud ha sido enviado!</translation>
+      <translation>درخواست شما ارسال شد!</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Departamento</translation>
+      <translation>دپارتمان</translation>
     </message>
     <message>
       <source>Offline</source>
-      <translation>Desconectado</translation>
+      <translation>آفلاین</translation>
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
-      <translation>Escriba su mensaje aquí y presione enter para enviar ...</translation>
+      <translation>پیام خود را اینجا وارد کنید و برای ارسال دکمه اینتر را بزنید ...</translation>
     </message>
     <message>
       <source>Send</source>
-      <translation>Enviar</translation>
+      <translation>ارسال</translation>
     </message>
     <message>
       <source>Personal assistant</source>
-      <translation>Asistente personal</translation>
+      <translation>دستیار شخصی</translation>
     </message>
     <message>
       <source>Fill out this form to start a chat</source>
-      <translation>Rellene el siguiente formulario para iniciar una conversación</translation>
+      <translation>برای شروع چت این فرم را پر کنید</translation>
     </message>
     <message>
       <source>There are no online operators at the moment, please leave your message</source>
-      <translation>No hay operadores en línea en este momento, por favor deja tu mensaje</translation>
+      <translation>در حال حاظر اپراتور آنلاین نیست، لطفا پیام خود را بگذارید</translation>
     </message>
     <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
-      <translation>Usted no tiene permiso para charlar! Por favor, póngase en contacto con el propietario del sitio.</translation>
+      <translation>شما نمیتوانید چت کنید، لطفا با مالک سایت تماس بگیرید.</translation>
     </message>
     <message>
       <source>Invalid captcha code, please enable Javascript!</source>
-      <translation>Invalid captcha code, please enable Javascript!</translation>
+      <translation>کد امنیتی نامعتبر، لطفا جاوا اسکریپت را فعال کنید!</translation>
     </message>
     <message>
       <source>Please enter your name</source>
-      <translation>Por favor, introduzca su nombre</translation>
+      <translation>لطفا نام خود را وارد کنید</translation>
     </message>
     <message>
       <source>Maximum 50 characters</source>
-      <translation>Máximo 50 caracteres</translation>
+      <translation>حداکثر 50 کاراکتر</translation>
     </message>
     <message>
       <source>Please enter a valid email address</source>
-      <translation>Por favor, introduzca un email válid</translation>
+      <translation>لطفا یک آدرس ایمیل معتبر وارد کنید</translation>
     </message>
     <message>
       <source>Please enter your message</source>
-      <translation>Por favor ingrese su mensaje</translation>
+      <translation>لطفا پیام خود را وارد کنید</translation>
     </message>
     <message>
       <source>Maximum 500 characters for message</source>
-      <translation>Máximo 500 caracteres por mensaje</translation>
+      <translation>حداکثر 500 کاراکتر برای پیام</translation>
     </message>
     <message>
       <source>Please enter your phone</source>
-      <translation>Introduzca su teléfono</translation>
+      <translation>لطفا تلفن خود را وارد کنید</translation>
     </message>
     <message>
       <source>Maximum 100 characters for phone</source>
-      <translation>Máximo 100 caracteres para teléfono</translation>
+      <translation>حداکثر 100 کاراکتر برای تلفن</translation>
     </message>
     <message>
       <source>Live Support</source>
-      <translation>Soporte en Línea</translation>
+      <translation>پشتیبان آنلاین</translation>
     </message>
     <message>
       <source>Visitor</source>
-      <translation>visitante</translation>
+      <translation>بازدیدکننده</translation>
     </message>
     <message>
       <source>Maximum 500 characters for a message</source>
-      <translation>Máximo 500 caracteres por mensaje</translation>
+      <translation>حداکثر 500 کاراکتر برای پیام</translation>
     </message>
     <message>
       <source>Fill in the form to start a chat</source>
-      <translation>Rellene el formulario para iniciar una conversación</translation>
+      <translation>برای شروع چت فرم را پر کنید</translation>
     </message>
   </context>
   <context>
     <name>chat/checkchatstatus</name>
     <message>
       <source>A support staff member has joined this chat</source>
-      <translation>Un miembro del personal de apoyo se ha unido a este chat</translation>
+      <translation>یک پشتیبان به چت پیوست</translation>
     </message>
     <message>
       <source>A support staff member has closed this chat</source>
-      <translation>Un miembro del departamento de soporte ha cerrado este chat</translation>
+      <translation>پشتیبان این چت را بسته است</translation>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
-      <translation>El departamento seleccionado cuenta con personal de apoyo conectado. Espere mientras un miembro del departamento atiende sus dudas, puede escribir sus preguntas ye en cuanto sea confirmada esta charla le serán respondidas ...</translation>
+      <translation>شما میتوانید پیام بگذارید، پشتیبانان به محض تایید چت پیام شما را مشاهده میکنند.</translation>
     </message>
     <message>
       <source>At this moment there are no logged in support staff members, but you can leave your messages</source>
-      <translation>Por el momento el personal para este departamento esta ausente , pero puedes dejar tus mensajes para que sean contestados a la brevedad o bien intenta con otro departamento...</translation>
+      <translation>در حال حاضر هیچ پشتیبانی آنلاین نیست، میتوانید پیام بگذارید</translation>
     </message>
   </context>
   <context>
     <name>chat/closedchats</name>
     <message>
       <source>Closed chats list</source>
-      <translation>Lista de chats cerrados</translation>
+      <translation>فهرست چت های بسته شده</translation>
     </message>
     <message>
       <source>Information</source>
-      <translation>Información</translation>
+      <translation>اطلاعات</translation>
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation>Abrir en una nueva ventana</translation>
+      <translation>بازکردن در یک صفحه جدید</translation>
     </message>
     <message>
       <source>Delete chat</source>
-      <translation>Eliminar chat</translation>
+      <translation>حذف چت</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Vacío ...</translation>
+      <translation>خالی ...</translation>
     </message>
     <message>
       <source>Chats list</source>
-      <translation>Lista Chats</translation>
+      <translation>فهرست چت ها</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Chats cerrados</translation>
+      <translation>چت های بسته شده</translation>
     </message>
   </context>
   <context>
     <name>chat/user_settings</name>
     <message>
       <source>Enable/Disable sound about new messages from the operator</source>
-      <translation>Activar / Desactivar el sonido sobre los nuevos mensajes del operador</translation>
+      <translation>فعال/غیرفعال کردن صدا برای دریافت پیام جدید از اپراتور</translation>
     </message>
     <message>
       <source>Print</source>
-      <translation>Imprimir</translation>
+      <translation>چاپ</translation>
     </message>
     <message>
       <source>Send chat transcript to your e-mail</source>
-      <translation>Enviar Transcripción del chat a su e-mail</translation>
+      <translation>ارسال متن چت به ایمیل</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new messages from users</source>
-      <translation>Activar / Desactivar el sonido sobre los nuevos mensajes de los usuarios</translation>
+      <translation>فعال/غیرفعال کردن صدا برای دریافت پیام های جدید از کاربران</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new pending chats</source>
-      <translation>Activar / Desactivar el sonido de nuevas chats pendientes</translation>
+      <translation>فعال/غیرفعال کردن صدا برای چت های معلق</translation>
     </message>
     <message>
       <source>Change my status to online/offline</source>
-      <translation>Cambiar mi estado de línea / fuera de línea</translation>
+      <translation>تغیر وضعیت من از آنلاین/آفلاین</translation>
     </message>
   </context>
   <context>
     <name>chat/editchatconfig</name>
     <message>
       <source>Edit</source>
-      <translation>Editar</translation>
+      <translation>ویرایش</translation>
     </message>
     <message>
       <source>Value in</source>
-      <translation>Valor en
-</translation>
+      <translation>مقدار در</translation>
     </message>
     <message>
       <source>site access</source>
-      <translation>acceso al sitio</translation>
+      <translation>دسترسی سایت</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Actualizar</translation>
+      <translation>به روزرسانی</translation>
     </message>
     <message>
       <source>Data updated</source>
-      <translation>Datos Actualizados</translation>
+      <translation>اطلاعات به روز شده</translation>
     </message>
   </context>
   <context>
     <name>chat/errors/adminchatnopermission</name>
     <message>
       <source>You do not have permission to access the current chat!</source>
-      <translation>Usted no tiene permiso para acceder al chat actual!</translation>
+      <translation>شما دسترسی لازم برای ورود به این چت را ندارید</translation>
     </message>
   </context>
   <context>
     <name>chat/errors/entertext</name>
     <message>
       <source>Please enter text!</source>
-      <translation>Por favor, introduzca el texto!</translation>
+      <translation>لطفا متن را وارد کنید!</translation>
     </message>
   </context>
   <context>
     <name>chat/onlineusers</name>
     <message>
       <source>GEO detection configuration</source>
-      <translation>Configuracion de GEO Ubicación</translation>
+      <translation>تنظیمات دریافت موقعیت جغرافیایی</translation>
     </message>
     <message>
       <source>GEO Enabled</source>
-      <translation>GEO Activado</translation>
+      <translation>فعال سازی موقعیت جغرافیایی</translation>
     </message>
     <message>
       <source>Use this service</source>
-      <translation>Utilizar este servicio</translation>
+      <translation>استفاده از این سرویس</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Guardar</translation>
+      <translation>ذخیره</translation>
     </message>
     <message>
       <source>Use mod_geoip2</source>
-      <translation>Utilizar mod_geoip2</translation>
+      <translation>استفاده از mod_geoip2</translation>
     </message>
     <message>
       <source>Country code server variable</source>
-      <translation>Variable de servidor de código de país</translation>
+      <translation>متغیر کد کشور سرور</translation>
     </message>
     <message>
       <source>Country name server variable</source>
-      <translation>Nombre del país, variable de servidor</translation>
+      <translation>متغیر کشور نام سرور</translation>
     </message>
     <message>
       <source>City name server variable</source>
-      <translation>Nombre de la ciudad, variable de servidor </translation>
+      <translation>متغیر شهر سرور</translation>
     </message>
     <message>
       <source>Latitude variable</source>
-      <translation>Variable de Latitud</translation>
+      <translation>متغیر عرض</translation>
     </message>
     <message>
       <source>Longitude variable</source>
-      <translation>Variable de Longitud</translation>
+      <translation>متغیر طول</translation>
     </message>
     <message>
       <source>Requests will be comming from</source>
-      <translation>Las solicitudes vendrán de</translation>
+      <translation>درخواست ها از طرف</translation>
     </message>
     <message>
       <source>API Key</source>
-      <translation>API Key</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Username</source>
-      <translation>Usuario</translation>
+      <translation>نام کاربری</translation>
     </message>
     <message>
       <source>IP, if your site remote IP is different from detected one, please provide correct remote IP address</source>
-      <translation>IP, si tu IP remota es diferente a la detectada, por favor, proporcione la dirección IP correcta</translation>
+      <translation>IP، در صورتی که IP سرور شما مغایر با IP شناسایی شده میباشد، لطفا IP صحیح را وارد نمایید</translation>
     </message>
     <message>
       <source>Map location</source>
-      <translation>Ubicación en el mapa</translation>
+      <translation>محل نقشه</translation>
     </message>
     <message>
       <source>Drag a marker where you want to have map centered by default. Zoom is also saved.</source>
-      <translation>Arrastre un marcador donde quiera centrar el mapa por defecto. El zoom también se guardará.</translation>
+      <translation>نشانگر را در جایی که میخواهید مرکز نقشه باشد قرار دهید. بزرگنمایی نیز ذخیره میشود.</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Configuración actualizada</translation>
+      <translation>تنظیمات به روز شده</translation>
     </message>
     <message>
       <source>Send message</source>
-      <translation>Enviar mensaje</translation>
+      <translation>ارسال پیام</translation>
     </message>
     <message>
       <source>City</source>
-      <translation>Ciudad</translation>
+      <translation>شهر</translation>
     </message>
     <message>
       <source>Lat.</source>
-      <translation>Lat.</translation>
+      <translation>عرض.</translation>
     </message>
     <message>
       <source>Lon.</source>
-      <translation>Lon.</translation>
+      <translation>طول.</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Identificador</translation>
+      <translation>شناسایی</translation>
     </message>
     <message>
       <source>Last activity</source>
-      <translation>Última actividad</translation>
+      <translation>فعایت اخیر</translation>
     </message>
     <message>
       <source>ago</source>
-      <translation>hace</translation>
+      <translation>پیش</translation>
     </message>
     <message>
       <source>User does not have any message from operator</source>
-      <translation>El usuario no tiene ningún mensaje del operador</translation>
+      <translation>کاربر پیامی از اپراتور ندارد</translation>
     </message>
     <message>
       <source>User have not seen message from operator, or message window still open.</source>
-      <translation>El usuario no ha visto un mensaje del operador o la ventana del mensaje sigue abierta.</translation>
+      <translation>کاربر هنوز پیام اپراتور را ندیده است و یا پنجره پیام هنوز باز است.</translation>
     </message>
     <message>
       <source>User has seen message from operator.</source>
-      <translation>El usuario ha visto el mensaje del operador.</translation>
+      <translation>کاربر پیام اپراتور را دیده</translation>
     </message>
     <message>
       <source>User is chatting</source>
-      <translation>El usuario tiene un chat activo</translation>
+      <translation>کاربر در چت</translation>
     </message>
     <message>
       <source>User is not having any chat right now</source>
-      <translation>El usuario no está tiene ningun chat abierto actualmente</translation>
+      <translation>کاربر در حال حاضر چتی ندارد</translation>
     </message>
     <message>
       <source>has send message to user</source>
-      <translation>ha enviado un mensaje al usuario</translation>
+      <translation>پیام به کاربر ارسال شده است</translation>
     </message>
     <message>
       <source>No one has send any message to user yet</source>
-      <translation>Todavia no se han enviado mensajes al usuario</translation>
+      <translation>هیچ کسی به کاربر پیام ارسال نکرده است</translation>
     </message>
     <message>
       <source>First visit</source>
-      <translation>Primera Visita</translation>
+      <translation>اولین بازدید</translation>
     </message>
     <message>
       <source>Last visit</source>
-      <translation>Ultima Visita</translation>
+      <translation>آخرین بازدید</translation>
     </message>
     <message>
       <source>Total visits</source>
-      <translation>Total de visitas</translation>
+      <translation>تمام بازدیدها</translation>
     </message>
     <message>
       <source>time(s) invitation logic was applied</source>
-      <translation>tiempo(s) la invitación logia fue aceptada</translation>
+      <translation>زمان منطقی برای اعمال</translation>
     </message>
     <message>
       <source>Pageviews</source>
-      <translation>Páginas Vistas</translation>
+      <translation>مشاهده صفحه</translation>
     </message>
     <message>
       <source>Total pageviews</source>
-      <translation>Total de paginas vistas</translation>
+      <translation>تمام صفحات مشاهده شده</translation>
     </message>
     <message>
       <source>Time on site</source>
-      <translation>Tiempo en el sitio</translation>
+      <translation>ساعت در سایت</translation>
     </message>
     <message>
       <source>Total time on site</source>
-      <translation>Tiempo total en el sitio</translation>
+      <translation>مجموع زمان بودن در سایت</translation>
     </message>
     <message>
       <source>Current page</source>
-      <translation>Página actual
-</translation>
+      <translation>صفحه جاری</translation>
     </message>
     <message>
       <source>Came from</source>
-      <translation>Vino de</translation>
+      <translation>از طرف</translation>
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation>¿Está seguro?</translation>
+      <translation>آیا مطمئن هستید؟</translation>
     </message>
     <message>
       <source>Clear list</source>
-      <translation>Limpiar lista</translation>
+      <translation>پاک سازی فهرست</translation>
     </message>
     <message>
       <source>Online visitors</source>
-      <translation>Visitantes en línea</translation>
+      <translation>بازدیدکنندگان آنلاین</translation>
     </message>
     <message>
       <source>User tracking is disabled, enable it at</source>
-      <translation>El seguimiento de usuario está desactivada, actívelo en</translation>
+      <translation>ردیابی کاربرغیرفعال شده است، فعال سازی در</translation>
     </message>
     <message>
       <source>Chat configuration</source>
-      <translation>Configuración del chat</translation>
+      <translation>تنظیمات چت</translation>
     </message>
     <message>
       <source>List</source>
-      <translation>Lista</translation>
+      <translation>فهرست</translation>
     </message>
     <message>
       <source>Show visitors who visited site in the past</source>
-      <translation>Mostrar a los visitantes que ya visitaron el sitio en el pasado</translation>
+      <translation>نمایش بازدیدکنندگانی که قبلا از سایت بازدید کرده اند</translation>
     </message>
     <message>
       <source>seconds</source>
-      <translation>segundos</translation>
+      <translation>ثانیه ها</translation>
     </message>
     <message>
       <source>minit</source>
-      <translation>Minútos</translation>
+      <translation>دقایق</translation>
     </message>
     <message>
       <source>minits</source>
-      <translation>minútos</translation>
+      <translation>دقایق</translation>
     </message>
     <message>
       <source>hour</source>
-      <translation>Hora</translation>
+      <translation>ساعت</translation>
     </message>
     <message>
       <source>Page</source>
-      <translation>Página</translation>
+      <translation>صفحه</translation>
     </message>
     <message>
       <source>Status</source>
-      <translation>Estado</translation>
+      <translation>وضعیت</translation>
     </message>
     <message>
       <source>Action</source>
-      <translation>Acción</translation>
+      <translation>عملیات</translation>
     </message>
     <message>
       <source>User does not have any messages from the operator</source>
-      <translation>El usuario no tiene ningún mensaje del operador</translation>
+      <translation>کاربر پیامی از اپراتور ندارد</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation>El usuario no ha visto un mensaje del operador o la ventana del mensaje sigue abierta.</translation>
+      <translation>کاربر پیام اپراتور را ندیده و یا پنجره هنوز باز است.</translation>
     </message>
     <message>
       <source>User has seen the message from the operator.</source>
-      <translation>El usuario ha visto el mensaje del operador.</translation>
+      <translation>کاربر پیام اپراتور را دیده است.</translation>
     </message>
     <message>
       <source>has sent a message to the user</source>
-      <translation>ha enviado un mensaje al usuario</translation>
+      <translation>پیام ارسال شده به کاربر</translation>
     </message>
     <message>
       <source>No one has sent a message to the user yet</source>
-      <translation>Aun no se han enviado mensajes al usuario</translation>
+      <translation>پیامی برای کاربر ارسال نشده است</translation>
     </message>
     <message>
       <source>first visit</source>
-      <translation>primera visita</translation>
+      <translation>اولین بازدید</translation>
     </message>
     <message>
       <source>last visit</source>
-      <translation>última visita</translation>
+      <translation>آخرین بازدید</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Vacío ...</translation>
+      <translation>خالی..</translation>
     </message>
     <message>
       <source>Map</source>
-      <translation>Mapa</translation>
+      <translation>نقشه</translation>
     </message>
     <message>
       <source>User has message from operator</source>
-      <translation>El usuario tiene un mensaje del operador</translation>
+      <translation>کاربر پیامی از اپراتور دارد</translation>
     </message>
     <message>
       <source>Marker timeout before it dissapears from map</source>
-      <translation>Tiempo de espera antes de que desaparezca del mapa</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Files upload for users is active</source>
-      <translation>La subida de ficheros para usuarios está activa</translation>
+      <translation>بارگذاری فایل برای کاربران فعال است</translation>
     </message>
     <message>
       <source>Files upload for operators is active</source>
-      <translation>La subida de ficheros para operadores está activa</translation>
+      <translation>بارگذاری فایل برای اپراتورها فعال است</translation>
     </message>
     <message>
       <source>Country code variable does not exist!</source>
-      <translation>La variable del código de país no existe!</translation>
+      <translation>متغیر کد کشور وجود ندارد</translation>
     </message>
     <message>
       <source>Country name variable does not exist!</source>
-      <translation>Variable de nombre de país no existe!</translation>
+      <translation>متغیر نام کشور وجود ندارد</translation>
     </message>
     <message>
       <source>Please enter city variable!</source>
-      <translation>Por favor, introduzca la ciudad</translation>
+      <translation>لطفا متغیر شهر را وارد کنید!</translation>
     </message>
     <message>
       <source>Please enter latitude variable!</source>
-      <translation>Por favor, introduzca la latitud</translation>
+      <translation>لطفا متغیر عرض جغرافیایی را وارد کنید!</translation>
     </message>
     <message>
       <source>Please enter longitude variable!</source>
-      <translation>Por favor, introduzca la longitud</translation>
+      <translation>لطفا متغیر طول جغرافیایی را وارد کنید!</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages!</source>
-      <translation>Los ajustes del proveedor de servicios estan incorrectos, compruebe que el proveedor de servicios le permite hacer peticiones a páginas remotas, por favor!</translation>
+      <translation>تنظیمات سرویس دهنده شکست خورد، لطفا چک کنید سرویس دهنده به شما امکانات لازم را داده باشد</translation>
     </message>
     <message>
       <source>Please enter the API key!</source>
-      <translation>Por favor, introduzca la clave de API!</translation>
+      <translation>لطفا API key را وارد کنید!</translation>
     </message>
     <message>
       <source>Please enter the API username!</source>
-      <translation>Por favor, introduzca el nombre de usuario API!</translation>
+      <translation>لطفا API نام کاربری را وارد کنید!</translation>
     </message>
     <message>
       <source>Please enter IP!</source>
-      <translation>Por favor, introduzca la IP</translation>
+      <translation>لطفا IP را وارد کنید!</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key and username is correct!</source>
-      <translation>Los ajustes del proveedor de servicios estan incorrectos, por favor, compruebe que el proveedor de servicios le permite hacer peticiones a páginas remotas y su API key / usuario son correctos </translation>
+      <translation>تنظیمات سرویس دهنده شکست خورد، لطفا بررسی کنید که سرویس دهنده به شما مجوز دسترسی به صفحات را داده باشد و API key و نام کاربری درست باشد!</translation>
     </message>
     <message>
       <source>Please choose a service provider!</source>
-      <translation>Por favor, elija su proveedor de servicios!</translation>
+      <translation>لطفا یک سرویس دهنده انتخاب کنید!</translation>
     </message>
     <message>
       <source>Online users</source>
-      <translation>usuarios en línea</translation>
+      <translation>کاربران آنلاین</translation>
     </message>
   </context>
   <context>
     <name>chat/getstatus</name>
     <message>
       <source>Live help is online...</source>
-      <translation>Ayuda en vivo está en linea...</translation>
+      <translation>پشتیبان برخط آنلاین است ...</translation>
     </message>
     <message>
       <source>Live help is offline...</source>
-      <translation>Ayuda en vivo no está en línea ...</translation>
+      <translation>پشتیبان برخط آفلاین است...</translation>
     </message>
     <message>
       <source>Close</source>
-      <translation>Cerrar</translation>
+      <translation>بستن</translation>
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation>Abrir en una nueva ventana</translation>
+      <translation>در یک پنجره جدید باز کن</translation>
     </message>
   </context>
   <context>
     <name>chat/listchatconfig</name>
     <message>
       <source>List</source>
-      <translation>Lista</translation>
+      <translation>فهرست</translation>
     </message>
     <message>
       <source>Explain</source>
-      <translation>Explicar</translation>
+      <translation>توضیح</translation>
     </message>
     <message>
       <source>Edit value</source>
-      <translation>Editar valor</translation>
+      <translation>ویرایش مقدار</translation>
     </message>
     <message>
       <source>List chat configuration</source>
-      <translation>Listar configuración del chat</translation>
+      <translation>فهرست تنظیمات چت</translation>
     </message>
   </context>
   <context>
     <name>system/htmlcode</name>
     <message>
       <source>Check for messages from the operator</source>
-      <translation>Compruebe los mensajes del operador</translation>
+      <translation>بررسی پیام ها از اپراتور</translation>
     </message>
     <message>
       <source>Widget embed code</source>
-      <translation>Widget código de inserción</translation>
+      <translation>کد داخلی ویجت</translation>
     </message>
     <message>
       <source>Page embed code</source>
-      <translation>Página código de inserción</translation>
+      <translation>کد داخلی صفحه</translation>
     </message>
     <message>
       <source>HTML code</source>
-      <translation>Código HTML</translation>
+      <translation>کد HTML</translation>
     </message>
     <message>
       <source>Choose a language</source>
-      <translation>Elija un idioma</translation>
+      <translation>انتخاب زبان</translation>
     </message>
     <message>
       <source>Chatbox messages content height</source>
-      <translation>Mensajes Chatbox altura del contenido</translation>
+      <translation>طول جعبه محتوای پیام</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>
-      <translation>Copie el código de la área de texto de la página donde desea que se represente</translation>
+      <translation>کد را از محدوده متنی را در محلی که میخواهید کپی کنید</translation>
     </message>
     <message>
       <source>Chatbox</source>
-      <translation>Chatbox</translation>
+      <translation>جعبه چت</translation>
     </message>
     <message>
       <source>Position from the top, is only used if the Middle left or the Middle right side is chosen</source>
-      <translation>Posición de la parte superior, sólo se utiliza si se escoge la izquierda Oriente Medio o en el lado derecho</translation>
+      <translation>جایگاه از بالا، زمانی استفاده میشود که میانه راست و یا میانه چپ انتخاب شود</translation>
     </message>
     <message>
       <source>Pixels</source>
-      <translation>Píxeles</translation>
+      <translation>پیکسل</translation>
     </message>
     <message>
       <source>Percents</source>
-      <translation>Porcentaje</translation>
+      <translation>درصد</translation>
     </message>
     <message>
       <source>Size</source>
-      <translation>Tamaño</translation>
+      <translation>اندازه</translation>
     </message>
     <message>
       <source>Width</source>
-      <translation>Ancho</translation>
+      <translation>عرض</translation>
     </message>
     <message>
       <source>Height</source>
-      <translation>Altura</translation>
+      <translation>طول</translation>
     </message>
     <message>
       <source>Position</source>
-      <translation>Posición</translation>
+      <translation>جایگاه</translation>
     </message>
     <message>
       <source>Bottom right corner of the screen</source>
-      <translation>Esquina inferior derecha de la pantalla</translation>
+      <translation>گوشه پایینی از راست صفحه</translation>
     </message>
     <message>
       <source>Bottom left corner of the screen</source>
-      <translation>Esquina inferior izquierda de la pantalla</translation>
+      <translation>گوشه پایین از چپ صفحه</translation>
     </message>
     <message>
       <source>Middle right side of the screen</source>
-      <translation>Parte central derecha de la pantalla</translation>
+      <translation>میانه راست صفحه</translation>
     </message>
     <message>
       <source>Middle left side of the screen</source>
-      <translation>Parte central izquierda de la pantalla</translation>
+      <translation>میانه چپ صفحه</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation>Copia el código del textarea al pie de página, antes de la etiqueta &lt;/ body&gt;</translation>
+      <translation>کد را از محدوده متنی در بخش پایینی صفحه کپی کنید، قبل از بستن </translation>
     </message>
     <message>
       <source>Copy the code from the textarea to page where you want it to be rendered</source>
-      <translation>Copie el código de la área de texto de la página donde desea que se muestre</translation>
+      <translation>کد محدوده متنی را در صفحه کپی کنید</translation>
     </message>
     <message>
       <source>Status text</source>
-      <translation>Texto de estado</translation>
+      <translation>وضعیت متن</translation>
     </message>
     <message>
       <source>FAQ</source>
-      <translation>Preguntas más frecuentes</translation>
+      <translation>س/ج</translation>
     </message>
     <message>
       <source>Position from the top, only used if the Middle left or the Middle right side is chosen</source>
-      <translation>Posición de la parte superior, sólo se utiliza si se escoge la izquierda Oriente Medio o en el lado derecho</translation>
+      <translation>جایگاه از بالا، تنها وقتی استفاده میشود که وسط صفحه از چپ و یا از راست انتخاب شده باشد</translation>
     </message>
     <message>
       <source>Help us to grow</source>
-      <translation>Ayudanos a crecer</translation>
+      <translation>برای توسعه کمک کنید</translation>
     </message>
     <message>
       <source>Hide status when offline</source>
-      <translation>Ocultar estado sin conexión</translation>
+      <translation>پنهان کردن وضعیت در حالت آفلاین</translation>
     </message>
     <message>
       <source>Show a leave a message form when there are no online operators</source>
-      <translation>Muestra una forma de dejar un mensaje cuando no hay operadores en línea</translation>
+      <translation>نمایش فرم گذاشتن پیام وقتی هیچ اپراتوری آنلاین نباشد.</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Departamento</translation>
+      <translation>دپارتمان</translation>
     </message>
     <message>
       <source>Any</source>
-      <translation>Cualquier</translation>
+      <translation>هر</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want your status to appear</source>
-      <translation>Copie el código de la área de texto de la página donde desea que aparezca su estado</translation>
+      <translation>کد محدوده متنی را در هر کجای صفحه که میخواهید کپی کنید</translation>
     </message>
     <message>
       <source>On a mouse click show the page widget</source>
-      <translation>En un clic del ratón mostrará el widget de página</translation>
+      <translation>نمایش ویجت صفحه با کلیک</translation>
     </message>
     <message>
       <source>Automatically check for messages from the operator/invitation messages</source>
-      <translation>Comprobar automáticamente los mensajes del operador / invitaciones</translation>
+      <translation>بررسی خودکار برای پیام های ارسالی از اپراتور/پیام های دعوت</translation>
     </message>
     <message>
       <source>It increases server load, because every 15 seconds is checked for operator message or invitation message.</source>
-      <translation>Incrementa la carga del servidor, porque cada 15 segundos comprueba los mensajes para el operador o invitaciones</translation>
+      <translation>لود سرور را افزایش میدهد، زیرا هر 15 ثانبه پیام های اپراتورها و دعوت را بررسی میکند.</translation>
     </message>
     <message>
       <source>Disable pro active invitations, usefull if you want disable them from site part.</source>
-      <translation>Desactivar invitaciones proactivas, muy útil si quieres desactivarlos de la parte del sitio.</translation>
+      <translation>غیرفعال کردن دعوت به چت</translation>
     </message>
     <message>
       <source>Popup window size</source>
-      <translation>Tamaño de la ventana emergente</translation>
+      <translation>اندازه پنجره بازشونده</translation>
     </message>
     <message>
       <source>Popup window width in pixels</source>
-      <translation>Anchura de la ventana emergente en píxeles</translation>
+      <translation>عرض پنجره بازشونده در پیکسل</translation>
     </message>
     <message>
       <source>Popup window height in pixels</source>
-      <translation>Altura de la ventana emergente en píxeles</translation>
+      <translation>طول پنجره بازشونده در پیکسل</translation>
     </message>
     <message>
       <source>Widget width</source>
-      <translation>Ancho Widget</translation>
+      <translation>عرض ویجت</translation>
     </message>
     <message>
       <source>Widget width in pixels</source>
-      <translation>Ancho Widget en píxeles</translation>
+      <translation>عرض ویجت در پیکسل</translation>
     </message>
     <message>
       <source>height</source>
-      <translation>altura</translation>
+      <translation>طول</translation>
     </message>
     <message>
       <source>Widget height in pixels</source>
-      <translation>Widget altura en píxeles</translation>
+      <translation>طول ویجت بر اساس پیکسل</translation>
     </message>
     <message>
       <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>Colocación del Pacífico - se verá que está incrustado el código HTML</translation>
+      <translation>محل قرارگیری - محل html داخلی را نمایش میدهد.</translation>
     </message>
     <message>
       <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
-      <translation>Identificador, este se puede utilizar como filtro para pro invitaciones de chat activas y se uso por completo que tiene diferentes mensajes para diferentes dominios. Sólo cadena sin espacios ni caracteres especiales.</translation>
+      <translation>شناسایی،این میتواند یک فیلتر برای دعوت به چت باشد. و از این امکان میتوان برای گذاشتن پیام در دامین های متفاوت استفاده کرد. فقط جملات بدون فاصله و کاراکتر خاص</translation>
     </message>
     <message>
       <source>Leave empty if it is not important to you</source>
-      <translation>Dejar en blanco si no es importante para ti</translation>
+      <translation>اگر برای شما مهم نیست میتوانید خالی بگذارید</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Configuración del sistema</translation>
+      <translation>تنظیمات سیستم</translation>
     </message>
     <message>
       <source>Embed code</source>
-      <translation>Insertar código</translation>
+      <translation>کد داخلی</translation>
     </message>
   </context>
   <context>
     <name>chat/lists</name>
     <message>
       <source>Choose what type of list you want to see</source>
-      <translation>Elija el tipo de lista que desea ver</translation>
+      <translation>لطفا نوع فهرست مورد نظرتان را انتخاب کنید</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>Chats pendientes</translation>
+      <translation>چت های معلق</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Chats activos</translation>
+      <translation>چت های فعال</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Chats cerrados</translation>
+      <translation>چت های بسته شده</translation>
     </message>
     <message>
       <source>Operators chats</source>
-      <translation>Operadores de chats</translation>
+      <translation>چت های اپراتورها</translation>
     </message>
     <message>
       <source>Chats with unread messages</source>
-      <translation>Chats con mensajes no leídos</translation>
+      <translation>چت با پیام های خوانده نشده</translation>
     </message>
     <message>
       <source>Chat lists</source>
-      <translation>Listas de chats</translation>
+      <translation>فهرست های چت</translation>
     </message>
   </context>
   <context>
     <name>chat/syncadmin</name>
     <message>
       <source>System assistant</source>
-      <translation>asistente del sistema</translation>
+      <translation>کمک سیستم</translation>
     </message>
   </context>
   <context>
     <name>system/configuration</name>
     <message>
       <source>New chat notification settings</source>
-      <translation>Nueva configuración de chat de notificación</translation>
+      <translation>تنیظیمات اطلاع رسانی چت جدید</translation>
     </message>
     <message>
       <source>Request notification permission</source>
-      <translation>Solicito permiso notificación</translation>
+      <translation>درخواست مجوز اطلاع رسانی</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>configuración del sistema</translation>
+      <translation>تنظیمات سیستم</translation>
     </message>
     <message>
       <source>Chat related</source>
-      <translation>chatear relacionados</translation>
+      <translation>چت مرتبط</translation>
     </message>
     <message>
       <source>Departments</source>
-      <translation>Departamentos</translation>
+      <translation>دپارتمان ها</translation>
     </message>
     <message>
       <source>Blocked users</source>
-      <translation>Los usuarios bloqueados</translation>
+      <translation>کاربران مسدود شده</translation>
     </message>
     <message>
       <source>Chat configuration</source>
-      <translation>chatear configuración</translation>
+      <translation>تنظیمات چت</translation>
     </message>
     <message>
       <source>GEO detection configuration</source>
-      <translation>Configuración de detección de GEO</translation>
+      <translation>تنظیمات شناسایی موقعیت جغرافیایی</translation>
     </message>
     <message>
       <source>Synchronization and sound settings</source>
-      <translation>Ajustes de sincronización y sonido</translation>
+      <translation>تنظیمات هماهنگی و صدا</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
-      <translation>Iniciar los ajustes del formulario de chat</translation>
+      <translation>تنظیمات فرم شروع چت</translation>
     </message>
     <message>
       <source>Canned messages</source>
-      <translation>mensajes enlatados</translation>
+      <translation>پیام های مسدود شده</translation>
     </message>
     <message>
       <source>E-mail templates</source>
-      <translation>Plantillas de E-mail</translation>
+      <translation>قالب های ایمیل</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
-      <translation>Pro invitaciones de chat activas</translation>
+      <translation>دعوت به چت</translation>
     </message>
     <message>
       <source>Auto responder</source>
-      <translation>Auto responder</translation>
+      <translation>پاسخگوی خودکار</translation>
     </message>
     <message>
       <source>SMTP settings</source>
-      <translation>configuración SMTP</translation>
+      <translation>تنظیمات SMTP</translation>
     </message>
     <message>
       <source>Languages configuration</source>
-      <translation>configuración de Idiomas</translation>
+      <translation>تنظیمات زبان</translation>
     </message>
     <message>
       <source>Chats list</source>
-      <translation>lista Chats</translation>
+      <translation>فهرست چت ها</translation>
     </message>
     <message>
       <source>Chat archive</source>
-      <translation>Archivo de chats</translation>
+      <translation>بایگانی چت</translation>
     </message>
     <message>
       <source>Live help embed code</source>
-      <translation>Código de inserción para Live help</translation>
+      <translation>کد داخلی پشتیبانی آنلاین</translation>
     </message>
     <message>
       <source>FAQ embed code</source>
-      <translation>Código de inserción para FAQ</translation>
+      <translation>کد داخلی س/ج</translation>
     </message>
     <message>
       <source>Questionary embed code</source>
-      <translation>Código de inserción para cuestionario</translation>
+      <translation>کد داخلی پرسشی</translation>
     </message>
     <message>
       <source>Chatbox embed code</source>
-      <translation>Código de inserción para Chatbox</translation>
+      <translation>کد داخلی جعبه چت</translation>
     </message>
     <message>
       <source>Statistic</source>
-      <translation>estadística</translation>
+      <translation>آمار</translation>
     </message>
     <message>
       <source>Users and their permissions</source>
-      <translation>Los usuarios y sus permisos</translation>
+      <translation>کاربران و مجوزهایشان</translation>
     </message>
     <message>
       <source>Users</source>
-      <translation>Usuarios</translation>
+      <translation>کاربران</translation>
     </message>
     <message>
       <source>List of groups</source>
-      <translation>Lista de los grupos</translation>
+      <translation>فهرست گروه ها</translation>
     </message>
     <message>
       <source>List of roles</source>
-      <translation>Lista de funciones</translation>
+      <translation>فهرست نقش ها</translation>
     </message>
     <message>
       <source>Files uploads configuration</source>
-      <translation>Configuración de subida de ficheros</translation>
+      <translation>تنظیمات بارگذاری فایل</translation>
     </message>
     <message>
       <source>Files upload configuration</source>
-      <translation>Configuración de subida de ficheros</translation>
+      <translation>تنظیمات بارگذاری فایل</translation>
     </message>
     <message>
       <source>List of files</source>
-      <translation>Lista de ficheros</translation>
+      <translation>فهرست فایل ها</translation>
     </message>
     <message>
       <source>Other</source>
-      <translation>otro</translation>
+      <translation>دیگران</translation>
     </message>
     <message>
       <source>File configuration</source>
-      <translation>Fichero de configuración</translation>
+      <translation>تنظیمات فایل</translation>
     </message>
   </context>
   <context>
     <name>chat/operatorschats</name>
     <message>
       <source>Operators chats list</source>
-      <translation>Lista de chats de los operadores</translation>
+      <translation>فهرست چت های اپراتورها</translation>
     </message>
     <message>
       <source>Operators chats</source>
-      <translation>Operadores de chats</translation>
+      <translation>چت های اپراتورها</translation>
     </message>
   </context>
   <context>
     <name>chat/pendingchats</name>
     <message>
       <source>Pending chats list</source>
-      <translation>Lista de chats pendientes</translation>
+      <translation>فهرست چت های معلق</translation>
     </message>
     <message>
       <source>Information</source>
-      <translation>Información</translation>
+      <translation>اطلاعات</translation>
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation>Abrir en una nueva ventana</translation>
+      <translation>در یک پنجره جدید باز کن</translation>
     </message>
     <message>
       <source>Reject chat</source>
-      <translation>Rechazar chat</translation>
+      <translation>رد کردن چت</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Vacío ...</translation>
+      <translation>خالی ...</translation>
     </message>
     <message>
       <source>Chats list</source>
-      <translation>Lista Chats</translation>
+      <translation>فهرست چت ها</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>Chats pendientes</translation>
+      <translation>چت های معلق</translation>
     </message>
   </context>
   <context>
     <name>chat/previewchat</name>
     <message>
       <source>Last 100 messages rows</source>
-      <translation>Últimas 100 filas de mensajes</translation>
+      <translation>100 پیام آخر</translation>
     </message>
   </context>
   <context>
     <name>chat/sendchat</name>
     <message>
       <source>Enter your e-mail</source>
-      <translation>Introduzca su dirección de e-mail</translation>
+      <translation>ایمیل خود را وارد کنید</translation>
     </message>
   </context>
   <context>
     <name>chat/sendmail</name>
     <message>
       <source>Send mail to the user</source>
-      <translation>Enviar correo electrónico al usuario</translation>
+      <translation>ارسال ایمیل به کاربر</translation>
     </message>
     <message>
       <source>Recipient</source>
-      <translation>Destinatario</translation>
+      <translation>گیرنده</translation>
     </message>
     <message>
       <source>Recipient e-mail</source>
-      <translation>E-mail destinatario</translation>
+      <translation>گیرنده ایمیل</translation>
     </message>
     <message>
       <source>Subject</source>
-      <translation>Asunto</translation>
+      <translation>عنوان</translation>
     </message>
     <message>
       <source>From name</source>
-      <translation>De:</translation>
+      <translation>از نام</translation>
     </message>
     <message>
       <source>Reply e-mail</source>
-      <translation>Responder e-mail</translation>
+      <translation>پاسخ ایمیل</translation>
     </message>
     <message>
       <source>From e-mail</source>
-      <translation>Desde e-mail</translation>
+      <translation>از ایمیل</translation>
     </message>
     <message>
       <source>Type your message to the user</source>
-      <translation>Escriba su mensaje al usuario</translation>
+      <translation>تایپ پیام برای کاربر</translation>
     </message>
     <message>
       <source>Send the mail</source>
-      <translation>Enviar correo</translation>
+      <translation>ارسال ایمیل</translation>
     </message>
     <message>
       <source>Mail was sent to the user</source>
-      <translation>El correo fué enviado al usuario</translation>
+      <translation>ایمیل به کاربر ارسال شد.</translation>
     </message>
     <message>
       <source>Please enter recipient e-mail!</source>
-      <translation>Introduce destinatario de correo electrónico!</translation>
+      <translation>لطفا آدرس ایمیل گیرنده را وارد کنید!</translation>
     </message>
     <message>
       <source>From e-mail is missing!</source>
-      <translation>Falta correo electrónico</translation>
+      <translation>آدرس فرستنده ایمیل از دست رفته!</translation>
     </message>
     <message>
       <source>Reply e-mail is missing!</source>
-      <translation>Falta correo electrónico a responder</translation>
+      <translation>پاسخ ایمیل از دست رفته!</translation>
     </message>
     <message>
       <source>Subject is missing!</source>
-      <translation>Falta el asunto del correo!</translation>
+      <translation>عنوان از دست رفته!</translation>
     </message>
   </context>
   <context>
     <name>chat/sendnotice</name>
     <message>
       <source>Send a message to the user</source>
-      <translation>Enviar un mensaje al usuario</translation>
+      <translation>ارسال پیام به کاربر</translation>
     </message>
     <message>
       <source>If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.</source>
-      <translation>Si el mensaje ya fue enviado, se marcará como no entregado y se el mostrará nuevamente el mensaje</translation>
+      <translation>اگر پیام ارسال شده باشد، این گزینه آن را به عنوان دریافت نشده علامت گذاری کرده و مجدد در پیام چت نمایش داده میشود.</translation>
     </message>
     <message>
       <source>Type your message to the user</source>
-      <translation>Escriba su mensaje al usuario</translation>
+      <translation>تایپ پیام شخصی به کاربر</translation>
     </message>
     <message>
       <source>Send the message</source>
-      <translation>Enviar el mensaje</translation>
+      <translation>ارسال پیام</translation>
     </message>
     <message>
       <source>Message was sent to the user</source>
-      <translation>El mensaje ha sido enviado al usuario</translation>
+      <translation>پیام برای کاربر ارسال شد</translation>
     </message>
     <message>
       <source>Start chat with operator</source>
-      <translation>Iniciar chat con el operador</translation>
+      <translation>شروع چت با اپراتور</translation>
     </message>
     <message>
       <source>Type your message to the operator</source>
-      <translation>Escriba su mensaje para el operador</translation>
+      <translation>پیام خود را برای اپراتور تایپ کنید</translation>
     </message>
   </context>
   <context>
     <name>chat/startchatformsettings</name>
     <message>
       <source>Start a chat form settings</source>
-      <translation>Iniciar una conversación ajustes de formulario</translation>
+      <translation>تنظیمات فرم شروع چت</translation>
     </message>
     <message>
       <source>At least one field has to be visible and required in the popup and page widget</source>
-      <translation>Al menos un campo tiene que ser visible y necesario en el aparato de ventana emergente y la página</translation>
+      <translation>در نهایت یک فیلد نمایش داده میشود و برای ویجت پنجره باز شونده لازم است</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Nombre</translation>
+      <translation>نام</translation>
     </message>
     <message>
       <source>This field is visible in the popup</source>
-      <translation>Este campo es visible en la ventana emergente</translation>
+      <translation>این فیلد در پنجره بازشونده نمایش داده میشود</translation>
     </message>
     <message>
       <source>This field is visible in the page widget</source>
-      <translation>Este campo es visible en el widget de la página</translation>
+      <translation>این فیلد در پنجره ویجت نمایش داده میشود</translation>
     </message>
     <message>
       <source>This field is</source>
-      <translation>Este campo es</translation>
+      <translation>این فیلد هست</translation>
     </message>
     <message>
       <source>Required</source>
-      <translation>Necesario</translation>
+      <translation>درخواست شده</translation>
     </message>
     <message>
       <source>Optional</source>
-      <translation>Opcional</translation>
+      <translation>اختیاری</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-mail</translation>
+      <translation>ایمیل</translation>
     </message>
     <message>
       <source>Message</source>
-      <translation>Mensaje</translation>
+      <translation>پیام</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation>Teléfono</translation>
+      <translation>تلفن</translation>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>
-      <translation>Por favor, elija al menos un campo de un popup</translation>
+      <translation>لطفا حداقل یک فیلد برای پنچره بازشونده انتخاب کنید</translation>
     </message>
     <message>
       <source>Please choose at least one field for a page widget</source>
-      <translation>Por favor, elija al menos un campo de un widget de la página</translation>
+      <translation>لطفا حداقل یک فیلد برای پنجره ویجت انتخاب کنید</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
-      <translation>Iniciar configuración del formulario de chat</translation>
+      <translation>تنظیمات فرم شروع چت</translation>
     </message>
   </context>
   <context>
     <name>chat/syncandsoundesetting</name>
     <message>
       <source>Save</source>
-      <translation>Guardar</translation>
+      <translation>ذخیره</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Actualizar</translation>
+      <translation>به روزرسانی</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Cancelar</translation>
+      <translation>لغو</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Configuración actualizado</translation>
+      <translation>تنظیمات به روزشده</translation>
     </message>
     <message>
       <source>Synchronisation and sound settings</source>
-      <translation>Ajustes de sincronización y sonido</translation>
+      <translation>تنظیمات هماهنگی و صدا</translation>
     </message>
     <message>
       <source>How many seconds for a user to be considered as being online</source>
-      <translation>¿Cuántos segundos para que un usuario se considera que está en línea</translation>
+      <translation>ثانیه هایی که طول میکشد تا کاربر به عنوان آنلاین شناخته شود</translation>
     </message>
     <message>
       <source>Value in seconds</source>
-      <translation>Valor en segundos</translation>
+      <translation>مقدار بر اساس ثانیه</translation>
     </message>
     <message>
       <source>Sync for new chats, interval in seconds</source>
-      <translation>Sincronizar los nuevos chats, intervalo en segundos</translation>
+      <translation>هماهنگی برای چت های جدید، به ثانیه</translation>
     </message>
     <message>
       <source>Sync for a new user message, interval in seconds</source>
-      <translation>Sincronización de un nuevo mensaje de usuario, intervalo en segundos</translation>
+      <translation>هماهنگی برای پیام جدید کاربر بر اساس ثانیه</translation>
     </message>
     <message>
       <source>Check for messages from the operators, interval in seconds</source>
-      <translation>Compruebe los mensajes de los operadores, el intervalo en segundos</translation>
+      <translation>بررسی پیام ها از اپراتورها در هر ثانیه</translation>
     </message>
     <message>
       <source>Play a new pending chat sound on a new chat request</source>
-      <translation>Reproducir un sonido nuevo chat de pendiente en una nueva solicitud de chat</translation>
+      <translation>برای درخواست چت جدید یک صدای جدید اجرا کن</translation>
     </message>
     <message>
       <source>Play a sound on a new message for a back office user</source>
-      <translation>Reproducir un sonido en un nuevo mensaje de un usuario de back office</translation>
+      <translation>در زمان دریافت پیام از کاربر اداری صدا اجرا کن</translation>
     </message>
     <message>
       <source>Play a sound on a new message for a front end user</source>
-      <translation>Reproducir un sonido en un nuevo mensaje para un usuario final frente</translation>
+      <translation>در زمان دریافت پیام از کاربر صدا اجرا کن</translation>
     </message>
     <message>
       <source>Please enter a valid online timeout value!</source>
-      <translation>Por favor, introduzca un valor de tiempo de espera en línea válido!</translation>
+      <translation>لطفا مقدار صحیح برای فاصله زمانی وارد کنید.</translation>
     </message>
     <message>
       <source>Please enter a valid operator message timeout value!</source>
-      <translation>Por favor, introduzca un mensaje de tiempo de espera del operador válido!</translation>
+      <translation>لطفا یک مقدار صحیح برای فاصله زمانی پیام اپراتور وارد کنید</translation>
     </message>
     <message>
       <source>Please enter a valid back office sync interval!</source>
-      <translation>Por favor, introduzca un intervalo de sincronización de back office válido!</translation>
+      <translation>لطفا یک پشتیبان اداری صحیح وارد کنید</translation>
     </message>
     <message>
       <source>Please enter a valid new messages sync interval!</source>
-      <translation>Por favor, introduzca un nuevo intervalo de sincronización de mensajes válido!</translation>
+      <translation>لطفا یک مقدار صحیح برای پیام جدید وارد کنید</translation>
     </message>
     <message>
       <source>Synchronization and sound settings</source>
-      <translation>Ajustes de sincronización y sonido</translation>
+      <translation>هماهنگی و تنظیمات صدا</translation>
     </message>
   </context>
   <context>
     <name>chat/statistic</name>
     <message>
       <source>Statistic</source>
-      <translation>Estadísticas</translation>
+      <translation>آمار</translation>
     </message>
     <message>
       <source>Total statistic</source>
-      <translation>Total de estadísticas</translation>
+      <translation>آمار کلی</translation>
     </message>
     <message>
       <source>Parameter</source>
-      <translation>Parámetros</translation>
+      <translation>پارامتر</translation>
     </message>
     <message>
       <source>Value</source>
-      <translation>Valor</translation>
+      <translation>ارزش</translation>
     </message>
     <message>
       <source>Total chats</source>
-      <translation>Total de chats</translation>
+      <translation>کل چت ها</translation>
     </message>
     <message>
       <source>Total pending chats</source>
-      <translation>Total de chats pendientes</translation>
+      <translation>کل چت های در انتظار</translation>
     </message>
     <message>
       <source>Total active chats</source>
-      <translation>Total de chats activos</translation>
+      <translation>کل چت های فعال</translation>
     </message>
     <message>
       <source>Total closed chats</source>
-      <translation>Total de chats cerrados</translation>
+      <translation>کل چت های بسته شده</translation>
     </message>
     <message>
       <source>Chatbox chats</source>
-      <translation>Cajas de chats</translation>
+      <translation>جعبه گفتگو چت ها</translation>
     </message>
     <message>
       <source>Total messages (including visitors, system and operators messages)</source>
-      <translation>Mensajes totales (incluidos los visitantes, el sistema y los mensajes de los operadores)</translation>
+      <translation>تمامی پیام ها (شامل بازدیدکنندگان، پیام سیستمی و پیام اپراتورها)</translation>
     </message>
     <message>
       <source>Total messages (only visitors)</source>
-      <translation>Mensajes totales (sólo los visitantes)</translation>
+      <translation>تمام پیام ها (فقط بازدیدکنندگان)</translation>
     </message>
     <message>
       <source>Total messages (only system messages)</source>
-      <translation>Mensajes totales (sólo los operadores)</translation>
+      <translation>تمام پیام ها (فقط پیام های سیستمی)</translation>
     </message>
     <message>
       <source>Total messages (only operators)</source>
-      <translation>Mensajes totales (sólo los operadores)</translation>
+      <translation>تمام پیام ها (فقط اپراتورها)</translation>
     </message>
     <message>
       <source>Last 24h statistic</source>
-      <translation>Ultimas 24 estadísticas</translation>
+      <translation>آمار روز اخیر</translation>
     </message>
     <message>
       <source>Operators last 24h statistic, top 100 by chats number</source>
-      <translation>Estadísticas de los operadores en las últimas 24 horas, top 100 por número de chats</translation>
+      <translation>آمار 24 ساعت اخیر اپراتورها، با بیشتر از 100 چت</translation>
     </message>
     <message>
       <source>User</source>
-      <translation>Usuario</translation>
+      <translation>کاربر</translation>
     </message>
     <message>
       <source>Total messages</source>
-      <translation>Total de mensajes</translation>
+      <translation>تمام پیام ها</translation>
     </message>
     <message>
       <source>Last activity</source>
-      <translation>Última actividad</translation>
+      <translation>آخرین فعالیت</translation>
     </message>
     <message>
       <source>ago</source>
-      <translation>hace</translation>
+      <translation>پیش</translation>
     </message>
   </context>
   <context>
     <name>chat/transferchat</name>
     <message>
       <source>Transfer to a user</source>
-      <translation>Transferir a un usuario</translation>
+      <translation>انتقال به یک کاربر</translation>
     </message>
     <message>
       <source>Logged in users</source>
-      <translation>Usuarios conectados</translation>
+      <translation>کاربران وارد شده</translation>
     </message>
     <message>
       <source>Transfer a chat to one of your departments users</source>
-      <translation>Transferir chat a otro operador del departamento</translation>
+      <translation>انتقال چت به یکی از کاربران دپارتمان شما</translation>
     </message>
     <message>
       <source>Transfer</source>
-      <translation>Transferir</translation>
+      <translation>انتقال</translation>
     </message>
     <message>
       <source>Transfer to a department</source>
-      <translation>Transferir a un departamento</translation>
+      <translation>انتقال به یک دپارتمان</translation>
     </message>
     <message>
       <source>Departments</source>
-      <translation>Departamentos</translation>
+      <translation>دپارتمان ها</translation>
     </message>
   </context>
   <context>
     <name>chat/unreadchats</name>
     <message>
       <source>Unread chats list</source>
-      <translation>Lista de chats no leídos</translation>
+      <translation>فهرست چت های خوانده نشده</translation>
     </message>
     <message>
       <source>Information</source>
-      <translation>Información</translation>
+      <translation>اطلاعات</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Vacío ...</translation>
+      <translation>خالی ...</translation>
     </message>
   </context>
   <context>
     <name>chat/userjoined</name>
     <message>
       <source>User has joined the chat!</source>
-      <translation>El usuario ha unido a la conversación!</translation>
+      <translation>کاربر وارد چت شد!</translation>
     </message>
   </context>
   <context>
     <name>chat/userleftchat</name>
     <message>
       <source>User has left the chat!</source>
-      <translation>El usuario ha dejado el canal!</translation>
+      <translation>کاربر چت را ترک کرد!</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/archive</name>
     <message>
       <source>Chat archive</source>
-      <translation>Archivo de chat</translation>
+      <translation>بایگانی چت</translation>
     </message>
     <message>
       <source>Archives list</source>
-      <translation>Lista de archivos</translation>
+      <translation>لیست بایگانی ها</translation>
     </message>
     <message>
       <source>New archive</source>
-      <translation>Nuevo archivo</translation>
+      <translation>بایگانی جدید</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/archivechats</name>
     <message>
       <source>Archiving has finished.</source>
-      <translation>Ha finalizado el archivado.</translation>
+      <translation>عملیات بایگانی به پایان رسید.</translation>
     </message>
     <message>
       <source>See archived chats</source>
-      <translation>Ver chats archivados</translation>
+      <translation>مشاهده چت های بایگانی شده</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/editarchive</name>
     <message>
       <source>Edit archive</source>
-      <translation>Editar archivo</translation>
+      <translation>ویرایش بایگانی</translation>
     </message>
     <message>
       <source>Archive updated</source>
-      <translation>Archivo actualizado</translation>
+      <translation>به روزرسانی بایگانی</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/newarchive</name>
     <message>
       <source>Date from</source>
-      <translation>Fecha desde</translation>
+      <translation>از تاریخ</translation>
     </message>
     <message>
       <source>E.g</source>
-      <translation>P.e.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Date to</source>
-      <translation>Fecha hasta</translation>
+      <translation>تا تاریخ</translation>
     </message>
     <message>
       <source>New archive</source>
-      <translation>Nuevo archivo</translation>
+      <translation>بایگانی جدید</translation>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>
-      <translation>Por favor, introduzca un rango de fechas válido</translation>
+      <translation>لطفا یک محدوده تاریخ درست وارد کنید</translation>
     </message>
     <message>
       <source>Please enter a valid to date range!</source>
-      <translation>Por favor, introduzca un rango de fechas válido</translation>
+      <translation>لطفا یک محدوده تاریخی معتبر وارد کنید!</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/list</name>
     <message>
       <source>Archives list</source>
-      <translation>Lista de archivos</translation>
+      <translation>فهرست بایگانی ها</translation>
     </message>
     <message>
       <source>From date</source>
-      <translation>Fecha desde</translation>
+      <translation>از تاریخ</translation>
     </message>
     <message>
       <source>Till date</source>
-      <translation>Fecha hasta</translation>
+      <translation>تا تاریخ</translation>
     </message>
     <message>
       <source>Chats in archive</source>
-      <translation>Chats en archivo</translation>
+      <translation>چت ها در بایگانی</translation>
     </message>
     <message>
       <source>Messages in archive</source>
-      <translation>Mensajes en archivo</translation>
+      <translation>پیام ها در بایگانی</translation>
     </message>
     <message>
       <source>List chats</source>
-      <translation>Listado chats</translation>
+      <translation>فرست چت ها</translation>
     </message>
     <message>
       <source>Process again</source>
-      <translation>Procesar otra vez</translation>
+      <translation>فرایند مجدد</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation>Editar</translation>
+      <translation>ویرایش</translation>
     </message>
     <message>
       <source>Archived chats</source>
-      <translation>Chats archivados</translation>
+      <translation>چت های بایگانی شده</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/listarchivechats</name>
     <message>
       <source>Archived chats</source>
-      <translation>Chats archivados</translation>
+      <translation>چت های بایگانی شده</translation>
     </message>
     <message>
       <source>Information</source>
-      <translation>Información</translation>
+      <translation>اطلاعات</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/process</name>
     <message>
       <source>Process archive</source>
-      <translation>Procesar archivo</translation>
+      <translation>پردازش بایگانی</translation>
     </message>
     <message>
       <source>Process</source>
-      <translation>Procesar</translation>
+      <translation>پردازش</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/process_content</name>
     <message>
       <source>Date from</source>
-      <translation>Fecha desde</translation>
+      <translation>از تاریخ</translation>
     </message>
     <message>
       <source>Date to</source>
-      <translation>Fecha hasta</translation>
+      <translation>تا تاریخ</translation>
     </message>
     <message>
       <source>Potential chats to archive</source>
-      <translation>Chats potenciales para archivar</translation>
+      <translation>چت های بالقوه در بایگانی</translation>
     </message>
     <message>
       <source>Archived chats</source>
-      <translation>Chats archivados</translation>
+      <translation>چت های بایگانی شده</translation>
     </message>
     <message>
       <source>Archive progress</source>
-      <translation>Progreso archivado</translation>
+      <translation>پردازش بایگانی</translation>
     </message>
     <message>
       <source>Pending for action...</source>
-      <translation>En espera de acción</translation>
+      <translation>در انتظار اعمال...</translation>
     </message>
     <message>
       <source>Terms dictionary</source>
-      <translation>Dicc</translation>
+      <translation>شرایط فرهنگ لغت</translation>
     </message>
     <message>
       <source>first archived chat ID</source>
-      <translation>primer chat archivado ID</translation>
+      <translation>ID اولین چت بایگانی شده</translation>
     </message>
     <message>
       <source>last archived chat ID</source>
-      <translation>último chat archivado ID</translation>
+      <translation>ID آخرین چت بایگانی شده</translation>
     </message>
     <message>
       <source>number of archived chats</source>
-      <translation>número de chats archivados</translation>
+      <translation>تعداد چت های بایگانی شده</translation>
     </message>
     <message>
       <source>number of archived messages</source>
-      <translation>número de mensajes archivados</translation>
+      <translation>تعداد پیام های بایگانی شده</translation>
     </message>
     <message>
       <source>Error accoured during archive process</source>
-      <translation>Se produjo un error durante el proceso de archivo</translation>
+      <translation>بروز خطا در فرآیند بایگانی</translation>
     </message>
   </context>
   <context>
     <name>chatbox/configuration</name>
     <message>
       <source>Embed code generation</source>
-      <translation>Insertar la generación de código</translation>
+      <translation>تولید کد داخلی</translation>
     </message>
     <message>
       <source>Chatbox</source>
-      <translation>chatbox</translation>
+      <translation>جعبه چت</translation>
     </message>
     <message>
       <source>General</source>
-      <translation>general</translation>
+      <translation>عمومی</translation>
     </message>
     <message>
       <source>General settings</source>
-      <translation>configuración general</translation>
+      <translation>تنظیمات عمومی</translation>
     </message>
     <message>
       <source>Chatbox list</source>
-      <translation>lista chatbox</translation>
+      <translation>فهرست جعبه چت</translation>
     </message>
   </context>
   <context>
     <name>system/messages</name>
     <message>
       <source>Updated</source>
-      <translation>Actualizado</translation>
+      <translation>به روز شده</translation>
     </message>
   </context>
   <context>
     <name>chatbox/form</name>
     <message>
       <source>Chatbox name</source>
-      <translation>Nombre chatbox</translation>
+      <translation>نام جعبه چت</translation>
     </message>
     <message>
       <source>Name of manager</source>
-      <translation>Nombre del director</translation>
+      <translation>نام مدیر</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Identificador</translation>
+      <translation>شناسه</translation>
     </message>
     <message>
       <source>Chatbox active</source>
-      <translation>chatbox activo</translation>
+      <translation>جعبه چت فعال است</translation>
     </message>
   </context>
   <context>
     <name>chatbox/generalsettings</name>
     <message>
       <source>Chatbox settings</source>
-      <translation>configuración Chatbox</translation>
+      <translation>تنظیمات جعبه چت</translation>
     </message>
     <message>
       <source>Default new chatbox name</source>
-      <translation>Defecto nuevo nombre chatbox</translation>
+      <translation>نام پیش فرض برای جعبه چت جدید</translation>
     </message>
     <message>
       <source>Default operator name</source>
-      <translation>Nombre del operador por defecto</translation>
+      <translation>نام پیش فرض برای اپراتور</translation>
     </message>
     <message>
       <source>Messages limit in the chatbox</source>
-      <translation>Mensajes limitan en el chatbox</translation>
+      <translation>محدودیت پیام ها در جعبه چت</translation>
     </message>
     <message>
       <source>Auto creation by chatbox identifier is enabled</source>
-      <translation>Creación automática de identificador chatbox está habilitado</translation>
+      <translation>ایجاد خودکار توسط شناسه جعبه چت فعال است</translation>
     </message>
     <message>
       <source>Secret hash, this is used when auto creation is disabled</source>
-      <translation>Hash Secret, esto se utiliza cuando la creación automática está desactivada</translation>
+      <translation>کلید امنیتی، در زمان فعال بودن تولید خودکار استفاده میشود</translation>
     </message>
     <message>
       <source>more information on how to use it</source>
-      <translation>más información sobre cómo usarlo</translation>
+      <translation>اطلاعات بیشتر درباره نحوه استفاده از</translation>
     </message>
   </context>
   <context>
     <name>questionary/htmlcode</name>
     <message>
       <source>Status text</source>
-      <translation>Texto de estado</translation>
+      <translation>وضعیت متن</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page header or footer</source>
-      <translation>Copie el código de la zona de texto en el encabezado o pie de página</translation>
+      <translation>کد را از محدوده متنی در بالا یا پایین صفحه کپی کنید</translation>
     </message>
     <message>
       <source>Expand the widget automatically for new users</source>
-      <translation>Expandir el widget automáticamente para los nuevos usuarios</translation>
+      <translation>گسترش خودکار ویجت برای کاربران جدید</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation>Copia el código del textarea al pie de página, antes de la etiqueta &lt;/ body&gt;</translation>
+      <translation>کد محدوده متنی را در بخش پایینی صفحه کپی کنید، قبل از بستن </translation>
     </message>
     <message>
       <source>HTML code</source>
-      <translation>Código HTML</translation>
+      <translation>کد HTML</translation>
     </message>
   </context>
   <context>
     <name>chatbox/list</name>
     <message>
       <source>Chatbox list</source>
-      <translation>lista chatbox</translation>
+      <translation>فهرست جعبه چت</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Nombre</translation>
+      <translation>نام</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Identificador</translation>
+      <translation>شناسه</translation>
     </message>
     <message>
       <source>Chatbox</source>
-      <translation>Chatbox</translation>
+      <translation>جعبه چت</translation>
     </message>
   </context>
   <context>
     <name>user/userlist</name>
     <message>
       <source>Edit</source>
-      <translation>editar</translation>
+      <translation>ویرایش</translation>
     </message>
     <message>
       <source>Users</source>
-      <translation>Usuarios</translation>
+      <translation>کاربران</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Nombre de usuario</translation>
+      <translation>نام کاربری</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-mail</translation>
+      <translation>ایمیل</translation>
     </message>
     <message>
       <source>Last activity</source>
-      <translation>La última actividad</translation>
+      <translation>آخرین فعالیت</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation>borrar</translation>
+      <translation>حذف</translation>
     </message>
     <message>
       <source>New user</source>
-      <translation>Nuevo usuario</translation>
+      <translation>کاربر جدید</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>configuración del sistema</translation>
+      <translation>تنظیمات سیستم</translation>
     </message>
   </context>
   <context>
     <name>kernel/messages</name>
     <message>
       <source>Are you sure?</source>
-      <translation>¿Está seguro?</translation>
+      <translation>آیا مطمئن هستید؟</translation>
     </message>
   </context>
   <context>
     <name>chatbox/new</name>
     <message>
       <source>New chatbox</source>
-      <translation>Nuevo Chatbox</translation>
+      <translation>جعبه چت جدید</translation>
     </message>
     <message>
       <source>New</source>
-      <translation>Nuevo</translation>
+      <translation>جدید</translation>
     </message>
   </context>
   <context>
     <name>department/departments</name>
     <message>
       <source>Departments</source>
-      <translation>Departamentos</translation>
+      <translation>دپارتمان ها</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Nombre</translation>
+      <translation>نام</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-mail</translation>
+      <translation>ایمیل</translation>
     </message>
     <message>
       <source>Edit department</source>
-      <translation>Departamento de Edición</translation>
+      <translation>ویرایش دپارتمان</translation>
     </message>
     <message>
       <source>New department</source>
-      <translation>Nuevo departamento</translation>
+      <translation>دپارتمان جدید</translation>
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation>¿Está seguro?</translation>
+      <translation>آیا مطمئن هستید؟</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Configuración del sistema</translation>
+      <translation>تنظیمات سیستم</translation>
     </message>
   </context>
   <context>
     <name>department/edit</name>
     <message>
       <source>Edit department</source>
-      <translation>Departamento de Edición</translation>
+      <translation>ویرایش دپارتمان</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Nombre</translation>
+      <translation>نام</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-mail</translation>
+      <translation>ایمیل</translation>
     </message>
     <message>
       <source>Priority</source>
-      <translation>Prioridad</translation>
+      <translation>اولویت</translation>
     </message>
     <message>
       <source>To what department chat should be transfered if it is not accepted</source>
-      <translation>¿A qué departamento de chat debe ser transferido si no se acepta</translation>
+      <translation>در صورت پذیرفته نشدن، چت باید به کدام دپارتمان منتقل شود</translation>
     </message>
     <message>
       <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
-      <translation>Tiempo de espera en segundos antes de que el chat se transfiera a otro departamento. Mínimo 5 segundos.</translation>
+      <translation>مقدار زمان قبل از انتقال چت به دپارتمان دیگر بر اساس ثانیه. حداقل 5 ثانیه</translation>
     </message>
     <message>
       <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
-      <translation>La longitud máxima de este campo es de 50 caracteres y puede ser utilizado para cualquier propósito por extensiones. Este campo también esta indexado.</translation>
+      <translation>حداکثر طول این فیلد 50 کاراکتر است و میتواند برای دیگر ابزارها استفاده شود.</translation>
     </message>
     <message>
       <source>None</source>
-      <translation>Ninguno</translation>
+      <translation>هیچ</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Configuración del sistema</translation>
+      <translation>تنظیمات سیستم</translation>
     </message>
     <message>
       <source>departments</source>
-      <translation>departamentos</translation>
+      <translation>دپارتمان ها</translation>
     </message>
     <message>
       <source>Edit a department</source>
-      <translation>Editar un departamento</translation>
+      <translation>ویرایش یک دپارتمان</translation>
     </message>
   </context>
   <context>
     <name>user/account</name>
     <message>
       <source>Updated</source>
-      <translation>Actualizado</translation>
+      <translation>به روزشده</translation>
     </message>
     <message>
       <source>Logged user</source>
-      <translation>usuarios conectados</translation>
+      <translation>کاربر وارد شده</translation>
     </message>
     <message>
       <source>Account data</source>
-      <translation>datos de la cuenta</translation>
+      <translation>اطلاعات حساب</translation>
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
-      <translation>No escriba una contraseña a menos que desee cambiar</translation>
+      <translation>کلمه عبور را وارد نکنید مگر آنکه بخواهید در آن تغییری دهید</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Nombre de usuario</translation>
+      <translation>نام کاربری</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation>contraseña</translation>
+      <translation>کلمه عبور</translation>
     </message>
     <message>
       <source>Enter a new password</source>
-      <translation>Introduzca una nueva contraseña</translation>
+      <translation>کلمه عبور جدید را وارد کنید</translation>
     </message>
     <message>
       <source>Repeat password</source>
-      <translation>repetir contraseña</translation>
+      <translation>تکرار کلمه عبور</translation>
     </message>
     <message>
       <source>Repeat the new password</source>
-      <translation>Repita la nueva contraseña</translation>
+      <translation>کلمه عبور جدید را تکرار کنید</translation>
     </message>
     <message>
       <source>Email</source>
-      <translation>Email</translation>
+      <translation>ایمیل</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Nombre</translation>
+      <translation>نام</translation>
     </message>
     <message>
       <source>Surname</source>
-      <translation>apellido</translation>
+      <translation>نام خانوادگی</translation>
     </message>
     <message>
       <source>Photo</source>
-      <translation>Foto</translation>
+      <translation>تصویر</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>actualizar</translation>
+      <translation>به روزرسانی</translation>
     </message>
     <message>
       <source>Return</source>
-      <translation>volver</translation>
+      <translation>بازگشت</translation>
     </message>
     <message>
       <source>Assigned departments</source>
-      <translation>Departamentos asignados</translation>
+      <translation>دپارتمان های واگذار شده</translation>
     </message>
     <message>
       <source>Visible lists</source>
-      <translation>listas visibles</translation>
+      <translation>فهرست های قابل مشاهده</translation>
     </message>
     <message>
       <source>Pending chats tab enabled</source>
-      <translation>Pendiente pestaña chats habilitado</translation>
+      <translation>فعال سازی تب چت های معلق</translation>
     </message>
     <message>
       <source>Active chats tab enabled</source>
-      <translation>Ficha chats activo habilitado</translation>
+      <translation>فعال سازی تب چت های فعال</translation>
     </message>
     <message>
       <source>Unread chats tab enabled</source>
-      <translation>Ficha chats no leídos habilitado</translation>
+      <translation>فعال سازی تب چت های خوانده نشده</translation>
     </message>
     <message>
       <source>Closed chats tab enabled</source>
-      <translation>Ficha chats cerrada habilitada</translation>
+      <translation>فعال سازی تب چت های بسته شده</translation>
     </message>
     <message>
       <source>Account updated</source>
-      <translation>cuenta actualizado</translation>
+      <translation>حساب به روز شده</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation>Borrar</translation>
+      <translation>حذف</translation>
     </message>
     <message>
       <source>Please enter a username!</source>
-      <translation>Por favor, introduzca un nombre de usuario</translation>
+      <translation>لطفا یک نام کاربری وارد کنید!</translation>
     </message>
     <message>
       <source>User exists!</source>
-      <translation>Usuario existente</translation>
+      <translation>کاربر وجود دارد!</translation>
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation>Dirección de correo electrónico incorrecta</translation>
+      <translation>آدرس ایمیل اشتباه</translation>
     </message>
     <message>
       <source>Please enter a name</source>
-      <translation>Por favor, introduzca un nombre</translation>
+      <translation>لطفا یک نام وارد کنید</translation>
     </message>
     <message>
       <source>Please enter a surname</source>
-      <translation>Por favor, introduzca un apellido</translation>
+      <translation>لطفا نام خانوادگی وارد کنید</translation>
     </message>
     <message>
       <source>Passwords mismatch</source>
-      <translation>contraseñas desajuste</translation>
+      <translation>کلمات عبور یکسان نیستند</translation>
     </message>
   </context>
   <context>
     <name>department/new</name>
     <message>
       <source>New department</source>
-      <translation>Nuevo departamento</translation>
+      <translation>دپارتمان جدید</translation>
     </message>
     <message>
       <source>Please enter a department name</source>
-      <translation>Por favor ingrese un nombre de departamento</translation>
+      <translation>لطفا نام دپارتمان را وارد کنید</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>configuración del sistema</translation>
+      <translation>تنظیمات سیستم</translation>
     </message>
     <message>
       <source>Departments</source>
-      <translation>Departamentos</translation>
+      <translation>دپارتمان ها</translation>
     </message>
   </context>
   <context>
     <name>faq/faqwidget</name>
     <message>
       <source>FAQ</source>
-      <translation>Preguntas más frecuentes</translation>
+      <translation>س/ج</translation>
     </message>
     <message>
       <source>Ask a question</source>
-      <translation>Haz una pregunta</translation>
+      <translation>طرح یک پرسش</translation>
     </message>
     <message>
       <source>Type your question</source>
-      <translation>Escriba su pregunta</translation>
+      <translation>پرسش خود را تایپ کنید</translation>
     </message>
     <message>
       <source>Question</source>
-      <translation>pregunta</translation>
+      <translation>پرسش</translation>
     </message>
     <message>
       <source>Send your question</source>
-      <translation>Envía tu pregunta</translation>
+      <translation>ارسال پرسش</translation>
     </message>
     <message>
       <source>Your question was submitted!</source>
-      <translation>Su pregunta se presentó!</translation>
+      <translation>پرسش شما ثبت شد!</translation>
     </message>
     <message>
       <source>Please enter a question!</source>
-      <translation>Por favor, introduzca una pregunta!</translation>
+      <translation>لطفا یک پرسش وارد کنید!</translation>
     </message>
   </context>
   <context>
     <name>faq/new</name>
     <message>
       <source>Question</source>
-      <translation>pregunta</translation>
+      <translation>پرسش</translation>
     </message>
     <message>
       <source>Answer</source>
-      <translation>responder</translation>
+      <translation>پاسخ</translation>
     </message>
     <message>
       <source>URL, enter * at the end for the wildcard</source>
-      <translation>URL, introduzca * al final como comodín</translation>
+      <translation>URL، یک * در پایان برای تمامی آدرس های ممکن وارد کنید</translation>
     </message>
     <message>
       <source>The URL where this question should appear, leave it empty for all</source>
-      <translation>La URL en la que debería aparecer esta pregunta, deje vacío para todos</translation>
+      <translation>آدرس URL که این پرسش باید در آن نمایش داده شود، برای نمایش در تمام صفحات آن را خالی بگذارید</translation>
     </message>
     <message>
       <source>Question is active</source>
-      <translation>La pregunta es activa</translation>
+      <translation>پرسش فعال است</translation>
     </message>
     <message>
       <source>New question</source>
-      <translation>Nuevo comentario</translation>
+      <translation>پرسش جدید</translation>
     </message>
   </context>
   <context>
     <name>faq/list</name>
     <message>
       <source>FAQ</source>
-      <translation>Preguntas más frecuentes</translation>
+      <translation>س/ج</translation>
     </message>
     <message>
       <source>Question</source>
-      <translation>pregunta</translation>
+      <translation>پرسش</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation>activo</translation>
+      <translation>فعال</translation>
     </message>
     <message>
       <source>Y</source>
@@ -2636,324 +2632,320 @@
     </message>
     <message>
       <source>Edit</source>
-      <translation>editar</translation>
+      <translation>ویرایش</translation>
     </message>
     <message>
       <source>Delete this question</source>
-      <translation>Eliminar esta pregunta</translation>
+      <translation>حذف این پرسش</translation>
     </message>
     <message>
       <source>New question</source>
-      <translation>Nuevo comentario</translation>
+      <translation>پرسش جدید</translation>
     </message>
   </context>
   <context>
     <name>faq/view</name>
     <message>
       <source>View</source>
-      <translation>ver</translation>
+      <translation>نمایه</translation>
     </message>
     <message>
       <source>Please enter a manager name!</source>
-      <translation>Por favor ingrese el nombre del gestor!</translation>
+      <translation>لطفا نام مدیر را وارد کنید!</translation>
     </message>
     <message>
       <source>Please enter a chatbox name!</source>
-      <translation>Por favor, introduzca un nombre chatbox!</translation>
+      <translation>لطفا نام جعبه چت را وارد کنید!</translation>
     </message>
     <message>
       <source>Please enter a chatbox identifier!</source>
-      <translation>Por favor, introduzca un identificador chatbox!</translation>
+      <translation>لطفا شناسه جعبه چت را وارد کنید!</translation>
     </message>
     <message>
       <source>Please enter answer!</source>
-      <translation>Introduce respuesta!</translation>
+      <translation>لطفا پاسخ دهید!</translation>
     </message>
     <message>
       <source>Please enter question!</source>
-      <translation>Por favor, introduzca una pregunta</translation>
+      <translation>لطفا پرسش وارد کنید!</translation>
     </message>
     <message>
       <source>FAQ</source>
-      <translation>Preguntas más frecuentes</translation>
+      <translation>س/ج</translation>
     </message>
     <message>
       <source>FAQ description</source>
-      <translation>FAQ Descripción</translation>
+      <translation>شرح س/ج</translation>
     </message>
   </context>
   <context>
     <name>kernel/nopermission</name>
     <message>
       <source>Go back</source>
-      <translation>Volver</translation>
+      <translation>بازگشت</translation>
     </message>
     <message>
       <source>You do not have permission to access the module</source>
-      <translation>Usted no tiene permiso para acceder al módulo</translation>
+      <translation>شما دسترسی لازم به این ماژول را ندارید</translation>
     </message>
     <message>
       <source>and use</source>
-      <translation>y utilizar</translation>
+      <translation>و استفاده</translation>
     </message>
     <message>
       <source>function</source>
-      <translation>función</translation>
+      <translation>تابع</translation>
     </message>
     <message>
       <source>You do not have permission to edit selected object</source>
-      <translation>No tiene permiso para editar el objeto seleccionado</translation>
+      <translation>شما برای ویرایش آیتم انتخابی مجوز ندارید</translation>
     </message>
   </context>
   <context>
     <name>core/paginator</name>
     <message>
       <source>Page</source>
-      <translation>Página</translation>
+      <translation>صفحه</translation>
     </message>
     <message>
       <source>of</source>
-      <translation>de</translation>
+      <translation>از</translation>
     </message>
     <message>
       <source>Found</source>
-      <translation>Se encontró</translation>
+      <translation>یافتن</translation>
     </message>
     <message>
       <source>Go to page</source>
-      <translation>Ir a la página</translation>
+      <translation>رفتن به صفحه</translation>
     </message>
   </context>
   <context>
     <name>permission/editrole</name>
     <message>
       <source>Role edit</source>
-      <translation>Editar roles
-</translation>
+      <translation>ویرایش نقش</translation>
     </message>
     <message>
       <source>Title</source>
-      <translation>Título</translation>
+      <translation>عنوان</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Actualizar</translation>
+      <translation> به روزرسانی</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Cancelar</translation>
+      <translation>لغو</translation>
     </message>
     <message>
       <source>Assigned functions</source>
-      <translation>Funciones asignadas
-</translation>
+      <translation>توابع واگذار شده</translation>
     </message>
     <message>
       <source>Module</source>
-      <translation>Módulo</translation>
+      <translation>ماژول</translation>
     </message>
     <message>
       <source>Function</source>
-      <translation>Función</translation>
+      <translation>تابع</translation>
     </message>
     <message>
       <source>Remove selected policy</source>
-      <translation>Retire política seleccionada</translation>
+      <translation>حذف سیاست منتخب</translation>
     </message>
     <message>
       <source>New policy</source>
-      <translation>Nueva política</translation>
+      <translation>سیاست جدید</translation>
     </message>
     <message>
       <source>Role assigned groups</source>
-      <translation>Grupos asignados roles</translation>
+      <translation>نقش واگذار شده به گروه ها</translation>
     </message>
     <message>
       <source>Remove selected role</source>
-      <translation>Retire papel seleccionado</translation>
+      <translation>برداشتن نقش انتخابی</translation>
     </message>
     <message>
       <source>Assign a group</source>
-      <translation>Asignar un grupo</translation>
+      <translation>واگذاری به گروه</translation>
     </message>
     <message>
       <source>All modules</source>
-      <translation>Todos los módulos</translation>
+      <translation>تمامی ماژول ها</translation>
     </message>
     <message>
       <source>All functions</source>
-      <translation>Todas las funciones</translation>
+      <translation>تمامی توابع</translation>
     </message>
     <message>
       <source>Please enter role name</source>
-      <translation>Por favor ingrese el nombre papel</translation>
+      <translation>لطفا نام نقش را وارد کنید</translation>
     </message>
     <message>
       <source>Please choose module</source>
-      <translation>Por favor, elija un módulo</translation>
+      <translation>لطفا ماژول انتخاب کنید</translation>
     </message>
     <message>
       <source>Please choose module function</source>
-      <translation>Por favor, elija el módulo de funciones</translation>
+      <translation>لطفا تابع ماژول را انتخاب کنید</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Configuración del sistema</translation>
+      <translation>تنظیمات سیستم</translation>
     </message>
     <message>
       <source>List of roles</source>
-      <translation>Lista de funciones</translation>
+      <translation>فهرست نقش ها</translation>
     </message>
   </context>
   <context>
     <name>permission/groupassignrole</name>
     <message>
       <source>Title</source>
-      <translation>título</translation>
+      <translation>عنوان</translation>
     </message>
     <message>
       <source>Assign</source>
-      <translation>asignar</translation>
+      <translation>واگذاری</translation>
     </message>
   </context>
   <context>
     <name>permission/modulefunctions</name>
     <message>
       <source>All functions</source>
-      <translation>Todas las funciones</translation>
+      <translation>تمامی توابع</translation>
     </message>
   </context>
   <context>
     <name>permission/newpolicy</name>
     <message>
       <source>New policy</source>
-      <translation>Nueva política</translation>
+      <translation>سیاست جدید</translation>
     </message>
     <message>
       <source>Assigned functions</source>
-      <translation>funciones asignadas</translation>
+      <translation>توابع واگذار شده</translation>
     </message>
     <message>
       <source>Choose a module</source>
-      <translation>Elija un módulo</translation>
+      <translation>انتخاب یک ماژول</translation>
     </message>
     <message>
       <source>All modules</source>
-      <translation>Todos los módulos</translation>
+      <translation>تمامی ماژول ها</translation>
     </message>
     <message>
       <source>Choose a module function</source>
-      <translation>Elija un módulo de funciones</translation>
+      <translation>انتخاب یک تابع ماژول</translation>
     </message>
     <message>
       <source>All functions</source>
-      <translation>Todas las funciones</translation>
+      <translation>تمامی توابع</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>guardar</translation>
+      <translation>ذخیره</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>cancelar</translation>
+      <translation>لغو</translation>
     </message>
   </context>
   <context>
     <name>permission/newrole</name>
     <message>
       <source>New role</source>
-      <translation>
-Nueva función</translation>
+      <translation>نقش جدید</translation>
     </message>
     <message>
       <source>Title</source>
-      <translation>Título</translation>
+      <translation>عنوان</translation>
     </message>
     <message>
       <source>Policy list</source>
-      <translation>Lista Directiva</translation>
+      <translation>فهرست سیاست</translation>
     </message>
     <message>
       <source>Module</source>
-      <translation>Módulo</translation>
+      <translation>ماژول</translation>
     </message>
     <message>
       <source>Function</source>
-      <translation>Función</translation>
+      <translation>تابع</translation>
     </message>
     <message>
       <source>New policy</source>
-      <translation>Nueva política</translation>
+      <translation>سیاست جدید</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Guardar</translation>
+      <translation>ذخیره</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Cancel</translation>
+      <translation>لغو</translation>
     </message>
     <message>
       <source>Please enter role name</source>
-      <translation>Por favor ingrese el nombre papel</translation>
+      <translation>لطفا نام نقش را وارد کنید</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Configuración del sistema</translation>
+      <translation>تنظیمات سیستم</translation>
     </message>
     <message>
       <source>List of roles</source>
-      <translation>
-Lista de funciones</translation>
+      <translation>فهرست نقش ها</translation>
     </message>
   </context>
   <context>
     <name>permission/roleassigngroup</name>
     <message>
       <source>Title</source>
-      <translation>título</translation>
+      <translation>عنوان</translation>
     </message>
     <message>
       <source>Assign</source>
-      <translation>asignar</translation>
+      <translation>واگذاری</translation>
     </message>
   </context>
   <context>
     <name>permission/roles</name>
     <message>
       <source>List of roles</source>
-      <translation>Lista de funciones</translation>
+      <translation>فهرست نقش ها</translation>
     </message>
     <message>
       <source>Title</source>
-      <translation>título</translation>
+      <translation>عنوان</translation>
     </message>
     <message>
       <source>Edit a role</source>
-      <translation>Editar un papel</translation>
+      <translation>ویرایش یک نقش</translation>
     </message>
     <message>
       <source>Delete a role</source>
-      <translation>Eliminar un papel</translation>
+      <translation>حذف یک نقش</translation>
     </message>
     <message>
       <source>New role</source>
-      <translation>Nueva función</translation>
+      <translation>نقش جدید</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>configuración del sistema</translation>
+      <translation>تنظیمات سیستم</translation>
     </message>
   </context>
   <context>
     <name>questionary/answers</name>
     <message>
       <source>Answer</source>
-      <translation>Responder</translation>
+      <translation>پاسخ</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation>Fecha</translation>
+      <translation>تاریخ</translation>
     </message>
     <message>
       <source>IP</source>
@@ -2961,121 +2953,121 @@ Lista de funciones</translation>
     </message>
     <message>
       <source>View</source>
-      <translation>Ver</translation>
+      <translation>نمایه</translation>
     </message>
     <message>
       <source>Delete the answer</source>
-      <translation>Eliminar la respuesta</translation>
+      <translation>حذف پاسخ</translation>
     </message>
     <message>
       <source>Option name</source>
-      <translation>Nombre de la opción</translation>
+      <translation>نام گزینه</translation>
     </message>
     <message>
       <source>Progress</source>
-      <translation>Progreso</translation>
+      <translation>درحال بررسی</translation>
     </message>
     <message>
       <source>Votes</source>
-      <translation>Votos</translation>
+      <translation>آرا</translation>
     </message>
   </context>
   <context>
     <name>questionary/edit</name>
     <message>
       <source>Edit the question</source>
-      <translation> Editar la pregunta</translation>
+      <translation>ویرایش پرسش</translation>
     </message>
     <message>
       <source>Question</source>
-      <translation>Pregunta</translation>
+      <translation>پرسش</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Guardar</translation>
+      <translation>ذخیره</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Actualizar</translation>
+      <translation>به روزرسانی</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>cancelar</translation>
+      <translation>لغو</translation>
     </message>
     <message>
       <source>Voting options</source>
-      <translation> Opciones de voto</translation>
+      <translation>گزینه های رای گیری</translation>
     </message>
     <message>
       <source>Answers</source>
-      <translation>Respuestas</translation>
+      <translation>پاسخ ها</translation>
     </message>
     <message>
       <source>Updated</source>
-      <translation>Actualizado</translation>
+      <translation>به روزشده</translation>
     </message>
     <message>
       <source>If there are no options to choose from, the user will be shown a text field where he will be able to enter his own answer.</source>
-      <translation>Si no hay opciones para elegir, se le mostrará al usuario un campo de texto en el que podrá introducir su propia respuesta.</translation>
+      <translation>اگر گزینه ای برای انتخاب نباشد، به کاربر یک فیلد متنی برای وارد کردن پاسخ خود نمایش داده میشود.</translation>
     </message>
     <message>
       <source>Option</source>
-      <translation>Opción</translation>
+      <translation>گزینه</translation>
     </message>
     <message>
       <source>Enter name...</source>
-      <translation> Introduzca el nombre ...</translation>
+      <translation>ورود نام...</translation>
     </message>
     <message>
       <source>Option position</source>
-      <translation>Posición de la opción</translation>
+      <translation>جایگاه گزینه</translation>
     </message>
     <message>
       <source>Position</source>
-      <translation>Posición</translation>
+      <translation>جایگاه</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation>editar</translation>
+      <translation>ویرایش</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation>Borrar</translation>
+      <translation>حذف</translation>
     </message>
     <message>
       <source>Please enter a question!</source>
-      <translation> Por favor, introduzca una pregunta!</translation>
+      <translation>لطفا یک پرسش وارد کنید!</translation>
     </message>
     <message>
       <source>Please enter an option!</source>
-      <translation> Por favor, introduzca una opción!</translation>
+      <translation>لطفا یک گزینه وارد کنید!</translation>
     </message>
     <message>
       <source>Edit a question</source>
-      <translation>Editar una pregunta</translation>
+      <translation>ویرایش یک پرسش</translation>
     </message>
   </context>
   <context>
     <name>questionary/list</name>
     <message>
       <source>Questions</source>
-      <translation>Preguntas</translation>
+      <translation>پرسش ها</translation>
     </message>
     <message>
       <source>Question</source>
-      <translation>Pregunta</translation>
+      <translation>پرسش</translation>
     </message>
     <message>
       <source>Location</source>
-      <translation>Ubicación</translation>
+      <translation>موقعیت</translation>
     </message>
     <message>
       <source>Priority</source>
-      <translation>Prioridad</translation>
+      <translation>اولویت</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation>Activo</translation>
+      <translation>فعال</translation>
     </message>
     <message>
       <source>Y</source>
@@ -3087,705 +3079,705 @@ Lista de funciones</translation>
     </message>
     <message>
       <source>Edit the question</source>
-      <translation> Editar la pregunta</translation>
+      <translation>ویرایش پرسش</translation>
     </message>
     <message>
       <source>Delete the question</source>
-      <translation>Eliminar la pregunta</translation>
+      <translation>حذف پرسش</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Vacío ...</translation>
+      <translation>خالی...</translation>
     </message>
     <message>
       <source>New question</source>
-      <translation>Nueva pregunta</translation>
+      <translation>پرسش جدید</translation>
     </message>
     <message>
       <source>Questionary</source>
-      <translation>Cuestionario</translation>
+      <translation>پرسشی</translation>
     </message>
   </context>
   <context>
     <name>questionary/newquestion</name>
     <message>
       <source>Enter a new question</source>
-      <translation>Introduzca una nueva pregunta</translation>
+      <translation>ورود یک پرسش جدید</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Guardar</translation>
+      <translation>ذخیره</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Cancelar</translation>
+      <translation>لغو</translation>
     </message>
     <message>
       <source>New question</source>
-      <translation>Nuevo pregunta</translation>
+      <translation>پرسش جدید</translation>
     </message>
   </context>
   <context>
     <name>questionary/previewanswer</name>
     <message>
       <source>Preview the answer</source>
-      <translation>Ver la respuesta</translation>
+      <translation>مشاهده پاسخ</translation>
     </message>
   </context>
   <context>
     <name>questionary/form_question</name>
     <message>
       <source>Question</source>
-      <translation>Pregunta</translation>
+      <translation>پرسش</translation>
     </message>
     <message>
       <source>Question intro</source>
-      <translation>Introducción de la pregunta</translation>
+      <translation>سوال مقدماتی</translation>
     </message>
     <message>
       <source>Show questions for all the URLs containing this string E.g /shop/basket</source>
-      <translation> Mostrar preguntas de todas las URL que contiene esta cadena Eg / shop / cesta</translation>
+      <translation>نمایش پرسش ها برای تمام URL های شامل E.g /shop/basket</translation>
     </message>
     <message>
       <source>Priority, if multiple questions match a location, the question with the higher priority will be shown</source>
-      <translation>Prioridad, si varias preguntas coinciden con una ubicación, se mostrará la pregunta con la prioridad más alta</translation>
+      <translation>پرسش با اولیت بالا نمایش داده شود.</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation>Activo</translation>
+      <translation>فعال</translation>
     </message>
   </context>
   <context>
     <name>questionary/votingwidget</name>
     <message>
       <source>Questionary</source>
-      <translation>Cuestionario</translation>
+      <translation>پرسشی</translation>
     </message>
     <message>
       <source>Thank you!</source>
-      <translation>¡Gracias!</translation>
+      <translation>با تشکر!</translation>
     </message>
     <message>
       <source>You have already voted, thank you!</source>
-      <translation>¡Ya ha votado, gracias!</translation>
+      <translation>رای شما ثبت شد.</translation>
     </message>
     <message>
       <source>Vote</source>
-      <translation>Votar</translation>
+      <translation>رای</translation>
     </message>
     <message>
       <source>Send</source>
-      <translation>Enviar</translation>
+      <translation>ارسال</translation>
     </message>
     <message>
       <source>We do not have any requests for now.</source>
-      <translation>No tenemos ninguna solicitud por el momento.</translation>
+      <translation>ما درخواست جدیدی نداریم</translation>
     </message>
     <message>
       <source>Please choose one of the options!</source>
-      <translation>Por favor, elija una de las opciones!</translation>
+      <translation>لطفا یک گزینه را انتخاب کنید</translation>
     </message>
     <message>
       <source>No question was detected</source>
-      <translation>No se detectó ninguna pregunta</translation>
+      <translation>پرسشی پیدا نشد</translation>
     </message>
     <message>
       <source>Please enter your feedback!</source>
-      <translation>Por favor, escriba su opinión!</translation>
+      <translation>لطفا بازخورد خود را وارد کنید</translation>
     </message>
     <message>
       <source>You have already send your feedback!</source>
-      <translation>¡Ya nos ha enviado sus comentarios!</translation>
+      <translation>شما بازخورد خود را ارسال کردید</translation>
     </message>
   </context>
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
       <source>Clean cache</source>
-      <translation>Limpiar Caché</translation>
+      <translation>پاک سازی کش</translation>
     </message>
     <message>
       <source>Home</source>
-      <translation>Inicio</translation>
+      <translation>خانه</translation>
     </message>
     <message>
       <source>Chats transferred to you directly</source>
-      <translation>Chats transferidos directamente</translation>
+      <translation>چت ها مستقیما به شما منتقل شود</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Vacío ...</translation>
+      <translation>خالی ...</translation>
     </message>
     <message>
       <source>Transferred to your department</source>
-      <translation>Transferido a su departamento</translation>
+      <translation>منتقل شده به دپارتمان شما</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>Chats pendientes</translation>
+      <translation>چت های معلق</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Chats activos</translation>
+      <translation>چت های فعال</translation>
     </message>
     <message>
       <source>Unread messages</source>
-      <translation>Mensajes no leídos</translation>
+      <translation>پیام های خوانده نشده</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Chats cerrados</translation>
+      <translation>چت های بسته شده</translation>
     </message>
     <message>
       <source>Configuration</source>
-      <translation>Configuración</translation>
+      <translation>تنظیمات</translation>
     </message>
     <message>
       <source>Chats list</source>
-      <translation>Lista de Chats</translation>
+      <translation>فهرست چت ها</translation>
     </message>
     <message>
       <source>Chat rooms</source>
-      <translation>Ventana de Chats</translation>
+      <translation>اتاق چت</translation>
     </message>
     <message>
       <source>New chat request</source>
-      <translation>Nueva solicitud de chat</translation>
+      <translation>درخواست چت جدید</translation>
     </message>
     <message>
       <source>Menu</source>
-      <translation>Menú</translation>
+      <translation>منو</translation>
     </message>
     <message>
       <source>Online visitors</source>
-      <translation>Visitantes en línea</translation>
+      <translation>بازدیدکنندگان آنلاین</translation>
     </message>
     <message>
       <source>Questionary</source>
-      <translation>Cuestionario</translation>
+      <translation>پرسشی</translation>
     </message>
     <message>
       <source>FAQ</source>
-      <translation>Preguntas más frecuentes</translation>
+      <translation>س / ج</translation>
     </message>
     <message>
       <source>Chatbox</source>
-      <translation>Chatbox</translation>
+      <translation>جعبه چت</translation>
     </message>
     <message>
       <source>Account</source>
-      <translation>Cuenta</translation>
+      <translation>حساب</translation>
     </message>
     <message>
       <source>Logout</source>
-      <translation>Cerrar Sesión</translation>
+      <translation>خروج</translation>
     </message>
   </context>
   <context>
     <name>system/languages</name>
     <message>
       <source>Languages configuration</source>
-      <translation>Configuración de Idiomas</translation>
+      <translation>تنظیمات زبان</translation>
     </message>
     <message>
       <source>Your language</source>
-      <translation>Su idioma</translation>
+      <translation>زبان شما</translation>
     </message>
     <message>
       <source>Language</source>
-      <translation>Idioma</translation>
+      <translation>زبان</translation>
     </message>
     <message>
       <source>General language settings</source>
-      <translation>Configuración general de idiomas</translation>
+      <translation>تنظیمات عمومی زبان</translation>
     </message>
     <message>
       <source>Current site access</source>
-      <translation>Acceso al sitio actual</translation>
+      <translation>دسترسی فعلی سایت</translation>
     </message>
     <message>
       <source>Site access</source>
-      <translation>Acceso al sitio</translation>
+      <translation>دسترسی سایت</translation>
     </message>
     <message>
       <source>options for</source>
-      <translation>Opciones para</translation>
+      <translation>گزینه برای</translation>
     </message>
     <message>
       <source>Theme, separate themes by new line</source>
-      <translation>Tema, temas separados por nueva línea</translation>
+      <translation>قالب، هر قالب را در خط جداگانه بنویسید</translation>
     </message>
     <message>
       <source>Default module</source>
-      <translation>Módulo por defecto</translation>
+      <translation>ماژول پیش فرض</translation>
     </message>
     <message>
       <source>Default view</source>
-      <translation>Vista predeterminada</translation>
+      <translation>مشاهده پیش فرض</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Configuración actualizada</translation>
+      <translation>تنظیمات به روز</translation>
     </message>
     <message>
       <source>Please choose correct language</source>
-      <translation>Por favor, elija el idioma correcto</translation>
+      <translation>لطفا یک زبان درست انتخاب کنید</translation>
     </message>
     <message>
       <source>Please enter theme</source>
-      <translation>Por favor, introduzca el tema</translation>
+      <translation>لطفا یک قالب وارد کنید</translation>
     </message>
     <message>
       <source>Please enter module name</source>
-      <translation>Por favor, ingrese el nombre del módulo</translation>
+      <translation>لطفا نام ماژول را وارد کنید</translation>
     </message>
     <message>
       <source>Please enter view name</source>
-      <translation>Por favor ingrese el nombre visión</translation>
+      <translation>لطفا نام نمایه را وارد کنید</translation>
     </message>
   </context>
   <context>
     <name>system/smtp</name>
     <message>
       <source>SMTP settings</source>
-      <translation>configuración SMTP</translation>
+      <translation>تنظیمات SMTP</translation>
     </message>
     <message>
       <source>SMTP enabled</source>
-      <translation>SMTP habilitado</translation>
+      <translation>SMTP فعال شد</translation>
     </message>
     <message>
       <source>Login</source>
-      <translation>login</translation>
+      <translation>ورود</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation>contraseña</translation>
+      <translation>کلمه عبور</translation>
     </message>
     <message>
       <source>Host</source>
-      <translation>Host</translation>
+      <translation>هاست</translation>
     </message>
     <message>
       <source>Port</source>
-      <translation>puerto</translation>
+      <translation>پورت</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Configuración actualizado</translation>
+      <translation>تنظیمات به روز شده</translation>
     </message>
   </context>
   <context>
     <name>user/edit</name>
     <message>
       <source>User edit</source>
-      <translation>editar usuario</translation>
+      <translation>ویرایش کاربر</translation>
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
-      <translation>No escriba una contraseña a menos que desee cambiar</translation>
+      <translation>کلمه عبور را وارد نکنید مگر آنکه بخواهید تغییری در آن دهید</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Nombre de usuario</translation>
+      <translation>نام کاربری</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation>contraseña</translation>
+      <translation>کلمه عبور</translation>
     </message>
     <message>
       <source>Repeat the new password</source>
-      <translation>Repita la nueva contraseña</translation>
+      <translation>تکرار کلمه عبور جدید</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-mail</translation>
+      <translation>ایمیل</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Nombre</translation>
+      <translation>نام</translation>
     </message>
     <message>
       <source>Surname</source>
-      <translation>apellido</translation>
+      <translation>نام خانوادگی</translation>
     </message>
     <message>
       <source>Photo</source>
-      <translation>Foto</translation>
+      <translation>تصویر</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Guardar</translation>
+      <translation>ذخیره</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>actualizar</translation>
+      <translation>به روزرسانی</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>cancelar</translation>
+      <translation>لغو</translation>
     </message>
     <message>
       <source>Assigned departments</source>
-      <translation>Departamentos asignados</translation>
+      <translation>دپارتمان های واگذار شده</translation>
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation>Dirección de correo electrónico incorrecta</translation>
+      <translation>آدرس ایمیل نادرست</translation>
     </message>
     <message>
       <source>Invalid CSRF token!</source>
-      <translation>Token CSRF inválido</translation>
+      <translation>CSRF token نامعتبر!</translation>
     </message>
     <message>
       <source>Please enter a name</source>
-      <translation>Por favor, introduzca un nombre</translation>
+      <translation>لطفا یک نام وارد کنید</translation>
     </message>
     <message>
       <source>Passwords mismatch</source>
-      <translation>contraseñas desajuste</translation>
+      <translation>کلمات عبور یکسان نیستند</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>configuración del sistema</translation>
+      <translation>تنظیمات سیستم</translation>
     </message>
     <message>
       <source>Users</source>
-      <translation>Usuarios</translation>
+      <translation>کاربران</translation>
     </message>
   </context>
   <context>
     <name>user/new</name>
     <message>
       <source>User group</source>
-      <translation>grupo de usuarios</translation>
+      <translation>گروه کاربری</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation>discapacitado</translation>
+      <translation>غیرفعال شده</translation>
     </message>
     <message>
       <source>Do not show user status as online</source>
-      <translation>No volver a mostrar el estado del usuario como en línea</translation>
+      <translation>وضعیت کاربر را به صورت آنلاین نشان نده</translation>
     </message>
     <message>
       <source>All departments</source>
-      <translation>Todos los departamentos</translation>
+      <translation>تمامی دپارتمان ها</translation>
     </message>
     <message>
       <source>New user</source>
-      <translation>Nuevo usuario</translation>
+      <translation>کاربر جدید</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Nombre de usuario</translation>
+      <translation>نام کاربری</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-mail</translation>
+      <translation>ایمیل</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation>contraseña</translation>
+      <translation>کلمه عبور</translation>
     </message>
     <message>
       <source>Repeat the new password</source>
-      <translation>Repita la nueva contraseña</translation>
+      <translation>تکرار کلمه عبور جدید</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Nombre</translation>
+      <translation>نام</translation>
     </message>
     <message>
       <source>Surname</source>
-      <translation>Apellido</translation>
+      <translation>نام خانوادگی</translation>
     </message>
     <message>
       <source>Photo</source>
-      <translation>Foto</translation>
+      <translation>تصویر</translation>
     </message>
     <message>
       <source>Departments</source>
-      <translation>Departamentos</translation>
+      <translation>دپارتمان ها</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>guardar</translation>
+      <translation>ذخیره</translation>
     </message>
     <message>
       <source>Please choose a default user group</source>
-      <translation>Por favor, elija un grupo de usuarios predeterminado</translation>
+      <translation>لطفا یک گروه کاربری پیش فرض انتخاب کنید</translation>
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation>Dirección de correo electrónico incorrecta</translation>
+      <translation>آدرس ایمیل اشتباه</translation>
     </message>
     <message>
       <source>Please enter a name</source>
-      <translation>Por favor, introduzca un nombre</translation>
+      <translation>لطفا یک نام وارد کنید</translation>
     </message>
     <message>
       <source>Please enter a username</source>
-      <translation>Por favor, introduzca un nombre de usuario</translation>
+      <translation>لطفا نام کاربری را وارد کنید</translation>
     </message>
     <message>
       <source>User exists</source>
-      <translation>existe usuario</translation>
+      <translation>کاربر وجود دارد</translation>
     </message>
     <message>
       <source>Passwords mismatch</source>
-      <translation>contraseñas desajuste</translation>
+      <translation>کلمات عبور یکسان نیستند</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>configuración del sistema</translation>
+      <translation>تنظیمات سیستم</translation>
     </message>
     <message>
       <source>Users</source>
-      <translation>Usuarios</translation>
+      <translation>کاربران</translation>
     </message>
     <message>
       <source>Please enter a group name</source>
-      <translation>Por favor, introduzca un nombre de grupo</translation>
+      <translation>لطفا نام گروه وارد کنید</translation>
     </message>
   </context>
   <context>
     <name>user/editgroup</name>
     <message>
       <source>Group edit</source>
-      <translation>Grupo de edición</translation>
+      <translation>ویرایش گروه</translation>
     </message>
     <message>
       <source>Title</source>
-      <translation>título</translation>
+      <translation>عنوان</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>actualizar</translation>
+      <translation>به روزرسانی</translation>
     </message>
     <message>
       <source>Assigned users</source>
-      <translation>Los usuarios asignados</translation>
+      <translation>کاربران واگذار شده</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Nombre de usuario</translation>
+      <translation>نام کاربری</translation>
     </message>
     <message>
       <source>Remove user from the group</source>
-      <translation>Eliminar usuario del grupo</translation>
+      <translation>برداشتن کاربر از گروه</translation>
     </message>
     <message>
       <source>Assign user</source>
-      <translation>Asignar usuario</translation>
+      <translation>واگذاری کاربر</translation>
     </message>
     <message>
       <source>Assigned roles</source>
-      <translation>funciones asignadas</translation>
+      <translation>نقش های واگذار شده</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Nombre</translation>
+      <translation>نام</translation>
     </message>
     <message>
       <source>Remove role from group</source>
-      <translation>Retire el papel del grupo</translation>
+      <translation>براشتن نقش از گروه</translation>
     </message>
     <message>
       <source>Assign role</source>
-      <translation>Asignar papel</translation>
+      <translation>واگذاری نقش</translation>
     </message>
     <message>
       <source>Please enter a group name</source>
-      <translation>Por favor ingrese un nombre de grupo</translation>
+      <translation>لطفا نام گروه را وارد کنید</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>configuración del sistema</translation>
+      <translation>تنظیمات سیستم</translation>
     </message>
     <message>
       <source>Groups</source>
-      <translation>Grupos</translation>
+      <translation>گروه ها</translation>
     </message>
   </context>
   <context>
     <name>user/forgotpassword</name>
     <message>
       <source>Password reminder</source>
-      <translation>Recordatorio de contraseña</translation>
+      <translation>فراموشی کلمه عبور</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Correo electrónico</translation>
+      <translation>ایمیل</translation>
     </message>
     <message>
       <source>Restore password</source>
-      <translation>Restaurar contraseña</translation>
+      <translation>بازنشانی کلمه عبور</translation>
     </message>
     <message>
       <source>Invalid e-mail address!</source>
-      <translation>Correo inválido</translation>
+      <translation>آدرس ایمیل نامعتبر!</translation>
     </message>
     <message>
       <source>Password remind</source>
-      <translation>Recordar de contraseña</translation>
+      <translation>فراموشی کلمه عبور</translation>
     </message>
     <message>
       <source>Click this link and You will be sent a new password</source>
-      <translation>Haga click en este enlace y se le enviará una nueva contraseña</translation>
+      <translation>روی لینک زیر کلیک کنید تا کلمه عبور جدید برایتان ایمیل شود.</translation>
     </message>
   </context>
   <context>
     <name>user/forgotpasswordsent</name>
     <message>
       <source>Password reminder</source>
-      <translation>recordatorio</translation>
+      <translation>فراموشی کلمه عبور</translation>
     </message>
     <message>
       <source>E-mail sent. Click the link in the email and You will be sent out a new password.</source>
-      <translation>E-mail enviado. Haga clic en el enlace del correo electrónico y le enviará una nueva contraseña.</translation>
+      <translation>ایمیل ارسال شد. روی لینک داخل ایمیل کلیک کنید تا کلمه عبور جدید ارسال شود.</translation>
     </message>
   </context>
   <context>
     <name>user/groupassignuser</name>
     <message>
       <source>Username</source>
-      <translation>Usuario</translation>
+      <translation>نام کاربری</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-mail</translation>
+      <translation>ایمیل</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Nombre</translation>
+      <translation>نام</translation>
     </message>
     <message>
       <source>Surname</source>
-      <translation>Apellido</translation>
+      <translation>نام خانوادگی</translation>
     </message>
     <message>
       <source>Assign</source>
-      <translation>Asignar</translation>
+      <translation>واگذار</translation>
     </message>
     <message>
       <source>User was assigned to the group!</source>
-      <translation>El usuario fue asignado al grupo!</translation>
+      <translation>کاربر اختصاص داده شده به گروه!</translation>
     </message>
   </context>
   <context>
     <name>user/grouplist</name>
     <message>
       <source>Groups</source>
-      <translation>Grupos</translation>
+      <translation>گروه ها</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>nombre</translation>
+      <translation>نام</translation>
     </message>
     <message>
       <source>Edit group</source>
-      <translation>Editar grupo</translation>
+      <translation>ویرایش گروه</translation>
     </message>
     <message>
       <source>Delete group</source>
-      <translation>Eliminar grupo</translation>
+      <translation>حذف گروه</translation>
     </message>
     <message>
       <source>New group</source>
-      <translation>Nuevo grupo</translation>
+      <translation>گروه جدید</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Configuración del sistema</translation>
+      <translation>تنظیمات سیستم</translation>
     </message>
   </context>
   <context>
     <name>gallery/album_list_admin</name>
     <message>
       <source>Are you sure?</source>
-      <translation>¿Está seguro?</translation>
+      <translation>آیا مطمئن هستید؟</translation>
     </message>
   </context>
   <context>
     <name>user/login</name>
     <message>
       <source>Please login</source>
-      <translation>Por favor, inicie sesión</translation>
+      <translation>لطفا وارد شوید</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Usuario</translation>
+      <translation>نام کاربری</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation>Contraseña</translation>
+      <translation>کلمه عبور</translation>
     </message>
     <message>
       <source>Remember me</source>
-      <translation>Recordarme</translation>
+      <translation>مرا به یاد داشته باش</translation>
     </message>
     <message>
       <source>Login</source>
-      <translation>Acceso</translation>
+      <translation>ورود</translation>
     </message>
     <message>
       <source>Password reminder</source>
-      <translation>Recordar contraseña</translation>
+      <translation>فراموشی کلمه عبور</translation>
     </message>
     <message>
       <source>Incorrect username or password</source>
-      <translation>Nombre de usuario o contraseña incorrectos</translation>
+      <translation>نام کاربری یا کلمه عبور نامعتبر است</translation>
     </message>
   </context>
   <context>
     <name>user/newgroup</name>
     <message>
       <source>New group</source>
-      <translation>Nuevo grupo</translation>
+      <translation>گروه جدید</translation>
     </message>
     <message>
       <source>Title</source>
-      <translation>Título</translation>
+      <translation>عنوان</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Guardar</translation>
+      <translation>ذخیره</translation>
     </message>
     <message>
       <source>Save and assign the user</source>
-      <translation>Guardar y asignar el usuario</translation>
+      <translation>ذخیره و واگذار شده به کاربر</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Configuración del sistema</translation>
+      <translation>تنظیمات سیستم</translation>
     </message>
     <message>
       <source>Groups</source>
-      <translation>Grupos</translation>
+      <translation>گروه ها</translation>
     </message>
   </context>
   <context>
     <name>user/remindpassword</name>
     <message>
       <source>New password</source>
-      <translation>Nueva contraseña</translation>
+      <translation>کلمه عبور جدید</translation>
     </message>
     <message>
       <source>Hash was not found or was used already</source>
-      <translation>No se encontró o ya ha sido utilizado anteriormente</translation>
+      <translation>رمزنگاری یافت نشد و یا در حال استفاده است</translation>
     </message>
     <message>
       <source>Password remind - new password</source>
-      <translation>Recordatorio - Nueva contraseña</translation>
+      <translation>فراموشی کلمه عبور - کلمه عبور جدید</translation>
     </message>
     <message>
       <source>New password:</source>
-      <translation>Nueva contraseña:</translation>
+      <translation>کلمه عبور جدید:</translation>
     </message>
     <message>
       <source>New password has been sent to your email.</source>
-      <translation>La nueva contraseña ha sido enviada a su correo electrónico.</translation>
+      <translation>کلمه عبور جدید به ایمیل شما ارسال شد.</translation>
     </message>
   </context>
   <context>
@@ -3796,315 +3788,315 @@ Lista de funciones</translation>
     </message>
     <message>
       <source>IP address</source>
-      <translation>Dirección IP</translation>
+      <translation>آدرس IP</translation>
     </message>
     <message>
       <source>Current page</source>
-      <translation>Página actual</translation>
+      <translation>صفحه فعلی</translation>
     </message>
     <message>
       <source>Last visit</source>
-      <translation>Última visita</translation>
+      <translation>آخرین بازدید</translation>
     </message>
     <message>
       <source>User agent</source>
-      <translation>User agent</translation>
+      <translation>عامل کاربر</translation>
     </message>
     <message>
       <source>Country code</source>
-      <translation>Código del país</translation>
+      <translation>کد کشور</translation>
     </message>
     <message>
       <source>Country name</source>
-      <translation>Nombre del país</translation>
+      <translation>نام کشور</translation>
     </message>
     <message>
       <source>Message seen</source>
-      <translation>Mensaje visto</translation>
+      <translation>پیام دیده شده</translation>
     </message>
   </context>
   <context>
     <name>chat/syncuser</name>
     <message>
       <source>Chat was automatically transferred to</source>
-      <translation>Chat fue transferido automáticamente a</translation>
+      <translation>چت به صورت خودکار منتقل میشود به</translation>
     </message>
     <message>
       <source>from</source>
-      <translation>De</translation>
+      <translation>از</translation>
     </message>
     <message>
       <source>Support staff member has closed this chat</source>
-      <translation>Miembro del personal de soporte ha cerrado este chat</translation>
+      <translation>پشتیبان چت را بسته است</translation>
     </message>
     <message>
       <source>You do not have permission to view this chat, or chat was deleted</source>
-      <translation>Usted no tiene permiso para ver este chat o el chat ha sido eliminado</translation>
+      <translation>شما مجوز دیدن این چت را ندارید و یا چت حذف شده است</translation>
     </message>
     <message>
       <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-      <translation>El departamento de soporte ha cerrado la ventana de chat, pero  puede dejar un mensaje, y el administrador los podrá leer más tarde.</translation>
+      <translation>پشتیبان پنجره چت بست، ولی شما میتوانید پیام بگذارید تا مدیر پشتیبانی آن را مشاهده کند.</translation>
     </message>
     <message>
       <source>You do not have permission to view this chat, or the chat was deleted</source>
-      <translation>Usted no tiene permiso para ver este chat o el chat ha sido eliminado</translation>
+      <translation>شما دسترسی لازم برای دیدن این چت و یا حذف کردن آن ها را ندارید</translation>
     </message>
   </context>
   <context>
     <name>abstract/email_template</name>
     <message>
       <source>Name, for personal purposes</source>
-      <translation>Nombre, para fines personales</translation>
+      <translation>نام، برای مقاصد شخصی</translation>
     </message>
     <message>
       <source>Subject</source>
-      <translation>tema</translation>
+      <translation>عنوان</translation>
     </message>
     <message>
       <source>Allow user to change subject</source>
-      <translation>Permitir al usuario cambiar tema</translation>
+      <translation>مجوز برای تغییر عنوان</translation>
     </message>
     <message>
       <source>From name</source>
-      <translation>De nombre</translation>
+      <translation>نام فرستنده</translation>
     </message>
     <message>
       <source>Allow to change from name</source>
-      <translation>Permitir cambiar de nombre</translation>
+      <translation>مجوز تغییر نام فرستنده</translation>
     </message>
     <message>
       <source>From e-mail, if mail was not sent for some reason, this mail will get a failed delivery message</source>
-      <translation>Desde el correo electrónico, si el correo no fue enviado por alguna razón, este correo le llegará un mensaje de error en la entrega</translation>
+      <translation>فرستنده ایمیل، اگر ایمیل به دلیلی ارسال نشود، این آدرس ایمیل یک پیام برگشت دریافت میکند.</translation>
     </message>
     <message>
       <source>Allow to change from e-mail</source>
-      <translation>Permitir cambiar de e-mail</translation>
+      <translation>مجوز تغییر فرستنده ایمیل</translation>
     </message>
     <message>
       <source>Reply to</source>
-      <translation>Responder a</translation>
+      <translation>پاسخ به</translation>
     </message>
     <message>
       <source>Allow to change reply e-mail</source>
-      <translation>Permitir cambiar la respuesta por e-mail</translation>
+      <translation>اجازه تغییر پاسخ به ایمیل</translation>
     </message>
     <message>
       <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
-      <translation>Correo electrónico del destinatario, esto se utiliza si la aplicación no se pudo determinar quién debe recibir un correo electrónico.</translation>
+      <translation>گیرنده ایمیل، این مورد وقتی استفاده میشود که برنامه نتواند بفهمد چه کسی باید ایمیل را دریافت کند.</translation>
     </message>
     <message>
       <source>Content</source>
-      <translation>Contenido</translation>
+      <translation>متن</translation>
     </message>
     <message>
       <source>E-mail templates</source>
-      <translation>Plantillas de E-mail</translation>
+      <translation>قالب های ایمیل</translation>
     </message>
   </context>
   <context>
     <name>chat/closechatadmin</name>
     <message>
       <source>has closed the chat!</source>
-      <translation>ha cerrado el chat!</translation>
+      <translation>چت بسته شده است!</translation>
     </message>
   </context>
   <context>
     <name>chat/reopenchat</name>
     <message>
       <source>has reopened the chat!</source>
-      <translation>ha reabierto el chat!</translation>
+      <translation>چت مجدد باز شده است!</translation>
     </message>
     <message>
       <source>No permission to reopen the chat!</source>
-      <translation>No tiene permiso de reabrir el chat!</translation>
+      <translation>مجوز لازم برای باز کردن مجدد چت را ندارید!</translation>
     </message>
   </context>
   <context>
     <name>chat/single</name>
     <message>
       <source>Chat started with</source>
-      <translation>Chatear comenzó con</translation>
+      <translation>چت شروع شده با</translation>
     </message>
   </context>
   <context>
     <name>chat/transferuser</name>
     <message>
       <source>Chat was assigned to selected department</source>
-      <translation>El chat fue asignado al departamento seleccionado</translation>
+      <translation>چت به دپارتمان انتخابی واگذار شده است</translation>
     </message>
     <message>
       <source>Chat was assigned to selected user</source>
-      <translation>Chat fue asignado al usuario seleccionado</translation>
+      <translation>چت واگذار شده به کاربر منتخب</translation>
     </message>
   </context>
   <context>
     <name>departament/edit</name>
     <message>
       <source>Please enter a valid from date range!</source>
-      <translation>Por favor, introduzca un rango de fechas válido</translation>
+      <translation>لطفا یک محدوده تاریخی معتبر وارد کنید!</translation>
     </message>
     <message>
       <source>Please enter a valid to date range!</source>
-      <translation>Por favor, introduzca un rango de fechas válido</translation>
+      <translation>لطفا محدوده تاریخی معتبر وارد کنید!</translation>
     </message>
     <message>
       <source>Please enter a department name</source>
-      <translation>Por favor ingrese un nombre de departamento</translation>
+      <translation>لطفا نام دپارتمان را وارد کنید.</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/viewarchivedchat</name>
     <message>
       <source>View archived chat</source>
-      <translation>Ver chats archivados</translation>
+      <translation>مشاهده بایگانی چت</translation>
     </message>
   </context>
   <context>
     <name>chat/deletechatadmin</name>
     <message>
       <source>You do not have rights to delete a chat</source>
-      <translation>Usted no tiene derechos para eliminar una conversación</translation>
+      <translation>شما مجوز حذف چت را ندارید</translation>
     </message>
   </context>
   <context>
     <name>files/files</name>
     <message>
       <source>Refresh</source>
-      <translation>Actualizar</translation>
+      <translation>بازنشانی</translation>
     </message>
     <message>
       <source>Delete file</source>
-      <translation>Borrar fichero</translation>
+      <translation>حذف فایل</translation>
     </message>
     <message>
       <source>Download file</source>
-      <translation>Descargar fichero</translation>
+      <translation>دانلود فایل</translation>
     </message>
     <message>
       <source>Drop your files here.</source>
-      <translation>Coloca tus ficheros aquí.</translation>
+      <translation>فایل خود را اینجا بگذارید</translation>
     </message>
     <message>
       <source>Not an accepted file type</source>
-      <translation>No es un tipo de fichero aceptado</translation>
+      <translation>نوع فایل مورد قبول نیست</translation>
     </message>
     <message>
       <source>Filesize is too big</source>
-      <translation>Tamaño muy grande</translation>
+      <translation>اندازه فایل بزرگ است</translation>
     </message>
   </context>
   <context>
     <name>file/configuration</name>
     <message>
       <source>File configuration</source>
-      <translation>Fichero de configuración</translation>
+      <translation>تنظیمات فایل</translation>
     </message>
     <message>
       <source>Allowed files types for operators</source>
-      <translation>Tipos de fichero permitidos para operadores</translation>
+      <translation>نوع فایل های مجاز برای اپراتورها</translation>
     </message>
     <message>
       <source>Allowed files types for users</source>
-      <translation>Tipos de fichero permitidos para usuarios</translation>
+      <translation>نوع فایل های مجاز برای کاربران</translation>
     </message>
     <message>
       <source>Maximum file size in KB</source>
-      <translation>Tamaño máximo de fichero en KB</translation>
+      <translation>حداکثر اندازه فایل در کیلوبایت</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Configuración actualizada</translation>
+      <translation>تنظیمات به روز شده</translation>
     </message>
     <message>
       <source>Please enter valid file type!</source>
-      <translation>Por favor, introduzca un tipo de fichero válido</translation>
+      <translation>لطفا نوع فایل معتبر وارد کنید!</translation>
     </message>
     <message>
       <source>Please enter valid maximum file size!</source>
-      <translation>Por favor, introduzca un tamaño de fichero máximo válido</translation>
+      <translation>لطفا حداکثر اندازه فایل را وارد کنید</translation>
     </message>
   </context>
   <context>
     <name>file/list</name>
     <message>
       <source>List of files</source>
-      <translation>Lista de ficheros</translation>
+      <translation>فهرست فایل ها</translation>
     </message>
     <message>
       <source>User</source>
-      <translation>Usuario</translation>
+      <translation>کاربر</translation>
     </message>
     <message>
       <source>Chat</source>
-      <translation>Chat</translation>
+      <translation>چت</translation>
     </message>
     <message>
       <source>Upload name</source>
-      <translation>Nombre de subida</translation>
+      <translation>بارگذاری نام</translation>
     </message>
     <message>
       <source>File size</source>
-      <translation>Tamaño de fichero</translation>
+      <translation>اندازه فایل</translation>
     </message>
     <message>
       <source>Extension</source>
-      <translation>Extensión</translation>
+      <translation>گسترش</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation>Fecha</translation>
+      <translation>تاریخ</translation>
     </message>
     <message>
       <source>Delete the file</source>
-      <translation>Borrar el fichero</translation>
+      <translation>حذف فایل</translation>
     </message>
   </context>
   <context>
     <name>file/file</name>
     <message>
       <source>Download file</source>
-      <translation>Descargar fichero</translation>
+      <translation>دانلود فایل</translation>
     </message>
   </context>
   <context>
     <name>file/configurations</name>
     <message>
       <source>Please enter valid file type!</source>
-      <translation>Por favor, introduzca un tipo de fichero válido</translation>
+      <translation>لطفا نوع فایل معتبر وارد کنید!</translation>
     </message>
   </context>
   <context>
     <name>chat/lists/search_panel</name>
     <message>
       <source>Nick</source>
-      <translation>Nick</translation>
+      <translation>نام مستعار</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Correo electrónico</translation>
+      <translation>ایمیل</translation>
     </message>
     <message>
       <source>Date range from to</source>
-      <translation>Rango de fecha desde</translation>
+      <translation>محدوده تاریخی</translation>
     </message>
     <message>
       <source>Search</source>
-      <translation>Buscar</translation>
+      <translation>جستجو</translation>
     </message>
   </context>
   <context>
     <name>chat/voteaction</name>
     <message>
       <source>Thumbs up</source>
-      <translation>Aprobar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Thumbs down</source>
-      <translation>Rechazar</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Removed thumb vote</source>
-      <translation>Borrar voto</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>
