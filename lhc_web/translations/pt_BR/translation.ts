@@ -722,7 +722,7 @@
     </message>
     <message>
       <source>Live Support</source>
-      <translation>Suporte ao vivo</translation>
+      <translation>Suporte online</translation>
     </message>
     <message>
       <source>Visitor</source>
