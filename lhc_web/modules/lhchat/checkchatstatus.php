@@ -19,27 +19,19 @@ try {
     		}
     	}
     	
-    	if ( $chat->nc_cb_executed == 0 && $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {  
-    		  		
-    		$department = $chat->department;    		
-    		if ($department !== false) {
-    			$options = $department->inform_options_array;
-    			if (!empty($options)) {    				
-    				$delay = time()-$department->inform_delay;
-    				if ($chat->time < $delay) {
-    					erLhcoreClassChatWorkflow::newChatInformWorkflow(array('department' => $department,'options' => $options),$chat);
-    				}    				
-    			} else {    			
-    				$chat->nc_cb_executed = 1;
-    				$chat->updateThis();
-    			}    			
+    	if ( $chat->nc_cb_executed == 0 && $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {      		  		
+    		$department = $chat->department;    		   		
+    		if ($department !== false) {    			
+    			$options = $department->inform_options_array;   		 				
+    			$delay = time()-$department->inform_delay;    			
+    			if ($chat->time < $delay) {
+    				erLhcoreClassChatWorkflow::newChatInformWorkflow(array('department' => $department,'options' => $options),$chat);
+    			}
     		} else {
     			$chat->nc_cb_executed = 1;
     			$chat->updateThis();
     		}
     	}
-    	
-    	
     	
 	    if ( erLhcoreClassChat::isOnline($chat->dep_id) ) {
 	         $tpl->set('is_online',true);

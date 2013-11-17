@@ -31,3 +31,12 @@ INSERT INTO `lh_abstract_email_template` (`id`, `name`, `from_name`, `from_name_
 
 ALTER TABLE `lh_departament`
 ADD INDEX `oha_sh_eh` (`online_hours_active`, `start_hour`, `end_hour`);
+
+CREATE TABLE `lh_chat_accept` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `chat_id` int(11) NOT NULL,
+  `hash` varchar(50) NOT NULL,
+  `ctime` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `hash` (`hash`)
+);

@@ -269,6 +269,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  `transfer_timeout_ac` int(11) NOT NULL,
         	   	  `transfer_if_na` int(11) NOT NULL,
         	   	  `na_cb_executed` int(11) NOT NULL,
+        	   	  `nc_cb_executed` tinyint(1) NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `status` (`status`),
 				  KEY `user_id` (`user_id`),
@@ -356,7 +357,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   $db->query("INSERT INTO `lh_abstract_email_template` (`id`, `name`, `from_name`, `from_name_ac`, `from_email`, `from_email_ac`, `content`, `subject`, `subject_ac`, `reply_to`, `reply_to_ac`, `recipient`) VALUES
         	   		(1,'Send mail to user','Live Support',0,'',0,'Dear {user_chat_nick},\r\n\r\n{additional_message}\r\n\r\nLive Support response:\r\n{messages_content}\r\n\r\nSincerely,\r\nLive Support Team\r\n','{name_surname} has responded to your request',	1,'',1,''),
         	   		(2,'Support request from user',	'',	0,	'',	0,	'Hello,\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nAdditional data, if any:\r\n{additional_data}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nSincerely,\r\nLive Support Team',	'Support request from user',	0,	'',	0,	'{$adminEmail}'),
-        	   		(3,	'User mail for himself',	'Live Helper Chat',	0,	'',	0,	'Dear {user_chat_nick},\r\n\r\nTranscript:\r\n{messages_content}\r\n\r\nSincerely,\r\nLive Support Team\r\n',	'Chat transcript',	0,	'',	0,	'');");
+        	   		(3,	'User mail for himself',	'Live Helper Chat',	0,	'',	0,	'Dear {user_chat_nick},\r\n\r\nTranscript:\r\n{messages_content}\r\n\r\nSincerely,\r\nLive Support Team\r\n',	'Chat transcript',	0,	'',	0,	''),
+        	   		(4,	'New chat request',	'Live Helper Chat',	0,	'',	0,	'Hello,\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nClick to accept chat automatically\r\n{url_accept}\r\n\r\nSincerely,\r\nLive Support Team',	'New chat request',	0,	'',	0,	'{$adminEmail}');");
 
         	   $db->query("CREATE TABLE `lh_question` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -488,6 +490,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('ignorable_ip',	'',	0,	'Which ip should be ignored in online users list, separate by comma',0),
                 ('run_departments_workflow', 0, 0, 'Should cronjob run departments tranfer workflow, even if user leaves a chat, 0 - no, 1 - yes',	0),
                 ('geo_location_data', 'a:3:{s:4:\"zoom\";i:4;s:3:\"lat\";s:7:\"49.8211\";s:3:\"lng\";s:7:\"11.7835\";}', '0', '', '1'),
+                ('xmp_data','a:9:{i:0;b:0;s:4:\"host\";s:15:\"talk.google.com\";s:6:\"server\";s:9:\"gmail.com\";s:8:\"resource\";s:6:\"xmpphp\";s:4:\"port\";s:4:\"5222\";s:7:\"use_xmp\";i:0;s:8:\"username\";s:0:\"\";s:8:\"password\";s:0:\"\";s:11:\"xmp_message\";s:77:\"You have a new chat request\r\n{messages}\r\nClick to accept a chat\r\n{url_accept}\";}',0,'XMP data',1),
                 ('run_unaswered_chat_workflow', 0, 0, 'Should cronjob run unanswered chats workflow and execute unaswered chats callback, 0 - no, any other number bigger than 0 is a minits how long chat have to be not accepted before executing callback.',0),
                 ('disable_popup_restore', 0, 0, 'Disable option in widget to open new window. 0 - no, 1 - restore icon will be hidden',	0),
                 ('file_configuration',	'a:7:{i:0;b:0;s:5:\"ft_op\";s:43:\"gif|jpe?g|png|zip|rar|xls|doc|docx|xlsx|pdf\";s:5:\"ft_us\";s:26:\"gif|jpe?g|png|doc|docx|pdf\";s:6:\"fs_max\";i:2048;s:18:\"active_user_upload\";b:0;s:16:\"active_op_upload\";b:1;s:19:\"active_admin_upload\";b:1;}',	0,	'Files configuration item',	1),
@@ -548,21 +551,43 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  PRIMARY KEY (`id`),
 				  KEY `time_on_site_pageviews_siteaccess_position` (`time_on_site`,`pageviews`,`siteaccess`,`identifier`,`position`)
 				) DEFAULT CHARSET=utf8;");
-
+        	   
+        	   $db->query("CREATE TABLE `lh_chat_accept` (
+        	   `id` int(11) NOT NULL AUTO_INCREMENT,
+        	   `chat_id` int(11) NOT NULL,
+        	   `hash` varchar(50) NOT NULL,
+        	   `ctime` int(11) NOT NULL,
+        	   PRIMARY KEY (`id`),
+        	   KEY `hash` (`hash`)
+        	   ) DEFAULT CHARSET=utf8;");
+        	   
         	   //Default departament
         	   $db->query("CREATE TABLE `lh_departament` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
 				  `name` varchar(100) NOT NULL,
 				  `email` varchar(100) NOT NULL,
-				  `identifier` varchar(50) NOT NULL,
 				  `priority` int(11) NOT NULL,
-				  `show_random_operator` int(11) NOT NULL,
 				  `department_transfer_id` int(11) NOT NULL,
 				  `transfer_timeout` int(11) NOT NULL,
+				  `identifier` varchar(50) NOT NULL,
+				  `mod` tinyint(1) NOT NULL,
+				  `tud` tinyint(1) NOT NULL,
+				  `wed` tinyint(1) NOT NULL,
+				  `thd` tinyint(1) NOT NULL,
+				  `frd` tinyint(1) NOT NULL,
+				  `sad` tinyint(1) NOT NULL,
+				  `sud` tinyint(1) NOT NULL,
+				  `start_hour` int(2) NOT NULL,
+				  `end_hour` int(2) NOT NULL,
+				  `inform_options` varchar(250) NOT NULL,
+				  `online_hours_active` tinyint(1) NOT NULL,
+				  `inform_delay` int(11) NOT NULL,
 				  PRIMARY KEY (`id`),
-        	   	  KEY `identifier` (`identifier`)
+				  KEY `identifier` (`identifier`),
+				  KEY `oha_sh_eh` (`online_hours_active`,`start_hour`,`end_hour`)
 				) DEFAULT CHARSET=utf8;");
 
+        	   
         	   $Departament = new erLhcoreClassModelDepartament();
                $Departament->name = $form->DefaultDepartament;
                erLhcoreClassDepartament::getSession()->save($Departament);
