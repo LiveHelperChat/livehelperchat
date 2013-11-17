@@ -2382,6 +2382,22 @@
   <context>
     <name>department/edit</name>
     <message>
+      <source>Active days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active hours, 24 hours format</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>from, E.g 8</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>from, E.g 17</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Edit department</source>
       <translation type="unfinished"/>
     </message>
@@ -2430,7 +2446,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Active days</source>
+      <source>Workdays, during these days chat will be active automatically</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2462,15 +2478,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Active hours, 24 hours format</source>
+      <source>Work hours, 24 hours format, 1 - 24</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>from, E.g 8</source>
+      <source>From, E.g. 8</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>from, E.g 17</source>
+      <source>From, E.g. 17</source>
       <translation type="unfinished"/>
     </message>
     <message>

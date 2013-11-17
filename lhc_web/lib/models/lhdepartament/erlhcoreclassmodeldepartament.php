@@ -192,6 +192,7 @@ class erLhcoreClassModelDepartament {
     public $identifier = '';    
     public $mod = 0;
     public $tud = 0;
+    public $wed = 0;
     public $thd = 0;
     public $frd = 0;
     public $sad = 0;
@@ -200,7 +201,7 @@ class erLhcoreClassModelDepartament {
     public $start_hour = 0;
     public $end_hour = 0;
     public $inform_options = '';    
-    public $online_hours_active = 0;    
+    public $online_hours_active = 0;
 }
 
 ?>

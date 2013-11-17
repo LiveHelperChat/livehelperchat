@@ -30,11 +30,9 @@
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','How many seconds chat can be pending before about chat is informed a staff');?></label>
 <input type="text" name="inform_delay"  value="<?php echo htmlspecialchars($departament->inform_delay);?>" />
 
-
-
 <label><input type="checkbox" name="OnlineHoursActive" value="1" <?php if ($departament->online_hours_active == 1) : ?>checked="checked"<?php endif;?>  /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Online hours active');?></label>
 
-<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Active days');?></h4>
+<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Workdays, during these days chat will be active automatically');?></h4>
 <div class="row">
 	<div class="columns large-3">
 		<label><input type="checkbox" name="mod" value="1" <?php if ($departament->mod == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Monday');?></label>
@@ -53,13 +51,13 @@
 	</div>
 </div>
 
-<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Active hours, 24 hours format');?></h4>
+<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Work hours, 24 hours format, 1 - 24');?></h4>
 <div class="row">
 	<div class="columns large-6">
-		<input type="text" name="StartHour" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','from, E.g 8');?>" value="<?php echo htmlspecialchars($departament->start_hour);?>" />
+		<input type="text" name="StartHour" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','From, E.g. 8');?>" value="<?php echo htmlspecialchars($departament->start_hour);?>" />
 	</div>
 	<div class="columns large-6">
-		<input type="text" name="EndHour" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','from, E.g 17');?>" value="<?php echo htmlspecialchars($departament->end_hour);?>" />
+		<input type="text" name="EndHour" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','From, E.g. 17');?>" value="<?php echo htmlspecialchars($departament->end_hour);?>" />
 	</div>
 </div>
 
