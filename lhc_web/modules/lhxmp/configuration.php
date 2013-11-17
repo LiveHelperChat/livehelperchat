@@ -29,6 +29,9 @@ if ( isset($_POST['StoreXMPSettings']) || isset($_POST['StoreXMPSettingsTest']) 
 			'server' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
 			),
+			'recipients' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+			),
 			'XMPMessage' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
 			),
@@ -60,6 +63,12 @@ if ( isset($_POST['StoreXMPSettings']) || isset($_POST['StoreXMPSettingsTest']) 
 		$data['resource'] = $form->resource;
 	} else {
 		$data['resource'] = '';
+	}
+
+	if ( $form->hasValidData( 'recipients' )) {
+		$data['recipients'] = $form->recipients;
+	} else {
+		$data['recipients'] = '';
 	}
 
 	if ( $form->hasValidData( 'port' )) {
@@ -109,6 +118,6 @@ $tpl->set('xmp_data',$data);
 
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','System configuration')),
-array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','XMP settings')));
+array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmp','XMP settings')));
 
 ?>

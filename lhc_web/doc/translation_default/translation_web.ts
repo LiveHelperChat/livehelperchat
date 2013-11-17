@@ -3433,6 +3433,30 @@
   <context>
     <name>system/smtp</name>
     <message>
+      <source>XMP active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Resource</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Server</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMP Message content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMP message was sent succesfuly</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMP settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>SMTP settings</source>
       <translation type="unfinished"/>
     </message>
@@ -3458,30 +3482,6 @@
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMP active</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Resource</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Server</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMP Message content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMP message was sent succesfuly</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMP settings</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -4221,6 +4221,58 @@
     <name>system/xmp</name>
     <message>
       <source>XMP settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMP active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Host</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Port</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Login</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Resource</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Server</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMP Message content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test message will be send to your account e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMP message was sent succesfuly</source>
       <translation type="unfinished"/>
     </message>
   </context>

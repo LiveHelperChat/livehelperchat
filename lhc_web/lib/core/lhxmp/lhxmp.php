@@ -32,6 +32,8 @@ class erLhcoreClassXMP {
 				$emailRecipient = array();
 				if ($chat->department !== false && $chat->department->email != '') { // Perhaps department has assigned email
 					$emailRecipient = explode(',',$chat->department->email);
+				} elseif (isset($data['recipients']) && $data['recipients'] != '') {
+					$emailRecipient = explode(',', $data['recipients']);
 				} else { // Lets find first user and send him an e-mail
 					$list = erLhcoreClassModelUser::getUserList(array('limit' => 1,'sort' => 'id ASC'));
 					$user = array_pop($list);
