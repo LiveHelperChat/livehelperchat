@@ -1919,6 +1919,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Votes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Last activity</source>
       <translation type="unfinished"/>
     </message>

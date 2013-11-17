@@ -1919,6 +1919,10 @@
       <translation>Всего сообщений</translation>
     </message>
     <message>
+      <source>Votes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Last activity</source>
       <translation>Последние активные</translation>
     </message>

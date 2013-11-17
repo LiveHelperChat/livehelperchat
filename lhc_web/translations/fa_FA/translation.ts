@@ -1919,6 +1919,10 @@
       <translation>تمام پیام ها</translation>
     </message>
     <message>
+      <source>Votes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Last activity</source>
       <translation>آخرین فعالیت</translation>
     </message>

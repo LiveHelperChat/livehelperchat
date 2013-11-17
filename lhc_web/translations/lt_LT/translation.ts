@@ -1919,6 +1919,10 @@
       <translation>Viso žinučių</translation>
     </message>
     <message>
+      <source>Votes</source>
+      <translation>Balsai</translation>
+    </message>
+    <message>
       <source>Last activity</source>
       <translation>Paskutinis aktyvumas</translation>
     </message>

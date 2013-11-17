@@ -1919,6 +1919,10 @@
       <translation>Celkem zpráv</translation>
     </message>
     <message>
+      <source>Votes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Last activity</source>
       <translation>Poslední aktivita</translation>
     </message>

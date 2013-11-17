@@ -1919,6 +1919,10 @@
       <translation>总的消息</translation>
     </message>
     <message>
+      <source>Votes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Last activity</source>
       <translation>最后活动</translation>
     </message>

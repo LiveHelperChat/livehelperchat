@@ -1919,6 +1919,10 @@
       <translation>Alle meldinger</translation>
     </message>
     <message>
+      <source>Votes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Last activity</source>
       <translation>Siste aktivitet</translation>
     </message>

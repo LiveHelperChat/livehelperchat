@@ -63,6 +63,10 @@
       <source>Test</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Send test message</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>abstract/abstract_form</name>
@@ -1502,6 +1506,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>XMP settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Languages configuration</source>
       <translation type="unfinished"/>
     </message>
@@ -2402,6 +2410,70 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Inform about new chats using</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMP messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How many seconds chat can be pending before about chat is informed a staff</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online hours active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Monday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tuesday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wednesday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Thursday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Friday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Saturday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sunday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active hours, 24 hours format</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>from, E.g 8</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>from, E.g 17</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>None</source>
       <translation type="unfinished"/>
     </message>
@@ -2540,11 +2612,11 @@
   <context>
     <name>department/new</name>
     <message>
-      <source>New department</source>
+      <source>Please enter a department name</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Please enter a department name</source>
+      <source>New department</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3372,6 +3444,30 @@
       <source>Settings updated</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>XMP active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Resource</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Server</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMP Message content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMP message was sent succesfuly</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMP settings</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>user/edit</name>
@@ -3938,15 +4034,15 @@
   <context>
     <name>departament/edit</name>
     <message>
+      <source>Please enter a department name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a valid from date range!</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a valid to date range!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter a department name</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -4102,6 +4198,13 @@
     </message>
     <message>
       <source>Removed thumb vote</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>system/xmp</name>
+    <message>
+      <source>XMP settings</source>
       <translation type="unfinished"/>
     </message>
   </context>
