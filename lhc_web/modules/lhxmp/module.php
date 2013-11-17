@@ -1,6 +1,6 @@
 <?php
 
-$Module = array( "name" => "XMP module configuration");
+$Module = array( "name" => "XMPP module configuration");
 
 $ViewList = array();
 
@@ -10,6 +10,6 @@ $ViewList['configuration'] = array(
 );
 
 $FunctionList = array();
-$FunctionList['configurexmp'] = array('explain' => 'Allow user to configure XMP');
+$FunctionList['configurexmp'] = array('explain' => 'Allow user to configure XMPP');
 
 ?>

@@ -39,7 +39,7 @@
 		    <?php endif; ?>
 
 		    <?php if ($currentUser->hasAccessTo('lhxmp','configurexmp')) : ?>
-		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('xmp/configuration')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','XMP settings');?></a></li>
+		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('xmp/configuration')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','XMPP settings');?></a></li>
 		    <?php endif; ?>
 
 		    <?php if ($currentUser->hasAccessTo('lhsystem','configurelanguages') || $currentUser->hasAccessTo('lhsystem','changelanguage')) : ?>
