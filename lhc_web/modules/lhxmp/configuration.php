@@ -118,6 +118,6 @@ $tpl->set('xmp_data',$data);
 
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','System configuration')),
-array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmp','XMP settings')));
+array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmp','XMPP settings')));
 
 ?>

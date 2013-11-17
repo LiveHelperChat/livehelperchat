@@ -1446,6 +1446,10 @@
   <context>
     <name>system/configuration</name>
     <message>
+      <source>XMP settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New chat notification settings</source>
       <translation type="unfinished"/>
     </message>
@@ -1506,7 +1510,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>XMP settings</source>
+      <source>XMPP settings</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2398,6 +2402,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>XMP messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Edit department</source>
       <translation type="unfinished"/>
     </message>
@@ -2430,7 +2438,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>XMP messages</source>
+      <source>XMPP messages</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4220,10 +4228,6 @@
   <context>
     <name>system/xmp</name>
     <message>
-      <source>XMP settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>XMP active</source>
       <translation type="unfinished"/>
     </message>
@@ -4256,15 +4260,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Default recipients</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>XMP Message content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Test message will be send to your account e-mail</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4273,6 +4269,73 @@
     </message>
     <message>
       <source>XMP message was sent succesfuly</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMP settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test message will be send to your account e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP message was sent succesfuly</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP settings</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>system/xmpp</name>
+    <message>
+      <source>XMPP settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Host</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Port</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Login</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Resource</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Server</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP Message content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
       <translation type="unfinished"/>
     </message>
   </context>
