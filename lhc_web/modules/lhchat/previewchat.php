@@ -6,7 +6,6 @@ $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params
 if ( erLhcoreClassChat::hasAccessToRead($chat) )
 {
 	$tpl->set('chat',$chat);
-
 } else {
 	$tpl->setFile( 'lhchat/errors/adminchatnopermission.tpl.php');
 }

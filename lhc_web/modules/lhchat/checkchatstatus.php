@@ -10,6 +10,37 @@ try {
     $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
 
     if ($chat->hash == $Params['user_parameters']['hash']) {
+    	
+    	// Main unasnwered chats callback
+    	if ( $chat->na_cb_executed == 0 && $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && erLhcoreClassModelChatConfig::fetch('run_unaswered_chat_workflow')->current_value > 0) {    		
+    		$delay = time()-(erLhcoreClassModelChatConfig::fetch('run_unaswered_chat_workflow')->current_valu*60);    		
+    		if ($chat->time < $delay) {    		
+    			erLhcoreClassChatWorkflow::unansweredChatWorkflow($chat);
+    		}
+    	}
+    	
+    	if ( $chat->nc_cb_executed == 0 && $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {  
+    		  		
+    		$department = $chat->department;    		
+    		if ($department !== false) {
+    			$options = $department->inform_options_array;
+    			if (!empty($options)) {    				
+    				$delay = time()-$department->inform_delay;
+    				if ($chat->time < $delay) {
+    					erLhcoreClassChatWorkflow::newChatInformWorkflow(array('department' => $department,'options' => $options),$chat);
+    				}    				
+    			} else {    			
+    				$chat->nc_cb_executed = 1;
+    				$chat->updateThis();
+    			}    			
+    		} else {
+    			$chat->nc_cb_executed = 1;
+    			$chat->updateThis();
+    		}
+    	}
+    	
+    	
+    	
 	    if ( erLhcoreClassChat::isOnline($chat->dep_id) ) {
 	         $tpl->set('is_online',true);
 	    } else {

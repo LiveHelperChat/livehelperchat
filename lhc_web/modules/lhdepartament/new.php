@@ -10,75 +10,10 @@ if ( isset($_POST['Cancel_departament']) ) {
 
 if (isset($_POST['Save_departament']))
 {
-   $definition = array(
-        'Name' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-        ),
-        'Email' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-        ),
-   		'Identifier' => new ezcInputFormDefinitionElement(
-   				ezcInputFormDefinitionElement::OPTIONAL, 'string'
-   		),
-        'Priority' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'int'
-        ),
-        'TansferDepartmentID' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1)
-        ),
-        'TransferTimeout' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 5)
-        )
-    );
-
-    $form = new ezcInputForm( INPUT_POST, $definition );
-    $Errors = array();
-
-    if ( !$form->hasValidData( 'Name' ) || $form->Name == '' )
-    {
-        $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('department/new','Please enter a department name');
-    }
-
-    if ( $form->hasValidData( 'Identifier' ) )
-    {
-    	$Departament->identifier = $form->Identifier;
-    }
-
-    if ( $form->hasValidData( 'TansferDepartmentID' ) )
-    {
-    	$Departament->department_transfer_id = $form->TansferDepartmentID;
-    }
-
-    if ( $form->hasValidData( 'TransferTimeout' ) )
-    {
-    	$Departament->transfer_timeout = $form->TransferTimeout;
-    }
-
-    if ( $form->hasValidData( 'Email' ) ) {
-
-    	$partsEmail = explode(',', $form->Email);
-    	$validatedEmail = array();
-    	foreach ($partsEmail as $email){
-    		if (filter_var(trim($email), FILTER_VALIDATE_EMAIL)){
-    			$validatedEmail[] = trim($email);
-    		}
-    	}
-
-        $Departament->email = implode(',', $validatedEmail);
-
-    } else {
-    	$Departament->email = '';
-    }
-
-    if ( $form->hasValidData( 'Priority' ) ) {
-    	$Departament->priority = $form->Priority;
-    } else {
-    	$Departament->priority = 0;
-    }
-
+    $Errors = erLhcoreClassDepartament::validateDepartment($Departament);
+    
     if (count($Errors) == 0)
     {
-        $Departament->name = $form->Name;
         erLhcoreClassDepartament::getSession()->save($Departament);
         erLhcoreClassModule::redirect('departament/departaments');
         exit ;

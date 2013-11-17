@@ -12,6 +12,18 @@ class erLhcoreClassModelDepartament {
                'department_transfer_id' => $this->department_transfer_id,
                'transfer_timeout'    	=> $this->transfer_timeout,
                'identifier'    			=> $this->identifier,
+               'mod'    				=> $this->mod,
+               'tud'    				=> $this->tud,
+               'wed'    				=> $this->wed,
+               'thd'    				=> $this->thd,
+               'frd'    				=> $this->frd,
+               'sad'    				=> $this->sad,
+               'sud'    				=> $this->sud,
+               'start_hour'    			=> $this->start_hour,
+               'end_hour'    			=> $this->end_hour,
+               'inform_options'    		=> $this->inform_options,
+               'inform_delay'    		=> $this->inform_delay,
+               'online_hours_active'    => $this->online_hours_active,
        );
    }
 
@@ -56,6 +68,11 @@ class erLhcoreClassModelDepartament {
 	   		case 'is_online_exclipic':
 	   			$this->is_online_exclipic = erLhcoreClassChat::isOnline($this->id,true);
 	   			return $this->is_online_exclipic;
+	   		break;
+
+	   		case 'inform_options_array':
+	   			$this->inform_options_array = $this->inform_options != '' ? unserialize($this->inform_options) : array();
+	   			return $this->inform_options_array;
 	   		break;
 
 	   		case 'department_transfer':
@@ -172,7 +189,18 @@ class erLhcoreClassModelDepartament {
     public $priority = 0;
     public $department_transfer_id = 0;
     public $transfer_timeout = 0;
-    public $identifier = '';
+    public $identifier = '';    
+    public $mod = 0;
+    public $tud = 0;
+    public $thd = 0;
+    public $frd = 0;
+    public $sad = 0;
+    public $sud = 0;
+    public $inform_delay = 0;
+    public $start_hour = 0;
+    public $end_hour = 0;
+    public $inform_options = '';    
+    public $online_hours_active = 0;    
 }
 
 ?>

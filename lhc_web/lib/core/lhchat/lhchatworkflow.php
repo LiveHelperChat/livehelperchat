@@ -58,6 +58,24 @@ class erLhcoreClassChatWorkflow {
     	$chat->updateThis();
     }
 
+    public static function mainUnansweredChatWorkflow() {    
+    	$output = '';
+	    if ( erLhcoreClassModelChatConfig::fetch('run_unaswered_chat_workflow')->current_value > 0) {
+	    
+	    	$output .= "Starting unaswered chats workflow\n";
+	    
+	    	$delay = time()-(erLhcoreClassModelChatConfig::fetch('run_unaswered_chat_workflow')->current_valu*60);
+	    
+	    	foreach (erLhcoreClassChat::getList(array('limit' => 500, 'filterlt' => array('time' => $delay), 'filter' => array('status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT, 'na_cb_executed' => 0))) as $chat) {
+	    		erLhcoreClassChatWorkflow::unansweredChatWorkflow($chat);
+	    		$output .= "executing unanswered callback for chat - ".$chat->id."\n";
+	    	}
+	    
+	    	$output .= "Ended unaswered chats workflow\n";
+	    }
+	    
+	    return $output;
+    }
     /*
      * Chat was unanswered for n minits, execute callback.
      * */
@@ -76,6 +94,32 @@ class erLhcoreClassChatWorkflow {
     			include $callbackFile;
     		}
     	}
+    }
+        
+    public static function newChatInformWorkflow($options = array(), & $chat) {
+    	
+    	$chat->nc_cb_executed = 1;
+    	$chat->updateThis();
+    	
+    	if (in_array('mail', $options['options'])) {    	
+    		erLhcoreClassChatMail::sendMailUnacceptedChat($chat);
+    	}
+
+    	if (in_array('xmp', $options['options'])) {
+    		erLhcoreClassXMP::sendXMPMessage($chat);
+    	}
+    	
+    	// Execute callback if it exists
+    	$extensions = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'extensions' );
+    	$instance = erLhcoreClassSystem::instance();
+    	
+    	foreach ($extensions as $ext) {
+    		$callbackFile = $instance->SiteDir . '/extension/' . $ext . '/callbacks/new_chat.php';
+    		if (file_exists($callbackFile)) {
+    			include $callbackFile;
+    		}
+    	}    	
+    	
     }
 }
 

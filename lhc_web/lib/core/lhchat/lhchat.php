@@ -572,11 +572,10 @@ class erLhcoreClassChat {
        $isOnlineUser = (int)erConfigClassLhConfig::getInstance()->getSetting('chat','online_timeout');
 
        $db = ezcDbInstance::get();
-
+	   $rowsNumber = 0;
+       
        if ($dep_id !== false) {
-
        		$exclipicFilter = ($exclipic == false) ? ' OR dep_id = 0' : '';
-
 			if (is_numeric($dep_id)) {
 	           $stmt = $db->prepare("SELECT COUNT(id) AS found FROM lh_userdep WHERE (last_activity > :last_activity AND hide_online = 0) AND (dep_id = :dep_id {$exclipicFilter})");
 	           $stmt->bindValue(':dep_id',$dep_id);
@@ -586,15 +585,44 @@ class erLhcoreClassChat {
 				$stmt->bindValue(':last_activity',(time()-$isOnlineUser));
 			}
 
+			$stmt->execute();
+			$rowsNumber = $stmt->fetchColumn();	
+		
+			if ($rowsNumber == 0) { // Perhaps auto active is turned on for some of departments							
+				$daysColumns = array('`mod`','`tud`','`wed`','`thd`','`frd`','`sad`','`sud`');
+				$columns = date('N')-1;
+				
+				if (is_numeric($dep_id)) {
+					$stmt = $db->prepare("SELECT COUNT(id) AS found FROM lh_departament WHERE online_hours_active = 1 AND start_hour <= :start_hour AND end_hour > :end_hour AND {$daysColumns[$columns]} = 1 AND id = :dep_id");
+					$stmt->bindValue(':dep_id',$dep_id);
+				} elseif (is_array($dep_id)) {
+					$stmt = $db->prepare("SELECT COUNT(id) AS found FROM lh_departament WHERE online_hours_active = 1 AND start_hour <= :start_hour AND end_hour > :end_hour AND {$daysColumns[$columns]} = 1 AND id IN (". implode(',', $dep_id) .")");
+				}
+				
+				$stmt->bindValue(':start_hour',date('G'));
+				$stmt->bindValue(':end_hour',date('G'));
+				$stmt->execute();
+				$rowsNumber = $stmt->fetchColumn();
+			}					
+
        } else {
            $stmt = $db->prepare('SELECT COUNT(id) AS found FROM lh_userdep WHERE last_activity > :last_activity AND hide_online = 0');
            $stmt->bindValue(':last_activity',(time()-$isOnlineUser));
+           $stmt->execute();
+           $rowsNumber = $stmt->fetchColumn();        
+                                 
+           if ($rowsNumber == 0){ // Perhaps auto active is turned on for some of departments
+           		$daysColumns = array('`mod`','`tud`','`wed`','`thd`','`frd`','`sad`','`sud`');           		
+           		$columns = date('N')-1;           		
+	           	$stmt = $db->prepare("SELECT COUNT(id) AS found FROM lh_departament WHERE online_hours_active = 1 AND start_hour <= :start_hour AND end_hour > :end_hour AND {$daysColumns[$columns]} = 1");
+	           	$stmt->bindValue(':start_hour',date('G'));
+	           	$stmt->bindValue(':end_hour',date('G'));
+	           	$stmt->execute();
+	           	$rowsNumber = $stmt->fetchColumn();	   
+           }
        }
 
-       $stmt->execute();
-       $rows = $stmt->fetchAll();
-
-       return $rows[0]['found'] >= 1;
+       return $rowsNumber >= 1;
     }
 
     public static function getRandomOnlineUserID(){

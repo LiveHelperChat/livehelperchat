@@ -53,6 +53,7 @@ class erLhcoreClassModelChat {
        			// Callback status
                'na_cb_executed'    		=> $this->na_cb_executed,
                'fbst'    				=> $this->fbst,
+               'nc_cb_executed'    		=> $this->nc_cb_executed,
        );
    }
 
@@ -277,8 +278,11 @@ class erLhcoreClassModelChat {
    public $wait_timeout_send = 0;
    public $timeout_message = '';
 
-
+   // Unanswered chat callback executed
    public $na_cb_executed = 0;
+   
+   // New chat callback executed
+   public $nc_cb_executed = 0;
 
    // Feedback status
    public $fbst = 0;

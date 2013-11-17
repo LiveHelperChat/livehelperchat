@@ -35,19 +35,8 @@ if ( erLhcoreClassModelChatConfig::fetch('run_departments_workflow')->current_va
 	echo "Ended departments workflow\n";
 }
 
-if ( erLhcoreClassModelChatConfig::fetch('run_unaswered_chat_workflow')->current_value > 0) {
-
-	echo "Starting unaswered chats workflow\n";
-
-	$delay = time()-(erLhcoreClassModelChatConfig::fetch('run_unaswered_chat_workflow')->current_valu*60);
-
-	foreach (erLhcoreClassChat::getList(array('limit' => 500, 'filterlt' => array('time' => $delay), 'filter' => array('status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT, 'na_cb_executed' => 0))) as $chat) {
-		erLhcoreClassChatWorkflow::unansweredChatWorkflow($chat);
-		echo "executing unanswered callback for chat - ",$chat->id,"\n";
-	}
-
-	echo "Ended unaswered chats workflow\n";
-}
+// Unanswered chats callback
+echo erLhcoreClassChatWorkflow::mainUnansweredChatWorkflow();
 
 echo "Ended chat/workflow\n";
 
