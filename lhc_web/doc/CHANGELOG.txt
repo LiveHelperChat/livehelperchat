@@ -1,7 +1,7 @@
 1.65v
 
 Features
-1. XMP Support, you can just configure XMP and install Xabber on your Android phone to receive new chat request. You do not have to be online all the time, you can configure your online hours in department.
+1. XMPP Support, you can just configure XMPP and install Xabber on your Android phone to receive new chat request. You do not have to be online all the time, you can configure your online hours in department.
 2. Department online hours, you can set then chat should be online automatically by week days and hours. You can also set after how many seconds new chat callback should be executed.
 3. New chat request callback option. This will allow for users implement other handlers like SMS notification etc.
 5. Notification about new chats either using XMP or mail. Clicking link in mail will lead you automatically to chat.
