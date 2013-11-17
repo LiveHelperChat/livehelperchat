@@ -80,10 +80,8 @@ if ( isset($_POST['StoreXMPSettings']) || isset($_POST['StoreXMPSettingsTest']) 
 		$data['username'] = '';
 	}
 
-	if ( $form->hasValidData( 'password' ) ) {
+	if ( $form->hasValidData( 'password' ) && $form->password != '' ) {
 		$data['password'] = $form->password;
-	} else {
-		$data['password'] = '';
 	}
 
 	if ( $form->hasValidData( 'XMPMessage' ) ) {

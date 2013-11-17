@@ -26,7 +26,7 @@
 <input type="text" name="username" value="<?php (isset($xmp_data['username']) && $xmp_data['username'] != '') ? print $xmp_data['username'] : print '' ?>" />
 
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Password');?></label>
-<input type="password" name="password" value="<?php (isset($xmp_data['password']) && $xmp_data['password'] != '') ? print $xmp_data['password'] : print '' ?>" />
+<input type="password" name="password" value="" />
 
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Resource');?></label>
 <input type="text" name="resource" value="<?php (isset($xmp_data['resource']) && $xmp_data['resource'] != '') ? print $xmp_data['resource'] : print 'xmpphp' ?>" />
