@@ -23,8 +23,10 @@ https://www.transifex.com/projects/p/live-helper-chat/
 
 Few main features
 
+ * XMPP support for notifications about new chats. (IPhone, IPad, Android, Blackberry, GTalk etc...)
+ * Work hours
  * Multiple chats same time
- * See what users are typing before they send a message. Hot
+ * See what users are typing before they send a message
  * Multiple operators
  * Send delayed canned messages as it was real user typing
  * Chats archive
