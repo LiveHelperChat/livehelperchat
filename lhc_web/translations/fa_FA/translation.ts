@@ -61,6 +61,10 @@
       <source>Test</source>
       <translation>تست</translation>
     </message>
+    <message>
+      <source>Send test message</source>
+      <translation>ارسال پیام متنی</translation>
+    </message>
   </context>
   <context>
     <name>abstract/abstract_form</name>
@@ -572,11 +576,11 @@
     </message>
     <message>
       <source>m.</source>
-      <translation type="unfinished"/>
+      <translation>m.</translation>
     </message>
     <message>
       <source>s.</source>
-      <translation type="unfinished"/>
+      <translation>s.</translation>
     </message>
   </context>
   <context>
@@ -899,7 +903,7 @@
     </message>
     <message>
       <source>API Key</source>
-      <translation type="unfinished"/>
+      <translation>کلید API</translation>
     </message>
     <message>
       <source>Username</source>
@@ -1115,7 +1119,7 @@
     </message>
     <message>
       <source>Marker timeout before it dissapears from map</source>
-      <translation type="unfinished"/>
+      <translation>توقف نشانگر قبل از محو شدن از نقشه</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -1440,6 +1444,10 @@
   <context>
     <name>system/configuration</name>
     <message>
+      <source>XMP settings</source>
+      <translation>تنظیمات XMP</translation>
+    </message>
+    <message>
       <source>New chat notification settings</source>
       <translation>تنیظیمات اطلاع رسانی چت جدید</translation>
     </message>
@@ -1498,6 +1506,10 @@
     <message>
       <source>SMTP settings</source>
       <translation>تنظیمات SMTP</translation>
+    </message>
+    <message>
+      <source>XMPP settings</source>
+      <translation>تنظیمات XMPP</translation>
     </message>
     <message>
       <source>Languages configuration</source>
@@ -1920,7 +1932,7 @@
     </message>
     <message>
       <source>Votes</source>
-      <translation type="unfinished"/>
+      <translation>آرا</translation>
     </message>
     <message>
       <source>Last activity</source>
@@ -2032,7 +2044,7 @@
     </message>
     <message>
       <source>E.g</source>
-      <translation type="unfinished"/>
+      <translation>E.g</translation>
     </message>
     <message>
       <source>Date to</source>
@@ -2372,6 +2384,26 @@
   <context>
     <name>department/edit</name>
     <message>
+      <source>Active days</source>
+      <translation>روزهای فعال</translation>
+    </message>
+    <message>
+      <source>Active hours, 24 hours format</source>
+      <translation>ساعات فعال، به صورت 24 ساعته</translation>
+    </message>
+    <message>
+      <source>from, E.g 8</source>
+      <translation>از،  E.g 8</translation>
+    </message>
+    <message>
+      <source>from, E.g 17</source>
+      <translation>از  E.g 17</translation>
+    </message>
+    <message>
+      <source>XMP messages</source>
+      <translation>پیام های XMP</translation>
+    </message>
+    <message>
       <source>Edit department</source>
       <translation>ویرایش دپارتمان</translation>
     </message>
@@ -2398,6 +2430,70 @@
     <message>
       <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
       <translation>حداکثر طول این فیلد 50 کاراکتر است و میتواند برای دیگر ابزارها استفاده شود.</translation>
+    </message>
+    <message>
+      <source>Inform about new chats using</source>
+      <translation>اطلاعات درباره استفاده چت های جدید</translation>
+    </message>
+    <message>
+      <source>XMPP messages</source>
+      <translation>پیام های XMPP</translation>
+    </message>
+    <message>
+      <source>Mail messages</source>
+      <translation>پیام های ایمیلی</translation>
+    </message>
+    <message>
+      <source>How many seconds chat can be pending before about chat is informed a staff</source>
+      <translation>زمانی (ثانیه) که چت میتواند قبل از دریافت توسط پشتیبان معلق بماند</translation>
+    </message>
+    <message>
+      <source>Online hours active</source>
+      <translation>ساعات فعال به صورت آنلاین</translation>
+    </message>
+    <message>
+      <source>Workdays, during these days chat will be active automatically</source>
+      <translation>روزهای کاری، در طول این روزها چت به صورت خودکار فعال است</translation>
+    </message>
+    <message>
+      <source>Monday</source>
+      <translation>دوشنبه</translation>
+    </message>
+    <message>
+      <source>Tuesday</source>
+      <translation>سه شنبه</translation>
+    </message>
+    <message>
+      <source>Wednesday</source>
+      <translation>چهارشنبه</translation>
+    </message>
+    <message>
+      <source>Thursday</source>
+      <translation>پنج شنبه</translation>
+    </message>
+    <message>
+      <source>Friday</source>
+      <translation>جمعه</translation>
+    </message>
+    <message>
+      <source>Saturday</source>
+      <translation>شنبه</translation>
+    </message>
+    <message>
+      <source>Sunday</source>
+      <translation>یک شنبه</translation>
+    </message>
+    <message>
+      <source>Work hours, 24 hours format, 1 - 24</source>
+      <translation>ساعات کاری، به صورت 24 ساعته، 1 - 24</translation>
+    </message>
+    <message>
+      <source>From, E.g. 8</source>
+      <translation>از  E.g 8</translation>
+    </message>
+    <message>
+      <source>From, E.g. 17</source>
+      <translation>از،  E.g 17</translation>
     </message>
     <message>
       <source>None</source>
@@ -2538,12 +2634,12 @@
   <context>
     <name>department/new</name>
     <message>
-      <source>New department</source>
-      <translation>دپارتمان جدید</translation>
-    </message>
-    <message>
       <source>Please enter a department name</source>
       <translation>لطفا نام دپارتمان را وارد کنید</translation>
+    </message>
+    <message>
+      <source>New department</source>
+      <translation>دپارتمان جدید</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -3343,6 +3439,30 @@
   <context>
     <name>system/smtp</name>
     <message>
+      <source>XMP active</source>
+      <translation>XMP فعال</translation>
+    </message>
+    <message>
+      <source>Resource</source>
+      <translation>منبع</translation>
+    </message>
+    <message>
+      <source>Server</source>
+      <translation>سرور</translation>
+    </message>
+    <message>
+      <source>XMP Message content</source>
+      <translation>محتوا پیام XMP</translation>
+    </message>
+    <message>
+      <source>XMP message was sent succesfuly</source>
+      <translation>پیام XMP با موفقیت ارسال شد</translation>
+    </message>
+    <message>
+      <source>XMP settings</source>
+      <translation>تنظیمات XMP</translation>
+    </message>
+    <message>
       <source>SMTP settings</source>
       <translation>تنظیمات SMTP</translation>
     </message>
@@ -3936,16 +4056,16 @@
   <context>
     <name>departament/edit</name>
     <message>
+      <source>Please enter a department name</source>
+      <translation>لطفا نام دپارتمان را وارد کنید.</translation>
+    </message>
+    <message>
       <source>Please enter a valid from date range!</source>
       <translation>لطفا یک محدوده تاریخی معتبر وارد کنید!</translation>
     </message>
     <message>
       <source>Please enter a valid to date range!</source>
       <translation>لطفا محدوده تاریخی معتبر وارد کنید!</translation>
-    </message>
-    <message>
-      <source>Please enter a department name</source>
-      <translation>لطفا نام دپارتمان را وارد کنید.</translation>
     </message>
   </context>
   <context>
@@ -4092,15 +4212,145 @@
     <name>chat/voteaction</name>
     <message>
       <source>Thumbs up</source>
-      <translation type="unfinished"/>
+      <translation>اشاره بالا</translation>
     </message>
     <message>
       <source>Thumbs down</source>
-      <translation type="unfinished"/>
+      <translation>اشاره پایین</translation>
     </message>
     <message>
       <source>Removed thumb vote</source>
-      <translation type="unfinished"/>
+      <translation>حذف رای تصویری</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/xmp</name>
+    <message>
+      <source>XMP active</source>
+      <translation>XMP فعال</translation>
+    </message>
+    <message>
+      <source>Host</source>
+      <translation>هاست</translation>
+    </message>
+    <message>
+      <source>Port</source>
+      <translation>پورت</translation>
+    </message>
+    <message>
+      <source>Login</source>
+      <translation>ورود</translation>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation>کلمه عبور</translation>
+    </message>
+    <message>
+      <source>Resource</source>
+      <translation>منبع</translation>
+    </message>
+    <message>
+      <source>Server</source>
+      <translation>سرور</translation>
+    </message>
+    <message>
+      <source>Recipients</source>
+      <translation>گیرندگان</translation>
+    </message>
+    <message>
+      <source>XMP Message content</source>
+      <translation>محتوا پیام XMP</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>تنظیمات به روز شد</translation>
+    </message>
+    <message>
+      <source>XMP message was sent succesfuly</source>
+      <translation>پیام XMP با موفقیت ارسال شد</translation>
+    </message>
+    <message>
+      <source>XMP settings</source>
+      <translation>تنظیمات XMP</translation>
+    </message>
+    <message>
+      <source>XMPP active</source>
+      <translation>XMPP فعال</translation>
+    </message>
+    <message>
+      <source>Default recipients</source>
+      <translation>گیرندگان پیش فرض</translation>
+    </message>
+    <message>
+      <source>Test message will be send to your account e-mail</source>
+      <translation>پیام آزمایشی به ایمیل شما ارسال خواهد شد</translation>
+    </message>
+    <message>
+      <source>XMPP message was sent succesfuly</source>
+      <translation>پیام XMPP با موفقیت ارسال شد</translation>
+    </message>
+    <message>
+      <source>XMPP settings</source>
+      <translation>تنظیمات XMPP</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/xmpp</name>
+    <message>
+      <source>XMPP settings</source>
+      <translation>تنظیمات XMPP</translation>
+    </message>
+    <message>
+      <source>XMPP active</source>
+      <translation>XMPP فعال</translation>
+    </message>
+    <message>
+      <source>Host</source>
+      <translation>هاست</translation>
+    </message>
+    <message>
+      <source>Port</source>
+      <translation>پورت</translation>
+    </message>
+    <message>
+      <source>Login</source>
+      <translation>ورود</translation>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation>کلمه عبور</translation>
+    </message>
+    <message>
+      <source>Resource</source>
+      <translation>منبع</translation>
+    </message>
+    <message>
+      <source>Server</source>
+      <translation>سرور</translation>
+    </message>
+    <message>
+      <source>Recipients</source>
+      <translation>گیرندگان</translation>
+    </message>
+    <message>
+      <source>Default recipients</source>
+      <translation>گیرندگان پیش فرض</translation>
+    </message>
+    <message>
+      <source>XMPP Message content</source>
+      <translation>محتوا پیام XMPP</translation>
+    </message>
+    <message>
+      <source>Test message will be send to your account e-mail</source>
+      <translation>پیام آزمایشی به ایمیل شما ارسال خواهد شد</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>تنظیمات به روز شد</translation>
+    </message>
+    <message>
+      <source>XMPP message was sent succesfuly</source>
+      <translation>پیام XMPP با موفقیت ارسال شد</translation>
     </message>
   </context>
 </TS>

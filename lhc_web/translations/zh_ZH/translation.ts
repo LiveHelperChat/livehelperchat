@@ -61,6 +61,10 @@
       <source>Test</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Send test message</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>abstract/abstract_form</name>
@@ -1440,6 +1444,10 @@
   <context>
     <name>system/configuration</name>
     <message>
+      <source>XMP settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New chat notification settings</source>
       <translation>新的聊天通知设置</translation>
     </message>
@@ -1498,6 +1506,10 @@
     <message>
       <source>SMTP settings</source>
       <translation>SMTP设置</translation>
+    </message>
+    <message>
+      <source>XMPP settings</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Languages configuration</source>
@@ -2372,6 +2384,26 @@
   <context>
     <name>department/edit</name>
     <message>
+      <source>Active days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active hours, 24 hours format</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>from, E.g 8</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>from, E.g 17</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMP messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Edit department</source>
       <translation>编辑部门</translation>
     </message>
@@ -2398,6 +2430,70 @@
     <message>
       <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
       <translation>此字段是最多50個字符的長度，並通過擴展可以用於任何用途。此字段索引。</translation>
+    </message>
+    <message>
+      <source>Inform about new chats using</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How many seconds chat can be pending before about chat is informed a staff</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online hours active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Workdays, during these days chat will be active automatically</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Monday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tuesday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wednesday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Thursday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Friday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Saturday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sunday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Work hours, 24 hours format, 1 - 24</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>From, E.g. 8</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>From, E.g. 17</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>None</source>
@@ -2538,12 +2634,12 @@
   <context>
     <name>department/new</name>
     <message>
-      <source>New department</source>
-      <translation>新部门</translation>
-    </message>
-    <message>
       <source>Please enter a department name</source>
       <translation>请输入一个部门名称</translation>
+    </message>
+    <message>
+      <source>New department</source>
+      <translation>新部门</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -3343,6 +3439,30 @@
   <context>
     <name>system/smtp</name>
     <message>
+      <source>XMP active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Resource</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Server</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMP Message content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMP message was sent succesfuly</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMP settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>SMTP settings</source>
       <translation>SMTP设置</translation>
     </message>
@@ -3936,16 +4056,16 @@
   <context>
     <name>departament/edit</name>
     <message>
+      <source>Please enter a department name</source>
+      <translation>请输入一个部门名称</translation>
+    </message>
+    <message>
       <source>Please enter a valid from date range!</source>
       <translation>請輸入一個有效的日期範圍！</translation>
     </message>
     <message>
       <source>Please enter a valid to date range!</source>
       <translation>請輸入一個有效的日期範圍！</translation>
-    </message>
-    <message>
-      <source>Please enter a department name</source>
-      <translation>请输入一个部门名称</translation>
     </message>
   </context>
   <context>
@@ -4100,6 +4220,136 @@
     </message>
     <message>
       <source>Removed thumb vote</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>system/xmp</name>
+    <message>
+      <source>XMP active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Host</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Port</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Login</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Resource</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Server</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMP Message content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMP message was sent succesfuly</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMP settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test message will be send to your account e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP message was sent succesfuly</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP settings</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>system/xmpp</name>
+    <message>
+      <source>XMPP settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Host</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Port</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Login</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Resource</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Server</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP Message content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test message will be send to your account e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP message was sent succesfuly</source>
       <translation type="unfinished"/>
     </message>
   </context>

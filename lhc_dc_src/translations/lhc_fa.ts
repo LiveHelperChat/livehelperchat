@@ -289,7 +289,7 @@
     <name>MainWindow</name>
     <message>
         <source>Live helper chat</source>
-        <translation type="unfinished"/>
+        <translation>Live helper chat</translation>
     </message>
     <message>
         <source>New request</source>
@@ -337,15 +337,15 @@
     </message>
     <message>
         <source>&amp;Actions</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Actions</translation>
     </message>
     <message>
         <source>&amp;Chats</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Chats</translation>
     </message>
     <message>
         <source>&amp;Management</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Management</translation>
     </message>
     <message>
         <source>&amp;Help</source>
