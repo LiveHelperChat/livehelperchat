@@ -11,9 +11,12 @@ class erLhcoreClassChatMail {
 			$phpMailer->IsSMTP();
 			$phpMailer->Host = $data['host'];
 			$phpMailer->Port = $data['port'];
-			$phpMailer->Username = $data['username'];
-			$phpMailer->Password = $data['password'];
-			$phpMailer->SMTPAuth = true;
+			
+			if ($data['username'] != '' && $data['password'] != '') {			
+				$phpMailer->Username = $data['username'];
+				$phpMailer->Password = $data['password'];
+				$phpMailer->SMTPAuth = true;
+			}
 		}
 	}
 

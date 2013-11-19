@@ -113,12 +113,14 @@ if (isset($_POST['Update']))
     {
         $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Please enter a name');
     }
-
-    if ( !$form->hasValidData( 'Surname' ) || $form->Surname == '')
+        
+    if ( $form->hasValidData( 'Surname' ) && $form->Surname != '')
     {
-        $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Please enter a surname');
+    	$UserData->surname = $form->Surname;
+    } else {
+    	$UserData->surname = '';
     }
-
+        
     if ( $form->hasInputField( 'Password' ) && (!$form->hasInputField( 'Password1' ) || $form->Password != $form->Password1  ) ) // check for optional field
     {
         $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Passwords mismatch');
