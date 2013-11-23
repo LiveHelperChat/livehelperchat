@@ -98,6 +98,8 @@ class XMPPHP_XMPP extends XMPPHP_XMLStream {
 	 */
 	public $roster;
 
+	public $xoauth = false;
+	
 	/**
 	 * Constructor
 	 *
@@ -110,7 +112,7 @@ class XMPPHP_XMPP extends XMPPHP_XMLStream {
 	 * @param boolean $printlog
 	 * @param string  $loglevel
 	 */
-	public function __construct($host, $port, $user, $password, $resource, $server = null, $printlog = false, $loglevel = null) {
+	public function __construct($host, $port, $user, $password, $resource, $server = null, $printlog = false, $loglevel = null, $xoauth = false) {
 		parent::__construct($host, $port, $printlog, $loglevel);
 		
 		$this->user	 = $user;
@@ -118,7 +120,9 @@ class XMPPHP_XMPP extends XMPPHP_XMLStream {
 		$this->resource = $resource;
 		if(!$server) $server = $host;
 		$this->basejid = $this->user . '@' . $this->host;
-
+	
+		$this->xoauth = $xoauth;		
+		
 		$this->roster = new Roster();
 		$this->track_presence = true;
 
@@ -279,11 +283,16 @@ class XMPPHP_XMPP extends XMPPHP_XMLStream {
 			$this->send("<iq xmlns=\"jabber:client\" type=\"set\" id=\"$id\"><bind xmlns=\"urn:ietf:params:xml:ns:xmpp-bind\"><resource>{$this->resource}</resource></bind></iq>");
 		} else {
 			$this->log->log("Attempting Auth...");
-			if ($this->password) {
-			$this->send("<auth xmlns='urn:ietf:params:xml:ns:xmpp-sasl' mechanism='PLAIN'>" . base64_encode("\x00" . $this->user . "\x00" . $this->password) . "</auth>");
-			} else {
-                        $this->send("<auth xmlns='urn:ietf:params:xml:ns:xmpp-sasl' mechanism='ANONYMOUS'/>");
-			}	
+			
+			if ($this->xoauth == true) {
+				$this->send("<auth xmlns='urn:ietf:params:xml:ns:xmpp-sasl' mechanism='X-OAUTH2'>" . base64_encode("\x00" . $this->user . "\x00" . $this->password) . "</auth>");
+			} else {			
+				if ($this->password) {
+					$this->send("<auth xmlns='urn:ietf:params:xml:ns:xmpp-sasl' mechanism='PLAIN'>" . base64_encode("\x00" . $this->user . "\x00" . $this->password) . "</auth>");
+				} else {
+	                $this->send("<auth xmlns='urn:ietf:params:xml:ns:xmpp-sasl' mechanism='ANONYMOUS'/>");
+				}	
+			}
 		}
 	}
 

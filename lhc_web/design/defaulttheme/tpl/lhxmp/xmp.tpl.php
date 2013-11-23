@@ -1,7 +1,5 @@
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','XMPP settings');?></h1>
 
-<div class="right"><a class="button secondary small radius" target="_blank" href="http://livehelperchat.com/xmpp-gtalk-xabber-configuration-and-support-222a.html"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','XMPP documentation');?></a></div>
- 
 <?php if (isset($errors)) : ?>
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
