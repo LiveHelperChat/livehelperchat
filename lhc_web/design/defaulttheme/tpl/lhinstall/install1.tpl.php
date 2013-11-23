@@ -41,7 +41,7 @@
     </tr>
     <tr>
         <td>Is the php_curl extension installed</td>
-        <td><?php echo extension_loaded ('php_curl' ) ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'; ?></td>
+        <td><?php echo extension_loaded ('curl' ) ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'; ?></td>
     </tr>
     <tr>
         <td>Is the mbstring extension installed</td>

@@ -37,7 +37,7 @@ if ($Params['user_parameters_unordered']['gtalkoauth'] == 'true') {
 	$client->setClientId($data['gtalk_client_id']);
 	$client->setClientSecret($data['gtalk_client_secret']);
 	$client->setApprovalPrompt('force');
-	$client->setRedirectUri('http://'.$_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('xmp/configuration/(gtalkoauth)/true'));
+	$client->setRedirectUri('http://'.$_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('xmp/configuration').'/(gtalkoauth)/true');
 		
 	if (isset($_GET['code'])) {
 		try {			
@@ -72,7 +72,7 @@ if (isset($_POST['StoreXMPGTalkSettingsTest'])) {
 	$client->setClientId($data['gtalk_client_id']);
 	$client->setClientSecret($data['gtalk_client_secret']);
 	$client->setApprovalPrompt('force');
-	$client->setRedirectUri('http://'.$_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('xmp/configuration/(gtalkoauth)/true'));
+	$client->setRedirectUri('http://'.$_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('xmp/configuration').'/(gtalkoauth)/true');
 			
 	if ( !$client->getAccessToken() ) {
 		header('Location: '.$client->createAuthUrl());
@@ -92,6 +92,9 @@ if ( isset($_POST['StoreXMPGTalkSettings']) ) {
 					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
 			),
 			'use_standard_xmp' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'int'
+			),			
+			'use_xmp' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'int'
 			)
 	);
@@ -116,6 +119,12 @@ if ( isset($_POST['StoreXMPGTalkSettings']) ) {
 		$data['gtalk_client_secret'] = $form->gtalk_client_secret;
 	} else {
 		$data['gtalk_client_secret'] = '';
+	}
+	
+	if ( $form->hasValidData( 'use_xmp' ) && $form->use_xmp == true ) {
+		$data['use_xmp'] = 1;
+	} else {
+		$data['use_xmp'] = 0;
 	}
 	
 	if ( $form->hasValidData( 'use_standard_xmp' )) {

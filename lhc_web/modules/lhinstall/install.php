@@ -53,7 +53,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 		if (!extension_loaded ('pdo_mysql' ))
 	       $Errors[] = "php-pdo extension not detected. Please install php extension";
 		
-		if (!extension_loaded('php_curl'))
+		if (!extension_loaded('curl'))
 			$Errors[] = "php_curl extension not detected. Please install php extension";	
 		
 		if (!extension_loaded('mbstring'))
