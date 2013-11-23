@@ -193,7 +193,7 @@ class erLhcoreClassChatMail {
     	$mail->ClearAddresses();
     }
     
-    public function sendMailUnacceptedChat(erLhcoreClassModelChat $chat) {
+    public static function sendMailUnacceptedChat(erLhcoreClassModelChat $chat) {
     	$sendMail = erLhAbstractModelEmailTemplate::fetch(4);
     	
     	$mail = new PHPMailer();
@@ -239,9 +239,64 @@ class erLhcoreClassChatMail {
     		$mail->AddAddress( $receiver );    		    		
     		$mail->Send();
     		$mail->ClearAddresses();
-    	}  	    	
-    	
+    	}  
     }
+    
+    
+    public static function informChatClosed(erLhcoreClassModelChat $chat, $operator = false) {
+    	$sendMail = erLhAbstractModelEmailTemplate::fetch(5);
+    	
+    	$mail = new PHPMailer();
+    	$mail->CharSet = "UTF-8";
+
+    	if ($sendMail->from_email != '') { 	
+    		$mail->Sender = $mail->From = $sendMail->from_email;
+    	}
+
+    	$mail->FromName = $sendMail->from_name;    	
+    	$mail->Subject = $sendMail->subject;
+    	   	    	
+    	$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 10,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
+    	$messagesContent = '';
+    	
+    	foreach ($messages as $msg ) {
+	    	 if ($msg->user_id == -1) {
+	    		$messagesContent .= date('Y-m-d H:i:s',$msg->time).' '. erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','System assistant').': '.htmlspecialchars($msg->msg)."\n";
+	    	 } else {
+	    		$messagesContent .= date('Y-m-d H:i:s',$msg->time).' '. ($msg->user_id == 0 ? htmlspecialchars($chat->nick) : htmlspecialchars($msg->name_support)).': '.htmlspecialchars($msg->msg)."\n";
+	    	 }
+    	}
+    	
+    	$emailRecipient = array();
+    	if ($sendMail->recipient != '') { // This time we give priority to template recipients
+    		$emailRecipient = explode(',',$sendMail->recipient);    		
+    	}elseif ($chat->department !== false && $chat->department->email != '') {    			
+    		$emailRecipient = explode(',',$chat->department->email);    		
+    	} else { // Lets find first user and send him an e-mail
+    		$list = erLhcoreClassModelUser::getUserList(array('limit' => 1,'sort' => 'id ASC'));
+    		$user = array_pop($list);
+    		$emailRecipient = array($user->email);
+    	}
+    	
+    	self::setupSMTP($mail);
+    	
+    	$cfgSite = erConfigClassLhConfig::getInstance();
+    	$secretHash = $cfgSite->getSetting( 'site', 'secrethash' );
+    	
+    	if ($chat->email != '') {
+    		$mail->AddReplyTo($chat->email, $chat->nick);
+    	}
+
+    	foreach ($emailRecipient as $receiver) {   
+    		$veryfyEmail = 	sha1(sha1($receiver.$secretHash).$secretHash);
+    		$mail->Body = str_replace(array('{phone}','{name}','{email}','{message}','{additional_data}','{url_request}','{ip}','{department}','{url_accept}','{operator}'), array($chat->phone,$chat->nick,$chat->email,$messagesContent,$chat->additional_data,$chat->referrer,erLhcoreClassIPDetect::getIP(),(string)$chat->department,'http://' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('chat/accept').'/'.erLhcoreClassModelChatAccept::generateAcceptLink($chat).'/'.$veryfyEmail.'/'.$receiver,$operator), $sendMail->content);
+    		$mail->AddAddress( $receiver );    		    		
+    		$mail->Send();
+    		$mail->ClearAddresses();
+    	}
+    }
+    
+    
 
 }
 

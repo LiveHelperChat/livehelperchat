@@ -79,6 +79,9 @@ class erLhcoreClassDepartament{
 	   			'OnlineHoursActive' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	   			),
+	   			'inform_close' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	   			),
 	   			'StartHour' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0, 'mx_range' => 24)
 	   			),
@@ -140,6 +143,12 @@ class erLhcoreClassDepartament{
 	   		$department->priority = $form->Priority;
 	   	} else {
 	   		$department->priority = 0;
+	   	}
+	   		   	
+	   	if ( $form->hasValidData( 'inform_close' ) && $form->inform_close === true ) {
+	   		$department->inform_close = 1;
+	   	} else {
+	   		$department->inform_close = 0;
 	   	}
 	   		   	
 	   	if ( $form->hasValidData( 'mod' ) && $form->mod === true ) {

@@ -861,7 +861,7 @@ class erLhcoreClassChat {
         return self::$persistentSession;
    }
 
-   public static function closeChatCallback($chat) {
+   public static function closeChatCallback($chat, $operator = false) {
 	   	$extensions = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'extensions' );
 
 	   	$instance = erLhcoreClassSystem::instance();
@@ -871,6 +871,10 @@ class erLhcoreClassChat {
 	   		if (file_exists($callbackFile)) {
 	   			include $callbackFile;
 	   		}
+	   	}
+	   	
+	   	if ( ($dep = $chat->department) !== false && $dep->inform_close == 1) {
+	   		erLhcoreClassChatMail::informChatClosed($chat, $operator);
 	   	}
    }
 

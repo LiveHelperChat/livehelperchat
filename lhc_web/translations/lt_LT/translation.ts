@@ -63,7 +63,7 @@
     </message>
     <message>
       <source>Send test message</source>
-      <translation type="unfinished"/>
+      <translation>Siųsti bandomają žinutę</translation>
     </message>
   </context>
   <context>
@@ -1445,7 +1445,7 @@
     <name>system/configuration</name>
     <message>
       <source>XMP settings</source>
-      <translation type="unfinished"/>
+      <translation>XMPP nustatymai</translation>
     </message>
     <message>
       <source>New chat notification settings</source>
@@ -1509,7 +1509,7 @@
     </message>
     <message>
       <source>XMPP settings</source>
-      <translation type="unfinished"/>
+      <translation>XMPP nustatymai</translation>
     </message>
     <message>
       <source>Languages configuration</source>
@@ -2385,23 +2385,23 @@
     <name>department/edit</name>
     <message>
       <source>Active days</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvios dienos</translation>
     </message>
     <message>
       <source>Active hours, 24 hours format</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvios valandios, 24 valandų formatas</translation>
     </message>
     <message>
       <source>from, E.g 8</source>
-      <translation type="unfinished"/>
+      <translation>nuo, Pvz. 8</translation>
     </message>
     <message>
       <source>from, E.g 17</source>
-      <translation type="unfinished"/>
+      <translation>Nuo, Pvz. 17</translation>
     </message>
     <message>
       <source>XMP messages</source>
-      <translation type="unfinished"/>
+      <translation>XMPP žinutė</translation>
     </message>
     <message>
       <source>Edit department</source>
@@ -2433,67 +2433,67 @@
     </message>
     <message>
       <source>Inform about new chats using</source>
-      <translation type="unfinished"/>
+      <translation>Informuoti apie naujus pokalbius naudojant</translation>
     </message>
     <message>
       <source>XMPP messages</source>
-      <translation type="unfinished"/>
+      <translation>XMPP pranešimus</translation>
     </message>
     <message>
       <source>Mail messages</source>
-      <translation type="unfinished"/>
+      <translation>Pašto pranešimus</translation>
     </message>
     <message>
       <source>How many seconds chat can be pending before about chat is informed a staff</source>
-      <translation type="unfinished"/>
+      <translation>Kiek sekundžių laukti, kol apie pokalbį bus informuotas personalas</translation>
     </message>
     <message>
       <source>Online hours active</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvios darbo valandos</translation>
     </message>
     <message>
       <source>Workdays, during these days chat will be active automatically</source>
-      <translation type="unfinished"/>
+      <translation>Darbo dienos, šiomis dienomis pokalbis bus aktyvus automatiškai</translation>
     </message>
     <message>
       <source>Monday</source>
-      <translation type="unfinished"/>
+      <translation>Pirmadienis</translation>
     </message>
     <message>
       <source>Tuesday</source>
-      <translation type="unfinished"/>
+      <translation>Antradienis</translation>
     </message>
     <message>
       <source>Wednesday</source>
-      <translation type="unfinished"/>
+      <translation>Trečiadienis</translation>
     </message>
     <message>
       <source>Thursday</source>
-      <translation type="unfinished"/>
+      <translation>Ketvirtadienis</translation>
     </message>
     <message>
       <source>Friday</source>
-      <translation type="unfinished"/>
+      <translation>Penktadienis</translation>
     </message>
     <message>
       <source>Saturday</source>
-      <translation type="unfinished"/>
+      <translation>Šeštadienis</translation>
     </message>
     <message>
       <source>Sunday</source>
-      <translation type="unfinished"/>
+      <translation>Sekmadienis</translation>
     </message>
     <message>
       <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation type="unfinished"/>
+      <translation>Darbo valandos, 24 valandų formatas, 1-24</translation>
     </message>
     <message>
       <source>From, E.g. 8</source>
-      <translation type="unfinished"/>
+      <translation>Nuo, Pvz. 8</translation>
     </message>
     <message>
       <source>From, E.g. 17</source>
-      <translation type="unfinished"/>
+      <translation>Nuo, Pvz. 17</translation>
     </message>
     <message>
       <source>None</source>
@@ -3440,27 +3440,27 @@
     <name>system/smtp</name>
     <message>
       <source>XMP active</source>
-      <translation type="unfinished"/>
+      <translation>XMPP aktyvus</translation>
     </message>
     <message>
       <source>Resource</source>
-      <translation type="unfinished"/>
+      <translation>Resursas</translation>
     </message>
     <message>
       <source>Server</source>
-      <translation type="unfinished"/>
+      <translation>Serveris</translation>
     </message>
     <message>
       <source>XMP Message content</source>
-      <translation type="unfinished"/>
+      <translation>XMPP žinutės turinys</translation>
     </message>
     <message>
       <source>XMP message was sent succesfuly</source>
-      <translation type="unfinished"/>
+      <translation>XMPP žinutė buvo sėkmingai išsiųsta</translation>
     </message>
     <message>
       <source>XMP settings</source>
-      <translation type="unfinished"/>
+      <translation>XMPP nustatymai</translation>
     </message>
     <message>
       <source>SMTP settings</source>
@@ -4227,110 +4227,110 @@
     <name>system/xmp</name>
     <message>
       <source>XMP active</source>
-      <translation type="unfinished"/>
+      <translation>XMPP aktyvus</translation>
     </message>
     <message>
       <source>Host</source>
-      <translation type="unfinished"/>
+      <translation>Hostas</translation>
     </message>
     <message>
       <source>Port</source>
-      <translation type="unfinished"/>
+      <translation>Porta</translation>
     </message>
     <message>
       <source>Login</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojas</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation type="unfinished"/>
+      <translation>Slaptažodi</translation>
     </message>
     <message>
       <source>Resource</source>
-      <translation type="unfinished"/>
+      <translation>Resursas</translation>
     </message>
     <message>
       <source>Server</source>
-      <translation type="unfinished"/>
+      <translation>Serveris</translation>
     </message>
     <message>
       <source>Recipients</source>
-      <translation type="unfinished"/>
+      <translation>Gavėjai</translation>
     </message>
     <message>
       <source>XMP Message content</source>
-      <translation type="unfinished"/>
+      <translation>XMPP žinutės turinys</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Nustatymai atnaujinti</translation>
     </message>
     <message>
       <source>XMP message was sent succesfuly</source>
-      <translation type="unfinished"/>
+      <translation>XMPP žinutė buvo sėkmingai išsiųsta</translation>
     </message>
     <message>
       <source>XMP settings</source>
-      <translation type="unfinished"/>
+      <translation>XMPP nustatymai</translation>
     </message>
     <message>
       <source>XMPP active</source>
-      <translation type="unfinished"/>
+      <translation>XMPP aktyvus</translation>
     </message>
     <message>
       <source>Default recipients</source>
-      <translation type="unfinished"/>
+      <translation>Numatyti gavėjai</translation>
     </message>
     <message>
       <source>Test message will be send to your account e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Bandomoji žinutė bus išsiųsta į Jūsų el. pašto adresą</translation>
     </message>
     <message>
       <source>XMPP message was sent succesfuly</source>
-      <translation type="unfinished"/>
+      <translation>XMPP žinutė buvo sėkmingai išsiųsta</translation>
     </message>
     <message>
       <source>XMPP settings</source>
-      <translation type="unfinished"/>
+      <translation>XMPP nustatymai</translation>
     </message>
   </context>
   <context>
     <name>system/xmpp</name>
     <message>
       <source>XMPP settings</source>
-      <translation type="unfinished"/>
+      <translation>XMPP nustatymai</translation>
     </message>
     <message>
       <source>XMPP active</source>
-      <translation type="unfinished"/>
+      <translation>XMPP aktyvus</translation>
     </message>
     <message>
       <source>Host</source>
-      <translation type="unfinished"/>
+      <translation>Hostas</translation>
     </message>
     <message>
       <source>Port</source>
-      <translation type="unfinished"/>
+      <translation>Portas</translation>
     </message>
     <message>
       <source>Login</source>
-      <translation type="unfinished"/>
+      <translation>Prisijungimas</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation type="unfinished"/>
+      <translation>Slaptažodi</translation>
     </message>
     <message>
       <source>Resource</source>
-      <translation type="unfinished"/>
+      <translation>Resursas</translation>
     </message>
     <message>
       <source>Server</source>
-      <translation type="unfinished"/>
+      <translation>Serveris</translation>
     </message>
     <message>
       <source>Recipients</source>
-      <translation type="unfinished"/>
+      <translation>Gavėjai</translation>
     </message>
     <message>
       <source>Default recipients</source>

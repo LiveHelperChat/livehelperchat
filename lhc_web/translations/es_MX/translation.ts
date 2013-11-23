@@ -65,7 +65,7 @@
     </message>
     <message>
       <source>Send test message</source>
-      <translation type="unfinished"/>
+      <translation>Enviar mensaje de prueba</translation>
     </message>
   </context>
   <context>
@@ -1449,7 +1449,7 @@
     <name>system/configuration</name>
     <message>
       <source>XMP settings</source>
-      <translation type="unfinished"/>
+      <translation>Configuración XMP</translation>
     </message>
     <message>
       <source>New chat notification settings</source>
@@ -1513,7 +1513,7 @@
     </message>
     <message>
       <source>XMPP settings</source>
-      <translation type="unfinished"/>
+      <translation>Configuración XMPP</translation>
     </message>
     <message>
       <source>Languages configuration</source>
@@ -1936,7 +1936,7 @@
     </message>
     <message>
       <source>Votes</source>
-      <translation type="unfinished"/>
+      <translation>Votos</translation>
     </message>
     <message>
       <source>Last activity</source>
@@ -2389,23 +2389,23 @@
     <name>department/edit</name>
     <message>
       <source>Active days</source>
-      <translation type="unfinished"/>
+      <translation>Días activo</translation>
     </message>
     <message>
       <source>Active hours, 24 hours format</source>
-      <translation type="unfinished"/>
+      <translation>Horas activo, formato 24 horas</translation>
     </message>
     <message>
       <source>from, E.g 8</source>
-      <translation type="unfinished"/>
+      <translation>desde, Ej: 8</translation>
     </message>
     <message>
       <source>from, E.g 17</source>
-      <translation type="unfinished"/>
+      <translation>desde, Ej: 17</translation>
     </message>
     <message>
       <source>XMP messages</source>
-      <translation type="unfinished"/>
+      <translation>Mensajes XMP</translation>
     </message>
     <message>
       <source>Edit department</source>
@@ -2437,67 +2437,67 @@
     </message>
     <message>
       <source>Inform about new chats using</source>
-      <translation type="unfinished"/>
+      <translation>Informar acerca del uso de nuevos chats</translation>
     </message>
     <message>
       <source>XMPP messages</source>
-      <translation type="unfinished"/>
+      <translation>mensajes XMPP</translation>
     </message>
     <message>
       <source>Mail messages</source>
-      <translation type="unfinished"/>
+      <translation>Mensajes de correo</translation>
     </message>
     <message>
       <source>How many seconds chat can be pending before about chat is informed a staff</source>
-      <translation type="unfinished"/>
+      <translation>¿Cuántos chats secundarios pueden estar pendientes antes de que el chat sea informado al personal?</translation>
     </message>
     <message>
       <source>Online hours active</source>
-      <translation type="unfinished"/>
+      <translation>Horas activo en línea</translation>
     </message>
     <message>
       <source>Workdays, during these days chat will be active automatically</source>
-      <translation type="unfinished"/>
+      <translation>Días de trabajo, durante estos días el chat se activará automáticamente</translation>
     </message>
     <message>
       <source>Monday</source>
-      <translation type="unfinished"/>
+      <translation>Lunes</translation>
     </message>
     <message>
       <source>Tuesday</source>
-      <translation type="unfinished"/>
+      <translation>Martes</translation>
     </message>
     <message>
       <source>Wednesday</source>
-      <translation type="unfinished"/>
+      <translation>Miércoles</translation>
     </message>
     <message>
       <source>Thursday</source>
-      <translation type="unfinished"/>
+      <translation>Jueves</translation>
     </message>
     <message>
       <source>Friday</source>
-      <translation type="unfinished"/>
+      <translation>Viernes</translation>
     </message>
     <message>
       <source>Saturday</source>
-      <translation type="unfinished"/>
+      <translation>Sábado</translation>
     </message>
     <message>
       <source>Sunday</source>
-      <translation type="unfinished"/>
+      <translation>Domingo</translation>
     </message>
     <message>
       <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation type="unfinished"/>
+      <translation>Horas de trabajo, formato 24 horas, 1 - 24</translation>
     </message>
     <message>
       <source>From, E.g. 8</source>
-      <translation type="unfinished"/>
+      <translation>Desde Ej: 8</translation>
     </message>
     <message>
       <source>From, E.g. 17</source>
-      <translation type="unfinished"/>
+      <translation>Desde Ej: 17</translation>
     </message>
     <message>
       <source>None</source>
@@ -3448,27 +3448,27 @@ Lista de funciones</translation>
     <name>system/smtp</name>
     <message>
       <source>XMP active</source>
-      <translation type="unfinished"/>
+      <translation>XMP activo</translation>
     </message>
     <message>
       <source>Resource</source>
-      <translation type="unfinished"/>
+      <translation>Recurso</translation>
     </message>
     <message>
       <source>Server</source>
-      <translation type="unfinished"/>
+      <translation>Servidor</translation>
     </message>
     <message>
       <source>XMP Message content</source>
-      <translation type="unfinished"/>
+      <translation>Contenido mensaje XMP</translation>
     </message>
     <message>
       <source>XMP message was sent succesfuly</source>
-      <translation type="unfinished"/>
+      <translation>Mensaje XMP enviado correctamente</translation>
     </message>
     <message>
       <source>XMP settings</source>
-      <translation type="unfinished"/>
+      <translation>Configuración XMP</translation>
     </message>
     <message>
       <source>SMTP settings</source>
@@ -4235,130 +4235,130 @@ Lista de funciones</translation>
     <name>system/xmp</name>
     <message>
       <source>XMP active</source>
-      <translation type="unfinished"/>
+      <translation>XMP activo</translation>
     </message>
     <message>
       <source>Host</source>
-      <translation type="unfinished"/>
+      <translation>Servidor</translation>
     </message>
     <message>
       <source>Port</source>
-      <translation type="unfinished"/>
+      <translation>Puerto</translation>
     </message>
     <message>
       <source>Login</source>
-      <translation type="unfinished"/>
+      <translation>Usuario</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation type="unfinished"/>
+      <translation>Contraseña</translation>
     </message>
     <message>
       <source>Resource</source>
-      <translation type="unfinished"/>
+      <translation>Recurso</translation>
     </message>
     <message>
       <source>Server</source>
-      <translation type="unfinished"/>
+      <translation>Servidor</translation>
     </message>
     <message>
       <source>Recipients</source>
-      <translation type="unfinished"/>
+      <translation>Destinatarios</translation>
     </message>
     <message>
       <source>XMP Message content</source>
-      <translation type="unfinished"/>
+      <translation>Contenido mensaje XMP</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Configuración actualizada</translation>
     </message>
     <message>
       <source>XMP message was sent succesfuly</source>
-      <translation type="unfinished"/>
+      <translation>Mensaje XMP enviado correctamente</translation>
     </message>
     <message>
       <source>XMP settings</source>
-      <translation type="unfinished"/>
+      <translation>Configuración XMP</translation>
     </message>
     <message>
       <source>XMPP active</source>
-      <translation type="unfinished"/>
+      <translation>XMPP activo</translation>
     </message>
     <message>
       <source>Default recipients</source>
-      <translation type="unfinished"/>
+      <translation>Destinatarios por defecto</translation>
     </message>
     <message>
       <source>Test message will be send to your account e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Se enviará un mensaje de prueba a tu cuenta de e-mail</translation>
     </message>
     <message>
       <source>XMPP message was sent succesfuly</source>
-      <translation type="unfinished"/>
+      <translation>Mensaje XMPP enviado correctamente</translation>
     </message>
     <message>
       <source>XMPP settings</source>
-      <translation type="unfinished"/>
+      <translation>Configuración XMPP</translation>
     </message>
   </context>
   <context>
     <name>system/xmpp</name>
     <message>
       <source>XMPP settings</source>
-      <translation type="unfinished"/>
+      <translation>Configuración XMPP</translation>
     </message>
     <message>
       <source>XMPP active</source>
-      <translation type="unfinished"/>
+      <translation>XMPP activo</translation>
     </message>
     <message>
       <source>Host</source>
-      <translation type="unfinished"/>
+      <translation>Servidor</translation>
     </message>
     <message>
       <source>Port</source>
-      <translation type="unfinished"/>
+      <translation>Puerto</translation>
     </message>
     <message>
       <source>Login</source>
-      <translation type="unfinished"/>
+      <translation>Usuario</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation type="unfinished"/>
+      <translation>Contraseña</translation>
     </message>
     <message>
       <source>Resource</source>
-      <translation type="unfinished"/>
+      <translation>Recurso</translation>
     </message>
     <message>
       <source>Server</source>
-      <translation type="unfinished"/>
+      <translation>Servidor</translation>
     </message>
     <message>
       <source>Recipients</source>
-      <translation type="unfinished"/>
+      <translation>Destinatarios</translation>
     </message>
     <message>
       <source>Default recipients</source>
-      <translation type="unfinished"/>
+      <translation>Destinatarios por defecto</translation>
     </message>
     <message>
       <source>XMPP Message content</source>
-      <translation type="unfinished"/>
+      <translation>Contenido mensaje XMPP</translation>
     </message>
     <message>
       <source>Test message will be send to your account e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Se enviará un mensaje a tu cuenta de e-mail</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Configuración actualizada</translation>
     </message>
     <message>
       <source>XMPP message was sent succesfuly</source>
-      <translation type="unfinished"/>
+      <translation>Mensaje XMPP enviado correctamente</translation>
     </message>
   </context>
 </TS>

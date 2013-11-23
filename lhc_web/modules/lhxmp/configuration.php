@@ -5,6 +5,138 @@ $tpl = erLhcoreClassTemplate::getInstance( 'lhxmp/xmp.tpl.php');
 $xmpData = erLhcoreClassModelChatConfig::fetch('xmp_data');
 $data = (array)$xmpData->data;
 
+if (isset($_POST['StoreXMPGTalkSendeMessage'])) {	
+	try {
+		erLhcoreClassXMP::sendTestXMPGTalk($currentUser->getUserData());
+		$tpl->set('message_send','done');
+	} catch (Exception $e) {
+		$tpl->set('errors',array($e->getMessage()));
+	}
+}
+
+if (isset($_POST['StoreXMPGTalkRevokeToken'])){
+	try {
+		erLhcoreClassXMP::revokeAccessToken();
+		$tpl->set('token_revoked','done');
+	} catch (Exception $e) {
+		$tpl->set('errors',array($e->getMessage()));
+	}
+}
+
+if ($Params['user_parameters_unordered']['gtalkoauth'] == 'true') {
+	
+	require_once 'lib/core/lhxmp/google/Google_Client.php';
+	require_once 'lib/core/lhxmp/google/contrib/Google_Oauth2Service.php';
+	
+	$client = new Google_Client();
+	$oauth2 = new Google_Oauth2Service($client);
+	
+	$client->setApplicationName('Live Helper Chat');
+	$client->setScopes(array("https://www.googleapis.com/auth/googletalk","https://www.googleapis.com/auth/userinfo.email"));
+	
+	$client->setClientId($data['gtalk_client_id']);
+	$client->setClientSecret($data['gtalk_client_secret']);
+	$client->setApprovalPrompt('force');
+	$client->setRedirectUri('http://'.$_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('xmp/configuration/(gtalkoauth)/true'));
+		
+	if (isset($_GET['code'])) {
+		try {			
+			$client->authenticate();		
+			$data['gtalk_client_token'] = $client->getAccessToken();			
+			$userGoogle = $oauth2->userinfo->get();
+			$data['email_gtalk'] = $userGoogle['email'];
+						
+			$xmpData->value = serialize($data);
+			$xmpData->saveThis();
+			$tpl->set('token_received','done');
+		} catch (Exception $e) {
+			$tpl->set('errors',array($e->getMessage()));
+		}
+	} else {
+		$tpl->set('errors',array('Could not receive a token!'));
+	}
+}
+
+
+if (isset($_POST['StoreXMPGTalkSettingsTest'])) {
+	
+	require_once 'lib/core/lhxmp/google/Google_Client.php';
+	
+	$client = new Google_Client();
+	$client->setApplicationName('Live Helper Chat');
+	$client->setScopes(array("https://www.googleapis.com/auth/googletalk","https://www.googleapis.com/auth/userinfo.email"));
+	
+	// Documentation: http://code.google.com/apis/gdata/docs/2.0/basics.html
+	// Visit https://code.google.com/apis/console?api=contacts to generate your
+	// oauth2_client_id, oauth2_client_secret, and register your oauth2_redirect_uri.	
+	$client->setClientId($data['gtalk_client_id']);
+	$client->setClientSecret($data['gtalk_client_secret']);
+	$client->setApprovalPrompt('force');
+	$client->setRedirectUri('http://'.$_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('xmp/configuration/(gtalkoauth)/true'));
+			
+	if ( !$client->getAccessToken() ) {
+		header('Location: '.$client->createAuthUrl());
+		exit;
+	}
+}
+
+if ( isset($_POST['StoreXMPGTalkSettings']) ) {
+	$definition = array(
+			'gtalk_client_id' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+			),
+			'gtalk_client_secret' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+			),
+			'XMPMessage' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+			),
+			'use_standard_xmp' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'int'
+			)
+	);
+	
+	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+		erLhcoreClassModule::redirect('xmp/configuration');
+		exit;
+	}
+	
+	$Errors = array();
+	
+	$form = new ezcInputForm( INPUT_POST, $definition );
+	$Errors = array();
+	
+	if ( $form->hasValidData( 'gtalk_client_id' )) {
+		$data['gtalk_client_id'] = $form->gtalk_client_id;
+	} else {
+		$data['gtalk_client_id'] = '';
+	}
+	
+	if ( $form->hasValidData( 'gtalk_client_secret' )) {
+		$data['gtalk_client_secret'] = $form->gtalk_client_secret;
+	} else {
+		$data['gtalk_client_secret'] = '';
+	}
+	
+	if ( $form->hasValidData( 'use_standard_xmp' )) {
+		$data['use_standard_xmp'] = $form->use_standard_xmp;
+	} else {
+		$data['use_standard_xmp'] = 0;
+	}
+	
+	if ( $form->hasValidData( 'XMPMessage' ) ) {
+		$data['xmp_message'] = $form->XMPMessage;
+	} else {
+		$data['xmp_message'] = '';
+	}
+	
+	$xmpData->value = serialize($data);
+	$xmpData->saveThis();
+	
+	$tpl->set('updated','done');	
+}
+
+
 if ( isset($_POST['StoreXMPSettings']) || isset($_POST['StoreXMPSettingsTest']) ) {
 
 	$definition = array(
@@ -35,6 +167,9 @@ if ( isset($_POST['StoreXMPSettings']) || isset($_POST['StoreXMPSettingsTest']) 
 			'XMPMessage' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
 			),
+			'use_standard_xmp' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'int'
+			)
 	);
 
 	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
@@ -99,6 +234,13 @@ if ( isset($_POST['StoreXMPSettings']) || isset($_POST['StoreXMPSettingsTest']) 
 		$data['xmp_message'] = '';
 	}
 	
+	if ( $form->hasValidData( 'use_standard_xmp' )) {
+		$data['use_standard_xmp'] = $form->use_standard_xmp;
+	} else {
+		$data['use_standard_xmp'] = 0;
+	}
+	
+	
 	$xmpData->value = serialize($data);
 	$xmpData->saveThis();
 
@@ -118,6 +260,6 @@ $tpl->set('xmp_data',$data);
 
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','System configuration')),
-array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmp','XMPP settings')));
+array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','XMPP settings')));
 
 ?>

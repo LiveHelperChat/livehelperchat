@@ -6,6 +6,7 @@ $ViewList = array();
 
 $ViewList['configuration'] = array(
     'params' => array(),
+    'uparams' => array('gtalkoauth'),
 	'functions' => array( 'configurexmp' )
 );
 

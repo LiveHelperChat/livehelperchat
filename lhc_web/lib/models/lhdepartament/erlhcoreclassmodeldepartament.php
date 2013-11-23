@@ -23,6 +23,7 @@ class erLhcoreClassModelDepartament {
                'end_hour'    			=> $this->end_hour,
                'inform_options'    		=> $this->inform_options,
                'inform_delay'    		=> $this->inform_delay,
+               'inform_close'    		=> $this->inform_close,
                'online_hours_active'    => $this->online_hours_active,
        );
    }
@@ -201,6 +202,7 @@ class erLhcoreClassModelDepartament {
     public $start_hour = 0;
     public $end_hour = 0;
     public $inform_options = '';    
+    public $inform_close = 0;    
     public $online_hours_active = 0;
 }
 

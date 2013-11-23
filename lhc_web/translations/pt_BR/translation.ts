@@ -63,7 +63,7 @@
     </message>
     <message>
       <source>Send test message</source>
-      <translation type="unfinished"/>
+      <translation>Enviar uma mensagem de teste</translation>
     </message>
   </context>
   <context>
@@ -1445,7 +1445,7 @@
     <name>system/configuration</name>
     <message>
       <source>XMP settings</source>
-      <translation type="unfinished"/>
+      <translation>Configurações de XMP</translation>
     </message>
     <message>
       <source>New chat notification settings</source>
@@ -1509,7 +1509,7 @@
     </message>
     <message>
       <source>XMPP settings</source>
-      <translation type="unfinished"/>
+      <translation>Configurações de XMPP</translation>
     </message>
     <message>
       <source>Languages configuration</source>
@@ -1932,7 +1932,7 @@
     </message>
     <message>
       <source>Votes</source>
-      <translation type="unfinished"/>
+      <translation>Votos</translation>
     </message>
     <message>
       <source>Last activity</source>
@@ -2385,7 +2385,7 @@
     <name>department/edit</name>
     <message>
       <source>Active days</source>
-      <translation type="unfinished"/>
+      <translation>Dias ativos</translation>
     </message>
     <message>
       <source>Active hours, 24 hours format</source>

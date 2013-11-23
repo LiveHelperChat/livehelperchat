@@ -98,7 +98,12 @@ $def->properties['inform_options']->propertyType = ezcPersistentObjectProperty::
 $def->properties['inform_delay'] = new ezcPersistentObjectProperty();
 $def->properties['inform_delay']->columnName   = 'inform_delay';
 $def->properties['inform_delay']->propertyName = 'inform_delay';
-$def->properties['inform_delay']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+$def->properties['inform_delay']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['inform_close'] = new ezcPersistentObjectProperty();
+$def->properties['inform_close']->columnName   = 'inform_close';
+$def->properties['inform_close']->propertyName = 'inform_close';
+$def->properties['inform_close']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 return $def;
 

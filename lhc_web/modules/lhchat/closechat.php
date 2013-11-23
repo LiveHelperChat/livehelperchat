@@ -36,7 +36,7 @@ if ($chat->user_id == $currentUser->getUserID() || $currentUser->hasAccessTo('lh
 	    CSCacheAPC::getMem()->removeFromArray('lhc_open_chats', $chat->id);
 
 	    // Execute callback for close chat
-	    erLhcoreClassChat::closeChatCallback($chat);
+	    erLhcoreClassChat::closeChatCallback($chat,$userData);
 	}
 }
 

@@ -40,6 +40,14 @@
         <td><?php echo is_writable("var/userphoto") ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'?></td>
     </tr>
     <tr>
+        <td>Is the php_curl extension installed</td>
+        <td><?php echo extension_loaded ('php_curl' ) ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'; ?></td>
+    </tr>
+    <tr>
+        <td>Is the mbstring extension installed</td>
+        <td><?php echo extension_loaded ('mbstring' ) ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'; ?></td>
+    </tr>
+    <tr>
         <td>Is the php-pdo extension installed</td>
         <td><?php echo extension_loaded ('pdo_mysql' ) ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'; ?></td>
     </tr>
