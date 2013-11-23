@@ -4315,11 +4315,11 @@
   <context>
     <name>system/xmpp</name>
     <message>
-      <source>XMPP settings</source>
+      <source>XMPP documentation</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>XMPP documentation</source>
+      <source>XMPP settings</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4383,6 +4383,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Information for your google app</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Redirect URL, this url you will have to enter in your google app configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter your app information bellow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>OAuth 2.0 Client ID</source>
       <translation type="unfinished"/>
     </message>
@@ -4392,6 +4404,10 @@
     </message>
     <message>
       <source>Client secret</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This message will be send to your e-mail</source>
       <translation type="unfinished"/>
     </message>
     <message>

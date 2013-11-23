@@ -5,9 +5,8 @@ Features
 	a. First we check does mail templates has any recipients.
 	b. If not then we check for department responsible users.
 	c. If not we send an e-mail to admin. 
-2. I have added GTalk OAuth2 support for authorisation. It allows to ahtorize live helper to send xmpp messages using OAuth logic.
-At my testing enviroment, php-fpm + nginx i was getting bad gateways and segmentation faults. So if this happens to you just user standard XMPP settings.
-If you are using 2 set verification on google, you just have to generate application specific password, that's all.
+2. I have added GTalk OAuth2 support for authorisation. It allows to authorize live helper chat to send xmpp messages using OAuth logic. So you won't have to enter your password.
+If you are using two steps verification on google, you just have to generate application specific password, that's all.
 3. Added more check for install script. mbstring and php_curl extension checks.
 
 Changes
