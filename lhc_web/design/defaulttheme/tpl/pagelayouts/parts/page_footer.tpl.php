@@ -7,5 +7,5 @@
     </div>
 </div>
 
-<script type="text/javascript" language="javascript" src="<?php echo erLhcoreClassDesign::designJS('js/foundation.min.js;js/app.js');?>"></script>
+<script type="text/javascript" language="javascript" src="<?php echo erLhcoreClassDesign::designJS('js/app.js');?>"></script>
 
