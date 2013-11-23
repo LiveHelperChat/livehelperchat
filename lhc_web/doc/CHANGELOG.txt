@@ -1,3 +1,17 @@
+1.67v
+
+Features
+1. Fontello icons for most of the icons
+2. Sneek chat preview on lists. No need to accept a chat to see about what user is asking.
+
+Bugfix.
+1. After some changes up-votes and down-botes icons colors was ignored.
+2. https://github.com/remdex/livehelperchat/issues/196
+
+This is second release in the same day. Be sure that you have also executed doc/update_db/update_48.sql
+
+execute doc/update_db/update_49.sql for update
+
 1.66v
 
 Features

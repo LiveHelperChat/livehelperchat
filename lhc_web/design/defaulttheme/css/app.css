@@ -30,6 +30,37 @@ body {
 	box-shadow:none;
 }
 
+a.icon-chat,
+a.icon-info,
+a.icon-popup,
+a.icon-cancel,
+a.icon-cancel-circled,
+a.icon-cancel-squared,
+a.icon-users,
+a.icon-block,
+a.icon-mail,
+a.icon-print {
+	font-size:14px;
+	color:#86B5CC;
+}
+
+a.icon-chat:hover,
+a.icon-info:hover,
+a.icon-popup:hover,
+a.icon-cancel:hover,
+a.icon-cancel-circled:hover,
+a.icon-cancel-squared:hover,
+a.icon-users:hover,
+a.icon-block:hover,
+a.icon-mail:hover,
+a.icon-print:hover{
+	color:#2ba6cb;
+}
+
+.button-group a.icon-mail{
+	color:#FFF;
+}
+
 .mx170{
 	max-height:170px;
 	overflow:auto;
@@ -333,7 +364,7 @@ textarea[name=ChatMessage]{
 }
 
 div.response {
-	background-color:#EEECF5;
+	background-color:#F5F5F5;
 }
 
 div.system-response {
@@ -711,10 +742,12 @@ border-top-right-radius: 6px;
 	font-size:16px;
 }
 
+.operator-info .down-voted,
 .down-voted{
 	color:#c60f13;
 }
 
+.operator-info .up-voted,
 .up-voted{
 	color:#5da423;
 }

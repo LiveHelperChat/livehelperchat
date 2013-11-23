@@ -122,6 +122,11 @@ class erLhcoreClassModelChat {
 
        switch ($var) {
 
+       	case 'time_created_front':
+       			$this->time_created_front = date('Ymd') == date('Ymd',$this->time) ? date('H:i:s',$this->time) : date('Y-m-d H:i:s',$this->time);
+       			return $this->time_created_front;
+       		break;
+       	
        	case 'is_operator_typing':
        		   $this->is_operator_typing = $this->operator_typing > (time()-10); // typing is considered if status did not changed for 30 seconds
        		   return $this->is_operator_typing;
@@ -153,7 +158,7 @@ class erLhcoreClassModelChat {
        		   }
        		   return $this->user;
        		break;
-
+       		
        	case 'operator_typing_user':
        		   $this->operator_typing_user = false;
        		   if ($this->operator_typing_id > 0) {

@@ -100,40 +100,21 @@
 	<?php if (!isset($hideActionBlock)) : ?>
 	<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Actions')?></h5>
 	<p>
-		<img class="action-image" data-title="<?php echo htmlspecialchars($chat->nick,ENT_QUOTES);?>" align="absmiddle" onclick="lhinst.startChatCloseTabNewWindow('<?php echo $chat->id;?>',$('#tabs'),$(this).attr('data-title'))" src="<?php echo erLhcoreClassDesign::design('images/icons/application_add.png');?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Open in a new window');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Open in a new window');?>">
-
-		<img class="action-image" align="absmiddle"
-			onclick="lhinst.removeDialogTab('<?php echo $chat->id?>',$('#tabs'),true)"
-			src="<?php echo erLhcoreClassDesign::design('images/icons/application_delete.png');?>"
-			alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Close dialog')?>"
-			title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Close dialog')?>">
-
-		<img class="action-image" align="absmiddle"
-			onclick="lhinst.closeActiveChatDialog('<?php echo $chat->id?>',$('#tabs'),true)"
-			src="<?php echo erLhcoreClassDesign::design('images/icons/cancel.png');?>"
-			alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Close chat')?>"
-			title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Close chat')?>">
-		<img class="action-image" align="absmiddle"
-			onclick="lhinst.deleteChat('<?php echo $chat->id?>',$('#tabs'),true)"
-			src="<?php echo erLhcoreClassDesign::design('images/icons/delete.png');?>"
-			alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Delete chat')?>"
-			title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Delete chat')?>">
-
+		<a class="icon-popup" data-title="<?php echo htmlspecialchars($chat->nick,ENT_QUOTES);?>" onclick="lhinst.startChatCloseTabNewWindow('<?php echo $chat->id;?>',$('#tabs'),$(this).attr('data-title'))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Open in a new window');?>">
+					
+		<a class="icon-cancel" onclick="lhinst.removeDialogTab('<?php echo $chat->id?>',$('#tabs'),true)" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Close dialog')?>"></a>
+		<a class="icon-cancel-circled" onclick="lhinst.closeActiveChatDialog('<?php echo $chat->id?>',$('#tabs'),true)" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Close chat')?>"></a>
+		<a class="icon-cancel-squared" onclick="lhinst.deleteChat('<?php echo $chat->id?>',$('#tabs'),true)" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Delete chat')?>"></a>
+			
 		<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat', 'allowtransfer')) : ?>
-		<img class="action-image" align="absmiddle" onclick="lhinst.transferUserDialog('<?php echo $chat->id?>',$(this).attr('title'))" src="<?php echo erLhcoreClassDesign::design('images/icons/user_go.png');?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Transfer chat')?>"	title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Transfer chat')?>">
+		<a class="icon-users" onclick="lhinst.transferUserDialog('<?php echo $chat->id?>',$(this).attr('title'))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Transfer chat')?>">
 		<?php endif; ?>
 
-		<img class="action-image" align="absmiddle" data-title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Are you sure?')?>" onclick="lhinst.blockUser('<?php echo $chat->id?>',$(this).attr('data-title'))"
-			src="<?php echo erLhcoreClassDesign::design('images/icons/user_delete.png');?>"
-			alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Block user')?>"
-			title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Block user')?>">
-		<img class="action-image" align="absmiddle"
-			onclick="lhinst.sendMail('<?php echo $chat->id?>')"
-			src="<?php if ($chat->mail_send == 0) : ?><?php echo erLhcoreClassDesign::design('images/icons/email.png');?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/email-send.png');?><?php endif; ?>"
-			alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Send mail')?>"
-			title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Send mail')?>">
-
-		<a target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('chat/printchatadmin')?>/<?php echo $chat->id?>" class="print-ico-admin" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Print')?>"></a>
+		<a class="icon-block" data-title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Are you sure?')?>" onclick="lhinst.blockUser('<?php echo $chat->id?>',$(this).attr('data-title'))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Block user')?>"></a>
+			
+		<a class="icon-mail <?php if ($chat->mail_send == 1) : ?>icon-mail-send<?php endif; ?>" onclick="lhinst.sendMail('<?php echo $chat->id?>')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Send mail')?>"></a>
+			
+		<a target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('chat/printchatadmin')?>/<?php echo $chat->id?>" class="icon-print" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Print')?>"></a>
 	</p>
 	<?php else : ?>
 	<a class="icon-print" target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('chatarchive/printchatadmin')?>/<?php echo $archive->id?>/<?php echo $chat->id?>"></a>

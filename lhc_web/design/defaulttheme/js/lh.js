@@ -615,6 +615,11 @@ function lh(){
 		});
 	};
 
+	this.previewChat = function(chat_id)
+	{
+		$.colorbox({'iframe':true,height:'500px',width:'500px', href:this.wwwDir+'chat/previewchat/'+chat_id});
+	};
+	
 	this.transferChatDep = function(chat_id)
 	{
 	    var user_id = $('[name=DepartamentID'+chat_id+']:checked').val();
