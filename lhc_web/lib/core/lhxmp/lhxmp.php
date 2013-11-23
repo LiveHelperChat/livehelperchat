@@ -22,31 +22,36 @@ class erLhcoreClassXMP {
 		$data = (array)$xmpData->data;
 
 		if (isset($data['gtalk_client_token']) && $data['gtalk_client_token'] != '') {		
-			require_once 'lib/core/lhxmp/google/Google_Client.php';
 			
-			$client = new Google_Client();
-			$client->setApplicationName('Live Helper Chat');
-			$client->setScopes(array("https://www.googleapis.com/auth/googletalk","https://www.googleapis.com/auth/userinfo.email"));
-			$client->setClientId($data['gtalk_client_id']);
-			$client->setClientSecret($data['gtalk_client_secret']);
-			$client->setApprovalPrompt('force');
-			$token = $data['gtalk_client_token'];
-			$client->setAccessToken($data['gtalk_client_token']);
-			
-			// Refresh token if it's
-			if ( $client->isAccessTokenExpired() ) {
-				$tokenData = json_decode($token);
-				$client->refreshToken($tokenData->refresh_token);
-				$accessToken = $client->getAccessToken();
-			
-				$data['gtalk_client_token'] = $accessToken;
-				$xmpData->value = serialize($data);
-				$xmpData->saveThis();
-			}
-			
-			if (($accessToken = $client->getAccessToken())) {				
-				$tokenData = json_decode($accessToken);
-				return $tokenData->access_token;
+			try {
+				require_once 'lib/core/lhxmp/google/Google_Client.php';
+				
+				$client = new Google_Client();
+				$client->setApplicationName('Live Helper Chat');
+				$client->setScopes(array("https://www.googleapis.com/auth/googletalk","https://www.googleapis.com/auth/userinfo.email"));
+				$client->setClientId($data['gtalk_client_id']);
+				$client->setClientSecret($data['gtalk_client_secret']);
+				$client->setApprovalPrompt('force');
+				$token = $data['gtalk_client_token'];
+				$client->setAccessToken($data['gtalk_client_token']);
+				
+				// Refresh token if it's
+				if ( $client->isAccessTokenExpired() ) {
+					$tokenData = json_decode($token);
+					$client->refreshToken($tokenData->refresh_token);
+					$accessToken = $client->getAccessToken();
+				
+					$data['gtalk_client_token'] = $accessToken;
+					$xmpData->value = serialize($data);
+					$xmpData->saveThis();
+				}
+				
+				if (($accessToken = $client->getAccessToken())) {				
+					$tokenData = json_decode($accessToken);
+					return $tokenData->access_token;
+				}
+			} catch (Exception $e) {
+				return false;				
 			}
 		}
 

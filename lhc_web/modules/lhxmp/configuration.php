@@ -58,29 +58,9 @@ if ($Params['user_parameters_unordered']['gtalkoauth'] == 'true') {
 }
 
 
-if (isset($_POST['StoreXMPGTalkSettingsTest'])) {
-	
-	require_once 'lib/core/lhxmp/google/Google_Client.php';
-	
-	$client = new Google_Client();
-	$client->setApplicationName('Live Helper Chat');
-	$client->setScopes(array("https://www.googleapis.com/auth/googletalk","https://www.googleapis.com/auth/userinfo.email"));
-	
-	// Documentation: http://code.google.com/apis/gdata/docs/2.0/basics.html
-	// Visit https://code.google.com/apis/console?api=contacts to generate your
-	// oauth2_client_id, oauth2_client_secret, and register your oauth2_redirect_uri.	
-	$client->setClientId($data['gtalk_client_id']);
-	$client->setClientSecret($data['gtalk_client_secret']);
-	$client->setApprovalPrompt('force');
-	$client->setRedirectUri('http://'.$_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('xmp/configuration').'/(gtalkoauth)/true');
-			
-	if ( !$client->getAccessToken() ) {
-		header('Location: '.$client->createAuthUrl());
-		exit;
-	}
-}
 
-if ( isset($_POST['StoreXMPGTalkSettings']) ) {
+
+if ( isset($_POST['StoreXMPGTalkSettings']) || isset($_POST['StoreXMPGTalkSettingsTest'])) {
 	$definition = array(
 			'gtalk_client_id' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
@@ -141,6 +121,28 @@ if ( isset($_POST['StoreXMPGTalkSettings']) ) {
 	
 	$xmpData->value = serialize($data);
 	$xmpData->saveThis();
+	
+	if (isset($_POST['StoreXMPGTalkSettingsTest'])) {
+	
+		require_once 'lib/core/lhxmp/google/Google_Client.php';
+	
+		$client = new Google_Client();
+		$client->setApplicationName('Live Helper Chat');
+		$client->setScopes(array("https://www.googleapis.com/auth/googletalk","https://www.googleapis.com/auth/userinfo.email"));
+	
+		// Documentation: http://code.google.com/apis/gdata/docs/2.0/basics.html
+		// Visit https://code.google.com/apis/console?api=contacts to generate your
+		// oauth2_client_id, oauth2_client_secret, and register your oauth2_redirect_uri.
+		$client->setClientId($data['gtalk_client_id']);
+		$client->setClientSecret($data['gtalk_client_secret']);
+		$client->setApprovalPrompt('force');
+		$client->setRedirectUri('http://'.$_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('xmp/configuration').'/(gtalkoauth)/true');
+			
+		if ( !$client->getAccessToken() ) {
+			header('Location: '.$client->createAuthUrl());
+			exit;
+		}
+	}
 	
 	$tpl->set('updated','done');	
 }
