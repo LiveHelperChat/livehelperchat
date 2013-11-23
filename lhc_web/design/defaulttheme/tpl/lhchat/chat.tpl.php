@@ -39,7 +39,7 @@
 
         <textarea rows="4" name="ChatMessage" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Enter your message')?>" id="CSChatMessage" ></textarea>
         <div id="id-operator-typing">
-	            <i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Operator is typing now...')?></i>
+	            <i></i>
 	    </div>
         <script type="text/javascript">
         jQuery('#CSChatMessage').bind('keyup', 'return', function (evt){

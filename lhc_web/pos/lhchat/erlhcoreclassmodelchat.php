@@ -116,6 +116,11 @@ $def->properties['operator_typing']->columnName   = 'operator_typing';
 $def->properties['operator_typing']->propertyName = 'operator_typing';
 $def->properties['operator_typing']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['operator_typing_id'] = new ezcPersistentObjectProperty();
+$def->properties['operator_typing_id']->columnName   = 'operator_typing_id';
+$def->properties['operator_typing_id']->propertyName = 'operator_typing_id';
+$def->properties['operator_typing_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['has_unread_messages'] = new ezcPersistentObjectProperty();
 $def->properties['has_unread_messages']->columnName   = 'has_unread_messages';
 $def->properties['has_unread_messages']->propertyName = 'has_unread_messages';

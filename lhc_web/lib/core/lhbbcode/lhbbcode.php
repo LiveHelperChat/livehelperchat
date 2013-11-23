@@ -27,19 +27,19 @@ class erLhcoreClassBBCode
 
     	// Smileys to find...
     	$in = array( 	 ':)',
-    					 ':D',
+    					 ':D:',
     					 ':(',
     					 ':o:',
-    					 ':p',
+    					 ':p:',
     					 ';)'
     	);
 
     	// And replace them by...
     	$out = array(	 '<img alt=":)" src="'.erLhcoreClassDesign::design('images/smileys/emoticon_smile.png').'" />',
-    	                 '<img alt=":D" src="'.erLhcoreClassDesign::design('images/smileys/emoticon_happy.png').'" />',
+    	                 '<img alt=":D:" src="'.erLhcoreClassDesign::design('images/smileys/emoticon_happy.png').'" />',
     					 '<img alt=":(" src="'.erLhcoreClassDesign::design('images/smileys/emoticon_unhappy.png').'" />',
-    					 '<img alt=":o" src="'.erLhcoreClassDesign::design('images/smileys/emoticon_surprised.png').'" />',
-    					 '<img alt=":p" src="'.erLhcoreClassDesign::design('images/smileys/emoticon_tongue.png').'" />',
+    					 '<img alt=":o:" src="'.erLhcoreClassDesign::design('images/smileys/emoticon_surprised.png').'" />',
+    					 '<img alt=":p:" src="'.erLhcoreClassDesign::design('images/smileys/emoticon_tongue.png').'" />',
     					 '<img alt=";)" src="'.erLhcoreClassDesign::design('images/smileys/emoticon_wink.png').'" />'
     	);
     	$text = str_replace($in, $out, $text);

@@ -26,6 +26,10 @@ body {
 	white-space: nowrap;
 }
 
+.button{
+	box-shadow:none;
+}
+
 .mx170{
 	max-height:170px;
 	overflow:auto;

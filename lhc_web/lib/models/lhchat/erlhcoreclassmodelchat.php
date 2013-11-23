@@ -22,6 +22,7 @@ class erLhcoreClassModelChat {
                'user_typing'     		=> $this->user_typing,
                'user_typing_txt'     	=> $this->user_typing_txt,
                'operator_typing' 		=> $this->operator_typing,
+               'operator_typing_id' 	=> $this->operator_typing_id,
                'phone'           		=> $this->phone,
                'has_unread_messages'    => $this->has_unread_messages,
                'last_user_msg_time'     => $this->last_user_msg_time,
@@ -151,6 +152,18 @@ class erLhcoreClassModelChat {
        		   		}
        		   }
        		   return $this->user;
+       		break;
+
+       	case 'operator_typing_user':
+       		   $this->operator_typing_user = false;
+       		   if ($this->operator_typing_id > 0) {
+       		   		try {
+       		   			$this->operator_typing_user = erLhcoreClassModelUser::fetch($this->operator_typing_id);
+       		   		} catch (Exception $e) {
+       		   			$this->operator_typing_user = false;
+       		   		}
+       		   }
+       		   return $this->operator_typing_user;
        		break;
 
        	case 'online_user':
@@ -286,6 +299,9 @@ class erLhcoreClassModelChat {
 
    // Feedback status
    public $fbst = 0;
+   
+   // What operator is typing now.
+   public $operator_typing_id = 0;
 
    public $chat_initiator = self::CHAT_INITIATOR_DEFAULT;
    public $chat_variables = '';

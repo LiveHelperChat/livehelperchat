@@ -253,6 +253,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `user_typing` int(11) NOT NULL,
 				  `user_typing_txt` varchar(50) NOT NULL,
 				  `operator_typing` int(11) NOT NULL,
+        	   	  `operator_typing_id` int(11) NOT NULL,
 				  `phone` varchar(100) NOT NULL,
 				  `has_unread_messages` int(11) NOT NULL,
 				  `last_user_msg_time` int(11) NOT NULL,

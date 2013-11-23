@@ -388,9 +388,11 @@ function lh(){
 	    	            }
 
 	    	            inst.userTimeout = setTimeout(chatsyncuser,confLH.chat_message_sinterval);
-
-	        			if ( data.is_typing == 'true' ) {
-	        			    $('#id-operator-typing').fadeIn();
+	    	       	    	            
+	        			if ( data.ott != '' ) {
+	        				var instStatus = $('#id-operator-typing');
+	        				instStatus.find('i').html(data.ott);
+	        				instStatus.fadeIn();
 	        			} else {
 	        			    $('#id-operator-typing').fadeOut();
 	        			}
@@ -732,8 +734,7 @@ function lh(){
 	               setTimeout(chatsyncuserpending,confLH.chat_message_sinterval);
 
 	            } else {
-	            	$('#status-chat').parent().html(data.result);
-	                $('#id-operator-typing i').html(data.ott);
+	            	$('#status-chat').parent().html(data.result);	                
 	            }
 	        }
     	}).fail(function(){
