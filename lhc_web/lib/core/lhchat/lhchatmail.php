@@ -253,7 +253,7 @@ class erLhcoreClassChatMail {
     		$mail->Sender = $mail->From = $sendMail->from_email;
     	}
 
-    	$mail->FromName = $sendMail->from_name;    	
+    	$mail->FromName = $chat->nick != '' ? $chat->nick : $sendMail->from_name;    	
     	$mail->Subject = $sendMail->subject;
     	   	    	
     	$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 10,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
@@ -284,6 +284,7 @@ class erLhcoreClassChatMail {
     	$secretHash = $cfgSite->getSetting( 'site', 'secrethash' );
     	
     	if ($chat->email != '') {
+    		$mail->From = $chat->email;
     		$mail->AddReplyTo($chat->email, $chat->nick);
     	}
 
