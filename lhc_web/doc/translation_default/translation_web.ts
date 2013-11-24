@@ -227,10 +227,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Operator is typing now...</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Send</source>
       <translation type="unfinished"/>
     </message>
@@ -256,6 +252,10 @@
     </message>
     <message>
       <source>is typing now...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator is typing now...</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -4319,6 +4319,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>User standard XMPP service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>XMPP settings</source>
       <translation type="unfinished"/>
     </message>
@@ -4335,7 +4339,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>User standard XMPP service</source>
+      <source>Use standard XMPP service</source>
       <translation type="unfinished"/>
     </message>
     <message>
