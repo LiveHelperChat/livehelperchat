@@ -37,7 +37,7 @@ if ($Params['user_parameters_unordered']['gtalkoauth'] == 'true') {
 	$client->setClientId($data['gtalk_client_id']);
 	$client->setClientSecret($data['gtalk_client_secret']);
 	$client->setApprovalPrompt('force');
-	$client->setRedirectUri('http://'.$_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('xmp/configuration').'/(gtalkoauth)/true');
+	$client->setRedirectUri(erLhcoreClassXMP::getBaseHost().$_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('xmp/configuration').'/(gtalkoauth)/true');
 		
 	if (isset($_GET['code'])) {
 		try {			
@@ -136,7 +136,7 @@ if ( isset($_POST['StoreXMPGTalkSettings']) || isset($_POST['StoreXMPGTalkSettin
 		$client->setClientId($data['gtalk_client_id']);
 		$client->setClientSecret($data['gtalk_client_secret']);
 		$client->setApprovalPrompt('force');
-		$client->setRedirectUri('http://'.$_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('xmp/configuration').'/(gtalkoauth)/true');
+		$client->setRedirectUri(erLhcoreClassXMP::getBaseHost().$_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('xmp/configuration').'/(gtalkoauth)/true');
 			
 		if ( !$client->getAccessToken() ) {
 			header('Location: '.$client->createAuthUrl());

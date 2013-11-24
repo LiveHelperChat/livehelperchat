@@ -131,6 +131,10 @@ class erLhcoreClassXMP {
 		}	
 	}
 	
+	public static function getBaseHost(){
+		return (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 'https://' : 'http://';
+	}
+	
 	public static function sendXMPMessage($chat) {
 		
 		$data = (array) erLhcoreClassModelChatConfig::fetch('xmp_data')->data;
