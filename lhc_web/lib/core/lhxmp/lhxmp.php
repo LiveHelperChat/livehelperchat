@@ -32,6 +32,7 @@ class erLhcoreClassXMP {
 				$client->setClientId($data['gtalk_client_id']);
 				$client->setClientSecret($data['gtalk_client_secret']);
 				$client->setApprovalPrompt('force');
+				$client->setAccessType('offline');
 				$token = $data['gtalk_client_token'];
 				$client->setAccessToken($data['gtalk_client_token']);
 				
@@ -71,6 +72,7 @@ class erLhcoreClassXMP {
 				$client->setScopes(array("https://www.googleapis.com/auth/googletalk","https://www.googleapis.com/auth/userinfo.email"));
 				$client->setClientId($data['gtalk_client_id']);
 				$client->setClientSecret($data['gtalk_client_secret']);
+				$client->setAccessType('offline');
 				$client->setApprovalPrompt('force');
 				$token = $data['gtalk_client_token'];
 				$client->setAccessToken($data['gtalk_client_token']);
