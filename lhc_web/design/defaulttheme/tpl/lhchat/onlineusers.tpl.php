@@ -55,8 +55,6 @@
     <th width="40%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Came from');?></th>
     <th width="1%" nowrap><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Status');?></th>
     <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Action');?></th>
-    <!-- <th width="1%"></th> -->
-
 </tr>
 </thead>
 <?php 
