@@ -49,21 +49,19 @@
 <table class="twelve online-users-table" cellpadding="0" cellspacing="0">
 <thead>
 <tr>
-    <th width="1%">ID</th>
     <th width="5%" nowrap><img src="<?php echo erLhcoreClassDesign::design('images/icons/clock.png');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Last activity');?>" /></th>
     <th width="5%" nowrap><img src="<?php echo erLhcoreClassDesign::design('images/icons/clock.png');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Time on site');?>" /></th>
     <th width="40%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Page');?></th>
     <th width="40%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Came from');?></th>
     <th width="1%" nowrap><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Status');?></th>
     <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Action');?></th>
-    <th width="1%"></th>
+    <!-- <th width="1%"></th> -->
 
 </tr>
 </thead>
 <?php 
 foreach ($items as $departament) : ?>
     <tr>
-        <td><?php echo $departament->id?></td>
         <td nowrap><?php echo htmlspecialchars($departament->lastactivity_ago)?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','ago');?></td>
         <td><?php echo $departament->time_on_site_front?></td>
         <td><div class="page-url"><span><a target="_blank" href="<?php echo htmlspecialchars($departament->current_page)?>" title="<?php echo htmlspecialchars($departament->current_page)?>"><?php echo htmlspecialchars($departament->page_title != '' ? $departament->page_title : $departament->current_page)?></a></span></div></td>
@@ -98,10 +96,14 @@ foreach ($items as $departament) : ?>
         </div>
 
         </td>
-
-        <td nowrap><input type="button" class="small button round" onclick="$.colorbox({'iframe':true,height:'500px',width:'500px', href:'<?php echo erLhcoreClassDesign::baseurl('chat/sendnotice')?>/<?php echo $departament->id?>'});" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Send message');?>"/></td>
-        <td nowrap><a class="small alert button round" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/list','Are you sure?')?>')" href="<?php echo erLhcoreClassDesign::baseurl('chat/onlineusers')?>/(deletevisitor)/<?php echo $departament->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Delete');?></a></td>
-
+        <td>
+        <div style="width:80px">
+	        <ul class="button-group round">
+	            <li><a href="#" onclick="return $.colorbox({'iframe':true,height:'500px',width:'500px', href:'<?php echo erLhcoreClassDesign::baseurl('chat/sendnotice')?>/<?php echo $departament->id?>'});" class="button small icon-comment" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Send message');?>"></a></li>		      
+	            <li><a class="small alert button icon-cancel-squared" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/list','Are you sure?')?>')" href="<?php echo erLhcoreClassDesign::baseurl('chat/onlineusers')?>/(deletevisitor)/<?php echo $departament->id?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Delete');?>, ID - <?php echo $departament->id?>"></a></li>		      
+			</ul>
+			</div>
+        </td>
     </tr>
 <?php endforeach; ?>
 </table>
