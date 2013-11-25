@@ -24,11 +24,7 @@ class erLhcoreClassChatMail {
 
 		$mail = new PHPMailer(true);
 		$mail->CharSet = "UTF-8";
-
-		if ($sendMail->from_email != '') {
-			$mail->Sender = $userData->email;
-		}
-
+		$mail->Sender = $userData->email;
 		$mail->From = $userData->email;
 		$mail->FromName = $userData->email;
 		$mail->Subject = 'LHC Test mail';

@@ -36,7 +36,7 @@ class erLhcoreClassModelDepartament {
        }
    }
 
-   public function fetch($dep_id, $useCache = false) {
+   public static function fetch($dep_id, $useCache = false) {
 
    		if ($useCache == true && isset($GLOBALS['lhCacheDepartmentDepartaments_'.$dep_id])) return $GLOBALS['lhCacheDepartmentDepartaments_'.$dep_id];
 
