@@ -25,6 +25,9 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
         'Username' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
+        'Skype' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
 		'UserDisabled' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 		),
@@ -70,7 +73,14 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
     } else {
     	$UserData->surname = '';
     }
-
+    
+    if ( $form->hasValidData( 'Skype' ) && $form->Skype != '')
+    {
+    	$UserData->skype = $form->Skype;
+    } else {
+    	$UserData->skype = '';
+    }
+    
     if ( $form->hasInputField( 'Password' ) && (!$form->hasInputField( 'Password1' ) || $form->Password != $form->Password1  ) ) // check for optional field
     {
         $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Passwords mismatch');

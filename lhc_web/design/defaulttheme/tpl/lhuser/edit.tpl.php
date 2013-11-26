@@ -31,6 +31,8 @@
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Surname');?></label>
 <input type="text" class="inputfield" name="Surname" value="<?php echo htmlspecialchars($user->surname);?>"/>
 
+<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Skype');?></label>
+<input type="text" name="Skype" value="<?php echo htmlspecialchars($user->skype);?>"/>
 
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Photo');?>, (jpg,png)</label>
 <input type="file" name="UserPhoto" value="" />

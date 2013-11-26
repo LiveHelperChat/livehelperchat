@@ -1,3 +1,10 @@
+1.68v
+
+Features
+1. Skype call field in user attributes
+
+execute doc/update_db/update_50.sql for update
+
 1.67v
 
 Features
