@@ -3,8 +3,7 @@
 </h5>
 <p class="fs11">
 <?php $user = $chat->getChatOwner();  if ($user !== false) : ?>
-	<?php echo htmlspecialchars($user->name)?>
-	<?php echo htmlspecialchars($user->surname)?>
+	<?php echo htmlspecialchars($user->name)?>&nbsp;<?php echo htmlspecialchars($user->surname)?>
 	<?php else : ?>
 	-
 <?php endif; ?>
