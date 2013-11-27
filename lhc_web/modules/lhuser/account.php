@@ -85,6 +85,9 @@ if (isset($_POST['Update']))
         ),
         'Username' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
+        'Skype' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         )
     );
 
@@ -119,6 +122,13 @@ if (isset($_POST['Update']))
     	$UserData->surname = $form->Surname;
     } else {
     	$UserData->surname = '';
+    }
+        
+    if ( $form->hasValidData( 'Skype' ) && $form->Skype != '')
+    {
+    	$UserData->skype = $form->Skype;
+    } else {
+    	$UserData->skype = '';
     }
         
     if ( $form->hasInputField( 'Password' ) && (!$form->hasInputField( 'Password1' ) || $form->Password != $form->Password1  ) ) // check for optional field

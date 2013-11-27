@@ -666,6 +666,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `surname` varchar(100) NOT NULL,
                   `filepath` varchar(200) NOT NULL,
                   `filename` varchar(200) NOT NULL,
+                  `skype` varchar(50) NOT NULL,
                   `disabled` tinyint(4) NOT NULL,
                   `hide_online` tinyint(1) NOT NULL,
                   `all_departments` tinyint(1) NOT NULL,

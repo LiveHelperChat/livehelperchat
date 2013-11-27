@@ -1,10 +1,12 @@
 <?php
 
 $canListOnlineUsers = false;
+$canListOnlineUsersAll = false;
 
 if (erLhcoreClassModelChatConfig::fetch('list_online_operators')->current_value == 1) {
 	$currentUser = erLhcoreClassUser::instance();
 	$canListOnlineUsers = $currentUser->hasAccessTo('lhuser','userlistonline');
+	$canListOnlineUsersAll = $currentUser->hasAccessTo('lhuser','userlistonlineall');
 }
 
 $pendingTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_pending_list',1);
@@ -66,7 +68,7 @@ $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_lis
   </section>
   <?php endif;?>
 
-  <?php if ($canListOnlineUsers == true) : ?>
+  <?php if ($canListOnlineUsers == true || $canListOnlineUsersAll == true) : ?>
   <section>
     <p class="title" data-section-title><a href="#panel4" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Online operators');?>"><i class="icon-users chat-operators"></i><span class="onp-cnt"></span></a></p>
     <div class="content" data-section-content>

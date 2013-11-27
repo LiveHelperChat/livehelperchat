@@ -16,6 +16,7 @@ class erLhcoreClassModelUser {
                'all_departments' => $this->all_departments,
                'filepath'     	 => $this->filepath,
 			   'filename'     	 => $this->filename,
+			   'skype'     	 	 => $this->skype,
        );
    }
 
@@ -313,6 +314,7 @@ class erLhcoreClassModelUser {
     public $filepath = '';
     public $filename = '';
     public $surname = '';
+    public $skype = '';
     public $disabled = 0;
     public $hide_online = 0;
     public $all_departments = 0;
