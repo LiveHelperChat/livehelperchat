@@ -365,7 +365,11 @@ if ( window.addEventListener ){
 
 var cookieData = Cookies('lhc_per');
 if ( typeof cookieData === "string" && cookieData ) {
-	lh_inst.cookieDataPers = lh_inst.JSON.parse(cookieData);
+	lh_inst.cookieDataPers = lh_inst.JSON.parse(cookieData);	
+	if (!lh_inst.cookieDataPers.vid) {
+		lh_inst.cookieDataPers = {<?php isset($vid) ? print 'vid:\''.$vid.'\'' : ''?>};
+		lh_inst.storePersistenCookie();
+	};
 } else {
 	lh_inst.cookieDataPers = {<?php isset($vid) ? print 'vid:\''.$vid.'\'' : ''?>};
 	lh_inst.storePersistenCookie();

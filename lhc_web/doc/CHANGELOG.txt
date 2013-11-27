@@ -2,6 +2,13 @@
 
 Features
 1. Skype call field in user attributes
+2. Online operators listing will show only his department operators.
+3. In order to see all operators to operators role has to be assigned "user" => "userlistonlineall" permission
+
+Changes
+1. Added check to make sure that cookie contains vid variable. (Some users were reporting that after closing invitation it's shown again instantly, personally
+I just cannot reproduce it.)
+2. Update to jquery 1.10.2 version.
 
 execute doc/update_db/update_50.sql for update
 

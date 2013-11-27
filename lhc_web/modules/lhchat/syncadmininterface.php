@@ -2,9 +2,11 @@
 
 $currentUser = erLhcoreClassUser::instance();
 $canListOnlineUsers = false;
+$canListOnlineUsersAll = false;
 
 if (erLhcoreClassModelChatConfig::fetch('list_online_operators')->current_value == 1) {
 	$canListOnlineUsers = $currentUser->hasAccessTo('lhuser','userlistonline');
+	$canListOnlineUsersAll = $currentUser->hasAccessTo('lhuser','userlistonlineall');
 }
 
 $tpl = erLhcoreClassTemplate::getInstance();
@@ -77,8 +79,8 @@ $tpl->set('transferchats',$transferchatsDep);
 $ReturnMessages[] = array('dom_id_status' => '.trd-cnt', 'dom_item_count' => count($transferchatsDep), 'dom_id' => '#right-transfer-departments','last_id_identifier' => 'transfer_chat','last_id' => $lastPendingTransferID, 'content' => trim($tpl->fetch('lhchat/lists/transferedchats.tpl.php')));
 
 
-if ($canListOnlineUsers == true) {
-	$onlineOperators = erLhcoreClassModelUserDep::getOnlineOperators($currentUser);
+if ($canListOnlineUsers == true || $canListOnlineUsersAll == true) {
+	$onlineOperators = erLhcoreClassModelUserDep::getOnlineOperators($currentUser,$canListOnlineUsersAll);
 	$tpl->set('online_operators',$onlineOperators);
 	$tpl->set('current_user',$currentUser);
 	$ReturnMessages[] = array('dom_id_status' => '.onp-cnt', 'dom_item_count' => count($onlineOperators), 'dom_id' => '#online-operator-list', 'content' => trim($tpl->fetch('lhchat/lists/onlineoperators.tpl.php')));
