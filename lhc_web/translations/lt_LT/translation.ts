@@ -225,10 +225,6 @@
       <translation>Įveskite savo žinutę</translation>
     </message>
     <message>
-      <source>Operator is typing now...</source>
-      <translation>Operatorius šiuo metu rašo žinutę...</translation>
-    </message>
-    <message>
       <source>Send</source>
       <translation>Siųsti</translation>
     </message>
@@ -255,6 +251,10 @@
     <message>
       <source>is typing now...</source>
       <translation>dabar rašo...</translation>
+    </message>
+    <message>
+      <source>Operator is typing now...</source>
+      <translation>Operatorius šiuo metu rašo žinutę...</translation>
     </message>
   </context>
   <context>
@@ -2404,6 +2404,18 @@
       <translation>XMPP žinutė</translation>
     </message>
     <message>
+      <source>Online hours active</source>
+      <translation>Aktyvios darbo valandos</translation>
+    </message>
+    <message>
+      <source>Workdays, during these days chat will be active automatically</source>
+      <translation>Darbo dienos, šiomis dienomis pokalbis bus aktyvus automatiškai</translation>
+    </message>
+    <message>
+      <source>From, E.g. 17</source>
+      <translation>Nuo, Pvz. 17</translation>
+    </message>
+    <message>
       <source>Edit department</source>
       <translation>Departamento redagavimas</translation>
     </message>
@@ -2432,6 +2444,10 @@
       <translation>Šis laukas yra max. 50 ženklų ilgio ir gali būti naudojamas įskiepiuose. Šis laukas taip pat yra indeksuotas.</translation>
     </message>
     <message>
+      <source>Inform then chat is closed by operator, only mail notification is send.</source>
+      <translation>Informuoti kada pokalbis būna uždarytas administratoriaus, tik el. pašto žinutė būna išsiųsta</translation>
+    </message>
+    <message>
       <source>Inform about new chats using</source>
       <translation>Informuoti apie naujus pokalbius naudojant</translation>
     </message>
@@ -2448,12 +2464,12 @@
       <translation>Kiek sekundžių laukti, kol apie pokalbį bus informuotas personalas</translation>
     </message>
     <message>
-      <source>Online hours active</source>
-      <translation>Aktyvios darbo valandos</translation>
+      <source>Work hours/work days logic is active</source>
+      <translation>Darbo valandų/dienų logika aktyvi</translation>
     </message>
     <message>
-      <source>Workdays, during these days chat will be active automatically</source>
-      <translation>Darbo dienos, šiomis dienomis pokalbis bus aktyvus automatiškai</translation>
+      <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
+      <translation>Darbo dienos/valandos, šiomis dienomis/valandomis būsena bus automatiškai online</translation>
     </message>
     <message>
       <source>Monday</source>
@@ -2492,8 +2508,8 @@
       <translation>Nuo, Pvz. 8</translation>
     </message>
     <message>
-      <source>From, E.g. 17</source>
-      <translation>Nuo, Pvz. 17</translation>
+      <source>To, E.g. 17</source>
+      <translation>Iki, Pvz. 17</translation>
     </message>
     <message>
       <source>None</source>
@@ -2514,6 +2530,10 @@
   </context>
   <context>
     <name>user/account</name>
+    <message>
+      <source>Please enter a surname</source>
+      <translation>Prašome įvesti pavardę</translation>
+    </message>
     <message>
       <source>Updated</source>
       <translation>Atnaujinta</translation>
@@ -2621,10 +2641,6 @@
     <message>
       <source>Please enter a name</source>
       <translation>Prašome įvesti vardą</translation>
-    </message>
-    <message>
-      <source>Please enter a surname</source>
-      <translation>Prašome įvesti pavardę</translation>
     </message>
     <message>
       <source>Passwords mismatch</source>
@@ -4297,12 +4313,32 @@
   <context>
     <name>system/xmpp</name>
     <message>
+      <source>XMPP documentation</source>
+      <translation>XMPP dokumentacija</translation>
+    </message>
+    <message>
+      <source>User standard XMPP service</source>
+      <translation>Naudoti standartinį XMPP servisą</translation>
+    </message>
+    <message>
       <source>XMPP settings</source>
       <translation>XMPP nustatymai</translation>
     </message>
     <message>
       <source>XMPP active</source>
       <translation>XMPP aktyvus</translation>
+    </message>
+    <message>
+      <source>XMPP Message content</source>
+      <translation>XMPP žinutės turinys</translation>
+    </message>
+    <message>
+      <source>XMPP</source>
+      <translation>XMPP</translation>
+    </message>
+    <message>
+      <source>Use standard XMPP service</source>
+      <translation>Naudoti standartinį XMPP servisą</translation>
     </message>
     <message>
       <source>Host</source>
@@ -4334,23 +4370,83 @@
     </message>
     <message>
       <source>Default recipients</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMPP Message content</source>
-      <translation type="unfinished"/>
+      <translation>Numatytieji gavėjai</translation>
     </message>
     <message>
       <source>Test message will be send to your account e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Bandomoji žinutė bus išsiųsta į Jūsų paskyros el. pašto adresą</translation>
+    </message>
+    <message>
+      <source>GTalk</source>
+      <translation>GTalk</translation>
+    </message>
+    <message>
+      <source>Use GTalk for messaging</source>
+      <translation>Naudoti GTalk žinučių siuntimui</translation>
+    </message>
+    <message>
+      <source>Information for your google app</source>
+      <translation>Informacija Jūsų Google aplikacijai</translation>
+    </message>
+    <message>
+      <source>Redirect URL, this url you will have to enter in your google app configuration</source>
+      <translation>Nukreipimo URL, šį url Jūs turite įvesti prie savo google aplikacijos konfiguracijos</translation>
+    </message>
+    <message>
+      <source>Enter your app information bellow</source>
+      <translation>Įveskite savo aplikacijos informacija</translation>
+    </message>
+    <message>
+      <source>OAuth 2.0 Client ID</source>
+      <translation>OAuth 2.0 Client ID</translation>
+    </message>
+    <message>
+      <source>Please enter your Client ID</source>
+      <translation>Prašome įvesti savo Client ID</translation>
+    </message>
+    <message>
+      <source>Client secret</source>
+      <translation>Client secret</translation>
+    </message>
+    <message>
+      <source>This message will be send to your e-mail</source>
+      <translation>Ši žinutė bus išsiųsta į Jūsų el. pašto adresą</translation>
+    </message>
+    <message>
+      <source>Send test message</source>
+      <translation>Siųsti bandomają žinutę</translation>
+    </message>
+    <message>
+      <source>Revoke access token</source>
+      <translation>Pašalinti prieigos raktą</translation>
+    </message>
+    <message>
+      <source>Revoke permission to send a message</source>
+      <translation>Pašalinti leidimą siųsti žinutę</translation>
+    </message>
+    <message>
+      <source>Authentificate and grant permission to send a message</source>
+      <translation>Suteikti prieigą siųsti žinutę</translation>
+    </message>
+    <message>
+      <source>Grant permission to send a message</source>
+      <translation>Suteikti leidimą siųsti žinutę</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Nustatymai atnaujinti</translation>
+    </message>
+    <message>
+      <source>Succesfully authorised, now you can try to send a message</source>
+      <translation>Prieiga sėkmingai suteikta, dabar Jūs galite bandyti siųsti žinutę</translation>
+    </message>
+    <message>
+      <source>Token was revoked</source>
+      <translation>Raktas buvo pašalintas</translation>
     </message>
     <message>
       <source>XMPP message was sent succesfuly</source>
-      <translation type="unfinished"/>
+      <translation>XMPP žinutė buvo sėkminga išsiųsta</translation>
     </message>
   </context>
 </TS>

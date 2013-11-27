@@ -225,10 +225,6 @@
       <translation>Введите сообщение</translation>
     </message>
     <message>
-      <source>Operator is typing now...</source>
-      <translation>Оператор печатает текст...</translation>
-    </message>
-    <message>
       <source>Send</source>
       <translation>Отправить</translation>
     </message>
@@ -255,6 +251,10 @@
     <message>
       <source>is typing now...</source>
       <translation>сейчас пишет</translation>
+    </message>
+    <message>
+      <source>Operator is typing now...</source>
+      <translation>Оператор печатает текст...</translation>
     </message>
   </context>
   <context>
@@ -2404,6 +2404,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Online hours active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Workdays, during these days chat will be active automatically</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>From, E.g. 17</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Edit department</source>
       <translation>Редактировать департамент</translation>
     </message>
@@ -2433,6 +2445,10 @@
 Максимальная длина поля - 50 символов, может быть использовано расширениями (плагинами) для любых целей, при этом, оно индексируется.</translation>
     </message>
     <message>
+      <source>Inform then chat is closed by operator, only mail notification is send.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Inform about new chats using</source>
       <translation type="unfinished"/>
     </message>
@@ -2449,11 +2465,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Online hours active</source>
+      <source>Work hours/work days logic is active</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Workdays, during these days chat will be active automatically</source>
+      <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2493,7 +2509,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>From, E.g. 17</source>
+      <source>To, E.g. 17</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2515,6 +2531,10 @@
   </context>
   <context>
     <name>user/account</name>
+    <message>
+      <source>Please enter a surname</source>
+      <translation>Введите фамилию</translation>
+    </message>
     <message>
       <source>Updated</source>
       <translation>Обновлен</translation>
@@ -2622,10 +2642,6 @@
     <message>
       <source>Please enter a name</source>
       <translation>Введите имя</translation>
-    </message>
-    <message>
-      <source>Please enter a surname</source>
-      <translation>Введите фамилию</translation>
     </message>
     <message>
       <source>Passwords mismatch</source>
@@ -4298,11 +4314,31 @@
   <context>
     <name>system/xmpp</name>
     <message>
+      <source>XMPP documentation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User standard XMPP service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>XMPP settings</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>XMPP active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP Message content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use standard XMPP service</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4338,15 +4374,75 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>XMPP Message content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Test message will be send to your account e-mail</source>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>GTalk</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use GTalk for messaging</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Information for your google app</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Redirect URL, this url you will have to enter in your google app configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter your app information bellow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>OAuth 2.0 Client ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter your Client ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Client secret</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This message will be send to your e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send test message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Revoke access token</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Revoke permission to send a message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Authentificate and grant permission to send a message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Grant permission to send a message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Succesfully authorised, now you can try to send a message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Token was revoked</source>
       <translation type="unfinished"/>
     </message>
     <message>
