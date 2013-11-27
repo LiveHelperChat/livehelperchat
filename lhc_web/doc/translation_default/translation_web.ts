@@ -2585,6 +2585,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Skype</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Photo</source>
       <translation type="unfinished"/>
     </message>
@@ -4448,6 +4452,13 @@
     </message>
     <message>
       <source>XMPP message was sent succesfuly</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/part/operator_profile</name>
+    <message>
+      <source>Skype call</source>
       <translation type="unfinished"/>
     </message>
   </context>
