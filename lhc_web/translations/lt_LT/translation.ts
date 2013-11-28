@@ -2583,6 +2583,10 @@
       <translation>Pavardė</translation>
     </message>
     <message>
+      <source>Skype</source>
+      <translation>Skype</translation>
+    </message>
+    <message>
       <source>Photo</source>
       <translation>Nuotrauka</translation>
     </message>
@@ -4447,6 +4451,13 @@
     <message>
       <source>XMPP message was sent succesfuly</source>
       <translation>XMPP žinutė buvo sėkminga išsiųsta</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/part/operator_profile</name>
+    <message>
+      <source>Skype call</source>
+      <translation>Skype skambutis</translation>
     </message>
   </context>
 </TS>

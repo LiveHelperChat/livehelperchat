@@ -63,7 +63,7 @@
     </message>
     <message>
       <source>Send test message</source>
-      <translation type="unfinished"/>
+      <translation>Отправить тестовое сообщение</translation>
     </message>
   </context>
   <context>
@@ -77,7 +77,7 @@
     <name>abstract/proactivechatinvitation</name>
     <message>
       <source>If you want pro active chat invitation to work it has to be enabled in</source>
-      <translation>Если Вы хотите включить проактивные приглашения в чат, включите их в разделе</translation>
+      <translation>Если вы хотите использовать автоприглашения в чат, включите их в</translation>
     </message>
     <message>
       <source>chat configuration</source>
@@ -85,7 +85,7 @@
     </message>
     <message>
       <source>also online users tracking has to be</source>
-      <translation>также, отслеживание пользователей на сайте у Вас</translation>
+      <translation>, также отслеживание пользователей должно быть</translation>
     </message>
     <message>
       <source>enabled</source>
@@ -1445,7 +1445,7 @@
     <name>system/configuration</name>
     <message>
       <source>XMP settings</source>
-      <translation type="unfinished"/>
+      <translation>Настройка XMP</translation>
     </message>
     <message>
       <source>New chat notification settings</source>
@@ -1509,7 +1509,7 @@
     </message>
     <message>
       <source>XMPP settings</source>
-      <translation type="unfinished"/>
+      <translation>XMPP установки</translation>
     </message>
     <message>
       <source>Languages configuration</source>
@@ -1932,7 +1932,7 @@
     </message>
     <message>
       <source>Votes</source>
-      <translation type="unfinished"/>
+      <translation>Голосов</translation>
     </message>
     <message>
       <source>Last activity</source>
@@ -2385,35 +2385,35 @@
     <name>department/edit</name>
     <message>
       <source>Active days</source>
-      <translation type="unfinished"/>
+      <translation>Рабочие дни</translation>
     </message>
     <message>
       <source>Active hours, 24 hours format</source>
-      <translation type="unfinished"/>
+      <translation>Рабочие часы, в 24-х часовом формате</translation>
     </message>
     <message>
       <source>from, E.g 8</source>
-      <translation type="unfinished"/>
+      <translation>Например, с 8</translation>
     </message>
     <message>
       <source>from, E.g 17</source>
-      <translation type="unfinished"/>
+      <translation>Например, с 17</translation>
     </message>
     <message>
       <source>XMP messages</source>
-      <translation type="unfinished"/>
+      <translation>XMP сообщения</translation>
     </message>
     <message>
       <source>Online hours active</source>
-      <translation type="unfinished"/>
+      <translation>Часы онлайн активности</translation>
     </message>
     <message>
       <source>Workdays, during these days chat will be active automatically</source>
-      <translation type="unfinished"/>
+      <translation>Рабочие дни, в которые чаты будут активны автоматически</translation>
     </message>
     <message>
       <source>From, E.g. 17</source>
-      <translation type="unfinished"/>
+      <translation>Например, до 17</translation>
     </message>
     <message>
       <source>Edit department</source>
@@ -2446,71 +2446,71 @@
     </message>
     <message>
       <source>Inform then chat is closed by operator, only mail notification is send.</source>
-      <translation type="unfinished"/>
+      <translation>Информировать о том, что чат закрыт оператором, и возможно отправить только сообщение на e-mail</translation>
     </message>
     <message>
       <source>Inform about new chats using</source>
-      <translation type="unfinished"/>
+      <translation>Информировать о использовании новых чатов</translation>
     </message>
     <message>
       <source>XMPP messages</source>
-      <translation type="unfinished"/>
+      <translation>XMPP сообщения</translation>
     </message>
     <message>
       <source>Mail messages</source>
-      <translation type="unfinished"/>
+      <translation>Сообщения почты</translation>
     </message>
     <message>
       <source>How many seconds chat can be pending before about chat is informed a staff</source>
-      <translation type="unfinished"/>
+      <translation>Через сколько секунд операторы получат уведомление о чате находящемся в режиме ожидания</translation>
     </message>
     <message>
       <source>Work hours/work days logic is active</source>
-      <translation type="unfinished"/>
+      <translation>Активировать рабочие часы/дни</translation>
     </message>
     <message>
       <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
-      <translation type="unfinished"/>
+      <translation>Рабочие дни/часы во время которых чат будет в режиме онлайн</translation>
     </message>
     <message>
       <source>Monday</source>
-      <translation type="unfinished"/>
+      <translation>Понедельник</translation>
     </message>
     <message>
       <source>Tuesday</source>
-      <translation type="unfinished"/>
+      <translation>Вторник</translation>
     </message>
     <message>
       <source>Wednesday</source>
-      <translation type="unfinished"/>
+      <translation>Среда</translation>
     </message>
     <message>
       <source>Thursday</source>
-      <translation type="unfinished"/>
+      <translation>Четверг</translation>
     </message>
     <message>
       <source>Friday</source>
-      <translation type="unfinished"/>
+      <translation>Пятница</translation>
     </message>
     <message>
       <source>Saturday</source>
-      <translation type="unfinished"/>
+      <translation>Суббота</translation>
     </message>
     <message>
       <source>Sunday</source>
-      <translation type="unfinished"/>
+      <translation>Воскресенье</translation>
     </message>
     <message>
       <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation type="unfinished"/>
+      <translation>Часы работы, 24 часовой формат, от 1-24</translation>
     </message>
     <message>
       <source>From, E.g. 8</source>
-      <translation type="unfinished"/>
+      <translation>Например, с 8</translation>
     </message>
     <message>
       <source>To, E.g. 17</source>
-      <translation type="unfinished"/>
+      <translation>Например, до 17</translation>
     </message>
     <message>
       <source>None</source>
@@ -2582,6 +2582,10 @@
     <message>
       <source>Surname</source>
       <translation>Фамилия</translation>
+    </message>
+    <message>
+      <source>Skype</source>
+      <translation>Skype</translation>
     </message>
     <message>
       <source>Photo</source>
@@ -3457,27 +3461,27 @@
     <name>system/smtp</name>
     <message>
       <source>XMP active</source>
-      <translation type="unfinished"/>
+      <translation>XMP автивен</translation>
     </message>
     <message>
       <source>Resource</source>
-      <translation type="unfinished"/>
+      <translation>Ресурс</translation>
     </message>
     <message>
       <source>Server</source>
-      <translation type="unfinished"/>
+      <translation>Сервер</translation>
     </message>
     <message>
       <source>XMP Message content</source>
-      <translation type="unfinished"/>
+      <translation>Содержание сообщения XMP</translation>
     </message>
     <message>
       <source>XMP message was sent succesfuly</source>
-      <translation type="unfinished"/>
+      <translation>Сообщение XMP в случае удачной отправки</translation>
     </message>
     <message>
       <source>XMP settings</source>
-      <translation type="unfinished"/>
+      <translation>Настройки XMP</translation>
     </message>
     <message>
       <source>SMTP settings</source>
@@ -3844,7 +3848,7 @@
     <name>user/login</name>
     <message>
       <source>Please login</source>
-      <translation>Войдите пожалуйста</translation>
+      <translation>Авторизуйтесь пожалуйста</translation>
     </message>
     <message>
       <source>Username</source>
@@ -4244,210 +4248,217 @@
     <name>system/xmp</name>
     <message>
       <source>XMP active</source>
-      <translation type="unfinished"/>
+      <translation>XMP активен</translation>
     </message>
     <message>
       <source>Host</source>
-      <translation type="unfinished"/>
+      <translation>Хост</translation>
     </message>
     <message>
       <source>Port</source>
-      <translation type="unfinished"/>
+      <translation>Порт</translation>
     </message>
     <message>
       <source>Login</source>
-      <translation type="unfinished"/>
+      <translation>Логин</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation type="unfinished"/>
+      <translation>Пароль</translation>
     </message>
     <message>
       <source>Resource</source>
-      <translation type="unfinished"/>
+      <translation>Ресурс</translation>
     </message>
     <message>
       <source>Server</source>
-      <translation type="unfinished"/>
+      <translation>Сервер</translation>
     </message>
     <message>
       <source>Recipients</source>
-      <translation type="unfinished"/>
+      <translation>Получатели</translation>
     </message>
     <message>
       <source>XMP Message content</source>
-      <translation type="unfinished"/>
+      <translation>Содержимое сообщения XMP</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Настройки обновлены</translation>
     </message>
     <message>
       <source>XMP message was sent succesfuly</source>
-      <translation type="unfinished"/>
+      <translation>Сообщение XMP в случае удачно отправки</translation>
     </message>
     <message>
       <source>XMP settings</source>
-      <translation type="unfinished"/>
+      <translation>Настройки XMP</translation>
     </message>
     <message>
       <source>XMPP active</source>
-      <translation type="unfinished"/>
+      <translation>XMPP активен</translation>
     </message>
     <message>
       <source>Default recipients</source>
-      <translation type="unfinished"/>
+      <translation>Получатель по умолчанию</translation>
     </message>
     <message>
       <source>Test message will be send to your account e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Тестовое сообщение которое будет отправлено на ваш e-mail</translation>
     </message>
     <message>
       <source>XMPP message was sent succesfuly</source>
-      <translation type="unfinished"/>
+      <translation>Сообщение XMPP в случае успешной отправки</translation>
     </message>
     <message>
       <source>XMPP settings</source>
-      <translation type="unfinished"/>
+      <translation>Настройки XMPP</translation>
     </message>
   </context>
   <context>
     <name>system/xmpp</name>
     <message>
       <source>XMPP documentation</source>
-      <translation type="unfinished"/>
+      <translation>Документация по XMPP</translation>
     </message>
     <message>
       <source>User standard XMPP service</source>
-      <translation type="unfinished"/>
+      <translation>Использовать стандартный XMPP сервис</translation>
     </message>
     <message>
       <source>XMPP settings</source>
-      <translation type="unfinished"/>
+      <translation>Настройки XMPP</translation>
     </message>
     <message>
       <source>XMPP active</source>
-      <translation type="unfinished"/>
+      <translation>XMPP активен</translation>
     </message>
     <message>
       <source>XMPP Message content</source>
-      <translation type="unfinished"/>
+      <translation>Содержимое сообщения XMP</translation>
     </message>
     <message>
       <source>XMPP</source>
-      <translation type="unfinished"/>
+      <translation>XMPP</translation>
     </message>
     <message>
       <source>Use standard XMPP service</source>
-      <translation type="unfinished"/>
+      <translation>Использовать стандартный XMPP сервис</translation>
     </message>
     <message>
       <source>Host</source>
-      <translation type="unfinished"/>
+      <translation>Хост</translation>
     </message>
     <message>
       <source>Port</source>
-      <translation type="unfinished"/>
+      <translation>Порт</translation>
     </message>
     <message>
       <source>Login</source>
-      <translation type="unfinished"/>
+      <translation>Логин</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation type="unfinished"/>
+      <translation>Пароль</translation>
     </message>
     <message>
       <source>Resource</source>
-      <translation type="unfinished"/>
+      <translation>Ресурс</translation>
     </message>
     <message>
       <source>Server</source>
-      <translation type="unfinished"/>
+      <translation>Сервер</translation>
     </message>
     <message>
       <source>Recipients</source>
-      <translation type="unfinished"/>
+      <translation>Получатель</translation>
     </message>
     <message>
       <source>Default recipients</source>
-      <translation type="unfinished"/>
+      <translation>Получатель по умолчанию</translation>
     </message>
     <message>
       <source>Test message will be send to your account e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Тестовое сообщение которое будет отправлено на ваш e-mail</translation>
     </message>
     <message>
       <source>GTalk</source>
-      <translation type="unfinished"/>
+      <translation>GTalk</translation>
     </message>
     <message>
       <source>Use GTalk for messaging</source>
-      <translation type="unfinished"/>
+      <translation>Использовать GTalk для отправки сообщений</translation>
     </message>
     <message>
       <source>Information for your google app</source>
-      <translation type="unfinished"/>
+      <translation>Информация о вашем google app</translation>
     </message>
     <message>
       <source>Redirect URL, this url you will have to enter in your google app configuration</source>
-      <translation type="unfinished"/>
+      <translation>URL перенаправления, этот URL вам нужно ввести в настройках google app</translation>
     </message>
     <message>
       <source>Enter your app information bellow</source>
-      <translation type="unfinished"/>
+      <translation>Введите ниже данные о вашем приложении</translation>
     </message>
     <message>
       <source>OAuth 2.0 Client ID</source>
-      <translation type="unfinished"/>
+      <translation>ID Клиента OAuth 2.0</translation>
     </message>
     <message>
       <source>Please enter your Client ID</source>
-      <translation type="unfinished"/>
+      <translation>Пожалуйста, введите ваш ID Клиента</translation>
     </message>
     <message>
       <source>Client secret</source>
-      <translation type="unfinished"/>
+      <translation>Ваш &quot;секрет&quot;</translation>
     </message>
     <message>
       <source>This message will be send to your e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Это сообщение будет отправлено на ваш e-mail</translation>
     </message>
     <message>
       <source>Send test message</source>
-      <translation type="unfinished"/>
+      <translation>Отправить тестовое сообщение</translation>
     </message>
     <message>
       <source>Revoke access token</source>
-      <translation type="unfinished"/>
+      <translation>Отозвать token</translation>
     </message>
     <message>
       <source>Revoke permission to send a message</source>
-      <translation type="unfinished"/>
+      <translation>Отозвать разрешение на отправку сообщений</translation>
     </message>
     <message>
       <source>Authentificate and grant permission to send a message</source>
-      <translation type="unfinished"/>
+      <translation>Авторизуйтесь и дайте разрешения чтобы отправить сообщение</translation>
     </message>
     <message>
       <source>Grant permission to send a message</source>
-      <translation type="unfinished"/>
+      <translation>Предоставить разрешение на отправку сообщения</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Настройки обновлены</translation>
     </message>
     <message>
       <source>Succesfully authorised, now you can try to send a message</source>
-      <translation type="unfinished"/>
+      <translation>Авторизация прошла успешно, теперь вы можете отправить сообщение</translation>
     </message>
     <message>
       <source>Token was revoked</source>
-      <translation type="unfinished"/>
+      <translation>Токен был отозван</translation>
     </message>
     <message>
       <source>XMPP message was sent succesfuly</source>
-      <translation type="unfinished"/>
+      <translation>Сообщение XMPP в случае успешной отправки</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/part/operator_profile</name>
+    <message>
+      <source>Skype call</source>
+      <translation>Позвонить через Skype</translation>
     </message>
   </context>
 </TS>

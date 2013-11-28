@@ -2583,6 +2583,10 @@
       <translation>نام خانوادگی</translation>
     </message>
     <message>
+      <source>Skype</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Photo</source>
       <translation>تصویر</translation>
     </message>
@@ -4447,6 +4451,13 @@
     <message>
       <source>XMPP message was sent succesfuly</source>
       <translation>پیام XMPP با موفقیت ارسال شد</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/part/operator_profile</name>
+    <message>
+      <source>Skype call</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>
