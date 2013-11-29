@@ -4,6 +4,8 @@ $positionArgument = array (
 		'bottom_left' => array (
 				'radius' => 'right',
 				'position' => 'bottom:0;left:0;',
+				'posv' => 'b',
+				'pos' => 'l',
 				'position_body' => 'bottom:0;left:0;',
 				'shadow' => '2px -2px 5px',
 				'moz_radius' => 'topright',
@@ -15,6 +17,8 @@ $positionArgument = array (
 				'widget_radius' => '-webkit-border-top-right-radius: 20px;-moz-border-radius-topright: 20px;border-top-right-radius: 20px;'
 		),
 		'bottom_right' => array (
+				'pos' => 'r',
+				'posv' => 'b',
 				'radius' => 'left',
 				'position' => 'bottom:0;right:0;',
 				'position_body' => 'bottom:0;right:0;',
@@ -28,6 +32,8 @@ $positionArgument = array (
 				'widget_radius' => '-webkit-border-top-left-radius: 20px;-moz-border-radius-topleft: 20px;border-top-left-radius: 20px;'
 		),
 		'middle_right' => array (
+				'pos' => 'r',
+				'posv' => 't',
 				'radius' => 'left',
 				'position' => "top:{$top_pos}{$units};right:-155px;",
 				'position_body' => "top:{$top_pos}{$units};right:0px;",
@@ -49,6 +55,8 @@ $positionArgument = array (
 				'padding_text' => '10px 35px 10px 9px',
 				'widget_hover' => 'left:0;transition: 1s;',
 				'moz_radius' => 'topright',
+				'posv' => 't',
+				'pos' => 'l',
 				'background_position' => '95%',
 				'chrome_radius' => 'top-right',
 				'widget_radius' => '-webkit-border-top-right-radius: 20px;-moz-border-radius-topright: 20px;border-top-right-radius: 20px;      -webkit-border-bottom-right-radius: 20px;-moz-border-radius-bottomright: 20px;border-bottom-right-radius: 20px;'
@@ -85,7 +93,8 @@ var lh_inst  = {
             parse: window.JSON && (window.JSON.parse || window.JSON.decode) || String.prototype.evalJSON && function(str){return String(str).evalJSON();} || $.parseJSON || $.evalJSON,
             stringify:  Object.toJSON || window.JSON && (window.JSON.stringify || window.JSON.encode) || $.toJSON
     },
-
+	offset_data : '',
+	is_dragging : false,
     urlopen : "//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/startchat')?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?>",
 
     windowname : "startchatwindow",
@@ -131,6 +140,7 @@ var lh_inst  = {
         th.appendChild(s);
         this.removeById('lhc_container');
         this.removeCookieAttr('hash');
+        this.removeCookieAttr('pos');
         <?php if ($check_operator_messages == 'true') : ?>
         this.startNewMessageCheck();
         <?php endif; ?>
@@ -190,6 +200,30 @@ var lh_inst  = {
     	}
     	return '';
     },
+    
+	addEvent : (function () {
+	  if (document.addEventListener) {
+	    return function (el, type, fn) {
+	      if (el && el.nodeName || el === window) {
+	        el.addEventListener(type, fn, false);
+	      } else if (el && el.length) {
+	        for (var i = 0; i < el.length; i++) {
+	          lh_inst.addEvent(el[i], type, fn);
+	        }
+	      }
+	    };
+	  } else {
+	    return function (el, type, fn) {
+	      if (el && el.nodeName || el === window) {
+	        el.attachEvent('on' + type, function () { return fn.call(el, window.event); });
+	      } else if (el && el.length) {
+	        for (var i = 0; i < el.length; i++) {
+	          lh_inst.addEvent(el[i], type, fn);
+	        }
+	      }
+	    };
+	  }
+	})(),
 
     showStartWindow : function(url_to_open) {
 
@@ -214,7 +248,7 @@ var lh_inst  = {
                        ' style="width: '+widgetWidth+'px; height: '+widgetHeight+'px;"></iframe>';
 
           <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/container.tpl.php')); ?>
-
+         
           this.addCss(raw_css);
 
           var fragment = this.appendHTML(this.iframe_html);
@@ -226,6 +260,10 @@ var lh_inst  = {
           <?php if (erLhcoreClassModelChatConfig::fetch('disable_popup_restore')->current_value == 0) : ?>
           document.getElementById('lhc_remote_window').onclick = function() { lhc_obj.openRemoteWindow(); return false; };
 		  <?php endif; ?>
+		  		  
+		  var domContainer = document.getElementById('lhc_container');
+		  <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/drag_drop_logic.tpl.php')); ?>		  
+		      
 
     },
 
@@ -244,7 +282,7 @@ var lh_inst  = {
 
         var statusTEXT = '<a id="<?php ($isOnlineHelp == true) ? print 'online-icon' : print 'offline-icon' ?>" class="status-icon" href="#" onclick="return lh_inst.lh_openchatWindow()" ><?php if ($isOnlineHelp == true) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Live help is online...')?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Live help is offline...')?><?php endif;?></a>';
 
-        var raw_css = "#lhc_status_container * {direction:<?php (erConfigClassLhConfig::getInstance()->getOverrideValue('site','dir_language') == 'ltr' || erConfigClassLhConfig::getInstance()->getOverrideValue('site','dir_language') == '') ? print 'ltr;text-align:left;' : print 'rtl;text-align:right;'; ?>;font-family:arial;font-size:12px;box-sizing: content-box;zoom:1;margin:0;padding:0}\n#lhc_status_container .status-icon{text-decoration:none;font-size:12px;font-weight:bold;color:#000;display:block;padding:<?php echo $currentPosition['padding_text']?>;background:url('//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/icons/user_green_chat.png');?>') no-repeat <?php echo $currentPosition['background_position']?> center}\n#lhc_status_container:hover{<?php echo $currentPosition['widget_hover']?>}\n#lhc_status_container #offline-icon{background-image:url('//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/icons/user_gray_chat.png');?>')}\n#lhc_status_container{box-sizing: content-box;<?php echo $currentPosition['widget_radius']?>-webkit-box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);<?php echo $currentPosition['border_widget']?>;-moz-box-shadow:<?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);padding:5px 0px 0px 5px;width:190px;font-family:arial;font-size:12px;transition: 1s;position:fixed;<?php echo $currentPosition['position']?>;background-color:#f6f6f6;z-index:9998;}\n";
+        var raw_css = "#lhc_status_container * {direction:<?php (erConfigClassLhConfig::getInstance()->getOverrideValue('site','dir_language') == 'ltr' || erConfigClassLhConfig::getInstance()->getOverrideValue('site','dir_language') == '') ? print 'ltr;text-align:left;' : print 'rtl;text-align:right;'; ?>;font-family:arial;font-size:12px;box-sizing: content-box;zoom:1;margin:0;padding:0}\n#lhc_status_container .status-icon{text-decoration:none;font-size:12px;font-weight:bold;color:#000;display:block;padding:<?php echo $currentPosition['padding_text']?>;background:url('//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/icons/user_green_chat.png');?>') no-repeat <?php echo $currentPosition['background_position']?> center}\n#lhc_status_container:hover{<?php echo $currentPosition['widget_hover']?>}\n#lhc_status_container #offline-icon{background-image:url('//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/icons/user_gray_chat.png');?>')}\n#lhc_status_container{box-sizing: content-box;<?php echo $currentPosition['widget_radius']?>-webkit-box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);<?php echo $currentPosition['border_widget']?>;-moz-box-shadow:<?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);padding:5px 0px 0px 5px;width:190px;font-family:arial;font-size:12px;transition: 1s;position:fixed;<?php echo $currentPosition['position']?>;background-color:#f6f6f6;z-index:9989;}\n";
         this.addCss(raw_css);
 
         var htmlStatus = '<div id="lhc_status_container">'+statusTEXT+'</div>';

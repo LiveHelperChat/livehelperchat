@@ -12,9 +12,13 @@ $positionArgument = array (
 				'chrome_radius' => 'top-right',
 				'border_widget' => 'border:1px solid #e3e3e3;border-left:0;border-bottom:0;',
 				'background_position' => '0',
-				'widget_radius' => '-webkit-border-top-right-radius: 20px;-moz-border-radius-topright: 20px;border-top-right-radius: 20px;'
+				'widget_radius' => '-webkit-border-top-right-radius: 20px;-moz-border-radius-topright: 20px;border-top-right-radius: 20px;',
+				'posv' => 'b',
+				'pos' => 'l',
 		),
 		'bottom_right' => array (
+				'pos' => 'r',
+				'posv' => 'b',
 				'radius' => 'left',
 				'position' => 'bottom:0;right:0;',
 				'position_body' => 'bottom:0;right:0;',
@@ -28,6 +32,8 @@ $positionArgument = array (
 				'widget_radius' => '-webkit-border-top-left-radius: 20px;-moz-border-radius-topleft: 20px;border-top-left-radius: 20px;'
 		),
 		'middle_right' => array (
+				'pos' => 'r',
+				'posv' => 't',
 				'radius' => 'left',
 				'position' => "top:{$top_pos}{$units};right:-155px;",
 				'position_body' => "top:{$top_pos}{$units};right:0px;",
@@ -41,6 +47,8 @@ $positionArgument = array (
 				'widget_radius' => '-webkit-border-top-left-radius: 20px;-moz-border-radius-topleft: 20px;border-top-left-radius: 20px;      -webkit-border-bottom-left-radius: 20px;-moz-border-radius-bottomleft: 20px;border-bottom-left-radius: 20px;'
 		),
 		'middle_left' => array (
+				'posv' => 't',
+				'pos' => 'l',
 				'radius' => 'left',
 				'position' => "top:{$top_pos}{$units};left:-155px;",
 				'position_body' => "top:{$top_pos}{$units};left:0px;",
@@ -63,10 +71,15 @@ if (key_exists($position, $positionArgument)){
 
 ?>
 
-var lhc_FAQ = function() {
-	var self = this;
-
-	function addCss(css_content) {
+var lhc_FAQ = {
+	JSON : {
+            parse: window.JSON && (window.JSON.parse || window.JSON.decode) || String.prototype.evalJSON && function(str){return String(str).evalJSON();} || $.parseJSON || $.evalJSON,
+            stringify:  Object.toJSON || window.JSON && (window.JSON.stringify || window.JSON.encode) || $.toJSON
+    },
+    is_dragging : false,
+    offset_data : '',
+	cookieData : {},
+	addCss : function(css_content) {
         var head = document.getElementsByTagName('head')[0];
         var style = document.createElement('style');
         style.type = 'text/css';
@@ -79,9 +92,9 @@ var lhc_FAQ = function() {
         };
 
         head.appendChild(style);
-   };
+   },
 
-   function appendHTML(htmlStr) {
+   appendHTML : function(htmlStr) {
         var frag = document.createDocumentFragment(),
             temp = document.createElement('div');
         temp.innerHTML = htmlStr;
@@ -89,20 +102,44 @@ var lhc_FAQ = function() {
             frag.appendChild(temp.firstChild);
         };
         return frag;
-    };
+    },
 
-	this.removeById = function(EId)
+	removeById : function(EId)
     {
         return(EObj=document.getElementById(EId))?EObj.parentNode.removeChild(EObj):false;
-    };
+    },
 
-    this.hide = function() {
-        self.removeById('lhc_container_faq');
-    };
+    hide : function() {
+        this.removeById('lhc_container_faq');
+    },
+    
+	addEvent : (function () {
+	  if (document.addEventListener) {
+	    return function (el, type, fn) {
+	      if (el && el.nodeName || el === window) {
+	        el.addEventListener(type, fn, false);
+	      } else if (el && el.length) {
+	        for (var i = 0; i < el.length; i++) {
+	          addEvent(el[i], type, fn);
+	        }
+	      }
+	    };
+	  } else {
+	    return function (el, type, fn) {
+	      if (el && el.nodeName || el === window) {
+	        el.attachEvent('on' + type, function () { return fn.call(el, window.event); });
+	      } else if (el && el.length) {
+	        for (var i = 0; i < el.length; i++) {
+	          addEvent(el[i], type, fn);
+	        }
+	      }
+	    };
+	  }
+	})(),
+	
+	showVotingForm : function() {
 
-	this.showVotingForm = function() {
-
-   		  self.removeById('lhc_container_faq');
+   		  this.removeById('lhc_container_faq');
 
    		  this.initial_iframe_url = "//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('faq/faqwidget')?>"+'?URLReferer='+escape(document.location)+'&URLModule='+LHCFAQOptions.url;
 
@@ -112,31 +149,38 @@ var lhc_FAQ = function() {
                        ' height="350"' +
                        ' style="width: 490px; height: 350px;"></iframe>';
 
-          this.iframe_html = '<div id="lhc_container_faq">' +
+          this.iframe_html = '<div id="lhc_container_faq" draggable="true">' +
                               '<div id="lhc_faq_header"><span id="lhc_faq_title"><a title="Powered by Live Helper Chat" href="http://livehelperchat.com" target="_blank"><img src="//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/icons/lhc.png');?>" alt="Live Helper Chat" /></a></span><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" id="lhc_faq_close"><img src="//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/icons/cancel.png');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" /></a></div>' +
                               this.iframe_html + '</div>';
 
-          raw_css = "#lhc_container_faq * {direction:<?php (erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'dir_language') == 'ltr' || erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'dir_language') == '') ? print 'ltr;text-align:left;' : print 'rtl;text-align:right;'; ?>;font-family:arial\;line-height:100%\;font-size:12px\;box-sizing: content-box\;-moz-box-sizing:content-box;padding:0;margin:0;}\n#lhc_container_faq img {border:0;}\n#lhc_faq_title{float:left;}\n#lhc_faq_header{position:relative;z-index:9999;height:15px;overflow:hidden;-webkit-border-<?php echo $currentPosition['chrome_radius']?>-radius: 10px;-moz-border-radius-<?php echo $currentPosition['moz_radius']?>: 10px;border-<?php echo $currentPosition['chrome_radius']?>-radius: 10px;background-color:#FFF;text-align:right;clear:both;border-bottom:1px solid #CCC;padding:5px;}\n#lhc_faq_close{padding:2px;float:right;}\n#lhc_faq_close:hover{background:#e5e5e5;}\n#lhc_container_faq {height:350px;overflow: hidden;transition-property: height;transition-duration: 0.4s;-webkit-transition: height 0.4s ease-in-out;transition: height 0.4s;background-color:#FFF\;width:490px;\nz-index:9999;\n position: fixed;<?php echo $currentPosition['position_body']?>;-webkit-box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);-moz-box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);border:1px solid #CCC;-webkit-border-<?php echo $currentPosition['chrome_radius']?>-radius: 10px;-moz-border-radius-<?php echo $currentPosition['moz_radius']?>: 10px;border-<?php echo $currentPosition['chrome_radius']?>-radius: 10px; }\n#lhc_container_faq iframe{transition-property: height;transition-duration: 0.4s;-webkit-transition: height 0.4s ease-in-out;transition: height 0.4s;}\n#lhc_container_faq iframe.lhc-loading{\nbackground: #FFF url(//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/general/loading.gif');?>) no-repeat center center; }";
+          raw_css = "#lhc_container_faq * {direction:<?php (erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'dir_language') == 'ltr' || erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'dir_language') == '') ? print 'ltr;text-align:left;' : print 'rtl;text-align:right;'; ?>;font-family:arial\;line-height:100%\;font-size:12px\;box-sizing: content-box\;-moz-box-sizing:content-box;padding:0;margin:0;}\n#lhc_container_faq img {border:0;}\n#lhc_faq_title{float:left;}\n#lhc_faq_header{position:relative;z-index:9990;height:15px;overflow:hidden;-webkit-border-<?php echo $currentPosition['chrome_radius']?>-radius: 10px;-moz-border-radius-<?php echo $currentPosition['moz_radius']?>: 10px;border-<?php echo $currentPosition['chrome_radius']?>-radius: 10px;background-color:#FFF;text-align:right;clear:both;border-bottom:1px solid #CCC;padding:5px;}\n#lhc_faq_close{padding:2px;float:right;}\n#lhc_faq_close:hover{background:#e5e5e5;}\n#lhc_container_faq {-moz-user-select:none; -khtml-user-drag:element;cursor:move; height:350px;overflow: hidden;transition-property: height;transition-duration: 0.4s;-webkit-transition: height 0.4s ease-in-out;transition: height 0.4s;background-color:#FFF\;width:490px;\nz-index:9990;\n position: fixed;<?php echo $currentPosition['position_body']?>;-webkit-box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);-moz-box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);border:1px solid #CCC;-webkit-border-radius: 10px;-moz-border-radius: 10px;border-radius: 10px; }\n#lhc_container_faq iframe{transition-property: height;transition-duration: 0.4s;-webkit-transition: height 0.4s ease-in-out;transition: height 0.4s;}\n#lhc_container_faq iframe.lhc-loading{\nbackground: #FFF url(//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/general/loading.gif');?>) no-repeat center center; }";
 
-          addCss(raw_css);
+          this.addCss(raw_css);
 
-          var fragment = appendHTML(this.iframe_html);
+          var fragment = this.appendHTML(this.iframe_html);
           document.body.insertBefore(fragment, document.body.childNodes[0]);
+		
+		  var lhc_obj = this;			
+          document.getElementById('lhc_faq_close').onclick = function() { lhc_obj.hide(); return false; };
+           
+          var domContainer = document.getElementById('lhc_container_faq');
+		  <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/drag_drop_logic.tpl.php')); ?>	
+          
+          
+    },
 
-          document.getElementById('lhc_faq_close').onclick = function() { self.hide(); return false; };
-    };
-
-    function showStatusWidget() {
+    showStatusWidget : function() {
        var statusTEXT = '<a id="faq-icon" class="status-icon" href="#" onclick="return lh_inst.lh_openchatWindow()" >'+LHCFAQOptions.status_text+'</a>';
-       var raw_css = "#lhc_faq_container * {direction:<?php (erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'dir_language') == 'ltr' || erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'dir_language') == '') ? print 'ltr;text-align:left;' : print 'rtl;text-align:right;'; ?>;font-family:arial;line-height:100%;font-size:12px;box-sizing: content-box;zoom:1;margin:0;padding:0;}\n#lhc_faq_container .status-icon{text-decoration:none;font-size:12px;font-weight:bold;color:#000;display:block;padding:<?php echo $currentPosition['padding_text']?>;background:url('//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/icons/help.png');?>') no-repeat <?php echo $currentPosition['background_position']?> center}\n#lhc_faq_container:hover{<?php echo $currentPosition['widget_hover']?>}\n#lhc_faq_container{box-sizing: content-box;<?php echo $currentPosition['widget_radius']?>-webkit-box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);-moz-box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);<?php echo $currentPosition['border_widget']?>;padding:5px 0px 3px 5px;width:190px;font-family:arial;font-size:12px;transition: 1s;position:fixed;<?php echo $currentPosition['position']?>;background-color:#f6f6f6;z-index:9998;}\n";
-       addCss(raw_css);
+       var raw_css = "#lhc_faq_container * {direction:<?php (erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'dir_language') == 'ltr' || erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'dir_language') == '') ? print 'ltr;text-align:left;' : print 'rtl;text-align:right;'; ?>;font-family:arial;line-height:100%;font-size:12px;box-sizing: content-box;zoom:1;margin:0;padding:0;}\n#lhc_faq_container .status-icon{text-decoration:none;font-size:12px;font-weight:bold;color:#000;display:block;padding:<?php echo $currentPosition['padding_text']?>;background:url('//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/icons/help.png');?>') no-repeat <?php echo $currentPosition['background_position']?> center}\n#lhc_faq_container:hover{<?php echo $currentPosition['widget_hover']?>}\n#lhc_faq_container{box-sizing: content-box;<?php echo $currentPosition['widget_radius']?>-webkit-box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);-moz-box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);<?php echo $currentPosition['border_widget']?>;padding:5px 0px 3px 5px;width:190px;font-family:arial;font-size:12px;transition: 1s;position:fixed;<?php echo $currentPosition['position']?>;background-color:#f6f6f6;z-index:9989;}\n";
+       this.addCss(raw_css);
        var htmlStatus = '<div id="lhc_faq_container">'+statusTEXT+'</div>';
-       var fragment = appendHTML(htmlStatus);
+       var fragment = this.appendHTML(htmlStatus);
        document.body.insertBefore(fragment, document.body.childNodes[0]);
-       document.getElementById('faq-icon').onclick = function() { self.showVotingForm(); return false; };
-   };
+       var inst = this;
+       document.getElementById('faq-icon').onclick = function() { inst.showVotingForm(); return false; };
+   },
 
-   this.handleMessage = function(e) {
+   handleMessage : function(e) {
     	var action = e.data.split(':')[0];
     	if (action == 'lhc_sizing_faq') {
     		var height = e.data.split(':')[1];
@@ -147,26 +191,29 @@ var lhc_FAQ = function() {
     		iframeContainer.className = iframeContainer.className;
     		iframeContainer.style.height = (parseInt(height)+26)+'px';
     	};
-   };
+   },
+   
+   addCookieAttribute : function() {
+   
+   }
 
-   showStatusWidget();
 };
 
-var lhcFaq = new lhc_FAQ();
+lhc_FAQ.showStatusWidget();
 
 if ( window.attachEvent ) {
 	// IE
-	window.attachEvent("onmessage",function(e){lhcFaq.handleMessage(e);});
+	window.attachEvent("onmessage",function(e){lhc_FAQ.handleMessage(e);});
 };
 
 if ( document.attachEvent ) {
 	// IE
-	document.attachEvent("onmessage",function(e){lhcFaq.handleMessage(e);});
+	document.attachEvent("onmessage",function(e){lhc_FAQ.handleMessage(e);});
 };
 
 if ( window.addEventListener ){
 	// FF
-	window.addEventListener("message",function(e){lhcFaq.handleMessage(e);}, false);
+	window.addEventListener("message",function(e){lhc_FAQ.handleMessage(e);}, false);
 };
 
 

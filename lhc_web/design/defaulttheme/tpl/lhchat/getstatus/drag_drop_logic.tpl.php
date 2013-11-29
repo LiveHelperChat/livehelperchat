@@ -1,0 +1,84 @@
+if (this.cookieData.pos) {
+  		var posContainer = this.cookieData.pos.split(',');
+  		<?php if ($currentPosition['pos'] == 'r') : ?>
+  		domContainer.style.right = posContainer[0];
+  		<?php else : ?>
+  		domContainer.style.left = posContainer[0];
+  		<?php endif; ?>
+  		
+  		<?php if ($currentPosition['posv'] == 't') : ?>
+        domContainer.style.top = posContainer[1];
+        <?php else : ?>
+        domContainer.style.bottom = posContainer[1];
+        <?php endif;?>
+};
+		  
+this.addEvent(domContainer, 'dragstart', function (event) {	
+		event.dataTransfer.effectAllowed = 'move';	  	  
+		var style = window.getComputedStyle(event.target, null);
+		lhc_obj.offset_data = (parseInt(style.getPropertyValue("<?php echo $currentPosition['pos'] == 'r' ? 'right' : 'left'?>"),10) + (<?php echo $currentPosition['pos'] == 'r' ? '' : '-'?>event.clientX)) + ',' + (parseInt(style.getPropertyValue("<?php echo $currentPosition['posv'] == 't' ? 'top' : 'bottom' ?>"),10)<?php echo $currentPosition['posv'] == 't' ? '-' : '+' ?>event.clientY);
+	    event.dataTransfer.setData("text/plain",lhc_obj.offset_data); 
+	    lhc_obj.is_dragging = true;
+	    domContainer.style.zIndex=9995;
+});
+  	 
+this.addEvent(domContainer, 'dragenter', function (e) {
+		lhc_obj.is_dragging = true;		    
+    	return false;
+});
+
+this.addEvent(document.body, 'drop', function (event) {
+	
+		if (lhc_obj.is_dragging == true) {
+			domContainer.style.zIndex=9990;
+			lhc_obj.is_dragging = false;
+				
+		    var offset = lhc_obj.offset_data.split(',');
+		   
+		    dm = domContainer;
+			var cookiePos = '';
+		    if ('<?php echo $currentPosition['pos']?>' == 'r') {				    	
+		    	dm.style.right = (parseInt(offset[0],10)-event.clientX) + 'px';		
+		    	cookiePos += dm.style.right;			    	   	
+		    } else {
+		    	dm.style.left = (event.clientX + parseInt(offset[0],10)) + 'px';
+		    	cookiePos += dm.style.left;	
+		    };
+	    
+		    <?php if ($currentPosition['posv'] == 't') : ?>
+		    dm.style.top = (event.clientY + parseInt(offset[1],10)) + 'px';
+		    cookiePos += ","+dm.style.top;
+		    <?php else : ?>
+		    dm.style.bottom = (-event.clientY + parseInt(offset[1],10)) + 'px';
+		    cookiePos += ","+dm.style.bottom;		
+		    <?php endif;?>
+		    		    		    
+		    lhc_obj.addCookieAttribute('pos',cookiePos);
+		    event.preventDefault();
+		    return false;    
+	    }
+  });
+ 		  
+  this.addEvent(document.body, 'dragover', function (event) {	    	  
+    	if (lhc_obj.is_dragging == true) {    	  
+	  		event.dataTransfer.effectAllowed = 'all'		  
+	  		event.dataTransfer.dropEffect = 'move';		  		
+	 		var offset = lhc_obj.offset_data.split(',');			    			    
+		    var dm = domContainer;	
+		    		
+		    <?php if ($currentPosition['pos'] == 'r') : ?>	
+		    	dm.style.right = (parseInt(offset[0],10)-event.clientX) + 'px';	
+		    <?php else : ?>
+		    	dm.style.left = (event.clientX + parseInt(offset[0],10)) + 'px';
+		    <?php endif; ?>	
+	   		 
+		    <?php if ($currentPosition['posv'] == 't') : ?>			   
+		    	dm.style.top = (event.clientY + parseInt(offset[1],10)) + 'px';
+		    <?php else : ?>			    
+		    	dm.style.bottom = (-event.clientY + parseInt(offset[1],10)) + 'px';
+		    <?php endif; ?>
+		    			    			   				   				   				    
+		    event.preventDefault();
+		    return false;	
+	    }		    		
+});
