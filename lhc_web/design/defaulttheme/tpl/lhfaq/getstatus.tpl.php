@@ -120,7 +120,7 @@ var lhc_FAQ = {
 	        el.addEventListener(type, fn, false);
 	      } else if (el && el.length) {
 	        for (var i = 0; i < el.length; i++) {
-	          addEvent(el[i], type, fn);
+	          lhc_FAQ.addEvent(el[i], type, fn);
 	        }
 	      }
 	    };
@@ -130,7 +130,7 @@ var lhc_FAQ = {
 	        el.attachEvent('on' + type, function () { return fn.call(el, window.event); });
 	      } else if (el && el.length) {
 	        for (var i = 0; i < el.length; i++) {
-	          addEvent(el[i], type, fn);
+	          lhc_FAQ.addEvent(el[i], type, fn);
 	        }
 	      }
 	    };
