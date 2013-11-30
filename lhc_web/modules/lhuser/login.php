@@ -5,14 +5,14 @@ $instance = erLhcoreClassSystem::instance();
 if ($instance->SiteAccess == erConfigClassLhConfig::getInstance()->getSetting( 'site', 'default_site_access' )) {
 
 	if ($currentUser->isLogged() && !empty($Params['user_parameters_unordered']['r'])) {		
-		header('Location: ' .erLhcoreClassDesign::baseurldirect('site_admin/'.base64_decode(rawurldecode($Params['user_parameters_unordered']['r']))));		
+		header('Location: ' .erLhcoreClassDesign::baseurldirect('site_admin').'/'.base64_decode(rawurldecode($Params['user_parameters_unordered']['r'])));		
 		exit;
 	}
 
 	$redirect = rawurldecode($Params['user_parameters_unordered']['r']);
 	$redirectFull = $redirect != '' ? '/(r)/'.rawurlencode($redirect) : '';
 
-    header('Location: ' .erLhcoreClassDesign::baseurldirect('site_admin/user/login'.$redirectFull) );
+    header('Location: ' .erLhcoreClassDesign::baseurldirect('site_admin/user/login').$redirectFull );
     exit;
 }
 

@@ -1,6 +1,8 @@
 1.69v
 
+//------//
 Features
+//------//
 1. Drag & Drop support for widgets, you can drag site widgets draging it's header.
 2. Department has two separate fields one for E-Mail recipients another one for XMPP recipients. In relation to: https://github.com/remdex/livehelperchat/issues/202
 3. Department also now has field for XMPP Group recipients. There can be something as somechat@conference.server.org/LiveChat
@@ -9,21 +11,38 @@ So full flexibility to have different e-mail for system itself and different acc
 5. You can now set how long chat accept link is valid. This can be found in chat configuration section.
 6. Upon chat accept link click if link is invalid, user will be redirected to login page and if he is using remember me functionality he will be logged automatically and will see chat window instantly.
 7. Accept link generation supports now http and https.
+8. Option remove index.php from URL's
 
 Based on
 https://github.com/remdex/livehelperchat/issues/202
 https://github.com/remdex/livehelperchat/issues/205
+https://github.com/remdex/livehelperchat/issues/204
 
+//------//
 Changes
+//------//
 1. Disable posibility to choose to what department transfer chat if chosen department is self.
 
 https://github.com/remdex/livehelperchat/issues/203
 
-
+//------//
 Bugfixes
 1. Skype input field was missin in new window creation window.
+//------//
 
-execute doc/update_db/update_51.sql for update
+//------//
+For update
+//------//
+
+1. execute doc/update_db/update_51.sql for update
+
+2. Add in your site settings/settings.ini.php under 
+'installed' => true,
+
+True will remove index.php from url, also you will have to use .htaccess/nginx conf provided in doc/http_conf_examples
+For this to work app has to be installed on root folder, it can be either domain or subdomain.
+
+'force_virtual_host' => false,
 
 1.68v
 
