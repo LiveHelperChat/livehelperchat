@@ -22,7 +22,7 @@ this.addEvent(domContainer, 'dragstart', function (event) {
 	    domContainer.style.zIndex=9995;	
 	    setTimeout(function(){
 	    if (lhc_obj.is_dragging == true){
-	    	domIframe.style.marginTop = '-5000px';
+	    	document.getElementById(domIframe).style.marginTop = '-5000px';
 	    }},10);	    
 });
   	 
@@ -30,7 +30,7 @@ this.addEvent(domContainer, 'dragenter', function (e) {
 		lhc_obj.is_dragging = true;		
 		setTimeout(function(){
 	    if (lhc_obj.is_dragging == true){
-	    	domIframe.style.marginTop = '-5000px';
+	    	document.getElementById(domIframe).style.marginTop = '-5000px';
 	    }},10);    
     	return false;
 });
@@ -39,10 +39,10 @@ this.addEvent(document.body, 'drop', function (event) {
 	
 		if (lhc_obj.is_dragging == true) {
 			domContainer.style.zIndex=9990;
+			
 			lhc_obj.is_dragging = false;
-			
-			domIframe.style.marginTop = 0;
-			
+			document.getElementById(domIframe).style.marginTop = '0px';
+						
 		    var offset = lhc_obj.offset_data.split(',');
 		   
 		    dm = domContainer;

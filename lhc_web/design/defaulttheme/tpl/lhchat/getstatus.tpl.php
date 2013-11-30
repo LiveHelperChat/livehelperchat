@@ -262,7 +262,7 @@ var lh_inst  = {
 		  <?php endif; ?>
 		  		  
 		  var domContainer = document.getElementById('lhc_container');
-		  var domIframe = document.getElementById('lhc_iframe');
+		  var domIframe = 'lhc_iframe';
 		  <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/drag_drop_logic.tpl.php')); ?>		  
 		      
 
