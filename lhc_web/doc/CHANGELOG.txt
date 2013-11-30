@@ -3,7 +3,7 @@
 //------//
 Features
 //------//
-1. Drag & Drop support for widgets, you can drag site widgets draging it's header.
+1. Drag & Drop support for widgets, you can drag site widgets dragging it's header.
 2. Department has two separate fields one for E-Mail recipients another one for XMPP recipients. In relation to: https://github.com/remdex/livehelperchat/issues/202
 3. Department also now has field for XMPP Group recipients. There can be something as somechat@conference.server.org/LiveChat
 4. User also has a field xmpp username, if this field is different then user account e-mail during link clicking this field will be matched to department xmpp recipient and user will be authorised instantly.
