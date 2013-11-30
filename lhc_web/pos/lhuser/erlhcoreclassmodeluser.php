@@ -34,6 +34,11 @@ $def->properties['skype']->columnName   = 'skype';
 $def->properties['skype']->propertyName = 'skype';
 $def->properties['skype']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['xmpp_username'] = new ezcPersistentObjectProperty();
+$def->properties['xmpp_username']->columnName   = 'xmpp_username';
+$def->properties['xmpp_username']->propertyName = 'xmpp_username';
+$def->properties['xmpp_username']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $def->properties['surname'] = new ezcPersistentObjectProperty();
 $def->properties['surname']->columnName   = 'surname';
 $def->properties['surname']->propertyName = 'surname';

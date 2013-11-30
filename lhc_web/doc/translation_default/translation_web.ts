@@ -2430,6 +2430,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>XMPP recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP group recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E.g somechat@conference.server.org/LiveChat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>These messages will be send as group messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Priority</source>
       <translation type="unfinished"/>
     </message>
@@ -2586,6 +2602,10 @@
     </message>
     <message>
       <source>Skype</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP username</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4079,6 +4099,10 @@
     <name>departament/edit</name>
     <message>
       <source>Please enter a department name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfer department has to be different one than self</source>
       <translation type="unfinished"/>
     </message>
     <message>

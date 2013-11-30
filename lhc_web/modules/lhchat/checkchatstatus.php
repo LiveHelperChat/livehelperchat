@@ -13,7 +13,7 @@ try {
     	
     	// Main unasnwered chats callback
     	if ( $chat->na_cb_executed == 0 && $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && erLhcoreClassModelChatConfig::fetch('run_unaswered_chat_workflow')->current_value > 0) {    		
-    		$delay = time()-(erLhcoreClassModelChatConfig::fetch('run_unaswered_chat_workflow')->current_valu*60);    		
+    		$delay = time()-(erLhcoreClassModelChatConfig::fetch('run_unaswered_chat_workflow')->current_value*60);    		
     		if ($chat->time < $delay) {    		
     			erLhcoreClassChatWorkflow::unansweredChatWorkflow($chat);
     		}

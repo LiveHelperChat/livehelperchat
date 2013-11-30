@@ -10,12 +10,16 @@ class erConfigClassLhConfig
          $this->conf = include('settings/settings.ini.php');
     }
 
-    public function getSetting($section, $key)
+    public function getSetting($section, $key, $throwException = true)
     {
         if (isset($this->conf['settings'][$section][$key])) {
             return $this->conf['settings'][$section][$key];
         } else {
-            throw new Exception('Setting with section {'.$section.'} value {'.$key.'}');
+        	if ($throwException === true) {
+            	throw new Exception('Setting with section {'.$section.'} value {'.$key.'}');
+        	} else {
+        		return false;
+        	}
         }
     }
 

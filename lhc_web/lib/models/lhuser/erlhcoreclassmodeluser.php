@@ -17,6 +17,7 @@ class erLhcoreClassModelUser {
                'filepath'     	 => $this->filepath,
 			   'filename'     	 => $this->filename,
 			   'skype'     	 	 => $this->skype,
+			   'xmpp_username'   => $this->xmpp_username,
        );
    }
 
@@ -272,11 +273,17 @@ class erLhcoreClassModelUser {
        return $rows[0]['foundusers'] > 0;
    }
 
-   public static function fetchUserByEmail($email)
+   public static function fetchUserByEmail($email, $xmpp_username = false)
    {
        $db = ezcDbInstance::get();
-       $stmt = $db->prepare('SELECT id FROM lh_users WHERE email = :email');
+       $xmppAppend = $xmpp_username !== false ? ' OR xmpp_username = :xmpp_username' : '';       
+       $stmt = $db->prepare('SELECT id FROM lh_users WHERE email = :email'.$xmppAppend);
        $stmt->bindValue( ':email',$email);
+       
+       if ($xmpp_username !== false) {
+       		$stmt->bindValue( ':xmpp_username',$xmpp_username);       		
+       }
+       
        $stmt->execute();
        $rows = $stmt->fetchAll();
 
@@ -315,6 +322,7 @@ class erLhcoreClassModelUser {
     public $filename = '';
     public $surname = '';
     public $skype = '';
+    public $xmpp_username = '';
     public $disabled = 0;
     public $hide_online = 0;
     public $all_departments = 0;

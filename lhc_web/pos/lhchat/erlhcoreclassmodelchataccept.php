@@ -19,6 +19,11 @@ $def->properties['ctime']->columnName   = 'ctime';
 $def->properties['ctime']->propertyName = 'ctime';
 $def->properties['ctime']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['wused'] = new ezcPersistentObjectProperty();
+$def->properties['wused']->columnName   = 'wused';
+$def->properties['wused']->propertyName = 'wused';
+$def->properties['wused']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['hash'] = new ezcPersistentObjectProperty();
 $def->properties['hash']->columnName   = 'hash';
 $def->properties['hash']->propertyName = 'hash';

@@ -148,19 +148,29 @@ class erLhcoreClassXMP {
 				try {
 					$conn->connect();
 					$conn->processUntil('session_start');
-					$conn->presence();
 					
-					$emailRecipient = array();
-					if ($chat->department !== false && $chat->department->email != '') { // Perhaps department has assigned email
-						$emailRecipient = explode(',',$chat->department->email);
+					$emailRecipient = array();	// Email messages
+					$groupRecipients = array(); // Group messages
+					
+					if ($chat->department !== false && $chat->department->xmpp_recipients != '') { // Perhaps department has assigned email
+						$emailRecipient = explode(',',$chat->department->xmpp_recipients);
 					} elseif (isset($data['recipients']) && $data['recipients'] != '') {
 						$emailRecipient = explode(',', $data['recipients']);
-					} else { // Lets find first user and send him an e-mail
-						$list = erLhcoreClassModelUser::getUserList(array('limit' => 1,'sort' => 'id ASC'));
-						$user = array_pop($list);
-						$emailRecipient = array($user->email);
 					}
-					
+								
+					if ($chat->department !== false && $chat->department->xmpp_group_recipients != '') {
+						$groupRecipients = explode(',',$chat->department->xmpp_group_recipients);
+					}
+
+					// change status
+					foreach($groupRecipients as $recipient){						
+							$conn->presence(NULL,'available', $recipient);					
+					}
+
+					if (!empty($emailRecipient)) {
+						$conn->presence();
+					}
+	
 					$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 5,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
 					$messagesContent = '';
 					 
@@ -171,15 +181,26 @@ class erLhcoreClassXMP {
 							$messagesContent .= date('Y-m-d H:i:s',$msg->time).' '. ($msg->user_id == 0 ? htmlspecialchars($chat->nick) : htmlspecialchars($msg->name_support)).': '.htmlspecialchars($msg->msg)."\n";
 						}
 					}
-					
+
 					$cfgSite = erConfigClassLhConfig::getInstance();
 					$secretHash = $cfgSite->getSetting( 'site', 'secrethash' );
-					
+
 					foreach ($emailRecipient as $email) {			
 						$veryfyEmail = 	sha1(sha1($email.$secretHash).$secretHash);
-						$conn->message($email,str_replace(array('{messages}','{url_accept}'), array($messagesContent,'http://' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('chat/accept').'/'.erLhcoreClassModelChatAccept::generateAcceptLink($chat).'/'.$veryfyEmail.'/'.$email),$data['xmp_message']));
+						$messagesParsed = str_replace(array('{messages}','{url_accept}'), array($messagesContent,self::getBaseHost() . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('chat/accept').'/'.erLhcoreClassModelChatAccept::generateAcceptLink($chat).'/'.$veryfyEmail.'/'.$email),$data['xmp_message']);
+						$conn->message($email,$messagesParsed);
 					}
 					
+					foreach ($groupRecipients as $email) {			
+						$veryfyEmail = 	sha1(sha1($email.$secretHash).$secretHash);
+						$messagesParsed = str_replace(array('{messages}','{url_accept}'), array($messagesContent,self::getBaseHost() . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('chat/accept').'/'.erLhcoreClassModelChatAccept::generateAcceptLink($chat).'/'.$veryfyEmail.'/'.$email),$data['xmp_message']);
+						$conn->message($email,$messagesParsed,'groupchat');						
+					}
+
+					foreach($groupRecipients as $recipient) {					
+						$conn->presence(NULL,'unavailable',$recipient);
+					}
+
 					$conn->disconnect();
 					return true;
 				} catch (Exception $e) {
@@ -197,14 +218,10 @@ class erLhcoreClassXMP {
 						$conn->presence();
 						
 						$emailRecipient = array();
-						if ($chat->department !== false && $chat->department->email != '') { // Perhaps department has assigned email
-							$emailRecipient = explode(',',$chat->department->email);
+						if ($chat->department !== false && $chat->department->xmpp_recipients != '') { // Perhaps department has assigned email
+							$emailRecipient = explode(',',$chat->department->xmpp_recipients);
 						} elseif (isset($data['recipients']) && $data['recipients'] != '') {
 							$emailRecipient = explode(',', $data['recipients']);
-						} else { // Lets find first user and send him an e-mail
-							$list = erLhcoreClassModelUser::getUserList(array('limit' => 1,'sort' => 'id ASC'));
-							$user = array_pop($list);
-							$emailRecipient = array($user->email);
 						}
 						
 						$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 5,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
@@ -223,7 +240,7 @@ class erLhcoreClassXMP {
 						
 						foreach ($emailRecipient as $email) {
 							$veryfyEmail = 	sha1(sha1($email.$secretHash).$secretHash);
-							$conn->message($email,str_replace(array('{messages}','{url_accept}'), array($messagesContent,'http://' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('chat/accept').'/'.erLhcoreClassModelChatAccept::generateAcceptLink($chat).'/'.$veryfyEmail.'/'.$email),$data['xmp_message']));
+							$conn->message($email,str_replace(array('{messages}','{url_accept}'), array($messagesContent,self::getBaseHost() . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('chat/accept').'/'.erLhcoreClassModelChatAccept::generateAcceptLink($chat).'/'.$veryfyEmail.'/'.$email),$data['xmp_message']));
 						}
 
 						$conn->disconnect();

@@ -19,6 +19,16 @@ $def->properties['email']->columnName   = 'email';
 $def->properties['email']->propertyName = 'email';
 $def->properties['email']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['xmpp_recipients'] = new ezcPersistentObjectProperty();
+$def->properties['xmpp_recipients']->columnName   = 'xmpp_recipients';
+$def->properties['xmpp_recipients']->propertyName = 'xmpp_recipients';
+$def->properties['xmpp_recipients']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['xmpp_group_recipients'] = new ezcPersistentObjectProperty();
+$def->properties['xmpp_group_recipients']->columnName   = 'xmpp_group_recipients';
+$def->properties['xmpp_group_recipients']->propertyName = 'xmpp_group_recipients';
+$def->properties['xmpp_group_recipients']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $def->properties['priority'] = new ezcPersistentObjectProperty();
 $def->properties['priority']->columnName   = 'priority';
 $def->properties['priority']->propertyName = 'priority';

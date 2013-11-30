@@ -24,11 +24,13 @@ class erLhcoreClassURL extends ezcUrl {
             $urlCfgDefault->addOrderedParameter( 'siteaccess' );
             $urlCfgDefault->addOrderedParameter( 'module' );
             $urlCfgDefault->addOrderedParameter( 'function' );
-
-            $urlInstance = new erLhcoreClassURL('index.php' . $sysConfiguration->RequestURI, $urlCfgDefault);
+            
+            $cfgSite = erConfigClassLhConfig::getInstance();
+            
+            $urlInstance = new erLhcoreClassURL( ($cfgSite->getSetting( 'site', 'force_virtual_host', false) === false ? 'index.php' : '') .   $sysConfiguration->RequestURI, $urlCfgDefault);
 
             $siteaccess = $urlInstance->getParam( 'siteaccess' );
-            $cfgSite = erConfigClassLhConfig::getInstance();
+            
 
             $availableSiteaccess = $cfgSite->getSetting( 'site', 'available_site_access' );
             $defaultSiteAccess = $cfgSite->getSetting( 'site', 'default_site_access' );

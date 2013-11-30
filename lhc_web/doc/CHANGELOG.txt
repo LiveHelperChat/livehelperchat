@@ -1,3 +1,30 @@
+1.69v
+
+Features
+1. Drag & Drop support for widgets, you can drag site widgets draging it's header.
+2. Department has two separate fields one for E-Mail recipients another one for XMPP recipients. In relation to: https://github.com/remdex/livehelperchat/issues/202
+3. Department also now has field for XMPP Group recipients. There can be something as somechat@conference.server.org/LiveChat
+4. User also has a field xmpp username, if this field is different then user account e-mail during link clicking this field will be matched to department xmpp recipient and user will be authorised instantly.
+So full flexibility to have different e-mail for system itself and different account for XMPP service providers.
+5. You can now set how long chat accept link is valid. This can be found in chat configuration section.
+6. Upon chat accept link click if link is invalid, user will be redirected to login page and if he is using remember me functionality he will be logged automatically and will see chat window instantly.
+7. Accept link generation supports now http and https.
+
+Based on
+https://github.com/remdex/livehelperchat/issues/202
+https://github.com/remdex/livehelperchat/issues/205
+
+Changes
+1. Disable posibility to choose to what department transfer chat if chosen department is self.
+
+https://github.com/remdex/livehelperchat/issues/203
+
+
+Bugfixes
+1. Skype input field was missin in new window creation window.
+
+execute doc/update_db/update_51.sql for update
+
 1.68v
 
 Features

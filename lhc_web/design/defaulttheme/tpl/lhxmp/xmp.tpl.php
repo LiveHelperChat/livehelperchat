@@ -39,7 +39,7 @@
 				
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Port');?></label>
 				<input type="text" name="port" value="<?php (isset($xmp_data['port']) && $xmp_data['port'] != '') ? print $xmp_data['port'] : print '5222' ?>" />
-				
+												
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Login');?></label>
 				<input type="text" name="username" value="<?php (isset($xmp_data['username']) && $xmp_data['username'] != '') ? print $xmp_data['username'] : print '' ?>" />
 				

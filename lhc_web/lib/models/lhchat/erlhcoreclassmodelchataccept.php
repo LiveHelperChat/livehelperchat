@@ -9,6 +9,7 @@ class erLhcoreClassModelChatAccept {
                'chat_id'    => $this->chat_id,
                'hash'   	=> $this->hash,
                'ctime'   	=> $this->ctime,
+               'wused'   	=> $this->wused,
               );
    }
 
@@ -29,7 +30,7 @@ class erLhcoreClassModelChatAccept {
        erLhcoreClassChat::getSession()->delete( $this );
    }
 
-   public function fetchByHash($hash) {
+   public static function fetchByHash($hash) {
    		$list = erLhcoreClassChat::getList(array('limit' => 1, 'filter' => array('hash' => $hash)),'erLhcoreClassModelChatAccept','lh_chat_accept');
    		if (!empty($list)) {
    			return array_pop($list);
@@ -57,6 +58,7 @@ class erLhcoreClassModelChatAccept {
    public $chat_id = 0;
    public $hash = '';
    public $ctime = 0;
+   public $wused = 0;
 }
 
 ?>

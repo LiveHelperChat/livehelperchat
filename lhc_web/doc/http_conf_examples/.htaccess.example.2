@@ -1,0 +1,30 @@
+RewriteEngine On
+
+RewriteBase /
+
+RewriteRule ^/(m|lit|ger|fre|esp|por|ita|rus|jap|den|nor|ind|ces|hrv|pol|tur|ukr|bel|sve|rum|fin|ice|idn|chi|gre|ara|slv|srb|alb|slo|lav|kor|hun|est)/(.*)-([0-9]*)c.html(.*?)?$ index.php?/$1/gallery/category/$3$4 [L]
+RewriteRule ^/(m|lit|ger|fre|esp|por|ita|rus|jap|den|nor|ind|ces|hrv|pol|tur|ukr|bel|sve|rum|fin|ice|idn|chi|gre|ara|slv|srb|alb|slo|lav|kor|hun|est)/(.*)-([0-9]*)a.html(.*?)?$ index.php?/$1/gallery/album/$3$4 [L]
+RewriteRule ^/(m|lit|ger|fre|esp|por|ita|rus|jap|den|nor|ind|ces|hrv|pol|tur|ukr|bel|sve|rum|fin|ice|idn|chi|gre|ara|slv|srb|alb|slo|lav|kor|hun|est)/(.*)-([0-9]*)p.html(.*?)?$ index.php?/$1/gallery/image/$3$4 [L]
+
+RewriteRule ^/(m|lit|ger|fre|esp|por|ita|rus|jap|den|nor|ind|ces|hrv|pol|tur|ukr|bel|sve|rum|fin|ice|idn|chi|gre|ara|slv|srb|alb|slo|lav|kor|hun|est)/(.*)-([0-9]*)fc.html(.*?)?$ index.php?/$1/forum/category/$3$4 [L]
+RewriteRule ^/(m|lit|ger|fre|esp|por|ita|rus|jap|den|nor|ind|ces|hrv|pol|tur|ukr|bel|sve|rum|fin|ice|idn|chi|gre|ara|slv|srb|alb|slo|lav|kor|hun|est)/(.*)-([0-9]*)ft.html(.*?)?$ index.php?/$1/forum/topic/$3$4 [L]
+RewriteRule ^/(m|lit|ger|fre|esp|por|ita|rus|jap|den|nor|ind|ces|hrv|pol|tur|ukr|bel|sve|rum|fin|ice|idn|chi|gre|ara|slv|srb|alb|slo|lav|kor|hun|est)/(.*)-([0-9]*)fm.html(.*?)?$ index.php?/$1/forum/message/$3$4 [L]
+
+RewriteRule ^(.*)-([0-9]*)c.html(.*?)?$ index.php?/gallery/category/$2$3 [L]
+RewriteRule ^(.*)-([0-9]*)a.html(.*?)?$ index.php?/gallery/album/$2$3 [L]
+RewriteRule ^(.*)-([0-9]*)p.html(.*?)?$ index.php?/gallery/image/$2$3 [L]
+
+RewriteRule ^(.*)-([0-9]*)fc.html(.*?)?$ index.php?/forum/category/$2$3 [L]
+RewriteRule ^(.*)-([0-9]*)ft.html(.*?)?$ index.php?/forum/topic/$2$3 [L]
+RewriteRule ^(.*)-([0-9]*)fm.html(.*?)?$ index.php?/forum/message/$2$3 [L]
+
+# Uncomment four lines bellow for disable access to fullsize images.
+#RewriteCond %{REQUEST_FILENAME} /albums [NC]
+#RewriteCond %{REQUEST_FILENAME} !thumb [NC]
+#RewriteCond %{REQUEST_FILENAME} !normal [NC]
+#RewriteRule ^(.*)$ index.php
+
+RewriteRule ^/var/[^/]+/cache/(stylesheets|images|javascripts?)/.* - [L]
+
+RewriteCond %{REQUEST_FILENAME} !\.(gif|jpe?g|json|png|bmp|css|ogv|js|xml|flv|html|swf|php)|var(.+)storage.pdf(.+)\.pdf$ [NC]
+RewriteRule ^(.*)?$ index.php?/$1 [L]

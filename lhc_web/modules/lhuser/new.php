@@ -36,7 +36,13 @@ if (isset($_POST['Update_account']))
 				ezcInputFormDefinitionElement::OPTIONAL, 'int',
 				null,
 				FILTER_REQUIRE_ARRAY
-		)
+		),
+        'Skype' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
+        'XMPPUsername' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        )
     );
 
     if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
@@ -63,7 +69,21 @@ if (isset($_POST['Update_account']))
     } else {
     	$UserData->surname = '';
     }
-
+    
+    if ( $form->hasValidData( 'Skype' ) && $form->Skype != '')
+    {
+    	$UserData->skype = $form->Skype;
+    } else {
+    	$UserData->skype = '';
+    }
+    
+    if ( $form->hasValidData( 'XMPPUsername' ) && $form->XMPPUsername != '')
+    {
+    	$UserData->xmpp_username = $form->XMPPUsername;
+    } else {
+    	$UserData->xmpp_username = '';
+    }
+    
     if ( !$form->hasValidData( 'Username' ) || $form->Username == '')
     {
         $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Please enter a username');

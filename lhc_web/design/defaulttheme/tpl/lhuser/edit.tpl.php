@@ -31,8 +31,16 @@
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Surname');?></label>
 <input type="text" class="inputfield" name="Surname" value="<?php echo htmlspecialchars($user->surname);?>"/>
 
-<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Skype');?></label>
-<input type="text" name="Skype" value="<?php echo htmlspecialchars($user->skype);?>"/>
+<div class="row">
+	<div class="columns small-6">
+		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Skype');?></label>
+		<input type="text" name="Skype" value="<?php echo htmlspecialchars($user->skype);?>"/>
+	</div>
+	<div class="columns small-6">
+		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','XMPP username');?></label>
+		<input type="text" name="XMPPUsername" value="<?php echo htmlspecialchars($user->xmpp_username);?>"/>
+	</div>
+</div>
 
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Photo');?>, (jpg,png)</label>
 <input type="file" name="UserPhoto" value="" />

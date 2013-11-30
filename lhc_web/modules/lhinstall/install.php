@@ -502,6 +502,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('run_unaswered_chat_workflow', 0, 0, 'Should cronjob run unanswered chats workflow and execute unaswered chats callback, 0 - no, any other number bigger than 0 is a minits how long chat have to be not accepted before executing callback.',0),
                 ('disable_popup_restore', 0, 0, 'Disable option in widget to open new window. 0 - no, 1 - restore icon will be hidden',	0),
                 ('file_configuration',	'a:7:{i:0;b:0;s:5:\"ft_op\";s:43:\"gif|jpe?g|png|zip|rar|xls|doc|docx|xlsx|pdf\";s:5:\"ft_us\";s:26:\"gif|jpe?g|png|doc|docx|pdf\";s:6:\"fs_max\";i:2048;s:18:\"active_user_upload\";b:0;s:16:\"active_op_upload\";b:1;s:19:\"active_admin_upload\";b:1;}',	0,	'Files configuration item',	1),
+                ('accept_chat_link_timeout',	'300',	0,	'How many seconds chat accept link is valid. Set 0 to force login all the time manually.',	0),
                 ('geo_data', '', '0', '', '1')");
 
 
@@ -565,6 +566,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   `chat_id` int(11) NOT NULL,
         	   `hash` varchar(50) NOT NULL,
         	   `ctime` int(11) NOT NULL,
+        	   `wused` int(11) NOT NULL,
         	   PRIMARY KEY (`id`),
         	   KEY `hash` (`hash`)
         	   ) DEFAULT CHARSET=utf8;");
@@ -574,6 +576,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
 				  `name` varchar(100) NOT NULL,
 				  `email` varchar(100) NOT NULL,
+				  `xmpp_recipients` varchar(250) NOT NULL,
+				  `xmpp_group_recipients` varchar(250) NOT NULL,
 				  `priority` int(11) NOT NULL,
 				  `department_transfer_id` int(11) NOT NULL,
 				  `transfer_timeout` int(11) NOT NULL,
@@ -666,12 +670,15 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `surname` varchar(100) NOT NULL,
                   `filepath` varchar(200) NOT NULL,
                   `filename` varchar(200) NOT NULL,
+                  `xmpp_username` varchar(200) NOT NULL,
                   `skype` varchar(50) NOT NULL,
                   `disabled` tinyint(4) NOT NULL,
                   `hide_online` tinyint(1) NOT NULL,
                   `all_departments` tinyint(1) NOT NULL,
                   PRIMARY KEY (`id`),
-                  KEY `hide_online` (`hide_online`)
+                  KEY `hide_online` (`hide_online`),
+                  KEY `email` (`email`),
+                  KEY `xmpp_username` (`xmpp_username`)
                 ) DEFAULT CHARSET=utf8;");
 
                 $UserData = new erLhcoreClassModelUser();

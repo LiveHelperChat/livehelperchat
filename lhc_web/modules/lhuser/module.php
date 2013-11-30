@@ -6,7 +6,8 @@ $ViewList = array();
 
 $ViewList['login'] = array(
     'script' => 'login.php',
-    'params' => array()
+    'params' => array(),
+    'uparams' => array('r'),
     );
 
 $ViewList['logout'] = array(

@@ -43,6 +43,12 @@ class erLhcoreClassDepartament{
 	   			'Email' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
 	   			),
+	   			'XMPPRecipients' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+	   			),
+	   			'XMPPRecipientsGroup' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+	   			),
 	   			'Identifier' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'string'
 	   			),
@@ -139,6 +145,18 @@ class erLhcoreClassDepartament{
 	   		$department->email = '';
 	   	}
 	   	
+	   	if ( $form->hasValidData( 'XMPPRecipients' ) ) {	   	
+	   		$department->xmpp_recipients = $form->XMPPRecipients;	   			   	
+	   	} else {
+	   		$department->xmpp_recipients = '';
+	   	}
+	   	
+	   	if ( $form->hasValidData( 'XMPPRecipientsGroup' ) ) {	   	
+	   		$department->xmpp_group_recipients = $form->XMPPRecipientsGroup;	   			   	
+	   	} else {
+	   		$department->xmpp_group_recipients = '';
+	   	}
+	   	
 	   	if ( $form->hasValidData( 'Priority' ) ) {
 	   		$department->priority = $form->Priority;
 	   	} else {
@@ -222,6 +240,10 @@ class erLhcoreClassDepartament{
 	   		$department->inform_delay = $form->inform_delay;
 	   	} else {
 	   		$department->inform_delay = 0;
+	   	}
+	   	
+	   	if ($department->id > 0 && $department->department_transfer_id == $department->id) {
+	   		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Transfer department has to be different one than self');
 	   	}
 	   	
 	   	return $Errors;

@@ -170,7 +170,7 @@ if ( isset($_POST['StoreXMPSettings']) || isset($_POST['StoreXMPSettingsTest']) 
 			),
 			'resource' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-			),
+			),			
 			'server' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
 			),

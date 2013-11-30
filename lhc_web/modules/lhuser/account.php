@@ -88,6 +88,9 @@ if (isset($_POST['Update']))
         ),
         'Skype' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
+        'XMPPUsername' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         )
     );
 
@@ -129,6 +132,13 @@ if (isset($_POST['Update']))
     	$UserData->skype = $form->Skype;
     } else {
     	$UserData->skype = '';
+    }
+    
+    if ( $form->hasValidData( 'XMPPUsername' ) && $form->XMPPUsername != '')
+    {
+    	$UserData->xmpp_username = $form->XMPPUsername;
+    } else {
+    	$UserData->xmpp_username = '';
     }
         
     if ( $form->hasInputField( 'Password' ) && (!$form->hasInputField( 'Password1' ) || $form->Password != $form->Password1  ) ) // check for optional field
