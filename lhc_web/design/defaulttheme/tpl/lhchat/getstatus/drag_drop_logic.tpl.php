@@ -19,11 +19,19 @@ this.addEvent(domContainer, 'dragstart', function (event) {
 		lhc_obj.offset_data = (parseInt(style.getPropertyValue("<?php echo $currentPosition['pos'] == 'r' ? 'right' : 'left'?>"),10) + (<?php echo $currentPosition['pos'] == 'r' ? '' : '-'?>event.clientX)) + ',' + (parseInt(style.getPropertyValue("<?php echo $currentPosition['posv'] == 't' ? 'top' : 'bottom' ?>"),10)<?php echo $currentPosition['posv'] == 't' ? '-' : '+' ?>event.clientY);
 	    event.dataTransfer.setData("text/plain",lhc_obj.offset_data); 
 	    lhc_obj.is_dragging = true;
-	    domContainer.style.zIndex=9995;
+	    domContainer.style.zIndex=9995;	
+	    setTimeout(function(){
+	    if (lhc_obj.is_dragging == true){
+	    	domIframe.style.marginTop = '-5000px';
+	    }},10);	    
 });
   	 
 this.addEvent(domContainer, 'dragenter', function (e) {
-		lhc_obj.is_dragging = true;		    
+		lhc_obj.is_dragging = true;		
+		setTimeout(function(){
+	    if (lhc_obj.is_dragging == true){
+	    	domIframe.style.marginTop = '-5000px';
+	    }},10);    
     	return false;
 });
 
@@ -32,7 +40,9 @@ this.addEvent(document.body, 'drop', function (event) {
 		if (lhc_obj.is_dragging == true) {
 			domContainer.style.zIndex=9990;
 			lhc_obj.is_dragging = false;
-				
+			
+			domIframe.style.marginTop = 0;
+			
 		    var offset = lhc_obj.offset_data.split(',');
 		   
 		    dm = domContainer;
@@ -61,6 +71,8 @@ this.addEvent(document.body, 'drop', function (event) {
  	  
   this.addEvent(document.body, 'dragover', function (event) {	    	  
     	if (lhc_obj.is_dragging == true) {    	  
+	  			  		
+	  			  		
 	  			  		
 	 		var offset = lhc_obj.offset_data.split(',');			    			    
 		    var dm = domContainer;	

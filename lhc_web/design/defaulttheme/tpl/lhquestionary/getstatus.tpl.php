@@ -171,6 +171,7 @@ var lhc_Questionary = {
           document.getElementById('lhc_questionary_close').onclick = function() { lhc_obj.hide(); return false; };
           
           var domContainer = document.getElementById('lhc_container_questionary');
+          var domIframe = document.getElementById('lhcquestionary_iframe');
 		  <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/drag_drop_logic.tpl.php')); ?>	
     },
 

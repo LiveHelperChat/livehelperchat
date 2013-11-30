@@ -185,6 +185,7 @@ var lhc_Chatbox = {
           document.getElementById('lhc_chatbox_close').onclick = function() { lhc_obj.hide(); return false; };
                     
           var domContainer = document.getElementById('lhc_container_chatbox');
+          var domIframe = document.getElementById('lhcchatbox_iframe');
 		  <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/drag_drop_logic.tpl.php')); ?>	
 		  
    },
