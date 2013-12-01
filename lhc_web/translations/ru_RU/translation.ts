@@ -2428,6 +2428,22 @@
       <translation>E-mail</translation>
     </message>
     <message>
+      <source>XMPP recipients</source>
+      <translation>Получатели XMPP</translation>
+    </message>
+    <message>
+      <source>XMPP group recipients</source>
+      <translation>XMPP группа получателей</translation>
+    </message>
+    <message>
+      <source>E.g somechat@conference.server.org/LiveChat</source>
+      <translation>Например: somechat@conference.server.org/LiveChat</translation>
+    </message>
+    <message>
+      <source>These messages will be send as group messages</source>
+      <translation>Эти сообщения будут отправлены как групповые</translation>
+    </message>
+    <message>
       <source>Priority</source>
       <translation>Приоритет</translation>
     </message>
@@ -2586,6 +2602,10 @@
     <message>
       <source>Skype</source>
       <translation>Skype</translation>
+    </message>
+    <message>
+      <source>XMPP username</source>
+      <translation>Имя пользователя XMPP</translation>
     </message>
     <message>
       <source>Photo</source>
@@ -4079,6 +4099,10 @@
     <message>
       <source>Please enter a department name</source>
       <translation>введите имя департамента</translation>
+    </message>
+    <message>
+      <source>Transfer department has to be different one than self</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>

@@ -2428,6 +2428,22 @@
       <translation>Еmail</translation>
     </message>
     <message>
+      <source>XMPP recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP group recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E.g somechat@conference.server.org/LiveChat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>These messages will be send as group messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Priority</source>
       <translation>Ưu tiên</translation>
     </message>
@@ -2584,6 +2600,10 @@
     </message>
     <message>
       <source>Skype</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP username</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3847,11 +3867,11 @@
     <name>user/login</name>
     <message>
       <source>Please login</source>
-      <translation>xin vui lòng đăng nhập</translation>
+      <translation>Xin vui lòng đăng nhập</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Tên người dùng</translation>
+      <translation>Tên đăng nhập</translation>
     </message>
     <message>
       <source>Password</source>
@@ -3867,7 +3887,7 @@
     </message>
     <message>
       <source>Password reminder</source>
-      <translation>Lấy lại mật khẩu</translation>
+      <translation>Nhắc lại mật khẩu</translation>
     </message>
     <message>
       <source>Incorrect username or password</source>
@@ -4078,6 +4098,10 @@
     <message>
       <source>Please enter a department name</source>
       <translation>Hãy nhập tên bộ phận</translation>
+    </message>
+    <message>
+      <source>Transfer department has to be different one than self</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>

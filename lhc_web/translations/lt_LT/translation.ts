@@ -2428,6 +2428,22 @@
       <translation>El. paštas</translation>
     </message>
     <message>
+      <source>XMPP recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP group recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E.g somechat@conference.server.org/LiveChat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>These messages will be send as group messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Priority</source>
       <translation>Prioritetas</translation>
     </message>
@@ -2585,6 +2601,10 @@
     <message>
       <source>Skype</source>
       <translation>Skype</translation>
+    </message>
+    <message>
+      <source>XMPP username</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Photo</source>
@@ -4078,6 +4098,10 @@
     <message>
       <source>Please enter a department name</source>
       <translation>Prašome įvesti departamento vardą</translation>
+    </message>
+    <message>
+      <source>Transfer department has to be different one than self</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>
