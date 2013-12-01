@@ -131,7 +131,21 @@ var lh_inst  = {
     {
         return(EObj=document.getElementById(EId))?EObj.parentNode.removeChild(EObj):false;
     },
-
+	
+	min : function() {
+		var dm = document.getElementById('lhc_container');	
+		if (!dm.attrIsMin || dm.attrIsMin == false) {				
+			dm.attrHeight = dm.style.height;
+			dm.attrIsMin = true;
+			dm.style.height='35px';	
+			dm.style.bottom = (parseInt(dm.style.bottom)+parseInt(dm.attrHeight)-35)+'px';
+		} else {
+			dm.attrIsMin = false;
+			dm.style.bottom = (parseInt(dm.style.bottom)-parseInt(dm.attrHeight)+35)+'px';
+			dm.style.height=dm.attrHeight;	
+		}
+	},
+	
     hide : function() {
         var th = document.getElementsByTagName('head')[0];
         var s = document.createElement('script');
@@ -257,6 +271,7 @@ var lh_inst  = {
 
           var lhc_obj = this;
           document.getElementById('lhc_close').onclick = function() { lhc_obj.hide(); return false; };
+          document.getElementById('lhc_min').onclick = function() { lhc_obj.min(); return false; };
           <?php if (erLhcoreClassModelChatConfig::fetch('disable_popup_restore')->current_value == 0) : ?>
           document.getElementById('lhc_remote_window').onclick = function() { lhc_obj.openRemoteWindow(); return false; };
 		  <?php endif; ?>
