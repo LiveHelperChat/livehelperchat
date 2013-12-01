@@ -23,7 +23,7 @@ this.addEvent(domContainer, 'dragstart', function (event) {
 	    setTimeout(function(){
 	    if (lhc_obj.is_dragging == true){
 	    	document.getElementById(domIframe).style.marginTop = '-5000px';
-	    }},10);	    
+	    }},5);	    
 });
   	 
 this.addEvent(domContainer, 'dragenter', function (e) {
@@ -31,7 +31,7 @@ this.addEvent(domContainer, 'dragenter', function (e) {
 		setTimeout(function(){
 	    if (lhc_obj.is_dragging == true){
 	    	document.getElementById(domIframe).style.marginTop = '-5000px';
-	    }},10);    
+	    }},5);    
     	return false;
 });
 
