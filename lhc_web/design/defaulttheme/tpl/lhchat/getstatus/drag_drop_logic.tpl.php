@@ -17,7 +17,6 @@ this.addEvent(domContainer, 'dragstart', function (event) {
 		  	  
 		var style = window.getComputedStyle(event.target, null);
 		lhc_obj.offset_data = (parseInt(style.getPropertyValue("<?php echo $currentPosition['pos'] == 'r' ? 'right' : 'left'?>"),10) + (<?php echo $currentPosition['pos'] == 'r' ? '' : '-'?>event.clientX)) + ',' + (parseInt(style.getPropertyValue("<?php echo $currentPosition['posv'] == 't' ? 'top' : 'bottom' ?>"),10)<?php echo $currentPosition['posv'] == 't' ? '-' : '+' ?>event.clientY);
-	    event.dataTransfer.setData("text/plain",lhc_obj.offset_data); 
 	    lhc_obj.is_dragging = true;
 	    domContainer.style.zIndex=9995;	
 	    setTimeout(function(){
