@@ -105,7 +105,7 @@
     </message>
     <message>
       <source>Wait timeout. Time in seconds before timeout message is shown.</source>
-      <translation>Время (в секундах) после которого будет показано сообщение для ожидающих посетителей.</translation>
+      <translation>Время в секундах, после которого будет показано сообщение об окончании времени ожидания</translation>
     </message>
     <message>
       <source>Show visitor this message then wait timeout passes.</source>
@@ -218,7 +218,7 @@
     </message>
     <message>
       <source>Pending confirm</source>
-      <translation>В ожидании принятия</translation>
+      <translation>Ожидание подтверждения</translation>
     </message>
     <message>
       <source>Enter your message</source>
@@ -339,7 +339,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Системная конфигурация</translation>
+      <translation>Настройки системы</translation>
     </message>
     <message>
       <source>Please enter canned message</source>
@@ -587,11 +587,11 @@
     <name>front/default</name>
     <message>
       <source>Pending confirm</source>
-      <translation>В ожидании подтверждения</translation>
+      <translation>Ожидание подтверждения</translation>
     </message>
     <message>
       <source>All pending chats</source>
-      <translation>Все ожидающие диалоги</translation>
+      <translation>Все чаты в очереди</translation>
     </message>
     <message>
       <source>Active chats</source>
@@ -753,7 +753,7 @@
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
-      <translation>Пожалуйста, подождите. Вам ответит первый освободившийся оператор.</translation>
+      <translation>Пожалуйста, подождите. Вам ответит первый освободившийся оператор. Или напишите ваш вопрос, для скорейшего ответа освободившегося оператора.</translation>
     </message>
     <message>
       <source>At this moment there are no logged in support staff members, but you can leave your messages</source>
@@ -811,7 +811,7 @@
     </message>
     <message>
       <source>Enable/Disable sound about new pending chats</source>
-      <translation>Доступен/Недоступен Звук при появлении нового чата в очереди</translation>
+      <translation>Вкл./Выкл. звук при появлении чата в очереди</translation>
     </message>
     <message>
       <source>Change my status to online/offline</source>
@@ -859,7 +859,7 @@
     <name>chat/onlineusers</name>
     <message>
       <source>GEO detection configuration</source>
-      <translation>Конфигурация GEO-обнаружения</translation>
+      <translation>Настройки GEO-обнаружения</translation>
     </message>
     <message>
       <source>GEO Enabled</source>
@@ -1027,7 +1027,7 @@
     </message>
     <message>
       <source>Clear list</source>
-      <translation>Очистить лист</translation>
+      <translation>Очистить список</translation>
     </message>
     <message>
       <source>Online visitors</source>
@@ -1035,11 +1035,11 @@
     </message>
     <message>
       <source>User tracking is disabled, enable it at</source>
-      <translation>User tracking is disabled, enable it at</translation>
+      <translation>Отслеживание посетителей отключено, включите его в</translation>
     </message>
     <message>
       <source>Chat configuration</source>
-      <translation>Конфиг диалога</translation>
+      <translation>Настройки чата</translation>
     </message>
     <message>
       <source>List</source>
@@ -1051,7 +1051,7 @@
     </message>
     <message>
       <source>seconds</source>
-      <translation>Вторые</translation>
+      <translation>секунд</translation>
     </message>
     <message>
       <source>minit</source>
@@ -1196,6 +1196,10 @@
       <source>Open in a new window</source>
       <translation>Открыть в новом окне</translation>
     </message>
+    <message>
+      <source>Minimize/Restore</source>
+      <translation>Свернуть/Развернуть</translation>
+    </message>
   </context>
   <context>
     <name>chat/listchatconfig</name>
@@ -1213,7 +1217,7 @@
     </message>
     <message>
       <source>List chat configuration</source>
-      <translation>Конфигурация чата</translation>
+      <translation>Настройки онлайн чата</translation>
     </message>
   </context>
   <context>
@@ -1348,7 +1352,7 @@
     </message>
     <message>
       <source>It increases server load, because every 15 seconds is checked for operator message or invitation message.</source>
-      <translation>Это увеличит нагрузку на сервер, потому что каждые 15 секунд будет производится проверка на полученные сообщения от оператора или пригласительные сообщения</translation>
+      <translation>Это увеличит нагрузку на сервер, потому что каждые 15 секунд будут проверятся полученные сообщения или приглашения в чат</translation>
     </message>
     <message>
       <source>Disable pro active invitations, usefull if you want disable them from site part.</source>
@@ -1396,7 +1400,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Системная конфигурация</translation>
+      <translation>Настройки Системы</translation>
     </message>
     <message>
       <source>Embed code</source>
@@ -1411,7 +1415,7 @@
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>Диалоги в ожидании</translation>
+      <translation>Чаты в очереди</translation>
     </message>
     <message>
       <source>Active chats</source>
@@ -1457,7 +1461,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Системная конфигурация</translation>
+      <translation>Настройки Системы</translation>
     </message>
     <message>
       <source>Chat related</source>
@@ -1473,11 +1477,11 @@
     </message>
     <message>
       <source>Chat configuration</source>
-      <translation>Конфигурация чата</translation>
+      <translation>Настройки чата</translation>
     </message>
     <message>
       <source>GEO detection configuration</source>
-      <translation>Конфигурация GEO-обнаружения</translation>
+      <translation>Настройки GEO-обнаружения</translation>
     </message>
     <message>
       <source>Synchronization and sound settings</source>
@@ -1513,7 +1517,7 @@
     </message>
     <message>
       <source>Languages configuration</source>
-      <translation>Языковая конфигурация</translation>
+      <translation>Настройки языка</translation>
     </message>
     <message>
       <source>Chats list</source>
@@ -1595,7 +1599,7 @@
     <name>chat/pendingchats</name>
     <message>
       <source>Pending chats list</source>
-      <translation>Список диалогов в очереди</translation>
+      <translation>Список чатов в очереди</translation>
     </message>
     <message>
       <source>Information</source>
@@ -1619,7 +1623,7 @@
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>Диалоги в ожидании</translation>
+      <translation>Чаты в очереди</translation>
     </message>
   </context>
   <context>
@@ -1809,7 +1813,7 @@
     </message>
     <message>
       <source>How many seconds for a user to be considered as being online</source>
-      <translation>Сколько секунд нужно юзеру оставаться на связи что бы считаться в онлайне</translation>
+      <translation>Через сколько секунд пользователь будет считаться оффлайн</translation>
     </message>
     <message>
       <source>Value in seconds</source>
@@ -1825,11 +1829,11 @@
     </message>
     <message>
       <source>Check for messages from the operators, interval in seconds</source>
-      <translation>Проверяйте сообщения от оператора с секундным интервалом</translation>
+      <translation>Интервал проверки сообщений от оператора в секундах</translation>
     </message>
     <message>
       <source>Play a new pending chat sound on a new chat request</source>
-      <translation>При подключении нового чата из очереди проигрывать звук</translation>
+      <translation>Проигрывать звук ожидающего чата, при появлении нового запроса на чат</translation>
     </message>
     <message>
       <source>Play a sound on a new message for a back office user</source>
@@ -1884,7 +1888,7 @@
     </message>
     <message>
       <source>Total pending chats</source>
-      <translation>Диалоги в ожидании</translation>
+      <translation>Всего ожидающих чатов</translation>
     </message>
     <message>
       <source>Total active chats</source>
@@ -2329,7 +2333,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>системная конфигурация</translation>
+      <translation>Настройки Системы</translation>
     </message>
   </context>
   <context>
@@ -2378,7 +2382,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Системная конфигурация</translation>
+      <translation>Настройки Системы</translation>
     </message>
   </context>
   <context>
@@ -2534,7 +2538,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Системная конфигурация</translation>
+      <translation>Настройки Системы</translation>
     </message>
     <message>
       <source>departments</source>
@@ -2629,7 +2633,7 @@
     </message>
     <message>
       <source>Pending chats tab enabled</source>
-      <translation>Ожидающие чаты</translation>
+      <translation>Колонка Ожидающие чаты включена</translation>
     </message>
     <message>
       <source>Active chats tab enabled</source>
@@ -2684,7 +2688,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Системная конфигурация</translation>
+      <translation>Настройки Системы</translation>
     </message>
     <message>
       <source>Departments</source>
@@ -2933,7 +2937,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Системная конфигурация</translation>
+      <translation>Настройки Системы</translation>
     </message>
     <message>
       <source>List of roles</source>
@@ -3033,7 +3037,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Системная конфигурация</translation>
+      <translation>Настройки Системы</translation>
     </message>
     <message>
       <source>List of roles</source>
@@ -3075,7 +3079,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Системная конфигурация</translation>
+      <translation>Настройки Системы</translation>
     </message>
   </context>
   <context>
@@ -3355,7 +3359,7 @@
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>Диалоги в очереди</translation>
+      <translation>Чаты в очереди</translation>
     </message>
     <message>
       <source>Active chats</source>
@@ -3371,7 +3375,7 @@
     </message>
     <message>
       <source>Configuration</source>
-      <translation>Конфигурация</translation>
+      <translation>Настройки</translation>
     </message>
     <message>
       <source>Chats list</source>
@@ -3418,7 +3422,7 @@
     <name>system/languages</name>
     <message>
       <source>Languages configuration</source>
-      <translation>Sprok styrring</translation>
+      <translation>Настройки языка</translation>
     </message>
     <message>
       <source>Your language</source>
@@ -3604,7 +3608,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Системная конфигурация</translation>
+      <translation>Настройки Системы</translation>
     </message>
     <message>
       <source>Users</source>
@@ -3695,7 +3699,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Системная конфигурация</translation>
+      <translation>Настройки Системы</translation>
     </message>
     <message>
       <source>Users</source>
@@ -3758,7 +3762,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Системная конфигурация</translation>
+      <translation>Настройки Системы</translation>
     </message>
     <message>
       <source>Groups</source>
@@ -3854,7 +3858,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Системная конфигурация</translation>
+      <translation>Настройки Системы</translation>
     </message>
   </context>
   <context>
@@ -3915,7 +3919,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>системная конфигурация</translation>
+      <translation>Настройки Системы</translation>
     </message>
     <message>
       <source>Groups</source>
@@ -4102,7 +4106,7 @@
     </message>
     <message>
       <source>Transfer department has to be different one than self</source>
-      <translation type="unfinished"/>
+      <translation>Департамент для перевода должен отличаться от исходного</translation>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>

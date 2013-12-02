@@ -1196,6 +1196,10 @@
       <source>Open in a new window</source>
       <translation>Apri in una nuova finestra</translation>
     </message>
+    <message>
+      <source>Minimize/Restore</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/listchatconfig</name>

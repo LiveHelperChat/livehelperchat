@@ -1196,6 +1196,10 @@
       <source>Open in a new window</source>
       <translation>Atidaryti naujame lange</translation>
     </message>
+    <message>
+      <source>Minimize/Restore</source>
+      <translation>Sumažinti/Atstatyti</translation>
+    </message>
   </context>
   <context>
     <name>chat/listchatconfig</name>
@@ -2429,19 +2433,19 @@
     </message>
     <message>
       <source>XMPP recipients</source>
-      <translation type="unfinished"/>
+      <translation>XMPP gavėjai</translation>
     </message>
     <message>
       <source>XMPP group recipients</source>
-      <translation type="unfinished"/>
+      <translation>XMPP grupių gavėjai</translation>
     </message>
     <message>
       <source>E.g somechat@conference.server.org/LiveChat</source>
-      <translation type="unfinished"/>
+      <translation>Pvz. somechat@conference.server.org/LiveChat</translation>
     </message>
     <message>
       <source>These messages will be send as group messages</source>
-      <translation type="unfinished"/>
+      <translation>Šios žinotės bus išsiųstos kaip grupės žinutės</translation>
     </message>
     <message>
       <source>Priority</source>
@@ -2604,7 +2608,7 @@
     </message>
     <message>
       <source>XMPP username</source>
-      <translation type="unfinished"/>
+      <translation>XMPP vartotojo vardas</translation>
     </message>
     <message>
       <source>Photo</source>
@@ -4101,7 +4105,7 @@
     </message>
     <message>
       <source>Transfer department has to be different one than self</source>
-      <translation type="unfinished"/>
+      <translation>Pervedamas departamentas negali būti jis pats</translation>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>

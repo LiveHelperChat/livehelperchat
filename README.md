@@ -25,6 +25,7 @@ Few main features
 
  * XMPP support for notifications about new chats. (IPhone, IPad, Android, Blackberry, GTalk etc...)
  * Work hours
+ * Drag & Drop widgets, minimize/maximize widgets
  * Multiple chats same time
  * See what users are typing before they send a message
  * Multiple operators
