@@ -134,19 +134,7 @@
 <?php endif; ?>
 
 
-
-<?php if ($currentUser->hasAccessTo('lhchat','viewstatistic')) : ?>
-	<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Statistic');?></h4>
-	<ul class="circle small-list">
-	    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/statistic')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Statistic');?></a></li>
-	</ul>
-<?php endif; ?>
-
-
-
-
 <?php if ($currentUser->hasAccessTo('lhsystem','expirecache')) : ?>
-<hr>
 <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Other');?></h4>
 <ul class="circle small-list">
 	<li><a href="<?php echo erLhcoreClassDesign::baseurl('system/expirecache')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Clean cache');?></a></li>
