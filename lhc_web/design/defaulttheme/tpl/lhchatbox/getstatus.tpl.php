@@ -226,7 +226,7 @@ var lhc_Chatbox = {
                        ' height="<?php echo $heightwidget?>"' +
                        ' style="width: <?php echo $widthwidget?>px; height: <?php echo $heightwidget?>px;"></iframe>';
 
-          this.iframe_html = '<div id="lhc_container_chatbox" draggable="true">' +
+          this.iframe_html = '<div id="lhc_container_chatbox">' +
                               '<div id="lhc_chatbox_header"><span id="lhc_chatbox_title"><a title="Powered by Live Helper Chat" href="http://livehelperchat.com" target="_blank"><img src="//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/icons/emotion_amazing_16x16.png');?>" alt="Live Helper Chat" /></a></span><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" id="lhc_chatbox_close"><img src="//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/icons/cancel.png');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" /></a><a href="#" id="lhc_chatbox_min" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Minimize/Restore')?>"><img src="//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/icons/min.png');?>"></a></div>' +
                               this.iframe_html + '</div>';
 

@@ -1,3 +1,6 @@
+domContainer.onmousedown = function(e) {domContainer.setAttribute('draggable','true');};
+domContainer.onmouseup = function(e) {domContainer.setAttribute('draggable','false');};
+
 if (this.cookieData.pos) {
   		var posContainer = this.cookieData.pos.split(',');
   		<?php if ($currentPosition['pos'] == 'r') : ?>
@@ -12,11 +15,14 @@ if (this.cookieData.pos) {
         domContainer.style.bottom = posContainer[1];
         <?php endif;?>
 };
-		  
+
 this.addEvent(domContainer, 'dragstart', function (event) {	
 		  	  
 		var style = window.getComputedStyle(event.target, null);
 		lhc_obj.offset_data = (parseInt(style.getPropertyValue("<?php echo $currentPosition['pos'] == 'r' ? 'right' : 'left'?>"),10) + (<?php echo $currentPosition['pos'] == 'r' ? '' : '-'?>event.clientX)) + ',' + (parseInt(style.getPropertyValue("<?php echo $currentPosition['posv'] == 't' ? 'top' : 'bottom' ?>"),10)<?php echo $currentPosition['posv'] == 't' ? '-' : '+' ?>event.clientY);
+	    try {
+	    	event.dataTransfer.setData("text/plain",lhc_obj.offset_data); 
+	    } catch (e){};
 	    lhc_obj.is_dragging = true;
 	    domContainer.style.zIndex=9995;	
 	    setTimeout(function(){
@@ -64,6 +70,9 @@ this.addEvent(document.body, 'drop', function (event) {
 		    		    		    
 		    lhc_obj.addCookieAttribute('pos',cookiePos);
 		    event.preventDefault();
+		    
+		    domContainer.draggable = false;
+		    
 		    return false;    
 	    };
   });
@@ -71,7 +80,7 @@ this.addEvent(document.body, 'drop', function (event) {
   this.addEvent(document.body, 'dragover', function (event) {	    	  
     	if (lhc_obj.is_dragging == true) {    	  
 	  			  		
-	  			  		
+	  		domContainer.setAttribute('draggable','false');
 	  			  		
 	 		var offset = lhc_obj.offset_data.split(',');			    			    
 		    var dm = domContainer;	

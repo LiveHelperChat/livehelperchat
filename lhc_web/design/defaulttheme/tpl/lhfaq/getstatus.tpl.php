@@ -149,7 +149,7 @@ var lhc_FAQ = {
                        ' height="350"' +
                        ' style="width: 490px; height: 350px;"></iframe>';
 
-          this.iframe_html = '<div id="lhc_container_faq" draggable="true">' +
+          this.iframe_html = '<div id="lhc_container_faq">' +
                               '<div id="lhc_faq_header"><span id="lhc_faq_title"><a title="Powered by Live Helper Chat" href="http://livehelperchat.com" target="_blank"><img src="//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/icons/help16x16.png');?>" alt="Live Helper Chat" /></a></span><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" id="lhc_faq_close"><img src="//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/icons/cancel.png');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" /></a></div>' +
                               this.iframe_html + '</div>';
 
