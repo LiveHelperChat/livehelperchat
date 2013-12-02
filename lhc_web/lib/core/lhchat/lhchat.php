@@ -861,6 +861,14 @@ class erLhcoreClassChat {
         return self::$persistentSession;
    }
 
+   public static function formatDate($ts) {
+	   	if (date('Ymd') == date('Ymd',$ts)) {
+	   		return date('H:i:s',$ts);
+	   	} else {
+	   		return date('Y-m-d H:i:s',$ts);
+	   	}	  
+   }
+   
    public static function closeChatCallback($chat, $operator = false) {
 	   	$extensions = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'extensions' );
 

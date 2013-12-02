@@ -314,6 +314,26 @@ class erLhcoreClassModelChatOnlineUser {
            }
 
            return false;
+           
+       } elseif ($service == 'ipinfodbcom') {
+           $response = self::executeRequest("http://api.ipinfodb.com/v3/ip-city/?key={$params['api_key']}&ip={$ip}&format=json");
+           
+           if ( !empty($response) ) {
+               $responseData = json_decode($response);
+               if (is_object($responseData)) {
+               	   if ($responseData->statusCode == 'OK') {
+	                   $normalizedObject = new stdClass();
+	                   $normalizedObject->country_code = strtolower($responseData->countryCode);
+	                   $normalizedObject->country_name = $responseData->countryName;
+	                   $normalizedObject->lat = $responseData->latitude;
+	                   $normalizedObject->lon = $responseData->longitude;
+	                   $normalizedObject->city = $responseData->cityName;	                  
+	                   return $normalizedObject;
+               	   }
+               }
+           }
+
+           return false;
        } elseif ($service == 'locatorhq') {
 
        	   $ip = (isset($params['ip']) && !empty($params['ip'])) ? $params['ip'] : $ip;
@@ -357,6 +377,8 @@ class erLhcoreClassModelChatOnlineUser {
            } elseif ($geo_data['geo_service_identifier'] == 'locatorhq') {
                $params['username'] = $geo_data['locatorhqusername'];
                $params['api_key'] = $geo_data['locatorhq_api_key'];
+           } elseif ($geo_data['geo_service_identifier'] == 'ipinfodbcom') {             
+               $params['api_key'] = $geo_data['ipinfodbcom_api_key'];
            }
 
            $location = self::getUserData($geo_data['geo_service_identifier'],$instance->ip,$params);

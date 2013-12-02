@@ -220,6 +220,8 @@ class erLhcoreClassModelChat {
            } elseif ($geo_data['geo_service_identifier'] == 'locatorhq') {
                $params['username'] = $geo_data['locatorhqusername'];
                $params['api_key'] = $geo_data['locatorhq_api_key'];
+           } elseif ($geo_data['geo_service_identifier'] == 'ipinfodbcom') {             
+               $params['api_key'] = $geo_data['ipinfodbcom_api_key'];
            }
 
            $location = erLhcoreClassModelChatOnlineUser::getUserData($geo_data['geo_service_identifier'],$instance->ip,$params);

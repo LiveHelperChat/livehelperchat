@@ -83,6 +83,9 @@ if ( isset($_POST['StoreGeoIPConfiguration']) ) {
         'locatorhqAPIKey' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
         ),
+        'ipinfodbAPIKey' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+        ),
         'locatorhqUsername' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
         ),
@@ -181,6 +184,24 @@ if ( isset($_POST['StoreGeoIPConfiguration']) ) {
                     $responseDetection = erLhcoreClassModelChatOnlineUser::getUserData('locatorhq',$_SERVER['SERVER_ADDR'],array('ip' => $data['locatorhqip'], 'username' => $data['locatorhqusername'], 'api_key' => $data['locatorhq_api_key']));
                     if ($responseDetection == false || !isset($responseDetection->country_code)){
                         $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key and username is correct!');
+                    }
+                }
+            } elseif ($form->UseGeoIP == 'ipinfodbcom') {
+                $data['geo_service_identifier'] = 'ipinfodbcom';
+
+                $filledAPIData = true;
+
+                if ( $form->hasValidData( 'ipinfodbAPIKey' ) && $form->ipinfodbAPIKey != '' ) {
+                    $data['ipinfodbcom_api_key'] = $form->ipinfodbAPIKey;
+                } else {
+                    $filledAPIData = false;
+                    $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Please enter the API key!');
+                }
+               
+                if ($filledAPIData == true) {
+                    $responseDetection = erLhcoreClassModelChatOnlineUser::getUserData('ipinfodbcom',$_SERVER['SERVER_ADDR'],array('api_key' => $data['ipinfodbcom_api_key']));
+                    if ($responseDetection == false || !isset($responseDetection->country_code)){
+                        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!');
                     }
                 }
             }

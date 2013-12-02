@@ -58,8 +58,27 @@
     	</div>
     </div>
   </section>
+  
+  <section <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'ipinfodbcom') ? print 'class="active"' : ''?>>
+    <p class="title" data-section-title><a href="#panel3">http://ipinfodb.com</a></p>
+    <div class="content" data-section-content>
+
+	    <div>
+		     <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Requests will be comming from');?> - <?php echo $_SERVER['SERVER_ADDR']; ?></p>
+	
+		     <label class="inline"><input type="radio" name="UseGeoIP" value="ipinfodbcom" <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'ipinfodbcom') ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Use this service'); ?></label>
+	
+		     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','API Key'); ?></label>
+		     <input type="text" name="ipinfodbAPIKey" value="<?php isset($geo_data['ipinfodbcom_api_key']) ? print htmlspecialchars($geo_data['ipinfodbcom_api_key']) : print '' ?>">
+		     
+		     <input type="submit" class="button small round" name="StoreGeoIPConfiguration" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Save'); ?>" />
+		</div>
+
+    </div>
+  </section>
+  
   <section <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'locatorhq') ? print 'class="active"' : ''?>>
-    <p class="title" data-section-title><a href="#panel3">http://www.locatorhq.com - http://www.locatorhq.com</a></p>
+    <p class="title" data-section-title><a href="#panel4">http://www.locatorhq.com</a></p>
     <div class="content" data-section-content>
 
     <div>
@@ -81,6 +100,7 @@
 
     </div>
   </section>
+    
 </div>
 
 <input type="submit" class="button small round" name="StoreGeoIPConfiguration" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Save'); ?>" />
