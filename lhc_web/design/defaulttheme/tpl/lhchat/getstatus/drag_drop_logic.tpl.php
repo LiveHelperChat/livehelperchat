@@ -40,64 +40,71 @@ this.addEvent(domContainer, 'dragenter', function (e) {
     	return false;
 });
 
-this.addEvent(document.body, 'drop', function (event) {
-	
-		if (lhc_obj.is_dragging == true) {
-			domContainer.style.zIndex=9990;
-			
-			lhc_obj.is_dragging = false;
-			document.getElementById(domIframe).style.marginTop = '0px';
-						
-		    var offset = lhc_obj.offset_data.split(',');
-		   
-		    dm = domContainer;
-			var cookiePos = '';
-			<?php if ($currentPosition['pos'] == 'r') : ?>		  				    	
-		    	dm.style.right = (parseInt(offset[0],10)-event.clientX) + 'px';		
-		    	cookiePos += dm.style.right;			    	   	
-		    <?php else : ?>
-		    	dm.style.left = (event.clientX + parseInt(offset[0],10)) + 'px';
-		    	cookiePos += dm.style.left;	
-		    <?php endif;?>
-	    
-		    <?php if ($currentPosition['posv'] == 't') : ?>
-		    dm.style.top = (event.clientY + parseInt(offset[1],10)) + 'px';
-		    cookiePos += ","+dm.style.top;
-		    <?php else : ?>
-		    dm.style.bottom = (-event.clientY + parseInt(offset[1],10)) + 'px';
-		    cookiePos += ","+dm.style.bottom;		
-		    <?php endif;?>
-		    		    		    
-		    lhc_obj.addCookieAttribute('pos',cookiePos);
-		    event.preventDefault();
+if (!this.dragAttatched) {
+	this.dragAttatched = true;
+	this.addEvent(document.body, 'drop', function (event) {	
+			if (lhc_obj.is_dragging == true) {
+				
+				domContainer = document.getElementById(domContainerId);
+				
+				domContainer.style.zIndex=9990;
+				
+				lhc_obj.is_dragging = false;
+				document.getElementById(domIframe).style.marginTop = '0px';
+							
+			    var offset = lhc_obj.offset_data.split(',');
+			   
+			    dm = domContainer;
+				var cookiePos = '';
+				<?php if ($currentPosition['pos'] == 'r') : ?>		  				    	
+			    	dm.style.right = (parseInt(offset[0],10)-event.clientX) + 'px';		
+			    	cookiePos += dm.style.right;			    	   	
+			    <?php else : ?>
+			    	dm.style.left = (event.clientX + parseInt(offset[0],10)) + 'px';
+			    	cookiePos += dm.style.left;	
+			    <?php endif;?>
 		    
-		    domContainer.draggable = false;
-		    
-		    return false;    
-	    };
-  });
- 	  
-  this.addEvent(document.body, 'dragover', function (event) {	    	  
-    	if (lhc_obj.is_dragging == true) {    	  
-	  			  		
-	  		domContainer.setAttribute('draggable','false');
-	  			  		
-	 		var offset = lhc_obj.offset_data.split(',');			    			    
-		    var dm = domContainer;	
-		    			
-		    <?php if ($currentPosition['pos'] == 'r') : ?>	
-		    	dm.style.right = (parseInt(offset[0],10)-event.clientX) + 'px';	
-		    <?php else : ?>
-		    	dm.style.left = (event.clientX + parseInt(offset[0],10)) + 'px';
-		    <?php endif; ?>	
-	   		 
-		    <?php if ($currentPosition['posv'] == 't') : ?>			   
-		    	dm.style.top = (event.clientY + parseInt(offset[1],10)) + 'px';
-		    <?php else : ?>			    
-		    	dm.style.bottom = (-event.clientY + parseInt(offset[1],10)) + 'px';
-		    <?php endif; ?>
-		    			  			   				   				   				    
-		    event.preventDefault();
-		    return false;	
-	    }		    		
-});
+			    <?php if ($currentPosition['posv'] == 't') : ?>
+			    dm.style.top = (event.clientY + parseInt(offset[1],10)) + 'px';
+			    cookiePos += ","+dm.style.top;
+			    <?php else : ?>
+			    dm.style.bottom = (-event.clientY + parseInt(offset[1],10)) + 'px';
+			    cookiePos += ","+dm.style.bottom;		
+			    <?php endif;?>
+			    		    		    
+			    lhc_obj.addCookieAttribute('pos',cookiePos);
+			    event.preventDefault();
+			    
+			    domContainer.draggable = false;
+			    
+			    return false;    
+		    };
+	  });
+	 	  
+	this.addEvent(document.body, 'dragover', function (event) {	    	  
+	    	if (lhc_obj.is_dragging == true) {    
+	    		  
+		  		domContainer = document.getElementById(domContainerId);
+		  		
+		  		domContainer.setAttribute('draggable','false');
+		  			  		
+		 		var offset = lhc_obj.offset_data.split(',');			    			    
+			    var dm = domContainer;	
+			    			
+			    <?php if ($currentPosition['pos'] == 'r') : ?>	
+			    	dm.style.right = (parseInt(offset[0],10)-event.clientX) + 'px';	
+			    <?php else : ?>
+			    	dm.style.left = (event.clientX + parseInt(offset[0],10)) + 'px';
+			    <?php endif; ?>	
+		   		 
+			    <?php if ($currentPosition['posv'] == 't') : ?>			   
+			    	dm.style.top = (event.clientY + parseInt(offset[1],10)) + 'px';
+			    <?php else : ?>			    
+			    	dm.style.bottom = (-event.clientY + parseInt(offset[1],10)) + 'px';
+			    <?php endif; ?>
+			    			  			   				   				   				    
+			    event.preventDefault();
+			    return false;	
+		    }		    		
+	});
+};

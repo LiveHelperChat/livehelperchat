@@ -306,7 +306,10 @@ var lh_inst  = {
 
           <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/container.tpl.php')); ?>
          
-          this.addCss(raw_css);
+          if (!this.cssWasAdded) {
+          	this.cssWasAdded = true;
+          	this.addCss(raw_css);
+		  };
 
           var fragment = this.appendHTML(this.iframe_html);
 
@@ -321,6 +324,7 @@ var lh_inst  = {
 		  
 		  var domContainer = document.getElementById('lhc_container');
 		  var domIframe = 'lhc_iframe';
+		  var domContainerId = 'lhc_container';
 		  <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/drag_drop_logic.tpl.php')); ?>		  
 		      
 		  if (this.cookieData.m) {this.min();};

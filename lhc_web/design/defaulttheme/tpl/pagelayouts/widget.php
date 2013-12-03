@@ -14,14 +14,11 @@
 </div>
 
 <script type="text/javascript" language="javascript" src="<?php echo erLhcoreClassDesign::designJS('js/app.js');?>"></script>
-<script type="text/javascript">
+<?php if (isset($Result['dynamic_height'])) : ?>
+<script>
 var wasFocused = false;
 $('input[type="text"]').first().click(function(){if (wasFocused == false){wasFocused=true;$(this).select().focus();}});
 $('textarea').first().click(function(){if (wasFocused == false){wasFocused=true;$(this).select();}});
-</script>
-
-<?php if (isset($Result['dynamic_height'])) : ?>
-<script>
 if (!!window.postMessage) {
 	var heightContent = 0;
 	var heightElement = $('#widget-layout');

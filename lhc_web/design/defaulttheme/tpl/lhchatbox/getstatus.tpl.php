@@ -232,7 +232,10 @@ var lhc_Chatbox = {
 
           raw_css = ".lhc-no-transition{ -webkit-transition: none !important; -moz-transition: none !important;-o-transition: none !important;-ms-transition: none !important;transition: none !important;}\n.lhc-min{height:35px !important}\n#lhc_container_chatbox * {direction:<?php (erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'dir_language') == 'ltr' || erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'dir_language') == '') ? print 'ltr;text-align:left;' : print 'rtl;text-align:right;'; ?>;font-family:arial\;font-size:12px\;line-height:100%\;box-sizing: content-box\;-moz-box-sizing:content-box;padding:0;margin:0;}\n#lhc_container_chatbox img {border:0;}\n#lhc_chatbox_title{float:left;}\n#lhc_chatbox_header{position:relative;z-index:9990;height:15px;overflow:hidden;-webkit-border-<?php echo $currentPosition['chrome_radius']?>-radius: 10px;-moz-border-radius-<?php echo $currentPosition['moz_radius']?>: 10px;border-<?php echo $currentPosition['chrome_radius']?>-radius: 10px;background-color:#FFF;text-align:right;clear:both;border-bottom:1px solid #CCC;padding:5px;}\n#lhc_chatbox_close,#lhc_chatbox_min{padding:2px;float:right;}\n#lhc_chatbox_close:hover,#lhc_chatbox_min:hover{background:#e5e5e5;}\n#lhc_container_chatbox {height:<?php echo $heightwidget?>px;overflow: hidden;transition-property: height;transition-duration: 0.4s;-webkit-transition: height 0.4s ease-in-out;transition: height 0.4s;background-color:#FFF\;\nz-index:9990;\n position: fixed;<?php echo $currentPosition['position_body']?>;-webkit-box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);-moz-box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);border:1px solid #CCC;-webkit-border-radius: 10px;-moz-border-radius: 10px;border-radius: 10px;-moz-user-select:none; -khtml-user-drag:element;cursor: move;cursor: -moz-grab;cursor: -webkit-grab; }\n#lhc_container_chatbox iframe{transition-property: height;transition-duration: 0.4s;-webkit-transition: height 0.4s ease-in-out;transition: height 0.4s;}\n#lhc_container_chatbox iframe.lhc-loading{\nbackground: #FFF url(//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/general/loading.gif');?>) no-repeat center center; }";
 
-          this.addCss(raw_css);
+          if (!this.cssWasAdded) {
+          		this.cssWasAdded = true;
+          		this.addCss(raw_css);
+		  };
 
           var fragment = this.appendHTML(this.iframe_html);
           document.body.insertBefore(fragment, document.body.childNodes[0]);
@@ -243,6 +246,7 @@ var lhc_Chatbox = {
                    
           var domContainer = document.getElementById('lhc_container_chatbox');
           var domIframe = 'lhcchatbox_iframe';
+          var domContainerId = 'lhc_container_chatbox';
 		  <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/drag_drop_logic.tpl.php')); ?>
 		  
 		  if (this.cookieData.m) {this.min();};	
