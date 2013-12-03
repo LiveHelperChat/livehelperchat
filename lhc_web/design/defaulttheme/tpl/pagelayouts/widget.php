@@ -14,6 +14,11 @@
 </div>
 
 <script type="text/javascript" language="javascript" src="<?php echo erLhcoreClassDesign::designJS('js/app.js');?>"></script>
+<script type="text/javascript">
+setTimeout(function() {
+	if ($('input[type="text"]').length > 0){$('input[type="text"]').first().focus();} else {$('textarea').first().select();};
+},500);
+</script>
 
 <?php if (isset($Result['dynamic_height'])) : ?>
 <script>
