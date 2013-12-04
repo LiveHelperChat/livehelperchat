@@ -31,14 +31,14 @@
 	<?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/department.tpl.php'));?>
 <?php endif;?>
 
-<input type="submit" name="askQuestionAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Send');?>" class="tiny button round"/>
+<input type="submit" name="askQuestionAction" id="idaskQuestionAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Send');?>" class="tiny button round"/>
 <input type="hidden" name="askQuestion" value="1" />
 
 </form>
 
 <script>
 jQuery('#id_Question').bind('keyup', 'return', function (evt){
-	document.getElementById("ReadOperatorMessage").submit();
+	$( "#idaskQuestionAction" ).click();	
 });
 <?php if ($playsound == true) : ?>
 $(function() {lhinst.playInvitationSound();});
