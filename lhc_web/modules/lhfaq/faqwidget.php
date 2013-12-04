@@ -116,11 +116,16 @@ if ( isset($_POST['send']) )
 					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
 	);
 
-	// Captcha stuff
-	$nameField = 'captcha_'.sha1(erLhcoreClassIPDetect::getIP().$_POST['tscaptcha'].erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
+	if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
+		$hashCaptcha = isset($_SESSION[$_SERVER['REMOTE_ADDR']]['form']) ? $_SESSION[$_SERVER['REMOTE_ADDR']]['form'] : null;
+    	$nameField = 'captcha_'.$hashCaptcha;
+	} else {	
+		// Captcha stuff
+		$nameField = 'captcha_'.sha1(erLhcoreClassIPDetect::getIP().$_POST['tscaptcha'].erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
+	}
+	
 	$definition[$nameField] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
-
-
+	
 	$form = new ezcInputForm( INPUT_POST, $definition );
 	$Errors = array();
 
@@ -135,12 +140,18 @@ if ( isset($_POST['send']) )
 		$item_new->url = $form->url;
 	}
 
-	// Captcha validation
-	if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600)
-	{
-		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid captcha code, please enable Javascript!');
+	if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
+		if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600 || $hashCaptcha != sha1($_SERVER['REMOTE_ADDR'].$form->$nameField.erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ))){
+			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid captcha code, please enable Javascript!');
+		}
+	} else {		
+		// Captcha validation
+		if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600)
+		{
+			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid captcha code, please enable Javascript!');
+		}
 	}
-
+	
 	// Dynamic URL has higher priority
 	if ($dynamic_url != '') {
 		$item_new->url = $dynamic_url;

@@ -9,7 +9,7 @@
      </div>
 </div>
 
-<form action="" id="ReadOperatorMessage" method="post">
+<form action="" id="ReadOperatorMessage" method="post" onsubmit="return lhinst.addCaptcha('<?php echo time()?>',$(this))">
 
 <?php if (isset($errors)) : ?>
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>

@@ -1,3 +1,11 @@
+1.70v
+
+1. In 1.69 was introduced drag & drop but IE users could not select any field. This issue was fixed in less than 24h. But if you are experiencing same issue I recommend to update.
+2. In this version I added option to turn session cookies for form validation. Some users were reporting for getting spam. You just have to edit "chat configuration" -> "Use session captcha. LHC have to be installed on same domain or subdomain."
+and set 1. Please be sure that chat is running on the same domain.
+
+execute doc/update_db/update_52.sql for update
+
 1.69v
 
 //------//

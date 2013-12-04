@@ -29,7 +29,17 @@ if (isset($_POST['askQuestion']))
     $validationFields['Question'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
     $validationFields['DepartamentID'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1) );
     $validationFields['Email'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'validate_email' );
-
+    
+    if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
+    	$hashCaptcha = isset($_SESSION[$_SERVER['REMOTE_ADDR']]['form']) ? $_SESSION[$_SERVER['REMOTE_ADDR']]['form'] : null;
+    	$nameField = 'captcha_'.$hashCaptcha;
+    } else {
+    	// Captcha stuff
+    	$nameField = 'captcha_'.sha1(erLhcoreClassIPDetect::getIP().$_POST['tscaptcha'].erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
+    }
+    
+    $validationFields[$nameField] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
+        
     $form = new ezcInputForm( INPUT_POST, $validationFields );
     $Errors = array();
 
@@ -51,7 +61,19 @@ if (isset($_POST['askQuestion']))
     		$inputData->email = $chat->email = $form->Email;
     	}
     }
-
+    
+    if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
+    	if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600 || $hashCaptcha != sha1($_SERVER['REMOTE_ADDR'].$form->$nameField.erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ))){
+    		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid captcha code, please enable Javascript!');
+    	}
+    } else {
+    	// Captcha validation
+    	if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600)
+    	{
+    		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid captcha code, please enable Javascript!');
+    	}
+    }
+    
     if (count($Errors) == 0)
     {
        $chat->time = time();

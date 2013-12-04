@@ -75,10 +75,15 @@ class erLhcoreClassChatValidator {
         		FILTER_REQUIRE_ARRAY
         );
 
-        // Captcha stuff
-        $nameField = 'captcha_'.sha1(erLhcoreClassIPDetect::getIP().$_POST['tscaptcha'].erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
-        $validationFields[$nameField] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
-
+        // Captcha stuff        
+        if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
+        	$hashCaptcha = isset($_SESSION[$_SERVER['REMOTE_ADDR']]['form']) ? $_SESSION[$_SERVER['REMOTE_ADDR']]['form'] : null;
+    		$nameField = 'captcha_'.$hashCaptcha;    	
+        	$validationFields[$nameField] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
+        } else {        
+	        $nameField = 'captcha_'.sha1(erLhcoreClassIPDetect::getIP().$_POST['tscaptcha'].erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
+	        $validationFields[$nameField] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
+        }
 
         $form = new ezcInputForm( INPUT_POST, $validationFields );
         $Errors = array();
@@ -87,12 +92,18 @@ class erLhcoreClassChatValidator {
             $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You do not have permission to chat! Please contact site owner.');
         }
 
-        // Captcha validation
-        if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600 )
-        {
-        	$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid captcha code, please enable Javascript!');
+        if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
+        	if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600 || $hashCaptcha != sha1($_SERVER['REMOTE_ADDR'].$form->$nameField.erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ))){
+        		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid captcha code, please enable Javascript!');
+        	}
+        } else {
+        	// Captcha validation
+        	if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600 )
+        	{
+        		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid captcha code, please enable Javascript!');
+        	}
         }
-
+        
 
         if (
         ($inputForm->validate_start_chat == true && isset($start_data_fields['name_visible_in_popup']) && $start_data_fields['name_visible_in_popup'] == true) ||
