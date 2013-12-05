@@ -1202,7 +1202,7 @@
     </message>
     <message>
       <source>Minimize/Restore</source>
-      <translation type="unfinished"/>
+      <translation>Minimizar / Restaurar</translation>
     </message>
   </context>
   <context>
@@ -2469,7 +2469,7 @@
     </message>
     <message>
       <source>Inform then chat is closed by operator, only mail notification is send.</source>
-      <translation type="unfinished"/>
+      <translation>Informar cuando un chat es cerrado por un operador, sólo se envía notificación por e-mail.</translation>
     </message>
     <message>
       <source>Inform about new chats using</source>
@@ -2533,7 +2533,7 @@
     </message>
     <message>
       <source>To, E.g. 17</source>
-      <translation type="unfinished"/>
+      <translation>Hasta, p.e. 17</translation>
     </message>
     <message>
       <source>None</source>
@@ -4354,11 +4354,11 @@ Lista de funciones</translation>
     <name>system/xmpp</name>
     <message>
       <source>XMPP documentation</source>
-      <translation type="unfinished"/>
+      <translation>Documentación XMPP</translation>
     </message>
     <message>
       <source>User standard XMPP service</source>
-      <translation type="unfinished"/>
+      <translation>Usar servicio XMPP estandar</translation>
     </message>
     <message>
       <source>XMPP settings</source>
@@ -4374,7 +4374,7 @@ Lista de funciones</translation>
     </message>
     <message>
       <source>XMPP</source>
-      <translation type="unfinished"/>
+      <translation>XMPP</translation>
     </message>
     <message>
       <source>Use standard XMPP service</source>
@@ -4418,51 +4418,51 @@ Lista de funciones</translation>
     </message>
     <message>
       <source>GTalk</source>
-      <translation type="unfinished"/>
+      <translation>GTalk</translation>
     </message>
     <message>
       <source>Use GTalk for messaging</source>
-      <translation type="unfinished"/>
+      <translation>Usar GTalk para enviar mensajes</translation>
     </message>
     <message>
       <source>Information for your google app</source>
-      <translation type="unfinished"/>
+      <translation>Información para tu google app</translation>
     </message>
     <message>
       <source>Redirect URL, this url you will have to enter in your google app configuration</source>
-      <translation type="unfinished"/>
+      <translation>Redirección URL, tendrás que introducir esta url en la configuración de google app</translation>
     </message>
     <message>
       <source>Enter your app information bellow</source>
-      <translation type="unfinished"/>
+      <translation>Introduzce a continuación la información de tu app</translation>
     </message>
     <message>
       <source>OAuth 2.0 Client ID</source>
-      <translation type="unfinished"/>
+      <translation>ID Cliente OAuth 2.0</translation>
     </message>
     <message>
       <source>Please enter your Client ID</source>
-      <translation type="unfinished"/>
+      <translation>Por favor, introduzca su ID de Cliente</translation>
     </message>
     <message>
       <source>Client secret</source>
-      <translation type="unfinished"/>
+      <translation>Cliente secreto</translation>
     </message>
     <message>
       <source>This message will be send to your e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Se enviará este mensaje a tu cuenta de e-mail</translation>
     </message>
     <message>
       <source>Send test message</source>
-      <translation type="unfinished"/>
+      <translation>Enviar mensaje de prueba</translation>
     </message>
     <message>
       <source>Revoke access token</source>
-      <translation type="unfinished"/>
+      <translation>Revocar token de acceso</translation>
     </message>
     <message>
       <source>Revoke permission to send a message</source>
-      <translation type="unfinished"/>
+      <translation>Revocar permisos para enviar mensajes</translation>
     </message>
     <message>
       <source>Authentificate and grant permission to send a message</source>

@@ -63,7 +63,7 @@
     </message>
     <message>
       <source>Send test message</source>
-      <translation type="unfinished"/>
+      <translation>Kirim pesan tes</translation>
     </message>
   </context>
   <context>
@@ -137,7 +137,7 @@
     </message>
     <message>
       <source>Show random operator profile</source>
-      <translation type="unfinished"/>
+      <translation>Tunjukkan profil operator acak</translation>
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
@@ -678,7 +678,7 @@
     </message>
     <message>
       <source>Personal assistant</source>
-      <translation type="unfinished"/>
+      <translation>Asisten pribadi</translation>
     </message>
     <message>
       <source>Fill out this form to start a chat</source>
@@ -1198,7 +1198,7 @@
     </message>
     <message>
       <source>Minimize/Restore</source>
-      <translation type="unfinished"/>
+      <translation>Kecilkan/Pulihkan</translation>
     </message>
   </context>
   <context>
@@ -1449,7 +1449,7 @@
     <name>system/configuration</name>
     <message>
       <source>XMP settings</source>
-      <translation type="unfinished"/>
+      <translation>Pengaturan XMP</translation>
     </message>
     <message>
       <source>New chat notification settings</source>
@@ -1513,7 +1513,7 @@
     </message>
     <message>
       <source>XMPP settings</source>
-      <translation type="unfinished"/>
+      <translation>Pengaturan XMPP</translation>
     </message>
     <message>
       <source>Languages configuration</source>
@@ -1936,7 +1936,7 @@
     </message>
     <message>
       <source>Votes</source>
-      <translation type="unfinished"/>
+      <translation>Suara</translation>
     </message>
     <message>
       <source>Last activity</source>
@@ -2389,35 +2389,35 @@
     <name>department/edit</name>
     <message>
       <source>Active days</source>
-      <translation type="unfinished"/>
+      <translation>Hari Aktif</translation>
     </message>
     <message>
       <source>Active hours, 24 hours format</source>
-      <translation type="unfinished"/>
+      <translation>Jam Aktif, format 24 jam</translation>
     </message>
     <message>
       <source>from, E.g 8</source>
-      <translation type="unfinished"/>
+      <translation>dari, cth: 8</translation>
     </message>
     <message>
       <source>from, E.g 17</source>
-      <translation type="unfinished"/>
+      <translation>dari, cth: 17</translation>
     </message>
     <message>
       <source>XMP messages</source>
-      <translation type="unfinished"/>
+      <translation>Pesan XMP</translation>
     </message>
     <message>
       <source>Online hours active</source>
-      <translation type="unfinished"/>
+      <translation>Jam online aktif</translation>
     </message>
     <message>
       <source>Workdays, during these days chat will be active automatically</source>
-      <translation type="unfinished"/>
+      <translation>Hari kerja, selama hari ini percakapan akan diaktifkan secara otomatis</translation>
     </message>
     <message>
       <source>From, E.g. 17</source>
-      <translation type="unfinished"/>
+      <translation>Dari, cth: 17</translation>
     </message>
     <message>
       <source>Edit department</source>
@@ -2433,19 +2433,19 @@
     </message>
     <message>
       <source>XMPP recipients</source>
-      <translation type="unfinished"/>
+      <translation>Penerima XMPP</translation>
     </message>
     <message>
       <source>XMPP group recipients</source>
-      <translation type="unfinished"/>
+      <translation>Penerima  grup XMPP</translation>
     </message>
     <message>
       <source>E.g somechat@conference.server.org/LiveChat</source>
-      <translation type="unfinished"/>
+      <translation>Cth somechat@conference.server.org/LiveChat</translation>
     </message>
     <message>
       <source>These messages will be send as group messages</source>
-      <translation type="unfinished"/>
+      <translation>Pesan-pesan berikut akan dikirim sebagai pesan grup</translation>
     </message>
     <message>
       <source>Priority</source>
@@ -2469,67 +2469,67 @@
     </message>
     <message>
       <source>Inform about new chats using</source>
-      <translation type="unfinished"/>
+      <translation>Informasikan percakapan baru melalui</translation>
     </message>
     <message>
       <source>XMPP messages</source>
-      <translation type="unfinished"/>
+      <translation>Pesan XMPP</translation>
     </message>
     <message>
       <source>Mail messages</source>
-      <translation type="unfinished"/>
+      <translation>Pesan Surat</translation>
     </message>
     <message>
       <source>How many seconds chat can be pending before about chat is informed a staff</source>
-      <translation type="unfinished"/>
+      <translation>Berapa detik sebuah percakapan bisa tertunda sebelum percakapan diinformasikan ke staf</translation>
     </message>
     <message>
       <source>Work hours/work days logic is active</source>
-      <translation type="unfinished"/>
+      <translation>Logika hari kerja/jam kerja aktif</translation>
     </message>
     <message>
       <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
-      <translation type="unfinished"/>
+      <translation>Hari kerja/jam kerja, selama hari/jam ini percakapan akan diaktifkan secara otomatis</translation>
     </message>
     <message>
       <source>Monday</source>
-      <translation type="unfinished"/>
+      <translation>Senin</translation>
     </message>
     <message>
       <source>Tuesday</source>
-      <translation type="unfinished"/>
+      <translation>Selasa</translation>
     </message>
     <message>
       <source>Wednesday</source>
-      <translation type="unfinished"/>
+      <translation>Rabu</translation>
     </message>
     <message>
       <source>Thursday</source>
-      <translation type="unfinished"/>
+      <translation>Kamis</translation>
     </message>
     <message>
       <source>Friday</source>
-      <translation type="unfinished"/>
+      <translation>Jumat</translation>
     </message>
     <message>
       <source>Saturday</source>
-      <translation type="unfinished"/>
+      <translation>Sabtu</translation>
     </message>
     <message>
       <source>Sunday</source>
-      <translation type="unfinished"/>
+      <translation>Minggu</translation>
     </message>
     <message>
       <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation type="unfinished"/>
+      <translation>Jam kerja, format 24 jam, 1-24</translation>
     </message>
     <message>
       <source>From, E.g. 8</source>
-      <translation type="unfinished"/>
+      <translation>Dari, cth: 8</translation>
     </message>
     <message>
       <source>To, E.g. 17</source>
-      <translation type="unfinished"/>
+      <translation>Hingga, cth: 17</translation>
     </message>
     <message>
       <source>None</source>
@@ -2604,15 +2604,15 @@
     </message>
     <message>
       <source>Skype</source>
-      <translation type="unfinished"/>
+      <translation>Skype</translation>
     </message>
     <message>
       <source>XMPP username</source>
-      <translation type="unfinished"/>
+      <translation>Nama pengguna XMPP</translation>
     </message>
     <message>
       <source>Photo</source>
-      <translation type="unfinished"/>
+      <translation>Foto</translation>
     </message>
     <message>
       <source>Update</source>
@@ -2652,7 +2652,7 @@
     </message>
     <message>
       <source>Delete</source>
-      <translation type="unfinished"/>
+      <translation>Hapus</translation>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -3484,27 +3484,27 @@
     <name>system/smtp</name>
     <message>
       <source>XMP active</source>
-      <translation type="unfinished"/>
+      <translation>XMP Aktif</translation>
     </message>
     <message>
       <source>Resource</source>
-      <translation type="unfinished"/>
+      <translation>Sumber daya</translation>
     </message>
     <message>
       <source>Server</source>
-      <translation type="unfinished"/>
+      <translation>Server</translation>
     </message>
     <message>
       <source>XMP Message content</source>
-      <translation type="unfinished"/>
+      <translation>Isi pesan XMP</translation>
     </message>
     <message>
       <source>XMP message was sent succesfuly</source>
-      <translation type="unfinished"/>
+      <translation>Pesan XMP telah berhasil dikirim </translation>
     </message>
     <message>
       <source>XMP settings</source>
-      <translation type="unfinished"/>
+      <translation>Pengaturan XMP</translation>
     </message>
     <message>
       <source>SMTP settings</source>
@@ -3571,7 +3571,7 @@
     </message>
     <message>
       <source>Photo</source>
-      <translation type="unfinished"/>
+      <translation>Foto</translation>
     </message>
     <message>
       <source>Save</source>
@@ -3662,7 +3662,7 @@
     </message>
     <message>
       <source>Photo</source>
-      <translation type="unfinished"/>
+      <translation>Foto</translation>
     </message>
     <message>
       <source>Departments</source>
@@ -4105,7 +4105,7 @@
     </message>
     <message>
       <source>Transfer department has to be different one than self</source>
-      <translation type="unfinished"/>
+      <translation>Departemen yang dialihkan harus berbeda dengan departemen awal</translation>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>
@@ -4260,232 +4260,232 @@
     <name>chat/voteaction</name>
     <message>
       <source>Thumbs up</source>
-      <translation type="unfinished"/>
+      <translation>Sukai</translation>
     </message>
     <message>
       <source>Thumbs down</source>
-      <translation type="unfinished"/>
+      <translation>Tidak Suka</translation>
     </message>
     <message>
       <source>Removed thumb vote</source>
-      <translation type="unfinished"/>
+      <translation>Suara telah ditari</translation>
     </message>
   </context>
   <context>
     <name>system/xmp</name>
     <message>
       <source>XMP active</source>
-      <translation type="unfinished"/>
+      <translation>XMP Aktif</translation>
     </message>
     <message>
       <source>Host</source>
-      <translation type="unfinished"/>
+      <translation>Host</translation>
     </message>
     <message>
       <source>Port</source>
-      <translation type="unfinished"/>
+      <translation>Port</translation>
     </message>
     <message>
       <source>Login</source>
-      <translation type="unfinished"/>
+      <translation>Masuk</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation type="unfinished"/>
+      <translation>Kata sandi</translation>
     </message>
     <message>
       <source>Resource</source>
-      <translation type="unfinished"/>
+      <translation>Sumber daya</translation>
     </message>
     <message>
       <source>Server</source>
-      <translation type="unfinished"/>
+      <translation>Server</translation>
     </message>
     <message>
       <source>Recipients</source>
-      <translation type="unfinished"/>
+      <translation>Penerima</translation>
     </message>
     <message>
       <source>XMP Message content</source>
-      <translation type="unfinished"/>
+      <translation>Isi pesan XMP</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Pengaturan telah diperbarui</translation>
     </message>
     <message>
       <source>XMP message was sent succesfuly</source>
-      <translation type="unfinished"/>
+      <translation>Pesan XMP telah berhasil dikirim</translation>
     </message>
     <message>
       <source>XMP settings</source>
-      <translation type="unfinished"/>
+      <translation>Pengaturan XMP</translation>
     </message>
     <message>
       <source>XMPP active</source>
-      <translation type="unfinished"/>
+      <translation>XMPP Aktif</translation>
     </message>
     <message>
       <source>Default recipients</source>
-      <translation type="unfinished"/>
+      <translation>Penerima default</translation>
     </message>
     <message>
       <source>Test message will be send to your account e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Pesan tes akan dikirimkan ke email akun anda</translation>
     </message>
     <message>
       <source>XMPP message was sent succesfuly</source>
-      <translation type="unfinished"/>
+      <translation>Pesan XMPP telah berhasil dikirim</translation>
     </message>
     <message>
       <source>XMPP settings</source>
-      <translation type="unfinished"/>
+      <translation>Pengaturan XMPP</translation>
     </message>
   </context>
   <context>
     <name>system/xmpp</name>
     <message>
       <source>XMPP documentation</source>
-      <translation type="unfinished"/>
+      <translation>Dokumentasi XMPP</translation>
     </message>
     <message>
       <source>User standard XMPP service</source>
-      <translation type="unfinished"/>
+      <translation>Layanan XMPP standar pengguna</translation>
     </message>
     <message>
       <source>XMPP settings</source>
-      <translation type="unfinished"/>
+      <translation>Pengaturan XMPP</translation>
     </message>
     <message>
       <source>XMPP active</source>
-      <translation type="unfinished"/>
+      <translation>XMPP Aktif</translation>
     </message>
     <message>
       <source>XMPP Message content</source>
-      <translation type="unfinished"/>
+      <translation>Isi pesan XMPP</translation>
     </message>
     <message>
       <source>XMPP</source>
-      <translation type="unfinished"/>
+      <translation>XMPP</translation>
     </message>
     <message>
       <source>Use standard XMPP service</source>
-      <translation type="unfinished"/>
+      <translation>Gunakan layanan XMPP standar</translation>
     </message>
     <message>
       <source>Host</source>
-      <translation type="unfinished"/>
+      <translation>Host</translation>
     </message>
     <message>
       <source>Port</source>
-      <translation type="unfinished"/>
+      <translation>Port</translation>
     </message>
     <message>
       <source>Login</source>
-      <translation type="unfinished"/>
+      <translation>Masuk</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation type="unfinished"/>
+      <translation>Kata sandi</translation>
     </message>
     <message>
       <source>Resource</source>
-      <translation type="unfinished"/>
+      <translation>Sumber daya</translation>
     </message>
     <message>
       <source>Server</source>
-      <translation type="unfinished"/>
+      <translation>Server</translation>
     </message>
     <message>
       <source>Recipients</source>
-      <translation type="unfinished"/>
+      <translation>Penerima</translation>
     </message>
     <message>
       <source>Default recipients</source>
-      <translation type="unfinished"/>
+      <translation>Penerima default</translation>
     </message>
     <message>
       <source>Test message will be send to your account e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Pesan tes akan dikirimkan ke email akun anda</translation>
     </message>
     <message>
       <source>GTalk</source>
-      <translation type="unfinished"/>
+      <translation>GTalk</translation>
     </message>
     <message>
       <source>Use GTalk for messaging</source>
-      <translation type="unfinished"/>
+      <translation>Gunakan GTalk untuk pengiriman pesan</translation>
     </message>
     <message>
       <source>Information for your google app</source>
-      <translation type="unfinished"/>
+      <translation>Informasi untuk google app anda</translation>
     </message>
     <message>
       <source>Redirect URL, this url you will have to enter in your google app configuration</source>
-      <translation type="unfinished"/>
+      <translation>URL Pengalihan, url ini perlu dimasukkan ke pengaturan google app anda</translation>
     </message>
     <message>
       <source>Enter your app information bellow</source>
-      <translation type="unfinished"/>
+      <translation>Masukkan informasi app anda di bawah ini</translation>
     </message>
     <message>
       <source>OAuth 2.0 Client ID</source>
-      <translation type="unfinished"/>
+      <translation>Client ID OAuth 2.0</translation>
     </message>
     <message>
       <source>Please enter your Client ID</source>
-      <translation type="unfinished"/>
+      <translation>Silakan masukkan Client ID anda</translation>
     </message>
     <message>
       <source>Client secret</source>
-      <translation type="unfinished"/>
+      <translation>Kode Rahasia Client</translation>
     </message>
     <message>
       <source>This message will be send to your e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Pesan ini akan dikirimkan ke e-mail anda</translation>
     </message>
     <message>
       <source>Send test message</source>
-      <translation type="unfinished"/>
+      <translation>Kirim pesan tes</translation>
     </message>
     <message>
       <source>Revoke access token</source>
-      <translation type="unfinished"/>
+      <translation>Cabut token akses</translation>
     </message>
     <message>
       <source>Revoke permission to send a message</source>
-      <translation type="unfinished"/>
+      <translation>Cabut izin untuk mengirimkan pesan</translation>
     </message>
     <message>
       <source>Authentificate and grant permission to send a message</source>
-      <translation type="unfinished"/>
+      <translation>Sahkan dan berikan izin untuk mengirimkan pesan</translation>
     </message>
     <message>
       <source>Grant permission to send a message</source>
-      <translation type="unfinished"/>
+      <translation>Berikan izin untuk mengirimkan pesan</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Pengaturan telah diperbarui</translation>
     </message>
     <message>
       <source>Succesfully authorised, now you can try to send a message</source>
-      <translation type="unfinished"/>
+      <translation>Berhasil divalidasi, sekarang anda dapat mencoba mengirimkan pesan</translation>
     </message>
     <message>
       <source>Token was revoked</source>
-      <translation type="unfinished"/>
+      <translation>Token telah dicabut</translation>
     </message>
     <message>
       <source>XMPP message was sent succesfuly</source>
-      <translation type="unfinished"/>
+      <translation>Pesan XMPP telah berhasil dikirim</translation>
     </message>
   </context>
   <context>
     <name>chat/part/operator_profile</name>
     <message>
       <source>Skype call</source>
-      <translation type="unfinished"/>
+      <translation>Panggilan Skype</translation>
     </message>
   </context>
 </TS>
