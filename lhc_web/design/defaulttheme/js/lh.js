@@ -72,6 +72,9 @@ function lh(){
     // Chats currently under synchronization
     this.chatsSynchronising = [];
     this.chatsSynchronisingMsg = [];
+    
+    // Notifications array
+    this.notificationsArray = [];
 
     // Block synchronization till message add finished
     this.underMessageAdd = false;
@@ -898,6 +901,7 @@ function lh(){
 	        // If no error
 	        if (data.error == 'false')
 	        {
+	        	var hasPendingItems = false;
                 $.each(data.result,function(i,item) {
                     if (item.content != '') { $(item.dom_id).html(item.content); }
 
@@ -915,9 +919,17 @@ function lh(){
                         } else if (inst.trackLastIDS[item.last_id_identifier] < parseInt(item.last_id)) {
                             inst.trackLastIDS[item.last_id_identifier] = parseInt(item.last_id);
                             inst.playSoundNewAction(item.last_id_identifier,parseInt(item.last_id));
-                        }
+                        };
+                        if (parseInt(item.last_id) > 0) {
+                        	hasPendingItems = true;                        	
+                        };
                     };
                 });
+                
+                if (hasPendingItems == false) {
+                	inst.hideNotifications();
+                };
+                
                 $(document).foundation('section', 'resize');
 	        };
 	        setTimeout(chatsyncadmininterface,confLH.back_office_sinterval);
@@ -979,6 +991,7 @@ function lh(){
 		    	        notification.close();
 		    	    };
 		    	    notification.show();
+		    	    this.notificationsArray.push(notification);
 		    	  }
 	    	  } else if(window.Notification) {
 	    		  if (window.Notification.permission == 'granted') {
@@ -991,12 +1004,23 @@ function lh(){
 			    	    	};
 			    	        notification.close();
 			    	    };
+			    	    this.notificationsArray.push(notification);
 		    	   }
 	    	  }
 
 	    }
 	};
 
+	this.hideNotifications = function(){
+				
+		$.each(this.notificationsArray,function(i,item) {
+			item.close();
+		});
+		
+		// Reset array
+		this.notificationsArray = [];
+	};
+	
 	this.syncadmininterfacestatic = function()
 	{
 	    $.getJSON(this.wwwDir + this.syncadmininterfaceurl ,{ }, function(data){
