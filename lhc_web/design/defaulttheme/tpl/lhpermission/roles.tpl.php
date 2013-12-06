@@ -17,7 +17,7 @@
         <td><?php echo $departament['id']?></td>
         <td><?php echo htmlspecialchars($departament['name'])?></td>
         <?php if ($canEdit) : ?><td nowrap><a class="small button round" href="<?php echo erLhcoreClassDesign::baseurl('permission/editrole')?>/<?php echo $departament['id']?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/roles','Edit a role');?></a></td><?php endif;?>
-        <?php if ($canDelete) : ?><td nowrap><?php if ($departament['id'] != 1) : ?><a class="csfr-required small alert button round" onclick="return confirm('Are you sure?')" href="<?php echo erLhcoreClassDesign::baseurl('permission/deleterole')?>/<?php echo $departament['id']?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/roles','Delete a role');?></a><?php endif;?></td><?php endif;?>
+        <?php if ($canDelete) : ?><td nowrap><?php if ($departament['id'] != 1 && erLhcoreClassRole::canDeleteRole($departament['id']) === true) : ?><a class="csfr-required small alert button round" onclick="return confirm('Are you sure?')" href="<?php echo erLhcoreClassDesign::baseurl('permission/deleterole')?>/<?php echo $departament['id']?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/roles','Delete a role');?></a><?php endif;?></td><?php endif;?>
     </tr>
 <?php endforeach; ?>
 </table>

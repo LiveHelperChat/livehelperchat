@@ -18,6 +18,16 @@ class erLhcoreClassRole{
         return $rows;  
    }
    
+   public static function canDeleteRole($roleID) {
+	   	$db = ezcDbInstance::get();
+	   	 
+	   	$stmt = $db->prepare('SELECT count(*) FROM lh_grouprole WHERE role_id = :role_id');
+	   	$stmt->bindValue(':role_id',$roleID);
+	   	$stmt->execute();
+	   	   	
+	   	return $stmt->fetchColumn() == 0;
+   }
+   
    public static function getSession()
    {
         if ( !isset( self::$persistentSession ) )
