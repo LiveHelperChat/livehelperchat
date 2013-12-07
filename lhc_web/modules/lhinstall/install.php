@@ -582,6 +582,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `priority` int(11) NOT NULL,
 				  `department_transfer_id` int(11) NOT NULL,
 				  `transfer_timeout` int(11) NOT NULL,
+				  `disabled` int(11) NOT NULL,
 				  `identifier` varchar(50) NOT NULL,
 				  `mod` tinyint(1) NOT NULL,
 				  `tud` tinyint(1) NOT NULL,
@@ -598,6 +599,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `inform_delay` int(11) NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `identifier` (`identifier`),
+				  KEY `disabled` (`disabled`),
 				  KEY `oha_sh_eh` (`online_hours_active`,`start_hour`,`end_hour`)
 				) DEFAULT CHARSET=utf8;");
 

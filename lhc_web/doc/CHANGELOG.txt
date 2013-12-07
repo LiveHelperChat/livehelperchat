@@ -1,3 +1,10 @@
+1.71v
+
+Features
+1. Option to disable a department. If department is disabled it won't appear in department choosing form.
+
+execute doc/update_db/update_53.sql for update
+
 1.70v
 
 1. In 1.69 was introduced drag & drop but IE users could not select any field. This issue was fixed in less than 24h. But if you are experiencing same issue I recommend to update.

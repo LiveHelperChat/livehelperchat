@@ -85,6 +85,9 @@ class erLhcoreClassDepartament{
 	   			'OnlineHoursActive' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	   			),
+	   			'Disabled' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	   			),
 	   			'inform_close' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	   			),
@@ -167,6 +170,12 @@ class erLhcoreClassDepartament{
 	   		$department->inform_close = 1;
 	   	} else {
 	   		$department->inform_close = 0;
+	   	}
+	   		   	
+	   	if ( $form->hasValidData( 'Disabled' ) && $form->Disabled === true ) {
+	   		$department->disabled = 1;
+	   	} else {
+	   		$department->disabled = 0;
 	   	}
 	   		   	
 	   	if ( $form->hasValidData( 'mod' ) && $form->mod === true ) {

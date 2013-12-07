@@ -27,7 +27,7 @@ class erLhcoreClassChatbox {
 				$chat->referrer = isset($_GET['URLReferer']) ? $_GET['URLReferer'] : '';
 
 				// Assign default department
-				$departments = erLhcoreClassModelDepartament::getList();
+				$departments = erLhcoreClassModelDepartament::getList(array('filter' => array('disabled' => 0)));
 				$ids = array_keys($departments);
 				$id = array_shift($ids);
 				$chat->dep_id = $id;
