@@ -135,8 +135,7 @@
 	</h5>
 	<p>
 		<?php $user = $chat->getChatOwner();  if ($user !== false) : ?>
-		<?php echo htmlspecialchars($user->name)?>
-		<?php echo htmlspecialchars($user->surname)?>
+		<?php echo htmlspecialchars($user->name.' '.$user->surname)?>		
 		<?php endif; ?>
 		</p>
 
