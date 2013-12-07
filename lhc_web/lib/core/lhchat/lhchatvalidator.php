@@ -168,12 +168,16 @@ class erLhcoreClassChatValidator {
             }
         }
 
-        if ($form->hasValidData( 'DepartamentID' ) && erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $form->DepartamentID))) > 0) {
+        if ($form->hasValidData( 'DepartamentID' ) && erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $form->DepartamentID,'disabled' => 0))) > 0) {
         	$chat->dep_id = $form->DepartamentID;
-        } elseif ($chat->dep_id == 0 || erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $chat->dep_id))) == 0) {
-        	$departments = erLhcoreClassModelDepartament::getList(array('limit' => 1,'filter' => array('department_transfer_id' => 0)));
-        	$department = array_shift($departments);
-        	$chat->dep_id = $department->id;
+        } elseif ($chat->dep_id == 0 || erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $chat->dep_id,'disabled' => 0))) == 0) {
+        	$departments = erLhcoreClassModelDepartament::getList(array('limit' => 1,'filter' => array('disabled' => 0)));
+        	if (!empty($departments) ) {
+	        	$department = array_shift($departments);
+	        	$chat->dep_id = $department->id;
+        	} else {
+        		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Could not determine a default department!');
+        	}
         }
 
         // Set chat attributes for transfer workflow logic
@@ -183,14 +187,19 @@ class erLhcoreClassChatValidator {
         	$chat->transfer_timeout_ac = $chat->department->transfer_timeout;
         }
 
+        
+        
         $inputForm->departament_id = $chat->dep_id;
 
         if ( $inputForm->priority !== false && is_numeric($inputForm->priority) ) {
         	$chat->priority = (int)$inputForm->priority;
         } else {
-        	$chat->priority = $chat->department->priority;
+        	if ($chat->department !== false) {
+        		$chat->priority = $chat->department->priority;
+        	}
         }
 
+        
         if ( $form->hasValidData( 'name_items' ) && !empty($form->name_items))
         {
         	$valuesArray = array();

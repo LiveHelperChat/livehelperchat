@@ -27,6 +27,7 @@ class erLhcoreClassModelDepartament {
                'inform_delay'    		=> $this->inform_delay,
                'inform_close'    		=> $this->inform_close,
                'online_hours_active'    => $this->online_hours_active,
+               'disabled'    			=> $this->disabled,
        );
    }
 
@@ -76,6 +77,11 @@ class erLhcoreClassModelDepartament {
 	   		case 'inform_options_array':
 	   			$this->inform_options_array = $this->inform_options != '' ? unserialize($this->inform_options) : array();
 	   			return $this->inform_options_array;
+	   		break;
+
+	   		case 'can_delete':
+	   			$this->can_delete = erLhcoreClassChat::getCount(array('filter' => array('dep_id' => $this->id))) == 0;
+	   			return $this->can_delete;
 	   		break;
 
 	   		case 'department_transfer':
@@ -208,6 +214,7 @@ class erLhcoreClassModelDepartament {
     public $inform_options = '';    
     public $inform_close = 0;    
     public $online_hours_active = 0;
+    public $disabled = 0;
 }
 
 ?>

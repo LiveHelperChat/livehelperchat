@@ -115,6 +115,11 @@ $def->properties['inform_close']->columnName   = 'inform_close';
 $def->properties['inform_close']->propertyName = 'inform_close';
 $def->properties['inform_close']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['disabled'] = new ezcPersistentObjectProperty();
+$def->properties['disabled']->columnName   = 'disabled';
+$def->properties['disabled']->propertyName = 'disabled';
+$def->properties['disabled']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

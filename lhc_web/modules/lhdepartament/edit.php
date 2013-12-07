@@ -11,7 +11,7 @@ if ( isset($_POST['Cancel_departament']) ) {
 
 if ( isset($_POST['Delete_departament']) ) {
 
-	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token']) || !$currentUser->hasAccessTo('lhdepartament','delete') || !$Departament->can_delete) {
 		erLhcoreClassModule::redirect('departament/departaments');
 		exit;
 	}
@@ -48,6 +48,7 @@ if (isset($_POST['Update_departament']) || isset($_POST['Save_departament'])  )
 }
 
 $tpl->set('departament',$Departament);
+$tpl->set('currentUser',$currentUser);
 
 $Result['content'] = $tpl->fetch();
 
