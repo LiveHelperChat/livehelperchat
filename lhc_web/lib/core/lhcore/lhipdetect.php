@@ -14,6 +14,15 @@ class erLhcoreClassIPDetect {
 		return $_SERVER["REMOTE_ADDR"];
 	}
 
+	public static function getServerAddress() {
+		if(array_key_exists('SERVER_ADDR', $_SERVER))
+		    return $_SERVER['SERVER_ADDR'];
+		elseif(array_key_exists('LOCAL_ADDR', $_SERVER))
+		    return $_SERVER['LOCAL_ADDR'];
+		elseif(array_key_exists('SERVER_NAME', $_SERVER))
+		    return gethostbyname($_SERVER['SERVER_NAME']);
+	}
+	
 	public static function cloudflareInit() {
 
 		if (strpos($_SERVER["REMOTE_ADDR"], ":") === FALSE) {

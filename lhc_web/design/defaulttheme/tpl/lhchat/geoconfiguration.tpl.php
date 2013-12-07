@@ -64,7 +64,7 @@
     <div class="content" data-section-content>
 
 	    <div>
-		     <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Requests will be comming from');?> - <?php echo $_SERVER['SERVER_ADDR']; ?></p>
+		     <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Requests will be comming from');?> - <?php echo erLhcoreClassIPDetect::getServerAddress(); ?></p>
 	
 		     <label class="inline"><input type="radio" name="UseGeoIP" value="ipinfodbcom" <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'ipinfodbcom') ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Use this service'); ?></label>
 	
@@ -82,7 +82,7 @@
     <div class="content" data-section-content>
 
     <div>
-	     <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Requests will be comming from');?> - <?php echo $_SERVER['SERVER_ADDR']; ?></p>
+	     <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Requests will be comming from');?> - <?php echo erLhcoreClassIPDetect::getServerAddress(); ?></p>
 
 	     <label class="inline"><input type="radio" name="UseGeoIP" value="locatorhq" <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'locatorhq') ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Use this service'); ?></label>
 
@@ -93,7 +93,7 @@
 	     <input type="text" name="locatorhqUsername" value="<?php isset($geo_data['locatorhqusername']) ? print htmlspecialchars($geo_data['locatorhqusername']) : print '' ?>">
 
 	     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','IP, if your site remote IP is different from detected one, please provide correct remote IP address'); ?></label>
-	     <input type="text" name="locatorhqIP" value="<?php isset($geo_data['locatorhqip']) ? print htmlspecialchars($geo_data['locatorhqip']) : print $_SERVER['SERVER_ADDR'] ?>">
+	     <input type="text" name="locatorhqIP" value="<?php isset($geo_data['locatorhqip']) ? print htmlspecialchars($geo_data['locatorhqip']) : print erLhcoreClassIPDetect::getServerAddress() ?>">
 
 	     <input type="submit" class="button small round" name="StoreGeoIPConfiguration" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Save'); ?>" />
 	</div>
