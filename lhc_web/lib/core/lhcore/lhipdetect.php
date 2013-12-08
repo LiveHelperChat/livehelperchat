@@ -15,11 +15,11 @@ class erLhcoreClassIPDetect {
 	}
 
 	public static function getServerAddress() {
-		if(array_key_exists('SERVER_ADDR', $_SERVER))
+		if (array_key_exists('SERVER_ADDR', $_SERVER))
 		    return $_SERVER['SERVER_ADDR'];
-		elseif(array_key_exists('LOCAL_ADDR', $_SERVER))
+		elseif (array_key_exists('LOCAL_ADDR', $_SERVER) && $_SERVER['LOCAL_ADDR'] != '::1')
 		    return $_SERVER['LOCAL_ADDR'];
-		elseif(array_key_exists('SERVER_NAME', $_SERVER))
+		elseif (array_key_exists('SERVER_NAME', $_SERVER))
 		    return gethostbyname($_SERVER['SERVER_NAME']);
 	}
 	
