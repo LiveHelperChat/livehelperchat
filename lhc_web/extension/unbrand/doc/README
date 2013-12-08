@@ -1,8 +1,0 @@
-This is example how unbranded extension should look like. It overrides necesary templates/images to hide original software attribution.
-Every other software related attribution can be changed in back office.
-
-To activate this extension just edit settings.ini.php to look like
-'extensions' =>
-      array (
-      		'unbrand'
-      ),

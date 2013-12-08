@@ -16,8 +16,8 @@ foreach ($ReverseOrder as $pathItem) : ?><?php echo htmlspecialchars($pathItem['
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/copyright_meta.tpl.php'));?>
 
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_css.tpl.php'));?>
+<?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_css_extension.tpl.php'));?>
 
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_js.tpl.php'));?>
-
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_js_extension.tpl.php'));?>
 
