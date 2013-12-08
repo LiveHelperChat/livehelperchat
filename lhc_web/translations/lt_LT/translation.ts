@@ -725,6 +725,10 @@
       <translation>Maksimum 100 ženklų telefono numeryje</translation>
     </message>
     <message>
+      <source>Could not determine a default department!</source>
+      <translation>Negalima nustatyti numatyto departamento!</translation>
+    </message>
+    <message>
       <source>Live Support</source>
       <translation>Pagalba</translation>
     </message>
@@ -1168,6 +1172,10 @@
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key and username is correct!</source>
       <translation>Nustatant paslaugos teikėją įvyko klaida, prašome patikrinti ar Jūsų paslaugos teikėjas leidžia vykdyti užklausas į nutolusius puslapius ir ar Jūsų API raktas ir vartotojo vardas yra korektiški.</translation>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!</source>
+      <translation>Nustatant paslaugos teikėją įvyko klaida, prašome patikrinti ar Jūsų paslaugos teikėjas leidžia vykdyti užklausas į nutolusius puslapius ir ar Jūsų API raktas yra korektiškas!</translation>
     </message>
     <message>
       <source>Please choose a service provider!</source>
@@ -2430,6 +2438,10 @@
     <message>
       <source>E-mail</source>
       <translation>El. paštas</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation>Išjungtas</translation>
     </message>
     <message>
       <source>XMPP recipients</source>

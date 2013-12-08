@@ -727,6 +727,10 @@
       <translation>Máximo 100 caracteres para teléfono</translation>
     </message>
     <message>
+      <source>Could not determine a default department!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Live Support</source>
       <translation>Soporte en Línea</translation>
     </message>
@@ -1172,6 +1176,10 @@
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key and username is correct!</source>
       <translation>Los ajustes del proveedor de servicios estan incorrectos, por favor, compruebe que el proveedor de servicios le permite hacer peticiones a páginas remotas y su API key / usuario son correctos </translation>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please choose a service provider!</source>
@@ -1924,7 +1932,7 @@
     </message>
     <message>
       <source>Last 24h statistic</source>
-      <translation>Ultimas 24 estadísticas</translation>
+      <translation>Últimas 24 estadísticas</translation>
     </message>
     <message>
       <source>Operators last 24h statistic, top 100 by chats number</source>
@@ -2436,20 +2444,24 @@
       <translation>E-mail</translation>
     </message>
     <message>
-      <source>XMPP recipients</source>
+      <source>Disabled</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP recipients</source>
+      <translation>Destinatarios XMPP</translation>
     </message>
     <message>
       <source>XMPP group recipients</source>
-      <translation type="unfinished"/>
+      <translation>Grupo destinatarios XMPP</translation>
     </message>
     <message>
       <source>E.g somechat@conference.server.org/LiveChat</source>
-      <translation type="unfinished"/>
+      <translation>P.e. somechat@conference.server.org/LiveChat</translation>
     </message>
     <message>
       <source>These messages will be send as group messages</source>
-      <translation type="unfinished"/>
+      <translation>Estos mensajes se enviarán como mensajes de grupo</translation>
     </message>
     <message>
       <source>Priority</source>
@@ -2489,11 +2501,11 @@
     </message>
     <message>
       <source>Work hours/work days logic is active</source>
-      <translation type="unfinished"/>
+      <translation>Lógica horas / días de trabajo está activa</translation>
     </message>
     <message>
       <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
-      <translation type="unfinished"/>
+      <translation>Horas / días de trabajo, durante esta horas / días el chat se activará automáticamente</translation>
     </message>
     <message>
       <source>Monday</source>
@@ -2608,11 +2620,11 @@
     </message>
     <message>
       <source>Skype</source>
-      <translation type="unfinished"/>
+      <translation>Skype</translation>
     </message>
     <message>
       <source>XMPP username</source>
-      <translation type="unfinished"/>
+      <translation>Usuario XMPP</translation>
     </message>
     <message>
       <source>Photo</source>
@@ -4113,7 +4125,7 @@ Lista de funciones</translation>
     </message>
     <message>
       <source>Transfer department has to be different one than self</source>
-      <translation type="unfinished"/>
+      <translation>El departamento a transferir tiene que ser diferente al actual</translation>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>
@@ -4378,7 +4390,7 @@ Lista de funciones</translation>
     </message>
     <message>
       <source>Use standard XMPP service</source>
-      <translation type="unfinished"/>
+      <translation>Usar servicio XMPP estandar</translation>
     </message>
     <message>
       <source>Host</source>
@@ -4466,11 +4478,11 @@ Lista de funciones</translation>
     </message>
     <message>
       <source>Authentificate and grant permission to send a message</source>
-      <translation type="unfinished"/>
+      <translation>Auntentificar y otorgar permisos para enviar un mensaje</translation>
     </message>
     <message>
       <source>Grant permission to send a message</source>
-      <translation type="unfinished"/>
+      <translation>Otorgar permisos para enviar un mensaje</translation>
     </message>
     <message>
       <source>Settings updated</source>
@@ -4478,11 +4490,11 @@ Lista de funciones</translation>
     </message>
     <message>
       <source>Succesfully authorised, now you can try to send a message</source>
-      <translation type="unfinished"/>
+      <translation>Auntorización satisfactoria, ahora puedes probar a enviar un mensaje</translation>
     </message>
     <message>
       <source>Token was revoked</source>
-      <translation type="unfinished"/>
+      <translation>El Token fue revocado</translation>
     </message>
     <message>
       <source>XMPP message was sent succesfuly</source>
@@ -4493,7 +4505,7 @@ Lista de funciones</translation>
     <name>chat/part/operator_profile</name>
     <message>
       <source>Skype call</source>
-      <translation type="unfinished"/>
+      <translation>Llamada Skype</translation>
     </message>
   </context>
 </TS>

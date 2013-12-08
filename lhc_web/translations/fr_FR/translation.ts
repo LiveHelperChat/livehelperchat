@@ -725,6 +725,10 @@
       <translation>Maximum 100 caractères (téléphone)</translation>
     </message>
     <message>
+      <source>Could not determine a default department!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Live Support</source>
       <translation>Support en ligne</translation>
     </message>
@@ -1168,6 +1172,10 @@
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key and username is correct!</source>
       <translation>Merci de vérifier que votre service provider vous permet de faire des requêtes vers des pages distantes et que votre clé API et votre nom d&apos;utilisateur est correct!</translation>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please choose a service provider!</source>
@@ -2430,6 +2438,10 @@
     <message>
       <source>E-mail</source>
       <translation>Email</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>XMPP recipients</source>

@@ -725,6 +725,10 @@
       <translation>Максимальная длина телефона - 100 символов</translation>
     </message>
     <message>
+      <source>Could not determine a default department!</source>
+      <translation>Не удалось определить Департамент по умолчанию!</translation>
+    </message>
+    <message>
       <source>Live Support</source>
       <translation>Техподдержка</translation>
     </message>
@@ -1168,6 +1172,10 @@
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key and username is correct!</source>
       <translation>Установка соединения с поставщиком услуги не удалась, пожалуйста, удостоверьтесь, что поставщик разрешил Вам обращаться к его данным и проверьте свои данные (API ключ и логин)!</translation>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!</source>
+      <translation>Настройки поставщика услуг некорректны! Пожалуйста, проверьте разрешены ли входящие запросы с удаленных страниц у вашего поставщика услуг, а также ваш API ключ!</translation>
     </message>
     <message>
       <source>Please choose a service provider!</source>
@@ -2430,6 +2438,10 @@
     <message>
       <source>E-mail</source>
       <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation>Отключено</translation>
     </message>
     <message>
       <source>XMPP recipients</source>

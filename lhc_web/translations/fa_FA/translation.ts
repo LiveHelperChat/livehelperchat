@@ -725,6 +725,10 @@
       <translation>حداکثر 100 کاراکتر برای تلفن</translation>
     </message>
     <message>
+      <source>Could not determine a default department!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Live Support</source>
       <translation>پشتیبان آنلاین</translation>
     </message>
@@ -1168,6 +1172,10 @@
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key and username is correct!</source>
       <translation>تنظیمات سرویس دهنده شکست خورد، لطفا بررسی کنید که سرویس دهنده به شما مجوز دسترسی به صفحات را داده باشد و API key و نام کاربری درست باشد!</translation>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please choose a service provider!</source>
@@ -2430,6 +2438,10 @@
     <message>
       <source>E-mail</source>
       <translation>ایمیل</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>XMPP recipients</source>

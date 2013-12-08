@@ -725,6 +725,10 @@
       <translation>Maks 100 tegn for mobiltelefon</translation>
     </message>
     <message>
+      <source>Could not determine a default department!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Live Support</source>
       <translation>Live support</translation>
     </message>
@@ -1168,6 +1172,10 @@
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key and username is correct!</source>
       <translation>Valg av tjenesteleverandør mislykkes, vennligst sjekk at leverandøren tillater forespørsler til eksterne sider!</translation>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please choose a service provider!</source>
@@ -2430,6 +2438,10 @@
     <message>
       <source>E-mail</source>
       <translation>E-post</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>XMPP recipients</source>

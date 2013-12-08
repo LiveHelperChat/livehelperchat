@@ -725,6 +725,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Could not determine a default department!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Live Support</source>
       <translation type="unfinished"/>
     </message>
@@ -1167,6 +1171,10 @@
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key and username is correct!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2429,6 +2437,10 @@
     </message>
     <message>
       <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disabled</source>
       <translation type="unfinished"/>
     </message>
     <message>

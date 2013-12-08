@@ -725,6 +725,10 @@
       <translation>電話最多100個字符</translation>
     </message>
     <message>
+      <source>Could not determine a default department!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Live Support</source>
       <translation>現場支持</translation>
     </message>
@@ -1168,6 +1172,10 @@
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key and username is correct!</source>
       <translation>設置服務提供商失敗，請檢查您的服務提供商允許您請求遠程頁面和您的API密鑰和用戶名是正確的！</translation>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please choose a service provider!</source>
@@ -2430,6 +2438,10 @@
     <message>
       <source>E-mail</source>
       <translation>电子邮件</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>XMPP recipients</source>
