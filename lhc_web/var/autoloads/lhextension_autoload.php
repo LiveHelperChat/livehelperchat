@@ -5,6 +5,7 @@
  */
 
 return array(
+	'erLhcoreClassBBCode' => 'extension/sceditor/classes/lhbbcode/lhbbcode.php'
     );
 
 ?>
