@@ -3,7 +3,7 @@ url.rewrite-once = (
 
 "^/design/(.*)" =>  "/design/$1",
 
-"^/.*\.(css|html|htm|pdf|txt|js|bmp|ico|json|png|JPG|PNG|flv|ogv|gif|jpe?g|swf)(.*?)$" => "$0",
+"^/.*\.(css|html|htm|pdf|txt|js|bmp|ico|json|png|JPG|otf|woff|eot|ttf|PNG|flv|ogv|gif|jpe?g|swf)(.*?)$" => "$0",
 "^/index(.*)" => "/index$1",
 "^/(.+)\?(.*)/?$" => "/index.php?/$1&$2",
 "^/(.+)/?$" => "/index.php?/$1"
