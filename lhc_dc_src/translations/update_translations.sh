@@ -57,6 +57,9 @@ curl -L --user $1:$2 -X GET https://www.transifex.com/api/2/project/live-helper-
 echo "Updating fa_FA translations"
 curl -L --user $1:$2 -X GET https://www.transifex.com/api/2/project/live-helper-chat/resource/translation_desktopts/translation/fa?file=1 > lhc_fa.ts
 
+echo "Updating el_EL translations"
+curl -L --user $1:$2 -X GET https://www.transifex.com/api/2/project/live-helper-chat/resource/translation_desktopts/translation/el?file=1 > lhc_el.ts
+
 echo "Generating translations"
 /usr/lib64/qt4/bin/lrelease lhc_ar.ts
 /usr/lib64/qt4/bin/lrelease lhc_br.ts
@@ -79,6 +82,7 @@ echo "Generating translations"
 /usr/lib64/qt4/bin/lrelease lhc_zh.ts
 /usr/lib64/qt4/bin/lrelease lhc_sv.ts
 /usr/lib64/qt4/bin/lrelease lhc_fa.ts
+/usr/lib64/qt4/bin/lrelease lhc_el.ts
 
 echo "Copying files"
 /bin/cp -rf ./*.qm ../../lhc_dc/windows_qt_4x/translations/

@@ -43,6 +43,7 @@ return array (
       	17 => 'idn',
       	18 => 'sve',
       	19 => 'per',
+      	21 => 'ell',
       	20 => 'site_admin'
       ),
     ),
@@ -427,6 +428,24 @@ return array (
     	'locale' => 'fa_FA',
     	'content_language' => 'fa',
     	'dir_language' => 'rtl',
+    	'title' => '',
+    	'description' => '',
+    	'theme' =>
+      	array (
+    		0 => 'customtheme',
+    		1 => 'defaulttheme'
+      	),
+    	   'default_url' =>
+    	array (
+    		'module' => 'chat',
+    		'view' => 'startchat'
+    	),
+      ),
+      'ell' =>
+      array (
+    	'locale' => 'el_EL',
+    	'content_language' => 'el',
+    	'dir_language' => 'ltr',
     	'title' => '',
     	'description' => '',
     	'theme' =>
