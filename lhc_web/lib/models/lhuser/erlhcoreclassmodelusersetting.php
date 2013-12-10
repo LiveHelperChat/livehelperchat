@@ -125,8 +125,9 @@ class erLhcoreClassModelUserSetting {
            }
        } else {
        	   $value = $default_value;
-
+       	          	   
            if ($noSession === false && ($value = CSCacheAPC::getMem()->getSession('anonymous_'.$identifier)) === false) {
+           	   $value = $default_value;
                CSCacheAPC::getMem()->setSession('anonymous_'.$identifier,$value);
            }
        }
