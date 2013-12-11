@@ -1,3 +1,15 @@
+1.72v
+
+Features
+1. Redesigned chat configuration list. It's now split into tabs and is more easier to navigate.
+2. Option to choose play sound or not opon invitation box to chat is shown.
+
+Bugfixes:
+1. Sound was not played then message to user was send manually.
+2. If user closed chat and resumed chat and then operator send message chat status did not changed even operator was chating. Now upon first message from operator and if chat is pending it will became active automatically.
+
+execute doc/update_db/update_54.sql for update
+
 1.71v
 
 Features

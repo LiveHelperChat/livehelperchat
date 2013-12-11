@@ -39,15 +39,15 @@
     </message>
     <message>
       <source>Save and continue</source>
-      <translation type="unfinished"/>
+      <translation>Salva e continua</translation>
     </message>
     <message>
       <source>Continue</source>
-      <translation type="unfinished"/>
+      <translation>Continua</translation>
     </message>
     <message>
       <source>Start archiving</source>
-      <translation type="unfinished"/>
+      <translation>Inizia archiviazione</translation>
     </message>
     <message>
       <source>Return</source>
@@ -55,7 +55,7 @@
     </message>
     <message>
       <source>Delete department</source>
-      <translation type="unfinished"/>
+      <translation>Elimina dipartimento</translation>
     </message>
     <message>
       <source>Test</source>
@@ -113,7 +113,7 @@
     </message>
     <message>
       <source>Auto responder</source>
-      <translation type="unfinished"/>
+      <translation>Auto risponditore</translation>
     </message>
     <message>
       <source>Name for personal purposes</source>
@@ -250,7 +250,7 @@
     </message>
     <message>
       <source>is typing now...</source>
-      <translation type="unfinished"/>
+      <translation>sta scrivendo...</translation>
     </message>
     <message>
       <source>Operator is typing now...</source>
@@ -343,7 +343,7 @@
     </message>
     <message>
       <source>Please enter canned message</source>
-      <translation type="unfinished"/>
+      <translation>Inserisci messaggi già preparati</translation>
     </message>
     <message>
       <source>Please enter a canned message</source>
@@ -381,15 +381,15 @@
     </message>
     <message>
       <source>Pending chat</source>
-      <translation type="unfinished"/>
+      <translation>Chat in sospeso</translation>
     </message>
     <message>
       <source>Active chat</source>
-      <translation type="unfinished"/>
+      <translation>Chat attiva</translation>
     </message>
     <message>
       <source>Closed chat</source>
-      <translation type="unfinished"/>
+      <translation>Chat chiusa</translation>
     </message>
     <message>
       <source>Chatbox chat</source>
@@ -397,7 +397,7 @@
     </message>
     <message>
       <source>Operators chat</source>
-      <translation type="unfinished"/>
+      <translation>Chat operatore</translation>
     </message>
     <message>
       <source>Information</source>
@@ -497,7 +497,7 @@
     </message>
     <message>
       <source>Browsing information</source>
-      <translation type="unfinished"/>
+      <translation>Informazioni di navigazione</translation>
     </message>
     <message>
       <source>Refresh</source>
@@ -505,7 +505,7 @@
     </message>
     <message>
       <source>Chats</source>
-      <translation type="unfinished"/>
+      <translation>Chat</translation>
     </message>
     <message>
       <source>Send</source>
@@ -513,7 +513,7 @@
     </message>
     <message>
       <source>Reopen chat</source>
-      <translation type="unfinished"/>
+      <translation>Riapri la chat</translation>
     </message>
     <message>
       <source>Select a canned message</source>
@@ -987,15 +987,15 @@
     </message>
     <message>
       <source>First visit</source>
-      <translation type="unfinished"/>
+      <translation>Prima visita</translation>
     </message>
     <message>
       <source>Last visit</source>
-      <translation type="unfinished"/>
+      <translation>Ultima visita</translation>
     </message>
     <message>
       <source>Total visits</source>
-      <translation type="unfinished"/>
+      <translation>Totale visite</translation>
     </message>
     <message>
       <source>time(s) invitation logic was applied</source>
@@ -1007,7 +1007,7 @@
     </message>
     <message>
       <source>Total pageviews</source>
-      <translation type="unfinished"/>
+      <translation>Totale pagine viste</translation>
     </message>
     <message>
       <source>Time on site</source>
@@ -1015,7 +1015,7 @@
     </message>
     <message>
       <source>Total time on site</source>
-      <translation type="unfinished"/>
+      <translation>Tempo totale nel sito</translation>
     </message>
     <message>
       <source>Current page</source>
@@ -2545,7 +2545,7 @@
     </message>
     <message>
       <source>None</source>
-      <translation type="unfinished"/>
+      <translation>Nessuno</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -3402,7 +3402,7 @@
     </message>
     <message>
       <source>Menu</source>
-      <translation type="unfinished"/>
+      <translation>Menu</translation>
     </message>
     <message>
       <source>Online visitors</source>
@@ -3999,11 +3999,11 @@
     <name>chat/syncuser</name>
     <message>
       <source>Chat was automatically transferred to</source>
-      <translation type="unfinished"/>
+      <translation>La chat è stata automaticamente trasferita a</translation>
     </message>
     <message>
       <source>from</source>
-      <translation type="unfinished"/>
+      <translation>da</translation>
     </message>
     <message>
       <source>Support staff member has closed this chat</source>
