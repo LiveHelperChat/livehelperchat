@@ -27,7 +27,8 @@ if ( isset($_POST['SendMessage']) ) {
     if (count($Errors) == 0) { 
                
         $currentUser = erLhcoreClassUser::instance();   
-        $visitor->message_seen = 0;     
+        $visitor->message_seen = 0;
+        $visitor->invitation_id = -1;
         $visitor->operator_user_id = $currentUser->getUserID();
         $visitor->saveThis();
         
