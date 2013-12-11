@@ -19,7 +19,7 @@ $inputData->departament_id = $department;
 $inputData->validate_start_chat = false;
 
 $tpl->set('department',$department);
-$tpl->set('playsound',(string)$Params['user_parameters_unordered']['playsound'] == 'true' && !isset($_POST['askQuestion']));
+$tpl->set('playsound',(string)$Params['user_parameters_unordered']['playsound'] == 'true' && !isset($_POST['askQuestion']) && erLhcoreClassModelChatConfig::fetch('sound_invitation')->current_value == 1);
 
 $chat = new erLhcoreClassModelChat();
 

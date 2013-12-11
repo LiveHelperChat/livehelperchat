@@ -289,7 +289,7 @@ $ViewList['geoconfiguration'] = array(
 
 $ViewList['listchatconfig'] = array(
     'params' => array(),
-    'functions' => array( 'administrateconfig' )
+    'functions' => array( 'use' )
 );
 
 $ViewList['editchatconfig'] = array(

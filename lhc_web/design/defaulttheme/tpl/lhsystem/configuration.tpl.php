@@ -10,15 +10,14 @@
 		    <?php if ($currentUser->hasAccessTo('lhdepartament','list')) : ?>
 		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('departament/departaments')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Departments');?></a></li>
 		    <?php endif; ?>
-
-		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/notificationsettings')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','New chat notification settings');?></a></li>
-
+		   
 		    <?php if ($currentUser->hasAccessTo('lhchat','allowblockusers')) : ?>
 		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/blockedusers')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Blocked users');?></a></li>
 		    <?php endif; ?>
-
-		    <?php if ($currentUser->hasAccessTo('lhchat','administrateconfig')) : ?>
+		    
 		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/listchatconfig')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Chat configuration');?></a></li>
+		    
+		    <?php if ($currentUser->hasAccessTo('lhchat','administrateconfig')) : ?>
 		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/geoconfiguration')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','GEO detection configuration');?></a></li>
 		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/syncandsoundesetting')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Synchronization and sound settings');?></a></li>
 		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/startchatformsettings')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Start chat form settings');?></a></li>
