@@ -5,10 +5,10 @@
 <?php endif; ?>
 
 <form action="" method="post">
-<div class="section-container auto" data-section>
+<div class="section-container auto" data-section data-options="deep_linking: true">
   <section class="active">
-	    <p class="title" data-section-title><a href="#"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Notifications about new chats');?></a></p>
-	    <div class="content" data-section-content>	
+	    <p class="title" data-section-title><a href="#notifications"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Notifications about new chats');?></a></p>
+	    <div class="content" data-section-content data-slug="notifications">	
 		    <div>			    
 				<input type="button" class="button radius" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Request notification permission')?>" onclick="lhinst.requestNotificationPermission()" />
 				<div class="row">
@@ -22,8 +22,8 @@
   
   <?php if ($currentUser->hasAccessTo('lhchat','administrateconfig')) : ?>
   <section>
-	    <p class="title" data-section-title><a href="#"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Copyright settings');?></a></p>
-	    <div class="content" data-section-content>	
+	    <p class="title" data-section-title><a href="#copyright"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Copyright settings');?></a></p>
+	    <div class="content" data-section-content data-slug="copyright">	
 		    <div>		
 		    		<div class="section-container auto" data-section>
 					  	<section class="active">
@@ -51,8 +51,8 @@
    </section>
 	
    <section>
-	    <p class="title" data-section-title><a href="#"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Online tracking');?></a></p>
-	    <div class="content" data-section-content>	
+	    <p class="title" data-section-title><a href="#onlinetracking"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Online tracking');?></a></p>
+	    <div class="content" data-section-content data-slug="onlinetracking">	
 		    <?php $attribute = 'ignorable_ip'?>
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>	
 		    		
@@ -83,8 +83,8 @@
 	</section>
 	
   <section>
-	    <p class="title" data-section-title><a href="#"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Misc');?></a></p>
-	    <div class="content" data-section-content>			    		    			    		
+	    <p class="title" data-section-title><a href="#misc"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Misc');?></a></p>
+	    <div class="content" data-section-content data-slug="misc">			    		    			    		
 		    <?php $attribute = 'voting_days_limit'?>
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 		    
@@ -109,8 +109,8 @@
 	</section>
 	
   <section>
-	    <p class="title" data-section-title><a href="#"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Workflow');?></a></p>
-	    <div class="content" data-section-content>	
+	    <p class="title" data-section-title><a href="#workflow"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Workflow');?></a></p>
+	    <div class="content" data-section-content data-slug="workflow">	
 		    <?php $attribute = 'run_unaswered_chat_workflow'?>
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 		    
