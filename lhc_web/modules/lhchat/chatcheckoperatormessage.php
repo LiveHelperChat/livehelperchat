@@ -20,6 +20,13 @@ if ( $ignorable_ip == '' || !in_array(erLhcoreClassIPDetect::getIP(), explode(',
 	}
 	
 	if ($userInstance !== false) {
+		
+		if ($userInstance->invitation_id == -1) {
+			$userInstance->invitation_id = 0;
+			$userInstance->invitation_assigned = true;
+			$userInstance->saveThis();
+		}
+		
 		$tpl->set('priority',is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : false);
 		$tpl->set('department',is_numeric($Params['user_parameters_unordered']['department']) ? (int)$Params['user_parameters_unordered']['department'] : false);
 		$tpl->set('visitor',$userInstance);
