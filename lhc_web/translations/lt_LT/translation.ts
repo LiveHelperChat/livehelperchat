@@ -862,6 +862,34 @@
   <context>
     <name>chat/onlineusers</name>
     <message>
+      <source>Notifications about new chats</source>
+      <translation>Pranešimai apie naujas užklausas</translation>
+    </message>
+    <message>
+      <source>Copyright settings</source>
+      <translation>Autorystės nustatymai</translation>
+    </message>
+    <message>
+      <source>Application name</source>
+      <translation>Aplikacijos pavadinimas</translation>
+    </message>
+    <message>
+      <source>Site settings</source>
+      <translation>Puslapio nustatymai</translation>
+    </message>
+    <message>
+      <source>Online tracking</source>
+      <translation>Vartotojų sekimas</translation>
+    </message>
+    <message>
+      <source>Misc</source>
+      <translation>Įvairus</translation>
+    </message>
+    <message>
+      <source>Workflow</source>
+      <translation>Darbo eiga</translation>
+    </message>
+    <message>
       <source>GEO detection configuration</source>
       <translation>GEO detekcijos nustatymai</translation>
     </message>
@@ -1224,6 +1252,46 @@
       <translation>Redaguoti reikšmę</translation>
     </message>
     <message>
+      <source>Chat configuration</source>
+      <translation>Pokalbių nustatymai</translation>
+    </message>
+    <message>
+      <source>Notifications about new chats</source>
+      <translation>Pranešimai apie naujas užklausas</translation>
+    </message>
+    <message>
+      <source>Copyright settings</source>
+      <translation>Autorystės nustatymai</translation>
+    </message>
+    <message>
+      <source>Application name</source>
+      <translation>Aplikacijos pavadinimas</translation>
+    </message>
+    <message>
+      <source>Site settings</source>
+      <translation>Puslapio nustatymai</translation>
+    </message>
+    <message>
+      <source>Online tracking</source>
+      <translation>Vartotojų sekimas</translation>
+    </message>
+    <message>
+      <source>Misc</source>
+      <translation>Įvairus</translation>
+    </message>
+    <message>
+      <source>Workflow</source>
+      <translation>Darbo eiga</translation>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation>Atnaujinti</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Nustatymai atnaujinti</translation>
+    </message>
+    <message>
       <source>List chat configuration</source>
       <translation>Pokalbių nustatymų sąrašas</translation>
     </message>
@@ -1460,12 +1528,12 @@
       <translation>XMPP nustatymai</translation>
     </message>
     <message>
-      <source>New chat notification settings</source>
-      <translation>Pranešimų apie naujus pokalbius nustatymai</translation>
-    </message>
-    <message>
       <source>Request notification permission</source>
       <translation>Suteikti leidimą rodyti pranešimus</translation>
+    </message>
+    <message>
+      <source>New chat notification settings</source>
+      <translation>Pranešimų apie naujus pokalbius nustatymai</translation>
     </message>
     <message>
       <source>System configuration</source>

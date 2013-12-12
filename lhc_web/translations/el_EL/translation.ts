@@ -862,6 +862,34 @@
   <context>
     <name>chat/onlineusers</name>
     <message>
+      <source>Notifications about new chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copyright settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Application name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Site settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online tracking</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Misc</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Workflow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>GEO detection configuration</source>
       <translation>Ρύθμιση παραμέτρων ανίχνευσης GEO</translation>
     </message>
@@ -1224,6 +1252,46 @@
       <translation>Επεξεργασία τιμής</translation>
     </message>
     <message>
+      <source>Chat configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Notifications about new chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copyright settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Application name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Site settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online tracking</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Misc</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Workflow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>List chat configuration</source>
       <translation>Επεξεργασία λίστας συνομιλίας</translation>
     </message>
@@ -1460,12 +1528,12 @@
       <translation>XMP ρυθμίσεις</translation>
     </message>
     <message>
-      <source>New chat notification settings</source>
-      <translation>Νέες ρυθμίσεις ειδοποιήσεων συνομιλίας</translation>
-    </message>
-    <message>
       <source>Request notification permission</source>
       <translation>Ζητήσει άδεια κοινοποίησης</translation>
+    </message>
+    <message>
+      <source>New chat notification settings</source>
+      <translation>Νέες ρυθμίσεις ειδοποιήσεων συνομιλίας</translation>
     </message>
     <message>
       <source>System configuration</source>

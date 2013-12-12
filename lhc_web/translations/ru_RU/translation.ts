@@ -862,6 +862,34 @@
   <context>
     <name>chat/onlineusers</name>
     <message>
+      <source>Notifications about new chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copyright settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Application name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Site settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online tracking</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Misc</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Workflow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>GEO detection configuration</source>
       <translation>Настройки GEO-обнаружения</translation>
     </message>
@@ -1224,6 +1252,46 @@
       <translation>Изменить</translation>
     </message>
     <message>
+      <source>Chat configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Notifications about new chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copyright settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Application name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Site settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online tracking</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Misc</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Workflow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>List chat configuration</source>
       <translation>Настройки онлайн чата</translation>
     </message>
@@ -1460,12 +1528,12 @@
       <translation>Настройка XMP</translation>
     </message>
     <message>
-      <source>New chat notification settings</source>
-      <translation>Установки уведомлений нового чата</translation>
-    </message>
-    <message>
       <source>Request notification permission</source>
       <translation>Запрос разрешить уведомления</translation>
+    </message>
+    <message>
+      <source>New chat notification settings</source>
+      <translation>Установки уведомлений нового чата</translation>
     </message>
     <message>
       <source>System configuration</source>

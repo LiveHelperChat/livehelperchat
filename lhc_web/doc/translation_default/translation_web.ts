@@ -531,19 +531,34 @@
     </message>
   </context>
   <context>
+    <name>files/files</name>
+    <message>
+      <source>Refresh</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Download file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Drop your files here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Not an accepted file type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Filesize is too big</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/syncadmininterface</name>
-    <message>
-      <source>Close chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Reject chat</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>Open in a new window</source>
       <translation type="unfinished"/>
@@ -863,34 +878,6 @@
   </context>
   <context>
     <name>chat/onlineusers</name>
-    <message>
-      <source>Notifications about new chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Copyright settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Application name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Site settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online tracking</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Misc</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Workflow</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>GEO detection configuration</source>
       <translation type="unfinished"/>
@@ -1242,18 +1229,6 @@
   <context>
     <name>chat/listchatconfig</name>
     <message>
-      <source>List</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Explain</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Edit value</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Chat configuration</source>
       <translation type="unfinished"/>
     </message>
@@ -1299,11 +1274,142 @@
     </message>
   </context>
   <context>
-    <name>system/htmlcode</name>
+    <name>system/configuration</name>
     <message>
-      <source>Check for messages from the operator</source>
+      <source>Request notification permission</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>New chat notification settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat related</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Blocked users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>GEO detection configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Synchronization and sound settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start chat form settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Canned messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail templates</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pro active chat invitations</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto responder</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>SMTP settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat archive</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live help embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users and their permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List of groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List of roles</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Files uploads configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Files upload configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List of files</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File configuration</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>system/htmlcode</name>
     <message>
       <source>Widget embed code</source>
       <translation type="unfinished"/>
@@ -1524,141 +1630,21 @@
     </message>
   </context>
   <context>
-    <name>system/configuration</name>
+    <name>chat/lists/search_panel</name>
     <message>
-      <source>XMP settings</source>
+      <source>Nick</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Request notification permission</source>
+      <source>E-mail</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>New chat notification settings</source>
+      <source>Date range from to</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>System configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat related</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Blocked users</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>GEO detection configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Synchronization and sound settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Start chat form settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Canned messages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>E-mail templates</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Pro active chat invitations</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Auto responder</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>SMTP settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMPP settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Languages configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat archive</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live help embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>FAQ embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Statistic</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Users and their permissions</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Users</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>List of groups</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>List of roles</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Files uploads configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Files upload configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>List of files</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Other</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>File configuration</source>
+      <source>Search</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -1670,6 +1656,13 @@
     </message>
     <message>
       <source>Operators chats</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/part/operator_profile</name>
+    <message>
+      <source>Skype call</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -2260,10 +2253,6 @@
   <context>
     <name>chatbox/configuration</name>
     <message>
-      <source>Embed code generation</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Chatbox</source>
       <translation type="unfinished"/>
     </message>
@@ -2466,38 +2455,6 @@
   <context>
     <name>department/edit</name>
     <message>
-      <source>Active days</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Active hours, 24 hours format</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>from, E.g 8</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>from, E.g 17</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMP messages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online hours active</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Workdays, during these days chat will be active automatically</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>From, E.g. 17</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Edit department</source>
       <translation type="unfinished"/>
     </message>
@@ -2633,10 +2590,6 @@
   <context>
     <name>user/account</name>
     <message>
-      <source>Please enter a surname</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Updated</source>
       <translation type="unfinished"/>
     </message>
@@ -2759,10 +2712,6 @@
   </context>
   <context>
     <name>department/new</name>
-    <message>
-      <source>Please enter a department name</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>New department</source>
       <translation type="unfinished"/>
@@ -2901,6 +2850,72 @@
     </message>
     <message>
       <source>FAQ description</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>file/configuration</name>
+    <message>
+      <source>File configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Allowed files types for operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Allowed files types for users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Maximum file size in KB</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter valid file type!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter valid maximum file size!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>file/list</name>
+    <message>
+      <source>List of files</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Upload name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File size</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Extension</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete the file</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -3565,30 +3580,6 @@
   <context>
     <name>system/smtp</name>
     <message>
-      <source>XMP active</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Resource</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Server</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMP Message content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMP message was sent succesfuly</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMP settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>SMTP settings</source>
       <translation type="unfinished"/>
     </message>
@@ -4066,374 +4057,7 @@
     </message>
   </context>
   <context>
-    <name>chat/syncuser</name>
-    <message>
-      <source>Chat was automatically transferred to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>from</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Support staff member has closed this chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You do not have permission to view this chat, or chat was deleted</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You do not have permission to view this chat, or the chat was deleted</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>abstract/email_template</name>
-    <message>
-      <source>Name, for personal purposes</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Subject</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Allow user to change subject</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>From name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Allow to change from name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>From e-mail, if mail was not sent for some reason, this mail will get a failed delivery message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Allow to change from e-mail</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Reply to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Allow to change reply e-mail</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>E-mail templates</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/closechatadmin</name>
-    <message>
-      <source>has closed the chat!</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/reopenchat</name>
-    <message>
-      <source>has reopened the chat!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>No permission to reopen the chat!</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/single</name>
-    <message>
-      <source>Chat started with</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/transferuser</name>
-    <message>
-      <source>Chat was assigned to selected department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat was assigned to selected user</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>departament/edit</name>
-    <message>
-      <source>Please enter a department name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Transfer department has to be different one than self</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter a valid from date range!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter a valid to date range!</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chatarchive/viewarchivedchat</name>
-    <message>
-      <source>View archived chat</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/deletechatadmin</name>
-    <message>
-      <source>You do not have rights to delete a chat</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>files/files</name>
-    <message>
-      <source>Refresh</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Delete file</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Download file</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Drop your files here.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Not an accepted file type</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Filesize is too big</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>file/configuration</name>
-    <message>
-      <source>File configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Allowed files types for operators</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Allowed files types for users</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Maximum file size in KB</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter valid file type!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter valid maximum file size!</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>file/list</name>
-    <message>
-      <source>List of files</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Upload name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>File size</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Extension</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Date</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Delete the file</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>file/file</name>
-    <message>
-      <source>Download file</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>file/configurations</name>
-    <message>
-      <source>Please enter valid file type!</source>
-      <translation type="unfinished"></translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/lists/search_panel</name>
-    <message>
-      <source>Nick</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Date range from to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Search</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/voteaction</name>
-    <message>
-      <source>Thumbs up</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Thumbs down</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Removed thumb vote</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>system/xmp</name>
-    <message>
-      <source>XMP active</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Host</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Port</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Login</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Password</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Resource</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Server</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Recipients</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMP Message content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMP message was sent succesfuly</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMP settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMPP active</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Default recipients</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Test message will be send to your account e-mail</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMPP message was sent succesfuly</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMPP settings</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
     <name>system/xmpp</name>
-    <message>
-      <source>XMPP documentation</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User standard XMPP service</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>XMPP settings</source>
       <translation type="unfinished"/>
@@ -4564,10 +4188,179 @@
     </message>
   </context>
   <context>
-    <name>chat/part/operator_profile</name>
+    <name>file/file</name>
     <message>
-      <source>Skype call</source>
+      <source>Download file</source>
       <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/syncuser</name>
+    <message>
+      <source>Chat was automatically transferred to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Support staff member has closed this chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You do not have permission to view this chat, or chat was deleted</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You do not have permission to view this chat, or the chat was deleted</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>departament/edit</name>
+    <message>
+      <source>Please enter a department name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfer department has to be different one than self</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a valid from date range!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a valid to date range!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>abstract/email_template</name>
+    <message>
+      <source>Name, for personal purposes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subject</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Allow user to change subject</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>From name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Allow to change from name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>From e-mail, if mail was not sent for some reason, this mail will get a failed delivery message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Allow to change from e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reply to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Allow to change reply e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail templates</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/closechatadmin</name>
+    <message>
+      <source>has closed the chat!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/deletechatadmin</name>
+    <message>
+      <source>You do not have rights to delete a chat</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/reopenchat</name>
+    <message>
+      <source>has reopened the chat!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No permission to reopen the chat!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/single</name>
+    <message>
+      <source>Chat started with</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/transferuser</name>
+    <message>
+      <source>Chat was assigned to selected department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was assigned to selected user</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/voteaction</name>
+    <message>
+      <source>Thumbs up</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Thumbs down</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Removed thumb vote</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chatarchive/viewarchivedchat</name>
+    <message>
+      <source>View archived chat</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>file/configurations</name>
+    <message>
+      <source>Please enter valid file type!</source>
+      <translation type="unfinished"></translation>
     </message>
   </context>
 </TS>

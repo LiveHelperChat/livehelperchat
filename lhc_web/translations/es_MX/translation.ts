@@ -728,7 +728,7 @@
     </message>
     <message>
       <source>Could not determine a default department!</source>
-      <translation type="unfinished"/>
+      <translation>No se pudo determinar un departamento por defecto!</translation>
     </message>
     <message>
       <source>Live Support</source>
@@ -864,6 +864,34 @@
   </context>
   <context>
     <name>chat/onlineusers</name>
+    <message>
+      <source>Notifications about new chats</source>
+      <translation>Notificaciones de nuevos chats</translation>
+    </message>
+    <message>
+      <source>Copyright settings</source>
+      <translation>Configuración Copyright</translation>
+    </message>
+    <message>
+      <source>Application name</source>
+      <translation>Nombre aplicación</translation>
+    </message>
+    <message>
+      <source>Site settings</source>
+      <translation>Configuración del sitio</translation>
+    </message>
+    <message>
+      <source>Online tracking</source>
+      <translation>Seguimiento en línea</translation>
+    </message>
+    <message>
+      <source>Misc</source>
+      <translation>Misc</translation>
+    </message>
+    <message>
+      <source>Workflow</source>
+      <translation>Flujo de trabajo</translation>
+    </message>
     <message>
       <source>GEO detection configuration</source>
       <translation>Configuracion de GEO Ubicación</translation>
@@ -1179,7 +1207,7 @@
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!</source>
-      <translation type="unfinished"/>
+      <translation>Los ajustes del proveedor de servicios estan incorrectos, por favor, compruebe que el proveedor de servicios le permite hacer peticiones a páginas remotas y su API key / usuario son correctos </translation>
     </message>
     <message>
       <source>Please choose a service provider!</source>
@@ -1226,6 +1254,46 @@
     <message>
       <source>Edit value</source>
       <translation>Editar valor</translation>
+    </message>
+    <message>
+      <source>Chat configuration</source>
+      <translation>Configuración del chat</translation>
+    </message>
+    <message>
+      <source>Notifications about new chats</source>
+      <translation>Notificaciones de nuevos chats</translation>
+    </message>
+    <message>
+      <source>Copyright settings</source>
+      <translation>Configuración Copyright</translation>
+    </message>
+    <message>
+      <source>Application name</source>
+      <translation>Nombre aplicación</translation>
+    </message>
+    <message>
+      <source>Site settings</source>
+      <translation>Configuraciones del sitio</translation>
+    </message>
+    <message>
+      <source>Online tracking</source>
+      <translation>Seguimiento en línea</translation>
+    </message>
+    <message>
+      <source>Misc</source>
+      <translation>Misc</translation>
+    </message>
+    <message>
+      <source>Workflow</source>
+      <translation>Flujo de trabajo</translation>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation>Actualizar</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Configuración actualizada</translation>
     </message>
     <message>
       <source>List chat configuration</source>
@@ -1464,12 +1532,12 @@
       <translation>Configuración XMP</translation>
     </message>
     <message>
-      <source>New chat notification settings</source>
-      <translation>Nueva configuración de chat de notificación</translation>
-    </message>
-    <message>
       <source>Request notification permission</source>
       <translation>Solicito permiso notificación</translation>
+    </message>
+    <message>
+      <source>New chat notification settings</source>
+      <translation>Nueva configuración de chat de notificación</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -2445,7 +2513,7 @@
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>Deshabilitado</translation>
     </message>
     <message>
       <source>XMPP recipients</source>
