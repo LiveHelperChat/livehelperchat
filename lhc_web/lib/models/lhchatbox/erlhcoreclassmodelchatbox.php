@@ -53,6 +53,7 @@ class erLhcoreClassModelChatbox {
        				}
        			} else {
        				$this->chat = new erLhcoreClassModelChat();
+       				$this->chat->hash = erLhcoreClassChat::generateHash();
        			}
        			return $this->chat;
        		break;
