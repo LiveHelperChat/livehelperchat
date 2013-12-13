@@ -1,5 +1,5 @@
 RewriteEngine On
 
 RewriteRule ^/var/[^/]+/cache/(stylesheets|images|javascripts?)/.* - [L]
-RewriteRule !\.(gif|jpe?g|png|bmp|css|js|xml|html|json|ogv|swf|flv|otf|woff|eot|ttf)|var(.+)storage.pdf(.+)\.pdf$ index.php
+RewriteRule !\.(gif|jpe?g|png|bmp|css|js|xml|html|json|ogg|mp3|wav|ogv|swf|flv|otf|woff|eot|ttf)|var(.+)storage.pdf(.+)\.pdf$ index.php
 DirectoryIndex index.php
