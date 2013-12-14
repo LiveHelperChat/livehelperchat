@@ -8,8 +8,34 @@ class erLhcoreClassXMP {
 		try {
 			$conn->connect();
 			$conn->processUntil('session_start');
-			$conn->presence();
-			$conn->message($userData->email, $data['xmp_message']);
+			
+			if (isset($data['test_group_recipients']) && $data['test_group_recipients'] != '') {
+				
+				$recipientsGroup = explode(',',$data['test_group_recipients']);
+				
+				foreach ($recipientsGroup as $groupRecipient) {
+					$conn->presence(NULL, "available", $groupRecipient);
+				}
+				
+				foreach ($recipientsGroup as $groupRecipient) {
+					list($groupName) = explode('/',$groupRecipient);
+					$conn->message($groupName, $data['xmp_message'], "groupchat");
+				}			
+				
+				foreach ($recipientsGroup as $groupRecipient) {
+					$conn->presence(NULL, "unavailable", $groupRecipient);
+				}				
+			}
+			
+			if (isset($data['test_recipients']) && $data['test_recipients'] != '') {
+				$recipientsUsers = explode(',',$data['test_recipients']);
+				$conn->presence();
+				
+				foreach ($recipientsUsers as $recipientsUser) {					
+					$conn->message($recipientsUser, $data['xmp_message']);
+				}
+			}
+		
 			$conn->disconnect();
 			return true;
 		} catch (Exception $e) {
@@ -191,10 +217,11 @@ class erLhcoreClassXMP {
 						$conn->message($email,$messagesParsed);
 					}
 					
-					foreach ($groupRecipients as $email) {			
-						$veryfyEmail = 	sha1(sha1($email.$secretHash).$secretHash);
-						$messagesParsed = str_replace(array('{messages}','{url_accept}'), array($messagesContent,self::getBaseHost() . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('chat/accept').'/'.erLhcoreClassModelChatAccept::generateAcceptLink($chat).'/'.$veryfyEmail.'/'.$email),$data['xmp_message']);
-						$conn->message($email,$messagesParsed,'groupchat');						
+					foreach ($groupRecipients as $email) {
+						list($emailGroup) = explode('/',$email);
+						$veryfyEmail = 	sha1(sha1($emailGroup.$secretHash).$secretHash);
+						$messagesParsed = str_replace(array('{messages}','{url_accept}'), array($messagesContent,self::getBaseHost() . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('chat/accept').'/'.erLhcoreClassModelChatAccept::generateAcceptLink($chat).'/'.$veryfyEmail.'/'.$emailGroup),$data['xmp_message']);
+						$conn->message($emailGroup,$messagesParsed,'groupchat');						
 					}
 
 					foreach($groupRecipients as $recipient) {					

@@ -180,6 +180,12 @@ if ( isset($_POST['StoreXMPSettings']) || isset($_POST['StoreXMPSettingsTest']) 
 			'XMPMessage' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
 			),
+			'test_recipients' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+			),
+			'test_group_recipients' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+			),
 			'use_standard_xmp' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'int'
 			)
@@ -253,6 +259,16 @@ if ( isset($_POST['StoreXMPSettings']) || isset($_POST['StoreXMPSettingsTest']) 
 		$data['use_standard_xmp'] = 0;
 	}
 	
+	if ( $form->hasValidData( 'test_recipients' )) {
+		$data['test_recipients'] = $form->test_recipients;
+	} else {
+		$data['test_recipients'] = '';
+	}
+	if ( $form->hasValidData( 'test_group_recipients' )) {
+		$data['test_group_recipients'] = $form->test_group_recipients;
+	} else {
+		$data['test_group_recipients'] = '';
+	}
 	
 	$xmpData->value = serialize($data);
 	$xmpData->saveThis();

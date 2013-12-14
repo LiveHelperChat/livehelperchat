@@ -34,28 +34,50 @@
 		<div>		
 				<label><input type="radio" name="use_standard_xmp" value="0" <?php ( (isset($xmp_data['use_standard_xmp']) && $xmp_data['use_standard_xmp'] == '0') || !isset($xmp_data['use_standard_xmp']) ) ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Use standard XMPP service'); ?></label>
 		
-				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Host');?></label>
-				<input type="text" name="host" placeholder="talk.google.com" value="<?php (isset($xmp_data['host']) && $xmp_data['host'] != '') ? print $xmp_data['host'] : print '' ?>" />
+				<div class="row">
+					<div class="columns small-6">
+						<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Host');?></label>
+						<input type="text" name="host" placeholder="talk.google.com" value="<?php (isset($xmp_data['host']) && $xmp_data['host'] != '') ? print $xmp_data['host'] : print '' ?>" />
+					</div>
+					<div class="columns small-6">
+						<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Port');?></label>
+						<input type="text" name="port" value="<?php (isset($xmp_data['port']) && $xmp_data['port'] != '') ? print $xmp_data['port'] : print '5222' ?>" />
+					</div>
+				</div>
 				
-				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Port');?></label>
-				<input type="text" name="port" value="<?php (isset($xmp_data['port']) && $xmp_data['port'] != '') ? print $xmp_data['port'] : print '5222' ?>" />
-												
-				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Login');?></label>
-				<input type="text" name="username" value="<?php (isset($xmp_data['username']) && $xmp_data['username'] != '') ? print $xmp_data['username'] : print '' ?>" />
+				<div class="row">
+					<div class="columns small-6">			
+						<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Login');?></label>
+						<input type="text" name="username" value="<?php (isset($xmp_data['username']) && $xmp_data['username'] != '') ? print $xmp_data['username'] : print '' ?>" />
+					</div>
+					<div class="columns small-6">
+						<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Password');?></label>
+						<input type="password" name="password" value="" />
+					</div>
+				</div>
 				
-				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Password');?></label>
-				<input type="password" name="password" value="" />
-				
-				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Resource');?></label>
-				<input type="text" name="resource" placeholder="xmpphp" value="<?php (isset($xmp_data['resource']) && $xmp_data['resource'] != '') ? print $xmp_data['resource'] : print '' ?>" />
-				
-				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Server');?></label>
-				<input type="text" name="server" placeholder="gmail.com" value="<?php (isset($xmp_data['server']) && $xmp_data['server'] != '') ? print $xmp_data['server'] : print '' ?>" />
+				<div class="row">
+					<div class="columns small-6">
+						<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Resource');?></label>
+						<input type="text" name="resource" placeholder="xmpphp" value="<?php (isset($xmp_data['resource']) && $xmp_data['resource'] != '') ? print $xmp_data['resource'] : print '' ?>" />
+					</div>
+					<div class="columns small-6">
+						<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Server');?></label>
+						<input type="text" name="server" placeholder="gmail.com" value="<?php (isset($xmp_data['server']) && $xmp_data['server'] != '') ? print $xmp_data['server'] : print '' ?>" />
+					</div>
+				</div>
 				
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Recipients');?></label>
 				<input type="text" name="recipients" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Default recipients'); ?>" value="<?php (isset($xmp_data['recipients']) && $xmp_data['recipients'] != '') ? print $xmp_data['recipients'] : print '' ?>" />
 								
 				<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+				
+				<h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Test recipients');?></h3>
+				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Individual recipients');?></label>
+				<input type="text" name="test_recipients" value="<?php (isset($xmp_data['test_recipients']) && $xmp_data['test_recipients'] != '') ? print $xmp_data['test_recipients'] : print '' ?>" />
+				
+				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Test group recipients');?></label>
+				<input type="text" name="test_group_recipients" value="<?php (isset($xmp_data['test_group_recipients']) && $xmp_data['test_group_recipients'] != '') ? print $xmp_data['test_group_recipients'] : print '' ?>" />
 				
 				<ul class="button-group round">
 				  <li><input type="submit" class="button small" name="StoreXMPSettings" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" /></li>
