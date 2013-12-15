@@ -531,19 +531,34 @@
     </message>
   </context>
   <context>
+    <name>files/files</name>
+    <message>
+      <source>Refresh</source>
+      <translation>Actualizar</translation>
+    </message>
+    <message>
+      <source>Delete file</source>
+      <translation>Borrar fichero</translation>
+    </message>
+    <message>
+      <source>Download file</source>
+      <translation>Descargar fichero</translation>
+    </message>
+    <message>
+      <source>Drop your files here.</source>
+      <translation>Coloca tus ficheros aquí.</translation>
+    </message>
+    <message>
+      <source>Not an accepted file type</source>
+      <translation>No es un tipo de fichero aceptado</translation>
+    </message>
+    <message>
+      <source>Filesize is too big</source>
+      <translation>Tamaño muy grande</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/syncadmininterface</name>
-    <message>
-      <source>Close chat</source>
-      <translation>Cerrar chatear</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Eliminar chatear</translation>
-    </message>
-    <message>
-      <source>Reject chat</source>
-      <translation>Rechazar chatear</translation>
-    </message>
     <message>
       <source>Open in a new window</source>
       <translation>Abrir en una nueva ventana</translation>
@@ -864,34 +879,6 @@
   </context>
   <context>
     <name>chat/onlineusers</name>
-    <message>
-      <source>Notifications about new chats</source>
-      <translation>Notificaciones de nuevos chats</translation>
-    </message>
-    <message>
-      <source>Copyright settings</source>
-      <translation>Configuración Copyright</translation>
-    </message>
-    <message>
-      <source>Application name</source>
-      <translation>Nombre aplicación</translation>
-    </message>
-    <message>
-      <source>Site settings</source>
-      <translation>Configuración del sitio</translation>
-    </message>
-    <message>
-      <source>Online tracking</source>
-      <translation>Seguimiento en línea</translation>
-    </message>
-    <message>
-      <source>Misc</source>
-      <translation>Misc</translation>
-    </message>
-    <message>
-      <source>Workflow</source>
-      <translation>Flujo de trabajo</translation>
-    </message>
     <message>
       <source>GEO detection configuration</source>
       <translation>Configuracion de GEO Ubicación</translation>
@@ -1244,18 +1231,6 @@
   <context>
     <name>chat/listchatconfig</name>
     <message>
-      <source>List</source>
-      <translation>Lista</translation>
-    </message>
-    <message>
-      <source>Explain</source>
-      <translation>Explicar</translation>
-    </message>
-    <message>
-      <source>Edit value</source>
-      <translation>Editar valor</translation>
-    </message>
-    <message>
       <source>Chat configuration</source>
       <translation>Configuración del chat</translation>
     </message>
@@ -1301,11 +1276,142 @@
     </message>
   </context>
   <context>
-    <name>system/htmlcode</name>
+    <name>system/configuration</name>
     <message>
-      <source>Check for messages from the operator</source>
-      <translation>Compruebe los mensajes del operador</translation>
+      <source>Request notification permission</source>
+      <translation>Solicito permiso notificación</translation>
     </message>
+    <message>
+      <source>New chat notification settings</source>
+      <translation>Nueva configuración de chat de notificación</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>configuración del sistema</translation>
+    </message>
+    <message>
+      <source>Chat related</source>
+      <translation>chatear relacionados</translation>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation>Departamentos</translation>
+    </message>
+    <message>
+      <source>Blocked users</source>
+      <translation>Los usuarios bloqueados</translation>
+    </message>
+    <message>
+      <source>Chat configuration</source>
+      <translation>chatear configuración</translation>
+    </message>
+    <message>
+      <source>GEO detection configuration</source>
+      <translation>Configuración de detección de GEO</translation>
+    </message>
+    <message>
+      <source>Synchronization and sound settings</source>
+      <translation>Ajustes de sincronización y sonido</translation>
+    </message>
+    <message>
+      <source>Start chat form settings</source>
+      <translation>Iniciar los ajustes del formulario de chat</translation>
+    </message>
+    <message>
+      <source>Canned messages</source>
+      <translation>mensajes enlatados</translation>
+    </message>
+    <message>
+      <source>E-mail templates</source>
+      <translation>Plantillas de E-mail</translation>
+    </message>
+    <message>
+      <source>Pro active chat invitations</source>
+      <translation>Pro invitaciones de chat activas</translation>
+    </message>
+    <message>
+      <source>Auto responder</source>
+      <translation>Auto responder</translation>
+    </message>
+    <message>
+      <source>SMTP settings</source>
+      <translation>configuración SMTP</translation>
+    </message>
+    <message>
+      <source>XMPP settings</source>
+      <translation>Configuración XMPP</translation>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation>configuración de Idiomas</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>lista Chats</translation>
+    </message>
+    <message>
+      <source>Chat archive</source>
+      <translation>Archivo de chats</translation>
+    </message>
+    <message>
+      <source>Live help embed code</source>
+      <translation>Código de inserción para Live help</translation>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation>Código de inserción para FAQ</translation>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation>Código de inserción para cuestionario</translation>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation>Código de inserción para Chatbox</translation>
+    </message>
+    <message>
+      <source>Statistic</source>
+      <translation>estadística</translation>
+    </message>
+    <message>
+      <source>Users and their permissions</source>
+      <translation>Los usuarios y sus permisos</translation>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation>Usuarios</translation>
+    </message>
+    <message>
+      <source>List of groups</source>
+      <translation>Lista de los grupos</translation>
+    </message>
+    <message>
+      <source>List of roles</source>
+      <translation>Lista de funciones</translation>
+    </message>
+    <message>
+      <source>Files uploads configuration</source>
+      <translation>Configuración de subida de ficheros</translation>
+    </message>
+    <message>
+      <source>Files upload configuration</source>
+      <translation>Configuración de subida de ficheros</translation>
+    </message>
+    <message>
+      <source>List of files</source>
+      <translation>Lista de ficheros</translation>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation>otro</translation>
+    </message>
+    <message>
+      <source>File configuration</source>
+      <translation>Fichero de configuración</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/htmlcode</name>
     <message>
       <source>Widget embed code</source>
       <translation>Widget código de inserción</translation>
@@ -1526,142 +1632,22 @@
     </message>
   </context>
   <context>
-    <name>system/configuration</name>
+    <name>chat/lists/search_panel</name>
     <message>
-      <source>XMP settings</source>
-      <translation>Configuración XMP</translation>
+      <source>Nick</source>
+      <translation>Nick</translation>
     </message>
     <message>
-      <source>Request notification permission</source>
-      <translation>Solicito permiso notificación</translation>
+      <source>E-mail</source>
+      <translation>Correo electrónico</translation>
     </message>
     <message>
-      <source>New chat notification settings</source>
-      <translation>Nueva configuración de chat de notificación</translation>
+      <source>Date range from to</source>
+      <translation>Rango de fecha desde</translation>
     </message>
     <message>
-      <source>System configuration</source>
-      <translation>configuración del sistema</translation>
-    </message>
-    <message>
-      <source>Chat related</source>
-      <translation>chatear relacionados</translation>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation>Departamentos</translation>
-    </message>
-    <message>
-      <source>Blocked users</source>
-      <translation>Los usuarios bloqueados</translation>
-    </message>
-    <message>
-      <source>Chat configuration</source>
-      <translation>chatear configuración</translation>
-    </message>
-    <message>
-      <source>GEO detection configuration</source>
-      <translation>Configuración de detección de GEO</translation>
-    </message>
-    <message>
-      <source>Synchronization and sound settings</source>
-      <translation>Ajustes de sincronización y sonido</translation>
-    </message>
-    <message>
-      <source>Start chat form settings</source>
-      <translation>Iniciar los ajustes del formulario de chat</translation>
-    </message>
-    <message>
-      <source>Canned messages</source>
-      <translation>mensajes enlatados</translation>
-    </message>
-    <message>
-      <source>E-mail templates</source>
-      <translation>Plantillas de E-mail</translation>
-    </message>
-    <message>
-      <source>Pro active chat invitations</source>
-      <translation>Pro invitaciones de chat activas</translation>
-    </message>
-    <message>
-      <source>Auto responder</source>
-      <translation>Auto responder</translation>
-    </message>
-    <message>
-      <source>SMTP settings</source>
-      <translation>configuración SMTP</translation>
-    </message>
-    <message>
-      <source>XMPP settings</source>
-      <translation>Configuración XMPP</translation>
-    </message>
-    <message>
-      <source>Languages configuration</source>
-      <translation>configuración de Idiomas</translation>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation>lista Chats</translation>
-    </message>
-    <message>
-      <source>Chat archive</source>
-      <translation>Archivo de chats</translation>
-    </message>
-    <message>
-      <source>Live help embed code</source>
-      <translation>Código de inserción para Live help</translation>
-    </message>
-    <message>
-      <source>FAQ embed code</source>
-      <translation>Código de inserción para FAQ</translation>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation>Código de inserción para cuestionario</translation>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation>Código de inserción para Chatbox</translation>
-    </message>
-    <message>
-      <source>Statistic</source>
-      <translation>estadística</translation>
-    </message>
-    <message>
-      <source>Users and their permissions</source>
-      <translation>Los usuarios y sus permisos</translation>
-    </message>
-    <message>
-      <source>Users</source>
-      <translation>Usuarios</translation>
-    </message>
-    <message>
-      <source>List of groups</source>
-      <translation>Lista de los grupos</translation>
-    </message>
-    <message>
-      <source>List of roles</source>
-      <translation>Lista de funciones</translation>
-    </message>
-    <message>
-      <source>Files uploads configuration</source>
-      <translation>Configuración de subida de ficheros</translation>
-    </message>
-    <message>
-      <source>Files upload configuration</source>
-      <translation>Configuración de subida de ficheros</translation>
-    </message>
-    <message>
-      <source>List of files</source>
-      <translation>Lista de ficheros</translation>
-    </message>
-    <message>
-      <source>Other</source>
-      <translation>otro</translation>
-    </message>
-    <message>
-      <source>File configuration</source>
-      <translation>Fichero de configuración</translation>
+      <source>Search</source>
+      <translation>Buscar</translation>
     </message>
   </context>
   <context>
@@ -1673,6 +1659,13 @@
     <message>
       <source>Operators chats</source>
       <translation>Operadores de chats</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/part/operator_profile</name>
+    <message>
+      <source>Skype call</source>
+      <translation>Llamada Skype</translation>
     </message>
   </context>
   <context>
@@ -2262,10 +2255,6 @@
   <context>
     <name>chatbox/configuration</name>
     <message>
-      <source>Embed code generation</source>
-      <translation>Insertar la generación de código</translation>
-    </message>
-    <message>
       <source>Chatbox</source>
       <translation>chatbox</translation>
     </message>
@@ -2468,38 +2457,6 @@
   <context>
     <name>department/edit</name>
     <message>
-      <source>Active days</source>
-      <translation>Días activo</translation>
-    </message>
-    <message>
-      <source>Active hours, 24 hours format</source>
-      <translation>Horas activo, formato 24 horas</translation>
-    </message>
-    <message>
-      <source>from, E.g 8</source>
-      <translation>desde, Ej: 8</translation>
-    </message>
-    <message>
-      <source>from, E.g 17</source>
-      <translation>desde, Ej: 17</translation>
-    </message>
-    <message>
-      <source>XMP messages</source>
-      <translation>Mensajes XMP</translation>
-    </message>
-    <message>
-      <source>Online hours active</source>
-      <translation>Horas activo en línea</translation>
-    </message>
-    <message>
-      <source>Workdays, during these days chat will be active automatically</source>
-      <translation>Días de trabajo, durante estos días el chat se activará automáticamente</translation>
-    </message>
-    <message>
-      <source>From, E.g. 17</source>
-      <translation>Desde Ej: 17</translation>
-    </message>
-    <message>
       <source>Edit department</source>
       <translation>Departamento de Edición</translation>
     </message>
@@ -2635,10 +2592,6 @@
   <context>
     <name>user/account</name>
     <message>
-      <source>Please enter a surname</source>
-      <translation>Por favor, introduzca un apellido</translation>
-    </message>
-    <message>
       <source>Updated</source>
       <translation>Actualizado</translation>
     </message>
@@ -2761,10 +2714,6 @@
   </context>
   <context>
     <name>department/new</name>
-    <message>
-      <source>Please enter a department name</source>
-      <translation>Por favor ingrese un nombre de departamento</translation>
-    </message>
     <message>
       <source>New department</source>
       <translation>Nuevo departamento</translation>
@@ -2904,6 +2853,72 @@
     <message>
       <source>FAQ description</source>
       <translation>FAQ Descripción</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/configuration</name>
+    <message>
+      <source>File configuration</source>
+      <translation>Fichero de configuración</translation>
+    </message>
+    <message>
+      <source>Allowed files types for operators</source>
+      <translation>Tipos de fichero permitidos para operadores</translation>
+    </message>
+    <message>
+      <source>Allowed files types for users</source>
+      <translation>Tipos de fichero permitidos para usuarios</translation>
+    </message>
+    <message>
+      <source>Maximum file size in KB</source>
+      <translation>Tamaño máximo de fichero en KB</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Configuración actualizada</translation>
+    </message>
+    <message>
+      <source>Please enter valid file type!</source>
+      <translation>Por favor, introduzca un tipo de fichero válido</translation>
+    </message>
+    <message>
+      <source>Please enter valid maximum file size!</source>
+      <translation>Por favor, introduzca un tamaño de fichero máximo válido</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/list</name>
+    <message>
+      <source>List of files</source>
+      <translation>Lista de ficheros</translation>
+    </message>
+    <message>
+      <source>User</source>
+      <translation>Usuario</translation>
+    </message>
+    <message>
+      <source>Chat</source>
+      <translation>Chat</translation>
+    </message>
+    <message>
+      <source>Upload name</source>
+      <translation>Nombre de subida</translation>
+    </message>
+    <message>
+      <source>File size</source>
+      <translation>Tamaño de fichero</translation>
+    </message>
+    <message>
+      <source>Extension</source>
+      <translation>Extensión</translation>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>Fecha</translation>
+    </message>
+    <message>
+      <source>Delete the file</source>
+      <translation>Borrar el fichero</translation>
     </message>
   </context>
   <context>
@@ -3571,30 +3586,6 @@ Lista de funciones</translation>
   <context>
     <name>system/smtp</name>
     <message>
-      <source>XMP active</source>
-      <translation>XMP activo</translation>
-    </message>
-    <message>
-      <source>Resource</source>
-      <translation>Recurso</translation>
-    </message>
-    <message>
-      <source>Server</source>
-      <translation>Servidor</translation>
-    </message>
-    <message>
-      <source>XMP Message content</source>
-      <translation>Contenido mensaje XMP</translation>
-    </message>
-    <message>
-      <source>XMP message was sent succesfuly</source>
-      <translation>Mensaje XMP enviado correctamente</translation>
-    </message>
-    <message>
-      <source>XMP settings</source>
-      <translation>Configuración XMP</translation>
-    </message>
-    <message>
       <source>SMTP settings</source>
       <translation>configuración SMTP</translation>
     </message>
@@ -4072,374 +4063,7 @@ Lista de funciones</translation>
     </message>
   </context>
   <context>
-    <name>chat/syncuser</name>
-    <message>
-      <source>Chat was automatically transferred to</source>
-      <translation>Chat fue transferido automáticamente a</translation>
-    </message>
-    <message>
-      <source>from</source>
-      <translation>De</translation>
-    </message>
-    <message>
-      <source>Support staff member has closed this chat</source>
-      <translation>Miembro del personal de soporte ha cerrado este chat</translation>
-    </message>
-    <message>
-      <source>You do not have permission to view this chat, or chat was deleted</source>
-      <translation>Usted no tiene permiso para ver este chat o el chat ha sido eliminado</translation>
-    </message>
-    <message>
-      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-      <translation>El departamento de soporte ha cerrado la ventana de chat, pero  puede dejar un mensaje, y el administrador los podrá leer más tarde.</translation>
-    </message>
-    <message>
-      <source>You do not have permission to view this chat, or the chat was deleted</source>
-      <translation>Usted no tiene permiso para ver este chat o el chat ha sido eliminado</translation>
-    </message>
-  </context>
-  <context>
-    <name>abstract/email_template</name>
-    <message>
-      <source>Name, for personal purposes</source>
-      <translation>Nombre, para fines personales</translation>
-    </message>
-    <message>
-      <source>Subject</source>
-      <translation>tema</translation>
-    </message>
-    <message>
-      <source>Allow user to change subject</source>
-      <translation>Permitir al usuario cambiar tema</translation>
-    </message>
-    <message>
-      <source>From name</source>
-      <translation>De nombre</translation>
-    </message>
-    <message>
-      <source>Allow to change from name</source>
-      <translation>Permitir cambiar de nombre</translation>
-    </message>
-    <message>
-      <source>From e-mail, if mail was not sent for some reason, this mail will get a failed delivery message</source>
-      <translation>Desde el correo electrónico, si el correo no fue enviado por alguna razón, este correo le llegará un mensaje de error en la entrega</translation>
-    </message>
-    <message>
-      <source>Allow to change from e-mail</source>
-      <translation>Permitir cambiar de e-mail</translation>
-    </message>
-    <message>
-      <source>Reply to</source>
-      <translation>Responder a</translation>
-    </message>
-    <message>
-      <source>Allow to change reply e-mail</source>
-      <translation>Permitir cambiar la respuesta por e-mail</translation>
-    </message>
-    <message>
-      <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
-      <translation>Correo electrónico del destinatario, esto se utiliza si la aplicación no se pudo determinar quién debe recibir un correo electrónico.</translation>
-    </message>
-    <message>
-      <source>Content</source>
-      <translation>Contenido</translation>
-    </message>
-    <message>
-      <source>E-mail templates</source>
-      <translation>Plantillas de E-mail</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/closechatadmin</name>
-    <message>
-      <source>has closed the chat!</source>
-      <translation>ha cerrado el chat!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/reopenchat</name>
-    <message>
-      <source>has reopened the chat!</source>
-      <translation>ha reabierto el chat!</translation>
-    </message>
-    <message>
-      <source>No permission to reopen the chat!</source>
-      <translation>No tiene permiso de reabrir el chat!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/single</name>
-    <message>
-      <source>Chat started with</source>
-      <translation>Chatear comenzó con</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/transferuser</name>
-    <message>
-      <source>Chat was assigned to selected department</source>
-      <translation>El chat fue asignado al departamento seleccionado</translation>
-    </message>
-    <message>
-      <source>Chat was assigned to selected user</source>
-      <translation>Chat fue asignado al usuario seleccionado</translation>
-    </message>
-  </context>
-  <context>
-    <name>departament/edit</name>
-    <message>
-      <source>Please enter a department name</source>
-      <translation>Por favor ingrese un nombre de departamento</translation>
-    </message>
-    <message>
-      <source>Transfer department has to be different one than self</source>
-      <translation>El departamento a transferir tiene que ser diferente al actual</translation>
-    </message>
-    <message>
-      <source>Please enter a valid from date range!</source>
-      <translation>Por favor, introduzca un rango de fechas válido</translation>
-    </message>
-    <message>
-      <source>Please enter a valid to date range!</source>
-      <translation>Por favor, introduzca un rango de fechas válido</translation>
-    </message>
-  </context>
-  <context>
-    <name>chatarchive/viewarchivedchat</name>
-    <message>
-      <source>View archived chat</source>
-      <translation>Ver chats archivados</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/deletechatadmin</name>
-    <message>
-      <source>You do not have rights to delete a chat</source>
-      <translation>Usted no tiene derechos para eliminar una conversación</translation>
-    </message>
-  </context>
-  <context>
-    <name>files/files</name>
-    <message>
-      <source>Refresh</source>
-      <translation>Actualizar</translation>
-    </message>
-    <message>
-      <source>Delete file</source>
-      <translation>Borrar fichero</translation>
-    </message>
-    <message>
-      <source>Download file</source>
-      <translation>Descargar fichero</translation>
-    </message>
-    <message>
-      <source>Drop your files here.</source>
-      <translation>Coloca tus ficheros aquí.</translation>
-    </message>
-    <message>
-      <source>Not an accepted file type</source>
-      <translation>No es un tipo de fichero aceptado</translation>
-    </message>
-    <message>
-      <source>Filesize is too big</source>
-      <translation>Tamaño muy grande</translation>
-    </message>
-  </context>
-  <context>
-    <name>file/configuration</name>
-    <message>
-      <source>File configuration</source>
-      <translation>Fichero de configuración</translation>
-    </message>
-    <message>
-      <source>Allowed files types for operators</source>
-      <translation>Tipos de fichero permitidos para operadores</translation>
-    </message>
-    <message>
-      <source>Allowed files types for users</source>
-      <translation>Tipos de fichero permitidos para usuarios</translation>
-    </message>
-    <message>
-      <source>Maximum file size in KB</source>
-      <translation>Tamaño máximo de fichero en KB</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Configuración actualizada</translation>
-    </message>
-    <message>
-      <source>Please enter valid file type!</source>
-      <translation>Por favor, introduzca un tipo de fichero válido</translation>
-    </message>
-    <message>
-      <source>Please enter valid maximum file size!</source>
-      <translation>Por favor, introduzca un tamaño de fichero máximo válido</translation>
-    </message>
-  </context>
-  <context>
-    <name>file/list</name>
-    <message>
-      <source>List of files</source>
-      <translation>Lista de ficheros</translation>
-    </message>
-    <message>
-      <source>User</source>
-      <translation>Usuario</translation>
-    </message>
-    <message>
-      <source>Chat</source>
-      <translation>Chat</translation>
-    </message>
-    <message>
-      <source>Upload name</source>
-      <translation>Nombre de subida</translation>
-    </message>
-    <message>
-      <source>File size</source>
-      <translation>Tamaño de fichero</translation>
-    </message>
-    <message>
-      <source>Extension</source>
-      <translation>Extensión</translation>
-    </message>
-    <message>
-      <source>Date</source>
-      <translation>Fecha</translation>
-    </message>
-    <message>
-      <source>Delete the file</source>
-      <translation>Borrar el fichero</translation>
-    </message>
-  </context>
-  <context>
-    <name>file/file</name>
-    <message>
-      <source>Download file</source>
-      <translation>Descargar fichero</translation>
-    </message>
-  </context>
-  <context>
-    <name>file/configurations</name>
-    <message>
-      <source>Please enter valid file type!</source>
-      <translation>Por favor, introduzca un tipo de fichero válido</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/lists/search_panel</name>
-    <message>
-      <source>Nick</source>
-      <translation>Nick</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>Correo electrónico</translation>
-    </message>
-    <message>
-      <source>Date range from to</source>
-      <translation>Rango de fecha desde</translation>
-    </message>
-    <message>
-      <source>Search</source>
-      <translation>Buscar</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/voteaction</name>
-    <message>
-      <source>Thumbs up</source>
-      <translation>Aprobar</translation>
-    </message>
-    <message>
-      <source>Thumbs down</source>
-      <translation>Rechazar</translation>
-    </message>
-    <message>
-      <source>Removed thumb vote</source>
-      <translation>Borrar voto</translation>
-    </message>
-  </context>
-  <context>
-    <name>system/xmp</name>
-    <message>
-      <source>XMP active</source>
-      <translation>XMP activo</translation>
-    </message>
-    <message>
-      <source>Host</source>
-      <translation>Servidor</translation>
-    </message>
-    <message>
-      <source>Port</source>
-      <translation>Puerto</translation>
-    </message>
-    <message>
-      <source>Login</source>
-      <translation>Usuario</translation>
-    </message>
-    <message>
-      <source>Password</source>
-      <translation>Contraseña</translation>
-    </message>
-    <message>
-      <source>Resource</source>
-      <translation>Recurso</translation>
-    </message>
-    <message>
-      <source>Server</source>
-      <translation>Servidor</translation>
-    </message>
-    <message>
-      <source>Recipients</source>
-      <translation>Destinatarios</translation>
-    </message>
-    <message>
-      <source>XMP Message content</source>
-      <translation>Contenido mensaje XMP</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Configuración actualizada</translation>
-    </message>
-    <message>
-      <source>XMP message was sent succesfuly</source>
-      <translation>Mensaje XMP enviado correctamente</translation>
-    </message>
-    <message>
-      <source>XMP settings</source>
-      <translation>Configuración XMP</translation>
-    </message>
-    <message>
-      <source>XMPP active</source>
-      <translation>XMPP activo</translation>
-    </message>
-    <message>
-      <source>Default recipients</source>
-      <translation>Destinatarios por defecto</translation>
-    </message>
-    <message>
-      <source>Test message will be send to your account e-mail</source>
-      <translation>Se enviará un mensaje de prueba a tu cuenta de e-mail</translation>
-    </message>
-    <message>
-      <source>XMPP message was sent succesfuly</source>
-      <translation>Mensaje XMPP enviado correctamente</translation>
-    </message>
-    <message>
-      <source>XMPP settings</source>
-      <translation>Configuración XMPP</translation>
-    </message>
-  </context>
-  <context>
     <name>system/xmpp</name>
-    <message>
-      <source>XMPP documentation</source>
-      <translation>Documentación XMPP</translation>
-    </message>
-    <message>
-      <source>User standard XMPP service</source>
-      <translation>Usar servicio XMPP estandar</translation>
-    </message>
     <message>
       <source>XMPP settings</source>
       <translation>Configuración XMPP</translation>
@@ -4570,10 +4194,179 @@ Lista de funciones</translation>
     </message>
   </context>
   <context>
-    <name>chat/part/operator_profile</name>
+    <name>file/file</name>
     <message>
-      <source>Skype call</source>
-      <translation>Llamada Skype</translation>
+      <source>Download file</source>
+      <translation>Descargar fichero</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/syncuser</name>
+    <message>
+      <source>Chat was automatically transferred to</source>
+      <translation>Chat fue transferido automáticamente a</translation>
+    </message>
+    <message>
+      <source>from</source>
+      <translation>De</translation>
+    </message>
+    <message>
+      <source>Support staff member has closed this chat</source>
+      <translation>Miembro del personal de soporte ha cerrado este chat</translation>
+    </message>
+    <message>
+      <source>You do not have permission to view this chat, or chat was deleted</source>
+      <translation>Usted no tiene permiso para ver este chat o el chat ha sido eliminado</translation>
+    </message>
+    <message>
+      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
+      <translation>El departamento de soporte ha cerrado la ventana de chat, pero  puede dejar un mensaje, y el administrador los podrá leer más tarde.</translation>
+    </message>
+    <message>
+      <source>You do not have permission to view this chat, or the chat was deleted</source>
+      <translation>Usted no tiene permiso para ver este chat o el chat ha sido eliminado</translation>
+    </message>
+  </context>
+  <context>
+    <name>departament/edit</name>
+    <message>
+      <source>Please enter a department name</source>
+      <translation>Por favor ingrese un nombre de departamento</translation>
+    </message>
+    <message>
+      <source>Transfer department has to be different one than self</source>
+      <translation>El departamento a transferir tiene que ser diferente al actual</translation>
+    </message>
+    <message>
+      <source>Please enter a valid from date range!</source>
+      <translation>Por favor, introduzca un rango de fechas válido</translation>
+    </message>
+    <message>
+      <source>Please enter a valid to date range!</source>
+      <translation>Por favor, introduzca un rango de fechas válido</translation>
+    </message>
+  </context>
+  <context>
+    <name>abstract/email_template</name>
+    <message>
+      <source>Name, for personal purposes</source>
+      <translation>Nombre, para fines personales</translation>
+    </message>
+    <message>
+      <source>Subject</source>
+      <translation>tema</translation>
+    </message>
+    <message>
+      <source>Allow user to change subject</source>
+      <translation>Permitir al usuario cambiar tema</translation>
+    </message>
+    <message>
+      <source>From name</source>
+      <translation>De nombre</translation>
+    </message>
+    <message>
+      <source>Allow to change from name</source>
+      <translation>Permitir cambiar de nombre</translation>
+    </message>
+    <message>
+      <source>From e-mail, if mail was not sent for some reason, this mail will get a failed delivery message</source>
+      <translation>Desde el correo electrónico, si el correo no fue enviado por alguna razón, este correo le llegará un mensaje de error en la entrega</translation>
+    </message>
+    <message>
+      <source>Allow to change from e-mail</source>
+      <translation>Permitir cambiar de e-mail</translation>
+    </message>
+    <message>
+      <source>Reply to</source>
+      <translation>Responder a</translation>
+    </message>
+    <message>
+      <source>Allow to change reply e-mail</source>
+      <translation>Permitir cambiar la respuesta por e-mail</translation>
+    </message>
+    <message>
+      <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
+      <translation>Correo electrónico del destinatario, esto se utiliza si la aplicación no se pudo determinar quién debe recibir un correo electrónico.</translation>
+    </message>
+    <message>
+      <source>Content</source>
+      <translation>Contenido</translation>
+    </message>
+    <message>
+      <source>E-mail templates</source>
+      <translation>Plantillas de E-mail</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/closechatadmin</name>
+    <message>
+      <source>has closed the chat!</source>
+      <translation>ha cerrado el chat!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/deletechatadmin</name>
+    <message>
+      <source>You do not have rights to delete a chat</source>
+      <translation>Usted no tiene derechos para eliminar una conversación</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/reopenchat</name>
+    <message>
+      <source>has reopened the chat!</source>
+      <translation>ha reabierto el chat!</translation>
+    </message>
+    <message>
+      <source>No permission to reopen the chat!</source>
+      <translation>No tiene permiso de reabrir el chat!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/single</name>
+    <message>
+      <source>Chat started with</source>
+      <translation>Chatear comenzó con</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/transferuser</name>
+    <message>
+      <source>Chat was assigned to selected department</source>
+      <translation>El chat fue asignado al departamento seleccionado</translation>
+    </message>
+    <message>
+      <source>Chat was assigned to selected user</source>
+      <translation>Chat fue asignado al usuario seleccionado</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/voteaction</name>
+    <message>
+      <source>Thumbs up</source>
+      <translation>Aprobar</translation>
+    </message>
+    <message>
+      <source>Thumbs down</source>
+      <translation>Rechazar</translation>
+    </message>
+    <message>
+      <source>Removed thumb vote</source>
+      <translation>Borrar voto</translation>
+    </message>
+  </context>
+  <context>
+    <name>chatarchive/viewarchivedchat</name>
+    <message>
+      <source>View archived chat</source>
+      <translation>Ver chats archivados</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/configurations</name>
+    <message>
+      <source>Please enter valid file type!</source>
+      <translation>Por favor, introduzca un tipo de fichero válido</translation>
     </message>
   </context>
 </TS>

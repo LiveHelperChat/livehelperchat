@@ -529,19 +529,34 @@
     </message>
   </context>
   <context>
+    <name>files/files</name>
+    <message>
+      <source>Refresh</source>
+      <translation>Segarkan</translation>
+    </message>
+    <message>
+      <source>Delete file</source>
+      <translation>Hapus berkas</translation>
+    </message>
+    <message>
+      <source>Download file</source>
+      <translation>Unduh berkas</translation>
+    </message>
+    <message>
+      <source>Drop your files here.</source>
+      <translation>Jatuhkan berkas anda di sini.</translation>
+    </message>
+    <message>
+      <source>Not an accepted file type</source>
+      <translation>Bukan tipe berkas yang diterima</translation>
+    </message>
+    <message>
+      <source>Filesize is too big</source>
+      <translation>Ukuran berkas terlalu besar</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/syncadmininterface</name>
-    <message>
-      <source>Close chat</source>
-      <translation>Tutup percakapan</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Hapus percakapan</translation>
-    </message>
-    <message>
-      <source>Reject chat</source>
-      <translation>Tolak percakapan</translation>
-    </message>
     <message>
       <source>Open in a new window</source>
       <translation>Buka di jendela baru</translation>
@@ -861,34 +876,6 @@
   </context>
   <context>
     <name>chat/onlineusers</name>
-    <message>
-      <source>Notifications about new chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Copyright settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Application name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Site settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online tracking</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Misc</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Workflow</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>GEO detection configuration</source>
       <translation>Konfigurasi deteksi GEO</translation>
@@ -1240,18 +1227,6 @@
   <context>
     <name>chat/listchatconfig</name>
     <message>
-      <source>List</source>
-      <translation>Daftar</translation>
-    </message>
-    <message>
-      <source>Explain</source>
-      <translation>Jelaskan</translation>
-    </message>
-    <message>
-      <source>Edit value</source>
-      <translation>Ubah nilai</translation>
-    </message>
-    <message>
       <source>Chat configuration</source>
       <translation type="unfinished"/>
     </message>
@@ -1297,11 +1272,142 @@
     </message>
   </context>
   <context>
-    <name>system/htmlcode</name>
+    <name>system/configuration</name>
     <message>
-      <source>Check for messages from the operator</source>
-      <translation>Periksa pesan dari operator</translation>
+      <source>Request notification permission</source>
+      <translation>Meminta izin notifikasi</translation>
     </message>
+    <message>
+      <source>New chat notification settings</source>
+      <translation>Pengaturan notifikasi pesan baru</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Konfigurasi sistem</translation>
+    </message>
+    <message>
+      <source>Chat related</source>
+      <translation>Percakapan yang berhubungan</translation>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation>Departemen</translation>
+    </message>
+    <message>
+      <source>Blocked users</source>
+      <translation>Pengguna diblokir</translation>
+    </message>
+    <message>
+      <source>Chat configuration</source>
+      <translation>Konfigurasi percakapan</translation>
+    </message>
+    <message>
+      <source>GEO detection configuration</source>
+      <translation>Konfigurasi deteksi GEO</translation>
+    </message>
+    <message>
+      <source>Synchronization and sound settings</source>
+      <translation>Pengaturan sinkronisasi dan suara</translation>
+    </message>
+    <message>
+      <source>Start chat form settings</source>
+      <translation>Pengaturan Formulir &quot;Mulai Percakapan&quot;</translation>
+    </message>
+    <message>
+      <source>Canned messages</source>
+      <translation>Pesan kaleng</translation>
+    </message>
+    <message>
+      <source>E-mail templates</source>
+      <translation>Template e-mail</translation>
+    </message>
+    <message>
+      <source>Pro active chat invitations</source>
+      <translation>Undangan percakapan pro aktif</translation>
+    </message>
+    <message>
+      <source>Auto responder</source>
+      <translation>Balasan secara otomatis</translation>
+    </message>
+    <message>
+      <source>SMTP settings</source>
+      <translation>Pengaturan SMTP</translation>
+    </message>
+    <message>
+      <source>XMPP settings</source>
+      <translation>Pengaturan XMPP</translation>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation>Konfigurasi bahasa</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Daftar percakapan</translation>
+    </message>
+    <message>
+      <source>Chat archive</source>
+      <translation>Arsip percakapan</translation>
+    </message>
+    <message>
+      <source>Live help embed code</source>
+      <translation>Kode pencantuman bantuan langsung</translation>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation>Kode pencantuman pertanyaan yang sering diajukan </translation>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation>Kode pencantuman kuisioner</translation>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation>Kode pencantuman kotak percakapan</translation>
+    </message>
+    <message>
+      <source>Statistic</source>
+      <translation>Statistik</translation>
+    </message>
+    <message>
+      <source>Users and their permissions</source>
+      <translation>Pengguna dan izin mereka</translation>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation>Pengguna</translation>
+    </message>
+    <message>
+      <source>List of groups</source>
+      <translation>Daftar grup</translation>
+    </message>
+    <message>
+      <source>List of roles</source>
+      <translation>Daftar peran</translation>
+    </message>
+    <message>
+      <source>Files uploads configuration</source>
+      <translation>Konfigurasi unggah berkas</translation>
+    </message>
+    <message>
+      <source>Files upload configuration</source>
+      <translation>Konfigurasi unggah berkas</translation>
+    </message>
+    <message>
+      <source>List of files</source>
+      <translation>Daftar berkas</translation>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation>Lainnya</translation>
+    </message>
+    <message>
+      <source>File configuration</source>
+      <translation>Konfigurasi berkas</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/htmlcode</name>
     <message>
       <source>Widget embed code</source>
       <translation>Kode pencantuman widget</translation>
@@ -1522,142 +1628,22 @@
     </message>
   </context>
   <context>
-    <name>system/configuration</name>
+    <name>chat/lists/search_panel</name>
     <message>
-      <source>XMP settings</source>
-      <translation>Pengaturan XMP</translation>
+      <source>Nick</source>
+      <translation>Panggilan</translation>
     </message>
     <message>
-      <source>Request notification permission</source>
-      <translation>Meminta izin notifikasi</translation>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
     </message>
     <message>
-      <source>New chat notification settings</source>
-      <translation>Pengaturan notifikasi pesan baru</translation>
+      <source>Date range from to</source>
+      <translation>Susunan tanggal awal akhir</translation>
     </message>
     <message>
-      <source>System configuration</source>
-      <translation>Konfigurasi sistem</translation>
-    </message>
-    <message>
-      <source>Chat related</source>
-      <translation>Percakapan yang berhubungan</translation>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation>Departemen</translation>
-    </message>
-    <message>
-      <source>Blocked users</source>
-      <translation>Pengguna diblokir</translation>
-    </message>
-    <message>
-      <source>Chat configuration</source>
-      <translation>Konfigurasi percakapan</translation>
-    </message>
-    <message>
-      <source>GEO detection configuration</source>
-      <translation>Konfigurasi deteksi GEO</translation>
-    </message>
-    <message>
-      <source>Synchronization and sound settings</source>
-      <translation>Pengaturan sinkronisasi dan suara</translation>
-    </message>
-    <message>
-      <source>Start chat form settings</source>
-      <translation>Pengaturan Formulir &quot;Mulai Percakapan&quot;</translation>
-    </message>
-    <message>
-      <source>Canned messages</source>
-      <translation>Pesan kaleng</translation>
-    </message>
-    <message>
-      <source>E-mail templates</source>
-      <translation>Template e-mail</translation>
-    </message>
-    <message>
-      <source>Pro active chat invitations</source>
-      <translation>Undangan percakapan pro aktif</translation>
-    </message>
-    <message>
-      <source>Auto responder</source>
-      <translation>Balasan secara otomatis</translation>
-    </message>
-    <message>
-      <source>SMTP settings</source>
-      <translation>Pengaturan SMTP</translation>
-    </message>
-    <message>
-      <source>XMPP settings</source>
-      <translation>Pengaturan XMPP</translation>
-    </message>
-    <message>
-      <source>Languages configuration</source>
-      <translation>Konfigurasi bahasa</translation>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation>Daftar percakapan</translation>
-    </message>
-    <message>
-      <source>Chat archive</source>
-      <translation>Arsip percakapan</translation>
-    </message>
-    <message>
-      <source>Live help embed code</source>
-      <translation>Kode pencantuman bantuan langsung</translation>
-    </message>
-    <message>
-      <source>FAQ embed code</source>
-      <translation>Kode pencantuman pertanyaan yang sering diajukan </translation>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation>Kode pencantuman kuisioner</translation>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation>Kode pencantuman kotak percakapan</translation>
-    </message>
-    <message>
-      <source>Statistic</source>
-      <translation>Statistik</translation>
-    </message>
-    <message>
-      <source>Users and their permissions</source>
-      <translation>Pengguna dan izin mereka</translation>
-    </message>
-    <message>
-      <source>Users</source>
-      <translation>Pengguna</translation>
-    </message>
-    <message>
-      <source>List of groups</source>
-      <translation>Daftar grup</translation>
-    </message>
-    <message>
-      <source>List of roles</source>
-      <translation>Daftar peran</translation>
-    </message>
-    <message>
-      <source>Files uploads configuration</source>
-      <translation>Konfigurasi unggah berkas</translation>
-    </message>
-    <message>
-      <source>Files upload configuration</source>
-      <translation>Konfigurasi unggah berkas</translation>
-    </message>
-    <message>
-      <source>List of files</source>
-      <translation>Daftar berkas</translation>
-    </message>
-    <message>
-      <source>Other</source>
-      <translation>Lainnya</translation>
-    </message>
-    <message>
-      <source>File configuration</source>
-      <translation>Konfigurasi berkas</translation>
+      <source>Search</source>
+      <translation>Cari</translation>
     </message>
   </context>
   <context>
@@ -1669,6 +1655,13 @@
     <message>
       <source>Operators chats</source>
       <translation>Percakapan operator</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/part/operator_profile</name>
+    <message>
+      <source>Skype call</source>
+      <translation>Panggilan Skype</translation>
     </message>
   </context>
   <context>
@@ -2258,10 +2251,6 @@
   <context>
     <name>chatbox/configuration</name>
     <message>
-      <source>Embed code generation</source>
-      <translation>Hasilkan kode pencantuman</translation>
-    </message>
-    <message>
       <source>Chatbox</source>
       <translation>Kotak percakapan</translation>
     </message>
@@ -2464,38 +2453,6 @@
   <context>
     <name>department/edit</name>
     <message>
-      <source>Active days</source>
-      <translation>Hari Aktif</translation>
-    </message>
-    <message>
-      <source>Active hours, 24 hours format</source>
-      <translation>Jam Aktif, format 24 jam</translation>
-    </message>
-    <message>
-      <source>from, E.g 8</source>
-      <translation>dari, cth: 8</translation>
-    </message>
-    <message>
-      <source>from, E.g 17</source>
-      <translation>dari, cth: 17</translation>
-    </message>
-    <message>
-      <source>XMP messages</source>
-      <translation>Pesan XMP</translation>
-    </message>
-    <message>
-      <source>Online hours active</source>
-      <translation>Jam online aktif</translation>
-    </message>
-    <message>
-      <source>Workdays, during these days chat will be active automatically</source>
-      <translation>Hari kerja, selama hari ini percakapan akan diaktifkan secara otomatis</translation>
-    </message>
-    <message>
-      <source>From, E.g. 17</source>
-      <translation>Dari, cth: 17</translation>
-    </message>
-    <message>
       <source>Edit department</source>
       <translation>Ubah departemen</translation>
     </message>
@@ -2631,10 +2588,6 @@
   <context>
     <name>user/account</name>
     <message>
-      <source>Please enter a surname</source>
-      <translation>Silakan masukkan nama keluarga</translation>
-    </message>
-    <message>
       <source>Updated</source>
       <translation>Telah diperbarui</translation>
     </message>
@@ -2757,10 +2710,6 @@
   </context>
   <context>
     <name>department/new</name>
-    <message>
-      <source>Please enter a department name</source>
-      <translation>Silakan masukkan nama departemen</translation>
-    </message>
     <message>
       <source>New department</source>
       <translation>Departemen baru</translation>
@@ -2900,6 +2849,72 @@
     <message>
       <source>FAQ description</source>
       <translation>Deskripsi pertanyaan yang sering diajukan</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/configuration</name>
+    <message>
+      <source>File configuration</source>
+      <translation>Konfigurasi berkas</translation>
+    </message>
+    <message>
+      <source>Allowed files types for operators</source>
+      <translation>Tipe berkas yang diizinkan untuk operator</translation>
+    </message>
+    <message>
+      <source>Allowed files types for users</source>
+      <translation>Tipe berkas yang diizinkan untuk pengguna</translation>
+    </message>
+    <message>
+      <source>Maximum file size in KB</source>
+      <translation>Ukuran berkas maksimum dalam KB</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Pengaturan telah diperbarui</translation>
+    </message>
+    <message>
+      <source>Please enter valid file type!</source>
+      <translation>Silakan masukkan tipe berkas yang sah!</translation>
+    </message>
+    <message>
+      <source>Please enter valid maximum file size!</source>
+      <translation>Silakan masukkan ukuran maksimum berkas yang sah!</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/list</name>
+    <message>
+      <source>List of files</source>
+      <translation>Daftar berkas</translation>
+    </message>
+    <message>
+      <source>User</source>
+      <translation>Pengguna</translation>
+    </message>
+    <message>
+      <source>Chat</source>
+      <translation>Percakapan</translation>
+    </message>
+    <message>
+      <source>Upload name</source>
+      <translation>Nama unggah</translation>
+    </message>
+    <message>
+      <source>File size</source>
+      <translation>Ukuran berkas</translation>
+    </message>
+    <message>
+      <source>Extension</source>
+      <translation>Ekstensi</translation>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>Tanggal</translation>
+    </message>
+    <message>
+      <source>Delete the file</source>
+      <translation>Hapus berkas</translation>
     </message>
   </context>
   <context>
@@ -3563,30 +3578,6 @@
   <context>
     <name>system/smtp</name>
     <message>
-      <source>XMP active</source>
-      <translation>XMP Aktif</translation>
-    </message>
-    <message>
-      <source>Resource</source>
-      <translation>Sumber daya</translation>
-    </message>
-    <message>
-      <source>Server</source>
-      <translation>Server</translation>
-    </message>
-    <message>
-      <source>XMP Message content</source>
-      <translation>Isi pesan XMP</translation>
-    </message>
-    <message>
-      <source>XMP message was sent succesfuly</source>
-      <translation>Pesan XMP telah berhasil dikirim </translation>
-    </message>
-    <message>
-      <source>XMP settings</source>
-      <translation>Pengaturan XMP</translation>
-    </message>
-    <message>
       <source>SMTP settings</source>
       <translation>Pengaturan SMTP</translation>
     </message>
@@ -4064,374 +4055,7 @@
     </message>
   </context>
   <context>
-    <name>chat/syncuser</name>
-    <message>
-      <source>Chat was automatically transferred to</source>
-      <translation>Percakapan telah ditransfer secara otomatis ke </translation>
-    </message>
-    <message>
-      <source>from</source>
-      <translation>dari</translation>
-    </message>
-    <message>
-      <source>Support staff member has closed this chat</source>
-      <translation>Anggota staf pendukung telah menutup percakapan ini</translation>
-    </message>
-    <message>
-      <source>You do not have permission to view this chat, or chat was deleted</source>
-      <translation>Anda tidak memiliki izin untuk melihat percakapan ini, atau percakapan ini telah di hapus</translation>
-    </message>
-    <message>
-      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-      <translation>Personel pendukung telah menutup jendela percakapan, tetapi anda dapat meninggalkan pesan dan administrasi akan membacanya nanti.</translation>
-    </message>
-    <message>
-      <source>You do not have permission to view this chat, or the chat was deleted</source>
-      <translation>Anda tidak memiliki izin untuk melihat percakapan ini, atau percakapan ini telah di hapus</translation>
-    </message>
-  </context>
-  <context>
-    <name>abstract/email_template</name>
-    <message>
-      <source>Name, for personal purposes</source>
-      <translation>Nama, untuk tujuan pribadi</translation>
-    </message>
-    <message>
-      <source>Subject</source>
-      <translation>Judul</translation>
-    </message>
-    <message>
-      <source>Allow user to change subject</source>
-      <translation>Mengizinkan pengguna untuk mengganti judul</translation>
-    </message>
-    <message>
-      <source>From name</source>
-      <translation>Nama pengirim</translation>
-    </message>
-    <message>
-      <source>Allow to change from name</source>
-      <translation>Mengijinkan untuk mengganti nama pengirim</translation>
-    </message>
-    <message>
-      <source>From e-mail, if mail was not sent for some reason, this mail will get a failed delivery message</source>
-      <translation>E-mail pengirim, jika pesan tidak terkirim karena beberapa alasan, e-mail ini akan mendapat pesan kegagalan pengiriman</translation>
-    </message>
-    <message>
-      <source>Allow to change from e-mail</source>
-      <translation>Mengizinkan untuk mengubah e-mail pengirim</translation>
-    </message>
-    <message>
-      <source>Reply to</source>
-      <translation>Balasan ke</translation>
-    </message>
-    <message>
-      <source>Allow to change reply e-mail</source>
-      <translation>Mengizinkan untuk mengganti e-mail balasan </translation>
-    </message>
-    <message>
-      <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
-      <translation>Email penerima, digunakan jika aplikasi tidak dapat menentukan siapa yang harus menerima email.</translation>
-    </message>
-    <message>
-      <source>Content</source>
-      <translation>Isi</translation>
-    </message>
-    <message>
-      <source>E-mail templates</source>
-      <translation>Template e-mail</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/closechatadmin</name>
-    <message>
-      <source>has closed the chat!</source>
-      <translation>telah menutup percakapan ini!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/reopenchat</name>
-    <message>
-      <source>has reopened the chat!</source>
-      <translation>telah membuka kembali percakapan!</translation>
-    </message>
-    <message>
-      <source>No permission to reopen the chat!</source>
-      <translation>Tidak ada izin untuk membuka kembali percakapan!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/single</name>
-    <message>
-      <source>Chat started with</source>
-      <translation>Percakapan dimulai dengan</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/transferuser</name>
-    <message>
-      <source>Chat was assigned to selected department</source>
-      <translation>Percakapan telah ditempatkan ke departemen yang dipilih</translation>
-    </message>
-    <message>
-      <source>Chat was assigned to selected user</source>
-      <translation>Percakapan telah ditugaskan ke pengguna yang dipilih</translation>
-    </message>
-  </context>
-  <context>
-    <name>departament/edit</name>
-    <message>
-      <source>Please enter a department name</source>
-      <translation>Silakan masukkan nama departemen</translation>
-    </message>
-    <message>
-      <source>Transfer department has to be different one than self</source>
-      <translation>Departemen yang dialihkan harus berbeda dengan departemen awal</translation>
-    </message>
-    <message>
-      <source>Please enter a valid from date range!</source>
-      <translation>Silakan masukkan susunan tanggal awal yang sah!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid to date range!</source>
-      <translation>Silakan masukkan susunan tanggal akhir yang sah!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chatarchive/viewarchivedchat</name>
-    <message>
-      <source>View archived chat</source>
-      <translation>Tampilkan percakapan terarsip</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/deletechatadmin</name>
-    <message>
-      <source>You do not have rights to delete a chat</source>
-      <translation>Anda tidak memiliki hak untuk menghapus percakapan</translation>
-    </message>
-  </context>
-  <context>
-    <name>files/files</name>
-    <message>
-      <source>Refresh</source>
-      <translation>Segarkan</translation>
-    </message>
-    <message>
-      <source>Delete file</source>
-      <translation>Hapus berkas</translation>
-    </message>
-    <message>
-      <source>Download file</source>
-      <translation>Unduh berkas</translation>
-    </message>
-    <message>
-      <source>Drop your files here.</source>
-      <translation>Jatuhkan berkas anda di sini.</translation>
-    </message>
-    <message>
-      <source>Not an accepted file type</source>
-      <translation>Bukan tipe berkas yang diterima</translation>
-    </message>
-    <message>
-      <source>Filesize is too big</source>
-      <translation>Ukuran berkas terlalu besar</translation>
-    </message>
-  </context>
-  <context>
-    <name>file/configuration</name>
-    <message>
-      <source>File configuration</source>
-      <translation>Konfigurasi berkas</translation>
-    </message>
-    <message>
-      <source>Allowed files types for operators</source>
-      <translation>Tipe berkas yang diizinkan untuk operator</translation>
-    </message>
-    <message>
-      <source>Allowed files types for users</source>
-      <translation>Tipe berkas yang diizinkan untuk pengguna</translation>
-    </message>
-    <message>
-      <source>Maximum file size in KB</source>
-      <translation>Ukuran berkas maksimum dalam KB</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Pengaturan telah diperbarui</translation>
-    </message>
-    <message>
-      <source>Please enter valid file type!</source>
-      <translation>Silakan masukkan tipe berkas yang sah!</translation>
-    </message>
-    <message>
-      <source>Please enter valid maximum file size!</source>
-      <translation>Silakan masukkan ukuran maksimum berkas yang sah!</translation>
-    </message>
-  </context>
-  <context>
-    <name>file/list</name>
-    <message>
-      <source>List of files</source>
-      <translation>Daftar berkas</translation>
-    </message>
-    <message>
-      <source>User</source>
-      <translation>Pengguna</translation>
-    </message>
-    <message>
-      <source>Chat</source>
-      <translation>Percakapan</translation>
-    </message>
-    <message>
-      <source>Upload name</source>
-      <translation>Nama unggah</translation>
-    </message>
-    <message>
-      <source>File size</source>
-      <translation>Ukuran berkas</translation>
-    </message>
-    <message>
-      <source>Extension</source>
-      <translation>Ekstensi</translation>
-    </message>
-    <message>
-      <source>Date</source>
-      <translation>Tanggal</translation>
-    </message>
-    <message>
-      <source>Delete the file</source>
-      <translation>Hapus berkas</translation>
-    </message>
-  </context>
-  <context>
-    <name>file/file</name>
-    <message>
-      <source>Download file</source>
-      <translation>Unduh berkas</translation>
-    </message>
-  </context>
-  <context>
-    <name>file/configurations</name>
-    <message>
-      <source>Please enter valid file type!</source>
-      <translation>Silakan masukkan tipe berkas yang sah!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/lists/search_panel</name>
-    <message>
-      <source>Nick</source>
-      <translation>Panggilan</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Date range from to</source>
-      <translation>Susunan tanggal awal akhir</translation>
-    </message>
-    <message>
-      <source>Search</source>
-      <translation>Cari</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/voteaction</name>
-    <message>
-      <source>Thumbs up</source>
-      <translation>Sukai</translation>
-    </message>
-    <message>
-      <source>Thumbs down</source>
-      <translation>Tidak Suka</translation>
-    </message>
-    <message>
-      <source>Removed thumb vote</source>
-      <translation>Suara telah ditari</translation>
-    </message>
-  </context>
-  <context>
-    <name>system/xmp</name>
-    <message>
-      <source>XMP active</source>
-      <translation>XMP Aktif</translation>
-    </message>
-    <message>
-      <source>Host</source>
-      <translation>Host</translation>
-    </message>
-    <message>
-      <source>Port</source>
-      <translation>Port</translation>
-    </message>
-    <message>
-      <source>Login</source>
-      <translation>Masuk</translation>
-    </message>
-    <message>
-      <source>Password</source>
-      <translation>Kata sandi</translation>
-    </message>
-    <message>
-      <source>Resource</source>
-      <translation>Sumber daya</translation>
-    </message>
-    <message>
-      <source>Server</source>
-      <translation>Server</translation>
-    </message>
-    <message>
-      <source>Recipients</source>
-      <translation>Penerima</translation>
-    </message>
-    <message>
-      <source>XMP Message content</source>
-      <translation>Isi pesan XMP</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Pengaturan telah diperbarui</translation>
-    </message>
-    <message>
-      <source>XMP message was sent succesfuly</source>
-      <translation>Pesan XMP telah berhasil dikirim</translation>
-    </message>
-    <message>
-      <source>XMP settings</source>
-      <translation>Pengaturan XMP</translation>
-    </message>
-    <message>
-      <source>XMPP active</source>
-      <translation>XMPP Aktif</translation>
-    </message>
-    <message>
-      <source>Default recipients</source>
-      <translation>Penerima default</translation>
-    </message>
-    <message>
-      <source>Test message will be send to your account e-mail</source>
-      <translation>Pesan tes akan dikirimkan ke email akun anda</translation>
-    </message>
-    <message>
-      <source>XMPP message was sent succesfuly</source>
-      <translation>Pesan XMPP telah berhasil dikirim</translation>
-    </message>
-    <message>
-      <source>XMPP settings</source>
-      <translation>Pengaturan XMPP</translation>
-    </message>
-  </context>
-  <context>
     <name>system/xmpp</name>
-    <message>
-      <source>XMPP documentation</source>
-      <translation>Dokumentasi XMPP</translation>
-    </message>
-    <message>
-      <source>User standard XMPP service</source>
-      <translation>Layanan XMPP standar pengguna</translation>
-    </message>
     <message>
       <source>XMPP settings</source>
       <translation>Pengaturan XMPP</translation>
@@ -4562,10 +4186,179 @@
     </message>
   </context>
   <context>
-    <name>chat/part/operator_profile</name>
+    <name>file/file</name>
     <message>
-      <source>Skype call</source>
-      <translation>Panggilan Skype</translation>
+      <source>Download file</source>
+      <translation>Unduh berkas</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/syncuser</name>
+    <message>
+      <source>Chat was automatically transferred to</source>
+      <translation>Percakapan telah ditransfer secara otomatis ke </translation>
+    </message>
+    <message>
+      <source>from</source>
+      <translation>dari</translation>
+    </message>
+    <message>
+      <source>Support staff member has closed this chat</source>
+      <translation>Anggota staf pendukung telah menutup percakapan ini</translation>
+    </message>
+    <message>
+      <source>You do not have permission to view this chat, or chat was deleted</source>
+      <translation>Anda tidak memiliki izin untuk melihat percakapan ini, atau percakapan ini telah di hapus</translation>
+    </message>
+    <message>
+      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
+      <translation>Personel pendukung telah menutup jendela percakapan, tetapi anda dapat meninggalkan pesan dan administrasi akan membacanya nanti.</translation>
+    </message>
+    <message>
+      <source>You do not have permission to view this chat, or the chat was deleted</source>
+      <translation>Anda tidak memiliki izin untuk melihat percakapan ini, atau percakapan ini telah di hapus</translation>
+    </message>
+  </context>
+  <context>
+    <name>departament/edit</name>
+    <message>
+      <source>Please enter a department name</source>
+      <translation>Silakan masukkan nama departemen</translation>
+    </message>
+    <message>
+      <source>Transfer department has to be different one than self</source>
+      <translation>Departemen yang dialihkan harus berbeda dengan departemen awal</translation>
+    </message>
+    <message>
+      <source>Please enter a valid from date range!</source>
+      <translation>Silakan masukkan susunan tanggal awal yang sah!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid to date range!</source>
+      <translation>Silakan masukkan susunan tanggal akhir yang sah!</translation>
+    </message>
+  </context>
+  <context>
+    <name>abstract/email_template</name>
+    <message>
+      <source>Name, for personal purposes</source>
+      <translation>Nama, untuk tujuan pribadi</translation>
+    </message>
+    <message>
+      <source>Subject</source>
+      <translation>Judul</translation>
+    </message>
+    <message>
+      <source>Allow user to change subject</source>
+      <translation>Mengizinkan pengguna untuk mengganti judul</translation>
+    </message>
+    <message>
+      <source>From name</source>
+      <translation>Nama pengirim</translation>
+    </message>
+    <message>
+      <source>Allow to change from name</source>
+      <translation>Mengijinkan untuk mengganti nama pengirim</translation>
+    </message>
+    <message>
+      <source>From e-mail, if mail was not sent for some reason, this mail will get a failed delivery message</source>
+      <translation>E-mail pengirim, jika pesan tidak terkirim karena beberapa alasan, e-mail ini akan mendapat pesan kegagalan pengiriman</translation>
+    </message>
+    <message>
+      <source>Allow to change from e-mail</source>
+      <translation>Mengizinkan untuk mengubah e-mail pengirim</translation>
+    </message>
+    <message>
+      <source>Reply to</source>
+      <translation>Balasan ke</translation>
+    </message>
+    <message>
+      <source>Allow to change reply e-mail</source>
+      <translation>Mengizinkan untuk mengganti e-mail balasan </translation>
+    </message>
+    <message>
+      <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
+      <translation>Email penerima, digunakan jika aplikasi tidak dapat menentukan siapa yang harus menerima email.</translation>
+    </message>
+    <message>
+      <source>Content</source>
+      <translation>Isi</translation>
+    </message>
+    <message>
+      <source>E-mail templates</source>
+      <translation>Template e-mail</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/closechatadmin</name>
+    <message>
+      <source>has closed the chat!</source>
+      <translation>telah menutup percakapan ini!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/deletechatadmin</name>
+    <message>
+      <source>You do not have rights to delete a chat</source>
+      <translation>Anda tidak memiliki hak untuk menghapus percakapan</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/reopenchat</name>
+    <message>
+      <source>has reopened the chat!</source>
+      <translation>telah membuka kembali percakapan!</translation>
+    </message>
+    <message>
+      <source>No permission to reopen the chat!</source>
+      <translation>Tidak ada izin untuk membuka kembali percakapan!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/single</name>
+    <message>
+      <source>Chat started with</source>
+      <translation>Percakapan dimulai dengan</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/transferuser</name>
+    <message>
+      <source>Chat was assigned to selected department</source>
+      <translation>Percakapan telah ditempatkan ke departemen yang dipilih</translation>
+    </message>
+    <message>
+      <source>Chat was assigned to selected user</source>
+      <translation>Percakapan telah ditugaskan ke pengguna yang dipilih</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/voteaction</name>
+    <message>
+      <source>Thumbs up</source>
+      <translation>Sukai</translation>
+    </message>
+    <message>
+      <source>Thumbs down</source>
+      <translation>Tidak Suka</translation>
+    </message>
+    <message>
+      <source>Removed thumb vote</source>
+      <translation>Suara telah ditari</translation>
+    </message>
+  </context>
+  <context>
+    <name>chatarchive/viewarchivedchat</name>
+    <message>
+      <source>View archived chat</source>
+      <translation>Tampilkan percakapan terarsip</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/configurations</name>
+    <message>
+      <source>Please enter valid file type!</source>
+      <translation>Silakan masukkan tipe berkas yang sah!</translation>
     </message>
   </context>
 </TS>

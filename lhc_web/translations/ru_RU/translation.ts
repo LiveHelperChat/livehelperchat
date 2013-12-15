@@ -529,19 +529,34 @@
     </message>
   </context>
   <context>
+    <name>files/files</name>
+    <message>
+      <source>Refresh</source>
+      <translation>Обновить</translation>
+    </message>
+    <message>
+      <source>Delete file</source>
+      <translation>Удалить файл</translation>
+    </message>
+    <message>
+      <source>Download file</source>
+      <translation>Скачать файл</translation>
+    </message>
+    <message>
+      <source>Drop your files here.</source>
+      <translation>Перетащите файлы сюда</translation>
+    </message>
+    <message>
+      <source>Not an accepted file type</source>
+      <translation>Файлы с таким расширением нельзя загрузить</translation>
+    </message>
+    <message>
+      <source>Filesize is too big</source>
+      <translation>Размер файла очень большой</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/syncadmininterface</name>
-    <message>
-      <source>Close chat</source>
-      <translation>Закрыть чат</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Удалить диалог</translation>
-    </message>
-    <message>
-      <source>Reject chat</source>
-      <translation>Отклонить чат</translation>
-    </message>
     <message>
       <source>Open in a new window</source>
       <translation>Открыть в новом окне</translation>
@@ -861,34 +876,6 @@
   </context>
   <context>
     <name>chat/onlineusers</name>
-    <message>
-      <source>Notifications about new chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Copyright settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Application name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Site settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online tracking</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Misc</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Workflow</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>GEO detection configuration</source>
       <translation>Настройки GEO-обнаружения</translation>
@@ -1240,56 +1227,44 @@
   <context>
     <name>chat/listchatconfig</name>
     <message>
-      <source>List</source>
-      <translation>Опции</translation>
-    </message>
-    <message>
-      <source>Explain</source>
-      <translation>Описание</translation>
-    </message>
-    <message>
-      <source>Edit value</source>
-      <translation>Изменить</translation>
-    </message>
-    <message>
       <source>Chat configuration</source>
-      <translation type="unfinished"/>
+      <translation>Настройки чата</translation>
     </message>
     <message>
       <source>Notifications about new chats</source>
-      <translation type="unfinished"/>
+      <translation>Уведомления о новых чаты</translation>
     </message>
     <message>
       <source>Copyright settings</source>
-      <translation type="unfinished"/>
+      <translation>Настройки Copyright</translation>
     </message>
     <message>
       <source>Application name</source>
-      <translation type="unfinished"/>
+      <translation>Имя приложения</translation>
     </message>
     <message>
       <source>Site settings</source>
-      <translation type="unfinished"/>
+      <translation>Параметры сайта</translation>
     </message>
     <message>
       <source>Online tracking</source>
-      <translation type="unfinished"/>
+      <translation>Отслеживание</translation>
     </message>
     <message>
       <source>Misc</source>
-      <translation type="unfinished"/>
+      <translation>Разное</translation>
     </message>
     <message>
       <source>Workflow</source>
-      <translation type="unfinished"/>
+      <translation>Рабочий процесс</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation type="unfinished"/>
+      <translation>Обновить</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Настройки обновлены</translation>
     </message>
     <message>
       <source>List chat configuration</source>
@@ -1297,11 +1272,142 @@
     </message>
   </context>
   <context>
-    <name>system/htmlcode</name>
+    <name>system/configuration</name>
     <message>
-      <source>Check for messages from the operator</source>
-      <translation>Check for messages from the operator</translation>
+      <source>Request notification permission</source>
+      <translation>Запрос разрешить уведомления</translation>
     </message>
+    <message>
+      <source>New chat notification settings</source>
+      <translation>Установки уведомлений нового чата</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Настройки Системы</translation>
+    </message>
+    <message>
+      <source>Chat related</source>
+      <translation>Связанные с чатом</translation>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation>Департаменты</translation>
+    </message>
+    <message>
+      <source>Blocked users</source>
+      <translation>Заблокированные пользователи</translation>
+    </message>
+    <message>
+      <source>Chat configuration</source>
+      <translation>Настройки чата</translation>
+    </message>
+    <message>
+      <source>GEO detection configuration</source>
+      <translation>Настройки GEO-обнаружения</translation>
+    </message>
+    <message>
+      <source>Synchronization and sound settings</source>
+      <translation>Настройки синхронизации и звука</translation>
+    </message>
+    <message>
+      <source>Start chat form settings</source>
+      <translation>Настройки формы начала чата</translation>
+    </message>
+    <message>
+      <source>Canned messages</source>
+      <translation>Шаблоны сообщений</translation>
+    </message>
+    <message>
+      <source>E-mail templates</source>
+      <translation>Шаблоны писем</translation>
+    </message>
+    <message>
+      <source>Pro active chat invitations</source>
+      <translation>Проактивные приглашения</translation>
+    </message>
+    <message>
+      <source>Auto responder</source>
+      <translation>Авто-ответчик</translation>
+    </message>
+    <message>
+      <source>SMTP settings</source>
+      <translation>SMTP установки</translation>
+    </message>
+    <message>
+      <source>XMPP settings</source>
+      <translation>XMPP установки</translation>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation>Настройки языка</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Список чатов</translation>
+    </message>
+    <message>
+      <source>Chat archive</source>
+      <translation>Архив чатов</translation>
+    </message>
+    <message>
+      <source>Live help embed code</source>
+      <translation>Код Чата</translation>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation>Код ЧаВо</translation>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation>Код для вставки Вопросника</translation>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation>Код Чатбокса</translation>
+    </message>
+    <message>
+      <source>Statistic</source>
+      <translation>Статистика</translation>
+    </message>
+    <message>
+      <source>Users and their permissions</source>
+      <translation>Права и пользователи</translation>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation>Пользователи</translation>
+    </message>
+    <message>
+      <source>List of groups</source>
+      <translation>Групповой список</translation>
+    </message>
+    <message>
+      <source>List of roles</source>
+      <translation>Список ролей</translation>
+    </message>
+    <message>
+      <source>Files uploads configuration</source>
+      <translation>Настройки загрузки файлов</translation>
+    </message>
+    <message>
+      <source>Files upload configuration</source>
+      <translation>Настройки загрузки файлов</translation>
+    </message>
+    <message>
+      <source>List of files</source>
+      <translation>Список файлов</translation>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation>Другие</translation>
+    </message>
+    <message>
+      <source>File configuration</source>
+      <translation>Настройки файла</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/htmlcode</name>
     <message>
       <source>Widget embed code</source>
       <translation>Код виджета</translation>
@@ -1522,142 +1628,22 @@
     </message>
   </context>
   <context>
-    <name>system/configuration</name>
+    <name>chat/lists/search_panel</name>
     <message>
-      <source>XMP settings</source>
-      <translation>Настройка XMP</translation>
+      <source>Nick</source>
+      <translation>Ник</translation>
     </message>
     <message>
-      <source>Request notification permission</source>
-      <translation>Запрос разрешить уведомления</translation>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
     </message>
     <message>
-      <source>New chat notification settings</source>
-      <translation>Установки уведомлений нового чата</translation>
+      <source>Date range from to</source>
+      <translation>Диапазон дат (от и до)</translation>
     </message>
     <message>
-      <source>System configuration</source>
-      <translation>Настройки Системы</translation>
-    </message>
-    <message>
-      <source>Chat related</source>
-      <translation>Связанные с чатом</translation>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation>Департаменты</translation>
-    </message>
-    <message>
-      <source>Blocked users</source>
-      <translation>Заблокированные пользователи</translation>
-    </message>
-    <message>
-      <source>Chat configuration</source>
-      <translation>Настройки чата</translation>
-    </message>
-    <message>
-      <source>GEO detection configuration</source>
-      <translation>Настройки GEO-обнаружения</translation>
-    </message>
-    <message>
-      <source>Synchronization and sound settings</source>
-      <translation>Настройки синхронизации и звука</translation>
-    </message>
-    <message>
-      <source>Start chat form settings</source>
-      <translation>Настройки формы начала чата</translation>
-    </message>
-    <message>
-      <source>Canned messages</source>
-      <translation>Шаблоны сообщений</translation>
-    </message>
-    <message>
-      <source>E-mail templates</source>
-      <translation>Шаблоны писем</translation>
-    </message>
-    <message>
-      <source>Pro active chat invitations</source>
-      <translation>Проактивные приглашения</translation>
-    </message>
-    <message>
-      <source>Auto responder</source>
-      <translation>Авто-ответчик</translation>
-    </message>
-    <message>
-      <source>SMTP settings</source>
-      <translation>SMTP установки</translation>
-    </message>
-    <message>
-      <source>XMPP settings</source>
-      <translation>XMPP установки</translation>
-    </message>
-    <message>
-      <source>Languages configuration</source>
-      <translation>Настройки языка</translation>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation>Список чатов</translation>
-    </message>
-    <message>
-      <source>Chat archive</source>
-      <translation>Архив чатов</translation>
-    </message>
-    <message>
-      <source>Live help embed code</source>
-      <translation>Код Чата</translation>
-    </message>
-    <message>
-      <source>FAQ embed code</source>
-      <translation>Код ЧаВо</translation>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation>Код для вставки Вопросника</translation>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation>Код Чатбокса</translation>
-    </message>
-    <message>
-      <source>Statistic</source>
-      <translation>Статистика</translation>
-    </message>
-    <message>
-      <source>Users and their permissions</source>
-      <translation>Права и пользователи</translation>
-    </message>
-    <message>
-      <source>Users</source>
-      <translation>Пользователи</translation>
-    </message>
-    <message>
-      <source>List of groups</source>
-      <translation>Групповой список</translation>
-    </message>
-    <message>
-      <source>List of roles</source>
-      <translation>Список ролей</translation>
-    </message>
-    <message>
-      <source>Files uploads configuration</source>
-      <translation>Настройки загрузки файлов</translation>
-    </message>
-    <message>
-      <source>Files upload configuration</source>
-      <translation>Настройки загрузки файлов</translation>
-    </message>
-    <message>
-      <source>List of files</source>
-      <translation>Список файлов</translation>
-    </message>
-    <message>
-      <source>Other</source>
-      <translation>Другие</translation>
-    </message>
-    <message>
-      <source>File configuration</source>
-      <translation>Настройки файла</translation>
+      <source>Search</source>
+      <translation>Поиск</translation>
     </message>
   </context>
   <context>
@@ -1669,6 +1655,13 @@
     <message>
       <source>Operators chats</source>
       <translation>Чаты операторов</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/part/operator_profile</name>
+    <message>
+      <source>Skype call</source>
+      <translation>Позвонить через Skype</translation>
     </message>
   </context>
   <context>
@@ -2258,10 +2251,6 @@
   <context>
     <name>chatbox/configuration</name>
     <message>
-      <source>Embed code generation</source>
-      <translation>Embed code generation</translation>
-    </message>
-    <message>
       <source>Chatbox</source>
       <translation>Chatbox</translation>
     </message>
@@ -2464,38 +2453,6 @@
   <context>
     <name>department/edit</name>
     <message>
-      <source>Active days</source>
-      <translation>Рабочие дни</translation>
-    </message>
-    <message>
-      <source>Active hours, 24 hours format</source>
-      <translation>Рабочие часы, в 24-х часовом формате</translation>
-    </message>
-    <message>
-      <source>from, E.g 8</source>
-      <translation>Например, с 8</translation>
-    </message>
-    <message>
-      <source>from, E.g 17</source>
-      <translation>Например, с 17</translation>
-    </message>
-    <message>
-      <source>XMP messages</source>
-      <translation>XMP сообщения</translation>
-    </message>
-    <message>
-      <source>Online hours active</source>
-      <translation>Часы онлайн активности</translation>
-    </message>
-    <message>
-      <source>Workdays, during these days chat will be active automatically</source>
-      <translation>Рабочие дни, в которые чаты будут активны автоматически</translation>
-    </message>
-    <message>
-      <source>From, E.g. 17</source>
-      <translation>Например, до 17</translation>
-    </message>
-    <message>
       <source>Edit department</source>
       <translation>Редактировать департамент</translation>
     </message>
@@ -2632,10 +2589,6 @@
   <context>
     <name>user/account</name>
     <message>
-      <source>Please enter a surname</source>
-      <translation>Введите фамилию</translation>
-    </message>
-    <message>
       <source>Updated</source>
       <translation>Обновлен</translation>
     </message>
@@ -2758,10 +2711,6 @@
   </context>
   <context>
     <name>department/new</name>
-    <message>
-      <source>Please enter a department name</source>
-      <translation>Введите название департамента</translation>
-    </message>
     <message>
       <source>New department</source>
       <translation>Новый департамент</translation>
@@ -2901,6 +2850,72 @@
     <message>
       <source>FAQ description</source>
       <translation>Описание вопросов</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/configuration</name>
+    <message>
+      <source>File configuration</source>
+      <translation>Настройки файла</translation>
+    </message>
+    <message>
+      <source>Allowed files types for operators</source>
+      <translation>Разрешенные расширения фалов для операторов</translation>
+    </message>
+    <message>
+      <source>Allowed files types for users</source>
+      <translation>Разрешенные расширения файлов для пользователей</translation>
+    </message>
+    <message>
+      <source>Maximum file size in KB</source>
+      <translation>Максимальный размер файла в КБ</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Настройки обновлены</translation>
+    </message>
+    <message>
+      <source>Please enter valid file type!</source>
+      <translation>Пожалуйста, введите правильное расширение файла!</translation>
+    </message>
+    <message>
+      <source>Please enter valid maximum file size!</source>
+      <translation>Пожалуйста, введите максимальный размер файла!</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/list</name>
+    <message>
+      <source>List of files</source>
+      <translation>Список файлов</translation>
+    </message>
+    <message>
+      <source>User</source>
+      <translation>Пользователь</translation>
+    </message>
+    <message>
+      <source>Chat</source>
+      <translation>Чат</translation>
+    </message>
+    <message>
+      <source>Upload name</source>
+      <translation>Название загрузки</translation>
+    </message>
+    <message>
+      <source>File size</source>
+      <translation>Размер файла</translation>
+    </message>
+    <message>
+      <source>Extension</source>
+      <translation>Расширение</translation>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>Дата</translation>
+    </message>
+    <message>
+      <source>Delete the file</source>
+      <translation>Удалить файл</translation>
     </message>
   </context>
   <context>
@@ -3564,30 +3579,6 @@
   <context>
     <name>system/smtp</name>
     <message>
-      <source>XMP active</source>
-      <translation>XMP автивен</translation>
-    </message>
-    <message>
-      <source>Resource</source>
-      <translation>Ресурс</translation>
-    </message>
-    <message>
-      <source>Server</source>
-      <translation>Сервер</translation>
-    </message>
-    <message>
-      <source>XMP Message content</source>
-      <translation>Содержание сообщения XMP</translation>
-    </message>
-    <message>
-      <source>XMP message was sent succesfuly</source>
-      <translation>Сообщение XMP в случае удачной отправки</translation>
-    </message>
-    <message>
-      <source>XMP settings</source>
-      <translation>Настройки XMP</translation>
-    </message>
-    <message>
       <source>SMTP settings</source>
       <translation>Настройка SMTP</translation>
     </message>
@@ -4065,374 +4056,7 @@
     </message>
   </context>
   <context>
-    <name>chat/syncuser</name>
-    <message>
-      <source>Chat was automatically transferred to</source>
-      <translation>Чат был автоматически переведен на</translation>
-    </message>
-    <message>
-      <source>from</source>
-      <translation>от</translation>
-    </message>
-    <message>
-      <source>Support staff member has closed this chat</source>
-      <translation>Оператор закрыл этот чат</translation>
-    </message>
-    <message>
-      <source>You do not have permission to view this chat, or chat was deleted</source>
-      <translation>Либо у Вас нет прав для просмотра этого чата, либо он был удален</translation>
-    </message>
-    <message>
-      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-      <translation>Техподдержка закрыла окно чата, но вы можете отправить сообщение, для прочтения администратору.</translation>
-    </message>
-    <message>
-      <source>You do not have permission to view this chat, or the chat was deleted</source>
-      <translation>У вас нет доступа к этому чату либо чат удален</translation>
-    </message>
-  </context>
-  <context>
-    <name>abstract/email_template</name>
-    <message>
-      <source>Name, for personal purposes</source>
-      <translation>Имя, для собственных нужд</translation>
-    </message>
-    <message>
-      <source>Subject</source>
-      <translation>Тема письма</translation>
-    </message>
-    <message>
-      <source>Allow user to change subject</source>
-      <translation>Позволяет юзеру менять тему письма</translation>
-    </message>
-    <message>
-      <source>From name</source>
-      <translation>Имя отправителя</translation>
-    </message>
-    <message>
-      <source>Allow to change from name</source>
-      <translation>Позволяет менчть имя отправителя</translation>
-    </message>
-    <message>
-      <source>From e-mail, if mail was not sent for some reason, this mail will get a failed delivery message</source>
-      <translation>Емаил на который получим статус &quot;недоставлено&quot;, если вдруг письмо по каким то причинам не дойдет до плучателя.</translation>
-    </message>
-    <message>
-      <source>Allow to change from e-mail</source>
-      <translation>Позволяет менять из емаила</translation>
-    </message>
-    <message>
-      <source>Reply to</source>
-      <translation>Reply to</translation>
-    </message>
-    <message>
-      <source>Allow to change reply e-mail</source>
-      <translation>Позволяет изменить емаил для ответов на вопросы пользователей</translation>
-    </message>
-    <message>
-      <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
-      <translation>Емаил получателя, применяется в случае невозможности определить того кто должен получить емаил.</translation>
-    </message>
-    <message>
-      <source>Content</source>
-      <translation>Контент</translation>
-    </message>
-    <message>
-      <source>E-mail templates</source>
-      <translation>Шаблоны писем</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/closechatadmin</name>
-    <message>
-      <source>has closed the chat!</source>
-      <translation>завершил диалог!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/reopenchat</name>
-    <message>
-      <source>has reopened the chat!</source>
-      <translation>возобновил чат!</translation>
-    </message>
-    <message>
-      <source>No permission to reopen the chat!</source>
-      <translation>У Вас нет прав для возобновления чата!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/single</name>
-    <message>
-      <source>Chat started with</source>
-      <translation>Диалог начат с</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/transferuser</name>
-    <message>
-      <source>Chat was assigned to selected department</source>
-      <translation>Чат был передан выбранному департаменту</translation>
-    </message>
-    <message>
-      <source>Chat was assigned to selected user</source>
-      <translation>Чат назначен выбранному юзеру</translation>
-    </message>
-  </context>
-  <context>
-    <name>departament/edit</name>
-    <message>
-      <source>Please enter a department name</source>
-      <translation>введите имя департамента</translation>
-    </message>
-    <message>
-      <source>Transfer department has to be different one than self</source>
-      <translation>Департамент для перевода должен отличаться от исходного</translation>
-    </message>
-    <message>
-      <source>Please enter a valid from date range!</source>
-      <translation>Пожалуйста, введите правильную дату начала!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid to date range!</source>
-      <translation>Пожалуйста, введите правильную дату окончания!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chatarchive/viewarchivedchat</name>
-    <message>
-      <source>View archived chat</source>
-      <translation>Просмотреть заархивированный чат</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/deletechatadmin</name>
-    <message>
-      <source>You do not have rights to delete a chat</source>
-      <translation>У Вас нет прав для удаления чата!</translation>
-    </message>
-  </context>
-  <context>
-    <name>files/files</name>
-    <message>
-      <source>Refresh</source>
-      <translation>Обновить</translation>
-    </message>
-    <message>
-      <source>Delete file</source>
-      <translation>Удалить файл</translation>
-    </message>
-    <message>
-      <source>Download file</source>
-      <translation>Скачать файл</translation>
-    </message>
-    <message>
-      <source>Drop your files here.</source>
-      <translation>Перетащите файлы сюда</translation>
-    </message>
-    <message>
-      <source>Not an accepted file type</source>
-      <translation>Файлы с таким расширением нельзя загрузить</translation>
-    </message>
-    <message>
-      <source>Filesize is too big</source>
-      <translation>Размер файла очень большой</translation>
-    </message>
-  </context>
-  <context>
-    <name>file/configuration</name>
-    <message>
-      <source>File configuration</source>
-      <translation>Настройки файла</translation>
-    </message>
-    <message>
-      <source>Allowed files types for operators</source>
-      <translation>Разрешенные расширения фалов для операторов</translation>
-    </message>
-    <message>
-      <source>Allowed files types for users</source>
-      <translation>Разрешенные расширения файлов для пользователей</translation>
-    </message>
-    <message>
-      <source>Maximum file size in KB</source>
-      <translation>Максимальный размер файла в КБ</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Настройки обновлены</translation>
-    </message>
-    <message>
-      <source>Please enter valid file type!</source>
-      <translation>Пожалуйста, введите правильное расширение файла!</translation>
-    </message>
-    <message>
-      <source>Please enter valid maximum file size!</source>
-      <translation>Пожалуйста, введите максимальный размер файла!</translation>
-    </message>
-  </context>
-  <context>
-    <name>file/list</name>
-    <message>
-      <source>List of files</source>
-      <translation>Список файлов</translation>
-    </message>
-    <message>
-      <source>User</source>
-      <translation>Пользователь</translation>
-    </message>
-    <message>
-      <source>Chat</source>
-      <translation>Чат</translation>
-    </message>
-    <message>
-      <source>Upload name</source>
-      <translation>Название загрузки</translation>
-    </message>
-    <message>
-      <source>File size</source>
-      <translation>Размер файла</translation>
-    </message>
-    <message>
-      <source>Extension</source>
-      <translation>Расширение</translation>
-    </message>
-    <message>
-      <source>Date</source>
-      <translation>Дата</translation>
-    </message>
-    <message>
-      <source>Delete the file</source>
-      <translation>Удалить файл</translation>
-    </message>
-  </context>
-  <context>
-    <name>file/file</name>
-    <message>
-      <source>Download file</source>
-      <translation>Скачать файл</translation>
-    </message>
-  </context>
-  <context>
-    <name>file/configurations</name>
-    <message>
-      <source>Please enter valid file type!</source>
-      <translation>Пожалуйста, введите правильный тип файла</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/lists/search_panel</name>
-    <message>
-      <source>Nick</source>
-      <translation>Ник</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Date range from to</source>
-      <translation>Диапазон дат (от и до)</translation>
-    </message>
-    <message>
-      <source>Search</source>
-      <translation>Поиск</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/voteaction</name>
-    <message>
-      <source>Thumbs up</source>
-      <translation>Хорошо</translation>
-    </message>
-    <message>
-      <source>Thumbs down</source>
-      <translation>Плохо</translation>
-    </message>
-    <message>
-      <source>Removed thumb vote</source>
-      <translation>Удаленная оценка</translation>
-    </message>
-  </context>
-  <context>
-    <name>system/xmp</name>
-    <message>
-      <source>XMP active</source>
-      <translation>XMP активен</translation>
-    </message>
-    <message>
-      <source>Host</source>
-      <translation>Хост</translation>
-    </message>
-    <message>
-      <source>Port</source>
-      <translation>Порт</translation>
-    </message>
-    <message>
-      <source>Login</source>
-      <translation>Логин</translation>
-    </message>
-    <message>
-      <source>Password</source>
-      <translation>Пароль</translation>
-    </message>
-    <message>
-      <source>Resource</source>
-      <translation>Ресурс</translation>
-    </message>
-    <message>
-      <source>Server</source>
-      <translation>Сервер</translation>
-    </message>
-    <message>
-      <source>Recipients</source>
-      <translation>Получатели</translation>
-    </message>
-    <message>
-      <source>XMP Message content</source>
-      <translation>Содержимое сообщения XMP</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Настройки обновлены</translation>
-    </message>
-    <message>
-      <source>XMP message was sent succesfuly</source>
-      <translation>Сообщение XMP в случае удачно отправки</translation>
-    </message>
-    <message>
-      <source>XMP settings</source>
-      <translation>Настройки XMP</translation>
-    </message>
-    <message>
-      <source>XMPP active</source>
-      <translation>XMPP активен</translation>
-    </message>
-    <message>
-      <source>Default recipients</source>
-      <translation>Получатель по умолчанию</translation>
-    </message>
-    <message>
-      <source>Test message will be send to your account e-mail</source>
-      <translation>Тестовое сообщение которое будет отправлено на ваш e-mail</translation>
-    </message>
-    <message>
-      <source>XMPP message was sent succesfuly</source>
-      <translation>Сообщение XMPP в случае успешной отправки</translation>
-    </message>
-    <message>
-      <source>XMPP settings</source>
-      <translation>Настройки XMPP</translation>
-    </message>
-  </context>
-  <context>
     <name>system/xmpp</name>
-    <message>
-      <source>XMPP documentation</source>
-      <translation>Документация по XMPP</translation>
-    </message>
-    <message>
-      <source>User standard XMPP service</source>
-      <translation>Использовать стандартный XMPP сервис</translation>
-    </message>
     <message>
       <source>XMPP settings</source>
       <translation>Настройки XMPP</translation>
@@ -4563,10 +4187,179 @@
     </message>
   </context>
   <context>
-    <name>chat/part/operator_profile</name>
+    <name>file/file</name>
     <message>
-      <source>Skype call</source>
-      <translation>Позвонить через Skype</translation>
+      <source>Download file</source>
+      <translation>Скачать файл</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/syncuser</name>
+    <message>
+      <source>Chat was automatically transferred to</source>
+      <translation>Чат был автоматически переведен на</translation>
+    </message>
+    <message>
+      <source>from</source>
+      <translation>от</translation>
+    </message>
+    <message>
+      <source>Support staff member has closed this chat</source>
+      <translation>Оператор закрыл этот чат</translation>
+    </message>
+    <message>
+      <source>You do not have permission to view this chat, or chat was deleted</source>
+      <translation>Либо у Вас нет прав для просмотра этого чата, либо он был удален</translation>
+    </message>
+    <message>
+      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
+      <translation>Техподдержка закрыла окно чата, но вы можете отправить сообщение, для прочтения администратору.</translation>
+    </message>
+    <message>
+      <source>You do not have permission to view this chat, or the chat was deleted</source>
+      <translation>У вас нет доступа к этому чату либо чат удален</translation>
+    </message>
+  </context>
+  <context>
+    <name>departament/edit</name>
+    <message>
+      <source>Please enter a department name</source>
+      <translation>введите имя департамента</translation>
+    </message>
+    <message>
+      <source>Transfer department has to be different one than self</source>
+      <translation>Департамент для перевода должен отличаться от исходного</translation>
+    </message>
+    <message>
+      <source>Please enter a valid from date range!</source>
+      <translation>Пожалуйста, введите правильную дату начала!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid to date range!</source>
+      <translation>Пожалуйста, введите правильную дату окончания!</translation>
+    </message>
+  </context>
+  <context>
+    <name>abstract/email_template</name>
+    <message>
+      <source>Name, for personal purposes</source>
+      <translation>Имя, для собственных нужд</translation>
+    </message>
+    <message>
+      <source>Subject</source>
+      <translation>Тема письма</translation>
+    </message>
+    <message>
+      <source>Allow user to change subject</source>
+      <translation>Позволяет юзеру менять тему письма</translation>
+    </message>
+    <message>
+      <source>From name</source>
+      <translation>Имя отправителя</translation>
+    </message>
+    <message>
+      <source>Allow to change from name</source>
+      <translation>Позволяет менчть имя отправителя</translation>
+    </message>
+    <message>
+      <source>From e-mail, if mail was not sent for some reason, this mail will get a failed delivery message</source>
+      <translation>Емаил на который получим статус &quot;недоставлено&quot;, если вдруг письмо по каким то причинам не дойдет до плучателя.</translation>
+    </message>
+    <message>
+      <source>Allow to change from e-mail</source>
+      <translation>Позволяет менять из емаила</translation>
+    </message>
+    <message>
+      <source>Reply to</source>
+      <translation>Reply to</translation>
+    </message>
+    <message>
+      <source>Allow to change reply e-mail</source>
+      <translation>Позволяет изменить емаил для ответов на вопросы пользователей</translation>
+    </message>
+    <message>
+      <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
+      <translation>Емаил получателя, применяется в случае невозможности определить того кто должен получить емаил.</translation>
+    </message>
+    <message>
+      <source>Content</source>
+      <translation>Контент</translation>
+    </message>
+    <message>
+      <source>E-mail templates</source>
+      <translation>Шаблоны писем</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/closechatadmin</name>
+    <message>
+      <source>has closed the chat!</source>
+      <translation>завершил диалог!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/deletechatadmin</name>
+    <message>
+      <source>You do not have rights to delete a chat</source>
+      <translation>У Вас нет прав для удаления чата!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/reopenchat</name>
+    <message>
+      <source>has reopened the chat!</source>
+      <translation>возобновил чат!</translation>
+    </message>
+    <message>
+      <source>No permission to reopen the chat!</source>
+      <translation>У Вас нет прав для возобновления чата!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/single</name>
+    <message>
+      <source>Chat started with</source>
+      <translation>Диалог начат с</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/transferuser</name>
+    <message>
+      <source>Chat was assigned to selected department</source>
+      <translation>Чат был передан выбранному департаменту</translation>
+    </message>
+    <message>
+      <source>Chat was assigned to selected user</source>
+      <translation>Чат назначен выбранному юзеру</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/voteaction</name>
+    <message>
+      <source>Thumbs up</source>
+      <translation>Хорошо</translation>
+    </message>
+    <message>
+      <source>Thumbs down</source>
+      <translation>Плохо</translation>
+    </message>
+    <message>
+      <source>Removed thumb vote</source>
+      <translation>Удаленная оценка</translation>
+    </message>
+  </context>
+  <context>
+    <name>chatarchive/viewarchivedchat</name>
+    <message>
+      <source>View archived chat</source>
+      <translation>Просмотреть заархивированный чат</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/configurations</name>
+    <message>
+      <source>Please enter valid file type!</source>
+      <translation>Пожалуйста, введите правильный тип файла</translation>
     </message>
   </context>
 </TS>

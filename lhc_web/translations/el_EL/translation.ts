@@ -529,19 +529,34 @@
     </message>
   </context>
   <context>
+    <name>files/files</name>
+    <message>
+      <source>Refresh</source>
+      <translation>Ανανέωση</translation>
+    </message>
+    <message>
+      <source>Delete file</source>
+      <translation>Διαγράψετε αρχείο</translation>
+    </message>
+    <message>
+      <source>Download file</source>
+      <translation>Κατεβάστε το αρχείο</translation>
+    </message>
+    <message>
+      <source>Drop your files here.</source>
+      <translation>Drop τα αρχεία σας εδώ.</translation>
+    </message>
+    <message>
+      <source>Not an accepted file type</source>
+      <translation>Δεν μια αποδεκτή αρχείο τύπου</translation>
+    </message>
+    <message>
+      <source>Filesize is too big</source>
+      <translation>Μέγεθος αρχείου είναι πολύ μεγάλο</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/syncadmininterface</name>
-    <message>
-      <source>Close chat</source>
-      <translation>Στενή συνομιλίας</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Διαγραφή συνομιλίας</translation>
-    </message>
-    <message>
-      <source>Reject chat</source>
-      <translation>Απορρίψει συνομιλίας</translation>
-    </message>
     <message>
       <source>Open in a new window</source>
       <translation>Άνοιγμα σε νέο παράθυρο</translation>
@@ -861,34 +876,6 @@
   </context>
   <context>
     <name>chat/onlineusers</name>
-    <message>
-      <source>Notifications about new chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Copyright settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Application name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Site settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online tracking</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Misc</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Workflow</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>GEO detection configuration</source>
       <translation>Ρύθμιση παραμέτρων ανίχνευσης GEO</translation>
@@ -1240,18 +1227,6 @@
   <context>
     <name>chat/listchatconfig</name>
     <message>
-      <source>List</source>
-      <translation>Λίστα</translation>
-    </message>
-    <message>
-      <source>Explain</source>
-      <translation>Εξήγηση</translation>
-    </message>
-    <message>
-      <source>Edit value</source>
-      <translation>Επεξεργασία τιμής</translation>
-    </message>
-    <message>
       <source>Chat configuration</source>
       <translation type="unfinished"/>
     </message>
@@ -1297,11 +1272,142 @@
     </message>
   </context>
   <context>
-    <name>system/htmlcode</name>
+    <name>system/configuration</name>
     <message>
-      <source>Check for messages from the operator</source>
-      <translation>Έλεγχος για μηνύματα από τον φορέα εκμετάλλευσης</translation>
+      <source>Request notification permission</source>
+      <translation>Ζητήσει άδεια κοινοποίησης</translation>
     </message>
+    <message>
+      <source>New chat notification settings</source>
+      <translation>Νέες ρυθμίσεις ειδοποιήσεων συνομιλίας</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Παραμετροποίηση συστήματος</translation>
+    </message>
+    <message>
+      <source>Chat related</source>
+      <translation>Συνομιλία σχετικές</translation>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation>Τμήματα</translation>
+    </message>
+    <message>
+      <source>Blocked users</source>
+      <translation>Αποκλεισμένοι χρήστες</translation>
+    </message>
+    <message>
+      <source>Chat configuration</source>
+      <translation>Διαμόρφωση συνομιλίας</translation>
+    </message>
+    <message>
+      <source>GEO detection configuration</source>
+      <translation>Ρύθμιση παραμέτρων ανίχνευσης GEO</translation>
+    </message>
+    <message>
+      <source>Synchronization and sound settings</source>
+      <translation>Ρυθμίσεις συγχρονισμού και ήχο</translation>
+    </message>
+    <message>
+      <source>Start chat form settings</source>
+      <translation>Έναρξη συνομιλίας μορφή ρυθμίσεις</translation>
+    </message>
+    <message>
+      <source>Canned messages</source>
+      <translation>Κονσερβοποιημένα μηνύματα</translation>
+    </message>
+    <message>
+      <source>E-mail templates</source>
+      <translation>Πρότυπα ηλεκτρονικού ταχυδρομείου</translation>
+    </message>
+    <message>
+      <source>Pro active chat invitations</source>
+      <translation>Προσκλήσεις προορατικού συνομιλίας</translation>
+    </message>
+    <message>
+      <source>Auto responder</source>
+      <translation>Αυτόματη απάντηση</translation>
+    </message>
+    <message>
+      <source>SMTP settings</source>
+      <translation>Ρυθμίσεις SMTP</translation>
+    </message>
+    <message>
+      <source>XMPP settings</source>
+      <translation>Ρυθμίσεις XMPP</translation>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation>Διαμόρφωση γλώσσες</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Λίστα συνομιλίες</translation>
+    </message>
+    <message>
+      <source>Chat archive</source>
+      <translation>Αρχείο συνομιλίας</translation>
+    </message>
+    <message>
+      <source>Live help embed code</source>
+      <translation>ΖΩΝΤΑΝΗ ΒΟΗΘΕΙΑ ενσωματώνει τον κώδικα</translation>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation>FAQ ενσωματώνει τον κώδικα</translation>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation>Ενσωματώστε τον κώδικα Questionary</translation>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation>Chatbox ενσωματώνει τον κώδικα</translation>
+    </message>
+    <message>
+      <source>Statistic</source>
+      <translation>Στατιστική</translation>
+    </message>
+    <message>
+      <source>Users and their permissions</source>
+      <translation>Χρήστες και δικαιώματα τους</translation>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation>Χρήστες</translation>
+    </message>
+    <message>
+      <source>List of groups</source>
+      <translation>Λίστα ομάδων</translation>
+    </message>
+    <message>
+      <source>List of roles</source>
+      <translation>Λίστα ρόλων</translation>
+    </message>
+    <message>
+      <source>Files uploads configuration</source>
+      <translation>Αρχεία διαμόρφωσης προσθήκες</translation>
+    </message>
+    <message>
+      <source>Files upload configuration</source>
+      <translation>Αρχεία ανεβάσετε διαμόρφωση</translation>
+    </message>
+    <message>
+      <source>List of files</source>
+      <translation>Λίστα των αρχείων</translation>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation>Άλλο</translation>
+    </message>
+    <message>
+      <source>File configuration</source>
+      <translation>Αρχείο ρύθμισης παραμέτρων</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/htmlcode</name>
     <message>
       <source>Widget embed code</source>
       <translation>Ενσωματώστε τον κώδικα widget</translation>
@@ -1522,142 +1628,22 @@
     </message>
   </context>
   <context>
-    <name>system/configuration</name>
+    <name>chat/lists/search_panel</name>
     <message>
-      <source>XMP settings</source>
-      <translation>XMP ρυθμίσεις</translation>
+      <source>Nick</source>
+      <translation>Nick</translation>
     </message>
     <message>
-      <source>Request notification permission</source>
-      <translation>Ζητήσει άδεια κοινοποίησης</translation>
+      <source>E-mail</source>
+      <translation>Ηλεκτρονικού ταχυδρομείου</translation>
     </message>
     <message>
-      <source>New chat notification settings</source>
-      <translation>Νέες ρυθμίσεις ειδοποιήσεων συνομιλίας</translation>
+      <source>Date range from to</source>
+      <translation>Εύρος ημερομηνιών από να</translation>
     </message>
     <message>
-      <source>System configuration</source>
-      <translation>Παραμετροποίηση συστήματος</translation>
-    </message>
-    <message>
-      <source>Chat related</source>
-      <translation>Συνομιλία σχετικές</translation>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation>Τμήματα</translation>
-    </message>
-    <message>
-      <source>Blocked users</source>
-      <translation>Αποκλεισμένοι χρήστες</translation>
-    </message>
-    <message>
-      <source>Chat configuration</source>
-      <translation>Διαμόρφωση συνομιλίας</translation>
-    </message>
-    <message>
-      <source>GEO detection configuration</source>
-      <translation>Ρύθμιση παραμέτρων ανίχνευσης GEO</translation>
-    </message>
-    <message>
-      <source>Synchronization and sound settings</source>
-      <translation>Ρυθμίσεις συγχρονισμού και ήχο</translation>
-    </message>
-    <message>
-      <source>Start chat form settings</source>
-      <translation>Έναρξη συνομιλίας μορφή ρυθμίσεις</translation>
-    </message>
-    <message>
-      <source>Canned messages</source>
-      <translation>Κονσερβοποιημένα μηνύματα</translation>
-    </message>
-    <message>
-      <source>E-mail templates</source>
-      <translation>Πρότυπα ηλεκτρονικού ταχυδρομείου</translation>
-    </message>
-    <message>
-      <source>Pro active chat invitations</source>
-      <translation>Προσκλήσεις προορατικού συνομιλίας</translation>
-    </message>
-    <message>
-      <source>Auto responder</source>
-      <translation>Αυτόματη απάντηση</translation>
-    </message>
-    <message>
-      <source>SMTP settings</source>
-      <translation>Ρυθμίσεις SMTP</translation>
-    </message>
-    <message>
-      <source>XMPP settings</source>
-      <translation>Ρυθμίσεις XMPP</translation>
-    </message>
-    <message>
-      <source>Languages configuration</source>
-      <translation>Διαμόρφωση γλώσσες</translation>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation>Λίστα συνομιλίες</translation>
-    </message>
-    <message>
-      <source>Chat archive</source>
-      <translation>Αρχείο συνομιλίας</translation>
-    </message>
-    <message>
-      <source>Live help embed code</source>
-      <translation>ΖΩΝΤΑΝΗ ΒΟΗΘΕΙΑ ενσωματώνει τον κώδικα</translation>
-    </message>
-    <message>
-      <source>FAQ embed code</source>
-      <translation>FAQ ενσωματώνει τον κώδικα</translation>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation>Ενσωματώστε τον κώδικα Questionary</translation>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation>Chatbox ενσωματώνει τον κώδικα</translation>
-    </message>
-    <message>
-      <source>Statistic</source>
-      <translation>Στατιστική</translation>
-    </message>
-    <message>
-      <source>Users and their permissions</source>
-      <translation>Χρήστες και δικαιώματα τους</translation>
-    </message>
-    <message>
-      <source>Users</source>
-      <translation>Χρήστες</translation>
-    </message>
-    <message>
-      <source>List of groups</source>
-      <translation>Λίστα ομάδων</translation>
-    </message>
-    <message>
-      <source>List of roles</source>
-      <translation>Λίστα ρόλων</translation>
-    </message>
-    <message>
-      <source>Files uploads configuration</source>
-      <translation>Αρχεία διαμόρφωσης προσθήκες</translation>
-    </message>
-    <message>
-      <source>Files upload configuration</source>
-      <translation>Αρχεία ανεβάσετε διαμόρφωση</translation>
-    </message>
-    <message>
-      <source>List of files</source>
-      <translation>Λίστα των αρχείων</translation>
-    </message>
-    <message>
-      <source>Other</source>
-      <translation>Άλλο</translation>
-    </message>
-    <message>
-      <source>File configuration</source>
-      <translation>Αρχείο ρύθμισης παραμέτρων</translation>
+      <source>Search</source>
+      <translation>Αναζήτηση</translation>
     </message>
   </context>
   <context>
@@ -1669,6 +1655,13 @@
     <message>
       <source>Operators chats</source>
       <translation>Συνομιλίες διαχειριστή</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/part/operator_profile</name>
+    <message>
+      <source>Skype call</source>
+      <translation>Κλήση skype</translation>
     </message>
   </context>
   <context>
@@ -2258,10 +2251,6 @@
   <context>
     <name>chatbox/configuration</name>
     <message>
-      <source>Embed code generation</source>
-      <translation>Ενσωματώσετε παραγωγή κώδικα</translation>
-    </message>
-    <message>
       <source>Chatbox</source>
       <translation>Κουτί συνομιλίας</translation>
     </message>
@@ -2464,38 +2453,6 @@
   <context>
     <name>department/edit</name>
     <message>
-      <source>Active days</source>
-      <translation>Δραστήριοι τις τελευταίες μέρες</translation>
-    </message>
-    <message>
-      <source>Active hours, 24 hours format</source>
-      <translation>Ενεργός ώρες, 24 ώρες μορφή</translation>
-    </message>
-    <message>
-      <source>from, E.g 8</source>
-      <translation>από, π.χ. 8</translation>
-    </message>
-    <message>
-      <source>from, E.g 17</source>
-      <translation>από, π.χ. 17</translation>
-    </message>
-    <message>
-      <source>XMP messages</source>
-      <translation>XMP μηνύματα</translation>
-    </message>
-    <message>
-      <source>Online hours active</source>
-      <translation>Ενεργό online ώρες</translation>
-    </message>
-    <message>
-      <source>Workdays, during these days chat will be active automatically</source>
-      <translation>Εργάσιμες ημέρες, κατά τη διάρκεια συνομιλίας αυτές τις μέρες θα ενεργοποιηθεί αυτόματα</translation>
-    </message>
-    <message>
-      <source>From, E.g. 17</source>
-      <translation>Από, π.χ. 17</translation>
-    </message>
-    <message>
       <source>Edit department</source>
       <translation>Επεξεργαστείτε το τμήμα</translation>
     </message>
@@ -2631,10 +2588,6 @@
   <context>
     <name>user/account</name>
     <message>
-      <source>Please enter a surname</source>
-      <translation>Παρακαλώ εισάγεται ένα επώνυμο</translation>
-    </message>
-    <message>
       <source>Updated</source>
       <translation>Ενημέρωση</translation>
     </message>
@@ -2757,10 +2710,6 @@
   </context>
   <context>
     <name>department/new</name>
-    <message>
-      <source>Please enter a department name</source>
-      <translation>Παρακαλώ εισάγεται όνομα τμήματος</translation>
-    </message>
     <message>
       <source>New department</source>
       <translation>Νέο τμήμα</translation>
@@ -2900,6 +2849,72 @@
     <message>
       <source>FAQ description</source>
       <translation>Περιγραφή συχνών ερωτήσεων</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/configuration</name>
+    <message>
+      <source>File configuration</source>
+      <translation>Αρχείο ρύθμισης παραμέτρων</translation>
+    </message>
+    <message>
+      <source>Allowed files types for operators</source>
+      <translation>Επιτρέπεται τύπους αρχείων για τους φορείς εκμετάλλευσης</translation>
+    </message>
+    <message>
+      <source>Allowed files types for users</source>
+      <translation>Επιτρέπεται τύπους αρχείων για τους χρήστες</translation>
+    </message>
+    <message>
+      <source>Maximum file size in KB</source>
+      <translation>Μέγιστο μέγεθος αρχείου σε KB</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Ρυθμίσεις ενημέρωση</translation>
+    </message>
+    <message>
+      <source>Please enter valid file type!</source>
+      <translation>Παρακαλούμε, εισάγετε έγκυρο αρχείο τύπου!</translation>
+    </message>
+    <message>
+      <source>Please enter valid maximum file size!</source>
+      <translation>Παρακαλούμε, εισάγετε έγκυρο μέγιστο μέγεθος αρχείου!</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/list</name>
+    <message>
+      <source>List of files</source>
+      <translation>Λίστα των αρχείων</translation>
+    </message>
+    <message>
+      <source>User</source>
+      <translation>Χρήστη</translation>
+    </message>
+    <message>
+      <source>Chat</source>
+      <translation>Chat</translation>
+    </message>
+    <message>
+      <source>Upload name</source>
+      <translation>Ανεβάστε το όνομα</translation>
+    </message>
+    <message>
+      <source>File size</source>
+      <translation>Μέγεθος αρχείου</translation>
+    </message>
+    <message>
+      <source>Extension</source>
+      <translation>Επέκταση</translation>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>Ημερομηνία</translation>
+    </message>
+    <message>
+      <source>Delete the file</source>
+      <translation>Διαγράψτε το αρχείο</translation>
     </message>
   </context>
   <context>
@@ -3563,30 +3578,6 @@
   <context>
     <name>system/smtp</name>
     <message>
-      <source>XMP active</source>
-      <translation>XMP ενεργό</translation>
-    </message>
-    <message>
-      <source>Resource</source>
-      <translation>Πόρος</translation>
-    </message>
-    <message>
-      <source>Server</source>
-      <translation>Διακομιστή</translation>
-    </message>
-    <message>
-      <source>XMP Message content</source>
-      <translation>Περιεχόμενο του μηνύματος XMP</translation>
-    </message>
-    <message>
-      <source>XMP message was sent succesfuly</source>
-      <translation>XMP μήνυμα στάλθηκε επιτυχώς</translation>
-    </message>
-    <message>
-      <source>XMP settings</source>
-      <translation>XMP ρυθμίσεις</translation>
-    </message>
-    <message>
       <source>SMTP settings</source>
       <translation>Ρυθμίσεις SMTP</translation>
     </message>
@@ -4064,374 +4055,7 @@
     </message>
   </context>
   <context>
-    <name>chat/syncuser</name>
-    <message>
-      <source>Chat was automatically transferred to</source>
-      <translation>Chat ήταν μεταφέρεται αυτόματα στο</translation>
-    </message>
-    <message>
-      <source>from</source>
-      <translation>από</translation>
-    </message>
-    <message>
-      <source>Support staff member has closed this chat</source>
-      <translation>Υποστήριξη υπάλληλος έχει κλείσει αυτήν τη συζήτηση</translation>
-    </message>
-    <message>
-      <source>You do not have permission to view this chat, or chat was deleted</source>
-      <translation>Δεν έχετε δικαίωμα να δείτε αυτήν τη συζήτηση, ή διαγράφηκε συνομιλίας</translation>
-    </message>
-    <message>
-      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-      <translation>Υποστήριξη έχει κλείσει το παράθυρο της συνομιλίας, αλλά μπορείτε να αφήσετε τα μηνύματα, και ο διαχειριστής θα τα διαβάσετε αργότερα.</translation>
-    </message>
-    <message>
-      <source>You do not have permission to view this chat, or the chat was deleted</source>
-      <translation>Δεν έχετε δικαίωμα να δείτε αυτήν τη συζήτηση, ή είχε διαγραφεί το chat</translation>
-    </message>
-  </context>
-  <context>
-    <name>abstract/email_template</name>
-    <message>
-      <source>Name, for personal purposes</source>
-      <translation>Όνομα, για προσωπικούς λόγους</translation>
-    </message>
-    <message>
-      <source>Subject</source>
-      <translation>Θέμα</translation>
-    </message>
-    <message>
-      <source>Allow user to change subject</source>
-      <translation>Επιτρέπει στο χρήστη να αλλάξει θέμα</translation>
-    </message>
-    <message>
-      <source>From name</source>
-      <translation>Από το όνομα</translation>
-    </message>
-    <message>
-      <source>Allow to change from name</source>
-      <translation>Επιτρέπει την αλλαγή από το όνομα</translation>
-    </message>
-    <message>
-      <source>From e-mail, if mail was not sent for some reason, this mail will get a failed delivery message</source>
-      <translation>Από το e-mail, αν δεν αποστολής του mail για κάποιο λόγο, αυτό το mail θα λάβετε ένα μήνυμα αποτυχημένη παράδοση</translation>
-    </message>
-    <message>
-      <source>Allow to change from e-mail</source>
-      <translation>Επιτρέπει την αλλαγή από ηλεκτρονικό ταχυδρομείο</translation>
-    </message>
-    <message>
-      <source>Reply to</source>
-      <translation>Απάντηση σε</translation>
-    </message>
-    <message>
-      <source>Allow to change reply e-mail</source>
-      <translation>Επιτρέπουν να αλλάξετε τη διεύθυνση ηλεκτρονικού ταχυδρομείου απάντησης</translation>
-    </message>
-    <message>
-      <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
-      <translation>Παραληπτών ηλεκτρονικού ταχυδρομείου, αυτό χρησιμοποιείται αν η αίτηση δεν μπόρεσε να προσδιορίσει ποιος πρέπει να λαμβάνει ένα μήνυμα ηλεκτρονικού ταχυδρομείου.</translation>
-    </message>
-    <message>
-      <source>Content</source>
-      <translation>Περιεχόμενο</translation>
-    </message>
-    <message>
-      <source>E-mail templates</source>
-      <translation>Πρότυπα ηλεκτρονικού ταχυδρομείου</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/closechatadmin</name>
-    <message>
-      <source>has closed the chat!</source>
-      <translation>έκλεισε το chat!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/reopenchat</name>
-    <message>
-      <source>has reopened the chat!</source>
-      <translation>ξανάνοιξε το chat!</translation>
-    </message>
-    <message>
-      <source>No permission to reopen the chat!</source>
-      <translation>Δεν έχει άδεια να ανοίξει εκ νέου το chat!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/single</name>
-    <message>
-      <source>Chat started with</source>
-      <translation>Συνομιλία ξεκίνησε με</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/transferuser</name>
-    <message>
-      <source>Chat was assigned to selected department</source>
-      <translation>Chat ανατέθηκε στον επιλεγμένο τμήμα</translation>
-    </message>
-    <message>
-      <source>Chat was assigned to selected user</source>
-      <translation>Chat ανατέθηκε στον επιλεγμένο χρήστη</translation>
-    </message>
-  </context>
-  <context>
-    <name>departament/edit</name>
-    <message>
-      <source>Please enter a department name</source>
-      <translation>Πληκτρολογήστε ένα όνομα τμήματος</translation>
-    </message>
-    <message>
-      <source>Transfer department has to be different one than self</source>
-      <translation>Τμήμα μεταφοράς πρέπει να είναι διαφορετική από ό, τι αυτο</translation>
-    </message>
-    <message>
-      <source>Please enter a valid from date range!</source>
-      <translation>Παρακαλώ εισάγετε μια έγκυρη από εύρος ημερομηνιών!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid to date range!</source>
-      <translation>Παρακαλώ εισάγετε μια έγκυρη ημερομηνία φάσμα!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chatarchive/viewarchivedchat</name>
-    <message>
-      <source>View archived chat</source>
-      <translation>Προβολή αρχειοθετημένων συνομιλίας</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/deletechatadmin</name>
-    <message>
-      <source>You do not have rights to delete a chat</source>
-      <translation>Δεν έχετε δικαιώματα για να διαγράψετε μια συνομιλία</translation>
-    </message>
-  </context>
-  <context>
-    <name>files/files</name>
-    <message>
-      <source>Refresh</source>
-      <translation>Ανανέωση</translation>
-    </message>
-    <message>
-      <source>Delete file</source>
-      <translation>Διαγράψετε αρχείο</translation>
-    </message>
-    <message>
-      <source>Download file</source>
-      <translation>Κατεβάστε το αρχείο</translation>
-    </message>
-    <message>
-      <source>Drop your files here.</source>
-      <translation>Drop τα αρχεία σας εδώ.</translation>
-    </message>
-    <message>
-      <source>Not an accepted file type</source>
-      <translation>Δεν μια αποδεκτή αρχείο τύπου</translation>
-    </message>
-    <message>
-      <source>Filesize is too big</source>
-      <translation>Μέγεθος αρχείου είναι πολύ μεγάλο</translation>
-    </message>
-  </context>
-  <context>
-    <name>file/configuration</name>
-    <message>
-      <source>File configuration</source>
-      <translation>Αρχείο ρύθμισης παραμέτρων</translation>
-    </message>
-    <message>
-      <source>Allowed files types for operators</source>
-      <translation>Επιτρέπεται τύπους αρχείων για τους φορείς εκμετάλλευσης</translation>
-    </message>
-    <message>
-      <source>Allowed files types for users</source>
-      <translation>Επιτρέπεται τύπους αρχείων για τους χρήστες</translation>
-    </message>
-    <message>
-      <source>Maximum file size in KB</source>
-      <translation>Μέγιστο μέγεθος αρχείου σε KB</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Ρυθμίσεις ενημέρωση</translation>
-    </message>
-    <message>
-      <source>Please enter valid file type!</source>
-      <translation>Παρακαλούμε, εισάγετε έγκυρο αρχείο τύπου!</translation>
-    </message>
-    <message>
-      <source>Please enter valid maximum file size!</source>
-      <translation>Παρακαλούμε, εισάγετε έγκυρο μέγιστο μέγεθος αρχείου!</translation>
-    </message>
-  </context>
-  <context>
-    <name>file/list</name>
-    <message>
-      <source>List of files</source>
-      <translation>Λίστα των αρχείων</translation>
-    </message>
-    <message>
-      <source>User</source>
-      <translation>Χρήστη</translation>
-    </message>
-    <message>
-      <source>Chat</source>
-      <translation>Chat</translation>
-    </message>
-    <message>
-      <source>Upload name</source>
-      <translation>Ανεβάστε το όνομα</translation>
-    </message>
-    <message>
-      <source>File size</source>
-      <translation>Μέγεθος αρχείου</translation>
-    </message>
-    <message>
-      <source>Extension</source>
-      <translation>Επέκταση</translation>
-    </message>
-    <message>
-      <source>Date</source>
-      <translation>Ημερομηνία</translation>
-    </message>
-    <message>
-      <source>Delete the file</source>
-      <translation>Διαγράψτε το αρχείο</translation>
-    </message>
-  </context>
-  <context>
-    <name>file/file</name>
-    <message>
-      <source>Download file</source>
-      <translation>Κατεβάστε το αρχείο</translation>
-    </message>
-  </context>
-  <context>
-    <name>file/configurations</name>
-    <message>
-      <source>Please enter valid file type!</source>
-      <translation>Παρακαλούμε, εισάγετε έγκυρο αρχείο τύπου!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/lists/search_panel</name>
-    <message>
-      <source>Nick</source>
-      <translation>Nick</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>Ηλεκτρονικού ταχυδρομείου</translation>
-    </message>
-    <message>
-      <source>Date range from to</source>
-      <translation>Εύρος ημερομηνιών από να</translation>
-    </message>
-    <message>
-      <source>Search</source>
-      <translation>Αναζήτηση</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/voteaction</name>
-    <message>
-      <source>Thumbs up</source>
-      <translation>Μπράβο</translation>
-    </message>
-    <message>
-      <source>Thumbs down</source>
-      <translation>Αντίχειρες κάτω</translation>
-    </message>
-    <message>
-      <source>Removed thumb vote</source>
-      <translation>Αφαιρεθεί αντίχειρα ψηφοφορία</translation>
-    </message>
-  </context>
-  <context>
-    <name>system/xmp</name>
-    <message>
-      <source>XMP active</source>
-      <translation>XMP ενεργό</translation>
-    </message>
-    <message>
-      <source>Host</source>
-      <translation>Υποδοχής</translation>
-    </message>
-    <message>
-      <source>Port</source>
-      <translation>Λιμάνι</translation>
-    </message>
-    <message>
-      <source>Login</source>
-      <translation>Σύνδεση</translation>
-    </message>
-    <message>
-      <source>Password</source>
-      <translation>Κωδικός πρόσβασης</translation>
-    </message>
-    <message>
-      <source>Resource</source>
-      <translation>Πόρος</translation>
-    </message>
-    <message>
-      <source>Server</source>
-      <translation>Διακομιστή</translation>
-    </message>
-    <message>
-      <source>Recipients</source>
-      <translation>Παραλήπτες</translation>
-    </message>
-    <message>
-      <source>XMP Message content</source>
-      <translation>Περιεχόμενο του μηνύματος XMP</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Ρυθμίσεις ενημέρωση</translation>
-    </message>
-    <message>
-      <source>XMP message was sent succesfuly</source>
-      <translation>XMP μήνυμα στάλθηκε επιτυχώς</translation>
-    </message>
-    <message>
-      <source>XMP settings</source>
-      <translation>XMP ρυθμίσεις</translation>
-    </message>
-    <message>
-      <source>XMPP active</source>
-      <translation>XMPP ενεργό</translation>
-    </message>
-    <message>
-      <source>Default recipients</source>
-      <translation>Προεπιλογή παραλήπτες</translation>
-    </message>
-    <message>
-      <source>Test message will be send to your account e-mail</source>
-      <translation>Δοκιμή μήνυμα θα στείλει στο e-mail σας λογαριασμό</translation>
-    </message>
-    <message>
-      <source>XMPP message was sent succesfuly</source>
-      <translation>XMPP μήνυμα στάλθηκε επιτυχώς</translation>
-    </message>
-    <message>
-      <source>XMPP settings</source>
-      <translation>Ρυθμίσεις XMPP</translation>
-    </message>
-  </context>
-  <context>
     <name>system/xmpp</name>
-    <message>
-      <source>XMPP documentation</source>
-      <translation>XMPP τεκμηρίωση</translation>
-    </message>
-    <message>
-      <source>User standard XMPP service</source>
-      <translation>Βασική υπηρεσία XMPP χρήστη</translation>
-    </message>
     <message>
       <source>XMPP settings</source>
       <translation>Ρυθμίσεις XMPP</translation>
@@ -4562,10 +4186,179 @@
     </message>
   </context>
   <context>
-    <name>chat/part/operator_profile</name>
+    <name>file/file</name>
     <message>
-      <source>Skype call</source>
-      <translation>Κλήση skype</translation>
+      <source>Download file</source>
+      <translation>Κατεβάστε το αρχείο</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/syncuser</name>
+    <message>
+      <source>Chat was automatically transferred to</source>
+      <translation>Chat ήταν μεταφέρεται αυτόματα στο</translation>
+    </message>
+    <message>
+      <source>from</source>
+      <translation>από</translation>
+    </message>
+    <message>
+      <source>Support staff member has closed this chat</source>
+      <translation>Υποστήριξη υπάλληλος έχει κλείσει αυτήν τη συζήτηση</translation>
+    </message>
+    <message>
+      <source>You do not have permission to view this chat, or chat was deleted</source>
+      <translation>Δεν έχετε δικαίωμα να δείτε αυτήν τη συζήτηση, ή διαγράφηκε συνομιλίας</translation>
+    </message>
+    <message>
+      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
+      <translation>Υποστήριξη έχει κλείσει το παράθυρο της συνομιλίας, αλλά μπορείτε να αφήσετε τα μηνύματα, και ο διαχειριστής θα τα διαβάσετε αργότερα.</translation>
+    </message>
+    <message>
+      <source>You do not have permission to view this chat, or the chat was deleted</source>
+      <translation>Δεν έχετε δικαίωμα να δείτε αυτήν τη συζήτηση, ή είχε διαγραφεί το chat</translation>
+    </message>
+  </context>
+  <context>
+    <name>departament/edit</name>
+    <message>
+      <source>Please enter a department name</source>
+      <translation>Πληκτρολογήστε ένα όνομα τμήματος</translation>
+    </message>
+    <message>
+      <source>Transfer department has to be different one than self</source>
+      <translation>Τμήμα μεταφοράς πρέπει να είναι διαφορετική από ό, τι αυτο</translation>
+    </message>
+    <message>
+      <source>Please enter a valid from date range!</source>
+      <translation>Παρακαλώ εισάγετε μια έγκυρη από εύρος ημερομηνιών!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid to date range!</source>
+      <translation>Παρακαλώ εισάγετε μια έγκυρη ημερομηνία φάσμα!</translation>
+    </message>
+  </context>
+  <context>
+    <name>abstract/email_template</name>
+    <message>
+      <source>Name, for personal purposes</source>
+      <translation>Όνομα, για προσωπικούς λόγους</translation>
+    </message>
+    <message>
+      <source>Subject</source>
+      <translation>Θέμα</translation>
+    </message>
+    <message>
+      <source>Allow user to change subject</source>
+      <translation>Επιτρέπει στο χρήστη να αλλάξει θέμα</translation>
+    </message>
+    <message>
+      <source>From name</source>
+      <translation>Από το όνομα</translation>
+    </message>
+    <message>
+      <source>Allow to change from name</source>
+      <translation>Επιτρέπει την αλλαγή από το όνομα</translation>
+    </message>
+    <message>
+      <source>From e-mail, if mail was not sent for some reason, this mail will get a failed delivery message</source>
+      <translation>Από το e-mail, αν δεν αποστολής του mail για κάποιο λόγο, αυτό το mail θα λάβετε ένα μήνυμα αποτυχημένη παράδοση</translation>
+    </message>
+    <message>
+      <source>Allow to change from e-mail</source>
+      <translation>Επιτρέπει την αλλαγή από ηλεκτρονικό ταχυδρομείο</translation>
+    </message>
+    <message>
+      <source>Reply to</source>
+      <translation>Απάντηση σε</translation>
+    </message>
+    <message>
+      <source>Allow to change reply e-mail</source>
+      <translation>Επιτρέπουν να αλλάξετε τη διεύθυνση ηλεκτρονικού ταχυδρομείου απάντησης</translation>
+    </message>
+    <message>
+      <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
+      <translation>Παραληπτών ηλεκτρονικού ταχυδρομείου, αυτό χρησιμοποιείται αν η αίτηση δεν μπόρεσε να προσδιορίσει ποιος πρέπει να λαμβάνει ένα μήνυμα ηλεκτρονικού ταχυδρομείου.</translation>
+    </message>
+    <message>
+      <source>Content</source>
+      <translation>Περιεχόμενο</translation>
+    </message>
+    <message>
+      <source>E-mail templates</source>
+      <translation>Πρότυπα ηλεκτρονικού ταχυδρομείου</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/closechatadmin</name>
+    <message>
+      <source>has closed the chat!</source>
+      <translation>έκλεισε το chat!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/deletechatadmin</name>
+    <message>
+      <source>You do not have rights to delete a chat</source>
+      <translation>Δεν έχετε δικαιώματα για να διαγράψετε μια συνομιλία</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/reopenchat</name>
+    <message>
+      <source>has reopened the chat!</source>
+      <translation>ξανάνοιξε το chat!</translation>
+    </message>
+    <message>
+      <source>No permission to reopen the chat!</source>
+      <translation>Δεν έχει άδεια να ανοίξει εκ νέου το chat!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/single</name>
+    <message>
+      <source>Chat started with</source>
+      <translation>Συνομιλία ξεκίνησε με</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/transferuser</name>
+    <message>
+      <source>Chat was assigned to selected department</source>
+      <translation>Chat ανατέθηκε στον επιλεγμένο τμήμα</translation>
+    </message>
+    <message>
+      <source>Chat was assigned to selected user</source>
+      <translation>Chat ανατέθηκε στον επιλεγμένο χρήστη</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/voteaction</name>
+    <message>
+      <source>Thumbs up</source>
+      <translation>Μπράβο</translation>
+    </message>
+    <message>
+      <source>Thumbs down</source>
+      <translation>Αντίχειρες κάτω</translation>
+    </message>
+    <message>
+      <source>Removed thumb vote</source>
+      <translation>Αφαιρεθεί αντίχειρα ψηφοφορία</translation>
+    </message>
+  </context>
+  <context>
+    <name>chatarchive/viewarchivedchat</name>
+    <message>
+      <source>View archived chat</source>
+      <translation>Προβολή αρχειοθετημένων συνομιλίας</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/configurations</name>
+    <message>
+      <source>Please enter valid file type!</source>
+      <translation>Παρακαλούμε, εισάγετε έγκυρο αρχείο τύπου!</translation>
     </message>
   </context>
 </TS>

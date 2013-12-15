@@ -529,19 +529,34 @@
     </message>
   </context>
   <context>
+    <name>files/files</name>
+    <message>
+      <source>Refresh</source>
+      <translation>Uppdatera</translation>
+    </message>
+    <message>
+      <source>Delete file</source>
+      <translation>Ta bort fil</translation>
+    </message>
+    <message>
+      <source>Download file</source>
+      <translation>Ladda ner fil</translation>
+    </message>
+    <message>
+      <source>Drop your files here.</source>
+      <translation>Släpp dina filer här.</translation>
+    </message>
+    <message>
+      <source>Not an accepted file type</source>
+      <translation>Inte en godkänd filtyp</translation>
+    </message>
+    <message>
+      <source>Filesize is too big</source>
+      <translation>Filstorleken är för stor</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/syncadmininterface</name>
-    <message>
-      <source>Close chat</source>
-      <translation>Stäng chatt</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Ta bort chatt</translation>
-    </message>
-    <message>
-      <source>Reject chat</source>
-      <translation>Neka chatt</translation>
-    </message>
     <message>
       <source>Open in a new window</source>
       <translation>Öppna i ett nytt fönster</translation>
@@ -861,34 +876,6 @@
   </context>
   <context>
     <name>chat/onlineusers</name>
-    <message>
-      <source>Notifications about new chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Copyright settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Application name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Site settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online tracking</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Misc</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Workflow</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>GEO detection configuration</source>
       <translation>Geografisk plats inställningar</translation>
@@ -1240,18 +1227,6 @@
   <context>
     <name>chat/listchatconfig</name>
     <message>
-      <source>List</source>
-      <translation>Lista</translation>
-    </message>
-    <message>
-      <source>Explain</source>
-      <translation>Förklara</translation>
-    </message>
-    <message>
-      <source>Edit value</source>
-      <translation>Redigera värde</translation>
-    </message>
-    <message>
       <source>Chat configuration</source>
       <translation type="unfinished"/>
     </message>
@@ -1297,11 +1272,142 @@
     </message>
   </context>
   <context>
-    <name>system/htmlcode</name>
+    <name>system/configuration</name>
     <message>
-      <source>Check for messages from the operator</source>
-      <translation>Kontrollera meddelanden från operatör</translation>
+      <source>Request notification permission</source>
+      <translation>Begär notifieringsrättighet</translation>
     </message>
+    <message>
+      <source>New chat notification settings</source>
+      <translation>Inställningar, ny chatt notifiering</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>System inställningar</translation>
+    </message>
+    <message>
+      <source>Chat related</source>
+      <translation>Chatt relaterad</translation>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation>Avdelningar</translation>
+    </message>
+    <message>
+      <source>Blocked users</source>
+      <translation>Blockerade användare</translation>
+    </message>
+    <message>
+      <source>Chat configuration</source>
+      <translation>Chatt inställningar</translation>
+    </message>
+    <message>
+      <source>GEO detection configuration</source>
+      <translation>Geografisk plats inställningar</translation>
+    </message>
+    <message>
+      <source>Synchronization and sound settings</source>
+      <translation>Synkronisering och ljudinställningar</translation>
+    </message>
+    <message>
+      <source>Start chat form settings</source>
+      <translation>Starta chatt , formulär inställningar</translation>
+    </message>
+    <message>
+      <source>Canned messages</source>
+      <translation>Snabbmeddelanden</translation>
+    </message>
+    <message>
+      <source>E-mail templates</source>
+      <translation>E-post mallar</translation>
+    </message>
+    <message>
+      <source>Pro active chat invitations</source>
+      <translation>Proaktiva chatt inbjudningar</translation>
+    </message>
+    <message>
+      <source>Auto responder</source>
+      <translation>Autosvar</translation>
+    </message>
+    <message>
+      <source>SMTP settings</source>
+      <translation>SMTP inställningar</translation>
+    </message>
+    <message>
+      <source>XMPP settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation>Språk inställningar</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Chattlista</translation>
+    </message>
+    <message>
+      <source>Chat archive</source>
+      <translation>Chatt arkiv</translation>
+    </message>
+    <message>
+      <source>Live help embed code</source>
+      <translation>Live hjälp inbäddad kod</translation>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation>FAQ inbäddad kod</translation>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation>Frågeformulär inbäddad kod</translation>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation>Chattbox inbäddad kod</translation>
+    </message>
+    <message>
+      <source>Statistic</source>
+      <translation>Statistik</translation>
+    </message>
+    <message>
+      <source>Users and their permissions</source>
+      <translation>Användare och rättigheter</translation>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation>Användare</translation>
+    </message>
+    <message>
+      <source>List of groups</source>
+      <translation>Grupplista</translation>
+    </message>
+    <message>
+      <source>List of roles</source>
+      <translation>Roll lista</translation>
+    </message>
+    <message>
+      <source>Files uploads configuration</source>
+      <translation>Inställningar för filuppladdning</translation>
+    </message>
+    <message>
+      <source>Files upload configuration</source>
+      <translation>Inställningar för filuppladdning</translation>
+    </message>
+    <message>
+      <source>List of files</source>
+      <translation>Fil lista</translation>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation>Andra</translation>
+    </message>
+    <message>
+      <source>File configuration</source>
+      <translation>Fil inställningar</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/htmlcode</name>
     <message>
       <source>Widget embed code</source>
       <translation>Inbäddad kod för widget</translation>
@@ -1522,142 +1628,22 @@
     </message>
   </context>
   <context>
-    <name>system/configuration</name>
+    <name>chat/lists/search_panel</name>
     <message>
-      <source>XMP settings</source>
-      <translation type="unfinished"/>
+      <source>Nick</source>
+      <translation>Smeknamn</translation>
     </message>
     <message>
-      <source>Request notification permission</source>
-      <translation>Begär notifieringsrättighet</translation>
+      <source>E-mail</source>
+      <translation>E-post</translation>
     </message>
     <message>
-      <source>New chat notification settings</source>
-      <translation>Inställningar, ny chatt notifiering</translation>
+      <source>Date range from to</source>
+      <translation>Datum från</translation>
     </message>
     <message>
-      <source>System configuration</source>
-      <translation>System inställningar</translation>
-    </message>
-    <message>
-      <source>Chat related</source>
-      <translation>Chatt relaterad</translation>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation>Avdelningar</translation>
-    </message>
-    <message>
-      <source>Blocked users</source>
-      <translation>Blockerade användare</translation>
-    </message>
-    <message>
-      <source>Chat configuration</source>
-      <translation>Chatt inställningar</translation>
-    </message>
-    <message>
-      <source>GEO detection configuration</source>
-      <translation>Geografisk plats inställningar</translation>
-    </message>
-    <message>
-      <source>Synchronization and sound settings</source>
-      <translation>Synkronisering och ljudinställningar</translation>
-    </message>
-    <message>
-      <source>Start chat form settings</source>
-      <translation>Starta chatt , formulär inställningar</translation>
-    </message>
-    <message>
-      <source>Canned messages</source>
-      <translation>Snabbmeddelanden</translation>
-    </message>
-    <message>
-      <source>E-mail templates</source>
-      <translation>E-post mallar</translation>
-    </message>
-    <message>
-      <source>Pro active chat invitations</source>
-      <translation>Proaktiva chatt inbjudningar</translation>
-    </message>
-    <message>
-      <source>Auto responder</source>
-      <translation>Autosvar</translation>
-    </message>
-    <message>
-      <source>SMTP settings</source>
-      <translation>SMTP inställningar</translation>
-    </message>
-    <message>
-      <source>XMPP settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Languages configuration</source>
-      <translation>Språk inställningar</translation>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation>Chattlista</translation>
-    </message>
-    <message>
-      <source>Chat archive</source>
-      <translation>Chatt arkiv</translation>
-    </message>
-    <message>
-      <source>Live help embed code</source>
-      <translation>Live hjälp inbäddad kod</translation>
-    </message>
-    <message>
-      <source>FAQ embed code</source>
-      <translation>FAQ inbäddad kod</translation>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation>Frågeformulär inbäddad kod</translation>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation>Chattbox inbäddad kod</translation>
-    </message>
-    <message>
-      <source>Statistic</source>
-      <translation>Statistik</translation>
-    </message>
-    <message>
-      <source>Users and their permissions</source>
-      <translation>Användare och rättigheter</translation>
-    </message>
-    <message>
-      <source>Users</source>
-      <translation>Användare</translation>
-    </message>
-    <message>
-      <source>List of groups</source>
-      <translation>Grupplista</translation>
-    </message>
-    <message>
-      <source>List of roles</source>
-      <translation>Roll lista</translation>
-    </message>
-    <message>
-      <source>Files uploads configuration</source>
-      <translation>Inställningar för filuppladdning</translation>
-    </message>
-    <message>
-      <source>Files upload configuration</source>
-      <translation>Inställningar för filuppladdning</translation>
-    </message>
-    <message>
-      <source>List of files</source>
-      <translation>Fil lista</translation>
-    </message>
-    <message>
-      <source>Other</source>
-      <translation>Andra</translation>
-    </message>
-    <message>
-      <source>File configuration</source>
-      <translation>Fil inställningar</translation>
+      <source>Search</source>
+      <translation>Sök</translation>
     </message>
   </context>
   <context>
@@ -1669,6 +1655,13 @@
     <message>
       <source>Operators chats</source>
       <translation>Chattar med operatör</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/part/operator_profile</name>
+    <message>
+      <source>Skype call</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -2258,10 +2251,6 @@
   <context>
     <name>chatbox/configuration</name>
     <message>
-      <source>Embed code generation</source>
-      <translation>Inbäddad kod generering</translation>
-    </message>
-    <message>
       <source>Chatbox</source>
       <translation>Chattbox</translation>
     </message>
@@ -2464,38 +2453,6 @@
   <context>
     <name>department/edit</name>
     <message>
-      <source>Active days</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Active hours, 24 hours format</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>from, E.g 8</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>from, E.g 17</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMP messages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online hours active</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Workdays, during these days chat will be active automatically</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>From, E.g. 17</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Edit department</source>
       <translation>Redigera avdelning</translation>
     </message>
@@ -2631,10 +2588,6 @@
   <context>
     <name>user/account</name>
     <message>
-      <source>Please enter a surname</source>
-      <translation>Vänligen skriv in ett efternamn</translation>
-    </message>
-    <message>
       <source>Updated</source>
       <translation>Uppdaterad</translation>
     </message>
@@ -2757,10 +2710,6 @@
   </context>
   <context>
     <name>department/new</name>
-    <message>
-      <source>Please enter a department name</source>
-      <translation>Vänligen skriv in ett avdelningsnamn</translation>
-    </message>
     <message>
       <source>New department</source>
       <translation>Ny avdelning</translation>
@@ -2900,6 +2849,72 @@
     <message>
       <source>FAQ description</source>
       <translation>FAQ förklaring</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/configuration</name>
+    <message>
+      <source>File configuration</source>
+      <translation>Fil inställningar</translation>
+    </message>
+    <message>
+      <source>Allowed files types for operators</source>
+      <translation>Tillåtna filtyper för operatörer</translation>
+    </message>
+    <message>
+      <source>Allowed files types for users</source>
+      <translation>Tillåtna filtyper för användare</translation>
+    </message>
+    <message>
+      <source>Maximum file size in KB</source>
+      <translation>Max filstorlek i KB</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Inställningar uppdaterade</translation>
+    </message>
+    <message>
+      <source>Please enter valid file type!</source>
+      <translation>Vänligen ange en giltig filtyp!</translation>
+    </message>
+    <message>
+      <source>Please enter valid maximum file size!</source>
+      <translation>Vänligen ange max filstorlek!</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/list</name>
+    <message>
+      <source>List of files</source>
+      <translation>Fil lista</translation>
+    </message>
+    <message>
+      <source>User</source>
+      <translation>Användare</translation>
+    </message>
+    <message>
+      <source>Chat</source>
+      <translation>Chatt</translation>
+    </message>
+    <message>
+      <source>Upload name</source>
+      <translation>Ladda upp som namn</translation>
+    </message>
+    <message>
+      <source>File size</source>
+      <translation>Filstorlek</translation>
+    </message>
+    <message>
+      <source>Extension</source>
+      <translation>Tillägg</translation>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>Datum</translation>
+    </message>
+    <message>
+      <source>Delete the file</source>
+      <translation>Ta bort filen</translation>
     </message>
   </context>
   <context>
@@ -3563,30 +3578,6 @@
   <context>
     <name>system/smtp</name>
     <message>
-      <source>XMP active</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Resource</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Server</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMP Message content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMP message was sent succesfuly</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMP settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>SMTP settings</source>
       <translation>SMTP inställningar</translation>
     </message>
@@ -4064,374 +4055,7 @@
     </message>
   </context>
   <context>
-    <name>chat/syncuser</name>
-    <message>
-      <source>Chat was automatically transferred to</source>
-      <translation>Chatten blev automatiskt vidarebefodrad till</translation>
-    </message>
-    <message>
-      <source>from</source>
-      <translation>från</translation>
-    </message>
-    <message>
-      <source>Support staff member has closed this chat</source>
-      <translation>Supportmedarbetaren har stängt chatten</translation>
-    </message>
-    <message>
-      <source>You do not have permission to view this chat, or chat was deleted</source>
-      <translation>Du har inte rättigheter att se på denna chatt eller så är den borttagen</translation>
-    </message>
-    <message>
-      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-      <translation>Supporten har stängt chattfönstret men lämna gärna meddelande och så läser administratören dem senare.</translation>
-    </message>
-    <message>
-      <source>You do not have permission to view this chat, or the chat was deleted</source>
-      <translation>Du har inte rättigheter att se på denna chatt eller så är den borttagen</translation>
-    </message>
-  </context>
-  <context>
-    <name>abstract/email_template</name>
-    <message>
-      <source>Name, for personal purposes</source>
-      <translation>Namn, för internt bruk</translation>
-    </message>
-    <message>
-      <source>Subject</source>
-      <translation>Ämne</translation>
-    </message>
-    <message>
-      <source>Allow user to change subject</source>
-      <translation>Tillåt användare att ändra ämne</translation>
-    </message>
-    <message>
-      <source>From name</source>
-      <translation>Från namn</translation>
-    </message>
-    <message>
-      <source>Allow to change from name</source>
-      <translation>Tillåt ändring av från namn</translation>
-    </message>
-    <message>
-      <source>From e-mail, if mail was not sent for some reason, this mail will get a failed delivery message</source>
-      <translation>Adress för om e-posten av någon anledning inte skickats, så skickas en felrapport hit</translation>
-    </message>
-    <message>
-      <source>Allow to change from e-mail</source>
-      <translation>Tillåt ändring av från adress</translation>
-    </message>
-    <message>
-      <source>Reply to</source>
-      <translation>Svara till</translation>
-    </message>
-    <message>
-      <source>Allow to change reply e-mail</source>
-      <translation>Tillåt ändring av svarsaddress</translation>
-    </message>
-    <message>
-      <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
-      <translation>Mottagaradress, den här adressen används om applikationen inte kan avgöra vem som borde få e-posten</translation>
-    </message>
-    <message>
-      <source>Content</source>
-      <translation>Innehåll</translation>
-    </message>
-    <message>
-      <source>E-mail templates</source>
-      <translation>E-post mallar</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/closechatadmin</name>
-    <message>
-      <source>has closed the chat!</source>
-      <translation>har stängt chatten!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/reopenchat</name>
-    <message>
-      <source>has reopened the chat!</source>
-      <translation>har återupptagit chatten!</translation>
-    </message>
-    <message>
-      <source>No permission to reopen the chat!</source>
-      <translation>Rättighet saknas att återuppta chatten!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/single</name>
-    <message>
-      <source>Chat started with</source>
-      <translation>Chatt startad med</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/transferuser</name>
-    <message>
-      <source>Chat was assigned to selected department</source>
-      <translation>Chatten tilldelades vald avdelning</translation>
-    </message>
-    <message>
-      <source>Chat was assigned to selected user</source>
-      <translation>Chatten tilldelades till vald användare</translation>
-    </message>
-  </context>
-  <context>
-    <name>departament/edit</name>
-    <message>
-      <source>Please enter a department name</source>
-      <translation>Vänligen skriv in ett avdelningsnamn</translation>
-    </message>
-    <message>
-      <source>Transfer department has to be different one than self</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter a valid from date range!</source>
-      <translation>Vänligen ange ett giltigt från datum!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid to date range!</source>
-      <translation>Vänligen ange ett giltigt till datum!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chatarchive/viewarchivedchat</name>
-    <message>
-      <source>View archived chat</source>
-      <translation>Visa arkiverad chatt</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/deletechatadmin</name>
-    <message>
-      <source>You do not have rights to delete a chat</source>
-      <translation>Du har inte rättigheter att ta bort en chatt</translation>
-    </message>
-  </context>
-  <context>
-    <name>files/files</name>
-    <message>
-      <source>Refresh</source>
-      <translation>Uppdatera</translation>
-    </message>
-    <message>
-      <source>Delete file</source>
-      <translation>Ta bort fil</translation>
-    </message>
-    <message>
-      <source>Download file</source>
-      <translation>Ladda ner fil</translation>
-    </message>
-    <message>
-      <source>Drop your files here.</source>
-      <translation>Släpp dina filer här.</translation>
-    </message>
-    <message>
-      <source>Not an accepted file type</source>
-      <translation>Inte en godkänd filtyp</translation>
-    </message>
-    <message>
-      <source>Filesize is too big</source>
-      <translation>Filstorleken är för stor</translation>
-    </message>
-  </context>
-  <context>
-    <name>file/configuration</name>
-    <message>
-      <source>File configuration</source>
-      <translation>Fil inställningar</translation>
-    </message>
-    <message>
-      <source>Allowed files types for operators</source>
-      <translation>Tillåtna filtyper för operatörer</translation>
-    </message>
-    <message>
-      <source>Allowed files types for users</source>
-      <translation>Tillåtna filtyper för användare</translation>
-    </message>
-    <message>
-      <source>Maximum file size in KB</source>
-      <translation>Max filstorlek i KB</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Inställningar uppdaterade</translation>
-    </message>
-    <message>
-      <source>Please enter valid file type!</source>
-      <translation>Vänligen ange en giltig filtyp!</translation>
-    </message>
-    <message>
-      <source>Please enter valid maximum file size!</source>
-      <translation>Vänligen ange max filstorlek!</translation>
-    </message>
-  </context>
-  <context>
-    <name>file/list</name>
-    <message>
-      <source>List of files</source>
-      <translation>Fil lista</translation>
-    </message>
-    <message>
-      <source>User</source>
-      <translation>Användare</translation>
-    </message>
-    <message>
-      <source>Chat</source>
-      <translation>Chatt</translation>
-    </message>
-    <message>
-      <source>Upload name</source>
-      <translation>Ladda upp som namn</translation>
-    </message>
-    <message>
-      <source>File size</source>
-      <translation>Filstorlek</translation>
-    </message>
-    <message>
-      <source>Extension</source>
-      <translation>Tillägg</translation>
-    </message>
-    <message>
-      <source>Date</source>
-      <translation>Datum</translation>
-    </message>
-    <message>
-      <source>Delete the file</source>
-      <translation>Ta bort filen</translation>
-    </message>
-  </context>
-  <context>
-    <name>file/file</name>
-    <message>
-      <source>Download file</source>
-      <translation>Ladda ner filen</translation>
-    </message>
-  </context>
-  <context>
-    <name>file/configurations</name>
-    <message>
-      <source>Please enter valid file type!</source>
-      <translation>Vänligen ange en giltig filtyp!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/lists/search_panel</name>
-    <message>
-      <source>Nick</source>
-      <translation>Smeknamn</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-post</translation>
-    </message>
-    <message>
-      <source>Date range from to</source>
-      <translation>Datum från</translation>
-    </message>
-    <message>
-      <source>Search</source>
-      <translation>Sök</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/voteaction</name>
-    <message>
-      <source>Thumbs up</source>
-      <translation>Tummen upp</translation>
-    </message>
-    <message>
-      <source>Thumbs down</source>
-      <translation>Tummen ned</translation>
-    </message>
-    <message>
-      <source>Removed thumb vote</source>
-      <translation>Tog bort tum-röstning</translation>
-    </message>
-  </context>
-  <context>
-    <name>system/xmp</name>
-    <message>
-      <source>XMP active</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Host</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Port</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Login</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Password</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Resource</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Server</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Recipients</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMP Message content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMP message was sent succesfuly</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMP settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMPP active</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Default recipients</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Test message will be send to your account e-mail</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMPP message was sent succesfuly</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMPP settings</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
     <name>system/xmpp</name>
-    <message>
-      <source>XMPP documentation</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User standard XMPP service</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>XMPP settings</source>
       <translation type="unfinished"/>
@@ -4562,10 +4186,179 @@
     </message>
   </context>
   <context>
-    <name>chat/part/operator_profile</name>
+    <name>file/file</name>
     <message>
-      <source>Skype call</source>
+      <source>Download file</source>
+      <translation>Ladda ner filen</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/syncuser</name>
+    <message>
+      <source>Chat was automatically transferred to</source>
+      <translation>Chatten blev automatiskt vidarebefodrad till</translation>
+    </message>
+    <message>
+      <source>from</source>
+      <translation>från</translation>
+    </message>
+    <message>
+      <source>Support staff member has closed this chat</source>
+      <translation>Supportmedarbetaren har stängt chatten</translation>
+    </message>
+    <message>
+      <source>You do not have permission to view this chat, or chat was deleted</source>
+      <translation>Du har inte rättigheter att se på denna chatt eller så är den borttagen</translation>
+    </message>
+    <message>
+      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
+      <translation>Supporten har stängt chattfönstret men lämna gärna meddelande och så läser administratören dem senare.</translation>
+    </message>
+    <message>
+      <source>You do not have permission to view this chat, or the chat was deleted</source>
+      <translation>Du har inte rättigheter att se på denna chatt eller så är den borttagen</translation>
+    </message>
+  </context>
+  <context>
+    <name>departament/edit</name>
+    <message>
+      <source>Please enter a department name</source>
+      <translation>Vänligen skriv in ett avdelningsnamn</translation>
+    </message>
+    <message>
+      <source>Transfer department has to be different one than self</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a valid from date range!</source>
+      <translation>Vänligen ange ett giltigt från datum!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid to date range!</source>
+      <translation>Vänligen ange ett giltigt till datum!</translation>
+    </message>
+  </context>
+  <context>
+    <name>abstract/email_template</name>
+    <message>
+      <source>Name, for personal purposes</source>
+      <translation>Namn, för internt bruk</translation>
+    </message>
+    <message>
+      <source>Subject</source>
+      <translation>Ämne</translation>
+    </message>
+    <message>
+      <source>Allow user to change subject</source>
+      <translation>Tillåt användare att ändra ämne</translation>
+    </message>
+    <message>
+      <source>From name</source>
+      <translation>Från namn</translation>
+    </message>
+    <message>
+      <source>Allow to change from name</source>
+      <translation>Tillåt ändring av från namn</translation>
+    </message>
+    <message>
+      <source>From e-mail, if mail was not sent for some reason, this mail will get a failed delivery message</source>
+      <translation>Adress för om e-posten av någon anledning inte skickats, så skickas en felrapport hit</translation>
+    </message>
+    <message>
+      <source>Allow to change from e-mail</source>
+      <translation>Tillåt ändring av från adress</translation>
+    </message>
+    <message>
+      <source>Reply to</source>
+      <translation>Svara till</translation>
+    </message>
+    <message>
+      <source>Allow to change reply e-mail</source>
+      <translation>Tillåt ändring av svarsaddress</translation>
+    </message>
+    <message>
+      <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
+      <translation>Mottagaradress, den här adressen används om applikationen inte kan avgöra vem som borde få e-posten</translation>
+    </message>
+    <message>
+      <source>Content</source>
+      <translation>Innehåll</translation>
+    </message>
+    <message>
+      <source>E-mail templates</source>
+      <translation>E-post mallar</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/closechatadmin</name>
+    <message>
+      <source>has closed the chat!</source>
+      <translation>har stängt chatten!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/deletechatadmin</name>
+    <message>
+      <source>You do not have rights to delete a chat</source>
+      <translation>Du har inte rättigheter att ta bort en chatt</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/reopenchat</name>
+    <message>
+      <source>has reopened the chat!</source>
+      <translation>har återupptagit chatten!</translation>
+    </message>
+    <message>
+      <source>No permission to reopen the chat!</source>
+      <translation>Rättighet saknas att återuppta chatten!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/single</name>
+    <message>
+      <source>Chat started with</source>
+      <translation>Chatt startad med</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/transferuser</name>
+    <message>
+      <source>Chat was assigned to selected department</source>
+      <translation>Chatten tilldelades vald avdelning</translation>
+    </message>
+    <message>
+      <source>Chat was assigned to selected user</source>
+      <translation>Chatten tilldelades till vald användare</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/voteaction</name>
+    <message>
+      <source>Thumbs up</source>
+      <translation>Tummen upp</translation>
+    </message>
+    <message>
+      <source>Thumbs down</source>
+      <translation>Tummen ned</translation>
+    </message>
+    <message>
+      <source>Removed thumb vote</source>
+      <translation>Tog bort tum-röstning</translation>
+    </message>
+  </context>
+  <context>
+    <name>chatarchive/viewarchivedchat</name>
+    <message>
+      <source>View archived chat</source>
+      <translation>Visa arkiverad chatt</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/configurations</name>
+    <message>
+      <source>Please enter valid file type!</source>
+      <translation>Vänligen ange en giltig filtyp!</translation>
     </message>
   </context>
 </TS>

@@ -529,19 +529,34 @@
     </message>
   </context>
   <context>
+    <name>files/files</name>
+    <message>
+      <source>Refresh</source>
+      <translation>بازنشانی</translation>
+    </message>
+    <message>
+      <source>Delete file</source>
+      <translation>حذف فایل</translation>
+    </message>
+    <message>
+      <source>Download file</source>
+      <translation>دانلود فایل</translation>
+    </message>
+    <message>
+      <source>Drop your files here.</source>
+      <translation>فایل خود را اینجا بگذارید</translation>
+    </message>
+    <message>
+      <source>Not an accepted file type</source>
+      <translation>نوع فایل مورد قبول نیست</translation>
+    </message>
+    <message>
+      <source>Filesize is too big</source>
+      <translation>اندازه فایل بزرگ است</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/syncadmininterface</name>
-    <message>
-      <source>Close chat</source>
-      <translation>بستن چت</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>حذف چت</translation>
-    </message>
-    <message>
-      <source>Reject chat</source>
-      <translation>رد چت</translation>
-    </message>
     <message>
       <source>Open in a new window</source>
       <translation>بازکردن در پنجره جدید</translation>
@@ -861,34 +876,6 @@
   </context>
   <context>
     <name>chat/onlineusers</name>
-    <message>
-      <source>Notifications about new chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Copyright settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Application name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Site settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online tracking</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Misc</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Workflow</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>GEO detection configuration</source>
       <translation>تنظیمات دریافت موقعیت جغرافیایی</translation>
@@ -1240,18 +1227,6 @@
   <context>
     <name>chat/listchatconfig</name>
     <message>
-      <source>List</source>
-      <translation>فهرست</translation>
-    </message>
-    <message>
-      <source>Explain</source>
-      <translation>توضیح</translation>
-    </message>
-    <message>
-      <source>Edit value</source>
-      <translation>ویرایش مقدار</translation>
-    </message>
-    <message>
       <source>Chat configuration</source>
       <translation type="unfinished"/>
     </message>
@@ -1297,11 +1272,142 @@
     </message>
   </context>
   <context>
-    <name>system/htmlcode</name>
+    <name>system/configuration</name>
     <message>
-      <source>Check for messages from the operator</source>
-      <translation>بررسی پیام ها از اپراتور</translation>
+      <source>Request notification permission</source>
+      <translation>درخواست مجوز اطلاع رسانی</translation>
     </message>
+    <message>
+      <source>New chat notification settings</source>
+      <translation>تنیظیمات اطلاع رسانی چت جدید</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>تنظیمات سیستم</translation>
+    </message>
+    <message>
+      <source>Chat related</source>
+      <translation>چت مرتبط</translation>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation>دپارتمان ها</translation>
+    </message>
+    <message>
+      <source>Blocked users</source>
+      <translation>کاربران مسدود شده</translation>
+    </message>
+    <message>
+      <source>Chat configuration</source>
+      <translation>تنظیمات چت</translation>
+    </message>
+    <message>
+      <source>GEO detection configuration</source>
+      <translation>تنظیمات شناسایی موقعیت جغرافیایی</translation>
+    </message>
+    <message>
+      <source>Synchronization and sound settings</source>
+      <translation>تنظیمات هماهنگی و صدا</translation>
+    </message>
+    <message>
+      <source>Start chat form settings</source>
+      <translation>تنظیمات فرم شروع چت</translation>
+    </message>
+    <message>
+      <source>Canned messages</source>
+      <translation>پیام های مسدود شده</translation>
+    </message>
+    <message>
+      <source>E-mail templates</source>
+      <translation>قالب های ایمیل</translation>
+    </message>
+    <message>
+      <source>Pro active chat invitations</source>
+      <translation>دعوت به چت</translation>
+    </message>
+    <message>
+      <source>Auto responder</source>
+      <translation>پاسخگوی خودکار</translation>
+    </message>
+    <message>
+      <source>SMTP settings</source>
+      <translation>تنظیمات SMTP</translation>
+    </message>
+    <message>
+      <source>XMPP settings</source>
+      <translation>تنظیمات XMPP</translation>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation>تنظیمات زبان</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>فهرست چت ها</translation>
+    </message>
+    <message>
+      <source>Chat archive</source>
+      <translation>بایگانی چت</translation>
+    </message>
+    <message>
+      <source>Live help embed code</source>
+      <translation>کد داخلی پشتیبانی آنلاین</translation>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation>کد داخلی س/ج</translation>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation>کد داخلی پرسشی</translation>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation>کد داخلی جعبه چت</translation>
+    </message>
+    <message>
+      <source>Statistic</source>
+      <translation>آمار</translation>
+    </message>
+    <message>
+      <source>Users and their permissions</source>
+      <translation>کاربران و مجوزهایشان</translation>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation>کاربران</translation>
+    </message>
+    <message>
+      <source>List of groups</source>
+      <translation>فهرست گروه ها</translation>
+    </message>
+    <message>
+      <source>List of roles</source>
+      <translation>فهرست نقش ها</translation>
+    </message>
+    <message>
+      <source>Files uploads configuration</source>
+      <translation>تنظیمات بارگذاری فایل</translation>
+    </message>
+    <message>
+      <source>Files upload configuration</source>
+      <translation>تنظیمات بارگذاری فایل</translation>
+    </message>
+    <message>
+      <source>List of files</source>
+      <translation>فهرست فایل ها</translation>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation>دیگران</translation>
+    </message>
+    <message>
+      <source>File configuration</source>
+      <translation>تنظیمات فایل</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/htmlcode</name>
     <message>
       <source>Widget embed code</source>
       <translation>کد داخلی ویجت</translation>
@@ -1522,142 +1628,22 @@
     </message>
   </context>
   <context>
-    <name>system/configuration</name>
+    <name>chat/lists/search_panel</name>
     <message>
-      <source>XMP settings</source>
-      <translation>تنظیمات XMP</translation>
+      <source>Nick</source>
+      <translation>نام مستعار</translation>
     </message>
     <message>
-      <source>Request notification permission</source>
-      <translation>درخواست مجوز اطلاع رسانی</translation>
+      <source>E-mail</source>
+      <translation>ایمیل</translation>
     </message>
     <message>
-      <source>New chat notification settings</source>
-      <translation>تنیظیمات اطلاع رسانی چت جدید</translation>
+      <source>Date range from to</source>
+      <translation>محدوده تاریخی</translation>
     </message>
     <message>
-      <source>System configuration</source>
-      <translation>تنظیمات سیستم</translation>
-    </message>
-    <message>
-      <source>Chat related</source>
-      <translation>چت مرتبط</translation>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation>دپارتمان ها</translation>
-    </message>
-    <message>
-      <source>Blocked users</source>
-      <translation>کاربران مسدود شده</translation>
-    </message>
-    <message>
-      <source>Chat configuration</source>
-      <translation>تنظیمات چت</translation>
-    </message>
-    <message>
-      <source>GEO detection configuration</source>
-      <translation>تنظیمات شناسایی موقعیت جغرافیایی</translation>
-    </message>
-    <message>
-      <source>Synchronization and sound settings</source>
-      <translation>تنظیمات هماهنگی و صدا</translation>
-    </message>
-    <message>
-      <source>Start chat form settings</source>
-      <translation>تنظیمات فرم شروع چت</translation>
-    </message>
-    <message>
-      <source>Canned messages</source>
-      <translation>پیام های مسدود شده</translation>
-    </message>
-    <message>
-      <source>E-mail templates</source>
-      <translation>قالب های ایمیل</translation>
-    </message>
-    <message>
-      <source>Pro active chat invitations</source>
-      <translation>دعوت به چت</translation>
-    </message>
-    <message>
-      <source>Auto responder</source>
-      <translation>پاسخگوی خودکار</translation>
-    </message>
-    <message>
-      <source>SMTP settings</source>
-      <translation>تنظیمات SMTP</translation>
-    </message>
-    <message>
-      <source>XMPP settings</source>
-      <translation>تنظیمات XMPP</translation>
-    </message>
-    <message>
-      <source>Languages configuration</source>
-      <translation>تنظیمات زبان</translation>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation>فهرست چت ها</translation>
-    </message>
-    <message>
-      <source>Chat archive</source>
-      <translation>بایگانی چت</translation>
-    </message>
-    <message>
-      <source>Live help embed code</source>
-      <translation>کد داخلی پشتیبانی آنلاین</translation>
-    </message>
-    <message>
-      <source>FAQ embed code</source>
-      <translation>کد داخلی س/ج</translation>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation>کد داخلی پرسشی</translation>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation>کد داخلی جعبه چت</translation>
-    </message>
-    <message>
-      <source>Statistic</source>
-      <translation>آمار</translation>
-    </message>
-    <message>
-      <source>Users and their permissions</source>
-      <translation>کاربران و مجوزهایشان</translation>
-    </message>
-    <message>
-      <source>Users</source>
-      <translation>کاربران</translation>
-    </message>
-    <message>
-      <source>List of groups</source>
-      <translation>فهرست گروه ها</translation>
-    </message>
-    <message>
-      <source>List of roles</source>
-      <translation>فهرست نقش ها</translation>
-    </message>
-    <message>
-      <source>Files uploads configuration</source>
-      <translation>تنظیمات بارگذاری فایل</translation>
-    </message>
-    <message>
-      <source>Files upload configuration</source>
-      <translation>تنظیمات بارگذاری فایل</translation>
-    </message>
-    <message>
-      <source>List of files</source>
-      <translation>فهرست فایل ها</translation>
-    </message>
-    <message>
-      <source>Other</source>
-      <translation>دیگران</translation>
-    </message>
-    <message>
-      <source>File configuration</source>
-      <translation>تنظیمات فایل</translation>
+      <source>Search</source>
+      <translation>جستجو</translation>
     </message>
   </context>
   <context>
@@ -1669,6 +1655,13 @@
     <message>
       <source>Operators chats</source>
       <translation>چت های اپراتورها</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/part/operator_profile</name>
+    <message>
+      <source>Skype call</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -2258,10 +2251,6 @@
   <context>
     <name>chatbox/configuration</name>
     <message>
-      <source>Embed code generation</source>
-      <translation>تولید کد داخلی</translation>
-    </message>
-    <message>
       <source>Chatbox</source>
       <translation>جعبه چت</translation>
     </message>
@@ -2464,38 +2453,6 @@
   <context>
     <name>department/edit</name>
     <message>
-      <source>Active days</source>
-      <translation>روزهای فعال</translation>
-    </message>
-    <message>
-      <source>Active hours, 24 hours format</source>
-      <translation>ساعات فعال، به صورت 24 ساعته</translation>
-    </message>
-    <message>
-      <source>from, E.g 8</source>
-      <translation>از،  E.g 8</translation>
-    </message>
-    <message>
-      <source>from, E.g 17</source>
-      <translation>از  E.g 17</translation>
-    </message>
-    <message>
-      <source>XMP messages</source>
-      <translation>پیام های XMP</translation>
-    </message>
-    <message>
-      <source>Online hours active</source>
-      <translation>ساعات فعال به صورت آنلاین</translation>
-    </message>
-    <message>
-      <source>Workdays, during these days chat will be active automatically</source>
-      <translation>روزهای کاری، در طول این روزها چت به صورت خودکار فعال است</translation>
-    </message>
-    <message>
-      <source>From, E.g. 17</source>
-      <translation>از،  E.g 17</translation>
-    </message>
-    <message>
       <source>Edit department</source>
       <translation>ویرایش دپارتمان</translation>
     </message>
@@ -2631,10 +2588,6 @@
   <context>
     <name>user/account</name>
     <message>
-      <source>Please enter a surname</source>
-      <translation>لطفا نام خانوادگی وارد کنید</translation>
-    </message>
-    <message>
       <source>Updated</source>
       <translation>به روزشده</translation>
     </message>
@@ -2757,10 +2710,6 @@
   </context>
   <context>
     <name>department/new</name>
-    <message>
-      <source>Please enter a department name</source>
-      <translation>لطفا نام دپارتمان را وارد کنید</translation>
-    </message>
     <message>
       <source>New department</source>
       <translation>دپارتمان جدید</translation>
@@ -2900,6 +2849,72 @@
     <message>
       <source>FAQ description</source>
       <translation>شرح س/ج</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/configuration</name>
+    <message>
+      <source>File configuration</source>
+      <translation>تنظیمات فایل</translation>
+    </message>
+    <message>
+      <source>Allowed files types for operators</source>
+      <translation>نوع فایل های مجاز برای اپراتورها</translation>
+    </message>
+    <message>
+      <source>Allowed files types for users</source>
+      <translation>نوع فایل های مجاز برای کاربران</translation>
+    </message>
+    <message>
+      <source>Maximum file size in KB</source>
+      <translation>حداکثر اندازه فایل در کیلوبایت</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>تنظیمات به روز شده</translation>
+    </message>
+    <message>
+      <source>Please enter valid file type!</source>
+      <translation>لطفا نوع فایل معتبر وارد کنید!</translation>
+    </message>
+    <message>
+      <source>Please enter valid maximum file size!</source>
+      <translation>لطفا حداکثر اندازه فایل را وارد کنید</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/list</name>
+    <message>
+      <source>List of files</source>
+      <translation>فهرست فایل ها</translation>
+    </message>
+    <message>
+      <source>User</source>
+      <translation>کاربر</translation>
+    </message>
+    <message>
+      <source>Chat</source>
+      <translation>چت</translation>
+    </message>
+    <message>
+      <source>Upload name</source>
+      <translation>بارگذاری نام</translation>
+    </message>
+    <message>
+      <source>File size</source>
+      <translation>اندازه فایل</translation>
+    </message>
+    <message>
+      <source>Extension</source>
+      <translation>گسترش</translation>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>تاریخ</translation>
+    </message>
+    <message>
+      <source>Delete the file</source>
+      <translation>حذف فایل</translation>
     </message>
   </context>
   <context>
@@ -3563,30 +3578,6 @@
   <context>
     <name>system/smtp</name>
     <message>
-      <source>XMP active</source>
-      <translation>XMP فعال</translation>
-    </message>
-    <message>
-      <source>Resource</source>
-      <translation>منبع</translation>
-    </message>
-    <message>
-      <source>Server</source>
-      <translation>سرور</translation>
-    </message>
-    <message>
-      <source>XMP Message content</source>
-      <translation>محتوا پیام XMP</translation>
-    </message>
-    <message>
-      <source>XMP message was sent succesfuly</source>
-      <translation>پیام XMP با موفقیت ارسال شد</translation>
-    </message>
-    <message>
-      <source>XMP settings</source>
-      <translation>تنظیمات XMP</translation>
-    </message>
-    <message>
       <source>SMTP settings</source>
       <translation>تنظیمات SMTP</translation>
     </message>
@@ -4064,374 +4055,7 @@
     </message>
   </context>
   <context>
-    <name>chat/syncuser</name>
-    <message>
-      <source>Chat was automatically transferred to</source>
-      <translation>چت به صورت خودکار منتقل میشود به</translation>
-    </message>
-    <message>
-      <source>from</source>
-      <translation>از</translation>
-    </message>
-    <message>
-      <source>Support staff member has closed this chat</source>
-      <translation>پشتیبان چت را بسته است</translation>
-    </message>
-    <message>
-      <source>You do not have permission to view this chat, or chat was deleted</source>
-      <translation>شما مجوز دیدن این چت را ندارید و یا چت حذف شده است</translation>
-    </message>
-    <message>
-      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-      <translation>پشتیبان پنجره چت بست، ولی شما میتوانید پیام بگذارید تا مدیر پشتیبانی آن را مشاهده کند.</translation>
-    </message>
-    <message>
-      <source>You do not have permission to view this chat, or the chat was deleted</source>
-      <translation>شما دسترسی لازم برای دیدن این چت و یا حذف کردن آن ها را ندارید</translation>
-    </message>
-  </context>
-  <context>
-    <name>abstract/email_template</name>
-    <message>
-      <source>Name, for personal purposes</source>
-      <translation>نام، برای مقاصد شخصی</translation>
-    </message>
-    <message>
-      <source>Subject</source>
-      <translation>عنوان</translation>
-    </message>
-    <message>
-      <source>Allow user to change subject</source>
-      <translation>مجوز برای تغییر عنوان</translation>
-    </message>
-    <message>
-      <source>From name</source>
-      <translation>نام فرستنده</translation>
-    </message>
-    <message>
-      <source>Allow to change from name</source>
-      <translation>مجوز تغییر نام فرستنده</translation>
-    </message>
-    <message>
-      <source>From e-mail, if mail was not sent for some reason, this mail will get a failed delivery message</source>
-      <translation>فرستنده ایمیل، اگر ایمیل به دلیلی ارسال نشود، این آدرس ایمیل یک پیام برگشت دریافت میکند.</translation>
-    </message>
-    <message>
-      <source>Allow to change from e-mail</source>
-      <translation>مجوز تغییر فرستنده ایمیل</translation>
-    </message>
-    <message>
-      <source>Reply to</source>
-      <translation>پاسخ به</translation>
-    </message>
-    <message>
-      <source>Allow to change reply e-mail</source>
-      <translation>اجازه تغییر پاسخ به ایمیل</translation>
-    </message>
-    <message>
-      <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
-      <translation>گیرنده ایمیل، این مورد وقتی استفاده میشود که برنامه نتواند بفهمد چه کسی باید ایمیل را دریافت کند.</translation>
-    </message>
-    <message>
-      <source>Content</source>
-      <translation>متن</translation>
-    </message>
-    <message>
-      <source>E-mail templates</source>
-      <translation>قالب های ایمیل</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/closechatadmin</name>
-    <message>
-      <source>has closed the chat!</source>
-      <translation>چت بسته شده است!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/reopenchat</name>
-    <message>
-      <source>has reopened the chat!</source>
-      <translation>چت مجدد باز شده است!</translation>
-    </message>
-    <message>
-      <source>No permission to reopen the chat!</source>
-      <translation>مجوز لازم برای باز کردن مجدد چت را ندارید!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/single</name>
-    <message>
-      <source>Chat started with</source>
-      <translation>چت شروع شده با</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/transferuser</name>
-    <message>
-      <source>Chat was assigned to selected department</source>
-      <translation>چت به دپارتمان انتخابی واگذار شده است</translation>
-    </message>
-    <message>
-      <source>Chat was assigned to selected user</source>
-      <translation>چت واگذار شده به کاربر منتخب</translation>
-    </message>
-  </context>
-  <context>
-    <name>departament/edit</name>
-    <message>
-      <source>Please enter a department name</source>
-      <translation>لطفا نام دپارتمان را وارد کنید.</translation>
-    </message>
-    <message>
-      <source>Transfer department has to be different one than self</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter a valid from date range!</source>
-      <translation>لطفا یک محدوده تاریخی معتبر وارد کنید!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid to date range!</source>
-      <translation>لطفا محدوده تاریخی معتبر وارد کنید!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chatarchive/viewarchivedchat</name>
-    <message>
-      <source>View archived chat</source>
-      <translation>مشاهده بایگانی چت</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/deletechatadmin</name>
-    <message>
-      <source>You do not have rights to delete a chat</source>
-      <translation>شما مجوز حذف چت را ندارید</translation>
-    </message>
-  </context>
-  <context>
-    <name>files/files</name>
-    <message>
-      <source>Refresh</source>
-      <translation>بازنشانی</translation>
-    </message>
-    <message>
-      <source>Delete file</source>
-      <translation>حذف فایل</translation>
-    </message>
-    <message>
-      <source>Download file</source>
-      <translation>دانلود فایل</translation>
-    </message>
-    <message>
-      <source>Drop your files here.</source>
-      <translation>فایل خود را اینجا بگذارید</translation>
-    </message>
-    <message>
-      <source>Not an accepted file type</source>
-      <translation>نوع فایل مورد قبول نیست</translation>
-    </message>
-    <message>
-      <source>Filesize is too big</source>
-      <translation>اندازه فایل بزرگ است</translation>
-    </message>
-  </context>
-  <context>
-    <name>file/configuration</name>
-    <message>
-      <source>File configuration</source>
-      <translation>تنظیمات فایل</translation>
-    </message>
-    <message>
-      <source>Allowed files types for operators</source>
-      <translation>نوع فایل های مجاز برای اپراتورها</translation>
-    </message>
-    <message>
-      <source>Allowed files types for users</source>
-      <translation>نوع فایل های مجاز برای کاربران</translation>
-    </message>
-    <message>
-      <source>Maximum file size in KB</source>
-      <translation>حداکثر اندازه فایل در کیلوبایت</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>تنظیمات به روز شده</translation>
-    </message>
-    <message>
-      <source>Please enter valid file type!</source>
-      <translation>لطفا نوع فایل معتبر وارد کنید!</translation>
-    </message>
-    <message>
-      <source>Please enter valid maximum file size!</source>
-      <translation>لطفا حداکثر اندازه فایل را وارد کنید</translation>
-    </message>
-  </context>
-  <context>
-    <name>file/list</name>
-    <message>
-      <source>List of files</source>
-      <translation>فهرست فایل ها</translation>
-    </message>
-    <message>
-      <source>User</source>
-      <translation>کاربر</translation>
-    </message>
-    <message>
-      <source>Chat</source>
-      <translation>چت</translation>
-    </message>
-    <message>
-      <source>Upload name</source>
-      <translation>بارگذاری نام</translation>
-    </message>
-    <message>
-      <source>File size</source>
-      <translation>اندازه فایل</translation>
-    </message>
-    <message>
-      <source>Extension</source>
-      <translation>گسترش</translation>
-    </message>
-    <message>
-      <source>Date</source>
-      <translation>تاریخ</translation>
-    </message>
-    <message>
-      <source>Delete the file</source>
-      <translation>حذف فایل</translation>
-    </message>
-  </context>
-  <context>
-    <name>file/file</name>
-    <message>
-      <source>Download file</source>
-      <translation>دانلود فایل</translation>
-    </message>
-  </context>
-  <context>
-    <name>file/configurations</name>
-    <message>
-      <source>Please enter valid file type!</source>
-      <translation>لطفا نوع فایل معتبر وارد کنید!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/lists/search_panel</name>
-    <message>
-      <source>Nick</source>
-      <translation>نام مستعار</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>ایمیل</translation>
-    </message>
-    <message>
-      <source>Date range from to</source>
-      <translation>محدوده تاریخی</translation>
-    </message>
-    <message>
-      <source>Search</source>
-      <translation>جستجو</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/voteaction</name>
-    <message>
-      <source>Thumbs up</source>
-      <translation>اشاره بالا</translation>
-    </message>
-    <message>
-      <source>Thumbs down</source>
-      <translation>اشاره پایین</translation>
-    </message>
-    <message>
-      <source>Removed thumb vote</source>
-      <translation>حذف رای تصویری</translation>
-    </message>
-  </context>
-  <context>
-    <name>system/xmp</name>
-    <message>
-      <source>XMP active</source>
-      <translation>XMP فعال</translation>
-    </message>
-    <message>
-      <source>Host</source>
-      <translation>هاست</translation>
-    </message>
-    <message>
-      <source>Port</source>
-      <translation>پورت</translation>
-    </message>
-    <message>
-      <source>Login</source>
-      <translation>ورود</translation>
-    </message>
-    <message>
-      <source>Password</source>
-      <translation>کلمه عبور</translation>
-    </message>
-    <message>
-      <source>Resource</source>
-      <translation>منبع</translation>
-    </message>
-    <message>
-      <source>Server</source>
-      <translation>سرور</translation>
-    </message>
-    <message>
-      <source>Recipients</source>
-      <translation>گیرندگان</translation>
-    </message>
-    <message>
-      <source>XMP Message content</source>
-      <translation>محتوا پیام XMP</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>تنظیمات به روز شد</translation>
-    </message>
-    <message>
-      <source>XMP message was sent succesfuly</source>
-      <translation>پیام XMP با موفقیت ارسال شد</translation>
-    </message>
-    <message>
-      <source>XMP settings</source>
-      <translation>تنظیمات XMP</translation>
-    </message>
-    <message>
-      <source>XMPP active</source>
-      <translation>XMPP فعال</translation>
-    </message>
-    <message>
-      <source>Default recipients</source>
-      <translation>گیرندگان پیش فرض</translation>
-    </message>
-    <message>
-      <source>Test message will be send to your account e-mail</source>
-      <translation>پیام آزمایشی به ایمیل شما ارسال خواهد شد</translation>
-    </message>
-    <message>
-      <source>XMPP message was sent succesfuly</source>
-      <translation>پیام XMPP با موفقیت ارسال شد</translation>
-    </message>
-    <message>
-      <source>XMPP settings</source>
-      <translation>تنظیمات XMPP</translation>
-    </message>
-  </context>
-  <context>
     <name>system/xmpp</name>
-    <message>
-      <source>XMPP documentation</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User standard XMPP service</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>XMPP settings</source>
       <translation>تنظیمات XMPP</translation>
@@ -4562,10 +4186,179 @@
     </message>
   </context>
   <context>
-    <name>chat/part/operator_profile</name>
+    <name>file/file</name>
     <message>
-      <source>Skype call</source>
+      <source>Download file</source>
+      <translation>دانلود فایل</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/syncuser</name>
+    <message>
+      <source>Chat was automatically transferred to</source>
+      <translation>چت به صورت خودکار منتقل میشود به</translation>
+    </message>
+    <message>
+      <source>from</source>
+      <translation>از</translation>
+    </message>
+    <message>
+      <source>Support staff member has closed this chat</source>
+      <translation>پشتیبان چت را بسته است</translation>
+    </message>
+    <message>
+      <source>You do not have permission to view this chat, or chat was deleted</source>
+      <translation>شما مجوز دیدن این چت را ندارید و یا چت حذف شده است</translation>
+    </message>
+    <message>
+      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
+      <translation>پشتیبان پنجره چت بست، ولی شما میتوانید پیام بگذارید تا مدیر پشتیبانی آن را مشاهده کند.</translation>
+    </message>
+    <message>
+      <source>You do not have permission to view this chat, or the chat was deleted</source>
+      <translation>شما دسترسی لازم برای دیدن این چت و یا حذف کردن آن ها را ندارید</translation>
+    </message>
+  </context>
+  <context>
+    <name>departament/edit</name>
+    <message>
+      <source>Please enter a department name</source>
+      <translation>لطفا نام دپارتمان را وارد کنید.</translation>
+    </message>
+    <message>
+      <source>Transfer department has to be different one than self</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a valid from date range!</source>
+      <translation>لطفا یک محدوده تاریخی معتبر وارد کنید!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid to date range!</source>
+      <translation>لطفا محدوده تاریخی معتبر وارد کنید!</translation>
+    </message>
+  </context>
+  <context>
+    <name>abstract/email_template</name>
+    <message>
+      <source>Name, for personal purposes</source>
+      <translation>نام، برای مقاصد شخصی</translation>
+    </message>
+    <message>
+      <source>Subject</source>
+      <translation>عنوان</translation>
+    </message>
+    <message>
+      <source>Allow user to change subject</source>
+      <translation>مجوز برای تغییر عنوان</translation>
+    </message>
+    <message>
+      <source>From name</source>
+      <translation>نام فرستنده</translation>
+    </message>
+    <message>
+      <source>Allow to change from name</source>
+      <translation>مجوز تغییر نام فرستنده</translation>
+    </message>
+    <message>
+      <source>From e-mail, if mail was not sent for some reason, this mail will get a failed delivery message</source>
+      <translation>فرستنده ایمیل، اگر ایمیل به دلیلی ارسال نشود، این آدرس ایمیل یک پیام برگشت دریافت میکند.</translation>
+    </message>
+    <message>
+      <source>Allow to change from e-mail</source>
+      <translation>مجوز تغییر فرستنده ایمیل</translation>
+    </message>
+    <message>
+      <source>Reply to</source>
+      <translation>پاسخ به</translation>
+    </message>
+    <message>
+      <source>Allow to change reply e-mail</source>
+      <translation>اجازه تغییر پاسخ به ایمیل</translation>
+    </message>
+    <message>
+      <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
+      <translation>گیرنده ایمیل، این مورد وقتی استفاده میشود که برنامه نتواند بفهمد چه کسی باید ایمیل را دریافت کند.</translation>
+    </message>
+    <message>
+      <source>Content</source>
+      <translation>متن</translation>
+    </message>
+    <message>
+      <source>E-mail templates</source>
+      <translation>قالب های ایمیل</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/closechatadmin</name>
+    <message>
+      <source>has closed the chat!</source>
+      <translation>چت بسته شده است!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/deletechatadmin</name>
+    <message>
+      <source>You do not have rights to delete a chat</source>
+      <translation>شما مجوز حذف چت را ندارید</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/reopenchat</name>
+    <message>
+      <source>has reopened the chat!</source>
+      <translation>چت مجدد باز شده است!</translation>
+    </message>
+    <message>
+      <source>No permission to reopen the chat!</source>
+      <translation>مجوز لازم برای باز کردن مجدد چت را ندارید!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/single</name>
+    <message>
+      <source>Chat started with</source>
+      <translation>چت شروع شده با</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/transferuser</name>
+    <message>
+      <source>Chat was assigned to selected department</source>
+      <translation>چت به دپارتمان انتخابی واگذار شده است</translation>
+    </message>
+    <message>
+      <source>Chat was assigned to selected user</source>
+      <translation>چت واگذار شده به کاربر منتخب</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/voteaction</name>
+    <message>
+      <source>Thumbs up</source>
+      <translation>اشاره بالا</translation>
+    </message>
+    <message>
+      <source>Thumbs down</source>
+      <translation>اشاره پایین</translation>
+    </message>
+    <message>
+      <source>Removed thumb vote</source>
+      <translation>حذف رای تصویری</translation>
+    </message>
+  </context>
+  <context>
+    <name>chatarchive/viewarchivedchat</name>
+    <message>
+      <source>View archived chat</source>
+      <translation>مشاهده بایگانی چت</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/configurations</name>
+    <message>
+      <source>Please enter valid file type!</source>
+      <translation>لطفا نوع فایل معتبر وارد کنید!</translation>
     </message>
   </context>
 </TS>

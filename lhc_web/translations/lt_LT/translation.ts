@@ -529,19 +529,34 @@
     </message>
   </context>
   <context>
+    <name>files/files</name>
+    <message>
+      <source>Refresh</source>
+      <translation>Atnaujinti</translation>
+    </message>
+    <message>
+      <source>Delete file</source>
+      <translation>Trinti failą</translation>
+    </message>
+    <message>
+      <source>Download file</source>
+      <translation>Parsisiųsti failą</translation>
+    </message>
+    <message>
+      <source>Drop your files here.</source>
+      <translation>Nutemkite failus čia.</translation>
+    </message>
+    <message>
+      <source>Not an accepted file type</source>
+      <translation>Netinkamas failo tipas</translation>
+    </message>
+    <message>
+      <source>Filesize is too big</source>
+      <translation>Failas per didelis</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/syncadmininterface</name>
-    <message>
-      <source>Close chat</source>
-      <translation>Uždaryti pokalbį</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Ištrinti pokalbį</translation>
-    </message>
-    <message>
-      <source>Reject chat</source>
-      <translation>Atmesti pokalbį</translation>
-    </message>
     <message>
       <source>Open in a new window</source>
       <translation>Atidaryti naujam lange</translation>
@@ -861,34 +876,6 @@
   </context>
   <context>
     <name>chat/onlineusers</name>
-    <message>
-      <source>Notifications about new chats</source>
-      <translation>Pranešimai apie naujas užklausas</translation>
-    </message>
-    <message>
-      <source>Copyright settings</source>
-      <translation>Autorystės nustatymai</translation>
-    </message>
-    <message>
-      <source>Application name</source>
-      <translation>Aplikacijos pavadinimas</translation>
-    </message>
-    <message>
-      <source>Site settings</source>
-      <translation>Puslapio nustatymai</translation>
-    </message>
-    <message>
-      <source>Online tracking</source>
-      <translation>Vartotojų sekimas</translation>
-    </message>
-    <message>
-      <source>Misc</source>
-      <translation>Įvairus</translation>
-    </message>
-    <message>
-      <source>Workflow</source>
-      <translation>Darbo eiga</translation>
-    </message>
     <message>
       <source>GEO detection configuration</source>
       <translation>GEO detekcijos nustatymai</translation>
@@ -1240,18 +1227,6 @@
   <context>
     <name>chat/listchatconfig</name>
     <message>
-      <source>List</source>
-      <translation>Sąrašas</translation>
-    </message>
-    <message>
-      <source>Explain</source>
-      <translation>Paaiškinimas</translation>
-    </message>
-    <message>
-      <source>Edit value</source>
-      <translation>Redaguoti reikšmę</translation>
-    </message>
-    <message>
       <source>Chat configuration</source>
       <translation>Pokalbių nustatymai</translation>
     </message>
@@ -1297,11 +1272,142 @@
     </message>
   </context>
   <context>
-    <name>system/htmlcode</name>
+    <name>system/configuration</name>
     <message>
-      <source>Check for messages from the operator</source>
-      <translation>Tikrinti ar nėra žinučių iš operatorių</translation>
+      <source>Request notification permission</source>
+      <translation>Suteikti leidimą rodyti pranešimus</translation>
     </message>
+    <message>
+      <source>New chat notification settings</source>
+      <translation>Pranešimų apie naujus pokalbius nustatymai</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Sistemos konfigūracija</translation>
+    </message>
+    <message>
+      <source>Chat related</source>
+      <translation>Susiję su pokalbiais</translation>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation>Departamentai</translation>
+    </message>
+    <message>
+      <source>Blocked users</source>
+      <translation>Blokuoti vartotojai</translation>
+    </message>
+    <message>
+      <source>Chat configuration</source>
+      <translation>Pokalbių nustatymai</translation>
+    </message>
+    <message>
+      <source>GEO detection configuration</source>
+      <translation>GEO detekcijos nustatymai</translation>
+    </message>
+    <message>
+      <source>Synchronization and sound settings</source>
+      <translation>Sinchronizacijos ir garso nustatymai</translation>
+    </message>
+    <message>
+      <source>Start chat form settings</source>
+      <translation>Pokalbio pradžios formos nustatymai</translation>
+    </message>
+    <message>
+      <source>Canned messages</source>
+      <translation>Paruoštos žinutės</translation>
+    </message>
+    <message>
+      <source>E-mail templates</source>
+      <translation>El. pašto šablonai</translation>
+    </message>
+    <message>
+      <source>Pro active chat invitations</source>
+      <translation>Vartotojo veiksmais paremtos žinutės lankytojams</translation>
+    </message>
+    <message>
+      <source>Auto responder</source>
+      <translation>Auto atsakiklis</translation>
+    </message>
+    <message>
+      <source>SMTP settings</source>
+      <translation>SMTP nustatymai</translation>
+    </message>
+    <message>
+      <source>XMPP settings</source>
+      <translation>XMPP nustatymai</translation>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation>Kalbų nustatymai</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Pokalbių sąrašai</translation>
+    </message>
+    <message>
+      <source>Chat archive</source>
+      <translation>Pokalbių archyvas</translation>
+    </message>
+    <message>
+      <source>Live help embed code</source>
+      <translation>Live Help įterpimo kodas</translation>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation>DUK įterpimo kodas</translation>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation>Klausimyno įterpimo kodas</translation>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation>Chatbox įterpimo kodas</translation>
+    </message>
+    <message>
+      <source>Statistic</source>
+      <translation>Statistika</translation>
+    </message>
+    <message>
+      <source>Users and their permissions</source>
+      <translation>Vartotojai ir jų teisės</translation>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation>Vartotojai</translation>
+    </message>
+    <message>
+      <source>List of groups</source>
+      <translation>Grupių sąrašas</translation>
+    </message>
+    <message>
+      <source>List of roles</source>
+      <translation>Rolių sąrašas</translation>
+    </message>
+    <message>
+      <source>Files uploads configuration</source>
+      <translation>Failųsiuntimų konfiguracija</translation>
+    </message>
+    <message>
+      <source>Files upload configuration</source>
+      <translation>Failų siuntimo konfiguracija</translation>
+    </message>
+    <message>
+      <source>List of files</source>
+      <translation>Failų sąrašas</translation>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation>Kita</translation>
+    </message>
+    <message>
+      <source>File configuration</source>
+      <translation>Failų konfiguracija</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/htmlcode</name>
     <message>
       <source>Widget embed code</source>
       <translation>Widget įterpimo kodas</translation>
@@ -1522,142 +1628,22 @@
     </message>
   </context>
   <context>
-    <name>system/configuration</name>
+    <name>chat/lists/search_panel</name>
     <message>
-      <source>XMP settings</source>
-      <translation>XMPP nustatymai</translation>
+      <source>Nick</source>
+      <translation>Nikas</translation>
     </message>
     <message>
-      <source>Request notification permission</source>
-      <translation>Suteikti leidimą rodyti pranešimus</translation>
+      <source>E-mail</source>
+      <translation>El. pašto adresas</translation>
     </message>
     <message>
-      <source>New chat notification settings</source>
-      <translation>Pranešimų apie naujus pokalbius nustatymai</translation>
+      <source>Date range from to</source>
+      <translation>Data nuo iki</translation>
     </message>
     <message>
-      <source>System configuration</source>
-      <translation>Sistemos konfigūracija</translation>
-    </message>
-    <message>
-      <source>Chat related</source>
-      <translation>Susiję su pokalbiais</translation>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation>Departamentai</translation>
-    </message>
-    <message>
-      <source>Blocked users</source>
-      <translation>Blokuoti vartotojai</translation>
-    </message>
-    <message>
-      <source>Chat configuration</source>
-      <translation>Pokalbių nustatymai</translation>
-    </message>
-    <message>
-      <source>GEO detection configuration</source>
-      <translation>GEO detekcijos nustatymai</translation>
-    </message>
-    <message>
-      <source>Synchronization and sound settings</source>
-      <translation>Sinchronizacijos ir garso nustatymai</translation>
-    </message>
-    <message>
-      <source>Start chat form settings</source>
-      <translation>Pokalbio pradžios formos nustatymai</translation>
-    </message>
-    <message>
-      <source>Canned messages</source>
-      <translation>Paruoštos žinutės</translation>
-    </message>
-    <message>
-      <source>E-mail templates</source>
-      <translation>El. pašto šablonai</translation>
-    </message>
-    <message>
-      <source>Pro active chat invitations</source>
-      <translation>Vartotojo veiksmais paremtos žinutės lankytojams</translation>
-    </message>
-    <message>
-      <source>Auto responder</source>
-      <translation>Auto atsakiklis</translation>
-    </message>
-    <message>
-      <source>SMTP settings</source>
-      <translation>SMTP nustatymai</translation>
-    </message>
-    <message>
-      <source>XMPP settings</source>
-      <translation>XMPP nustatymai</translation>
-    </message>
-    <message>
-      <source>Languages configuration</source>
-      <translation>Kalbų nustatymai</translation>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation>Pokalbių sąrašai</translation>
-    </message>
-    <message>
-      <source>Chat archive</source>
-      <translation>Pokalbių archyvas</translation>
-    </message>
-    <message>
-      <source>Live help embed code</source>
-      <translation>Live Help įterpimo kodas</translation>
-    </message>
-    <message>
-      <source>FAQ embed code</source>
-      <translation>DUK įterpimo kodas</translation>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation>Klausimyno įterpimo kodas</translation>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation>Chatbox įterpimo kodas</translation>
-    </message>
-    <message>
-      <source>Statistic</source>
-      <translation>Statistika</translation>
-    </message>
-    <message>
-      <source>Users and their permissions</source>
-      <translation>Vartotojai ir jų teisės</translation>
-    </message>
-    <message>
-      <source>Users</source>
-      <translation>Vartotojai</translation>
-    </message>
-    <message>
-      <source>List of groups</source>
-      <translation>Grupių sąrašas</translation>
-    </message>
-    <message>
-      <source>List of roles</source>
-      <translation>Rolių sąrašas</translation>
-    </message>
-    <message>
-      <source>Files uploads configuration</source>
-      <translation>Failųsiuntimų konfiguracija</translation>
-    </message>
-    <message>
-      <source>Files upload configuration</source>
-      <translation>Failų siuntimo konfiguracija</translation>
-    </message>
-    <message>
-      <source>List of files</source>
-      <translation>Failų sąrašas</translation>
-    </message>
-    <message>
-      <source>Other</source>
-      <translation>Kita</translation>
-    </message>
-    <message>
-      <source>File configuration</source>
-      <translation>Failų konfiguracija</translation>
+      <source>Search</source>
+      <translation>Ieškoti</translation>
     </message>
   </context>
   <context>
@@ -1669,6 +1655,13 @@
     <message>
       <source>Operators chats</source>
       <translation>Operatorių pokalbiai</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/part/operator_profile</name>
+    <message>
+      <source>Skype call</source>
+      <translation>Skype skambutis</translation>
     </message>
   </context>
   <context>
@@ -2258,10 +2251,6 @@
   <context>
     <name>chatbox/configuration</name>
     <message>
-      <source>Embed code generation</source>
-      <translation>Įterpimo kodo generavimas</translation>
-    </message>
-    <message>
       <source>Chatbox</source>
       <translation>Chatbox</translation>
     </message>
@@ -2464,38 +2453,6 @@
   <context>
     <name>department/edit</name>
     <message>
-      <source>Active days</source>
-      <translation>Aktyvios dienos</translation>
-    </message>
-    <message>
-      <source>Active hours, 24 hours format</source>
-      <translation>Aktyvios valandios, 24 valandų formatas</translation>
-    </message>
-    <message>
-      <source>from, E.g 8</source>
-      <translation>nuo, Pvz. 8</translation>
-    </message>
-    <message>
-      <source>from, E.g 17</source>
-      <translation>Nuo, Pvz. 17</translation>
-    </message>
-    <message>
-      <source>XMP messages</source>
-      <translation>XMPP žinutė</translation>
-    </message>
-    <message>
-      <source>Online hours active</source>
-      <translation>Aktyvios darbo valandos</translation>
-    </message>
-    <message>
-      <source>Workdays, during these days chat will be active automatically</source>
-      <translation>Darbo dienos, šiomis dienomis pokalbis bus aktyvus automatiškai</translation>
-    </message>
-    <message>
-      <source>From, E.g. 17</source>
-      <translation>Nuo, Pvz. 17</translation>
-    </message>
-    <message>
       <source>Edit department</source>
       <translation>Departamento redagavimas</translation>
     </message>
@@ -2631,10 +2588,6 @@
   <context>
     <name>user/account</name>
     <message>
-      <source>Please enter a surname</source>
-      <translation>Prašome įvesti pavardę</translation>
-    </message>
-    <message>
       <source>Updated</source>
       <translation>Atnaujinta</translation>
     </message>
@@ -2757,10 +2710,6 @@
   </context>
   <context>
     <name>department/new</name>
-    <message>
-      <source>Please enter a department name</source>
-      <translation>Prašome įvesti departamento vardą</translation>
-    </message>
     <message>
       <source>New department</source>
       <translation>Naujas departamentas</translation>
@@ -2900,6 +2849,72 @@
     <message>
       <source>FAQ description</source>
       <translation>DUK aprašymas</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/configuration</name>
+    <message>
+      <source>File configuration</source>
+      <translation>Failų konfiguracija</translation>
+    </message>
+    <message>
+      <source>Allowed files types for operators</source>
+      <translation>Leistini failų tipai operatoriams</translation>
+    </message>
+    <message>
+      <source>Allowed files types for users</source>
+      <translation>Leistini failų tipai vartotojams</translation>
+    </message>
+    <message>
+      <source>Maximum file size in KB</source>
+      <translation>Maksimalus failo dydis KB</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Nutatymai atnaujinti</translation>
+    </message>
+    <message>
+      <source>Please enter valid file type!</source>
+      <translation>Prašome pasirinkti korektišką failo tipą!</translation>
+    </message>
+    <message>
+      <source>Please enter valid maximum file size!</source>
+      <translation>Per didelis failas!</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/list</name>
+    <message>
+      <source>List of files</source>
+      <translation>Failų sąrašas</translation>
+    </message>
+    <message>
+      <source>User</source>
+      <translation>Vatotojas</translation>
+    </message>
+    <message>
+      <source>Chat</source>
+      <translation>Pokalbis</translation>
+    </message>
+    <message>
+      <source>Upload name</source>
+      <translation>Failo pavadinimas</translation>
+    </message>
+    <message>
+      <source>File size</source>
+      <translation>Failo dydis</translation>
+    </message>
+    <message>
+      <source>Extension</source>
+      <translation>Plėtinys</translation>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>Data</translation>
+    </message>
+    <message>
+      <source>Delete the file</source>
+      <translation>Trinti failą</translation>
     </message>
   </context>
   <context>
@@ -3563,30 +3578,6 @@
   <context>
     <name>system/smtp</name>
     <message>
-      <source>XMP active</source>
-      <translation>XMPP aktyvus</translation>
-    </message>
-    <message>
-      <source>Resource</source>
-      <translation>Resursas</translation>
-    </message>
-    <message>
-      <source>Server</source>
-      <translation>Serveris</translation>
-    </message>
-    <message>
-      <source>XMP Message content</source>
-      <translation>XMPP žinutės turinys</translation>
-    </message>
-    <message>
-      <source>XMP message was sent succesfuly</source>
-      <translation>XMPP žinutė buvo sėkmingai išsiųsta</translation>
-    </message>
-    <message>
-      <source>XMP settings</source>
-      <translation>XMPP nustatymai</translation>
-    </message>
-    <message>
       <source>SMTP settings</source>
       <translation>SMTP nustatymai</translation>
     </message>
@@ -4064,374 +4055,7 @@
     </message>
   </context>
   <context>
-    <name>chat/syncuser</name>
-    <message>
-      <source>Chat was automatically transferred to</source>
-      <translation>Pokalbis buvo automatiškai pervestas</translation>
-    </message>
-    <message>
-      <source>from</source>
-      <translation>iš</translation>
-    </message>
-    <message>
-      <source>Support staff member has closed this chat</source>
-      <translation>Atsakingas asmuo uždarė šį pokalbį</translation>
-    </message>
-    <message>
-      <source>You do not have permission to view this chat, or chat was deleted</source>
-      <translation>Jūs neturite teisės peržiūrėti šio pokalbio, arba pokalbis buvo ištrintas</translation>
-    </message>
-    <message>
-      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-      <translation>Atsakingas asmuo uždarė pokalbio langą, bet Jūs galite palikti žinutes, administratorius perskaitys jas vėliau.</translation>
-    </message>
-    <message>
-      <source>You do not have permission to view this chat, or the chat was deleted</source>
-      <translation>Jūs neturite teisės peržiūrėti šį pokalbį arba pokalbis buvo ištrintas</translation>
-    </message>
-  </context>
-  <context>
-    <name>abstract/email_template</name>
-    <message>
-      <source>Name, for personal purposes</source>
-      <translation>Pavadinimas, asmeniniais tikslais</translation>
-    </message>
-    <message>
-      <source>Subject</source>
-      <translation>Antraštė</translation>
-    </message>
-    <message>
-      <source>Allow user to change subject</source>
-      <translation>Leisti keisti antraštę</translation>
-    </message>
-    <message>
-      <source>From name</source>
-      <translation>Siuntėjo vardas</translation>
-    </message>
-    <message>
-      <source>Allow to change from name</source>
-      <translation>Leisti keisti siuntėjo pavadinimą</translation>
-    </message>
-    <message>
-      <source>From e-mail, if mail was not sent for some reason, this mail will get a failed delivery message</source>
-      <translation>Siuntėjo el. pašto adresas, jei dėl kažkokios priežasties laiškas nebus pristatytas, šitas el. pašto adresas gaus pranešimą.</translation>
-    </message>
-    <message>
-      <source>Allow to change from e-mail</source>
-      <translation>Leisti keisti siuntėjo el. pašto adresą</translation>
-    </message>
-    <message>
-      <source>Reply to</source>
-      <translation>Atsakyti kam</translation>
-    </message>
-    <message>
-      <source>Allow to change reply e-mail</source>
-      <translation>Leisti keisti atsakymo el. pašto adresą</translation>
-    </message>
-    <message>
-      <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
-      <translation>Gavėjo el. paštas, naudojamas kai nenustatomas konkretus gavėjas.</translation>
-    </message>
-    <message>
-      <source>Content</source>
-      <translation>Turinys</translation>
-    </message>
-    <message>
-      <source>E-mail templates</source>
-      <translation>El. pašto šablonai</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/closechatadmin</name>
-    <message>
-      <source>has closed the chat!</source>
-      <translation>uždarė pokalbį!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/reopenchat</name>
-    <message>
-      <source>has reopened the chat!</source>
-      <translation>atidarė pokalbį</translation>
-    </message>
-    <message>
-      <source>No permission to reopen the chat!</source>
-      <translation>Jūs neturite teisės atidaryti pokalbio!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/single</name>
-    <message>
-      <source>Chat started with</source>
-      <translation>Pokalbis pradėtas su</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/transferuser</name>
-    <message>
-      <source>Chat was assigned to selected department</source>
-      <translation>Pokalbis buvo priskirtas pasirinktam departamentui</translation>
-    </message>
-    <message>
-      <source>Chat was assigned to selected user</source>
-      <translation>Pokalbis buvo perskirtas pasirinktam vartotojui</translation>
-    </message>
-  </context>
-  <context>
-    <name>departament/edit</name>
-    <message>
-      <source>Please enter a department name</source>
-      <translation>Prašome įvesti departamento vardą</translation>
-    </message>
-    <message>
-      <source>Transfer department has to be different one than self</source>
-      <translation>Pervedamas departamentas negali būti jis pats</translation>
-    </message>
-    <message>
-      <source>Please enter a valid from date range!</source>
-      <translation>Prašome įvesti korektišką pradžios datą!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid to date range!</source>
-      <translation>Prašome įvesti korektišką pabaigos datą!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chatarchive/viewarchivedchat</name>
-    <message>
-      <source>View archived chat</source>
-      <translation>Peržiūrėti archyvuotus pokalbius</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/deletechatadmin</name>
-    <message>
-      <source>You do not have rights to delete a chat</source>
-      <translation>Jūs neturite teisės trinti pokalbio</translation>
-    </message>
-  </context>
-  <context>
-    <name>files/files</name>
-    <message>
-      <source>Refresh</source>
-      <translation>Atnaujinti</translation>
-    </message>
-    <message>
-      <source>Delete file</source>
-      <translation>Trinti failą</translation>
-    </message>
-    <message>
-      <source>Download file</source>
-      <translation>Parsisiųsti failą</translation>
-    </message>
-    <message>
-      <source>Drop your files here.</source>
-      <translation>Nutemkite failus čia.</translation>
-    </message>
-    <message>
-      <source>Not an accepted file type</source>
-      <translation>Netinkamas failo tipas</translation>
-    </message>
-    <message>
-      <source>Filesize is too big</source>
-      <translation>Failas per didelis</translation>
-    </message>
-  </context>
-  <context>
-    <name>file/configuration</name>
-    <message>
-      <source>File configuration</source>
-      <translation>Failų konfiguracija</translation>
-    </message>
-    <message>
-      <source>Allowed files types for operators</source>
-      <translation>Leistini failų tipai operatoriams</translation>
-    </message>
-    <message>
-      <source>Allowed files types for users</source>
-      <translation>Leistini failų tipai vartotojams</translation>
-    </message>
-    <message>
-      <source>Maximum file size in KB</source>
-      <translation>Maksimalus failo dydis KB</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Nutatymai atnaujinti</translation>
-    </message>
-    <message>
-      <source>Please enter valid file type!</source>
-      <translation>Prašome pasirinkti korektišką failo tipą!</translation>
-    </message>
-    <message>
-      <source>Please enter valid maximum file size!</source>
-      <translation>Per didelis failas!</translation>
-    </message>
-  </context>
-  <context>
-    <name>file/list</name>
-    <message>
-      <source>List of files</source>
-      <translation>Failų sąrašas</translation>
-    </message>
-    <message>
-      <source>User</source>
-      <translation>Vatotojas</translation>
-    </message>
-    <message>
-      <source>Chat</source>
-      <translation>Pokalbis</translation>
-    </message>
-    <message>
-      <source>Upload name</source>
-      <translation>Failo pavadinimas</translation>
-    </message>
-    <message>
-      <source>File size</source>
-      <translation>Failo dydis</translation>
-    </message>
-    <message>
-      <source>Extension</source>
-      <translation>Plėtinys</translation>
-    </message>
-    <message>
-      <source>Date</source>
-      <translation>Data</translation>
-    </message>
-    <message>
-      <source>Delete the file</source>
-      <translation>Trinti failą</translation>
-    </message>
-  </context>
-  <context>
-    <name>file/file</name>
-    <message>
-      <source>Download file</source>
-      <translation>Parsisiųsti failą</translation>
-    </message>
-  </context>
-  <context>
-    <name>file/configurations</name>
-    <message>
-      <source>Please enter valid file type!</source>
-      <translation>Prašome pasirinkti korektišką failo tipą!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/lists/search_panel</name>
-    <message>
-      <source>Nick</source>
-      <translation>Nikas</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>El. pašto adresas</translation>
-    </message>
-    <message>
-      <source>Date range from to</source>
-      <translation>Data nuo iki</translation>
-    </message>
-    <message>
-      <source>Search</source>
-      <translation>Ieškoti</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/voteaction</name>
-    <message>
-      <source>Thumbs up</source>
-      <translation>Geras aptarnavimas</translation>
-    </message>
-    <message>
-      <source>Thumbs down</source>
-      <translation>Blogas aptarnavimas</translation>
-    </message>
-    <message>
-      <source>Removed thumb vote</source>
-      <translation>Pašalino aptarnavimo atsiliepimą</translation>
-    </message>
-  </context>
-  <context>
-    <name>system/xmp</name>
-    <message>
-      <source>XMP active</source>
-      <translation>XMPP aktyvus</translation>
-    </message>
-    <message>
-      <source>Host</source>
-      <translation>Hostas</translation>
-    </message>
-    <message>
-      <source>Port</source>
-      <translation>Porta</translation>
-    </message>
-    <message>
-      <source>Login</source>
-      <translation>Vartotojas</translation>
-    </message>
-    <message>
-      <source>Password</source>
-      <translation>Slaptažodi</translation>
-    </message>
-    <message>
-      <source>Resource</source>
-      <translation>Resursas</translation>
-    </message>
-    <message>
-      <source>Server</source>
-      <translation>Serveris</translation>
-    </message>
-    <message>
-      <source>Recipients</source>
-      <translation>Gavėjai</translation>
-    </message>
-    <message>
-      <source>XMP Message content</source>
-      <translation>XMPP žinutės turinys</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Nustatymai atnaujinti</translation>
-    </message>
-    <message>
-      <source>XMP message was sent succesfuly</source>
-      <translation>XMPP žinutė buvo sėkmingai išsiųsta</translation>
-    </message>
-    <message>
-      <source>XMP settings</source>
-      <translation>XMPP nustatymai</translation>
-    </message>
-    <message>
-      <source>XMPP active</source>
-      <translation>XMPP aktyvus</translation>
-    </message>
-    <message>
-      <source>Default recipients</source>
-      <translation>Numatyti gavėjai</translation>
-    </message>
-    <message>
-      <source>Test message will be send to your account e-mail</source>
-      <translation>Bandomoji žinutė bus išsiųsta į Jūsų el. pašto adresą</translation>
-    </message>
-    <message>
-      <source>XMPP message was sent succesfuly</source>
-      <translation>XMPP žinutė buvo sėkmingai išsiųsta</translation>
-    </message>
-    <message>
-      <source>XMPP settings</source>
-      <translation>XMPP nustatymai</translation>
-    </message>
-  </context>
-  <context>
     <name>system/xmpp</name>
-    <message>
-      <source>XMPP documentation</source>
-      <translation>XMPP dokumentacija</translation>
-    </message>
-    <message>
-      <source>User standard XMPP service</source>
-      <translation>Naudoti standartinį XMPP servisą</translation>
-    </message>
     <message>
       <source>XMPP settings</source>
       <translation>XMPP nustatymai</translation>
@@ -4562,10 +4186,179 @@
     </message>
   </context>
   <context>
-    <name>chat/part/operator_profile</name>
+    <name>file/file</name>
     <message>
-      <source>Skype call</source>
-      <translation>Skype skambutis</translation>
+      <source>Download file</source>
+      <translation>Parsisiųsti failą</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/syncuser</name>
+    <message>
+      <source>Chat was automatically transferred to</source>
+      <translation>Pokalbis buvo automatiškai pervestas</translation>
+    </message>
+    <message>
+      <source>from</source>
+      <translation>iš</translation>
+    </message>
+    <message>
+      <source>Support staff member has closed this chat</source>
+      <translation>Atsakingas asmuo uždarė šį pokalbį</translation>
+    </message>
+    <message>
+      <source>You do not have permission to view this chat, or chat was deleted</source>
+      <translation>Jūs neturite teisės peržiūrėti šio pokalbio, arba pokalbis buvo ištrintas</translation>
+    </message>
+    <message>
+      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
+      <translation>Atsakingas asmuo uždarė pokalbio langą, bet Jūs galite palikti žinutes, administratorius perskaitys jas vėliau.</translation>
+    </message>
+    <message>
+      <source>You do not have permission to view this chat, or the chat was deleted</source>
+      <translation>Jūs neturite teisės peržiūrėti šį pokalbį arba pokalbis buvo ištrintas</translation>
+    </message>
+  </context>
+  <context>
+    <name>departament/edit</name>
+    <message>
+      <source>Please enter a department name</source>
+      <translation>Prašome įvesti departamento vardą</translation>
+    </message>
+    <message>
+      <source>Transfer department has to be different one than self</source>
+      <translation>Pervedamas departamentas negali būti jis pats</translation>
+    </message>
+    <message>
+      <source>Please enter a valid from date range!</source>
+      <translation>Prašome įvesti korektišką pradžios datą!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid to date range!</source>
+      <translation>Prašome įvesti korektišką pabaigos datą!</translation>
+    </message>
+  </context>
+  <context>
+    <name>abstract/email_template</name>
+    <message>
+      <source>Name, for personal purposes</source>
+      <translation>Pavadinimas, asmeniniais tikslais</translation>
+    </message>
+    <message>
+      <source>Subject</source>
+      <translation>Antraštė</translation>
+    </message>
+    <message>
+      <source>Allow user to change subject</source>
+      <translation>Leisti keisti antraštę</translation>
+    </message>
+    <message>
+      <source>From name</source>
+      <translation>Siuntėjo vardas</translation>
+    </message>
+    <message>
+      <source>Allow to change from name</source>
+      <translation>Leisti keisti siuntėjo pavadinimą</translation>
+    </message>
+    <message>
+      <source>From e-mail, if mail was not sent for some reason, this mail will get a failed delivery message</source>
+      <translation>Siuntėjo el. pašto adresas, jei dėl kažkokios priežasties laiškas nebus pristatytas, šitas el. pašto adresas gaus pranešimą.</translation>
+    </message>
+    <message>
+      <source>Allow to change from e-mail</source>
+      <translation>Leisti keisti siuntėjo el. pašto adresą</translation>
+    </message>
+    <message>
+      <source>Reply to</source>
+      <translation>Atsakyti kam</translation>
+    </message>
+    <message>
+      <source>Allow to change reply e-mail</source>
+      <translation>Leisti keisti atsakymo el. pašto adresą</translation>
+    </message>
+    <message>
+      <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
+      <translation>Gavėjo el. paštas, naudojamas kai nenustatomas konkretus gavėjas.</translation>
+    </message>
+    <message>
+      <source>Content</source>
+      <translation>Turinys</translation>
+    </message>
+    <message>
+      <source>E-mail templates</source>
+      <translation>El. pašto šablonai</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/closechatadmin</name>
+    <message>
+      <source>has closed the chat!</source>
+      <translation>uždarė pokalbį!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/deletechatadmin</name>
+    <message>
+      <source>You do not have rights to delete a chat</source>
+      <translation>Jūs neturite teisės trinti pokalbio</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/reopenchat</name>
+    <message>
+      <source>has reopened the chat!</source>
+      <translation>atidarė pokalbį</translation>
+    </message>
+    <message>
+      <source>No permission to reopen the chat!</source>
+      <translation>Jūs neturite teisės atidaryti pokalbio!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/single</name>
+    <message>
+      <source>Chat started with</source>
+      <translation>Pokalbis pradėtas su</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/transferuser</name>
+    <message>
+      <source>Chat was assigned to selected department</source>
+      <translation>Pokalbis buvo priskirtas pasirinktam departamentui</translation>
+    </message>
+    <message>
+      <source>Chat was assigned to selected user</source>
+      <translation>Pokalbis buvo perskirtas pasirinktam vartotojui</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/voteaction</name>
+    <message>
+      <source>Thumbs up</source>
+      <translation>Geras aptarnavimas</translation>
+    </message>
+    <message>
+      <source>Thumbs down</source>
+      <translation>Blogas aptarnavimas</translation>
+    </message>
+    <message>
+      <source>Removed thumb vote</source>
+      <translation>Pašalino aptarnavimo atsiliepimą</translation>
+    </message>
+  </context>
+  <context>
+    <name>chatarchive/viewarchivedchat</name>
+    <message>
+      <source>View archived chat</source>
+      <translation>Peržiūrėti archyvuotus pokalbius</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/configurations</name>
+    <message>
+      <source>Please enter valid file type!</source>
+      <translation>Prašome pasirinkti korektišką failo tipą!</translation>
     </message>
   </context>
 </TS>
