@@ -368,43 +368,48 @@ function lh(){
 		    var modeWindow = this.isWidgetMode == true ? '/(mode)/widget' : '';
 
 		    $.getJSON(this.wwwDir + this.syncuser + this.chat_id + '/'+ this.last_message_id + '/' + this.hash + modeWindow ,{ }, function(data){
-		        // If no error
-		        if (data.error == 'false')
-		        {
-		           if (data.blocked != 'true')
-		           {
-	    	            if (data.result != 'false' && data.status == 'true')
-	    	            {
-	                			$('#messagesBlock').append(data.result);
-	                			$('#messagesBlock').animate({ scrollTop: $('#messagesBlock').prop('scrollHeight') }, 1000);
-
-	                			// If one the message owner is not current user play sound
-	                			if ( confLH.new_message_sound_user_enabled == 1 && data.uw == 'false') {
-	                			     inst.playNewMessageSound();
-	                			};
-
-	                			// Set last message ID
-	                			inst.last_message_id = data.message_id;
-
-	    	            } else {
-	    	                if ( data.status != 'true') $('#status-chat').html(data.status);
-	    	            }
-
-	    	            inst.userTimeout = setTimeout(chatsyncuser,confLH.chat_message_sinterval);
-	    	       	    	            
-	        			if ( data.ott != '' ) {
-	        				var instStatus = $('#id-operator-typing');
-	        				instStatus.find('i').html(data.ott);
-	        				instStatus.fadeIn();
-	        			} else {
-	        			    $('#id-operator-typing').fadeOut();
-	        			}
-
-		           } else {
-		               $('#status-chat').html(data.status);
-		               $('#ChatMessageContainer').remove();
-		               $('#ChatSendButtonContainer').remove();
-		           }
+		    	
+		    	try {
+			        // If no error
+			        if (data.error == 'false')
+			        {
+			           if (data.blocked != 'true')
+			           {
+		    	            if (data.result != 'false' && data.status == 'true')
+		    	            {
+		                			$('#messagesBlock').append(data.result);
+		                			$('#messagesBlock').animate({ scrollTop: $('#messagesBlock').prop('scrollHeight') }, 1000);
+	
+		                			// If one the message owner is not current user play sound
+		                			if ( confLH.new_message_sound_user_enabled == 1 && data.uw == 'false') {
+		                			     inst.playNewMessageSound();
+		                			};
+	
+		                			// Set last message ID
+		                			inst.last_message_id = data.message_id;
+	
+		    	            } else {
+		    	                if ( data.status != 'true') $('#status-chat').html(data.status);
+		    	            }
+	
+		    	            inst.userTimeout = setTimeout(chatsyncuser,confLH.chat_message_sinterval);
+		    	       	    	            
+		        			if ( data.ott != '' ) {
+		        				var instStatus = $('#id-operator-typing');
+		        				instStatus.find('i').html(data.ott);
+		        				instStatus.fadeIn();
+		        			} else {
+		        			    $('#id-operator-typing').fadeOut();
+		        			}
+	
+			           } else {
+			               $('#status-chat').html(data.status);
+			               $('#ChatMessageContainer').remove();
+			               $('#ChatSendButtonContainer').remove();
+			           }
+			        };
+		        } catch(err) {		     
+		        	inst.userTimeout = setTimeout(chatsyncuser,confLH.chat_message_sinterval);
 		        };
 
 		        inst.syncroRequestSend = false;
@@ -822,55 +827,60 @@ function lh(){
 
                 clearTimeout(this.userTimeout);
         	    $.postJSON(this.wwwDir + this.syncadmin ,{ 'chats[]': this.chatsSynchronisingMsg }, function(data){
-        	        // If no error
-        	        if (data.error == 'false')
-        	        {
-        	            if (data.result != 'false')
-        	            {
-        	                $.each(data.result,function(i,item) {
-                                  $('#messagesBlock-'+item.chat_id).append(item.content);
-        		                  $('#messagesBlock-'+item.chat_id).animate({ scrollTop: $("#messagesBlock-"+item.chat_id).prop("scrollHeight") }, 1000);
-        		                  lhinst.updateChatLastMessageID(item.chat_id,item.message_id);
-
-        		                  var mainElement = $('#chat-id-'+item.chat_id);
-
-        		                  if (!mainElement.parent().parent().hasClass('active')) {
-        		                	  if (mainElement.find('span.msg-nm').length > 0) {
-        		                		  mainElement.find('span.msg-nm').html(' (' + (parseInt(mainElement.find('span.msg-nm').attr('rel')) + item.mn) + ')' );
-        		                	  } else {
-        		                		  mainElement.append('<span rel="'+item.mn+'" class="msg-nm"> ('+item.mn+')</span>');
-        		                		  mainElement.addClass('has-pm');
-        		                		  $(document).foundation('section', 'resize');
-        		                	  }
-        		                  }
-                            });
-
-                            if ( confLH.new_message_sound_admin_enabled == 1  && data.uw == 'false') {
-                            	lhinst.playNewMessageSound();
-                            };
-        	            };
-
-        	            if (data.result_status != 'false')
-        	            {
-        	                $.each(data.result_status,function(i,item) {
-        	                      if (item.tp == 'true') {
-                                      $('#user-is-typing-'+item.chat_id).html(item.tx).fadeIn();
-        	                      } else {
-        	                          $('#user-is-typing-'+item.chat_id).fadeOut();
-        	                      };
-
-        	                      if (item.us == 0){
-        	                    	  $('#user-chat-status-'+item.chat_id).addClass('icon-user-online');
-        	                      } else {
-        	                    	  $('#user-chat-status-'+item.chat_id).removeClass('icon-user-online');
-        	                      };
-
-                            });
-        	            };
-
-        	            lhinst.userTimeout = setTimeout(chatsyncadmin,confLH.chat_message_sinterval);
-        	        };
-
+        	    	
+        	    	try {
+	        	        // If no error
+	        	        if (data.error == 'false')
+	        	        {
+	        	            if (data.result != 'false')
+	        	            {
+	        	                $.each(data.result,function(i,item) {
+	                                  $('#messagesBlock-'+item.chat_id).append(item.content);
+	        		                  $('#messagesBlock-'+item.chat_id).animate({ scrollTop: $("#messagesBlock-"+item.chat_id).prop("scrollHeight") }, 1000);
+	        		                  lhinst.updateChatLastMessageID(item.chat_id,item.message_id);
+	
+	        		                  var mainElement = $('#chat-id-'+item.chat_id);
+	
+	        		                  if (!mainElement.parent().parent().hasClass('active')) {
+	        		                	  if (mainElement.find('span.msg-nm').length > 0) {
+	        		                		  mainElement.find('span.msg-nm').html(' (' + (parseInt(mainElement.find('span.msg-nm').attr('rel')) + item.mn) + ')' );
+	        		                	  } else {
+	        		                		  mainElement.append('<span rel="'+item.mn+'" class="msg-nm"> ('+item.mn+')</span>');
+	        		                		  mainElement.addClass('has-pm');
+	        		                		  $(document).foundation('section', 'resize');
+	        		                	  }
+	        		                  }
+	                            });
+	
+	                            if ( confLH.new_message_sound_admin_enabled == 1  && data.uw == 'false') {
+	                            	lhinst.playNewMessageSound();
+	                            };
+	        	            };
+	
+	        	            if (data.result_status != 'false')
+	        	            {
+	        	                $.each(data.result_status,function(i,item) {
+	        	                      if (item.tp == 'true') {
+	                                      $('#user-is-typing-'+item.chat_id).html(item.tx).fadeIn();
+	        	                      } else {
+	        	                          $('#user-is-typing-'+item.chat_id).fadeOut();
+	        	                      };
+	
+	        	                      if (item.us == 0){
+	        	                    	  $('#user-chat-status-'+item.chat_id).addClass('icon-user-online');
+	        	                      } else {
+	        	                    	  $('#user-chat-status-'+item.chat_id).removeClass('icon-user-online');
+	        	                      };
+	
+	                            });
+	        	            };
+	
+	        	            lhinst.userTimeout = setTimeout(chatsyncadmin,confLH.chat_message_sinterval);
+	        	        };
+        	    	} catch (err) {        	    	
+        	    		lhinst.userTimeout = setTimeout(chatsyncadmin,confLH.chat_message_sinterval);
+					};
+        	        
         	        //Allow another request to send check for messages
         	        lhinst.setSynchronizationRequestSend(false);
 
