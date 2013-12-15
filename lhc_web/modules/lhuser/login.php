@@ -2,7 +2,7 @@
 
 $instance = erLhcoreClassSystem::instance();
 
-if ($instance->SiteAccess == erConfigClassLhConfig::getInstance()->getSetting( 'site', 'default_site_access' )) {
+if ($instance->SiteAccess != 'site_admin') {
 
 	if ($currentUser->isLogged() && !empty($Params['user_parameters_unordered']['r'])) {		
 		header('Location: ' .erLhcoreClassDesign::baseurldirect('site_admin').'/'.base64_decode(rawurldecode($Params['user_parameters_unordered']['r'])));		
