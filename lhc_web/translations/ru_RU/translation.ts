@@ -4110,6 +4110,18 @@
       <translation>Получатель по умолчанию</translation>
     </message>
     <message>
+      <source>Test recipients</source>
+      <translation>Тестовые получатели</translation>
+    </message>
+    <message>
+      <source>Individual recipients</source>
+      <translation>Индивидуальные получатели</translation>
+    </message>
+    <message>
+      <source>Test group recipients</source>
+      <translation>Тестовая группа получателей</translation>
+    </message>
+    <message>
       <source>Test message will be send to your account e-mail</source>
       <translation>Тестовое сообщение которое будет отправлено на ваш e-mail</translation>
     </message>

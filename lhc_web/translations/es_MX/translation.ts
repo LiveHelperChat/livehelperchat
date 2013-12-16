@@ -4117,6 +4117,18 @@ Lista de funciones</translation>
       <translation>Destinatarios por defecto</translation>
     </message>
     <message>
+      <source>Test recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Individual recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test group recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Test message will be send to your account e-mail</source>
       <translation>Se enviará un mensaje a tu cuenta de e-mail</translation>
     </message>

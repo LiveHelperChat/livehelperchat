@@ -725,7 +725,7 @@
     </message>
     <message>
       <source>Please enter your message</source>
-      <translation>Por favor, Entrez votre Message</translation>
+      <translation>S&apos;il vous plaît, entrez votre message</translation>
     </message>
     <message>
       <source>Maximum 500 characters for message</source>
@@ -741,7 +741,7 @@
     </message>
     <message>
       <source>Could not determine a default department!</source>
-      <translation type="unfinished"/>
+      <translation>Impossible de déterminer le département par défaut</translation>
     </message>
     <message>
       <source>Live Support</source>
@@ -1190,7 +1190,7 @@
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!</source>
-      <translation type="unfinished"/>
+      <translation>Merci de vérifier que votre service provider vous permet de faire des requêtes vers des pages distantes et que votre clé API est correct!</translation>
     </message>
     <message>
       <source>Please choose a service provider!</source>
@@ -1221,50 +1221,50 @@
     </message>
     <message>
       <source>Minimize/Restore</source>
-      <translation type="unfinished"/>
+      <translation>Réduire/Restaurer</translation>
     </message>
   </context>
   <context>
     <name>chat/listchatconfig</name>
     <message>
       <source>Chat configuration</source>
-      <translation type="unfinished"/>
+      <translation>Configuration du chat</translation>
     </message>
     <message>
       <source>Notifications about new chats</source>
-      <translation type="unfinished"/>
+      <translation>Notifications à propos de nouveaux chats</translation>
     </message>
     <message>
       <source>Copyright settings</source>
-      <translation type="unfinished"/>
+      <translation>Paramètres de droits d&apos;auteur</translation>
     </message>
     <message>
       <source>Application name</source>
-      <translation type="unfinished"/>
+      <translation>Nom de l&apos;application</translation>
     </message>
     <message>
       <source>Site settings</source>
-      <translation type="unfinished"/>
+      <translation>Paramètres du site</translation>
     </message>
     <message>
       <source>Online tracking</source>
-      <translation type="unfinished"/>
+      <translation>Suivi en ligne</translation>
     </message>
     <message>
       <source>Misc</source>
-      <translation type="unfinished"/>
+      <translation>Autre</translation>
     </message>
     <message>
       <source>Workflow</source>
-      <translation type="unfinished"/>
+      <translation>Flux de travail</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation type="unfinished"/>
+      <translation>Actualiser</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Réglages enregistrés</translation>
     </message>
     <message>
       <source>List chat configuration</source>
@@ -1661,7 +1661,7 @@
     <name>chat/part/operator_profile</name>
     <message>
       <source>Skype call</source>
-      <translation type="unfinished"/>
+      <translation>Appel Skype</translation>
     </message>
   </context>
   <context>
@@ -2466,23 +2466,23 @@
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>Désactivé</translation>
     </message>
     <message>
       <source>XMPP recipients</source>
-      <translation type="unfinished"/>
+      <translation>Destinataires XMPP</translation>
     </message>
     <message>
       <source>XMPP group recipients</source>
-      <translation type="unfinished"/>
+      <translation>Groupe XMPP de récipients</translation>
     </message>
     <message>
       <source>E.g somechat@conference.server.org/LiveChat</source>
-      <translation type="unfinished"/>
+      <translation>Ex. somechat@conference.server.org/LiveChat</translation>
     </message>
     <message>
       <source>These messages will be send as group messages</source>
-      <translation type="unfinished"/>
+      <translation>Ces messages seront envoyé comme message de groupe</translation>
     </message>
     <message>
       <source>Priority</source>
@@ -2502,7 +2502,7 @@
     </message>
     <message>
       <source>Inform then chat is closed by operator, only mail notification is send.</source>
-      <translation type="unfinished"/>
+      <translation>Informer que le chat a été fermé par l&apos;opérateur</translation>
     </message>
     <message>
       <source>Inform about new chats using</source>
@@ -2637,11 +2637,11 @@
     </message>
     <message>
       <source>Skype</source>
-      <translation type="unfinished"/>
+      <translation>Skype</translation>
     </message>
     <message>
       <source>XMPP username</source>
-      <translation type="unfinished"/>
+      <translation>Nom d&apos;utilisateur XMPP</translation>
     </message>
     <message>
       <source>Photo</source>
@@ -4074,7 +4074,7 @@
     </message>
     <message>
       <source>Use standard XMPP service</source>
-      <translation type="unfinished"/>
+      <translation>Utiliser le service XMPP standard</translation>
     </message>
     <message>
       <source>Host</source>
@@ -4109,6 +4109,18 @@
       <translation>Destinataires par défaut</translation>
     </message>
     <message>
+      <source>Test recipients</source>
+      <translation>Tester les destinataires</translation>
+    </message>
+    <message>
+      <source>Individual recipients</source>
+      <translation>Destinataires individuel</translation>
+    </message>
+    <message>
+      <source>Test group recipients</source>
+      <translation>Tester les groupes de destinataires</translation>
+    </message>
+    <message>
       <source>Test message will be send to your account e-mail</source>
       <translation>Le message de test sera envoyé à votre adresse courriel</translation>
     </message>
@@ -4130,43 +4142,43 @@
     </message>
     <message>
       <source>Enter your app information bellow</source>
-      <translation type="unfinished"/>
+      <translation>Entrez les informations de l&apos;application ci-dessous</translation>
     </message>
     <message>
       <source>OAuth 2.0 Client ID</source>
-      <translation type="unfinished"/>
+      <translation>OAuth 2.0 Client ID</translation>
     </message>
     <message>
       <source>Please enter your Client ID</source>
-      <translation type="unfinished"/>
+      <translation>Veuillez entrer votre numéro de client</translation>
     </message>
     <message>
       <source>Client secret</source>
-      <translation type="unfinished"/>
+      <translation>Secret client</translation>
     </message>
     <message>
       <source>This message will be send to your e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Ce message sera envoyer à votre courriel</translation>
     </message>
     <message>
       <source>Send test message</source>
-      <translation type="unfinished"/>
+      <translation>Envoyer un message de test</translation>
     </message>
     <message>
       <source>Revoke access token</source>
-      <translation type="unfinished"/>
+      <translation>Retirer le jeton d&apos;accès</translation>
     </message>
     <message>
       <source>Revoke permission to send a message</source>
-      <translation type="unfinished"/>
+      <translation>Retirer la permission d&apos;envoyer un message</translation>
     </message>
     <message>
       <source>Authentificate and grant permission to send a message</source>
-      <translation type="unfinished"/>
+      <translation>S&apos;authentifier et donner la permission d&apos;envoyer un message</translation>
     </message>
     <message>
       <source>Grant permission to send a message</source>
-      <translation type="unfinished"/>
+      <translation>Donner la permission d&apos;envoyer un message</translation>
     </message>
     <message>
       <source>Settings updated</source>
@@ -4174,11 +4186,11 @@
     </message>
     <message>
       <source>Succesfully authorised, now you can try to send a message</source>
-      <translation type="unfinished"/>
+      <translation>Authentification réussie, vous pouvez maintenant essayer d&apos;envoyer un message</translation>
     </message>
     <message>
       <source>Token was revoked</source>
-      <translation type="unfinished"/>
+      <translation>Le jeton a été retiré</translation>
     </message>
     <message>
       <source>XMPP message was sent succesfuly</source>
@@ -4227,7 +4239,7 @@
     </message>
     <message>
       <source>Transfer department has to be different one than self</source>
-      <translation type="unfinished"/>
+      <translation>Le département de transfert ne peut pas être lui-même</translation>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>

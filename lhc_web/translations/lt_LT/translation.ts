@@ -4109,6 +4109,18 @@
       <translation>Numatytieji gavėjai</translation>
     </message>
     <message>
+      <source>Test recipients</source>
+      <translation>Bandomieji gavėjai</translation>
+    </message>
+    <message>
+      <source>Individual recipients</source>
+      <translation>Individualūs gavėjai</translation>
+    </message>
+    <message>
+      <source>Test group recipients</source>
+      <translation>Testiniai grupės gavėjai</translation>
+    </message>
+    <message>
       <source>Test message will be send to your account e-mail</source>
       <translation>Bandomoji žinutė bus išsiųsta į Jūsų paskyros el. pašto adresą</translation>
     </message>

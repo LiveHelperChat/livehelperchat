@@ -4109,6 +4109,18 @@
       <translation>Προεπιλογή παραλήπτες</translation>
     </message>
     <message>
+      <source>Test recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Individual recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test group recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Test message will be send to your account e-mail</source>
       <translation>Δοκιμή μήνυμα θα στείλει στο e-mail σας λογαριασμό</translation>
     </message>
