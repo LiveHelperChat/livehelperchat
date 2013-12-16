@@ -1,8 +1,9 @@
 <div class="row">
-	<div class="columns large-7">
+	<div class="columns large-7" id="chat-main-column-<?php echo $chat->id;?>">
+		<a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Show/Hide right column')?>" href="#" class="icon-right-circled collapse-right" onclick="lhinst.processCollapse('<?php echo $chat->id;?>')"></a>
 
 		<div class="message-block pb10">
-			<div class="msgBlock" id="messagesBlock-<?php echo $chat->id?>">
+			<div class="msgBlock msgBlock-admin" id="messagesBlock-<?php echo $chat->id?>">
 				<?php
 				$LastMessageID = 0;
     			$messages = erLhcoreClassChat::getChatMessages($chat->id); ?>
@@ -37,7 +38,7 @@
 		<?php include(erLhcoreClassDesign::designtpl('lhchat/part/below_action_block.tpl.php')); ?>
 
 	</div>
-	<div class="columns large-5">
+	<div class="columns large-5" id="chat-right-column-<?php echo $chat->id;?>">
 		<?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/chat_tabs_container.tpl.php')); ?>
 	</div>
 </div>

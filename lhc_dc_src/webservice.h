@@ -1,8 +1,8 @@
-#include <QHttp>
-#include <QHttpRequestHeader>
+#include <QtNetwork/QHttp>
+#include <QtNetwork/QHttpRequestHeader>
 #include <QStringList>
 #include <QPointer>
-#include <QNetworkAccessManager>
+#include <QtNetwork/QNetworkAccessManager>
 #include "objectfactory.h"
 
 // Used quarded pointer to avoid dandling pointers.

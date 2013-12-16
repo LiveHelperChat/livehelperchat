@@ -19,6 +19,7 @@ $inputData->departament_id = $department;
 $inputData->validate_start_chat = false;
 
 $tpl->set('department',$department);
+$tpl->set('playsound',(string)$Params['user_parameters_unordered']['playsound'] == 'true' && !isset($_POST['askQuestion']) && erLhcoreClassModelChatConfig::fetch('sound_invitation')->current_value == 1);
 
 $chat = new erLhcoreClassModelChat();
 
@@ -27,7 +28,18 @@ if (isset($_POST['askQuestion']))
     $validationFields = array();
     $validationFields['Question'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
     $validationFields['DepartamentID'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1) );
-
+    $validationFields['Email'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'validate_email' );
+    
+    if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
+    	$hashCaptcha = isset($_SESSION[$_SERVER['REMOTE_ADDR']]['form']) ? $_SESSION[$_SERVER['REMOTE_ADDR']]['form'] : null;
+    	$nameField = 'captcha_'.$hashCaptcha;
+    } else {
+    	// Captcha stuff
+    	$nameField = 'captcha_'.sha1(erLhcoreClassIPDetect::getIP().$_POST['tscaptcha'].erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
+    }
+    
+    $validationFields[$nameField] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
+        
     $form = new ezcInputForm( INPUT_POST, $validationFields );
     $Errors = array();
 
@@ -42,6 +54,43 @@ if (isset($_POST['askQuestion']))
         $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum 500 characters for a message');
     }
 
+    if ($userInstance->requires_email == 1) {
+    	if ( !$form->hasValidData( 'Email' ) ) {
+    		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a valid email address');
+    	} else {
+    		$inputData->email = $chat->email = $form->Email;
+    	}
+    }
+    
+   
+    
+    if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
+    	if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600 || $hashCaptcha != sha1($_SERVER['REMOTE_ADDR'].$form->$nameField.erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ))){
+    		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid captcha code, please enable Javascript!');
+    	}
+    } else {
+    	// Captcha validation
+    	if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600)
+    	{
+    		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid captcha code, please enable Javascript!');
+    	}
+    }
+    
+    $chat->dep_id = $inputData->departament_id;
+    
+    // Assign default department
+    if ($form->hasValidData( 'DepartamentID' ) && erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $form->DepartamentID,'disabled' => 0))) > 0) {
+    	$chat->dep_id = $form->DepartamentID;
+    } elseif ($chat->dep_id == 0 || erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $chat->dep_id,'disabled' => 0))) == 0) {
+    	$departments = erLhcoreClassModelDepartament::getList(array('limit' => 1,'filter' => array('disabled' => 0)));
+    	if (!empty($departments) ) {
+    		$department = array_shift($departments);
+    		$chat->dep_id = $department->id;
+    	} else {
+    		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Could not determine a default department!');
+    	}
+    }
+        
     if (count($Errors) == 0)
     {
        $chat->time = time();
@@ -54,18 +103,7 @@ if (isset($_POST['askQuestion']))
        $chat->nick = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor');
 
        erLhcoreClassModelChat::detectLocation($chat);
-
-       $chat->dep_id = $inputData->departament_id;
-
-       // Assign default department
-       if ($form->hasValidData( 'DepartamentID' ) && erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $form->DepartamentID))) > 0) {
-       		$chat->dep_id = $form->DepartamentID;
-       } elseif ($chat->dep_id == 0 || erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $chat->dep_id))) == 0) {
-	       	$departments = erLhcoreClassModelDepartament::getList(array('limit' => 1,'filter' => array('department_transfer_id' => 0)));
-	       	$department = array_shift($departments);
-	       	$chat->dep_id = $department->id;
-       }
-
+     
        $chat->priority = is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : $chat->department->priority;
        $chat->chat_initiator = erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE;
 

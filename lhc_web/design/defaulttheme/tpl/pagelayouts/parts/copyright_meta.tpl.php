@@ -1,0 +1,1 @@
+<meta name="copyright" content="Remigijus Kiminas, livehelperchat.com">

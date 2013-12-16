@@ -1,0 +1,1 @@
+INSERT INTO `lh_chat_config` (`identifier`, `value`, `type`, `explain`, `hidden`) VALUES ('session_captcha',0,	0,	'Use session captcha. LHC have to be installed on the same domain or subdomain.',	0);

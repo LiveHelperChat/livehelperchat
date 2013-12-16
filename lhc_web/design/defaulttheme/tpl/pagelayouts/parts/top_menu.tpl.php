@@ -4,7 +4,7 @@
 		<li class="name">
 			<?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_logo_back_office.tpl.php'));?>
 		</li>
-		<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+		<li class="toggle-topbar menu-icon"><a href="#"><span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Menu');?></span></a></li>
 	</ul>
 	<section class="top-bar-section">
 		<ul class="right">

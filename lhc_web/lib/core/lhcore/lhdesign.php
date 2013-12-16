@@ -259,7 +259,7 @@ class erLhcoreClassDesign
 
         $sys = erLhcoreClassSystem::instance()->SiteDir;
         $filesToCompress = self::optimizeCSS($filesToCompress,3);
-        $fileName = md5($filesToCompress.$instance->WWWDirLang);
+        $fileName = md5($filesToCompress.$instance->WWWDirLang.$instance->Language);
         $file = $sys . 'cache/compiledtemplates/'.$fileName.'.css';
 
         if (!file_exists($file)) {
@@ -412,7 +412,7 @@ class erLhcoreClassDesign
     	}
 
         $sys = erLhcoreClassSystem::instance()->SiteDir;
-        $fileName = md5($filesToCompress.$instance->WWWDirLang);
+        $fileName = md5($filesToCompress.$instance->WWWDirLang.$instance->Language);
         $file = $sys . 'cache/compiledtemplates/'.$fileName.'.js';
 
         if (!file_exists($file)) {

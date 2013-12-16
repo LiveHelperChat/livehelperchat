@@ -43,7 +43,7 @@ class erLhcoreClassModelQuestionOption {
 
    public function saveThis()
    {
-   	   $this->ip = ip2long($_SERVER['REMOTE_ADDR']);
+   	   $this->ip = ip2long(erLhcoreClassIPDetect::getIP());
        erLhcoreClassQuestionary::getSession()->saveOrUpdate($this);
    }
 

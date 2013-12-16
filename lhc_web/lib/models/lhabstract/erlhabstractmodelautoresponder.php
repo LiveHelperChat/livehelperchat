@@ -50,7 +50,7 @@ class erLhAbstractModelAutoResponder {
    						)),
    				'wait_message' => array(
    						'type' => 'text',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Wait message. Visible then users starts chat and is waiting for someone to accept a chat.'),
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Wait message. Visible when users starts chat and is waiting for someone to accept a chat.'),
    						'required' => false,
    						'hidden' => false,
    						'validation_definition' => new ezcInputFormDefinitionElement(

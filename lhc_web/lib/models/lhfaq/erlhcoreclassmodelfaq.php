@@ -10,7 +10,8 @@ class erLhcoreClassModelFaq {
 				'answer'     => $this->answer,
 				'url'        => $this->url,
 				'active'     => $this->active,
-				'has_url'    => $this->has_url
+				'has_url'    	=> $this->has_url,
+				'is_wildcard'   => $this->is_wildcard
 		);
 	}
 
@@ -130,9 +131,17 @@ class erLhcoreClassModelFaq {
 
 			$this->url = $matchStringURL;
 			$this->has_url = 1;
+
+			if (substr($this->url, -1) == '*'){
+				$this->is_wildcard = 1;
+			}
+
 		} else {
 			$this->has_url = 0;
+			$this->is_wildcard = 0;
 		}
+
+
 
 		erLhcoreClassFaq::getSession()->saveOrUpdate($this);
 	}
@@ -147,6 +156,7 @@ class erLhcoreClassModelFaq {
 	public $url = '';
 	public $active = 1;
 	public $has_url = 0;
+	public $is_wildcard = 0;
 
 }
 

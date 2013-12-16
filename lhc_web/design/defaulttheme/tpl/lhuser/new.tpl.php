@@ -4,7 +4,7 @@
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('user/new')?>" method="post" autocomplete="off">
+<form action="<?php echo erLhcoreClassDesign::baseurl('user/new')?>" method="post" autocomplete="off" enctype="multipart/form-data">
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
@@ -25,6 +25,24 @@
 
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Surname');?></label>
 <input class="inputfield" type="text" name="Surname" value="<?php echo htmlspecialchars($user->surname);?>" />
+
+<div class="row">
+	<div class="columns small-6">
+		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Skype');?></label>
+		<input type="text" name="Skype" value="<?php echo htmlspecialchars($user->skype);?>"/>
+	</div>
+	<div class="columns small-6">
+		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','XMPP username');?></label>
+		<input type="text" name="XMPPUsername" value="<?php echo htmlspecialchars($user->xmpp_username);?>"/>
+	</div>
+</div>
+
+
+
+
+
+<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Photo');?>, (jpg,png)</label>
+<input type="file" name="UserPhoto" value="" />
 
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','User group')?></label>
 <?php echo erLhcoreClassRenderHelper::renderCombobox( array (

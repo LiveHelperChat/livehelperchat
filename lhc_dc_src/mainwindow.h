@@ -20,6 +20,12 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 public:
     MainWindow();
+    static void parseOnlineStatus(void* pt2Object, QByteArray result);
+
+    /**
+    * Change online offline action
+    */
+    QAction *onlineofflineAct;
 
 protected:
     void closeEvent(QCloseEvent *event);
@@ -43,6 +49,11 @@ private slots:
     void chatRooms();
 
     /**
+    * Change online offline status
+    */
+    void chatOnlineStatus();
+
+    /**
     * About action
     */
     void about();
@@ -57,6 +68,7 @@ private:
 	void createTrayIcon();
 	void createStatusBar();
 	void createMainMenu();
+    void getOnlineStatus();
 
 	/**
 	* System try icon
@@ -96,6 +108,7 @@ private:
 	* Chat menu actions
 	*/
     QAction *chatroomsAct;
+
 
 	/**
 	* Try icon actions

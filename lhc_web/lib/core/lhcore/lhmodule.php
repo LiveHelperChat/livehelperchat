@@ -4,6 +4,8 @@ class erLhcoreClassModule{
 
     static function runModule()
     {
+
+
         if (isset(self::$currentModule[self::$currentView]))
         {
         	$currentUser = erLhcoreClassUser::instance();
@@ -78,21 +80,28 @@ class erLhcoreClassModule{
             }
 
             try {
-            	            
             	$includeStatus = include(self::getModuleFile(self::$currentModuleName,self::$currentView));
-            	 
+
             	// Inclusion failed
             	if ($includeStatus === false) {
             		$CacheManager = erConfigClassLhCacheConfig::getInstance();
             		$CacheManager->expireCache();
-            		
+
             		// Just try reinclude
-            		include(self::getModuleFile(self::$currentModuleName,self::$currentView));            		
+            		@include(self::getModuleFile(self::$currentModuleName,self::$currentView));
             	}
-            	
+
             } catch (Exception $e) {
             	$CacheManager = erConfigClassLhCacheConfig::getInstance();
             	$CacheManager->expireCache();
+
+				if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true) {
+					echo "<pre>";
+					print_r($e);
+					echo "</pre>";
+					exit;
+				}
+
             	header('HTTP/1.1 503 Service Temporarily Unavailable');
             	header('Status: 503 Service Temporarily Unavailable');
             	header('Retry-After: 300');
@@ -150,7 +159,7 @@ class erLhcoreClassModule{
         } else {
 
             $instance = erLhcoreClassSystem::instance();
-            $cacheKey = md5(self::$currentModuleName.'_'.self::$currentView.'_'.$instance->WWWDirLang);
+            $cacheKey = md5(self::$currentModuleName.'_'.self::$currentView.'_'.$instance->WWWDirLang.'_'.$instance->Language);
 
             if ( ($cacheModules = self::$cacheInstance->restore('moduleCache_'.self::$currentModuleName.'_version_'.self::$cacheVersionSite)) !== false && key_exists($cacheKey,$cacheModules))
             {
@@ -227,10 +236,10 @@ class erLhcoreClassModule{
                 $contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
             }
 
-            $fileCompiled = 'cache/compiledtemplates/'.md5($file.$instance->WWWDirLang).'.php';
+            $fileCompiled = 'cache/compiledtemplates/'.md5($file.$instance->WWWDirLang.'_'.$instance->Language).'.php';
 
             // Atomoc template compilation to avoid concurent request compiling and writing to the same file
-            $fileTemp = 'cache/cacheconfig/'.md5(time().microtime().rand(0, 1000).$file.$instance->WWWDirLang).'.php';
+            $fileTemp = 'cache/cacheconfig/'.md5(time().microtime().rand(0, 1000).$file.$instance->WWWDirLang.'_'.$instance->Language).'.php';
             file_put_contents($fileTemp,$contentFile);
 
             // Atomic file write

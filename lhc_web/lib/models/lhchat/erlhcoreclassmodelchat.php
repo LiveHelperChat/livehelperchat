@@ -22,6 +22,7 @@ class erLhcoreClassModelChat {
                'user_typing'     		=> $this->user_typing,
                'user_typing_txt'     	=> $this->user_typing_txt,
                'operator_typing' 		=> $this->operator_typing,
+               'operator_typing_id' 	=> $this->operator_typing_id,
                'phone'           		=> $this->phone,
                'has_unread_messages'    => $this->has_unread_messages,
                'last_user_msg_time'     => $this->last_user_msg_time,
@@ -51,7 +52,9 @@ class erLhcoreClassModelChat {
                'transfer_timeout_ac'    => $this->transfer_timeout_ac,
 
        			// Callback status
-               'na_cb_executed'    		=> $this->na_cb_executed
+               'na_cb_executed'    		=> $this->na_cb_executed,
+               'fbst'    				=> $this->fbst,
+               'nc_cb_executed'    		=> $this->nc_cb_executed,
        );
    }
 
@@ -82,6 +85,8 @@ class erLhcoreClassModelChat {
 	   	$stmt = $q->prepare();
 	   	$stmt->execute();
 
+	   	erLhcoreClassModelChatFile::deleteByChatId($this->id);
+
 	   	erLhcoreClassChat::getSession()->delete($this);
    }
 
@@ -100,7 +105,7 @@ class erLhcoreClassModelChat {
 
    public function setIP()
    {
-       $this->ip = $_SERVER['REMOTE_ADDR'];
+       $this->ip = erLhcoreClassIPDetect::getIP();
    }
 
    public function getChatOwner()
@@ -117,6 +122,11 @@ class erLhcoreClassModelChat {
 
        switch ($var) {
 
+       	case 'time_created_front':
+       			$this->time_created_front = date('Ymd') == date('Ymd',$this->time) ? date('H:i:s',$this->time) : date('Y-m-d H:i:s',$this->time);
+       			return $this->time_created_front;
+       		break;
+       	
        	case 'is_operator_typing':
        		   $this->is_operator_typing = $this->operator_typing > (time()-10); // typing is considered if status did not changed for 30 seconds
        		   return $this->is_operator_typing;
@@ -135,6 +145,30 @@ class erLhcoreClassModelChat {
        	case 'chat_duration_front':
        		   $this->chat_duration_front = erLhcoreClassChat::formatSeconds($this->chat_duration);
        		   return $this->chat_duration_front;
+       		break;
+
+       	case 'user':
+       		   $this->user = false;
+       		   if ($this->user_id > 0) {
+       		   		try {
+       		   			$this->user = erLhcoreClassModelUser::fetch($this->user_id);
+       		   		} catch (Exception $e) {
+       		   			$this->user = false;
+       		   		}
+       		   }
+       		   return $this->user;
+       		break;
+       		
+       	case 'operator_typing_user':
+       		   $this->operator_typing_user = false;
+       		   if ($this->operator_typing_id > 0) {
+       		   		try {
+       		   			$this->operator_typing_user = erLhcoreClassModelUser::fetch($this->operator_typing_id);
+       		   		} catch (Exception $e) {
+       		   			$this->operator_typing_user = false;
+       		   		}
+       		   }
+       		   return $this->operator_typing_user;
        		break;
 
        	case 'online_user':
@@ -180,9 +214,14 @@ class erLhcoreClassModelChat {
            if ($geo_data['geo_service_identifier'] == 'mod_geoip2'){
                $params['country_code'] = $geo_data['mod_geo_ip_country_code'];
                $params['country_name'] = $geo_data['mod_geo_ip_country_name'];
+               $params['mod_geo_ip_city_name'] = $geo_data['mod_geo_ip_city_name'];
+               $params['mod_geo_ip_latitude'] = $geo_data['mod_geo_ip_latitude'];
+               $params['mod_geo_ip_longitude'] = $geo_data['mod_geo_ip_longitude'];
            } elseif ($geo_data['geo_service_identifier'] == 'locatorhq') {
                $params['username'] = $geo_data['locatorhqusername'];
                $params['api_key'] = $geo_data['locatorhq_api_key'];
+           } elseif ($geo_data['geo_service_identifier'] == 'ipinfodbcom') {             
+               $params['api_key'] = $geo_data['ipinfodbcom_api_key'];
            }
 
            $location = erLhcoreClassModelChatOnlineUser::getUserData($geo_data['geo_service_identifier'],$instance->ip,$params);
@@ -259,11 +298,17 @@ class erLhcoreClassModelChat {
    public $wait_timeout_send = 0;
    public $timeout_message = '';
 
-
+   // Unanswered chat callback executed
    public $na_cb_executed = 0;
+   
+   // New chat callback executed
+   public $nc_cb_executed = 0;
 
-
-
+   // Feedback status
+   public $fbst = 0;
+   
+   // What operator is typing now.
+   public $operator_typing_id = 0;
 
    public $chat_initiator = self::CHAT_INITIATOR_DEFAULT;
    public $chat_variables = '';

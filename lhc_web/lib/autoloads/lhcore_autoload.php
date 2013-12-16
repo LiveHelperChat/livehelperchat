@@ -12,6 +12,7 @@ return array_merge(array (
         'lhPaginator'           => 'lib/core/lhexternal/lhpagination.php',
         'erLhcoreClassLog'      => 'lib/core/lhcore/lhlog.php',
         'erLhcoreClassLazyDatabaseConfiguration' => 'lib/core/lhcore/lhdb.php',
+        'erLhcoreClassIPDetect' => 'lib/core/lhcore/lhipdetect.php',
 
         'erConfigClassLhCacheConfig' => 'lib/core/lhconfig/lhcacheconfig.php',
 
@@ -102,7 +103,31 @@ return array_merge(array (
 		 // Chat export
 		'erLhcoreClassChatExport'				=> 'lib/core/lhchat/lhchatexport.php',
 
+		// Chat archive
+		'erLhcoreClassModelChatArchiveRange' 	=> 'lib/models/lhchat/erlhcoreclassmodelchatarchiverange.php',
+		'erLhcoreClassModelChatArchive' 		=> 'lib/models/lhchat/erlhcoreclassmodelchatarchive.php',
+		'erLhcoreClassModelChatArchiveMsg' 		=> 'lib/models/lhchat/erlhcoreclassmodelchatarchivemsg.php',
 
+		// Files upload
+		'UploadHandler' 						=> 'lib/core/lhcore/UploadHandler.php',
+		'erLhcoreClassFileUpload' 				=> 'lib/core/lhcore/lhfileupload.php',
+		'erLhcoreClassModelChatFile' 			=> 'lib/models/lhchat/erlhcoreclassmodelchatfile.php',
+
+
+		'erLhcoreClassSearchHandler' 			=> 'lib/core/lhcore/lhsearchhandler.php',
+		'erLhcoreClassInputForm' 				=> 'lib/core/lhcore/lhform.php',
+
+		// Profile
+		'erLhcoreClassImageConverter'               => 'lib/core/lhcore/lhimageconverter.php',
+		'qqFileUploader'                            => 'lib/core/lhcore/lhimageconverter.php',
+		'qqUploadedFileForm'                        => 'lib/core/lhcore/lhimageconverter.php',
+		'qqUploadedFileXhr'                         => 'lib/core/lhcore/lhimageconverter.php',
+		'erLhcoreClassGalleryImagemagickHandler'    => 'lib/core/lhcore/lhgalleryconverterhandler.php',
+		'erLhcoreClassGalleryGDHandler'             => 'lib/core/lhcore/lhgallerygdconverterhandler.php',
+		
+		'XMPPHP_XMPP'								=> 'lib/core/lhxmp/XMPPHP/XMPP.php',
+		'erLhcoreClassXMP'							=> 'lib/core/lhxmp/lhxmp.php',		
+		'erLhcoreClassModelChatAccept'				=> 'lib/models/lhchat/erlhcoreclassmodelchataccept.php'
 ),
 include('var/autoloads/lhextension_autoload.php')
 );

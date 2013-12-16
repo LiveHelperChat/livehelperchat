@@ -30,6 +30,10 @@ class erLhcoreClassModelChatConfig {
 
    public function saveThis()
    {
+   	   if (isset($GLOBALS['lhc_erLhcoreClassModelChatConfig'.$this->identifier])){
+   	   		unset($GLOBALS['lhc_erLhcoreClassModelChatConfig'.$this->identifier]);
+   	   }
+   	   
        erLhcoreClassChat::getSession()->saveOrUpdate( $this );
    }
 

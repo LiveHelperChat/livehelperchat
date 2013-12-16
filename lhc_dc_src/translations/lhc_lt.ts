@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="lt">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="lt" version="2.0">
 <context>
     <name>LHQTableWidget</name>
     <message>
@@ -307,7 +305,7 @@
     </message>
     <message>
         <source>Waiting for action...</source>
-        <translation type="unfinished">Laukiama veiksmų...</translation>
+        <translation>Laukiama veiksmų...</translation>
     </message>
     <message>
         <source>&amp;Restore</source>

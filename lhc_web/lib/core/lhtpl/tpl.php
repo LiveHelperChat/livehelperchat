@@ -33,7 +33,7 @@ class erLhcoreClassCacheStorage {
 
 	public function restore($identifier) {
 		try {
-			return include ($this->cacheDir . $identifier.'.cache.php');
+			return @include ($this->cacheDir . $identifier.'.cache.php');
 		} catch (Exception $e) {
 			return false;
 		}
@@ -185,10 +185,10 @@ class erLhcoreClassTemplate {
 
     	if(!$fileTemplate) { $fileTemplate = $this->file; }
 
-        if ($this->cacheEnabled == true && key_exists(md5($fileTemplate.$instance->WWWDirLang.$port),$this->cacheTemplates))
+        if ($this->cacheEnabled == true && key_exists(md5($fileTemplate.$instance->WWWDirLang.$instance->Language.$port),$this->cacheTemplates))
         {
         	try {
-        		return $this->fetchExecute($this->cacheTemplates[md5($fileTemplate.$instance->WWWDirLang.$port)]);
+        		return $this->fetchExecute($this->cacheTemplates[md5($fileTemplate.$instance->WWWDirLang.$instance->Language.$port)]);
         	} catch (Exception $e) {
 
         	}
@@ -351,6 +351,73 @@ class erLhcoreClassTemplate {
 				$contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
 			}
 
+			// Compile override config settings
+			$Matches = array();
+			preg_match_all('/erConfigClassLhConfig::getInstance\(\)->getOverrideValue\((\s?)\'([a-zA-Z0-9-\.-\/\_]+)\'(\s?),(\s?)\'([a-zA-Z0-9-\.-\/\_]+)\'(\s?)\)/i',$contentFile,$Matches);
+			foreach ($Matches[1] as $key => $UrlAddress)
+			{
+				$valueConfig = erConfigClassLhConfig::getInstance()->getOverrideValue($Matches[2][$key],$Matches[5][$key]);
+				$valueReplace = '';
+
+				if (is_bool($valueConfig)){
+					$valueReplace = $valueConfig == false ? 'false' : 'true';
+				} elseif (is_integer($valueConfig)) {
+					$valueReplace = $valueConfig;
+				} elseif (is_array($valueConfig)) {
+					$valueReplace = var_export($valueConfig,true);
+				} else {
+					$valueReplace = '\''.$valueConfig.'\'';
+				}
+
+				$contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
+			}
+
+			$Matches = array();
+			preg_match_all('/<\?php echo erConfigClassLhConfig::getInstance\(\)->getDirLanguage\((\s?)\'([a-zA-Z0-9-\.-\/\_]+)\'(\s?)\)(.*?)\?\>/i',$contentFile,$Matches);
+
+			foreach ($Matches[1] as $key => $UrlAddress)
+			{
+			    $valueConfig = erConfigClassLhConfig::getInstance()->getDirLanguage($Matches[2][$key]);
+			    $valueReplace = '';
+
+			    if (is_bool($valueConfig)){
+			        $valueReplace = $valueConfig == false ? 'false' : 'true';
+			    } elseif (is_integer($valueConfig)) {
+			        $valueReplace = $valueConfig;
+			    } elseif (is_array($valueConfig)) {
+			        $valueReplace = var_export($valueConfig,true);
+			    } else {
+			        $valueReplace = $valueConfig;
+			    }
+
+				$contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
+			}
+
+			// Compile config settings
+			$Matches = array();
+			preg_match_all('/erConfigClassLhConfig::getInstance\(\)->getDirLanguage\((\s?)\'([a-zA-Z0-9-\.-\/\_]+)\'(\s?)\)/i',$contentFile,$Matches);
+
+
+
+			foreach ($Matches[1] as $key => $var)
+			{
+				$valueConfig = erConfigClassLhConfig::getInstance()->getDirLanguage($Matches[2][$key]);
+				$valueReplace = '';
+
+				if (is_bool($valueConfig)){
+					$valueReplace = $valueConfig == false ? 'false' : 'true';
+				} elseif (is_integer($valueConfig)) {
+					$valueReplace = $valueConfig;
+				} elseif (is_array($valueConfig)) {
+					$valueReplace = var_export($valueConfig,true);
+				} else {
+					$valueReplace = '\''.$valueConfig.'\'';
+				}
+
+				$contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
+			}
+
+
 			// Compile config settings
             $Matches = array();
             preg_match_all('/erLhcoreClassModelChatConfig::fetch\((\s?)\'([a-zA-Z0-9-\.-\/\_]+)\'(\s?)\)->current_value/i',$contentFile,$Matches);
@@ -370,13 +437,13 @@ class erLhcoreClassTemplate {
 
 
 			// Atomoc template compilation to avoid concurent request compiling and writing to the same file
-			$fileName = 'cache/compiledtemplates/'.md5(time().rand(0, 1000).microtime().$file.$instance->WWWDirLang.$port).'.php';
+			$fileName = 'cache/compiledtemplates/'.md5(time().rand(0, 1000).microtime().$file.$instance->WWWDirLang.$instance->Language.$port).'.php';
 			file_put_contents($fileName,erLhcoreClassTemplate::strip_html($contentFile));
 
-			$file = 'cache/compiledtemplates/'.md5($file.$instance->WWWDirLang.$port).'.php';
+			$file = 'cache/compiledtemplates/'.md5($file.$instance->WWWDirLang.$instance->Language.$port).'.php';
 			rename($fileName,$file);
 
-	 	    $this->cacheTemplates[md5($fileTemplate.$instance->WWWDirLang.$port)] = $file;
+	 	    $this->cacheTemplates[md5($fileTemplate.$instance->WWWDirLang.$instance->Language.$port)] = $file;
 			$this->storeCache();
         }
 
@@ -405,7 +472,7 @@ class erLhcoreClassTemplate {
 	{
 		@extract($this->vars,EXTR_REFS);        // Extract the vars to local namespace
         ob_start();                             // Start output buffering
-        $result = include($file);               // Include the file
+        $result = @include($file);               // Include the file
         if ($result === false) {                 // Make sure file was included succesfuly
             throw new Exception("File inclusion failed"); // Throw exception if failed, so tpl compiler will recompile template
         }

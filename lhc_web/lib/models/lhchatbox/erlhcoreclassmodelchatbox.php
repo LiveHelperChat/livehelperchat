@@ -49,10 +49,11 @@ class erLhcoreClassModelChatbox {
        				try {
        					$this->chat = erLhcoreClassModelChat::fetch($this->chat_id);
        				} catch (Exception $e) {
-
+       					erLhcoreClassChatbox::getSession()->delete($this);
        				}
        			} else {
        				$this->chat = new erLhcoreClassModelChat();
+       				$this->chat->hash = erLhcoreClassChat::generateHash();
        			}
        			return $this->chat;
        		break;

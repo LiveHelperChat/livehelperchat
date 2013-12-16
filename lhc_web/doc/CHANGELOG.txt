@@ -1,8 +1,231 @@
+1.72v
+
+Features
+1. Redesigned chat configuration list. It's now split into tabs and is more easier to navigate.
+2. Option to choose play sound or not opon invitation box to chat is shown.
+
+Bugfixes:
+1. Sound was not played then message to user was send manually.
+2. If user closed chat and resumed chat and then operator send message chat status did not changed even operator was chating. Now upon first message from operator and if chat is pending it will became active automatically.
+
+execute doc/update_db/update_54.sql for update
+
+1.71v
+
+Features
+1. Option to disable a department. If department is disabled it won't appear in department choosing form.
+
+execute doc/update_db/update_53.sql for update
+
+1.70v
+
+1. In 1.69 was introduced drag & drop but IE users could not select any field. This issue was fixed in less than 24h. But if you are experiencing same issue I recommend to update.
+2. In this version I added option to turn session cookies for form validation. Some users were reporting for getting spam. You just have to edit "chat configuration" -> "Use session captcha. LHC have to be installed on same domain or subdomain."
+and set 1. Please be sure that chat is running on the same domain.
+
+execute doc/update_db/update_52.sql for update
+
+1.69v
+
+//------//
+Features
+//------//
+1. Drag & Drop support for widgets, you can drag site widgets dragging it's header.
+2. Department has two separate fields one for E-Mail recipients another one for XMPP recipients. In relation to: https://github.com/remdex/livehelperchat/issues/202
+3. Department also now has field for XMPP Group recipients. There can be something as somechat@conference.server.org/LiveChat
+4. User also has a field xmpp username, if this field is different then user account e-mail during link clicking this field will be matched to department xmpp recipient and user will be authorised instantly.
+So full flexibility to have different e-mail for system itself and different account for XMPP service providers.
+5. You can now set how long chat accept link is valid. This can be found in chat configuration section.
+6. Upon chat accept link click if link is invalid, user will be redirected to login page and if he is using remember me functionality he will be logged automatically and will see chat window instantly.
+7. Accept link generation supports now http and https.
+8. Option remove index.php from URL's
+
+Based on
+https://github.com/remdex/livehelperchat/issues/202
+https://github.com/remdex/livehelperchat/issues/205
+https://github.com/remdex/livehelperchat/issues/204
+
+//------//
+Changes
+//------//
+1. Disable posibility to choose to what department transfer chat if chosen department is self.
+
+https://github.com/remdex/livehelperchat/issues/203
+
+//------//
+Bugfixes
+1. Skype input field was missin in new window creation window.
+//------//
+
+//------//
+For update
+//------//
+
+1. execute doc/update_db/update_51.sql for update
+
+2. Add in your site settings/settings.ini.php under 
+'installed' => true,
+
+True will remove index.php from url, also you will have to use .htaccess/nginx conf provided in doc/http_conf_examples
+For this to work app has to be installed on root folder, it can be either domain or subdomain.
+
+'force_virtual_host' => false,
+
+1.68v
+
+Features
+1. Skype call field in user attributes
+2. Online operators listing will show only his department operators.
+3. In order to see all operators to operators role has to be assigned "user" => "userlistonlineall" permission
+
+Changes
+1. Added check to make sure that cookie contains vid variable. (Some users were reporting that after closing invitation it's shown again instantly, personally
+I just cannot reproduce it.)
+2. Update to jquery 1.10.2 version.
+
+execute doc/update_db/update_50.sql for update
+
+1.67v
+
+Features
+1. Fontello icons for most of the icons
+2. Sneek chat preview on lists. No need to accept a chat to see about what user is asking.
+
+Bugfix.
+1. After some changes up-votes and down-botes icons colors was ignored.
+2. https://github.com/remdex/livehelperchat/issues/196
+
+This is second release in the same day. Be sure that you have also executed doc/update_db/update_48.sql
+
+execute doc/update_db/update_49.sql for update
+
+1.66v
+
+Features
+1. Now you can configure to receive an e-mail then chat is closed.
+	a. First we check does mail templates has any recipients.
+	b. If not then we check for department responsible users.
+	c. If not we send an e-mail to admin. 
+2. I have added GTalk OAuth2 support for authorisation. It allows to authorize live helper chat to send xmpp messages using OAuth logic. So you won't have to enter your password.
+If you are using two steps verification on google, you just have to generate application specific password, that's all.
+3. Added more check for install script. mbstring and php_curl extension checks.
+
+Changes
+1. Fixes few typos on department edit window.
+
+execute doc/update_db/update_48.sql for update
+
+1.65v
+
+Features
+1. XMPP Support, you can just configure XMPP and install Xabber on your Android phone to receive new chat request. You do not have to be online all the time, you can configure your online hours in department.
+2. Department online hours, you can set then chat should be online automatically by week days and hours. You can also set after how many seconds new chat callback should be executed.
+3. New chat request callback option. This will allow for users implement other handlers like SMS notification etc.
+5. Notification about new chats either using XMP or mail. Clicking link in mail will lead you automatically to chat.
+6. Statistic page will show how many total up-votes or downvotes has received an operator.
+
+Changes
+1. Install script will show precise error.
+2. Avoid language confusion in other siteaccess than site_admin.
+
+execute doc/update_db/update_47.sql for update
+
+1.64v
+
+Features
+1. Online visitors list will show page title insead of url. URL will be shown as link title.
+2. Option to print and mail archived chat.
+3. Option to add IP which should not be presented in online visitors list. Also this will avoid Proactive chat invitations to them.
+
+Changes
+1. Embed code generation can be reached only from configuration to avoid users misunderstandings.
+
+execute doc/update_db/update_46.sql for update
+
+1.63v
+
+Features
+1. Avatars.
+2. Chat feedback by voting thumbs down and up.
+2. Option to show virtual assistant profile for invitation message.
+
+execute doc/update_db/update_45.sql for update
+
+create directory var/userphoto make sure that php can write to it. just chmod 664 var/userphoto
+
+1.62v
+
+Features
+1. FAQ modules URL now supports wildcard at the end.
+E.g /shop/basket/*
+2. Invitation widget new style. Sound on first invitation.
+3. Chat API module for getting users status.
+
+Changes from github for summary:
+https://github.com/remdex/livehelperchat/issues/164
+https://github.com/remdex/livehelperchat/issues/162
+https://github.com/remdex/livehelperchat/issues/163
+
+execute doc/update_db/update_44.sql for update
+
+1.61v
+
+1. Files upload module
+1.1 You may have to grant operators few permissions for file upload to work correctly.
+
+execute doc/update_db/update_43.sql
+
+create directory var/storage make sure that php can write to it. just chmod 664 var/storage
+
+1.60v
+
+Features
+1. Option fo user to change language in back office. Just for him alone. Usefull if back office is used by people who speaks different languages.
+2. Chatbox now supports predefined nick and option to disable nick.
+
+Improvements, Bugfixes
+1. Few PHP calls were not compiled. So a little bit more performance gain.
+2. Seems if user disabled chat sound, he could not start chat next time. Not sure still.
+3. Various other small improvements.
+
+No database update this time.
+
+1.59v
+
+1. Option to disable restore icon in widget. Disables popup opening in site.
+2. In proactive message you can set, is mail required or not.
+
+Bugfix.
+Small grammar fix.
+
+execute doc/update_db/update_42.sql
+
+1.58v
+
+1. Arhchive module for chats. Now we have unlimited number of chats support. I'm talking about tens of millions of records. If main table becames to big you can just archive the old chats.
+This feature took over 20 hours to implement.
+2. Indonesian language.
+3. Delay for canned messages.
+4. Operator is typing will be shown in a different location to avoid it appearing over message text.
+
+execute doc/update_db/update_41.sql
+
+1.57v
+
+1. Option to configure default map position.
+2. Departments transfer workflow will pay attention to how many pending chat's there are.
+3. Firefox support for notification added.
+4. Desktop client will support user typing messages. User status will be shown.
+
+Bugfixes
+
+execute doc/update_db/update_40.sql
+
 1.56v
 
 Features:
 1. Automatic transfers between departments.
-2. Cronjob
+2. Cronjobs support
 
 Bugfixes:
 After upgrade for third parties cookies drop, identifier functionality was lost.

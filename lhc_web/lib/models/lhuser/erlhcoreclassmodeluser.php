@@ -13,7 +13,11 @@ class erLhcoreClassModelUser {
                'surname'         => $this->surname,
                'disabled'        => $this->disabled,
                'hide_online'     => $this->hide_online,
-               'all_departments' => $this->all_departments
+               'all_departments' => $this->all_departments,
+               'filepath'     	 => $this->filepath,
+			   'filename'     	 => $this->filename,
+			   'skype'     	 	 => $this->skype,
+			   'xmpp_username'   => $this->xmpp_username,
        );
    }
 
@@ -100,6 +104,19 @@ class erLhcoreClassModelUser {
                 return $this->lastactivity;
 
        	    break;
+
+       	case 'has_photo':
+       	    	return $this->filename != '';
+       	    break;
+
+       	case 'photo_path':
+       			$this->photo_path = erLhcoreClassSystem::instance()->wwwDir() .'/'. $this->filepath . $this->filename;
+       			return $this->photo_path;
+       		break;
+
+       	case 'file_path_server':
+       			return $this->filepath . $this->filename;
+       		break;
 
        	case 'lastactivity_front':
        		   $this->lastactivity_front = '';
@@ -256,11 +273,17 @@ class erLhcoreClassModelUser {
        return $rows[0]['foundusers'] > 0;
    }
 
-   public static function fetchUserByEmail($email)
+   public static function fetchUserByEmail($email, $xmpp_username = false)
    {
        $db = ezcDbInstance::get();
-       $stmt = $db->prepare('SELECT id FROM lh_users WHERE email = :email');
+       $xmppAppend = $xmpp_username !== false ? ' OR xmpp_username = :xmpp_username' : '';       
+       $stmt = $db->prepare('SELECT id FROM lh_users WHERE email = :email'.$xmppAppend);
        $stmt->bindValue( ':email',$email);
+       
+       if ($xmpp_username !== false) {
+       		$stmt->bindValue( ':xmpp_username',$xmpp_username);       		
+       }
+       
        $stmt->execute();
        $rows = $stmt->fetchAll();
 
@@ -271,12 +294,35 @@ class erLhcoreClassModelUser {
        }
    }
 
+   public function saveThis(){
+   		erLhcoreClassUser::getSession()->saveOrUpdate($this);
+   }
+
+   public function removeFile()
+   {
+	   	if ($this->filepath != '') {
+	   		if ( file_exists($this->filepath . $this->filename) ) {
+	   			unlink($this->filepath . $this->filename);
+	   		}
+
+	   		erLhcoreClassFileUpload::removeRecursiveIfEmpty('var/userphoto/',str_replace('var/userphoto/','',$this->filepath));
+
+	   		$this->filepath = '';
+	   		$this->filename = '';
+	   		$this->saveThis();
+	   	}
+   }
+
     public $id = null;
     public $username = '';
     public $password = '';
     public $email = '';
     public $name = '';
+    public $filepath = '';
+    public $filename = '';
     public $surname = '';
+    public $skype = '';
+    public $xmpp_username = '';
     public $disabled = 0;
     public $hide_online = 0;
     public $all_departments = 0;

@@ -19,6 +19,16 @@ $ViewList['lists'] = array(
     'params' => array()
 );
 
+$ViewList['getuseronlinestatus'] = array(
+    'script' => 'getuseronlinestatus.php',
+    'params' => array()
+);
+
+$ViewList['setonlinestatus'] = array(
+    'script' => 'setonlinestatus.php',
+    'params' => array('status')
+);
+
 $ViewList['deletechat'] = array(
     'script' => 'deletechat.php',
     'params' => array('chat_id')

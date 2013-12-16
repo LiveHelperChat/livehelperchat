@@ -105,26 +105,34 @@ class erLhcoreClassModelUserDep {
 	   	return $objects;
    }
 
-   public static function getOnlineOperators($currentUser) {
+   public static function getOnlineOperators($currentUser, $canListOnlineUsersAll = false) {
 
 	   	$LimitationDepartament = '';
 	   	$userData = $currentUser->getUserData(true);
 	   	$filter = array();
 
-	   	if ( $userData->all_departments == 0 )
+	   	
+	   	if ( $userData->all_departments == 0 && $canListOnlineUsersAll == false)
 	   	{
 	   		$userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID());
 
 	   		if (count($userDepartaments) == 0) return array();
 
-	   		$filter['customfilter'][] = '(dep_id IN ('.implode(',',$userDepartaments). ') OR user_id = '.$currentUser->getUserID() . ')';
+	   		$index = array_search(-1, $userDepartaments);
+	   		if ($index !== false){
+	   			unset($userDepartaments[$index]);
+	   		}
+	   		
+	   		$filter['customfilter'][] = '(dep_id IN ('.implode(',',$userDepartaments). ') OR user_id = ' . $currentUser->getUserID() . ')';
 	   	};
 
+	   	
 	   	$filter['filtergt']['last_activity'] = time()-120;
 	   	$filter['limit'] = 10;
 	   	$filter['sort'] = 'last_activity DESC';
 	   	$filter['groupby'] = 'user_id';
 
+	   	
 	   	return self::getList($filter);
 
    }

@@ -4,7 +4,7 @@
 $currentUser = erLhcoreClassUser::instance();
 
 if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
-	echo json_encode(array('error' => 'true', 'result' => 'Invalid CSFR Token' ));
+	echo json_encode(array('error' => 'true', 'result' => 'Invalid CSRF Token' ));
 	exit;
 }
 
@@ -33,7 +33,7 @@ if ($chat->user_id == $currentUser->getUserID() || $currentUser->hasAccessTo('lh
 	    CSCacheAPC::getMem()->removeFromArray('lhc_open_chats', $chat->id);
 
 	    // Execute callback for close chat
-	    erLhcoreClassChat::closeChatCallback($chat);
+	    erLhcoreClassChat::closeChatCallback($chat,$userData);
 	}
 }
 

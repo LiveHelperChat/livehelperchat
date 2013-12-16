@@ -5,7 +5,7 @@ $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params
 $currentUser = erLhcoreClassUser::instance();
 
 if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
-	echo json_encode(array('error' => 'true', 'result' => 'Invalid CSFR Token' ));
+	echo json_encode(array('error' => 'true', 'result' => 'Invalid CSRF Token' ));
 	exit;
 }
 
@@ -16,7 +16,7 @@ if ($currentUser->hasAccessTo('lhchat','deleteglobalchat') || ($currentUser->has
 
     echo json_encode(array('error' => 'false', 'result' => 'ok' ));
 } else {
-   echo json_encode(array('error' => 'true', 'result' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/deletechatadmin',"You do not have rights to delete a chat") ));
+   echo json_encode(array('error' => 'true', 'result' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/deletechatadmin','You do not have rights to delete a chat') ));
 }
 
 exit;

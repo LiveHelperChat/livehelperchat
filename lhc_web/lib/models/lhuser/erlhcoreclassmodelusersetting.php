@@ -91,7 +91,7 @@ class erLhcoreClassModelUserSetting {
        }
    }
 
-   public static function getSetting($identifier, $default_value, $user_id = false)
+   public static function getSetting($identifier, $default_value, $user_id = false, $noSession = false)
    {
        if ($user_id == false) {
            $currentUser = erLhcoreClassUser::instance();
@@ -124,13 +124,13 @@ class erLhcoreClassModelUserSetting {
                CSCacheAPC::getMem()->setSession('settings_user_id_'.$user_id.'_'.$identifier,$value,true);
            }
        } else {
-
-           if (($value = CSCacheAPC::getMem()->getSession('anonymous_'.$identifier)) === false) {
-               $value = $default_value;
+       	   $value = $default_value;
+       	          	   
+           if ($noSession === false && ($value = CSCacheAPC::getMem()->getSession('anonymous_'.$identifier)) === false) {
+           	   $value = $default_value;
                CSCacheAPC::getMem()->setSession('anonymous_'.$identifier,$value);
            }
        }
-
 
        return $value;
    }

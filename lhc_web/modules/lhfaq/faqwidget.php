@@ -62,16 +62,23 @@ if (!empty($dynamic_url_append)) {
 $session = erLhcoreClassFaq::getSession();
 $q = $session->database->createSelectQuery();
 $q->select( "COUNT(id)" )->from( "lh_faq" );
+
 $q->where(
 		$q->expr->eq( 'active', 1 ),
 		$q->expr->lOr(
-		$q->expr->eq( 'url', $q->bindValue('') ),
-		$q->expr->eq( 'url', $q->bindValue( trim($matchStringURL) ) ) )
+				$q->expr->eq( 'url', $q->bindValue('') ),
+				$q->expr->eq( 'url', $q->bindValue( trim($matchStringURL) ) ),
+				$q->expr->lAnd(
+						$q->expr->eq( 'is_wildcard', $q->bindValue(1) ),
+						$q->expr->like( $session->database->quote(trim($matchStringURL)),'concat(left(url,length(url)-1),\'%\')'))
+		)
 
 );
+
 $stmt = $q->prepare();
 $stmt->execute();
 $result = $stmt->fetchColumn();
+
 
 $pages = new lhPaginator();
 $pages->serverURL = erLhcoreClassDesign::baseurl('faq/faqwidget').$dynamic_url_append;
@@ -86,7 +93,10 @@ if ($pages->items_total > 0) {
 			$q->expr->eq( 'active', 1 ),
 			$q->expr->lOr(
 					$q->expr->eq( 'url', $q->bindValue('') ),
-					$q->expr->eq( 'url', $q->bindValue( trim($matchStringURL) ) ) )
+					$q->expr->eq( 'url', $q->bindValue( trim($matchStringURL) ) ),
+					$q->expr->lAnd(
+						$q->expr->eq( 'is_wildcard', $q->bindValue(1) ),
+						$q->expr->like( $session->database->quote(trim($matchStringURL)),'concat(left(url,length(url)-1),\'%\')')) )
 
 	);
 	$q->limit($pages->items_per_page, $pages->low);
@@ -106,11 +116,16 @@ if ( isset($_POST['send']) )
 					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
 	);
 
-	// Captcha stuff
-	$nameField = 'captcha_'.sha1($_SERVER['REMOTE_ADDR'].$_POST['tscaptcha'].erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
+	if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
+		$hashCaptcha = isset($_SESSION[$_SERVER['REMOTE_ADDR']]['form']) ? $_SESSION[$_SERVER['REMOTE_ADDR']]['form'] : null;
+    	$nameField = 'captcha_'.$hashCaptcha;
+	} else {	
+		// Captcha stuff
+		$nameField = 'captcha_'.sha1(erLhcoreClassIPDetect::getIP().$_POST['tscaptcha'].erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
+	}
+	
 	$definition[$nameField] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
-
-
+	
 	$form = new ezcInputForm( INPUT_POST, $definition );
 	$Errors = array();
 
@@ -125,12 +140,18 @@ if ( isset($_POST['send']) )
 		$item_new->url = $form->url;
 	}
 
-	// Captcha validation
-	if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600)
-	{
-		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid captcha code, please enable Javascript!');
+	if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
+		if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600 || $hashCaptcha != sha1($_SERVER['REMOTE_ADDR'].$form->$nameField.erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ))){
+			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid captcha code, please enable Javascript!');
+		}
+	} else {		
+		// Captcha validation
+		if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600)
+		{
+			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid captcha code, please enable Javascript!');
+		}
 	}
-
+	
 	// Dynamic URL has higher priority
 	if ($dynamic_url != '') {
 		$item_new->url = $dynamic_url;
@@ -144,8 +165,8 @@ if ( isset($_POST['send']) )
 		$item_new = new erLhcoreClassFaq();
 		$tpl->set('success',true);
 
-		if (isset($_SESSION[$_SERVER['REMOTE_ADDR']]['form'])) {
-			unset($_SESSION[$_SERVER['REMOTE_ADDR']]['form']);
+		if (isset($_SESSION[erLhcoreClassIPDetect::getIP()]['form'])) {
+			unset($_SESSION[erLhcoreClassIPDetect::getIP()]['form']);
 		}
 
 	} else {

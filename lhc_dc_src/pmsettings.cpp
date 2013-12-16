@@ -1,7 +1,7 @@
 #include <QFile>
 
 #include <QString>
-#include <QDomDocument> 
+#include <QtXml/QDomDocument>
 #include <QtGui>
 
 

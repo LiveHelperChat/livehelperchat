@@ -43,17 +43,12 @@ if ($currentUser->isLogged() && isset($_POST['chats']))
                     }
                 }
             } else {
-                // User left chat
-                if ($Chat->support_informed == 0 && $Chat->user_status == 1)
-                {
-                    $Chat->support_informed = 1;
-                    erLhcoreClassChat::getSession()->update($Chat);
-                    $chatStatusMessage = 'User left chat';
-                    //$ReturnMessages[] = array('chat_id' => $chat_id, 'content' => $tpl->fetch( 'lhchat/userleftchat.tpl.php'), 'message_id' => $MessageID);
-                } elseif ($Chat->support_informed == 0 && $Chat->user_status == 0) {
-                    $Chat->support_informed = 1;
-                    erLhcoreClassChat::getSession()->update($Chat);
-                    $chatStatusMessage = 'User joined chat';
+            	if ($Chat->is_user_typing) {
+            		$chatStatusMessage = $Chat->user_typing_txt;
+            	} elseif ($Chat->user_status == 1) {
+                    $chatStatusMessage = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat','User has left the chat!');
+                } elseif ($Chat->user_status == 0) {
+                    $chatStatusMessage = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userjoined','User has joined the chat!');
                 }
             }
         }

@@ -1,110 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="1.1" language="hr">
-<defaultcodec></defaultcodec>
-<context>
-    <name>ChatRoomsWidget</name>
-    <message>
-        <source>Live helper chat - chat rooms</source>
-        <translation>ONLINE pomoć - sobe za razgovor</translation>
-    </message>
-</context>
-<context>
-    <name>ChatRoomsWindow</name>
-    <message>
-        <source>Add chat</source>
-        <translation>Dodaj razgovor</translation>
-    </message>
-    <message>
-        <source>Open in a new window</source>
-        <translation>Otvori u novom prozoru</translation>
-    </message>
-    <message>
-        <source>Open in a new separate window</source>
-        <translation>Otvori u novom samostalnom prozoru</translation>
-    </message>
-    <message>
-        <source>Loading...</source>
-        <translation>Učitavam...</translation>
-    </message>
-    <message>
-        <source>Close chat</source>
-        <translation>Završi razgovor</translation>
-    </message>
-    <message>
-        <source>Delete chat</source>
-        <translation>Obriši razgovor</translation>
-    </message>
-    <message>
-        <source>Reject chat</source>
-        <translation>Odbaci razgovor</translation>
-    </message>
-    <message>
-        <source>Pending chats</source>
-        <translation>Razgovori na čekanju</translation>
-    </message>
-    <message>
-        <source>Transferred chats</source>
-        <translation>Preseljeni razgovori</translation>
-    </message>
-    <message>
-        <source>Active chats</source>
-        <translation>Aktivni razgovori</translation>
-    </message>
-    <message>
-        <source>Closed chats</source>
-        <translation>Završeni razgovori</translation>
-    </message>
-</context>
-<context>
-    <name>ChatWidget</name>
-    <message>
-        <source>Live helper chat - chat</source>
-        <translation>ONLINE pomoć</translation>
-    </message>
-</context>
-<context>
-    <name>ChatWindow</name>
-    <message>
-        <source>User left the chat</source>
-        <translation>Korisnik završio razgovor</translation>
-    </message>
-    <message>
-        <source>User joined the chat</source>
-        <translation>Korisnik započeo razgovor</translation>
-    </message>
-    <message>
-        <source>Actions</source>
-        <translation>Aktivnosti</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Informacija</translation>
-    </message>
-    <message>
-        <source>Loading...</source>
-        <translation>Učitavam...</translation>
-    </message>
-    <message>
-        <source>Owner</source>
-        <translation>Vlasnik</translation>
-    </message>
-    <message>
-        <source>responsible</source>
-        <translation>odgovoran</translation>
-    </message>
-    <message>
-        <source>Came from</source>
-        <translation>Stigao od</translation>
-    </message>
-    <message>
-        <source>E-mail</source>
-        <translation>E-mail</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation>Greška</translation>
-    </message>
-</context>
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="hr" version="2.0">
 <context>
     <name>LHQTableWidget</name>
     <message>
@@ -135,47 +29,69 @@
         <source>Department</source>
         <translation>OJ</translation>
     </message>
+	<message>
+        <source>Browser</source>
+        <translation type="unfinished"/>
+    </message>
+	<message>
+        <source>Last visit</source>
+        <translation type="unfinished"/>
+    </message>
+	<message>
+        <source>First visit</source>
+        <translation type="unfinished"/>
+    </message>
+	<message>
+        <source>Country</source>
+        <translation type="unfinished"/>
+    </message>
+	<message>
+        <source>Operator message</source>
+        <translation type="unfinished"/>
+    </message>
+	<message>
+        <source>Pages viewed</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
-    <name>LhcTransferDialog</name>
+    <name>ChatWidget</name>
     <message>
-        <source>Chat transfer</source>
-        <translation>Prijenos razgovora</translation>
-    </message>
-    <message>
-        <source>Online users</source>
-        <translation>Online korisnici</translation>
-    </message>
-    <message>
-        <source>Ok</source>
-        <translation>Ok</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>Odustani</translation>
+        <source>Live helper chat - chat</source>
+        <translation>ONLINE pomoć</translation>
     </message>
 </context>
 <context>
-    <name>LoginDialog</name>
+    <name>privatemessage</name>
     <message>
-        <source>Authentication failed</source>
-        <translation>Autentifikacija nije prošla</translation>
+        <source>Type your message:</source>
+        <translation type="unfinished"/>
     </message>
-    <message>
-        <source>Warning</source>
-        <translation>Upozorenje</translation>
+	<message>
+        <source>Send message</source>
+        <translation type="unfinished"/>
     </message>
-    <message>
-        <source>The host field is empty!</source>
-        <translation>Host polje je prazno!</translation>
+	<message>
+        <source>Close</source>
+        <translation type="unfinished"/>
     </message>
+</context>
+<context>
+    <name>onlineuserinfo</name>
     <message>
-        <source>The password field is empty!</source>
-        <translation>Polje lozinke je prazno!</translation>
+        <source>User info</source>
+        <translation type="unfinished"/>
     </message>
+	<message>
+        <source>Close</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>ChatRoomsWidget</name>
     <message>
-        <source>The username field is empty!</source>
-        <translation>Polje korisničko ime je prazno!</translation>
+        <source>Live helper chat - chat rooms</source>
+        <translation>ONLINE pomoć - sobe za razgovor</translation>
     </message>
 </context>
 <context>
@@ -207,6 +123,166 @@
     <message>
         <source>Autologin</source>
         <translation>Automatska prijava</translation>
+    </message>
+</context>
+<context>
+    <name>LoginDialog</name>
+    <message>
+        <source>Authentication failed</source>
+        <translation>Autentifikacija nije prošla</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation>Upozorenje</translation>
+    </message>
+    <message>
+        <source>The host field is empty!</source>
+        <translation>Host polje je prazno!</translation>
+    </message>
+    <message>
+        <source>The password field is empty!</source>
+        <translation>Polje lozinke je prazno!</translation>
+    </message>
+    <message>
+        <source>The username field is empty!</source>
+        <translation>Polje korisničko ime je prazno!</translation>
+    </message>
+</context>
+<context>
+    <name>LhcTransferDialog</name>
+    <message>
+        <source>Chat transfer</source>
+        <translation>Prijenos razgovora</translation>
+    </message>
+    <message>
+        <source>Online users</source>
+        <translation>Online korisnici</translation>
+    </message>
+    <message>
+        <source>Ok</source>
+        <translation>Ok</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Odustani</translation>
+    </message>
+</context>
+<context>
+    <name>ChatRoomsWindow</name>
+    <message>
+        <source>Add chat</source>
+        <translation>Dodaj razgovor</translation>
+    </message>
+	<message>
+        <source>Accept chat</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open in a new window</source>
+        <translation>Otvori u novom prozoru</translation>
+    </message>
+    <message>
+        <source>Open in a new separate window</source>
+        <translation>Otvori u novom samostalnom prozoru</translation>
+    </message>
+    <message>
+        <source>Loading...</source>
+        <translation>Učitavam...</translation>
+    </message>
+    <message>
+        <source>Close chat</source>
+        <translation>Završi razgovor</translation>
+    </message>
+    <message>
+        <source>Delete chat</source>
+        <translation>Obriši razgovor</translation>
+    </message>
+    <message>
+        <source>Reject chat</source>
+        <translation>Odbaci razgovor</translation>
+    </message>
+    <message>
+        <source>Pending chats</source>
+        <translation>Razgovori na čekanju</translation>
+    </message>
+    <message>
+        <source>Transfered chats</source>
+        <translation type="unfinished"/>
+    </message>
+	<message>
+        <source>Online Users</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Active chats</source>
+        <translation>Aktivni razgovori</translation>
+    </message>
+	<message>
+        <source>Send private message</source>
+        <translation type="unfinished"/>
+    </message>
+	<message>
+        <source>View user information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Closed chats</source>
+        <translation>Završeni razgovori</translation>
+    </message>
+</context>
+<context>
+    <name>ChatWindow</name>
+    <message>
+        <source>User left chat</source>
+        <translation type="unfinished"/>
+    </message>
+	<message>
+        <source>Send</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Choose canned message</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User joined chat</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Actions</source>
+        <translation>Aktivnosti</translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation>Informacija</translation>
+    </message>
+    <message>
+        <source>Loading...</source>
+        <translation>Učitavam...</translation>
+    </message>
+    <message>
+        <source>Owner</source>
+        <translation>Vlasnik</translation>
+    </message>
+    <message>
+        <source>responsable</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Came from</source>
+        <translation>Stigao od</translation>
+    </message>
+	<message>
+        <source>Country</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>E-mail</source>
+        <translation>E-mail</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>Greška</translation>
     </message>
 </context>
 <context>

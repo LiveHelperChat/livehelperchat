@@ -85,6 +85,12 @@ if (isset($_POST['Update']))
         ),
         'Username' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
+        'Skype' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
+        'XMPPUsername' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         )
     );
 
@@ -113,17 +119,59 @@ if (isset($_POST['Update']))
     {
         $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Please enter a name');
     }
-
-    if ( !$form->hasValidData( 'Surname' ) || $form->Surname == '')
+        
+    if ( $form->hasValidData( 'Surname' ) && $form->Surname != '')
     {
-        $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Please enter a surname');
+    	$UserData->surname = $form->Surname;
+    } else {
+    	$UserData->surname = '';
     }
-
+        
+    if ( $form->hasValidData( 'Skype' ) && $form->Skype != '')
+    {
+    	$UserData->skype = $form->Skype;
+    } else {
+    	$UserData->skype = '';
+    }
+    
+    if ( $form->hasValidData( 'XMPPUsername' ) && $form->XMPPUsername != '')
+    {
+    	$UserData->xmpp_username = $form->XMPPUsername;
+    } else {
+    	$UserData->xmpp_username = '';
+    }
+        
     if ( $form->hasInputField( 'Password' ) && (!$form->hasInputField( 'Password1' ) || $form->Password != $form->Password1  ) ) // check for optional field
     {
         $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Passwords mismatch');
     }
 
+    if ( isset($_POST['DeletePhoto']) ) {
+    	$UserData->removeFile();
+    }
+
+    if ( isset($_FILES["UserPhoto"]) && is_uploaded_file($_FILES["UserPhoto"]["tmp_name"]) && $_FILES["UserPhoto"]["error"] == 0 && erLhcoreClassImageConverter::isPhoto('UserPhoto') ) {
+    	$UserData->removeFile();
+
+    	$dir = 'var/userphoto/' . date('Y') . 'y/' . date('m') . '/' . date('d') .'/' . $UserData->id . '/';
+    	erLhcoreClassFileUpload::mkdirRecursive( $dir );
+
+    	$file = qqFileUploader::upload($_FILES,'UserPhoto',$dir);
+
+    	if ( !empty($file["errors"]) ) {
+    		foreach ($file["errors"] as $err) {
+    			$Errors[] = $err;
+    		}
+    	} else {
+
+    		$UserData->removeFile();
+    		$UserData->filename           = $file["data"]["filename"];
+    		$UserData->filepath           = $file["data"]["dir"];
+
+    		erLhcoreClassImageConverter::getInstance()->converter->transform( 'photow_150', $UserData->file_path_server, $UserData->file_path_server );
+    		chmod($UserData->file_path_server, 0644);
+    	}
+    }
 
     if (count($Errors) == 0)
     {

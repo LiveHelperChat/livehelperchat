@@ -27,7 +27,7 @@ class erLhcoreClassChatbox {
 				$chat->referrer = isset($_GET['URLReferer']) ? $_GET['URLReferer'] : '';
 
 				// Assign default department
-				$departments = erLhcoreClassModelDepartament::getList();
+				$departments = erLhcoreClassModelDepartament::getList(array('filter' => array('disabled' => 0)));
 				$ids = array_keys($departments);
 				$id = array_shift($ids);
 				$chat->dep_id = $id;
@@ -148,7 +148,7 @@ class erLhcoreClassChatbox {
     		return $_SESSION['lhc_chatbox_nick'];
     	} elseif (isset($_GET['nick']) && !empty($_GET['nick'])) {
     		return htmlspecialchars_decode(urldecode($_GET['nick']),ENT_QUOTES);
-    	}else {
+    	} else {
     		$_SESSION['lhc_chatbox_nick'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Visitor').'_'.mt_rand(0, 1000);
     		return $_SESSION['lhc_chatbox_nick'];
     	}

@@ -1,0 +1,15 @@
+$HTTP["host"] =~ "(^|\.)(example\.com)" {
+url.rewrite-once = (
+
+"^/design/(.*)" =>  "/design/$1",
+
+"^/.*\.(css|html|htm|pdf|txt|js|bmp|ico|json|png|JPG|otf|mp3|ogg|wav|woff|eot|ttf|PNG|flv|ogv|gif|jpe?g|swf)(.*?)$" => "$0",
+"^/index(.*)" => "/index$1",
+"^/(.+)\?(.*)/?$" => "/index.php?/$1&$2",
+"^/(.+)/?$" => "/index.php?/$1"
+)
+server.document-root = "/site/directory/root"
+server.errorlog = "/var/log/lighttpd/error.log"
+accesslog.filename = "/var/log/lighttpd/access.log"
+server.error-handler-404 = "/e404.php"
+}

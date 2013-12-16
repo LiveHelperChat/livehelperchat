@@ -277,15 +277,6 @@ void ChatWindow::receivedMessages(void* pt2Object, QScriptValue result)
     //qDebug("Received message %s",result.toString().toStdString().c_str());
     QString msgRow = mySelf->messagesText->toPlainText().isEmpty() ? "" : mySelf->messagesText->toHtml();
 
-    if (mySelf->newmessageText->messageSend == false) {
-        if ( QFile::exists(qApp->applicationDirPath() + "/sounds/new_message.mp3") ) {
-            mySelf->mediaObject->setCurrentSource(Phonon::MediaSource(qApp->applicationDirPath() + "/sounds/new_message.mp3"));
-            mySelf->mediaObject->play();
-        }
-    }
-
-    mySelf->newmessageText->messageSend = false;
-
     // Chat messages
     if (result.isArray())
     {
@@ -329,20 +320,24 @@ void ChatWindow::receivedMessages(void* pt2Object, QScriptValue result)
 
         mySelf->messagesText->setHtml(msgRow);
 
+        if (mySelf->newmessageText->messageSend == false) {
+            if ( QFile::exists(qApp->applicationDirPath() + "/sounds/new_message.mp3") ) {
+                mySelf->mediaObject->setCurrentSource(Phonon::MediaSource(qApp->applicationDirPath() + "/sounds/new_message.mp3"));
+                mySelf->mediaObject->play();
+            }
+        }
+
+        mySelf->newmessageText->messageSend = false;
+
     // Chat status information
     } else {
         mySelf->statusChat->setText(tr(result.toString().toUtf8()));
         //msgRow +="<p style=\"margin:0px;\">"+tr(result.toString().toUtf8())+"</p>";
     }
 
-
-
     // Scroll to bottom
     QScrollBar *sb = mySelf->messagesText->verticalScrollBar();
     sb->setValue(sb->maximum());
-
-
-
 }
 
 

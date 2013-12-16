@@ -34,6 +34,11 @@ $def->properties['has_url']->columnName   = 'has_url';
 $def->properties['has_url']->propertyName = 'has_url';
 $def->properties['has_url']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['is_wildcard'] = new ezcPersistentObjectProperty();
+$def->properties['is_wildcard']->columnName   = 'is_wildcard';
+$def->properties['is_wildcard']->propertyName = 'is_wildcard';
+$def->properties['is_wildcard']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

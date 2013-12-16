@@ -9,6 +9,7 @@ class erLhcoreClassModelChatOnlineUser {
                'ip'                 => $this->ip,
                'vid'                => $this->vid,
                'current_page'       => $this->current_page,
+               'page_title'         => $this->page_title,
                'chat_id'            => $this->chat_id, // For future
                'last_visit'         => $this->last_visit,
                'first_visit'        => $this->first_visit,
@@ -32,6 +33,7 @@ class erLhcoreClassModelChatOnlineUser {
                'invitation_id'    	=> $this->invitation_id,
                'total_visits'    	=> $this->total_visits,
                'invitation_count'   => $this->invitation_count,
+               'requires_email'   	=> $this->requires_email,
        );
    }
 
@@ -312,6 +314,26 @@ class erLhcoreClassModelChatOnlineUser {
            }
 
            return false;
+           
+       } elseif ($service == 'ipinfodbcom') {
+           $response = self::executeRequest("http://api.ipinfodb.com/v3/ip-city/?key={$params['api_key']}&ip={$ip}&format=json");
+           
+           if ( !empty($response) ) {
+               $responseData = json_decode($response);
+               if (is_object($responseData)) {
+               	   if ($responseData->statusCode == 'OK') {
+	                   $normalizedObject = new stdClass();
+	                   $normalizedObject->country_code = strtolower($responseData->countryCode);
+	                   $normalizedObject->country_name = $responseData->countryName;
+	                   $normalizedObject->lat = $responseData->latitude;
+	                   $normalizedObject->lon = $responseData->longitude;
+	                   $normalizedObject->city = $responseData->cityName;	                  
+	                   return $normalizedObject;
+               	   }
+               }
+           }
+
+           return false;
        } elseif ($service == 'locatorhq') {
 
        	   $ip = (isset($params['ip']) && !empty($params['ip'])) ? $params['ip'] : $ip;
@@ -349,9 +371,14 @@ class erLhcoreClassModelChatOnlineUser {
            if ($geo_data['geo_service_identifier'] == 'mod_geoip2'){
                $params['country_code'] = $geo_data['mod_geo_ip_country_code'];
                $params['country_name'] = $geo_data['mod_geo_ip_country_name'];
+               $params['mod_geo_ip_city_name'] = $geo_data['mod_geo_ip_city_name'];
+               $params['mod_geo_ip_latitude'] = $geo_data['mod_geo_ip_latitude'];
+               $params['mod_geo_ip_longitude'] = $geo_data['mod_geo_ip_longitude'];
            } elseif ($geo_data['geo_service_identifier'] == 'locatorhq') {
                $params['username'] = $geo_data['locatorhqusername'];
                $params['api_key'] = $geo_data['locatorhq_api_key'];
+           } elseif ($geo_data['geo_service_identifier'] == 'ipinfodbcom') {             
+               $params['api_key'] = $geo_data['ipinfodbcom_api_key'];
            }
 
            $location = self::getUserData($geo_data['geo_service_identifier'],$instance->ip,$params);
@@ -400,7 +427,39 @@ class erLhcoreClassModelChatOnlineUser {
 
 	   	return $isCrawler;
    }
-
+   
+   public static function unicode_urldecode($url)
+   {
+   		$url = mb_convert_encoding($url, 'utf-8','ISO-8859-1');   		
+	   	preg_match_all('/%u([[:alnum:]]{4})/', $url, $a);
+	   
+	   	foreach ($a[1] as $uniord)
+	   	{
+	   		$dec = hexdec($uniord);
+	   		$utf = '';
+	   
+	   		if ($dec < 128)
+	   		{
+	   			$utf = chr($dec);
+	   		}
+	   		else if ($dec < 2048)
+	   		{
+	   			$utf = chr(192 + (($dec - ($dec % 64)) / 64));
+	   			$utf .= chr(128 + ($dec % 64));
+	   		}
+	   		else
+	   		{
+	   			$utf = chr(224 + (($dec - ($dec % 4096)) / 4096));
+	   			$utf .= chr(128 + ((($dec % 4096) - ($dec % 64)) / 64));
+	   			$utf .= chr(128 + ($dec % 64));
+	   		}
+	   
+	   		$url = str_replace('%u'.$uniord, $utf, $url);
+	   	};
+	   		   	
+	   	return urldecode($url);
+   }
+		
    public static function handleRequest($paramsHandle = array()) {
 
 	   	if (isset($_SERVER['HTTP_USER_AGENT']) && !self::isBot($_SERVER['HTTP_USER_AGENT'])) {
@@ -433,7 +492,7 @@ class erLhcoreClassModelChatOnlineUser {
 
 	               } else {
 	                   $item = new erLhcoreClassModelChatOnlineUser();
-	                   $item->ip = $_SERVER['REMOTE_ADDR'];
+	                   $item->ip = erLhcoreClassIPDetect::getIP();
 	                   $item->vid = $paramsHandle['vid'];
 	                   $item->identifier = (isset($paramsHandle['identifier']) && !empty($paramsHandle['identifier'])) ? $paramsHandle['identifier'] : '';
 	                   $item->referrer = isset($_GET['r']) ? urldecode($_GET['r']) : '';
@@ -460,7 +519,8 @@ class erLhcoreClassModelChatOnlineUser {
 	           // Update variables only if it's not JS to check for operator message
 	           if (!isset($paramsHandle['check_message_operator']) || (isset($paramsHandle['pages_count']) && $paramsHandle['pages_count'] == true)) {
 	           		$item->user_agent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
-	           		$item->current_page = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
+	           		$item->current_page = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';	           			           			           		           		
+	           		$item->page_title = isset($_GET['dt']) ? (string)self::unicode_urldecode($_GET['dt']) : '';
 	           		$item->last_visit = time();
 	           		$item->store_chat = true;
 	           }
@@ -517,11 +577,16 @@ class erLhcoreClassModelChatOnlineUser {
    public $time_on_site = 0;
    public $tt_time_on_site = 0;
    public $referrer = '';
+   public $page_title = '';
    public $total_visits = 0;
    public $invitation_count = 0;
+   public $requires_email = 0;
 
    // Logical attributes
    public $store_chat = false;
+
+   // Invitation assigned
+   public $invitation_assigned = false;
 
 }
 

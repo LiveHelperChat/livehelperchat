@@ -57,3 +57,15 @@ curl -L --user $1:$2 -X GET https://www.transifex.com/api/2/project/live-helper-
 
 echo "Updating vi_VN translations"
 curl -L --user $1:$2 -X GET https://www.transifex.com/api/2/project/live-helper-chat/resource/translation_webts/translation/vi?file=1 > translations/vi_VN/translation.ts
+
+echo "Updating id_ID translations"
+curl -L --user $1:$2 -X GET https://www.transifex.com/api/2/project/live-helper-chat/resource/translation_webts/translation/id?file=1 > translations/id_ID/translation.ts
+
+echo "Updating sv_SV translations"
+curl -L --user $1:$2 -X GET https://www.transifex.com/api/2/project/live-helper-chat/resource/translation_webts/translation/sv?file=1 > translations/sv_SV/translation.ts
+
+echo "Updating fa_FA translations"
+curl -L --user $1:$2 -X GET https://www.transifex.com/api/2/project/live-helper-chat/resource/translation_webts/translation/fa?file=1 > translations/fa_FA/translation.ts
+
+echo "Updating el_EL translations"
+curl -L --user $1:$2 -X GET https://www.transifex.com/api/2/project/live-helper-chat/resource/translation_webts/translation/el?file=1 > translations/el_EL/translation.ts

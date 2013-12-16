@@ -75,27 +75,35 @@ class erLhcoreClassChatValidator {
         		FILTER_REQUIRE_ARRAY
         );
 
-        // Captcha stuff
-        /* $hashCaptcha = $_SESSION[$_SERVER['REMOTE_ADDR']]['form'];
-        $nameField = 'captcha_'.$_SESSION[$_SERVER['REMOTE_ADDR']]['form']; */
-
-        $nameField = 'captcha_'.sha1($_SERVER['REMOTE_ADDR'].$_POST['tscaptcha'].erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
-        $validationFields[$nameField] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
-
+        // Captcha stuff        
+        if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
+        	$hashCaptcha = isset($_SESSION[$_SERVER['REMOTE_ADDR']]['form']) ? $_SESSION[$_SERVER['REMOTE_ADDR']]['form'] : null;
+    		$nameField = 'captcha_'.$hashCaptcha;    	
+        	$validationFields[$nameField] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
+        } else {        
+	        $nameField = 'captcha_'.sha1(erLhcoreClassIPDetect::getIP().$_POST['tscaptcha'].erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
+	        $validationFields[$nameField] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
+        }
 
         $form = new ezcInputForm( INPUT_POST, $validationFields );
         $Errors = array();
 
-        if (erLhcoreClassModelChatBlockedUser::getCount(array('filter' => array('ip' => $_SERVER['REMOTE_ADDR']))) > 0) {
+        if (erLhcoreClassModelChatBlockedUser::getCount(array('filter' => array('ip' => erLhcoreClassIPDetect::getIP()))) > 0) {
             $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You do not have permission to chat! Please contact site owner.');
         }
 
-        // Captcha validation
-        if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600 )
-        {
-        	$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid captcha code, please enable Javascript!');
+        if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
+        	if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600 || $hashCaptcha != sha1($_SERVER['REMOTE_ADDR'].$form->$nameField.erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ))){
+        		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid captcha code, please enable Javascript!');
+        	}
+        } else {
+        	// Captcha validation
+        	if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600 )
+        	{
+        		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid captcha code, please enable Javascript!');
+        	}
         }
-
+        
 
         if (
         ($inputForm->validate_start_chat == true && isset($start_data_fields['name_visible_in_popup']) && $start_data_fields['name_visible_in_popup'] == true) ||
@@ -120,7 +128,7 @@ class erLhcoreClassChatValidator {
         ($inputForm->validate_start_chat == false && isset($start_data_fields['email_visible_in_page_widget']) && $start_data_fields['email_visible_in_page_widget'] == true) || isset($additionalParams['offline']) ) {
 
             if ( (!$form->hasValidData( 'Email' ) && $start_data_fields['email_require_option'] == 'required') || (!$form->hasValidData( 'Email' ) && isset($additionalParams['offline'])) ) {
-                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Wrong email');
+                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a valid email address');
             } elseif ( $form->hasValidData( 'Email' ) ) {
                 $chat->email = $inputForm->email = $form->Email;
             } else {
@@ -160,23 +168,17 @@ class erLhcoreClassChatValidator {
             }
         }
 
-       /*  $departments = erLhcoreClassModelDepartament::getList();
-        $ids = array_keys($departments);
-        if ($form->hasValidData( 'DepartamentID' ) && in_array($form->DepartamentID,$ids)) {
-            $chat->dep_id = $form->DepartamentID;
-        } elseif ($chat->dep_id == 0 || !in_array($chat->dep_id,$ids)) {
-            $id = array_shift($ids);
-            $chat->dep_id = $id;
-        } */
-
-        if ($form->hasValidData( 'DepartamentID' ) && erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $form->DepartamentID))) > 0) {
+        if ($form->hasValidData( 'DepartamentID' ) && erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $form->DepartamentID,'disabled' => 0))) > 0) {
         	$chat->dep_id = $form->DepartamentID;
-        } elseif ($chat->dep_id == 0 || erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $chat->dep_id))) == 0) {
-        	$departments = erLhcoreClassModelDepartament::getList(array('limit' => 1,'filter' => array('department_transfer_id' => 0)));
-        	$department = array_shift($departments);
-        	$chat->dep_id = $department->id;
+        } elseif ($chat->dep_id == 0 || erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $chat->dep_id,'disabled' => 0))) == 0) {
+        	$departments = erLhcoreClassModelDepartament::getList(array('limit' => 1,'filter' => array('disabled' => 0)));
+        	if (!empty($departments) ) {
+	        	$department = array_shift($departments);
+	        	$chat->dep_id = $department->id;
+        	} else {
+        		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Could not determine a default department!');
+        	}
         }
-
 
         // Set chat attributes for transfer workflow logic
         if ($chat->department !== false && $chat->department->department_transfer_id > 0) {
@@ -185,14 +187,19 @@ class erLhcoreClassChatValidator {
         	$chat->transfer_timeout_ac = $chat->department->transfer_timeout;
         }
 
+        
+        
         $inputForm->departament_id = $chat->dep_id;
 
         if ( $inputForm->priority !== false && is_numeric($inputForm->priority) ) {
         	$chat->priority = (int)$inputForm->priority;
         } else {
-        	$chat->priority = $chat->department->priority;
+        	if ($chat->department !== false) {
+        		$chat->priority = $chat->department->priority;
+        	}
         }
 
+        
         if ( $form->hasValidData( 'name_items' ) && !empty($form->name_items))
         {
         	$valuesArray = array();

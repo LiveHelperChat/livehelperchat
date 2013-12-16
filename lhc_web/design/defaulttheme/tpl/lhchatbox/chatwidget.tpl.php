@@ -21,11 +21,18 @@
     </div>
 
     <div>
-    <input type="text" class="mt5 mb0" placholder="Nick" title="Nick" value="<?php echo htmlspecialchars(erLhcoreClassChatbox::getVisitorName(),ENT_QUOTES); ?>" id="CSChatNick" />
+	    <?php if (isset($_GET['dnc']) && $_GET['dnc'] == 'true') : ?>
+	    <input type="hidden" class="mt5 mb0" value="<?php echo htmlspecialchars(erLhcoreClassChatbox::getVisitorName(),ENT_QUOTES); ?>" id="CSChatNick" />
+	    <?php else : ?>
+	    <input type="text" class="mt5 mb0" placholder="Nick" title="Nick" value="<?php echo htmlspecialchars(erLhcoreClassChatbox::getVisitorName(),ENT_QUOTES); ?>" id="CSChatNick" />
+	    <?php endif;?>
 	</div>
 
     <div class="pt5">
-        <textarea rows="4" name="ChatMessage" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Enter your message')?>" id="CSChatMessage" ></textarea>
+    	<?php if (isset($_GET['dnc']) && $_GET['dnc'] == 'true') : ?>
+    		<h5><?php echo htmlspecialchars(erLhcoreClassChatbox::getVisitorName(),ENT_QUOTES); ?></h5>
+    	<?php endif;?>
+        <textarea rows="4" name="ChatMessage" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Enter your message')?>" id="CSChatMessage"></textarea>
         <script type="text/javascript">
         jQuery('#CSChatMessage').bind('keyup', 'return', function (evt){
             lhinst.addmsguserchatbox();

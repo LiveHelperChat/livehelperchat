@@ -14,8 +14,12 @@ body.embed-widget {
 #widget-layout > .columns { padding: 0;  }
 
 .widget-chat #widget-layout > .columns{
-padding:10px;
+padding:5px;
 padding-top:0;
+}
+
+.widget-chat{
+
 }
 
 input.mb0 {
@@ -31,12 +35,10 @@ input.mt5 {
 }
 
 .widget-chat #widget-layout {
-	background-color:#FFF;
-	border:1px solid #cccccc;
-	padding-top:10px;
+	padding-top:5px;
 }
 
-#widget-layout #status-chat{
+#widget-layout #status-chat h4{
 	font-size:12px;
 	margin:3px 0px 6px;
 }

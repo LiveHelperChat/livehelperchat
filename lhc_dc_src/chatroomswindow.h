@@ -3,6 +3,7 @@
 
 #include <QtGui>
 #include "ui_chatroomswidget.h"
+#include "mainwindow.h"
 
 class LHQTableWidget;
 
@@ -11,7 +12,7 @@ class ChatRoomsWindow : public QWidget
     Q_OBJECT
 
 public:
-    ChatRoomsWindow( QWidget *parent = 0);
+    ChatRoomsWindow( MainWindow *parent = 0);
     ~ChatRoomsWindow();
     void setMdiAreas(QMdiArea *mdiMainArea = 0);
 
@@ -95,8 +96,9 @@ private:
          /**
          * Online users
          */
-         *tabOnlineUsers,
+         *tabOnlineUsers;
 
+    MainWindow
          /**
          * Main window
          */

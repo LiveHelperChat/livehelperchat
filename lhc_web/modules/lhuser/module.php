@@ -6,7 +6,8 @@ $ViewList = array();
 
 $ViewList['login'] = array(
     'script' => 'login.php',
-    'params' => array()
+    'params' => array(),
+    'uparams' => array('r'),
     );
 
 $ViewList['logout'] = array(
@@ -113,7 +114,8 @@ $FunctionList['grouplist'] = array('explain' => 'Allow user to list group');
 $FunctionList['userlist'] = array('explain' => 'Allow user to list users');
 $FunctionList['selfedit'] = array('explain' => 'Allow user to edit his own data');
 $FunctionList['editdepartaments'] = array('explain' => 'Allow user to edit his responsible departaments');
-$FunctionList['userlistonline'] = array('explain' => 'Allow user to see logged operators list');
+$FunctionList['userlistonline'] = array('explain' => 'Allow user to see logged operators list, only from his department');
+$FunctionList['userlistonlineall'] = array('explain' => 'Allow user to see logged operators list, not only from his department');
 $FunctionList['changeonlinestatus'] = array('explain' => 'Allow user to change his online status');
 
 ?>

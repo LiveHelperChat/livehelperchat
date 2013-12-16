@@ -10,15 +10,14 @@
 		    <?php if ($currentUser->hasAccessTo('lhdepartament','list')) : ?>
 		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('departament/departaments')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Departments');?></a></li>
 		    <?php endif; ?>
-
-		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/notificationsettings')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','New chat notification settings');?></a></li>
-
+		   
 		    <?php if ($currentUser->hasAccessTo('lhchat','allowblockusers')) : ?>
 		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/blockedusers')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Blocked users');?></a></li>
 		    <?php endif; ?>
-
-		    <?php if ($currentUser->hasAccessTo('lhchat','administrateconfig')) : ?>
+		    
 		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/listchatconfig')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Chat configuration');?></a></li>
+		    
+		    <?php if ($currentUser->hasAccessTo('lhchat','administrateconfig')) : ?>
 		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/geoconfiguration')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','GEO detection configuration');?></a></li>
 		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/syncandsoundesetting')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Synchronization and sound settings');?></a></li>
 		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/startchatformsettings')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Start chat form settings');?></a></li>
@@ -38,11 +37,20 @@
 		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('system/smtp')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','SMTP settings');?></a></li>
 		    <?php endif; ?>
 
-		    <?php if ($currentUser->hasAccessTo('lhsystem','configurelanguages')) : ?>
+		    <?php if ($currentUser->hasAccessTo('lhxmp','configurexmp')) : ?>
+		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('xmp/configuration')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','XMPP settings');?></a></li>
+		    <?php endif; ?>
+
+		    <?php if ($currentUser->hasAccessTo('lhsystem','configurelanguages') || $currentUser->hasAccessTo('lhsystem','changelanguage')) : ?>
 		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('system/languages')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Languages configuration');?></a></li>
 		    <?php endif; ?>
 
 		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/lists')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Chats list');?></a></li>
+
+		    <?php if ($currentUser->hasAccessTo('lhchatarchive','archive')) : ?>
+		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chatarchive/archive')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Chat archive');?></a></li>
+		    <?php endif; ?>
+
 		</ul>
 	</div>
 
@@ -108,8 +116,24 @@
     <?php endif; ?>
 
 </ul>
-<?php if ($currentUser->hasAccessTo('lhsystem','expirecache')) : ?>
 <hr>
+
+<?php if ($currentUser->hasAccessTo('lhfile','use') || $currentUser->hasAccessTo('lhfile','file_list')) : ?>
+<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Files uploads configuration');?></h4>
+<ul class="circle small-list">
+	<?php if ($currentUser->hasAccessTo('lhfile','use')) : ?>
+    <li><a href="<?php echo erLhcoreClassDesign::baseurl('file/configuration')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Files upload configuration');?></a></li>
+    <?php endif; ?>
+
+    <?php if ($currentUser->hasAccessTo('lhfile','file_list')) : ?>
+    <li><a href="<?php echo erLhcoreClassDesign::baseurl('file/list')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','List of files');?></a></li>
+    <?php endif; ?>
+</ul>
+<hr>
+<?php endif; ?>
+
+
+<?php if ($currentUser->hasAccessTo('lhsystem','expirecache')) : ?>
 <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Other');?></h4>
 <ul class="circle small-list">
 	<li><a href="<?php echo erLhcoreClassDesign::baseurl('system/expirecache')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Clean cache');?></a></li>

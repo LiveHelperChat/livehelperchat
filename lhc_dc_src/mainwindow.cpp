@@ -50,6 +50,8 @@ MainWindow::MainWindow()
     Phonon::createPath(mediaObject, audioOutput);
 
     this->chatRooms();
+
+    this->getOnlineStatus();
 }
 
 
@@ -58,29 +60,51 @@ void MainWindow::ChangeStatusBar(const QString &newStatus)
 	statusLabel->setText(newStatus);
 }
 
+void MainWindow::getOnlineStatus()
+{
+    LhcWebServiceClient::instance()->LhcSendRequest("/xml/getuseronlinestatus/",(QObject*) this, MainWindow::parseOnlineStatus);
+}
+
+void MainWindow::parseOnlineStatus(void* pt2Object, QByteArray result)
+{
+    MainWindow* mySelf = (MainWindow*) pt2Object;
+
+    QScriptValue sc;
+    QScriptEngine engine;
+    sc = engine.evaluate("("+QString(result)+")");
+
+    if (sc.property("online").toBoolean() == false) {
+        mySelf->onlineofflineAct->setChecked(true);
+    } else {
+        mySelf->onlineofflineAct->setChecked(false);
+    }
+}
+
 /**
 *
 */
 void MainWindow::showToolTipNewChat(int chat_id, int chat_mode)
 {
-    QSystemTrayIcon::MessageIcon icon = QSystemTrayIcon::MessageIcon(QStyle::SP_MessageBoxInformation);
+    if (this->onlineofflineAct->isChecked()){
+        QSystemTrayIcon::MessageIcon icon = QSystemTrayIcon::MessageIcon(QStyle::SP_MessageBoxInformation);
 
-    if (chat_mode == 0)
-    {
-        trayIcon->showMessage(tr("New request"), tr("You have a new chat pending. To start the chat click me."),icon , 15 * 1000);
-    }
+        if (chat_mode == 0)
+        {
+            trayIcon->showMessage(tr("New request"), tr("You have a new chat pending. To start the chat click me."),icon , 15 * 1000);
+        }
 
-    if (chat_mode == 1)
-    {
-        trayIcon->showMessage(tr("New request"), tr("A new chat has been transferred to you. To start the chat click me."),icon , 15 * 1000);
-    }
+        if (chat_mode == 1)
+        {
+            trayIcon->showMessage(tr("New request"), tr("A new chat has been transferred to you. To start the chat click me."),icon , 15 * 1000);
+        }
 
-    this->chatID = chat_id;
-    this->chatMode = chat_mode;
+        this->chatID = chat_id;
+        this->chatMode = chat_mode;
 
-    if ( QFile::exists(qApp->applicationDirPath() + "/sounds/new_chat.mp3") ) {
-        this->mediaObject->setCurrentSource(Phonon::MediaSource(qApp->applicationDirPath() + "/sounds/new_chat.mp3"));
-        this->mediaObject->play();
+        if ( QFile::exists(qApp->applicationDirPath() + "/sounds/new_chat.mp3") ) {
+            this->mediaObject->setCurrentSource(Phonon::MediaSource(qApp->applicationDirPath() + "/sounds/new_chat.mp3"));
+            this->mediaObject->play();
+        }
     }
 
 }
@@ -176,6 +200,12 @@ void MainWindow::createActions()
     chatroomsAct->setShortcut(tr("Ctrl+R"));
     connect(chatroomsAct, SIGNAL(triggered()), this, SLOT(chatRooms()));
 
+    onlineofflineAct = new QAction(tr("I'm online"), this);
+    onlineofflineAct->setStatusTip(tr("Change status to online"));
+    onlineofflineAct->setShortcut(tr("Ctrl+O"));
+    onlineofflineAct->setCheckable(true);
+    connect(onlineofflineAct, SIGNAL(triggered()), this, SLOT(chatOnlineStatus()));
+
     aboutAct = new QAction(tr("About"), this);
     aboutAct->setStatusTip(tr("About the program"));
     connect(aboutAct, SIGNAL(triggered()), this, SLOT(about()));
@@ -190,6 +220,15 @@ void MainWindow::chatRooms()
 	crw->show();
 }
 
+void MainWindow::chatOnlineStatus()
+{
+    if (this->onlineofflineAct->isChecked()) {
+        LhcWebServiceClient::instance()->LhcSendRequest("/xml/setonlinestatus/0");
+    } else {
+        LhcWebServiceClient::instance()->LhcSendRequest("/xml/setonlinestatus/1");
+    }
+}
+
 void MainWindow::changeConnection()
 {
     LoginDialog *lgnDialog = new LoginDialog();
@@ -200,8 +239,8 @@ void MainWindow::about()
 {
     QMessageBox box(this);
     box.setTextFormat(Qt::RichText);
-    box.setText(tr("<center>Live helper chat</center> <p>System purpose is to give Live helper chat desktop interface.</p><p>This is 1.1 version of desktop client.</p>"));
-    box.setWindowTitle(QApplication::translate("AboutDialog", "Live helper chat - 1.1 "));
+    box.setText(tr("<center>Live helper chat</center> <p>System purpose is to give Live helper chat desktop interface.</p><p>This is 1.57 version of desktop client.</p>"));
+    box.setWindowTitle(QApplication::translate("AboutDialog", "For web app since 1.57v Live Helper Chat version."));
     box.setIcon(QMessageBox::NoIcon);
     box.exec();
 }
@@ -231,6 +270,7 @@ void MainWindow::createMainMenu()
 
     chatMenu = menuBar()->addMenu(tr("&Chats"));
     chatMenu->addAction(chatroomsAct);
+    chatMenu->addAction(onlineofflineAct);
 
 	managementMenu = menuBar()->addMenu(tr("&Management"));
     managementMenu->addAction(connectionAct);

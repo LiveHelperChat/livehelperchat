@@ -113,6 +113,7 @@
 			<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','User');?></td>
 			<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Total chats');?></td>
 			<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Total messages');?></td>
+			<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Votes');?></td>
 			<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Last activity');?></td>
 		</tr>
 	</thead>
@@ -121,6 +122,12 @@
 		<td><?php echo htmlspecialchars((string)$operator)?></td>
 		<td><?php echo $operator->statistic_total_chats?></td>
 		<td><?php echo $operator->statistic_total_messages?></td>
+		<td>
+		
+		<i class="icon-thumbs-up up-voted"><?php echo $operator->statistic_upvotes?></i>
+		<i class="icon-thumbs-down down-voted"><?php echo $operator->statistic_downvotes?></i>
+		
+		</td>
 		<td><?php echo $operator->lastactivity_ago?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','ago');?></td>
 	</tr>
 	<?php endforeach;?>

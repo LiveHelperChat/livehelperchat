@@ -27,7 +27,7 @@ class erLhcoreClassSiteaccessGenerator {
     public static function getLanguages()
     {
     	$translations = self::listDirectory('translations');
-    	$rtl = array('ar_EG');
+    	$rtl = array('ar_EG','fa_FA');
 
     	$languages[$translation] = array('locale' => $translation,'content_language' => substr($translation, 0,2), 'dir_language' => in_array($translation, $rtl) ? 'rtl' : 'ltr');
 

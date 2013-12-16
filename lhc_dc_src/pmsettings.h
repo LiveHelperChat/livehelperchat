@@ -2,7 +2,7 @@
 #define PMSETTINGS_H
 
 #include <QString>
-#include <QDomDocument> 
+#include <QtXml/QDomDocument>
 
 class PMSettings
 {

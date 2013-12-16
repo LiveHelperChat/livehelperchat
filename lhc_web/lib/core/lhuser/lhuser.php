@@ -317,7 +317,7 @@ class erLhcoreClassUser{
 	   	$rusr->user_id = $this->userid;
 	   	$rusr->mtime = time();
 	   	$rusr->saveThis();
-	   	$hash = $salt1.':'.$rusr->id.':'.sha1($this->userid.'_'.$rusr->id.$salt2.$salt1.$_SERVER['REMOTE_ADDR'].$_SERVER['HTTP_USER_AGENT']);
+	   	$hash = $salt1.':'.$rusr->id.':'.sha1($this->userid.'_'.$rusr->id.$salt2.$salt1.erLhcoreClassIPDetect::getIP().$_SERVER['HTTP_USER_AGENT']);
    		setcookie('lhc_rm_u',$hash,time()+365*24*3600,'/');
    }
 
@@ -332,13 +332,13 @@ class erLhcoreClassUser{
 
 	   		try {
 	   			$ruser = erLhcoreClassModelUserRemember::fetch($id);
-	   			if ($hash ==  sha1($ruser->user_id.'_'.$ruser->id.$salt2.$salt1.$_SERVER['REMOTE_ADDR'].$_SERVER['HTTP_USER_AGENT'])){
+	   			if ($hash ==  sha1($ruser->user_id.'_'.$ruser->id.$salt2.$salt1.erLhcoreClassIPDetect::getIP().$_SERVER['HTTP_USER_AGENT'])){
 	   				$ruser->mtime = time();
 	   				$ruser->updateThis();
 	   				$this->setLoggedUser($ruser->user_id);
 	   				// Update remember hash
 	   				$salt1 = erLhcoreClassModelForgotPassword::randomPassword(30);
-	   				$hash = $salt1.':'.$ruser->id.':'.sha1($this->userid.'_'.$ruser->id.$salt2.$salt1.$_SERVER['REMOTE_ADDR'].$_SERVER['HTTP_USER_AGENT']);
+	   				$hash = $salt1.':'.$ruser->id.':'.sha1($this->userid.'_'.$ruser->id.$salt2.$salt1.erLhcoreClassIPDetect::getIP().$_SERVER['HTTP_USER_AGENT']);
 	   				setcookie('lhc_rm_u',$hash,time()+365*24*3600,'/');
 	   				return true;
 	   			}

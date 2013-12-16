@@ -116,6 +116,11 @@ $def->properties['operator_typing']->columnName   = 'operator_typing';
 $def->properties['operator_typing']->propertyName = 'operator_typing';
 $def->properties['operator_typing']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['operator_typing_id'] = new ezcPersistentObjectProperty();
+$def->properties['operator_typing_id']->columnName   = 'operator_typing_id';
+$def->properties['operator_typing_id']->propertyName = 'operator_typing_id';
+$def->properties['operator_typing_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['has_unread_messages'] = new ezcPersistentObjectProperty();
 $def->properties['has_unread_messages']->columnName   = 'has_unread_messages';
 $def->properties['has_unread_messages']->propertyName = 'has_unread_messages';
@@ -210,6 +215,21 @@ $def->properties['na_cb_executed'] = new ezcPersistentObjectProperty();
 $def->properties['na_cb_executed']->columnName   = 'na_cb_executed';
 $def->properties['na_cb_executed']->propertyName = 'na_cb_executed';
 $def->properties['na_cb_executed']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+// Feedback status
+// 0 - not votes, 1 - upvote, 2 - novote
+$def->properties['fbst'] = new ezcPersistentObjectProperty();
+$def->properties['fbst']->columnName   = 'fbst';
+$def->properties['fbst']->propertyName = 'fbst';
+$def->properties['fbst']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+
+// Was callback for new chat executed? 0 - no, 1 - yes
+$def->properties['nc_cb_executed'] = new ezcPersistentObjectProperty();
+$def->properties['nc_cb_executed']->columnName   = 'nc_cb_executed';
+$def->properties['nc_cb_executed']->propertyName = 'nc_cb_executed';
+$def->properties['nc_cb_executed']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 
 return $def;
 

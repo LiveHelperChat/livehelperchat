@@ -5,6 +5,57 @@ $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/geoconfiguration.tpl.php');
 $geoData = erLhcoreClassModelChatConfig::fetch('geo_data');
 $data = (array)$geoData->data;
 
+$geoLocationData = erLhcoreClassModelChatConfig::fetch('geo_location_data');
+$dataLocation = (array)$geoLocationData->data;
+
+if ( isset($_POST['store_map']) ) {
+	$definition = array(
+			'zoom' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1)
+			),
+			'lat' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'float'
+			),
+			'lng' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'float'
+			)
+	);
+
+	$Errors = array();
+
+	$form = new ezcInputForm( INPUT_POST, $definition );
+	$Errors = array();
+
+	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+		erLhcoreClassModule::redirect('chat/geoconfiguration');
+		exit;
+	}
+
+	if ( $form->hasValidData( 'zoom' )) {
+		$dataLocation['zoom'] = $form->zoom;
+	} else {
+		$dataLocation['zoom'] = 3;
+	}
+
+	if ( $form->hasValidData( 'lat' )) {
+		$dataLocation['lat'] = $form->lat;
+	} else {
+		$dataLocation['lat'] = '35.416';
+	}
+
+	if ( $form->hasValidData( 'lng' )) {
+		$dataLocation['lng'] = $form->lng;
+	} else {
+		$dataLocation['lng'] = '19.121';
+	}
+
+	$geoLocationData->value = serialize($dataLocation);
+	$geoLocationData->saveThis();
+	exit;
+}
+
+
+
 if ( isset($_POST['StoreGeoIPConfiguration']) ) {
 
     $definition = array(
@@ -30,6 +81,9 @@ if ( isset($_POST['StoreGeoIPConfiguration']) ) {
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
         ),
         'locatorhqAPIKey' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+        ),
+        'ipinfodbAPIKey' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
         ),
         'locatorhqUsername' => new ezcInputFormDefinitionElement(
@@ -96,7 +150,7 @@ if ( isset($_POST['StoreGeoIPConfiguration']) ) {
 
             } elseif ($form->UseGeoIP == 'freegeoip') {
                 $data['geo_service_identifier'] = 'freegeoip';
-                $responseDetection = erLhcoreClassModelChatOnlineUser::getUserData('freegeoip',$_SERVER['SERVER_ADDR']);
+                $responseDetection = erLhcoreClassModelChatOnlineUser::getUserData('freegeoip',erLhcoreClassIPDetect::getServerAddress());
                 if ( $responseDetection == false || !isset($responseDetection->country_code) || !isset($responseDetection->country_name) ) {
                     $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Setting service provider failed, please check that your service provider allows you to make requests to remote pages!');
                 }
@@ -127,9 +181,27 @@ if ( isset($_POST['StoreGeoIPConfiguration']) ) {
                 }
 
                 if ($filledAPIData == true) {
-                    $responseDetection = erLhcoreClassModelChatOnlineUser::getUserData('locatorhq',$_SERVER['SERVER_ADDR'],array('ip' => $data['locatorhqip'], 'username' => $data['locatorhqusername'], 'api_key' => $data['locatorhq_api_key']));
+                    $responseDetection = erLhcoreClassModelChatOnlineUser::getUserData('locatorhq',erLhcoreClassIPDetect::getServerAddress(),array('ip' => $data['locatorhqip'], 'username' => $data['locatorhqusername'], 'api_key' => $data['locatorhq_api_key']));
                     if ($responseDetection == false || !isset($responseDetection->country_code)){
                         $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key and username is correct!');
+                    }
+                }
+            } elseif ($form->UseGeoIP == 'ipinfodbcom') {
+                $data['geo_service_identifier'] = 'ipinfodbcom';
+
+                $filledAPIData = true;
+
+                if ( $form->hasValidData( 'ipinfodbAPIKey' ) && $form->ipinfodbAPIKey != '' ) {
+                    $data['ipinfodbcom_api_key'] = $form->ipinfodbAPIKey;
+                } else {
+                    $filledAPIData = false;
+                    $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Please enter the API key!');
+                }
+               
+                if ($filledAPIData == true) {
+                    $responseDetection = erLhcoreClassModelChatOnlineUser::getUserData('ipinfodbcom',erLhcoreClassIPDetect::getServerAddress(),array('api_key' => $data['ipinfodbcom_api_key']));
+                    if ($responseDetection == false || !isset($responseDetection->country_code)){
+                        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!');
                     }
                 }
             }
@@ -150,6 +222,7 @@ if ( isset($_POST['StoreGeoIPConfiguration']) ) {
 }
 
 $tpl->set('geo_data',$data);
+$tpl->set('geo_location_data',$dataLocation);
 
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(

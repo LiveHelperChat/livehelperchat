@@ -1,13 +1,13 @@
 <div class="row collapse">
 
 	<div class="columns small-9">
-		<h4 id="status-chat">
+		<div id="status-chat">
 		<?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>
-			<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','This chat is closed.'); ?>
+			<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','This chat is closed.'); ?></h4>
 		<?php else : ?>
-			<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Pending confirm')?>
+			<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Pending confirm')?></h4>
 		<?php endif; ?>
-		</h4>
+		</div>
 
 		<?php if ( erLhcoreClassModelChatConfig::fetch('reopen_chat_enabled')->current_value == 1 && erLhcoreClassChat::canReopen($chat) ) : ?>
 			<a href="<?php echo erLhcoreClassDesign::baseurl('chat/reopen')?>/<?php echo $chat->id?>/<?php echo $chat->hash?><?php if ( isset($chat_widget_mode) && $chat_widget_mode == true ) : ?>/(mode)/widget<?php endif; ?><?php if ( isset($chat_embed_mode) && $chat_embed_mode == true ) : ?>/(embedmode)/embed<?php endif;?>" class="tiny button round success" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatnotexists','Resume chat');?></a>
@@ -32,13 +32,15 @@
             <?php } ?>
          <?php endif; $lastMessageID = $msg['id']; endforeach; ?>
        </div>
-       <div id="id-operator-typing">
-            <i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Operator is typing now...')?></i>
-       </div>
+
     </div>
 
     <div class="pt5" id="ChatMessageContainer">
+
         <textarea rows="4" name="ChatMessage" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Enter your message')?>" id="CSChatMessage" ></textarea>
+        <div id="id-operator-typing">
+	            <i></i>
+	    </div>
         <script type="text/javascript">
         jQuery('#CSChatMessage').bind('keyup', 'return', function (evt){
             lhinst.addmsguser();

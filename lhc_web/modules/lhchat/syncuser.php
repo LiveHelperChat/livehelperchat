@@ -9,7 +9,7 @@ try {
 $content = 'false';
 $status = 'true';
 $blocked = 'false';
-$is_operator_typing = 'false';
+$ott = '';
 $LastMessageID = 0;
 $userOwner = 'true';
 
@@ -21,7 +21,18 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 	}
 
 	if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && $chat->transfer_if_na == 1 && $chat->transfer_timeout_ts < (time()-$chat->transfer_timeout_ac) ) {
-		erLhcoreClassChatWorkflow::transferWorkflow($chat);
+
+		$canExecuteWorkflow = true;
+
+		if (erLhcoreClassModelChatConfig::fetch('pro_active_limitation')->current_value >= 0) {
+			if ($chat->department !== false && $chat->department->department_transfer_id > 0) {
+				$canExecuteWorkflow = erLhcoreClassChat::getPendingChatsCountPublic($chat->department->department_transfer_id) <= erLhcoreClassModelChatConfig::fetch('pro_active_limitation')->current_value;
+			}
+		}
+
+		if ($canExecuteWorkflow == true) {
+			erLhcoreClassChatWorkflow::transferWorkflow($chat);
+		}
 	}
 
 	// Sync only if chat is pending or active
@@ -48,10 +59,11 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		        $LastMessageID = $LastMessageIDs['id'];
 		    }
 		}
-
+		
 		if ( $chat->is_operator_typing == true ) {
-			$is_operator_typing = 'true';
+			$ott = ($chat->operator_typing_user !== false) ? $chat->operator_typing_user->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','is typing now...') : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Operator is typing now...');
 		}
+		
 	}
 
 
@@ -69,7 +81,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
     $blocked = 'true';
 }
 
-echo json_encode(array('error' => 'false', 'uw' => $userOwner, 'is_typing' => $is_operator_typing, 'message_id' => $LastMessageID, 'result' => trim($content) == '' ? 'false' : trim($content), 'status' => $status, 'blocked' => $blocked ));
+echo json_encode(array('error' => 'false', 'uw' => $userOwner, 'ott' => $ott, 'message_id' => $LastMessageID, 'result' => trim($content) == '' ? 'false' : trim($content), 'status' => $status, 'blocked' => $blocked ));
 exit;
 
 ?>
