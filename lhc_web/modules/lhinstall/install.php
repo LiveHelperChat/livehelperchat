@@ -456,6 +456,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('reopen_chat_enabled',1,	0,	'Reopen chat functionality enabled, 0 - No, 1 - Yes',	0),
                 ('run_departments_workflow', 0, 0, 'Should cronjob run departments tranfer workflow, even if user leaves a chat, 0 - no, 1 - yes',	0),
                 ('run_unaswered_chat_workflow', 0, 0, 'Should cronjob run unanswered chats workflow and execute unaswered chats callback, 0 - no, any other number bigger than 0 is a minits how long chat have to be not accepted before executing callback.',0),
+                ('session_captcha',0,	0,	'Use session captcha. LHC have to be installed on the same domain or subdomain.',	0),
                 ('geo_data', '', '0', '', '1')");
 
 

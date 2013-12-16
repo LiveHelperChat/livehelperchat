@@ -65,7 +65,7 @@ private:
 
     LHCTextEdit *newmessageText;
 
-    QLabel *inforChat,*infoOwner;
+    QLabel *inforChat,*infoOwner,*statusChat;
 
     QVBoxLayout *infoGroupBoxLayout,*infoOwnerGroupBoxLayout;
 

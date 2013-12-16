@@ -18,7 +18,7 @@ ChatWindow::ChatWindow(int chat_id, QWidget *parent) : QWidget(parent)
     setAttribute(Qt::WA_DeleteOnClose);
 
     /**
-    * Avoids closing the whole application if the main window is hidden.
+    * Avoids closing whole application if main window is hidden.
     */
     setAttribute(Qt::WA_QuitOnClose,false);
 
@@ -86,6 +86,11 @@ ChatWindow::ChatWindow(int chat_id, QWidget *parent) : QWidget(parent)
     infoOwnerGroupBoxLayout->addWidget(infoOwner);
     ownerGroupBox->setLayout(infoOwnerGroupBoxLayout);
 
+    /*Status block*/
+    statusChat = new QLabel(tr("Listening..."));
+    statusChat->setObjectName("StatusChatText");
+    /*Status block*/
+
 
     mainGrindLayout = new QGridLayout();
     mainGrindLayout->addWidget(actionsGroupBox,0,0);
@@ -96,6 +101,7 @@ ChatWindow::ChatWindow(int chat_id, QWidget *parent) : QWidget(parent)
     mainGrindLayout->setColumnStretch(1,5000);
     mainGrindLayout->setColumnStretch(2,0);
 
+    mainGrindLayout->addWidget(statusChat,1,0,1,3);
 
     messagesText = new QTextEdit();
     newmessageText = new LHCTextEdit(this->chatID);
@@ -116,10 +122,10 @@ ChatWindow::ChatWindow(int chat_id, QWidget *parent) : QWidget(parent)
     splitter->setOpaqueResize(false);
 
     // Add main layout
-    mainGrindLayout->addWidget(splitter,1,0,1,3);
+    mainGrindLayout->addWidget(splitter,2,0,1,3);
 
 
-    mainGrindLayout->addLayout(bottomActionLayout,2,0,1,3);
+    mainGrindLayout->addLayout(bottomActionLayout,3,0,1,3);
 
 
     ui.vboxLayout1->addLayout(mainGrindLayout);
@@ -132,7 +138,7 @@ ChatWindow::ChatWindow(int chat_id, QWidget *parent) : QWidget(parent)
     connect(mediaObject, SIGNAL(stateChanged(Phonon::State,Phonon::State)),
                  this, SLOT(stateChanged(Phonon::State,Phonon::State)));
 
-    // Initial request, actually we could take data from the parent window, but we have to update its state, so we send an initial request.
+    // Initial reques, actualy we could take data from parent window. But we have to update it's state so we send initial request.
     LhcWebServiceClient::instance()->LhcSendRequest("/xml/chatdata/"+QString::number(this->chatID),(QObject*) this, ChatWindow::getDataChat);
 
 }
@@ -207,7 +213,7 @@ void ChatWindow::setIsTabMode(bool tabMode)
 
 ChatWindow::~ChatWindow()
 {
-    // No need to notify lhcChatSynchro because it does all the dirty jobs itself.
+    // No need to notife lhcChatSynchro Because it'self does all dirty job.
 }
 
 void ChatWindow::separateWindowClicked()
@@ -227,7 +233,7 @@ void ChatWindow::separateWindowClicked()
     {
         this->chatRoomsParent->removeTab(this->tabIndex);
 
-        //Necessary !!!
+        //Neccesary !!!
         this->setParent(0);
         this->show();
         this->asTab = false;
@@ -320,12 +326,16 @@ void ChatWindow::receivedMessages(void* pt2Object, QScriptValue result)
 
                 msgRow += ":</span> <span>"+ msgText +"</span></div></p>";
         }
+
+        mySelf->messagesText->setHtml(msgRow);
+
     // Chat status information
     } else {
-        msgRow +="<p style=\"margin:0px;\">"+tr(result.toString().toUtf8())+"</p>";
+        mySelf->statusChat->setText(tr(result.toString().toUtf8()));
+        //msgRow +="<p style=\"margin:0px;\">"+tr(result.toString().toUtf8())+"</p>";
     }
 
-    mySelf->messagesText->setHtml(msgRow);
+
 
     // Scroll to bottom
     QScrollBar *sb = mySelf->messagesText->verticalScrollBar();
@@ -358,8 +368,6 @@ void ChatWindow::getDataChat(void* pt2Object, QByteArray result)
         QScriptValue chat = sc.property("chat");
         mySelf->inforChat->setText("<b>IP</b> - "+chat.property("ip").toString() + " | <b>"+tr("Came from")+"</b> - "+chat.property("referrer").toString()+" | <br/> <b>ID</b> - "+chat.property("id").toString()+" | <b>"+tr("E-mail")+"</b> - "+chat.property("email").toString()+" | <b>"+tr("Country")+"</b> - "+chat.property("country_name").toString());
         mySelf->infoOwner->setText(sc.property("ownerstring").toString());
-
-
         mySelf->clientNick = chat.property("nick").toString();
        // qDebug("Assigned %s ",mySelf->chatScriptObject.property("ip").toString().toStdString().c_str());
 
