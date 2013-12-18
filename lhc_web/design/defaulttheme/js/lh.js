@@ -1228,8 +1228,8 @@ function lh(){
             dataType: 'json',
             add: function(e, data) {
                 var uploadErrors = [];
-                var acceptFileTypes = data_config.ft_us;
-                if(!acceptFileTypes.test(data.originalFiles[0]['type'])) {
+                var acceptFileTypes = data_config.ft_us;                
+                if (!(acceptFileTypes.test(data.originalFiles[0]['type']) || acceptFileTypes.test(data.originalFiles[0]['name']))) {
                     uploadErrors.push(data_config.ft_msg);
                 };
                 if(data.originalFiles[0]['size'] > data_config.fs) {
@@ -1262,7 +1262,7 @@ function lh(){
             add: function(e, data) {
                 var uploadErrors = [];
                 var acceptFileTypes = data_config.ft_op;
-                if(!acceptFileTypes.test(data.originalFiles[0]['type'])) {
+                if(!(acceptFileTypes.test(data.originalFiles[0]['type']) || acceptFileTypes.test(data.originalFiles[0]['name']))) {
                     uploadErrors.push(data_config.ft_msg);
                 };
                 if(data.originalFiles[0]['size'] > data_config.fs) {
