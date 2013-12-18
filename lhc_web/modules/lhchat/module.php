@@ -95,6 +95,11 @@ $ViewList['chattabs'] = array(
     'functions' => array( 'allowchattabs' )
     );
 
+$ViewList['chattabschrome'] = array(
+    'params' => array(),
+    'functions' => array( )
+);
+
 $ViewList['single'] = array(
     'params' => array('chat_id'),
     'functions' => array( 'singlechatwindow' )
@@ -348,6 +353,7 @@ $FunctionList['allowreopenremote'] = array('explain' =>'Allow user to reopen oth
 $FunctionList['allowtransfertoanyuser'] = array('explain' =>'Allow user to transfer chat to any online user, not only his own department users');
 $FunctionList['viewstatistic'] = array('explain' =>'Allow user to view statistic');
 $FunctionList['use_onlineusers'] = array('explain' =>'Allow user to view online visitors');
+$FunctionList['chattabschrome'] = array('explain' =>'Allow user to user chrome extension');
 
 
 ?>
