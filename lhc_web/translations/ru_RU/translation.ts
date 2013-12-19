@@ -11,7 +11,7 @@
     </message>
     <message>
       <source>Cancel</source>
-      <translation>отменить</translation>
+      <translation>Отменить</translation>
     </message>
     <message>
       <source>Edit</source>
@@ -23,7 +23,7 @@
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Пустое...</translation>
+      <translation>Пусто...</translation>
     </message>
     <message>
       <source>New</source>
@@ -31,7 +31,7 @@
     </message>
     <message>
       <source>Updated</source>
-      <translation>Обновить</translation>
+      <translation>Обновлено</translation>
     </message>
     <message>
       <source>Send</source>
@@ -89,11 +89,11 @@
     </message>
     <message>
       <source>enabled</source>
-      <translation>Включено</translation>
+      <translation>включено</translation>
     </message>
     <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation>Язык, оставьте пустым для использования всех языков. Пример: lit, rus, get etc...</translation>
+      <translation>Язык (оставьте пустым для использования всех языков). Пример: lit, rus, get etc...</translation>
     </message>
     <message>
       <source>Position</source>
@@ -117,7 +117,7 @@
     </message>
     <message>
       <source>Name for personal purposes</source>
-      <translation>Имя для персонолизации</translation>
+      <translation>Имя для внутреннего использования</translation>
     </message>
     <message>
       <source>Operator name</source>
@@ -145,7 +145,7 @@
     </message>
     <message>
       <source>Matched times</source>
-      <translation>Оренировочное время</translation>
+      <translation>Ориентировочное время</translation>
     </message>
     <message>
       <source>Message to user</source>
@@ -157,7 +157,7 @@
     </message>
     <message>
       <source>Pro active chat invitations</source>
-      <translation>Проактивные приглашения</translation>
+      <translation>Автоприглашения</translation>
     </message>
   </context>
   <context>
@@ -327,11 +327,11 @@
     </message>
     <message>
       <source>New canned message</source>
-      <translation>Новые заготовки сообщений</translation>
+      <translation>Новый шаблон сообщения</translation>
     </message>
     <message>
       <source>Edit canned message</source>
-      <translation>Редактировать заготовки сообщений</translation>
+      <translation>Редактировать шаблон сообщения</translation>
     </message>
     <message>
       <source>Delay in seconds</source>
@@ -347,7 +347,7 @@
     </message>
     <message>
       <source>Please enter a canned message</source>
-      <translation>введите шаблон сообщения</translation>
+      <translation>Введите шаблон сообщения</translation>
     </message>
   </context>
   <context>
@@ -814,7 +814,7 @@
     <name>chat/user_settings</name>
     <message>
       <source>Enable/Disable sound about new messages from the operator</source>
-      <translation>Enable/Disable sound about new messages from the operator</translation>
+      <translation>Включить звуковые уведомления о новых сообщениях от оператора</translation>
     </message>
     <message>
       <source>Print</source>
@@ -826,7 +826,7 @@
     </message>
     <message>
       <source>Enable/Disable sound about new messages from users</source>
-      <translation>Включено/Выключено звук при получении сообщения от пользователя</translation>
+      <translation>Вкл./Выкл. звук при получении сообщений от пользователей</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new pending chats</source>
@@ -834,7 +834,7 @@
     </message>
     <message>
       <source>Change my status to online/offline</source>
-      <translation>Изменить статус на доступен/недоступен</translation>
+      <translation>Изменить свой статус (доступен / не доступен)</translation>
     </message>
   </context>
   <context>
@@ -845,7 +845,7 @@
     </message>
     <message>
       <source>Value in</source>
-      <translation>Внутрениий уровень</translation>
+      <translation>Значение в</translation>
     </message>
     <message>
       <source>site access</source>
@@ -853,11 +853,11 @@
     </message>
     <message>
       <source>Update</source>
-      <translation>Обновление</translation>
+      <translation>Обновить</translation>
     </message>
     <message>
       <source>Data updated</source>
-      <translation>Дата обновлена</translation>
+      <translation>Данные обновлены</translation>
     </message>
   </context>
   <context>
@@ -1038,7 +1038,7 @@
     </message>
     <message>
       <source>Came from</source>
-      <translation>Пришел от</translation>
+      <translation>Пришел с</translation>
     </message>
     <message>
       <source>Are you sure?</source>
@@ -1138,7 +1138,7 @@
     </message>
     <message>
       <source>Marker timeout before it dissapears from map</source>
-      <translation>Метка о просрочке до того как исчезнуть с карты</translation>
+      <translation>Время отображения метки на карте</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -1268,7 +1268,7 @@
     </message>
     <message>
       <source>List chat configuration</source>
-      <translation>Настройки онлайн чата</translation>
+      <translation>Настройки списка чатов</translation>
     </message>
   </context>
   <context>
@@ -1772,11 +1772,11 @@
     <name>chat/sendnotice</name>
     <message>
       <source>Send a message to the user</source>
-      <translation>отправка сообщения пользователю</translation>
+      <translation>Отправить сообщение пользователю</translation>
     </message>
     <message>
       <source>If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.</source>
-      <translation>Если сообщение уже отправлено, то сообщение будет помеченно как недоставленное до тех пор пока пользователь его не прочтет.</translation>
+      <translation>Если сообщение уже отправлено, то оно будет помечено как недоставленное до тех пор, пока пользователь его не прочтет.</translation>
     </message>
     <message>
       <source>Type your message to the user</source>
@@ -1945,7 +1945,7 @@
     </message>
     <message>
       <source>Parameter</source>
-      <translation>Параметры</translation>
+      <translation>Параметр</translation>
     </message>
     <message>
       <source>Value</source>
@@ -1969,7 +1969,7 @@
     </message>
     <message>
       <source>Chatbox chats</source>
-      <translation>Chatbox диалогов</translation>
+      <translation>Комнаты чатов</translation>
     </message>
     <message>
       <source>Total messages (including visitors, system and operators messages)</source>
@@ -1993,7 +1993,7 @@
     </message>
     <message>
       <source>Operators last 24h statistic, top 100 by chats number</source>
-      <translation>Статистика по операторам за сутки. Лучшая сотня чатов</translation>
+      <translation>Статистика по операторам за сутки. Лучшая сотня по количеству чатов</translation>
     </message>
     <message>
       <source>User</source>
@@ -2009,7 +2009,7 @@
     </message>
     <message>
       <source>Last activity</source>
-      <translation>Последние активные</translation>
+      <translation>Последняя активность</translation>
     </message>
     <message>
       <source>ago</source>
@@ -2332,11 +2332,11 @@
     </message>
     <message>
       <source>Copy the code from the text area to the page header or footer</source>
-      <translation>Скопировать код из текстовой области в заголовок или футер</translation>
+      <translation>Скопировать код из текстовой области в шапку или подвал страницы</translation>
     </message>
     <message>
       <source>Expand the widget automatically for new users</source>
-      <translation>Расстягивать виджеты автоматом для новых пользователей</translation>
+      <translation>Раскрывать виджеты автоматически для новых пользователей</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
@@ -2949,7 +2949,7 @@
     </message>
     <message>
       <source>of</source>
-      <translation>выкл</translation>
+      <translation>из</translation>
     </message>
     <message>
       <source>Found</source>
@@ -2957,7 +2957,7 @@
     </message>
     <message>
       <source>Go to page</source>
-      <translation>На страницу</translation>
+      <translation>Перейти на страницу</translation>
     </message>
   </context>
   <context>
@@ -3216,7 +3216,7 @@
     <name>questionary/edit</name>
     <message>
       <source>Edit the question</source>
-      <translation>Редактирование вопроса</translation>
+      <translation>Изменить вопрос</translation>
     </message>
     <message>
       <source>Question</source>
@@ -3236,23 +3236,23 @@
     </message>
     <message>
       <source>Voting options</source>
-      <translation>Опции выбора</translation>
+      <translation>Опции голосования</translation>
     </message>
     <message>
       <source>Answers</source>
-      <translation>Ответ</translation>
+      <translation>Ответы</translation>
     </message>
     <message>
       <source>Updated</source>
-      <translation>Обновлен</translation>
+      <translation>Обновлено</translation>
     </message>
     <message>
       <source>If there are no options to choose from, the user will be shown a text field where he will be able to enter his own answer.</source>
-      <translation>Если не из чего выбрать, пользователь получит текстовое поле, где он сможет ввести свой собственный ответ.</translation>
+      <translation>Если не будет вариантов ответов для выбора, пользователю будет показано текстовое поле, в котором он сможет ввести свой собственный вариант ответа.</translation>
     </message>
     <message>
       <source>Option</source>
-      <translation>Опции</translation>
+      <translation>Варианты</translation>
     </message>
     <message>
       <source>Enter name...</source>
@@ -3260,7 +3260,7 @@
     </message>
     <message>
       <source>Option position</source>
-      <translation>Опции позиции</translation>
+      <translation>Позиция варианта ответа</translation>
     </message>
     <message>
       <source>Position</source>
@@ -3268,7 +3268,7 @@
     </message>
     <message>
       <source>Edit</source>
-      <translation>Редактировать</translation>
+      <translation>Изменить</translation>
     </message>
     <message>
       <source>Delete</source>
@@ -3276,11 +3276,11 @@
     </message>
     <message>
       <source>Please enter a question!</source>
-      <translation>Введите вопрос пожалуйста!</translation>
+      <translation>Пожалуйста, введите вопрос!</translation>
     </message>
     <message>
       <source>Please enter an option!</source>
-      <translation>Укажите поцию!</translation>
+      <translation>Пожалуйста, укажите хотя бы один вариант ответа!</translation>
     </message>
     <message>
       <source>Edit a question</source>
@@ -3299,7 +3299,7 @@
     </message>
     <message>
       <source>Location</source>
-      <translation>Рассположение</translation>
+      <translation>Расположение</translation>
     </message>
     <message>
       <source>Priority</source>
@@ -3376,11 +3376,11 @@
     </message>
     <message>
       <source>Show questions for all the URLs containing this string E.g /shop/basket</source>
-      <translation>Показать вопросы по всем url содержащие эту строку И.т.д. /shop/basket</translation>
+      <translation>Показывать вопросы для всех url содержащие эту строку, например: /shop/basket</translation>
     </message>
     <message>
       <source>Priority, if multiple questions match a location, the question with the higher priority will be shown</source>
-      <translation>Приоритет, если в одном месте содержится несколько вопросов, показывать только с наивысшим приоритетом</translation>
+      <translation>Приоритет (если заданы сразу несколько вопросов, показываться будут только вопросы с большим приоритетом)</translation>
     </message>
     <message>
       <source>Active</source>
@@ -3415,7 +3415,7 @@
     </message>
     <message>
       <source>Please choose one of the options!</source>
-      <translation>Сделайте пожалуйста выбор опций!</translation>
+      <translation>Пожалуйста, выберите один из вариантов!</translation>
     </message>
     <message>
       <source>No question was detected</source>
@@ -3517,7 +3517,7 @@
     <name>system/languages</name>
     <message>
       <source>Languages configuration</source>
-      <translation>Настройки языка</translation>
+      <translation>Настройки языков</translation>
     </message>
     <message>
       <source>Your language</source>
@@ -3533,7 +3533,7 @@
     </message>
     <message>
       <source>Current site access</source>
-      <translation>Сайт доступен</translation>
+      <translation>Текущий доступ к сайту</translation>
     </message>
     <message>
       <source>Site access</source>
@@ -3545,11 +3545,11 @@
     </message>
     <message>
       <source>Theme, separate themes by new line</source>
-      <translation>Тема, разделите темы новыми линиями</translation>
+      <translation>Тема, по одному названию на одну строку</translation>
     </message>
     <message>
       <source>Default module</source>
-      <translation>Стандартные модули</translation>
+      <translation>Стандартный модуль</translation>
     </message>
     <message>
       <source>Default view</source>
@@ -3573,7 +3573,7 @@
     </message>
     <message>
       <source>Please enter view name</source>
-      <translation>Укажите выводимый ник-имя</translation>
+      <translation>Укажите имя представления</translation>
     </message>
   </context>
   <context>
@@ -3852,7 +3852,7 @@
     </message>
     <message>
       <source>Restore password</source>
-      <translation>Восстановление пароля</translation>
+      <translation>Восстановить пароль</translation>
     </message>
     <message>
       <source>Invalid e-mail address!</source>
@@ -3864,7 +3864,7 @@
     </message>
     <message>
       <source>Click this link and You will be sent a new password</source>
-      <translation>Линк для получения нового пароля</translation>
+      <translation>Кликните на эту ссылку для получения нового пароля</translation>
     </message>
   </context>
   <context>
@@ -3959,7 +3959,7 @@
     </message>
     <message>
       <source>Login</source>
-      <translation>Логин</translation>
+      <translation>Войти</translation>
     </message>
     <message>
       <source>Password reminder</source>

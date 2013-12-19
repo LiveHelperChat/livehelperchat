@@ -741,7 +741,7 @@
     </message>
     <message>
       <source>Could not determine a default department!</source>
-      <translation type="unfinished"/>
+      <translation>دپارتمان پیشفرض مشخص نیست</translation>
     </message>
     <message>
       <source>Live Support</source>
@@ -1190,7 +1190,7 @@
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!</source>
-      <translation type="unfinished"/>
+      <translation>تنظیمات سرویس دهنده ناموفق بود. لطفا مطمئن شوید سرویس دهنده دسترسی راه دور به صفحات سایت را داده باشد.</translation>
     </message>
     <message>
       <source>Please choose a service provider!</source>
@@ -1221,50 +1221,50 @@
     </message>
     <message>
       <source>Minimize/Restore</source>
-      <translation type="unfinished"/>
+      <translation>بازنشانی/کاهش</translation>
     </message>
   </context>
   <context>
     <name>chat/listchatconfig</name>
     <message>
       <source>Chat configuration</source>
-      <translation type="unfinished"/>
+      <translation>پیکربندی چت</translation>
     </message>
     <message>
       <source>Notifications about new chats</source>
-      <translation type="unfinished"/>
+      <translation>هشدار در مورد چت های جدید</translation>
     </message>
     <message>
       <source>Copyright settings</source>
-      <translation type="unfinished"/>
+      <translation>تنظیمات حق نشر</translation>
     </message>
     <message>
       <source>Application name</source>
-      <translation type="unfinished"/>
+      <translation>نام برنامه</translation>
     </message>
     <message>
       <source>Site settings</source>
-      <translation type="unfinished"/>
+      <translation>تنظیمات سایت</translation>
     </message>
     <message>
       <source>Online tracking</source>
-      <translation type="unfinished"/>
+      <translation>پیگیری آنلاین</translation>
     </message>
     <message>
       <source>Misc</source>
-      <translation type="unfinished"/>
+      <translation>متفرقه</translation>
     </message>
     <message>
       <source>Workflow</source>
-      <translation type="unfinished"/>
+      <translation>گردش کاری</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation type="unfinished"/>
+      <translation>به روزرسانی</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>تنظیمات به روزسانی شد</translation>
     </message>
     <message>
       <source>List chat configuration</source>
@@ -1661,7 +1661,7 @@
     <name>chat/part/operator_profile</name>
     <message>
       <source>Skype call</source>
-      <translation type="unfinished"/>
+      <translation>تماس اسکایپی</translation>
     </message>
   </context>
   <context>
@@ -2466,23 +2466,23 @@
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>غیرفعال شده</translation>
     </message>
     <message>
       <source>XMPP recipients</source>
-      <translation type="unfinished"/>
+      <translation>پذیرندگان XMPP</translation>
     </message>
     <message>
       <source>XMPP group recipients</source>
-      <translation type="unfinished"/>
+      <translation>گروه پذیرندگان XMPP</translation>
     </message>
     <message>
       <source>E.g somechat@conference.server.org/LiveChat</source>
-      <translation type="unfinished"/>
+      <translation>E.g somechat@conference.server.org/LiveChat</translation>
     </message>
     <message>
       <source>These messages will be send as group messages</source>
-      <translation type="unfinished"/>
+      <translation>این پیام ها به صورت پیام گروهی ارسال میشوند</translation>
     </message>
     <message>
       <source>Priority</source>
@@ -2502,7 +2502,7 @@
     </message>
     <message>
       <source>Inform then chat is closed by operator, only mail notification is send.</source>
-      <translation type="unfinished"/>
+      <translation>اطلاع رسانی بسته شدن چت توسط اپراتور، اطلاع رسانی با ایمیل</translation>
     </message>
     <message>
       <source>Inform about new chats using</source>
@@ -2522,11 +2522,11 @@
     </message>
     <message>
       <source>Work hours/work days logic is active</source>
-      <translation type="unfinished"/>
+      <translation>ساعت کاری/روز کاری فعال است</translation>
     </message>
     <message>
       <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
-      <translation type="unfinished"/>
+      <translation>روزکاری/ساعت کاری، در طول این روزها/ساعات چت به صورت خودکار فعال است.</translation>
     </message>
     <message>
       <source>Monday</source>
@@ -2566,7 +2566,7 @@
     </message>
     <message>
       <source>To, E.g. 17</source>
-      <translation type="unfinished"/>
+      <translation>To, E.g. 17</translation>
     </message>
     <message>
       <source>None</source>
@@ -2637,11 +2637,11 @@
     </message>
     <message>
       <source>Skype</source>
-      <translation type="unfinished"/>
+      <translation>اسکایپ</translation>
     </message>
     <message>
       <source>XMPP username</source>
-      <translation type="unfinished"/>
+      <translation>نام کاربری XMPP</translation>
     </message>
     <message>
       <source>Photo</source>
@@ -4070,11 +4070,11 @@
     </message>
     <message>
       <source>XMPP</source>
-      <translation type="unfinished"/>
+      <translation>XMPP</translation>
     </message>
     <message>
       <source>Use standard XMPP service</source>
-      <translation type="unfinished"/>
+      <translation>استفاده از سرویس XMPP استاندارد</translation>
     </message>
     <message>
       <source>Host</source>
@@ -4110,15 +4110,15 @@
     </message>
     <message>
       <source>Test recipients</source>
-      <translation type="unfinished"/>
+      <translation>گیرندگان آزمایشی</translation>
     </message>
     <message>
       <source>Individual recipients</source>
-      <translation type="unfinished"/>
+      <translation>گیرندگان فردی</translation>
     </message>
     <message>
       <source>Test group recipients</source>
-      <translation type="unfinished"/>
+      <translation>گروه گیرندگان آزمایشی</translation>
     </message>
     <message>
       <source>Test message will be send to your account e-mail</source>
@@ -4126,59 +4126,59 @@
     </message>
     <message>
       <source>GTalk</source>
-      <translation type="unfinished"/>
+      <translation>GTalk</translation>
     </message>
     <message>
       <source>Use GTalk for messaging</source>
-      <translation type="unfinished"/>
+      <translation>استفاده از چت گوگل برای پیام</translation>
     </message>
     <message>
       <source>Information for your google app</source>
-      <translation type="unfinished"/>
+      <translation>اطلاعات در مورد برنامه گوگل شما</translation>
     </message>
     <message>
       <source>Redirect URL, this url you will have to enter in your google app configuration</source>
-      <translation type="unfinished"/>
+      <translation>آدرس مستقیم، این آدرس در تنظیمات برنامه گوگل شما وارد میشود.</translation>
     </message>
     <message>
       <source>Enter your app information bellow</source>
-      <translation type="unfinished"/>
+      <translation>اطلاعات برنامه خود را در زیر وارد کنید</translation>
     </message>
     <message>
       <source>OAuth 2.0 Client ID</source>
-      <translation type="unfinished"/>
+      <translation>OAuth 2.0 Client ID</translation>
     </message>
     <message>
       <source>Please enter your Client ID</source>
-      <translation type="unfinished"/>
+      <translation>لطفا شناسه کلاینت خود را وارد کنید</translation>
     </message>
     <message>
       <source>Client secret</source>
-      <translation type="unfinished"/>
+      <translation>کلید امنیتی کلاینت</translation>
     </message>
     <message>
       <source>This message will be send to your e-mail</source>
-      <translation type="unfinished"/>
+      <translation>این پیام به ایمیل شما فرستاده میشود.</translation>
     </message>
     <message>
       <source>Send test message</source>
-      <translation type="unfinished"/>
+      <translation>ارسال پیام تستی</translation>
     </message>
     <message>
       <source>Revoke access token</source>
-      <translation type="unfinished"/>
+      <translation>لغو نشانه دسترسی</translation>
     </message>
     <message>
       <source>Revoke permission to send a message</source>
-      <translation type="unfinished"/>
+      <translation>لغو مجوز برای  ارسال پیام</translation>
     </message>
     <message>
       <source>Authentificate and grant permission to send a message</source>
-      <translation type="unfinished"/>
+      <translation>سطوح دسترسی برای ارسال پیام</translation>
     </message>
     <message>
       <source>Grant permission to send a message</source>
-      <translation type="unfinished"/>
+      <translation>سطوح دسترسی برای ارسال پیام</translation>
     </message>
     <message>
       <source>Settings updated</source>
@@ -4186,11 +4186,11 @@
     </message>
     <message>
       <source>Succesfully authorised, now you can try to send a message</source>
-      <translation type="unfinished"/>
+      <translation>تصدیق هویت، شما میتوانید پیام ارسال کنید</translation>
     </message>
     <message>
       <source>Token was revoked</source>
-      <translation type="unfinished"/>
+      <translation>نشانه لغو شد</translation>
     </message>
     <message>
       <source>XMPP message was sent succesfuly</source>
@@ -4239,7 +4239,7 @@
     </message>
     <message>
       <source>Transfer department has to be different one than self</source>
-      <translation type="unfinished"/>
+      <translation>انتقال دپارتمان به دپارتمان دیگر</translation>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>
