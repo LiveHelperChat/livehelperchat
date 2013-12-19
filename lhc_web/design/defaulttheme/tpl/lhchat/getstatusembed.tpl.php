@@ -10,7 +10,7 @@ if ( !($isOnlineHelp == false && $hide_offline == 'true') ) : ?>
 b.path||a.defaults.path,domain:b&&b.domain||a.defaults.domain,expires:b&&b.expires||a.defaults.expires,secure:b&&b.secure!==e?b.secure:a.defaults.secure}};a._isValidDate=function(b){return"[object Date]"===Object.prototype.toString.call(b)&&!isNaN(b.getTime())};a._getExpiresDate=function(b,d){d=d||new Date;switch(typeof b){case "number":b=new Date(d.getTime()+1E3*b);break;case "string":b=new Date(b)}if(b&&!a._isValidDate(b))throw Error("`expires` parameter cannot be converted to a valid Date instance");
 return b};a._generateCookieString=function(b,a,c){b=encodeURIComponent(b);a=(a+"").replace(/[^!#$&-+\--:<-\[\]-~]/g,encodeURIComponent);c=c||{};b=b+"="+a+(c.path?";path="+c.path:"");b+=c.domain?";domain="+c.domain:"";b+=c.expires?";expires="+c.expires.toUTCString():"";return b+=c.secure?";secure":""};a._getCookieObjectFromString=function(b){var d={};b=b?b.split("; "):[];for(var c=0;c<b.length;c++){var f=a._getKeyValuePairFromCookieString(b[c]);d[f.key]===e&&(d[f.key]=f.value)}return d};a._getKeyValuePairFromCookieString=
 function(b){var a=b.indexOf("="),a=0>a?b.length:a;return{key:decodeURIComponent(b.substr(0,a)),value:decodeURIComponent(b.substr(a+1))}};a._renewCache=function(){a._cache=a._getCookieObjectFromString(a._document.cookie);a._cachedDocumentCookie=a._document.cookie};a._areEnabled=function(){return a._navigator.cookieEnabled||"1"===a.set("cookies.js",1).get("cookies.js")};a.enabled=a._areEnabled();"function"===typeof define&&define.amd?define(function(){return a}):"undefined"!==typeof exports?("undefined"!==
-typeof module&&module.exports&&(exports=module.exports=a),exports.Cookies=a):window.Cookies=a})();
+typeof module&&module.exports&&(exports=module.exports=a),exports.lhc_Cookies=a):window.lhc_Cookies=a})();
 
 var lh_inst_page  = {
 	JSON : {
@@ -86,7 +86,7 @@ var lh_inst_page  = {
     	if (sessionStorage) {
     		sessionStorage.setItem('lhc_ses',this.JSON.stringify(this.cookieData));
     	} else {
-	    	Cookies('lhc_ses',this.JSON.stringify(this.cookieData));
+	    	lhc_Cookies('lhc_ses',this.JSON.stringify(this.cookieData));
 	    }
     },
 
@@ -94,7 +94,7 @@ var lh_inst_page  = {
     	if (sessionStorage && sessionStorage.getItem('lhc_ses')) {
     		this.cookieData = this.JSON.parse(sessionStorage.getItem('lhc_ses'));
     	} else {
-	    	var cookieData = Cookies('lhc_ses');
+	    	var cookieData = lhc_Cookies('lhc_ses');
 			if ( typeof cookieData === "string" && cookieData ) {
 				this.cookieData = this.JSON.parse(cookieData);
 			}

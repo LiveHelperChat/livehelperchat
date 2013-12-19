@@ -1122,7 +1122,7 @@
     </message>
     <message>
       <source>last visit</source>
-      <translation type="unfinished"/>
+      <translation>ultima visita</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -1327,7 +1327,7 @@
     </message>
     <message>
       <source>Auto responder</source>
-      <translation type="unfinished"/>
+      <translation>Auto risponditore</translation>
     </message>
     <message>
       <source>SMTP settings</source>
