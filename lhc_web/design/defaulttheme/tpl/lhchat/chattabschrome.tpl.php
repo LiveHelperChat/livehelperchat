@@ -3,6 +3,7 @@
 <?php if ($currentUser->hasAccessTo('lhchat','chattabschrome')) : ?>
 	<?php include(erLhcoreClassDesign::designtpl('lhchat/chattabs.tpl.php'));?>
 	
+	<?php if ($is_popup === false) : ?>
 	<script>
 	if (!!window.postMessage) {
 		var currentPendingInitial = $('.pn-cnt').text();
@@ -11,15 +12,14 @@
 			if (currentPendingInitial != currentPending){
 				currentPendingInitial = currentPending;
 				try {
-					parent.postMessage('lhc_chrome:'+currentPendingInitial.replace(/\(|\)/gi, ""), '*');
-				} catch(e) {
-	
-				};
+					parent.postMessage('lhc_chrome:'+currentPendingInitial.replace(/\(|\)/gi, ""), '*');					
+				} catch(e) {};
 			};
-		},7000);
-		parent.postMessage('lhc_chrome:0', '*');
+		},5000);
+		parent.postMessage('lhc_chrome:'+currentPendingInitial.replace(/\(|\)/gi, ""), '*');
 	};
 	</script>
+	<?php endif;?>
 	
 <?php else : ?>
 	<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','You do not have permission to use chattabschrome function');?>

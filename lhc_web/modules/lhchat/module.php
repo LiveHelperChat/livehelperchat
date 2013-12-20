@@ -97,6 +97,7 @@ $ViewList['chattabs'] = array(
 
 $ViewList['chattabschrome'] = array(
     'params' => array(),
+    'uparams' => array('mode'),
     'functions' => array( )
 );
 
