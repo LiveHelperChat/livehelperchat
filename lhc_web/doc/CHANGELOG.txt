@@ -2,7 +2,17 @@
 
 Features
 1. Chrome extension!!!
-Download it from 
+Download it from https://github.com/remdex/livehelperchat-extensions/raw/master/browsers-extensions/chrome/lhc/lhc_packed/lhc.crx
+or just
+https://github.com/remdex/livehelperchat-extensions/tree/master/browsers-extensions/chrome/lhc/lhc_packed
+To operator should be assigned permission
+"Chat" => "Allow user to user chrome extension"
+
+Bugfixes
+1. Use google maps in https if required.
+2. Proper file type check.
+3. Avoid conflict with third party window.Cookies variable
+And some other small bugfixes..
 
 
 1.72v

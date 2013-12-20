@@ -793,6 +793,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                     array('module' => 'lhuser',  'function' => 'selfedit'),
                     array('module' => 'lhuser',  'function' => 'changeonlinestatus'),
                     array('module' => 'lhchat',  'function' => 'use'),
+                    array('module' => 'lhchat',  'function' => 'chattabschrome'),
                     array('module' => 'lhchat',  'function' => 'singlechatwindow'),
                     array('module' => 'lhchat',  'function' => 'allowopenremotechat'),
                     array('module' => 'lhchat',  'function' => 'allowchattabs'),
