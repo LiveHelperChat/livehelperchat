@@ -11,12 +11,13 @@
 			if (currentPendingInitial != currentPending){
 				currentPendingInitial = currentPending;
 				try {
-					parent.postMessage('lhc_chrome:'+currentPendingInitial, '*');
+					parent.postMessage('lhc_chrome:'+currentPendingInitial.replace(/\(|\)/gi, ""), '*');
 				} catch(e) {
 	
 				};
 			};
 		},7000);
+		parent.postMessage('lhc_chrome:0', '*');
 	};
 	</script>
 	
