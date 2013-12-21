@@ -22,6 +22,14 @@
 </h5>
 
 <table class="small-12">
+
+	<?php if ( $chat->department !== false ) : ?>
+	<tr>
+		<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Department')?></td>
+		<td><?php echo htmlspecialchars($chat->department);?></td>
+	</tr>
+	<?php endif;?>
+	
 	<?php if ( !empty($chat->country_code) ) : ?>
 	<tr>
 		<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Country')?></td>
