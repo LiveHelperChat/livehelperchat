@@ -25,18 +25,15 @@ this.addEvent(domContainer, 'dragstart', function (event) {
 	    } catch (e){};
 	    lhc_obj.is_dragging = true;
 	    domContainer.style.zIndex=9995;	
-	    setTimeout(function(){
-	    if (lhc_obj.is_dragging == true){
-	    	document.getElementById(domIframe).style.marginTop = '-5000px';
-	    }},5);	    
+	    theKid = document.createElement("div");
+		theKid.innerHTML = '';
+		theKid.setAttribute('id','lhc_overlapse');
+		theKid.style.cssText = "position:absolute;height:" + domContainer.style.height + ";width:100%;";			
+	    domContainer.insertBefore(theKid, domContainer.firstChild);
 });
   	 
 this.addEvent(domContainer, 'dragenter', function (e) {
-		lhc_obj.is_dragging = true;		
-		setTimeout(function(){
-	    if (lhc_obj.is_dragging == true){
-	    	document.getElementById(domIframe).style.marginTop = '-5000px';
-	    }},5);    
+		lhc_obj.is_dragging = true;	
     	return false;
 });
 
@@ -45,13 +42,10 @@ if (!this.dragAttatched) {
 	this.addEvent(document.body, 'drop', function (event) {	
 			if (lhc_obj.is_dragging == true) {
 				
-				domContainer = document.getElementById(domContainerId);
-				
-				domContainer.style.zIndex=9990;
-				
+				domContainer = document.getElementById(domContainerId);				
+				domContainer.style.zIndex=9990;				
 				lhc_obj.is_dragging = false;
-				document.getElementById(domIframe).style.marginTop = '0px';
-							
+				lhc_obj.removeById('lhc_overlapse');
 			    var offset = lhc_obj.offset_data.split(',');
 			   
 			    dm = domContainer;
