@@ -1,4 +1,7 @@
-<?php $soundMessageEnabled = erLhcoreClassModelUserSetting::getSetting('chat_message',(int)(erConfigClassLhConfig::getInstance()->getSetting('chat','new_message_sound_user_enabled'))); ?>
+<?php 
+
+$soundData = erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data;
+$soundMessageEnabled = erLhcoreClassModelUserSetting::getSetting('chat_message',(int)($soundData['new_message_sound_user_enabled'])); ?>
 
 <div class="right pos-rel">
 	<a href="#" data-dropdown="drop2" class="tiny secondary round button dropdown"><i class="icon-tools"></i></a>

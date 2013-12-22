@@ -1,7 +1,9 @@
 <?php
 
-$soundMessageEnabled = erLhcoreClassModelUserSetting::getSetting('chat_message',(int)(erConfigClassLhConfig::getInstance()->getSetting('chat','new_message_sound_admin_enabled')));
-$soundNewChatEnabled = erLhcoreClassModelUserSetting::getSetting('new_chat_sound',(int)(erConfigClassLhConfig::getInstance()->getSetting('chat','new_chat_sound_enabled')));
+$soundData = erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data;
+
+$soundMessageEnabled = erLhcoreClassModelUserSetting::getSetting('chat_message',(int)($soundData['new_message_sound_admin_enabled']));
+$soundNewChatEnabled = erLhcoreClassModelUserSetting::getSetting('new_chat_sound',(int)($soundData['new_chat_sound_enabled']));
 
 $canChangeOnlineStatus = false;
 $currentUser = erLhcoreClassUser::instance();

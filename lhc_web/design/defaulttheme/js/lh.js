@@ -41,6 +41,9 @@ function lh(){
     this.chat_id = null;
     this.hash = null;
 
+    this.soundIsPlaying = false;
+    this.soundPlayedTimes = 0;
+    
     // Used for synchronization for user chat
     this.last_message_id = 0;
 
@@ -957,25 +960,38 @@ function lh(){
 			alert('Notification API in your browser is not supported.');
 		}
 	};
+	
+	this.playNewChatAudio = function() {	
+		clearTimeout(this.soundIsPlaying);
+		this.soundPlayedTimes++;
+		if (Modernizr.audio) {
+			
+    	    var audio = new Audio();
+            audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + '/new_chat.ogg' :
+                        Modernizr.audio.mp3 ? WWW_DIR_JAVASCRIPT_FILES + '/new_chat.mp3' : WWW_DIR_JAVASCRIPT_FILES + '/new_chat.wav';
+            audio.load();
+            setTimeout(function(){
+            	audio.play();
+            },500);
 
+            if (confLH.repeat_sound > this.soundPlayedTimes) {
+            	var inst = this;
+            	this.soundIsPlaying = setTimeout(function(){inst.playNewChatAudio();},confLH.repeat_sound_delay*1000);
+            }            
+	    };
+	};
+	
+	
 	this.playSoundNewAction = function(identifier,chat_id) {
 	    if (confLH.new_chat_sound_enabled == 1 && (identifier == 'pending_chat' || identifier == 'transfer_chat' )) {
-	        if (Modernizr.audio) {
-        	    var audio = new Audio();
-
-                audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + '/new_chat.ogg' :
-                            Modernizr.audio.mp3 ? WWW_DIR_JAVASCRIPT_FILES + '/new_chat.mp3' : WWW_DIR_JAVASCRIPT_FILES + '/new_chat.wav';
-
-                audio.load();
-
-                setTimeout(function(){
-                	audio.play();
-                },500);
-
-
-    	    }
+	    	this.soundPlayedTimes = 0;
+	        this.playNewChatAudio();
 	    };
 
+	    if (confLH.show_alert == 1) {
+	    	alert(confLH.transLation.new_chat);
+	    };
+	    	    
 	    if(!$("textarea[name=ChatMessage]").is(":focus")) {
 	    	this.startBlinking();
     	};
@@ -1022,7 +1038,9 @@ function lh(){
 	};
 
 	this.hideNotifications = function(){
-				
+		
+		clearTimeout(this.soundIsPlaying);
+		
 		$.each(this.notificationsArray,function(i,item) {
 			item.close();
 		});

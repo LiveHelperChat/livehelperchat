@@ -1,3 +1,11 @@
+1.74v
+
+Features
+1. Now you can setup how many times repeat sound notification.
+2. Also now you can setup alert message then new chat request comes if regular notifications is not enough for you.
+
+execute doc/update_db/update_55.sql for update
+
 1.73v
 
 Features
