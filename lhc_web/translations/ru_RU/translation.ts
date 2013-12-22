@@ -404,6 +404,10 @@
       <translation>Информация</translation>
     </message>
     <message>
+      <source>Department</source>
+      <translation>Департамент</translation>
+    </message>
+    <message>
       <source>Country</source>
       <translation>Страна</translation>
     </message>
@@ -631,6 +635,18 @@
     <message>
       <source>All closed chats</source>
       <translation>Все закрытые диалоги</translation>
+    </message>
+    <message>
+      <source>You do not have permission to use chattabschrome function</source>
+      <translation>У вас нет прав на использование функции chattabschrome</translation>
+    </message>
+    <message>
+      <source>Please</source>
+      <translation>Пожалуйста</translation>
+    </message>
+    <message>
+      <source>login first.</source>
+      <translation>Сначала авторизуйтесь.</translation>
     </message>
     <message>
       <source>Online operators</source>

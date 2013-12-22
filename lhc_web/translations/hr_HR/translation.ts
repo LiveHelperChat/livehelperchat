@@ -404,6 +404,10 @@
       <translation>Informacija</translation>
     </message>
     <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Country</source>
       <translation type="unfinished"/>
     </message>
@@ -631,6 +635,18 @@
     <message>
       <source>All closed chats</source>
       <translation>Svi završeni razgovori</translation>
+    </message>
+    <message>
+      <source>You do not have permission to use chattabschrome function</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>login first.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Online operators</source>

@@ -404,6 +404,10 @@
       <translation>Informacija</translation>
     </message>
     <message>
+      <source>Department</source>
+      <translation>Departamentas</translation>
+    </message>
+    <message>
       <source>Country</source>
       <translation>Šalis</translation>
     </message>
@@ -631,6 +635,18 @@
     <message>
       <source>All closed chats</source>
       <translation>Visi uždaryti pokalbiai</translation>
+    </message>
+    <message>
+      <source>You do not have permission to use chattabschrome function</source>
+      <translation>Jūs neturite teisės naudotis chrome įskiepiu</translation>
+    </message>
+    <message>
+      <source>Please</source>
+      <translation>Prašome</translation>
+    </message>
+    <message>
+      <source>login first.</source>
+      <translation>prisijungti pirma.</translation>
     </message>
     <message>
       <source>Online operators</source>

@@ -24,6 +24,8 @@ https://www.transifex.com/projects/p/live-helper-chat/
 Few main features
 
  * XMPP support for notifications about new chats. (IPhone, IPad, Android, Blackberry, GTalk etc...)
+ * Chrome extension
+ * Repeatable sound notifications
  * Work hours
  * Drag & Drop widgets, minimize/maximize widgets
  * Multiple chats same time
