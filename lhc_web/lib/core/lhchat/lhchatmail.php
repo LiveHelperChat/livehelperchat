@@ -199,7 +199,13 @@ class erLhcoreClassChatMail {
     		$mail->Sender = $mail->From = $sendMail->from_email;
     	}
     	
-    	$mail->FromName = $sendMail->from_name;    	
+    	$mail->FromName = $sendMail->from_name;
+    	
+    	if ($chat->email != '') {
+    		$mail->From = $chat->email;
+    		$mail->AddReplyTo($chat->email,$chat->nick);
+    	}
+    	  	
     	$mail->Subject = $sendMail->subject;
     	   	    	
     	$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 10,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
