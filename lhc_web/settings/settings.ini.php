@@ -387,6 +387,24 @@ return array (
     		'view' => 'startchat'
     	),
       ),
+      'tha' =>
+      array (
+    	'locale' => 'th_TH',
+    	'content_language' => 'th',
+    	'dir_language' => 'ltr',
+    	'title' => '',
+    	'description' => '',
+    	'theme' =>
+      	array (
+    		0 => 'customtheme',
+    		1 => 'defaulttheme'
+      	),
+    	   'default_url' =>
+    	array (
+    		'module' => 'chat',
+    		'view' => 'startchat'
+    	),
+      ),
       'idn' =>
       array (
     	'locale' => 'id_ID',

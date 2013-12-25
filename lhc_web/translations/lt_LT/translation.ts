@@ -1929,6 +1929,30 @@
       <translation>Groti garsą apie naują žinutę klientui</translation>
     </message>
     <message>
+      <source>Show alert message on a new chat request</source>
+      <translation>Rodyti alert pranešimus apie naujas užklausas</translation>
+    </message>
+    <message>
+      <source>How many times play sound notification</source>
+      <translation>Kiek kartų groti garso pranešimą?</translation>
+    </message>
+    <message>
+      <source>Number</source>
+      <translation>Skaičius</translation>
+    </message>
+    <message>
+      <source>Delay between sound notifications in seconds</source>
+      <translation>Uždelsimas tarp garso pranešimų sekundėmis</translation>
+    </message>
+    <message>
+      <source>delay in seconds</source>
+      <translation>uždelsimas sekundėmis</translation>
+    </message>
+    <message>
+      <source>Seconds</source>
+      <translation>Sekundės</translation>
+    </message>
+    <message>
       <source>Please enter a valid online timeout value!</source>
       <translation>Prašome įvesti validų būvimo prisijungus intervalą!</translation>
     </message>

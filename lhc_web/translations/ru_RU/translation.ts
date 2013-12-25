@@ -1929,6 +1929,30 @@
       <translation>Проигрывать звук при новом сообщенииPage %currentpage of %totalpage от юзера с фронтенда</translation>
     </message>
     <message>
+      <source>Show alert message on a new chat request</source>
+      <translation>Показывать уведомление при появлении нового диалога</translation>
+    </message>
+    <message>
+      <source>How many times play sound notification</source>
+      <translation>Длительность звукового уведомления</translation>
+    </message>
+    <message>
+      <source>Number</source>
+      <translation>Номер</translation>
+    </message>
+    <message>
+      <source>Delay between sound notifications in seconds</source>
+      <translation>Задержка между звуковыми уведомлениями в секундах</translation>
+    </message>
+    <message>
+      <source>delay in seconds</source>
+      <translation>задержка в секундах</translation>
+    </message>
+    <message>
+      <source>Seconds</source>
+      <translation>Секунд</translation>
+    </message>
+    <message>
       <source>Please enter a valid online timeout value!</source>
       <translation>Введите неодходимый таймаут в онлайне!</translation>
     </message>

@@ -1929,6 +1929,30 @@
       <translation>Jouer un son à chaque nouveau message pour un visiteur </translation>
     </message>
     <message>
+      <source>Show alert message on a new chat request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How many times play sound notification</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delay between sound notifications in seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>delay in seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a valid online timeout value!</source>
       <translation>Merci d&apos;entrer une valeur de timeout valide!</translation>
     </message>

@@ -1929,6 +1929,30 @@
       <translation>Tocar um som em uma nova mensagem de um usuário de front end</translation>
     </message>
     <message>
+      <source>Show alert message on a new chat request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How many times play sound notification</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delay between sound notifications in seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>delay in seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a valid online timeout value!</source>
       <translation>Por favor, insira um valor de tempo limite válido!</translation>
     </message>

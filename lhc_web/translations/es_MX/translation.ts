@@ -1933,6 +1933,30 @@
       <translation>Reproducir un sonido en un nuevo mensaje para un usuario final frente</translation>
     </message>
     <message>
+      <source>Show alert message on a new chat request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How many times play sound notification</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delay between sound notifications in seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>delay in seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a valid online timeout value!</source>
       <translation>Por favor, introduzca un valor de tiempo de espera en línea válido!</translation>
     </message>
