@@ -987,11 +987,7 @@ function lh(){
 	    	this.soundPlayedTimes = 0;
 	        this.playNewChatAudio();
 	    };
-
-	    if (confLH.show_alert == 1) {
-	    	alert(confLH.transLation.new_chat);
-	    };
-	    	    
+    
 	    if(!$("textarea[name=ChatMessage]").is(":focus")) {
 	    	this.startBlinking();
     	};
@@ -1034,7 +1030,13 @@ function lh(){
 		    	   }
 	    	  }
 
-	    }
+	    };
+	    
+	    if (confLH.show_alert == 1) {
+	    	setTimeout(function() {
+	    		alert(confLH.transLation.new_chat);
+	    	},1000);	    	
+	    };
 	};
 
 	this.hideNotifications = function(){
