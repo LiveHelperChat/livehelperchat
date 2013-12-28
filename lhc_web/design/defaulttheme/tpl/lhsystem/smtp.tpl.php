@@ -18,10 +18,10 @@
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Password');?></label>
 <input type="password" name="password" value="<?php (isset($smtp_data['password']) && $smtp_data['password'] != '') ? print $smtp_data['password'] : print '' ?>" />
 
-<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Host');?></label>
+<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Host');?>*</label>
 <input type="text" name="host" value="<?php (isset($smtp_data['host']) && $smtp_data['host'] != '') ? print $smtp_data['host'] : print '' ?>" />
 
-<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Port');?></label>
+<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Port');?>*</label>
 <input type="text" name="port" value="<?php (isset($smtp_data['port']) && $smtp_data['port'] != '') ? print $smtp_data['port'] : print '25' ?>" />
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
