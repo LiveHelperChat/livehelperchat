@@ -405,7 +405,7 @@
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>دپارتمان</translation>
     </message>
     <message>
       <source>Country</source>
@@ -638,15 +638,15 @@
     </message>
     <message>
       <source>You do not have permission to use chattabschrome function</source>
-      <translation type="unfinished"/>
+      <translation>شما مجوز استفاده از تابع تب های چت در مرورگر کروم را ندارید</translation>
     </message>
     <message>
       <source>Please</source>
-      <translation type="unfinished"/>
+      <translation>لطفا</translation>
     </message>
     <message>
       <source>login first.</source>
-      <translation type="unfinished"/>
+      <translation>لاگین کنید.</translation>
     </message>
     <message>
       <source>Online operators</source>
@@ -1930,27 +1930,27 @@
     </message>
     <message>
       <source>Show alert message on a new chat request</source>
-      <translation type="unfinished"/>
+      <translation>نمایش هشدار برای درخواست چت جدید</translation>
     </message>
     <message>
       <source>How many times play sound notification</source>
-      <translation type="unfinished"/>
+      <translation>صدای هشدار چند مرتبه پخش شود</translation>
     </message>
     <message>
       <source>Number</source>
-      <translation type="unfinished"/>
+      <translation>شماره</translation>
     </message>
     <message>
       <source>Delay between sound notifications in seconds</source>
-      <translation type="unfinished"/>
+      <translation>تاخیر بین هشدارهای صوتی بر اساس ثانیه</translation>
     </message>
     <message>
       <source>delay in seconds</source>
-      <translation type="unfinished"/>
+      <translation>تاخیر بر اساس ثانیه</translation>
     </message>
     <message>
       <source>Seconds</source>
-      <translation type="unfinished"/>
+      <translation>ثانیه ها</translation>
     </message>
     <message>
       <source>Please enter a valid online timeout value!</source>

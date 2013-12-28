@@ -51,7 +51,7 @@
     </message>
     <message>
       <source>Return</source>
-      <translation type="unfinished"/>
+      <translation>Návrat</translation>
     </message>
     <message>
       <source>Delete department</source>
@@ -784,7 +784,7 @@
     </message>
     <message>
       <source>A support staff member has closed this chat</source>
-      <translation type="unfinished"/>
+      <translation>Člen podpory uzavřel tento rozhovor</translation>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
@@ -950,7 +950,7 @@
     </message>
     <message>
       <source>Map location</source>
-      <translation type="unfinished"/>
+      <translation>Umístění mapy</translation>
     </message>
     <message>
       <source>Drag a marker where you want to have map centered by default. Zoom is also saved.</source>
@@ -970,11 +970,11 @@
     </message>
     <message>
       <source>Lat.</source>
-      <translation type="unfinished"/>
+      <translation>Šíř.</translation>
     </message>
     <message>
       <source>Lon.</source>
-      <translation type="unfinished"/>
+      <translation>Dél.</translation>
     </message>
     <message>
       <source>Identifier</source>
@@ -1602,7 +1602,7 @@
     </message>
     <message>
       <source>Embed code</source>
-      <translation type="unfinished"/>
+      <translation>Embedovaný kód</translation>
     </message>
   </context>
   <context>
@@ -1894,7 +1894,7 @@
     </message>
     <message>
       <source>Synchronisation and sound settings</source>
-      <translation type="unfinished"/>
+      <translation>Nastavení synchronizace a zvuku</translation>
     </message>
     <message>
       <source>How many seconds for a user to be considered as being online</source>
@@ -2234,7 +2234,7 @@
     </message>
     <message>
       <source>Process</source>
-      <translation type="unfinished"/>
+      <translation>Zpracování</translation>
     </message>
   </context>
   <context>
@@ -2257,7 +2257,7 @@
     </message>
     <message>
       <source>Archive progress</source>
-      <translation type="unfinished"/>
+      <translation>Průběh archivace</translation>
     </message>
     <message>
       <source>Pending for action...</source>
@@ -2269,15 +2269,15 @@
     </message>
     <message>
       <source>first archived chat ID</source>
-      <translation type="unfinished"/>
+      <translation>první archivované ID rozhovoru</translation>
     </message>
     <message>
       <source>last archived chat ID</source>
-      <translation type="unfinished"/>
+      <translation>poslední archivované ID rozhovoru</translation>
     </message>
     <message>
       <source>number of archived chats</source>
-      <translation type="unfinished"/>
+      <translation>počet archivovaných zpráv</translation>
     </message>
     <message>
       <source>number of archived messages</source>
