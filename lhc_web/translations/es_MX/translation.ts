@@ -407,7 +407,7 @@
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Departamento</translation>
     </message>
     <message>
       <source>Country</source>
@@ -640,15 +640,15 @@
     </message>
     <message>
       <source>You do not have permission to use chattabschrome function</source>
-      <translation type="unfinished"/>
+      <translation>No tienes permiso para usar la función chattabschrome</translation>
     </message>
     <message>
       <source>Please</source>
-      <translation type="unfinished"/>
+      <translation>Por favor</translation>
     </message>
     <message>
       <source>login first.</source>
-      <translation type="unfinished"/>
+      <translation>inicia sesión</translation>
     </message>
     <message>
       <source>Online operators</source>
@@ -1103,6 +1103,14 @@
     <message>
       <source>hour</source>
       <translation>Hora</translation>
+    </message>
+    <message>
+      <source>day</source>
+      <translation>día</translation>
+    </message>
+    <message>
+      <source>days</source>
+      <translation>días</translation>
     </message>
     <message>
       <source>Page</source>
@@ -1934,27 +1942,27 @@
     </message>
     <message>
       <source>Show alert message on a new chat request</source>
-      <translation type="unfinished"/>
+      <translation>Mostrar mensaje de alerta en una nueva solicitud de chat</translation>
     </message>
     <message>
       <source>How many times play sound notification</source>
-      <translation type="unfinished"/>
+      <translation>Cuantas veces reproducir el sonido de notificación</translation>
     </message>
     <message>
       <source>Number</source>
-      <translation type="unfinished"/>
+      <translation>Número</translation>
     </message>
     <message>
       <source>Delay between sound notifications in seconds</source>
-      <translation type="unfinished"/>
+      <translation>Espacio entre notificaciones sonoras en segundos</translation>
     </message>
     <message>
       <source>delay in seconds</source>
-      <translation type="unfinished"/>
+      <translation>Retraso en segundos</translation>
     </message>
     <message>
       <source>Seconds</source>
-      <translation type="unfinished"/>
+      <translation>Segundos</translation>
     </message>
     <message>
       <source>Please enter a valid online timeout value!</source>
@@ -4158,15 +4166,15 @@ Lista de funciones</translation>
     </message>
     <message>
       <source>Test recipients</source>
-      <translation type="unfinished"/>
+      <translation>Destinatarios de prueba</translation>
     </message>
     <message>
       <source>Individual recipients</source>
-      <translation type="unfinished"/>
+      <translation>Destinatarios individuales</translation>
     </message>
     <message>
       <source>Test group recipients</source>
-      <translation type="unfinished"/>
+      <translation>Grupo destinatarios de prueba</translation>
     </message>
     <message>
       <source>Test message will be send to your account e-mail</source>

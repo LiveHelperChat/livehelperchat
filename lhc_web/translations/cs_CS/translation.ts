@@ -1101,6 +1101,14 @@
       <translation>hodinou</translation>
     </message>
     <message>
+      <source>day</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Page</source>
       <translation>Odkud</translation>
     </message>

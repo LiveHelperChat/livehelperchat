@@ -1102,6 +1102,14 @@
       <translation>saat</translation>
     </message>
     <message>
+      <source>day</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Page</source>
       <translation>Sayfa</translation>
     </message>
