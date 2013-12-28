@@ -43,7 +43,7 @@ if ($is_ajax == false){
     $Result['path'] = array(
     array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Online visitors')));
 } else {
-    echo json_encode(array('result' => $tpl->fetch()));
+    echo json_encode(array('oc' => erLhcoreClassModelChatOnlineUser::getCount(array('filtergt' => array('last_visit' => (time()-$timeout)))),'result' => $tpl->fetch()));
     exit;
 }
 

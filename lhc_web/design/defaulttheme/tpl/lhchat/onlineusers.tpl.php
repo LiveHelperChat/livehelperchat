@@ -26,10 +26,10 @@
 
 <div class="row">
 	<div class="columns small-6">
-		<label for="userTimeout" class="inline"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Show visitors who visited site in the past');?></label>
+		<label><span id="online-users-count">0</span> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','online users');?></label>
 	</div>
 	<div class="columns small-6">
-		<select id="userTimeout" onchange="lhinst.syncOnlineUsers()">
+		<select id="userTimeout" onchange="lhinst.syncOnlineUsers()" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Show visitors who visited site in the past');?>">
 		    	<option value="30">30 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','seconds');?></option>
 		    	<option value="60">1 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','minit');?></option>
 		    	<option value="120">2 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','minits');?></option>

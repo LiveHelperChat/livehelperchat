@@ -781,3 +781,8 @@ border-top-right-radius: 6px;
 	font-size:14px;
 	color:#77C4DB;
 }
+
+#online-users-count{
+	color:#457a1a;
+	font-weight:bold;
+}

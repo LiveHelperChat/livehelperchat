@@ -1083,6 +1083,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>online users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show visitors who visited site in the past</source>
       <translation type="unfinished"/>
     </message>
