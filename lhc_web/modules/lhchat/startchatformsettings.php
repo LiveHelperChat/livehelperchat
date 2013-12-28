@@ -49,13 +49,17 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
         // Phone options
         'PhoneVisibleInPopup' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-        ),
+        ),       
         'PhoneVisibleInPageWidget' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
         'PhoneRequireOption' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
-        )
+        ),
+    	// Force leave a message    		
+    	'ForceLeaveMessage' => new ezcInputFormDefinitionElement(
+    			ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+    	),
     );
 
     $form = new ezcInputForm( INPUT_POST, $definition );
@@ -68,6 +72,13 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
     	exit;
     }
 
+    // Force leave a message 
+    if ( $form->hasValidData( 'ForceLeaveMessage' ) && $form->ForceLeaveMessage == true ) {
+        $data['force_leave_a_message'] = true;
+    } else {
+        $data['force_leave_a_message'] = false;
+    }
+    
     // Name
     if ( $form->hasValidData( 'NameVisibleInPopup' ) && $form->NameVisibleInPopup == true ) {
         $data['name_visible_in_popup'] = true;

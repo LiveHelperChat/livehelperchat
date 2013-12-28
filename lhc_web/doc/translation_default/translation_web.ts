@@ -1836,6 +1836,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Enable leave a message functionality automatically if there are no online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation type="unfinished"/>
     </message>

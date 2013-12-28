@@ -75,7 +75,7 @@ if ($inputData->departament_id > 0) {
 }
 
 // Leave a message functionality
-$leaveamessage = (string)$Params['user_parameters_unordered']['leaveamessage'] == 'true' ? true : false;
+$leaveamessage = ((string)$Params['user_parameters_unordered']['leaveamessage'] == 'true' || (isset($startDataFields['force_leave_a_message']) && $startDataFields['force_leave_a_message'] == true)) ? true : false;
 
 $additionalParams = array();
 if ((string)$Params['user_parameters_unordered']['offline'] == 'true' && $leaveamessage == true) {
