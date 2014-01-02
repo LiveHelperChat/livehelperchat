@@ -1081,6 +1081,10 @@
       <translation>Daftar</translation>
     </message>
     <message>
+      <source>online users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show visitors who visited site in the past</source>
       <translation>Menunjukkan pengunjung yang mengunjungi situs di masa lalu</translation>
     </message>
@@ -1832,6 +1836,10 @@
     <message>
       <source>At least one field has to be visible and required in the popup and page widget</source>
       <translation>Setidaknya satu bidang harus terlihat dan diperlukan dalam popup dan halaman widget</translation>
+    </message>
+    <message>
+      <source>Enable leave a message functionality automatically if there are no online operators</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Name</source>

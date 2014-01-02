@@ -1081,6 +1081,10 @@
       <translation>فهرست</translation>
     </message>
     <message>
+      <source>online users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show visitors who visited site in the past</source>
       <translation>نمایش بازدیدکنندگانی که قبلا از سایت بازدید کرده اند</translation>
     </message>
@@ -1832,6 +1836,10 @@
     <message>
       <source>At least one field has to be visible and required in the popup and page widget</source>
       <translation>در نهایت یک فیلد نمایش داده میشود و برای ویجت پنجره باز شونده لازم است</translation>
+    </message>
+    <message>
+      <source>Enable leave a message functionality automatically if there are no online operators</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Name</source>

@@ -1081,6 +1081,10 @@
       <translation>Lista</translation>
     </message>
     <message>
+      <source>online users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show visitors who visited site in the past</source>
       <translation>Pokaż odwiedzających, którzy odwiedzili witrynę w przeszłości</translation>
     </message>
@@ -1832,6 +1836,10 @@
     <message>
       <source>At least one field has to be visible and required in the popup and page widget</source>
       <translation>Co najmniej jedno pole musi być widoczne i wymagane w oknie popup i w stronie widgetu</translation>
+    </message>
+    <message>
+      <source>Enable leave a message functionality automatically if there are no online operators</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Name</source>

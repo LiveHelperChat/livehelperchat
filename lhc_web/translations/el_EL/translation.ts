@@ -1081,6 +1081,10 @@
       <translation>Λίστα</translation>
     </message>
     <message>
+      <source>online users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show visitors who visited site in the past</source>
       <translation>Δείξουν στους επισκέπτες που επισκεφθήκατε το site στο παρελθόν</translation>
     </message>
@@ -1832,6 +1836,10 @@
     <message>
       <source>At least one field has to be visible and required in the popup and page widget</source>
       <translation>Τουλάχιστον ένα πεδίο πρέπει να είναι ορατές και απαιτείται και στο popup και σελίδα widget</translation>
+    </message>
+    <message>
+      <source>Enable leave a message functionality automatically if there are no online operators</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Name</source>

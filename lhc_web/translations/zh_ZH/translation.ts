@@ -405,7 +405,7 @@
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>新闻部</translation>
     </message>
     <message>
       <source>Country</source>
@@ -638,15 +638,15 @@
     </message>
     <message>
       <source>You do not have permission to use chattabschrome function</source>
-      <translation type="unfinished"/>
+      <translation>您没有使用 chattabschrome 函数的权限</translation>
     </message>
     <message>
       <source>Please</source>
-      <translation type="unfinished"/>
+      <translation>请</translation>
     </message>
     <message>
       <source>login first.</source>
-      <translation type="unfinished"/>
+      <translation>登录第一次。</translation>
     </message>
     <message>
       <source>Online operators</source>
@@ -1081,6 +1081,10 @@
       <translation>表</translation>
     </message>
     <message>
+      <source>online users</source>
+      <translation>在线用户</translation>
+    </message>
+    <message>
       <source>Show visitors who visited site in the past</source>
       <translation>顯示在過去的遊客誰訪問的網站</translation>
     </message>
@@ -1102,11 +1106,11 @@
     </message>
     <message>
       <source>day</source>
-      <translation type="unfinished"/>
+      <translation>一天</translation>
     </message>
     <message>
       <source>days</source>
-      <translation type="unfinished"/>
+      <translation>天</translation>
     </message>
     <message>
       <source>Page</source>
@@ -1834,6 +1838,10 @@
       <translation>的至少一个字段为可见，而且需要在弹出窗口和页面的插件</translation>
     </message>
     <message>
+      <source>Enable leave a message functionality automatically if there are no online operators</source>
+      <translation>启用自动离开的消息功能如果没有联机操作员</translation>
+    </message>
+    <message>
       <source>Name</source>
       <translation>名</translation>
     </message>
@@ -1938,27 +1946,27 @@
     </message>
     <message>
       <source>Show alert message on a new chat request</source>
-      <translation type="unfinished"/>
+      <translation>上一个新的聊天请求，显示警报消息</translation>
     </message>
     <message>
       <source>How many times play sound notification</source>
-      <translation type="unfinished"/>
+      <translation>多少次播放声音通知</translation>
     </message>
     <message>
       <source>Number</source>
-      <translation type="unfinished"/>
+      <translation>数量</translation>
     </message>
     <message>
       <source>Delay between sound notifications in seconds</source>
-      <translation type="unfinished"/>
+      <translation>以秒为单位的声音通知之间的延迟</translation>
     </message>
     <message>
       <source>delay in seconds</source>
-      <translation type="unfinished"/>
+      <translation>秒的延迟</translation>
     </message>
     <message>
       <source>Seconds</source>
-      <translation type="unfinished"/>
+      <translation>秒</translation>
     </message>
     <message>
       <source>Please enter a valid online timeout value!</source>

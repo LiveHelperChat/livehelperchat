@@ -1081,6 +1081,10 @@
       <translation>Лист</translation>
     </message>
     <message>
+      <source>online users</source>
+      <translation>пользователей онлайн</translation>
+    </message>
+    <message>
       <source>Show visitors who visited site in the past</source>
       <translation>Показывать бывших посетителей сайта</translation>
     </message>
@@ -1102,11 +1106,11 @@
     </message>
     <message>
       <source>day</source>
-      <translation type="unfinished"/>
+      <translation>день</translation>
     </message>
     <message>
       <source>days</source>
-      <translation type="unfinished"/>
+      <translation>дней</translation>
     </message>
     <message>
       <source>Page</source>
@@ -1832,6 +1836,10 @@
     <message>
       <source>At least one field has to be visible and required in the popup and page widget</source>
       <translation>По крайней мере одно поле должно быть видимым и находится в pupup и виджете страницы</translation>
+    </message>
+    <message>
+      <source>Enable leave a message functionality automatically if there are no online operators</source>
+      <translation>Включить функцию &quot;оставить сообщение&quot; автоматически, если все операторы оффлайн</translation>
     </message>
     <message>
       <source>Name</source>

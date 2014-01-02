@@ -1081,6 +1081,10 @@
       <translation>Sąrašas</translation>
     </message>
     <message>
+      <source>online users</source>
+      <translation>prisijungę vartotojai</translation>
+    </message>
+    <message>
       <source>Show visitors who visited site in the past</source>
       <translation>Rodyti lankytojus, kurie aplankė per pastarasias</translation>
     </message>
@@ -1102,11 +1106,11 @@
     </message>
     <message>
       <source>day</source>
-      <translation type="unfinished"/>
+      <translation>diena</translation>
     </message>
     <message>
       <source>days</source>
-      <translation type="unfinished"/>
+      <translation>dienos</translation>
     </message>
     <message>
       <source>Page</source>
@@ -1832,6 +1836,10 @@
     <message>
       <source>At least one field has to be visible and required in the popup and page widget</source>
       <translation>Bent vienas laukas turi būti matomas ir privalomas popupe ir vidiniame puslapio popupe</translation>
+    </message>
+    <message>
+      <source>Enable leave a message functionality automatically if there are no online operators</source>
+      <translation>Įgalinti žinutės palikimo langą automatiškai, jei nėra prisijungusių vartotojų</translation>
     </message>
     <message>
       <source>Name</source>
