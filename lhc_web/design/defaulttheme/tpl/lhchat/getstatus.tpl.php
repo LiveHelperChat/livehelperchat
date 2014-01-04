@@ -372,8 +372,8 @@ var lh_inst  = {
             s.setAttribute('type','text/javascript');
             s.setAttribute('src','//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatcheckoperatormessage')?><?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?>/(vid)/'+vid+'?l='+escape(document.location))+'&dt='+escape(document.title);
             th.appendChild(s);
-            lh_inst.startNewMessageCheck();
-        }, <?php echo (int)(erConfigClassLhConfig::getInstance()->getSetting('chat','check_for_operator_msg')*1000) ?> );
+            lh_inst.startNewMessageCheck();        
+        }, <?php echo (int)(erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['check_for_operator_msg']*1000); ?> );
     },
 
     startNewMessageCheckSingle : function() {

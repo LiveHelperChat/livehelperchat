@@ -567,10 +567,10 @@ class erLhcoreClassChat {
     	return self::getCount($filter);
     }
 
-    public static function isOnline($dep_id = false, $exclipic = false)
+    public static function isOnline($dep_id = false, $exclipic = false, $params = array())
     {
-       $isOnlineUser = (int)erConfigClassLhConfig::getInstance()->getSetting('chat','online_timeout');
-
+       $isOnlineUser = isset($params['online_timeout']) ? $params['online_timeout'] : (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'];
+            
        $db = ezcDbInstance::get();
 	   $rowsNumber = 0;
        
@@ -625,9 +625,9 @@ class erLhcoreClassChat {
        return $rowsNumber >= 1;
     }
 
-    public static function getRandomOnlineUserID(){
-
-    	$isOnlineUser = (int)erConfigClassLhConfig::getInstance()->getSetting('chat','online_timeout');
+    public static function getRandomOnlineUserID($params = array()) {
+    	$isOnlineUser = isset($params['online_timeout']) ? $params['online_timeout'] : (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'];
+    	
     	$db = ezcDbInstance::get();
 		$agoTime = time()-$isOnlineUser;
 
@@ -651,10 +651,11 @@ class erLhcoreClassChat {
     	return 0;
     }
 
-    public static function getOnlineUsers($UserID = array())
-    {
-       $isOnlineUser = (int)erConfigClassLhConfig::getInstance()->getSetting('chat','online_timeout');
-
+    public static function getOnlineUsers($UserID = array(), $params = array())
+    {     
+       $isOnlineUser = isset($params['online_timeout']) ? $params['online_timeout'] : (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'];
+       
+       
        $db = ezcDbInstance::get();
        $NotUser = '';
 
@@ -687,9 +688,9 @@ class erLhcoreClassChat {
        return $rows;
     }
 
-    public static function isOnlineUser($user_id) {
-    	$isOnlineUser = (int)erConfigClassLhConfig::getInstance()->getSetting('chat','online_timeout');
-
+    public static function isOnlineUser($user_id, $params = array()) {    	
+    	$isOnlineUser = isset($params['online_timeout']) ? $params['online_timeout'] : (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'];
+    	    	
     	$db = ezcDbInstance::get();
 
     	$stmt = $db->prepare('SELECT count(lh_users.id) FROM lh_users INNER JOIN lh_userdep ON lh_userdep.user_id = lh_users.id WHERE lh_userdep.last_activity > :last_activity AND lh_users.id = :user_id');

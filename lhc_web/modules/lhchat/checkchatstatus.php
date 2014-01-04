@@ -33,7 +33,7 @@ try {
     		}
     	}
     	
-	    if ( erLhcoreClassChat::isOnline($chat->dep_id) ) {
+	    if ( erLhcoreClassChat::isOnline($chat->dep_id,false,array('online_timeout' => (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'])) ) {
 	         $tpl->set('is_online',true);
 	    } else {
 	         $tpl->set('is_online',false);

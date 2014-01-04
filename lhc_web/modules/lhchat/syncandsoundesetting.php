@@ -10,8 +10,6 @@ if ( isset($_POST['CancelConfig']) ) {
 $soundData = erLhcoreClassModelChatConfig::fetch('sync_sound_settings');
 $data = (array)$soundData->data;
 
-$settingsInstance = erConfigClassLhConfig::getInstance();
-
 if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
 {
     
@@ -77,14 +75,12 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
     
     if ( $form->hasValidData( 'OnlineTimeout' )  ) {
         $data['online_timeout'] = $form->OnlineTimeout;
-        $settingsInstance->setSetting('chat','online_timeout',$form->OnlineTimeout);
     } else {
         $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Please enter a valid online timeout value!');
     }
     
     if ( $form->hasValidData( 'SyncForOperatorMessagesEvery' )  ) {
         $data['check_for_operator_msg'] = $form->SyncForOperatorMessagesEvery;
-        $settingsInstance->setSetting('chat','check_for_operator_msg',$form->SyncForOperatorMessagesEvery);
     } else {
         $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Please enter a valid operator message timeout value!');
     }
@@ -116,8 +112,7 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
     	    	
         $tpl->set('updated',true);
         
-        // Save settings
-        $settingsInstance->save();
+       
         
         // Cleanup cache to recompile templates etc.
     	$CacheManager = erConfigClassLhCacheConfig::getInstance();
@@ -134,7 +129,6 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
     }
 }
 
-$tpl->set('settings_instance',$settingsInstance);
 $tpl->set('sound_data',$data);
 $Result['content'] = $tpl->fetch();
 

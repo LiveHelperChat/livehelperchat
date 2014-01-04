@@ -2,7 +2,7 @@
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
-<?php if ($leaveamessage == false || erLhcoreClassChat::isOnline($department) === true) : ?>
+<?php if ($leaveamessage == false || erLhcoreClassChat::isOnline($department,false,array('online_timeout' => (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'])) === true) : ?>
 
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Fill out this form to start a chat');?></h1>
 

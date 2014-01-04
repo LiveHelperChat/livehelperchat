@@ -1,6 +1,6 @@
-<?php
+<?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/is_online_help.tpl.php')); ?>
 
-$isOnlineHelp = erLhcoreClassChat::isOnline($department);
+<?php
 
 // Perhaps user does not want to show live help when it's offline
 if ( !($isOnlineHelp == false && $hide_offline == 'true') ) : ?>
