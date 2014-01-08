@@ -39,6 +39,11 @@ $def->properties['last_visit']->columnName   = 'last_visit';
 $def->properties['last_visit']->propertyName = 'last_visit';
 $def->properties['last_visit']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['dep_id'] = new ezcPersistentObjectProperty();
+$def->properties['dep_id']->columnName   = 'dep_id';
+$def->properties['dep_id']->propertyName = 'dep_id';
+$def->properties['dep_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['first_visit'] = new ezcPersistentObjectProperty();
 $def->properties['first_visit']->columnName   = 'first_visit';
 $def->properties['first_visit']->propertyName = 'first_visit';

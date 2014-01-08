@@ -34,6 +34,7 @@ class erLhcoreClassModelChatOnlineUser {
                'total_visits'    	=> $this->total_visits,
                'invitation_count'   => $this->invitation_count,
                'requires_email'   	=> $this->requires_email,
+               'dep_id'   			=> $this->dep_id,
        );
    }
 
@@ -475,6 +476,7 @@ class erLhcoreClassModelChatOnlineUser {
 	                   $item->identifier = (isset($paramsHandle['identifier']) && !empty($paramsHandle['identifier'])) ? $paramsHandle['identifier'] : '';
 	                   $item->referrer = isset($_GET['r']) ? urldecode($_GET['r']) : '';
 	                   $item->total_visits = 1;
+	                   $item->dep_id =  (isset($paramsHandle['department'])) ? (int)$paramsHandle['department'] : 0;
 
 	                   self::detectLocation($item);
 
@@ -559,6 +561,7 @@ class erLhcoreClassModelChatOnlineUser {
    public $total_visits = 0;
    public $invitation_count = 0;
    public $requires_email = 0;
+   public $dep_id = 0;
 
    // Logical attributes
    public $store_chat = false;
