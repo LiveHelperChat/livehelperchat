@@ -1145,7 +1145,7 @@ function lh(){
 
     	clearTimeout(inst.lastOnlineSyncTimeout);
 
-        $.getJSON(this.wwwDir + 'chat/onlineusers/(method)/ajax/(timeout)/'+$('#userTimeout').val(), {} , function(data) {
+        $.getJSON(this.wwwDir + 'chat/onlineusers/(method)/ajax/(timeout)/'+$('#userTimeout').val()+( parseInt($('#id_department_id').val()) > 0 ? '/(department)/'+parseInt($('#id_department_id').val()) : '' ), {} , function(data) {
            $('#online-users').html(data.result);
            $('#online-users-count').html(data.oc);
            

@@ -1,3 +1,11 @@
+1.75v
+
+Features
+1. Now you can filter online usrs by department
+2. And many other small changes from last version release
+
+execute doc/update_db/update_56.sql for update
+
 1.74v
 
 Features

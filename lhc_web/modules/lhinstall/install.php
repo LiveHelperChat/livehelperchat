@@ -524,6 +524,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  `pages_count` int(11) NOT NULL,
         	   	  `tt_pages_count` int(11) NOT NULL,
         	   	  `invitation_count` int(11) NOT NULL,
+        	   	  `dep_id` int(11) NOT NULL,
                   `user_agent` varchar(250) NOT NULL,
                   `user_country_code` varchar(50) NOT NULL,
                   `user_country_name` varchar(50) NOT NULL,
@@ -540,8 +541,9 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  `requires_email` int(11) NOT NULL,
         	   	  `identifier` varchar(50) NOT NULL,
                   PRIMARY KEY (`id`),
-                  KEY `last_visit` (`last_visit`),
-                  KEY `vid` (`vid`)
+                  KEY `vid` (`vid`),
+				  KEY `dep_id` (`dep_id`),
+				  KEY `last_visit_dep_id` (`last_visit`,`dep_id`)
                 ) DEFAULT CHARSET=utf8;");
 
         	   $db->query("CREATE TABLE `lh_abstract_proactive_chat_invitation` (

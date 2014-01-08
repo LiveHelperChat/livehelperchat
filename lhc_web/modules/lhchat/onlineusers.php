@@ -31,7 +31,13 @@ if (is_numeric($Params['user_parameters_unordered']['deletevisitor']) && $Params
 $is_ajax = isset($Params['user_parameters_unordered']['method']) && $Params['user_parameters_unordered']['method'] == 'ajax';
 $timeout = isset($Params['user_parameters_unordered']['timeout']) && is_numeric($Params['user_parameters_unordered']['timeout']) ? (int)$Params['user_parameters_unordered']['timeout'] : 30;
 
-$items = erLhcoreClassModelChatOnlineUser::getList(array('offset' => 0, 'limit' => 50, 'sort' => 'last_visit DESC','filtergt' => array('last_visit' => (time()-$timeout))));
+$filter = array('offset' => 0, 'limit' => 50, 'sort' => 'last_visit DESC','filtergt' => array('last_visit' => (time()-$timeout)));
+$department = isset($Params['user_parameters_unordered']['department']) && is_numeric($Params['user_parameters_unordered']['department']) ? (int)$Params['user_parameters_unordered']['department'] : false;
+if ($department !== false){
+	$filter['filter']['dep_id'] = $department;
+}
+
+$items = erLhcoreClassModelChatOnlineUser::getList($filter);
 $tpl->set('items',$items);
 $tpl->set('is_ajax',$is_ajax);
 $tpl->set('tracking_enabled',erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1);

@@ -28,7 +28,16 @@
 	<div class="columns small-6">
 		<label><span id="online-users-count">0</span> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','online users');?></label>
 	</div>
-	<div class="columns small-6">
+	<div class="columns small-3">
+		<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
+	                    'input_name'     => 'department_id',
+						'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select department'),
+	                    'selected_id'    => 0,			
+						'on_change'		 => 'lhinst.syncOnlineUsers()',
+	                    'list_function'  => 'erLhcoreClassModelDepartament::getList'
+	    )); ?>
+	</div>
+	<div class="columns small-3">
 		<select id="userTimeout" onchange="lhinst.syncOnlineUsers()" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Show visitors who visited site in the past');?>">
 		    	<option value="30">30 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','seconds');?></option>
 		    	<option value="60">1 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','minit');?></option>
