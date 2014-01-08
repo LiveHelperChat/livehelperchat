@@ -1670,8 +1670,24 @@
       <translation>ช่วงวันที่จากไป</translation>
     </message>
     <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Search</source>
       <translation>ค้นหา</translation>
+    </message>
+    <message>
+      <source>Select department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select user</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

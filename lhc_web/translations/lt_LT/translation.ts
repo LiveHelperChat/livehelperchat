@@ -1670,8 +1670,24 @@
       <translation>Data nuo iki</translation>
     </message>
     <message>
+      <source>Department</source>
+      <translation>Departamentas</translation>
+    </message>
+    <message>
+      <source>User</source>
+      <translation>Vartotojas</translation>
+    </message>
+    <message>
       <source>Search</source>
       <translation>Ieškoti</translation>
+    </message>
+    <message>
+      <source>Select department</source>
+      <translation>Pasirinkite departamentą</translation>
+    </message>
+    <message>
+      <source>Select user</source>
+      <translation>Pasirinkite vartotoją</translation>
     </message>
   </context>
   <context>
