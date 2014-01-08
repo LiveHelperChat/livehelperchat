@@ -1670,8 +1670,24 @@
       <translation>Диапазон дат (от и до)</translation>
     </message>
     <message>
+      <source>Department</source>
+      <translation>Отдел</translation>
+    </message>
+    <message>
+      <source>User</source>
+      <translation>Пользователь</translation>
+    </message>
+    <message>
       <source>Search</source>
       <translation>Поиск</translation>
+    </message>
+    <message>
+      <source>Select department</source>
+      <translation>Выбрать отдел</translation>
+    </message>
+    <message>
+      <source>Select user</source>
+      <translation>Выбрать пользователя</translation>
     </message>
   </context>
   <context>
