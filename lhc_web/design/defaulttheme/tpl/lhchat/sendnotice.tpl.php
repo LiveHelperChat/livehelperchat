@@ -20,7 +20,18 @@ setTimeout(function(){
 
 <form action="" method="post">
 
-<textarea name="Message" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Type your message to the user');?>"><?php echo htmlspecialchars($visitor->operator_message) ?></textarea>
+<textarea name="Message" id="sendMessageContent" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Type your message to the user');?>"><?php echo htmlspecialchars($visitor->operator_message) ?></textarea>
+
+<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
+	                    'input_name'     => 'canned_msg',
+						'display_name'	 => 'msg',
+						'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Select a canned message'),
+	                    'selected_id'    => 0,
+						'on_change'		 => '$(\'#sendMessageContent\').val(($(this).val() > 0) ? $(this).find(\':selected\').text() : \'\');',
+	                    'list_function'  => 'erLhcoreClassModelCannedMsg::getList'
+)); ?>
+	    
 <input type="submit" class="button small" name="SendMessage" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Send the message');?>" />
+
 
 </form>
