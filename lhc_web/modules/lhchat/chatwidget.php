@@ -125,6 +125,7 @@ if (isset($_POST['StartChat']))
 
 	            if ($userInstance !== false) {
 	                $userInstance->chat_id = $chat->id;
+	                $userInstance->dep_id = $chat->dep_id;
 	                $userInstance->message_seen = 1;
 	                $userInstance->message_seen_ts = time();
 	                $userInstance->saveThis();
