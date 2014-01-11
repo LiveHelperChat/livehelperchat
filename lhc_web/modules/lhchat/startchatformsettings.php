@@ -23,6 +23,17 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
         'NameRequireOption' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
         ),
+    	
+    	// Name options offline
+        'OfflineNameVisibleInPopup' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+        'OfflineNameVisibleInPageWidget' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+        'OfflineNameRequireOption' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+        ),
 
         // E-mail options
         'EmailVisibleInPopup' => new ezcInputFormDefinitionElement(
@@ -45,6 +56,17 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
         'MessageRequireOption' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
         ),
+    		
+    	// Message options offline
+        'OfflineMessageVisibleInPopup' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+        'OfflineMessageVisibleInPageWidget' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+        'OfflineMessageRequireOption' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+        ),
 
         // Phone options
         'PhoneVisibleInPopup' => new ezcInputFormDefinitionElement(
@@ -56,6 +78,18 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
         'PhoneRequireOption' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
         ),
+    		
+        // Phone options offline
+        'OfflinePhoneVisibleInPopup' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),       
+        'OfflinePhoneVisibleInPageWidget' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+        'OfflinePhoneRequireOption' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+        ),
+    		
     	// Force leave a message    		
     	'ForceLeaveMessage' => new ezcInputFormDefinitionElement(
     			ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
@@ -97,7 +131,26 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
     } else {
         $data['name_require_option'] = 'required';
     }
+    
+    // Name offline
+    if ( $form->hasValidData( 'OfflineNameVisibleInPopup' ) && $form->OfflineNameVisibleInPopup == true ) {
+        $data['offline_name_visible_in_popup'] = true;
+    } else {
+        $data['offline_name_visible_in_popup'] = false;
+    }
 
+    if ( $form->hasValidData( 'OfflineNameVisibleInPageWidget' ) && $form->OfflineNameVisibleInPageWidget == true ) {
+        $data['offline_name_visible_in_page_widget'] = true;
+    } else {
+        $data['offline_name_visible_in_page_widget'] = false;
+    }
+
+    if ( $form->hasValidData( 'OfflineNameRequireOption' ) && $form->OfflineNameRequireOption != '' ) {
+        $data['offline_name_require_option'] = $form->OfflineNameRequireOption;
+    } else {
+        $data['offline_name_require_option'] = 'required';
+    }
+    
     if ($data['name_visible_in_popup'] == true && $data['name_require_option'] == 'required') {
         $hasValidPopupData = true;
     }
@@ -133,7 +186,7 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
         $hasWidgetData = true;
     }
 
-    // E-mail
+    // Phone
     if ( $form->hasValidData( 'PhoneVisibleInPopup' ) && $form->PhoneVisibleInPopup == true ) {
         $data['phone_visible_in_popup'] = true;
     } else {
@@ -151,6 +204,26 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
     } else {
         $data['phone_require_option'] = 'required';
     }
+    
+    // Phone offline
+    if ( $form->hasValidData( 'OfflinePhoneVisibleInPopup' ) && $form->OfflinePhoneVisibleInPopup == true ) {
+        $data['offline_phone_visible_in_popup'] = true;
+    } else {
+        $data['offline_phone_visible_in_popup'] = false;
+    }
+
+    if ( $form->hasValidData( 'OfflinePhoneVisibleInPageWidget' ) && $form->OfflinePhoneVisibleInPageWidget == true ) {
+        $data['offline_phone_visible_in_page_widget'] = true;
+    } else {
+        $data['offline_phone_visible_in_page_widget'] = false;
+    }
+
+    if ( $form->hasValidData( 'OfflinePhoneRequireOption' ) && $form->OfflinePhoneRequireOption != '' ) {
+        $data['offline_phone_require_option'] = $form->OfflinePhoneRequireOption;
+    } else {
+        $data['offline_phone_require_option'] = 'required';
+    }
+    
 
     if ($data['phone_visible_in_popup'] == true && $data['phone_require_option'] == 'required') {
         $hasValidPopupData = true;
@@ -178,7 +251,27 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
     } else {
         $data['message_require_option'] = 'required';
     }
+    
+    // Message offline
+    if ( $form->hasValidData( 'OfflineMessageVisibleInPopup' ) && $form->OfflineMessageVisibleInPopup == true ) {
+        $data['offline_message_visible_in_popup'] = true;
+    } else {
+        $data['offline_message_visible_in_popup'] = false;
+    }
 
+    if ( $form->hasValidData( 'OfflineMessageVisibleInPageWidget' ) && $form->OfflineMessageVisibleInPageWidget == true ) {
+        $data['offline_message_visible_in_page_widget'] = true;
+    } else {
+        $data['offline_message_visible_in_page_widget'] = false;
+    }
+
+    if ( $form->hasValidData( 'OfflineMessageRequireOption' ) && $form->OfflineMessageRequireOption != '' ) {
+        $data['offline_message_require_option'] = $form->OfflineMessageRequireOption;
+    } else {
+        $data['offline_message_require_option'] = 'required';
+    }
+    
+    
     if ($data['message_visible_in_popup'] == true && $data['message_require_option'] == 'required') {
         $hasValidPopupData = true;
     }

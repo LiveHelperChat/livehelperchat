@@ -187,6 +187,16 @@ $definition = array(
 				ezcInputFormDefinitionElement::OPTIONAL, 'string',
 				null,
 				FILTER_REQUIRE_ARRAY
+		),
+		'req' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'string',
+				null,
+				FILTER_REQUIRE_ARRAY
+		),
+		'sh' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'string',
+				null,
+				FILTER_REQUIRE_ARRAY
 		)
 );
 
@@ -195,6 +205,16 @@ $form = new ezcInputForm( INPUT_GET, $definition );
 if ( $form->hasValidData( 'name' ) && !empty($form->name))
 {
 	$inputData->name_items = $form->name;
+}
+
+if ( $form->hasValidData( 'sh' ) && !empty($form->sh))
+{
+	$inputData->value_show = $form->sh;
+}
+
+if ( $form->hasValidData( 'req' ) && !empty($form->req))
+{
+	$inputData->values_req = $form->req;
 }
 
 if ( $form->hasValidData( 'value' ) && !empty($form->value))

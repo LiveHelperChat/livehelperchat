@@ -762,6 +762,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>is required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Live Support</source>
       <translation type="unfinished"/>
     </message>
@@ -1860,6 +1864,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Online form settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation type="unfinished"/>
     </message>
@@ -1893,6 +1901,14 @@
     </message>
     <message>
       <source>Phone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline form settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail is always required</source>
       <translation type="unfinished"/>
     </message>
     <message>

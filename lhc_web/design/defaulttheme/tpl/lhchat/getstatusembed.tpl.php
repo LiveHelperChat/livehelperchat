@@ -34,7 +34,7 @@ var lh_inst_page  = {
 	    	if (typeof LHCChatOptionsPage.attr != 'undefined') {
 	    		if (LHCChatOptionsPage.attr.length > 0){
 					for (var index in LHCChatOptionsPage.attr) {
-						argumentsQuery.push('name[]='+encodeURIComponent(LHCChatOptionsPage.attr[index].name)+'&value[]='+encodeURIComponent(LHCChatOptionsPage.attr[index].value)+'&type[]='+encodeURIComponent(LHCChatOptionsPage.attr[index].type)+'&size[]='+encodeURIComponent(LHCChatOptionsPage.attr[index].size));
+						argumentsQuery.push('name[]='+encodeURIComponent(LHCChatOptionsPage.attr[index].name)+'&value[]='+encodeURIComponent(LHCChatOptionsPage.attr[index].value)+'&type[]='+encodeURIComponent(LHCChatOptionsPage.attr[index].type)+'&size[]='+encodeURIComponent(LHCChatOptionsPage.attr[index].size)+'&req[]='+(typeof LHCChatOptionsPage.attr[index].req != 'undefined' && LHCChatOptionsPage.attr[index].req == true ? 't' : 'f')+'&sh[]='+((typeof LHCChatOptionsPage.attr[index].show != 'undefined' && (LHCChatOptionsPage.attr[index].show == 'on' || LHCChatOptionsPage.attr[index].show == 'off')) ? LHCChatOptionsPage.attr[index].show : 'b'));
 					};
 	    		};
 	    	};
