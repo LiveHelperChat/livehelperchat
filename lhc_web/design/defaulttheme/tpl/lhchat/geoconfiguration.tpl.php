@@ -59,6 +59,49 @@
     </div>
   </section>
   
+  
+  <section <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'max_mind') ? print 'class="active"' : ''?>>
+    <p class="title" data-section-title><a href="#maxmind">MaxMind</a></p>
+    <div class="content" data-section-content>
+    	<div>
+      	<label><input type="radio" name="UseGeoIP" value="max_mind" <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'max_mind') ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Use MaxMind, does not depend on any third party remote service'); ?></label>
+      	
+      	<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','You can download city/country database from.'); ?>&nbsp;<a target="_blank" href="http://dev.maxmind.com/geoip/geoip2/geolite2/">MaxMind</a></p>
+      	
+      	<p>
+      	<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','bcmath php extension detected'); ?> - <?php echo extension_loaded ('bcmath' ) ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'; ?>
+      	</p> 
+      	
+		<br>
+		<div class="row">
+			<div class="columns small-6"><label><input type="radio" name="MaxMindDetectionType" value="country" <?php (isset($geo_data['max_mind_detection_type']) && $geo_data['max_mind_detection_type'] == 'country') ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User country based detection, faster')?></label></div>
+			<div class="columns small-6">
+				<?php if (file_exists("var/external/geoip/GeoLite2-Country.mmdb")) : ?> <span class="success label round" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','File exists'); ?>">var/external/geoip/GeoLite2-Country.mmdb</span> <?php else : ?><span class="round label alert" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','File does not exists'); ?>">var/external/geoip/GeoLite2-Country.mmdb</span><?php endif;?>
+			</div>
+		</div>
+		<div class="row">
+			<div class="columns small-6"><label><input type="radio" name="MaxMindDetectionType" value="city" <?php (isset($geo_data['max_mind_detection_type']) && $geo_data['max_mind_detection_type'] == 'city') ? print 'checked="checked"' : '' ?> <?php if (!file_exists("var/external/geoip/GeoLite2-City.mmdb")) : ?>disabled<?php endif;?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User city based detection, slower')?></label></div>
+			<div class="columns small-6">
+				<?php if (file_exists("var/external/geoip/GeoLite2-City.mmdb")) : ?> <span class="success label round" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','File exists');?>">var/external/geoip/GeoLite2-City.mmdb</span> <?php else : ?><span class="round label alert" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','File does not exists')?>">var/external/geoip/GeoLite2-City.mmdb</span><?php endif;?>
+			</div>
+		</div>
+           
+         <div class="right">
+         <p>This product includes GeoLite2 data created by MaxMind, available from
+		<a href="http://www.maxmind.com">http://www.maxmind.com</a>.</p>
+         </div>
+                
+        <input type="submit" class="button small round" name="StoreGeoIPConfiguration" value="Save" />
+    	</div>
+    </div>
+  </section>
+  
+  
+ 
+  
+  
+  
+  
   <section <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'ipinfodbcom') ? print 'class="active"' : ''?>>
     <p class="title" data-section-title><a href="#panel3">http://ipinfodb.com</a></p>
     <div class="content" data-section-content>

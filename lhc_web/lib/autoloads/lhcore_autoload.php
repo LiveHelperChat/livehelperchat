@@ -127,7 +127,27 @@ return array_merge(array (
 		
 		'XMPPHP_XMPP'								=> 'lib/core/lhxmp/XMPPHP/XMPP.php',
 		'erLhcoreClassXMP'							=> 'lib/core/lhxmp/lhxmp.php',		
-		'erLhcoreClassModelChatAccept'				=> 'lib/models/lhchat/erlhcoreclassmodelchataccept.php'
+		'erLhcoreClassModelChatAccept'				=> 'lib/models/lhchat/erlhcoreclassmodelchataccept.php',
+		
+		'GeoIp2\Database\Reader'					=> 'lib/core/lhexternal/GeoIp2/Database/Reader.php',		
+		'GeoIp2\ProviderInterface'					=> 'lib/core/lhexternal/GeoIp2/ProviderInterface.php',	
+		'GeoIp2\Model\Country'						=> 'lib/core/lhexternal/GeoIp2/Model/Country.php',	
+		'GeoIp2\Model\City'							=> 'lib/core/lhexternal/GeoIp2/Model/City.php',	
+		'GeoIp2\Record\Continent'					=> 'lib/core/lhexternal/GeoIp2/Record/Continent.php',	
+		'GeoIp2\Record\AbstractPlaceRecord'			=> 'lib/core/lhexternal/GeoIp2/Record/AbstractPlaceRecord.php',	
+		'GeoIp2\Record\AbstractRecord'				=> 'lib/core/lhexternal/GeoIp2/Record/AbstractRecord.php',	
+		'GeoIp2\Record\Location'					=> 'lib/core/lhexternal/GeoIp2/Record/Location.php',	
+		'GeoIp2\Record\Postal'						=> 'lib/core/lhexternal/GeoIp2/Record/Postal.php',	
+		'GeoIp2\Record\Country'						=> 'lib/core/lhexternal/GeoIp2/Record/Country.php',	
+		'GeoIp2\Record\City'						=> 'lib/core/lhexternal/GeoIp2/Record/City.php',	
+		'GeoIp2\Record\MaxMind'						=> 'lib/core/lhexternal/GeoIp2/Record/MaxMind.php',	
+		'GeoIp2\Record\RepresentedCountry'			=> 'lib/core/lhexternal/GeoIp2/Record/RepresentedCountry.php',	
+		'GeoIp2\Record\Traits'						=> 'lib/core/lhexternal/GeoIp2/Record/Traits.php',	
+			
+		'MaxMind\Db\Reader'							=> 'lib/core/lhexternal/MaxMind/Db/Reader.php',		
+		'MaxMind\Db\Reader\Decoder'					=> 'lib/core/lhexternal/MaxMind/Db/Reader/Decoder.php',		
+		'MaxMind\Db\Reader\Metadata'				=> 'lib/core/lhexternal/MaxMind/Db/Reader/Metadata.php',		
+		
 ),
 include('var/autoloads/lhextension_autoload.php')
 );

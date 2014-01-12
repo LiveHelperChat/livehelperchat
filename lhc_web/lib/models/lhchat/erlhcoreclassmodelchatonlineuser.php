@@ -275,6 +275,40 @@ class erLhcoreClassModelChatOnlineUser {
                return false;
            }
 
+       } elseif ($service == 'max_mind') {
+
+       		if ($params['detection_type'] == 'country') {       			
+       			try {
+	       			$reader = new GeoIp2\Database\Reader('var/external/geoip/GeoLite2-Country.mmdb');
+	       			$countryData = $reader->country($ip);     
+	       			$normalizedObject = new stdClass();
+	       			$normalizedObject->country_code = strtolower($countryData->raw['country']['iso_code']);
+	       			$normalizedObject->country_name = $countryData->raw['country']['names']['en'];   
+	       			$normalizedObject->city = '';
+	       			$normalizedObject->lat = '';
+	       			$normalizedObject->lon = '';
+	       			return $normalizedObject;  			
+       			} catch (Exception $e) {
+       				return false;
+       			}       			
+       		} elseif ($params['detection_type'] == 'city') {
+       			try {
+	       			$reader = new GeoIp2\Database\Reader('var/external/geoip/GeoLite2-City.mmdb');
+	       			$countryData = $reader->city($ip);
+	       			$normalizedObject = new stdClass();
+	       			$normalizedObject->country_code = strtolower($countryData->raw['country']['iso_code']);
+	       			$normalizedObject->country_name = $countryData->raw['country']['names']['en'];
+	       			$normalizedObject->lat = isset($countryData->raw['location']['latitude']) ? $countryData->raw['location']['latitude'] : '0';
+	       			$normalizedObject->lon = isset($countryData->raw['location']['longitude']) ? $countryData->raw['location']['longitude'] : '0';
+	       			$normalizedObject->city = isset($countryData->raw['location']['time_zone']) ? $countryData->raw['location']['time_zone'] : '';
+	       			return $normalizedObject;     
+       			} catch (Exception $e) {
+       				return false;
+       			}
+       		}
+       	
+           return false;
+           
        } elseif ($service == 'freegeoip') {
            $response = self::executeRequest('http://freegeoip.net/json/'.$ip);
            if ( !empty($response) ) {
@@ -358,8 +392,10 @@ class erLhcoreClassModelChatOnlineUser {
                $params['api_key'] = $geo_data['locatorhq_api_key'];
            } elseif ($geo_data['geo_service_identifier'] == 'ipinfodbcom') {             
                $params['api_key'] = $geo_data['ipinfodbcom_api_key'];
+           } elseif ($geo_data['geo_service_identifier'] == 'max_mind') {             
+               $params['detection_type'] = $geo_data['max_mind_detection_type'];
            }
-
+          
            $location = self::getUserData($geo_data['geo_service_identifier'],$instance->ip,$params);
 
            if ($location !== false){

@@ -222,6 +222,8 @@ class erLhcoreClassModelChat {
                $params['api_key'] = $geo_data['locatorhq_api_key'];
            } elseif ($geo_data['geo_service_identifier'] == 'ipinfodbcom') {             
                $params['api_key'] = $geo_data['ipinfodbcom_api_key'];
+           } elseif ($geo_data['geo_service_identifier'] == 'max_mind') {             
+               $params['detection_type'] = $geo_data['max_mind_detection_type'];
            }
 
            $location = erLhcoreClassModelChatOnlineUser::getUserData($geo_data['geo_service_identifier'],$instance->ip,$params);

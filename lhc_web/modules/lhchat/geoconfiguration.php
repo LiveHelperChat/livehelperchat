@@ -91,6 +91,9 @@ if ( isset($_POST['StoreGeoIPConfiguration']) ) {
         ),
         'locatorhqIP' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
+        ),
+        'MaxMindDetectionType' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
         )
     );
 
@@ -154,6 +157,24 @@ if ( isset($_POST['StoreGeoIPConfiguration']) ) {
                 if ( $responseDetection == false || !isset($responseDetection->country_code) || !isset($responseDetection->country_name) ) {
                     $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Setting service provider failed, please check that your service provider allows you to make requests to remote pages!');
                 }
+            } elseif ($form->UseGeoIP == 'max_mind') {
+                $data['geo_service_identifier'] = 'max_mind';                
+                $data['max_mind_detection_type'] = $form->MaxMindDetectionType;
+                
+                if ($data['max_mind_detection_type'] == 'city' && !file_exists('var/external/geoip/GeoLite2-City.mmdb')) {
+                	$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','MaxMind city file does not exists!');
+                } elseif (!file_exists('var/external/geoip/GeoLite2-Country.mmdb')) {
+                	$data['max_mind_detection_type'] = 'country';
+                	$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','MaxMind country file does not exists!');
+                }
+                
+                if (empty($Errors)) {
+	                $responseDetection = erLhcoreClassModelChatOnlineUser::getUserData('max_mind',erLhcoreClassIPDetect::getServerAddress(),array('detection_type' => $data['max_mind_detection_type']));                
+	                if ( $responseDetection == false || !isset($responseDetection->country_code) || !isset($responseDetection->country_name) ) {
+	                    $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Setting service provider failed, please check that MaxMind database files exists!');
+	                }
+                }                
+                
             } elseif ($form->UseGeoIP == 'locatorhq') {
                 $data['geo_service_identifier'] = 'locatorhq';
 
