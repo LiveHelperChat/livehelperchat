@@ -36,6 +36,7 @@ $inputData->value_types = array();
 $inputData->value_sizes = array();
 $inputData->hash_resume = false;
 $inputData->vid = false;
+$inputData->accept_tos = false;
 
 // Perhaps it's direct argument
 if ((string)$Params['user_parameters_unordered']['hash_resume'] != '') {

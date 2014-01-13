@@ -94,6 +94,21 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
     	'ForceLeaveMessage' => new ezcInputFormDefinitionElement(
     			ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
     	),
+    		
+    		
+    	// TOS
+        'OfflineTOSVisibleInPopup' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),       
+        'OfflineTOSVisibleInPageWidget' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+        'TOSVisibleInPopup' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+        'TOSVisibleInPageWidget' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        )    		
     );
 
     $form = new ezcInputForm( INPUT_POST, $definition );
@@ -113,6 +128,31 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
         $data['force_leave_a_message'] = false;
     }
     
+    // TOS
+    if ( $form->hasValidData( 'TOSVisibleInPopup' ) && $form->TOSVisibleInPopup == true ) {
+        $data['tos_visible_in_popup'] = true;
+    } else {
+        $data['tos_visible_in_popup'] = false;
+    }
+    
+    if ( $form->hasValidData( 'TOSVisibleInPageWidget' ) && $form->TOSVisibleInPageWidget == true ) {
+        $data['tos_visible_in_page_widget'] = true;
+    } else {
+        $data['tos_visible_in_page_widget'] = false;
+    }
+    
+    if ( $form->hasValidData( 'OfflineTOSVisibleInPopup' ) && $form->OfflineTOSVisibleInPopup == true ) {
+        $data['offline_tos_visible_in_popup'] = true;
+    } else {
+        $data['offline_tos_visible_in_popup'] = false;
+    }
+    
+    if ( $form->hasValidData( 'OfflineTOSVisibleInPageWidget' ) && $form->OfflineTOSVisibleInPageWidget == true ) {
+        $data['offline_tos_visible_in_page_widget'] = true;
+    } else {
+        $data['offline_tos_visible_in_page_widget'] = false;
+    }
+    
     // Name
     if ( $form->hasValidData( 'NameVisibleInPopup' ) && $form->NameVisibleInPopup == true ) {
         $data['name_visible_in_popup'] = true;
@@ -120,6 +160,8 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
         $data['name_visible_in_popup'] = false;
     }
 
+    
+    
     if ( $form->hasValidData( 'NameVisibleInPageWidget' ) && $form->NameVisibleInPageWidget == true ) {
         $data['name_visible_in_page_widget'] = true;
     } else {

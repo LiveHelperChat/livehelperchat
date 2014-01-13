@@ -27,6 +27,10 @@
 <?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/department.tpl.php'));?>
 <?php endif;?>
 
+<?php $tosVariable = 'offline_tos_visible_in_popup'?>
+<?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/accept_tos.tpl.php'));?>
+
+
 <input type="submit" class="small round button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Leave a message');?>" name="StartChatAction" />
 
 <input type="hidden" value="<?php echo htmlspecialchars($referer);?>" name="URLRefer"/>

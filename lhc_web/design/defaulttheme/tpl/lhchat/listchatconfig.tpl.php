@@ -41,7 +41,10 @@
 		    					<?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 		    					
 							    <?php $attribute = 'customer_site_url'?>
-		    					<?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>		    						
+		    					<?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+		    					
+							    <?php $attribute = 'accept_tos_link'?>
+		    					<?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>		    						    						
 							</div>
 						</section>
 						

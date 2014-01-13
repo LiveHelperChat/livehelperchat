@@ -56,6 +56,7 @@ $inputData->value_items = array();
 $inputData->value_sizes = array();
 $inputData->value_types = array();
 $inputData->priority = is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : false;
+$inputData->accept_tos = false;
 
 // Perhaps it's direct argument
 if ((string)$Params['user_parameters_unordered']['hash_resume'] != '') {

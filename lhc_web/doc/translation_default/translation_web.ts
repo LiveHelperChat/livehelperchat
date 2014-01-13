@@ -694,6 +694,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>I accept my personal data will be handled according to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>our terms and to the Law</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department</source>
       <translation type="unfinished"/>
     </message>
@@ -747,6 +755,10 @@
     </message>
     <message>
       <source>Maximum 500 characters for message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You have to accept our Terms Of Service</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1941,6 +1953,10 @@
     </message>
     <message>
       <source>Phone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Terms of service acceptance checkbox</source>
       <translation type="unfinished"/>
     </message>
     <message>

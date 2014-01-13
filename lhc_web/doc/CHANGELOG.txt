@@ -1,6 +1,14 @@
 1.75v
 
 Features
+1. MaxMind GEO Service, completely local solution, no need allow connection to third party services.
+2. Option to have TOS checkbox. Link is changable in "Configuration" => "Copyright settings" => "Site settings"
+
+execute doc/update_db/update_57.sql for update
+
+1.75v
+
+Features
 1. Now you can filter online usrs by department
 2. And many other small changes from last version release
 
