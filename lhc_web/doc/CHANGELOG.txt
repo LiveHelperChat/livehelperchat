@@ -1,4 +1,4 @@
-1.75v
+1.76v
 
 Features
 1. MaxMind GEO Service, completely local solution, no need allow connection to third party services.
