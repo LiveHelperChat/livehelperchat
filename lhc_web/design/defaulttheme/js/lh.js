@@ -36,6 +36,7 @@ function lh(){
     this.trasnsferuser = "chat/transferuser/";
     this.userclosechaturl = "chat/userclosechat/";
     this.disableremember = false;
+    this.operatorTyping = false;
 
     // On chat hash and chat_id is based web user chating. Hash make sure chat security.
     this.chat_id = null;
@@ -369,8 +370,8 @@ function lh(){
 		    clearTimeout(inst.userTimeout);
 		    this.syncroRequestSend = true;
 		    var modeWindow = this.isWidgetMode == true ? '/(mode)/widget' : '';
-
-		    $.getJSON(this.wwwDir + this.syncuser + this.chat_id + '/'+ this.last_message_id + '/' + this.hash + modeWindow ,{ }, function(data){
+		    var operatorTyping = this.operatorTyping == true ? '/(ot)/t' : '';
+		    $.getJSON(this.wwwDir + this.syncuser + this.chat_id + '/'+ this.last_message_id + '/' + this.hash + modeWindow + operatorTyping ,{ }, function(data){
 		    	
 		    	try {
 			        // If no error
@@ -401,7 +402,9 @@ function lh(){
 		        				var instStatus = $('#id-operator-typing');
 		        				instStatus.find('i').html(data.ott);
 		        				instStatus.fadeIn();
+		        				inst.operatorTyping = true;
 		        			} else {
+		        				inst.operatorTyping = false;
 		        			    $('#id-operator-typing').fadeOut();
 		        			}
 	
@@ -828,8 +831,20 @@ function lh(){
 	        {
 	            this.syncroRequestSend = true;
 
+	            var statusTyping = [];
+	            var statusTypingTl = [];
+	            //remdex
+	            $.each(this.chatsSynchronising,function(i,value){
+	            	var inst = $('#user-is-typing-'+value);
+	            	
+	            	if (inst.is(':visible')){
+	            		statusTyping.push(value);
+	            		statusTypingTl.push(inst.text().length);
+	            	}
+	            });
+	            
                 clearTimeout(this.userTimeout);
-        	    $.postJSON(this.wwwDir + this.syncadmin ,{ 'chats[]': this.chatsSynchronisingMsg }, function(data){
+        	    $.postJSON(this.wwwDir + this.syncadmin ,{ 'chats[]': this.chatsSynchronisingMsg,'typing[]':statusTyping,'typingtl[]':statusTypingTl }, function(data){
         	    	
         	    	try {
 	        	        // If no error

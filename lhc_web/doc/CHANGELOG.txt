@@ -1,3 +1,22 @@
+1.77v
+
+Features
+1. Option to set Long Polling for messages sync.
+2. Dumped session if it's not required for anonymous users. Should give some performance boost. Let me know if you encounter any issue and I will fix it in less than 24 hours.
+
+
+If you decide to experiment with Long Polling make sure that.
+1. You have enabled it in "Synchronisation and sound settings"
+2. Connection to server is less than php script execution time. 29 seconds is good start.
+3. Internal message sync interval is not very small. 1.5 second is good start. If you want more real time appearance. Reduce it to half second or so. 
+4. You can also decrease standard "Sync for a new user message, interval in seconds" let say to half second. 0.5 or a little bit less. After one polling reqyest anothe request will be executed after this value.
+Good luck with your experimenting.
+
+Bugfix
+1. Removed scrollbar in popup if file upload was activated.
+
+execute doc/update_db/update_58.sql for update
+
 1.76v
 
 Features

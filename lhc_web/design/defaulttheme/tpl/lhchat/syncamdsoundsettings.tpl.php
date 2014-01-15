@@ -21,6 +21,17 @@
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Check for messages from the operators, interval in seconds');?></label>
 <input type="text" name="SyncForOperatorMessagesEvery" value="<?php echo htmlspecialchars(isset($sound_data['check_for_operator_msg']) ? $sound_data['check_for_operator_msg'] : '')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Value in seconds');?>" />
 
+<h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Long polling');?></h2>
+<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Enable long polling');?> <input type="checkbox" name="EnableLongPolling" value="on" <?php echo isset($sound_data['long_polling_enabled']) && $sound_data['long_polling_enabled'] == 1 ? 'checked="checked"' : '' ?> /></label>
+
+<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','How many seconds keep connection to server?');?></label>
+<input type="text" name="ServerConnectionTimeout" value="<?php echo htmlspecialchars(isset($sound_data['connection_timeout']) ? $sound_data['connection_timeout'] : 30)?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Value in seconds');?>" />
+
+<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Sync for a new user message, interval in seconds');?></label>
+<input type="text" name="SyncForUserMessagesEveryPolling" value="<?php echo htmlspecialchars(isset($sound_data['polling_chat_message_sinterval']) ? $sound_data['polling_chat_message_sinterval'] : '')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Value in seconds');?>" />
+
+<h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','New chat request notification settings');?></h2>
+
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Play a new pending chat sound on a new chat request');?> <input type="checkbox" name="PlayOnRequest" value="on" <?php echo isset($sound_data['new_chat_sound_enabled']) && $sound_data['new_chat_sound_enabled'] == 1 ? 'checked="checked"' : '' ?> /></label>
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Play a sound on a new message for a back office user');?> <input type="checkbox" name="PlayOnMessageBackOffice" value="on" <?php echo isset($sound_data['new_message_sound_admin_enabled']) && $sound_data['new_message_sound_admin_enabled'] == 1 ? 'checked="checked"' : '' ?> /></label>
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Play a sound on a new message for a front end user');?> <input type="checkbox" name="PlayOnMessageFrontOffice" value="on" <?php echo isset($sound_data['new_message_sound_user_enabled']) && $sound_data['new_message_sound_user_enabled'] == 1 ? 'checked="checked"' : '' ?> /></label>

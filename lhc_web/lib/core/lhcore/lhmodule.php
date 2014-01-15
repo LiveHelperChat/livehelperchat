@@ -8,7 +8,7 @@ class erLhcoreClassModule{
 
         if (isset(self::$currentModule[self::$currentView]))
         {
-        	$currentUser = erLhcoreClassUser::instance();
+        	
 
             $Params = array();
             $Params['module'] = self::$currentModule[self::$currentView];
@@ -78,7 +78,7 @@ class erLhcoreClassModule{
                 	$Params['user_object'] = $access;
                 }
             }
-
+            
             try {
             	$includeStatus = include(self::getModuleFile(self::$currentModuleName,self::$currentView));
 

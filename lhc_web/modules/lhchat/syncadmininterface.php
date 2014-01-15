@@ -1,6 +1,10 @@
 <?php
 
 $currentUser = erLhcoreClassUser::instance();
+
+// We do not need a session anymore
+session_write_close();
+
 $canListOnlineUsers = false;
 $canListOnlineUsersAll = false;
 

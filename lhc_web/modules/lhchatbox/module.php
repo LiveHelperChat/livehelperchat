@@ -19,7 +19,7 @@ $ViewList['delete'] = array(
 $ViewList['syncuser'] = array(
 		'script' => 'syncuser.php',
 		'params' => array('chat_id','message_id','hash'),
-		'uparams' => array('mode')
+		'uparams' => array('mode','ot')
 );
 
 $ViewList['addmsguser'] = array(

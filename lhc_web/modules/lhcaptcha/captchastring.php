@@ -8,6 +8,9 @@ if ( (time()-$Params['user_parameters']['timets']) > 600 || (time()-$Params['use
 }
 
 if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
+	// Start session if required only
+	$currentUser = erLhcoreClassUser::instance();
+	
 	$_SESSION[$_SERVER['REMOTE_ADDR']][$Params['user_parameters']['captcha_name']] = $hash;
 }
 

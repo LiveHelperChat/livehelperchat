@@ -655,6 +655,7 @@ ul.accordion-faq li {
 .file-uploader {
 	position:relative;
 	cursor: pointer;
+	overflow:hidden;
 }
 
 .file-uploader input {

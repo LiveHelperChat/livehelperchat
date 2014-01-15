@@ -99,6 +99,8 @@ class erLhcoreClassChatValidator {
 
         // Captcha stuff        
         if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
+        	// Start session if required only
+        	$currentUser = erLhcoreClassUser::instance();
         	$hashCaptcha = isset($_SESSION[$_SERVER['REMOTE_ADDR']]['form']) ? $_SESSION[$_SERVER['REMOTE_ADDR']]['form'] : null;
     		$nameField = 'captcha_'.$hashCaptcha;    	
         	$validationFields[$nameField] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );

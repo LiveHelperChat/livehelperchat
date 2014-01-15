@@ -26,10 +26,16 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
         'SyncForOperatorMessagesEvery' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'float'
         ),
+        'SyncForUserMessagesEveryPolling' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'float'
+        ),      
         'SoundNotificationRepeat' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int'
         ),
         'SoundNotificationDelay' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int'
+        ),
+        'ServerConnectionTimeout' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int'
         ),
         'PlayOnRequest' => new ezcInputFormDefinitionElement(
@@ -43,6 +49,9 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
         ),  
         'PlayOnMessageFrontOffice' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+        'EnableLongPolling' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         )
     );
     
@@ -54,6 +63,13 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
     } else {
         $data['new_chat_sound_enabled'] = false;
     }
+    
+    if ( $form->hasValidData( 'EnableLongPolling' ) && $form->EnableLongPolling == true ) {
+        $data['long_polling_enabled'] = true;
+    } else {
+        $data['long_polling_enabled'] = false;
+    }
+    
     
     if ( $form->hasValidData( 'PlayOnMessageBackOffice' ) && $form->PlayOnMessageBackOffice == true ) {
         $data['new_message_sound_admin_enabled'] = true;
@@ -79,10 +95,22 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
         $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Please enter a valid online timeout value!');
     }
     
+    if ( $form->hasValidData( 'ServerConnectionTimeout' )  ) {
+        $data['connection_timeout'] = $form->ServerConnectionTimeout;
+    } else {
+        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Please enter a valid server connection timeout value!');
+    }
+
     if ( $form->hasValidData( 'SyncForOperatorMessagesEvery' )  ) {
         $data['check_for_operator_msg'] = $form->SyncForOperatorMessagesEvery;
     } else {
         $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Please enter a valid operator message timeout value!');
+    }
+        
+    if ( $form->hasValidData( 'SyncForUserMessagesEveryPolling' )  ) {
+        $data['polling_chat_message_sinterval'] = $form->SyncForUserMessagesEveryPolling;
+    } else {
+        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Please enter a valid new messages polling sync interval!');
     }
     
     if ( $form->hasValidData( 'SyncBackOffice' )  ) {

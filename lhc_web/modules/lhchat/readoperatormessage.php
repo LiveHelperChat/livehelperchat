@@ -31,6 +31,8 @@ if (isset($_POST['askQuestion']))
     $validationFields['Email'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'validate_email' );
     
     if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
+    	// Start session if required only
+    	$currentUser = erLhcoreClassUser::instance();
     	$hashCaptcha = isset($_SESSION[$_SERVER['REMOTE_ADDR']]['form']) ? $_SESSION[$_SERVER['REMOTE_ADDR']]['form'] : null;
     	$nameField = 'captcha_'.$hashCaptcha;
     } else {
