@@ -8,7 +8,7 @@
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>	
 <?php endif; ?>
 
-<form action="" method="post" />
+<form action="" method="post">
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','How many seconds for a user to be considered as being online');?></label>
 <input type="text" name="OnlineTimeout" value="<?php echo htmlspecialchars(isset($sound_data['online_timeout']) ? $sound_data['online_timeout'] : '')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Value in seconds');?>" />
 
