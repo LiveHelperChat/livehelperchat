@@ -692,6 +692,14 @@
       <translation>درخواست شما ارسال شد!</translation>
     </message>
     <message>
+      <source>I accept my personal data will be handled according to</source>
+      <translation>من موافقم که اطلاعات شخصی من به کار گرفته شود مطابق با</translation>
+    </message>
+    <message>
+      <source>our terms and to the Law</source>
+      <translation>شرایط ما و قانون</translation>
+    </message>
+    <message>
       <source>Department</source>
       <translation>دپارتمان</translation>
     </message>
@@ -748,6 +756,10 @@
       <translation>حداکثر 500 کاراکتر برای پیام</translation>
     </message>
     <message>
+      <source>You have to accept our Terms Of Service</source>
+      <translation>شما باید شرایط خدمات را بپذیرید</translation>
+    </message>
+    <message>
       <source>Please enter your phone</source>
       <translation>لطفا تلفن خود را وارد کنید</translation>
     </message>
@@ -758,6 +770,10 @@
     <message>
       <source>Could not determine a default department!</source>
       <translation>دپارتمان پیشفرض مشخص نیست</translation>
+    </message>
+    <message>
+      <source>is required</source>
+      <translation>مورد نیاز</translation>
     </message>
     <message>
       <source>Live Support</source>
@@ -933,6 +949,34 @@
       <translation>متغیر طول</translation>
     </message>
     <message>
+      <source>Use MaxMind, does not depend on any third party remote service</source>
+      <translation>Use MaxMind, does not depend on any third party remote service</translation>
+    </message>
+    <message>
+      <source>You can download city/country database from.</source>
+      <translation>شما میتوانید دیتابیس شهر/کشور را دانلود کنید</translation>
+    </message>
+    <message>
+      <source>bcmath php extension detected</source>
+      <translation>bcmath php extension detected</translation>
+    </message>
+    <message>
+      <source>User country based detection, faster</source>
+      <translation>تشخیص بر اساس کشور کاربر، سریعتر</translation>
+    </message>
+    <message>
+      <source>File exists</source>
+      <translation>فایل موجود است</translation>
+    </message>
+    <message>
+      <source>File does not exists</source>
+      <translation>فایل موجود نیست</translation>
+    </message>
+    <message>
+      <source>User city based detection, slower</source>
+      <translation>تشخیص بر اساس شهر کاربر، کندتر</translation>
+    </message>
+    <message>
       <source>Requests will be comming from</source>
       <translation>درخواست ها از طرف</translation>
     </message>
@@ -1082,7 +1126,7 @@
     </message>
     <message>
       <source>online users</source>
-      <translation type="unfinished"/>
+      <translation>کاربران آنلاین</translation>
     </message>
     <message>
       <source>Show visitors who visited site in the past</source>
@@ -1106,11 +1150,11 @@
     </message>
     <message>
       <source>day</source>
-      <translation type="unfinished"/>
+      <translation>روز</translation>
     </message>
     <message>
       <source>days</source>
-      <translation type="unfinished"/>
+      <translation>روزها</translation>
     </message>
     <message>
       <source>Page</source>
@@ -1199,6 +1243,18 @@
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages!</source>
       <translation>تنظیمات سرویس دهنده شکست خورد، لطفا چک کنید سرویس دهنده به شما امکانات لازم را داده باشد</translation>
+    </message>
+    <message>
+      <source>MaxMind city file does not exists!</source>
+      <translation>MaxMind city file does not exists!</translation>
+    </message>
+    <message>
+      <source>MaxMind country file does not exists!</source>
+      <translation>MaxMind country file does not exists!</translation>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that MaxMind database files exists!</source>
+      <translation>تنظیمات سرویس دهنده شکست خورد، چک کنید فایل های دیتابیس MaxMind وجود داشته باشد</translation>
     </message>
     <message>
       <source>Please enter the API key!</source>
@@ -1671,11 +1727,11 @@
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>دپارتمان</translation>
     </message>
     <message>
       <source>User</source>
-      <translation type="unfinished"/>
+      <translation>کاربر</translation>
     </message>
     <message>
       <source>Search</source>
@@ -1683,11 +1739,11 @@
     </message>
     <message>
       <source>Select department</source>
-      <translation type="unfinished"/>
+      <translation>انتخاب دپارتمان</translation>
     </message>
     <message>
       <source>Select user</source>
-      <translation type="unfinished"/>
+      <translation>انتخاب کاربر</translation>
     </message>
   </context>
   <context>
@@ -1855,7 +1911,11 @@
     </message>
     <message>
       <source>Enable leave a message functionality automatically if there are no online operators</source>
-      <translation type="unfinished"/>
+      <translation>قابلیت گذاشتن پیام را فعال کنید برای زمانی که اپراتوری آنلاین نیست</translation>
+    </message>
+    <message>
+      <source>Online form settings</source>
+      <translation>تنظیمات فرم آنلاین</translation>
     </message>
     <message>
       <source>Name</source>
@@ -1892,6 +1952,18 @@
     <message>
       <source>Phone</source>
       <translation>تلفن</translation>
+    </message>
+    <message>
+      <source>Terms of service acceptance checkbox</source>
+      <translation>جعبه انتخاب پذیرفتن شرایط خدمات</translation>
+    </message>
+    <message>
+      <source>Offline form settings</source>
+      <translation>تنظیمات فرم آفلاین</translation>
+    </message>
+    <message>
+      <source>E-mail is always required</source>
+      <translation>همیشه ایمیل مورد نیاز است</translation>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>

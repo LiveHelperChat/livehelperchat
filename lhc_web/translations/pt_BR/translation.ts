@@ -405,7 +405,7 @@
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Departamento</translation>
     </message>
     <message>
       <source>Country</source>
@@ -642,11 +642,11 @@
     </message>
     <message>
       <source>Please</source>
-      <translation type="unfinished"/>
+      <translation>Por Favor</translation>
     </message>
     <message>
       <source>login first.</source>
-      <translation type="unfinished"/>
+      <translation>faça login primeiro.</translation>
     </message>
     <message>
       <source>Online operators</source>
@@ -690,6 +690,14 @@
     <message>
       <source>Your request was sent!</source>
       <translation>A sua solicitação foi enviada!</translation>
+    </message>
+    <message>
+      <source>I accept my personal data will be handled according to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>our terms and to the Law</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department</source>
@@ -748,6 +756,10 @@
       <translation>Máximo de 500 caracteres para a mensagem</translation>
     </message>
     <message>
+      <source>You have to accept our Terms Of Service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter your phone</source>
       <translation>Por favor, digite seu telefone</translation>
     </message>
@@ -757,6 +769,10 @@
     </message>
     <message>
       <source>Could not determine a default department!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>is required</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -931,6 +947,34 @@
     <message>
       <source>Longitude variable</source>
       <translation>Variável longitude</translation>
+    </message>
+    <message>
+      <source>Use MaxMind, does not depend on any third party remote service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You can download city/country database from.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>bcmath php extension detected</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User country based detection, faster</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File exists</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File does not exists</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User city based detection, slower</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Requests will be comming from</source>
@@ -1199,6 +1243,18 @@
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages!</source>
       <translation>A definição do provedor de serviço falhou, por favor, verifique se seu provedor de serviço permite que faça solicitações para páginas remotas!</translation>
+    </message>
+    <message>
+      <source>MaxMind city file does not exists!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>MaxMind country file does not exists!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that MaxMind database files exists!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter the API key!</source>
@@ -1858,6 +1914,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Online form settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Nome</translation>
     </message>
@@ -1892,6 +1952,18 @@
     <message>
       <source>Phone</source>
       <translation>Telefone</translation>
+    </message>
+    <message>
+      <source>Terms of service acceptance checkbox</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline form settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail is always required</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>
@@ -2578,15 +2650,15 @@
     </message>
     <message>
       <source>Inform about new chats using</source>
-      <translation type="unfinished"/>
+      <translation>Informar sobre novos chats usando</translation>
     </message>
     <message>
       <source>XMPP messages</source>
-      <translation type="unfinished"/>
+      <translation>Mensagens via XMPP</translation>
     </message>
     <message>
       <source>Mail messages</source>
-      <translation type="unfinished"/>
+      <translation>Mensagens via Email</translation>
     </message>
     <message>
       <source>How many seconds chat can be pending before about chat is informed a staff</source>
@@ -2602,39 +2674,39 @@
     </message>
     <message>
       <source>Monday</source>
-      <translation type="unfinished"/>
+      <translation>Segunda-Feira</translation>
     </message>
     <message>
       <source>Tuesday</source>
-      <translation type="unfinished"/>
+      <translation>Terça-Feira</translation>
     </message>
     <message>
       <source>Wednesday</source>
-      <translation type="unfinished"/>
+      <translation>Quarta-Feira</translation>
     </message>
     <message>
       <source>Thursday</source>
-      <translation type="unfinished"/>
+      <translation>Quinta-Feira</translation>
     </message>
     <message>
       <source>Friday</source>
-      <translation type="unfinished"/>
+      <translation>Sexta-Feira</translation>
     </message>
     <message>
       <source>Saturday</source>
-      <translation type="unfinished"/>
+      <translation>Sábado</translation>
     </message>
     <message>
       <source>Sunday</source>
-      <translation type="unfinished"/>
+      <translation>Domingo</translation>
     </message>
     <message>
       <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation type="unfinished"/>
+      <translation>Horário de trabalho no formato 24 horas, 1 - 24</translation>
     </message>
     <message>
       <source>From, E.g. 8</source>
-      <translation type="unfinished"/>
+      <translation>A partir, por exemplo, 8</translation>
     </message>
     <message>
       <source>To, E.g. 17</source>
@@ -4130,15 +4202,15 @@
     <name>system/xmpp</name>
     <message>
       <source>XMPP settings</source>
-      <translation type="unfinished"/>
+      <translation>Configurações XMPP</translation>
     </message>
     <message>
       <source>XMPP active</source>
-      <translation type="unfinished"/>
+      <translation>XMPP ativo</translation>
     </message>
     <message>
       <source>XMPP Message content</source>
-      <translation type="unfinished"/>
+      <translation>Conteúdo mensagem XMPP</translation>
     </message>
     <message>
       <source>XMPP</source>
@@ -4150,35 +4222,35 @@
     </message>
     <message>
       <source>Host</source>
-      <translation type="unfinished"/>
+      <translation>Servidor</translation>
     </message>
     <message>
       <source>Port</source>
-      <translation type="unfinished"/>
+      <translation>Porta</translation>
     </message>
     <message>
       <source>Login</source>
-      <translation type="unfinished"/>
+      <translation>Login</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation type="unfinished"/>
+      <translation>Senha</translation>
     </message>
     <message>
       <source>Resource</source>
-      <translation type="unfinished"/>
+      <translation>Recurso</translation>
     </message>
     <message>
       <source>Server</source>
-      <translation type="unfinished"/>
+      <translation>Servidor</translation>
     </message>
     <message>
       <source>Recipients</source>
-      <translation type="unfinished"/>
+      <translation>Recipientes</translation>
     </message>
     <message>
       <source>Default recipients</source>
-      <translation type="unfinished"/>
+      <translation>Recipientes Padrões</translation>
     </message>
     <message>
       <source>Test recipients</source>
@@ -4194,7 +4266,7 @@
     </message>
     <message>
       <source>Test message will be send to your account e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Mensagem de teste que será enviada para sua conte de email</translation>
     </message>
     <message>
       <source>GTalk</source>

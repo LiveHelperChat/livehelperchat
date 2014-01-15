@@ -692,6 +692,14 @@
       <translation>Το αίτημά σας εστάλη!</translation>
     </message>
     <message>
+      <source>I accept my personal data will be handled according to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>our terms and to the Law</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department</source>
       <translation>Τμήμα</translation>
     </message>
@@ -748,6 +756,10 @@
       <translation>Μέγιστο 500 χαρακτήρες για μήνυμα</translation>
     </message>
     <message>
+      <source>You have to accept our Terms Of Service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter your phone</source>
       <translation>Παρακαλώ εισάγετε το τηλέφωνό σας</translation>
     </message>
@@ -758,6 +770,10 @@
     <message>
       <source>Could not determine a default department!</source>
       <translation>Δεν μπόρεσε να προσδιορίσει ένα προεπιλεγμένο τμήμα!</translation>
+    </message>
+    <message>
+      <source>is required</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Live Support</source>
@@ -931,6 +947,34 @@
     <message>
       <source>Longitude variable</source>
       <translation>Μεταβλητή γεωγραφικού μήκους</translation>
+    </message>
+    <message>
+      <source>Use MaxMind, does not depend on any third party remote service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You can download city/country database from.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>bcmath php extension detected</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User country based detection, faster</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File exists</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File does not exists</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User city based detection, slower</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Requests will be comming from</source>
@@ -1199,6 +1243,18 @@
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages!</source>
       <translation>Ρύθμιση υπηρεσία παροχής απέτυχε, παρακαλώ ελέγξτε ότι υπηρεσία παροχής σας επιτρέπει να κάνουν αιτήσεις για απομακρυσμένες σελίδες!</translation>
+    </message>
+    <message>
+      <source>MaxMind city file does not exists!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>MaxMind country file does not exists!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that MaxMind database files exists!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter the API key!</source>
@@ -1858,6 +1914,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Online form settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Όνομα</translation>
     </message>
@@ -1892,6 +1952,18 @@
     <message>
       <source>Phone</source>
       <translation>Τηλέφωνο</translation>
+    </message>
+    <message>
+      <source>Terms of service acceptance checkbox</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline form settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail is always required</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>

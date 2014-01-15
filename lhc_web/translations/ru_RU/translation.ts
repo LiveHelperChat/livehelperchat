@@ -669,7 +669,7 @@
     </message>
     <message>
       <source>Your question</source>
-      <translation>ваш вопрос</translation>
+      <translation>Ваш вопрос</translation>
     </message>
     <message>
       <source>Enter your message</source>
@@ -690,6 +690,14 @@
     <message>
       <source>Your request was sent!</source>
       <translation>Ваш запрос отправлен!</translation>
+    </message>
+    <message>
+      <source>I accept my personal data will be handled according to</source>
+      <translation>Я согласен, что мои персональные данные будут обрабатываться согласно</translation>
+    </message>
+    <message>
+      <source>our terms and to the Law</source>
+      <translation>Наших условий и правил</translation>
     </message>
     <message>
       <source>Department</source>
@@ -713,7 +721,7 @@
     </message>
     <message>
       <source>Fill out this form to start a chat</source>
-      <translation>Даполните форму перед началом диалога</translation>
+      <translation>Заполните форму перед началом диалога</translation>
     </message>
     <message>
       <source>There are no online operators at the moment, please leave your message</source>
@@ -748,6 +756,10 @@
       <translation>Максимальная длина сообщения - 500 знаков</translation>
     </message>
     <message>
+      <source>You have to accept our Terms Of Service</source>
+      <translation>Примите условия предоставления услуг</translation>
+    </message>
+    <message>
       <source>Please enter your phone</source>
       <translation>Укажите номер телефона</translation>
     </message>
@@ -758,6 +770,10 @@
     <message>
       <source>Could not determine a default department!</source>
       <translation>Не удалось определить Департамент по умолчанию!</translation>
+    </message>
+    <message>
+      <source>is required</source>
+      <translation>обязательно</translation>
     </message>
     <message>
       <source>Live Support</source>
@@ -931,6 +947,34 @@
     <message>
       <source>Longitude variable</source>
       <translation>Долгота варьируется</translation>
+    </message>
+    <message>
+      <source>Use MaxMind, does not depend on any third party remote service</source>
+      <translation>Использовать MaxMind, чтобы не зависеть от других служб</translation>
+    </message>
+    <message>
+      <source>You can download city/country database from.</source>
+      <translation>Вы можете скачать базу данных города / страны из.</translation>
+    </message>
+    <message>
+      <source>bcmath php extension detected</source>
+      <translation>Обнаружено php расширение bcmath</translation>
+    </message>
+    <message>
+      <source>User country based detection, faster</source>
+      <translation>Обнаружение на основе страны пользователя, работает быстрее</translation>
+    </message>
+    <message>
+      <source>File exists</source>
+      <translation>Такой файл уже существует</translation>
+    </message>
+    <message>
+      <source>File does not exists</source>
+      <translation>Такой файл не существует</translation>
+    </message>
+    <message>
+      <source>User city based detection, slower</source>
+      <translation>Обнаружение на основе города пользователя, работает медленее</translation>
     </message>
     <message>
       <source>Requests will be comming from</source>
@@ -1201,6 +1245,18 @@
       <translation>Setting service provider failed, please check that your service provider allows you to make requests to remote pages!</translation>
     </message>
     <message>
+      <source>MaxMind city file does not exists!</source>
+      <translation>Файл города для MaxMind не найден!</translation>
+    </message>
+    <message>
+      <source>MaxMind country file does not exists!</source>
+      <translation>Файл страны для MaxMind не найден!</translation>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that MaxMind database files exists!</source>
+      <translation>Настройка поставщика услуг не удалась, проверьте, что файлы базы данных MaxMind существует!</translation>
+    </message>
+    <message>
       <source>Please enter the API key!</source>
       <translation>Please enter the API key!</translation>
     </message>
@@ -1383,11 +1439,11 @@
     </message>
     <message>
       <source>FAQ embed code</source>
-      <translation>Код ЧаВо</translation>
+      <translation>Код FAQ</translation>
     </message>
     <message>
       <source>Questionary embed code</source>
-      <translation>Код для вставки Вопросника</translation>
+      <translation>Код для вставки анкеты</translation>
     </message>
     <message>
       <source>Chatbox embed code</source>
@@ -1450,7 +1506,7 @@
     </message>
     <message>
       <source>Choose a language</source>
-      <translation>Sprok välg</translation>
+      <translation>Выберите язык</translation>
     </message>
     <message>
       <source>Chatbox messages content height</source>
@@ -1522,7 +1578,7 @@
     </message>
     <message>
       <source>FAQ</source>
-      <translation>ЧаВо</translation>
+      <translation>FAQ</translation>
     </message>
     <message>
       <source>Position from the top, only used if the Middle left or the Middle right side is chosen</source>
@@ -1858,6 +1914,10 @@
       <translation>Включить функцию &quot;оставить сообщение&quot; автоматически, если все операторы оффлайн</translation>
     </message>
     <message>
+      <source>Online form settings</source>
+      <translation>Настройки онлайн формы</translation>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Название</translation>
     </message>
@@ -1892,6 +1952,18 @@
     <message>
       <source>Phone</source>
       <translation>Телефон</translation>
+    </message>
+    <message>
+      <source>Terms of service acceptance checkbox</source>
+      <translation>Флажок принятия условия предоставления услуг</translation>
+    </message>
+    <message>
+      <source>Offline form settings</source>
+      <translation>Настройки оффлайн формы</translation>
+    </message>
+    <message>
+      <source>E-mail is always required</source>
+      <translation>Всегда требовать E-mail</translation>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>
@@ -2800,11 +2872,11 @@
     <name>faq/faqwidget</name>
     <message>
       <source>FAQ</source>
-      <translation>ЧаВо</translation>
+      <translation>FAQ</translation>
     </message>
     <message>
       <source>Ask a question</source>
-      <translation>Задать воппрос</translation>
+      <translation>Задать вопрос</translation>
     </message>
     <message>
       <source>Type your question</source>
@@ -2812,19 +2884,19 @@
     </message>
     <message>
       <source>Question</source>
-      <translation>Вопрос</translation>
+      <translation>Что вы бы хотели узнать?</translation>
     </message>
     <message>
       <source>Send your question</source>
-      <translation>Отаправить вопрос</translation>
+      <translation>Спросить</translation>
     </message>
     <message>
       <source>Your question was submitted!</source>
-      <translation>Ваш вопрос принят!</translation>
+      <translation>Спасибо за вопрос! Ответ появится в ближайшее время</translation>
     </message>
     <message>
       <source>Please enter a question!</source>
-      <translation>Опишите вопрос пожалуйста!</translation>
+      <translation>Задайте вопрос!</translation>
     </message>
   </context>
   <context>
@@ -2858,7 +2930,7 @@
     <name>faq/list</name>
     <message>
       <source>FAQ</source>
-      <translation>ЧаВо</translation>
+      <translation>FAQ</translation>
     </message>
     <message>
       <source>Question</source>
@@ -2917,7 +2989,7 @@
     </message>
     <message>
       <source>FAQ</source>
-      <translation>ЧаВо</translation>
+      <translation>FAQ</translation>
     </message>
     <message>
       <source>FAQ description</source>
@@ -3407,7 +3479,7 @@
     </message>
     <message>
       <source>Questionary</source>
-      <translation>Вопросник</translation>
+      <translation>Анкета</translation>
     </message>
   </context>
   <context>
@@ -3444,7 +3516,7 @@
     </message>
     <message>
       <source>Question intro</source>
-      <translation>Вопрос интро</translation>
+      <translation>Описание вопроса</translation>
     </message>
     <message>
       <source>Show questions for all the URLs containing this string E.g /shop/basket</source>
@@ -3463,7 +3535,7 @@
     <name>questionary/votingwidget</name>
     <message>
       <source>Questionary</source>
-      <translation>Вопросник</translation>
+      <translation>Анкета</translation>
     </message>
     <message>
       <source>Thank you!</source>
@@ -3475,7 +3547,7 @@
     </message>
     <message>
       <source>Vote</source>
-      <translation>Голосвание</translation>
+      <translation>Ответить</translation>
     </message>
     <message>
       <source>Send</source>
@@ -3566,11 +3638,11 @@
     </message>
     <message>
       <source>Questionary</source>
-      <translation>Вопросник</translation>
+      <translation>Анкета</translation>
     </message>
     <message>
       <source>FAQ</source>
-      <translation>ЧаВо</translation>
+      <translation>FAQ</translation>
     </message>
     <message>
       <source>Chatbox</source>
@@ -3656,11 +3728,11 @@
     </message>
     <message>
       <source>SMTP enabled</source>
-      <translation>SMTP доступен</translation>
+      <translation>Использовать SMTP</translation>
     </message>
     <message>
       <source>Login</source>
-      <translation>Вход</translation>
+      <translation>Логин</translation>
     </message>
     <message>
       <source>Password</source>
@@ -3668,7 +3740,7 @@
     </message>
     <message>
       <source>Host</source>
-      <translation>Host</translation>
+      <translation>Сервер</translation>
     </message>
     <message>
       <source>Port</source>

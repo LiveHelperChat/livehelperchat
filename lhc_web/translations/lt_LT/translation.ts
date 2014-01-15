@@ -692,6 +692,14 @@
       <translation>Jūsų užklausa buvo išsiųsta!</translation>
     </message>
     <message>
+      <source>I accept my personal data will be handled according to</source>
+      <translation>Aš sutinku, kad mano duomenys būtų tvarkoti pagal</translation>
+    </message>
+    <message>
+      <source>our terms and to the Law</source>
+      <translation>mūsų sąlygas ir įstatymus</translation>
+    </message>
+    <message>
       <source>Department</source>
       <translation>Departamentas</translation>
     </message>
@@ -748,6 +756,10 @@
       <translation>Maksimum 500 ženklų žinutėje</translation>
     </message>
     <message>
+      <source>You have to accept our Terms Of Service</source>
+      <translation>Jūs turite sutikti su mūsų paslaugų teikimo sąlygomis</translation>
+    </message>
+    <message>
       <source>Please enter your phone</source>
       <translation>Prašome įvesti savo telefoną</translation>
     </message>
@@ -758,6 +770,10 @@
     <message>
       <source>Could not determine a default department!</source>
       <translation>Negalima nustatyti numatyto departamento!</translation>
+    </message>
+    <message>
+      <source>is required</source>
+      <translation>yra privalomas</translation>
     </message>
     <message>
       <source>Live Support</source>
@@ -931,6 +947,34 @@
     <message>
       <source>Longitude variable</source>
       <translation>Longitude kintamasis</translation>
+    </message>
+    <message>
+      <source>Use MaxMind, does not depend on any third party remote service</source>
+      <translation>Naudoti MaxMind, nereikalauja ryšio į nutolusias svetaines</translation>
+    </message>
+    <message>
+      <source>You can download city/country database from.</source>
+      <translation>Jūs galite parsisiųsti miesto/šalių duomenų bazę iš.</translation>
+    </message>
+    <message>
+      <source>bcmath php extension detected</source>
+      <translation>bcmath php įskiepis aptiktas</translation>
+    </message>
+    <message>
+      <source>User country based detection, faster</source>
+      <translation>Naudoti šalies aptikimą, greitesnis</translation>
+    </message>
+    <message>
+      <source>File exists</source>
+      <translation>Failas egzistuoja</translation>
+    </message>
+    <message>
+      <source>File does not exists</source>
+      <translation>Failas neegzistuoja</translation>
+    </message>
+    <message>
+      <source>User city based detection, slower</source>
+      <translation>Vartotojo miestu paremta detekcija, lėtesnė</translation>
     </message>
     <message>
       <source>Requests will be comming from</source>
@@ -1199,6 +1243,18 @@
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages!</source>
       <translation>Nustatyti tiekėją nepavyko, prašome patikrinti ar hostingo tiekėjas leidžia siųsti užklausas į nutolusius puslapius!</translation>
+    </message>
+    <message>
+      <source>MaxMind city file does not exists!</source>
+      <translation>MaxMind miesto failas neegzistuoja</translation>
+    </message>
+    <message>
+      <source>MaxMind country file does not exists!</source>
+      <translation>MaxMind šalių failas neegzistuoja</translation>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that MaxMind database files exists!</source>
+      <translation>Nepavyko nustatyti paslaugos tiekėjo, patikrinkite ar egzistuoja MaxMind duomenų bazės failas.</translation>
     </message>
     <message>
       <source>Please enter the API key!</source>
@@ -1858,6 +1914,10 @@
       <translation>Įgalinti žinutės palikimo langą automatiškai, jei nėra prisijungusių vartotojų</translation>
     </message>
     <message>
+      <source>Online form settings</source>
+      <translation>Prisijungusios formos nustatymai</translation>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Vardas</translation>
     </message>
@@ -1892,6 +1952,18 @@
     <message>
       <source>Phone</source>
       <translation>Telefonas</translation>
+    </message>
+    <message>
+      <source>Terms of service acceptance checkbox</source>
+      <translation>Sutikimo su sąlygomis žymimasis langelis</translation>
+    </message>
+    <message>
+      <source>Offline form settings</source>
+      <translation>Atsijungusios furmos nustatymai</translation>
+    </message>
+    <message>
+      <source>E-mail is always required</source>
+      <translation>El. paštas yra visada privalomas</translation>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>
