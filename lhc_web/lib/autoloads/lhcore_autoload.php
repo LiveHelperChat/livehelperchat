@@ -133,6 +133,7 @@ return array_merge(array (
 		'GeoIp2\ProviderInterface'					=> 'lib/core/lhexternal/GeoIp2/ProviderInterface.php',	
 		'GeoIp2\Model\Country'						=> 'lib/core/lhexternal/GeoIp2/Model/Country.php',	
 		'GeoIp2\Model\City'							=> 'lib/core/lhexternal/GeoIp2/Model/City.php',	
+		'GeoIp2\Record\Subdivision'					=> 'lib/core/lhexternal/GeoIp2/Record/Subdivision.php',	
 		'GeoIp2\Record\Continent'					=> 'lib/core/lhexternal/GeoIp2/Record/Continent.php',	
 		'GeoIp2\Record\AbstractPlaceRecord'			=> 'lib/core/lhexternal/GeoIp2/Record/AbstractPlaceRecord.php',	
 		'GeoIp2\Record\AbstractRecord'				=> 'lib/core/lhexternal/GeoIp2/Record/AbstractRecord.php',	
