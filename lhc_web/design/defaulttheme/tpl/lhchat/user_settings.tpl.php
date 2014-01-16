@@ -15,7 +15,7 @@ if ( $currentUser->hasAccessTo('lhuser','changeonlinestatus') ) {
 }
 ?>
 <?php if (!isset($hideULSetting)) : ?>
-<ul class="no-bullet inline-list user-settings-list hide-for-small">
+<ul class="no-bullet inline-list user-settings-list">
 <?php endif;?>
 	<li><a href="#"><i class="icon-sound<?php $soundMessageEnabled == 0 ? print ' icon-mute' : ''?>" onclick="return lhinst.disableChatSoundAdmin($(this))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Enable/Disable sound about new messages from users');?>"></i></a></li>
 	<li><a href="#"><i class="icon-sound<?php $soundNewChatEnabled == 0 ? print ' icon-mute' : ''?>" onclick="return lhinst.disableNewChatSoundAdmin($(this))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Enable/Disable sound about new pending chats');?>"></i></a></li>

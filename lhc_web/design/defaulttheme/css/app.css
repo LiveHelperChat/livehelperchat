@@ -787,3 +787,9 @@ border-top-right-radius: 6px;
 	color:#457a1a;
 	font-weight:bold;
 }
+
+@media only screen and (max-width: 768px) {
+	.user-settings-list{
+		float:none;
+	}
+}
