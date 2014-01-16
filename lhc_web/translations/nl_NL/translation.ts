@@ -77,27 +77,27 @@
     <name>abstract/proactivechatinvitation</name>
     <message>
       <source>If you want pro active chat invitation to work it has to be enabled in</source>
-      <translation type="unfinished"/>
+      <translation>Als je wilt dat proactieve chat uitnodigingen werken dan moeten deze ingeschakeld worden in</translation>
     </message>
     <message>
       <source>chat configuration</source>
-      <translation type="unfinished"/>
+      <translation>chat instellingen</translation>
     </message>
     <message>
       <source>also online users tracking has to be</source>
-      <translation type="unfinished"/>
+      <translation>Online user tracking moet ook zijn</translation>
     </message>
     <message>
       <source>enabled</source>
-      <translation type="unfinished"/>
+      <translation>ingeschakeld</translation>
     </message>
     <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation type="unfinished"/>
+      <translation>Taal, laat leeg voor alle. Bijv. lit, rus, ger etc...</translation>
     </message>
     <message>
       <source>Position</source>
-      <translation type="unfinished"/>
+      <translation>Positie</translation>
     </message>
     <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
@@ -117,7 +117,7 @@
     </message>
     <message>
       <source>Name for personal purposes</source>
-      <translation type="unfinished"/>
+      <translation>Naam voor persoonlijke doeleinden</translation>
     </message>
     <message>
       <source>Operator name</source>
@@ -125,11 +125,11 @@
     </message>
     <message>
       <source>Time on site in seconds</source>
-      <translation type="unfinished"/>
+      <translation>Tijd op site in seconden</translation>
     </message>
     <message>
       <source>Pageviews</source>
-      <translation type="unfinished"/>
+      <translation>Paginaweergaves</translation>
     </message>
     <message>
       <source>Requires e-mail</source>
@@ -149,7 +149,7 @@
     </message>
     <message>
       <source>Message to user</source>
-      <translation type="unfinished"/>
+      <translation>Bericht aan gebruiker</translation>
     </message>
     <message>
       <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
@@ -157,7 +157,7 @@
     </message>
     <message>
       <source>Pro active chat invitations</source>
-      <translation type="unfinished"/>
+      <translation>Proactieve chat uitnodigingen</translation>
     </message>
   </context>
   <context>
@@ -804,7 +804,7 @@
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
-      <translation type="unfinished"/>
+      <translation>Je kunt gewoon beginnen met vragen stellen, zodra onze support medewerker uw chat heeft geaccepteerd zal hij de berichten ontvangen.</translation>
     </message>
     <message>
       <source>At this moment there are no logged in support staff members, but you can leave your messages</source>
@@ -2081,59 +2081,59 @@
     <name>chat/statistic</name>
     <message>
       <source>Statistic</source>
-      <translation type="unfinished"/>
+      <translation>Statistiek</translation>
     </message>
     <message>
       <source>Total statistic</source>
-      <translation type="unfinished"/>
+      <translation>Totaal statistiek</translation>
     </message>
     <message>
       <source>Parameter</source>
-      <translation type="unfinished"/>
+      <translation>Parameter</translation>
     </message>
     <message>
       <source>Value</source>
-      <translation type="unfinished"/>
+      <translation>Waarde</translation>
     </message>
     <message>
       <source>Total chats</source>
-      <translation type="unfinished"/>
+      <translation>Totaal chats</translation>
     </message>
     <message>
       <source>Total pending chats</source>
-      <translation type="unfinished"/>
+      <translation>Totaal chats in wachtrij</translation>
     </message>
     <message>
       <source>Total active chats</source>
-      <translation type="unfinished"/>
+      <translation>Totaal actieve chats</translation>
     </message>
     <message>
       <source>Total closed chats</source>
-      <translation type="unfinished"/>
+      <translation>Totaal gesloten chats</translation>
     </message>
     <message>
       <source>Chatbox chats</source>
-      <translation type="unfinished"/>
+      <translation>Chatbox chats</translation>
     </message>
     <message>
       <source>Total messages (including visitors, system and operators messages)</source>
-      <translation type="unfinished"/>
+      <translation>Totaal berichten (inclusief bezoekers-, systeem- en operator berichten)</translation>
     </message>
     <message>
       <source>Total messages (only visitors)</source>
-      <translation type="unfinished"/>
+      <translation>Totaal berichten (alleen bezoekers)</translation>
     </message>
     <message>
       <source>Total messages (only system messages)</source>
-      <translation type="unfinished"/>
+      <translation>Totaal berichten (alleen systeemberichten)</translation>
     </message>
     <message>
       <source>Total messages (only operators)</source>
-      <translation type="unfinished"/>
+      <translation>Totaal berichten (alleen operators)</translation>
     </message>
     <message>
       <source>Last 24h statistic</source>
-      <translation type="unfinished"/>
+      <translation>Laatste 24u statistiek</translation>
     </message>
     <message>
       <source>Operators last 24h statistic, top 100 by chats number</source>
@@ -4106,7 +4106,7 @@
     </message>
     <message>
       <source>Password reminder</source>
-      <translation type="unfinished"/>
+      <translation>Wachtwoord herinnering</translation>
     </message>
     <message>
       <source>Incorrect username or password</source>
