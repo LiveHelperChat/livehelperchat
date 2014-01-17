@@ -1,5 +1,7 @@
 <?php
 
+$currentUser = erLhcoreClassUser::instance();
+
 $instance = erLhcoreClassSystem::instance();
 
 if ($instance->SiteAccess != 'site_admin') {
@@ -28,9 +30,7 @@ if (isset($_POST['redirect'])){
 }
 
 if (isset($_POST['Login']))
-{
-    $currentUser = erLhcoreClassUser::instance();
-
+{    
     if (!$currentUser->authenticate($_POST['Username'], $_POST['Password'], isset($_POST['rememberMe']) && $_POST['rememberMe'] == 1 ? true : false))
     {
         $Error = erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Incorrect username or password');
