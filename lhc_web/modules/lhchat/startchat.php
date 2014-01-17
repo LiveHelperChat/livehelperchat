@@ -76,13 +76,16 @@ if (isset($_POST['StartChat'])) {
 
    if (count($Errors) == 0)
    {
+   		$chat->setIP();
+   		erLhcoreClassModelChat::detectLocation($chat);
+   		
    		if (isset($additionalParams['offline']) && $additionalParams['offline'] == true) {
 	   		erLhcoreClassChatMail::sendMailRequest($inputData,$chat);
 	   		$tpl->set('request_send',true);
 	   	} else {
 	       $chat->time = time();
 	       $chat->status = 0;
-	       $chat->setIP();
+	       
 	       $chat->hash = erLhcoreClassChat::generateHash();
 	       $chat->referrer = isset($_POST['URLRefer']) ? $_POST['URLRefer'] : '';
 	       $chat->session_referrer = isset($_POST['r']) ? $_POST['r'] : '';
@@ -90,8 +93,6 @@ if (isset($_POST['StartChat'])) {
 	       if ( empty($chat->nick) ) {
 	           $chat->nick = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor');
 	       }
-
-	       erLhcoreClassModelChat::detectLocation($chat);
 
 	       // Store chat
 	       $chat->saveThis();

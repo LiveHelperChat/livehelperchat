@@ -1,3 +1,14 @@
+1.78v
+
+Features
+1. Online visitors tracking across domain subdomains. You can set your domain in "Chat configuration" => "Misc" => "Set your domain to enable user tracking across different domain subdomains."
+2. Mail templates now supports {country} and {city} variables.
+
+Bugfix
+1. /user/login was missing $currentUser instance after php session drop.
+
+execute doc/update_db/update_59.sql for update
+
 1.77v
 
 Features

@@ -68,6 +68,9 @@ if (key_exists($position, $positionArgument)){
 } else {
 	$currentPosition = $positionArgument['bottom_right'];
 }
+
+$trackDomain = erLhcoreClassModelChatConfig::fetch('track_domain')->current_value;
+
 ?>
 
 <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/is_online_help.tpl.php')); ?>
@@ -402,15 +405,17 @@ var lh_inst  = {
     },
 
     storePersistenCookie : function(){
-	    lhc_Cookies('lhc_per',this.JSON.stringify(this.cookieDataPers),{expires:16070400});
+	    lhc_Cookies('lhc_per',this.JSON.stringify(this.cookieDataPers),{expires:16070400<?php $trackDomain != '' ? print ",domain:'.{$trackDomain}'" : ''?>});
     },
 
     storeSesCookie : function(){
+    	<?php if ($trackDomain == '') : ?>
     	if (sessionStorage) {
     		sessionStorage.setItem('lhc_ses',this.JSON.stringify(this.cookieData));
     	} else {
-	    	lhc_Cookies('lhc_ses',this.JSON.stringify(this.cookieData));
-	    }
+    	<?php endif;?>
+	    	lhc_Cookies('lhc_ses',this.JSON.stringify(this.cookieData)<?php $trackDomain != '' ? print ",{domain:'.{$trackDomain}'}" : ''?>);
+	    <?php if ($trackDomain == '') : ?>}<?php endif;?>
     },
 
     initSessionStorage : function(){

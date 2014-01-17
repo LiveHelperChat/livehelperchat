@@ -93,6 +93,9 @@
 		    
 		    <?php $attribute = 'session_captcha'?>
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+		    		    		    
+		    <?php $attribute = 'track_domain'?>
+		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 		    		    
 		    <?php $attribute = 'list_online_operators'?>
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
