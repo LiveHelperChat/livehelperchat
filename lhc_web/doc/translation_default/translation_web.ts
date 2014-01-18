@@ -510,6 +510,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Remarks</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chats</source>
       <translation type="unfinished"/>
     </message>
@@ -531,6 +535,10 @@
     </message>
     <message>
       <source>Send delayed canned message instantly</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages</source>
       <translation type="unfinished"/>
     </message>
   </context>
