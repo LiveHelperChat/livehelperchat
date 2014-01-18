@@ -565,6 +565,10 @@ class erLhcoreClassModelChatOnlineUser {
    			$this->first_visit = time();
    		}
 
+   		if ($this->last_visit == 0) {
+   			$this->last_visit = time();
+   		}
+
         erLhcoreClassChat::getSession()->saveOrUpdate( $this );
    }
 
