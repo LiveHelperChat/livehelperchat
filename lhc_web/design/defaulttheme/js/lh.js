@@ -1365,7 +1365,7 @@ function gMapsCallback(){
 	    if ( processing == false) {
 	        processing = true;
     		$.ajax({
-    			url : WWW_DIR_JAVASCRIPT + 'chat/jsononlineusers',
+    			url : WWW_DIR_JAVASCRIPT + 'chat/jsononlineusers'+( parseInt($('#id_department_map_id').val()) > 0 ? '/(department)/'+parseInt($('#id_department_map_id').val()) : '' ),
     			dataType: "json",
     			error:function(){
     				clearTimeout(pendingProcessTimeout);

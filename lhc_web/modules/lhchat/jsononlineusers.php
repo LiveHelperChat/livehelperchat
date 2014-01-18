@@ -1,6 +1,13 @@
 <?php
 
-$items = erLhcoreClassModelChatOnlineUser::getList(array('offset' => 0, 'limit' => 50,'sort' => 'last_visit DESC'));
+$filter = array('offset' => 0, 'limit' => 50,'sort' => 'last_visit DESC');
+
+$department = isset($Params['user_parameters_unordered']['department']) && is_numeric($Params['user_parameters_unordered']['department']) ? (int)$Params['user_parameters_unordered']['department'] : false;
+if ($department !== false){
+	$filter['filter']['dep_id'] = $department;
+}
+
+$items = erLhcoreClassModelChatOnlineUser::getList($filter);
 
 $returnItems = array();
 

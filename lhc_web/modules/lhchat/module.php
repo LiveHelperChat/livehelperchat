@@ -272,7 +272,7 @@ $ViewList['onlineusers'] = array(
 
 $ViewList['jsononlineusers'] = array(
     'params' => array(),
-    'uparams' => array(),
+    'uparams' => array('department'),
     'functions' => array( 'use_onlineusers' )
 );
 

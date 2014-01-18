@@ -130,14 +130,21 @@ foreach ($items as $departament) : ?>
 	    <div class="content" data-section-content>
 
 				<div class="row">
-					<div class="columns large-3">
+					<div class="columns large-6">
 						<img data-tooltip class="tip-right" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User is chatting');?>" src="<?php echo erLhcoreClassDesign::design('images/icons/home-chat.png')?>" />
 	    				<img data-tooltip class="tip-right" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User does not have any message from operator');?>" src="<?php echo erLhcoreClassDesign::design('images/icons/home-unsend.png')?>" />
 	    				<img data-tooltip class="tip-right" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User has message from operator');?>" src="<?php echo erLhcoreClassDesign::design('images/icons/home-send.png')?>" />
 					</div>
-					<div class="columns large-5"><label for="markerTimeout" class="inline"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Marker timeout before it dissapears from map');?></label></div>
-					<div class="columns large-4">
-						<select id="markerTimeout">
+					<div class="columns large-3">
+					<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
+				                    'input_name'     => 'department_map_id',
+									'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select department'),
+				                    'selected_id'    => 0,
+				                    'list_function'  => 'erLhcoreClassModelDepartament::getList'
+				    )); ?>
+				    </div>
+					<div class="columns large-3">
+						<select id="markerTimeout" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Marker timeout before it dissapears from map');?>">
 			    			<option value="30">30 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','seconds');?></option>
 			    			<option value="60">1 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','minit');?></option>
 			    			<option value="120">2 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','minits');?></option>
