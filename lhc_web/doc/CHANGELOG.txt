@@ -1,3 +1,13 @@
+1.79v
+
+Features
+1. Option to have operator remarks regarding the chat.
+2. Chatbox has few other embed options, which allows to have the following use cases: 
+2.1 Hide status widget and show content instantly, have content expanded or minimized instantly.
+2.2 Disable user option to close a widget. Usefull if you are not showing a status widget.
+
+execute doc/update_db/update_60.sql for update
+
 1.78v
 
 Features

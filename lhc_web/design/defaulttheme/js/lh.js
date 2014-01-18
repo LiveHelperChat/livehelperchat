@@ -192,7 +192,8 @@ function lh(){
 
     this.is_typing = false;
     this.typing_timeout = null;
-
+   
+    
     this.initTypingMonitoringAdmin = function(chat_id) {
 
         var www_dir = this.wwwDir;
@@ -214,6 +215,20 @@ function lh(){
         });
     };
 
+    this.remarksTimeout = null;
+    
+    this.saveRemarks = function(chat_id) {
+    	clearTimeout(this.remarksTimeout);
+    	    	
+    	$('#remarks-status-'+chat_id).addClass('warning-color').html('...');
+    	var inst = this;
+    	this.remarksTimeout = setTimeout(function(){
+    		$.postJSON(inst.wwwDir + 'chat/saveremarks/' + chat_id,{'data':$('#ChatRemarks-'+chat_id).val()}, function(data){
+    			$('#remarks-status-'+chat_id).removeClass('warning-color').html('');
+            });
+    	},500);    	
+    };
+    
     this.closeWindow  = function() {
     	window.open('','_self','');
     	window.close();

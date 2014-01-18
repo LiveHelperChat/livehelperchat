@@ -86,6 +86,11 @@ $def->properties['country_name']->columnName   = 'country_name';
 $def->properties['country_name']->propertyName = 'country_name';
 $def->properties['country_name']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['remarks'] = new ezcPersistentObjectProperty();
+$def->properties['remarks']->columnName   = 'remarks';
+$def->properties['remarks']->propertyName = 'remarks';
+$def->properties['remarks']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $def->properties['lat'] = new ezcPersistentObjectProperty();
 $def->properties['lat']->columnName   = 'lat';
 $def->properties['lat']->propertyName = 'lat';

@@ -10,6 +10,44 @@
 
 class erLhcoreClassChat {
 
+	public static $chatListIgnoreField = array(
+			'remarks',			
+			'user_typing_txt',
+			'hash',
+			'ip',
+			'user_status',
+			'email',
+			'support_informed',
+			'phone',
+			'user_typing',
+			'operator_typing',
+			'has_unread_messages',
+			'last_user_msg_time',
+			'last_msg_id',
+			'mail_send',
+			'lat',
+			'lon',
+			'city',
+			'additional_data',
+			'session_referrer',
+			'wait_time',
+			'chat_duration',
+			'priority',
+			'online_user_id',
+			'transfer_if_na',
+			'transfer_timeout_ts',
+			'transfer_timeout_ac',
+			'wait_timeout',
+			'wait_timeout_send',
+			'timeout_message',
+			'na_cb_executed',
+			'nc_cb_executed',
+			'fbst',
+			'operator_typing_id',
+			'chat_initiator',
+			'chat_variables'
+	);
+	
     /**
      * Gets pending chats
      */
@@ -84,7 +122,7 @@ class erLhcoreClassChat {
 	       $params = array_merge($paramsDefault,$paramsSearch);
 
 	       $session = erLhcoreClassChat::getSession();
-	       $q = $session->createFindQuery( $class );
+	       $q = $session->createFindQuery( $class, isset($params['ignore_fields']) ? $params['ignore_fields'] : array() );
 
 	       $conditions = array();
 

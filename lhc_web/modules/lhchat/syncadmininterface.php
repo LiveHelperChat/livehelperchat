@@ -25,7 +25,7 @@ if ($activeTabEnabled == true) {
 	/**
 	 * Active chats
 	 * */
-	$chats = erLhcoreClassChat::getActiveChats(10);
+	$chats = erLhcoreClassChat::getActiveChats(10,0,array('ignore_fields' => erLhcoreClassChat::$chatListIgnoreField));
 	$tpl->set('chats',$chats);
 	$ReturnMessages[] = array('dom_id_status' => '.ac-cnt', 'dom_item_count' => count($chats), 'dom_id' => '#active-chat-list,#right-active-chats', 'content' => trim($tpl->fetch( 'lhchat/lists/activechats.tpl.php')));
 }
@@ -34,7 +34,7 @@ if ($closedTabEnabled == true) {
 	/**
 	 * Closed chats
 	 * */
-	$chats = erLhcoreClassChat::getClosedChats(10);
+	$chats = erLhcoreClassChat::getClosedChats(10,0,array('ignore_fields' => erLhcoreClassChat::$chatListIgnoreField));
 	$tpl->set('chats',$chats);
 	$ReturnMessages[] = array('dom_id_status' => '.cl-cnt', 'dom_item_count' => count($chats), 'dom_id' => '#closed-chat-list,#right-closed-chats', 'content' => trim($tpl->fetch( 'lhchat/lists/closedchats.tpl.php')));
 }
@@ -43,7 +43,7 @@ if ($pendingTabEnabled == true) {
 	/**
 	 * Pending chats
 	 * */
-	$pendingChats = erLhcoreClassChat::getPendingChats(10);
+	$pendingChats = erLhcoreClassChat::getPendingChats(10,0,array('ignore_fields' => erLhcoreClassChat::$chatListIgnoreField));
 	$tpl->set('chats',$pendingChats);
 
 	/**
@@ -92,7 +92,7 @@ if ($canListOnlineUsers == true || $canListOnlineUsersAll == true) {
 
 if ($unreadTabEnabled == true) {
 	// Unread chats
-	$unreadChats = erLhcoreClassChat::getUnreadMessagesChats();
+	$unreadChats = erLhcoreClassChat::getUnreadMessagesChats(10,0,array('ignore_fields' => erLhcoreClassChat::$chatListIgnoreField));
 	$tpl->set('chats',$unreadChats);
 	$ReturnMessages[] = array('dom_id_status' => '.un-cnt', 'dom_item_count' => count($unreadChats),'dom_id' => '#unread-chat-list,#right-unread-chats', 'content' => trim($tpl->fetch('lhchat/lists/unread-chat-list.tpl.php')));
 }

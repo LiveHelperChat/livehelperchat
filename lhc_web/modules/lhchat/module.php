@@ -162,6 +162,11 @@ $ViewList['addmsgadmin'] = array(
     'functions' => array( 'use' )
     );
 
+$ViewList['saveremarks'] = array(
+    'params' => array('chat_id'),
+    'functions' => array( 'use' )
+    );
+
 /* Anonymous functions */
 $ViewList['addmsguser'] = array(
     'params' => array('chat_id','hash'),

@@ -23,6 +23,7 @@
 	  </section>
   <?php endif; ?>
 
+  <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/operator_remarks.tpl.php'));?>
 
 </div>
 

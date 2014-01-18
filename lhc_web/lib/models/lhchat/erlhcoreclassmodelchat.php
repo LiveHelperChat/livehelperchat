@@ -55,6 +55,9 @@ class erLhcoreClassModelChat {
                'na_cb_executed'    		=> $this->na_cb_executed,
                'fbst'    				=> $this->fbst,
                'nc_cb_executed'    		=> $this->nc_cb_executed,
+       		
+       		    //
+               'remarks'    		=> $this->remarks,
        );
    }
 
@@ -314,6 +317,8 @@ class erLhcoreClassModelChat {
 
    public $chat_initiator = self::CHAT_INITIATOR_DEFAULT;
    public $chat_variables = '';
+   
+   public $remarks = '';
 
 }
 

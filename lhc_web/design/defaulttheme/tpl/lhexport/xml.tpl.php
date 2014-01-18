@@ -15,6 +15,7 @@
 <country_code><?php echo $chat->country_code?></country_code>
 <country><![CDATA[ <?php echo htmlspecialchars($chat->country_name)?> ]]></country>
 <city><![CDATA[ <?php echo htmlspecialchars($chat->city)?> ]]></city>
+<remarks><![CDATA[ <?php echo htmlspecialchars($chat->remarks)?> ]]></remarks>
 <latitude><?php echo $chat->lat?></latitude>
 <longitude><?php echo $chat->lon?></longitude>
 <additional_data><![CDATA[<?php echo htmlspecialchars($chat->additional_data)?>]]></additional_data>

@@ -453,7 +453,7 @@ class ezcPersistentLoadHandler extends ezcPersistentSessionHandler
      *
      * @return ezcPersistentFindQuery
      */
-    public function createFindQuery( $class )
+    public function createFindQuery( $class, $ignoreColumns = array() )
     {
         $def = $this->definitionManager->fetchDefinition( $class );
 
@@ -462,7 +462,7 @@ class ezcPersistentLoadHandler extends ezcPersistentSessionHandler
         $q->setAliases( $this->session->generateAliasMap( $def ) );
 
         $q->select(
-            $this->session->getColumnsFromDefinition( $def )
+            $this->session->getColumnsFromDefinition( $def, true, $ignoreColumns )
         )->from(
             $this->database->quoteIdentifier( $def->table )
         );

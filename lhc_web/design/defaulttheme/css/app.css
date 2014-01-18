@@ -66,6 +66,10 @@ a.icon-print:hover{
 	overflow:auto;
 }
 
+.mh150{
+	min-height:150px;
+}
+
 .mb0{
 	margin-bottom:0 !important;
 }
@@ -784,8 +788,17 @@ border-top-right-radius: 6px;
 }
 
 #online-users-count{
-	color:#457a1a;
+	
 	font-weight:bold;
+}
+
+.success-color,
+#online-users-count {
+	color:#457a1a;
+}
+
+.warning-color {
+	color:#FCDA54;
 }
 
 @media only screen and (max-width: 768px) {
