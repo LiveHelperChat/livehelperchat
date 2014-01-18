@@ -2021,6 +2021,22 @@
       <translation>从运营商的消息，检查间隔，以秒</translation>
     </message>
     <message>
+      <source>Long polling</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable long polling</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How many seconds keep connection to server?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New chat request notification settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Play a new pending chat sound on a new chat request</source>
       <translation>玩一个新的聊天请求一个新的挂起聊天声音</translation>
     </message>
@@ -2061,8 +2077,16 @@
       <translation>请输入一个有效的联机超时值！</translation>
     </message>
     <message>
+      <source>Please enter a valid server connection timeout value!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a valid operator message timeout value!</source>
       <translation>请输入一个有效的操作消息的超时值！</translation>
+    </message>
+    <message>
+      <source>Please enter a valid new messages polling sync interval!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a valid back office sync interval!</source>

@@ -59,6 +59,10 @@
         </select>
     </div>
 </div>
+<label><input type="checkbox" id="DisableMiminize" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Disable minimize icon');?></label>   
+<label><input type="checkbox" id="ShowContent" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Show chatbox content instead of widget, users will be able only minimize, not close it.');?></label>       
+<label><input type="checkbox" id="ShowContentMinimized" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Show chatbox content minimized first time if content is shown.');?></label>       
+    
 
 <p class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Copy the code from the text area to the footer, before the closing &lt;/body&gt; tag');?></p>
 <textarea style="width:100%;height:180px;font-size:12px;" id="HMLTContent" ></textarea>
@@ -74,18 +78,21 @@ function generateEmbedCode(){
 	var topposition = '/(units)/'+$('#UnitsTop').val();
 	var widthwidget = '/(width)/'+($('#id_width_text').val() == '' ? 300 : $('#id_width_text').val());
 	var heightwidget = '/(height)/'+($('#id_height_text').val() == '' ? 300 : $('#id_height_text').val());
-	var chat_height = '/(chat_height)/'+($('#id_chat_height').val() == '' ? 220 : $('#id_chat_height').val());
-
+	var chat_height = '/(chat_height)/'+($('#id_chat_height').val() == '' ? 220 : $('#id_chat_height').val());	
+	var show_content = ($('#ShowContent').is(':checked') ? '/(sc)/true' : '');
+	var show_min = ($('#ShowContentMinimized').is(':checked')? '/(scm)/true' : '');
+	var dis_min = ($('#DisableMiminize').is(':checked')? '/(dmn)/true' : '');
+	
     var script = '<script type="text/javascript">'+"\nvar LHCChatboxOptions = {hashchatbox:'empty',identifier:'default',status_text:'"+textStatus+"'};\n"+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
-        'po.src = \'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chatbox/getstatus'+id_position+top+topposition+widthwidget+heightwidget+chat_height+"';\n"+
+        'po.src = \'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chatbox/getstatus'+id_position+top+topposition+widthwidget+heightwidget+chat_height+show_content+show_min+dis_min+"';\n"+
         'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);'+"\n"+
       '})();'+"\n"+
     '</scr'+'ipt>';
     $('#HMLTContent').text(script);
 };
-$('#LocaleID,#PositionID,#id_status_text,#UnitsTop,#id_top_text,#id_width_text,#id_height_text,#id_chat_height').change(function(){
+$('#LocaleID,#PositionID,#id_status_text,#UnitsTop,#id_top_text,#id_width_text,#id_height_text,#id_chat_height,#ShowContent,#ShowContentMinimized,#DisableMiminize').change(function(){
     generateEmbedCode();
 });
 generateEmbedCode();

@@ -17,6 +17,9 @@ $tpl->set('units',key_exists((string)$Params['user_parameters_unordered']['units
 $tpl->set('widthwidget',(!is_null($Params['user_parameters_unordered']['width']) && (int)$Params['user_parameters_unordered']['width'] > 0) ? (int)$Params['user_parameters_unordered']['width'] : 300);
 $tpl->set('heightwidget',(!is_null($Params['user_parameters_unordered']['height']) && (int)$Params['user_parameters_unordered']['height'] > 0) ? (int)$Params['user_parameters_unordered']['height'] : 300);
 $tpl->set('heightchatcontent',(!is_null($Params['user_parameters_unordered']['chat_height']) && (int)$Params['user_parameters_unordered']['chat_height'] > 0) ? (int)$Params['user_parameters_unordered']['chat_height'] : 220);
+$tpl->set('show_content',(!is_null($Params['user_parameters_unordered']['sc']) && (int)$Params['user_parameters_unordered']['sc'] == 'true') ? true : false);
+$tpl->set('show_content_min',(!is_null($Params['user_parameters_unordered']['scm']) && (int)$Params['user_parameters_unordered']['scm']  == 'true') ? true : false);
+$tpl->set('disable_min',(!is_null($Params['user_parameters_unordered']['dmn']) && (int)$Params['user_parameters_unordered']['dmn']  == 'true') ? true : false);
 
 echo $tpl->fetch();
 exit;

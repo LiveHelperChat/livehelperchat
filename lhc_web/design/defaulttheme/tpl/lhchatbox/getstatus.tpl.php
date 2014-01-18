@@ -227,7 +227,7 @@ var lhc_Chatbox = {
                        ' style="width: <?php echo $widthwidget?>px; height: <?php echo $heightwidget?>px;"></iframe>';
 
           this.iframe_html = '<div id="lhc_container_chatbox">' +
-                              '<div id="lhc_chatbox_header"><span id="lhc_chatbox_title"><a title="Powered by Live Helper Chat" href="http://livehelperchat.com" target="_blank"><img src="//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/icons/emotion_amazing_16x16.png');?>" alt="Live Helper Chat" /></a></span><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" id="lhc_chatbox_close"><img src="//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/icons/cancel.png');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" /></a><a href="#" id="lhc_chatbox_min" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Minimize/Restore')?>"><img src="//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/icons/min.png');?>"></a></div>' +
+                              '<div id="lhc_chatbox_header"><span id="lhc_chatbox_title"><a title="Powered by Live Helper Chat" href="http://livehelperchat.com" target="_blank"><img src="//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/icons/emotion_amazing_16x16.png');?>" alt="Live Helper Chat" /></a></span><?php if ($show_content === false) : ?><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" id="lhc_chatbox_close"><img src="//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/icons/cancel.png');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" /></a><?php endif;?><?php if ($disable_min === false) : ?><a href="#" id="lhc_chatbox_min" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Minimize/Restore')?>"><img src="//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/icons/min.png');?>"></a><?php endif;?></div>' +
                               this.iframe_html + '</div>';
 
           raw_css = ".lhc-no-transition{ -webkit-transition: none !important; -moz-transition: none !important;-o-transition: none !important;-ms-transition: none !important;transition: none !important;}\n.lhc-min{height:35px !important}\n#lhc_container_chatbox * {direction:<?php (erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'dir_language') == 'ltr' || erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'dir_language') == '') ? print 'ltr;text-align:left;' : print 'rtl;text-align:right;'; ?>;font-family:arial\;font-size:12px\;line-height:100%\;box-sizing: content-box\;-moz-box-sizing:content-box;padding:0;margin:0;}\n#lhc_container_chatbox img {border:0;}\n#lhc_chatbox_title{float:left;}\n#lhc_chatbox_header{position:relative;z-index:9990;height:15px;overflow:hidden;-webkit-border-<?php echo $currentPosition['chrome_radius']?>-radius: 10px;-moz-border-radius-<?php echo $currentPosition['moz_radius']?>: 10px;border-<?php echo $currentPosition['chrome_radius']?>-radius: 10px;background-color:#FFF;text-align:right;clear:both;border-bottom:1px solid #CCC;padding:5px;}\n#lhc_chatbox_close,#lhc_chatbox_min{padding:2px;float:right;}\n#lhc_chatbox_close:hover,#lhc_chatbox_min:hover{background:#e5e5e5;}\n#lhc_container_chatbox {height:<?php echo $heightwidget?>px;overflow: hidden;transition-property: height;transition-duration: 0.4s;-webkit-transition: height 0.4s ease-in-out;transition: height 0.4s;background-color:#FFF\;\nz-index:9990;\n position: fixed;<?php echo $currentPosition['position_body']?>;-webkit-box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);-moz-box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);border:1px solid #CCC;-webkit-border-radius: 10px;-moz-border-radius: 10px;border-radius: 10px;-moz-user-select:none; -khtml-user-drag:element;cursor: move;cursor: -moz-grab;cursor: -webkit-grab; }\n#lhc_container_chatbox iframe{transition-property: height;transition-duration: 0.4s;-webkit-transition: height 0.4s ease-in-out;transition: height 0.4s;}\n#lhc_container_chatbox iframe.lhc-loading{\nbackground: #FFF url(//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/general/loading.gif');?>) no-repeat center center; }";
@@ -241,8 +241,13 @@ var lhc_Chatbox = {
           document.body.insertBefore(fragment, document.body.childNodes[0]);
 
 		  var lhc_obj = this;
+          <?php if ($show_content === false) : ?>
           document.getElementById('lhc_chatbox_close').onclick = function() { lhc_obj.hide(); return false; };
+          <?php endif;?>
+                   
+          <?php if ($disable_min === false) : ?>
           document.getElementById('lhc_chatbox_min').onclick = function() { lhc_obj.min(); return false; };         
+          <?php endif;?>
                    
           var domContainer = document.getElementById('lhc_container_chatbox');
           var domIframe = 'lhcchatbox_iframe';
@@ -254,6 +259,7 @@ var lhc_Chatbox = {
    },
 
    showStatusWidget : function() {
+   		<?php if ($show_content === false) : ?>
        var statusTEXT = '<a id="chatbox-icon" class="status-icon" href="#" >'+LHCChatboxOptions.status_text+'</a>';
        var raw_css = "#lhc_chatbox_container * {direction:<?php (erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'dir_language') == 'ltr' || erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'dir_language') == '') ? print 'ltr;text-align:left;' : print 'rtl;text-align:right;'; ?>;font-family:arial;font-size:12px;line-height:100%;box-sizing: content-box;zoom:1;margin:0;padding:0}\n#lhc_chatbox_container .status-icon{text-decoration:none;font-size:12px;font-weight:bold;color:#000;display:block;padding:<?php echo $currentPosition['padding_text']?>;background:url('//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/icons/emotion_amazing.png');?>') no-repeat <?php echo $currentPosition['background_position']?> center}\n#lhc_chatbox_container:hover{<?php echo $currentPosition['widget_hover']?>}\n#lhc_chatbox_container{box-sizing: content-box;<?php echo $currentPosition['widget_radius']?>-webkit-box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);-moz-box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);<?php echo $currentPosition['border_widget']?>;padding:5px 0px 3px 5px;width:190px;font-family:arial;font-size:12px;line-height:100%;transition: 1s;position:fixed;<?php echo $currentPosition['position']?>;background-color:#f6f6f6;z-index:9989;}\n";
        this.addCss(raw_css);
@@ -262,6 +268,7 @@ var lhc_Chatbox = {
        document.body.insertBefore(fragment, document.body.childNodes[0]);
        var lhc_obj = this;
        document.getElementById('chatbox-icon').onclick = function() { lhc_obj.showVotingForm(); return false; };
+       <?php endif;?>
    },
 
    removeCookieAttr : function(attr){
@@ -280,7 +287,17 @@ var lhc_Chatbox = {
    initSessionStorage : function(){
     	if (sessionStorage && sessionStorage.getItem('lhc_chb')) {
     		this.cookieData = this.JSON.parse(sessionStorage.getItem('lhc_chb'));
+    	};
+    	<?php if ($show_content === true) : ?>
+    	if (!this.cookieData.is_opened) {
+    		this.cookieData.is_opened = 1;
+    		<?php if ($show_content_min === true) : ?>
+    		if (!this.cookieData.m) {
+    			this.cookieData.m = 1;
+    		}
+    		<?php endif;?>
     	}
+    	<?php endif;?>
    },
 
    addCookieAttribute : function(attr, value){

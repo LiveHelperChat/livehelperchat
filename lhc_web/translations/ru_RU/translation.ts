@@ -2021,6 +2021,22 @@
       <translation>Интервал проверки сообщений от оператора в секундах</translation>
     </message>
     <message>
+      <source>Long polling</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable long polling</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How many seconds keep connection to server?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New chat request notification settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Play a new pending chat sound on a new chat request</source>
       <translation>Проигрывать звук ожидающего чата, при появлении нового запроса на чат</translation>
     </message>
@@ -2061,8 +2077,16 @@
       <translation>Введите неодходимый таймаут в онлайне!</translation>
     </message>
     <message>
+      <source>Please enter a valid server connection timeout value!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a valid operator message timeout value!</source>
       <translation>Введите необходимы интервал таймаута для сообщений оператора!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid new messages polling sync interval!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a valid back office sync interval!</source>
