@@ -3,7 +3,7 @@
     <div class="content" data-section-content>
       <div id="remarks-status-<?php echo $chat->id?>" class="icon-pencil pb10 success-color"></div>
       <div>
-      	<textarea class="mh150" onkeyup="lhinst.saveRemarks('<?php echo $chat->id?>')" id="ChatRemarks-<?php echo $chat->id?>"><?php echo htmlspecialchars($chat->remarks)?></textarea>
+      	<textarea class="mh150" <?php if (!isset($hideActionBlock)) : ?>onkeyup="lhinst.saveRemarks('<?php echo $chat->id?>')"<?php else : ?>readonly<?php endif;?> id="ChatRemarks-<?php echo $chat->id?>"><?php echo htmlspecialchars($chat->remarks)?></textarea>
       </div>
     </div>
 </section>

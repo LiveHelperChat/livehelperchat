@@ -25,7 +25,11 @@ $pages->paginate();
 
 $items = array();
 if ($pages->items_total > 0) {
-    $items = erLhcoreClassChat::getList(array_merge(array('offset' => $pages->low, 'limit' => $pages->items_per_page,'sort' => 'id ASC'),$filterParams['filter']),'erLhcoreClassModelChatArchive', erLhcoreClassModelChatArchiveRange::$archiveTable);
+	try {
+    	$items = erLhcoreClassChat::getList(array_merge(array('offset' => $pages->low, 'limit' => $pages->items_per_page,'sort' => 'id ASC'),$filterParams['filter']),'erLhcoreClassModelChatArchive', erLhcoreClassModelChatArchiveRange::$archiveTable);
+	} catch (Exception $e) {
+		print_r($e->getMessage());
+	}
 }
 
 $filterParams['input_form']->form_action = erLhcoreClassDesign::baseurl('chatarchive/listarchivechats').'/'.$archive->id;
