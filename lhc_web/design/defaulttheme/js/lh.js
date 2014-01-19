@@ -5,6 +5,7 @@ function csrfSafeMethod(method) {
 
 $.ajaxSetup({
     crossDomain: false, // obviates need for sameOrigin test
+    cache: false,
     beforeSend: function(xhr, settings) {
         if (!csrfSafeMethod(settings.type)) {
             xhr.setRequestHeader("X-CSRFToken", confLH.csrf_token);
@@ -19,6 +20,8 @@ $.postJSON = function(url, data, callback) {
 
 /*Port FN accordion*/
 (function(e,t,n){"use strict";e.fn.foundationAccordion=function(t){var n=function(e){return e.hasClass("hover")&&!Modernizr.touch};e(document).on("mouseenter",".accordion-lhc li",function(){var t=e(this).parent();if(n(t)){var r=e(this).children(".content-lhc").first();e(".content-lhc",t).not(r).hide().parent("li").removeClass("active-lhc"),r.show(0,function(){r.parent("li").addClass("active-lhc")})}}),e(document).on("click.fndtn",".accordion-lhc li .title-lhc",function(){var t=e(this).closest("li"),r=t.parent();if(!n(r)){var i=t.children(".content-lhc").first();t.hasClass("active-lhc")?r.find("li").removeClass("active-lhc").end().find(".content-lhc").hide():(e(".content-lhc",r).not(i).hide().parent("li").removeClass("active-lhc"),i.show(0,function(){i.parent("li").addClass("active-lhc")}))}})}})(jQuery,this);
+
+var LHCCallbacks = {};
 
 function lh(){
 
@@ -434,6 +437,11 @@ function lh(){
 		        };
 
 		        inst.syncroRequestSend = false;
+		        
+		        if (LHCCallbacks.syncusercall) {
+	        		LHCCallbacks.syncusercall(inst);
+	        	};
+		        
 	    	}).fail(function(){
 	    		inst.syncroRequestSend = false;
 	    		inst.userTimeout = setTimeout(chatsyncuser,confLH.chat_message_sinterval);
@@ -1136,7 +1144,11 @@ function lh(){
 		var inst = this;
 
         $.postJSON(this.wwwDir + this.addmsgurluserchatbox + this.chat_id + '/' + this.hash + modeWindow, pdata , function(data) {
-        	inst.syncusercall();
+	        	if (LHCCallbacks.addmsguserchatbox) {
+	        		LHCCallbacks.addmsguserchatbox(inst);
+	        	};
+        		inst.syncusercall();
+        	
 		});
 
         if (nickCurrent != $("#CSChatNick").val() && !!window.postMessage && parent) {
