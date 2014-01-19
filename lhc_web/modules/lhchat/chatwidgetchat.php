@@ -61,6 +61,7 @@ $Result['pagelayout_css_append'] = 'widget-chat';
 $Result['dynamic_height'] = true;
 $Result['dynamic_height_message'] = 'lhc_sizing_chat';
 $Result['path'] = array(array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Chat started')));
+$Result['is_sync_required'] = true;
 
 if ($embedMode == true) {
 	$Result['dynamic_height_message'] = 'lhc_sizing_chat_page';

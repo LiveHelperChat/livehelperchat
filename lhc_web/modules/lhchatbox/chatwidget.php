@@ -43,6 +43,7 @@ $Result['dynamic_height'] = true;
 $Result['dynamic_height_message'] = 'lhc_sizing_chatbox';
 $Result['dynamic_height_append'] = 20;
 $Result['additional_post_message'] = 'lhc_chb:nick:'.htmlspecialchars(erLhcoreClassChatbox::getVisitorName(),ENT_QUOTES);
+$Result['is_sync_required'] = true;
 
 if ($embedMode == true) {
 	$Result['dynamic_height_message'] = 'lhc_sizing_chatbox_page';

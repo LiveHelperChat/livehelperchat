@@ -419,14 +419,16 @@ var lh_inst  = {
     },
 
     initSessionStorage : function(){
+    	<?php if ($trackDomain == '') : ?>
     	if (sessionStorage && sessionStorage.getItem('lhc_ses')) {
     		this.cookieData = this.JSON.parse(sessionStorage.getItem('lhc_ses'));
     	} else {
+    	<?php endif;?>
 	    	var cookieData = lhc_Cookies('lhc_ses');
 			if ( typeof cookieData === "string" && cookieData ) {
 				this.cookieData = this.JSON.parse(cookieData);
 			}
-		}
+		<?php if ($trackDomain == '') : ?>}<?php endif;?>
     },
 
     storeReferrer : function(ref){
