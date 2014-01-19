@@ -9,6 +9,9 @@ http://livehelperchat.com/demo-12c.html
 ## Documentation
 http://livehelperchat.com/documentation-6c.html
 
+## Extensions
+https://github.com/remdex/livehelperchat-extensions
+
 ## Translations contribution
 https://www.transifex.com/projects/p/live-helper-chat/
 
