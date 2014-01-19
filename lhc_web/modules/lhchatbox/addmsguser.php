@@ -46,7 +46,7 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && strlen($form->msg)
 
 }
 
-echo json_encode(array('error' => 'false'));
+echo json_encode(array('error' => 'false','id' => $msg->id));
 exit;
 
 ?>
