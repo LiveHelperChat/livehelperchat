@@ -12,7 +12,6 @@ header('ETag: ' . $cacheKey);
 $iftag = isset($_SERVER['HTTP_IF_NONE_MATCH']) ? $_SERVER['HTTP_IF_NONE_MATCH'] == $cacheKey : null;
 if ($iftag === true)
 {
-	echo "asdad";exit;
 	header ("HTTP/1.0 304 Not Modified");
 	header ('Content-Length: 0');
 	exit;
