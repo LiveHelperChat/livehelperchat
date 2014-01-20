@@ -214,16 +214,21 @@ function lh(){
             if (inst.is_typing == false) {
                 inst.is_typing = true;
                 clearTimeout(inst.typing_timeout);
-                $.getJSON(www_dir + 'chat/operatortyping/' + chat_id+'/true',{ }, function(data){
-                   inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);},3000);
-                   
-                   if (LHCCallbacks.initTypingMonitoringAdmin) {
-                   		LHCCallbacks.initTypingMonitoringAdmin(chat_id,true);
-                   }
-                   
-                }).fail(function(){
-                	inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);},3000);
-                });
+                
+                if (LHCCallbacks.initTypingMonitoringAdminInform) {
+                	inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);},3000);   
+               		LHCCallbacks.initTypingMonitoringAdminInform({'chat_id':chat_id,'status':true});
+                } else {                
+	                $.getJSON(www_dir + 'chat/operatortyping/' + chat_id+'/true',{ }, function(data){
+	                   inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);},3000);                   
+	                   if (LHCCallbacks.initTypingMonitoringAdmin) {
+	                   		LHCCallbacks.initTypingMonitoringAdmin(chat_id,true);
+	                   }                   
+	                }).fail(function(){
+	                	inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);},3000);
+	                });
+                }
+                
             } else {
                  clearTimeout(inst.typing_timeout);
                  inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);},3000);
@@ -253,15 +258,20 @@ function lh(){
     this.typingStoppedOperator = function(chat_id) {
         var inst = this;
         if (inst.is_typing == true){
-            $.getJSON(this.wwwDir + 'chat/operatortyping/' + chat_id+'/false',{ }, function(data){
-                inst.is_typing = false;
-                
-                if (LHCCallbacks.initTypingMonitoringAdmin) {
-               		LHCCallbacks.initTypingMonitoringAdmin(chat_id,false);
-                };
-            }).fail(function(){
-            	inst.is_typing = false;
-            });
+        	
+        	if (LHCCallbacks.typingStoppedOperatorInform) {
+        		inst.is_typing = false;
+           		LHCCallbacks.typingStoppedOperatorInform({'chat_id':chat_id,'status':false});
+            } else {        	
+	            $.getJSON(this.wwwDir + 'chat/operatortyping/' + chat_id+'/false',{ }, function(data){
+	                inst.is_typing = false;                
+	                if (LHCCallbacks.initTypingMonitoringAdmin) {
+	               		LHCCallbacks.initTypingMonitoringAdmin(chat_id,false);
+	                };
+	            }).fail(function(){
+	            	inst.is_typing = false;
+	            });
+            }
         }
     };
 
@@ -303,28 +313,39 @@ function lh(){
             if (inst.is_typing == false) {
                 inst.is_typing = true;
                 clearTimeout(inst.typing_timeout);
-                $.postJSON(www_dir + 'chat/usertyping/' + chat_id+'/'+inst.hash+'/true',{msg:$(this).val()}, function(data){
-                   inst.typing_timeout = setTimeout(function(){inst.typingStoppedUser(chat_id);},3000);
-                   
-                   if (LHCCallbacks.initTypingMonitoringUser) {
-                   		LHCCallbacks.initTypingMonitoringUser(chat_id,true);
-                   };
-                   
-                }).fail(function(){
+                                
+                if (LHCCallbacks.initTypingMonitoringUserInform) {
                 	inst.typing_timeout = setTimeout(function(){inst.typingStoppedUser(chat_id);},3000);
-                });
+               		LHCCallbacks.initTypingMonitoringUserInform({'chat_id':chat_id,'hash':inst.hash,'status':true,msg:$(this).val()});               		
+                } else {               
+	                $.postJSON(www_dir + 'chat/usertyping/' + chat_id+'/'+inst.hash+'/true',{msg:$(this).val()}, function(data){
+	                   inst.typing_timeout = setTimeout(function(){inst.typingStoppedUser(chat_id);},3000);
+	                   
+	                   if (LHCCallbacks.initTypingMonitoringUser) {
+	                   		LHCCallbacks.initTypingMonitoringUser(chat_id,true);
+	                   };
+	                   
+	                }).fail(function(){
+	                	inst.typing_timeout = setTimeout(function(){inst.typingStoppedUser(chat_id);},3000);
+	                });
+                }
+                                
             } else {
                  clearTimeout(inst.typing_timeout);
                  inst.typing_timeout = setTimeout(function(){inst.typingStoppedUser(chat_id);},3000);
                  var txtArea = $(this).val();
                  if (inst.currentMessageText != txtArea ) {
                 	 if ( Math.abs(inst.currentMessageText.length - txtArea.length) > 6) {
-                		 inst.currentMessageText = txtArea;
-                		 $.postJSON(www_dir + 'chat/usertyping/' + chat_id+'/'+inst.hash+'/true',{msg:txtArea}, function(data){
-                			 if (LHCCallbacks.initTypingMonitoringUser) {
-                            		LHCCallbacks.initTypingMonitoringUser(chat_id,true);
-                             };
-                		 });
+                		 inst.currentMessageText = txtArea;                		 
+                		 if (LHCCallbacks.initTypingMonitoringUserInform) {                         	
+                        		LHCCallbacks.initTypingMonitoringUserInform({'chat_id':chat_id,'hash':inst.hash,'status':true,msg:txtArea});               		
+                         } else {                		 
+	                		 $.postJSON(www_dir + 'chat/usertyping/' + chat_id+'/'+inst.hash+'/true',{msg:txtArea}, function(data){
+	                			 if (LHCCallbacks.initTypingMonitoringUser) {
+	                            		LHCCallbacks.initTypingMonitoringUser(chat_id,true);
+	                             };
+	                		 });
+                		 }
                 	 }
                  }
             }
@@ -333,15 +354,20 @@ function lh(){
 
     this.typingStoppedUser = function(chat_id) {
         var inst = this;
-        if (inst.is_typing == true){
-            $.getJSON(this.wwwDir + 'chat/usertyping/' + chat_id+'/'+this.hash+'/false',{ }, function(data){
-                inst.is_typing = false;
-                if (LHCCallbacks.initTypingMonitoringUser) {
-            		LHCCallbacks.initTypingMonitoringUser(chat_id,false);
-                };
-            }).fail(function(){
-            	inst.is_typing = false;
-            });
+        if (inst.is_typing == true){        	
+        	if (LHCCallbacks.typingStoppedUserInform) {   
+        		inst.is_typing = false;
+        		LHCCallbacks.typingStoppedUserInform({'chat_id':chat_id,'hash':this.hash,'status':false});               		
+        	} else {        	        	
+	            $.getJSON(this.wwwDir + 'chat/usertyping/' + chat_id+'/'+this.hash+'/false',{ }, function(data){
+	                inst.is_typing = false;
+	                if (LHCCallbacks.initTypingMonitoringUser) {
+	            		LHCCallbacks.initTypingMonitoringUser(chat_id,false);
+	                };
+	            }).fail(function(){
+	            	inst.is_typing = false;
+	            });
+            }
         }
     };
 
@@ -749,6 +775,11 @@ function lh(){
 			if (inst.is_typing == false) {
 	            inst.is_typing = true;
 	            clearTimeout(inst.typing_timeout);
+	            
+	            if (LHCCallbacks.initTypingMonitoringAdminInform) {                
+               		LHCCallbacks.initTypingMonitoringAdminInform({'chat_id':chat_id,'status':true});
+                };
+	            
 	            $.getJSON(www_dir + 'chat/operatortyping/' + chat_id+'/true',{ }, function(data){
 	               if (LHCCallbacks.initTypingMonitoringAdmin) {
                    		LHCCallbacks.initTypingMonitoringAdmin(chat_id,true);
