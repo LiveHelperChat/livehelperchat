@@ -39,6 +39,11 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && strlen($form->msg)
         $Chat->last_user_msg_time = $msg->time = time();
         $Chat->has_unread_messages = 1;
         $Chat->updateThis();
+       
+       
+        // Just increase cache version upon message ad
+        CSCacheAPC::getMem()->increaseCacheVersion('chatbox_'.erLhcoreClassChatbox::getIdentifierByChatId($Chat->id));
+        
     } else {
 
     }

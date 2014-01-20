@@ -65,12 +65,11 @@
     <?php if ( isset($chat_widget_mode) && $chat_widget_mode == true ) : ?>
     lhinst.setWidgetMode(true);
 	<?php endif; ?>
-
-	$('#messagesBlock').animate({ scrollTop: $('#messagesBlock').prop('scrollHeight') }, 1000);
-
+	
+	$('#messagesBlock').scrollTop($('#messagesBlock').prop('scrollHeight'));
     // Start user chat synchronization
-    lhinst.chatsyncuserpending();
-    lhinst.syncusercall();
+    lhinst.chatsyncuserpending();    
+    lhinst.scheduleSync();
 
     $(window).bind('beforeunload', function(){
         lhinst.userclosedchat();

@@ -129,6 +129,9 @@ return array_merge(array (
 		'erLhcoreClassXMP'							=> 'lib/core/lhxmp/lhxmp.php',		
 		'erLhcoreClassModelChatAccept'				=> 'lib/models/lhchat/erlhcoreclassmodelchataccept.php',
 		
+		'erLhcoreClassLhMemcache'                   => 'lib/core/lhcore/lhmemcache.php',	
+		'erLhcoreClassLhRedis'                      => 'lib/core/lhcore/lhredis.php',
+		
 		'GeoIp2\Database\Reader'					=> 'lib/core/lhexternal/GeoIp2/Database/Reader.php',		
 		'GeoIp2\ProviderInterface'					=> 'lib/core/lhexternal/GeoIp2/ProviderInterface.php',	
 		'GeoIp2\Model\Country'						=> 'lib/core/lhexternal/GeoIp2/Model/Country.php',	

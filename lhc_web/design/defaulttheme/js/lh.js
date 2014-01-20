@@ -506,6 +506,11 @@ function lh(){
 	    	});
 	    }
 	};
+	
+	this.scheduleSync = function() {
+		this.syncroRequestSend = false;
+		this.userTimeout = setTimeout(chatsyncuser,confLH.chat_message_sinterval);
+	};
 
 	this.closeActiveChatDialog = function(chat_id, tabs, hidetab)
 	{

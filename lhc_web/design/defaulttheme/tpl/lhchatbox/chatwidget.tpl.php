@@ -50,8 +50,8 @@
     lhinst.setLastUserMessageID('<?php echo $lastMessageID;?>');
     lhinst.setWidgetMode(true);
     lhinst.setSyncUserURL('chatbox/syncuser/');
-	$('#messagesBlock').animate({ scrollTop: $('#messagesBlock').prop('scrollHeight') }, 1000);
-    lhinst.syncusercall();
+	$('#messagesBlock').scrollTop($('#messagesBlock').prop('scrollHeight'));
+    lhinst.scheduleSync();
 </script>
 <?php else : ?>
 <div class="alert-box alert round"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Chatbox is disabled.')?></div>

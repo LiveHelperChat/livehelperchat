@@ -39,6 +39,8 @@ class erLhcoreClassModelChatbox {
    		erLhcoreClassChatbox::getSession()->delete($this);
    }
 
+   
+   
    public function __get($var) {
 
        switch ($var) {
