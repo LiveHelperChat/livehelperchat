@@ -508,6 +508,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Remarks</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chats</source>
       <translation type="unfinished"/>
     </message>
@@ -529,6 +533,10 @@
     </message>
     <message>
       <source>Send delayed canned message instantly</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -1562,6 +1570,18 @@
     </message>
     <message>
       <source>Middle left side of the screen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disable minimize icon</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show chatbox content minimized first time if content is shown.</source>
       <translation type="unfinished"/>
     </message>
     <message>
