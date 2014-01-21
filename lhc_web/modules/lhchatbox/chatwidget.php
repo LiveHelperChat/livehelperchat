@@ -6,17 +6,6 @@ header('P3P: CP="NOI ADM DEV COM NAV OUR STP"');
 $cache = CSCacheAPC::getMem();
 $cacheKey = md5('chatbox_version_'.$cache->getCacheVersion('chatbox_'.(string)$Params['user_parameters_unordered']['identifier']).'_hash_'.(string)$Params['user_parameters_unordered']['hashchatbox'].erLhcoreClassChatbox::getVisitorName().'_height_'.(int)$Params['user_parameters_unordered']['chat_height'].'_sound_'.(int)$Params['user_parameters_unordered']['sound'].'_mode_'.(string)$Params['user_parameters_unordered']['mode'].'_siteaccess_'.erLhcoreClassSystem::instance()->SiteAccess);
 
-header('Cache-Control: must-revalidate'); // must-revalidate
-header('ETag: ' . $cacheKey);
-
-$iftag = isset($_SERVER['HTTP_IF_NONE_MATCH']) ? $_SERVER['HTTP_IF_NONE_MATCH'] == $cacheKey : null;
-if ($iftag === true)
-{
-	header ("HTTP/1.0 304 Not Modified");
-	header ('Content-Length: 0');
-	exit;
-}
-
 if (($Result = $cache->restore($cacheKey)) === false)
 {
 	$referer = '';
