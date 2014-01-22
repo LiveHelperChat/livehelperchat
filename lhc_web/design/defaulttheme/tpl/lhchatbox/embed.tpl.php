@@ -74,7 +74,7 @@ var lhc_ChatboxPage = {
 	    	this.cookieData[attr] = value;
 	    	this.storeSesCookie();
     	}
-   },
+   }
 };
 
 lhc_ChatboxPage.initSessionStorage();

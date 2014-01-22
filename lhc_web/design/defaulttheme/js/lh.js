@@ -5,6 +5,7 @@ function csrfSafeMethod(method) {
 
 $.ajaxSetup({
     crossDomain: false, // obviates need for sameOrigin test
+    cache: false,
     beforeSend: function(xhr, settings) {
         if (!csrfSafeMethod(settings.type)) {
             xhr.setRequestHeader("X-CSRFToken", confLH.csrf_token);
@@ -19,6 +20,8 @@ $.postJSON = function(url, data, callback) {
 
 /*Port FN accordion*/
 (function(e,t,n){"use strict";e.fn.foundationAccordion=function(t){var n=function(e){return e.hasClass("hover")&&!Modernizr.touch};e(document).on("mouseenter",".accordion-lhc li",function(){var t=e(this).parent();if(n(t)){var r=e(this).children(".content-lhc").first();e(".content-lhc",t).not(r).hide().parent("li").removeClass("active-lhc"),r.show(0,function(){r.parent("li").addClass("active-lhc")})}}),e(document).on("click.fndtn",".accordion-lhc li .title-lhc",function(){var t=e(this).closest("li"),r=t.parent();if(!n(r)){var i=t.children(".content-lhc").first();t.hasClass("active-lhc")?r.find("li").removeClass("active-lhc").end().find(".content-lhc").hide():(e(".content-lhc",r).not(i).hide().parent("li").removeClass("active-lhc"),i.show(0,function(){i.parent("li").addClass("active-lhc")}))}})}})(jQuery,this);
+
+var LHCCallbacks = {};
 
 function lh(){
 
@@ -172,6 +175,10 @@ function lh(){
     {
         this.chatsSynchronising.push(chat_id);
         this.chatsSynchronisingMsg.push(chat_id + ',' +message_id);
+        
+        if (LHCCallbacks.addSynchroChat) {
+        	LHCCallbacks.addSynchroChat(chat_id,message_id);
+        }
     };
 
     this.removeSynchroChat = function (chat_id)
@@ -186,6 +193,10 @@ function lh(){
             this.chatsSynchronisingMsg.splice(j, 1);
 
             } else { j++; }
+        };
+        
+        if (LHCCallbacks.removeSynchroChat) {
+        	LHCCallbacks.removeSynchroChat(chat_id);
         }
 
     };
@@ -203,11 +214,21 @@ function lh(){
             if (inst.is_typing == false) {
                 inst.is_typing = true;
                 clearTimeout(inst.typing_timeout);
-                $.getJSON(www_dir + 'chat/operatortyping/' + chat_id+'/true',{ }, function(data){
-                   inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);},3000);
-                }).fail(function(){
-                	inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);},3000);
-                });
+                
+                if (LHCCallbacks.initTypingMonitoringAdminInform) {
+                	inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);},3000);   
+               		LHCCallbacks.initTypingMonitoringAdminInform({'chat_id':chat_id,'status':true});
+                } else {                
+	                $.getJSON(www_dir + 'chat/operatortyping/' + chat_id+'/true',{ }, function(data){
+	                   inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);},3000);                   
+	                   if (LHCCallbacks.initTypingMonitoringAdmin) {
+	                   		LHCCallbacks.initTypingMonitoringAdmin(chat_id,true);
+	                   }                   
+	                }).fail(function(){
+	                	inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);},3000);
+	                });
+                }
+                
             } else {
                  clearTimeout(inst.typing_timeout);
                  inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);},3000);
@@ -237,11 +258,20 @@ function lh(){
     this.typingStoppedOperator = function(chat_id) {
         var inst = this;
         if (inst.is_typing == true){
-            $.getJSON(this.wwwDir + 'chat/operatortyping/' + chat_id+'/false',{ }, function(data){
-                inst.is_typing = false;
-            }).fail(function(){
-            	inst.is_typing = false;
-            });
+        	
+        	if (LHCCallbacks.typingStoppedOperatorInform) {
+        		inst.is_typing = false;
+           		LHCCallbacks.typingStoppedOperatorInform({'chat_id':chat_id,'status':false});
+            } else {        	
+	            $.getJSON(this.wwwDir + 'chat/operatortyping/' + chat_id+'/false',{ }, function(data){
+	                inst.is_typing = false;                
+	                if (LHCCallbacks.initTypingMonitoringAdmin) {
+	               		LHCCallbacks.initTypingMonitoringAdmin(chat_id,false);
+	                };
+	            }).fail(function(){
+	            	inst.is_typing = false;
+	            });
+            }
         }
     };
 
@@ -283,21 +313,39 @@ function lh(){
             if (inst.is_typing == false) {
                 inst.is_typing = true;
                 clearTimeout(inst.typing_timeout);
-                $.postJSON(www_dir + 'chat/usertyping/' + chat_id+'/'+inst.hash+'/true',{msg:$(this).val()}, function(data){
-                   inst.typing_timeout = setTimeout(function(){inst.typingStoppedUser(chat_id);},3000);
-                }).fail(function(){
+                                
+                if (LHCCallbacks.initTypingMonitoringUserInform) {
                 	inst.typing_timeout = setTimeout(function(){inst.typingStoppedUser(chat_id);},3000);
-                });
+               		LHCCallbacks.initTypingMonitoringUserInform({'chat_id':chat_id,'hash':inst.hash,'status':true,msg:$(this).val()});               		
+                } else {               
+	                $.postJSON(www_dir + 'chat/usertyping/' + chat_id+'/'+inst.hash+'/true',{msg:$(this).val()}, function(data){
+	                   inst.typing_timeout = setTimeout(function(){inst.typingStoppedUser(chat_id);},3000);
+	                   
+	                   if (LHCCallbacks.initTypingMonitoringUser) {
+	                   		LHCCallbacks.initTypingMonitoringUser(chat_id,true);
+	                   };
+	                   
+	                }).fail(function(){
+	                	inst.typing_timeout = setTimeout(function(){inst.typingStoppedUser(chat_id);},3000);
+	                });
+                }
+                                
             } else {
                  clearTimeout(inst.typing_timeout);
                  inst.typing_timeout = setTimeout(function(){inst.typingStoppedUser(chat_id);},3000);
                  var txtArea = $(this).val();
                  if (inst.currentMessageText != txtArea ) {
                 	 if ( Math.abs(inst.currentMessageText.length - txtArea.length) > 6) {
-                		 inst.currentMessageText = txtArea;
-                		 $.postJSON(www_dir + 'chat/usertyping/' + chat_id+'/'+inst.hash+'/true',{msg:txtArea}, function(data){
-
-                		 });
+                		 inst.currentMessageText = txtArea;                		 
+                		 if (LHCCallbacks.initTypingMonitoringUserInform) {                         	
+                        		LHCCallbacks.initTypingMonitoringUserInform({'chat_id':chat_id,'hash':inst.hash,'status':true,msg:txtArea});               		
+                         } else {                		 
+	                		 $.postJSON(www_dir + 'chat/usertyping/' + chat_id+'/'+inst.hash+'/true',{msg:txtArea}, function(data){
+	                			 if (LHCCallbacks.initTypingMonitoringUser) {
+	                            		LHCCallbacks.initTypingMonitoringUser(chat_id,true);
+	                             };
+	                		 });
+                		 }
                 	 }
                  }
             }
@@ -306,12 +354,20 @@ function lh(){
 
     this.typingStoppedUser = function(chat_id) {
         var inst = this;
-        if (inst.is_typing == true){
-            $.getJSON(this.wwwDir + 'chat/usertyping/' + chat_id+'/'+this.hash+'/false',{ }, function(data){
-                inst.is_typing = false;
-            }).fail(function(){
-            	inst.is_typing = false;
-            });
+        if (inst.is_typing == true){        	
+        	if (LHCCallbacks.typingStoppedUserInform) {   
+        		inst.is_typing = false;
+        		LHCCallbacks.typingStoppedUserInform({'chat_id':chat_id,'hash':this.hash,'status':false});               		
+        	} else {        	        	
+	            $.getJSON(this.wwwDir + 'chat/usertyping/' + chat_id+'/'+this.hash+'/false',{ }, function(data){
+	                inst.is_typing = false;
+	                if (LHCCallbacks.initTypingMonitoringUser) {
+	            		LHCCallbacks.initTypingMonitoringUser(chat_id,false);
+	                };
+	            }).fail(function(){
+	            	inst.is_typing = false;
+	            });
+            }
         }
     };
 
@@ -377,6 +433,56 @@ function lh(){
         return false;
     };
 
+    this.updateUserSyncInterface = function(inst,data)
+    {
+    	try {
+	        // If no error
+	        if (data.error == 'false')
+	        {
+	           if (data.blocked != 'true')
+	           {
+    	            if (data.result != 'false' && data.status == 'true')
+    	            {
+                			$('#messagesBlock').append(data.result);
+                			$('#messagesBlock').animate({ scrollTop: $('#messagesBlock').prop('scrollHeight') }, 1000);
+
+                			// If one the message owner is not current user play sound
+                			if ( confLH.new_message_sound_user_enabled == 1 && data.uw == 'false') {
+                			     inst.playNewMessageSound();
+                			};
+
+                			// Set last message ID
+                			inst.last_message_id = data.message_id;
+
+    	            } else {
+    	                if ( data.status != 'true') $('#status-chat').html(data.status);
+    	            }
+
+    	            inst.userTimeout = setTimeout(chatsyncuser,confLH.chat_message_sinterval);
+    	       	    	            
+        			if ( data.ott != '' ) {
+        				var instStatus = $('#id-operator-typing');
+        				instStatus.find('i').html(data.ott);
+        				instStatus.fadeIn();
+        				inst.operatorTyping = true;
+        			} else {
+        				inst.operatorTyping = false;
+        			    $('#id-operator-typing').fadeOut();
+        			}
+
+	           } else {
+	               $('#status-chat').html(data.status);
+	               $('#ChatMessageContainer').remove();
+	               $('#ChatSendButtonContainer').remove();
+	           }
+	        };
+        } catch(err) {		     
+        	inst.userTimeout = setTimeout(chatsyncuser,confLH.chat_message_sinterval);
+        };
+
+        inst.syncroRequestSend = false;
+    };
+    
     this.syncusercall = function()
 	{
 	    var inst = this;
@@ -387,58 +493,23 @@ function lh(){
 		    var modeWindow = this.isWidgetMode == true ? '/(mode)/widget' : '';
 		    var operatorTyping = this.operatorTyping == true ? '/(ot)/t' : '';
 		    $.getJSON(this.wwwDir + this.syncuser + this.chat_id + '/'+ this.last_message_id + '/' + this.hash + modeWindow + operatorTyping ,{ }, function(data){
-		    	
-		    	try {
-			        // If no error
-			        if (data.error == 'false')
-			        {
-			           if (data.blocked != 'true')
-			           {
-		    	            if (data.result != 'false' && data.status == 'true')
-		    	            {
-		                			$('#messagesBlock').append(data.result);
-		                			$('#messagesBlock').animate({ scrollTop: $('#messagesBlock').prop('scrollHeight') }, 1000);
-	
-		                			// If one the message owner is not current user play sound
-		                			if ( confLH.new_message_sound_user_enabled == 1 && data.uw == 'false') {
-		                			     inst.playNewMessageSound();
-		                			};
-	
-		                			// Set last message ID
-		                			inst.last_message_id = data.message_id;
-	
-		    	            } else {
-		    	                if ( data.status != 'true') $('#status-chat').html(data.status);
-		    	            }
-	
-		    	            inst.userTimeout = setTimeout(chatsyncuser,confLH.chat_message_sinterval);
-		    	       	    	            
-		        			if ( data.ott != '' ) {
-		        				var instStatus = $('#id-operator-typing');
-		        				instStatus.find('i').html(data.ott);
-		        				instStatus.fadeIn();
-		        				inst.operatorTyping = true;
-		        			} else {
-		        				inst.operatorTyping = false;
-		        			    $('#id-operator-typing').fadeOut();
-		        			}
-	
-			           } else {
-			               $('#status-chat').html(data.status);
-			               $('#ChatMessageContainer').remove();
-			               $('#ChatSendButtonContainer').remove();
-			           }
-			        };
-		        } catch(err) {		     
-		        	inst.userTimeout = setTimeout(chatsyncuser,confLH.chat_message_sinterval);
-		        };
-
-		        inst.syncroRequestSend = false;
+		    			    	
+		    	inst.updateUserSyncInterface(inst,data);
+		        
+		        if (LHCCallbacks.syncusercall) {
+	        		LHCCallbacks.syncusercall(inst,data);
+	        	};
+		        
 	    	}).fail(function(){
 	    		inst.syncroRequestSend = false;
 	    		inst.userTimeout = setTimeout(chatsyncuser,confLH.chat_message_sinterval);
 	    	});
 	    }
+	};
+	
+	this.scheduleSync = function() {
+		this.syncroRequestSend = false;
+		this.userTimeout = setTimeout(chatsyncuser,confLH.chat_message_sinterval);
 	};
 
 	this.closeActiveChatDialog = function(chat_id, tabs, hidetab)
@@ -667,12 +738,18 @@ function lh(){
 
 	this.userclosedchat = function()
 	{
+		if (LHCCallbacks.userleftchatNotification) {
+	       		LHCCallbacks.userleftchatNotification(this.chat_id);
+	    };
+		 
 	    $.ajax({
 	        type: "GET",
 	        url: this.wwwDir + this.userclosechaturl + this.chat_id + '/' + this.hash,
 	        cache: false,
 	        async: false
 	    });
+	    
+	   
 	};
 
 	this.userclosedchatembed = function()
@@ -684,9 +761,13 @@ function lh(){
 
 	this.userclosedchatandbrowser = function()
 	{
-		 $.get(this.wwwDir + this.userclosechaturl + this.chat_id + '/' + this.hash,function(data){
+		if (LHCCallbacks.userleftchatNotification) {
+	   		LHCCallbacks.userleftchatNotification(this.chat_id);
+	    };
+    
+		$.get(this.wwwDir + this.userclosechaturl + this.chat_id + '/' + this.hash,function(data){
 			lhinst.closeWindow();
-	     });
+	    });
 	};
 
 	this.sendCannedMessage = function(chat_id,link_inst)
@@ -699,7 +780,16 @@ function lh(){
 			if (inst.is_typing == false) {
 	            inst.is_typing = true;
 	            clearTimeout(inst.typing_timeout);
+	            
+	            if (LHCCallbacks.initTypingMonitoringAdminInform) {                
+               		LHCCallbacks.initTypingMonitoringAdminInform({'chat_id':chat_id,'status':true});
+                };
+	            
 	            $.getJSON(www_dir + 'chat/operatortyping/' + chat_id+'/true',{ }, function(data){
+	               if (LHCCallbacks.initTypingMonitoringAdmin) {
+                   		LHCCallbacks.initTypingMonitoringAdmin(chat_id,true);
+                   };
+                   
 	               inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);link_inst.removeClass('secondary');},(delayMiliseconds > 3000 ? delayMiliseconds : 3000));
 	            }).fail(function(){
 	            	inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);},3000);
@@ -716,6 +806,9 @@ function lh(){
 		    		};
 		    		$('#CSChatMessage-'+chat_id).val('');
 		    		$.postJSON(www_dir + inst.addmsgurl + chat_id, pdata , function(data){
+		    			if (LHCCallbacks.addmsgadmin) {
+		            		LHCCallbacks.addmsgadmin(chat_id);
+		            	};
 		    			lhinst.syncadmincall();
 		    			return true;
 		    		});
@@ -726,6 +819,9 @@ function lh(){
 	    		};
 	    		$('#CSChatMessage-'+chat_id).val('');
 	    		$.postJSON(this.wwwDir + this.addmsgurl + chat_id, pdata , function(data){
+	    			if (LHCCallbacks.addmsgadmin) {
+	            		LHCCallbacks.addmsgadmin(chat_id);
+	            	};
 	    			lhinst.syncadmincall();
 	    			return true;
 	    		});
@@ -913,10 +1009,15 @@ function lh(){
         	    	} catch (err) {        	    	
         	    		lhinst.userTimeout = setTimeout(chatsyncadmin,confLH.chat_message_sinterval);
 					};
-        	        
+        	        									
         	        //Allow another request to send check for messages
         	        lhinst.setSynchronizationRequestSend(false);
 
+        	        if (LHCCallbacks.syncadmincall) {
+    	        		LHCCallbacks.syncadmincall(lhinst,data);
+    	        	};
+        	        
+        	        
             	}).fail(function(){
             		lhinst.userTimeout = setTimeout(chatsyncadmin,confLH.chat_message_sinterval);
             		lhinst.setSynchronizationRequestSend(false);
@@ -1117,7 +1218,13 @@ function lh(){
 
 		$('#CSChatMessage-'+chat_id).val('');
 		$.postJSON(this.wwwDir + this.addmsgurl + chat_id, pdata , function(data){
+			
+			if (LHCCallbacks.addmsgadmin) {
+        		LHCCallbacks.addmsgadmin(chat_id);
+        	};
+        	
 			lhinst.syncadmincall();
+			
 			return true;
 		});
 	};
@@ -1136,7 +1243,11 @@ function lh(){
 		var inst = this;
 
         $.postJSON(this.wwwDir + this.addmsgurluserchatbox + this.chat_id + '/' + this.hash + modeWindow, pdata , function(data) {
-        	inst.syncusercall();
+	        	if (LHCCallbacks.addmsguserchatbox) {
+	        		LHCCallbacks.addmsguserchatbox(inst,data);
+	        	};
+        		inst.syncusercall();
+        	
 		});
 
         if (nickCurrent != $("#CSChatNick").val() && !!window.postMessage && parent) {
@@ -1156,6 +1267,9 @@ function lh(){
 		var inst = this;
 
         $.postJSON(this.wwwDir + this.addmsgurluser + this.chat_id + '/' + this.hash + modeWindow, pdata , function(data) {
+        	if (LHCCallbacks.addmsguser) {
+        		LHCCallbacks.addmsguser(inst,data);
+        	};
         	inst.syncusercall();
 		});
     };
@@ -1293,6 +1407,11 @@ function lh(){
                     data.submit();
                 };
        		},
+       		done: function(e,data) {       			
+       			if (LHCCallbacks.addFileUserUpload) {
+       	        	LHCCallbacks.addFileUserUpload(data_config.chat_id);
+       	        };			
+       		},
             progressall: function (e, data) {
                 var progress = parseInt(data.loaded / data.total * 100, 10);
                 $('#id-operator-typing').show();
@@ -1326,8 +1445,11 @@ function lh(){
                     data.submit();
                 };
        		},
-       		done: function(e,data) {
-       			lhinst.updateChatFiles(data_config.chat_id);
+       		done: function(e,data) {       			
+       			lhinst.updateChatFiles(data_config.chat_id); 
+       			if (LHCCallbacks.addFileUpload) {
+       	        	LHCCallbacks.addFileUpload(data_config.chat_id);
+       	        };
        		},
             dropZone: $('#drop-zone-'+data_config.chat_id),
             pasteZone: $('#CSChatMessage-'+data_config.chat_id),

@@ -508,6 +508,10 @@
       <translation>Ανανέωση</translation>
     </message>
     <message>
+      <source>Remarks</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chats</source>
       <translation>Συνομιλίες</translation>
     </message>
@@ -530,6 +534,10 @@
     <message>
       <source>Send delayed canned message instantly</source>
       <translation>Στείλτε την καθυστερημένη κονσερβοποιημένο μήνυμα αμέσως</translation>
+    </message>
+    <message>
+      <source>Messages</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -1563,6 +1571,18 @@
     <message>
       <source>Middle left side of the screen</source>
       <translation>Μεσαία αριστερή πλευρά της οθόνης</translation>
+    </message>
+    <message>
+      <source>Disable minimize icon</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show chatbox content minimized first time if content is shown.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>

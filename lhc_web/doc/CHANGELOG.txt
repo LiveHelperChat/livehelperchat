@@ -1,3 +1,48 @@
+1.80v
+
+Features
+1. Extension for Node.js enchancements. Moved typing monitoring to Node.js
+2. Chatbox Memcache and Redis support. Optimized for sites with a lot of visitors. Hundred of thousands. Chatbox will work with blazing speed then memcached and Node.js is used.
+
+Single server can handle 1K request per second. Not so bad :)
+
+Concurrency Level:      10
+Time taken for tests:   0.964 seconds
+Complete requests:      1000
+Failed requests:        0
+Write errors:           0
+Total transferred:      40933000 bytes
+HTML transferred:       40485000 bytes
+Requests per second:    1036.92 [#/sec] (mean)
+Time per request:       9.644 [ms] (mean)
+Time per request:       0.964 [ms] (mean, across all concurrent requests)
+Transfer rate:          41449.31 [Kbytes/sec] received
+
+3. Performance tweaks for chatwidget and startchat
+
+Upgrade.
+1. Adjust your settings/settings.ini.php and add the following section. Above 'site_access_options'
+'memecache' =>
+  		array (
+  				'servers' =>
+  				array (
+  						0 =>
+  						array (
+  								'host' => '127.0.0.1',
+  								'port' => '11211',
+  								'weight' => 1,
+  						),
+  				),
+  	),
+'redis' => array (
+  				'server' => array (
+  						'host' => 'localhost',
+  						'port' => 6379
+  				)
+),
+
+Have fun.
+
 1.79v
 
 Features

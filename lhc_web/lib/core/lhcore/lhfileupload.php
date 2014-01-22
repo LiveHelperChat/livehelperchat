@@ -50,7 +50,8 @@ class erLhcoreClassFileUpload extends UploadHandler {
         	if (strpos($name, '.') === false && preg_match('/^image\/(gif|jpe?g|png)/', $fileUpload->type, $matches)) {
         		$fileUpload->extension = $matches[1];
         	} else {
-        		$fileUpload->extension = end(explode('.', $fileUpload->upload_name));
+        		$partsFile = explode('.', $fileUpload->upload_name);
+        		$fileUpload->extension = end($partsFile);
         	}
 
         	$fileUpload->saveThis();

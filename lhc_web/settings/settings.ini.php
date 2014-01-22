@@ -61,6 +61,24 @@ return array (
         'new_message_sound_admin_enabled' => true,
         'new_message_sound_user_enabled' => true,
     ),
+  	'memecache' =>
+  		array (
+  				'servers' =>
+  				array (
+  						0 =>
+  						array (
+  								'host' => '127.0.0.1',
+  								'port' => '11211',
+  								'weight' => 1,
+  						),
+  				),
+  	),
+  	'redis' => array (
+  				'server' => array (
+  						'host' => 'localhost',
+  						'port' => 6379
+  				)
+  	),
     'db' =>
     array (
       'host' => '',

@@ -173,7 +173,16 @@ class erLhcoreClassChatbox {
     		$stmt->execute();
     	}
     }
-
+    
+    public static function getIdentifierByChatId($chat_id){
+    	
+    	$db = ezcDbInstance::get();
+    	$stmt = $db->prepare("SELECT identifier FROM `lh_chatbox` WHERE chat_id = :chat_id LIMIT 0,1");
+    	$stmt->bindValue(':chat_id',$chat_id);
+    	$stmt->execute();
+    	return $stmt->fetchColumn();
+    }
+    
     public static function getList($paramsSearch = array(), $class = 'erLhcoreClassModelChatbox', $tableName = 'lh_chatbox')
     {
 	       $paramsDefault = array('limit' => 32, 'offset' => 0);

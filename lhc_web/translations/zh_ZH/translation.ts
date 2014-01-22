@@ -508,6 +508,10 @@
       <translation>刷新</translation>
     </message>
     <message>
+      <source>Remarks</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chats</source>
       <translation>聊天</translation>
     </message>
@@ -530,6 +534,10 @@
     <message>
       <source>Send delayed canned message instantly</source>
       <translation>發送延遲罐頭消息瞬間</translation>
+    </message>
+    <message>
+      <source>Messages</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -693,11 +701,11 @@
     </message>
     <message>
       <source>I accept my personal data will be handled according to</source>
-      <translation type="unfinished"/>
+      <translation>我接受我的个人数据将根据处理</translation>
     </message>
     <message>
       <source>our terms and to the Law</source>
-      <translation type="unfinished"/>
+      <translation>我们的条款和法律</translation>
     </message>
     <message>
       <source>Department</source>
@@ -757,7 +765,7 @@
     </message>
     <message>
       <source>You have to accept our Terms Of Service</source>
-      <translation type="unfinished"/>
+      <translation>你必须要接受我们的服务条款</translation>
     </message>
     <message>
       <source>Please enter your phone</source>
@@ -773,7 +781,7 @@
     </message>
     <message>
       <source>is required</source>
-      <translation type="unfinished"/>
+      <translation>需要</translation>
     </message>
     <message>
       <source>Live Support</source>
@@ -950,31 +958,31 @@
     </message>
     <message>
       <source>Use MaxMind, does not depend on any third party remote service</source>
-      <translation type="unfinished"/>
+      <translation>使用 MaxMind，不依赖于任何第三方远程服务</translation>
     </message>
     <message>
       <source>You can download city/country database from.</source>
-      <translation type="unfinished"/>
+      <translation>您可以下载从城市/国家数据库。</translation>
     </message>
     <message>
       <source>bcmath php extension detected</source>
-      <translation type="unfinished"/>
+      <translation>检测到的 bcmath php 扩展</translation>
     </message>
     <message>
       <source>User country based detection, faster</source>
-      <translation type="unfinished"/>
+      <translation>用户国家基于检测，速度更快</translation>
     </message>
     <message>
       <source>File exists</source>
-      <translation type="unfinished"/>
+      <translation>文件已存在</translation>
     </message>
     <message>
       <source>File does not exists</source>
-      <translation type="unfinished"/>
+      <translation>文件不存在</translation>
     </message>
     <message>
       <source>User city based detection, slower</source>
-      <translation type="unfinished"/>
+      <translation>用户城市基于检测，速度较慢</translation>
     </message>
     <message>
       <source>Requests will be comming from</source>
@@ -1246,15 +1254,15 @@
     </message>
     <message>
       <source>MaxMind city file does not exists!</source>
-      <translation type="unfinished"/>
+      <translation>MaxMind 城市文件不存在 ！</translation>
     </message>
     <message>
       <source>MaxMind country file does not exists!</source>
-      <translation type="unfinished"/>
+      <translation>MaxMind 国家文件不存在 ！</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that MaxMind database files exists!</source>
-      <translation type="unfinished"/>
+      <translation>设置服务提供程序失败，请检查 MaxMind 数据库文件存在 ！</translation>
     </message>
     <message>
       <source>Please enter the API key!</source>
@@ -1565,6 +1573,18 @@
       <translation>屏幕左侧中东</translation>
     </message>
     <message>
+      <source>Disable minimize icon</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show chatbox content minimized first time if content is shown.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
       <translation>複製代碼從文本區的頁腳，前收盤&amp;lt;/body&amp;gt; 標記</translation>
     </message>
@@ -1727,11 +1747,11 @@
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>部门</translation>
     </message>
     <message>
       <source>User</source>
-      <translation type="unfinished"/>
+      <translation>用户</translation>
     </message>
     <message>
       <source>Search</source>
@@ -1739,11 +1759,11 @@
     </message>
     <message>
       <source>Select department</source>
-      <translation type="unfinished"/>
+      <translation>选择部门</translation>
     </message>
     <message>
       <source>Select user</source>
-      <translation type="unfinished"/>
+      <translation>选择用户</translation>
     </message>
   </context>
   <context>
@@ -1915,7 +1935,7 @@
     </message>
     <message>
       <source>Online form settings</source>
-      <translation type="unfinished"/>
+      <translation>联机窗体设置</translation>
     </message>
     <message>
       <source>Name</source>
@@ -1955,15 +1975,15 @@
     </message>
     <message>
       <source>Terms of service acceptance checkbox</source>
-      <translation type="unfinished"/>
+      <translation>服务接受复选框的职权范围</translation>
     </message>
     <message>
       <source>Offline form settings</source>
-      <translation type="unfinished"/>
+      <translation>脱机表单设置</translation>
     </message>
     <message>
       <source>E-mail is always required</source>
-      <translation type="unfinished"/>
+      <translation>电子邮件始终是必需的</translation>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>
@@ -2022,19 +2042,19 @@
     </message>
     <message>
       <source>Long polling</source>
-      <translation type="unfinished"/>
+      <translation>长轮询</translation>
     </message>
     <message>
       <source>Enable long polling</source>
-      <translation type="unfinished"/>
+      <translation>启用长轮询</translation>
     </message>
     <message>
       <source>How many seconds keep connection to server?</source>
-      <translation type="unfinished"/>
+      <translation>多少秒保持连接到服务器？</translation>
     </message>
     <message>
       <source>New chat request notification settings</source>
-      <translation type="unfinished"/>
+      <translation>新的聊天请求通知设置</translation>
     </message>
     <message>
       <source>Play a new pending chat sound on a new chat request</source>
@@ -2078,7 +2098,7 @@
     </message>
     <message>
       <source>Please enter a valid server connection timeout value!</source>
-      <translation type="unfinished"/>
+      <translation>请输入一个有效的服务器连接超时值 ！</translation>
     </message>
     <message>
       <source>Please enter a valid operator message timeout value!</source>
@@ -2086,7 +2106,7 @@
     </message>
     <message>
       <source>Please enter a valid new messages polling sync interval!</source>
-      <translation type="unfinished"/>
+      <translation>请输入有效的新邮件，轮询间隔同步 ！</translation>
     </message>
     <message>
       <source>Please enter a valid back office sync interval!</source>
