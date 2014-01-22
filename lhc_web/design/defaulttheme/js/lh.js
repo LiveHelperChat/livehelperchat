@@ -40,7 +40,8 @@ function lh(){
     this.userclosechaturl = "chat/userclosechat/";
     this.disableremember = false;
     this.operatorTyping = false;
-
+    this.appendSyncArgument = '';
+    
     // On chat hash and chat_id is based web user chating. Hash make sure chat security.
     this.chat_id = null;
     this.hash = null;
@@ -452,7 +453,9 @@ function lh(){
                 			};
 
                 			// Set last message ID
-                			inst.last_message_id = data.message_id;
+                			if (parseInt(data.message_id) > parseInt(inst.last_message_id)){
+                				inst.last_message_id = data.message_id;
+                			}
 
     	            } else {
     	                if ( data.status != 'true') $('#status-chat').html(data.status);
@@ -1241,12 +1244,14 @@ function lh(){
         var modeWindow = this.isWidgetMode == true ? '/(mode)/widget' : '';
 		$('#CSChatMessage').val('');
 		var inst = this;
-
-        $.postJSON(this.wwwDir + this.addmsgurluserchatbox + this.chat_id + '/' + this.hash + modeWindow, pdata , function(data) {
-	        	if (LHCCallbacks.addmsguserchatbox) {
-	        		LHCCallbacks.addmsguserchatbox(inst,data);
+		
+        $.postJSON(this.wwwDir + this.addmsgurluserchatbox + this.chat_id + '/' + this.hash + modeWindow + this.appendSyncArgument, pdata , function(data) {
+	        	        	
+        		if (LHCCallbacks.addmsguserchatbox) {
+        			LHCCallbacks.addmsguserchatbox(inst,{chat_id:inst.chat_id,data:data});
 	        	};
-        		inst.syncusercall();
+	        		        	
+	        	inst.syncusercall();       		
         	
 		});
 

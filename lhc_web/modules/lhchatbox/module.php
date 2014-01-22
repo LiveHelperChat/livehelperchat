@@ -25,7 +25,7 @@ $ViewList['syncuser'] = array(
 $ViewList['addmsguser'] = array(
 		'script' => 'addmsguser.php',
 		'params' => array('chat_id','hash'),
-		'uparams' => array('mode'),
+		'uparams' => array('mode','render'),
 );
 
 $ViewList['view'] = array(

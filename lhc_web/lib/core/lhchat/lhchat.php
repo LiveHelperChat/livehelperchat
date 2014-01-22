@@ -776,6 +776,22 @@ class erLhcoreClassChat {
 
        return $rows;
    }
+   
+   /**
+    * Get last message for chatbox
+    *
+    * */
+   public static function getGetLastChatMessage($chat_id)
+   {
+       $db = ezcDbInstance::get();
+       $stmt = $db->prepare('SELECT lh_msg.* FROM lh_msg INNER JOIN ( SELECT id FROM lh_msg WHERE chat_id = :chat_id ORDER BY id DESC LIMIT 0,1) AS items ON lh_msg.id = items.id');
+       $stmt->bindValue( ':chat_id',$chat_id);
+       $stmt->setFetchMode(PDO::FETCH_ASSOC);
+       $stmt->execute();
+       $row = $stmt->fetch();
+
+       return $row;
+   }
 
 
    /**
