@@ -452,10 +452,9 @@ function lh(){
                 			     inst.playNewMessageSound();
                 			};
 
-                			// Set last message ID
-                			if (parseInt(data.message_id) > parseInt(inst.last_message_id)){
-                				inst.last_message_id = data.message_id;
-                			}
+                			// Set last message ID                			
+                			inst.last_message_id = data.message_id;
+                			
 
     	            } else {
     	                if ( data.status != 'true') $('#status-chat').html(data.status);
