@@ -23,8 +23,8 @@ if ( isset($_POST['SendMessage']) ) {
         $msg->msg = $form->Message;
     }
 
-    if ($form->hasValidData( 'Message' ) && $form->Message != '' && strlen($form->Message) > 500) {
-        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum 500 characters for message');
+    if ($form->hasValidData( 'Message' ) && $form->Message != '' && mb_strlen($form->Message) > (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value) {
+        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum').' '.(int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','characters for a message');
     }
 
     if (count($Errors) == 0) {

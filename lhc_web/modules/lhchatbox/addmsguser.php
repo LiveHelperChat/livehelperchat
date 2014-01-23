@@ -15,8 +15,9 @@ $partsReturn = array();
 $partsReturn['or'] = '';
 $partsReturn['ur'] = '';
 $sender = '';
+$error = 'f';
 
-if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && strlen($form->msg) < 500)
+if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && mb_strlen($form->msg) < (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value)
 {
     $Chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
 
@@ -58,14 +59,12 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && strlen($form->msg)
         // Just increase cache version upon message ad
         CSCacheAPC::getMem()->increaseCacheVersion('chatbox_'.erLhcoreClassChatbox::getIdentifierByChatId($Chat->id));
  
-    } else {
-
     }
 } else {
-
+	$error = 't';	
 }
 
-echo json_encode(array('error' => 'false','id' => $msg->id,'or' => $partsReturn['or'],'ur' => $partsReturn['ur'],'sender' => $sender));
+echo json_encode(array('error' => $error,'id' => $msg->id,'or' => $partsReturn['or'],'ur' => $partsReturn['ur'],'sender' => $sender));
 exit;
 
 ?>

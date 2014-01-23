@@ -91,6 +91,9 @@
 		    <?php $attribute = 'voting_days_limit'?>
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 		    
+		    <?php $attribute = 'max_message_length'?>
+		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+		    
 		    <?php $attribute = 'session_captcha'?>
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 		    		    		    

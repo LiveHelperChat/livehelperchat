@@ -115,7 +115,7 @@ if ($votingRelative !== false) {
 		$form = new ezcInputForm( INPUT_POST, $definition );
 		$Errors = array();
 
-		if ( $form->hasValidData( 'feedBack' ) && $form->feedBack != '' && strlen($form->feedBack) < 500)
+		if ( $form->hasValidData( 'feedBack' ) && $form->feedBack != '' && mb_strlen($form->feedBack) < (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value)
 		{
 			$answer->answer = $form->feedBack;
 		} else {
