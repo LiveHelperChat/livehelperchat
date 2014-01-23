@@ -1250,13 +1250,16 @@ function lh(){
 		var inst = this;
 		
         $.postJSON(this.wwwDir + this.addmsgurluserchatbox + this.chat_id + '/' + this.hash + modeWindow + this.appendSyncArgument, pdata , function(data) {
-	        	        	
-        		if (LHCCallbacks.addmsguserchatbox) {
-        			LHCCallbacks.addmsguserchatbox(inst,{chat_id:inst.chat_id,data:data});
-	        	};
-	        		        	
-	        	inst.syncusercall();       		
-        	
+	        	    
+        		if (data.error == 'f') {        	
+	        		if (LHCCallbacks.addmsguserchatbox) {
+	        			LHCCallbacks.addmsguserchatbox(inst,{chat_id:inst.chat_id,data:data});
+		        	};
+		        		        	
+		        	inst.syncusercall();  
+	        	} else {
+	        		alert(data.or);
+	        	}        	
 		});
 
         if (nickCurrent != $("#CSChatNick").val() && !!window.postMessage && parent) {
@@ -1276,10 +1279,19 @@ function lh(){
 		var inst = this;
 
         $.postJSON(this.wwwDir + this.addmsgurluser + this.chat_id + '/' + this.hash + modeWindow, pdata , function(data) {
-        	if (LHCCallbacks.addmsguser) {
-        		LHCCallbacks.addmsguser(inst,data);
-        	};
-        	inst.syncusercall();
+        	
+        	if (data.error == 'f'){
+	        	if (LHCCallbacks.addmsguser) {
+	        		LHCCallbacks.addmsguser(inst,data);
+	        	};
+	        	
+	        	inst.syncusercall();
+        	} else {
+        		$('#CSChatMessage').val(pdata.msg);
+        		var instStatus = $('#id-operator-typing');
+				instStatus.find('i').html(data.r);
+				instStatus.fadeIn();				
+        	}
 		});
     };
 

@@ -58,13 +58,17 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && mb_strlen($form->m
 
         // Just increase cache version upon message ad
         CSCacheAPC::getMem()->increaseCacheVersion('chatbox_'.erLhcoreClassChatbox::getIdentifierByChatId($Chat->id));
- 
+        
+        echo json_encode(array('error' => $error,'id' => $msg->id,'or' => $partsReturn['or'],'ur' => $partsReturn['ur'],'sender' => $sender));
+        exit;
     }
 } else {
-	$error = 't';	
+	$error = 't';
+	$partsReturn['or'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a message, max characters').' - '.(int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value;
+	echo json_encode(array('error' => $error,'or' => $partsReturn['or']));
+	exit;
 }
 
-echo json_encode(array('error' => $error,'id' => $msg->id,'or' => $partsReturn['or'],'ur' => $partsReturn['ur'],'sender' => $sender));
-exit;
+
 
 ?>

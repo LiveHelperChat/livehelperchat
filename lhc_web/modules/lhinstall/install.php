@@ -237,6 +237,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
 				  `nick` varchar(50) NOT NULL,
 				  `status` int(11) NOT NULL DEFAULT '0',
+				  `status_sub` int(11) NOT NULL DEFAULT '0',
 				  `time` int(11) NOT NULL,
 				  `user_id` int(11) NOT NULL,
 				  `hash` varchar(40) NOT NULL,

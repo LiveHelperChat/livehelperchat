@@ -3,8 +3,11 @@
 Features
 1. Option to set explicit http mode either http or https. Usefull if chat is running on https and site on http. 
 By default we previously just heritage site mode. Now you can explicty define how data should be transfered http or https.
+2. Maximum message length for a message. Changable in chat configuration.
+3. Added to long message notifications.
 
-
+Bugfix
+After chat was transfered to another user. Operator profile did not changed. Now it does.
 
 execute doc/update_db/update_61.sql for update
 
