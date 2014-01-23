@@ -675,6 +675,11 @@ function lh(){
 		var inst = this;
 	    $.getJSON(this.wwwDir + this.accepttransfer + transfer_id ,{}, function(data){
 	    	inst.startChat(chat_id,tabs,name);
+	    	
+	    	if (LHCCallbacks.operatorAcceptedTransfer) {
+	       		LHCCallbacks.operatorAcceptedTransfer(chat_id);
+	    	};
+	    	
 	    }).fail(function(){
 	    	inst.startChat(chat_id,tabs,name);
 	    });
@@ -683,7 +688,9 @@ function lh(){
 	this.startChatNewWindowTransfer = function(chat_id,name,transfer_id)
 	{
 		$.getJSON(this.wwwDir + this.accepttransfer + transfer_id ,{}, function(data){
-
+			if (LHCCallbacks.operatorAcceptedTransfer) {
+	       		LHCCallbacks.operatorAcceptedTransfer(chat_id);
+	    	};
 		});
 		return this.startChatNewWindow(chat_id,name);
 	};
@@ -691,6 +698,9 @@ function lh(){
 	this.startChatNewWindowTransferByTransfer = function(transfer_id)
 	{
 	    window.open(this.wwwDir + 'chat/accepttransfer/'+transfer_id+'/(postaction)/singlewindow','chatwindow-'+transfer_id,"menubar=1,resizable=1,width=780,height=450");
+	    if (LHCCallbacks.operatorAcceptedTransfer) {
+       		LHCCallbacks.operatorAcceptedTransfer(chat_id);
+    	};
 	    this.syncadmininterfacestatic();
         return false;
 	};
@@ -838,9 +848,16 @@ function lh(){
 	};
 
 	this.voteAction = function(inst) {
+		
+		var chat_id = this.chat_id;
+		
 		$.postJSON(this.wwwDir + 'chat/voteaction/' + this.chat_id + '/' + this.hash + '/' + inst.attr('data-id') ,{}, function(data){
 			if (data.error == 'false')
 	        {
+				if (LHCCallbacks.uservoted) {
+            		LHCCallbacks.uservoted(chat_id);
+            	};
+				
 				if (data.status == 0) {
 					$('.icon-thumbs-up').removeClass('up-voted');
 					$('.icon-thumbs-down').removeClass('down-voted');
