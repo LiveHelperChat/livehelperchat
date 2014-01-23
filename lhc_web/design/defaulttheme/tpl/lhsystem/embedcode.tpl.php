@@ -25,7 +25,15 @@
 			<?php endforeach; ?>
 		</select>
 	</div>
-
+	
+   <div class="columns large-6 end">
+	   <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Choose prefered http mode');?></label>
+		    <select id="HttpMode">         
+		            <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Based on site (default)');?></option>
+		            <option value="http:">http:</option>
+		            <option value="https:">https:</option>      
+		    </select>    	    
+    </div>
 </div>
 
 
@@ -48,7 +56,7 @@ function generateEmbedCode() {
       'LHCChatOptionsPage.opt = {};\n'+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
-        'po.src = \'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chat/getstatusembed'+id_hide_then_offline+id_show_leave_form+id_department+'\';'+"\n"+
+        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chat/getstatusembed'+id_hide_then_offline+id_show_leave_form+id_department+'\';'+"\n"+
         'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);'+"\n"+
       '})();'+"\n"+
     '</scr'+'ipt>';
@@ -56,7 +64,7 @@ function generateEmbedCode() {
     $('#HMLTContent').text(id_tag+script);
 };
 
-$('#LocaleID,#id_show_leave_form,#DepartmentID').change(function(){
+$('#LocaleID,#id_show_leave_form,#DepartmentID,#HttpMode').change(function(){
     generateEmbedCode();
 });
 

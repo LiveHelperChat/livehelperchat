@@ -417,8 +417,17 @@ class erLhcoreClassTemplate {
 				$contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
 			}
 
-
-			// Compile config settings
+			// Compile config completely
+            $Matches = array();
+            preg_match_all('/<\?php echo erLhcoreClassModelChatConfig::fetch\((\s?)\'([a-zA-Z0-9-\.-\/\_]+)\'(\s?)\)->current_value(.*?)\?\>/i',$contentFile,$Matches);
+            foreach ($Matches[1] as $key => $UrlAddress)
+            {
+                $valueConfig = erLhcoreClassModelChatConfig::fetch($Matches[2][$key])->current_value;             
+                $contentFile = str_replace($Matches[0][$key],$valueConfig,$contentFile);
+            }
+            
+            
+			// Compile config settings in php scripts
             $Matches = array();
             preg_match_all('/erLhcoreClassModelChatConfig::fetch\((\s?)\'([a-zA-Z0-9-\.-\/\_]+)\'(\s?)\)->current_value/i',$contentFile,$Matches);
             foreach ($Matches[1] as $key => $UrlAddress)
@@ -428,6 +437,9 @@ class erLhcoreClassTemplate {
                 $valueReplace = '\''.str_replace("'","\'",$valueConfig).'\'';
                 $contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
             }
+            
+            
+            
 
 			// Compile config settings array
             $Matches = array();

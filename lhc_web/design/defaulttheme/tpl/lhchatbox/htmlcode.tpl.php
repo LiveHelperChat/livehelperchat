@@ -58,6 +58,14 @@
                <option value="middle_left"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Middle left side of the screen');?></option>
         </select>
     </div>
+    <div class="columns large-6 end">
+	   		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Choose prefered http mode');?></label>
+		    <select id="HttpMode">         
+		            <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Based on site (default)');?></option>
+		            <option value="http:">http:</option>
+		            <option value="https:">https:</option>      
+		    </select>    	    
+    </div>
 </div>
 <label><input type="checkbox" id="DisableMiminize" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Disable minimize icon');?></label>   
 <label><input type="checkbox" id="ShowContent" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Show chatbox content instead of widget, users will be able only minimize, not close it.');?></label>       
@@ -86,13 +94,13 @@ function generateEmbedCode(){
     var script = '<script type="text/javascript">'+"\nvar LHCChatboxOptions = {hashchatbox:'empty',identifier:'default',status_text:'"+textStatus+"'};\n"+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
-        'po.src = \'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chatbox/getstatus'+id_position+top+topposition+widthwidget+heightwidget+chat_height+show_content+show_min+dis_min+"';\n"+
+        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chatbox/getstatus'+id_position+top+topposition+widthwidget+heightwidget+chat_height+show_content+show_min+dis_min+"';\n"+
         'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);'+"\n"+
       '})();'+"\n"+
     '</scr'+'ipt>';
     $('#HMLTContent').text(script);
 };
-$('#LocaleID,#PositionID,#id_status_text,#UnitsTop,#id_top_text,#id_width_text,#id_height_text,#id_chat_height,#ShowContent,#ShowContentMinimized,#DisableMiminize').change(function(){
+$('#LocaleID,#PositionID,#HttpMode,#id_status_text,#UnitsTop,#id_top_text,#id_width_text,#id_height_text,#id_chat_height,#ShowContent,#ShowContentMinimized,#DisableMiminize').change(function(){
     generateEmbedCode();
 });
 generateEmbedCode();

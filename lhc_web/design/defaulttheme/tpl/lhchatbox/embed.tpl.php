@@ -7,7 +7,7 @@ var lhc_ChatboxPage = {
 
 	showVotingForm : function() {
 
-   		  this.initial_iframe_url = "//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chatbox/chatwidget')?>/(chat_height)/<?php echo $heightchatcontent;?>/(mode)/embed/(identifier)/"+LHCChatboxOptionsEmbed.identifier+'/(hashchatbox)/'+LHCChatboxOptionsEmbed.hashchatbox+this.getAppendCookieArguments()+'?URLReferer='+escape(document.location)+this.getAppendRequestArguments();
+   		  this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chatbox/chatwidget')?>/(chat_height)/<?php echo $heightchatcontent;?>/(mode)/embed/(identifier)/"+LHCChatboxOptionsEmbed.identifier+'/(hashchatbox)/'+LHCChatboxOptionsEmbed.hashchatbox+this.getAppendCookieArguments()+'?URLReferer='+escape(document.location)+this.getAppendRequestArguments();
 
    		  this.iframe_html = '<iframe id="lhc_sizing_chatbox_page" allowTransparency="true" scrolling="no" frameborder="0" ' +
                        ( this.initial_iframe_url != '' ? ' src="'    + this.initial_iframe_url + '"' : '' ) +

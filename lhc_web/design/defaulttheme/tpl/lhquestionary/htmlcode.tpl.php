@@ -35,7 +35,7 @@
 	      	<input type="text" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Height')?>" id="id_height_text" value="300" />
 	      </div>
 	    </div>
-	</div>
+	</div>	
 </div>
 
 
@@ -56,6 +56,14 @@
                <option value="middle_right"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Middle right side of the screen');?></option>
                <option value="middle_left"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Middle left side of the screen');?></option>
         </select>
+    </div>
+    <div class="columns large-6 end">
+	   		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Choose prefered http mode');?></label>
+		    <select id="HttpMode">         
+		            <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Based on site (default)');?></option>
+		            <option value="http:">http:</option>
+		            <option value="https:">https:</option>      
+		    </select>    	    
     </div>
 </div>
 
@@ -78,13 +86,13 @@ function generateEmbedCode(){
     var script = '<script type="text/javascript">'+"\nvar LHCVotingOptions = {status_text:'"+textStatus+"'};\n"+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
-        'po.src = \'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'questionary/getstatus'+id_position+id_show_widget_on_open+top+topposition+widthwidget+heightwidget+"';\n"+
+        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'questionary/getstatus'+id_position+id_show_widget_on_open+top+topposition+widthwidget+heightwidget+"';\n"+
         'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);'+"\n"+
       '})();'+"\n"+
     '</scr'+'ipt>';
     $('#HMLTContent').text(script);
 };
-$('#LocaleID,#PositionID,#id_show_widget_on_open,#id_status_text,#UnitsTop,#id_top_text,#id_width_text,#id_height_text').change(function(){
+$('#LocaleID,#PositionID,#id_show_widget_on_open,#id_status_text,#UnitsTop,#id_top_text,#id_width_text,#id_height_text,#HttpMode').change(function(){
     generateEmbedCode();
 });
 generateEmbedCode();

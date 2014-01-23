@@ -13,6 +13,14 @@
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Chatbox messages content height');?></label>
 	    <input type="text" id="id_chat_height" value="220" />
 	</div>
+	<div class="columns large-6 end">
+	   		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Choose prefered http mode');?></label>
+		    <select id="HttpMode">         
+		            <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Based on site (default)');?></option>
+		            <option value="http:">http:</option>
+		            <option value="https:">https:</option>      
+		    </select>    	    
+    </div>
 </div>
 
 <p class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Copy the code from the text area to the page where you want it to be rendered');?></p>
@@ -31,14 +39,14 @@ function generateEmbedCode(){
     var script = '<script type="text/javascript">'+"\nvar LHCChatboxOptionsEmbed = {hashchatbox:'empty',identifier:'default'};\n"+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
-        'po.src = \'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chatbox/embed'+chat_height+"';\n"+
+        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chatbox/embed'+chat_height+"';\n"+
         'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);'+"\n"+
       '})();'+"\n"+
     '</scr'+'ipt>';
     $('#HMLTContent').text(id_tag+script);
 };
 
-$('#LocaleID,#id_chat_height').change(function(){
+$('#LocaleID,#id_chat_height,#HttpMode').change(function(){
     generateEmbedCode();
 });
 generateEmbedCode();

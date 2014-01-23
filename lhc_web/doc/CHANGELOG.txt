@@ -1,3 +1,13 @@
+1.81v
+
+Features
+1. Option to set explicit http mode either http or https. Usefull if chat is running on https and site on http. 
+By default we previously just heritage site mode. Now you can explicty define how data should be transfered http or https.
+
+
+
+execute doc/update_db/update_61.sql for update
+
 1.80v
 
 Features
