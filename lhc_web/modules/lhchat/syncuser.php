@@ -17,7 +17,9 @@ $blocked = 'false';
 $ott = '';
 $LastMessageID = 0;
 $userOwner = 'true';
+$checkStatus = 'f';
 $breakSync = false;
+$saveChat = false;
 
 if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 {
@@ -86,6 +88,16 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 	    	$breakSync = true;
 	    }
 
+	   // if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED) {
+	    	$checkStatus = 't';
+	    //	$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_DEFAULT;
+	    //	$saveChat = true;
+	    //}
+	    
+	    if ($saveChat === true) {
+	    	$chat->updateThis();
+	    }
+	    
 	    if ($pollingEnabled == false || $breakSync == true || ($pollingServerTimeout + $timeCurrent) < time() ) {	    	
 	    	break;
 	    } else {
@@ -104,7 +116,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
     $blocked = 'true';
 }
 
-echo json_encode(array('error' => 'false', 'uw' => $userOwner, 'ott' => $ott, 'message_id' => $LastMessageID, 'result' => trim($content) == '' ? 'false' : trim($content), 'status' => $status, 'blocked' => $blocked ));
+echo json_encode(array('error' => 'false', 'uw' => $userOwner, 'cs'=> $checkStatus, 'ott' => $ott, 'message_id' => $LastMessageID, 'result' => trim($content) == '' ? 'false' : trim($content), 'status' => $status, 'blocked' => $blocked ));
 exit;
 
 ?>

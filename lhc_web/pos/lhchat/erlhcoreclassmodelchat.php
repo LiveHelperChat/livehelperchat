@@ -14,10 +14,21 @@ $def->properties['nick']->columnName   = 'nick';
 $def->properties['nick']->propertyName = 'nick';
 $def->properties['nick']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+/**
+ * Main chat status
+ * */
 $def->properties['status'] = new ezcPersistentObjectProperty();
 $def->properties['status']->columnName   = 'status';
 $def->properties['status']->propertyName = 'status';
 $def->properties['status']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+/**
+ * Sub status, used for informing about changed owner. Can be used in the future for more actions
+ * */
+$def->properties['status_sub'] = new ezcPersistentObjectProperty();
+$def->properties['status_sub']->columnName   = 'status_sub';
+$def->properties['status_sub']->propertyName = 'status_sub';
+$def->properties['status_sub']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 $def->properties['time'] = new ezcPersistentObjectProperty();
 $def->properties['time']->columnName   = 'time';

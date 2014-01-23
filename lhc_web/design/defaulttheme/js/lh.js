@@ -455,13 +455,18 @@ function lh(){
                 			// Set last message ID                			
                 			inst.last_message_id = data.message_id;
                 			
+                			
 
     	            } else {
     	                if ( data.status != 'true') $('#status-chat').html(data.status);
     	            }
 
     	            inst.userTimeout = setTimeout(chatsyncuser,confLH.chat_message_sinterval);
-    	       	    	            
+    	            
+    	            if (data.cs == 't') {
+        				inst.chatsyncuserpending();
+        			}
+    	            
         			if ( data.ott != '' ) {
         				var instStatus = $('#id-operator-typing');
         				instStatus.find('i').html(data.ott);
@@ -866,7 +871,7 @@ function lh(){
 	               setTimeout(chatsyncuserpending,confLH.chat_message_sinterval);
 
 	            } else {
-	            	$('#status-chat').parent().html(data.result);	                
+	            	$('#status-chat').html(data.result);	                
 	            }
 	        }
     	}).fail(function(){

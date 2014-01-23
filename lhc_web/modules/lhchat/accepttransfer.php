@@ -18,11 +18,13 @@ if  ($chatTransfer->dep_id > 0) {
 		exit;
 	} else {
 		$chat->user_id = $currentUser->getUserID();
+		$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
 	}
 }
 
 if ($chatTransfer->transfer_to_user_id == $currentUser->getUserID()){
 	$chat->user_id = $currentUser->getUserID();
+	$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
 }
 
 if ( !erLhcoreClassChat::hasAccessToRead($chat) )
@@ -31,6 +33,7 @@ if ( !erLhcoreClassChat::hasAccessToRead($chat) )
 		$dep_id = erLhcoreClassUserDep::getDefaultUserDepartment();
 		if ($dep_id > 0) {
 			$chat->dep_id = $dep_id;
+			$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
 		}
 	} else {
 		exit; // User does not have permission to assign chat to himself

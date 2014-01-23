@@ -8,6 +8,7 @@ class erLhcoreClassModelChat {
                'id'              		=> $this->id,
                'nick'            		=> $this->nick,
                'status'          		=> $this->status,
+               'status_sub'          	=> $this->status_sub,
                'time'            		=> $this->time,
                'user_id'         		=> $this->user_id,
                'hash'            		=> $this->hash,
@@ -261,9 +262,13 @@ class erLhcoreClassModelChat {
    const CHAT_INITIATOR_DEFAULT = 0;
    const CHAT_INITIATOR_PROACTIVE = 1;
 
+   const STATUS_SUB_DEFAULT = 0;
+   const STATUS_SUB_OWNER_CHANGED = 1;
+   
    public $id = null;
    public $nick = '';
    public $status = self::STATUS_PENDING_CHAT;
+   public $status_sub = self::STATUS_SUB_DEFAULT;
    public $time = '';
    public $user_id = '';
    public $hash = '';
