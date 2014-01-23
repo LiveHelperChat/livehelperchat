@@ -3,8 +3,9 @@
 // For IE to support headers if chat is installed on different domain
 header('P3P: CP="NOI ADM DEV COM NAV OUR STP"');
 
+$visitorName = erLhcoreClassChatbox::getVisitorName();
 $cache = CSCacheAPC::getMem();
-$cacheKey = md5('chatbox_version_'.$cache->getCacheVersion('chatbox_'.(string)$Params['user_parameters_unordered']['identifier']).'_hash_'.(string)$Params['user_parameters_unordered']['hashchatbox'].erLhcoreClassChatbox::getVisitorName().'_height_'.(int)$Params['user_parameters_unordered']['chat_height'].'_sound_'.(int)$Params['user_parameters_unordered']['sound'].'_mode_'.(string)$Params['user_parameters_unordered']['mode'].'_siteaccess_'.erLhcoreClassSystem::instance()->SiteAccess);
+$cacheKey = md5('chatbox_version_'.$cache->getCacheVersion('chatbox_'.(string)$Params['user_parameters_unordered']['identifier']).'_hash_'.(string)$Params['user_parameters_unordered']['hashchatbox'].$visitorName.'_height_'.(int)$Params['user_parameters_unordered']['chat_height'].'_sound_'.(int)$Params['user_parameters_unordered']['sound'].'_mode_'.(string)$Params['user_parameters_unordered']['mode'].'_siteaccess_'.erLhcoreClassSystem::instance()->SiteAccess);
 
 if (($Result = $cache->restore($cacheKey)) === false)
 {
@@ -47,7 +48,7 @@ if (($Result = $cache->restore($cacheKey)) === false)
 	$Result['dynamic_height'] = true;
 	$Result['dynamic_height_message'] = 'lhc_sizing_chatbox';
 	$Result['dynamic_height_append'] = 20;
-	$Result['additional_post_message'] = 'lhc_chb:nick:'.htmlspecialchars(erLhcoreClassChatbox::getVisitorName(),ENT_QUOTES);
+	$Result['additional_post_message'] = 'lhc_chb:nick:'.htmlspecialchars($visitorName,ENT_QUOTES);
 	$Result['is_sync_required'] = true;
 	
 	if ($embedMode == true) {
