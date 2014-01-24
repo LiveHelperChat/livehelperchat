@@ -974,11 +974,11 @@
     </message>
     <message>
       <source>File exists</source>
-      <translation type="unfinished"/>
+      <translation>Arquivo Existente</translation>
     </message>
     <message>
       <source>File does not exists</source>
-      <translation type="unfinished"/>
+      <translation>Arquivo não existe</translation>
     </message>
     <message>
       <source>User city based detection, slower</source>
@@ -1751,7 +1751,7 @@
     </message>
     <message>
       <source>User</source>
-      <translation type="unfinished"/>
+      <translation>Usuário</translation>
     </message>
     <message>
       <source>Search</source>
@@ -1759,11 +1759,11 @@
     </message>
     <message>
       <source>Select department</source>
-      <translation type="unfinished"/>
+      <translation>Selecione um departamento</translation>
     </message>
     <message>
       <source>Select user</source>
-      <translation type="unfinished"/>
+      <translation>Selecione um usuário</translation>
     </message>
   </context>
   <context>
@@ -1935,7 +1935,7 @@
     </message>
     <message>
       <source>Online form settings</source>
-      <translation type="unfinished"/>
+      <translation>Configurações do Chat Online</translation>
     </message>
     <message>
       <source>Name</source>
@@ -1979,11 +1979,11 @@
     </message>
     <message>
       <source>Offline form settings</source>
-      <translation type="unfinished"/>
+      <translation>Configurações do Chat Offline</translation>
     </message>
     <message>
       <source>E-mail is always required</source>
-      <translation type="unfinished"/>
+      <translation>O e-mail é sempre necessário</translation>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>

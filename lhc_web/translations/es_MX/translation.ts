@@ -511,7 +511,7 @@
     </message>
     <message>
       <source>Remarks</source>
-      <translation type="unfinished"/>
+      <translation>Observaciones</translation>
     </message>
     <message>
       <source>Chats</source>
@@ -539,7 +539,7 @@
     </message>
     <message>
       <source>Messages</source>
-      <translation type="unfinished"/>
+      <translation>Mensajes</translation>
     </message>
   </context>
   <context>
@@ -703,11 +703,11 @@
     </message>
     <message>
       <source>I accept my personal data will be handled according to</source>
-      <translation type="unfinished"/>
+      <translation>Acepto que mi datos personales sean tratados de acuerdo a</translation>
     </message>
     <message>
       <source>our terms and to the Law</source>
-      <translation type="unfinished"/>
+      <translation>nuestras condiciones y la ley vigente</translation>
     </message>
     <message>
       <source>Department</source>
@@ -767,7 +767,7 @@
     </message>
     <message>
       <source>You have to accept our Terms Of Service</source>
-      <translation type="unfinished"/>
+      <translation>Tienes que aceptar nuestras Condiciones de Servicio</translation>
     </message>
     <message>
       <source>Please enter your phone</source>
@@ -783,7 +783,7 @@
     </message>
     <message>
       <source>is required</source>
-      <translation type="unfinished"/>
+      <translation>es obligatorio</translation>
     </message>
     <message>
       <source>Live Support</source>
@@ -961,31 +961,31 @@
     </message>
     <message>
       <source>Use MaxMind, does not depend on any third party remote service</source>
-      <translation type="unfinished"/>
+      <translation>Usar MaxMind, no depende de ningún servicio remoto de terceros</translation>
     </message>
     <message>
       <source>You can download city/country database from.</source>
-      <translation type="unfinished"/>
+      <translation>Puedes descargar la base de datos de ciudades / paises.</translation>
     </message>
     <message>
       <source>bcmath php extension detected</source>
-      <translation type="unfinished"/>
+      <translation>extensión bcmath php detectada</translation>
     </message>
     <message>
       <source>User country based detection, faster</source>
-      <translation type="unfinished"/>
+      <translation>País del usuario basado en la detección, más rápido</translation>
     </message>
     <message>
       <source>File exists</source>
-      <translation type="unfinished"/>
+      <translation>Archivo existente</translation>
     </message>
     <message>
       <source>File does not exists</source>
-      <translation type="unfinished"/>
+      <translation>Fichero no existe</translation>
     </message>
     <message>
       <source>User city based detection, slower</source>
-      <translation type="unfinished"/>
+      <translation>Detección de usuario basado en la ciudad, más lento</translation>
     </message>
     <message>
       <source>Requests will be comming from</source>
@@ -1138,7 +1138,7 @@
     </message>
     <message>
       <source>online users</source>
-      <translation type="unfinished"/>
+      <translation>usuarios en línea</translation>
     </message>
     <message>
       <source>Show visitors who visited site in the past</source>
@@ -1258,11 +1258,11 @@
     </message>
     <message>
       <source>MaxMind city file does not exists!</source>
-      <translation type="unfinished"/>
+      <translation>El fichero de ciudades de MaxMind no existe!</translation>
     </message>
     <message>
       <source>MaxMind country file does not exists!</source>
-      <translation type="unfinished"/>
+      <translation>El fichero de paises de MaxMind no existe!</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that MaxMind database files exists!</source>
@@ -1578,11 +1578,11 @@
     </message>
     <message>
       <source>Disable minimize icon</source>
-      <translation type="unfinished"/>
+      <translation>Deshabilitar botón minimizar</translation>
     </message>
     <message>
       <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
-      <translation type="unfinished"/>
+      <translation>Mostrar contenido del chat en vez de widget, los usuarios solo podran minimizar, no cerrarlo.</translation>
     </message>
     <message>
       <source>Show chatbox content minimized first time if content is shown.</source>
@@ -1751,11 +1751,11 @@
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Departamento</translation>
     </message>
     <message>
       <source>User</source>
-      <translation type="unfinished"/>
+      <translation>Usuario</translation>
     </message>
     <message>
       <source>Search</source>
@@ -1763,11 +1763,11 @@
     </message>
     <message>
       <source>Select department</source>
-      <translation type="unfinished"/>
+      <translation>Selecciona departamento</translation>
     </message>
     <message>
       <source>Select user</source>
-      <translation type="unfinished"/>
+      <translation>Selecciona usuario</translation>
     </message>
   </context>
   <context>
@@ -1939,7 +1939,7 @@
     </message>
     <message>
       <source>Online form settings</source>
-      <translation type="unfinished"/>
+      <translation>Configuración formulario en línea</translation>
     </message>
     <message>
       <source>Name</source>
@@ -1979,15 +1979,15 @@
     </message>
     <message>
       <source>Terms of service acceptance checkbox</source>
-      <translation type="unfinished"/>
+      <translation>Checkbox aceptación de Condiciones de Servicio</translation>
     </message>
     <message>
       <source>Offline form settings</source>
-      <translation type="unfinished"/>
+      <translation>Configuración formulario sin conexión</translation>
     </message>
     <message>
       <source>E-mail is always required</source>
-      <translation type="unfinished"/>
+      <translation>E-mail siempre obligatorio</translation>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>
@@ -2054,11 +2054,11 @@
     </message>
     <message>
       <source>How many seconds keep connection to server?</source>
-      <translation type="unfinished"/>
+      <translation>Cuantos segundos se debe mantener la conexión con el servidor?</translation>
     </message>
     <message>
       <source>New chat request notification settings</source>
-      <translation type="unfinished"/>
+      <translation>Nueva configuración de chat de notificación</translation>
     </message>
     <message>
       <source>Play a new pending chat sound on a new chat request</source>
@@ -2102,7 +2102,7 @@
     </message>
     <message>
       <source>Please enter a valid server connection timeout value!</source>
-      <translation type="unfinished"/>
+      <translation>Por favor, introduzca un valor correcto de tiempo de espera con el servidor!</translation>
     </message>
     <message>
       <source>Please enter a valid operator message timeout value!</source>
