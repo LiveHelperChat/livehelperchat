@@ -698,9 +698,10 @@ function lh(){
 	this.startChatNewWindowTransferByTransfer = function(transfer_id)
 	{
 	    window.open(this.wwwDir + 'chat/accepttransfer/'+transfer_id+'/(postaction)/singlewindow','chatwindow-'+transfer_id,"menubar=1,resizable=1,width=780,height=450");
-	    if (LHCCallbacks.operatorAcceptedTransfer) {
-       		LHCCallbacks.operatorAcceptedTransfer(chat_id);
-    	};
+	    /*@todo make this work then notificaiton is executed from notification
+	     * if (LHCCallbacks.operatorAcceptedTransfer) {
+       		LHCCallbacks.operatorAcceptedTransfer(transfer_id);
+    	};*/
 	    this.syncadmininterfacestatic();
         return false;
 	};
@@ -966,20 +967,8 @@ function lh(){
 	        {
 	            this.syncroRequestSend = true;
 
-	            var statusTyping = [];
-	            var statusTypingTl = [];
-	            //remdex
-	            $.each(this.chatsSynchronising,function(i,value){
-	            	var inst = $('#user-is-typing-'+value);
-	            	
-	            	if (inst.is(':visible')){
-	            		statusTyping.push(value);
-	            		statusTypingTl.push(inst.text().length);
-	            	}
-	            });
-	            
                 clearTimeout(this.userTimeout);
-        	    $.postJSON(this.wwwDir + this.syncadmin ,{ 'chats[]': this.chatsSynchronisingMsg,'typing[]':statusTyping,'typingtl[]':statusTypingTl }, function(data){
+        	    $.postJSON(this.wwwDir + this.syncadmin ,{ 'chats[]': this.chatsSynchronisingMsg }, function(data){
         	    	
         	    	try {
 	        	        // If no error

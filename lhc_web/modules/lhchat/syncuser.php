@@ -88,11 +88,11 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 	    	$breakSync = true;
 	    }
 
-	   // if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED) {
+	    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED) {
 	    	$checkStatus = 't';
-	    //	$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_DEFAULT;
-	    //	$saveChat = true;
-	    //}
+	    	$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_DEFAULT;
+	    	$saveChat = true;
+	    }
 	    
 	    if ($saveChat === true) {
 	    	$chat->updateThis();
