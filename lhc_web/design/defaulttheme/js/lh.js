@@ -698,7 +698,7 @@ function lh(){
 	this.startChatNewWindowTransferByTransfer = function(transfer_id)
 	{
 	    window.open(this.wwwDir + 'chat/accepttransfer/'+transfer_id+'/(postaction)/singlewindow','chatwindow-'+transfer_id,"menubar=1,resizable=1,width=780,height=450");
-	    /*@todo make this work then notificaiton is executed from notification
+	    /*@todo make this work then chat is opened from browser notification
 	     * if (LHCCallbacks.operatorAcceptedTransfer) {
        		LHCCallbacks.operatorAcceptedTransfer(transfer_id);
     	};*/
