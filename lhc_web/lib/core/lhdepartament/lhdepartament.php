@@ -61,6 +61,9 @@ class erLhcoreClassDepartament{
 	   			'TransferTimeout' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 5)
 	   			),	   			
+	   			'delay_lm' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 5)
+	   			),	   			
 	   			'mod' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	   			),
@@ -126,6 +129,13 @@ class erLhcoreClassDepartament{
 	   	if ( $form->hasValidData( 'Identifier' ) )
 	   	{
 	   		$department->identifier = $form->Identifier;
+	   	}
+	   	
+	   	if ( $form->hasValidData( 'delay_lm' ) )
+	   	{
+	   		$department->delay_lm = $form->delay_lm;
+	   	} else {
+	   		$department->delay_lm = 0;
 	   	}
 	   	
 	   	if ( $form->hasValidData( 'TransferTimeout' ) )

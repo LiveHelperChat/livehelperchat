@@ -883,8 +883,9 @@ function lh(){
 	};
 
 	this.chatsyncuserpending = function ()
-	{
-	    $.getJSON(this.wwwDir + this.checkchatstatus + this.chat_id + '/' + this.hash ,{}, function(data){
+	{	
+		var modeWindow = this.isWidgetMode == true ? '/(mode)/widget' : '';		
+	    $.getJSON(this.wwwDir + this.checkchatstatus + this.chat_id + '/' + this.hash + modeWindow ,{}, function(data){
 	        // If no error
 	        if (data.error == 'false')
 	        {
@@ -895,6 +896,10 @@ function lh(){
 	                   $('#status-chat').html(data.result);
 	               }
 
+	               if (data.ru != '') {
+	            	   document.location = data.ru;
+	               }
+	               
 	               setTimeout(chatsyncuserpending,confLH.chat_message_sinterval);
 
 	            } else {

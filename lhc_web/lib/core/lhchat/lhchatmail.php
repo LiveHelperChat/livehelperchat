@@ -151,7 +151,7 @@ class erLhcoreClassChatMail {
     	$mail->ClearAddresses();
     }
 
-    public static function sendMailRequest($inputData, erLhcoreClassModelChat $chat) {
+    public static function sendMailRequest($inputData, erLhcoreClassModelChat $chat, $params = array()) {
 
     	$sendMail = erLhAbstractModelEmailTemplate::fetch(2);
 
@@ -166,7 +166,13 @@ class erLhcoreClassChatMail {
     	$mail->FromName = $chat->nick;
     	$mail->Subject = $sendMail->subject;
     	$mail->AddReplyTo($chat->email,$chat->nick);
-    	$mail->Body = str_replace(array('{phone}','{name}','{email}','{message}','{additional_data}','{url_request}','{ip}','{department}','{country}','{city}'), array($chat->phone,$chat->nick,$chat->email,$inputData->question,$chat->additional_data,(isset($_POST['URLRefer']) ? $_POST['URLRefer'] : ''),erLhcoreClassIPDetect::getIP(),(string)$chat->department,$chat->country_name,$chat->city), $sendMail->content);
+    	
+    	$prefillchat = '-'; 
+    	if (isset($params['chatprefill']) && $params['chatprefill'] instanceof erLhcoreClassModelChat){
+    		$prefillchat = erLhcoreClassXMP::getBaseHost() . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('user/login').'/(r)/'.rawurlencode(base64_encode('chat/single/'.$params['chatprefill']->id));
+    	}
+    	
+    	$mail->Body = str_replace(array('{phone}','{name}','{email}','{message}','{additional_data}','{url_request}','{ip}','{department}','{country}','{city}','{prefillchat}'), array($chat->phone,$chat->nick,$chat->email,$inputData->question,$chat->additional_data,(isset($_POST['URLRefer']) ? $_POST['URLRefer'] : ''),erLhcoreClassIPDetect::getIP(),(string)$chat->department,$chat->country_name,$chat->city,$prefillchat), $sendMail->content);
 
     	$emailRecipient = array();
     	if ($chat->department !== false && $chat->department->email != '') { // Perhaps department has assigned email

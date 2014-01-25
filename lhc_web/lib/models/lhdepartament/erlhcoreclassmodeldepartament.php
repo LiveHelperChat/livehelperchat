@@ -28,6 +28,7 @@ class erLhcoreClassModelDepartament {
                'inform_close'    		=> $this->inform_close,
                'online_hours_active'    => $this->online_hours_active,
                'disabled'    			=> $this->disabled,
+               'delay_lm' 				=> $this->delay_lm,
        );
    }
 
@@ -215,6 +216,10 @@ class erLhcoreClassModelDepartament {
     public $inform_close = 0;    
     public $online_hours_active = 0;
     public $disabled = 0;
+    
+    // 0 - disabled
+    // > 0 - delay in seconds
+    public $delay_lm = 0;
 }
 
 ?>
