@@ -65,8 +65,12 @@
     <?php if ( isset($chat_widget_mode) && $chat_widget_mode == true ) : ?>
     lhinst.setWidgetMode(true);
 	<?php endif; ?>
+
+	setTimeout(function(){
+			$('#messagesBlock').scrollTop($('#messagesBlock').prop('scrollHeight'));
+	},100);
 	
-	$('#messagesBlock').scrollTop($('#messagesBlock').prop('scrollHeight'));
+	
     // Start user chat synchronization
     lhinst.chatsyncuserpending();    
     lhinst.scheduleSync();
