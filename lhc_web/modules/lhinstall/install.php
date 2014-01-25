@@ -564,6 +564,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `name` varchar(50) NOT NULL,
 				  `wait_message` varchar(250) NOT NULL,
 				  `timeout_message` varchar(250) NOT NULL,
+				  `referrer` varchar(250) NOT NULL,
 				  `wait_timeout` int(11) NOT NULL,
 				  `show_random_operator` int(11) NOT NULL,
 				  `operator_name` varchar(100) NOT NULL,

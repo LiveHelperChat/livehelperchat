@@ -9,6 +9,7 @@ class erLhAbstractModelProactiveChatInvitation {
 			'name'  		=> $this->name,
 			'siteaccess'  	=> $this->siteaccess,
 			'time_on_site'  => $this->time_on_site,
+			'referrer' 		=> $this->referrer,
 			'pageviews' 	=> $this->pageviews,
 			'message' 		=> $this->message,
 			'identifier' 	=> $this->identifier,
@@ -53,6 +54,7 @@ class erLhAbstractModelProactiveChatInvitation {
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Operator name'),
    						'required' => false,
+   						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
@@ -84,6 +86,14 @@ class erLhAbstractModelProactiveChatInvitation {
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Pageviews'),
    						'required' => false,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
+   				'referrer' => array (
+   						'type' => 'text',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Referrer domain without www, E.g google keyword will match any of google domain'),
+   						'required' => false,
+   						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
@@ -280,16 +290,32 @@ class erLhAbstractModelProactiveChatInvitation {
     	return $objects;
 	}
 
+	public static function getHost($url) {
+		$url = parse_url($url);
+		if (isset($url['host'])) {
+			return str_replace('www.','',$url['host']);
+		}
+		
+		return '';
+	}
+	
 	public static function processProActiveInvitation(erLhcoreClassModelChatOnlineUser & $item) {
 
-		$session = erLhcoreClassAbstract::getSession();
+		$referrer = self::getHost($item->referrer);
+				
+		$session = erLhcoreClassAbstract::getSession();			
+		
 		$q = $session->createFindQuery( 'erLhAbstractModelProactiveChatInvitation' );
 		$q->where( $q->expr->lte( 'time_on_site', $q->bindValue( $item->time_on_site ) ).' AND '.$q->expr->lte( 'pageviews', $q->bindValue( $item->pages_count ) ).'
 				AND ('.$q->expr->eq( 'siteaccess', $q->bindValue( erLhcoreClassSystem::instance()->SiteAccess ) ).' OR `siteaccess` = \'\')
-				AND ('.$q->expr->eq( 'identifier', $q->bindValue( $item->identifier ) ).' OR `identifier` = \'\')' )
+				AND ('.$q->expr->eq( 'identifier', $q->bindValue( $item->identifier ) ).' OR `identifier` = \'\')
+				AND ('.$q->expr->like( $session->database->quote(trim($referrer)), 'concat(referrer,\'%\')' ).' OR `referrer` = \'\')'
+		)
 		->orderBy('position ASC')
 		->limit( 1 );
 
+		
+		
 		$messagesToUser = $session->find( $q );
 
 		if ( !empty($messagesToUser) ) {
@@ -333,6 +359,7 @@ class erLhAbstractModelProactiveChatInvitation {
 	public $wait_timeout = 0;
 	public $show_random_operator = 0;
 	public $hide_after_ntimes = 0;
+	public $referrer = '';
 
 	public $hide_add = false;
 	public $hide_delete = false;
