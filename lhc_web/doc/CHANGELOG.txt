@@ -1,7 +1,9 @@
 1.82v
 
 1. Department has a field which help user can be redirected to leave a message form if chat is not accepted for n seconds.
-
+2. Option to redirect user to leave a message form if chat is not accepted for n seconds. Managed in department.
+3. Option to set proactive messages based on referring domain. It's enough to enter google keyword for all google domains.
+4. Option to hide popup for user if user has visited invitation popup n times. Works only for proactive invitation messages.
 
 execute doc/update_db/update_62.sql for update
 

@@ -312,9 +312,7 @@ class erLhAbstractModelProactiveChatInvitation {
 				AND ('.$q->expr->like( $session->database->quote(trim($referrer)), 'concat(referrer,\'%\')' ).' OR `referrer` = \'\')'
 		)
 		->orderBy('position ASC')
-		->limit( 1 );
-
-		
+		->limit( 1 );		
 		
 		$messagesToUser = $session->find( $q );
 
