@@ -760,7 +760,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Maximum 500 characters for message</source>
+      <source>Maximum</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>characters for a message</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -788,11 +792,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Visitor</source>
+      <source>Please enter a message, max characters</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Maximum 500 characters for a message</source>
+      <source>Visitor</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1518,6 +1522,14 @@
     </message>
     <message>
       <source>Chatbox messages content height</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose prefered http mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Based on site (default)</source>
       <translation type="unfinished"/>
     </message>
     <message>

@@ -760,7 +760,11 @@
       <translation>Vult u a.u.b. uw bericht in</translation>
     </message>
     <message>
-      <source>Maximum 500 characters for message</source>
+      <source>Maximum</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>characters for a message</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -788,12 +792,12 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Visitor</source>
-      <translation>Bezoeker</translation>
+      <source>Please enter a message, max characters</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Maximum 500 characters for a message</source>
-      <translation type="unfinished"/>
+      <source>Visitor</source>
+      <translation>Bezoeker</translation>
     </message>
     <message>
       <source>Fill in the form to start a chat</source>
@@ -1518,6 +1522,14 @@
     </message>
     <message>
       <source>Chatbox messages content height</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose prefered http mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Based on site (default)</source>
       <translation type="unfinished"/>
     </message>
     <message>

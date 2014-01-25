@@ -701,7 +701,7 @@
     </message>
     <message>
       <source>I accept my personal data will be handled according to</source>
-      <translation type="unfinished"/>
+      <translation>Accetto che i miei dati vengano trattati come da informativa privacy</translation>
     </message>
     <message>
       <source>our terms and to the Law</source>
@@ -760,8 +760,12 @@
       <translation>Inserisci il tuo messaggio</translation>
     </message>
     <message>
-      <source>Maximum 500 characters for message</source>
-      <translation>Massimo 500 caratteri per messaggio</translation>
+      <source>Maximum</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>characters for a message</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You have to accept our Terms Of Service</source>
@@ -788,12 +792,12 @@
       <translation>Supporto live</translation>
     </message>
     <message>
-      <source>Visitor</source>
-      <translation>Visitatore</translation>
+      <source>Please enter a message, max characters</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Maximum 500 characters for a message</source>
-      <translation>Massimo 500 caratteri per messaggio</translation>
+      <source>Visitor</source>
+      <translation>Visitatore</translation>
     </message>
     <message>
       <source>Fill in the form to start a chat</source>
@@ -1110,7 +1114,7 @@
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation type="unfinished"/>
+      <translation>Sei sicuro?</translation>
     </message>
     <message>
       <source>Clear list</source>
@@ -1198,7 +1202,7 @@
     </message>
     <message>
       <source>first visit</source>
-      <translation type="unfinished"/>
+      <translation>prima visita</translation>
     </message>
     <message>
       <source>last visit</source>
@@ -1521,6 +1525,14 @@
       <translation>Altezza contenuto chatbox</translation>
     </message>
     <message>
+      <source>Choose prefered http mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Based on site (default)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>
       <translation>Copia il codice dalla area testo alla pagina dove vuoi che sia visualizzato</translation>
     </message>
@@ -1598,7 +1610,7 @@
     </message>
     <message>
       <source>FAQ</source>
-      <translation type="unfinished"/>
+      <translation>FAQ</translation>
     </message>
     <message>
       <source>Position from the top, only used if the Middle left or the Middle right side is chosen</source>
@@ -1971,7 +1983,7 @@
     </message>
     <message>
       <source>Phone</source>
-      <translation type="unfinished"/>
+      <translation>Telefono</translation>
     </message>
     <message>
       <source>Terms of service acceptance checkbox</source>
@@ -1995,7 +2007,7 @@
     </message>
     <message>
       <source>Start chat form settings</source>
-      <translation type="unfinished"/>
+      <translation>Inizia impostazioni modulo chat</translation>
     </message>
   </context>
   <context>
@@ -2272,7 +2284,7 @@
     </message>
     <message>
       <source>New archive</source>
-      <translation type="unfinished"/>
+      <translation>Nuovo archivio</translation>
     </message>
   </context>
   <context>
@@ -2593,7 +2605,7 @@
     <name>kernel/messages</name>
     <message>
       <source>Are you sure?</source>
-      <translation type="unfinished"/>
+      <translation>Sei sicuro?</translation>
     </message>
   </context>
   <context>
@@ -2604,7 +2616,7 @@
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>Nuovo</translation>
     </message>
   </context>
   <context>
@@ -2631,7 +2643,7 @@
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation type="unfinished"/>
+      <translation>Sei sicuro?</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -2813,7 +2825,7 @@
     </message>
     <message>
       <source>Email</source>
-      <translation type="unfinished"/>
+      <translation>Email</translation>
     </message>
     <message>
       <source>Name</source>
@@ -2877,7 +2889,7 @@
     </message>
     <message>
       <source>Please enter a username!</source>
-      <translation type="unfinished"/>
+      <translation>Inserisci username</translation>
     </message>
     <message>
       <source>User exists!</source>

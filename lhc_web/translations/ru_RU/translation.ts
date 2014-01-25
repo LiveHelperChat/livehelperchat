@@ -509,7 +509,7 @@
     </message>
     <message>
       <source>Remarks</source>
-      <translation type="unfinished"/>
+      <translation>Заметки</translation>
     </message>
     <message>
       <source>Chats</source>
@@ -537,7 +537,7 @@
     </message>
     <message>
       <source>Messages</source>
-      <translation type="unfinished"/>
+      <translation>Сообщения</translation>
     </message>
   </context>
   <context>
@@ -760,8 +760,12 @@
       <translation>Введите ваше сообщение</translation>
     </message>
     <message>
-      <source>Maximum 500 characters for message</source>
-      <translation>Максимальная длина сообщения - 500 знаков</translation>
+      <source>Maximum</source>
+      <translation>Максимум</translation>
+    </message>
+    <message>
+      <source>characters for a message</source>
+      <translation>символов в сообщении</translation>
     </message>
     <message>
       <source>You have to accept our Terms Of Service</source>
@@ -788,12 +792,12 @@
       <translation>Техподдержка</translation>
     </message>
     <message>
-      <source>Visitor</source>
-      <translation>Посетитель</translation>
+      <source>Please enter a message, max characters</source>
+      <translation>Пожалуйста введите сообщение, максимум симоволов</translation>
     </message>
     <message>
-      <source>Maximum 500 characters for a message</source>
-      <translation>Максимальная длина сообщения - 500 символов</translation>
+      <source>Visitor</source>
+      <translation>Посетитель</translation>
     </message>
     <message>
       <source>Fill in the form to start a chat</source>
@@ -1521,6 +1525,14 @@
       <translation>Высота содержимого Chatbox контейнера</translation>
     </message>
     <message>
+      <source>Choose prefered http mode</source>
+      <translation>Выберите желаемый режим http</translation>
+    </message>
+    <message>
+      <source>Based on site (default)</source>
+      <translation>Основанный на сайте (по умолчанию)</translation>
+    </message>
+    <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>
       <translation>Copy the code from the text area to the page where you want it to be rendered</translation>
     </message>
@@ -1574,15 +1586,15 @@
     </message>
     <message>
       <source>Disable minimize icon</source>
-      <translation type="unfinished"/>
+      <translation>Отключить уменьшение иконки</translation>
     </message>
     <message>
       <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
-      <translation type="unfinished"/>
+      <translation>Показать содержимое окна чата вместо виджета, пользователи смогут только минимизировать, но не закрывать его.</translation>
     </message>
     <message>
       <source>Show chatbox content minimized first time if content is shown.</source>
-      <translation type="unfinished"/>
+      <translation>Показать первый раз содержимое чата уменьшенным, если отображается содержимое.</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
@@ -2042,19 +2054,19 @@
     </message>
     <message>
       <source>Long polling</source>
-      <translation type="unfinished"/>
+      <translation>Ожидание опроса</translation>
     </message>
     <message>
       <source>Enable long polling</source>
-      <translation type="unfinished"/>
+      <translation>Включить ожидание опроса</translation>
     </message>
     <message>
       <source>How many seconds keep connection to server?</source>
-      <translation type="unfinished"/>
+      <translation>Сколько секунд поддерживать соединение с сервером?</translation>
     </message>
     <message>
       <source>New chat request notification settings</source>
-      <translation type="unfinished"/>
+      <translation>Параметры уведомления о новых диалогах</translation>
     </message>
     <message>
       <source>Play a new pending chat sound on a new chat request</source>
@@ -2098,7 +2110,7 @@
     </message>
     <message>
       <source>Please enter a valid server connection timeout value!</source>
-      <translation type="unfinished"/>
+      <translation>Пожалуйста, введите правильное значение времени ожидания подключения к серверу!</translation>
     </message>
     <message>
       <source>Please enter a valid operator message timeout value!</source>
@@ -2106,7 +2118,7 @@
     </message>
     <message>
       <source>Please enter a valid new messages polling sync interval!</source>
-      <translation type="unfinished"/>
+      <translation>Пожалуйста, введите правильное значение интервала синхронизации новых сообщений</translation>
     </message>
     <message>
       <source>Please enter a valid back office sync interval!</source>
@@ -2790,7 +2802,7 @@
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
-      <translation>Не вводите пароль если не хотите его изменить</translation>
+      <translation>Не вводите пароль если не хотите его изменять</translation>
     </message>
     <message>
       <source>Username</source>
@@ -3803,7 +3815,7 @@
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
-      <translation>Не вводите пароль если не хотите его изменить</translation>
+      <translation>Не вводите пароль если не хотите его изменять</translation>
     </message>
     <message>
       <source>Username</source>

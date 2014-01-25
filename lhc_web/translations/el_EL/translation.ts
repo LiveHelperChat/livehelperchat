@@ -760,8 +760,12 @@
       <translation>Παρακαλούμε εισάγετε το μήνυμά σας</translation>
     </message>
     <message>
-      <source>Maximum 500 characters for message</source>
-      <translation>Μέγιστο 500 χαρακτήρες για μήνυμα</translation>
+      <source>Maximum</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>characters for a message</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You have to accept our Terms Of Service</source>
@@ -788,12 +792,12 @@
       <translation>Υποστήριξη σε πραγματικό χρόνο</translation>
     </message>
     <message>
-      <source>Visitor</source>
-      <translation>Επισκέπτης</translation>
+      <source>Please enter a message, max characters</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Maximum 500 characters for a message</source>
-      <translation>Χαρακτήρες εικόνας για ένα μήνυμα</translation>
+      <source>Visitor</source>
+      <translation>Επισκέπτης</translation>
     </message>
     <message>
       <source>Fill in the form to start a chat</source>
@@ -1519,6 +1523,14 @@
     <message>
       <source>Chatbox messages content height</source>
       <translation>Μηνύματα chatbox περιεχομένου ύψος</translation>
+    </message>
+    <message>
+      <source>Choose prefered http mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Based on site (default)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>

@@ -760,8 +760,12 @@
       <translation>Por favor, digite sua mensagem</translation>
     </message>
     <message>
-      <source>Maximum 500 characters for message</source>
-      <translation>Máximo de 500 caracteres para a mensagem</translation>
+      <source>Maximum</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>characters for a message</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You have to accept our Terms Of Service</source>
@@ -788,12 +792,12 @@
       <translation>Suporte online</translation>
     </message>
     <message>
-      <source>Visitor</source>
-      <translation>Visitante</translation>
+      <source>Please enter a message, max characters</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Maximum 500 characters for a message</source>
-      <translation>Máximo de 500 caracteres para uma mensagem</translation>
+      <source>Visitor</source>
+      <translation>Visitante</translation>
     </message>
     <message>
       <source>Fill in the form to start a chat</source>
@@ -1519,6 +1523,14 @@
     <message>
       <source>Chatbox messages content height</source>
       <translation>Altura do conteúdo das mensagens no Chatbox</translation>
+    </message>
+    <message>
+      <source>Choose prefered http mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Based on site (default)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>

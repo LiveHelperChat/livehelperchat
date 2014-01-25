@@ -760,8 +760,12 @@
       <translation>Lütfen mesajınızı girin</translation>
     </message>
     <message>
-      <source>Maximum 500 characters for message</source>
-      <translation>Mesaj için maksimum 500 karakter</translation>
+      <source>Maximum</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>characters for a message</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You have to accept our Terms Of Service</source>
@@ -788,12 +792,12 @@
       <translation>Canlı Destek</translation>
     </message>
     <message>
-      <source>Visitor</source>
-      <translation>Ziyaretçi</translation>
+      <source>Please enter a message, max characters</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Maximum 500 characters for a message</source>
-      <translation type="unfinished"/>
+      <source>Visitor</source>
+      <translation>Ziyaretçi</translation>
     </message>
     <message>
       <source>Fill in the form to start a chat</source>
@@ -1520,6 +1524,14 @@
     <message>
       <source>Chatbox messages content height</source>
       <translation>Konuşma kutusu mesajları içerik boyu</translation>
+    </message>
+    <message>
+      <source>Choose prefered http mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Based on site (default)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>

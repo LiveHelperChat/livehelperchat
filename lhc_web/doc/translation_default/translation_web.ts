@@ -134,6 +134,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How many times user show invitation, 0 - untill users closes it, &gt; 0 limits.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Requires e-mail</source>
       <translation type="unfinished"/>
     </message>
@@ -2704,6 +2712,10 @@
     </message>
     <message>
       <source>Inform then chat is closed by operator, only mail notification is send.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
       <translation type="unfinished"/>
     </message>
     <message>

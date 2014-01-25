@@ -760,8 +760,12 @@
       <translation>Vänligen skriv in ditt meddelande</translation>
     </message>
     <message>
-      <source>Maximum 500 characters for message</source>
-      <translation>MAx 500 tecken för ett meddelande</translation>
+      <source>Maximum</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>characters for a message</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You have to accept our Terms Of Service</source>
@@ -788,12 +792,12 @@
       <translation>Live support</translation>
     </message>
     <message>
-      <source>Visitor</source>
-      <translation>Besökare</translation>
+      <source>Please enter a message, max characters</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Maximum 500 characters for a message</source>
-      <translation>Max 500 tecken för ett meddelande</translation>
+      <source>Visitor</source>
+      <translation>Besökare</translation>
     </message>
     <message>
       <source>Fill in the form to start a chat</source>
@@ -1519,6 +1523,14 @@
     <message>
       <source>Chatbox messages content height</source>
       <translation>Chattbox meddelanden innehållshöjd</translation>
+    </message>
+    <message>
+      <source>Choose prefered http mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Based on site (default)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>
