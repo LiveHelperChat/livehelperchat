@@ -81,6 +81,12 @@ $def->properties['timeout_message']->columnName   = 'timeout_message';
 $def->properties['timeout_message']->propertyName = 'timeout_message';
 $def->properties['timeout_message']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+// Then timeout passes show visitor this message.
+$def->properties['hide_after_ntimes'] = new ezcPersistentObjectProperty();
+$def->properties['hide_after_ntimes']->columnName   = 'hide_after_ntimes';
+$def->properties['hide_after_ntimes']->propertyName = 'hide_after_ntimes';
+$def->properties['hide_after_ntimes']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 return $def;
 
 ?>

@@ -884,7 +884,8 @@ function lh(){
 
 	this.chatsyncuserpending = function ()
 	{	
-		var modeWindow = this.isWidgetMode == true ? '/(mode)/widget' : '';		
+		var modeWindow = this.isWidgetMode == true ? '/(mode)/widget' : '';	
+		var inst = this;
 	    $.getJSON(this.wwwDir + this.checkchatstatus + this.chat_id + '/' + this.hash + modeWindow ,{}, function(data){
 	        // If no error
 	        if (data.error == 'false')
@@ -897,6 +898,7 @@ function lh(){
 	               }
 
 	               if (data.ru != '') {
+	            	   inst.userclosedchatembed();
 	            	   document.location = data.ru;
 	               }
 	               

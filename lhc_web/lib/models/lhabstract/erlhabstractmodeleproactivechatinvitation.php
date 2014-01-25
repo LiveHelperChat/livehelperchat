@@ -20,6 +20,7 @@ class erLhAbstractModelProactiveChatInvitation {
 			'wait_timeout'		=> $this->wait_timeout,
 			'requires_email'		=> $this->requires_email,
 			'show_random_operator'	=> $this->show_random_operator,
+			'hide_after_ntimes'	    => $this->hide_after_ntimes,
 		);
 
 		return $stateArray;
@@ -78,13 +79,21 @@ class erLhAbstractModelProactiveChatInvitation {
    						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'int'
-   						)),
+   						)),   				
    				'pageviews' => array (
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Pageviews'),
    						'required' => false,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
+   				'hide_after_ntimes' => array (
+   						'type' => 'text',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','How many times user show invitation, 0 - untill users closes it, > 0 limits.'),
+   						'required' => false,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'int'
    						)),
    				'requires_email' => array (
    						'type' => 'checkbox',
@@ -288,6 +297,7 @@ class erLhAbstractModelProactiveChatInvitation {
 			$item->operator_message = $message->message;
 			$item->operator_user_proactive = $message->operator_name;
 			$item->invitation_id = $message->id;
+			$item->invitation_seen_count = 0;
 			$item->requires_email = $message->requires_email;
 			$item->invitation_count++;
 			$item->store_chat = true;
@@ -322,6 +332,7 @@ class erLhAbstractModelProactiveChatInvitation {
 	public $timeout_message = '';
 	public $wait_timeout = 0;
 	public $show_random_operator = 0;
+	public $hide_after_ntimes = 0;
 
 	public $hide_add = false;
 	public $hide_delete = false;

@@ -200,7 +200,7 @@ var lh_inst  = {
         this.removeById('lhc_container');
         this.removeCookieAttr('hash');
         this.removeCookieAttr('pos');
-        this.removeCookieAttr('m');
+        this.removeCookieAttr('m');      
         <?php if ($check_operator_messages == 'true') : ?>
         this.startNewMessageCheck();
         <?php endif; ?>
@@ -443,8 +443,12 @@ var lh_inst  = {
     		var height = e.data.split(':')[1];
     		var elementObject = document.getElementById('lhc_iframe');
     		var iframeContainer = document.getElementById('lhc_container');
-    		elementObject.height = height;
-    		elementObject.style.height = height+'px';
+    		
+    		if (elementObject){
+    			elementObject.height = height;
+    			elementObject.style.height = height+'px';
+    		}
+    		
     		iframeContainer.className = iframeContainer.className;
     		iframeContainer.style.height = (parseInt(height)+26)+'px';
     	} else if (action == 'lhc_ch') {

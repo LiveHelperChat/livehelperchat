@@ -9,6 +9,7 @@ class erLhcoreClassModelChatOnlineUser {
                'ip'                 => $this->ip,
                'vid'                => $this->vid,
                'current_page'       => $this->current_page,
+               'invitation_seen_count'       => $this->invitation_seen_count,
                'page_title'         => $this->page_title,
                'chat_id'            => $this->chat_id, // For future
                'last_visit'         => $this->last_visit,
@@ -530,6 +531,16 @@ class erLhcoreClassModelChatOnlineUser {
 	           		$item->pages_count++;
 	           		$item->tt_pages_count++;
 	           		$item->store_chat = true;
+	           		
+	           		if ($item->has_message_from_operator == true) {
+	           			$item->invitation_seen_count++;
+	           		}
+	           		
+	           		// Hide invitation message after n times if required
+	           		if ($item->has_message_from_operator == true && $item->invitation !== false && $item->invitation->hide_after_ntimes > 0 && $item->invitation_seen_count > $item->invitation->hide_after_ntimes ) {	           			
+	           			$item->message_seen = 1;
+	           			$item->message_seen_ts = time();
+	           		}
 	           }
 
 	           // Update variables only if it's not JS to check for operator message
@@ -602,6 +613,7 @@ class erLhcoreClassModelChatOnlineUser {
    public $invitation_count = 0;
    public $requires_email = 0;
    public $dep_id = 0;
+   public $invitation_seen_count = 0;
 
    // Logical attributes
    public $store_chat = false;
