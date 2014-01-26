@@ -4,6 +4,8 @@
   <li><a onclick="$.colorbox({iframe:true, width:'90%',height:'90%', href:'<?php echo erLhcoreClassDesign::baseurl('file/new')?>' + '/(mode)/reloadparent'});" href="#" class="button small"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Upload a file');?></a></li>
 </ul>
 
+<?php include(erLhcoreClassDesign::designtpl('lhfile/parts/search_panel.tpl.php')); ?>
+
 <table class="twelve table-list" cellpadding="0" cellspacing="0">
 <thead>
 <tr>

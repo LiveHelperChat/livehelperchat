@@ -1,3 +1,14 @@
+1.83v
+
+1. Option to have custom timezone per application and per user. Users can change their time zone in their account.
+2. Application time zone can be changed in new configuration link. If no timezone is set in user or application it depends on server.
+3. File usability enchancements based on https://github.com/remdex/livehelperchat/issues/246
+
+execute doc/update_db/update_63.sql for update
+edit your settings/settings.ini.php file and under 'force_virtual_host' => false,
+add 'time_zone' => '',
+
+
 1.82v
 
 1. Department has a field which help user can be redirected to leave a message form if chat is not accepted for n seconds.

@@ -39,19 +39,19 @@ $ViewList['new'] = array(
 
 $ViewList['attatchfile'] = array(
 		'params' => array('chat_id'),
-		'uparams' => array(),
+		'uparams' => array('user_id'),
 		'functions' => array( 'use_operator' )
 );
 
 $ViewList['attatchfilemail'] = array(
 		'params' => array(),
-		'uparams' => array('mode'),
+		'uparams' => array('mode','user_id'),
 		'functions' => array( 'use_operator' )
 );
 
 $ViewList['list'] = array(
 		'params' => array(),
-		'uparams' => array(),
+		'uparams' => array('user_id'),
 		'functions' => array( 'file_list' )
 );
 

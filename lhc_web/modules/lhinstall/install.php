@@ -344,7 +344,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   `user_id` int(11) NOT NULL,
         	   `date` int(11) NOT NULL,
         	   PRIMARY KEY (`id`),
-        	   KEY `chat_id` (`chat_id`)
+        	   KEY `chat_id` (`chat_id`),
+        	   KEY `user_id` (`user_id`)
         	   ) DEFAULT CHARSET=utf8;");
 
         	   $db->query("CREATE TABLE `lh_abstract_email_template` (

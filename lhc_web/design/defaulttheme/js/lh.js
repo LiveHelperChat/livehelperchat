@@ -724,11 +724,11 @@ function lh(){
 	};
 	
 	this.sendMail = function(chat_id) {
-		$.colorbox({iframe:true, width:'550px',height:'500px', href:this.wwwDir + 'chat/sendmail/'+chat_id});
+		$.colorbox({iframe:true, width:'750px',height:'600px', href:this.wwwDir + 'chat/sendmail/'+chat_id});
 	};
 	
 	this.attatchLinkToFile = function(chat_id) {
-		$.colorbox({iframe:true, width:'550px',height:'500px', href:this.wwwDir + 'file/attatchfile/'+chat_id});
+		$.colorbox({iframe:true, width:'750px',height:'600px', href:this.wwwDir + 'file/attatchfile/'+chat_id});
 	};
 	
 	this.embedFileSendMail = function(chat_id) {

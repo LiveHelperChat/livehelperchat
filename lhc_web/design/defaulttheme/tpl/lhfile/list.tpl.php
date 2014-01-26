@@ -4,6 +4,8 @@
   <li><a href="<?php echo erLhcoreClassDesign::baseurl('file/new')?>" class="button small"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Upload a file');?></a></li>
 </ul>
 
+<?php include(erLhcoreClassDesign::designtpl('lhfile/parts/search_panel.tpl.php')); ?>
+
 <table class="twelve table-list" cellpadding="0" cellspacing="0">
 <thead>
 <tr>
