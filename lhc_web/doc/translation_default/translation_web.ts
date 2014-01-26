@@ -494,6 +494,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Attatch uploaded file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat between operators, chat initializer</source>
       <translation type="unfinished"/>
     </message>
@@ -1456,6 +1460,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Time zone settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Live help embed code</source>
       <translation type="unfinished"/>
     </message>
@@ -1509,6 +1517,10 @@
     </message>
     <message>
       <source>File configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New file</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -1887,6 +1899,10 @@
     </message>
     <message>
       <source>Send the mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Embed link to file</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3103,11 +3119,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>User</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat</source>
+      <source>Upload a file</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3116,6 +3128,18 @@
     </message>
     <message>
       <source>File size</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Embed BB code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3823,6 +3847,10 @@
   <context>
     <name>user/edit</name>
     <message>
+      <source>Server default time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User edit</source>
       <translation type="unfinished"/>
     </message>
@@ -3872,6 +3900,14 @@
     </message>
     <message>
       <source>Assigned departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Application default time zone</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4585,6 +4621,40 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation type="unfinished"></translation>
+    </message>
+  </context>
+  <context>
+    <name>file/new</name>
+    <message>
+      <source>New file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Upload</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File uploaded</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>system/timezone</name>
+    <message>
+      <source>Time zone settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set application specific time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>
