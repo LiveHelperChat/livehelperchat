@@ -726,7 +726,27 @@ function lh(){
 	this.sendMail = function(chat_id) {
 		$.colorbox({iframe:true, width:'550px',height:'500px', href:this.wwwDir + 'chat/sendmail/'+chat_id});
 	};
-
+	
+	this.attatchLinkToFile = function(chat_id) {
+		$.colorbox({iframe:true, width:'550px',height:'500px', href:this.wwwDir + 'file/attatchfile/'+chat_id});
+	};
+	
+	this.embedFileSendMail = function(chat_id) {
+		$.colorbox({iframe:true, width:'90%',height:'90%', href:this.wwwDir + 'file/attatchfilemail'});
+	};	
+	
+	this.sendLinkToMail = function( embed_code,file_id) {
+		var val = window.parent.$('#MailMessage').val();		
+		window.parent.$('#MailMessage').val(((val != '') ? val+"\n" : val)+embed_code);
+		$('#embed-button-'+file_id).addClass('success');	
+	},
+	
+	this.sendLinkToEditor = function(chat_id, embed_code,file_id) {
+		var val = window.parent.$('#CSChatMessage-'+chat_id).val();		
+		window.parent.$('#CSChatMessage-'+chat_id).val(((val != '') ? val+"\n" : val)+embed_code);
+		$('#embed-button-'+file_id).addClass('success');	
+	},
+	
 	this.sendMailArchive = function(archive_id,chat_id) {
 		$.colorbox({iframe:true, width:'550px',height:'500px', href:this.wwwDir + 'chatarchive/sendmail/'+archive_id+'/'+chat_id});
 	};

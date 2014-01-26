@@ -806,3 +806,8 @@ border-top-right-radius: 6px;
 		float:none;
 	}
 }
+
+
+.table-list .button {
+	margin-bottom:0;
+}

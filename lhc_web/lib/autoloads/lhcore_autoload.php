@@ -110,6 +110,7 @@ return array_merge(array (
 
 		// Files upload
 		'UploadHandler' 						=> 'lib/core/lhcore/UploadHandler.php',
+		'erLhcoreClassFileUploadAdmin' 			=> 'lib/core/lhcore/lhfileuploadadmin.php',
 		'erLhcoreClassFileUpload' 				=> 'lib/core/lhcore/lhfileupload.php',
 		'erLhcoreClassModelChatFile' 			=> 'lib/models/lhchat/erlhcoreclassmodelchatfile.php',
 

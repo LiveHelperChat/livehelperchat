@@ -81,20 +81,20 @@ class erLhcoreClassChatMail {
     		$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 100,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
     	}
     	
-
-    	
     	// Fetch chat messages
     	$tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/plain.tpl.php');
     	$tpl->set('chat', $chat);
     	$tpl->set('messages', $messages);
 
     	$sendMail->content = str_replace(array('{user_chat_nick}','{messages_content}'), array($chat->nick,$tpl->fetch()), $sendMail->content);
-
+    	
     	if ($form->hasValidData( 'Message' ) )
     	{
     		$sendMail->content = str_replace('{additional_message}', $form->Message, $sendMail->content);
     	}
 
+    	$sendMail->content = erLhcoreClassBBCode::parseForMail($sendMail->content);
+    	
     	if ( $form->hasValidData( 'FromEmail' ) ) {
     		$sendMail->from_email = $form->FromEmail;
     	}
