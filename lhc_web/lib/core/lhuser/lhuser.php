@@ -171,6 +171,7 @@ class erLhcoreClassUser{
        if (isset($_SESSION['lhc_access_timestamp'])){ unset($_SESSION['lhc_access_timestamp']); }
        if (isset($_SESSION['lhc_user_id'])){ unset($_SESSION['lhc_user_id']); }
        if (isset($_SESSION['lhc_csfr_token'])){ unset($_SESSION['lhc_csfr_token']); }
+       if (isset($_SESSION['lhc_user_timezone'])){ unset($_SESSION['lhc_user_timezone']); }
 
        if ( isset($_COOKIE['lhc_rm_u']) ) {
        		unset($_COOKIE['lhc_rm_u']);
@@ -211,6 +212,20 @@ class erLhcoreClassUser{
       return $GLOBALS['UserModelCache_'.$this->userid];
    }
 
+   public function getUserTimeZone() {
+   	
+   		if (($cacheTimeZone = CSCacheAPC::getMem()->getSession('lhc_user_timezone',true)) !== false){
+   			return $cacheTimeZone;
+   		}
+   		
+   		try {
+	   		$userData = $this->getUserData(true);   		
+	   		CSCacheAPC::getMem()->setSession('lhc_user_timezone',$userData->time_zone,true);
+   		} catch (Exception $e) {
+   			CSCacheAPC::getMem()->setSession('lhc_user_timezone','',true);
+   		}
+   }
+   
    function getUserID()
    {
        return $this->userid;

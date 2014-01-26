@@ -91,7 +91,10 @@ if (isset($_POST['Update']))
         ),
         'XMPPUsername' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-        )
+        ),
+   		'UserTimeZone' => new ezcInputFormDefinitionElement(
+   				ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   		)
     );
 
     if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
@@ -109,7 +112,16 @@ if (isset($_POST['Update']))
     } elseif ( $form->hasValidData( 'Username' ) && $form->Username != $UserData->username) {
     	$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','User exists!');
     }
-
+    
+    if ( $form->hasValidData( 'UserTimeZone' ) && $form->UserTimeZone != '')
+    {
+    	$UserData->time_zone = $form->UserTimeZone;
+    	CSCacheAPC::getMem()->setSession('lhc_user_timezone',$UserData->time_zone,true);
+    } else {
+    	CSCacheAPC::getMem()->setSession('lhc_user_timezone','',true);
+    	$UserData->time_zone = '';
+    }
+    
     if ( !$form->hasValidData( 'Email' ) )
     {
         $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Wrong email address');

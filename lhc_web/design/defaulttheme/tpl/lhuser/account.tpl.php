@@ -43,6 +43,8 @@
 	    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Surname');?></label>
 	    <input type="text" name="Surname" value="<?php echo htmlspecialchars($user->surname);?>"/>
 
+	    <?php include(erLhcoreClassDesign::designtpl('lhuser/parts/time_zone.tpl.php'));?>
+	    	    
 	    <div class="row">
 			<div class="columns small-6">
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Skype');?></label>

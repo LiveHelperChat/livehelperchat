@@ -15,7 +15,7 @@ return array (
       'templatecompile' => false,
       'modulecompile' => false,
       'force_virtual_host' => false,
-      'https_port' => 443,
+      'time_zone' => '',
       'default_site_access' => 'eng',
       'extensions' =>
           array (

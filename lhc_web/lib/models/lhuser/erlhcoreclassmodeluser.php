@@ -17,6 +17,7 @@ class erLhcoreClassModelUser {
                'filepath'     	 => $this->filepath,
 			   'filename'     	 => $this->filename,
 			   'skype'     	 	 => $this->skype,
+			   'time_zone'     	 => $this->time_zone,
 			   'xmpp_username'   => $this->xmpp_username,
        );
    }
@@ -326,6 +327,7 @@ class erLhcoreClassModelUser {
     public $disabled = 0;
     public $hide_online = 0;
     public $all_departments = 0;
+    public $time_zone = '';
 }
 
 ?>

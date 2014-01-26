@@ -683,6 +683,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `username` varchar(40) NOT NULL,
                   `password` varchar(40) NOT NULL,
                   `email` varchar(100) NOT NULL,
+                  `time_zone` varchar(100) NOT NULL,
                   `name` varchar(100) NOT NULL,
                   `surname` varchar(100) NOT NULL,
                   `filepath` varchar(200) NOT NULL,

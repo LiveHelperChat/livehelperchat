@@ -31,7 +31,10 @@ if (isset($_POST['Update_account']))
 		),
 		'HideMyStatus' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-		),
+		),  
+   		'UserTimeZone' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
 		'DefaultGroup' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'int',
 				null,
@@ -68,6 +71,13 @@ if (isset($_POST['Update_account']))
         $UserData->surname = $form->Surname;
     } else {
     	$UserData->surname = '';
+    }
+    
+    if ( $form->hasValidData( 'UserTimeZone' ) && $form->UserTimeZone != '')
+    {
+    	$UserData->time_zone = $form->UserTimeZone;
+    } else {
+    	$UserData->time_zone = '';
     }
     
     if ( $form->hasValidData( 'Skype' ) && $form->Skype != '')

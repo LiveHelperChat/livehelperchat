@@ -34,6 +34,12 @@ $ViewList['smtp'] = array(
     'functions' => array( 'configuresmtp' )
 );
 
+$ViewList['timezone'] = array(
+    'script' => 'timezone.php',
+    'params' => array(),
+    'functions' => array( 'timezone' )
+);
+
 $ViewList['languages'] = array(
     'script' => 'languages.php',
     'params' => array(),
@@ -47,5 +53,6 @@ $FunctionList['generatejs'] = array('explain' => 'Allow user to access HTML gene
 $FunctionList['configuresmtp'] = array('explain' => 'Allow user to configure SMTP');
 $FunctionList['configurelanguages'] = array('explain' => 'Allow user to configure languages');
 $FunctionList['changelanguage'] = array('explain' => 'Allow user to change his languages');
+$FunctionList['timezone'] = array('explain' => 'Allow user to change global time zone');
 
 ?>
