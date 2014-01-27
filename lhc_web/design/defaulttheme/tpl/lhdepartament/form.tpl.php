@@ -15,7 +15,7 @@
 <div class="section-container auto" data-section data-options="deep_linking: true">
 
   <section class="active">
-		    <p class="title" data-section-title><a href="#onlinehours"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Automate online hours');?></a></p>	    
+		    <p class="title" data-section-title><a href="#onlinehours"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Automate online hours');?></a></p>	    
 		    <div class="content" data-section-content data-slug="onlinehours">	
 		    	<label><input type="checkbox" name="OnlineHoursActive" value="1" <?php if ($departament->online_hours_active == 1) : ?>checked="checked"<?php endif;?>  /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Work hours/work days logic is active');?></label>
 
@@ -53,7 +53,7 @@
   </section>
 
 	<section>
-		    <p class="title" data-section-title><a href="#notifications"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Notifications about new chats');?></a></p>	    
+		    <p class="title" data-section-title><a href="#notifications"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Notifications about new chats');?></a></p>	    
 		    <div class="content" data-section-content data-slug="notifications">	
 		    		    
 				<div class="row">
@@ -80,7 +80,7 @@
 	</section>
   
   <section>
-		    <p class="title" data-section-title><a href="#chattransfer"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Chat transfer worklow');?></a></p>	    
+		    <p class="title" data-section-title><a href="#chattransfer"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Chat transfer worklow');?></a></p>	    
 		    <div class="content" data-section-content data-slug="chattransfer">	
 		    	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','To what department chat should be transfered if it is not accepted');?></label>
 				<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
@@ -99,7 +99,7 @@
   </section>
   
   <section>
-		    <p class="title" data-section-title><a href="#miscellaneous"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Miscellaneous');?></a></p>	    
+		    <p class="title" data-section-title><a href="#miscellaneous"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Miscellaneous');?></a></p>	    
 		    <div class="content" data-section-content data-slug="miscellaneous">	
 		    	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.');?></label>
 				<input type="text" name="Identifier"  value="<?php echo htmlspecialchars($departament->identifier);?>" />						    	    	
