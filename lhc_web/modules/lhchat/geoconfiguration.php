@@ -169,7 +169,7 @@ if ( isset($_POST['StoreGeoIPConfiguration']) ) {
                 }
                 
                 if (empty($Errors)) {
-	                $responseDetection = erLhcoreClassModelChatOnlineUser::getUserData('max_mind',erLhcoreClassIPDetect::getServerAddress(),array('detection_type' => $data['max_mind_detection_type']));                
+	                $responseDetection = erLhcoreClassModelChatOnlineUser::getUserData('max_mind','94.23.200.91',array('detection_type' => $data['max_mind_detection_type']));                
 	                if ( $responseDetection == false || !isset($responseDetection->country_code) || !isset($responseDetection->country_name) ) {
 	                    $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Setting service provider failed, please check that MaxMind database files exists!');
 	                }
