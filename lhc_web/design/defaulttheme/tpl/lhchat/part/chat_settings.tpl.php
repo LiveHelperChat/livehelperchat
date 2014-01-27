@@ -1,5 +1,10 @@
 <?php $systemconfig = erLhcoreClassModelChatConfig::fetch($attribute);?>
+
+<?php if (!isset($boolValue)) : ?>
 <label><?php echo htmlspecialchars($systemconfig->explain); ?></label>
+<?php else : ?>
+<label><input type="checkbox" name="<?php echo $attribute?>ValueParam" value="1" <?php if ($systemconfig->value == 1) : ?>checked="checked"<?php endif;?> /> <?php echo htmlspecialchars($systemconfig->explain); ?></label>
+<?php endif; ?>
 
 <?php if ( $systemconfig->type == erLhcoreClassModelChatConfig::SITE_ACCESS_PARAM_ON ) : ?>
 
@@ -10,5 +15,8 @@
     <?php endforeach;?>
 	
 <?php else : ?>
+	
+	<?php if (!isset($boolValue)) : ?>
     <input class="default-input" type="text" name="<?php echo $attribute?>ValueParam" value="<?php echo htmlspecialchars($systemconfig->value);?>" />
+    <?php else : unset($boolValue);?> <?php endif;?>
 <?php endif;?>
