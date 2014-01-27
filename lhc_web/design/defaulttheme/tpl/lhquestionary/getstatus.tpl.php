@@ -249,7 +249,7 @@ if ( window.addEventListener ){
 };
 
 <?php if ($expand == 'true') : ?>
-if (!lhc_Chatbox.cookieData.was_opened) {
+if (!lhc_Questionary.cookieData.was_opened) {
 	lhcQuestionary.showVotingForm();
 };
 <?php endif;?>
