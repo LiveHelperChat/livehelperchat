@@ -46,16 +46,20 @@ class erLhcoreClassChatMail {
     public static function prepareSendMail(erLhAbstractModelEmailTemplate & $sendMail)
     {
     	$currentUser = erLhcoreClassUser::instance();
-    	$userData = $currentUser->getUserData();
-    	$sendMail->subject = str_replace(array('{name_surname}'),array($userData->name.' '.$userData->surname),$sendMail->subject);
-    	$sendMail->from_name = str_replace(array('{name_surname}'),array($userData->name.' '.$userData->surname),$sendMail->from_name);
-
-    	if (empty($sendMail->from_email)) {
-    		$sendMail->from_email = $userData->email;
-    	}
-
-    	if (empty($sendMail->reply_to)) {
-    		$sendMail->reply_to = $userData->email;
+    	
+    	if ($currentUser->isLogged() == true){    	
+	    	$userData = $currentUser->getUserData();  	
+	    		    	    	
+	    	$sendMail->subject = str_replace(array('{name_surname}'),array($userData->name.' '.$userData->surname),$sendMail->subject);
+	    	$sendMail->from_name = str_replace(array('{name_surname}'),array($userData->name.' '.$userData->surname),$sendMail->from_name);
+	
+	    	if (empty($sendMail->from_email)) {
+	    		$sendMail->from_email = $userData->email;
+	    	}
+	
+	    	if (empty($sendMail->reply_to)) {
+	    		$sendMail->reply_to = $userData->email;
+	    	}
     	}
     }
 
@@ -137,11 +141,18 @@ class erLhcoreClassChatMail {
 
     	$mail = new PHPMailer();
     	$mail->CharSet = "UTF-8";
-    	$mail->Sender = $mail->From = $sendMail->from_email;
+    	
+    	if ($sendMail->from_email != '') {
+    		$mail->Sender = $mail->From = $sendMail->from_email;
+    	}
+    	
     	$mail->FromName = $sendMail->from_name;
     	$mail->Subject = $sendMail->subject;
-    	$mail->AddReplyTo($sendMail->reply_to,$sendMail->from_name);
-
+    	
+    	if ($sendMail->reply_to != '') {
+    		$mail->AddReplyTo($sendMail->reply_to,$sendMail->from_name);
+    	}
+    	
     	$mail->Body = $sendMail->content;
     	$mail->AddAddress( $sendMail->recipient );
 
