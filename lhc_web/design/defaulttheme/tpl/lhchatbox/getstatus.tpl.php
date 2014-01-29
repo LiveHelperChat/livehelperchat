@@ -114,14 +114,14 @@ var lhc_Chatbox = {
 			this.addClass(dm,'lhc-no-transition');
 			this.addClass(dm,'lhc-min');			
 			<?php if ($currentPosition['posv'] == 'b') : ?>			
-			dm.style.bottom = (parseInt(dm.style.bottom)+parseInt(dm.attrHeight)-35)+'px';
+			if(dm.style.bottom!='' && dm.attrHeight!='')dm.style.bottom = (parseInt(dm.style.bottom)+parseInt(dm.attrHeight)-35)+'px';
 			<?php endif; ?>			
 			this.addCookieAttribute('m',1);
 			this.storePos(dm);
 		} else {	
 			dm.attrIsMin = false;
 			<?php if ($currentPosition['posv'] == 'b') : ?>
-			dm.style.bottom = (parseInt(dm.style.bottom)-parseInt(document.getElementById('lhcchatbox_iframe').style.height)+9)+'px';	
+			if(dm.style.bottom!='')dm.style.bottom = (parseInt(dm.style.bottom)-parseInt(document.getElementById('lhcchatbox_iframe').style.height)+9)+'px';	
 			<?php endif;?>		
 			this.removeCookieAttr('m');
 			this.removeClass(dm,'lhc-min');
