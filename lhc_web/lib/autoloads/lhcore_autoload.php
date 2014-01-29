@@ -149,9 +149,11 @@ return array_merge(array (
 		'GeoIp2\Record\RepresentedCountry'			=> 'lib/core/lhexternal/GeoIp2/Record/RepresentedCountry.php',	
 		'GeoIp2\Record\Traits'						=> 'lib/core/lhexternal/GeoIp2/Record/Traits.php',	
 		'GeoIp2\Exception\AddressNotFoundException' => 'lib/core/lhexternal/GeoIp2/Exception/AddressNotFoundException.php',	
+		'GeoIp2\Exception\GeoIp2Exception' 			=> 'lib/core/lhexternal/GeoIp2/Exception/GeoIp2Exception.php',	
 		'MaxMind\Db\Reader'							=> 'lib/core/lhexternal/MaxMind/Db/Reader.php',		
 		'MaxMind\Db\Reader\Decoder'					=> 'lib/core/lhexternal/MaxMind/Db/Reader/Decoder.php',		
 		'MaxMind\Db\Reader\Metadata'				=> 'lib/core/lhexternal/MaxMind/Db/Reader/Metadata.php',		
+		'JsonSerializable'							=> 'lib/core/lhexternal/GeoIp2/Record/JsonSerializable.php',		
 		
 ),
 include('var/autoloads/lhextension_autoload.php')

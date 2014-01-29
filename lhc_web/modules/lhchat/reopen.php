@@ -15,7 +15,12 @@ try {
 	$chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
 	if ($chat->hash == $Params['user_parameters']['hash'] && erLhcoreClassChat::canReopen($chat,true) )
 	{
+		// Reset to fresh state to workflow triggers to work
 		$chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
+		$chat->nc_cb_executed = 0;
+		$chat->na_cb_executed = 0;
+		$chat->time = time(); // Set time to new		
+		
 		$chat->updateThis();
 
 		if ($Params['user_parameters_unordered']['mode'] == 'widget'){
