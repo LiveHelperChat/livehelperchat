@@ -132,6 +132,14 @@
       <translation>Shlednuté strany</translation>
     </message>
     <message>
+      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How many times user show invitation, 0 - untill users closes it, &gt; 0 limits.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Requires e-mail</source>
       <translation type="unfinished"/>
     </message>
@@ -482,6 +490,10 @@
     <message>
       <source>Print</source>
       <translation>Tisk</translation>
+    </message>
+    <message>
+      <source>Attatch uploaded file</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
@@ -1446,6 +1458,10 @@
       <translation>Archiv rozhovorů</translation>
     </message>
     <message>
+      <source>Time zone settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Live help embed code</source>
       <translation>Embedovaný kód online pomoci</translation>
     </message>
@@ -1500,6 +1516,10 @@
     <message>
       <source>File configuration</source>
       <translation>Nastavení souborü</translation>
+    </message>
+    <message>
+      <source>New file</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -1878,6 +1898,10 @@
     <message>
       <source>Send the mail</source>
       <translation>Odeslat e-mail</translation>
+    </message>
+    <message>
+      <source>Embed link to file</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Mail was sent to the user</source>
@@ -2669,19 +2693,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>XMPP recipients</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMPP group recipients</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>E.g somechat@conference.server.org/LiveChat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>These messages will be send as group messages</source>
+      <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2689,35 +2701,7 @@
       <translation>Priorita</translation>
     </message>
     <message>
-      <source>To what department chat should be transfered if it is not accepted</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Inform then chat is closed by operator, only mail notification is send.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Inform about new chats using</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMPP messages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Mail messages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>How many seconds chat can be pending before about chat is informed a staff</source>
+      <source>Automate online hours</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2766,6 +2750,70 @@
     </message>
     <message>
       <source>To, E.g. 17</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Notifications about new chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP group recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E.g somechat@conference.server.org/LiveChat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>These messages will be send as group messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inform about new chats using</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How many seconds chat can be pending before about chat is informed a staff</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inform then chat is closed by operator, only mail notification is send.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat transfer worklow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To what department chat should be transfered if it is not accepted</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Miscellaneous</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3089,12 +3137,8 @@
       <translation>Seznam souborů</translation>
     </message>
     <message>
-      <source>User</source>
-      <translation>Uživatel</translation>
-    </message>
-    <message>
-      <source>Chat</source>
-      <translation>Rozhovor</translation>
+      <source>Upload a file</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Upload name</source>
@@ -3103,6 +3147,18 @@
     <message>
       <source>File size</source>
       <translation>Velikost souboru</translation>
+    </message>
+    <message>
+      <source>Embed BB code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User</source>
+      <translation>Uživatel</translation>
+    </message>
+    <message>
+      <source>Chat</source>
+      <translation>Rozhovor</translation>
     </message>
     <message>
       <source>Extension</source>
@@ -3809,6 +3865,10 @@
   <context>
     <name>user/edit</name>
     <message>
+      <source>Server default time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User edit</source>
       <translation>Úprava detailu uživatele</translation>
     </message>
@@ -3859,6 +3919,14 @@
     <message>
       <source>Assigned departments</source>
       <translation>Přiřazené oddělení</translation>
+    </message>
+    <message>
+      <source>User time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Application default time zone</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Wrong email address</source>
@@ -4571,6 +4639,40 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Prosím vyberte platný typ souboru!</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/new</name>
+    <message>
+      <source>New file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Upload</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File uploaded</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>system/timezone</name>
+    <message>
+      <source>Time zone settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set application specific time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

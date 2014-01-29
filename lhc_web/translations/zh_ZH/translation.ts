@@ -132,6 +132,14 @@
       <translation>浏览量</translation>
     </message>
     <message>
+      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How many times user show invitation, 0 - untill users closes it, &gt; 0 limits.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Requires e-mail</source>
       <translation>需要電子郵件</translation>
     </message>
@@ -482,6 +490,10 @@
     <message>
       <source>Print</source>
       <translation>打印</translation>
+    </message>
+    <message>
+      <source>Attatch uploaded file</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
@@ -1446,6 +1458,10 @@
       <translation>聊天記錄存檔</translation>
     </message>
     <message>
+      <source>Time zone settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Live help embed code</source>
       <translation>在線幫助嵌入代碼</translation>
     </message>
@@ -1500,6 +1516,10 @@
     <message>
       <source>File configuration</source>
       <translation>配置文件</translation>
+    </message>
+    <message>
+      <source>New file</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -1878,6 +1898,10 @@
     <message>
       <source>Send the mail</source>
       <translation>发送邮件</translation>
+    </message>
+    <message>
+      <source>Embed link to file</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Mail was sent to the user</source>
@@ -2669,56 +2693,16 @@
       <translation>已禁用</translation>
     </message>
     <message>
-      <source>XMPP recipients</source>
-      <translation>XMPP 收件人</translation>
-    </message>
-    <message>
-      <source>XMPP group recipients</source>
-      <translation>XMPP 组收件人</translation>
-    </message>
-    <message>
-      <source>E.g somechat@conference.server.org/LiveChat</source>
-      <translation>例如： somechat@conference.server.org/ 实时聊天</translation>
-    </message>
-    <message>
-      <source>These messages will be send as group messages</source>
-      <translation>这些消息将会发送作为组消息</translation>
+      <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Priority</source>
       <translation>优先</translation>
     </message>
     <message>
-      <source>To what department chat should be transfered if it is not accepted</source>
-      <translation>部門聊天，如果不接受，應該被轉移</translation>
-    </message>
-    <message>
-      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
-      <translation>超時聊天秒前被轉移到另一個部門。至少5秒。</translation>
-    </message>
-    <message>
-      <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
-      <translation>此字段是最多50個字符的長度，並通過擴展可以用於任何用途。此字段索引。</translation>
-    </message>
-    <message>
-      <source>Inform then chat is closed by operator, only mail notification is send.</source>
-      <translation>只有邮件通知是发送通知然后由运算符，关闭聊天。</translation>
-    </message>
-    <message>
-      <source>Inform about new chats using</source>
-      <translation>通报新聊天使用</translation>
-    </message>
-    <message>
-      <source>XMPP messages</source>
-      <translation>XMPP 邮件</translation>
-    </message>
-    <message>
-      <source>Mail messages</source>
-      <translation>邮件消息</translation>
-    </message>
-    <message>
-      <source>How many seconds chat can be pending before about chat is informed a staff</source>
-      <translation>多少秒聊天可能挂起之前关于聊天是告知工作人员</translation>
+      <source>Automate online hours</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Work hours/work days logic is active</source>
@@ -2767,6 +2751,70 @@
     <message>
       <source>To, E.g. 17</source>
       <translation>对，如 17</translation>
+    </message>
+    <message>
+      <source>Notifications about new chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP recipients</source>
+      <translation>XMPP 收件人</translation>
+    </message>
+    <message>
+      <source>XMPP group recipients</source>
+      <translation>XMPP 组收件人</translation>
+    </message>
+    <message>
+      <source>E.g somechat@conference.server.org/LiveChat</source>
+      <translation>例如： somechat@conference.server.org/ 实时聊天</translation>
+    </message>
+    <message>
+      <source>These messages will be send as group messages</source>
+      <translation>这些消息将会发送作为组消息</translation>
+    </message>
+    <message>
+      <source>Inform about new chats using</source>
+      <translation>通报新聊天使用</translation>
+    </message>
+    <message>
+      <source>XMPP messages</source>
+      <translation>XMPP 邮件</translation>
+    </message>
+    <message>
+      <source>Mail messages</source>
+      <translation>邮件消息</translation>
+    </message>
+    <message>
+      <source>How many seconds chat can be pending before about chat is informed a staff</source>
+      <translation>多少秒聊天可能挂起之前关于聊天是告知工作人员</translation>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inform then chat is closed by operator, only mail notification is send.</source>
+      <translation>只有邮件通知是发送通知然后由运算符，关闭聊天。</translation>
+    </message>
+    <message>
+      <source>Chat transfer worklow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To what department chat should be transfered if it is not accepted</source>
+      <translation>部門聊天，如果不接受，應該被轉移</translation>
+    </message>
+    <message>
+      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+      <translation>超時聊天秒前被轉移到另一個部門。至少5秒。</translation>
+    </message>
+    <message>
+      <source>Miscellaneous</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
+      <translation>此字段是最多50個字符的長度，並通過擴展可以用於任何用途。此字段索引。</translation>
     </message>
     <message>
       <source>None</source>
@@ -3089,12 +3137,8 @@
       <translation>文件的列表</translation>
     </message>
     <message>
-      <source>User</source>
-      <translation>用户</translation>
-    </message>
-    <message>
-      <source>Chat</source>
-      <translation>聊</translation>
+      <source>Upload a file</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Upload name</source>
@@ -3103,6 +3147,18 @@
     <message>
       <source>File size</source>
       <translation>文件大小</translation>
+    </message>
+    <message>
+      <source>Embed BB code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User</source>
+      <translation>用户</translation>
+    </message>
+    <message>
+      <source>Chat</source>
+      <translation>聊</translation>
     </message>
     <message>
       <source>Extension</source>
@@ -3809,6 +3865,10 @@
   <context>
     <name>user/edit</name>
     <message>
+      <source>Server default time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User edit</source>
       <translation>用户编辑</translation>
     </message>
@@ -3859,6 +3919,14 @@
     <message>
       <source>Assigned departments</source>
       <translation>分配的部门</translation>
+    </message>
+    <message>
+      <source>User time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Application default time zone</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Wrong email address</source>
@@ -4571,6 +4639,40 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>请输入有效的文件类型 ！</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/new</name>
+    <message>
+      <source>New file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Upload</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File uploaded</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>system/timezone</name>
+    <message>
+      <source>Time zone settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set application specific time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

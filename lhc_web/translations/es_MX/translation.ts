@@ -134,6 +134,14 @@
       <translation>Páginas Vistas</translation>
     </message>
     <message>
+      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How many times user show invitation, 0 - untill users closes it, &gt; 0 limits.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Requires e-mail</source>
       <translation>Necesario e-mail</translation>
     </message>
@@ -484,6 +492,10 @@
     <message>
       <source>Print</source>
       <translation>Imprimir</translation>
+    </message>
+    <message>
+      <source>Attatch uploaded file</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
@@ -1450,6 +1462,10 @@
       <translation>Archivo de chats</translation>
     </message>
     <message>
+      <source>Time zone settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Live help embed code</source>
       <translation>Código de inserción para Live help</translation>
     </message>
@@ -1504,6 +1520,10 @@
     <message>
       <source>File configuration</source>
       <translation>Fichero de configuración</translation>
+    </message>
+    <message>
+      <source>New file</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -1882,6 +1902,10 @@
     <message>
       <source>Send the mail</source>
       <translation>Enviar correo</translation>
+    </message>
+    <message>
+      <source>Embed link to file</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Mail was sent to the user</source>
@@ -2673,56 +2697,16 @@
       <translation>Deshabilitado</translation>
     </message>
     <message>
-      <source>XMPP recipients</source>
-      <translation>Destinatarios XMPP</translation>
-    </message>
-    <message>
-      <source>XMPP group recipients</source>
-      <translation>Grupo destinatarios XMPP</translation>
-    </message>
-    <message>
-      <source>E.g somechat@conference.server.org/LiveChat</source>
-      <translation>P.e. somechat@conference.server.org/LiveChat</translation>
-    </message>
-    <message>
-      <source>These messages will be send as group messages</source>
-      <translation>Estos mensajes se enviarán como mensajes de grupo</translation>
+      <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Priority</source>
       <translation>Prioridad</translation>
     </message>
     <message>
-      <source>To what department chat should be transfered if it is not accepted</source>
-      <translation>¿A qué departamento de chat debe ser transferido si no se acepta</translation>
-    </message>
-    <message>
-      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
-      <translation>Tiempo de espera en segundos antes de que el chat se transfiera a otro departamento. Mínimo 5 segundos.</translation>
-    </message>
-    <message>
-      <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
-      <translation>La longitud máxima de este campo es de 50 caracteres y puede ser utilizado para cualquier propósito por extensiones. Este campo también esta indexado.</translation>
-    </message>
-    <message>
-      <source>Inform then chat is closed by operator, only mail notification is send.</source>
-      <translation>Informar cuando un chat es cerrado por un operador, sólo se envía notificación por e-mail.</translation>
-    </message>
-    <message>
-      <source>Inform about new chats using</source>
-      <translation>Informar acerca del uso de nuevos chats</translation>
-    </message>
-    <message>
-      <source>XMPP messages</source>
-      <translation>mensajes XMPP</translation>
-    </message>
-    <message>
-      <source>Mail messages</source>
-      <translation>Mensajes de correo</translation>
-    </message>
-    <message>
-      <source>How many seconds chat can be pending before about chat is informed a staff</source>
-      <translation>¿Cuántos chats secundarios pueden estar pendientes antes de que el chat sea informado al personal?</translation>
+      <source>Automate online hours</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Work hours/work days logic is active</source>
@@ -2771,6 +2755,70 @@
     <message>
       <source>To, E.g. 17</source>
       <translation>Hasta, p.e. 17</translation>
+    </message>
+    <message>
+      <source>Notifications about new chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP recipients</source>
+      <translation>Destinatarios XMPP</translation>
+    </message>
+    <message>
+      <source>XMPP group recipients</source>
+      <translation>Grupo destinatarios XMPP</translation>
+    </message>
+    <message>
+      <source>E.g somechat@conference.server.org/LiveChat</source>
+      <translation>P.e. somechat@conference.server.org/LiveChat</translation>
+    </message>
+    <message>
+      <source>These messages will be send as group messages</source>
+      <translation>Estos mensajes se enviarán como mensajes de grupo</translation>
+    </message>
+    <message>
+      <source>Inform about new chats using</source>
+      <translation>Informar acerca del uso de nuevos chats</translation>
+    </message>
+    <message>
+      <source>XMPP messages</source>
+      <translation>mensajes XMPP</translation>
+    </message>
+    <message>
+      <source>Mail messages</source>
+      <translation>Mensajes de correo</translation>
+    </message>
+    <message>
+      <source>How many seconds chat can be pending before about chat is informed a staff</source>
+      <translation>¿Cuántos chats secundarios pueden estar pendientes antes de que el chat sea informado al personal?</translation>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inform then chat is closed by operator, only mail notification is send.</source>
+      <translation>Informar cuando un chat es cerrado por un operador, sólo se envía notificación por e-mail.</translation>
+    </message>
+    <message>
+      <source>Chat transfer worklow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To what department chat should be transfered if it is not accepted</source>
+      <translation>¿A qué departamento de chat debe ser transferido si no se acepta</translation>
+    </message>
+    <message>
+      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+      <translation>Tiempo de espera en segundos antes de que el chat se transfiera a otro departamento. Mínimo 5 segundos.</translation>
+    </message>
+    <message>
+      <source>Miscellaneous</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
+      <translation>La longitud máxima de este campo es de 50 caracteres y puede ser utilizado para cualquier propósito por extensiones. Este campo también esta indexado.</translation>
     </message>
     <message>
       <source>None</source>
@@ -3093,12 +3141,8 @@
       <translation>Lista de ficheros</translation>
     </message>
     <message>
-      <source>User</source>
-      <translation>Usuario</translation>
-    </message>
-    <message>
-      <source>Chat</source>
-      <translation>Chat</translation>
+      <source>Upload a file</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Upload name</source>
@@ -3107,6 +3151,18 @@
     <message>
       <source>File size</source>
       <translation>Tamaño de fichero</translation>
+    </message>
+    <message>
+      <source>Embed BB code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User</source>
+      <translation>Usuario</translation>
+    </message>
+    <message>
+      <source>Chat</source>
+      <translation>Chat</translation>
     </message>
     <message>
       <source>Extension</source>
@@ -3817,6 +3873,10 @@ Lista de funciones</translation>
   <context>
     <name>user/edit</name>
     <message>
+      <source>Server default time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User edit</source>
       <translation>editar usuario</translation>
     </message>
@@ -3867,6 +3927,14 @@ Lista de funciones</translation>
     <message>
       <source>Assigned departments</source>
       <translation>Departamentos asignados</translation>
+    </message>
+    <message>
+      <source>User time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Application default time zone</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Wrong email address</source>
@@ -4579,6 +4647,40 @@ Lista de funciones</translation>
     <message>
       <source>Please enter valid file type!</source>
       <translation>Por favor, introduzca un tipo de fichero válido</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/new</name>
+    <message>
+      <source>New file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Upload</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File uploaded</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>system/timezone</name>
+    <message>
+      <source>Time zone settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set application specific time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

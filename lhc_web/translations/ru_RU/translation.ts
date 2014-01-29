@@ -93,7 +93,7 @@
     </message>
     <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation>Язык (оставьте пустым для использования всех языков). Пример: lit, rus, get etc...</translation>
+      <translation>Язык (оставьте пустым для использования всех языков). Например: lit, rus, get etc...</translation>
     </message>
     <message>
       <source>Position</source>
@@ -130,6 +130,14 @@
     <message>
       <source>Pageviews</source>
       <translation>Просмотры страниц</translation>
+    </message>
+    <message>
+      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
+      <translation>Реферер домена без www, например ключевое слово &quot;google&quot; будет соответствовать любому домену google</translation>
+    </message>
+    <message>
+      <source>How many times user show invitation, 0 - untill users closes it, &gt; 0 limits.</source>
+      <translation>Сколько раз показывать автоприглашение? 0 - пока пользователь не закроет его.</translation>
     </message>
     <message>
       <source>Requires e-mail</source>
@@ -171,7 +179,7 @@
     <name>chat/activechats</name>
     <message>
       <source>Active chats list</source>
-      <translation>Список активных диалогов</translation>
+      <translation>Список активных чатов</translation>
     </message>
     <message>
       <source>Information</source>
@@ -183,11 +191,11 @@
     </message>
     <message>
       <source>Close chat</source>
-      <translation>Закрыть диалог</translation>
+      <translation>Закрыть чат</translation>
     </message>
     <message>
       <source>Delete chat</source>
-      <translation>Удалить диалог</translation>
+      <translation>Удалить чат</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -199,7 +207,7 @@
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Активные диалоги</translation>
+      <translation>Активные чаты</translation>
     </message>
   </context>
   <context>
@@ -214,7 +222,7 @@
     </message>
     <message>
       <source>This chat is closed.</source>
-      <translation>Этот диалог закрыт</translation>
+      <translation>Этот диалог был завершён.</translation>
     </message>
     <message>
       <source>Pending confirm</source>
@@ -246,7 +254,7 @@
     </message>
     <message>
       <source>Chat started</source>
-      <translation>Диалог начат</translation>
+      <translation>Чат начат</translation>
     </message>
     <message>
       <source>is typing now...</source>
@@ -358,7 +366,7 @@
     </message>
     <message>
       <source>Chat was deleted</source>
-      <translation>Диалог удален</translation>
+      <translation>Чат удален</translation>
     </message>
   </context>
   <context>
@@ -445,7 +453,7 @@
     </message>
     <message>
       <source>Chat duration</source>
-      <translation>Длительность диалога</translation>
+      <translation>Длительность чата</translation>
     </message>
     <message>
       <source>Actions</source>
@@ -453,11 +461,11 @@
     </message>
     <message>
       <source>Close dialog</source>
-      <translation>Закрыть диалог</translation>
+      <translation>Закрыть окно</translation>
     </message>
     <message>
       <source>Close chat</source>
-      <translation>Закрыть чат</translation>
+      <translation>Завершить чат</translation>
     </message>
     <message>
       <source>Delete chat</source>
@@ -477,11 +485,15 @@
     </message>
     <message>
       <source>Send mail</source>
-      <translation>отправить письмо</translation>
+      <translation>Отправить письмо</translation>
     </message>
     <message>
       <source>Print</source>
       <translation>Печать</translation>
+    </message>
+    <message>
+      <source>Attatch uploaded file</source>
+      <translation>Прикрепить загруженный файл</translation>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
@@ -575,7 +587,7 @@
     </message>
     <message>
       <source>Add chat</source>
-      <translation>Добавить диалог</translation>
+      <translation>Добавить чат</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -595,7 +607,7 @@
     </message>
     <message>
       <source>Accept chat</source>
-      <translation>Принять диалог</translation>
+      <translation>Принять чат</translation>
     </message>
     <message>
       <source>h.</source>
@@ -622,11 +634,11 @@
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Активные диалоги</translation>
+      <translation>Активные чаты</translation>
     </message>
     <message>
       <source>All active chats</source>
-      <translation>Все активные диалоги</translation>
+      <translation>Все активные чаты</translation>
     </message>
     <message>
       <source>Unread messages</source>
@@ -634,15 +646,15 @@
     </message>
     <message>
       <source>All unread chats</source>
-      <translation>Все непрочитанные диалоги</translation>
+      <translation>Все непрочитанные чаты</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Закрытые диалоги</translation>
+      <translation>Завершённые чаты</translation>
     </message>
     <message>
       <source>All closed chats</source>
-      <translation>Все закрытые диалоги</translation>
+      <translation>Все завершённые чаты</translation>
     </message>
     <message>
       <source>You do not have permission to use chattabschrome function</source>
@@ -737,7 +749,7 @@
     </message>
     <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
-      <translation>У вас нет прав для диалога, пожалуйста свяжитесь с администратором</translation>
+      <translation>У вас нет прав для использования чата! Пожалуйста свяжитесь с владельцем сайта.</translation>
     </message>
     <message>
       <source>Invalid captcha code, please enable Javascript!</source>
@@ -789,7 +801,7 @@
     </message>
     <message>
       <source>Live Support</source>
-      <translation>Техподдержка</translation>
+      <translation>Система</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -816,7 +828,7 @@
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
-      <translation>Пожалуйста, подождите. Вам ответит первый освободившийся оператор. Или напишите ваш вопрос, для скорейшего ответа освободившегося оператора.</translation>
+      <translation>Пожалуйста, подождите. Вам ответит первый освободившийся оператор. Пока вы можете подробно описать свой вопрос.</translation>
     </message>
     <message>
       <source>At this moment there are no logged in support staff members, but you can leave your messages</source>
@@ -827,7 +839,7 @@
     <name>chat/closedchats</name>
     <message>
       <source>Closed chats list</source>
-      <translation>Выбор листа диалогов</translation>
+      <translation>Список закрытых чатов</translation>
     </message>
     <message>
       <source>Information</source>
@@ -839,7 +851,7 @@
     </message>
     <message>
       <source>Delete chat</source>
-      <translation>удалить диалог</translation>
+      <translation>Удалить чат</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -847,11 +859,11 @@
     </message>
     <message>
       <source>Chats list</source>
-      <translation>Лист диалогов</translation>
+      <translation>Список чатов</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Закрытые диалоги</translation>
+      <translation>Завершённые чаты</translation>
     </message>
   </context>
   <context>
@@ -1301,11 +1313,11 @@
     <name>chat/getstatus</name>
     <message>
       <source>Live help is online...</source>
-      <translation>Тех. поддержка в сети...</translation>
+      <translation>Менеджер в сети...</translation>
     </message>
     <message>
       <source>Live help is offline...</source>
-      <translation>Тех.поддержка не в сети</translation>
+      <translation>Менеджер не в сети</translation>
     </message>
     <message>
       <source>Close</source>
@@ -1328,7 +1340,7 @@
     </message>
     <message>
       <source>Notifications about new chats</source>
-      <translation>Уведомления о новых чаты</translation>
+      <translation>Уведомления о новых чатах</translation>
     </message>
     <message>
       <source>Copyright settings</source>
@@ -1371,7 +1383,7 @@
     <name>system/configuration</name>
     <message>
       <source>Request notification permission</source>
-      <translation>Запрос разрешить уведомления</translation>
+      <translation>Разрешить уведомления</translation>
     </message>
     <message>
       <source>New chat notification settings</source>
@@ -1446,6 +1458,10 @@
       <translation>Архив чатов</translation>
     </message>
     <message>
+      <source>Time zone settings</source>
+      <translation>Настройка часовых поясов</translation>
+    </message>
+    <message>
       <source>Live help embed code</source>
       <translation>Код Чата</translation>
     </message>
@@ -1501,6 +1517,10 @@
       <source>File configuration</source>
       <translation>Настройки файла</translation>
     </message>
+    <message>
+      <source>New file</source>
+      <translation>Новый файл</translation>
+    </message>
   </context>
   <context>
     <name>system/htmlcode</name>
@@ -1534,7 +1554,7 @@
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>
-      <translation>Copy the code from the text area to the page where you want it to be rendered</translation>
+      <translation>Скопируйте код из текстового поля на страницу, где вы хотите отобразить этот блок</translation>
     </message>
     <message>
       <source>Chatbox</source>
@@ -1602,7 +1622,7 @@
     </message>
     <message>
       <source>Copy the code from the textarea to page where you want it to be rendered</source>
-      <translation>Скопируйте код из текстовой области в ту часть страницы, где Вы хотите отображать блок</translation>
+      <translation>Скопируйте код из текстового поля на страницу, где вы хотите отобразить этот блок</translation>
     </message>
     <message>
       <source>Status text</source>
@@ -1638,11 +1658,11 @@
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want your status to appear</source>
-      <translation>Copy the code from the text area to the page where you want your status to appear</translation>
+      <translation>Скопируйте код из текстового поля на страницу, где вы хотите отобразить статус оператора</translation>
     </message>
     <message>
       <source>On a mouse click show the page widget</source>
-      <translation>On a mouse click show the page widget</translation>
+      <translation>Открывать виджет на странице по клику мыши</translation>
     </message>
     <message>
       <source>Automatically check for messages from the operator/invitation messages</source>
@@ -1686,7 +1706,7 @@
     </message>
     <message>
       <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>Native placement - it will be shown where the html is embedded</translation>
+      <translation>Отображать виджет в там, где он встроен в HTML код</translation>
     </message>
     <message>
       <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
@@ -1717,11 +1737,11 @@
     </message>
     <message>
       <source>Active chats</source>
-      <translation>активные диалоги</translation>
+      <translation>Активные чаты</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Закрытые диалоги</translation>
+      <translation>Завершённые чаты</translation>
     </message>
     <message>
       <source>Operators chats</source>
@@ -1729,7 +1749,7 @@
     </message>
     <message>
       <source>Chats with unread messages</source>
-      <translation>Диалоги с непрочитанными сообщениями</translation>
+      <translation>Чаты с непрочитанными сообщениями</translation>
     </message>
     <message>
       <source>Chat lists</source>
@@ -1812,7 +1832,7 @@
     </message>
     <message>
       <source>Reject chat</source>
-      <translation>Отказаться от диалога</translation>
+      <translation>Отказаться от чата</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -1865,11 +1885,11 @@
     </message>
     <message>
       <source>Reply e-mail</source>
-      <translation>Емайил для ответа</translation>
+      <translation>E-mail для ответа</translation>
     </message>
     <message>
       <source>From e-mail</source>
-      <translation>Емаил отправителя</translation>
+      <translation>E-mail отправителя</translation>
     </message>
     <message>
       <source>Type your message to the user</source>
@@ -1878,6 +1898,10 @@
     <message>
       <source>Send the mail</source>
       <translation>Отправить сообщение</translation>
+    </message>
+    <message>
+      <source>Embed link to file</source>
+      <translation>Вставьте ссылку на файл</translation>
     </message>
     <message>
       <source>Mail was sent to the user</source>
@@ -1908,7 +1932,7 @@
     </message>
     <message>
       <source>If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.</source>
-      <translation>Если сообщение уже отправлено, то оно будет помечено как недоставленное до тех пор, пока пользователь его не прочтет.</translation>
+      <translation>Если сообщение уже отправлено, то оно будет помечено, как недоставленное, до тех пор, пока пользователь его не прочтет.</translation>
     </message>
     <message>
       <source>Type your message to the user</source>
@@ -1975,7 +1999,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Емаил</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Message</source>
@@ -2066,7 +2090,7 @@
     </message>
     <message>
       <source>New chat request notification settings</source>
-      <translation>Параметры уведомления о новых диалогах</translation>
+      <translation>Параметры уведомления о новых чатах</translation>
     </message>
     <message>
       <source>Play a new pending chat sound on a new chat request</source>
@@ -2082,7 +2106,7 @@
     </message>
     <message>
       <source>Show alert message on a new chat request</source>
-      <translation>Показывать уведомление при появлении нового диалога</translation>
+      <translation>Показывать уведомление при появлении нового чата</translation>
     </message>
     <message>
       <source>How many times play sound notification</source>
@@ -2161,11 +2185,11 @@
     </message>
     <message>
       <source>Total active chats</source>
-      <translation>Активные диалоги</translation>
+      <translation>Активные чаты</translation>
     </message>
     <message>
       <source>Total closed chats</source>
-      <translation>Завершенные диалоги</translation>
+      <translation>Всего завершенных чатов</translation>
     </message>
     <message>
       <source>Chatbox chats</source>
@@ -2247,7 +2271,7 @@
     <name>chat/unreadchats</name>
     <message>
       <source>Unread chats list</source>
-      <translation>Список непрочитанных диалогов</translation>
+      <translation>Список непрочитанных чатов</translation>
     </message>
     <message>
       <source>Information</source>
@@ -2532,7 +2556,7 @@
     </message>
     <message>
       <source>Copy the code from the text area to the page header or footer</source>
-      <translation>Скопировать код из текстовой области в шапку или подвал страницы</translation>
+      <translation>Скопируйте код из текстового поля в шапку или подвал страницы</translation>
     </message>
     <message>
       <source>Expand the widget automatically for new users</source>
@@ -2669,57 +2693,16 @@
       <translation>Отключено</translation>
     </message>
     <message>
-      <source>XMPP recipients</source>
-      <translation>Получатели XMPP</translation>
-    </message>
-    <message>
-      <source>XMPP group recipients</source>
-      <translation>XMPP группа получателей</translation>
-    </message>
-    <message>
-      <source>E.g somechat@conference.server.org/LiveChat</source>
-      <translation>Например: somechat@conference.server.org/LiveChat</translation>
-    </message>
-    <message>
-      <source>These messages will be send as group messages</source>
-      <translation>Эти сообщения будут отправлены как групповые</translation>
+      <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
+      <translation>Через сколько секунд скрывать окно с формой &quot;оставьте сообщение&quot;? Введите 0, чтобы окно не скрывалось </translation>
     </message>
     <message>
       <source>Priority</source>
       <translation>Приоритет</translation>
     </message>
     <message>
-      <source>To what department chat should be transfered if it is not accepted</source>
-      <translation>На какой департамент чат должен быть переведен, если его не принял ни один оператор</translation>
-    </message>
-    <message>
-      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
-      <translation>Время ожидания, после которого чат будет переведен на другой департамент. Минимум 5 секунд.</translation>
-    </message>
-    <message>
-      <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
-      <translation>Это поле является максимальная длина 50 символов и может использоваться для любых целей расширения. Это поле также индексируются.
-Максимальная длина поля - 50 символов, может быть использовано расширениями (плагинами) для любых целей, при этом, оно индексируется.</translation>
-    </message>
-    <message>
-      <source>Inform then chat is closed by operator, only mail notification is send.</source>
-      <translation>Информировать о том, что чат закрыт оператором, и возможно отправить только сообщение на e-mail</translation>
-    </message>
-    <message>
-      <source>Inform about new chats using</source>
-      <translation>Информировать о использовании новых чатов</translation>
-    </message>
-    <message>
-      <source>XMPP messages</source>
-      <translation>XMPP сообщения</translation>
-    </message>
-    <message>
-      <source>Mail messages</source>
-      <translation>Сообщения почты</translation>
-    </message>
-    <message>
-      <source>How many seconds chat can be pending before about chat is informed a staff</source>
-      <translation>Через сколько секунд операторы получат уведомление о чате находящемся в режиме ожидания</translation>
+      <source>Automate online hours</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Work hours/work days logic is active</source>
@@ -2768,6 +2751,71 @@
     <message>
       <source>To, E.g. 17</source>
       <translation>Например, до 17</translation>
+    </message>
+    <message>
+      <source>Notifications about new chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP recipients</source>
+      <translation>Получатели XMPP</translation>
+    </message>
+    <message>
+      <source>XMPP group recipients</source>
+      <translation>XMPP группа получателей</translation>
+    </message>
+    <message>
+      <source>E.g somechat@conference.server.org/LiveChat</source>
+      <translation>Например: somechat@conference.server.org/LiveChat</translation>
+    </message>
+    <message>
+      <source>These messages will be send as group messages</source>
+      <translation>Эти сообщения будут отправлены как групповые</translation>
+    </message>
+    <message>
+      <source>Inform about new chats using</source>
+      <translation>Информировать о использовании новых чатов</translation>
+    </message>
+    <message>
+      <source>XMPP messages</source>
+      <translation>XMPP сообщения</translation>
+    </message>
+    <message>
+      <source>Mail messages</source>
+      <translation>Сообщения почты</translation>
+    </message>
+    <message>
+      <source>How many seconds chat can be pending before about chat is informed a staff</source>
+      <translation>Через сколько секунд операторы получат уведомление о чате находящемся в режиме ожидания</translation>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inform then chat is closed by operator, only mail notification is send.</source>
+      <translation>Информировать о том, что чат закрыт оператором, и возможно отправить только сообщение на e-mail</translation>
+    </message>
+    <message>
+      <source>Chat transfer worklow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To what department chat should be transfered if it is not accepted</source>
+      <translation>На какой департамент чат должен быть переведен, если его не принял ни один оператор</translation>
+    </message>
+    <message>
+      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+      <translation>Время ожидания, после которого чат будет переведен на другой департамент. Минимум 5 секунд.</translation>
+    </message>
+    <message>
+      <source>Miscellaneous</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
+      <translation>Это поле является максимальная длина 50 символов и может использоваться для любых целей расширения. Это поле также индексируются.
+Максимальная длина поля - 50 символов, может быть использовано расширениями (плагинами) для любых целей, при этом, оно индексируется.</translation>
     </message>
     <message>
       <source>None</source>
@@ -2862,23 +2910,23 @@
     </message>
     <message>
       <source>Visible lists</source>
-      <translation>Отображение чатов</translation>
+      <translation>Отображаемые списки</translation>
     </message>
     <message>
       <source>Pending chats tab enabled</source>
-      <translation>Колонка Ожидающие чаты включена</translation>
+      <translation>Включить вкладку чатов в очереди</translation>
     </message>
     <message>
       <source>Active chats tab enabled</source>
-      <translation>Активные чаты</translation>
+      <translation>Включить вкладку активных чатов</translation>
     </message>
     <message>
       <source>Unread chats tab enabled</source>
-      <translation>Непрочитанные чаты</translation>
+      <translation>Включить вкладку непрочитанных чатов</translation>
     </message>
     <message>
       <source>Closed chats tab enabled</source>
-      <translation>Закрытые чаты</translation>
+      <translation>Включить вкладку завершённых чатов</translation>
     </message>
     <message>
       <source>Account updated</source>
@@ -3090,12 +3138,8 @@
       <translation>Список файлов</translation>
     </message>
     <message>
-      <source>User</source>
-      <translation>Пользователь</translation>
-    </message>
-    <message>
-      <source>Chat</source>
-      <translation>Чат</translation>
+      <source>Upload a file</source>
+      <translation>Загрузить файл</translation>
     </message>
     <message>
       <source>Upload name</source>
@@ -3104,6 +3148,18 @@
     <message>
       <source>File size</source>
       <translation>Размер файла</translation>
+    </message>
+    <message>
+      <source>Embed BB code</source>
+      <translation>Вставьте BB код</translation>
+    </message>
+    <message>
+      <source>User</source>
+      <translation>Пользователь</translation>
+    </message>
+    <message>
+      <source>Chat</source>
+      <translation>Чат</translation>
     </message>
     <message>
       <source>Extension</source>
@@ -3576,7 +3632,7 @@
     </message>
     <message>
       <source>Show questions for all the URLs containing this string E.g /shop/basket</source>
-      <translation>Показывать вопросы для всех url содержащие эту строку, например: /shop/basket</translation>
+      <translation>Показывать вопросы для всех URL, содержащих эту строку. Например: /shop/basket</translation>
     </message>
     <message>
       <source>Priority, if multiple questions match a location, the question with the higher priority will be shown</source>
@@ -3642,7 +3698,7 @@
     </message>
     <message>
       <source>Chats transferred to you directly</source>
-      <translation>Chats transfered to your directory</translation>
+      <translation>Чаты, переведённые на Вас</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -3662,11 +3718,11 @@
     </message>
     <message>
       <source>Unread messages</source>
-      <translation>Не прочитанные сообщения</translation>
+      <translation>Непрочитанные сообщения</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Закрытые диалоги</translation>
+      <translation>Завершённые чаты</translation>
     </message>
     <message>
       <source>Configuration</source>
@@ -3674,7 +3730,7 @@
     </message>
     <message>
       <source>Chats list</source>
-      <translation>Список диалогов</translation>
+      <translation>Список чатов</translation>
     </message>
     <message>
       <source>Chat rooms</source>
@@ -3682,7 +3738,7 @@
     </message>
     <message>
       <source>New chat request</source>
-      <translation>Запрос нового диалога</translation>
+      <translation>Запрос нового чата</translation>
     </message>
     <message>
       <source>Menu</source>
@@ -3810,6 +3866,10 @@
   <context>
     <name>user/edit</name>
     <message>
+      <source>Server default time zone</source>
+      <translation>Часовой пояс сервера по умолчанию</translation>
+    </message>
+    <message>
       <source>User edit</source>
       <translation>Редактирование пользователя</translation>
     </message>
@@ -3860,6 +3920,14 @@
     <message>
       <source>Assigned departments</source>
       <translation>Назначенный департамент</translation>
+    </message>
+    <message>
+      <source>User time zone</source>
+      <translation>Часовой пояс пользователя</translation>
+    </message>
+    <message>
+      <source>Application default time zone</source>
+      <translation>Часовой пояс приложения</translation>
     </message>
     <message>
       <source>Wrong email address</source>
@@ -3958,7 +4026,7 @@
     </message>
     <message>
       <source>Please enter a username</source>
-      <translation>Pвведите имя пользователя</translation>
+      <translation>Введите имя пользователя</translation>
     </message>
     <message>
       <source>User exists</source>
@@ -3966,7 +4034,7 @@
     </message>
     <message>
       <source>Passwords mismatch</source>
-      <translation>Пароль не верный</translation>
+      <translation>Неверный пароль</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -4143,7 +4211,7 @@
     <name>user/login</name>
     <message>
       <source>Please login</source>
-      <translation>Авторизуйтесь пожалуйста</translation>
+      <translation>Авторизуйтесь, пожалуйста</translation>
     </message>
     <message>
       <source>Username</source>
@@ -4417,7 +4485,7 @@
     </message>
     <message>
       <source>Support staff member has closed this chat</source>
-      <translation>Оператор закрыл этот чат</translation>
+      <translation>Оператор закрыл диалог</translation>
     </message>
     <message>
       <source>You do not have permission to view this chat, or chat was deleted</source>
@@ -4471,27 +4539,27 @@
     </message>
     <message>
       <source>Allow to change from name</source>
-      <translation>Позволяет менчть имя отправителя</translation>
+      <translation>Позволяет менять имя отправителя</translation>
     </message>
     <message>
       <source>From e-mail, if mail was not sent for some reason, this mail will get a failed delivery message</source>
-      <translation>Емаил на который получим статус &quot;недоставлено&quot;, если вдруг письмо по каким то причинам не дойдет до плучателя.</translation>
+      <translation>E-mail отправителя. На него придут письма со статусом &quot;недоставлено&quot;, если вдруг письмо по каким то причинам не дойдет до получателя.</translation>
     </message>
     <message>
       <source>Allow to change from e-mail</source>
-      <translation>Позволяет менять из емаила</translation>
+      <translation>Позволяет менять отправителя e-mail</translation>
     </message>
     <message>
       <source>Reply to</source>
-      <translation>Reply to</translation>
+      <translation>E-mail для ответа</translation>
     </message>
     <message>
       <source>Allow to change reply e-mail</source>
-      <translation>Позволяет изменить емаил для ответов на вопросы пользователей</translation>
+      <translation>Позволяет изменить e-mail для ответов на вопросы пользователей</translation>
     </message>
     <message>
       <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
-      <translation>Емаил получателя, применяется в случае невозможности определить того кто должен получить емаил.</translation>
+      <translation>E-mail получателя. Применяется в случае невозможности определить того, кто должен получить e-mail.</translation>
     </message>
     <message>
       <source>Content</source>
@@ -4506,7 +4574,7 @@
     <name>chat/closechatadmin</name>
     <message>
       <source>has closed the chat!</source>
-      <translation>завершил диалог!</translation>
+      <translation>завершил чат!</translation>
     </message>
   </context>
   <context>
@@ -4531,7 +4599,7 @@
     <name>chat/single</name>
     <message>
       <source>Chat started with</source>
-      <translation>Диалог начат с</translation>
+      <translation>Начат чат с</translation>
     </message>
   </context>
   <context>
@@ -4572,6 +4640,40 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Пожалуйста, введите правильный тип файла</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/new</name>
+    <message>
+      <source>New file</source>
+      <translation>Новый файл</translation>
+    </message>
+    <message>
+      <source>File name</source>
+      <translation>Имя файла</translation>
+    </message>
+    <message>
+      <source>Upload</source>
+      <translation>Загрузить</translation>
+    </message>
+    <message>
+      <source>File uploaded</source>
+      <translation>Файл загружен</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/timezone</name>
+    <message>
+      <source>Time zone settings</source>
+      <translation>Настройки часовых поясов</translation>
+    </message>
+    <message>
+      <source>Set application specific time zone</source>
+      <translation>Установить альтернативный часовой пояс для приложения</translation>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation>Часовой пояс</translation>
     </message>
   </context>
 </TS>

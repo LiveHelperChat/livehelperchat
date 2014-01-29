@@ -132,6 +132,14 @@
       <translation>Puslapio peržiūrų</translation>
     </message>
     <message>
+      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How many times user show invitation, 0 - untill users closes it, &gt; 0 limits.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Requires e-mail</source>
       <translation>Reikalingas e-pašto adresas</translation>
     </message>
@@ -482,6 +490,10 @@
     <message>
       <source>Print</source>
       <translation>Spausdinti</translation>
+    </message>
+    <message>
+      <source>Attatch uploaded file</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
@@ -1446,6 +1458,10 @@
       <translation>Pokalbių archyvas</translation>
     </message>
     <message>
+      <source>Time zone settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Live help embed code</source>
       <translation>Live Help įterpimo kodas</translation>
     </message>
@@ -1500,6 +1516,10 @@
     <message>
       <source>File configuration</source>
       <translation>Failų konfiguracija</translation>
+    </message>
+    <message>
+      <source>New file</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -1878,6 +1898,10 @@
     <message>
       <source>Send the mail</source>
       <translation>Siųsti laišką</translation>
+    </message>
+    <message>
+      <source>Embed link to file</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Mail was sent to the user</source>
@@ -2669,56 +2693,16 @@
       <translation>Išjungtas</translation>
     </message>
     <message>
-      <source>XMPP recipients</source>
-      <translation>XMPP gavėjai</translation>
-    </message>
-    <message>
-      <source>XMPP group recipients</source>
-      <translation>XMPP grupių gavėjai</translation>
-    </message>
-    <message>
-      <source>E.g somechat@conference.server.org/LiveChat</source>
-      <translation>Pvz. somechat@conference.server.org/LiveChat</translation>
-    </message>
-    <message>
-      <source>These messages will be send as group messages</source>
-      <translation>Šios žinotės bus išsiųstos kaip grupės žinutės</translation>
+      <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Priority</source>
       <translation>Prioritetas</translation>
     </message>
     <message>
-      <source>To what department chat should be transfered if it is not accepted</source>
-      <translation>Kokiam departamentui pokalbis turėtų būti pervestas jei pokalbis nebuvo priimtas.</translation>
-    </message>
-    <message>
-      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
-      <translation>Laikas sekundėmis prieš tai kol pokalbis priskiriamas paveldinčiam departamentui. Minimum 5 sekundės.</translation>
-    </message>
-    <message>
-      <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
-      <translation>Šis laukas yra max. 50 ženklų ilgio ir gali būti naudojamas įskiepiuose. Šis laukas taip pat yra indeksuotas.</translation>
-    </message>
-    <message>
-      <source>Inform then chat is closed by operator, only mail notification is send.</source>
-      <translation>Informuoti kada pokalbis būna uždarytas administratoriaus, tik el. pašto žinutė būna išsiųsta</translation>
-    </message>
-    <message>
-      <source>Inform about new chats using</source>
-      <translation>Informuoti apie naujus pokalbius naudojant</translation>
-    </message>
-    <message>
-      <source>XMPP messages</source>
-      <translation>XMPP pranešimus</translation>
-    </message>
-    <message>
-      <source>Mail messages</source>
-      <translation>Pašto pranešimus</translation>
-    </message>
-    <message>
-      <source>How many seconds chat can be pending before about chat is informed a staff</source>
-      <translation>Kiek sekundžių laukti, kol apie pokalbį bus informuotas personalas</translation>
+      <source>Automate online hours</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Work hours/work days logic is active</source>
@@ -2767,6 +2751,70 @@
     <message>
       <source>To, E.g. 17</source>
       <translation>Iki, Pvz. 17</translation>
+    </message>
+    <message>
+      <source>Notifications about new chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP recipients</source>
+      <translation>XMPP gavėjai</translation>
+    </message>
+    <message>
+      <source>XMPP group recipients</source>
+      <translation>XMPP grupių gavėjai</translation>
+    </message>
+    <message>
+      <source>E.g somechat@conference.server.org/LiveChat</source>
+      <translation>Pvz. somechat@conference.server.org/LiveChat</translation>
+    </message>
+    <message>
+      <source>These messages will be send as group messages</source>
+      <translation>Šios žinotės bus išsiųstos kaip grupės žinutės</translation>
+    </message>
+    <message>
+      <source>Inform about new chats using</source>
+      <translation>Informuoti apie naujus pokalbius naudojant</translation>
+    </message>
+    <message>
+      <source>XMPP messages</source>
+      <translation>XMPP pranešimus</translation>
+    </message>
+    <message>
+      <source>Mail messages</source>
+      <translation>Pašto pranešimus</translation>
+    </message>
+    <message>
+      <source>How many seconds chat can be pending before about chat is informed a staff</source>
+      <translation>Kiek sekundžių laukti, kol apie pokalbį bus informuotas personalas</translation>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inform then chat is closed by operator, only mail notification is send.</source>
+      <translation>Informuoti kada pokalbis būna uždarytas administratoriaus, tik el. pašto žinutė būna išsiųsta</translation>
+    </message>
+    <message>
+      <source>Chat transfer worklow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To what department chat should be transfered if it is not accepted</source>
+      <translation>Kokiam departamentui pokalbis turėtų būti pervestas jei pokalbis nebuvo priimtas.</translation>
+    </message>
+    <message>
+      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+      <translation>Laikas sekundėmis prieš tai kol pokalbis priskiriamas paveldinčiam departamentui. Minimum 5 sekundės.</translation>
+    </message>
+    <message>
+      <source>Miscellaneous</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
+      <translation>Šis laukas yra max. 50 ženklų ilgio ir gali būti naudojamas įskiepiuose. Šis laukas taip pat yra indeksuotas.</translation>
     </message>
     <message>
       <source>None</source>
@@ -3089,12 +3137,8 @@
       <translation>Failų sąrašas</translation>
     </message>
     <message>
-      <source>User</source>
-      <translation>Vatotojas</translation>
-    </message>
-    <message>
-      <source>Chat</source>
-      <translation>Pokalbis</translation>
+      <source>Upload a file</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Upload name</source>
@@ -3103,6 +3147,18 @@
     <message>
       <source>File size</source>
       <translation>Failo dydis</translation>
+    </message>
+    <message>
+      <source>Embed BB code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User</source>
+      <translation>Vatotojas</translation>
+    </message>
+    <message>
+      <source>Chat</source>
+      <translation>Pokalbis</translation>
     </message>
     <message>
       <source>Extension</source>
@@ -3809,6 +3865,10 @@
   <context>
     <name>user/edit</name>
     <message>
+      <source>Server default time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User edit</source>
       <translation>Vartotojo redagavimas</translation>
     </message>
@@ -3859,6 +3919,14 @@
     <message>
       <source>Assigned departments</source>
       <translation>Priskirti departamentai</translation>
+    </message>
+    <message>
+      <source>User time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Application default time zone</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Wrong email address</source>
@@ -4571,6 +4639,40 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Prašome pasirinkti korektišką failo tipą!</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/new</name>
+    <message>
+      <source>New file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Upload</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File uploaded</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>system/timezone</name>
+    <message>
+      <source>Time zone settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set application specific time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

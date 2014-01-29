@@ -132,6 +132,14 @@
       <translation>เสาอากาศทีวี</translation>
     </message>
     <message>
+      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How many times user show invitation, 0 - untill users closes it, &gt; 0 limits.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Requires e-mail</source>
       <translation>ต้องการอีเมล์</translation>
     </message>
@@ -482,6 +490,10 @@
     <message>
       <source>Print</source>
       <translation>พิมพ์</translation>
+    </message>
+    <message>
+      <source>Attatch uploaded file</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
@@ -1446,6 +1458,10 @@
       <translation>ฉัตรถาวร</translation>
     </message>
     <message>
+      <source>Time zone settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Live help embed code</source>
       <translation>สดช่วยฝังรหัส</translation>
     </message>
@@ -1500,6 +1516,10 @@
     <message>
       <source>File configuration</source>
       <translation>แฟ้มกำหนดค่า</translation>
+    </message>
+    <message>
+      <source>New file</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -1878,6 +1898,10 @@
     <message>
       <source>Send the mail</source>
       <translation>ส่งจดหมาย</translation>
+    </message>
+    <message>
+      <source>Embed link to file</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Mail was sent to the user</source>
@@ -2669,56 +2693,16 @@
       <translation>ปิดการใช้งาน</translation>
     </message>
     <message>
-      <source>XMPP recipients</source>
-      <translation>XMPP ผู้รับ</translation>
-    </message>
-    <message>
-      <source>XMPP group recipients</source>
-      <translation>XMPP กลุ่มผู้รับ</translation>
-    </message>
-    <message>
-      <source>E.g somechat@conference.server.org/LiveChat</source>
-      <translation>เช่น somechat@conference.server.org/ LiveChat</translation>
-    </message>
-    <message>
-      <source>These messages will be send as group messages</source>
-      <translation>ข้อความเหล่านี้จะถูกส่งเป็นข้อความกลุ่ม</translation>
+      <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Priority</source>
       <translation>ระดับความสำคัญ</translation>
     </message>
     <message>
-      <source>To what department chat should be transfered if it is not accepted</source>
-      <translation>แผนกใดสนทนาควรโอนย้ายถ้ามันไม่ยอมรับ</translation>
-    </message>
-    <message>
-      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
-      <translation>การหมดเวลาเป็นวินาทีก่อนสนทนาจะถูกโอนย้ายไปที่แผนกอื่น อย่างน้อย 5 วินาที</translation>
-    </message>
-    <message>
-      <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
-      <translation>ฟิลด์นี้มีความยาวสูงสุด 50 ตัวอักษร และสามารถใช้เพื่อวัตถุประสงค์ใด ๆ โดยส่วนขยาย ฟิลด์นี้ยังมีการทำดัชนี</translation>
-    </message>
-    <message>
-      <source>Inform then chat is closed by operator, only mail notification is send.</source>
-      <translation>แจ้ง แล้วสนทนาถูกปิด โดยผู้ประกอบการ เพียงแต่ส่งเป็นจดหมายแจ้งเตือน</translation>
-    </message>
-    <message>
-      <source>Inform about new chats using</source>
-      <translation>แจ้งให้ทราบเกี่ยวกับการใช้สนทนาใหม่</translation>
-    </message>
-    <message>
-      <source>XMPP messages</source>
-      <translation>XMPP ข้อความ</translation>
-    </message>
-    <message>
-      <source>Mail messages</source>
-      <translation>ข้อความจดหมาย</translation>
-    </message>
-    <message>
-      <source>How many seconds chat can be pending before about chat is informed a staff</source>
-      <translation>จำนวนวินาทีที่สนทนาสามารถพิจารณาก่อนเกี่ยวกับสนทนาจะทราบความ</translation>
+      <source>Automate online hours</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Work hours/work days logic is active</source>
@@ -2767,6 +2751,70 @@
     <message>
       <source>To, E.g. 17</source>
       <translation>การ เช่น 17</translation>
+    </message>
+    <message>
+      <source>Notifications about new chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP recipients</source>
+      <translation>XMPP ผู้รับ</translation>
+    </message>
+    <message>
+      <source>XMPP group recipients</source>
+      <translation>XMPP กลุ่มผู้รับ</translation>
+    </message>
+    <message>
+      <source>E.g somechat@conference.server.org/LiveChat</source>
+      <translation>เช่น somechat@conference.server.org/ LiveChat</translation>
+    </message>
+    <message>
+      <source>These messages will be send as group messages</source>
+      <translation>ข้อความเหล่านี้จะถูกส่งเป็นข้อความกลุ่ม</translation>
+    </message>
+    <message>
+      <source>Inform about new chats using</source>
+      <translation>แจ้งให้ทราบเกี่ยวกับการใช้สนทนาใหม่</translation>
+    </message>
+    <message>
+      <source>XMPP messages</source>
+      <translation>XMPP ข้อความ</translation>
+    </message>
+    <message>
+      <source>Mail messages</source>
+      <translation>ข้อความจดหมาย</translation>
+    </message>
+    <message>
+      <source>How many seconds chat can be pending before about chat is informed a staff</source>
+      <translation>จำนวนวินาทีที่สนทนาสามารถพิจารณาก่อนเกี่ยวกับสนทนาจะทราบความ</translation>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inform then chat is closed by operator, only mail notification is send.</source>
+      <translation>แจ้ง แล้วสนทนาถูกปิด โดยผู้ประกอบการ เพียงแต่ส่งเป็นจดหมายแจ้งเตือน</translation>
+    </message>
+    <message>
+      <source>Chat transfer worklow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To what department chat should be transfered if it is not accepted</source>
+      <translation>แผนกใดสนทนาควรโอนย้ายถ้ามันไม่ยอมรับ</translation>
+    </message>
+    <message>
+      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+      <translation>การหมดเวลาเป็นวินาทีก่อนสนทนาจะถูกโอนย้ายไปที่แผนกอื่น อย่างน้อย 5 วินาที</translation>
+    </message>
+    <message>
+      <source>Miscellaneous</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
+      <translation>ฟิลด์นี้มีความยาวสูงสุด 50 ตัวอักษร และสามารถใช้เพื่อวัตถุประสงค์ใด ๆ โดยส่วนขยาย ฟิลด์นี้ยังมีการทำดัชนี</translation>
     </message>
     <message>
       <source>None</source>
@@ -3089,12 +3137,8 @@
       <translation>รายการของแฟ้ม</translation>
     </message>
     <message>
-      <source>User</source>
-      <translation>ผู้ใช้</translation>
-    </message>
-    <message>
-      <source>Chat</source>
-      <translation>แชท</translation>
+      <source>Upload a file</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Upload name</source>
@@ -3103,6 +3147,18 @@
     <message>
       <source>File size</source>
       <translation>ขนาดของแฟ้ม</translation>
+    </message>
+    <message>
+      <source>Embed BB code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User</source>
+      <translation>ผู้ใช้</translation>
+    </message>
+    <message>
+      <source>Chat</source>
+      <translation>แชท</translation>
     </message>
     <message>
       <source>Extension</source>
@@ -3809,6 +3865,10 @@
   <context>
     <name>user/edit</name>
     <message>
+      <source>Server default time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User edit</source>
       <translation>แก้ไขผู้ใช้</translation>
     </message>
@@ -3859,6 +3919,14 @@
     <message>
       <source>Assigned departments</source>
       <translation>กำหนดแผนก</translation>
+    </message>
+    <message>
+      <source>User time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Application default time zone</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Wrong email address</source>
@@ -4571,6 +4639,40 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>กรุณาระบุชนิดแฟ้มที่ถูกต้อง</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/new</name>
+    <message>
+      <source>New file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Upload</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File uploaded</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>system/timezone</name>
+    <message>
+      <source>Time zone settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set application specific time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>
