@@ -553,7 +553,7 @@ function lh(){
 
 	this.startChatCloseTabNewWindow = function(chat_id, tabs, name)
 	{
-		window.open(this.wwwDir + 'chat/single/'+chat_id,'chatwindow-chat-id-'+chat_id,"menubar=1,resizable=1,width=780,height=450");
+		window.open(this.wwwDir + 'chat/single/'+chat_id,'chatwindow-chat-id-'+chat_id,"menubar=1,resizable=1,width=800,height=650");
 
 	    $.ajax({
 	        type: "GET",
@@ -666,7 +666,7 @@ function lh(){
 
 	this.startChatNewWindow = function(chat_id,name)
 	{
-	    window.open(this.wwwDir + 'chat/single/'+chat_id,'chatwindow-chat-id-'+chat_id,"menubar=1,resizable=1,width=780,height=450");
+	    window.open(this.wwwDir + 'chat/single/'+chat_id,'chatwindow-chat-id-'+chat_id,"menubar=1,resizable=1,width=800,height=650");
 	    this.syncadmininterfacestatic();
         return false;
 	};
@@ -779,7 +779,7 @@ function lh(){
 
 	this.chatTabsOpen = function ()
 	{
-	    window.open(this.wwwDir + 'chat/chattabs/','chatwindows',"menubar=1,resizable=1,width=780,height=460");
+	    window.open(this.wwwDir + 'chat/chattabs/','chatwindows',"menubar=1,resizable=1,width=800,height=650");
 	    return false;
 	};
 
