@@ -3567,6 +3567,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Revote</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Y</source>
       <translation type="unfinished"/>
     </message>
@@ -3588,6 +3592,10 @@
     </message>
     <message>
       <source>New question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Off</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3637,6 +3645,10 @@
     </message>
     <message>
       <source>Priority, if multiple questions match a location, the question with the higher priority will be shown</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Revote time (hours), before can revote. Default 0 - never. Higher value allow revote after seconds expire since last vote</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4670,6 +4682,10 @@
     </message>
     <message>
       <source>Set application specific time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live Helper Chat update</source>
       <translation type="unfinished"/>
     </message>
     <message>
