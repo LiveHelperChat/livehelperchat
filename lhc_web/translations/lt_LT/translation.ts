@@ -133,11 +133,11 @@
     </message>
     <message>
       <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
-      <translation type="unfinished"/>
+      <translation>Nukreipiantis domenas be www, Pvz. google raktažodis atitiks visus google domenus</translation>
     </message>
     <message>
       <source>How many times user show invitation, 0 - untill users closes it, &gt; 0 limits.</source>
-      <translation type="unfinished"/>
+      <translation>Kiek kartų vartotojui rodyti pakvietimą pokalbiui, 0 - kol vartotojas uždaro pakvietimo langą, 0 &gt; limitas</translation>
     </message>
     <message>
       <source>Requires e-mail</source>
@@ -493,7 +493,7 @@
     </message>
     <message>
       <source>Attatch uploaded file</source>
-      <translation type="unfinished"/>
+      <translation>Prisegti nusiųstą failą</translation>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
@@ -521,7 +521,7 @@
     </message>
     <message>
       <source>Remarks</source>
-      <translation type="unfinished"/>
+      <translation>Pastabos</translation>
     </message>
     <message>
       <source>Chats</source>
@@ -549,7 +549,7 @@
     </message>
     <message>
       <source>Messages</source>
-      <translation type="unfinished"/>
+      <translation>Žinutės</translation>
     </message>
   </context>
   <context>
@@ -773,11 +773,11 @@
     </message>
     <message>
       <source>Maximum</source>
-      <translation type="unfinished"/>
+      <translation>Maksimum</translation>
     </message>
     <message>
       <source>characters for a message</source>
-      <translation type="unfinished"/>
+      <translation>simboliai žinutėje</translation>
     </message>
     <message>
       <source>You have to accept our Terms Of Service</source>
@@ -805,7 +805,7 @@
     </message>
     <message>
       <source>Please enter a message, max characters</source>
-      <translation type="unfinished"/>
+      <translation>Prašome įvesti žinutę, maksimum simbolių</translation>
     </message>
     <message>
       <source>Visitor</source>
@@ -1459,7 +1459,7 @@
     </message>
     <message>
       <source>Time zone settings</source>
-      <translation type="unfinished"/>
+      <translation>Laiko zonos nustatymai</translation>
     </message>
     <message>
       <source>Live help embed code</source>
@@ -1519,7 +1519,7 @@
     </message>
     <message>
       <source>New file</source>
-      <translation type="unfinished"/>
+      <translation>Naujas failas</translation>
     </message>
   </context>
   <context>
@@ -1546,11 +1546,11 @@
     </message>
     <message>
       <source>Choose prefered http mode</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite http režimą</translation>
     </message>
     <message>
       <source>Based on site (default)</source>
-      <translation type="unfinished"/>
+      <translation>Remiantis puslapiu (numatytasis)</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>
@@ -1606,15 +1606,15 @@
     </message>
     <message>
       <source>Disable minimize icon</source>
-      <translation type="unfinished"/>
+      <translation>Išjungti mažinimo ikoną</translation>
     </message>
     <message>
       <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti chatbox turiny vietoj būsenos widgeto, vartotojai gales tik sumažinti chatboxo langą, bet ne jį uždaryti.</translation>
     </message>
     <message>
       <source>Show chatbox content minimized first time if content is shown.</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti chatboxo turinį sumažinta jei rodomas turinys.</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
@@ -1901,7 +1901,7 @@
     </message>
     <message>
       <source>Embed link to file</source>
-      <translation type="unfinished"/>
+      <translation>Įterpti nuorodą į failą</translation>
     </message>
     <message>
       <source>Mail was sent to the user</source>
@@ -2078,19 +2078,19 @@
     </message>
     <message>
       <source>Long polling</source>
-      <translation type="unfinished"/>
+      <translation>Ilga užklausa</translation>
     </message>
     <message>
       <source>Enable long polling</source>
-      <translation type="unfinished"/>
+      <translation>Įgalinti ilgas užklausas</translation>
     </message>
     <message>
       <source>How many seconds keep connection to server?</source>
-      <translation type="unfinished"/>
+      <translation>Kiek sekundžių palaikyti ryši su serveriu</translation>
     </message>
     <message>
       <source>New chat request notification settings</source>
-      <translation type="unfinished"/>
+      <translation>Naujų pokalbių pranešimų nustatymai</translation>
     </message>
     <message>
       <source>Play a new pending chat sound on a new chat request</source>
@@ -2134,7 +2134,7 @@
     </message>
     <message>
       <source>Please enter a valid server connection timeout value!</source>
-      <translation type="unfinished"/>
+      <translation>Prašome įvesti validų serverio prisijungimo laiką!</translation>
     </message>
     <message>
       <source>Please enter a valid operator message timeout value!</source>
@@ -2142,7 +2142,7 @@
     </message>
     <message>
       <source>Please enter a valid new messages polling sync interval!</source>
-      <translation type="unfinished"/>
+      <translation>Prašome įvesti validų naujų žinučių sinchronizacijos laiką</translation>
     </message>
     <message>
       <source>Please enter a valid back office sync interval!</source>
@@ -2694,7 +2694,7 @@
     </message>
     <message>
       <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
-      <translation type="unfinished"/>
+      <translation>Uždelsimas sekundėmis kol palikti žinutę forma parodoma. 0 reiškia funkcionalumas išjungtas</translation>
     </message>
     <message>
       <source>Priority</source>
@@ -2702,7 +2702,7 @@
     </message>
     <message>
       <source>Automate online hours</source>
-      <translation type="unfinished"/>
+      <translation>Automatinės darbo valandos</translation>
     </message>
     <message>
       <source>Work hours/work days logic is active</source>
@@ -2754,7 +2754,7 @@
     </message>
     <message>
       <source>Notifications about new chats</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimai apie naujus pokalbius</translation>
     </message>
     <message>
       <source>XMPP recipients</source>
@@ -2790,7 +2790,7 @@
     </message>
     <message>
       <source>Other</source>
-      <translation type="unfinished"/>
+      <translation>Kita</translation>
     </message>
     <message>
       <source>Inform then chat is closed by operator, only mail notification is send.</source>
@@ -2798,7 +2798,7 @@
     </message>
     <message>
       <source>Chat transfer worklow</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių perskyrimas</translation>
     </message>
     <message>
       <source>To what department chat should be transfered if it is not accepted</source>
@@ -2810,7 +2810,7 @@
     </message>
     <message>
       <source>Miscellaneous</source>
-      <translation type="unfinished"/>
+      <translation>Įvairūs</translation>
     </message>
     <message>
       <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
@@ -3138,7 +3138,7 @@
     </message>
     <message>
       <source>Upload a file</source>
-      <translation type="unfinished"/>
+      <translation>Nusiųsti failą</translation>
     </message>
     <message>
       <source>Upload name</source>
@@ -3150,7 +3150,7 @@
     </message>
     <message>
       <source>Embed BB code</source>
-      <translation type="unfinished"/>
+      <translation>Įterpti BB kodą</translation>
     </message>
     <message>
       <source>User</source>
@@ -3866,7 +3866,7 @@
     <name>user/edit</name>
     <message>
       <source>Server default time zone</source>
-      <translation type="unfinished"/>
+      <translation>Serverio numatyta laiko zona</translation>
     </message>
     <message>
       <source>User edit</source>
@@ -3922,11 +3922,11 @@
     </message>
     <message>
       <source>User time zone</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojo laiko zona</translation>
     </message>
     <message>
       <source>Application default time zone</source>
-      <translation type="unfinished"/>
+      <translation>Aplikacijos numatyta laiko zona</translation>
     </message>
     <message>
       <source>Wrong email address</source>
@@ -4645,34 +4645,34 @@
     <name>file/new</name>
     <message>
       <source>New file</source>
-      <translation type="unfinished"/>
+      <translation>Naujas failas</translation>
     </message>
     <message>
       <source>File name</source>
-      <translation type="unfinished"/>
+      <translation>Failo pavadinimas</translation>
     </message>
     <message>
       <source>Upload</source>
-      <translation type="unfinished"/>
+      <translation>Nusiųsti</translation>
     </message>
     <message>
       <source>File uploaded</source>
-      <translation type="unfinished"/>
+      <translation>Failas nusiųstas</translation>
     </message>
   </context>
   <context>
     <name>system/timezone</name>
     <message>
       <source>Time zone settings</source>
-      <translation type="unfinished"/>
+      <translation>Laiko zonos nustatymai</translation>
     </message>
     <message>
       <source>Set application specific time zone</source>
-      <translation type="unfinished"/>
+      <translation>Nustatykite aplikacijos laiko zoną</translation>
     </message>
     <message>
       <source>Time zone</source>
-      <translation type="unfinished"/>
+      <translation>Laiko zona</translation>
     </message>
   </context>
 </TS>
