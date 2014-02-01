@@ -379,6 +379,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   `priority` int(11) NOT NULL,
         	   `is_voting` int(11) NOT NULL,
         	   `question_intro` text NOT NULL,
+        	   `revote` int(11) NOT NULL DEFAULT '0',
         	   PRIMARY KEY (`id`),
         	   KEY `priority` (`priority`),
         	   KEY `active_priority` (`active`,`priority`)
@@ -408,6 +409,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
         	   `question_id` int(11) NOT NULL,
         	   `option_id` int(11) NOT NULL,
+        	   `ctime` int(11) NOT NULL,
         	   `ip` bigint(20) NOT NULL,
         	   PRIMARY KEY (`id`),
         	   KEY `question_id` (`question_id`),

@@ -19,6 +19,11 @@ $def->properties['option_id']->columnName   = 'option_id';
 $def->properties['option_id']->propertyName = 'option_id';
 $def->properties['option_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['ctime'] = new ezcPersistentObjectProperty();
+$def->properties['ctime']->columnName   = 'ctime';
+$def->properties['ctime']->propertyName = 'ctime';
+$def->properties['ctime']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['ip'] = new ezcPersistentObjectProperty();
 $def->properties['ip']->columnName   = 'ip';
 $def->properties['ip']->propertyName = 'ip';
