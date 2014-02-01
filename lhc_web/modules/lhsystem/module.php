@@ -42,7 +42,7 @@ $ViewList['languages'] = array(
 
 $ViewList['update'] = array(
     'params' => array(),
-    'uparams' => array(),
+    'uparams' => array('action'),
     'functions' => array( 'performupdate' )
 );
 

@@ -1,6 +1,7 @@
 1.84v
 
 1. Option to set revote timeout, contributed by David Livingston. I just did some cleanup.
+2. Window about running version. Like installation version and current version and pending database updates.
 
 execute doc/update_db/update_63.sql for update
 

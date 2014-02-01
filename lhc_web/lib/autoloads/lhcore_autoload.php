@@ -132,6 +132,7 @@ return array_merge(array (
 		
 		'erLhcoreClassLhMemcache'                   => 'lib/core/lhcore/lhmemcache.php',	
 		'erLhcoreClassLhRedis'                      => 'lib/core/lhcore/lhredis.php',
+		'erLhcoreClassUpdate'                       => 'lib/core/lhcore/lhupdate.php',
 		
 		'GeoIp2\Database\Reader'					=> 'lib/core/lhexternal/GeoIp2/Database/Reader.php',		
 		'GeoIp2\ProviderInterface'					=> 'lib/core/lhexternal/GeoIp2/ProviderInterface.php',	

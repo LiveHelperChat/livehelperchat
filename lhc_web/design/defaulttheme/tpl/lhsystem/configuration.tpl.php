@@ -54,6 +54,10 @@
 		    <?php if ($currentUser->hasAccessTo('lhsystem','timezone')) : ?>
 		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('system/timezone')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Time zone settings');?></a></li>
 		    <?php endif; ?>
+		    
+		    <?php if ($currentUser->hasAccessTo('lhsystem','performupdate')) : ?>
+		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('system/update')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Update information');?></a></li>
+		    <?php endif; ?>
 
 		</ul>
 	</div>
