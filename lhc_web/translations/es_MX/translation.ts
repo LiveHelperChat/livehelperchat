@@ -151,7 +151,7 @@
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation>Identificador, para que aparezca el mensaje del identificador, dejar vacío todos</translation>
+      <translation>Identificador, para que aparezca el mensaje del identificador, dejar vacíos todos</translation>
     </message>
     <message>
       <source>Matched times</source>
@@ -2209,7 +2209,7 @@
     </message>
     <message>
       <source>Total messages (only system messages)</source>
-      <translation>Mensajes totales (sólo los operadores)</translation>
+      <translation>Mensajes totales (sólo los mensajes del sistema)</translation>
     </message>
     <message>
       <source>Total messages (only operators)</source>
@@ -3808,7 +3808,7 @@ Lista de funciones</translation>
     </message>
     <message>
       <source>Theme, separate themes by new line</source>
-      <translation>Tema, temas separados por nueva línea</translation>
+      <translation>Tema, separar temas por nueva línea</translation>
     </message>
     <message>
       <source>Default module</source>
@@ -3836,7 +3836,7 @@ Lista de funciones</translation>
     </message>
     <message>
       <source>Please enter view name</source>
-      <translation>Por favor ingrese el nombre visión</translation>
+      <translation>Por favor ingrese el nombre de la vista</translation>
     </message>
   </context>
   <context>
@@ -4230,7 +4230,7 @@ Lista de funciones</translation>
     </message>
     <message>
       <source>Remember me</source>
-      <translation>Recordarme</translation>
+      <translation>Recuérdame</translation>
     </message>
     <message>
       <source>Login</source>

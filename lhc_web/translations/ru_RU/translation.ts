@@ -2754,7 +2754,7 @@
     </message>
     <message>
       <source>Notifications about new chats</source>
-      <translation type="unfinished"/>
+      <translation>Уведомления о новых чаты</translation>
     </message>
     <message>
       <source>XMPP recipients</source>
@@ -2798,7 +2798,7 @@
     </message>
     <message>
       <source>Chat transfer worklow</source>
-      <translation type="unfinished"/>
+      <translation>Чат передачи рабочего процесса</translation>
     </message>
     <message>
       <source>To what department chat should be transfered if it is not accepted</source>
