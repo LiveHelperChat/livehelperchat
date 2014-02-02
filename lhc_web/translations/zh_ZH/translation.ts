@@ -133,11 +133,11 @@
     </message>
     <message>
       <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
-      <translation type="unfinished"/>
+      <translation>没有 www 的引用域，例如： google 关键字将匹配任何 google 域</translation>
     </message>
     <message>
       <source>How many times user show invitation, 0 - untill users closes it, &gt; 0 limits.</source>
-      <translation type="unfinished"/>
+      <translation>多少次用户显示的邀请，0-，直到用户关闭它，&gt; 0 限制。</translation>
     </message>
     <message>
       <source>Requires e-mail</source>
@@ -493,7 +493,7 @@
     </message>
     <message>
       <source>Attatch uploaded file</source>
-      <translation type="unfinished"/>
+      <translation>Attatch 上载文件</translation>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
@@ -521,7 +521,7 @@
     </message>
     <message>
       <source>Remarks</source>
-      <translation type="unfinished"/>
+      <translation>备注</translation>
     </message>
     <message>
       <source>Chats</source>
@@ -549,7 +549,7 @@
     </message>
     <message>
       <source>Messages</source>
-      <translation type="unfinished"/>
+      <translation>消息</translation>
     </message>
   </context>
   <context>
@@ -773,11 +773,11 @@
     </message>
     <message>
       <source>Maximum</source>
-      <translation type="unfinished"/>
+      <translation>最大值</translation>
     </message>
     <message>
       <source>characters for a message</source>
-      <translation type="unfinished"/>
+      <translation>一条消息的字符</translation>
     </message>
     <message>
       <source>You have to accept our Terms Of Service</source>
@@ -805,7 +805,7 @@
     </message>
     <message>
       <source>Please enter a message, max characters</source>
-      <translation type="unfinished"/>
+      <translation>请输入一条消息，最大字符</translation>
     </message>
     <message>
       <source>Visitor</source>
@@ -1459,7 +1459,7 @@
     </message>
     <message>
       <source>Time zone settings</source>
-      <translation type="unfinished"/>
+      <translation>时区设置</translation>
     </message>
     <message>
       <source>Live help embed code</source>
@@ -1519,7 +1519,7 @@
     </message>
     <message>
       <source>New file</source>
-      <translation type="unfinished"/>
+      <translation>新的文件</translation>
     </message>
   </context>
   <context>
@@ -1546,11 +1546,11 @@
     </message>
     <message>
       <source>Choose prefered http mode</source>
-      <translation type="unfinished"/>
+      <translation>选择首选 http 模式</translation>
     </message>
     <message>
       <source>Based on site (default)</source>
-      <translation type="unfinished"/>
+      <translation>基于站点 （默认值）</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>
@@ -1606,15 +1606,15 @@
     </message>
     <message>
       <source>Disable minimize icon</source>
-      <translation type="unfinished"/>
+      <translation>禁用最小化图标</translation>
     </message>
     <message>
       <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
-      <translation type="unfinished"/>
+      <translation>内容相反的构件，用户将可以显示 chatbox 只能最小化，不关闭它。</translation>
     </message>
     <message>
       <source>Show chatbox content minimized first time if content is shown.</source>
-      <translation type="unfinished"/>
+      <translation>如果显示的内容则显示 chatbox 内容最小化第一次。</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
@@ -1901,7 +1901,7 @@
     </message>
     <message>
       <source>Embed link to file</source>
-      <translation type="unfinished"/>
+      <translation>将嵌入到文件的链接</translation>
     </message>
     <message>
       <source>Mail was sent to the user</source>
@@ -2694,7 +2694,7 @@
     </message>
     <message>
       <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
-      <translation type="unfinished"/>
+      <translation>延迟在前假邮件窗体显示的秒数。0 意味着功能被禁用，</translation>
     </message>
     <message>
       <source>Priority</source>
@@ -2702,7 +2702,7 @@
     </message>
     <message>
       <source>Automate online hours</source>
-      <translation type="unfinished"/>
+      <translation>自动化在线小时</translation>
     </message>
     <message>
       <source>Work hours/work days logic is active</source>
@@ -2754,7 +2754,7 @@
     </message>
     <message>
       <source>Notifications about new chats</source>
-      <translation type="unfinished"/>
+      <translation>有关新聊天的通知</translation>
     </message>
     <message>
       <source>XMPP recipients</source>
@@ -2790,7 +2790,7 @@
     </message>
     <message>
       <source>Other</source>
-      <translation type="unfinished"/>
+      <translation>其他</translation>
     </message>
     <message>
       <source>Inform then chat is closed by operator, only mail notification is send.</source>
@@ -2798,7 +2798,7 @@
     </message>
     <message>
       <source>Chat transfer worklow</source>
-      <translation type="unfinished"/>
+      <translation>聊天转让工作流</translation>
     </message>
     <message>
       <source>To what department chat should be transfered if it is not accepted</source>
@@ -2810,7 +2810,7 @@
     </message>
     <message>
       <source>Miscellaneous</source>
-      <translation type="unfinished"/>
+      <translation>杂项</translation>
     </message>
     <message>
       <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
@@ -3138,7 +3138,7 @@
     </message>
     <message>
       <source>Upload a file</source>
-      <translation type="unfinished"/>
+      <translation>上传文件</translation>
     </message>
     <message>
       <source>Upload name</source>
@@ -3150,7 +3150,7 @@
     </message>
     <message>
       <source>Embed BB code</source>
-      <translation type="unfinished"/>
+      <translation>嵌入 BB 代码</translation>
     </message>
     <message>
       <source>User</source>
@@ -3866,7 +3866,7 @@
     <name>user/edit</name>
     <message>
       <source>Server default time zone</source>
-      <translation type="unfinished"/>
+      <translation>服务器默认时区</translation>
     </message>
     <message>
       <source>User edit</source>
@@ -3922,11 +3922,11 @@
     </message>
     <message>
       <source>User time zone</source>
-      <translation type="unfinished"/>
+      <translation>用户时区</translation>
     </message>
     <message>
       <source>Application default time zone</source>
-      <translation type="unfinished"/>
+      <translation>应用程序默认的时区</translation>
     </message>
     <message>
       <source>Wrong email address</source>
@@ -4645,34 +4645,34 @@
     <name>file/new</name>
     <message>
       <source>New file</source>
-      <translation type="unfinished"/>
+      <translation>新的文件</translation>
     </message>
     <message>
       <source>File name</source>
-      <translation type="unfinished"/>
+      <translation>文件名称</translation>
     </message>
     <message>
       <source>Upload</source>
-      <translation type="unfinished"/>
+      <translation>上传</translation>
     </message>
     <message>
       <source>File uploaded</source>
-      <translation type="unfinished"/>
+      <translation>上载文件</translation>
     </message>
   </context>
   <context>
     <name>system/timezone</name>
     <message>
       <source>Time zone settings</source>
-      <translation type="unfinished"/>
+      <translation>时区设置</translation>
     </message>
     <message>
       <source>Set application specific time zone</source>
-      <translation type="unfinished"/>
+      <translation>设置应用程序特定的时区</translation>
     </message>
     <message>
       <source>Time zone</source>
-      <translation type="unfinished"/>
+      <translation>时区</translation>
     </message>
   </context>
 </TS>
