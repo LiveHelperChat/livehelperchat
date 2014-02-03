@@ -1462,6 +1462,10 @@
       <translation>Definições de fuso horário</translation>
     </message>
     <message>
+      <source>Update information</source>
+      <translation>Informações de atualização</translation>
+    </message>
+    <message>
       <source>Live help embed code</source>
       <translation>Código de incorporação do suporte online</translation>
     </message>
@@ -3565,6 +3569,10 @@
       <translation>Ativo</translation>
     </message>
     <message>
+      <source>Revote</source>
+      <translation>Nova votação</translation>
+    </message>
+    <message>
       <source>Y</source>
       <translation>Y</translation>
     </message>
@@ -3587,6 +3595,10 @@
     <message>
       <source>New question</source>
       <translation>Nova pergunta</translation>
+    </message>
+    <message>
+      <source>Off</source>
+      <translation>Desligar</translation>
     </message>
     <message>
       <source>Questionary</source>
@@ -3636,6 +3648,10 @@
     <message>
       <source>Priority, if multiple questions match a location, the question with the higher priority will be shown</source>
       <translation>Prioridade, se várias perguntas correspondem a um local, a questão com a prioridade mais alta será mostrada</translation>
+    </message>
+    <message>
+      <source>Revote time (hours), before can revote. Default 0 - never. Higher value allow revote after seconds expire since last vote</source>
+      <translation>Tempo em (horas), antes de poder realizar nova votação. Padrão 0 - nunca. O valor mais alto permite revotar após expirar segundos desde o último voto</translation>
     </message>
     <message>
       <source>Active</source>
@@ -4671,8 +4687,47 @@
       <translation>Definir fuso horário específico para a aplicação</translation>
     </message>
     <message>
+      <source>Live Helper Chat update</source>
+      <translation>Atualizar Live Helper Chat</translation>
+    </message>
+    <message>
       <source>Time zone</source>
       <translation>Fuso horário</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/update</name>
+    <message>
+      <source>Your version</source>
+      <translation>Sua versão</translation>
+    </message>
+    <message>
+      <source>Current version</source>
+      <translation>Versão atual</translation>
+    </message>
+    <message>
+      <source>Last database update</source>
+      <translation>Última atualização do banco</translation>
+    </message>
+    <message>
+      <source>News</source>
+      <translation>Novidades</translation>
+    </message>
+    <message>
+      <source>Missing updates from new versions.</source>
+      <translation>Faltando atualização de novas versões.</translation>
+    </message>
+    <message>
+      <source>Update instructions</source>
+      <translation>Instruções de atualização</translation>
+    </message>
+    <message>
+      <source>You are running current version. No updates required</source>
+      <translation>Você está rodando a última versão. Nenhuma atualização é necessária.</translation>
+    </message>
+    <message>
+      <source>Live Helper Chat update information</source>
+      <translation>Informações de atualização do Live Helper Chat</translation>
     </message>
   </context>
 </TS>

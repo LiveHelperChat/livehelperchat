@@ -1462,6 +1462,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Update information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Live help embed code</source>
       <translation type="unfinished"/>
     </message>
@@ -3565,6 +3569,10 @@
       <translation>فعّال</translation>
     </message>
     <message>
+      <source>Revote</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Y</source>
       <translation>نعم</translation>
     </message>
@@ -3587,6 +3595,10 @@
     <message>
       <source>New question</source>
       <translation>سؤالٌ جديد</translation>
+    </message>
+    <message>
+      <source>Off</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Questionary</source>
@@ -3635,6 +3647,10 @@
     </message>
     <message>
       <source>Priority, if multiple questions match a location, the question with the higher priority will be shown</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Revote time (hours), before can revote. Default 0 - never. Higher value allow revote after seconds expire since last vote</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4671,7 +4687,46 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Live Helper Chat update</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time zone</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>system/update</name>
+    <message>
+      <source>Your version</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Current version</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last database update</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>News</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Missing updates from new versions.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update instructions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You are running current version. No updates required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live Helper Chat update information</source>
       <translation type="unfinished"/>
     </message>
   </context>
