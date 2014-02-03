@@ -320,6 +320,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>User</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Delay</source>
       <translation type="unfinished"/>
     </message>
@@ -345,6 +349,18 @@
     </message>
     <message>
       <source>Delay in seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Personal canned message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Canned message was saved</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2683,6 +2699,10 @@
   <context>
     <name>department/edit</name>
     <message>
+      <source>Any</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Edit department</source>
       <translation type="unfinished"/>
     </message>
@@ -2862,6 +2882,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Your username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Password</source>
       <translation type="unfinished"/>
     </message>
@@ -2931,6 +2955,10 @@
     </message>
     <message>
       <source>Closed chats tab enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Personal canned messages</source>
       <translation type="unfinished"/>
     </message>
     <message>
