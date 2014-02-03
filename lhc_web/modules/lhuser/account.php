@@ -5,7 +5,7 @@ $tpl = erLhcoreClassTemplate::getInstance( 'lhuser/account.tpl.php' );
 $currentUser = erLhcoreClassUser::instance();
 $UserData = $currentUser->getUserData();
 
-$tpl->set('tab','');
+$tpl->set('tab',$Params['user_parameters_unordered']['tab'] == 'canned' ? 'tab_canned' : '');
 
 if (isset($_POST['UpdateTabsSettings_account']))
 {
@@ -254,6 +254,95 @@ if (!isset($UserData))
 $tpl->set('editdepartaments',$allowEditDepartaments);
 
 $tpl->set('user',$UserData);
+
+if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','personalcannedmsg') ) {
+	
+	/**
+	 * Canned messages part
+	 * */
+	$cannedMessage = new erLhcoreClassModelCannedMsg();
+	
+	if (is_numeric($Params['user_parameters_unordered']['msg']) && $Params['user_parameters_unordered']['action'] == ''){
+		$cannedMessage = erLhcoreClassModelCannedMsg::fetch($Params['user_parameters_unordered']['msg']);
+		if ($cannedMessage->user_id != $UserData->id) {
+			erLhcoreClassModule::redirect('user/account','#canned');
+			exit;
+		}
+	}
+	
+	if (isset($_POST['Cancel_canned_action']))
+	{
+		erLhcoreClassModule::redirect('user/account','#canned');
+		exit;
+	}
+	
+	if (isset($_POST['Save_canned_action']))
+	{
+		$definition = array(
+				'Message' => new ezcInputFormDefinitionElement(
+						ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+				),
+				'Position' => new ezcInputFormDefinitionElement(
+						ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0)
+				),
+				'Delay' => new ezcInputFormDefinitionElement(
+						ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0)
+				)
+		);
+		
+		$form = new ezcInputForm( INPUT_POST, $definition );
+		$Errors = array();
+		
+		if ( !$form->hasValidData( 'Message' ) || $form->Message == '' )
+		{
+			$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please enter canned message');
+		}
+		
+		if ( $form->hasValidData( 'Position' )  )
+		{
+			$cannedMessage->position = $form->Position;
+		}
+		
+		if ( $form->hasValidData( 'Delay' )  )
+		{
+			$cannedMessage->delay = $form->Delay;
+		}
+		
+		if (count($Errors) == 0) {
+			$cannedMessage->msg = $form->Message;
+			$cannedMessage->user_id = $UserData->id;
+			$cannedMessage->saveThis();			
+			$tpl->set('updated_canned',true);
+		}  else {
+			$tpl->set('errors_canned',$Errors);
+		}
+	}
+	
+	/**
+	 * Delete canned message
+	 * */
+	if (is_numeric($Params['user_parameters_unordered']['msg']) && $Params['user_parameters_unordered']['action'] == 'delete') {
+		
+		if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
+			die('Invalid CSRF Token');
+			exit;
+		}
+		
+		try {
+			$cannedToDelete = erLhcoreClassModelCannedMsg::fetch($Params['user_parameters_unordered']['msg']);		
+			if ($cannedToDelete->user_id == $UserData->id){
+				$cannedToDelete->removeThis();
+			}
+		} catch (Exception $e) {
+			
+		}	
+		erLhcoreClassModule::redirect('user/account','#canned');
+		exit;
+	}
+	
+	$tpl->set('canned_msg',$cannedMessage);
+}
+
 
 $Result['content'] = $tpl->fetch();
 

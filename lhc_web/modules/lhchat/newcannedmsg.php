@@ -19,7 +19,10 @@ if (isset($_POST['Save_action']))
         ),
         'Delay' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0)
-         )
+         ),
+        'DepartmentID' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1)
+        )
     );
 
     $form = new ezcInputForm( INPUT_POST, $definition );
@@ -39,7 +42,13 @@ if (isset($_POST['Save_action']))
     {
     	$Departament->delay = $form->Delay;
     }
-
+    
+    if ( $form->hasValidData( 'DepartmentID' )  ) {
+    	$Departament->department_id = $form->DepartmentID;
+    } else {
+    	$Departament->department_id = 0;
+    }
+    
     if (count($Errors) == 0)
     {
         $Departament->msg = $form->Message;

@@ -178,17 +178,19 @@ class erLhcoreClassUser{
        		setcookie('lhc_rm_u','',time()-31*24*3600,'/');
        };
 
-       $q = ezcDbInstance::get()->createDeleteQuery();
-
-       // User remember
-       $q->deleteFrom( 'lh_users_remember' )->where( $q->expr->eq( 'user_id', $q->bindValue($this->userid) ) );
-       $stmt = $q->prepare();
-       $stmt->execute();
-
-       $this->session->destroy();
-
-       $db = ezcDbInstance::get();
-       $db->query('UPDATE `lh_userdep` SET `last_activity` = 0 WHERE `user_id` = '.$this->userid);
+       if (is_numeric($this->userid)) {       
+	       $q = ezcDbInstance::get()->createDeleteQuery();
+	
+	       // User remember
+	       $q->deleteFrom( 'lh_users_remember' )->where( $q->expr->eq( 'user_id', $q->bindValue($this->userid) ) );
+	       $stmt = $q->prepare();
+	       $stmt->execute();
+	
+	       $this->session->destroy();
+	
+	       $db = ezcDbInstance::get();
+	       $db->query('UPDATE `lh_userdep` SET `last_activity` = 0 WHERE `user_id` = '.$this->userid);
+       }
    }
 
    public static function getSession()

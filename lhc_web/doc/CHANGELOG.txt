@@ -1,3 +1,10 @@
+1.85v
+
+1. Canned messages by department
+2. Personal canned messages. To operators role have to be assigned "Users" => "Allow user to have personal canned messages"
+
+execute doc/update_db/update_65.sql for update
+
 1.84v
 
 1. Option to set revote timeout, contributed by David Livingston. I just did some cleanup.

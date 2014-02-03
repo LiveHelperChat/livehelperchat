@@ -430,8 +430,12 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `id` int(11) NOT NULL AUTO_INCREMENT,
                   `msg` text NOT NULL,
         	   	  `position` int(11) NOT NULL,
+        	   	  `department_id` int(11) NOT NULL,
+        	   	  `user_id` int(11) NOT NULL,
   				  `delay` int(11) NOT NULL,
-                  PRIMARY KEY (`id`)
+                  PRIMARY KEY (`id`),
+        	   	  KEY `department_id` (`department_id`),
+        	   	  KEY `user_id` (`user_id`)
                 ) DEFAULT CHARSET=utf8;");
 
         	   $db->query("CREATE TABLE `lh_chat_online_user_footprint` (
@@ -810,6 +814,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                     array('module' => 'lhuser',  'function' => 'selfedit'),
                     array('module' => 'lhuser',  'function' => 'changeonlinestatus'),
                     array('module' => 'lhuser',  'function' => 'changeskypenick'),
+                    array('module' => 'lhuser',  'function' => 'personalcannedmsg'),
                     array('module' => 'lhchat',  'function' => 'use'),
                     array('module' => 'lhchat',  'function' => 'chattabschrome'),
                     array('module' => 'lhchat',  'function' => 'singlechatwindow'),

@@ -14,10 +14,10 @@
 <?php endif; ?>
 
 
-<div class="section-container auto" data-section>
+<div class="section-container auto" data-section data-options="deep_linking: true">
   <section <?php if ($tab == '') : ?>class="active"<?php endif;?>>
-    <p class="title" data-section-title><a href="#panel1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Account data');?></a></p>
-    <div class="content" data-section-content>
+    <p class="title" data-section-title><a href="#account"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Account data');?></a></p>
+    <div class="content" data-section-content data-slug="account">
 
     <div class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Do not enter a password unless you want to change it');?></div>
 	<br />
@@ -26,7 +26,7 @@
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
 	    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Username');?></label>
-	    <input type="text" placeholder="Your username" name="Username" value="<?php echo htmlspecialchars($user->username);?>" />
+	    <input type="text" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Your username');?>" name="Username" value="<?php echo htmlspecialchars($user->username);?>" />
 
 	    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Password');?></label>
 	    <input type="password" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Enter a new password');?>" name="Password" value=""/>
@@ -80,8 +80,8 @@
     </div>
   </section>
   <section <?php if ($tab == 'tab_departments') : ?>class="active"<?php endif;?>>
-    <p class="title" data-section-title><a href="#panel2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Assigned departments');?></a></p>
-    <div class="content" data-section-content>
+    <p class="title" data-section-title><a href="#departments"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Assigned departments');?></a></p>
+    <div class="content" data-section-content data-slug="departments">
 
 	<?php $userDepartaments = erLhcoreClassUserDep::getUserDepartaments(); ?>
 	<?php if ($editdepartaments === true) { ?>
@@ -104,8 +104,8 @@
     </div>
   </section>
   <section <?php if ($tab == 'tab_settings') : ?>class="active"<?php endif;?>>
-    <p class="title" data-section-title><a href="#panel3"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Visible lists');?></a></p>
-    <div class="content" data-section-content>
+    <p class="title" data-section-title ><a href="#lists"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Visible lists');?></a></p>
+    <div class="content" data-section-content data-slug="lists">
 
 	  <form action="<?php echo erLhcoreClassDesign::baseurl('user/account')?>" method="post">
 
@@ -120,4 +120,14 @@
 
     </div>
   </section>
+  
+  <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','personalcannedmsg')) : ?>
+  <section <?php if ($tab == 'tab_canned') : ?>class="active"<?php endif;?>>
+    <p class="title" data-section-title><a href="#canned"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Personal canned messages');?></a></p>
+    <div class="content" data-section-content data-slug="canned">
+	  <?php include(erLhcoreClassDesign::designtpl('lhuser/parts/canned_messages.tpl.php'));?>
+    </div>
+  </section>
+   <?php endif; ?>
+  
 </div>

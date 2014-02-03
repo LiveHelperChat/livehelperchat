@@ -5,13 +5,20 @@ class erLhcoreClassModelCannedMsg {
    public function getState()
    {
        return array(
-               'id'         => $this->id,
-               'msg'        => $this->msg,
-               'position'   => $this->position,
-               'delay'      => $this->delay,
+               'id'         	=> $this->id,
+               'msg'       		=> $this->msg,
+               'position'   	=> $this->position,
+               'delay'     		=> $this->delay,
+               'department_id'  => $this->department_id,
+               'user_id'  		=> $this->user_id,
               );
    }
 
+   public static function fetch($id) {
+	   	$msg = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelCannedMsg', (int)$id );
+	   	return $msg;
+   }
+   
    public function setState( array $properties )
    {
        foreach ( $properties as $key => $val )
@@ -20,6 +27,28 @@ class erLhcoreClassModelCannedMsg {
        }
    }
 
+   public function __get($var) {   
+   	switch ($var) {
+      		
+   		case 'user':
+   			$this->user = false;
+   			if ($this->user_id > 0) {
+   				try {
+   					$this->user = erLhcoreClassModelUser::fetch($this->user_id);
+   				} catch (Exception $e) {
+   					$this->user = false;
+   				}
+   			}
+   			return $this->user;
+   			break;
+   		
+   
+   		default:
+   			break;
+   	}
+   
+   }
+   
    public static function getCount($params = array())
    {
        $session = erLhcoreClassChat::getSession();
@@ -89,7 +118,15 @@ class erLhcoreClassModelCannedMsg {
                $conditions[] = $q->expr->gt( $field,$q->bindValue( $fieldValue ));
            }
       }
-
+      
+      if (isset($params['customfilter']) && count($params['customfilter']) > 0)
+      {
+	      	foreach ($params['customfilter'] as $fieldValue)
+	      	{
+	      		$conditions[] = $fieldValue;
+	      	}
+      }
+      
       if (count($conditions) > 0)
       {
           $q->where(
@@ -106,14 +143,37 @@ class erLhcoreClassModelCannedMsg {
       return $objects;
    }
 
+   public static function getCannedMessages($department_id, $user_id) {   	   	
+	   	$session = erLhcoreClassChat::getSession();
+	   	$q = $session->createFindQuery( 'erLhcoreClassModelCannedMsg' );		   			   	
+	   	$q->where(		   		
+	   			$q->expr->lOr(
+	   					$q->expr->eq( 'department_id', $q->bindValue($department_id) ),
+	   					$q->expr->lAnd($q->expr->eq( 'department_id', $q->bindValue( 0 ) ),$q->expr->eq( 'user_id', $q->bindValue( 0 ) )),
+	   					$q->expr->eq( 'user_id', $q->bindValue($user_id) )
+	   			)		   	
+	   	);
+	   	   	
+	   	$q->limit(50, 0);
+	   	$q->orderBy('position ASC, id ASC' ); // Questions with matched URL has higher priority
+	   	$items = $session->find( $q );		   	
+		return $items;  	
+   }
+   
    public function removeThis() {
        erLhcoreClassChat::getSession()->delete( $this );
+   }
+   
+   public function saveThis(){
+   		erLhcoreClassChat::getSession()->saveOrUpdate( $this );
    }
 
    public $id = null;
    public $msg = '';
    public $position = 0;
    public $delay = 0;
+   public $department_id = 0;
+   public $user_id = 0;
 }
 
 ?>
