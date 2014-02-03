@@ -809,6 +809,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 $permissionsArray = array(
                     array('module' => 'lhuser',  'function' => 'selfedit'),
                     array('module' => 'lhuser',  'function' => 'changeonlinestatus'),
+                    array('module' => 'lhuser',  'function' => 'changeskypenick'),
                     array('module' => 'lhchat',  'function' => 'use'),
                     array('module' => 'lhchat',  'function' => 'chattabschrome'),
                     array('module' => 'lhchat',  'function' => 'singlechatwindow'),

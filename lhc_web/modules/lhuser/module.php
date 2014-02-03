@@ -117,5 +117,6 @@ $FunctionList['editdepartaments'] = array('explain' => 'Allow user to edit his r
 $FunctionList['userlistonline'] = array('explain' => 'Allow user to see logged operators list, only from his department');
 $FunctionList['userlistonlineall'] = array('explain' => 'Allow user to see logged operators list, not only from his department');
 $FunctionList['changeonlinestatus'] = array('explain' => 'Allow user to change his online status');
+$FunctionList['changeskypenick'] = array('explain' => 'Allow user to change/enter his skype nick');
 
 ?>

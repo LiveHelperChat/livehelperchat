@@ -46,10 +46,12 @@
 	    <?php include(erLhcoreClassDesign::designtpl('lhuser/parts/time_zone.tpl.php'));?>
 	    	    
 	    <div class="row">
+	    	<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','changeskypenick')) : ?>
 			<div class="columns small-6">
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Skype');?></label>
 				<input type="text" name="Skype" value="<?php echo htmlspecialchars($user->skype);?>"/>
 			</div>
+			<?php endif;?>
 			<div class="columns small-6">
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','XMPP username');?></label>
 				<input type="text" name="XMPPUsername" value="<?php echo htmlspecialchars($user->xmpp_username);?>"/>

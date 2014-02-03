@@ -138,13 +138,16 @@ if (isset($_POST['Update']))
     } else {
     	$UserData->surname = '';
     }
-        
-    if ( $form->hasValidData( 'Skype' ) && $form->Skype != '')
-    {
-    	$UserData->skype = $form->Skype;
-    } else {
-    	$UserData->skype = '';
+
+    if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','changeskypenick') ) {
+	    if ( $form->hasValidData( 'Skype' ) && $form->Skype != '')
+	    {
+	    	$UserData->skype = $form->Skype;
+	    } else {
+	    	$UserData->skype = '';
+	    }
     }
+    
     
     if ( $form->hasValidData( 'XMPPUsername' ) && $form->XMPPUsername != '')
     {
