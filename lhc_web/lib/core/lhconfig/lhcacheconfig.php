@@ -12,6 +12,21 @@ class erConfigClassLhCacheConfig
     public function __construct()
     {
         $this->conf = include('cache/cacheconfig/settings.ini.php');
+        if ( !is_array($this->conf) ) {
+        	// Restore default settings if error accours
+        	$this->conf = array (
+			  'settings' => 
+			  array (
+			    'cachetimestamps' => 
+			    array (
+			      'translationfile' => 0,
+			      'accessfile' => 0,
+			    ),
+			  ),
+			  'comments' => NULL,
+			);
+        	echo "asdasd";exit;
+        }
     }
 
     public function getSetting($section, $key)
@@ -19,7 +34,7 @@ class erConfigClassLhCacheConfig
         if (isset($this->conf['settings'][$section][$key])) {
             return $this->conf['settings'][$section][$key];
         } else {
-            throw new Exception('Setting with section {'.$section.'} value {'.$key.'}');
+            throw new Exception('Setting with section {'.$section.'} value {'.$key.'} was not found');
         }
     }
 

@@ -22,13 +22,19 @@ class erTranslationClassLhTranslation
         {
             $this->translationFileModifyTime = filemtime($sys . '/translations/' . $this->languageCode . '/translation.ts');
 
-            if ($cfg->getSetting( 'cachetimestamps', 'translationfile' ) != $this->translationFileModifyTime)
-            {
-                $this->updateCache();
-                $cfg->setSetting( 'cachetimestamps', 'translationfile', $this->translationFileModifyTime);
-                $cfg->save();
+            try {
+	            if ($cfg->getSetting( 'cachetimestamps', 'translationfile' ) != $this->translationFileModifyTime)
+	            {
+	                $this->updateCache();
+	                $cfg->setSetting( 'cachetimestamps', 'translationfile', $this->translationFileModifyTime);
+	                $cfg->save();
+	            }
+            } catch (Exception $e) {
+            	$this->updateCache();
+            	$cfg->setSetting( 'cachetimestamps', 'translationfile', $this->translationFileModifyTime);
+            	$cfg->save();
             }
-
+            
             $this->cacheObj = new ezcCacheStorageFileArray( $sys . '/cache/translations' );
             $this->backend = new ezcTranslationCacheBackend( $this->cacheObj );
             $this->manager = new ezcTranslationManager( $this->backend );
