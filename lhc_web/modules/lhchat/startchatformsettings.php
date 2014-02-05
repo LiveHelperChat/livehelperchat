@@ -20,6 +20,9 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
         'NameVisibleInPageWidget' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
+        'NameHidden' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
         'NameRequireOption' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
         ),
@@ -29,6 +32,9 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
         'OfflineNameVisibleInPageWidget' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+        'OfflineNameHidden' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
         'OfflineNameRequireOption' => new ezcInputFormDefinitionElement(
@@ -42,6 +48,12 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
         'EmailVisibleInPageWidget' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
+        'EmailHidden' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+    	'OfflineEmailHidden' => new ezcInputFormDefinitionElement(
+    				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+    	),
         'EmailRequireOption' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
         ),
@@ -51,6 +63,9 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
         'MessageVisibleInPageWidget' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+        'MessageHidden' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
         'MessageRequireOption' => new ezcInputFormDefinitionElement(
@@ -64,6 +79,9 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
         'OfflineMessageVisibleInPageWidget' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
+        'OfflineMessageHidden' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
         'OfflineMessageRequireOption' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
         ),
@@ -73,6 +91,9 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),       
         'PhoneVisibleInPageWidget' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+        'PhoneHidden' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
         'PhoneRequireOption' => new ezcInputFormDefinitionElement(
@@ -86,6 +107,9 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
         'OfflinePhoneVisibleInPageWidget' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
+        'OfflinePhoneHidden' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
         'OfflinePhoneRequireOption' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
         ),
@@ -94,7 +118,6 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
     	'ForceLeaveMessage' => new ezcInputFormDefinitionElement(
     			ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
     	),
-    		
     		
     	// TOS
         'OfflineTOSVisibleInPopup' => new ezcInputFormDefinitionElement(
@@ -159,8 +182,12 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
     } else {
         $data['name_visible_in_popup'] = false;
     }
-
     
+    if ( $form->hasValidData( 'NameHidden' ) && $form->NameHidden == true ) {
+        $data['name_hidden'] = true;
+    } else {
+        $data['name_hidden'] = false;
+    }
     
     if ( $form->hasValidData( 'NameVisibleInPageWidget' ) && $form->NameVisibleInPageWidget == true ) {
         $data['name_visible_in_page_widget'] = true;
@@ -179,6 +206,12 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
         $data['offline_name_visible_in_popup'] = true;
     } else {
         $data['offline_name_visible_in_popup'] = false;
+    }
+    
+    if ( $form->hasValidData( 'OfflineNameHidden' ) && $form->OfflineNameHidden == true ) {
+        $data['offline_name_hidden'] = true;
+    } else {
+        $data['offline_name_hidden'] = false;
     }
 
     if ( $form->hasValidData( 'OfflineNameVisibleInPageWidget' ) && $form->OfflineNameVisibleInPageWidget == true ) {
@@ -207,6 +240,18 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
     } else {
         $data['email_visible_in_popup'] = false;
     }
+    
+    if ( $form->hasValidData( 'EmailHidden' ) && $form->EmailHidden == true ) {
+        $data['email_hidden'] = true;
+    } else {
+        $data['email_hidden'] = false;
+    }
+    
+    if ( $form->hasValidData( 'OfflineEmailHidden' ) && $form->OfflineEmailHidden == true ) {
+        $data['offline_email_hidden'] = true;
+    } else {
+        $data['offline_email_hidden'] = false;
+    }
 
     if ( $form->hasValidData( 'EmailVisibleInPageWidget' ) && $form->EmailVisibleInPageWidget == true ) {
         $data['email_visible_in_page_widget'] = true;
@@ -234,6 +279,12 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
     } else {
         $data['phone_visible_in_popup'] = false;
     }
+    
+    if ( $form->hasValidData( 'PhoneHidden' ) && $form->PhoneHidden == true ) {
+        $data['phone_hidden'] = true;
+    } else {
+        $data['phone_hidden'] = false;
+    }
 
     if ( $form->hasValidData( 'PhoneVisibleInPageWidget' ) && $form->PhoneVisibleInPageWidget == true ) {
         $data['phone_visible_in_page_widget'] = true;
@@ -253,6 +304,12 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
     } else {
         $data['offline_phone_visible_in_popup'] = false;
     }
+    
+    if ( $form->hasValidData( 'OfflinePhoneHidden' ) && $form->OfflinePhoneHidden == true ) {
+        $data['offline_phone_hidden'] = true;
+    } else {
+        $data['offline_phone_hidden'] = false;
+    }
 
     if ( $form->hasValidData( 'OfflinePhoneVisibleInPageWidget' ) && $form->OfflinePhoneVisibleInPageWidget == true ) {
         $data['offline_phone_visible_in_page_widget'] = true;
@@ -266,7 +323,6 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
         $data['offline_phone_require_option'] = 'required';
     }
     
-
     if ($data['phone_visible_in_popup'] == true && $data['phone_require_option'] == 'required') {
         $hasValidPopupData = true;
     }
@@ -280,6 +336,12 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
         $data['message_visible_in_popup'] = true;
     } else {
         $data['message_visible_in_popup'] = false;
+    }
+    
+    if ( $form->hasValidData( 'MessageHidden' ) && $form->MessageHidden == true ) {
+        $data['message_hidden'] = true;
+    } else {
+        $data['message_hidden'] = false;
     }
 
     if ( $form->hasValidData( 'MessageVisibleInPageWidget' ) && $form->MessageVisibleInPageWidget == true ) {
@@ -299,6 +361,12 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
         $data['offline_message_visible_in_popup'] = true;
     } else {
         $data['offline_message_visible_in_popup'] = false;
+    }
+    
+    if ( $form->hasValidData( 'OfflineMessageHidden' ) && $form->OfflineMessageHidden == true ) {
+        $data['offline_message_hidden'] = true;
+    } else {
+        $data['offline_message_hidden'] = false;
     }
 
     if ( $form->hasValidData( 'OfflineMessageVisibleInPageWidget' ) && $form->OfflineMessageVisibleInPageWidget == true ) {
