@@ -31,6 +31,11 @@ if ( $ignorable_ip == '' || !in_array(erLhcoreClassIPDetect::getIP(), explode(',
 		$tpl->set('department',is_numeric($Params['user_parameters_unordered']['department']) ? (int)$Params['user_parameters_unordered']['department'] : false);
 		$tpl->set('visitor',$userInstance);
 		$tpl->set('vid',(string)$Params['user_parameters_unordered']['vid']);
+		
+		if ($userInstance->reopen_chat == 1 && ($chat = $userInstance->chat) !== false && $chat->user_status == erLhcoreClassModelChat::USER_STATUS_PENDING_REOPEN) {
+			$tpl->set('reopen_chat',$chat);
+		}
+		
 	    echo $tpl->fetch();
 	}
 }

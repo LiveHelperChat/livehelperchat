@@ -35,11 +35,19 @@ if (trim($form->msg) != '')
 
         // Set last message ID
         if ($Chat->last_msg_id < $msg->id) {
-        	
+
         	if ($Chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
         		$Chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;        		
         	}
-        	        	
+
+        	if ($Chat->user_status == erLhcoreClassModelChat::USER_STATUS_CLOSED_CHAT) {
+        		$Chat->user_status = erLhcoreClassModelChat::USER_STATUS_PENDING_REOPEN;
+        		if ( ($onlineuser = $Chat->online_user) !== false) {
+        			$onlineuser->reopen_chat = 1;
+        			$onlineuser->saveThis();
+        		}
+        	}
+
         	$Chat->last_msg_id = $msg->id;
         	$Chat->updateThis();
         }

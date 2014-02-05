@@ -546,6 +546,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  `lat` varchar(10) NOT NULL,
   				  `lon` varchar(10) NOT NULL,
   				  `city` varchar(100) NOT NULL,
+        	   	  `reopen_chat` int(11) NOT NULL,
         	   	  `time_on_site` int(11) NOT NULL,
   				  `tt_time_on_site` int(11) NOT NULL,
         	   	  `requires_email` int(11) NOT NULL,

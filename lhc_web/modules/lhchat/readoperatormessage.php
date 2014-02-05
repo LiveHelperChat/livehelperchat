@@ -64,8 +64,6 @@ if (isset($_POST['askQuestion']))
     	}
     }
     
-   
-    
     if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
     	if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600 || $hashCaptcha != sha1($_SERVER['REMOTE_ADDR'].$form->$nameField.erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ))){
     		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid captcha code, please enable Javascript!');

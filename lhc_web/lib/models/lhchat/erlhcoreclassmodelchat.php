@@ -265,6 +265,10 @@ class erLhcoreClassModelChat {
    const STATUS_SUB_DEFAULT = 0;
    const STATUS_SUB_OWNER_CHANGED = 1;
    
+   const USER_STATUS_JOINED_CHAT = 0;
+   const USER_STATUS_CLOSED_CHAT = 1;
+   const USER_STATUS_PENDING_REOPEN = 2;
+   
    public $id = null;
    public $nick = '';
    public $status = self::STATUS_PENDING_CHAT;
@@ -276,7 +280,7 @@ class erLhcoreClassModelChat {
    public $referrer = '';
    public $dep_id = '';
    public $email = '';
-   public $user_status = 0;
+   public $user_status = self::USER_STATUS_JOINED_CHAT;
    public $support_informed = '';
    public $country_code = '';
    public $country_name = '';
