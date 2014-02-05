@@ -25,7 +25,6 @@ class erConfigClassLhCacheConfig
 			  ),
 			  'comments' => NULL,
 			);
-        	echo "asdasd";exit;
         }
     }
 
