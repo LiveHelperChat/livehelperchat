@@ -53,7 +53,7 @@
     </tr>
     <tr>
         <td>Minimum 5.3 PHP</td>
-        <td><?php (version_compare(PHP_VERSION, '5.3.0','<')) ? '<span class="round label alert">No</span>' : '<span class="success label round">Yes</span>'; ?></td>
+        <td><?php echo (version_compare(PHP_VERSION, '5.3.0','<')) ? '<span class="round label alert">No</span>' : '<span class="success label round">Yes</span>'; ?></td>
     </tr>
 </table>
 <br>
