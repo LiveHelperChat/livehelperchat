@@ -688,12 +688,12 @@
       <translation>Telefonas</translation>
     </message>
     <message>
-      <source>Your question</source>
-      <translation>Jūsų klausimas</translation>
-    </message>
-    <message>
       <source>Enter your message</source>
       <translation>Įveskite žinutę</translation>
+    </message>
+    <message>
+      <source>Your question</source>
+      <translation>Jūsų klausimas</translation>
     </message>
     <message>
       <source>Start chat</source>
@@ -1988,6 +1988,10 @@
     <message>
       <source>This field is visible in the page widget</source>
       <translation>Šis laukas matomas vidiniame puslapio popupe</translation>
+    </message>
+    <message>
+      <source>This field is invisible but prefilled data is collected</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>This field is</source>

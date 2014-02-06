@@ -688,12 +688,12 @@
       <translation>تلفن</translation>
     </message>
     <message>
-      <source>Your question</source>
-      <translation>پرسش شما</translation>
-    </message>
-    <message>
       <source>Enter your message</source>
       <translation>پیام خود را وارد کنید</translation>
+    </message>
+    <message>
+      <source>Your question</source>
+      <translation>پرسش شما</translation>
     </message>
     <message>
       <source>Start chat</source>
@@ -1988,6 +1988,10 @@
     <message>
       <source>This field is visible in the page widget</source>
       <translation>این فیلد در پنجره ویجت نمایش داده میشود</translation>
+    </message>
+    <message>
+      <source>This field is invisible but prefilled data is collected</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>This field is</source>

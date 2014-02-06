@@ -688,12 +688,12 @@
       <translation>Telefon</translation>
     </message>
     <message>
-      <source>Your question</source>
-      <translation>Vaše otázka</translation>
-    </message>
-    <message>
       <source>Enter your message</source>
       <translation>Napište text zprávy</translation>
+    </message>
+    <message>
+      <source>Your question</source>
+      <translation>Vaše otázka</translation>
     </message>
     <message>
       <source>Start chat</source>
@@ -1990,6 +1990,10 @@
       <translation>Toto pole je viditelné ve widgetu</translation>
     </message>
     <message>
+      <source>This field is invisible but prefilled data is collected</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>This field is</source>
       <translation>Toto pole je</translation>
     </message>
@@ -2830,7 +2834,7 @@
     </message>
     <message>
       <source>departments</source>
-      <translation type="unfinished"/>
+      <translation>oddělení</translation>
     </message>
     <message>
       <source>Edit a department</source>
@@ -2877,7 +2881,7 @@
     </message>
     <message>
       <source>Email</source>
-      <translation type="unfinished"/>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Name</source>

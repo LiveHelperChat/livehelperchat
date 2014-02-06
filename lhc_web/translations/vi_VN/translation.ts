@@ -688,12 +688,12 @@
       <translation>Điện thoại</translation>
     </message>
     <message>
-      <source>Your question</source>
-      <translation>Nội dung yêu cầu của bạn</translation>
-    </message>
-    <message>
       <source>Enter your message</source>
       <translation>Nhập nội dung văn bản của bạn </translation>
+    </message>
+    <message>
+      <source>Your question</source>
+      <translation>Nội dung yêu cầu của bạn</translation>
     </message>
     <message>
       <source>Start chat</source>
@@ -1988,6 +1988,10 @@
     <message>
       <source>This field is visible in the page widget</source>
       <translation>Lĩnh vực này có thể nhìn thấy trong các tiện ích trang</translation>
+    </message>
+    <message>
+      <source>This field is invisible but prefilled data is collected</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>This field is</source>

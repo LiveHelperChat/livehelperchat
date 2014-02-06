@@ -688,11 +688,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Your question</source>
+      <source>Enter your message</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Enter your message</source>
+      <source>Your question</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1987,6 +1987,10 @@
     </message>
     <message>
       <source>This field is visible in the page widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This field is invisible but prefilled data is collected</source>
       <translation type="unfinished"/>
     </message>
     <message>

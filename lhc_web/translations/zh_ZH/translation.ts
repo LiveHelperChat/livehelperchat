@@ -688,12 +688,12 @@
       <translation>电话</translation>
     </message>
     <message>
-      <source>Your question</source>
-      <translation>你的问题</translation>
-    </message>
-    <message>
       <source>Enter your message</source>
       <translation>输入您的消息</translation>
+    </message>
+    <message>
+      <source>Your question</source>
+      <translation>你的问题</translation>
     </message>
     <message>
       <source>Start chat</source>
@@ -1988,6 +1988,10 @@
     <message>
       <source>This field is visible in the page widget</source>
       <translation>此区域是可见的页面中的插件</translation>
+    </message>
+    <message>
+      <source>This field is invisible but prefilled data is collected</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>This field is</source>

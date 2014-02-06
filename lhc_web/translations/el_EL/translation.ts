@@ -688,12 +688,12 @@
       <translation>Τηλέφωνο</translation>
     </message>
     <message>
-      <source>Your question</source>
-      <translation>Ερώτησή σας</translation>
-    </message>
-    <message>
       <source>Enter your message</source>
       <translation>Εισάγετε το μήνυμά σας</translation>
+    </message>
+    <message>
+      <source>Your question</source>
+      <translation>Ερώτησή σας</translation>
     </message>
     <message>
       <source>Start chat</source>
@@ -1988,6 +1988,10 @@
     <message>
       <source>This field is visible in the page widget</source>
       <translation>Αυτό το πεδίο είναι ορατή στο σελίδα widget</translation>
+    </message>
+    <message>
+      <source>This field is invisible but prefilled data is collected</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>This field is</source>

@@ -688,12 +688,12 @@
       <translation>Telefoon</translation>
     </message>
     <message>
-      <source>Your question</source>
-      <translation>Uw vraag</translation>
-    </message>
-    <message>
       <source>Enter your message</source>
       <translation>Type uw bericht</translation>
+    </message>
+    <message>
+      <source>Your question</source>
+      <translation>Uw vraag</translation>
     </message>
     <message>
       <source>Start chat</source>
@@ -1987,6 +1987,10 @@
     </message>
     <message>
       <source>This field is visible in the page widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This field is invisible but prefilled data is collected</source>
       <translation type="unfinished"/>
     </message>
     <message>

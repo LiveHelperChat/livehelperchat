@@ -688,12 +688,12 @@
       <translation>Telefonnr</translation>
     </message>
     <message>
-      <source>Your question</source>
-      <translation>Din fråga</translation>
-    </message>
-    <message>
       <source>Enter your message</source>
       <translation>Lämna ditt meddelande</translation>
+    </message>
+    <message>
+      <source>Your question</source>
+      <translation>Din fråga</translation>
     </message>
     <message>
       <source>Start chat</source>
@@ -1988,6 +1988,10 @@
     <message>
       <source>This field is visible in the page widget</source>
       <translation>Det här fältet är synligt i sid-widgeten</translation>
+    </message>
+    <message>
+      <source>This field is invisible but prefilled data is collected</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>This field is</source>

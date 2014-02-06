@@ -688,12 +688,12 @@
       <translation>Telefon</translation>
     </message>
     <message>
-      <source>Your question</source>
-      <translation>Ihre Frage</translation>
-    </message>
-    <message>
       <source>Enter your message</source>
       <translation>Nachricht eingeben</translation>
+    </message>
+    <message>
+      <source>Your question</source>
+      <translation>Ihre Frage</translation>
     </message>
     <message>
       <source>Start chat</source>
@@ -1317,7 +1317,7 @@
     </message>
     <message>
       <source>Live help is offline...</source>
-      <translation>Live-Hilfe ist online...</translation>
+      <translation>Live-Hilfe ist offline...</translation>
     </message>
     <message>
       <source>Close</source>
@@ -1988,6 +1988,10 @@
     <message>
       <source>This field is visible in the page widget</source>
       <translation>Dieses Feld ist sichtin im Seitenwidget</translation>
+    </message>
+    <message>
+      <source>This field is invisible but prefilled data is collected</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>This field is</source>

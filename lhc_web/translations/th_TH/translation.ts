@@ -688,12 +688,12 @@
       <translation>โทรศัพท์</translation>
     </message>
     <message>
-      <source>Your question</source>
-      <translation>คำถามของคุณ</translation>
-    </message>
-    <message>
       <source>Enter your message</source>
       <translation>ป้อนข้อความของคุณ</translation>
+    </message>
+    <message>
+      <source>Your question</source>
+      <translation>คำถามของคุณ</translation>
     </message>
     <message>
       <source>Start chat</source>
@@ -1988,6 +1988,10 @@
     <message>
       <source>This field is visible in the page widget</source>
       <translation>ฟิลด์นี้จะปรากฏในเครื่องมือหน้า</translation>
+    </message>
+    <message>
+      <source>This field is invisible but prefilled data is collected</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>This field is</source>

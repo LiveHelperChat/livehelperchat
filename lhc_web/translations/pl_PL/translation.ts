@@ -688,12 +688,12 @@
       <translation>Telefon</translation>
     </message>
     <message>
-      <source>Your question</source>
-      <translation>Twoje pytanie</translation>
-    </message>
-    <message>
       <source>Enter your message</source>
       <translation>Wpisz swoją wiadomość</translation>
+    </message>
+    <message>
+      <source>Your question</source>
+      <translation>Twoje pytanie</translation>
     </message>
     <message>
       <source>Start chat</source>
@@ -1988,6 +1988,10 @@
     <message>
       <source>This field is visible in the page widget</source>
       <translation>To pole jest widoczne na stronie widgetu</translation>
+    </message>
+    <message>
+      <source>This field is invisible but prefilled data is collected</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>This field is</source>
