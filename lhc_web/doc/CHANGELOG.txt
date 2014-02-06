@@ -3,6 +3,7 @@
 1. Canned messages by department
 2. Personal canned messages. To operators role have to be assigned "Users" => "Allow user to have personal canned messages"
 3. Now then user closes a chat and operator sends a message to user, at site chat will reopen.
+4. Option to hide default form fields. These fields can be prefilled but they won't be visible by user.
 
 execute doc/update_db/update_65.sql for update
 

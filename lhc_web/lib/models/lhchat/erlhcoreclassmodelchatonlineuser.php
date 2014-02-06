@@ -295,7 +295,7 @@ class erLhcoreClassModelChatOnlineUser {
        			}       			
        		} elseif ($params['detection_type'] == 'city') {
        			try {
-	       			$reader = new GeoIp2\Database\Reader('var/external/geoip/GeoLite2-City.mmdb');
+	       			$reader = new GeoIp2\Database\Reader( (isset($params['city_file']) && $params['city_file'] != '')  ? $params['city_file'] : 'var/external/geoip/GeoLite2-City.mmdb');
 	       			$countryData = $reader->city($ip);
 	       			$normalizedObject = new stdClass();
 	       			$normalizedObject->country_code = strtolower($countryData->raw['country']['iso_code']);
@@ -396,6 +396,7 @@ class erLhcoreClassModelChatOnlineUser {
                $params['api_key'] = $geo_data['ipinfodbcom_api_key'];
            } elseif ($geo_data['geo_service_identifier'] == 'max_mind') {             
                $params['detection_type'] = $geo_data['max_mind_detection_type'];
+               $params['city_file'] = isset($geo_data['max_mind_city_location']) ? $geo_data['max_mind_city_location'] : '';
            }
           
            $location = self::getUserData($geo_data['geo_service_identifier'],$instance->ip,$params);

@@ -1166,6 +1166,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Location of city database</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User country based detection, faster</source>
       <translation type="unfinished"/>
     </message>

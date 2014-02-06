@@ -58,7 +58,11 @@ switch ((int)$Params['user_parameters']['step_id']) {
 		
 		if (!extension_loaded('mbstring'))
 			$Errors[] = "mbstring extension not detected. Please install php extension";	
-			
+		
+		if (version_compare(PHP_VERSION, '5.3.0','<')) {
+			$Errors[] = "Minimum 5.3.0 PHP version is required";	
+		}
+		
 	       if (count($Errors) == 0)
 	           $tpl->setFile('lhinstall/install2.tpl.php');
 	  break;

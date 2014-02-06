@@ -227,7 +227,8 @@ class erLhcoreClassModelChat {
            } elseif ($geo_data['geo_service_identifier'] == 'ipinfodbcom') {             
                $params['api_key'] = $geo_data['ipinfodbcom_api_key'];
            } elseif ($geo_data['geo_service_identifier'] == 'max_mind') {             
-               $params['detection_type'] = $geo_data['max_mind_detection_type'];
+               $params['detection_type'] = $geo_data['max_mind_detection_type'];         
+               $params['city_file'] = isset($geo_data['max_mind_city_location']) ? $geo_data['max_mind_city_location'] : '';
            }
 
            $location = erLhcoreClassModelChatOnlineUser::getUserData($geo_data['geo_service_identifier'],$instance->ip,$params);

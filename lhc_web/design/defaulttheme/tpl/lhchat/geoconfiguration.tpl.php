@@ -73,6 +73,9 @@
       	</p> 
       	
 		<br>
+		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Location of city database'); ?></label>		
+		<input type="text" name="CityGeoLocation" value="<?php isset($geo_data['max_mind_city_location']) && ($geo_data['max_mind_city_location'] != '') ?  print htmlspecialchars($geo_data['max_mind_city_location']) : print 'var/external/geoip/GeoLite2-City.mmdb' ?>" />
+			
 		<div class="row">
 			<div class="columns small-6"><label><input type="radio" name="MaxMindDetectionType" value="country" <?php (isset($geo_data['max_mind_detection_type']) && $geo_data['max_mind_detection_type'] == 'country') ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User country based detection, faster')?></label></div>
 			<div class="columns small-6">
@@ -80,9 +83,9 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="columns small-6"><label><input type="radio" name="MaxMindDetectionType" value="city" <?php (isset($geo_data['max_mind_detection_type']) && $geo_data['max_mind_detection_type'] == 'city') ? print 'checked="checked"' : '' ?> <?php if (!file_exists("var/external/geoip/GeoLite2-City.mmdb")) : ?>disabled<?php endif;?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User city based detection, slower')?></label></div>
+			<div class="columns small-6"><label><input type="radio" name="MaxMindDetectionType" value="city" <?php (isset($geo_data['max_mind_detection_type']) && $geo_data['max_mind_detection_type'] == 'city') ? print 'checked="checked"' : '' ?> <?php if (!file_exists(isset($geo_data['max_mind_city_location']) && ($geo_data['max_mind_city_location'] != '') ?  $geo_data['max_mind_city_location'] : 'var/external/geoip/GeoLite2-City.mmdb')) : ?>disabled<?php endif;?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User city based detection, slower')?></label></div>
 			<div class="columns small-6">
-				<?php if (file_exists("var/external/geoip/GeoLite2-City.mmdb")) : ?> <span class="success label round" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','File exists');?>">var/external/geoip/GeoLite2-City.mmdb</span> <?php else : ?><span class="round label alert" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','File does not exists')?>">var/external/geoip/GeoLite2-City.mmdb</span><?php endif;?>
+				<?php if (file_exists(isset($geo_data['max_mind_city_location']) && ($geo_data['max_mind_city_location'] != '') ?  $geo_data['max_mind_city_location'] : 'var/external/geoip/GeoLite2-City.mmdb')) : ?> <span class="success label round" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','File exists');?>"><?php isset($geo_data['max_mind_city_location']) && ($geo_data['max_mind_city_location'] != '') ?  print htmlspecialchars($geo_data['max_mind_city_location']) : print 'var/external/geoip/GeoLite2-City.mmdb' ?></span> <?php else : ?><span class="round label alert" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','File does not exists')?>"><?php isset($geo_data['max_mind_city_location']) && ($geo_data['max_mind_city_location'] != '') ?  print htmlspecialchars($geo_data['max_mind_city_location']) : print 'var/external/geoip/GeoLite2-City.mmdb' ?></span><?php endif;?>
 			</div>
 		</div>
            
