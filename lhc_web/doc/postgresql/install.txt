@@ -1,0 +1,52 @@
+//***************************************//
+Instruction
+
+//***************************************//
+1. Download postgresql branch from github
+//***************************************//
+
+//***************************************//
+2. Change these settings in settings/settings.ini.php file
+
+Change secret hash value to
+'secrethash' => '7702888d11',
+
+//**************//  
+In 'db' section add
+'search_path' => 'public',
+
+//**************//  
+Change other database settings. It should look like for example
+
+'host' => 'localhost',
+'user' => '<username>',
+'password' => '<username>',
+'database' => 'lhc_install',
+'search_path' => 'public',
+'port' => 5432,
+
+//**************//  
+Change installed value to true
+'installed' => true,      
+//***************************************//
+
+3. Import default database
+Example command
+psql -h localhost -d lhc_install -U postgres -f postgresql.sql
+//***************************************//
+
+4. Enter site url index.php/site_admin/ login window should be present
+Login: admin
+Pass: demo
+
+//***************************************//
+5. If you have logged succesfully again edit settings/settings.ini.php file and enable cache
+'templatecache' => true,
+'templatecompile' => true,
+'modulecompile' => true,
+
+//***************************************//
+6. While being logged change secret hash value to any random string and change password in back office.
+
+//***************************************//
+7. Have fun! that's all :)
