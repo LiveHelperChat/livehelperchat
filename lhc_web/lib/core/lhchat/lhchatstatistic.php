@@ -14,7 +14,7 @@ class erLhcoreClassChatStatistic {
 
     	$db = ezcDbInstance::get();
     	$stmt = $db->prepare($SQL);
-    	$stmt->bindValue( ':time',$time);
+    	$stmt->bindValue( ':time',$time,PDO::PARAM_INT);
     	$stmt->setFetchMode(PDO::FETCH_ASSOC);
     	$stmt->execute();
     	$rows = $stmt->fetchAll();
