@@ -117,11 +117,7 @@ class erLhcoreClassQuestionary {
 			                     $conditions
 			          );
 			      }
-
-				 if (isset($params['use_index'])) {
-		      		$q->useIndex( $params['use_index'] );
-		      	 }
-
+				 
 			      $q->limit($params['limit'],$params['offset']);
 
 			      $q->orderBy(isset($params['sort']) ? $params['sort'] : 'id DESC' );
@@ -194,10 +190,6 @@ class erLhcoreClassQuestionary {
 		      		);
 		      	}
 
-		      	if (isset($params['use_index'])) {
-		      		$q2->useIndex( $params['use_index'] );
-		      	}
-
 		      	$q2->limit($params['limit'],$params['offset']);
 		      	$q2->orderBy(isset($params['sort']) ? $params['sort'] : 'id DESC');
 
@@ -261,11 +253,7 @@ class erLhcoreClassQuestionary {
     	{
 	    	$q->where( $conditions );
     	}
-
-    	if (isset($params['use_index'])) {
-    		$q->useIndex( $params['use_index'] );
-    	}
-
+    	
     	$stmt = $q->prepare();
     	$stmt->execute();
     	$result = $stmt->fetchColumn();

@@ -40,8 +40,8 @@ class erLhcoreClassModelUserDep {
 	   	$params = array_merge($paramsDefault,$paramsSearch);
 
 	   	$session = erLhcoreClassDepartament::getSession();
-	   	$q = $session->createFindQuery( 'erLhcoreClassModelUserDep' );
-
+	   	$q = $session->createFindQuery( 'erLhcoreClassModelUserDep', isset($params['ignore_fields']) ? $params['ignore_fields'] : array() );
+	   	
 	   	$conditions = array();
 
 	   	if (isset($params['filter']) && count($params['filter']) > 0)
@@ -109,9 +109,8 @@ class erLhcoreClassModelUserDep {
 
 	   	$LimitationDepartament = '';
 	   	$userData = $currentUser->getUserData(true);
-	   	$filter = array();
-
-	   	
+	   
+	   	$sqlAppend = '';
 	   	if ( $userData->all_departments == 0 && $canListOnlineUsersAll == false)
 	   	{
 	   		$userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID());
@@ -123,17 +122,24 @@ class erLhcoreClassModelUserDep {
 	   			unset($userDepartaments[$index]);
 	   		}
 	   		
-	   		$filter['customfilter'][] = '(dep_id IN ('.implode(',',$userDepartaments). ') OR user_id = ' . $currentUser->getUserID() . ')';
+	   		$sqlAppend = 'AND (dep_id IN ('.implode(',',$userDepartaments). ') OR user_id = ' . $currentUser->getUserID() . ')';
 	   	};
+		      		
+   		$db = ezcDbInstance::get();
+   		$stmt = $db->prepare("SELECT user_id,last_activity FROM lh_userdep WHERE last_activity > :last_activity {$sqlAppend} GROUP BY user_id,last_activity ORDER BY last_activity DESC LIMIT 10;");
+   		$stmt->bindValue( ':last_activity',(time()-120),PDO::PARAM_INT);   			
+   		$stmt->execute();
+   		$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+   		
+   		$returnObjects = array();
+   		foreach ($rows as $row) {
+   			$stdObject = new erLhcoreClassModelUserDep();
+   			$stdObject->user_id = $row['user_id'];
+   			$stdObject->last_activity = $row['last_activity'];
+   			$returnObjects[] = $stdObject;
+   		}
 
-	   	
-	   	$filter['filtergt']['last_activity'] = time()-120;
-	   	$filter['limit'] = 10;
-	   	$filter['sort'] = 'last_activity DESC';
-	   	$filter['groupby'] = 'user_id';
-
-	   	
-	   	return self::getList($filter);
+   		return $returnObjects;
 
    }
 

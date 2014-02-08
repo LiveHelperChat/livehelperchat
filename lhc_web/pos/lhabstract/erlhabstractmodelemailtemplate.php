@@ -7,7 +7,8 @@ $def->class = "erLhAbstractModelEmailTemplate";
 $def->idProperty = new ezcPersistentObjectIdProperty();
 $def->idProperty->columnName = 'id';
 $def->idProperty->propertyName = 'id';
-$def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentNativeGenerator' );
+$def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentSequenceGenerator' );
+$def->idProperty->generator->params['sequence'] = 'lh_abstract_email_template_id_seq';
 
 $def->properties['name'] = new ezcPersistentObjectProperty();
 $def->properties['name']->columnName   = 'name';

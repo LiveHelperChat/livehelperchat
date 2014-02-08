@@ -7,7 +7,8 @@ $def->class = "erLhcoreClassModelChatOnlineUserFootprint";
 $def->idProperty = new ezcPersistentObjectIdProperty();
 $def->idProperty->columnName = 'id';
 $def->idProperty->propertyName = 'id';
-$def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentNativeGenerator' );
+$def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentSequenceGenerator' );
+$def->idProperty->generator->params['sequence'] = 'lh_chat_online_user_footprint_id_seq';
 
 $def->properties['chat_id'] = new ezcPersistentObjectProperty();
 $def->properties['chat_id']->columnName   = 'chat_id';

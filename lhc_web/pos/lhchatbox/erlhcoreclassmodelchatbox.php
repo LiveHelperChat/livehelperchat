@@ -7,7 +7,8 @@ $def->class = "erLhcoreClassModelChatbox";
 $def->idProperty = new ezcPersistentObjectIdProperty();
 $def->idProperty->columnName = 'id';
 $def->idProperty->propertyName = 'id';
-$def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentNativeGenerator' );
+$def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentSequenceGenerator' );
+$def->idProperty->generator->params['sequence'] = 'lh_chatbox_id_seq';
 
 $def->properties['identifier'] = new ezcPersistentObjectProperty();
 $def->properties['identifier']->columnName   = 'identifier';

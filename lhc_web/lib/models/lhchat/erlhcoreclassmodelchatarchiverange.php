@@ -31,8 +31,8 @@ class erLhcoreClassModelChatArchiveRange {
 
    	   // Drop archive tables
    	   $db = ezcDbInstance::get();
-   	   $db->query("DROP TABLE IF EXISTS `". self::$archiveTable . "`");
-   	   $db->query("DROP TABLE IF EXISTS `". self::$archiveMsgTable . "`");
+   	   $db->query("DROP TABLE IF EXISTS ". self::$archiveTable . "");
+   	   $db->query("DROP TABLE IF EXISTS ". self::$archiveMsgTable . "");
 
        erLhcoreClassChat::getSession()->delete($this);
    }

@@ -62,7 +62,7 @@ class erLhcoreClassRole{
        $db = ezcDbInstance::get();
        
        $stmt = $db->prepare('SELECT lh_rolefunction.module,lh_rolefunction.function       
-       FROM `lh_rolefunction`
+       FROM lh_rolefunction
        
        INNER JOIN lh_role ON lh_role.id = lh_rolefunction.role_id
        INNER JOIN lh_grouprole ON lh_role.id = lh_grouprole.role_id

@@ -7,7 +7,8 @@ $def->class = "erLhcoreClassModelQuestionAnswer";
 $def->idProperty = new ezcPersistentObjectIdProperty();
 $def->idProperty->columnName = 'id';
 $def->idProperty->propertyName = 'id';
-$def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentNativeGenerator' );
+$def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentSequenceGenerator' );
+$def->idProperty->generator->params['sequence'] = 'lh_question_answer_id_seq';
 
 $def->properties['ip'] = new ezcPersistentObjectProperty();
 $def->properties['ip']->columnName   = 'ip';

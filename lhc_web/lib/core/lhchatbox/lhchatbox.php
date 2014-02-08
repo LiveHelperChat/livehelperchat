@@ -161,13 +161,13 @@ class erLhcoreClassChatbox {
     	$data = (array)$chatboxData->data;
 
     	$db = ezcDbInstance::get();
-    	$stmt = $db->prepare("SELECT id FROM `lh_msg` WHERE chat_id = :chat_id ORDER BY id DESC LIMIT {$data['chatbox_msg_limit']},1");
+    	$stmt = $db->prepare("SELECT id FROM lh_msg WHERE chat_id = :chat_id ORDER BY id DESC LIMIT 1 OFFSET {$data['chatbox_msg_limit']}");
     	$stmt->bindValue(':chat_id',$chat->id);
     	$stmt->execute();
     	$msg_id = $stmt->fetchColumn();
 
     	if ($msg_id !== false) {
-			$stmt = $db->prepare('DELETE FROM `lh_msg` WHERE id < :id AND chat_id = :chat_id');
+			$stmt = $db->prepare('DELETE FROM lh_msg WHERE id < :id AND chat_id = :chat_id');
     		$stmt->bindValue(':chat_id',$chat->id);
     		$stmt->bindValue(':id',$msg_id);
     		$stmt->execute();
@@ -177,7 +177,7 @@ class erLhcoreClassChatbox {
     public static function getIdentifierByChatId($chat_id){
     	
     	$db = ezcDbInstance::get();
-    	$stmt = $db->prepare("SELECT identifier FROM `lh_chatbox` WHERE chat_id = :chat_id LIMIT 0,1");
+    	$stmt = $db->prepare("SELECT identifier FROM lh_chatbox WHERE chat_id = :chat_id LIMIT 1 OFFSET 0");
     	$stmt->bindValue(':chat_id',$chat_id);
     	$stmt->execute();
     	return $stmt->fetchColumn();
@@ -242,11 +242,7 @@ class erLhcoreClassChatbox {
 			          );
 			      }
 
-				 if (isset($params['use_index'])) {
-		      		$q->useIndex( $params['use_index'] );
-		      	 }
-
-			      $q->limit($params['limit'],$params['offset']);
+				 $q->limit($params['limit'],$params['offset']);
 
 			      $q->orderBy(isset($params['sort']) ? $params['sort'] : 'id DESC' );
 	      } else {
@@ -316,11 +312,7 @@ class erLhcoreClassChatbox {
 		      		$q2->where(
 		      				$conditions
 		      		);
-		      	}
-
-		      	if (isset($params['use_index'])) {
-		      		$q2->useIndex( $params['use_index'] );
-		      	}
+		      	}		      	
 
 		      	$q2->limit($params['limit'],$params['offset']);
 		      	$q2->orderBy(isset($params['sort']) ? $params['sort'] : 'id DESC');
@@ -387,11 +379,7 @@ class erLhcoreClassChatbox {
     	{
 	    	$q->where( $conditions );
     	}
-
-    	if (isset($params['use_index'])) {
-    		$q->useIndex( $params['use_index'] );
-    	}
-
+    	
     	$stmt = $q->prepare();
     	$stmt->execute();
     	$result = $stmt->fetchColumn();

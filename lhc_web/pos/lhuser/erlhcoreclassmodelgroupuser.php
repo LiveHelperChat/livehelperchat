@@ -7,7 +7,8 @@ $def->class = "erLhcoreClassModelGroupUser";
 $def->idProperty = new ezcPersistentObjectIdProperty();
 $def->idProperty->columnName = 'id';
 $def->idProperty->propertyName = 'id';
-$def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentNativeGenerator' );
+$def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentSequenceGenerator' );
+$def->idProperty->generator->params['sequence'] = 'lh_groupuser_id_seq';
 
 $def->properties['group_id'] = new ezcPersistentObjectProperty();
 $def->properties['group_id']->columnName   = 'group_id';

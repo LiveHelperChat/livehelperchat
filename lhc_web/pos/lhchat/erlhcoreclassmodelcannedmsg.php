@@ -7,8 +7,9 @@ $def->class = "erLhcoreClassModelCannedMsg";
 $def->idProperty = new ezcPersistentObjectIdProperty();
 $def->idProperty->columnName = 'id';
 $def->idProperty->propertyName = 'id';
-$def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentNativeGenerator' );
-
+$def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentSequenceGenerator' );
+$def->idProperty->generator->params['sequence'] = 'lh_canned_msg_id_seq';
+		
 $def->properties['msg'] = new ezcPersistentObjectProperty();
 $def->properties['msg']->columnName   = 'msg';
 $def->properties['msg']->propertyName = 'msg';

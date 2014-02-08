@@ -63,9 +63,6 @@ class erLhcoreClassChat {
 
     	if ($limitation !== true) {
     		$filter['customfilter'][] = $limitation;
-    		$filter['use_index'] = 'status_dep_id_priority_id';
-    	} else {
-    		$filter['use_index'] = 'status_priority_id';
     	}
 
     	$filter['limit'] = $limit;
@@ -93,7 +90,6 @@ class erLhcoreClassChat {
 
     	if ($limitation !== true) {
     		$filter['customfilter'][] = $limitation;
-    		$filter['use_index'] = 'status_dep_id_id';
     	}
 
     	if (!empty($filterAdditional)) {
@@ -197,11 +193,7 @@ class erLhcoreClassChat {
 			                     $conditions
 			          );
 			      }
-
-				 if (isset($params['use_index'])) {
-		      		$q->useIndex( $params['use_index'] );
-		      	 }
-
+				 
 			      $q->limit($params['limit'],$params['offset']);
 
 			      $q->orderBy(isset($params['sort']) ? $params['sort'] : 'id DESC' );
@@ -281,11 +273,7 @@ class erLhcoreClassChat {
 		      				$conditions
 		      		);
 		      	}
-
-		      	if (isset($params['use_index'])) {
-		      		$q2->useIndex( $params['use_index'] );
-		      	}
-
+		      	
 		      	$q2->limit($params['limit'],$params['offset']);
 		      	$q2->orderBy(isset($params['sort']) ? $params['sort'] : 'id DESC');
 
@@ -375,11 +363,7 @@ class erLhcoreClassChat {
     	{
 	    	$q->where( $conditions );
     	}
-
-    	if (isset($params['use_index'])) {
-    		$q->useIndex( $params['use_index'] );
-    	}
-
+    	
     	$stmt = $q->prepare();
     	$stmt->execute();
     	$result = $stmt->fetchColumn();
@@ -420,8 +404,7 @@ class erLhcoreClassChat {
     	$filter['filter'] = array('has_unread_messages' => 1);
 
     	if ($limitation !== true) {
-    		$filter['customfilter'][] = $limitation;
-    		$filter['use_index'] = 'has_unread_messages_dep_id_id';
+    		$filter['customfilter'][] = $limitation;    	
     	}
 
     	$filter['limit'] = $limit;
@@ -451,7 +434,6 @@ class erLhcoreClassChat {
 
     	if ($limitation !== true) {
     		$filter['customfilter'][] = $limitation;
-    		$filter['use_index'] = 'has_unread_messages_dep_id_id';
     	}
 
     	if (!empty($filterAdditional)) {
@@ -473,7 +455,6 @@ class erLhcoreClassChat {
 
     	if ($limitation !== true) {
     		$filter['customfilter'][] = $limitation;
-    		$filter['use_index'] = 'status_dep_id_id';
     	}
 
     	$filter['limit'] = $limit;
@@ -499,7 +480,6 @@ class erLhcoreClassChat {
 
     	if ($limitation !== true) {
     		$filter['customfilter'][] = $limitation;
-    		$filter['use_index'] = 'status_dep_id_id';
     	}
 
     	if (!empty($filterAdditional)) {
@@ -521,7 +501,6 @@ class erLhcoreClassChat {
 
     	if ($limitation !== true) {
     		$filter['customfilter'][] = $limitation;
-    		$filter['use_index'] = 'status_dep_id_id';
     	}
 
     	$filter['limit'] = $limit;
@@ -547,7 +526,6 @@ class erLhcoreClassChat {
 
     	if ($limitation !== true) {
     		$filter['customfilter'][] = $limitation;
-    		$filter['use_index'] = 'status_dep_id_id';
     	}
 
     	if (!empty($filterAdditional)) {
@@ -569,7 +547,6 @@ class erLhcoreClassChat {
 
     	if ($limitation !== true) {
     		$filter['customfilter'][] = $limitation;
-    		$filter['use_index'] = 'status_dep_id_id';
     	}
 
     	$filter['limit'] = $limit;
@@ -595,7 +572,6 @@ class erLhcoreClassChat {
 
     	if ($limitation !== true) {
     		$filter['customfilter'][] = $limitation;
-    		$filter['use_index'] = 'status_dep_id_id';
     	}
 
     	if (!empty($filterAdditional)) {
@@ -678,7 +654,7 @@ class erLhcoreClassChat {
     	if ($count > 0){
 	    	$offsetRandom = rand(0, $count-1);
 
-	    	$SQL = "SELECT lh_users.id FROM lh_users INNER JOIN lh_userdep ON lh_userdep.user_id = lh_users.id WHERE lh_userdep.last_activity > :last_activity AND lh_userdep.hide_online = 0 GROUP BY lh_users.id LIMIT {$offsetRandom},1";
+	    	$SQL = "SELECT lh_users.id FROM lh_users INNER JOIN lh_userdep ON lh_userdep.user_id = lh_users.id WHERE lh_userdep.last_activity > :last_activity AND lh_userdep.hide_online = 0 GROUP BY lh_users.id LIMIT 1 OFFSET {$offsetRandom}";
 	    	$stmt = $db->prepare($SQL);
 	    	$stmt->bindValue(':last_activity',$agoTime);
 	    	$stmt->execute();
@@ -784,7 +760,7 @@ class erLhcoreClassChat {
    public static function getGetLastChatMessage($chat_id)
    {
        $db = ezcDbInstance::get();
-       $stmt = $db->prepare('SELECT lh_msg.* FROM lh_msg INNER JOIN ( SELECT id FROM lh_msg WHERE chat_id = :chat_id ORDER BY id DESC LIMIT 0,1) AS items ON lh_msg.id = items.id');
+       $stmt = $db->prepare('SELECT lh_msg.* FROM lh_msg INNER JOIN ( SELECT id FROM lh_msg WHERE chat_id = :chat_id ORDER BY id DESC  LIMIT 1 OFFSET 0) AS items ON lh_msg.id = items.id');
        $stmt->bindValue( ':chat_id',$chat_id);
        $stmt->setFetchMode(PDO::FETCH_ASSOC);
        $stmt->execute();
@@ -891,7 +867,7 @@ class erLhcoreClassChat {
    {
        $db = ezcDbInstance::get();
        $stmt = $db->prepare('SELECT COUNT(id) AS found FROM lh_chat WHERE id = :chat_id AND hash = :hash AND status = 1');
-       $stmt->bindValue( ':chat_id',$chat_id);
+       $stmt->bindValue( ':chat_id',$chat_id,PDO::PARAM_INT);
        $stmt->bindValue( ':hash',$hash);
 
        $stmt->execute();

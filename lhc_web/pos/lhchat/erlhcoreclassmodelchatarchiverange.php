@@ -7,7 +7,8 @@ $def->class = "erLhcoreClassModelChatArchiveRange";
 $def->idProperty = new ezcPersistentObjectIdProperty();
 $def->idProperty->columnName = 'id';
 $def->idProperty->propertyName = 'id';
-$def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentNativeGenerator' );
+$def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentSequenceGenerator' );
+$def->idProperty->generator->params['sequence'] = 'lh_chat_archive_range_id_seq';
 
 $def->properties['range_from'] = new ezcPersistentObjectProperty();
 $def->properties['range_from']->columnName   = 'range_from';

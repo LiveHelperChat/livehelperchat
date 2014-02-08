@@ -7,7 +7,8 @@ $def->class = "erLhcoreClassModelUserSettingOption";
 $def->idProperty = new ezcPersistentObjectIdProperty();
 $def->idProperty->columnName = 'identifier';
 $def->idProperty->propertyName = 'identifier';
-$def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentManualGenerator' );
+$def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentSequenceGenerator' );
+$def->idProperty->generator->params['sequence'] = 'lh_users_setting_option_id_seq';
 
 $def->properties['class'] = new ezcPersistentObjectProperty();
 $def->properties['class']->columnName   = 'class';

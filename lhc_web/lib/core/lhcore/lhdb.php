@@ -49,8 +49,12 @@ class erLhcoreClassLazyDatabaseConfiguration implements ezcBaseConfigurationInit
              {
                 try {
                     if (isset(self::$connectionMaster)) return self::$connectionMaster; // If we do not user slaves and slave request already got connection
-                    $db = ezcDbFactory::create( "mysql://{$cfg->getSetting( 'db', 'user' )}:{$cfg->getSetting( 'db', 'password' )}@{$cfg->getSetting( 'db', 'host' )}:{$cfg->getSetting( 'db', 'port' )}/{$cfg->getSetting( 'db', 'database' )}" );
-                    $db->query('SET NAMES utf8');
+                    $db = ezcDbFactory::create( "pgsql://{$cfg->getSetting( 'db', 'user' )}:{$cfg->getSetting( 'db', 'password' )}@{$cfg->getSetting( 'db', 'host' )}:{$cfg->getSetting( 'db', 'port' )}/{$cfg->getSetting( 'db', 'database' )}" );
+                    $db->query('SET search_path TO '.$cfg->getSetting( 'db', 'search_path'));
+                    
+                    //$def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentSequenceGenerator' );
+                    //$def->idProperty->generator->params['sequence'] = 'lh_article_id_seq';
+                    
                     self::$connectionMaster = $db;
                     return $db;
                 } catch (Exception $e) {
@@ -60,6 +64,8 @@ class erLhcoreClassLazyDatabaseConfiguration implements ezcBaseConfigurationInit
                 		exit;
                   	}
 
+                  	
+                  	
                   	die('Cannot connect to database. If you are installing application please use /index.php/install/install url. If you keep getting this error please check that application can write to cache folder and cgi.fix_pathinfo = 1') ;
                 }
              }

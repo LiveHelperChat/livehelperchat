@@ -98,7 +98,7 @@ class erLhcoreClassModelUser {
        	case 'lastactivity':
        	        $db = ezcDbInstance::get();
        	        $stmt = $db->prepare('SELECT last_activity FROM lh_userdep WHERE user_id = :user_id LIMIT 1');
-       	        $stmt->bindValue(':user_id',$this->id);
+       	        $stmt->bindValue(':user_id',$this->id,PDO::PARAM_INT);
                 $stmt->execute();
 
                 $this->lastactivity = (int)$stmt->fetchColumn();
@@ -267,7 +267,7 @@ class erLhcoreClassModelUser {
    {
        $db = ezcDbInstance::get();
        $stmt = $db->prepare('SELECT count(*) as foundusers FROM lh_users WHERE username = :username');
-       $stmt->bindValue( ':username',$username);
+       $stmt->bindValue(':username',$username);
        $stmt->execute();
        $rows = $stmt->fetchAll();
 
@@ -279,7 +279,7 @@ class erLhcoreClassModelUser {
        $db = ezcDbInstance::get();
        $xmppAppend = $xmpp_username !== false ? ' OR xmpp_username = :xmpp_username' : '';       
        $stmt = $db->prepare('SELECT id FROM lh_users WHERE email = :email'.$xmppAppend);
-       $stmt->bindValue( ':email',$email);
+       $stmt->bindValue(':email',$email);
        
        if ($xmpp_username !== false) {
        		$stmt->bindValue( ':xmpp_username',$xmpp_username);       		
