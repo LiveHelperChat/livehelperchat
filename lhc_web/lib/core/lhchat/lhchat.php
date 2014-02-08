@@ -592,11 +592,11 @@ class erLhcoreClassChat {
        		$exclipicFilter = ($exclipic == false) ? ' OR dep_id = 0' : '';
 			if (is_numeric($dep_id)) {
 	           $stmt = $db->prepare("SELECT COUNT(id) AS found FROM lh_userdep WHERE (last_activity > :last_activity AND hide_online = 0) AND (dep_id = :dep_id {$exclipicFilter})");
-	           $stmt->bindValue(':dep_id',$dep_id);
-	           $stmt->bindValue(':last_activity',(time()-$isOnlineUser));
+	           $stmt->bindValue(':dep_id',$dep_id,PDO::PARAM_INT);
+	           $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
 			} elseif ( is_array($dep_id) ) {
 				$stmt = $db->prepare('SELECT COUNT(id) AS found FROM lh_userdep WHERE (last_activity > :last_activity AND hide_online = 0) AND (dep_id IN ('. implode(',', $dep_id) .") {$exclipicFilter})");
-				$stmt->bindValue(':last_activity',(time()-$isOnlineUser));
+				$stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
 			}
 
 			$stmt->execute();
@@ -613,15 +613,15 @@ class erLhcoreClassChat {
 					$stmt = $db->prepare("SELECT COUNT(id) AS found FROM lh_departament WHERE online_hours_active = 1 AND start_hour <= :start_hour AND end_hour > :end_hour AND {$daysColumns[$columns]} = 1 AND id IN (". implode(',', $dep_id) .")");
 				}
 				
-				$stmt->bindValue(':start_hour',date('G'));
-				$stmt->bindValue(':end_hour',date('G'));
+				$stmt->bindValue(':start_hour',date('G'),PDO::PARAM_INT);
+				$stmt->bindValue(':end_hour',date('G'),PDO::PARAM_INT);
 				$stmt->execute();
 				$rowsNumber = $stmt->fetchColumn();
 			}					
 
        } else {
            $stmt = $db->prepare('SELECT COUNT(id) AS found FROM lh_userdep WHERE last_activity > :last_activity AND hide_online = 0');
-           $stmt->bindValue(':last_activity',(time()-$isOnlineUser));
+           $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
            $stmt->execute();
            $rowsNumber = $stmt->fetchColumn();        
                                  
@@ -629,8 +629,8 @@ class erLhcoreClassChat {
            		$daysColumns = array('`mod`','`tud`','`wed`','`thd`','`frd`','`sad`','`sud`');           		
            		$columns = date('N')-1;           		
 	           	$stmt = $db->prepare("SELECT COUNT(id) AS found FROM lh_departament WHERE online_hours_active = 1 AND start_hour <= :start_hour AND end_hour > :end_hour AND {$daysColumns[$columns]} = 1");
-	           	$stmt->bindValue(':start_hour',date('G'));
-	           	$stmt->bindValue(':end_hour',date('G'));
+	           	$stmt->bindValue(':start_hour',date('G'),PDO::PARAM_INT);
+	           	$stmt->bindValue(':end_hour',date('G'),PDO::PARAM_INT);
 	           	$stmt->execute();
 	           	$rowsNumber = $stmt->fetchColumn();	   
            }
@@ -647,7 +647,7 @@ class erLhcoreClassChat {
 
     	$SQL = 'SELECT count(*) FROM (SELECT count(lh_users.id) FROM lh_users INNER JOIN lh_userdep ON lh_userdep.user_id = lh_users.id WHERE lh_userdep.last_activity > :last_activity AND lh_userdep.hide_online = 0 GROUP BY lh_users.id) as online_users';
     	$stmt = $db->prepare($SQL);
-    	$stmt->bindValue(':last_activity',$agoTime);
+    	$stmt->bindValue(':last_activity',$agoTime,PDO::PARAM_INT);
     	$stmt->execute();
     	$count = $stmt->fetchColumn();
 
@@ -656,7 +656,7 @@ class erLhcoreClassChat {
 
 	    	$SQL = "SELECT lh_users.id FROM lh_users INNER JOIN lh_userdep ON lh_userdep.user_id = lh_users.id WHERE lh_userdep.last_activity > :last_activity AND lh_userdep.hide_online = 0 GROUP BY lh_users.id LIMIT 1 OFFSET {$offsetRandom}";
 	    	$stmt = $db->prepare($SQL);
-	    	$stmt->bindValue(':last_activity',$agoTime);
+	    	$stmt->bindValue(':last_activity',$agoTime,PDO::PARAM_INT);
 	    	$stmt->execute();
 
 	    	return $stmt->fetchColumn();
@@ -695,7 +695,7 @@ class erLhcoreClassChat {
        $SQL = 'SELECT lh_users.* FROM lh_users INNER JOIN lh_userdep ON lh_userdep.user_id = lh_users.id WHERE lh_userdep.last_activity > :last_activity '.$NotUser.$limitationSQL.' GROUP BY lh_users.id';
        $stmt = $db->prepare($SQL);
 
-       $stmt->bindValue(':last_activity',(time()-$isOnlineUser));
+       $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
 
        $stmt->execute();
        $rows = $stmt->fetchAll();
@@ -708,8 +708,8 @@ class erLhcoreClassChat {
     	$db = ezcDbInstance::get();
 
     	$stmt = $db->prepare('SELECT count(lh_users.id) FROM lh_users INNER JOIN lh_userdep ON lh_userdep.user_id = lh_users.id WHERE lh_userdep.last_activity > :last_activity AND lh_users.id = :user_id');
-    	$stmt->bindValue(':last_activity',(time()-$isOnlineUser));
-    	$stmt->bindValue(':user_id',$user_id);
+    	$stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
+    	$stmt->bindValue(':user_id',$user_id,PDO::PARAM_INT);
     	$stmt->execute();
 
     	$rows = $stmt->fetchColumn();
@@ -726,8 +726,8 @@ class erLhcoreClassChat {
    {
        $db = ezcDbInstance::get();
        $stmt = $db->prepare('SELECT lh_msg.* FROM lh_msg INNER JOIN ( SELECT id FROM lh_msg WHERE chat_id = :chat_id AND id > :message_id ORDER BY id ASC) AS items ON lh_msg.id = items.id');
-       $stmt->bindValue( ':chat_id',$chat_id);
-       $stmt->bindValue( ':message_id',$message_id);
+       $stmt->bindValue( ':chat_id',$chat_id,PDO::PARAM_INT);
+       $stmt->bindValue( ':message_id',$message_id,PDO::PARAM_INT);
        $stmt->setFetchMode(PDO::FETCH_ASSOC);
        $stmt->execute();
        $rows = $stmt->fetchAll();
@@ -744,8 +744,8 @@ class erLhcoreClassChat {
    {
        $db = ezcDbInstance::get();
        $stmt = $db->prepare('SELECT lh_msg.* FROM lh_msg INNER JOIN ( SELECT id FROM lh_msg WHERE chat_id = :chat_id AND id >= :message_id ORDER BY id ASC) AS items ON lh_msg.id = items.id');
-       $stmt->bindValue( ':chat_id',$chat_id);
-       $stmt->bindValue( ':message_id',$message_id);
+       $stmt->bindValue( ':chat_id',$chat_id,PDO::PARAM_INT);
+       $stmt->bindValue( ':message_id',$message_id,PDO::PARAM_INT);
        $stmt->setFetchMode(PDO::FETCH_ASSOC);
        $stmt->execute();
        $rows = $stmt->fetchAll();
@@ -760,8 +760,9 @@ class erLhcoreClassChat {
    public static function getGetLastChatMessage($chat_id)
    {
        $db = ezcDbInstance::get();
-       $stmt = $db->prepare('SELECT lh_msg.* FROM lh_msg INNER JOIN ( SELECT id FROM lh_msg WHERE chat_id = :chat_id ORDER BY id DESC  LIMIT 1 OFFSET 0) AS items ON lh_msg.id = items.id');
-       $stmt->bindValue( ':chat_id',$chat_id);
+       $stmt = $db->prepare('SELECT lh_msg.* FROM lh_msg INNER JOIN ( SELECT id FROM lh_msg WHERE chat_id = :chat_id ORDER BY id DESC LIMIT 1 OFFSET 0) AS items ON lh_msg.id = items.id');
+       $stmt->bindValue( ':chat_id',$chat_id,PDO::PARAM_INT);
+
        $stmt->setFetchMode(PDO::FETCH_ASSOC);
        $stmt->execute();
        $row = $stmt->fetch();
@@ -777,7 +778,7 @@ class erLhcoreClassChat {
    {
    	   $db = ezcDbInstance::get();
        $stmt = $db->prepare('SELECT lh_msg.* FROM lh_msg INNER JOIN ( SELECT id FROM lh_msg WHERE chat_id = :chat_id ORDER BY id ASC) AS items ON lh_msg.id = items.id');
-       $stmt->bindValue( ':chat_id',$chat_id);
+       $stmt->bindValue( ':chat_id',$chat_id,PDO::PARAM_INT);
        $stmt->setFetchMode(PDO::FETCH_ASSOC);
        $stmt->execute();
        $rows = $stmt->fetchAll();

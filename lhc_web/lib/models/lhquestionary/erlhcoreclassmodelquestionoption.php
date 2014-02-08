@@ -36,7 +36,7 @@ class erLhcoreClassModelQuestionOption {
        if ($itemsTotal == 0) {
 	       	$db = ezcDbInstance::get();
 	       	$stmt = $db->prepare('UPDATE lh_question SET is_voting = 0 WHERE id = :id');
-	       	$stmt->bindValue(':id',$this->question_id);
+	       	$stmt->bindValue(':id',$this->question_id,PDO::PARAM_INT);
 	       	$stmt->execute();
        }
    }

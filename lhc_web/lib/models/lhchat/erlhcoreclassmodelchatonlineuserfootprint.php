@@ -103,8 +103,8 @@ class erLhcoreClassModelChatOnlineUserFootprint {
    public static function assignChatToPageviews(erLhcoreClassModelChatOnlineUser $onlineUser) {
    		$db = ezcDbInstance::get();
    		$stmt = $db->prepare('UPDATE lh_chat_online_user_footprint SET chat_id = :chat_id WHERE online_user_id = :online_user_id');
-   		$stmt->bindValue(':chat_id',$onlineUser->chat_id);
-   		$stmt->bindValue(':online_user_id',$onlineUser->id);
+   		$stmt->bindValue(':chat_id',(int)$onlineUser->chat_id,PDO::PARAM_INT);
+   		$stmt->bindValue(':online_user_id',(int)$onlineUser->id,PDO::PARAM_INT);
    		$stmt->execute();
    }
 

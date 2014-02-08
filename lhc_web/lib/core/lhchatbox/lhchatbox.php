@@ -162,14 +162,14 @@ class erLhcoreClassChatbox {
 
     	$db = ezcDbInstance::get();
     	$stmt = $db->prepare("SELECT id FROM lh_msg WHERE chat_id = :chat_id ORDER BY id DESC LIMIT 1 OFFSET {$data['chatbox_msg_limit']}");
-    	$stmt->bindValue(':chat_id',$chat->id);
+    	$stmt->bindValue(':chat_id',$chat->id,PDO::PARAM_INT);
     	$stmt->execute();
     	$msg_id = $stmt->fetchColumn();
 
     	if ($msg_id !== false) {
 			$stmt = $db->prepare('DELETE FROM lh_msg WHERE id < :id AND chat_id = :chat_id');
-    		$stmt->bindValue(':chat_id',$chat->id);
-    		$stmt->bindValue(':id',$msg_id);
+    		$stmt->bindValue(':chat_id',$chat->id,PDO::PARAM_INT);
+    		$stmt->bindValue(':id',$msg_id,PDO::PARAM_INT);
     		$stmt->execute();
     	}
     }
@@ -178,7 +178,8 @@ class erLhcoreClassChatbox {
     	
     	$db = ezcDbInstance::get();
     	$stmt = $db->prepare("SELECT identifier FROM lh_chatbox WHERE chat_id = :chat_id LIMIT 1 OFFSET 0");
-    	$stmt->bindValue(':chat_id',$chat_id);
+    	$stmt->bindValue(':chat_id',$chat_id,PDO::PARAM_INT);
+
     	$stmt->execute();
     	return $stmt->fetchColumn();
     }

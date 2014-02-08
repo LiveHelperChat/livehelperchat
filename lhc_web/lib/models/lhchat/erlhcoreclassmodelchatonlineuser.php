@@ -417,11 +417,11 @@ class erLhcoreClassModelChatOnlineUser {
          $timeoutCleanup = erLhcoreClassModelChatConfig::fetch('tracked_users_cleanup')->current_value;
 
          $stmt = $db->prepare('DELETE FROM lh_chat_online_user WHERE last_visit < :last_activity');
-         $stmt->bindValue(':last_activity',(int)(time()-$timeoutCleanup * 24*3600));
+         $stmt->bindValue(':last_activity',(int)(time()-$timeoutCleanup * 24*3600),PDO::PARAM_INT);
          $stmt->execute();
 
          $stmt = $db->prepare('DELETE FROM lh_chat_online_user_footprint WHERE chat_id = 0 AND vtime < :last_activity');
-         $stmt->bindValue(':last_activity',(int)(time()-$timeoutCleanup * 24*3600));
+         $stmt->bindValue(':last_activity',(int)(time()-$timeoutCleanup * 24*3600),PDO::PARAM_INT);
          $stmt->execute();
 
    }
