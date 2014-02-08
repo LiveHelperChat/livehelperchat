@@ -50,10 +50,13 @@
     lhinst.setLastUserMessageID('<?php echo $lastMessageID;?>');
     lhinst.setWidgetMode(true);
     lhinst.setSyncUserURL('chatbox/syncuser/');
-
-	setTimeout(function(){
-		$('#messagesBlock').scrollTop($('#messagesBlock').prop('scrollHeight'));
-	},100);
+    
+    $( document ).ready(function() {
+    	setTimeout(function(){
+    		$('#messagesBlock').scrollTop($('#messagesBlock').prop('scrollHeight'));
+    	},100);
+    });
+	
 	
     lhinst.scheduleSync();
 </script>
