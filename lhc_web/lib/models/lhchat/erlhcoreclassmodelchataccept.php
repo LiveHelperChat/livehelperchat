@@ -42,7 +42,7 @@ class erLhcoreClassModelChatAccept {
    public static function cleanup() {
 	   	$db = ezcDbInstance::get();
 	   	$stmt = $db->prepare('DELETE FROM lh_chat_accept WHERE ctime < :ctime');
-	   	$stmt->bindValue(':ctime',(int)(time()-24*3600));
+	   	$stmt->bindValue(':ctime',(int)(time()-24*3600),PDO::PARAM_INT);
 	   	$stmt->execute();   	
    }
    

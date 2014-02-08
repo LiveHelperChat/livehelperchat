@@ -98,7 +98,7 @@ class erLhcoreClassModelUser {
        	case 'lastactivity':
        	        $db = ezcDbInstance::get();
        	        $stmt = $db->prepare('SELECT last_activity FROM lh_userdep WHERE user_id = :user_id LIMIT 1');
-       	        $stmt->bindValue(':user_id',$this->id);
+       	        $stmt->bindValue(':user_id',$this->id,PDO::PARAM_INT);
                 $stmt->execute();
 
                 $this->lastactivity = (int)$stmt->fetchColumn();
