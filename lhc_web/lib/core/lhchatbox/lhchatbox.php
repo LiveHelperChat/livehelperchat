@@ -177,7 +177,7 @@ class erLhcoreClassChatbox {
     public static function getIdentifierByChatId($chat_id){
     	
     	$db = ezcDbInstance::get();
-    	$stmt = $db->prepare("SELECT identifier FROM `lh_chatbox` WHERE chat_id = :chat_id LIMIT 1 OFFSET 0");
+    	$stmt = $db->prepare("SELECT identifier FROM lh_chatbox WHERE chat_id = :chat_id LIMIT 1 OFFSET 0");
     	$stmt->bindValue(':chat_id',$chat_id,PDO::PARAM_INT);
     	$stmt->execute();
     	return $stmt->fetchColumn();

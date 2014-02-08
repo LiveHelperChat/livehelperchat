@@ -197,7 +197,7 @@ class erLhAbstractModelAutoResponder {
 
 		$session = erLhcoreClassAbstract::getSession();
 		$q = $session->createFindQuery( 'erLhAbstractModelAutoResponder' );
-		$q->where(  $q->expr->eq( 'siteaccess', $q->bindValue( erLhcoreClassSystem::instance()->SiteAccess ) ).' OR `siteaccess` = \'\'')
+		$q->where(  $q->expr->eq( 'siteaccess', $q->bindValue( erLhcoreClassSystem::instance()->SiteAccess ) ).' OR siteaccess = \'\'')
 		->orderBy('position ASC')
 		->limit( 1 );
 
