@@ -307,9 +307,9 @@ class erLhAbstractModelProactiveChatInvitation {
 		
 		$q = $session->createFindQuery( 'erLhAbstractModelProactiveChatInvitation' );
 		$q->where( $q->expr->lte( 'time_on_site', $q->bindValue( $item->time_on_site ) ).' AND '.$q->expr->lte( 'pageviews', $q->bindValue( $item->pages_count ) ).'
-				AND ('.$q->expr->eq( 'siteaccess', $q->bindValue( erLhcoreClassSystem::instance()->SiteAccess ) ).' OR `siteaccess` = \'\')
-				AND ('.$q->expr->eq( 'identifier', $q->bindValue( $item->identifier ) ).' OR `identifier` = \'\')
-				AND ('.$q->expr->like( $session->database->quote(trim($referrer)), 'concat(referrer,\'%\')' ).' OR `referrer` = \'\')'
+				AND ('.$q->expr->eq( 'siteaccess', $q->bindValue( erLhcoreClassSystem::instance()->SiteAccess ) ).' OR siteaccess = \'\')
+				AND ('.$q->expr->eq( 'identifier', $q->bindValue( $item->identifier ) ).' OR identifier = \'\')
+				AND ('.$q->expr->like( $session->database->quote(trim($referrer)), 'concat(referrer,\'%\')' ).' OR referrer = \'\')'
 		)
 		->orderBy('position ASC')
 		->limit( 1 );		
