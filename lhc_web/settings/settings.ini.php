@@ -86,6 +86,7 @@ return array (
       'password' => '',
       'database' => '',
       'port' => 3306,
+      'search_path' => 'public',
       'use_slaves' => false,
       'db_slaves' =>
       array (
