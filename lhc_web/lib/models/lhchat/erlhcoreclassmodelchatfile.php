@@ -90,7 +90,7 @@ class erLhcoreClassModelChatFile {
    				break;
 
    			case 'date_front':
-   					$this->date_front = date('Y-m-d H:i:s',$this->date);
+   					$this->date_front = date(erLhcoreClassModule::$dateDateHourFormat,$this->date);
    					return $this->date_front;
    				break;
 

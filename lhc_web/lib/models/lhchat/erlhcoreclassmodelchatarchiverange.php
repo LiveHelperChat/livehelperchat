@@ -93,14 +93,14 @@ class erLhcoreClassModelChatArchiveRange {
 
        	case 'range_from_front':
        		  if ($this->range_from != 0){
-       		  		return date('Y-m-d',$this->range_from);
+       		  		return date(erLhcoreClassModule::$dateFormat,$this->range_from);
        		  }
        		  return '';
        		break;
 
        	case 'range_to_front':
        		  if ($this->range_to != 0){
-       		  		return date('Y-m-d',$this->range_to);
+       		  		return date(erLhcoreClassModule::$dateFormat,$this->range_to);
        		  }
        		  return '';
        		break;
