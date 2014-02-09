@@ -318,6 +318,10 @@
       <translation>Сообщение</translation>
     </message>
     <message>
+      <source>User</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Delay</source>
       <translation>Задержка</translation>
     </message>
@@ -346,6 +350,18 @@
       <translation>Задержка в секундах</translation>
     </message>
     <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Personal canned message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Canned message was saved</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation>Настройки системы</translation>
     </message>
@@ -356,6 +372,170 @@
     <message>
       <source>Please enter a canned message</source>
       <translation>Введите шаблон сообщения</translation>
+    </message>
+  </context>
+  <context>
+    <name>department/edit</name>
+    <message>
+      <source>Any</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit department</source>
+      <translation>Редактировать департамент</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Название</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation>Отключено</translation>
+    </message>
+    <message>
+      <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
+      <translation>Через сколько секунд скрывать окно с формой &quot;оставьте сообщение&quot;? Введите 0, чтобы окно не скрывалось </translation>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation>Приоритет</translation>
+    </message>
+    <message>
+      <source>Automate online hours</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Work hours/work days logic is active</source>
+      <translation>Активировать рабочие часы/дни</translation>
+    </message>
+    <message>
+      <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
+      <translation>Рабочие дни/часы во время которых чат будет в режиме онлайн</translation>
+    </message>
+    <message>
+      <source>Monday</source>
+      <translation>Понедельник</translation>
+    </message>
+    <message>
+      <source>Tuesday</source>
+      <translation>Вторник</translation>
+    </message>
+    <message>
+      <source>Wednesday</source>
+      <translation>Среда</translation>
+    </message>
+    <message>
+      <source>Thursday</source>
+      <translation>Четверг</translation>
+    </message>
+    <message>
+      <source>Friday</source>
+      <translation>Пятница</translation>
+    </message>
+    <message>
+      <source>Saturday</source>
+      <translation>Суббота</translation>
+    </message>
+    <message>
+      <source>Sunday</source>
+      <translation>Воскресенье</translation>
+    </message>
+    <message>
+      <source>Work hours, 24 hours format, 1 - 24</source>
+      <translation>Часы работы, 24 часовой формат, от 1-24</translation>
+    </message>
+    <message>
+      <source>From, E.g. 8</source>
+      <translation>Например, с 8</translation>
+    </message>
+    <message>
+      <source>To, E.g. 17</source>
+      <translation>Например, до 17</translation>
+    </message>
+    <message>
+      <source>Notifications about new chats</source>
+      <translation>Уведомления о новых чаты</translation>
+    </message>
+    <message>
+      <source>XMPP recipients</source>
+      <translation>Получатели XMPP</translation>
+    </message>
+    <message>
+      <source>XMPP group recipients</source>
+      <translation>XMPP группа получателей</translation>
+    </message>
+    <message>
+      <source>E.g somechat@conference.server.org/LiveChat</source>
+      <translation>Например: somechat@conference.server.org/LiveChat</translation>
+    </message>
+    <message>
+      <source>These messages will be send as group messages</source>
+      <translation>Эти сообщения будут отправлены как групповые</translation>
+    </message>
+    <message>
+      <source>Inform about new chats using</source>
+      <translation>Информировать о использовании новых чатов</translation>
+    </message>
+    <message>
+      <source>XMPP messages</source>
+      <translation>XMPP сообщения</translation>
+    </message>
+    <message>
+      <source>Mail messages</source>
+      <translation>Сообщения почты</translation>
+    </message>
+    <message>
+      <source>How many seconds chat can be pending before about chat is informed a staff</source>
+      <translation>Через сколько секунд операторы получат уведомление о чате находящемся в режиме ожидания</translation>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inform then chat is closed by operator, only mail notification is send.</source>
+      <translation>Информировать о том, что чат закрыт оператором, и возможно отправить только сообщение на e-mail</translation>
+    </message>
+    <message>
+      <source>Chat transfer worklow</source>
+      <translation>Чат передачи рабочего процесса</translation>
+    </message>
+    <message>
+      <source>To what department chat should be transfered if it is not accepted</source>
+      <translation>На какой департамент чат должен быть переведен, если его не принял ни один оператор</translation>
+    </message>
+    <message>
+      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+      <translation>Время ожидания, после которого чат будет переведен на другой департамент. Минимум 5 секунд.</translation>
+    </message>
+    <message>
+      <source>Miscellaneous</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
+      <translation>Это поле является максимальная длина 50 символов и может использоваться для любых целей расширения. Это поле также индексируются.
+Максимальная длина поля - 50 символов, может быть использовано расширениями (плагинами) для любых целей, при этом, оно индексируется.</translation>
+    </message>
+    <message>
+      <source>None</source>
+      <translation>Нет</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Настройки Системы</translation>
+    </message>
+    <message>
+      <source>departments</source>
+      <translation>департаменты</translation>
+    </message>
+    <message>
+      <source>Edit a department</source>
+      <translation>Изменить департамент</translation>
     </message>
   </context>
   <context>
@@ -983,6 +1163,10 @@
     <message>
       <source>bcmath php extension detected</source>
       <translation>Обнаружено php расширение bcmath</translation>
+    </message>
+    <message>
+      <source>Location of city database</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User country based detection, faster</source>
@@ -2683,166 +2867,6 @@
     </message>
   </context>
   <context>
-    <name>department/edit</name>
-    <message>
-      <source>Edit department</source>
-      <translation>Редактировать департамент</translation>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>Название</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Disabled</source>
-      <translation>Отключено</translation>
-    </message>
-    <message>
-      <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
-      <translation>Через сколько секунд скрывать окно с формой &quot;оставьте сообщение&quot;? Введите 0, чтобы окно не скрывалось </translation>
-    </message>
-    <message>
-      <source>Priority</source>
-      <translation>Приоритет</translation>
-    </message>
-    <message>
-      <source>Automate online hours</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Work hours/work days logic is active</source>
-      <translation>Активировать рабочие часы/дни</translation>
-    </message>
-    <message>
-      <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
-      <translation>Рабочие дни/часы во время которых чат будет в режиме онлайн</translation>
-    </message>
-    <message>
-      <source>Monday</source>
-      <translation>Понедельник</translation>
-    </message>
-    <message>
-      <source>Tuesday</source>
-      <translation>Вторник</translation>
-    </message>
-    <message>
-      <source>Wednesday</source>
-      <translation>Среда</translation>
-    </message>
-    <message>
-      <source>Thursday</source>
-      <translation>Четверг</translation>
-    </message>
-    <message>
-      <source>Friday</source>
-      <translation>Пятница</translation>
-    </message>
-    <message>
-      <source>Saturday</source>
-      <translation>Суббота</translation>
-    </message>
-    <message>
-      <source>Sunday</source>
-      <translation>Воскресенье</translation>
-    </message>
-    <message>
-      <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation>Часы работы, 24 часовой формат, от 1-24</translation>
-    </message>
-    <message>
-      <source>From, E.g. 8</source>
-      <translation>Например, с 8</translation>
-    </message>
-    <message>
-      <source>To, E.g. 17</source>
-      <translation>Например, до 17</translation>
-    </message>
-    <message>
-      <source>Notifications about new chats</source>
-      <translation>Уведомления о новых чаты</translation>
-    </message>
-    <message>
-      <source>XMPP recipients</source>
-      <translation>Получатели XMPP</translation>
-    </message>
-    <message>
-      <source>XMPP group recipients</source>
-      <translation>XMPP группа получателей</translation>
-    </message>
-    <message>
-      <source>E.g somechat@conference.server.org/LiveChat</source>
-      <translation>Например: somechat@conference.server.org/LiveChat</translation>
-    </message>
-    <message>
-      <source>These messages will be send as group messages</source>
-      <translation>Эти сообщения будут отправлены как групповые</translation>
-    </message>
-    <message>
-      <source>Inform about new chats using</source>
-      <translation>Информировать о использовании новых чатов</translation>
-    </message>
-    <message>
-      <source>XMPP messages</source>
-      <translation>XMPP сообщения</translation>
-    </message>
-    <message>
-      <source>Mail messages</source>
-      <translation>Сообщения почты</translation>
-    </message>
-    <message>
-      <source>How many seconds chat can be pending before about chat is informed a staff</source>
-      <translation>Через сколько секунд операторы получат уведомление о чате находящемся в режиме ожидания</translation>
-    </message>
-    <message>
-      <source>Other</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Inform then chat is closed by operator, only mail notification is send.</source>
-      <translation>Информировать о том, что чат закрыт оператором, и возможно отправить только сообщение на e-mail</translation>
-    </message>
-    <message>
-      <source>Chat transfer worklow</source>
-      <translation>Чат передачи рабочего процесса</translation>
-    </message>
-    <message>
-      <source>To what department chat should be transfered if it is not accepted</source>
-      <translation>На какой департамент чат должен быть переведен, если его не принял ни один оператор</translation>
-    </message>
-    <message>
-      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
-      <translation>Время ожидания, после которого чат будет переведен на другой департамент. Минимум 5 секунд.</translation>
-    </message>
-    <message>
-      <source>Miscellaneous</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
-      <translation>Это поле является максимальная длина 50 символов и может использоваться для любых целей расширения. Это поле также индексируются.
-Максимальная длина поля - 50 символов, может быть использовано расширениями (плагинами) для любых целей, при этом, оно индексируется.</translation>
-    </message>
-    <message>
-      <source>None</source>
-      <translation>Нет</translation>
-    </message>
-    <message>
-      <source>System configuration</source>
-      <translation>Настройки Системы</translation>
-    </message>
-    <message>
-      <source>departments</source>
-      <translation>департаменты</translation>
-    </message>
-    <message>
-      <source>Edit a department</source>
-      <translation>Изменить департамент</translation>
-    </message>
-  </context>
-  <context>
     <name>user/account</name>
     <message>
       <source>Updated</source>
@@ -2863,6 +2887,10 @@
     <message>
       <source>Username</source>
       <translation>Имя пользователя</translation>
+    </message>
+    <message>
+      <source>Your username</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Password</source>
@@ -2935,6 +2963,10 @@
     <message>
       <source>Closed chats tab enabled</source>
       <translation>Включить вкладку завершённых чатов</translation>
+    </message>
+    <message>
+      <source>Personal canned messages</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Account updated</source>
@@ -3109,37 +3141,6 @@
     </message>
   </context>
   <context>
-    <name>file/configuration</name>
-    <message>
-      <source>File configuration</source>
-      <translation>Настройки файла</translation>
-    </message>
-    <message>
-      <source>Allowed files types for operators</source>
-      <translation>Разрешенные расширения фалов для операторов</translation>
-    </message>
-    <message>
-      <source>Allowed files types for users</source>
-      <translation>Разрешенные расширения файлов для пользователей</translation>
-    </message>
-    <message>
-      <source>Maximum file size in KB</source>
-      <translation>Максимальный размер файла в КБ</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Настройки обновлены</translation>
-    </message>
-    <message>
-      <source>Please enter valid file type!</source>
-      <translation>Пожалуйста, введите правильное расширение файла!</translation>
-    </message>
-    <message>
-      <source>Please enter valid maximum file size!</source>
-      <translation>Пожалуйста, введите максимальный размер файла!</translation>
-    </message>
-  </context>
-  <context>
     <name>file/list</name>
     <message>
       <source>List of files</source>
@@ -3180,6 +3181,56 @@
     <message>
       <source>Delete the file</source>
       <translation>Удалить файл</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/configuration</name>
+    <message>
+      <source>File configuration</source>
+      <translation>Настройки файла</translation>
+    </message>
+    <message>
+      <source>Allowed files types for operators</source>
+      <translation>Разрешенные расширения фалов для операторов</translation>
+    </message>
+    <message>
+      <source>Allowed files types for users</source>
+      <translation>Разрешенные расширения файлов для пользователей</translation>
+    </message>
+    <message>
+      <source>Maximum file size in KB</source>
+      <translation>Максимальный размер файла в КБ</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Настройки обновлены</translation>
+    </message>
+    <message>
+      <source>Please enter valid file type!</source>
+      <translation>Пожалуйста, введите правильное расширение файла!</translation>
+    </message>
+    <message>
+      <source>Please enter valid maximum file size!</source>
+      <translation>Пожалуйста, введите максимальный размер файла!</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/new</name>
+    <message>
+      <source>New file</source>
+      <translation>Новый файл</translation>
+    </message>
+    <message>
+      <source>File name</source>
+      <translation>Имя файла</translation>
+    </message>
+    <message>
+      <source>Upload</source>
+      <translation>Загрузить</translation>
+    </message>
+    <message>
+      <source>File uploaded</source>
+      <translation>Файл загружен</translation>
     </message>
   </context>
   <context>
@@ -3884,6 +3935,25 @@
     </message>
   </context>
   <context>
+    <name>system/timezone</name>
+    <message>
+      <source>Time zone settings</source>
+      <translation>Настройки часовых поясов</translation>
+    </message>
+    <message>
+      <source>Set application specific time zone</source>
+      <translation>Установить альтернативный часовой пояс для приложения</translation>
+    </message>
+    <message>
+      <source>Live Helper Chat update</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation>Часовой пояс</translation>
+    </message>
+  </context>
+  <context>
     <name>user/edit</name>
     <message>
       <source>Server default time zone</source>
@@ -3972,6 +4042,41 @@
     <message>
       <source>Users</source>
       <translation>Пользователи</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/update</name>
+    <message>
+      <source>Your version</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Current version</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last database update</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>News</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Missing updates from new versions.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update instructions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You are running current version. No updates required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live Helper Chat update information</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -4660,79 +4765,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Пожалуйста, введите правильный тип файла</translation>
-    </message>
-  </context>
-  <context>
-    <name>file/new</name>
-    <message>
-      <source>New file</source>
-      <translation>Новый файл</translation>
-    </message>
-    <message>
-      <source>File name</source>
-      <translation>Имя файла</translation>
-    </message>
-    <message>
-      <source>Upload</source>
-      <translation>Загрузить</translation>
-    </message>
-    <message>
-      <source>File uploaded</source>
-      <translation>Файл загружен</translation>
-    </message>
-  </context>
-  <context>
-    <name>system/timezone</name>
-    <message>
-      <source>Time zone settings</source>
-      <translation>Настройки часовых поясов</translation>
-    </message>
-    <message>
-      <source>Set application specific time zone</source>
-      <translation>Установить альтернативный часовой пояс для приложения</translation>
-    </message>
-    <message>
-      <source>Live Helper Chat update</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Time zone</source>
-      <translation>Часовой пояс</translation>
-    </message>
-  </context>
-  <context>
-    <name>system/update</name>
-    <message>
-      <source>Your version</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Current version</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Last database update</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>News</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Missing updates from new versions.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Update instructions</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You are running current version. No updates required</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live Helper Chat update information</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

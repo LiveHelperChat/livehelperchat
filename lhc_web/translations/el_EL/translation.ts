@@ -318,6 +318,10 @@
       <translation>Μήνυμα</translation>
     </message>
     <message>
+      <source>User</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Delay</source>
       <translation>Καθυστέρηση</translation>
     </message>
@@ -346,6 +350,18 @@
       <translation>Καθυστέρηση σε δευτερόλεπτα</translation>
     </message>
     <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Personal canned message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Canned message was saved</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation>Παραμετροποίηση συστήματος</translation>
     </message>
@@ -356,6 +372,169 @@
     <message>
       <source>Please enter a canned message</source>
       <translation>Παρακαλώ εισάγετε ένα προκαθορισμένο μήνυμα</translation>
+    </message>
+  </context>
+  <context>
+    <name>department/edit</name>
+    <message>
+      <source>Any</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit department</source>
+      <translation>Επεξεργαστείτε το τμήμα</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Όνομα</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>Ηλεκτρονικού ταχυδρομείου</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation>Άτομα με ειδικές ανάγκες</translation>
+    </message>
+    <message>
+      <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation>Προτεραιότητα</translation>
+    </message>
+    <message>
+      <source>Automate online hours</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Work hours/work days logic is active</source>
+      <translation>Εργασία ώρες/εργασία ημέρες λογική είναι ενεργή</translation>
+    </message>
+    <message>
+      <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
+      <translation>Εργάσιμες ημέρες/εργασίας ώρες, κατά τη διάρκεια της αυτές τις ημέρες/ώρες συνομιλίας θα ενεργοποιηθεί αυτόματα</translation>
+    </message>
+    <message>
+      <source>Monday</source>
+      <translation>Δευτέρα</translation>
+    </message>
+    <message>
+      <source>Tuesday</source>
+      <translation>Τρίτη</translation>
+    </message>
+    <message>
+      <source>Wednesday</source>
+      <translation>Τετάρτη</translation>
+    </message>
+    <message>
+      <source>Thursday</source>
+      <translation>Πέμπτη</translation>
+    </message>
+    <message>
+      <source>Friday</source>
+      <translation>Παρασκευή</translation>
+    </message>
+    <message>
+      <source>Saturday</source>
+      <translation>Σάββατο</translation>
+    </message>
+    <message>
+      <source>Sunday</source>
+      <translation>Κυριακή</translation>
+    </message>
+    <message>
+      <source>Work hours, 24 hours format, 1 - 24</source>
+      <translation>Εργασία ώρες, 24 ώρες μορφή 1-24</translation>
+    </message>
+    <message>
+      <source>From, E.g. 8</source>
+      <translation>Από, π.χ. 8</translation>
+    </message>
+    <message>
+      <source>To, E.g. 17</source>
+      <translation>Να, π.χ. 17</translation>
+    </message>
+    <message>
+      <source>Notifications about new chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP recipients</source>
+      <translation>XMPP παραλήπτες</translation>
+    </message>
+    <message>
+      <source>XMPP group recipients</source>
+      <translation>XMPP ομαδοποίηση παραληπτών</translation>
+    </message>
+    <message>
+      <source>E.g somechat@conference.server.org/LiveChat</source>
+      <translation>Π.χ. somechat@conference.server.org/ LiveChat</translation>
+    </message>
+    <message>
+      <source>These messages will be send as group messages</source>
+      <translation>Αυτά τα μηνύματα θα σταλεί ως ομάδα μηνύματα</translation>
+    </message>
+    <message>
+      <source>Inform about new chats using</source>
+      <translation>Ενημέρωση για νέες συνομιλίες χρησιμοποιώντας</translation>
+    </message>
+    <message>
+      <source>XMPP messages</source>
+      <translation>XMPP μηνύματα</translation>
+    </message>
+    <message>
+      <source>Mail messages</source>
+      <translation>Τα μηνύματα της αλληλογραφίας</translation>
+    </message>
+    <message>
+      <source>How many seconds chat can be pending before about chat is informed a staff</source>
+      <translation>Πόσα δευτερόλεπτα συνομιλίας μπορεί να είναι σε εκκρεμότητα πριν σχετικά με τη συνομιλία είναι ενημέρωσε ένα προσωπικό</translation>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inform then chat is closed by operator, only mail notification is send.</source>
+      <translation>Ενημερώνει τότε chat κλείνεται με χειριστή, ειδοποίηση για αλληλογραφία είναι το αποστολή.</translation>
+    </message>
+    <message>
+      <source>Chat transfer worklow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To what department chat should be transfered if it is not accepted</source>
+      <translation>Τι τμήμα συνομιλίας να μεταφερθούν, αν δεν είναι αποδεκτό</translation>
+    </message>
+    <message>
+      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+      <translation>Χρονικό όριο σε δευτερόλεπτα πριν chat μεταφέρεται σε άλλη υπηρεσία. Ελάχιστο 5 δευτερόλεπτα.</translation>
+    </message>
+    <message>
+      <source>Miscellaneous</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
+      <translation>Αυτό το πεδίο είναι το μέγιστο μήκος 50 χαρακτήρες και μπορεί να χρησιμοποιηθεί για οποιοδήποτε σκοπό από επεκτάσεις. Αυτό το πεδίο είναι επίσης να αναπροσαρμόζονται.</translation>
+    </message>
+    <message>
+      <source>None</source>
+      <translation>Κανένας</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Διαμόρφωση του συστήματος</translation>
+    </message>
+    <message>
+      <source>departments</source>
+      <translation>τμήματα</translation>
+    </message>
+    <message>
+      <source>Edit a department</source>
+      <translation>Επεξεργαστείτε ένα τμήμα</translation>
     </message>
   </context>
   <context>
@@ -982,6 +1161,10 @@
     </message>
     <message>
       <source>bcmath php extension detected</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Location of city database</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2683,165 +2866,6 @@
     </message>
   </context>
   <context>
-    <name>department/edit</name>
-    <message>
-      <source>Edit department</source>
-      <translation>Επεξεργαστείτε το τμήμα</translation>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>Όνομα</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>Ηλεκτρονικού ταχυδρομείου</translation>
-    </message>
-    <message>
-      <source>Disabled</source>
-      <translation>Άτομα με ειδικές ανάγκες</translation>
-    </message>
-    <message>
-      <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Priority</source>
-      <translation>Προτεραιότητα</translation>
-    </message>
-    <message>
-      <source>Automate online hours</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Work hours/work days logic is active</source>
-      <translation>Εργασία ώρες/εργασία ημέρες λογική είναι ενεργή</translation>
-    </message>
-    <message>
-      <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
-      <translation>Εργάσιμες ημέρες/εργασίας ώρες, κατά τη διάρκεια της αυτές τις ημέρες/ώρες συνομιλίας θα ενεργοποιηθεί αυτόματα</translation>
-    </message>
-    <message>
-      <source>Monday</source>
-      <translation>Δευτέρα</translation>
-    </message>
-    <message>
-      <source>Tuesday</source>
-      <translation>Τρίτη</translation>
-    </message>
-    <message>
-      <source>Wednesday</source>
-      <translation>Τετάρτη</translation>
-    </message>
-    <message>
-      <source>Thursday</source>
-      <translation>Πέμπτη</translation>
-    </message>
-    <message>
-      <source>Friday</source>
-      <translation>Παρασκευή</translation>
-    </message>
-    <message>
-      <source>Saturday</source>
-      <translation>Σάββατο</translation>
-    </message>
-    <message>
-      <source>Sunday</source>
-      <translation>Κυριακή</translation>
-    </message>
-    <message>
-      <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation>Εργασία ώρες, 24 ώρες μορφή 1-24</translation>
-    </message>
-    <message>
-      <source>From, E.g. 8</source>
-      <translation>Από, π.χ. 8</translation>
-    </message>
-    <message>
-      <source>To, E.g. 17</source>
-      <translation>Να, π.χ. 17</translation>
-    </message>
-    <message>
-      <source>Notifications about new chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMPP recipients</source>
-      <translation>XMPP παραλήπτες</translation>
-    </message>
-    <message>
-      <source>XMPP group recipients</source>
-      <translation>XMPP ομαδοποίηση παραληπτών</translation>
-    </message>
-    <message>
-      <source>E.g somechat@conference.server.org/LiveChat</source>
-      <translation>Π.χ. somechat@conference.server.org/ LiveChat</translation>
-    </message>
-    <message>
-      <source>These messages will be send as group messages</source>
-      <translation>Αυτά τα μηνύματα θα σταλεί ως ομάδα μηνύματα</translation>
-    </message>
-    <message>
-      <source>Inform about new chats using</source>
-      <translation>Ενημέρωση για νέες συνομιλίες χρησιμοποιώντας</translation>
-    </message>
-    <message>
-      <source>XMPP messages</source>
-      <translation>XMPP μηνύματα</translation>
-    </message>
-    <message>
-      <source>Mail messages</source>
-      <translation>Τα μηνύματα της αλληλογραφίας</translation>
-    </message>
-    <message>
-      <source>How many seconds chat can be pending before about chat is informed a staff</source>
-      <translation>Πόσα δευτερόλεπτα συνομιλίας μπορεί να είναι σε εκκρεμότητα πριν σχετικά με τη συνομιλία είναι ενημέρωσε ένα προσωπικό</translation>
-    </message>
-    <message>
-      <source>Other</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Inform then chat is closed by operator, only mail notification is send.</source>
-      <translation>Ενημερώνει τότε chat κλείνεται με χειριστή, ειδοποίηση για αλληλογραφία είναι το αποστολή.</translation>
-    </message>
-    <message>
-      <source>Chat transfer worklow</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>To what department chat should be transfered if it is not accepted</source>
-      <translation>Τι τμήμα συνομιλίας να μεταφερθούν, αν δεν είναι αποδεκτό</translation>
-    </message>
-    <message>
-      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
-      <translation>Χρονικό όριο σε δευτερόλεπτα πριν chat μεταφέρεται σε άλλη υπηρεσία. Ελάχιστο 5 δευτερόλεπτα.</translation>
-    </message>
-    <message>
-      <source>Miscellaneous</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
-      <translation>Αυτό το πεδίο είναι το μέγιστο μήκος 50 χαρακτήρες και μπορεί να χρησιμοποιηθεί για οποιοδήποτε σκοπό από επεκτάσεις. Αυτό το πεδίο είναι επίσης να αναπροσαρμόζονται.</translation>
-    </message>
-    <message>
-      <source>None</source>
-      <translation>Κανένας</translation>
-    </message>
-    <message>
-      <source>System configuration</source>
-      <translation>Διαμόρφωση του συστήματος</translation>
-    </message>
-    <message>
-      <source>departments</source>
-      <translation>τμήματα</translation>
-    </message>
-    <message>
-      <source>Edit a department</source>
-      <translation>Επεξεργαστείτε ένα τμήμα</translation>
-    </message>
-  </context>
-  <context>
     <name>user/account</name>
     <message>
       <source>Updated</source>
@@ -2862,6 +2886,10 @@
     <message>
       <source>Username</source>
       <translation>Όνομα χρήστη</translation>
+    </message>
+    <message>
+      <source>Your username</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Password</source>
@@ -2934,6 +2962,10 @@
     <message>
       <source>Closed chats tab enabled</source>
       <translation>Κλειστό συνομιλίες καρτέλα ενεργοποιημένη</translation>
+    </message>
+    <message>
+      <source>Personal canned messages</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Account updated</source>
@@ -3108,37 +3140,6 @@
     </message>
   </context>
   <context>
-    <name>file/configuration</name>
-    <message>
-      <source>File configuration</source>
-      <translation>Αρχείο ρύθμισης παραμέτρων</translation>
-    </message>
-    <message>
-      <source>Allowed files types for operators</source>
-      <translation>Επιτρέπεται τύπους αρχείων για τους φορείς εκμετάλλευσης</translation>
-    </message>
-    <message>
-      <source>Allowed files types for users</source>
-      <translation>Επιτρέπεται τύπους αρχείων για τους χρήστες</translation>
-    </message>
-    <message>
-      <source>Maximum file size in KB</source>
-      <translation>Μέγιστο μέγεθος αρχείου σε KB</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Ρυθμίσεις ενημέρωση</translation>
-    </message>
-    <message>
-      <source>Please enter valid file type!</source>
-      <translation>Παρακαλούμε, εισάγετε έγκυρο αρχείο τύπου!</translation>
-    </message>
-    <message>
-      <source>Please enter valid maximum file size!</source>
-      <translation>Παρακαλούμε, εισάγετε έγκυρο μέγιστο μέγεθος αρχείου!</translation>
-    </message>
-  </context>
-  <context>
     <name>file/list</name>
     <message>
       <source>List of files</source>
@@ -3179,6 +3180,56 @@
     <message>
       <source>Delete the file</source>
       <translation>Διαγράψτε το αρχείο</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/configuration</name>
+    <message>
+      <source>File configuration</source>
+      <translation>Αρχείο ρύθμισης παραμέτρων</translation>
+    </message>
+    <message>
+      <source>Allowed files types for operators</source>
+      <translation>Επιτρέπεται τύπους αρχείων για τους φορείς εκμετάλλευσης</translation>
+    </message>
+    <message>
+      <source>Allowed files types for users</source>
+      <translation>Επιτρέπεται τύπους αρχείων για τους χρήστες</translation>
+    </message>
+    <message>
+      <source>Maximum file size in KB</source>
+      <translation>Μέγιστο μέγεθος αρχείου σε KB</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Ρυθμίσεις ενημέρωση</translation>
+    </message>
+    <message>
+      <source>Please enter valid file type!</source>
+      <translation>Παρακαλούμε, εισάγετε έγκυρο αρχείο τύπου!</translation>
+    </message>
+    <message>
+      <source>Please enter valid maximum file size!</source>
+      <translation>Παρακαλούμε, εισάγετε έγκυρο μέγιστο μέγεθος αρχείου!</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/new</name>
+    <message>
+      <source>New file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Upload</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File uploaded</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -3883,6 +3934,25 @@
     </message>
   </context>
   <context>
+    <name>system/timezone</name>
+    <message>
+      <source>Time zone settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set application specific time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live Helper Chat update</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>user/edit</name>
     <message>
       <source>Server default time zone</source>
@@ -3971,6 +4041,41 @@
     <message>
       <source>Users</source>
       <translation>Χρήστες</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/update</name>
+    <message>
+      <source>Your version</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Current version</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last database update</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>News</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Missing updates from new versions.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update instructions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You are running current version. No updates required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live Helper Chat update information</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -4659,79 +4764,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Παρακαλούμε, εισάγετε έγκυρο αρχείο τύπου!</translation>
-    </message>
-  </context>
-  <context>
-    <name>file/new</name>
-    <message>
-      <source>New file</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>File name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Upload</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>File uploaded</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>system/timezone</name>
-    <message>
-      <source>Time zone settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Set application specific time zone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live Helper Chat update</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Time zone</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>system/update</name>
-    <message>
-      <source>Your version</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Current version</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Last database update</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>News</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Missing updates from new versions.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Update instructions</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You are running current version. No updates required</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live Helper Chat update information</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

@@ -318,6 +318,10 @@
       <translation>Pesan</translation>
     </message>
     <message>
+      <source>User</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Delay</source>
       <translation>Jeda</translation>
     </message>
@@ -346,6 +350,18 @@
       <translation>Jeda dalam detik</translation>
     </message>
     <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Personal canned message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Canned message was saved</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation>Konfigurasi sistem</translation>
     </message>
@@ -356,6 +372,169 @@
     <message>
       <source>Please enter a canned message</source>
       <translation>Silakan masukkan pesan kaleng</translation>
+    </message>
+  </context>
+  <context>
+    <name>department/edit</name>
+    <message>
+      <source>Any</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit department</source>
+      <translation>Ubah departemen</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Nama</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation>Prioritas</translation>
+    </message>
+    <message>
+      <source>Automate online hours</source>
+      <translation>Otomasi jam online</translation>
+    </message>
+    <message>
+      <source>Work hours/work days logic is active</source>
+      <translation>Logika hari kerja/jam kerja aktif</translation>
+    </message>
+    <message>
+      <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
+      <translation>Hari kerja/jam kerja, selama hari/jam ini percakapan akan diaktifkan secara otomatis</translation>
+    </message>
+    <message>
+      <source>Monday</source>
+      <translation>Senin</translation>
+    </message>
+    <message>
+      <source>Tuesday</source>
+      <translation>Selasa</translation>
+    </message>
+    <message>
+      <source>Wednesday</source>
+      <translation>Rabu</translation>
+    </message>
+    <message>
+      <source>Thursday</source>
+      <translation>Kamis</translation>
+    </message>
+    <message>
+      <source>Friday</source>
+      <translation>Jumat</translation>
+    </message>
+    <message>
+      <source>Saturday</source>
+      <translation>Sabtu</translation>
+    </message>
+    <message>
+      <source>Sunday</source>
+      <translation>Minggu</translation>
+    </message>
+    <message>
+      <source>Work hours, 24 hours format, 1 - 24</source>
+      <translation>Jam kerja, format 24 jam, 1-24</translation>
+    </message>
+    <message>
+      <source>From, E.g. 8</source>
+      <translation>Dari, cth: 8</translation>
+    </message>
+    <message>
+      <source>To, E.g. 17</source>
+      <translation>Hingga, cth: 17</translation>
+    </message>
+    <message>
+      <source>Notifications about new chats</source>
+      <translation>Pemberitahuan tentang chat baru</translation>
+    </message>
+    <message>
+      <source>XMPP recipients</source>
+      <translation>Penerima XMPP</translation>
+    </message>
+    <message>
+      <source>XMPP group recipients</source>
+      <translation>Penerima  grup XMPP</translation>
+    </message>
+    <message>
+      <source>E.g somechat@conference.server.org/LiveChat</source>
+      <translation>Cth somechat@conference.server.org/LiveChat</translation>
+    </message>
+    <message>
+      <source>These messages will be send as group messages</source>
+      <translation>Pesan-pesan berikut akan dikirim sebagai pesan grup</translation>
+    </message>
+    <message>
+      <source>Inform about new chats using</source>
+      <translation>Informasikan percakapan baru melalui</translation>
+    </message>
+    <message>
+      <source>XMPP messages</source>
+      <translation>Pesan XMPP</translation>
+    </message>
+    <message>
+      <source>Mail messages</source>
+      <translation>Pesan Surat</translation>
+    </message>
+    <message>
+      <source>How many seconds chat can be pending before about chat is informed a staff</source>
+      <translation>Berapa detik sebuah percakapan bisa tertunda sebelum percakapan diinformasikan ke staf</translation>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation>Lainnya</translation>
+    </message>
+    <message>
+      <source>Inform then chat is closed by operator, only mail notification is send.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat transfer worklow</source>
+      <translation>Alur perpindahan chat</translation>
+    </message>
+    <message>
+      <source>To what department chat should be transfered if it is not accepted</source>
+      <translation>Kepada departemen apa percakapan ini harus di transfer jika ini tidak diterima</translation>
+    </message>
+    <message>
+      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+      <translation>Batas waktu dalam detik sebelum percakapan ditransfer ke departemen lain. Minimal 5 detik.</translation>
+    </message>
+    <message>
+      <source>Miscellaneous</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
+      <translation>Panjang maksimal bidang ini 50 karakter dan dapat digunakan untuk tujuan apapun dengan ekstensi. Bidang ini juga diindeks.</translation>
+    </message>
+    <message>
+      <source>None</source>
+      <translation>Tidak satu pun </translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Konfigurasi sistem</translation>
+    </message>
+    <message>
+      <source>departments</source>
+      <translation>departemen</translation>
+    </message>
+    <message>
+      <source>Edit a department</source>
+      <translation>Ubah departemen</translation>
     </message>
   </context>
   <context>
@@ -982,6 +1161,10 @@
     </message>
     <message>
       <source>bcmath php extension detected</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Location of city database</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2683,165 +2866,6 @@
     </message>
   </context>
   <context>
-    <name>department/edit</name>
-    <message>
-      <source>Edit department</source>
-      <translation>Ubah departemen</translation>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>Nama</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Disabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Priority</source>
-      <translation>Prioritas</translation>
-    </message>
-    <message>
-      <source>Automate online hours</source>
-      <translation>Otomasi jam online</translation>
-    </message>
-    <message>
-      <source>Work hours/work days logic is active</source>
-      <translation>Logika hari kerja/jam kerja aktif</translation>
-    </message>
-    <message>
-      <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
-      <translation>Hari kerja/jam kerja, selama hari/jam ini percakapan akan diaktifkan secara otomatis</translation>
-    </message>
-    <message>
-      <source>Monday</source>
-      <translation>Senin</translation>
-    </message>
-    <message>
-      <source>Tuesday</source>
-      <translation>Selasa</translation>
-    </message>
-    <message>
-      <source>Wednesday</source>
-      <translation>Rabu</translation>
-    </message>
-    <message>
-      <source>Thursday</source>
-      <translation>Kamis</translation>
-    </message>
-    <message>
-      <source>Friday</source>
-      <translation>Jumat</translation>
-    </message>
-    <message>
-      <source>Saturday</source>
-      <translation>Sabtu</translation>
-    </message>
-    <message>
-      <source>Sunday</source>
-      <translation>Minggu</translation>
-    </message>
-    <message>
-      <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation>Jam kerja, format 24 jam, 1-24</translation>
-    </message>
-    <message>
-      <source>From, E.g. 8</source>
-      <translation>Dari, cth: 8</translation>
-    </message>
-    <message>
-      <source>To, E.g. 17</source>
-      <translation>Hingga, cth: 17</translation>
-    </message>
-    <message>
-      <source>Notifications about new chats</source>
-      <translation>Pemberitahuan tentang chat baru</translation>
-    </message>
-    <message>
-      <source>XMPP recipients</source>
-      <translation>Penerima XMPP</translation>
-    </message>
-    <message>
-      <source>XMPP group recipients</source>
-      <translation>Penerima  grup XMPP</translation>
-    </message>
-    <message>
-      <source>E.g somechat@conference.server.org/LiveChat</source>
-      <translation>Cth somechat@conference.server.org/LiveChat</translation>
-    </message>
-    <message>
-      <source>These messages will be send as group messages</source>
-      <translation>Pesan-pesan berikut akan dikirim sebagai pesan grup</translation>
-    </message>
-    <message>
-      <source>Inform about new chats using</source>
-      <translation>Informasikan percakapan baru melalui</translation>
-    </message>
-    <message>
-      <source>XMPP messages</source>
-      <translation>Pesan XMPP</translation>
-    </message>
-    <message>
-      <source>Mail messages</source>
-      <translation>Pesan Surat</translation>
-    </message>
-    <message>
-      <source>How many seconds chat can be pending before about chat is informed a staff</source>
-      <translation>Berapa detik sebuah percakapan bisa tertunda sebelum percakapan diinformasikan ke staf</translation>
-    </message>
-    <message>
-      <source>Other</source>
-      <translation>Lainnya</translation>
-    </message>
-    <message>
-      <source>Inform then chat is closed by operator, only mail notification is send.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat transfer worklow</source>
-      <translation>Alur perpindahan chat</translation>
-    </message>
-    <message>
-      <source>To what department chat should be transfered if it is not accepted</source>
-      <translation>Kepada departemen apa percakapan ini harus di transfer jika ini tidak diterima</translation>
-    </message>
-    <message>
-      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
-      <translation>Batas waktu dalam detik sebelum percakapan ditransfer ke departemen lain. Minimal 5 detik.</translation>
-    </message>
-    <message>
-      <source>Miscellaneous</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
-      <translation>Panjang maksimal bidang ini 50 karakter dan dapat digunakan untuk tujuan apapun dengan ekstensi. Bidang ini juga diindeks.</translation>
-    </message>
-    <message>
-      <source>None</source>
-      <translation>Tidak satu pun </translation>
-    </message>
-    <message>
-      <source>System configuration</source>
-      <translation>Konfigurasi sistem</translation>
-    </message>
-    <message>
-      <source>departments</source>
-      <translation>departemen</translation>
-    </message>
-    <message>
-      <source>Edit a department</source>
-      <translation>Ubah departemen</translation>
-    </message>
-  </context>
-  <context>
     <name>user/account</name>
     <message>
       <source>Updated</source>
@@ -2862,6 +2886,10 @@
     <message>
       <source>Username</source>
       <translation>Nama pengguna</translation>
+    </message>
+    <message>
+      <source>Your username</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Password</source>
@@ -2934,6 +2962,10 @@
     <message>
       <source>Closed chats tab enabled</source>
       <translation>Tab percakapan yang ditutup diaktifkan</translation>
+    </message>
+    <message>
+      <source>Personal canned messages</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Account updated</source>
@@ -3108,37 +3140,6 @@
     </message>
   </context>
   <context>
-    <name>file/configuration</name>
-    <message>
-      <source>File configuration</source>
-      <translation>Konfigurasi berkas</translation>
-    </message>
-    <message>
-      <source>Allowed files types for operators</source>
-      <translation>Tipe berkas yang diizinkan untuk operator</translation>
-    </message>
-    <message>
-      <source>Allowed files types for users</source>
-      <translation>Tipe berkas yang diizinkan untuk pengguna</translation>
-    </message>
-    <message>
-      <source>Maximum file size in KB</source>
-      <translation>Ukuran berkas maksimum dalam KB</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Pengaturan telah diperbarui</translation>
-    </message>
-    <message>
-      <source>Please enter valid file type!</source>
-      <translation>Silakan masukkan tipe berkas yang sah!</translation>
-    </message>
-    <message>
-      <source>Please enter valid maximum file size!</source>
-      <translation>Silakan masukkan ukuran maksimum berkas yang sah!</translation>
-    </message>
-  </context>
-  <context>
     <name>file/list</name>
     <message>
       <source>List of files</source>
@@ -3179,6 +3180,56 @@
     <message>
       <source>Delete the file</source>
       <translation>Hapus berkas</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/configuration</name>
+    <message>
+      <source>File configuration</source>
+      <translation>Konfigurasi berkas</translation>
+    </message>
+    <message>
+      <source>Allowed files types for operators</source>
+      <translation>Tipe berkas yang diizinkan untuk operator</translation>
+    </message>
+    <message>
+      <source>Allowed files types for users</source>
+      <translation>Tipe berkas yang diizinkan untuk pengguna</translation>
+    </message>
+    <message>
+      <source>Maximum file size in KB</source>
+      <translation>Ukuran berkas maksimum dalam KB</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Pengaturan telah diperbarui</translation>
+    </message>
+    <message>
+      <source>Please enter valid file type!</source>
+      <translation>Silakan masukkan tipe berkas yang sah!</translation>
+    </message>
+    <message>
+      <source>Please enter valid maximum file size!</source>
+      <translation>Silakan masukkan ukuran maksimum berkas yang sah!</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/new</name>
+    <message>
+      <source>New file</source>
+      <translation>File baru</translation>
+    </message>
+    <message>
+      <source>File name</source>
+      <translation>Nama file</translation>
+    </message>
+    <message>
+      <source>Upload</source>
+      <translation>Unggah</translation>
+    </message>
+    <message>
+      <source>File uploaded</source>
+      <translation>File terunggah</translation>
     </message>
   </context>
   <context>
@@ -3883,6 +3934,25 @@
     </message>
   </context>
   <context>
+    <name>system/timezone</name>
+    <message>
+      <source>Time zone settings</source>
+      <translation>Pengaturan zona waktu</translation>
+    </message>
+    <message>
+      <source>Set application specific time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live Helper Chat update</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation>Zona waktu</translation>
+    </message>
+  </context>
+  <context>
     <name>user/edit</name>
     <message>
       <source>Server default time zone</source>
@@ -3971,6 +4041,41 @@
     <message>
       <source>Users</source>
       <translation>Pengguna</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/update</name>
+    <message>
+      <source>Your version</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Current version</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last database update</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>News</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Missing updates from new versions.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update instructions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You are running current version. No updates required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live Helper Chat update information</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -4659,79 +4764,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Silakan masukkan tipe berkas yang sah!</translation>
-    </message>
-  </context>
-  <context>
-    <name>file/new</name>
-    <message>
-      <source>New file</source>
-      <translation>File baru</translation>
-    </message>
-    <message>
-      <source>File name</source>
-      <translation>Nama file</translation>
-    </message>
-    <message>
-      <source>Upload</source>
-      <translation>Unggah</translation>
-    </message>
-    <message>
-      <source>File uploaded</source>
-      <translation>File terunggah</translation>
-    </message>
-  </context>
-  <context>
-    <name>system/timezone</name>
-    <message>
-      <source>Time zone settings</source>
-      <translation>Pengaturan zona waktu</translation>
-    </message>
-    <message>
-      <source>Set application specific time zone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live Helper Chat update</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Time zone</source>
-      <translation>Zona waktu</translation>
-    </message>
-  </context>
-  <context>
-    <name>system/update</name>
-    <message>
-      <source>Your version</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Current version</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Last database update</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>News</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Missing updates from new versions.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Update instructions</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You are running current version. No updates required</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live Helper Chat update information</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

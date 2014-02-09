@@ -320,6 +320,10 @@
       <translation>Mensaje</translation>
     </message>
     <message>
+      <source>User</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Delay</source>
       <translation>Retraso</translation>
     </message>
@@ -348,6 +352,18 @@
       <translation>Retraso en segundos</translation>
     </message>
     <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Personal canned message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Canned message was saved</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation>Configuración del sistema</translation>
     </message>
@@ -358,6 +374,169 @@
     <message>
       <source>Please enter a canned message</source>
       <translation>Por favor, introduzca un mensaje predefinido</translation>
+    </message>
+  </context>
+  <context>
+    <name>department/edit</name>
+    <message>
+      <source>Any</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit department</source>
+      <translation>Departamento de Edición</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Nombre</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation>Deshabilitado</translation>
+    </message>
+    <message>
+      <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation>Prioridad</translation>
+    </message>
+    <message>
+      <source>Automate online hours</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Work hours/work days logic is active</source>
+      <translation>Lógica horas / días de trabajo está activa</translation>
+    </message>
+    <message>
+      <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
+      <translation>Horas / días de trabajo, durante esta horas / días el chat se activará automáticamente</translation>
+    </message>
+    <message>
+      <source>Monday</source>
+      <translation>Lunes</translation>
+    </message>
+    <message>
+      <source>Tuesday</source>
+      <translation>Martes</translation>
+    </message>
+    <message>
+      <source>Wednesday</source>
+      <translation>Miércoles</translation>
+    </message>
+    <message>
+      <source>Thursday</source>
+      <translation>Jueves</translation>
+    </message>
+    <message>
+      <source>Friday</source>
+      <translation>Viernes</translation>
+    </message>
+    <message>
+      <source>Saturday</source>
+      <translation>Sábado</translation>
+    </message>
+    <message>
+      <source>Sunday</source>
+      <translation>Domingo</translation>
+    </message>
+    <message>
+      <source>Work hours, 24 hours format, 1 - 24</source>
+      <translation>Horas de trabajo, formato 24 horas, 1 - 24</translation>
+    </message>
+    <message>
+      <source>From, E.g. 8</source>
+      <translation>Desde Ej: 8</translation>
+    </message>
+    <message>
+      <source>To, E.g. 17</source>
+      <translation>Hasta, p.e. 17</translation>
+    </message>
+    <message>
+      <source>Notifications about new chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP recipients</source>
+      <translation>Destinatarios XMPP</translation>
+    </message>
+    <message>
+      <source>XMPP group recipients</source>
+      <translation>Grupo destinatarios XMPP</translation>
+    </message>
+    <message>
+      <source>E.g somechat@conference.server.org/LiveChat</source>
+      <translation>P.e. somechat@conference.server.org/LiveChat</translation>
+    </message>
+    <message>
+      <source>These messages will be send as group messages</source>
+      <translation>Estos mensajes se enviarán como mensajes de grupo</translation>
+    </message>
+    <message>
+      <source>Inform about new chats using</source>
+      <translation>Informar acerca del uso de nuevos chats</translation>
+    </message>
+    <message>
+      <source>XMPP messages</source>
+      <translation>mensajes XMPP</translation>
+    </message>
+    <message>
+      <source>Mail messages</source>
+      <translation>Mensajes de correo</translation>
+    </message>
+    <message>
+      <source>How many seconds chat can be pending before about chat is informed a staff</source>
+      <translation>¿Cuántos chats secundarios pueden estar pendientes antes de que el chat sea informado al personal?</translation>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inform then chat is closed by operator, only mail notification is send.</source>
+      <translation>Informar cuando un chat es cerrado por un operador, sólo se envía notificación por e-mail.</translation>
+    </message>
+    <message>
+      <source>Chat transfer worklow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To what department chat should be transfered if it is not accepted</source>
+      <translation>¿A qué departamento de chat debe ser transferido si no se acepta</translation>
+    </message>
+    <message>
+      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+      <translation>Tiempo de espera en segundos antes de que el chat se transfiera a otro departamento. Mínimo 5 segundos.</translation>
+    </message>
+    <message>
+      <source>Miscellaneous</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
+      <translation>La longitud máxima de este campo es de 50 caracteres y puede ser utilizado para cualquier propósito por extensiones. Este campo también esta indexado.</translation>
+    </message>
+    <message>
+      <source>None</source>
+      <translation>Ninguno</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Configuración del sistema</translation>
+    </message>
+    <message>
+      <source>departments</source>
+      <translation>departamentos</translation>
+    </message>
+    <message>
+      <source>Edit a department</source>
+      <translation>Editar un departamento</translation>
     </message>
   </context>
   <context>
@@ -986,6 +1165,10 @@
     <message>
       <source>bcmath php extension detected</source>
       <translation>extensión bcmath php detectada</translation>
+    </message>
+    <message>
+      <source>Location of city database</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User country based detection, faster</source>
@@ -2687,165 +2870,6 @@
     </message>
   </context>
   <context>
-    <name>department/edit</name>
-    <message>
-      <source>Edit department</source>
-      <translation>Departamento de Edición</translation>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>Nombre</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Disabled</source>
-      <translation>Deshabilitado</translation>
-    </message>
-    <message>
-      <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Priority</source>
-      <translation>Prioridad</translation>
-    </message>
-    <message>
-      <source>Automate online hours</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Work hours/work days logic is active</source>
-      <translation>Lógica horas / días de trabajo está activa</translation>
-    </message>
-    <message>
-      <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
-      <translation>Horas / días de trabajo, durante esta horas / días el chat se activará automáticamente</translation>
-    </message>
-    <message>
-      <source>Monday</source>
-      <translation>Lunes</translation>
-    </message>
-    <message>
-      <source>Tuesday</source>
-      <translation>Martes</translation>
-    </message>
-    <message>
-      <source>Wednesday</source>
-      <translation>Miércoles</translation>
-    </message>
-    <message>
-      <source>Thursday</source>
-      <translation>Jueves</translation>
-    </message>
-    <message>
-      <source>Friday</source>
-      <translation>Viernes</translation>
-    </message>
-    <message>
-      <source>Saturday</source>
-      <translation>Sábado</translation>
-    </message>
-    <message>
-      <source>Sunday</source>
-      <translation>Domingo</translation>
-    </message>
-    <message>
-      <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation>Horas de trabajo, formato 24 horas, 1 - 24</translation>
-    </message>
-    <message>
-      <source>From, E.g. 8</source>
-      <translation>Desde Ej: 8</translation>
-    </message>
-    <message>
-      <source>To, E.g. 17</source>
-      <translation>Hasta, p.e. 17</translation>
-    </message>
-    <message>
-      <source>Notifications about new chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMPP recipients</source>
-      <translation>Destinatarios XMPP</translation>
-    </message>
-    <message>
-      <source>XMPP group recipients</source>
-      <translation>Grupo destinatarios XMPP</translation>
-    </message>
-    <message>
-      <source>E.g somechat@conference.server.org/LiveChat</source>
-      <translation>P.e. somechat@conference.server.org/LiveChat</translation>
-    </message>
-    <message>
-      <source>These messages will be send as group messages</source>
-      <translation>Estos mensajes se enviarán como mensajes de grupo</translation>
-    </message>
-    <message>
-      <source>Inform about new chats using</source>
-      <translation>Informar acerca del uso de nuevos chats</translation>
-    </message>
-    <message>
-      <source>XMPP messages</source>
-      <translation>mensajes XMPP</translation>
-    </message>
-    <message>
-      <source>Mail messages</source>
-      <translation>Mensajes de correo</translation>
-    </message>
-    <message>
-      <source>How many seconds chat can be pending before about chat is informed a staff</source>
-      <translation>¿Cuántos chats secundarios pueden estar pendientes antes de que el chat sea informado al personal?</translation>
-    </message>
-    <message>
-      <source>Other</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Inform then chat is closed by operator, only mail notification is send.</source>
-      <translation>Informar cuando un chat es cerrado por un operador, sólo se envía notificación por e-mail.</translation>
-    </message>
-    <message>
-      <source>Chat transfer worklow</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>To what department chat should be transfered if it is not accepted</source>
-      <translation>¿A qué departamento de chat debe ser transferido si no se acepta</translation>
-    </message>
-    <message>
-      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
-      <translation>Tiempo de espera en segundos antes de que el chat se transfiera a otro departamento. Mínimo 5 segundos.</translation>
-    </message>
-    <message>
-      <source>Miscellaneous</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
-      <translation>La longitud máxima de este campo es de 50 caracteres y puede ser utilizado para cualquier propósito por extensiones. Este campo también esta indexado.</translation>
-    </message>
-    <message>
-      <source>None</source>
-      <translation>Ninguno</translation>
-    </message>
-    <message>
-      <source>System configuration</source>
-      <translation>Configuración del sistema</translation>
-    </message>
-    <message>
-      <source>departments</source>
-      <translation>departamentos</translation>
-    </message>
-    <message>
-      <source>Edit a department</source>
-      <translation>Editar un departamento</translation>
-    </message>
-  </context>
-  <context>
     <name>user/account</name>
     <message>
       <source>Updated</source>
@@ -2866,6 +2890,10 @@
     <message>
       <source>Username</source>
       <translation>Nombre de usuario</translation>
+    </message>
+    <message>
+      <source>Your username</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Password</source>
@@ -2938,6 +2966,10 @@
     <message>
       <source>Closed chats tab enabled</source>
       <translation>Ficha chats cerrada habilitada</translation>
+    </message>
+    <message>
+      <source>Personal canned messages</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Account updated</source>
@@ -3112,37 +3144,6 @@
     </message>
   </context>
   <context>
-    <name>file/configuration</name>
-    <message>
-      <source>File configuration</source>
-      <translation>Fichero de configuración</translation>
-    </message>
-    <message>
-      <source>Allowed files types for operators</source>
-      <translation>Tipos de fichero permitidos para operadores</translation>
-    </message>
-    <message>
-      <source>Allowed files types for users</source>
-      <translation>Tipos de fichero permitidos para usuarios</translation>
-    </message>
-    <message>
-      <source>Maximum file size in KB</source>
-      <translation>Tamaño máximo de fichero en KB</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Configuración actualizada</translation>
-    </message>
-    <message>
-      <source>Please enter valid file type!</source>
-      <translation>Por favor, introduzca un tipo de fichero válido</translation>
-    </message>
-    <message>
-      <source>Please enter valid maximum file size!</source>
-      <translation>Por favor, introduzca un tamaño de fichero máximo válido</translation>
-    </message>
-  </context>
-  <context>
     <name>file/list</name>
     <message>
       <source>List of files</source>
@@ -3183,6 +3184,56 @@
     <message>
       <source>Delete the file</source>
       <translation>Borrar el fichero</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/configuration</name>
+    <message>
+      <source>File configuration</source>
+      <translation>Fichero de configuración</translation>
+    </message>
+    <message>
+      <source>Allowed files types for operators</source>
+      <translation>Tipos de fichero permitidos para operadores</translation>
+    </message>
+    <message>
+      <source>Allowed files types for users</source>
+      <translation>Tipos de fichero permitidos para usuarios</translation>
+    </message>
+    <message>
+      <source>Maximum file size in KB</source>
+      <translation>Tamaño máximo de fichero en KB</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Configuración actualizada</translation>
+    </message>
+    <message>
+      <source>Please enter valid file type!</source>
+      <translation>Por favor, introduzca un tipo de fichero válido</translation>
+    </message>
+    <message>
+      <source>Please enter valid maximum file size!</source>
+      <translation>Por favor, introduzca un tamaño de fichero máximo válido</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/new</name>
+    <message>
+      <source>New file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Upload</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File uploaded</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -3891,6 +3942,25 @@ Lista de funciones</translation>
     </message>
   </context>
   <context>
+    <name>system/timezone</name>
+    <message>
+      <source>Time zone settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set application specific time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live Helper Chat update</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>user/edit</name>
     <message>
       <source>Server default time zone</source>
@@ -3979,6 +4049,41 @@ Lista de funciones</translation>
     <message>
       <source>Users</source>
       <translation>Usuarios</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/update</name>
+    <message>
+      <source>Your version</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Current version</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last database update</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>News</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Missing updates from new versions.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update instructions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You are running current version. No updates required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live Helper Chat update information</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -4667,79 +4772,6 @@ Lista de funciones</translation>
     <message>
       <source>Please enter valid file type!</source>
       <translation>Por favor, introduzca un tipo de fichero válido</translation>
-    </message>
-  </context>
-  <context>
-    <name>file/new</name>
-    <message>
-      <source>New file</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>File name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Upload</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>File uploaded</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>system/timezone</name>
-    <message>
-      <source>Time zone settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Set application specific time zone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live Helper Chat update</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Time zone</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>system/update</name>
-    <message>
-      <source>Your version</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Current version</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Last database update</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>News</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Missing updates from new versions.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Update instructions</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You are running current version. No updates required</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live Helper Chat update information</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

@@ -10,7 +10,7 @@ header('Pragma: no-cache' );
 
 $ignorable_ip = erLhcoreClassModelChatConfig::fetch('ignorable_ip')->current_value;
 
-if ( $ignorable_ip == '' || !in_array(erLhcoreClassIPDetect::getIP(), explode(',', $ignorable_ip))) {
+if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDetect::getIP(),explode(',',$ignorable_ip))) {
 	$tpl = erLhcoreClassTemplate::getInstance('lhchat/chatcheckoperatormessage.tpl.php');
 	
 	$userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('department' => (int)$Params['user_parameters_unordered']['department'], 'identifier' => (string)$Params['user_parameters_unordered']['identifier'], 'pages_count' => ((int)$Params['user_parameters_unordered']['count_page'] == 1 ? true : false), 'vid' => (string)$Params['user_parameters_unordered']['vid'], 'check_message_operator' => true, 'pro_active_limitation' =>  erLhcoreClassModelChatConfig::fetch('pro_active_limitation')->current_value, 'pro_active_invite' => erLhcoreClassModelChatConfig::fetch('pro_active_invite')->current_value));
