@@ -1,6 +1,7 @@
 1.86v
 
 1. Option to set date format. Three new fields in Settings => Time zone settings section. This is available per install and not per individual user.
+2. PHP-GeoIP module support.
 
 edit your settings/settings.ini.php file and under 'force_virtual_host' => false,
 add

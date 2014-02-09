@@ -276,6 +276,26 @@ class erLhcoreClassModelChatOnlineUser {
            } else {
                return false;
            }
+       } elseif ($service == 'php_geoip') {
+
+       		if (function_exists('geoip_record_by_name')) {       			
+       			$data = @geoip_record_by_name($ip);
+
+       			if ($data !== null) {
+	       			$normalizedObject = new stdClass();
+	       			$normalizedObject->country_code = isset($data['country_code']) ? strtolower($data['country_code']) : '';
+	       			$normalizedObject->country_name = isset($data['country_name']) ? strtolower($data['country_name']) : '';
+	       			$normalizedObject->city = isset($data['city']) ? strtolower($data['city']) : '';
+	       			$normalizedObject->lat = isset($data['latitude']) ? strtolower($data['latitude']) : '';
+	       			$normalizedObject->lon = isset($data['longitude']) ? strtolower($data['longitude']) : '';
+	       			return $normalizedObject;  
+       			} else {
+       				return false;
+       			}
+       			
+       		} else {       	
+               return false;
+           }
 
        } elseif ($service == 'max_mind') {
 
