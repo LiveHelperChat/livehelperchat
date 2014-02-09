@@ -318,6 +318,10 @@
       <translation>Mensagem</translation>
     </message>
     <message>
+      <source>User</source>
+      <translation>Usuário</translation>
+    </message>
+    <message>
       <source>Delay</source>
       <translation>Atraso</translation>
     </message>
@@ -346,6 +350,18 @@
       <translation>Atraso em segundos</translation>
     </message>
     <message>
+      <source>Department</source>
+      <translation>Departamento</translation>
+    </message>
+    <message>
+      <source>Personal canned message</source>
+      <translation>Mensagem pessoal predefinida</translation>
+    </message>
+    <message>
+      <source>Canned message was saved</source>
+      <translation>Mensagem predefinida foi salva</translation>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation>Configuração do sistema</translation>
     </message>
@@ -356,6 +372,169 @@
     <message>
       <source>Please enter a canned message</source>
       <translation>Por favor insira uma mensagem predefinida</translation>
+    </message>
+  </context>
+  <context>
+    <name>department/edit</name>
+    <message>
+      <source>Any</source>
+      <translation>Qualquer</translation>
+    </message>
+    <message>
+      <source>Edit department</source>
+      <translation>Editar departamento</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Nome</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation>Desativado</translation>
+    </message>
+    <message>
+      <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
+      <translation>Atraso em segundos antes de exibir o formulário de deixar uma mensagem. 0 entende-se como funcionalidade desabilitada,</translation>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation>Prioridade</translation>
+    </message>
+    <message>
+      <source>Automate online hours</source>
+      <translation>Automatizar horas online</translation>
+    </message>
+    <message>
+      <source>Work hours/work days logic is active</source>
+      <translation>Lógica de trabalho Horas/Dias está ativa</translation>
+    </message>
+    <message>
+      <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
+      <translation>Dias úteis/ horas de trabalho, durante estes dias/horas o chat estará ativo automaticamente</translation>
+    </message>
+    <message>
+      <source>Monday</source>
+      <translation>Segunda-feira</translation>
+    </message>
+    <message>
+      <source>Tuesday</source>
+      <translation>Terça-feira</translation>
+    </message>
+    <message>
+      <source>Wednesday</source>
+      <translation>Quarta-feira</translation>
+    </message>
+    <message>
+      <source>Thursday</source>
+      <translation>Quinta-feira</translation>
+    </message>
+    <message>
+      <source>Friday</source>
+      <translation>Sexta-feira</translation>
+    </message>
+    <message>
+      <source>Saturday</source>
+      <translation>Sábado</translation>
+    </message>
+    <message>
+      <source>Sunday</source>
+      <translation>Domingo</translation>
+    </message>
+    <message>
+      <source>Work hours, 24 hours format, 1 - 24</source>
+      <translation>Horário de trabalho no formato 24 horas, 1 - 24</translation>
+    </message>
+    <message>
+      <source>From, E.g. 8</source>
+      <translation>A partir de, Ex.: 8</translation>
+    </message>
+    <message>
+      <source>To, E.g. 17</source>
+      <translation>Para, Ex.: 17</translation>
+    </message>
+    <message>
+      <source>Notifications about new chats</source>
+      <translation>Notificações sobre novos chats</translation>
+    </message>
+    <message>
+      <source>XMPP recipients</source>
+      <translation>Destinatários XMPP</translation>
+    </message>
+    <message>
+      <source>XMPP group recipients</source>
+      <translation>Destinatários do grupo XMPP</translation>
+    </message>
+    <message>
+      <source>E.g somechat@conference.server.org/LiveChat</source>
+      <translation>Por exemplo somechat@conference.server.org/LiveChat</translation>
+    </message>
+    <message>
+      <source>These messages will be send as group messages</source>
+      <translation>Estas mensagens serão enviadas como mensagens de grupo</translation>
+    </message>
+    <message>
+      <source>Inform about new chats using</source>
+      <translation>Informar sobre novos chats usando</translation>
+    </message>
+    <message>
+      <source>XMPP messages</source>
+      <translation>Mensagens via XMPP</translation>
+    </message>
+    <message>
+      <source>Mail messages</source>
+      <translation>Mensagens via Email</translation>
+    </message>
+    <message>
+      <source>How many seconds chat can be pending before about chat is informed a staff</source>
+      <translation>Quantos segundos o chat pode ficar pendente antes de ser informado a equipe</translation>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation>Outros</translation>
+    </message>
+    <message>
+      <source>Inform then chat is closed by operator, only mail notification is send.</source>
+      <translation>Informar quando o chat é fechado pelo operador, somente notificação por email é enviada</translation>
+    </message>
+    <message>
+      <source>Chat transfer worklow</source>
+      <translation>Fluxo de trabalho de transferência de chat</translation>
+    </message>
+    <message>
+      <source>To what department chat should be transfered if it is not accepted</source>
+      <translation>Para qual departamento o chat deve ser transferido caso não seja aceito</translation>
+    </message>
+    <message>
+      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+      <translation>Tempo limite em segundos antes do chat ser transferido para outro departamento. Mínimo de 5 segundos.</translation>
+    </message>
+    <message>
+      <source>Miscellaneous</source>
+      <translation>Diversos</translation>
+    </message>
+    <message>
+      <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
+      <translation>Este campo possui comprimento máximo de 50 caracteres e pode ser usado para qualquer finalidade, por extensões. Este campo também é indexado.</translation>
+    </message>
+    <message>
+      <source>None</source>
+      <translation>Nenhum</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Configuração do sistema</translation>
+    </message>
+    <message>
+      <source>departments</source>
+      <translation>departamentos</translation>
+    </message>
+    <message>
+      <source>Edit a department</source>
+      <translation>Editar um departamento</translation>
     </message>
   </context>
   <context>
@@ -662,7 +841,7 @@
     </message>
     <message>
       <source>Please</source>
-      <translation>Por Favor</translation>
+      <translation>Por favor</translation>
     </message>
     <message>
       <source>login first.</source>
@@ -985,12 +1164,16 @@
       <translation>extensão php bcmath detectada</translation>
     </message>
     <message>
+      <source>Location of city database</source>
+      <translation>Localização do banco de dados de cidade</translation>
+    </message>
+    <message>
       <source>User country based detection, faster</source>
       <translation>Detecção baseada país do usuário, mais rápido</translation>
     </message>
     <message>
       <source>File exists</source>
-      <translation>Arquivo Existente</translation>
+      <translation>Arquivo já existe</translation>
     </message>
     <message>
       <source>File does not exists</source>
@@ -1443,7 +1626,7 @@
     </message>
     <message>
       <source>XMPP settings</source>
-      <translation>Configurações de XMPP</translation>
+      <translation>Configurações XMPP</translation>
     </message>
     <message>
       <source>Languages configuration</source>
@@ -1795,11 +1978,11 @@
     </message>
     <message>
       <source>Select department</source>
-      <translation>Selecione um departamento</translation>
+      <translation>Selecionar departamento</translation>
     </message>
     <message>
       <source>Select user</source>
-      <translation>Selecione um usuário</translation>
+      <translation>Selecionar usuário</translation>
     </message>
   </context>
   <context>
@@ -1975,7 +2158,7 @@
     </message>
     <message>
       <source>Online form settings</source>
-      <translation>Configurações do Chat Online</translation>
+      <translation>Configurações do formulário online</translation>
     </message>
     <message>
       <source>Name</source>
@@ -1991,7 +2174,7 @@
     </message>
     <message>
       <source>This field is invisible but prefilled data is collected</source>
-      <translation type="unfinished"/>
+      <translation>O campo é invisível mas os dados inseridos são coletados</translation>
     </message>
     <message>
       <source>This field is</source>
@@ -2023,7 +2206,7 @@
     </message>
     <message>
       <source>Offline form settings</source>
-      <translation>Configurações do Chat Offline</translation>
+      <translation>Configurações do formulário offline</translation>
     </message>
     <message>
       <source>E-mail is always required</source>
@@ -2449,7 +2632,7 @@
     </message>
     <message>
       <source>Archive progress</source>
-      <translation>Prograsso do arquivamento</translation>
+      <translation>Progresso do arquivamento</translation>
     </message>
     <message>
       <source>Pending for action...</source>
@@ -2572,7 +2755,7 @@
     </message>
     <message>
       <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation>Copie o código da área abaixo e cole antes do fechamento da tag &amp;lt;/body&amp;gt;</translation>
+      <translation>Copie o código da área abaixo e cole no rodapé, antes do fechamento da tag &amp;lt;/body&amp;gt;</translation>
     </message>
     <message>
       <source>HTML code</source>
@@ -2683,165 +2866,6 @@
     </message>
   </context>
   <context>
-    <name>department/edit</name>
-    <message>
-      <source>Edit department</source>
-      <translation>Editar departamento</translation>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>Nome</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Disabled</source>
-      <translation>Desativado</translation>
-    </message>
-    <message>
-      <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
-      <translation>Atraso em segundos antes de exibir o formulário de deixar uma mensagem. 0 entende-se como funcionalidade desabilitada,</translation>
-    </message>
-    <message>
-      <source>Priority</source>
-      <translation>Prioridade</translation>
-    </message>
-    <message>
-      <source>Automate online hours</source>
-      <translation>Automatizar horas online</translation>
-    </message>
-    <message>
-      <source>Work hours/work days logic is active</source>
-      <translation>Lógica de trabalho Horas/Dias está ativa</translation>
-    </message>
-    <message>
-      <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
-      <translation>Dias úteis/ horas de trabalho, durante estes dias/horas o chat estará ativo automaticamente</translation>
-    </message>
-    <message>
-      <source>Monday</source>
-      <translation>Segunda-Feira</translation>
-    </message>
-    <message>
-      <source>Tuesday</source>
-      <translation>Terça-Feira</translation>
-    </message>
-    <message>
-      <source>Wednesday</source>
-      <translation>Quarta-Feira</translation>
-    </message>
-    <message>
-      <source>Thursday</source>
-      <translation>Quinta-Feira</translation>
-    </message>
-    <message>
-      <source>Friday</source>
-      <translation>Sexta-Feira</translation>
-    </message>
-    <message>
-      <source>Saturday</source>
-      <translation>Sábado</translation>
-    </message>
-    <message>
-      <source>Sunday</source>
-      <translation>Domingo</translation>
-    </message>
-    <message>
-      <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation>Horário de trabalho no formato 24 horas, 1 - 24</translation>
-    </message>
-    <message>
-      <source>From, E.g. 8</source>
-      <translation>A partir, por exemplo, 8</translation>
-    </message>
-    <message>
-      <source>To, E.g. 17</source>
-      <translation>Para, por exemplo, 17</translation>
-    </message>
-    <message>
-      <source>Notifications about new chats</source>
-      <translation>Notificações sobre novos chats</translation>
-    </message>
-    <message>
-      <source>XMPP recipients</source>
-      <translation>Destinatários XMPP</translation>
-    </message>
-    <message>
-      <source>XMPP group recipients</source>
-      <translation>Destinatários do grupo XMPP</translation>
-    </message>
-    <message>
-      <source>E.g somechat@conference.server.org/LiveChat</source>
-      <translation>Por exemplo somechat@conference.server.org/LiveChat</translation>
-    </message>
-    <message>
-      <source>These messages will be send as group messages</source>
-      <translation>Estas mensagens serão enviadas como mensagens de grupo</translation>
-    </message>
-    <message>
-      <source>Inform about new chats using</source>
-      <translation>Informar sobre novos chats usando</translation>
-    </message>
-    <message>
-      <source>XMPP messages</source>
-      <translation>Mensagens via XMPP</translation>
-    </message>
-    <message>
-      <source>Mail messages</source>
-      <translation>Mensagens via Email</translation>
-    </message>
-    <message>
-      <source>How many seconds chat can be pending before about chat is informed a staff</source>
-      <translation>Quantos segundos o chat pode ficar pendente antes de ser informado a equipe</translation>
-    </message>
-    <message>
-      <source>Other</source>
-      <translation>Outros</translation>
-    </message>
-    <message>
-      <source>Inform then chat is closed by operator, only mail notification is send.</source>
-      <translation>Informar quando o chat é fechado pelo operador, somente notificação por email é enviada</translation>
-    </message>
-    <message>
-      <source>Chat transfer worklow</source>
-      <translation>Fluxo de trabalho de transferência de chat</translation>
-    </message>
-    <message>
-      <source>To what department chat should be transfered if it is not accepted</source>
-      <translation>Para qual departamento o chat deve ser transferido caso não seja aceito</translation>
-    </message>
-    <message>
-      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
-      <translation>Tempo limite em segundos antes do chat ser transferido para outro departamento. Mínimo de 5 segundos.</translation>
-    </message>
-    <message>
-      <source>Miscellaneous</source>
-      <translation>Diversos</translation>
-    </message>
-    <message>
-      <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
-      <translation>Este campo possui comprimento máximo de 50 caracteres e pode ser usado para qualquer finalidade, por extensões. Este campo também é indexado.</translation>
-    </message>
-    <message>
-      <source>None</source>
-      <translation>Nenhum</translation>
-    </message>
-    <message>
-      <source>System configuration</source>
-      <translation>Configuração do sistema</translation>
-    </message>
-    <message>
-      <source>departments</source>
-      <translation>departamentos</translation>
-    </message>
-    <message>
-      <source>Edit a department</source>
-      <translation>editar um departamento</translation>
-    </message>
-  </context>
-  <context>
     <name>user/account</name>
     <message>
       <source>Updated</source>
@@ -2862,6 +2886,10 @@
     <message>
       <source>Username</source>
       <translation>Nome de usuário</translation>
+    </message>
+    <message>
+      <source>Your username</source>
+      <translation>Seu nome de usuário</translation>
     </message>
     <message>
       <source>Password</source>
@@ -2934,6 +2962,10 @@
     <message>
       <source>Closed chats tab enabled</source>
       <translation>Aba de chats fechados ativada</translation>
+    </message>
+    <message>
+      <source>Personal canned messages</source>
+      <translation>Mensagens predefinidas pessoais</translation>
     </message>
     <message>
       <source>Account updated</source>
@@ -3108,37 +3140,6 @@
     </message>
   </context>
   <context>
-    <name>file/configuration</name>
-    <message>
-      <source>File configuration</source>
-      <translation>Configuração de arquivo</translation>
-    </message>
-    <message>
-      <source>Allowed files types for operators</source>
-      <translation>Tipos de arquivos permitidos para operadores</translation>
-    </message>
-    <message>
-      <source>Allowed files types for users</source>
-      <translation>tipos de arquivos permitidos para usuários</translation>
-    </message>
-    <message>
-      <source>Maximum file size in KB</source>
-      <translation>Tamanho máximo do arquivo em KB</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Configirações atualizadas</translation>
-    </message>
-    <message>
-      <source>Please enter valid file type!</source>
-      <translation>Por favor informe um tipo de arquivo válido!</translation>
-    </message>
-    <message>
-      <source>Please enter valid maximum file size!</source>
-      <translation>Por favor informe um tamanho máximo de arquivo válido!</translation>
-    </message>
-  </context>
-  <context>
     <name>file/list</name>
     <message>
       <source>List of files</source>
@@ -3179,6 +3180,56 @@
     <message>
       <source>Delete the file</source>
       <translation>Apagar o arquivo</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/configuration</name>
+    <message>
+      <source>File configuration</source>
+      <translation>Configuração de arquivo</translation>
+    </message>
+    <message>
+      <source>Allowed files types for operators</source>
+      <translation>Tipos de arquivos permitidos para operadores</translation>
+    </message>
+    <message>
+      <source>Allowed files types for users</source>
+      <translation>tipos de arquivos permitidos para usuários</translation>
+    </message>
+    <message>
+      <source>Maximum file size in KB</source>
+      <translation>Tamanho máximo do arquivo em KB</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Configirações atualizadas</translation>
+    </message>
+    <message>
+      <source>Please enter valid file type!</source>
+      <translation>Por favor informe um tipo de arquivo válido!</translation>
+    </message>
+    <message>
+      <source>Please enter valid maximum file size!</source>
+      <translation>Por favor informe um tamanho máximo de arquivo válido!</translation>
+    </message>
+  </context>
+  <context>
+    <name>file/new</name>
+    <message>
+      <source>New file</source>
+      <translation>Novo arquivo</translation>
+    </message>
+    <message>
+      <source>File name</source>
+      <translation>Nome do arquivo</translation>
+    </message>
+    <message>
+      <source>Upload</source>
+      <translation>Enviar</translation>
+    </message>
+    <message>
+      <source>File uploaded</source>
+      <translation>Arquivo enviado</translation>
     </message>
   </context>
   <context>
@@ -3586,11 +3637,11 @@
     </message>
     <message>
       <source>Edit the question</source>
-      <translation>Editar a questão</translation>
+      <translation>Editar a pergunta</translation>
     </message>
     <message>
       <source>Delete the question</source>
-      <translation>Apagar a questão</translation>
+      <translation>Apagar a pergunta</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -3883,6 +3934,25 @@
     </message>
   </context>
   <context>
+    <name>system/timezone</name>
+    <message>
+      <source>Time zone settings</source>
+      <translation>Definições de fuso horário</translation>
+    </message>
+    <message>
+      <source>Set application specific time zone</source>
+      <translation>Definir fuso horário específico para a aplicação</translation>
+    </message>
+    <message>
+      <source>Live Helper Chat update</source>
+      <translation>Atualizar Live Helper Chat</translation>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation>Fuso horário</translation>
+    </message>
+  </context>
+  <context>
     <name>user/edit</name>
     <message>
       <source>Server default time zone</source>
@@ -3926,7 +3996,7 @@
     </message>
     <message>
       <source>Save</source>
-      <translation>Sarvar</translation>
+      <translation>Salvar</translation>
     </message>
     <message>
       <source>Update</source>
@@ -3971,6 +4041,41 @@
     <message>
       <source>Users</source>
       <translation>Usuários</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/update</name>
+    <message>
+      <source>Your version</source>
+      <translation>Sua versão</translation>
+    </message>
+    <message>
+      <source>Current version</source>
+      <translation>Versão atual</translation>
+    </message>
+    <message>
+      <source>Last database update</source>
+      <translation>Última atualização do banco</translation>
+    </message>
+    <message>
+      <source>News</source>
+      <translation>Novidades</translation>
+    </message>
+    <message>
+      <source>Missing updates from new versions.</source>
+      <translation>Faltando atualização de novas versões.</translation>
+    </message>
+    <message>
+      <source>Update instructions</source>
+      <translation>Instruções de atualização</translation>
+    </message>
+    <message>
+      <source>You are running current version. No updates required</source>
+      <translation>Você está rodando a última versão. Nenhuma atualização é necessária.</translation>
+    </message>
+    <message>
+      <source>Live Helper Chat update information</source>
+      <translation>Informações de atualização do Live Helper Chat</translation>
     </message>
   </context>
   <context>
@@ -4354,7 +4459,7 @@
     </message>
     <message>
       <source>XMPP Message content</source>
-      <translation>Conteúdo mensagem XMPP</translation>
+      <translation>Conteúdo da mensagem XMPP</translation>
     </message>
     <message>
       <source>XMPP</source>
@@ -4366,7 +4471,7 @@
     </message>
     <message>
       <source>Host</source>
-      <translation>Servidor</translation>
+      <translation>Host</translation>
     </message>
     <message>
       <source>Port</source>
@@ -4390,11 +4495,11 @@
     </message>
     <message>
       <source>Recipients</source>
-      <translation>Recipientes</translation>
+      <translation>Destinatários</translation>
     </message>
     <message>
       <source>Default recipients</source>
-      <translation>Recipientes Padrões</translation>
+      <translation>Destinatários padrões</translation>
     </message>
     <message>
       <source>Test recipients</source>
@@ -4410,7 +4515,7 @@
     </message>
     <message>
       <source>Test message will be send to your account e-mail</source>
-      <translation>Mensagem de teste que será enviada para sua conte de email</translation>
+      <translation>Mensagem de teste que será enviada para seu e-mail</translation>
     </message>
     <message>
       <source>GTalk</source>
@@ -4418,7 +4523,7 @@
     </message>
     <message>
       <source>Use GTalk for messaging</source>
-      <translation>Usar mensagem GTalk</translation>
+      <translation>Use GTalk para mensagens</translation>
     </message>
     <message>
       <source>Information for your google app</source>
@@ -4504,7 +4609,7 @@
     </message>
     <message>
       <source>Support staff member has closed this chat</source>
-      <translation>O Membro da equipe  fechou este chat</translation>
+      <translation>O Membro da equipe fechou este chat</translation>
     </message>
     <message>
       <source>You do not have permission to view this chat, or chat was deleted</source>
@@ -4651,7 +4756,7 @@
     <name>chatarchive/viewarchivedchat</name>
     <message>
       <source>View archived chat</source>
-      <translation>Ver o chat arquivado</translation>
+      <translation>Ver chat arquivado</translation>
     </message>
   </context>
   <context>
@@ -4659,79 +4764,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Por favor insira um tipo de arquivo válido!</translation>
-    </message>
-  </context>
-  <context>
-    <name>file/new</name>
-    <message>
-      <source>New file</source>
-      <translation>Novo arquivo</translation>
-    </message>
-    <message>
-      <source>File name</source>
-      <translation>Nome do arquivo</translation>
-    </message>
-    <message>
-      <source>Upload</source>
-      <translation>Enviar</translation>
-    </message>
-    <message>
-      <source>File uploaded</source>
-      <translation>Arquivo enviado</translation>
-    </message>
-  </context>
-  <context>
-    <name>system/timezone</name>
-    <message>
-      <source>Time zone settings</source>
-      <translation>Definições de fuso horário</translation>
-    </message>
-    <message>
-      <source>Set application specific time zone</source>
-      <translation>Definir fuso horário específico para a aplicação</translation>
-    </message>
-    <message>
-      <source>Live Helper Chat update</source>
-      <translation>Atualizar Live Helper Chat</translation>
-    </message>
-    <message>
-      <source>Time zone</source>
-      <translation>Fuso horário</translation>
-    </message>
-  </context>
-  <context>
-    <name>system/update</name>
-    <message>
-      <source>Your version</source>
-      <translation>Sua versão</translation>
-    </message>
-    <message>
-      <source>Current version</source>
-      <translation>Versão atual</translation>
-    </message>
-    <message>
-      <source>Last database update</source>
-      <translation>Última atualização do banco</translation>
-    </message>
-    <message>
-      <source>News</source>
-      <translation>Novidades</translation>
-    </message>
-    <message>
-      <source>Missing updates from new versions.</source>
-      <translation>Faltando atualização de novas versões.</translation>
-    </message>
-    <message>
-      <source>Update instructions</source>
-      <translation>Instruções de atualização</translation>
-    </message>
-    <message>
-      <source>You are running current version. No updates required</source>
-      <translation>Você está rodando a última versão. Nenhuma atualização é necessária.</translation>
-    </message>
-    <message>
-      <source>Live Helper Chat update information</source>
-      <translation>Informações de atualização do Live Helper Chat</translation>
     </message>
   </context>
 </TS>
