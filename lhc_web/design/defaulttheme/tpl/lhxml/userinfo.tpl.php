@@ -4,7 +4,7 @@
 <br>
 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhxml/userinfo','Current page');?>: <?php echo $onlineUsers->current_page; ?>
 <br>
-<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhxml/userinfo','Last visit');?>: <?php echo date('Y-m-d H:i:s', $onlineUsers->last_visit); ?>
+<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhxml/userinfo','Last visit');?>: <?php echo date(erLhcoreClassModule::$dateDateHourFormat, $onlineUsers->last_visit); ?>
 <br>
 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhxml/userinfo','User agent');?>: <?php echo $onlineUsers->user_agent; ?>
 <br>

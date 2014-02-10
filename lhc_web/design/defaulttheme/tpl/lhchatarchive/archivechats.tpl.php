@@ -7,5 +7,5 @@
 </div>
 <?php endif; ?>
 <div>
-<div class="radius secondary label"><?php echo date('Y-m-d H:i:s')?>, FCID - <?php echo $status['fcid']?>, LCID - <?php echo $status['lcid']?>, AC - <?php echo $status['chats_archived']?>, AM - <?php echo $status['messages_archived']?></div>
+<div class="radius secondary label"><?php echo date(erLhcoreClassModule::$dateDateHourFormat)?>, FCID - <?php echo $status['fcid']?>, LCID - <?php echo $status['lcid']?>, AC - <?php echo $status['chats_archived']?>, AM - <?php echo $status['messages_archived']?></div>
 </div>

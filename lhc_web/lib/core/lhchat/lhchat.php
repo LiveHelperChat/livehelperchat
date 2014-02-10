@@ -918,9 +918,9 @@ class erLhcoreClassChat {
 
    public static function formatDate($ts) {
 	   	if (date('Ymd') == date('Ymd',$ts)) {
-	   		return date('H:i:s',$ts);
+	   		return date(erLhcoreClassModule::$dateHourFormat,$ts);
 	   	} else {
-	   		return date('Y-m-d H:i:s',$ts);
+	   		return date(erLhcoreClassModule::$dateDateHourFormat,$ts);
 	   	}	  
    }
    

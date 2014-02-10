@@ -1,3 +1,15 @@
+1.86v
+
+1. Option to set date format. Three new fields in Settings => Time zone settings section. This is available per install and not per individual user.
+2. PHP-GeoIP extension support.
+
+edit your settings/settings.ini.php file and under 'force_virtual_host' => false,
+add
+'date_format' => 'Y-m-d',
+'date_hour_format' => 'H:i:s',
+'date_date_hour_format' => 'Y-m-d H:i:s',
+
+
 1.85v
 
 1. Canned messages by department

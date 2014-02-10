@@ -99,11 +99,18 @@
     </div>
   </section>
   
-  
- 
-  
-  
-  
+  <section <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'php_geoip') ? print 'class="active"' : ''?>>
+    <p class="title" data-section-title><a href="#phpgeoip">PHP-GeoIP</a></p>
+    <div class="content" data-section-content>
+    	<div>
+      	<label><input type="radio" name="UseGeoIP" value="php_geoip" <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'php_geoip') ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Use PHP-GeoIP module'); ?></label>
+            	      	
+      	<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Support for PHP-GeoIP detected'); ?> - <?php echo function_exists('geoip_country_code_by_name') ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'; ?></p> 
+      	        
+        <input type="submit" class="button small round" name="StoreGeoIPConfiguration" value="Save" />
+    	</div>
+    </div>
+  </section>
   
   <section <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'ipinfodbcom') ? print 'class="active"' : ''?>>
     <p class="title" data-section-title><a href="#panel3">http://ipinfodb.com</a></p>

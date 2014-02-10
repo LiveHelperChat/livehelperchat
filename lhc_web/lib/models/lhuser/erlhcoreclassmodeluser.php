@@ -123,7 +123,7 @@ class erLhcoreClassModelUser {
        		   $this->lastactivity_front = '';
 
        		   if ( $this->lastactivity > 0 ) {
-       		       $this->lastactivity_front = date('Y-m-d H:i:s');
+       		       $this->lastactivity_front = date(erLhcoreClassModule::$dateDateHourFormat);
        		   };
 
        		   return $this->lastactivity_front;
