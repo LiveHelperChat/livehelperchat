@@ -363,6 +363,10 @@ class erLhcoreClassModule{
         
         self::$defaultTimeZone = $cfg->getSetting('site', 'time_zone', false);
         
+        self::$dateFormat = $cfg->getSetting('site', 'date_format', false);
+        self::$dateHourFormat = $cfg->getSetting('site', 'date_hour_format', false);
+        self::$dateDateHourFormat = $cfg->getSetting('site', 'date_date_hour_format', false);
+
         if (self::$currentModuleName == '' || (self::$currentModule = self::getModule(self::$currentModuleName)) === false) {
             $params = $cfg->getOverrideValue('site','default_url');
 
@@ -393,6 +397,10 @@ class erLhcoreClassModule{
     static private $moduleCacheEnabled = NULL;
     static private $cacheInstance = NULL;
     static private $cacheVersionSite = NULL;
+    
+    public static $dateFormat = NULL;
+    public static $dateHourFormat = NULL;
+    public static $dateDateHourFormat = NULL;
 }
 
 ?>

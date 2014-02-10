@@ -68,11 +68,11 @@ class erLhcoreClassModelChatOnlineUser {
    public function __get($var) {
        switch ($var) {
        	case 'last_visit_front':
-       		  return date('Y-m-d H:i:s',$this->last_visit);
+       		  return date(erLhcoreClassModule::$dateDateHourFormat,$this->last_visit);
        		break;
 
        	case 'first_visit_front':
-       		  return date('Y-m-d H:i:s',$this->first_visit);
+       		  return date(erLhcoreClassModule::$dateDateHourFormat,$this->first_visit);
        		break;
 
        	case 'invitation':
@@ -131,7 +131,7 @@ class erLhcoreClassModelChatOnlineUser {
        	    break;
 
        	case 'time_on_site_front':
-       			return gmdate('H:i:s',$this->time_on_site);
+       			return gmdate(erLhcoreClassModule::$dateHourFormat,$this->time_on_site);
        		break;
 
        	case 'tt_time_on_site_front':
@@ -274,6 +274,26 @@ class erLhcoreClassModelChatOnlineUser {
 
                return $normalizedObject;
            } else {
+               return false;
+           }
+       } elseif ($service == 'php_geoip') {
+
+       		if (function_exists('geoip_record_by_name')) {       			
+       			$data = @geoip_record_by_name($ip);
+
+       			if ($data !== null) {
+	       			$normalizedObject = new stdClass();
+	       			$normalizedObject->country_code = isset($data['country_code']) ? strtolower($data['country_code']) : '';
+	       			$normalizedObject->country_name = isset($data['country_name']) ? strtolower($data['country_name']) : '';
+	       			$normalizedObject->city = isset($data['city']) ? strtolower($data['city']) : '';
+	       			$normalizedObject->lat = isset($data['latitude']) ? strtolower($data['latitude']) : '';
+	       			$normalizedObject->lon = isset($data['longitude']) ? strtolower($data['longitude']) : '';
+	       			return $normalizedObject;  
+       			} else {
+       				return false;
+       			}
+       			
+       		} else {       	
                return false;
            }
 

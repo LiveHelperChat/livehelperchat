@@ -34,7 +34,7 @@ class erLhcoreClassModelChatOnlineUserFootprint {
        switch ($var) {
 
        	case 'vtime_front':
-       		  return date('Y-m-d H:i:s',$this->vtime);
+       		  return date(erLhcoreClassModule::$dateDateHourFormat,$this->vtime);
        		break;
 
        	case 'time_ago':

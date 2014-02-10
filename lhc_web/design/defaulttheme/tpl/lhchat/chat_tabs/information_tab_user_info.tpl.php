@@ -84,7 +84,7 @@
 	<?php endif;?>
 	<tr>
 		<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Created')?></td>
-		<td><?php echo date('Y-m-d H:i:s',$chat->time)?></td>
+		<td><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chat->time)?></td>
 	</tr>
 	<?php if ($chat->wait_time > 0) : ?>
 	<tr>

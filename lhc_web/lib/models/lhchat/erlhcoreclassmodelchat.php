@@ -127,7 +127,7 @@ class erLhcoreClassModelChat {
        switch ($var) {
 
        	case 'time_created_front':
-       			$this->time_created_front = date('Ymd') == date('Ymd',$this->time) ? date('H:i:s',$this->time) : date('Y-m-d H:i:s',$this->time);
+       			$this->time_created_front = date('Ymd') == date('Ymd',$this->time) ? date(erLhcoreClassModule::$dateHourFormat,$this->time) : date(erLhcoreClassModule::$dateDateHourFormat,$this->time);
        			return $this->time_created_front;
        		break;
        	

@@ -223,6 +223,7 @@ class erLhcoreClassUser{
    		try {
 	   		$userData = $this->getUserData(true);   		
 	   		CSCacheAPC::getMem()->setSession('lhc_user_timezone',$userData->time_zone,true);
+	   		return $userData->time_zone;
    		} catch (Exception $e) {
    			CSCacheAPC::getMem()->setSession('lhc_user_timezone','',true);
    		}

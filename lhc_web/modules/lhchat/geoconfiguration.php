@@ -229,6 +229,13 @@ if ( isset($_POST['StoreGeoIPConfiguration']) ) {
                         $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!');
                     }
                 }
+            } elseif ($form->UseGeoIP == 'php_geoip') {
+                $data['geo_service_identifier'] = 'php_geoip';
+              
+                $responseDetection = erLhcoreClassModelChatOnlineUser::getUserData('php_geoip','94.23.200.91');
+                if ($responseDetection == false || !isset($responseDetection->country_code)){
+                    $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Setting service provider failed, please check that you have installed php-GeoIP module and GeoIPCity.dat file is available!');
+                }                
             }
 
         } else {

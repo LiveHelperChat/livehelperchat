@@ -319,7 +319,7 @@
     </message>
     <message>
       <source>User</source>
-      <translation type="unfinished"/>
+      <translation>用户</translation>
     </message>
     <message>
       <source>Delay</source>
@@ -351,15 +351,15 @@
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>新闻部</translation>
     </message>
     <message>
       <source>Personal canned message</source>
-      <translation type="unfinished"/>
+      <translation>罐装的个人消息</translation>
     </message>
     <message>
       <source>Canned message was saved</source>
-      <translation type="unfinished"/>
+      <translation>罐装的消息被保存</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -378,7 +378,7 @@
     <name>department/edit</name>
     <message>
       <source>Any</source>
-      <translation type="unfinished"/>
+      <translation>任何</translation>
     </message>
     <message>
       <source>Edit department</source>
@@ -1165,7 +1165,7 @@
     </message>
     <message>
       <source>Location of city database</source>
-      <translation type="unfinished"/>
+      <translation>城市数据库的位置</translation>
     </message>
     <message>
       <source>User country based detection, faster</source>
@@ -1646,7 +1646,7 @@
     </message>
     <message>
       <source>Update information</source>
-      <translation type="unfinished"/>
+      <translation>更新信息</translation>
     </message>
     <message>
       <source>Live help embed code</source>
@@ -2174,7 +2174,7 @@
     </message>
     <message>
       <source>This field is invisible but prefilled data is collected</source>
-      <translation type="unfinished"/>
+      <translation>此字段是无形的但预的数据收集</translation>
     </message>
     <message>
       <source>This field is</source>
@@ -2889,7 +2889,7 @@
     </message>
     <message>
       <source>Your username</source>
-      <translation type="unfinished"/>
+      <translation>您的用户名</translation>
     </message>
     <message>
       <source>Password</source>
@@ -2965,7 +2965,7 @@
     </message>
     <message>
       <source>Personal canned messages</source>
-      <translation type="unfinished"/>
+      <translation>个人罐装的消息</translation>
     </message>
     <message>
       <source>Account updated</source>
@@ -3625,7 +3625,7 @@
     </message>
     <message>
       <source>Revote</source>
-      <translation type="unfinished"/>
+      <translation>重新投票</translation>
     </message>
     <message>
       <source>Y</source>
@@ -3653,7 +3653,7 @@
     </message>
     <message>
       <source>Off</source>
-      <translation type="unfinished"/>
+      <translation>关闭</translation>
     </message>
     <message>
       <source>Questionary</source>
@@ -3706,7 +3706,7 @@
     </message>
     <message>
       <source>Revote time (hours), before can revote. Default 0 - never. Higher value allow revote after seconds expire since last vote</source>
-      <translation type="unfinished"/>
+      <translation>起来反抗的时间 （小时），之前可以起来反抗。默认 0-从不。更高的值允许重新投票秒届满自最后一次表决后</translation>
     </message>
     <message>
       <source>Active</source>
@@ -3945,7 +3945,7 @@
     </message>
     <message>
       <source>Live Helper Chat update</source>
-      <translation type="unfinished"/>
+      <translation>助手聊天的实时更新</translation>
     </message>
     <message>
       <source>Time zone</source>
@@ -4047,35 +4047,35 @@
     <name>system/update</name>
     <message>
       <source>Your version</source>
-      <translation type="unfinished"/>
+      <translation>您的版本</translation>
     </message>
     <message>
       <source>Current version</source>
-      <translation type="unfinished"/>
+      <translation>当前版本</translation>
     </message>
     <message>
       <source>Last database update</source>
-      <translation type="unfinished"/>
+      <translation>最后一次数据库更新</translation>
     </message>
     <message>
       <source>News</source>
-      <translation type="unfinished"/>
+      <translation>新闻</translation>
     </message>
     <message>
       <source>Missing updates from new versions.</source>
-      <translation type="unfinished"/>
+      <translation>新版本中缺少的更新。</translation>
     </message>
     <message>
       <source>Update instructions</source>
-      <translation type="unfinished"/>
+      <translation>更新说明</translation>
     </message>
     <message>
       <source>You are running current version. No updates required</source>
-      <translation type="unfinished"/>
+      <translation>您正在运行的当前版本。没有所需的更新</translation>
     </message>
     <message>
       <source>Live Helper Chat update information</source>
-      <translation type="unfinished"/>
+      <translation>生活助手聊天更新信息</translation>
     </message>
   </context>
   <context>
