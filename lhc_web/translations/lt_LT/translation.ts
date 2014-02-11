@@ -1184,6 +1184,14 @@
       <translation>Vartotojo miestu paremta detekcija, lėtesnė</translation>
     </message>
     <message>
+      <source>Use PHP-GeoIP module</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Support for PHP-GeoIP detected</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Requests will be comming from</source>
       <translation>Užklausos bus siunčiamos iš</translation>
     </message>
@@ -1482,6 +1490,10 @@
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!</source>
       <translation>Nustatant paslaugos teikėją įvyko klaida, prašome patikrinti ar Jūsų paslaugos teikėjas leidžia vykdyti užklausas į nutolusius puslapius ir ar Jūsų API raktas yra korektiškas!</translation>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that you have installed php-GeoIP module and GeoIPCity.dat file is available!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please choose a service provider!</source>
@@ -3942,6 +3954,18 @@
     <message>
       <source>Set application specific time zone</source>
       <translation>Nustatykite aplikacijos laiko zoną</translation>
+    </message>
+    <message>
+      <source>Date format E.g (Y-m-d)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Full date format E.g (Y-m-d H:i:s)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hour format E.g (H:i:s)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Live Helper Chat update</source>

@@ -1185,6 +1185,14 @@
       <translation>Обнаружение на основе города пользователя, работает медленее</translation>
     </message>
     <message>
+      <source>Use PHP-GeoIP module</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Support for PHP-GeoIP detected</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Requests will be comming from</source>
       <translation>Запрос придет из</translation>
     </message>
@@ -1483,6 +1491,10 @@
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!</source>
       <translation>Настройки поставщика услуг некорректны! Пожалуйста, проверьте разрешены ли входящие запросы с удаленных страниц у вашего поставщика услуг, а также ваш API ключ!</translation>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that you have installed php-GeoIP module and GeoIPCity.dat file is available!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please choose a service provider!</source>
@@ -3943,6 +3955,18 @@
     <message>
       <source>Set application specific time zone</source>
       <translation>Установить альтернативный часовой пояс для приложения</translation>
+    </message>
+    <message>
+      <source>Date format E.g (Y-m-d)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Full date format E.g (Y-m-d H:i:s)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hour format E.g (H:i:s)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Live Helper Chat update</source>

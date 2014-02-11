@@ -1184,6 +1184,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Use PHP-GeoIP module</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Support for PHP-GeoIP detected</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Requests will be comming from</source>
       <translation>จะมาร้องขอจาก</translation>
     </message>
@@ -1482,6 +1490,10 @@
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!</source>
       <translation>ไม่สามารถตั้งค่าบริการ กรุณาตรวจสอบว่า บริการของคุณช่วยให้คุณสามารถทำการร้องขอหน้าระยะไกล และคีย์ของคุณ API ถูกต้อง</translation>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that you have installed php-GeoIP module and GeoIPCity.dat file is available!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please choose a service provider!</source>
@@ -3941,6 +3953,18 @@
     </message>
     <message>
       <source>Set application specific time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date format E.g (Y-m-d)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Full date format E.g (Y-m-d H:i:s)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hour format E.g (H:i:s)</source>
       <translation type="unfinished"/>
     </message>
     <message>
