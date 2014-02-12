@@ -9,6 +9,7 @@ class erLhcoreClassModelChatOnlineUser {
                'ip'                 => $this->ip,
                'vid'                => $this->vid,
                'current_page'       => $this->current_page,
+               'invitation_seen_count'       => $this->invitation_seen_count,
                'page_title'         => $this->page_title,
                'chat_id'            => $this->chat_id, // For future
                'last_visit'         => $this->last_visit,
@@ -35,6 +36,7 @@ class erLhcoreClassModelChatOnlineUser {
                'invitation_count'   => $this->invitation_count,
                'requires_email'   	=> $this->requires_email,
                'dep_id'   			=> $this->dep_id,
+               'reopen_chat'   		=> $this->reopen_chat,
        );
    }
 
@@ -66,11 +68,11 @@ class erLhcoreClassModelChatOnlineUser {
    public function __get($var) {
        switch ($var) {
        	case 'last_visit_front':
-       		  return date('Y-m-d H:i:s',$this->last_visit);
+       		  return date(erLhcoreClassModule::$dateDateHourFormat,$this->last_visit);
        		break;
 
        	case 'first_visit_front':
-       		  return date('Y-m-d H:i:s',$this->first_visit);
+       		  return date(erLhcoreClassModule::$dateDateHourFormat,$this->first_visit);
        		break;
 
        	case 'invitation':
@@ -129,7 +131,7 @@ class erLhcoreClassModelChatOnlineUser {
        	    break;
 
        	case 'time_on_site_front':
-       			return gmdate('H:i:s',$this->time_on_site);
+       			return gmdate(erLhcoreClassModule::$dateHourFormat,$this->time_on_site);
        		break;
 
        	case 'tt_time_on_site_front':
@@ -274,6 +276,26 @@ class erLhcoreClassModelChatOnlineUser {
            } else {
                return false;
            }
+       } elseif ($service == 'php_geoip') {
+
+       		if (function_exists('geoip_record_by_name')) {       			
+       			$data = @geoip_record_by_name($ip);
+
+       			if ($data !== null) {
+	       			$normalizedObject = new stdClass();
+	       			$normalizedObject->country_code = isset($data['country_code']) ? strtolower($data['country_code']) : '';
+	       			$normalizedObject->country_name = isset($data['country_name']) ? strtolower($data['country_name']) : '';
+	       			$normalizedObject->city = isset($data['city']) ? strtolower($data['city']) : '';
+	       			$normalizedObject->lat = isset($data['latitude']) ? strtolower($data['latitude']) : '';
+	       			$normalizedObject->lon = isset($data['longitude']) ? strtolower($data['longitude']) : '';
+	       			return $normalizedObject;  
+       			} else {
+       				return false;
+       			}
+       			
+       		} else {       	
+               return false;
+           }
 
        } elseif ($service == 'max_mind') {
 
@@ -293,7 +315,7 @@ class erLhcoreClassModelChatOnlineUser {
        			}       			
        		} elseif ($params['detection_type'] == 'city') {
        			try {
-	       			$reader = new GeoIp2\Database\Reader('var/external/geoip/GeoLite2-City.mmdb');
+	       			$reader = new GeoIp2\Database\Reader( (isset($params['city_file']) && $params['city_file'] != '')  ? $params['city_file'] : 'var/external/geoip/GeoLite2-City.mmdb');
 	       			$countryData = $reader->city($ip);
 	       			$normalizedObject = new stdClass();
 	       			$normalizedObject->country_code = strtolower($countryData->raw['country']['iso_code']);
@@ -394,6 +416,7 @@ class erLhcoreClassModelChatOnlineUser {
                $params['api_key'] = $geo_data['ipinfodbcom_api_key'];
            } elseif ($geo_data['geo_service_identifier'] == 'max_mind') {             
                $params['detection_type'] = $geo_data['max_mind_detection_type'];
+               $params['city_file'] = isset($geo_data['max_mind_city_location']) ? $geo_data['max_mind_city_location'] : '';
            }
           
            $location = self::getUserData($geo_data['geo_service_identifier'],$instance->ip,$params);
@@ -414,11 +437,11 @@ class erLhcoreClassModelChatOnlineUser {
          $timeoutCleanup = erLhcoreClassModelChatConfig::fetch('tracked_users_cleanup')->current_value;
 
          $stmt = $db->prepare('DELETE FROM lh_chat_online_user WHERE last_visit < :last_activity');
-         $stmt->bindValue(':last_activity',(int)(time()-$timeoutCleanup * 24*3600));
+         $stmt->bindValue(':last_activity',(int)(time()-$timeoutCleanup * 24*3600),PDO::PARAM_INT);
          $stmt->execute();
 
          $stmt = $db->prepare('DELETE FROM lh_chat_online_user_footprint WHERE chat_id = 0 AND vtime < :last_activity');
-         $stmt->bindValue(':last_activity',(int)(time()-$timeoutCleanup * 24*3600));
+         $stmt->bindValue(':last_activity',(int)(time()-$timeoutCleanup * 24*3600),PDO::PARAM_INT);
          $stmt->execute();
 
    }
@@ -530,6 +553,16 @@ class erLhcoreClassModelChatOnlineUser {
 	           		$item->pages_count++;
 	           		$item->tt_pages_count++;
 	           		$item->store_chat = true;
+	           		
+	           		if ($item->has_message_from_operator == true) {
+	           			$item->invitation_seen_count++;
+	           		}
+	           		
+	           		// Hide invitation message after n times if required
+	           		if ($item->has_message_from_operator == true && $item->invitation !== false && $item->invitation->hide_after_ntimes > 0 && $item->invitation_seen_count > $item->invitation->hide_after_ntimes ) {	           			
+	           			$item->message_seen = 1;
+	           			$item->message_seen_ts = time();
+	           		}
 	           }
 
 	           // Update variables only if it's not JS to check for operator message
@@ -602,6 +635,11 @@ class erLhcoreClassModelChatOnlineUser {
    public $invitation_count = 0;
    public $requires_email = 0;
    public $dep_id = 0;
+   public $invitation_seen_count = 0;
+   
+   // 0 - do not reopen
+   // 1 - reopen chat
+   public $reopen_chat = 0;
 
    // Logical attributes
    public $store_chat = false;

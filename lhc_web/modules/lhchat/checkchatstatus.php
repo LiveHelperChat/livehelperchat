@@ -3,6 +3,7 @@
 $activated = 'false';
 $result = 'false';
 $ott = '';
+$ru = '';
 
 $tpl = erLhcoreClassTemplate::getInstance('lhchat/checkchatstatus.tpl.php');
 
@@ -33,6 +34,17 @@ try {
     		}
     	}
     	
+    	if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
+    		$department = $chat->department;
+    		if ($department !== false) {
+    			$delay = time()-$department->delay_lm;
+    			if ($department->delay_lm > 0 && $chat->time < $delay) {
+    				$baseURL = (isset($Params['user_parameters_unordered']['mode']) && $Params['user_parameters_unordered']['mode'] == 'widget') ? erLhcoreClassDesign::baseurl('chat/chatwidget') : erLhcoreClassDesign::baseurl('chat/startchat');
+    				$ru = $baseURL.'/(department)/'.$department->id.'/(offline)/true/(leaveamessage)/true/(chatprefill)/'.$chat->id.'_'.$chat->hash;
+    			}
+    		}   		
+    	}    	
+
 	    if ( erLhcoreClassChat::isOnline($chat->dep_id,false,array('online_timeout' => (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'])) ) {
 	         $tpl->set('is_online',true);
 	    } else {
@@ -68,6 +80,6 @@ try {
     exit;
 }
 
-echo json_encode(array('error' => 'false','ott' => $ott, 'result' => $tpl->fetch(),'activated' => $activated));
+echo json_encode(array('error' => 'false','ru' => $ru,'ott' => $ott, 'result' => $tpl->fetch(),'activated' => $activated));
 exit;
 ?>

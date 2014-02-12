@@ -24,6 +24,16 @@ $def->properties['delay']->columnName   = 'delay';
 $def->properties['delay']->propertyName = 'delay';
 $def->properties['delay']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['department_id'] = new ezcPersistentObjectProperty();
+$def->properties['department_id']->columnName   = 'department_id';
+$def->properties['department_id']->propertyName = 'department_id';
+$def->properties['department_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['user_id'] = new ezcPersistentObjectProperty();
+$def->properties['user_id']->columnName   = 'user_id';
+$def->properties['user_id']->propertyName = 'user_id';
+$def->properties['user_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

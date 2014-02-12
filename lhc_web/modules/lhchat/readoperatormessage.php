@@ -51,9 +51,9 @@ if (isset($_POST['askQuestion']))
         $inputData->question = $form->Question;
     }
 
-    if ($form->hasValidData( 'Question' ) && $form->Question != '' && strlen($form->Question) > 500)
+    if ($form->hasValidData( 'Question' ) && $form->Question != '' && mb_strlen($form->Question) > (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value)
     {
-        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum 500 characters for a message');
+        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum').' '.(int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','characters for a message');
     }
 
     if ($userInstance->requires_email == 1) {
@@ -63,8 +63,6 @@ if (isset($_POST['askQuestion']))
     		$inputData->email = $chat->email = $form->Email;
     	}
     }
-    
-   
     
     if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
     	if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600 || $hashCaptcha != sha1($_SERVER['REMOTE_ADDR'].$form->$nameField.erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ))){

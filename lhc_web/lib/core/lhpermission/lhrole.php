@@ -22,7 +22,7 @@ class erLhcoreClassRole{
 	   	$db = ezcDbInstance::get();
 	   	 
 	   	$stmt = $db->prepare('SELECT count(*) FROM lh_grouprole WHERE role_id = :role_id');
-	   	$stmt->bindValue(':role_id',$roleID);
+	   	$stmt->bindValue(':role_id',$roleID,PDO::PARAM_INT);
 	   	$stmt->execute();
 	   	   	
 	   	return $stmt->fetchColumn() == 0;
@@ -62,7 +62,7 @@ class erLhcoreClassRole{
        $db = ezcDbInstance::get();
        
        $stmt = $db->prepare('SELECT lh_rolefunction.module,lh_rolefunction.function       
-       FROM `lh_rolefunction`
+       FROM lh_rolefunction
        
        INNER JOIN lh_role ON lh_role.id = lh_rolefunction.role_id
        INNER JOIN lh_grouprole ON lh_role.id = lh_grouprole.role_id
@@ -70,7 +70,7 @@ class erLhcoreClassRole{
        
        WHERE lh_groupuser.user_id = :user_id'); 
 
-       $stmt->bindValue( ':user_id',$user_id);   
+       $stmt->bindValue( ':user_id',$user_id,PDO::PARAM_INT);   
               
        $stmt->execute();
        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);

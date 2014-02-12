@@ -20,6 +20,9 @@ if (isset($_POST['Update_action']) || isset($_POST['Save_action'])  )
         ),
         'Delay' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0)
+        ),
+        'DepartmentID' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1)
         )
     );
 
@@ -34,6 +37,12 @@ if (isset($_POST['Update_action']) || isset($_POST['Save_action'])  )
     if ( $form->hasValidData( 'Position' )  )
     {
         $Msg->position = $form->Position;
+    }
+
+    if ( $form->hasValidData( 'DepartmentID' )  ) {
+        $Msg->department_id = $form->DepartmentID;
+    } else {
+    	$Msg->department_id = 0;
     }
 
     if ( $form->hasValidData( 'Delay' )  )

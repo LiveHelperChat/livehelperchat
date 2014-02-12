@@ -69,6 +69,11 @@ $def->properties['filename']->columnName   = 'filename';
 $def->properties['filename']->propertyName = 'filename';
 $def->properties['filename']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['time_zone'] = new ezcPersistentObjectProperty();
+$def->properties['time_zone']->columnName   = 'time_zone';
+$def->properties['time_zone']->propertyName = 'time_zone';
+$def->properties['time_zone']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 return $def;
 
 ?>

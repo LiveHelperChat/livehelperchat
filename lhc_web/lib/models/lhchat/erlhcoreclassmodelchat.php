@@ -8,6 +8,7 @@ class erLhcoreClassModelChat {
                'id'              		=> $this->id,
                'nick'            		=> $this->nick,
                'status'          		=> $this->status,
+               'status_sub'          	=> $this->status_sub,
                'time'            		=> $this->time,
                'user_id'         		=> $this->user_id,
                'hash'            		=> $this->hash,
@@ -126,7 +127,7 @@ class erLhcoreClassModelChat {
        switch ($var) {
 
        	case 'time_created_front':
-       			$this->time_created_front = date('Ymd') == date('Ymd',$this->time) ? date('H:i:s',$this->time) : date('Y-m-d H:i:s',$this->time);
+       			$this->time_created_front = date('Ymd') == date('Ymd',$this->time) ? date(erLhcoreClassModule::$dateHourFormat,$this->time) : date(erLhcoreClassModule::$dateDateHourFormat,$this->time);
        			return $this->time_created_front;
        		break;
        	
@@ -226,7 +227,8 @@ class erLhcoreClassModelChat {
            } elseif ($geo_data['geo_service_identifier'] == 'ipinfodbcom') {             
                $params['api_key'] = $geo_data['ipinfodbcom_api_key'];
            } elseif ($geo_data['geo_service_identifier'] == 'max_mind') {             
-               $params['detection_type'] = $geo_data['max_mind_detection_type'];
+               $params['detection_type'] = $geo_data['max_mind_detection_type'];         
+               $params['city_file'] = isset($geo_data['max_mind_city_location']) ? $geo_data['max_mind_city_location'] : '';
            }
 
            $location = erLhcoreClassModelChatOnlineUser::getUserData($geo_data['geo_service_identifier'],$instance->ip,$params);
@@ -261,9 +263,17 @@ class erLhcoreClassModelChat {
    const CHAT_INITIATOR_DEFAULT = 0;
    const CHAT_INITIATOR_PROACTIVE = 1;
 
+   const STATUS_SUB_DEFAULT = 0;
+   const STATUS_SUB_OWNER_CHANGED = 1;
+   
+   const USER_STATUS_JOINED_CHAT = 0;
+   const USER_STATUS_CLOSED_CHAT = 1;
+   const USER_STATUS_PENDING_REOPEN = 2;
+   
    public $id = null;
    public $nick = '';
    public $status = self::STATUS_PENDING_CHAT;
+   public $status_sub = self::STATUS_SUB_DEFAULT;
    public $time = '';
    public $user_id = '';
    public $hash = '';
@@ -271,7 +281,7 @@ class erLhcoreClassModelChat {
    public $referrer = '';
    public $dep_id = '';
    public $email = '';
-   public $user_status = 0;
+   public $user_status = self::USER_STATUS_JOINED_CHAT;
    public $support_informed = '';
    public $country_code = '';
    public $country_name = '';

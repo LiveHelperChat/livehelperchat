@@ -46,16 +46,20 @@ class erLhcoreClassChatMail {
     public static function prepareSendMail(erLhAbstractModelEmailTemplate & $sendMail)
     {
     	$currentUser = erLhcoreClassUser::instance();
-    	$userData = $currentUser->getUserData();
-    	$sendMail->subject = str_replace(array('{name_surname}'),array($userData->name.' '.$userData->surname),$sendMail->subject);
-    	$sendMail->from_name = str_replace(array('{name_surname}'),array($userData->name.' '.$userData->surname),$sendMail->from_name);
-
-    	if (empty($sendMail->from_email)) {
-    		$sendMail->from_email = $userData->email;
-    	}
-
-    	if (empty($sendMail->reply_to)) {
-    		$sendMail->reply_to = $userData->email;
+    	
+    	if ($currentUser->isLogged() == true){    	
+	    	$userData = $currentUser->getUserData();  	
+	    		    	    	
+	    	$sendMail->subject = str_replace(array('{name_surname}'),array($userData->name.' '.$userData->surname),$sendMail->subject);
+	    	$sendMail->from_name = str_replace(array('{name_surname}'),array($userData->name.' '.$userData->surname),$sendMail->from_name);
+	
+	    	if (empty($sendMail->from_email)) {
+	    		$sendMail->from_email = $userData->email;
+	    	}
+	
+	    	if (empty($sendMail->reply_to)) {
+	    		$sendMail->reply_to = $userData->email;
+	    	}
     	}
     }
 
@@ -81,20 +85,20 @@ class erLhcoreClassChatMail {
     		$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 100,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
     	}
     	
-
-    	
     	// Fetch chat messages
     	$tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/plain.tpl.php');
     	$tpl->set('chat', $chat);
     	$tpl->set('messages', $messages);
 
     	$sendMail->content = str_replace(array('{user_chat_nick}','{messages_content}'), array($chat->nick,$tpl->fetch()), $sendMail->content);
-
+    	
     	if ($form->hasValidData( 'Message' ) )
     	{
     		$sendMail->content = str_replace('{additional_message}', $form->Message, $sendMail->content);
     	}
 
+    	$sendMail->content = erLhcoreClassBBCode::parseForMail($sendMail->content);
+    	
     	if ( $form->hasValidData( 'FromEmail' ) ) {
     		$sendMail->from_email = $form->FromEmail;
     	}
@@ -137,11 +141,18 @@ class erLhcoreClassChatMail {
 
     	$mail = new PHPMailer();
     	$mail->CharSet = "UTF-8";
-    	$mail->Sender = $mail->From = $sendMail->from_email;
+    	
+    	if ($sendMail->from_email != '') {
+    		$mail->Sender = $mail->From = $sendMail->from_email;
+    	}
+    	
     	$mail->FromName = $sendMail->from_name;
     	$mail->Subject = $sendMail->subject;
-    	$mail->AddReplyTo($sendMail->reply_to,$sendMail->from_name);
-
+    	
+    	if ($sendMail->reply_to != '') {
+    		$mail->AddReplyTo($sendMail->reply_to,$sendMail->from_name);
+    	}
+    	
     	$mail->Body = $sendMail->content;
     	$mail->AddAddress( $sendMail->recipient );
 
@@ -151,7 +162,7 @@ class erLhcoreClassChatMail {
     	$mail->ClearAddresses();
     }
 
-    public static function sendMailRequest($inputData, erLhcoreClassModelChat $chat) {
+    public static function sendMailRequest($inputData, erLhcoreClassModelChat $chat, $params = array()) {
 
     	$sendMail = erLhAbstractModelEmailTemplate::fetch(2);
 
@@ -166,7 +177,13 @@ class erLhcoreClassChatMail {
     	$mail->FromName = $chat->nick;
     	$mail->Subject = $sendMail->subject;
     	$mail->AddReplyTo($chat->email,$chat->nick);
-    	$mail->Body = str_replace(array('{phone}','{name}','{email}','{message}','{additional_data}','{url_request}','{ip}','{department}','{country}','{city}'), array($chat->phone,$chat->nick,$chat->email,$inputData->question,$chat->additional_data,(isset($_POST['URLRefer']) ? $_POST['URLRefer'] : ''),erLhcoreClassIPDetect::getIP(),(string)$chat->department,$chat->country_name,$chat->city), $sendMail->content);
+    	
+    	$prefillchat = '-'; 
+    	if (isset($params['chatprefill']) && $params['chatprefill'] instanceof erLhcoreClassModelChat){
+    		$prefillchat = erLhcoreClassXMP::getBaseHost() . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('user/login').'/(r)/'.rawurlencode(base64_encode('chat/single/'.$params['chatprefill']->id));
+    	}
+    	
+    	$mail->Body = str_replace(array('{phone}','{name}','{email}','{message}','{additional_data}','{url_request}','{ip}','{department}','{country}','{city}','{prefillchat}'), array($chat->phone,$chat->nick,$chat->email,$inputData->question,$chat->additional_data,(isset($_POST['URLRefer']) ? $_POST['URLRefer'] : ''),erLhcoreClassIPDetect::getIP(),(string)$chat->department,$chat->country_name,$chat->city,$prefillchat), $sendMail->content);
 
     	$emailRecipient = array();
     	if ($chat->department !== false && $chat->department->email != '') { // Perhaps department has assigned email
@@ -213,9 +230,9 @@ class erLhcoreClassChatMail {
     	
     	foreach ($messages as $msg ) {
 	    	 if ($msg->user_id == -1) {
-	    		$messagesContent .= date('Y-m-d H:i:s',$msg->time).' '. erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','System assistant').': '.htmlspecialchars($msg->msg)."\n";
+	    		$messagesContent .= date(erLhcoreClassModule::$dateDateHourFormat,$msg->time).' '. erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','System assistant').': '.htmlspecialchars($msg->msg)."\n";
 	    	 } else {
-	    		$messagesContent .= date('Y-m-d H:i:s',$msg->time).' '. ($msg->user_id == 0 ? htmlspecialchars($chat->nick) : htmlspecialchars($msg->name_support)).': '.htmlspecialchars($msg->msg)."\n";
+	    		$messagesContent .= date(erLhcoreClassModule::$dateDateHourFormat,$msg->time).' '. ($msg->user_id == 0 ? htmlspecialchars($chat->nick) : htmlspecialchars($msg->name_support)).': '.htmlspecialchars($msg->msg)."\n";
 	    	 }
     	}
     	
@@ -263,9 +280,9 @@ class erLhcoreClassChatMail {
     	
     	foreach ($messages as $msg ) {
 	    	 if ($msg->user_id == -1) {
-	    		$messagesContent .= date('Y-m-d H:i:s',$msg->time).' '. erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','System assistant').': '.htmlspecialchars($msg->msg)."\n";
+	    		$messagesContent .= date(erLhcoreClassModule::$dateDateHourFormat,$msg->time).' '. erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','System assistant').': '.htmlspecialchars($msg->msg)."\n";
 	    	 } else {
-	    		$messagesContent .= date('Y-m-d H:i:s',$msg->time).' '. ($msg->user_id == 0 ? htmlspecialchars($chat->nick) : htmlspecialchars($msg->name_support)).': '.htmlspecialchars($msg->msg)."\n";
+	    		$messagesContent .= date(erLhcoreClassModule::$dateDateHourFormat,$msg->time).' '. ($msg->user_id == 0 ? htmlspecialchars($chat->nick) : htmlspecialchars($msg->name_support)).': '.htmlspecialchars($msg->msg)."\n";
 	    	 }
     	}
     	

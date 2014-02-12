@@ -8,7 +8,8 @@ class erLhcoreClassModelQuestionOptionAnswer {
 	                'id'         	=> $this->id,
 	                'ip'   			=> $this->ip,
 	       		    'question_id'   => $this->question_id,
-	       			'option_id'	 	=> $this->option_id
+	       			'option_id'	 	=> $this->option_id,
+	       			'ctime'	 		=> $this->ctime,
               );
    }
 
@@ -34,6 +35,7 @@ class erLhcoreClassModelQuestionOptionAnswer {
    public function saveThis()
    {
    	   $this->ip = ip2long(erLhcoreClassIPDetect::getIP());
+   	   $this->ctime = time();
        erLhcoreClassQuestionary::getSession()->saveOrUpdate($this);
    }
 
@@ -54,6 +56,7 @@ class erLhcoreClassModelQuestionOptionAnswer {
    public $ip = 0;
    public $question_id = null;
    public $option_id = null;
+   public $ctime = 0;
 }
 
 ?>

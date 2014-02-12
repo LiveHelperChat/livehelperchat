@@ -120,6 +120,14 @@ $def->properties['disabled']->columnName   = 'disabled';
 $def->properties['disabled']->propertyName = 'disabled';
 $def->properties['disabled']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+/**
+ * Delay before leave a message window is shown
+ * */
+$def->properties['delay_lm'] = new ezcPersistentObjectProperty();
+$def->properties['delay_lm']->columnName   = 'delay_lm';
+$def->properties['delay_lm']->propertyName = 'delay_lm';
+$def->properties['delay_lm']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

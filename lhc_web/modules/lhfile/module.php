@@ -31,9 +31,27 @@ $ViewList['uploadfileadmin'] = array(
 		'functions' => array( 'use_operator' )
 );
 
+$ViewList['new'] = array(
+		'params' => array(),
+		'uparams' => array('mode'),
+		'functions' => array( 'use_operator' )
+);
+
+$ViewList['attatchfile'] = array(
+		'params' => array('chat_id'),
+		'uparams' => array('user_id'),
+		'functions' => array( 'use_operator' )
+);
+
+$ViewList['attatchfilemail'] = array(
+		'params' => array(),
+		'uparams' => array('mode','user_id'),
+		'functions' => array( 'use_operator' )
+);
+
 $ViewList['list'] = array(
 		'params' => array(),
-		'uparams' => array(),
+		'uparams' => array('user_id'),
 		'functions' => array( 'file_list' )
 );
 

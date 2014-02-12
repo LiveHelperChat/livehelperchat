@@ -12,6 +12,7 @@ class erLhcoreClassModelQuestion {
        			'active'	 	 => $this->active,
        			'priority'	 	 => $this->priority,
        			'is_voting'	 	 => $this->is_voting,
+       			'revote'         => $this->revote,
               );
    }
 
@@ -59,6 +60,11 @@ class erLhcoreClassModelQuestion {
            		return $this->total_votes_for_percentange;
        		break;
 
+       	case 'revote_seconds':
+       			$this->revote_seconds = $this->revote*3600;
+           		return $this->revote_seconds;
+       		break;
+
        	case 'options':
        			$this->options = erLhcoreClassQuestionary::getList(array('sort' => 'priority DESC', 'filter' => array('question_id' => $this->id)),'erLhcoreClassModelQuestionOption','lh_question_option');;
        			return $this->options;
@@ -76,6 +82,7 @@ class erLhcoreClassModelQuestion {
    public $active = 1;
    public $priority = 0;
    public $is_voting = 0;
+   public $revote = 0;
 }
 
 ?>

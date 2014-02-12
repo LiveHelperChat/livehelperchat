@@ -21,13 +21,41 @@ $tpl->set('referer_site','');
 $startData = erLhcoreClassModelChatConfig::fetch('start_chat_data');
 $startDataFields = (array)$startData->data;
 
-// Input fields holder
+
 $inputData = new stdClass();
-$inputData->username = isset($_GET['prefill']['username']) ? (string)$_GET['prefill']['username'] : '';
-$inputData->question = '';
-$inputData->email = isset($_GET['prefill']['email']) ? (string)$_GET['prefill']['email'] : '';
-$inputData->phone = isset($_GET['prefill']['phone']) ? (string)$_GET['prefill']['phone'] : '';
+$inputData->chatprefill = '';
+$inputData->email = '';
+$inputData->username = '';
+$inputData->phone = '';
 $inputData->departament_id = (int)$Params['user_parameters_unordered']['department'];
+$inputData->accept_tos = false;
+
+// Perhaps user was redirected to leave a message form because chat was not acceptend in some time interval
+if ((string)$Params['user_parameters_unordered']['chatprefill'] != '') {
+	list($chatID,$hash) = explode('_',$Params['user_parameters_unordered']['chatprefill']);
+
+	try {
+		$chatPrefill = erLhcoreClassModelChat::fetch($chatID);
+		if ($chatPrefill->hash == $hash) {
+			$inputData->chatprefill = $Params['user_parameters_unordered']['chatprefill'];			
+			$inputData->username = $chatPrefill->nick;
+			$inputData->departament_id = $chatPrefill->dep_id;
+			$inputData->email = $chatPrefill->email;			
+			$inputData->phone = $chatPrefill->phone;	
+			$inputData->accept_tos = true;
+		} else {
+			unset($chatPrefill);
+		}
+	} catch (Exception $e) {
+		// Do nothing
+	} 
+}
+
+// Input fields holder
+$inputData->username = isset($_GET['prefill']['username']) ? (string)$_GET['prefill']['username'] : $inputData->username;
+$inputData->question = '';
+$inputData->email = isset($_GET['prefill']['email']) ? (string)$_GET['prefill']['email'] : $inputData->email;
+$inputData->phone = isset($_GET['prefill']['phone']) ? (string)$_GET['prefill']['phone'] : $inputData->phone;
 $inputData->priority = is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : false;
 $inputData->validate_start_chat = true;
 $inputData->name_items = array();
@@ -36,7 +64,6 @@ $inputData->value_types = array();
 $inputData->value_sizes = array();
 $inputData->hash_resume = false;
 $inputData->vid = false;
-$inputData->accept_tos = false;
 
 // Perhaps it's direct argument
 if ((string)$Params['user_parameters_unordered']['hash_resume'] != '') {
@@ -48,8 +75,6 @@ if ((string)$Params['user_parameters_unordered']['vid'] != '') {
 	$inputData->vid = (string)$Params['user_parameters_unordered']['vid'];
 }
 
-
-
 $chat = new erLhcoreClassModelChat();
 
 // Assign department instantly
@@ -58,10 +83,12 @@ if ($inputData->departament_id > 0) {
 }
 
 $leaveamessage = ((string)$Params['user_parameters_unordered']['leaveamessage'] == 'true' || (isset($startDataFields['force_leave_a_message']) && $startDataFields['force_leave_a_message'] == true)) ? true : false;
+$tpl->set('forceoffline',false);
 
 $additionalParams = array();
 if ((string)$Params['user_parameters_unordered']['offline'] == 'true' && $leaveamessage == true) {
 	$additionalParams['offline'] = true;
+	$tpl->set('forceoffline',true);
 }
 
 $tpl->set('leaveamessage',$leaveamessage);
@@ -80,7 +107,7 @@ if (isset($_POST['StartChat'])) {
    		erLhcoreClassModelChat::detectLocation($chat);
    		
    		if (isset($additionalParams['offline']) && $additionalParams['offline'] == true) {
-	   		erLhcoreClassChatMail::sendMailRequest($inputData,$chat);
+	   		erLhcoreClassChatMail::sendMailRequest($inputData,$chat,array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false));
 	   		$tpl->set('request_send',true);
 	   	} else {
 	       $chat->time = time();

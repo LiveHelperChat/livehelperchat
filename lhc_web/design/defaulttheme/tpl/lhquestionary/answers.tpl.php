@@ -14,7 +14,7 @@
 	    <tr>
 	        <td><?php echo $item->id?></td>
 	        <td><?php echo htmlspecialchars(erLhcoreClassDesign::shrt($item->answer))?></td>
-	        <td><?php echo date('Y-m-d H:i:s',$item->ctime)?></td>
+	        <td><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$item->ctime)?></td>
 	        <td><?php echo $item->ip_front?></td>
 	        <td nowrap><a class="tiny button round" onclick="return $.colorbox({'iframe':true,height:'500px',width:'500px', href:'<?php echo erLhcoreClassDesign::baseurl('questionary/previewanswer')?>/<?php echo $item->id?>'});" href="#"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/answers','View');?></a></td>
 	        <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required tiny alert button round" href="<?php echo erLhcoreClassDesign::baseurl('questionary/deleteanswer')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/answers','Delete the answer');?></a></td>

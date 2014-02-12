@@ -25,6 +25,8 @@
 
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Surname');?></label>
 <input class="inputfield" type="text" name="Surname" value="<?php echo htmlspecialchars($user->surname);?>" />
+ 
+<?php include(erLhcoreClassDesign::designtpl('lhuser/parts/time_zone.tpl.php'));?>
 
 <div class="row">
 	<div class="columns small-6">

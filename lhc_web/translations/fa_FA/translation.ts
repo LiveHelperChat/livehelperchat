@@ -132,6 +132,14 @@
       <translation>بازدید</translation>
     </message>
     <message>
+      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How many times user show invitation, 0 - untill users closes it, &gt; 0 limits.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Requires e-mail</source>
       <translation>درخواست ایمیل</translation>
     </message>
@@ -310,6 +318,10 @@
       <translation>پیام</translation>
     </message>
     <message>
+      <source>User</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Delay</source>
       <translation>تاخیر</translation>
     </message>
@@ -338,6 +350,18 @@
       <translation>تاخیر به ثانیه</translation>
     </message>
     <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Personal canned message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Canned message was saved</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation>تنظیمات سیستم</translation>
     </message>
@@ -348,6 +372,169 @@
     <message>
       <source>Please enter a canned message</source>
       <translation>لطفا یک پیام مسدود شده وارد کنید</translation>
+    </message>
+  </context>
+  <context>
+    <name>department/edit</name>
+    <message>
+      <source>Any</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit department</source>
+      <translation>ویرایش دپارتمان</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>نام</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>ایمیل</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation>غیرفعال شده</translation>
+    </message>
+    <message>
+      <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation>اولویت</translation>
+    </message>
+    <message>
+      <source>Automate online hours</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Work hours/work days logic is active</source>
+      <translation>ساعت کاری/روز کاری فعال است</translation>
+    </message>
+    <message>
+      <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
+      <translation>روزکاری/ساعت کاری، در طول این روزها/ساعات چت به صورت خودکار فعال است.</translation>
+    </message>
+    <message>
+      <source>Monday</source>
+      <translation>دوشنبه</translation>
+    </message>
+    <message>
+      <source>Tuesday</source>
+      <translation>سه شنبه</translation>
+    </message>
+    <message>
+      <source>Wednesday</source>
+      <translation>چهارشنبه</translation>
+    </message>
+    <message>
+      <source>Thursday</source>
+      <translation>پنج شنبه</translation>
+    </message>
+    <message>
+      <source>Friday</source>
+      <translation>جمعه</translation>
+    </message>
+    <message>
+      <source>Saturday</source>
+      <translation>شنبه</translation>
+    </message>
+    <message>
+      <source>Sunday</source>
+      <translation>یک شنبه</translation>
+    </message>
+    <message>
+      <source>Work hours, 24 hours format, 1 - 24</source>
+      <translation>ساعات کاری، به صورت 24 ساعته، 1 - 24</translation>
+    </message>
+    <message>
+      <source>From, E.g. 8</source>
+      <translation>از  E.g 8</translation>
+    </message>
+    <message>
+      <source>To, E.g. 17</source>
+      <translation>To, E.g. 17</translation>
+    </message>
+    <message>
+      <source>Notifications about new chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP recipients</source>
+      <translation>پذیرندگان XMPP</translation>
+    </message>
+    <message>
+      <source>XMPP group recipients</source>
+      <translation>گروه پذیرندگان XMPP</translation>
+    </message>
+    <message>
+      <source>E.g somechat@conference.server.org/LiveChat</source>
+      <translation>E.g somechat@conference.server.org/LiveChat</translation>
+    </message>
+    <message>
+      <source>These messages will be send as group messages</source>
+      <translation>این پیام ها به صورت پیام گروهی ارسال میشوند</translation>
+    </message>
+    <message>
+      <source>Inform about new chats using</source>
+      <translation>اطلاعات درباره استفاده چت های جدید</translation>
+    </message>
+    <message>
+      <source>XMPP messages</source>
+      <translation>پیام های XMPP</translation>
+    </message>
+    <message>
+      <source>Mail messages</source>
+      <translation>پیام های ایمیلی</translation>
+    </message>
+    <message>
+      <source>How many seconds chat can be pending before about chat is informed a staff</source>
+      <translation>زمانی (ثانیه) که چت میتواند قبل از دریافت توسط پشتیبان معلق بماند</translation>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inform then chat is closed by operator, only mail notification is send.</source>
+      <translation>اطلاع رسانی بسته شدن چت توسط اپراتور، اطلاع رسانی با ایمیل</translation>
+    </message>
+    <message>
+      <source>Chat transfer worklow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To what department chat should be transfered if it is not accepted</source>
+      <translation>در صورت پذیرفته نشدن، چت باید به کدام دپارتمان منتقل شود</translation>
+    </message>
+    <message>
+      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+      <translation>مقدار زمان قبل از انتقال چت به دپارتمان دیگر بر اساس ثانیه. حداقل 5 ثانیه</translation>
+    </message>
+    <message>
+      <source>Miscellaneous</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
+      <translation>حداکثر طول این فیلد 50 کاراکتر است و میتواند برای دیگر ابزارها استفاده شود.</translation>
+    </message>
+    <message>
+      <source>None</source>
+      <translation>هیچ</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>تنظیمات سیستم</translation>
+    </message>
+    <message>
+      <source>departments</source>
+      <translation>دپارتمان ها</translation>
+    </message>
+    <message>
+      <source>Edit a department</source>
+      <translation>ویرایش یک دپارتمان</translation>
     </message>
   </context>
   <context>
@@ -482,6 +669,10 @@
     <message>
       <source>Print</source>
       <translation>چاپ</translation>
+    </message>
+    <message>
+      <source>Attatch uploaded file</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
@@ -676,12 +867,12 @@
       <translation>تلفن</translation>
     </message>
     <message>
-      <source>Your question</source>
-      <translation>پرسش شما</translation>
-    </message>
-    <message>
       <source>Enter your message</source>
       <translation>پیام خود را وارد کنید</translation>
+    </message>
+    <message>
+      <source>Your question</source>
+      <translation>پرسش شما</translation>
     </message>
     <message>
       <source>Start chat</source>
@@ -760,8 +951,12 @@
       <translation>لطفا پیام خود را وارد کنید</translation>
     </message>
     <message>
-      <source>Maximum 500 characters for message</source>
-      <translation>حداکثر 500 کاراکتر برای پیام</translation>
+      <source>Maximum</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>characters for a message</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You have to accept our Terms Of Service</source>
@@ -788,12 +983,12 @@
       <translation>پشتیبان آنلاین</translation>
     </message>
     <message>
-      <source>Visitor</source>
-      <translation>بازدیدکننده</translation>
+      <source>Please enter a message, max characters</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Maximum 500 characters for a message</source>
-      <translation>حداکثر 500 کاراکتر برای پیام</translation>
+      <source>Visitor</source>
+      <translation>بازدیدکننده</translation>
     </message>
     <message>
       <source>Fill in the form to start a chat</source>
@@ -969,6 +1164,10 @@
       <translation>bcmath php extension detected</translation>
     </message>
     <message>
+      <source>Location of city database</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User country based detection, faster</source>
       <translation>تشخیص بر اساس کشور کاربر، سریعتر</translation>
     </message>
@@ -983,6 +1182,14 @@
     <message>
       <source>User city based detection, slower</source>
       <translation>تشخیص بر اساس شهر کاربر، کندتر</translation>
+    </message>
+    <message>
+      <source>Use PHP-GeoIP module</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Support for PHP-GeoIP detected</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Requests will be comming from</source>
@@ -1285,6 +1492,10 @@
       <translation>تنظیمات سرویس دهنده ناموفق بود. لطفا مطمئن شوید سرویس دهنده دسترسی راه دور به صفحات سایت را داده باشد.</translation>
     </message>
     <message>
+      <source>Setting service provider failed, please check that you have installed php-GeoIP module and GeoIPCity.dat file is available!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please choose a service provider!</source>
       <translation>لطفا یک سرویس دهنده انتخاب کنید!</translation>
     </message>
@@ -1442,6 +1653,14 @@
       <translation>بایگانی چت</translation>
     </message>
     <message>
+      <source>Time zone settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Live help embed code</source>
       <translation>کد داخلی پشتیبانی آنلاین</translation>
     </message>
@@ -1497,6 +1716,10 @@
       <source>File configuration</source>
       <translation>تنظیمات فایل</translation>
     </message>
+    <message>
+      <source>New file</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>system/htmlcode</name>
@@ -1519,6 +1742,14 @@
     <message>
       <source>Chatbox messages content height</source>
       <translation>طول جعبه محتوای پیام</translation>
+    </message>
+    <message>
+      <source>Choose prefered http mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Based on site (default)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>
@@ -1868,6 +2099,10 @@
       <translation>ارسال ایمیل</translation>
     </message>
     <message>
+      <source>Embed link to file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Mail was sent to the user</source>
       <translation>ایمیل به کاربر ارسال شد.</translation>
     </message>
@@ -1948,6 +2183,10 @@
     <message>
       <source>This field is visible in the page widget</source>
       <translation>این فیلد در پنجره ویجت نمایش داده میشود</translation>
+    </message>
+    <message>
+      <source>This field is invisible but prefilled data is collected</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>This field is</source>
@@ -2639,141 +2878,6 @@
     </message>
   </context>
   <context>
-    <name>department/edit</name>
-    <message>
-      <source>Edit department</source>
-      <translation>ویرایش دپارتمان</translation>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>نام</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>ایمیل</translation>
-    </message>
-    <message>
-      <source>Disabled</source>
-      <translation>غیرفعال شده</translation>
-    </message>
-    <message>
-      <source>XMPP recipients</source>
-      <translation>پذیرندگان XMPP</translation>
-    </message>
-    <message>
-      <source>XMPP group recipients</source>
-      <translation>گروه پذیرندگان XMPP</translation>
-    </message>
-    <message>
-      <source>E.g somechat@conference.server.org/LiveChat</source>
-      <translation>E.g somechat@conference.server.org/LiveChat</translation>
-    </message>
-    <message>
-      <source>These messages will be send as group messages</source>
-      <translation>این پیام ها به صورت پیام گروهی ارسال میشوند</translation>
-    </message>
-    <message>
-      <source>Priority</source>
-      <translation>اولویت</translation>
-    </message>
-    <message>
-      <source>To what department chat should be transfered if it is not accepted</source>
-      <translation>در صورت پذیرفته نشدن، چت باید به کدام دپارتمان منتقل شود</translation>
-    </message>
-    <message>
-      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
-      <translation>مقدار زمان قبل از انتقال چت به دپارتمان دیگر بر اساس ثانیه. حداقل 5 ثانیه</translation>
-    </message>
-    <message>
-      <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
-      <translation>حداکثر طول این فیلد 50 کاراکتر است و میتواند برای دیگر ابزارها استفاده شود.</translation>
-    </message>
-    <message>
-      <source>Inform then chat is closed by operator, only mail notification is send.</source>
-      <translation>اطلاع رسانی بسته شدن چت توسط اپراتور، اطلاع رسانی با ایمیل</translation>
-    </message>
-    <message>
-      <source>Inform about new chats using</source>
-      <translation>اطلاعات درباره استفاده چت های جدید</translation>
-    </message>
-    <message>
-      <source>XMPP messages</source>
-      <translation>پیام های XMPP</translation>
-    </message>
-    <message>
-      <source>Mail messages</source>
-      <translation>پیام های ایمیلی</translation>
-    </message>
-    <message>
-      <source>How many seconds chat can be pending before about chat is informed a staff</source>
-      <translation>زمانی (ثانیه) که چت میتواند قبل از دریافت توسط پشتیبان معلق بماند</translation>
-    </message>
-    <message>
-      <source>Work hours/work days logic is active</source>
-      <translation>ساعت کاری/روز کاری فعال است</translation>
-    </message>
-    <message>
-      <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
-      <translation>روزکاری/ساعت کاری، در طول این روزها/ساعات چت به صورت خودکار فعال است.</translation>
-    </message>
-    <message>
-      <source>Monday</source>
-      <translation>دوشنبه</translation>
-    </message>
-    <message>
-      <source>Tuesday</source>
-      <translation>سه شنبه</translation>
-    </message>
-    <message>
-      <source>Wednesday</source>
-      <translation>چهارشنبه</translation>
-    </message>
-    <message>
-      <source>Thursday</source>
-      <translation>پنج شنبه</translation>
-    </message>
-    <message>
-      <source>Friday</source>
-      <translation>جمعه</translation>
-    </message>
-    <message>
-      <source>Saturday</source>
-      <translation>شنبه</translation>
-    </message>
-    <message>
-      <source>Sunday</source>
-      <translation>یک شنبه</translation>
-    </message>
-    <message>
-      <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation>ساعات کاری، به صورت 24 ساعته، 1 - 24</translation>
-    </message>
-    <message>
-      <source>From, E.g. 8</source>
-      <translation>از  E.g 8</translation>
-    </message>
-    <message>
-      <source>To, E.g. 17</source>
-      <translation>To, E.g. 17</translation>
-    </message>
-    <message>
-      <source>None</source>
-      <translation>هیچ</translation>
-    </message>
-    <message>
-      <source>System configuration</source>
-      <translation>تنظیمات سیستم</translation>
-    </message>
-    <message>
-      <source>departments</source>
-      <translation>دپارتمان ها</translation>
-    </message>
-    <message>
-      <source>Edit a department</source>
-      <translation>ویرایش یک دپارتمان</translation>
-    </message>
-  </context>
-  <context>
     <name>user/account</name>
     <message>
       <source>Updated</source>
@@ -2794,6 +2898,10 @@
     <message>
       <source>Username</source>
       <translation>نام کاربری</translation>
+    </message>
+    <message>
+      <source>Your username</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Password</source>
@@ -2866,6 +2974,10 @@
     <message>
       <source>Closed chats tab enabled</source>
       <translation>فعال سازی تب چت های بسته شده</translation>
+    </message>
+    <message>
+      <source>Personal canned messages</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Account updated</source>
@@ -3040,6 +3152,49 @@
     </message>
   </context>
   <context>
+    <name>file/list</name>
+    <message>
+      <source>List of files</source>
+      <translation>فهرست فایل ها</translation>
+    </message>
+    <message>
+      <source>Upload a file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Upload name</source>
+      <translation>بارگذاری نام</translation>
+    </message>
+    <message>
+      <source>File size</source>
+      <translation>اندازه فایل</translation>
+    </message>
+    <message>
+      <source>Embed BB code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User</source>
+      <translation>کاربر</translation>
+    </message>
+    <message>
+      <source>Chat</source>
+      <translation>چت</translation>
+    </message>
+    <message>
+      <source>Extension</source>
+      <translation>گسترش</translation>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>تاریخ</translation>
+    </message>
+    <message>
+      <source>Delete the file</source>
+      <translation>حذف فایل</translation>
+    </message>
+  </context>
+  <context>
     <name>file/configuration</name>
     <message>
       <source>File configuration</source>
@@ -3071,38 +3226,22 @@
     </message>
   </context>
   <context>
-    <name>file/list</name>
+    <name>file/new</name>
     <message>
-      <source>List of files</source>
-      <translation>فهرست فایل ها</translation>
+      <source>New file</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>User</source>
-      <translation>کاربر</translation>
+      <source>File name</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Chat</source>
-      <translation>چت</translation>
+      <source>Upload</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Upload name</source>
-      <translation>بارگذاری نام</translation>
-    </message>
-    <message>
-      <source>File size</source>
-      <translation>اندازه فایل</translation>
-    </message>
-    <message>
-      <source>Extension</source>
-      <translation>گسترش</translation>
-    </message>
-    <message>
-      <source>Date</source>
-      <translation>تاریخ</translation>
-    </message>
-    <message>
-      <source>Delete the file</source>
-      <translation>حذف فایل</translation>
+      <source>File uploaded</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -3497,6 +3636,10 @@
       <translation>فعال</translation>
     </message>
     <message>
+      <source>Revote</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Y</source>
       <translation>Y</translation>
     </message>
@@ -3519,6 +3662,10 @@
     <message>
       <source>New question</source>
       <translation>پرسش جدید</translation>
+    </message>
+    <message>
+      <source>Off</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Questionary</source>
@@ -3568,6 +3715,10 @@
     <message>
       <source>Priority, if multiple questions match a location, the question with the higher priority will be shown</source>
       <translation>پرسش با اولیت بالا نمایش داده شود.</translation>
+    </message>
+    <message>
+      <source>Revote time (hours), before can revote. Default 0 - never. Higher value allow revote after seconds expire since last vote</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Active</source>
@@ -3795,7 +3946,42 @@
     </message>
   </context>
   <context>
+    <name>system/timezone</name>
+    <message>
+      <source>Time zone settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set application specific time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date format E.g (Y-m-d)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Full date format E.g (Y-m-d H:i:s)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hour format E.g (H:i:s)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live Helper Chat update</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>user/edit</name>
+    <message>
+      <source>Server default time zone</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>User edit</source>
       <translation>ویرایش کاربر</translation>
@@ -3849,6 +4035,14 @@
       <translation>دپارتمان های واگذار شده</translation>
     </message>
     <message>
+      <source>User time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Application default time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Wrong email address</source>
       <translation>آدرس ایمیل نادرست</translation>
     </message>
@@ -3871,6 +4065,41 @@
     <message>
       <source>Users</source>
       <translation>کاربران</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/update</name>
+    <message>
+      <source>Your version</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Current version</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last database update</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>News</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Missing updates from new versions.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update instructions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You are running current version. No updates required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live Helper Chat update information</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

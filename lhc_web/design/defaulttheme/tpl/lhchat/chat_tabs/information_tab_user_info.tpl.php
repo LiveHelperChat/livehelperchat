@@ -84,7 +84,7 @@
 	<?php endif;?>
 	<tr>
 		<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Created')?></td>
-		<td><?php echo date('Y-m-d H:i:s',$chat->time)?></td>
+		<td><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chat->time)?></td>
 	</tr>
 	<?php if ($chat->wait_time > 0) : ?>
 	<tr>
@@ -123,6 +123,9 @@
 		<a class="icon-mail <?php if ($chat->mail_send == 1) : ?>icon-mail-send<?php endif; ?>" onclick="lhinst.sendMail('<?php echo $chat->id?>')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Send mail')?>"></a>
 			
 		<a target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('chat/printchatadmin')?>/<?php echo $chat->id?>" class="icon-print" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Print')?>"></a>
+		
+		<a class="icon-attach" onclick="lhinst.attatchLinkToFile('<?php echo $chat->id?>')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Attatch uploaded file')?>"></a>
+		
 	</p>
 	<?php else : ?>
 	<a class="icon-print" target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('chatarchive/printchatadmin')?>/<?php echo $archive->id?>/<?php echo $chat->id?>"></a>

@@ -1,3 +1,67 @@
+1.86v
+
+1. Option to set date format. Three new fields in Settings => Time zone settings section. This is available per install and not per individual user.
+2. PHP-GeoIP extension support.
+3. {nick} support in canned messages.
+
+edit your settings/settings.ini.php file and under 'force_virtual_host' => false,
+add
+'date_format' => 'Y-m-d',
+'date_hour_format' => 'H:i:s',
+'date_date_hour_format' => 'Y-m-d H:i:s',
+
+
+1.85v
+
+1. Canned messages by department
+2. Personal canned messages. To operators role have to be assigned "Users" => "Allow user to have personal canned messages"
+3. Now then user closes a chat and operator sends a message to user, at site chat will reopen.
+4. Option to hide default form fields. These fields can be prefilled but they won't be visible by user.
+5. Option to specify max mind city database file.
+
+execute doc/update_db/update_65.sql for update
+
+1.84v
+
+1. Option to set revote timeout, contributed by David Livingston. I just did some cleanup.
+2. Window about running version. Like installation version and current version and pending database updates.
+
+execute doc/update_db/update_64.sql for update
+
+1.83v
+
+1. Option to have custom timezone per application and per user. Users can change their time zone in their account.
+2. Application time zone can be changed in new configuration link. If no timezone is set in user or application it depends on server.
+3. File usability enchancements based on https://github.com/remdex/livehelperchat/issues/246
+
+execute doc/update_db/update_63.sql for update
+edit your settings/settings.ini.php file and under 'force_virtual_host' => false,
+add 'time_zone' => '',
+
+
+1.82v
+
+1. Department has a field which help user can be redirected to leave a message form if chat is not accepted for n seconds.
+2. Option to redirect user to leave a message form if chat is not accepted for n seconds. Managed in department.
+3. Option to set proactive messages based on referring domain. It's enough to enter google keyword for all google domains.
+4. Option to hide popup for user if user has visited invitation popup n times. Works only for proactive invitation messages.
+5. User support request mail now also has template variable {prefillchat} this variable get's replaced to link to chat. 
+
+execute doc/update_db/update_62.sql for update
+
+1.81v
+
+Features
+1. Option to set explicit http mode either http or https. Usefull if chat is running on https and site on http. 
+By default we previously just heritage site mode. Now you can explicty define how data should be transfered http or https.
+2. Maximum message length for a message. Changable in chat configuration.
+3. Added to long message notifications.
+
+Bugfix
+After chat was transfered to another user. Operator profile did not changed. Now it does.
+
+execute doc/update_db/update_61.sql for update
+
 1.80v
 
 Features

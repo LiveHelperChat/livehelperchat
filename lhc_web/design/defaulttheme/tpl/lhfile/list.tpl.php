@@ -1,6 +1,12 @@
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','List of files');?></h1>
 
-<table class="twelve" cellpadding="0" cellspacing="0">
+<ul class="button-group radius">
+  <li><a href="<?php echo erLhcoreClassDesign::baseurl('file/new')?>" class="button small"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Upload a file');?></a></li>
+</ul>
+
+<?php include(erLhcoreClassDesign::designtpl('lhfile/parts/search_panel.tpl.php')); ?>
+
+<table class="twelve table-list" cellpadding="0" cellspacing="0">
 <thead>
 <tr>
     <th width="1%">ID</th>
@@ -17,7 +23,13 @@
     <tr>
         <td><?php echo $file->id?></td>
         <td><?php echo htmlspecialchars($file->user)?></td>
-        <td><?php echo $file->chat->id;?>. <?php echo htmlspecialchars($file->chat->nick);?> (<?php echo date('Y-m-d H:i:s',$file->chat->time);?>) (<?php echo htmlspecialchars($file->chat->department);?>)</td>
+        <td>
+        <?php if ($file->chat !== false) : ?>
+        <?php echo $file->chat->id;?>. <?php echo htmlspecialchars($file->chat->nick);?> (<?php echo date(erLhcoreClassModule::$dateDateHourFormat,$file->chat->time);?>) (<?php echo htmlspecialchars($file->chat->department);?>)
+        <?php else : ?>
+        -
+        <?php endif;?>
+        </td>
         <td><a href="<?php echo erLhcoreClassDesign::baseurl('file/downloadfile')?>/<?php echo $file->id?>/<?php echo $file->security_hash?>" class="link" target="_blank"><?php echo htmlspecialchars($file->upload_name)?></a></td>
         <td nowrap><?php echo htmlspecialchars(round($file->size/1024,2))?> Kb.</td>
         <td nowrap><?php echo htmlspecialchars($file->extension)?></td>

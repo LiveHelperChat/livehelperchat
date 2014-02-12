@@ -9,14 +9,9 @@ $pollingServerTimeout = (int)erLhcoreClassModelChatConfig::fetch('sync_sound_set
 $pollingMessageTimeout = (float)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['polling_chat_message_sinterval'];
 $breakSync = false;
 
-$typingChats = (isset($_POST['typing']) && is_array($_POST['typing'])) ? $_POST['typing'] : array();
-$typingChatsTl = (isset($_POST['typingtl']) && is_array($_POST['typingtl'])) ? $_POST['typingtl'] : array();
-$typingChatsCombined = array_combine($typingChats, $typingChatsTl);
-
 $content = 'false';
 $content_status = 'false';
 $userOwner = 'true';
-
 
 $hasAccessToReadArray = array();
 
@@ -74,9 +69,9 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
 	            }
 	
 	          
-	            if ($Chat->is_user_typing == true && (!in_array($chat_id, $typingChats) || (abs($typingChatsCombined[$chat_id] - strlen($Chat->user_typing_txt)) > 6))) {
+	            if ($Chat->is_user_typing == true) {
 	                $ReturnStatuses[] = array('chat_id' => $chat_id, 'us' => $Chat->user_status, 'tp' => 'true','tx' => htmlspecialchars($Chat->user_typing_txt));
-	            } elseif ($Chat->is_user_typing == false && in_array($chat_id, $typingChats)) { // Inform only if necessary
+	            } else {
 	                $ReturnStatuses[] = array('chat_id' => $chat_id, 'us' => $Chat->user_status, 'tp' => 'false');
 	            }
 	        }

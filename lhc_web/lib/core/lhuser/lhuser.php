@@ -171,23 +171,26 @@ class erLhcoreClassUser{
        if (isset($_SESSION['lhc_access_timestamp'])){ unset($_SESSION['lhc_access_timestamp']); }
        if (isset($_SESSION['lhc_user_id'])){ unset($_SESSION['lhc_user_id']); }
        if (isset($_SESSION['lhc_csfr_token'])){ unset($_SESSION['lhc_csfr_token']); }
+       if (isset($_SESSION['lhc_user_timezone'])){ unset($_SESSION['lhc_user_timezone']); }
 
        if ( isset($_COOKIE['lhc_rm_u']) ) {
        		unset($_COOKIE['lhc_rm_u']);
        		setcookie('lhc_rm_u','',time()-31*24*3600,'/');
        };
 
-       $q = ezcDbInstance::get()->createDeleteQuery();
-
-       // User remember
-       $q->deleteFrom( 'lh_users_remember' )->where( $q->expr->eq( 'user_id', $q->bindValue($this->userid) ) );
-       $stmt = $q->prepare();
-       $stmt->execute();
-
-       $this->session->destroy();
-
-       $db = ezcDbInstance::get();
-       $db->query('UPDATE `lh_userdep` SET `last_activity` = 0 WHERE `user_id` = '.$this->userid);
+       if (is_numeric($this->userid)) {       
+	       $q = ezcDbInstance::get()->createDeleteQuery();
+	
+	       // User remember
+	       $q->deleteFrom( 'lh_users_remember' )->where( $q->expr->eq( 'user_id', $q->bindValue($this->userid) ) );
+	       $stmt = $q->prepare();
+	       $stmt->execute();
+	
+	       $this->session->destroy();
+	
+	       $db = ezcDbInstance::get();
+	       $db->query('UPDATE lh_userdep SET last_activity = 0 WHERE user_id = '.$this->userid);
+       }
    }
 
    public static function getSession()
@@ -211,6 +214,21 @@ class erLhcoreClassUser{
       return $GLOBALS['UserModelCache_'.$this->userid];
    }
 
+   public function getUserTimeZone() {
+   	
+   		if (($cacheTimeZone = CSCacheAPC::getMem()->getSession('lhc_user_timezone',true)) !== false){
+   			return $cacheTimeZone;
+   		}
+   		
+   		try {
+	   		$userData = $this->getUserData(true);   		
+	   		CSCacheAPC::getMem()->setSession('lhc_user_timezone',$userData->time_zone,true);
+	   		return $userData->time_zone;
+   		} catch (Exception $e) {
+   			CSCacheAPC::getMem()->setSession('lhc_user_timezone','',true);
+   		}
+   }
+   
    function getUserID()
    {
        return $this->userid;
@@ -219,14 +237,14 @@ class erLhcoreClassUser{
    function updateLastVisit()
    {
        $db = ezcDbInstance::get();
-       $db->query('UPDATE `lh_userdep` SET `last_activity` = '.time().' WHERE `user_id` = '.$this->userid);
+       $db->query('UPDATE lh_userdep SET last_activity = '.time().' WHERE user_id = '.$this->userid);
    }
 
    function getUserList()
    {
      $db = ezcDbInstance::get();
 
-     $stmt = $db->prepare('SELECT * FROM `lh_users` ORDER BY `id` ASC');
+     $stmt = $db->prepare('SELECT * FROM lh_users ORDER BY id ASC');
      $stmt->execute();
      $rows = $stmt->fetchAll();
 

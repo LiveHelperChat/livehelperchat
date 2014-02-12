@@ -38,7 +38,7 @@
 			  <h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','Type your question');?></h2>
 
 			  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','Question')?>:</label>
-			  <textarea rows="3" name="question" onclick="$(this).select()"><?php echo htmlspecialchars($item_new->question);?></textarea>
+			  <textarea rows="3" name="question"><?php echo htmlspecialchars($item_new->question);?></textarea>
 
 			  <input type="submit" class="small round button" name="sendAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','Send your question');?>"/>
 

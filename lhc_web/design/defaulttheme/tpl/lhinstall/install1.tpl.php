@@ -51,6 +51,10 @@
         <td>Is the php-pdo extension installed</td>
         <td><?php echo extension_loaded ('pdo_mysql' ) ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'; ?></td>
     </tr>
+    <tr>
+        <td>Minimum 5.3 PHP</td>
+        <td><?php echo (version_compare(PHP_VERSION, '5.3.0','<')) ? '<span class="round label alert">No</span>' : '<span class="success label round">Yes</span>'; ?></td>
+    </tr>
 </table>
 <br>
 

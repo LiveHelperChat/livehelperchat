@@ -34,9 +34,7 @@ class erLhcoreClassURL extends ezcUrl {
 
             $availableSiteaccess = $cfgSite->getSetting( 'site', 'available_site_access' );
             $defaultSiteAccess = $cfgSite->getSetting( 'site', 'default_site_access' );
-
-            $securePort = $cfgSite->getSetting( 'site', 'https_port' );
-
+           
             if ($defaultSiteAccess != $siteaccess && in_array($siteaccess,$availableSiteaccess))
             {
                 $optionsSiteAccess = $cfgSite->getSetting('site_access_options',$siteaccess);

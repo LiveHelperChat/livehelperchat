@@ -15,7 +15,10 @@ return array (
       'templatecompile' => false,
       'modulecompile' => false,
       'force_virtual_host' => false,
-      'https_port' => 443,
+      'time_zone' => '',
+      'date_format' => 'Y-m-d',
+      'date_hour_format' => 'H:i:s',
+      'date_date_hour_format' => 'Y-m-d H:i:s',
       'default_site_access' => 'eng',
       'extensions' =>
           array (

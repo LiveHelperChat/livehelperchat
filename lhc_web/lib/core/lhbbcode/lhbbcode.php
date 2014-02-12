@@ -247,8 +247,6 @@ class erLhcoreClassBBCode
          }
    }
 
-
-
    public static function _make_url_file($matches){
 
    		if (isset($matches[1])){
@@ -269,6 +267,25 @@ class erLhcoreClassBBCode
    		return '';
    }
 
+   public static function _make_url_mail_file($matches){
+
+   		if (isset($matches[1])){
+   			list($fileID,$hash) = explode('_',$matches[1]);
+   			try {
+   				$file = erLhcoreClassModelChatFile::fetch($fileID);
+
+   				// Check that user has permission to see the chat. Let say if user purposely types file bbcode
+   				if ($hash == md5($file->name.'_'.$file->chat_id)) {
+   					return erLhcoreClassXMP::getBaseHost().$_SERVER['HTTP_HOST'].erLhcoreClassDesign::baseurldirect('file/downloadfile')."/{$file->id}/{$hash}";
+   				}
+   			} catch (Exception $e) {
+
+   			}
+
+   			return '';
+   		}
+   		return '';
+   }
 
    // From WP :)
    public static function make_clickable($ret) {
@@ -297,6 +314,12 @@ class erLhcoreClassBBCode
     	return $ret;
    }
 
+   public static function parseForMail($ret){
+   		// File block
+   		$ret = preg_replace_callback('#\[file="?(.*?)"?\]#is', 'erLhcoreClassBBCode::_make_url_mail_file', $ret);
+   		return trim($ret);
+   }
+   
    // Makes plain text from BB code
    public static function make_plain($ret){
         $ret = ' ' . $ret;

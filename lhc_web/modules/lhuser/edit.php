@@ -31,6 +31,9 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
         'XMPPUsername' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
+        'UserTimeZone' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
 		'UserDisabled' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 		),
@@ -75,6 +78,13 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
         $UserData->surname = $form->Surname;
     } else {
     	$UserData->surname = '';
+    }
+
+	if ( $form->hasValidData( 'UserTimeZone' ) && $form->UserTimeZone != '')
+    {
+    	$UserData->time_zone = $form->UserTimeZone;
+    } else {
+    	$UserData->time_zone = '';
     }
     
     if ( $form->hasValidData( 'Skype' ) && $form->Skype != '')

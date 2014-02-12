@@ -80,6 +80,14 @@ class erLhcoreClassModule{
             }
             
             try {
+            	
+            	if (isset($currentUser) && $currentUser->isLogged() && ($timeZone = $currentUser->getUserTimeZone()) != '') {    
+            		self::$defaultTimeZone = $timeZone;
+            		date_default_timezone_set(self::$defaultTimeZone);            		
+            	} elseif (self::$defaultTimeZone != '') {            	
+            		date_default_timezone_set(self::$defaultTimeZone);
+            	}
+            	            	
             	$includeStatus = include(self::getModuleFile(self::$currentModuleName,self::$currentView));
 
             	// Inclusion failed
@@ -352,6 +360,12 @@ class erLhcoreClassModule{
 
         self::$cacheInstance = CSCacheAPC::getMem();
         self::$cacheVersionSite = self::$cacheInstance->getCacheVersion('site_version');
+        
+        self::$defaultTimeZone = $cfg->getSetting('site', 'time_zone', false);
+        
+        self::$dateFormat = $cfg->getSetting('site', 'date_format', false);
+        self::$dateHourFormat = $cfg->getSetting('site', 'date_hour_format', false);
+        self::$dateDateHourFormat = $cfg->getSetting('site', 'date_date_hour_format', false);
 
         if (self::$currentModuleName == '' || (self::$currentModule = self::getModule(self::$currentModuleName)) === false) {
             $params = $cfg->getOverrideValue('site','default_url');
@@ -376,12 +390,17 @@ class erLhcoreClassModule{
         header('Location: '. erLhcoreClassDesign::baseurl($url).$appendURL );
     }
 
+    static private $defaultTimeZone = NULL;
     static private $currentModule = NULL;
     static private $currentModuleName = NULL;
     static private $currentView = NULL;
     static private $moduleCacheEnabled = NULL;
     static private $cacheInstance = NULL;
     static private $cacheVersionSite = NULL;
+    
+    public static $dateFormat = NULL;
+    public static $dateHourFormat = NULL;
+    public static $dateDateHourFormat = NULL;
 }
 
 ?>

@@ -48,7 +48,17 @@ setTimeout(function(){
 	<?php endif;?>
 </div>
 
-<textarea name="Message" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','Type your message to the user');?>"><?php echo isset($_POST['Message']) ? htmlspecialchars($_POST['Message']) : ''?></textarea>
-<input type="submit" class="button small" name="SendMail" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','Send the mail');?>" />
+<textarea name="Message" id="MailMessage" style="height:100px" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','Type your message to the user');?>"><?php echo isset($_POST['Message']) ? htmlspecialchars($_POST['Message']) : ''?></textarea>
+
+<ul class="button-group radius">
+  <li>
+		<input type="submit" class="button small" name="SendMail" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','Send the mail');?>" />
+  </li>
+  <li>
+		<input type="button" class="button small" onclick="lhinst.embedFileSendMail()" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','Embed link to file');?>" />
+  </li>
+</ul>
+
+
 
 </form>

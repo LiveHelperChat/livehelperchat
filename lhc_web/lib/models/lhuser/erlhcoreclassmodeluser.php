@@ -17,6 +17,7 @@ class erLhcoreClassModelUser {
                'filepath'     	 => $this->filepath,
 			   'filename'     	 => $this->filename,
 			   'skype'     	 	 => $this->skype,
+			   'time_zone'     	 => $this->time_zone,
 			   'xmpp_username'   => $this->xmpp_username,
        );
    }
@@ -97,7 +98,7 @@ class erLhcoreClassModelUser {
        	case 'lastactivity':
        	        $db = ezcDbInstance::get();
        	        $stmt = $db->prepare('SELECT last_activity FROM lh_userdep WHERE user_id = :user_id LIMIT 1');
-       	        $stmt->bindValue(':user_id',$this->id);
+       	        $stmt->bindValue(':user_id',$this->id,PDO::PARAM_INT);
                 $stmt->execute();
 
                 $this->lastactivity = (int)$stmt->fetchColumn();
@@ -122,7 +123,7 @@ class erLhcoreClassModelUser {
        		   $this->lastactivity_front = '';
 
        		   if ( $this->lastactivity > 0 ) {
-       		       $this->lastactivity_front = date('Y-m-d H:i:s');
+       		       $this->lastactivity_front = date(erLhcoreClassModule::$dateDateHourFormat);
        		   };
 
        		   return $this->lastactivity_front;
@@ -326,6 +327,7 @@ class erLhcoreClassModelUser {
     public $disabled = 0;
     public $hide_online = 0;
     public $all_departments = 0;
+    public $time_zone = '';
 }
 
 ?>

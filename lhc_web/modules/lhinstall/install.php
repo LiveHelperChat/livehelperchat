@@ -58,7 +58,11 @@ switch ((int)$Params['user_parameters']['step_id']) {
 		
 		if (!extension_loaded('mbstring'))
 			$Errors[] = "mbstring extension not detected. Please install php extension";	
-			
+		
+		if (version_compare(PHP_VERSION, '5.3.0','<')) {
+			$Errors[] = "Minimum 5.3.0 PHP version is required";	
+		}
+		
 	       if (count($Errors) == 0)
 	           $tpl->setFile('lhinstall/install2.tpl.php');
 	  break;
@@ -237,6 +241,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
 				  `nick` varchar(50) NOT NULL,
 				  `status` int(11) NOT NULL DEFAULT '0',
+				  `status_sub` int(11) NOT NULL DEFAULT '0',
 				  `time` int(11) NOT NULL,
 				  `user_id` int(11) NOT NULL,
 				  `hash` varchar(40) NOT NULL,
@@ -343,7 +348,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   `user_id` int(11) NOT NULL,
         	   `date` int(11) NOT NULL,
         	   PRIMARY KEY (`id`),
-        	   KEY `chat_id` (`chat_id`)
+        	   KEY `chat_id` (`chat_id`),
+        	   KEY `user_id` (`user_id`)
         	   ) DEFAULT CHARSET=utf8;");
 
         	   $db->query("CREATE TABLE `lh_abstract_email_template` (
@@ -364,7 +370,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 
         	   $db->query("INSERT INTO `lh_abstract_email_template` (`id`, `name`, `from_name`, `from_name_ac`, `from_email`, `from_email_ac`, `content`, `subject`, `subject_ac`, `reply_to`, `reply_to_ac`, `recipient`) VALUES
         	   		(1,'Send mail to user','Live Helper Chat',0,'',0,'Dear {user_chat_nick},\r\n\r\n{additional_message}\r\n\r\nLive Support response:\r\n{messages_content}\r\n\r\nSincerely,\r\nLive Support Team\r\n','{name_surname} has responded to your request',	1,'',1,''),
-        	   		(2,'Support request from user',	'',	0,	'',	0,	'Hello,\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nAdditional data, if any:\r\n{additional_data}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nSincerely,\r\nLive Support Team',	'Support request from user',	0,	'',	0,	'{$adminEmail}'),
+        	   		(2,'Support request from user',	'',	0,	'',	0,	'Hello,\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nAdditional data, if any:\r\n{additional_data}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nLink to chat if any:\r\n{prefillchat}\r\n\r\nSincerely,\r\nLive Support Team',	'Support request from user',	0,	'',	0,	'{$adminEmail}'),
         	   		(3,	'User mail for himself',	'Live Helper Chat',	0,	'',	0,	'Dear {user_chat_nick},\r\n\r\nTranscript:\r\n{messages_content}\r\n\r\nSincerely,\r\nLive Support Team\r\n',	'Chat transcript',	0,	'',	0,	''),
         	   		(4,	'New chat request',	'Live Helper Chat',	0,	'',	0,	'Hello,\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nClick to accept chat automatically\r\n{url_accept}\r\n\r\nSincerely,\r\nLive Support Team',	'New chat request',	0,	'',	0,	'{$adminEmail}'),
         	   		(5,	'Chat was closed',	'Live Helper Chat',	0,	'',	0,	'Hello,\r\n\r\n{operator} has closed a chat\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nAdditional data, if any:\r\n{additional_data}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nSincerely,\r\nLive Support Team',	'Chat was closed',	0,	'',	0,	'');");
@@ -377,6 +383,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   `priority` int(11) NOT NULL,
         	   `is_voting` int(11) NOT NULL,
         	   `question_intro` text NOT NULL,
+        	   `revote` int(11) NOT NULL DEFAULT '0',
         	   PRIMARY KEY (`id`),
         	   KEY `priority` (`priority`),
         	   KEY `active_priority` (`active`,`priority`)
@@ -406,6 +413,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
         	   `question_id` int(11) NOT NULL,
         	   `option_id` int(11) NOT NULL,
+        	   `ctime` int(11) NOT NULL,
         	   `ip` bigint(20) NOT NULL,
         	   PRIMARY KEY (`id`),
         	   KEY `question_id` (`question_id`),
@@ -426,8 +434,12 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `id` int(11) NOT NULL AUTO_INCREMENT,
                   `msg` text NOT NULL,
         	   	  `position` int(11) NOT NULL,
+        	   	  `department_id` int(11) NOT NULL,
+        	   	  `user_id` int(11) NOT NULL,
   				  `delay` int(11) NOT NULL,
-                  PRIMARY KEY (`id`)
+                  PRIMARY KEY (`id`),
+        	   	  KEY `department_id` (`department_id`),
+        	   	  KEY `user_id` (`user_id`)
                 ) DEFAULT CHARSET=utf8;");
 
         	   $db->query("CREATE TABLE `lh_chat_online_user_footprint` (
@@ -480,9 +492,9 @@ switch ((int)$Params['user_parameters']['step_id']) {
 
         	   $db->query("INSERT INTO `lh_chat_config` (`identifier`, `value`, `type`, `explain`, `hidden`) VALUES
                 ('tracked_users_cleanup',	'160',	0,	'How many days keep records of online users.',	0),
-        	   	('list_online_operators', '0', '0', 'List online operators, 0 - no, 1 - yes.', '0'),
+        	   	('list_online_operators', '0', '0', 'List online operators.', '0'),
         	   	('voting_days_limit',	'7',	0,	'How many days voting widget should not be expanded after last show',	0),
-                ('track_online_visitors',	'0',	0,	'Enable online site visitors tracking, 0 - no, 1 - yes',	0),
+                ('track_online_visitors',	'0',	0,	'Enable online site visitors tracking',	0),
         	   	('pro_active_invite',	'0',	0,	'Is pro active chat invitation active. Online users tracking also has to be enabled',	0),
                 ('customer_company_name',	'Live Helper Chat',	0,	'Your company name - visible in bottom left corner',	0),
                 ('customer_site_url',	'http://livehelperchat.com',	0,	'Your site URL address',	0),
@@ -492,23 +504,25 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('application_name',	'a:6:{s:3:\"eng\";s:31:\"Live Helper Chat - live support\";s:3:\"lit\";s:26:\"Live Helper Chat - pagalba\";s:3:\"hrv\";s:0:\"\";s:3:\"esp\";s:0:\"\";s:3:\"por\";s:0:\"\";s:10:\"site_admin\";s:31:\"Live Helper Chat - live support\";}',	1,	'Support application name, visible in browser title.',	0),
                 ('track_footprint',	'0',	0,	'Track users footprint. For this also online visitors tracking should be enabled',	0),
                 ('pro_active_limitation',	'-1',	0,	'Pro active chats invitations limitation based on pending chats, (-1) do not limit, (0,1,n+1) number of pending chats can be for invitation to be shown.',	0),
-                ('pro_active_show_if_offline',	'0',	0,	'Should invitation logic be executed if there is no online operators, 0 - no, 1 - yes',	0),
+                ('pro_active_show_if_offline',	'0',	0,	'Should invitation logic be executed if there is no online operators',	0),
                 ('export_hash',	'{$exportHash}',	0,	'Chats export secret hash',	0),
                 ('message_seen_timeout', 24, 0, 'Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.',	0),
-                ('reopen_chat_enabled',1,	0,	'Reopen chat functionality enabled, 0 - No, 1 - Yes',	0),
+                ('reopen_chat_enabled',1,	0,	'Reopen chat functionality enabled',	0),
                 ('ignorable_ip',	'',	0,	'Which ip should be ignored in online users list, separate by comma',0),
-                ('run_departments_workflow', 0, 0, 'Should cronjob run departments tranfer workflow, even if user leaves a chat, 0 - no, 1 - yes',	0),
+                ('run_departments_workflow', 0, 0, 'Should cronjob run departments transfer workflow, even if user leaves a chat',	0),
                 ('geo_location_data', 'a:3:{s:4:\"zoom\";i:4;s:3:\"lat\";s:7:\"49.8211\";s:3:\"lng\";s:7:\"11.7835\";}', '0', '', '1'),
                 ('xmp_data','a:9:{i:0;b:0;s:4:\"host\";s:15:\"talk.google.com\";s:6:\"server\";s:9:\"gmail.com\";s:8:\"resource\";s:6:\"xmpphp\";s:4:\"port\";s:4:\"5222\";s:7:\"use_xmp\";i:0;s:8:\"username\";s:0:\"\";s:8:\"password\";s:0:\"\";s:11:\"xmp_message\";s:77:\"You have a new chat request\r\n{messages}\r\nClick to accept a chat\r\n{url_accept}\";}',0,'XMP data',1),
                 ('run_unaswered_chat_workflow', 0, 0, 'Should cronjob run unanswered chats workflow and execute unaswered chats callback, 0 - no, any other number bigger than 0 is a minits how long chat have to be not accepted before executing callback.',0),
-                ('disable_popup_restore', 0, 0, 'Disable option in widget to open new window. 0 - no, 1 - restore icon will be hidden',	0),
+                ('disable_popup_restore', 0, 0, 'Disable option in widget to open new window. Restore icon will be hidden',	0),
                 ('accept_tos_link', '#', 0, 'Change to your site Terms of Service', 0),
                 ('file_configuration',	'a:7:{i:0;b:0;s:5:\"ft_op\";s:43:\"gif|jpe?g|png|zip|rar|xls|doc|docx|xlsx|pdf\";s:5:\"ft_us\";s:26:\"gif|jpe?g|png|doc|docx|pdf\";s:6:\"fs_max\";i:2048;s:18:\"active_user_upload\";b:0;s:16:\"active_op_upload\";b:1;s:19:\"active_admin_upload\";b:1;}',	0,	'Files configuration item',	1),
                 ('accept_chat_link_timeout',	'300',	0,	'How many seconds chat accept link is valid. Set 0 to force login all the time manually.',	0),
                 ('session_captcha',0,	0,	'Use session captcha. LHC have to be installed on the same domain or subdomain.',	0),
                 ('sync_sound_settings',	'a:15:{i:0;b:0;s:12:\"repeat_sound\";i:1;s:18:\"repeat_sound_delay\";i:5;s:10:\"show_alert\";b:0;s:22:\"new_chat_sound_enabled\";b:1;s:31:\"new_message_sound_admin_enabled\";b:1;s:30:\"new_message_sound_user_enabled\";b:1;s:14:\"online_timeout\";d:300;s:22:\"check_for_operator_msg\";d:10;s:21:\"back_office_sinterval\";d:10;s:22:\"chat_message_sinterval\";d:3.5;s:20:\"long_polling_enabled\";b:0;s:30:\"polling_chat_message_sinterval\";d:1.5;s:29:\"polling_back_office_sinterval\";d:5;s:18:\"connection_timeout\";i:30;}',	0,	'',	1),
                 ('sound_invitation', 1, 0, 'Play sound on invitation to chat.',	0),
+                ('explicit_http_mode', '',0,'Please enter explicit http mode. Either http: or https:, do not forget : at the end.', '0'),
                 ('track_domain',	'',	0,	'Set your domain to enable user tracking across different domain subdomains.',	0),
+                ('max_message_length','500',0,'Maximum message length in characters', '0'),
                 ('geo_data', '', '0', '', '1')");
 
 
@@ -520,6 +534,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  `page_title` varchar(250) NOT NULL,
                   `referrer` text NOT NULL,
                   `chat_id` int(11) NOT NULL,
+                  `invitation_seen_count` int(11) NOT NULL,
         	   	  `invitation_id` int(11) NOT NULL,
                   `last_visit` int(11) NOT NULL,
         	   	  `first_visit` int(11) NOT NULL,
@@ -539,6 +554,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  `lat` varchar(10) NOT NULL,
   				  `lon` varchar(10) NOT NULL,
   				  `city` varchar(100) NOT NULL,
+        	   	  `reopen_chat` int(11) NOT NULL,
         	   	  `time_on_site` int(11) NOT NULL,
   				  `tt_time_on_site` int(11) NOT NULL,
         	   	  `requires_email` int(11) NOT NULL,
@@ -556,9 +572,11 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `pageviews` int(11) NOT NULL,
 				  `message` text NOT NULL,
 				  `executed_times` int(11) NOT NULL,
+				  `hide_after_ntimes` int(11) NOT NULL,
 				  `name` varchar(50) NOT NULL,
 				  `wait_message` varchar(250) NOT NULL,
 				  `timeout_message` varchar(250) NOT NULL,
+				  `referrer` varchar(250) NOT NULL,
 				  `wait_timeout` int(11) NOT NULL,
 				  `show_random_operator` int(11) NOT NULL,
 				  `operator_name` varchar(100) NOT NULL,
@@ -590,6 +608,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `department_transfer_id` int(11) NOT NULL,
 				  `transfer_timeout` int(11) NOT NULL,
 				  `disabled` int(11) NOT NULL,
+				  `delay_lm` int(11) NOT NULL,
 				  `identifier` varchar(50) NOT NULL,
 				  `mod` tinyint(1) NOT NULL,
 				  `tud` tinyint(1) NOT NULL,
@@ -676,6 +695,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `username` varchar(40) NOT NULL,
                   `password` varchar(40) NOT NULL,
                   `email` varchar(100) NOT NULL,
+                  `time_zone` varchar(100) NOT NULL,
                   `name` varchar(100) NOT NULL,
                   `surname` varchar(100) NOT NULL,
                   `filepath` varchar(200) NOT NULL,
@@ -798,6 +818,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 $permissionsArray = array(
                     array('module' => 'lhuser',  'function' => 'selfedit'),
                     array('module' => 'lhuser',  'function' => 'changeonlinestatus'),
+                    array('module' => 'lhuser',  'function' => 'changeskypenick'),
+                    array('module' => 'lhuser',  'function' => 'personalcannedmsg'),
                     array('module' => 'lhchat',  'function' => 'use'),
                     array('module' => 'lhchat',  'function' => 'chattabschrome'),
                     array('module' => 'lhchat',  'function' => 'singlechatwindow'),

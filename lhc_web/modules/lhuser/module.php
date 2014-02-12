@@ -5,21 +5,19 @@ $Module = array( "name" => "Users, groups management");
 $ViewList = array();
 
 $ViewList['login'] = array(
-    'script' => 'login.php',
     'params' => array(),
     'uparams' => array('r'),
-    );
+);
 
 $ViewList['logout'] = array(
-    'script' => 'logout.php',
     'params' => array()
     );
 
 $ViewList['account'] = array(
-    'script' => 'logout.php',
     'params' => array(),
+    'uparams' => array('msg','action','csfr','tab'),
     'functions' => array( 'selfedit' )
-    );
+);
 
 $ViewList['userlist'] = array(
     'script' => 'userlist.php',
@@ -28,77 +26,64 @@ $ViewList['userlist'] = array(
     );
 
 $ViewList['grouplist'] = array(
-    'script' => 'grouplist.php',
     'params' => array(),
     'functions' => array( 'grouplist' )
     );
 
 $ViewList['edit'] = array(
-    'script' => 'edit.php',
     'params' => array('user_id'),
     'functions' => array( 'edituser' )
     );
 
 $ViewList['delete'] = array(
-    'script' => 'delete.php',
     'params' => array('user_id'),
     'uparams' => array('csfr'),
     'functions' => array( 'deleteuser' )
     );
 
 $ViewList['new'] = array(
-    'script' => 'new.php',
     'params' => array(),
     'functions' => array( 'createuser' )
     );
 
 $ViewList['newgroup'] = array(
-    'script' => 'newgroup.php',
     'params' => array(),
     'functions' => array( 'creategroup', 'editgroup' )
     );
 
 $ViewList['editgroup'] = array(
-    'script' => 'editgroup.php',
     'params' => array('group_id'),
     'functions' => array( 'editgroup' )
     );
 
 $ViewList['groupassignuser'] = array(
-    'script' => 'groupassignuser.php',
     'params' => array('group_id'),
     'functions' => array( 'groupassignuser' )
     );
 
 $ViewList['deletegroup'] = array(
-    'script' => 'deletegroup.php',
     'params' => array('group_id'),
 	'uparams' => array('csfr'),
     'functions' => array( 'deletegroup' )
     );
 
 $ViewList['forgotpassword'] = array(
-    'script' => 'forgotpassword.php',
     'params' => array(),
 );
 
 $ViewList['remindpassword'] = array(
-    'script' => 'remindpassword.php',
     'params' => array('hash'),
 );
 
 $ViewList['setsetting'] = array (
-		'script' => 'setsetting.php',
 		'params' => array('identifier','value')
 );
 
 $ViewList['setsettingajax'] = array (
-		'script' => 'setsettingajax.php',
 		'params' => array('identifier','value')
 );
 
 $ViewList['setoffline'] = array (
-		'script' => 'setoffline.php',
 		'functions' => array( 'changeonlinestatus' ),
 		'params' => array('status')
 );
@@ -117,5 +102,7 @@ $FunctionList['editdepartaments'] = array('explain' => 'Allow user to edit his r
 $FunctionList['userlistonline'] = array('explain' => 'Allow user to see logged operators list, only from his department');
 $FunctionList['userlistonlineall'] = array('explain' => 'Allow user to see logged operators list, not only from his department');
 $FunctionList['changeonlinestatus'] = array('explain' => 'Allow user to change his online status');
+$FunctionList['changeskypenick'] = array('explain' => 'Allow user to change/enter his skype nick');
+$FunctionList['personalcannedmsg'] = array('explain' => 'Allow user to have personal canned messages');
 
 ?>

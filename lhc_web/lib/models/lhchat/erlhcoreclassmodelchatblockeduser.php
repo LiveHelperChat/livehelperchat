@@ -32,7 +32,7 @@ class erLhcoreClassModelChatBlockedUser {
    public function __get($var) {
        switch ($var) {
        	case 'datets_front':
-       		  return date('Y-m-d H:i:s',$this->datets);
+       		  return date(erLhcoreClassModule::$dateDateHourFormat,$this->datets);
        		break;
        		
        	case 'user':

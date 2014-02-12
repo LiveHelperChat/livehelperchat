@@ -189,8 +189,9 @@ $ViewList['usertyping'] = array(
 );
 
 $ViewList['checkchatstatus'] = array(
-    'params' => array('chat_id','hash')
-    );
+    'params' => array('chat_id','hash'),
+    'uparams' => array('mode')
+);
 
 $ViewList['transferuser'] = array(
     'params' => array('chat_id','item_id'),
@@ -220,12 +221,12 @@ $ViewList['getstatusembed'] = array(
 
 $ViewList['startchat'] = array (
     'params' => array(),
-    'uparams' => array('vid','hash_resume','sound','hash','offline','leaveamessage','department','priority')
+    'uparams' => array('vid','hash_resume','sound','hash','offline','leaveamessage','department','priority','chatprefill')
 );
 
 $ViewList['chatwidget'] = array(
     'params' => array(),
-    'uparams' => array('vid','sound','hash','hash_resume','mode','offline','leaveamessage','department','priority'),
+    'uparams' => array('vid','sound','hash','hash_resume','mode','offline','leaveamessage','department','priority','chatprefill'),
 );
 
 $ViewList['reopen'] = array(

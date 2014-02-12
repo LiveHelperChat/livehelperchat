@@ -163,9 +163,9 @@ class erLhcoreClassChatValidator {
                 $inputForm->question = $form->Question;
             }
 
-            if ($form->hasValidData( 'Question' ) && $form->Question != '' && strlen($form->Question) > 500)
+            if ($form->hasValidData( 'Question' ) && $form->Question != '' && strlen($form->Question) > (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value)
             {
-                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum 500 characters for message');
+                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum').' '.(int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','characters for a message');
             }
         }
        

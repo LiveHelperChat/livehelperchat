@@ -11,7 +11,13 @@ $definition = array(
 
 $form = new ezcInputForm( INPUT_POST, $definition );
 
-if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && strlen($form->msg) < 500)
+$partsReturn = array();
+$partsReturn['or'] = '';
+$partsReturn['ur'] = '';
+$sender = '';
+$error = 'f';
+
+if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && mb_strlen($form->msg) < (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value)
 {
     $Chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
 
@@ -21,7 +27,7 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && strlen($form->msg)
         $msg->msg = trim($form->msg);
         $msg->chat_id = $Params['user_parameters']['chat_id'];
         $msg->user_id = 0;
-        $_SESSION['lhc_chatbox_nick'] = $msg->name_support = $form->nick;
+        $sender = $_SESSION['lhc_chatbox_nick'] = $msg->name_support = $form->nick;
         $msg->time = time();
 
         erLhcoreClassChat::getSession()->save($msg);
@@ -40,18 +46,29 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && strlen($form->msg)
         $Chat->has_unread_messages = 1;
         $Chat->updateThis();
        
-       
+        if ($Params['user_parameters_unordered']['render'] == 'true') {        	
+        	$tpl = erLhcoreClassTemplate::getInstance( 'lhchatbox/render.tpl.php');
+        	$tpl->set('msg',$msg);
+        	$tpl->set('chat',$Chat);      
+        	$content = $tpl->fetch();
+        	$parts = explode('{{SPLITTER}}', $content);
+        	$partsReturn['or'] = $parts[0];
+        	$partsReturn['ur'] = $parts[1];
+        }
+
         // Just increase cache version upon message ad
         CSCacheAPC::getMem()->increaseCacheVersion('chatbox_'.erLhcoreClassChatbox::getIdentifierByChatId($Chat->id));
         
-    } else {
-
+        echo json_encode(array('error' => $error,'id' => $msg->id,'or' => $partsReturn['or'],'ur' => $partsReturn['ur'],'sender' => $sender));
+        exit;
     }
 } else {
-
+	$error = 't';
+	$partsReturn['or'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a message, max characters').' - '.(int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value;
+	echo json_encode(array('error' => $error,'or' => $partsReturn['or']));
+	exit;
 }
 
-echo json_encode(array('error' => 'false','id' => $msg->id));
-exit;
+
 
 ?>

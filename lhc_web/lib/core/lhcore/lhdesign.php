@@ -17,7 +17,7 @@ class erLhcoreClassDesign
         // Check extensions directories
         $extensions = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'extensions' );
         foreach ($extensions as $ext) {
-        	$tplDir = $instance->SiteDir . '/extension/' . $ext . '/design/' . $ext .  'theme/'. $path;
+        	$tplDir = $instance->SiteDir . 'extension/' . $ext . '/design/' . $ext .  'theme/'. $path;
         	if (file_exists($tplDir)) {
         		if ($debugOutput == true) {
         			$logString .= "Found IN - ".$tplDir."<br/>";
@@ -34,7 +34,7 @@ class erLhcoreClassDesign
 
         foreach ($instance->ThemeSite as $designDirectory)
         {
-            $fileDir = $instance->SiteDir . '/design/'. $designDirectory .'/' . $path;
+            $fileDir = $instance->SiteDir . 'design/'. $designDirectory .'/' . $path;
 
             if (file_exists($fileDir)) {
 
@@ -67,16 +67,26 @@ class erLhcoreClassDesign
 
         $instance = erLhcoreClassSystem::instance();
 
+        $isMultiInclude = strpos($path, '_multiinclude') !== false;
+        $multiTemplates = array();
+        
         // Check extensions directories
         $extensions = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'extensions' );
         foreach ($extensions as $ext) {
-            $tplDir = $instance->SiteDir . '/extension/' . $ext . '/design/' . $ext .  'theme/tpl/'. $path;
+            $tplDir = $instance->SiteDir . 'extension/' . $ext . '/design/' . $ext .  'theme/tpl/'. $path;
             if (file_exists($tplDir)) {
                 if ($debugOutput == true) {
-            		$logString .= "Found IN - ".$tplDir."<br/>";
-            		$debug->log( $logString, 0, array( "source"  => "erLhcoreClassDesign", "category" =>  "designtpl - $path" )  );
+            		$logString .= "Found IN - ".$tplDir."<br/>";            		
             	}
-            	return $tplDir;
+            	
+            	if ($isMultiInclude === false) {
+            		$debug->log( $logString, 0, array( "source"  => "erLhcoreClassDesign", "category" =>  "designtpl - $path" )  );
+            		return $tplDir;
+            	} else {
+            		$multiTemplates[] = $tplDir;
+            	}
+            	
+            	
             } else {
             	if ($debugOutput == true)
             	$logString .= "Not found IN - ".$tplDir."<br/>";
@@ -86,23 +96,60 @@ class erLhcoreClassDesign
         // Check default themes
         foreach ($instance->ThemeSite as $designDirectory)
         {
-            $tplDir = $instance->SiteDir .'/design/' . $designDirectory .  '/tpl/'. $path;
+            $tplDir = $instance->SiteDir .'design/' . $designDirectory .  '/tpl/'. $path;
 
             if (file_exists($tplDir)) {
-            	if ($debugOutput == true) {
-            		$logString .= "Found IN - ".$tplDir."<br/>";
-            		$debug->log( $logString, 0, array( "source"  => "erLhcoreClassDesign", "category" =>  "designtpl - $path" )  );
+            	
+            	$logString .= "Found IN - ".$tplDir."<br/>";
+            
+            	if ($isMultiInclude === false) {
+            		if ($debugOutput == true) {            			
+            			$debug->log( $logString, 0, array( "source"  => "erLhcoreClassDesign", "category" =>  "designtpl - $path" )  );
+            		}
+            		return $tplDir;
+            	} else {
+            		$multiTemplates[] = $tplDir;
             	}
-            	return $tplDir;
+            	
             } else {
             	if ($debugOutput == true)
             	$logString .= "Not found IN - ".$tplDir."<br/>";
             }
         }
-
+        
+        if ($isMultiInclude === true && !empty($multiTemplates)) {
+        		
+        	// Only one template was found, return it instantly
+        	if (count($multiTemplates) == 1) {
+        		if ($debugOutput == true)
+        			$debug->log( $logString, 0, array( "source"  => "shop", "erLhcoreClassDesign" =>  "designtpl - $path" )  );
+        		return array_shift($multiTemplates);
+        	}
+        		
+        	$multiTemplates = array_reverse($multiTemplates);
+        	$contentFile = '';
+        	foreach ($multiTemplates as $template) {
+        		$contentFile .= php_strip_whitespace($template);
+        	}
+        		
+        	// Atomic template compilation to avoid concurent request compiling and writing to the same file
+        	$fileName = 'cache/compiledtemplates/'.md5(time().rand(0, 1000).microtime().$path.$instance->WWWDirLang.$instance->Language).'.php';
+        	file_put_contents($fileName,$contentFile);
+        
+        	$file = 'cache/compiledtemplates/'.md5('multi_'.$path.$instance->WWWDirLang.$instance->Language).'.php';
+        	rename($fileName,$file);
+        	
+        	$logString .= "COMPILED MULTITEMPLATE - ".$file."<br/>";
+        	
+        	if ($debugOutput == true)
+        		$debug->log( $logString, 0, array( "source"  => "shop", "erLhcoreClassDesign" =>  "designtpl - $path" )  );
+        	
+        	return $file;
+        }
+        
         if ($debugOutput == true)
-        $debug->log( $logString, 0, array( "source"  => "shop", "erLhcoreClassDesign" =>  "designtpl - $path" )  );
-
+        	$debug->log( $logString, 0, array( "source"  => "shop", "erLhcoreClassDesign" =>  "designtpl - $path" )  );
+        
         return ;
     }
 

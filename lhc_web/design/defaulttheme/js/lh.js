@@ -40,7 +40,8 @@ function lh(){
     this.userclosechaturl = "chat/userclosechat/";
     this.disableremember = false;
     this.operatorTyping = false;
-
+    this.appendSyncArgument = '';
+    
     // On chat hash and chat_id is based web user chating. Hash make sure chat security.
     this.chat_id = null;
     this.hash = null;
@@ -152,6 +153,10 @@ function lh(){
         if ( this.chatUnderSynchronization(chat_id) == false ) {
         	var rememberAppend = this.disableremember == false ? '/(remember)/true' : '';
         	this.addTab(tabs, this.wwwDir +'chat/adminchat/'+chat_id+rememberAppend, name, chat_id);
+        	var inst = this;
+        	 setTimeout(function(){
+     	    	inst.syncadmininterfacestatic();
+     	    },1000);
         }
     };
 
@@ -451,15 +456,21 @@ function lh(){
                 			     inst.playNewMessageSound();
                 			};
 
-                			// Set last message ID
+                			// Set last message ID                			
                 			inst.last_message_id = data.message_id;
+                			
+                			
 
     	            } else {
     	                if ( data.status != 'true') $('#status-chat').html(data.status);
     	            }
 
     	            inst.userTimeout = setTimeout(chatsyncuser,confLH.chat_message_sinterval);
-    	       	    	            
+    	            
+    	            if (data.cs == 't') {
+        				inst.chatsyncuserpending();
+        			}
+    	            
         			if ( data.ott != '' ) {
         				var instStatus = $('#id-operator-typing');
         				instStatus.find('i').html(data.ott);
@@ -546,7 +557,7 @@ function lh(){
 
 	this.startChatCloseTabNewWindow = function(chat_id, tabs, name)
 	{
-		window.open(this.wwwDir + 'chat/single/'+chat_id,'chatwindow-chat-id-'+chat_id,"menubar=1,resizable=1,width=780,height=450");
+		window.open(this.wwwDir + 'chat/single/'+chat_id,'chatwindow-chat-id-'+chat_id,"menubar=1,resizable=1,width=800,height=650");
 
 	    $.ajax({
 	        type: "GET",
@@ -659,8 +670,11 @@ function lh(){
 
 	this.startChatNewWindow = function(chat_id,name)
 	{
-	    window.open(this.wwwDir + 'chat/single/'+chat_id,'chatwindow-chat-id-'+chat_id,"menubar=1,resizable=1,width=780,height=450");
-	    this.syncadmininterfacestatic();
+	    window.open(this.wwwDir + 'chat/single/'+chat_id,'chatwindow-chat-id-'+chat_id,"menubar=1,resizable=1,width=800,height=650");
+	    var inst = this;
+	    setTimeout(function(){
+	    	inst.syncadmininterfacestatic();
+	    },1000);	   
         return false;
 	};
 
@@ -668,6 +682,11 @@ function lh(){
 		var inst = this;
 	    $.getJSON(this.wwwDir + this.accepttransfer + transfer_id ,{}, function(data){
 	    	inst.startChat(chat_id,tabs,name);
+	    	
+	    	if (LHCCallbacks.operatorAcceptedTransfer) {
+	       		LHCCallbacks.operatorAcceptedTransfer(chat_id);
+	    	};
+	    	
 	    }).fail(function(){
 	    	inst.startChat(chat_id,tabs,name);
 	    });
@@ -676,14 +695,29 @@ function lh(){
 	this.startChatNewWindowTransfer = function(chat_id,name,transfer_id)
 	{
 		$.getJSON(this.wwwDir + this.accepttransfer + transfer_id ,{}, function(data){
-
+			if (LHCCallbacks.operatorAcceptedTransfer) {
+	       		LHCCallbacks.operatorAcceptedTransfer(chat_id);
+	    	};
 		});
 		return this.startChatNewWindow(chat_id,name);
 	};
 
 	this.startChatNewWindowTransferByTransfer = function(transfer_id)
 	{
-	    window.open(this.wwwDir + 'chat/accepttransfer/'+transfer_id+'/(postaction)/singlewindow','chatwindow-'+transfer_id,"menubar=1,resizable=1,width=780,height=450");
+		var inst = this;
+		$.ajax({
+	        type: "GET",
+	        url: this.wwwDir + this.accepttransfer + transfer_id,
+	        cache: false,
+	        dataType: 'json',
+	        async: false
+	    }).done(function(data){	    
+	    	inst.startChatNewWindow(data.chat_id,'');
+	    	if (LHCCallbacks.operatorAcceptedTransfer) {
+	       		LHCCallbacks.operatorAcceptedTransfer(data.chat_id);
+	    	};
+	    });
+			   
 	    this.syncadmininterfacestatic();
         return false;
 	};
@@ -697,9 +731,29 @@ function lh(){
 	};
 	
 	this.sendMail = function(chat_id) {
-		$.colorbox({iframe:true, width:'550px',height:'500px', href:this.wwwDir + 'chat/sendmail/'+chat_id});
+		$.colorbox({iframe:true, width:'90%',height:'90%', href:this.wwwDir + 'chat/sendmail/'+chat_id});
 	};
-
+	
+	this.attatchLinkToFile = function(chat_id) {
+		$.colorbox({iframe:true, width:'90%',height:'90%', href:this.wwwDir + 'file/attatchfile/'+chat_id});
+	};
+	
+	this.embedFileSendMail = function(chat_id) {
+		$.colorbox({iframe:true, width:'90%',height:'90%', href:this.wwwDir + 'file/attatchfilemail'});
+	};	
+	
+	this.sendLinkToMail = function( embed_code,file_id) {
+		var val = window.parent.$('#MailMessage').val();		
+		window.parent.$('#MailMessage').val(((val != '') ? val+"\n" : val)+embed_code);
+		$('#embed-button-'+file_id).addClass('success');	
+	},
+	
+	this.sendLinkToEditor = function(chat_id, embed_code,file_id) {
+		var val = window.parent.$('#CSChatMessage-'+chat_id).val();		
+		window.parent.$('#CSChatMessage-'+chat_id).val(((val != '') ? val+"\n" : val)+embed_code);
+		$('#embed-button-'+file_id).addClass('success');	
+	},
+	
 	this.sendMailArchive = function(archive_id,chat_id) {
 		$.colorbox({iframe:true, width:'550px',height:'500px', href:this.wwwDir + 'chatarchive/sendmail/'+archive_id+'/'+chat_id});
 	};
@@ -732,7 +786,7 @@ function lh(){
 
 	this.chatTabsOpen = function ()
 	{
-	    window.open(this.wwwDir + 'chat/chattabs/','chatwindows',"menubar=1,resizable=1,width=780,height=460");
+	    window.open(this.wwwDir + 'chat/chattabs/','chatwindows',"menubar=1,resizable=1,width=800,height=650");
 	    return false;
 	};
 
@@ -831,9 +885,16 @@ function lh(){
 	};
 
 	this.voteAction = function(inst) {
+		
+		var chat_id = this.chat_id;
+		
 		$.postJSON(this.wwwDir + 'chat/voteaction/' + this.chat_id + '/' + this.hash + '/' + inst.attr('data-id') ,{}, function(data){
 			if (data.error == 'false')
 	        {
+				if (LHCCallbacks.uservoted) {
+            		LHCCallbacks.uservoted(chat_id);
+            	};
+				
 				if (data.status == 0) {
 					$('.icon-thumbs-up').removeClass('up-voted');
 					$('.icon-thumbs-down').removeClass('down-voted');
@@ -849,8 +910,10 @@ function lh(){
 	};
 
 	this.chatsyncuserpending = function ()
-	{
-	    $.getJSON(this.wwwDir + this.checkchatstatus + this.chat_id + '/' + this.hash ,{}, function(data){
+	{	
+		var modeWindow = this.isWidgetMode == true ? '/(mode)/widget' : '';	
+		var inst = this;
+	    $.getJSON(this.wwwDir + this.checkchatstatus + this.chat_id + '/' + this.hash + modeWindow ,{}, function(data){
 	        // If no error
 	        if (data.error == 'false')
 	        {
@@ -861,10 +924,15 @@ function lh(){
 	                   $('#status-chat').html(data.result);
 	               }
 
+	               if (data.ru != '') {
+	            	   inst.userclosedchatembed();
+	            	   document.location = data.ru;
+	               }
+	               
 	               setTimeout(chatsyncuserpending,confLH.chat_message_sinterval);
 
 	            } else {
-	            	$('#status-chat').parent().html(data.result);	                
+	            	$('#status-chat').html(data.result);	                
 	            }
 	        }
     	}).fail(function(){
@@ -942,20 +1010,8 @@ function lh(){
 	        {
 	            this.syncroRequestSend = true;
 
-	            var statusTyping = [];
-	            var statusTypingTl = [];
-	            //remdex
-	            $.each(this.chatsSynchronising,function(i,value){
-	            	var inst = $('#user-is-typing-'+value);
-	            	
-	            	if (inst.is(':visible')){
-	            		statusTyping.push(value);
-	            		statusTypingTl.push(inst.text().length);
-	            	}
-	            });
-	            
                 clearTimeout(this.userTimeout);
-        	    $.postJSON(this.wwwDir + this.syncadmin ,{ 'chats[]': this.chatsSynchronisingMsg,'typing[]':statusTyping,'typingtl[]':statusTypingTl }, function(data){
+        	    $.postJSON(this.wwwDir + this.syncadmin ,{ 'chats[]': this.chatsSynchronisingMsg }, function(data){
         	    	
         	    	try {
 	        	        // If no error
@@ -1184,6 +1240,7 @@ function lh(){
 	
 	this.syncadmininterfacestatic = function()
 	{
+		var inst = this;
 	    $.getJSON(this.wwwDir + this.syncadmininterfaceurl ,{ }, function(data){
 	        // If no error
 	        if (data.error == 'false')
@@ -1201,6 +1258,10 @@ function lh(){
                     	};
                     };
                 });
+                
+                if ($('#right-pending-chats ul').size() == 0) {
+                	clearTimeout(inst.soundIsPlaying);
+                }
 	        }
     	});
 	};
@@ -1241,13 +1302,18 @@ function lh(){
         var modeWindow = this.isWidgetMode == true ? '/(mode)/widget' : '';
 		$('#CSChatMessage').val('');
 		var inst = this;
-
-        $.postJSON(this.wwwDir + this.addmsgurluserchatbox + this.chat_id + '/' + this.hash + modeWindow, pdata , function(data) {
-	        	if (LHCCallbacks.addmsguserchatbox) {
-	        		LHCCallbacks.addmsguserchatbox(inst,data);
-	        	};
-        		inst.syncusercall();
-        	
+		
+        $.postJSON(this.wwwDir + this.addmsgurluserchatbox + this.chat_id + '/' + this.hash + modeWindow + this.appendSyncArgument, pdata , function(data) {
+	        	    
+        		if (data.error == 'f') {        	
+	        		if (LHCCallbacks.addmsguserchatbox) {
+	        			LHCCallbacks.addmsguserchatbox(inst,{chat_id:inst.chat_id,data:data});
+		        	};
+		        		        	
+		        	inst.syncusercall();  
+	        	} else {
+	        		alert(data.or);
+	        	}        	
 		});
 
         if (nickCurrent != $("#CSChatNick").val() && !!window.postMessage && parent) {
@@ -1267,10 +1333,19 @@ function lh(){
 		var inst = this;
 
         $.postJSON(this.wwwDir + this.addmsgurluser + this.chat_id + '/' + this.hash + modeWindow, pdata , function(data) {
-        	if (LHCCallbacks.addmsguser) {
-        		LHCCallbacks.addmsguser(inst,data);
-        	};
-        	inst.syncusercall();
+        	
+        	if (data.error == 'f'){
+	        	if (LHCCallbacks.addmsguser) {
+	        		LHCCallbacks.addmsguser(inst,data);
+	        	};
+	        	
+	        	inst.syncusercall();
+        	} else {
+        		$('#CSChatMessage').val(pdata.msg);
+        		var instStatus = $('#id-operator-typing');
+				instStatus.find('i').html(data.r);
+				instStatus.fadeIn();				
+        	}
 		});
     };
 

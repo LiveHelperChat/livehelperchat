@@ -30,6 +30,9 @@ if (isset($_POST['UpdateAction']) || isset($_POST['SaveAction'])  )
 			),
 			'Priority' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'int'
+			),
+			'Revote' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'int'
 			)
 	);
 
@@ -71,7 +74,14 @@ if (isset($_POST['UpdateAction']) || isset($_POST['SaveAction'])  )
 	} else {
 		$Question->active = 0;
 	}
-
+	
+	if ( $form->hasValidData( 'Revote' ) )
+	{
+		$Question->revote = $form->Revote;
+	} else {
+		$Question->revote = 0;
+	}
+	
 	if (count($Errors) == 0)
 	{
 		$Question->question = $form->Question;

@@ -81,7 +81,7 @@
     </message>
     <message>
       <source>chat configuration</source>
-      <translation type="unfinished"/>
+      <translation>ضبط الشات</translation>
     </message>
     <message>
       <source>also online users tracking has to be</source>
@@ -89,7 +89,7 @@
     </message>
     <message>
       <source>enabled</source>
-      <translation type="unfinished"/>
+      <translation>مفعل</translation>
     </message>
     <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
@@ -97,7 +97,7 @@
     </message>
     <message>
       <source>Position</source>
-      <translation type="unfinished"/>
+      <translation>المكان</translation>
     </message>
     <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
@@ -125,10 +125,18 @@
     </message>
     <message>
       <source>Time on site in seconds</source>
-      <translation type="unfinished"/>
+      <translation>الوقت في الموقع . ثواني</translation>
     </message>
     <message>
       <source>Pageviews</source>
+      <translation>عرض الصفحات</translation>
+    </message>
+    <message>
+      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How many times user show invitation, 0 - untill users closes it, &gt; 0 limits.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -149,7 +157,7 @@
     </message>
     <message>
       <source>Message to user</source>
-      <translation type="unfinished"/>
+      <translation>رسالة للعضو</translation>
     </message>
     <message>
       <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
@@ -179,7 +187,7 @@
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation type="unfinished"/>
+      <translation>فتح في صفحة جديدة</translation>
     </message>
     <message>
       <source>Close chat</source>
@@ -273,7 +281,7 @@
     </message>
     <message>
       <source>Users who are blocked</source>
-      <translation type="unfinished"/>
+      <translation>الأعضاء المحظورين</translation>
     </message>
     <message>
       <source>Remove block</source>
@@ -310,6 +318,10 @@
       <translation>الرسالة</translation>
     </message>
     <message>
+      <source>User</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Delay</source>
       <translation type="unfinished"/>
     </message>
@@ -338,6 +350,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Personal canned message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Canned message was saved</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation>ضبط النظام</translation>
     </message>
@@ -347,6 +371,169 @@
     </message>
     <message>
       <source>Please enter a canned message</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>department/edit</name>
+    <message>
+      <source>Any</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit department</source>
+      <translation>حَرِّر القسم</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>الاسم</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>البريد الإلكتروني</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automate online hours</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Work hours/work days logic is active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Monday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tuesday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wednesday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Thursday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Friday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Saturday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sunday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Work hours, 24 hours format, 1 - 24</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>From, E.g. 8</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To, E.g. 17</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Notifications about new chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP group recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E.g somechat@conference.server.org/LiveChat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>These messages will be send as group messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inform about new chats using</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How many seconds chat can be pending before about chat is informed a staff</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inform then chat is closed by operator, only mail notification is send.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat transfer worklow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To what department chat should be transfered if it is not accepted</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Miscellaneous</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>None</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>ضبط النظام</translation>
+    </message>
+    <message>
+      <source>departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit a department</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -369,7 +556,7 @@
     </message>
     <message>
       <source>Visitor</source>
-      <translation type="unfinished"/>
+      <translation>الزوار</translation>
     </message>
     <message>
       <source>General information</source>
@@ -409,15 +596,15 @@
     </message>
     <message>
       <source>Country</source>
-      <translation type="unfinished"/>
+      <translation>الدولة</translation>
     </message>
     <message>
       <source>City</source>
-      <translation type="unfinished"/>
+      <translation>المدينة</translation>
     </message>
     <message>
       <source>Page</source>
-      <translation type="unfinished"/>
+      <translation>صفحة</translation>
     </message>
     <message>
       <source>Came from</source>
@@ -445,7 +632,7 @@
     </message>
     <message>
       <source>Chat duration</source>
-      <translation type="unfinished"/>
+      <translation>مدة الدردشة</translation>
     </message>
     <message>
       <source>Actions</source>
@@ -484,6 +671,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Attatch uploaded file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat between operators, chat initializer</source>
       <translation type="unfinished"/>
     </message>
@@ -493,7 +684,7 @@
     </message>
     <message>
       <source>Map</source>
-      <translation type="unfinished"/>
+      <translation>الخريطة</translation>
     </message>
     <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
@@ -505,7 +696,7 @@
     </message>
     <message>
       <source>Refresh</source>
-      <translation type="unfinished"/>
+      <translation>تحديث</translation>
     </message>
     <message>
       <source>Remarks</source>
@@ -571,7 +762,7 @@
     <name>chat/syncadmininterface</name>
     <message>
       <source>Open in a new window</source>
-      <translation type="unfinished"/>
+      <translation>افتح في صفحة جديدة</translation>
     </message>
     <message>
       <source>Add chat</source>
@@ -583,7 +774,7 @@
     </message>
     <message>
       <source>Start chat</source>
-      <translation type="unfinished"/>
+      <translation>أبداء الدردشة</translation>
     </message>
     <message>
       <source>Last activity</source>
@@ -676,12 +867,12 @@
       <translation>الهاتف</translation>
     </message>
     <message>
-      <source>Your question</source>
-      <translation>سؤالك</translation>
-    </message>
-    <message>
       <source>Enter your message</source>
       <translation>أدخل رسالتك</translation>
+    </message>
+    <message>
+      <source>Your question</source>
+      <translation>سؤالك</translation>
     </message>
     <message>
       <source>Start chat</source>
@@ -760,7 +951,11 @@
       <translation>من فضلك أدخل رسالتك</translation>
     </message>
     <message>
-      <source>Maximum 500 characters for message</source>
+      <source>Maximum</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>characters for a message</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -788,12 +983,12 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Visitor</source>
-      <translation>الزائر</translation>
+      <source>Please enter a message, max characters</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Maximum 500 characters for a message</source>
-      <translation type="unfinished"/>
+      <source>Visitor</source>
+      <translation>الزائر</translation>
     </message>
     <message>
       <source>Fill in the form to start a chat</source>
@@ -831,7 +1026,7 @@
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation type="unfinished"/>
+      <translation>فتح في صفحة جديدة</translation>
     </message>
     <message>
       <source>Delete chat</source>
@@ -843,7 +1038,7 @@
     </message>
     <message>
       <source>Chats list</source>
-      <translation type="unfinished"/>
+      <translation>قائمة الدردشات</translation>
     </message>
     <message>
       <source>Closed chats</source>
@@ -874,7 +1069,7 @@
     </message>
     <message>
       <source>Change my status to online/offline</source>
-      <translation type="unfinished"/>
+      <translation>تغير الحالة من متصل إلى غير متصل</translation>
     </message>
   </context>
   <context>
@@ -969,6 +1164,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Location of city database</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User country based detection, faster</source>
       <translation type="unfinished"/>
     </message>
@@ -982,6 +1181,14 @@
     </message>
     <message>
       <source>User city based detection, slower</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use PHP-GeoIP module</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Support for PHP-GeoIP detected</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1018,7 +1225,7 @@
     </message>
     <message>
       <source>City</source>
-      <translation type="unfinished"/>
+      <translation>المدينة</translation>
     </message>
     <message>
       <source>Lat.</source>
@@ -1094,7 +1301,7 @@
     </message>
     <message>
       <source>Time on site</source>
-      <translation type="unfinished"/>
+      <translation>الوقت في الموقع</translation>
     </message>
     <message>
       <source>Total time on site</source>
@@ -1102,11 +1309,11 @@
     </message>
     <message>
       <source>Current page</source>
-      <translation type="unfinished"/>
+      <translation>الصفحة الحالية</translation>
     </message>
     <message>
       <source>Came from</source>
-      <translation type="unfinished"/>
+      <translation>قادم من</translation>
     </message>
     <message>
       <source>Are you sure?</source>
@@ -1130,7 +1337,7 @@
     </message>
     <message>
       <source>List</source>
-      <translation type="unfinished"/>
+      <translation>قائمة</translation>
     </message>
     <message>
       <source>online users</source>
@@ -1142,7 +1349,7 @@
     </message>
     <message>
       <source>seconds</source>
-      <translation type="unfinished"/>
+      <translation>ثواني</translation>
     </message>
     <message>
       <source>minit</source>
@@ -1194,7 +1401,7 @@
     </message>
     <message>
       <source>No one has sent a message to the user yet</source>
-      <translation type="unfinished"/>
+      <translation>لم يتم ارسال رسالة لهذا العضو</translation>
     </message>
     <message>
       <source>first visit</source>
@@ -1210,7 +1417,7 @@
     </message>
     <message>
       <source>Map</source>
-      <translation type="unfinished"/>
+      <translation>الخريطة</translation>
     </message>
     <message>
       <source>User has message from operator</source>
@@ -1282,6 +1489,10 @@
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that you have installed php-GeoIP module and GeoIPCity.dat file is available!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1431,14 +1642,22 @@
     </message>
     <message>
       <source>Languages configuration</source>
-      <translation type="unfinished"/>
+      <translation>ضبط اللغات</translation>
     </message>
     <message>
       <source>Chats list</source>
-      <translation type="unfinished"/>
+      <translation>قائمة الدردشات</translation>
     </message>
     <message>
       <source>Chat archive</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time zone settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update information</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1459,7 +1678,7 @@
     </message>
     <message>
       <source>Statistic</source>
-      <translation type="unfinished"/>
+      <translation>الأحصائيات</translation>
     </message>
     <message>
       <source>Users and their permissions</source>
@@ -1497,6 +1716,10 @@
       <source>File configuration</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>New file</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>system/htmlcode</name>
@@ -1519,6 +1742,14 @@
     <message>
       <source>Chatbox messages content height</source>
       <translation>ارتفاع محتوى رسائل صندوق المحادثة</translation>
+    </message>
+    <message>
+      <source>Choose prefered http mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Based on site (default)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>
@@ -1713,7 +1944,7 @@
     </message>
     <message>
       <source>Operators chats</source>
-      <translation type="unfinished"/>
+      <translation>دردشات الموظفين</translation>
     </message>
     <message>
       <source>Chats with unread messages</source>
@@ -1770,11 +2001,11 @@
     <name>chat/operatorschats</name>
     <message>
       <source>Operators chats list</source>
-      <translation type="unfinished"/>
+      <translation>قائمة دردشات الموظفين</translation>
     </message>
     <message>
       <source>Operators chats</source>
-      <translation type="unfinished"/>
+      <translation>دردشات الموظفين</translation>
     </message>
   </context>
   <context>
@@ -1833,7 +2064,7 @@
     <name>chat/sendmail</name>
     <message>
       <source>Send mail to the user</source>
-      <translation type="unfinished"/>
+      <translation>أرسل بريد للعضو</translation>
     </message>
     <message>
       <source>Recipient</source>
@@ -1861,15 +2092,19 @@
     </message>
     <message>
       <source>Type your message to the user</source>
-      <translation type="unfinished"/>
+      <translation>اكتب رسالتك للعضو</translation>
     </message>
     <message>
       <source>Send the mail</source>
+      <translation>أرسل البريد</translation>
+    </message>
+    <message>
+      <source>Embed link to file</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Mail was sent to the user</source>
-      <translation type="unfinished"/>
+      <translation>تم إرسل البريد للعضو</translation>
     </message>
     <message>
       <source>Please enter recipient e-mail!</source>
@@ -1892,7 +2127,7 @@
     <name>chat/sendnotice</name>
     <message>
       <source>Send a message to the user</source>
-      <translation type="unfinished"/>
+      <translation>أرسل رسالة للعضو</translation>
     </message>
     <message>
       <source>If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.</source>
@@ -1900,15 +2135,15 @@
     </message>
     <message>
       <source>Type your message to the user</source>
-      <translation type="unfinished"/>
+      <translation>اكتب رسالتك للعضو</translation>
     </message>
     <message>
       <source>Send the message</source>
-      <translation type="unfinished"/>
+      <translation>ارسل الرسالة</translation>
     </message>
     <message>
       <source>Message was sent to the user</source>
-      <translation type="unfinished"/>
+      <translation>تم إرسال الرسالة للعضو</translation>
     </message>
     <message>
       <source>Start chat with operator</source>
@@ -1947,6 +2182,10 @@
     </message>
     <message>
       <source>This field is visible in the page widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This field is invisible but prefilled data is collected</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2125,7 +2364,7 @@
     <name>chat/statistic</name>
     <message>
       <source>Statistic</source>
-      <translation type="unfinished"/>
+      <translation>الأحصائيات</translation>
     </message>
     <message>
       <source>Total statistic</source>
@@ -2153,7 +2392,7 @@
     </message>
     <message>
       <source>Total closed chats</source>
-      <translation type="unfinished"/>
+      <translation>مجموع الدردشات المغلقة</translation>
     </message>
     <message>
       <source>Chatbox chats</source>
@@ -2161,19 +2400,19 @@
     </message>
     <message>
       <source>Total messages (including visitors, system and operators messages)</source>
-      <translation type="unfinished"/>
+      <translation>جميع الرسائل</translation>
     </message>
     <message>
       <source>Total messages (only visitors)</source>
-      <translation type="unfinished"/>
+      <translation>جميع الرسائل للإعضاء</translation>
     </message>
     <message>
       <source>Total messages (only system messages)</source>
-      <translation type="unfinished"/>
+      <translation>جميع رسائل النظام</translation>
     </message>
     <message>
       <source>Total messages (only operators)</source>
-      <translation type="unfinished"/>
+      <translation>جميع الرسائل للموظفين</translation>
     </message>
     <message>
       <source>Last 24h statistic</source>
@@ -2185,11 +2424,11 @@
     </message>
     <message>
       <source>User</source>
-      <translation type="unfinished"/>
+      <translation>عضو</translation>
     </message>
     <message>
       <source>Total messages</source>
-      <translation type="unfinished"/>
+      <translation>جميع الرسائل</translation>
     </message>
     <message>
       <source>Votes</source>
@@ -2197,7 +2436,7 @@
     </message>
     <message>
       <source>Last activity</source>
-      <translation type="unfinished"/>
+      <translation>أخر العمليات</translation>
     </message>
     <message>
       <source>ago</source>
@@ -2212,7 +2451,7 @@
     </message>
     <message>
       <source>Logged in users</source>
-      <translation type="unfinished"/>
+      <translation>الأعضاء المسجلين الدخول</translation>
     </message>
     <message>
       <source>Transfer a chat to one of your departments users</source>
@@ -2639,141 +2878,6 @@
     </message>
   </context>
   <context>
-    <name>department/edit</name>
-    <message>
-      <source>Edit department</source>
-      <translation>حَرِّر القسم</translation>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>الاسم</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>البريد الإلكتروني</translation>
-    </message>
-    <message>
-      <source>Disabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMPP recipients</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMPP group recipients</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>E.g somechat@conference.server.org/LiveChat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>These messages will be send as group messages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Priority</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>To what department chat should be transfered if it is not accepted</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Inform then chat is closed by operator, only mail notification is send.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Inform about new chats using</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMPP messages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Mail messages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>How many seconds chat can be pending before about chat is informed a staff</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Work hours/work days logic is active</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Monday</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Tuesday</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Wednesday</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Thursday</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Friday</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Saturday</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Sunday</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>From, E.g. 8</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>To, E.g. 17</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>None</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>System configuration</source>
-      <translation>ضبط النظام</translation>
-    </message>
-    <message>
-      <source>departments</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Edit a department</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
     <name>user/account</name>
     <message>
       <source>Updated</source>
@@ -2796,12 +2900,16 @@
       <translation>اسم المستخدم</translation>
     </message>
     <message>
+      <source>Your username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Password</source>
       <translation>كلمة السر</translation>
     </message>
     <message>
       <source>Enter a new password</source>
-      <translation type="unfinished"/>
+      <translation>اكتب كلمة مرور جديدة</translation>
     </message>
     <message>
       <source>Repeat password</source>
@@ -2809,7 +2917,7 @@
     </message>
     <message>
       <source>Repeat the new password</source>
-      <translation type="unfinished"/>
+      <translation>تأكيد كلمة المرور</translation>
     </message>
     <message>
       <source>Email</source>
@@ -2866,6 +2974,10 @@
     <message>
       <source>Closed chats tab enabled</source>
       <translation>فُعِّل لسان المحادثات المُغلقة</translation>
+    </message>
+    <message>
+      <source>Personal canned messages</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Account updated</source>
@@ -2962,7 +3074,7 @@
     </message>
     <message>
       <source>Question is active</source>
-      <translation type="unfinished"/>
+      <translation>السؤال مفعل</translation>
     </message>
     <message>
       <source>New question</source>
@@ -3040,6 +3152,49 @@
     </message>
   </context>
   <context>
+    <name>file/list</name>
+    <message>
+      <source>List of files</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Upload a file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Upload name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File size</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Embed BB code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Extension</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete the file</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>file/configuration</name>
     <message>
       <source>File configuration</source>
@@ -3071,37 +3226,21 @@
     </message>
   </context>
   <context>
-    <name>file/list</name>
+    <name>file/new</name>
     <message>
-      <source>List of files</source>
+      <source>New file</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>User</source>
+      <source>File name</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Chat</source>
+      <source>Upload</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Upload name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>File size</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Extension</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Date</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Delete the file</source>
+      <source>File uploaded</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -3384,7 +3523,7 @@
     </message>
     <message>
       <source>Delete the answer</source>
-      <translation type="unfinished"/>
+      <translation>حذف الأجابة</translation>
     </message>
     <message>
       <source>Option name</source>
@@ -3403,7 +3542,7 @@
     <name>questionary/edit</name>
     <message>
       <source>Edit the question</source>
-      <translation type="unfinished"/>
+      <translation>تعديل السؤال</translation>
     </message>
     <message>
       <source>Question</source>
@@ -3463,7 +3602,7 @@
     </message>
     <message>
       <source>Please enter a question!</source>
-      <translation type="unfinished"/>
+      <translation>الرجاء إضافة سؤال</translation>
     </message>
     <message>
       <source>Please enter an option!</source>
@@ -3478,7 +3617,7 @@
     <name>questionary/list</name>
     <message>
       <source>Questions</source>
-      <translation type="unfinished"/>
+      <translation>الأسئلة</translation>
     </message>
     <message>
       <source>Question</source>
@@ -3495,6 +3634,10 @@
     <message>
       <source>Active</source>
       <translation>فعّال</translation>
+    </message>
+    <message>
+      <source>Revote</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Y</source>
@@ -3521,6 +3664,10 @@
       <translation>سؤالٌ جديد</translation>
     </message>
     <message>
+      <source>Off</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Questionary</source>
       <translation>الأسئلة</translation>
     </message>
@@ -3529,7 +3676,7 @@
     <name>questionary/newquestion</name>
     <message>
       <source>Enter a new question</source>
-      <translation type="unfinished"/>
+      <translation>أضف سؤال جديد</translation>
     </message>
     <message>
       <source>Save</source>
@@ -3548,7 +3695,7 @@
     <name>questionary/previewanswer</name>
     <message>
       <source>Preview the answer</source>
-      <translation type="unfinished"/>
+      <translation>عرض الأجابة</translation>
     </message>
   </context>
   <context>
@@ -3567,6 +3714,10 @@
     </message>
     <message>
       <source>Priority, if multiple questions match a location, the question with the higher priority will be shown</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Revote time (hours), before can revote. Default 0 - never. Higher value allow revote after seconds expire since last vote</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3629,7 +3780,7 @@
     </message>
     <message>
       <source>Chats transferred to you directly</source>
-      <translation type="unfinished"/>
+      <translation>تم تحويل الشات لك</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -3637,7 +3788,7 @@
     </message>
     <message>
       <source>Transferred to your department</source>
-      <translation type="unfinished"/>
+      <translation>تحويل لقسمك</translation>
     </message>
     <message>
       <source>Pending chats</source>
@@ -3661,7 +3812,7 @@
     </message>
     <message>
       <source>Chats list</source>
-      <translation type="unfinished"/>
+      <translation>قائمة الدردشات</translation>
     </message>
     <message>
       <source>Chat rooms</source>
@@ -3669,7 +3820,7 @@
     </message>
     <message>
       <source>New chat request</source>
-      <translation type="unfinished"/>
+      <translation>طلب شات جديد</translation>
     </message>
     <message>
       <source>Menu</source>
@@ -3704,7 +3855,7 @@
     <name>system/languages</name>
     <message>
       <source>Languages configuration</source>
-      <translation type="unfinished"/>
+      <translation>ضبط اللغة</translation>
     </message>
     <message>
       <source>Your language</source>
@@ -3712,7 +3863,7 @@
     </message>
     <message>
       <source>Language</source>
-      <translation type="unfinished"/>
+      <translation>اللغة</translation>
     </message>
     <message>
       <source>General language settings</source>
@@ -3744,7 +3895,7 @@
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>تم تحديث الضبط</translation>
     </message>
     <message>
       <source>Please choose correct language</source>
@@ -3752,7 +3903,7 @@
     </message>
     <message>
       <source>Please enter theme</source>
-      <translation type="unfinished"/>
+      <translation>الرجاء إختيار الثيم</translation>
     </message>
     <message>
       <source>Please enter module name</source>
@@ -3795,14 +3946,49 @@
     </message>
   </context>
   <context>
+    <name>system/timezone</name>
+    <message>
+      <source>Time zone settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set application specific time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date format E.g (Y-m-d)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Full date format E.g (Y-m-d H:i:s)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hour format E.g (H:i:s)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live Helper Chat update</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>user/edit</name>
+    <message>
+      <source>Server default time zone</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>User edit</source>
       <translation>تحرير المستخدم</translation>
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
-      <translation type="unfinished"/>
+      <translation>لاتكتب كلمة المرور إلى اذا اردت تغييرها</translation>
     </message>
     <message>
       <source>Username</source>
@@ -3814,7 +4000,7 @@
     </message>
     <message>
       <source>Repeat the new password</source>
-      <translation type="unfinished"/>
+      <translation>تأكيد كلمة المرور</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -3849,6 +4035,14 @@
       <translation>الأقسام الملحقة</translation>
     </message>
     <message>
+      <source>User time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Application default time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Wrong email address</source>
       <translation>عنوان بريد إليكتروني خاطئ</translation>
     </message>
@@ -3858,7 +4052,7 @@
     </message>
     <message>
       <source>Please enter a name</source>
-      <translation type="unfinished"/>
+      <translation>الرجاء كتابة أسم</translation>
     </message>
     <message>
       <source>Passwords mismatch</source>
@@ -3871,6 +4065,41 @@
     <message>
       <source>Users</source>
       <translation>المستخدمون</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/update</name>
+    <message>
+      <source>Your version</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Current version</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last database update</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>News</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Missing updates from new versions.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update instructions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You are running current version. No updates required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live Helper Chat update information</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -3925,7 +4154,7 @@
     </message>
     <message>
       <source>Departments</source>
-      <translation type="unfinished"/>
+      <translation>الأقسام</translation>
     </message>
     <message>
       <source>Save</source>
@@ -3945,7 +4174,7 @@
     </message>
     <message>
       <source>Please enter a username</source>
-      <translation type="unfinished"/>
+      <translation>الرجاء كتابة أسم المستخدم</translation>
     </message>
     <message>
       <source>User exists</source>
@@ -4031,7 +4260,7 @@
     <name>user/forgotpassword</name>
     <message>
       <source>Password reminder</source>
-      <translation type="unfinished"/>
+      <translation>تذكير كلمة المرور</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -4130,7 +4359,7 @@
     <name>user/login</name>
     <message>
       <source>Please login</source>
-      <translation>من فضلك، لُج</translation>
+      <translation>الرجاء تسجيل الدخول</translation>
     </message>
     <message>
       <source>Username</source>
@@ -4150,7 +4379,7 @@
     </message>
     <message>
       <source>Password reminder</source>
-      <translation type="unfinished"/>
+      <translation>تذكير كلمة المرور</translation>
     </message>
     <message>
       <source>Incorrect username or password</source>
@@ -4204,7 +4433,7 @@
     </message>
     <message>
       <source>New password has been sent to your email.</source>
-      <translation type="unfinished"/>
+      <translation>تم إرسال كلمة المرور الجديدة إلى بريدك الألكتروني</translation>
     </message>
   </context>
   <context>
@@ -4493,7 +4722,7 @@
     <name>chat/closechatadmin</name>
     <message>
       <source>has closed the chat!</source>
-      <translation type="unfinished"/>
+      <translation>أغلق الدردشة</translation>
     </message>
   </context>
   <context>

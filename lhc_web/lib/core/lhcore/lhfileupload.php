@@ -15,7 +15,13 @@ class erLhcoreClassFileUpload extends UploadHandler {
 	protected function generate_response($content, $print_response = true) {
 		parent::generate_response($content,false);
 	}
-
+	
+	protected function handle_file_upload_parent($uploaded_file, $name, $size, $type, $error, $index, $content_range) {
+		return parent::handle_file_upload(
+				$uploaded_file, $name, $size, $type, $error, $index, $content_range
+		);
+	}
+	
     protected function handle_file_upload($uploaded_file, $name, $size, $type, $error, $index = null, $content_range = null) {
 
     	$matches = array();

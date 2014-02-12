@@ -37,6 +37,11 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
 			        $chat->is_user_typing = 1;
 			        $chat->user_typing_txt = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat','User has left the chat!'),ENT_QUOTES);
 
+			        if ( ($onlineuser = $chat->online_user) !== false) {
+			        	$onlineuser->reopen_chat = 0;
+			        	$onlineuser->saveThis();
+			        }
+			        
 			        erLhcoreClassChat::getSession()->update($chat);
 
 		        $db->commit();

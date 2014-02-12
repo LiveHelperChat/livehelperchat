@@ -7,8 +7,10 @@ $definition = array(
 );
 
 $form = new ezcInputForm( INPUT_POST, $definition );
+$r = '';
+$error = 'f';
 
-if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && strlen($form->msg) < 500)
+if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && mb_strlen($form->msg) < (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value)
 {
     $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
 
@@ -29,15 +31,13 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && strlen($form->msg)
 
         $chat->has_unread_messages = 1;
         $chat->updateThis();
-
-    } else {
-
     }
 } else {
-
+	$error = 't';
+	$r = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a message, max characters').' - '.(int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value;
 }
 
-echo json_encode(array('error' => 'false'));
+echo json_encode(array('error' => $error, 'r' => $r));
 exit;
 
 ?>

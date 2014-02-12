@@ -132,6 +132,14 @@
       <translation>浏览量</translation>
     </message>
     <message>
+      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
+      <translation>没有 www 的引用域，例如： google 关键字将匹配任何 google 域</translation>
+    </message>
+    <message>
+      <source>How many times user show invitation, 0 - untill users closes it, &gt; 0 limits.</source>
+      <translation>多少次用户显示的邀请，0-，直到用户关闭它，&gt; 0 限制。</translation>
+    </message>
+    <message>
       <source>Requires e-mail</source>
       <translation>需要電子郵件</translation>
     </message>
@@ -310,6 +318,10 @@
       <translation>信息</translation>
     </message>
     <message>
+      <source>User</source>
+      <translation>用户</translation>
+    </message>
+    <message>
       <source>Delay</source>
       <translation>延遲</translation>
     </message>
@@ -338,6 +350,18 @@
       <translation>延遲（秒）</translation>
     </message>
     <message>
+      <source>Department</source>
+      <translation>新闻部</translation>
+    </message>
+    <message>
+      <source>Personal canned message</source>
+      <translation>罐装的个人消息</translation>
+    </message>
+    <message>
+      <source>Canned message was saved</source>
+      <translation>罐装的消息被保存</translation>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation>系统配置</translation>
     </message>
@@ -348,6 +372,169 @@
     <message>
       <source>Please enter a canned message</source>
       <translation>请输入罐头消息</translation>
+    </message>
+  </context>
+  <context>
+    <name>department/edit</name>
+    <message>
+      <source>Any</source>
+      <translation>任何</translation>
+    </message>
+    <message>
+      <source>Edit department</source>
+      <translation>编辑部门</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>标题</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>电子邮件</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation>已禁用</translation>
+    </message>
+    <message>
+      <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
+      <translation>延迟在前假邮件窗体显示的秒数。0 意味着功能被禁用，</translation>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation>优先</translation>
+    </message>
+    <message>
+      <source>Automate online hours</source>
+      <translation>自动化在线小时</translation>
+    </message>
+    <message>
+      <source>Work hours/work days logic is active</source>
+      <translation>工作逻辑处于活动状态的工作小时/天</translation>
+    </message>
+    <message>
+      <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
+      <translation>个工作日/工作小时，期间这些天聊天将积极自动</translation>
+    </message>
+    <message>
+      <source>Monday</source>
+      <translation>（星期一）</translation>
+    </message>
+    <message>
+      <source>Tuesday</source>
+      <translation>（星期二）</translation>
+    </message>
+    <message>
+      <source>Wednesday</source>
+      <translation>（星期三）</translation>
+    </message>
+    <message>
+      <source>Thursday</source>
+      <translation>（星期四）</translation>
+    </message>
+    <message>
+      <source>Friday</source>
+      <translation>（星期五）</translation>
+    </message>
+    <message>
+      <source>Saturday</source>
+      <translation>（星期六）</translation>
+    </message>
+    <message>
+      <source>Sunday</source>
+      <translation>（星期日）</translation>
+    </message>
+    <message>
+      <source>Work hours, 24 hours format, 1 - 24</source>
+      <translation>工作小时，24 小时格式，1-24</translation>
+    </message>
+    <message>
+      <source>From, E.g. 8</source>
+      <translation>例如 8 日</translation>
+    </message>
+    <message>
+      <source>To, E.g. 17</source>
+      <translation>对，如 17</translation>
+    </message>
+    <message>
+      <source>Notifications about new chats</source>
+      <translation>有关新聊天的通知</translation>
+    </message>
+    <message>
+      <source>XMPP recipients</source>
+      <translation>XMPP 收件人</translation>
+    </message>
+    <message>
+      <source>XMPP group recipients</source>
+      <translation>XMPP 组收件人</translation>
+    </message>
+    <message>
+      <source>E.g somechat@conference.server.org/LiveChat</source>
+      <translation>例如： somechat@conference.server.org/ 实时聊天</translation>
+    </message>
+    <message>
+      <source>These messages will be send as group messages</source>
+      <translation>这些消息将会发送作为组消息</translation>
+    </message>
+    <message>
+      <source>Inform about new chats using</source>
+      <translation>通报新聊天使用</translation>
+    </message>
+    <message>
+      <source>XMPP messages</source>
+      <translation>XMPP 邮件</translation>
+    </message>
+    <message>
+      <source>Mail messages</source>
+      <translation>邮件消息</translation>
+    </message>
+    <message>
+      <source>How many seconds chat can be pending before about chat is informed a staff</source>
+      <translation>多少秒聊天可能挂起之前关于聊天是告知工作人员</translation>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation>其他</translation>
+    </message>
+    <message>
+      <source>Inform then chat is closed by operator, only mail notification is send.</source>
+      <translation>只有邮件通知是发送通知然后由运算符，关闭聊天。</translation>
+    </message>
+    <message>
+      <source>Chat transfer worklow</source>
+      <translation>聊天转让工作流</translation>
+    </message>
+    <message>
+      <source>To what department chat should be transfered if it is not accepted</source>
+      <translation>部門聊天，如果不接受，應該被轉移</translation>
+    </message>
+    <message>
+      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+      <translation>超時聊天秒前被轉移到另一個部門。至少5秒。</translation>
+    </message>
+    <message>
+      <source>Miscellaneous</source>
+      <translation>杂项</translation>
+    </message>
+    <message>
+      <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
+      <translation>此字段是最多50個字符的長度，並通過擴展可以用於任何用途。此字段索引。</translation>
+    </message>
+    <message>
+      <source>None</source>
+      <translation>無</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>系统配置</translation>
+    </message>
+    <message>
+      <source>departments</source>
+      <translation>部门</translation>
+    </message>
+    <message>
+      <source>Edit a department</source>
+      <translation>编辑部门</translation>
     </message>
   </context>
   <context>
@@ -484,6 +671,10 @@
       <translation>打印</translation>
     </message>
     <message>
+      <source>Attatch uploaded file</source>
+      <translation>Attatch 上载文件</translation>
+    </message>
+    <message>
       <source>Chat between operators, chat initializer</source>
       <translation>运营商之间的聊天，聊天初始化程序</translation>
     </message>
@@ -509,7 +700,7 @@
     </message>
     <message>
       <source>Remarks</source>
-      <translation type="unfinished"/>
+      <translation>备注</translation>
     </message>
     <message>
       <source>Chats</source>
@@ -537,7 +728,7 @@
     </message>
     <message>
       <source>Messages</source>
-      <translation type="unfinished"/>
+      <translation>消息</translation>
     </message>
   </context>
   <context>
@@ -676,12 +867,12 @@
       <translation>电话</translation>
     </message>
     <message>
-      <source>Your question</source>
-      <translation>你的问题</translation>
-    </message>
-    <message>
       <source>Enter your message</source>
       <translation>输入您的消息</translation>
+    </message>
+    <message>
+      <source>Your question</source>
+      <translation>你的问题</translation>
     </message>
     <message>
       <source>Start chat</source>
@@ -760,8 +951,12 @@
       <translation>请输入您的留言</translation>
     </message>
     <message>
-      <source>Maximum 500 characters for message</source>
-      <translation>最多500个字符的消息</translation>
+      <source>Maximum</source>
+      <translation>最大值</translation>
+    </message>
+    <message>
+      <source>characters for a message</source>
+      <translation>一条消息的字符</translation>
     </message>
     <message>
       <source>You have to accept our Terms Of Service</source>
@@ -788,12 +983,12 @@
       <translation>現場支持</translation>
     </message>
     <message>
-      <source>Visitor</source>
-      <translation>游客</translation>
+      <source>Please enter a message, max characters</source>
+      <translation>请输入一条消息，最大字符</translation>
     </message>
     <message>
-      <source>Maximum 500 characters for a message</source>
-      <translation>最多500个字符的消息</translation>
+      <source>Visitor</source>
+      <translation>游客</translation>
     </message>
     <message>
       <source>Fill in the form to start a chat</source>
@@ -969,6 +1164,10 @@
       <translation>检测到的 bcmath php 扩展</translation>
     </message>
     <message>
+      <source>Location of city database</source>
+      <translation>城市数据库的位置</translation>
+    </message>
+    <message>
       <source>User country based detection, faster</source>
       <translation>用户国家基于检测，速度更快</translation>
     </message>
@@ -983,6 +1182,14 @@
     <message>
       <source>User city based detection, slower</source>
       <translation>用户城市基于检测，速度较慢</translation>
+    </message>
+    <message>
+      <source>Use PHP-GeoIP module</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Support for PHP-GeoIP detected</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Requests will be comming from</source>
@@ -1285,6 +1492,10 @@
       <translation>设置服务提供程序失败，请检查您的服务提供商允许您将请求发送到远程页面和您的 API 密钥正确 ！</translation>
     </message>
     <message>
+      <source>Setting service provider failed, please check that you have installed php-GeoIP module and GeoIPCity.dat file is available!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please choose a service provider!</source>
       <translation>請選擇服務提供商！</translation>
     </message>
@@ -1442,6 +1653,14 @@
       <translation>聊天記錄存檔</translation>
     </message>
     <message>
+      <source>Time zone settings</source>
+      <translation>时区设置</translation>
+    </message>
+    <message>
+      <source>Update information</source>
+      <translation>更新信息</translation>
+    </message>
+    <message>
       <source>Live help embed code</source>
       <translation>在線幫助嵌入代碼</translation>
     </message>
@@ -1497,6 +1716,10 @@
       <source>File configuration</source>
       <translation>配置文件</translation>
     </message>
+    <message>
+      <source>New file</source>
+      <translation>新的文件</translation>
+    </message>
   </context>
   <context>
     <name>system/htmlcode</name>
@@ -1519,6 +1742,14 @@
     <message>
       <source>Chatbox messages content height</source>
       <translation>客舱邮件内容的高度</translation>
+    </message>
+    <message>
+      <source>Choose prefered http mode</source>
+      <translation>选择首选 http 模式</translation>
+    </message>
+    <message>
+      <source>Based on site (default)</source>
+      <translation>基于站点 （默认值）</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>
@@ -1574,15 +1805,15 @@
     </message>
     <message>
       <source>Disable minimize icon</source>
-      <translation type="unfinished"/>
+      <translation>禁用最小化图标</translation>
     </message>
     <message>
       <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
-      <translation type="unfinished"/>
+      <translation>内容相反的构件，用户将可以显示 chatbox 只能最小化，不关闭它。</translation>
     </message>
     <message>
       <source>Show chatbox content minimized first time if content is shown.</source>
-      <translation type="unfinished"/>
+      <translation>如果显示的内容则显示 chatbox 内容最小化第一次。</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
@@ -1868,6 +2099,10 @@
       <translation>发送邮件</translation>
     </message>
     <message>
+      <source>Embed link to file</source>
+      <translation>将嵌入到文件的链接</translation>
+    </message>
+    <message>
       <source>Mail was sent to the user</source>
       <translation>邮件被发送给用户</translation>
     </message>
@@ -1948,6 +2183,10 @@
     <message>
       <source>This field is visible in the page widget</source>
       <translation>此区域是可见的页面中的插件</translation>
+    </message>
+    <message>
+      <source>This field is invisible but prefilled data is collected</source>
+      <translation>此字段是无形的但预的数据收集</translation>
     </message>
     <message>
       <source>This field is</source>
@@ -2639,141 +2878,6 @@
     </message>
   </context>
   <context>
-    <name>department/edit</name>
-    <message>
-      <source>Edit department</source>
-      <translation>编辑部门</translation>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>标题</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>电子邮件</translation>
-    </message>
-    <message>
-      <source>Disabled</source>
-      <translation>已禁用</translation>
-    </message>
-    <message>
-      <source>XMPP recipients</source>
-      <translation>XMPP 收件人</translation>
-    </message>
-    <message>
-      <source>XMPP group recipients</source>
-      <translation>XMPP 组收件人</translation>
-    </message>
-    <message>
-      <source>E.g somechat@conference.server.org/LiveChat</source>
-      <translation>例如： somechat@conference.server.org/ 实时聊天</translation>
-    </message>
-    <message>
-      <source>These messages will be send as group messages</source>
-      <translation>这些消息将会发送作为组消息</translation>
-    </message>
-    <message>
-      <source>Priority</source>
-      <translation>优先</translation>
-    </message>
-    <message>
-      <source>To what department chat should be transfered if it is not accepted</source>
-      <translation>部門聊天，如果不接受，應該被轉移</translation>
-    </message>
-    <message>
-      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
-      <translation>超時聊天秒前被轉移到另一個部門。至少5秒。</translation>
-    </message>
-    <message>
-      <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
-      <translation>此字段是最多50個字符的長度，並通過擴展可以用於任何用途。此字段索引。</translation>
-    </message>
-    <message>
-      <source>Inform then chat is closed by operator, only mail notification is send.</source>
-      <translation>只有邮件通知是发送通知然后由运算符，关闭聊天。</translation>
-    </message>
-    <message>
-      <source>Inform about new chats using</source>
-      <translation>通报新聊天使用</translation>
-    </message>
-    <message>
-      <source>XMPP messages</source>
-      <translation>XMPP 邮件</translation>
-    </message>
-    <message>
-      <source>Mail messages</source>
-      <translation>邮件消息</translation>
-    </message>
-    <message>
-      <source>How many seconds chat can be pending before about chat is informed a staff</source>
-      <translation>多少秒聊天可能挂起之前关于聊天是告知工作人员</translation>
-    </message>
-    <message>
-      <source>Work hours/work days logic is active</source>
-      <translation>工作逻辑处于活动状态的工作小时/天</translation>
-    </message>
-    <message>
-      <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
-      <translation>个工作日/工作小时，期间这些天聊天将积极自动</translation>
-    </message>
-    <message>
-      <source>Monday</source>
-      <translation>（星期一）</translation>
-    </message>
-    <message>
-      <source>Tuesday</source>
-      <translation>（星期二）</translation>
-    </message>
-    <message>
-      <source>Wednesday</source>
-      <translation>（星期三）</translation>
-    </message>
-    <message>
-      <source>Thursday</source>
-      <translation>（星期四）</translation>
-    </message>
-    <message>
-      <source>Friday</source>
-      <translation>（星期五）</translation>
-    </message>
-    <message>
-      <source>Saturday</source>
-      <translation>（星期六）</translation>
-    </message>
-    <message>
-      <source>Sunday</source>
-      <translation>（星期日）</translation>
-    </message>
-    <message>
-      <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation>工作小时，24 小时格式，1-24</translation>
-    </message>
-    <message>
-      <source>From, E.g. 8</source>
-      <translation>例如 8 日</translation>
-    </message>
-    <message>
-      <source>To, E.g. 17</source>
-      <translation>对，如 17</translation>
-    </message>
-    <message>
-      <source>None</source>
-      <translation>無</translation>
-    </message>
-    <message>
-      <source>System configuration</source>
-      <translation>系统配置</translation>
-    </message>
-    <message>
-      <source>departments</source>
-      <translation>部门</translation>
-    </message>
-    <message>
-      <source>Edit a department</source>
-      <translation>编辑部门</translation>
-    </message>
-  </context>
-  <context>
     <name>user/account</name>
     <message>
       <source>Updated</source>
@@ -2794,6 +2898,10 @@
     <message>
       <source>Username</source>
       <translation>用户名</translation>
+    </message>
+    <message>
+      <source>Your username</source>
+      <translation>您的用户名</translation>
     </message>
     <message>
       <source>Password</source>
@@ -2866,6 +2974,10 @@
     <message>
       <source>Closed chats tab enabled</source>
       <translation>休息聊天&quot;选项卡启用</translation>
+    </message>
+    <message>
+      <source>Personal canned messages</source>
+      <translation>个人罐装的消息</translation>
     </message>
     <message>
       <source>Account updated</source>
@@ -3040,6 +3152,49 @@
     </message>
   </context>
   <context>
+    <name>file/list</name>
+    <message>
+      <source>List of files</source>
+      <translation>文件的列表</translation>
+    </message>
+    <message>
+      <source>Upload a file</source>
+      <translation>上传文件</translation>
+    </message>
+    <message>
+      <source>Upload name</source>
+      <translation>上传的名称</translation>
+    </message>
+    <message>
+      <source>File size</source>
+      <translation>文件大小</translation>
+    </message>
+    <message>
+      <source>Embed BB code</source>
+      <translation>嵌入 BB 代码</translation>
+    </message>
+    <message>
+      <source>User</source>
+      <translation>用户</translation>
+    </message>
+    <message>
+      <source>Chat</source>
+      <translation>聊</translation>
+    </message>
+    <message>
+      <source>Extension</source>
+      <translation>扩展</translation>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>日</translation>
+    </message>
+    <message>
+      <source>Delete the file</source>
+      <translation>删除的文件</translation>
+    </message>
+  </context>
+  <context>
     <name>file/configuration</name>
     <message>
       <source>File configuration</source>
@@ -3071,38 +3226,22 @@
     </message>
   </context>
   <context>
-    <name>file/list</name>
+    <name>file/new</name>
     <message>
-      <source>List of files</source>
-      <translation>文件的列表</translation>
+      <source>New file</source>
+      <translation>新的文件</translation>
     </message>
     <message>
-      <source>User</source>
-      <translation>用户</translation>
+      <source>File name</source>
+      <translation>文件名称</translation>
     </message>
     <message>
-      <source>Chat</source>
-      <translation>聊</translation>
+      <source>Upload</source>
+      <translation>上传</translation>
     </message>
     <message>
-      <source>Upload name</source>
-      <translation>上传的名称</translation>
-    </message>
-    <message>
-      <source>File size</source>
-      <translation>文件大小</translation>
-    </message>
-    <message>
-      <source>Extension</source>
-      <translation>扩展</translation>
-    </message>
-    <message>
-      <source>Date</source>
-      <translation>日</translation>
-    </message>
-    <message>
-      <source>Delete the file</source>
-      <translation>删除的文件</translation>
+      <source>File uploaded</source>
+      <translation>上载文件</translation>
     </message>
   </context>
   <context>
@@ -3497,6 +3636,10 @@
       <translation>活跃</translation>
     </message>
     <message>
+      <source>Revote</source>
+      <translation>重新投票</translation>
+    </message>
+    <message>
       <source>Y</source>
       <translation>Ÿ</translation>
     </message>
@@ -3519,6 +3662,10 @@
     <message>
       <source>New question</source>
       <translation>新问题</translation>
+    </message>
+    <message>
+      <source>Off</source>
+      <translation>关闭</translation>
     </message>
     <message>
       <source>Questionary</source>
@@ -3568,6 +3715,10 @@
     <message>
       <source>Priority, if multiple questions match a location, the question with the higher priority will be shown</source>
       <translation>优先级，如果有多个问题匹配的位置，具有较高优先级的问题将被显示</translation>
+    </message>
+    <message>
+      <source>Revote time (hours), before can revote. Default 0 - never. Higher value allow revote after seconds expire since last vote</source>
+      <translation>起来反抗的时间 （小时），之前可以起来反抗。默认 0-从不。更高的值允许重新投票秒届满自最后一次表决后</translation>
     </message>
     <message>
       <source>Active</source>
@@ -3795,7 +3946,42 @@
     </message>
   </context>
   <context>
+    <name>system/timezone</name>
+    <message>
+      <source>Time zone settings</source>
+      <translation>时区设置</translation>
+    </message>
+    <message>
+      <source>Set application specific time zone</source>
+      <translation>设置应用程序特定的时区</translation>
+    </message>
+    <message>
+      <source>Date format E.g (Y-m-d)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Full date format E.g (Y-m-d H:i:s)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hour format E.g (H:i:s)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live Helper Chat update</source>
+      <translation>助手聊天的实时更新</translation>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation>时区</translation>
+    </message>
+  </context>
+  <context>
     <name>user/edit</name>
+    <message>
+      <source>Server default time zone</source>
+      <translation>服务器默认时区</translation>
+    </message>
     <message>
       <source>User edit</source>
       <translation>用户编辑</translation>
@@ -3849,6 +4035,14 @@
       <translation>分配的部门</translation>
     </message>
     <message>
+      <source>User time zone</source>
+      <translation>用户时区</translation>
+    </message>
+    <message>
+      <source>Application default time zone</source>
+      <translation>应用程序默认的时区</translation>
+    </message>
+    <message>
       <source>Wrong email address</source>
       <translation>错误的电子邮件地址</translation>
     </message>
@@ -3871,6 +4065,41 @@
     <message>
       <source>Users</source>
       <translation>Vartotojai</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/update</name>
+    <message>
+      <source>Your version</source>
+      <translation>您的版本</translation>
+    </message>
+    <message>
+      <source>Current version</source>
+      <translation>当前版本</translation>
+    </message>
+    <message>
+      <source>Last database update</source>
+      <translation>最后一次数据库更新</translation>
+    </message>
+    <message>
+      <source>News</source>
+      <translation>新闻</translation>
+    </message>
+    <message>
+      <source>Missing updates from new versions.</source>
+      <translation>新版本中缺少的更新。</translation>
+    </message>
+    <message>
+      <source>Update instructions</source>
+      <translation>更新说明</translation>
+    </message>
+    <message>
+      <source>You are running current version. No updates required</source>
+      <translation>您正在运行的当前版本。没有所需的更新</translation>
+    </message>
+    <message>
+      <source>Live Helper Chat update information</source>
+      <translation>生活助手聊天更新信息</translation>
     </message>
   </context>
   <context>

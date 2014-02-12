@@ -8,7 +8,7 @@
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('departament/edit')?>/<?php echo $departament->id?>" method="post">
+<form action="" method="post">
 
 	<?php include(erLhcoreClassDesign::designtpl('lhdepartament/form.tpl.php'));?>
 

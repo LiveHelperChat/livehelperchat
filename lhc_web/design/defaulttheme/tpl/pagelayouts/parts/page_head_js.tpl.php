@@ -15,4 +15,4 @@ confLH.repeat_sound = <?php echo (int)$soundData['repeat_sound']?>;
 confLH.repeat_sound_delay = <?php echo (int)$soundData['repeat_sound_delay']?>;
 confLH.show_alert = <?php echo (int)$soundData['show_alert']?>;
 </script>
-<script type="text/javascript" language="javascript" src="<?php echo erLhcoreClassDesign::designJS('js/jquery.js;js/modernizr.js;js/foundation.min.js;js/jquery.colorbox-min.js;js/lh.js;js/jquery.hotkeys-0.7.9.min.js;js/fileupload/jquery.ui.widget.js;js/fileupload/jquery.iframe-transport.js;js/fileupload/jquery.fileupload.js');?>"></script>
+<script type="text/javascript" src="<?php echo erLhcoreClassDesign::designJS('js/jquery.js;js/modernizr.js;js/foundation.min.js;js/jquery.colorbox-min.js;js/lh.js;js/jquery.hotkeys-0.7.9.min.js;js/fileupload/jquery.ui.widget.js;js/fileupload/jquery.iframe-transport.js;js/fileupload/jquery.fileupload.js');?>"></script>
