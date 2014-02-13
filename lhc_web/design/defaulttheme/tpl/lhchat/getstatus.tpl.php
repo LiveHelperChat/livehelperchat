@@ -437,6 +437,28 @@ var lh_inst  = {
     	}
     },
 
+    makeScreenshot : function() {    	
+    	this.getAppendCookieArguments();
+    	var inst = this;
+    	html2canvas(document.body, {
+			  onrendered: function(canvas) {			    	
+			    	 /*var th = document.getElementsByTagName('head')[0];
+			         var s = document.createElement('script');			         
+			         s.setAttribute('type','text/javascript');
+			         s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/storescreenshot')?>'+inst.getAppendCookieArguments()+'/(canvas)/'+canvas.toDataURL());
+			         th.appendChild(s);*/
+			         
+			         var xhr = new XMLHttpRequest();
+			         xhr.open( "POST", '<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/storescreenshot')?>'+inst.getAppendCookieArguments(), true);
+				     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				     xhr.send( "data=" + encodeURIComponent( canvas.toDataURL() ) );
+			         
+			  }
+		});
+		
+		//console.log(typeof html2canvas);
+    },
+    
     handleMessage : function(e) {
     	var action = e.data.split(':')[0];
     	if (action == 'lhc_sizing_chat') {
@@ -456,6 +478,20 @@ var lh_inst  = {
     		if (parts[1] != '' && parts[2] != '') {
     			lh_inst.addCookieAttribute(parts[1],parts[2]);
     		}
+    	} else if (action == 'lhc_screenshot') {
+    		if (typeof html2canvas == "undefined") {    					   		
+		   		var th = document.getElementsByTagName('head')[0];
+		        var s = document.createElement('script');
+		        s.setAttribute('type','text/javascript');
+		        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('js/html2canvas.min.js');?>');
+		        th.appendChild(s);		        
+		        s.onreadystatechange = s.onload = function(){
+		        	lh_inst.makeScreenshot();
+		        };		        
+    		} else {    		
+    			lh_inst.makeScreenshot();
+    		};
+    		
     	}
     }
 };

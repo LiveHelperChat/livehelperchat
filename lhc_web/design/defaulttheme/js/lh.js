@@ -1535,6 +1535,28 @@ function lh(){
             }}).prop('disabled', !$.support.fileInput)
             .parent().addClass($.support.fileInput ? undefined : 'disabled');
     };
+       
+    this.setupPendingActions = function() {    	
+    	if (this.chat_id != null) {
+    		var inst = this;    		
+			$.postJSON(inst.wwwDir + 'chat/checkforpendingaction/' + inst.chat_id + '/' + inst.hash, function(data){
+	    		if (data.error == 'false') {
+	    			 $.each(data.result,function(i,item) {
+	    				 parent.postMessage(item, '*');
+	    			 });	    			
+	    		};	    	
+	    		setTimeout(function(){
+	    			inst.setupPendingActions();
+	    		},5000);
+	    	});
+    	};
+    };
+    
+    this.addRemoteCommand = function(chat_id,operation) {
+    	$.postJSON(this.wwwDir + 'chat/addoperation/' + chat_id,{'operation':operation}, function(data){
+    		
+    	});
+    };
 }
 
 var lhinst = new lh();

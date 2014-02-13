@@ -58,7 +58,9 @@ class erLhcoreClassModelChat {
                'nc_cb_executed'    		=> $this->nc_cb_executed,
        		
        		    //
-               'remarks'    		=> $this->remarks,
+               'remarks'    			=> $this->remarks,
+               'operation'    			=> $this->operation,
+               'screenshot_id'    		=> $this->screenshot_id,
        );
    }
 
@@ -329,6 +331,11 @@ class erLhcoreClassModelChat {
    public $chat_variables = '';
    
    public $remarks = '';
+   
+   // Pending operations from user side
+   public $operation = '';
+   
+   public $screenshot_id = 0;
 
 }
 

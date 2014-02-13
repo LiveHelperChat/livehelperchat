@@ -207,6 +207,16 @@ $def->properties['timeout_message']->columnName   = 'timeout_message';
 $def->properties['timeout_message']->propertyName = 'timeout_message';
 $def->properties['timeout_message']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['operation'] = new ezcPersistentObjectProperty();
+$def->properties['operation']->columnName   = 'operation';
+$def->properties['operation']->propertyName = 'operation';
+$def->properties['operation']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['screenshot_id'] = new ezcPersistentObjectProperty();
+$def->properties['screenshot_id']->columnName   = 'screenshot_id';
+$def->properties['screenshot_id']->propertyName = 'screenshot_id';
+$def->properties['screenshot_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 // TS then transfer accoured, get's updated then chat is transfered, stores current TS
 // We cannot user just chat time attribute because, there can be multiple transfer for the same chat.
 $def->properties['transfer_timeout_ts'] = new ezcPersistentObjectProperty();

@@ -24,6 +24,8 @@
   <?php endif; ?>
 
   <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/operator_remarks.tpl.php'));?>
+  
+  <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/operator_screenshot.tpl.php'));?>
 
 </div>
 

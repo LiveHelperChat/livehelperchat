@@ -36,6 +36,7 @@ if (!!window.postMessage) {
 	<?php if (isset($Result['chat']) && is_numeric($Result['chat']->id)) : ?>
 	parent.postMessage("lhc_ch:hash:<?php echo $Result['chat']->id,'_',$Result['chat']->hash?>", '*');
 	parent.postMessage("lhc_ch:hash_resume:<?php echo $Result['chat']->id,'_',$Result['chat']->hash?>", '*');
+	lhinst.setupPendingActions();
 	<?php endif; ?>
 	<?php if (isset($Result['additional_post_message'])) : ?>
 	parent.postMessage("<?php echo $Result['additional_post_message']?>", '*');
