@@ -1184,6 +1184,14 @@
       <translation>用户城市基于检测，速度较慢</translation>
     </message>
     <message>
+      <source>Use PHP-GeoIP module</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Support for PHP-GeoIP detected</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Requests will be comming from</source>
       <translation>请求将被来自</translation>
     </message>
@@ -1482,6 +1490,10 @@
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!</source>
       <translation>设置服务提供程序失败，请检查您的服务提供商允许您将请求发送到远程页面和您的 API 密钥正确 ！</translation>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that you have installed php-GeoIP module and GeoIPCity.dat file is available!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please choose a service provider!</source>
@@ -3942,6 +3954,18 @@
     <message>
       <source>Set application specific time zone</source>
       <translation>设置应用程序特定的时区</translation>
+    </message>
+    <message>
+      <source>Date format E.g (Y-m-d)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Full date format E.g (Y-m-d H:i:s)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hour format E.g (H:i:s)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Live Helper Chat update</source>

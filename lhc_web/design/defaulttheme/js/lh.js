@@ -153,6 +153,10 @@ function lh(){
         if ( this.chatUnderSynchronization(chat_id) == false ) {
         	var rememberAppend = this.disableremember == false ? '/(remember)/true' : '';
         	this.addTab(tabs, this.wwwDir +'chat/adminchat/'+chat_id+rememberAppend, name, chat_id);
+        	var inst = this;
+        	 setTimeout(function(){
+     	    	inst.syncadmininterfacestatic();
+     	    },1000);
         }
     };
 
@@ -667,7 +671,10 @@ function lh(){
 	this.startChatNewWindow = function(chat_id,name)
 	{
 	    window.open(this.wwwDir + 'chat/single/'+chat_id,'chatwindow-chat-id-'+chat_id,"menubar=1,resizable=1,width=800,height=650");
-	    this.syncadmininterfacestatic();
+	    var inst = this;
+	    setTimeout(function(){
+	    	inst.syncadmininterfacestatic();
+	    },1000);	   
         return false;
 	};
 
@@ -1233,6 +1240,7 @@ function lh(){
 	
 	this.syncadmininterfacestatic = function()
 	{
+		var inst = this;
 	    $.getJSON(this.wwwDir + this.syncadmininterfaceurl ,{ }, function(data){
 	        // If no error
 	        if (data.error == 'false')
@@ -1250,6 +1258,10 @@ function lh(){
                     	};
                     };
                 });
+                
+                if ($('#right-pending-chats ul').size() == 0) {
+                	clearTimeout(inst.soundIsPlaying);
+                }
 	        }
     	});
 	};
