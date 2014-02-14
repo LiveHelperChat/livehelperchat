@@ -465,39 +465,7 @@ class erLhcoreClassModelChatOnlineUser {
 
 	   	return $isCrawler;
    }
-   
-   public static function unicode_urldecode($url)
-   {
-   		$url = mb_convert_encoding($url, 'utf-8','ISO-8859-1');   		
-	   	preg_match_all('/%u([[:alnum:]]{4})/', $url, $a);
-	   
-	   	foreach ($a[1] as $uniord)
-	   	{
-	   		$dec = hexdec($uniord);
-	   		$utf = '';
-	   
-	   		if ($dec < 128)
-	   		{
-	   			$utf = chr($dec);
-	   		}
-	   		else if ($dec < 2048)
-	   		{
-	   			$utf = chr(192 + (($dec - ($dec % 64)) / 64));
-	   			$utf .= chr(128 + ($dec % 64));
-	   		}
-	   		else
-	   		{
-	   			$utf = chr(224 + (($dec - ($dec % 4096)) / 4096));
-	   			$utf .= chr(128 + ((($dec % 4096) - ($dec % 64)) / 64));
-	   			$utf .= chr(128 + ($dec % 64));
-	   		}
-	   
-	   		$url = str_replace('%u'.$uniord, $utf, $url);
-	   	};
-	   		   	
-	   	return urldecode($url);
-   }
-
+      
    public static function fetchByVid($vid) {
    		$items = erLhcoreClassModelChatOnlineUser::getList(array('filter' => array('vid' => $vid)));
    		if (!empty($items)) {
@@ -543,7 +511,7 @@ class erLhcoreClassModelChatOnlineUser {
 	                   $item->ip = erLhcoreClassIPDetect::getIP();
 	                   $item->vid = $paramsHandle['vid'];
 	                   $item->identifier = (isset($paramsHandle['identifier']) && !empty($paramsHandle['identifier'])) ? $paramsHandle['identifier'] : '';
-	                   $item->referrer = isset($_GET['r']) ? urldecode($_GET['r']) : '';
+	                   $item->referrer = isset($_GET['r']) ? rawurldecode($_GET['r']) : '';
 	                   $item->total_visits = 1;
 	                   $item->dep_id =  (isset($paramsHandle['department'])) ? (int)$paramsHandle['department'] : 0;
 
@@ -579,7 +547,7 @@ class erLhcoreClassModelChatOnlineUser {
 	           if (!isset($paramsHandle['check_message_operator']) || (isset($paramsHandle['pages_count']) && $paramsHandle['pages_count'] == true)) {
 	           		$item->user_agent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
 	           		$item->current_page = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';	           			           			           		           		
-	           		$item->page_title = isset($_GET['dt']) ? (string)self::unicode_urldecode($_GET['dt']) : '';
+	           		$item->page_title = isset($_GET['dt']) ? (string)rawurldecode($_GET['dt']) : '';
 	           		$item->last_visit = time();
 	           		$item->store_chat = true;
 	           }

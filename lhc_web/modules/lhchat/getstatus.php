@@ -24,7 +24,7 @@ if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value
 
 $validUnits = array('pixels' => 'px','percents' => '%');
 
-$tpl->set('referrer',isset($_GET['r']) ? urldecode($_GET['r']) : '');
+$tpl->set('referrer',isset($_GET['r']) ? rawurldecode($_GET['r']) : '');
 $tpl->set('track_online_users',erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1);
 $tpl->set('click',$Params['user_parameters_unordered']['click']);
 $tpl->set('position',$Params['user_parameters_unordered']['position']);
