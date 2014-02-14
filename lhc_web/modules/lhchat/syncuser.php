@@ -20,6 +20,7 @@ $userOwner = 'true';
 $checkStatus = 'f';
 $breakSync = false;
 $saveChat = false;
+$operation = '';
 
 if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 {
@@ -93,6 +94,13 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 	    	$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_DEFAULT;
 	    	$saveChat = true;
 	    }
+
+	    if ($chat->operation != '') {	    	
+	    	$operation = explode("\n", trim($chat->operation));
+	    	$chat->operation = '';
+	    	$saveChat = true;
+	    }
+	    
 	    
 	    if ($saveChat === true) {
 	    	$chat->updateThis();
@@ -116,7 +124,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
     $blocked = 'true';
 }
 
-echo json_encode(array('error' => 'false', 'uw' => $userOwner, 'cs'=> $checkStatus, 'ott' => $ott, 'message_id' => $LastMessageID, 'result' => trim($content) == '' ? 'false' : trim($content), 'status' => $status, 'blocked' => $blocked ));
+echo json_encode(array('error' => 'false','op' => $operation, 'uw' => $userOwner, 'cs'=> $checkStatus, 'ott' => $ott, 'message_id' => $LastMessageID, 'result' => trim($content) == '' ? 'false' : trim($content), 'status' => $status, 'blocked' => $blocked ));
 exit;
 
 ?>

@@ -497,7 +497,17 @@ class erLhcoreClassModelChatOnlineUser {
 	   		   	
 	   	return urldecode($url);
    }
-		
+
+   public static function fetchByVid($vid) {
+   		$items = erLhcoreClassModelChatOnlineUser::getList(array('filter' => array('vid' => $vid)));
+   		if (!empty($items)) {
+   			$item = array_shift($items);
+   			return $item;
+   		}
+   		
+   		return false;
+   }
+   
    public static function handleRequest($paramsHandle = array()) {
 
 	   	if (isset($_SERVER['HTTP_USER_AGENT']) && !self::isBot($_SERVER['HTTP_USER_AGENT'])) {

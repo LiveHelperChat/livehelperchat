@@ -440,23 +440,18 @@ var lh_inst  = {
     makeScreenshot : function() {    	
     	this.getAppendCookieArguments();
     	var inst = this;
-    	html2canvas(document.body, {
-			  onrendered: function(canvas) {			    	
-			    	 /*var th = document.getElementsByTagName('head')[0];
-			         var s = document.createElement('script');			         
-			         s.setAttribute('type','text/javascript');
-			         s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/storescreenshot')?>'+inst.getAppendCookieArguments()+'/(canvas)/'+canvas.toDataURL());
-			         th.appendChild(s);*/
-			         
-			         var xhr = new XMLHttpRequest();
-			         xhr.open( "POST", '<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/storescreenshot')?>'+inst.getAppendCookieArguments(), true);
-				     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-				     xhr.send( "data=" + encodeURIComponent( canvas.toDataURL() ) );
-			         
-			  }
-		});
-		
-		//console.log(typeof html2canvas);
+    	try {
+		  	html2canvas(document.body, {
+				  onrendered: function(canvas) {
+				         var xhr = new XMLHttpRequest();
+				         xhr.open( "POST", '<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('file/storescreenshot')?>'+inst.getAppendCookieArguments(), true);
+					     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+					     xhr.send( "data=" + encodeURIComponent( canvas.toDataURL() ) );			         
+				  }
+			});
+	   } catch(err) {
+	  	
+	   }    			
     },
     
     handleMessage : function(e) {

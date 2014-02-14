@@ -116,6 +116,11 @@ $ViewList['refreshonlineinfo'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['checkscreenshot'] = array(
+    'params' => array('chat_id'),
+    'functions' => array( 'use' )
+);
+
 $ViewList['operatortyping'] = array(
     'params' => array('chat_id','status'),
     'functions' => array( 'use' )
@@ -176,16 +181,6 @@ $ViewList['saveremarks'] = array(
 $ViewList['addmsguser'] = array(
     'params' => array('chat_id','hash'),
     'uparams' => array('mode'),
-);
-
-$ViewList['checkforpendingaction'] = array(
-    'params' => array('chat_id','hash'),
-    'uparams' => array(),
-);
-
-$ViewList['storescreenshot'] = array(
-    'params' => array(),
-    'uparams' => array('vid','hash'),
 );
 
 $ViewList['voteaction'] = array(

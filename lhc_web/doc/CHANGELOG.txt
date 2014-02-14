@@ -1,3 +1,13 @@
+1.87v
+
+Features
+1. Option to take user screenshot. Used http://html2canvas.hertzen.com/
+
+Changes
+1. Changed escape to encodeURI
+
+execute doc/update_db/update_66.sql for update
+
 1.86v
 
 1. Option to set date format. Three new fields in Settings => Time zone settings section. This is available per install and not per individual user.

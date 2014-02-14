@@ -202,6 +202,19 @@ class erLhcoreClassModelChat {
        			return $this->department;
        		break;
 
+       	case 'screenshot':
+       			$this->screenshot = false;
+       			if ($this->screenshot_id > 0) {
+       				try {
+       					$this->screenshot = erLhcoreClassModelChatFile::fetch($this->screenshot_id);
+       				} catch (Exception $e) {
+       			
+       				}
+       			}
+       			
+       			return $this->screenshot;
+       		break;	
+       		
        	default:
        		break;
        }
