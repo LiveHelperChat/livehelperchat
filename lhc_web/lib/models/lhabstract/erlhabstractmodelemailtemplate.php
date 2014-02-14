@@ -16,7 +16,8 @@ class erLhAbstractModelEmailTemplate {
 			'subject'       => $this->subject,
 			'subject_ac'    => $this->subject_ac,
 			'recipient'     => $this->recipient,
-			'content'    	=> $this->content
+			'content'    	=> $this->content,
+			'bcc_recipients'=> $this->bcc_recipients
 		);
 
 		return $stateArray;
@@ -110,6 +111,14 @@ class erLhAbstractModelEmailTemplate {
    				'recipient' => array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','Recipient email, this is used if the application could not determine who should receive an email.'),
+   						'required' => false,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
+   				'bcc_recipients' => array(
+   						'type' => 'text',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','BCC recipients, can be separated by comma.'),
    						'required' => false,
    						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
@@ -257,6 +266,7 @@ class erLhAbstractModelEmailTemplate {
 	public $reply_to_ac = 0;
 	public $content = '';
 	public $recipient = '';
+	public $bcc_recipients = '';
 
 	public $hide_add = true;
 	public $hide_delete = true;

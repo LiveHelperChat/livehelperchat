@@ -363,6 +363,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `from_email_ac` tinyint(4) NOT NULL,
 				  `content` text NOT NULL,
 				  `subject` varchar(250) NOT NULL,
+				  `bcc_recipients` varchar(200) NOT NULL,
 				  `subject_ac` tinyint(4) NOT NULL,
 				  `reply_to` varchar(150) NOT NULL,
 				  `reply_to_ac` tinyint(4) NOT NULL,

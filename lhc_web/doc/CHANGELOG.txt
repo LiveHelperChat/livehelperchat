@@ -2,9 +2,10 @@
 
 Features
 1. Option to take user screenshot. Used http://html2canvas.hertzen.com/
+2. Option to have BCC recipient in e-mail templates https://github.com/remdex/livehelperchat/issues/282
 
 Changes
-1. Changed escape to encodeURI
+1. Changed escape to encodeURIComponent https://github.com/remdex/livehelperchat/issues/288
 
 execute doc/update_db/update_66.sql for update
 

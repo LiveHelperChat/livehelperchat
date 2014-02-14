@@ -152,12 +152,19 @@ class erLhcoreClassChatMail {
     	if ($sendMail->reply_to != '') {
     		$mail->AddReplyTo($sendMail->reply_to,$sendMail->from_name);
     	}
-    	
+    	    	
     	$mail->Body = $sendMail->content;
     	$mail->AddAddress( $sendMail->recipient );
 
     	self::setupSMTP($mail);
-
+    	
+    	if ($sendMail->bcc_recipients != '') {
+    		$recipientsBCC = explode(',',$sendMail->bcc_recipients);
+    		foreach ($recipientsBCC as $recipientBCC) {
+    			$mail->AddBCC(trim($recipientBCC));
+    		}
+    	}
+    	
     	$mail->Send();
     	$mail->ClearAddresses();
     }
@@ -202,6 +209,13 @@ class erLhcoreClassChatMail {
 
     	self::setupSMTP($mail);
 
+    	if ($sendMail->bcc_recipients != '') {
+    		$recipientsBCC = explode(',',$sendMail->bcc_recipients);
+    		foreach ($recipientsBCC as $recipientBCC) {
+    			$mail->AddBCC(trim($recipientBCC));    			
+    		}
+    	}
+    	    	
     	$mail->Send();
     	$mail->ClearAddresses();
     }
@@ -251,14 +265,27 @@ class erLhcoreClassChatMail {
     	
     	$cfgSite = erConfigClassLhConfig::getInstance();
     	$secretHash = $cfgSite->getSetting( 'site', 'secrethash' );
-    	
+    	    	
     	foreach ($emailRecipient as $receiver) {   
     		$veryfyEmail = 	sha1(sha1($receiver.$secretHash).$secretHash);
     		$mail->Body = str_replace(array('{phone}','{name}','{email}','{message}','{additional_data}','{url_request}','{ip}','{department}','{url_accept}','{country}','{city}'), array($chat->phone,$chat->nick,$chat->email,$messagesContent,$chat->additional_data,$chat->referrer,erLhcoreClassIPDetect::getIP(),(string)$chat->department,'http://' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('chat/accept').'/'.erLhcoreClassModelChatAccept::generateAcceptLink($chat).'/'.$veryfyEmail.'/'.$receiver,$chat->country_name,$chat->city), $sendMail->content);
     		$mail->AddAddress( $receiver );    		    		
     		$mail->Send();
     		$mail->ClearAddresses();
-    	}  
+    	}
+    	
+    	if ($sendMail->bcc_recipients != '') {
+    		$recipientsBCC = explode(',',$sendMail->bcc_recipients);
+    		foreach ($recipientsBCC as $receiver) {
+    			$receiver = trim($receiver);
+    			$veryfyEmail = 	sha1(sha1($receiver.$secretHash).$secretHash);
+    			$mail->Body = str_replace(array('{phone}','{name}','{email}','{message}','{additional_data}','{url_request}','{ip}','{department}','{url_accept}','{country}','{city}'), array($chat->phone,$chat->nick,$chat->email,$messagesContent,$chat->additional_data,$chat->referrer,erLhcoreClassIPDetect::getIP(),(string)$chat->department,'http://' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('chat/accept').'/'.erLhcoreClassModelChatAccept::generateAcceptLink($chat).'/'.$veryfyEmail.'/'.$receiver,$chat->country_name,$chat->city), $sendMail->content);
+    			$mail->AddAddress( $receiver );
+    			$mail->Send();
+    			$mail->ClearAddresses();
+    			
+    		}
+    	}
     }
     
     
@@ -314,6 +341,20 @@ class erLhcoreClassChatMail {
     		$mail->Send();
     		$mail->ClearAddresses();
     	}
+    	    	
+    	if ($sendMail->bcc_recipients != '') {
+    		$recipientsBCC = explode(',',$sendMail->bcc_recipients);
+    		foreach ($recipientsBCC as $receiver) {    			
+    			$receiver = trim($receiver);
+    			$veryfyEmail = 	sha1(sha1($receiver.$secretHash).$secretHash);
+	    		$mail->Body = str_replace(array('{phone}','{name}','{email}','{message}','{additional_data}','{url_request}','{ip}','{department}','{url_accept}','{operator}','{country}','{city}'), array($chat->phone,$chat->nick,$chat->email,$messagesContent,$chat->additional_data,$chat->referrer,erLhcoreClassIPDetect::getIP(),(string)$chat->department,'http://' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('chat/accept').'/'.erLhcoreClassModelChatAccept::generateAcceptLink($chat).'/'.$veryfyEmail.'/'.$receiver,$operator,$chat->country_name,$chat->city), $sendMail->content);
+	    		$mail->AddAddress( $receiver );    		    		
+	    		$mail->Send();
+	    		$mail->ClearAddresses();    			 
+    		}
+    	}    	
+    	
+    	
     }
     
     

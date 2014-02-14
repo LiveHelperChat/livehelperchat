@@ -64,6 +64,11 @@ $def->properties['recipient']->columnName   = 'recipient';
 $def->properties['recipient']->propertyName = 'recipient';
 $def->properties['recipient']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['bcc_recipients'] = new ezcPersistentObjectProperty();
+$def->properties['bcc_recipients']->columnName   = 'bcc_recipients';
+$def->properties['bcc_recipients']->propertyName = 'bcc_recipients';
+$def->properties['bcc_recipients']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 return $def;
 
 ?>
