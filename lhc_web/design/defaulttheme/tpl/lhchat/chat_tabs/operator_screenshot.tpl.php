@@ -2,12 +2,17 @@
     <p class="title" data-section-title><a href="#screenshot"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Screenshot')?></a></p>
     <div class="content" data-section-content>    
       <div>
-      
-      <input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Take user screenshot')?>" class="button tiny round" onclick="lhinst.addRemoteCommand('<?php echo $chat->id?>','lhc_screenshot')" />
+            
+	    <ul class="button-group radius">
+	      <li><input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Take user screenshot')?>" class="button tiny" onclick="lhinst.addRemoteCommand('<?php echo $chat->id?>','lhc_screenshot')" /></li>
+		  <li><input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Refresh')?>" class="button tiny" onclick="lhinst.updateScreenshot('<?php echo $chat->id?>')" /></li>
+		</ul>
 	
-      	<p id="user-screenshot-container">
+      	<div id="user-screenshot-container">
       	
-      	<?php if ($chat->screenshot !== false) : ?>      	
+      	<?php if ($chat->screenshot !== false) : ?>    
+      	<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Taken')?> <?php echo $chat->screenshot->date_front?></h5>
+      	   	
       	<a href="#" class="screnshot-container">
 			<img id="screenshotImage" src="<?php echo erLhcoreClassDesign::baseurl('file/downloadfile')?>/<?php echo $chat->screenshot->id?>/<?php echo $chat->screenshot->security_hash?>" alt="" />
 		</a>
@@ -22,7 +27,7 @@
       	<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Empty...')?>
       	<?php endif;?>
       	
-      	</p>
+      	</div>
       </div>
     </div>
 </section>

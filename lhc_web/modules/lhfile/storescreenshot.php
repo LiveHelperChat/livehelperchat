@@ -65,7 +65,10 @@ if ($Params['user_parameters_unordered']['hash'] != '' || $Params['user_paramete
 							$fileUpload->chat_id = $chat->id;
 							$fileUpload->extension = 'png';						
 							$fileUpload->saveThis();
-										
+
+							$chat->user_typing_txt = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Screenshot ready...');
+							$chat->user_typing = time();
+							
 							$chat->screenshot_id = $fileUpload->id;
 							$chat->updateThis();
 						
