@@ -71,7 +71,12 @@ if ($Params['user_parameters_unordered']['hash'] != '' || $Params['user_paramete
 							
 							$chat->screenshot_id = $fileUpload->id;
 							$chat->updateThis();
-						
+							
+							if ($chat->online_user !== false) {
+								$chat->online_user->screenshot_id = $fileUpload->id;
+								$chat->online_user->updateThis();
+							}
+							
 						$db->commit();
 						
 						echo json_encode(array('stored' => 'true'));
