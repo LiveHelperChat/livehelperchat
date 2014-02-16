@@ -1550,7 +1550,9 @@ function lh(){
        
     this.addRemoteCommand = function(chat_id,operation) {
     	$.postJSON(this.wwwDir + 'chat/addoperation/' + chat_id,{'operation':operation}, function(data){
-    		
+    		if (LHCCallbacks.addRemoteCommand) {
+   	        	LHCCallbacks.addRemoteCommand(chat_id);
+   	        };
     	});    	
     	if (operation == 'lhc_screenshot') {
     		$('#user-screenshot-container').html('').addClass('screenshot-pending');
