@@ -121,6 +121,11 @@ $ViewList['checkscreenshot'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['checkscreenshotonline'] = array(
+    'params' => array('online_id'),
+    'functions' => array( 'use' )
+);
+
 $ViewList['operatortyping'] = array(
     'params' => array('chat_id','status'),
     'functions' => array( 'use' )
@@ -169,6 +174,11 @@ $ViewList['addmsgadmin'] = array(
 
 $ViewList['addoperation'] = array(
     'params' => array('chat_id'),
+    'functions' => array( 'use' )
+);
+
+$ViewList['addonlineoperation'] = array(
+    'params' => array('online_user_id'),
     'functions' => array( 'use' )
 );
 

@@ -32,6 +32,8 @@
   <?php endif;?>
 
   <?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/user_chats.tpl.php')); ?>
+  
+  <?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/screenshot.tpl.php')); ?>
 
 </div>
 

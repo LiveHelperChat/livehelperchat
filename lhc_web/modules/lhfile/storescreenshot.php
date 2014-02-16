@@ -7,16 +7,19 @@ header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 if ($Params['user_parameters_unordered']['hash'] != '' || $Params['user_parameters_unordered']['vid'] != '') {
 	
 	$checkHash = true;
+	$vid = false;
 	
 	if ($Params['user_parameters_unordered']['hash'] != '') {
 		list($chatID,$hash) = explode('_',$Params['user_parameters_unordered']['hash']);
-	} else if ($Params['user_parameters_unordered']['hash_resume'] != '') {		
+	} else if (1== -1 && $Params['user_parameters_unordered']['hash_resume'] != '') {		
 		list($chatID,$hash) = explode('_',$Params['user_parameters_unordered']['hash_resume']);
 	} elseif ($Params['user_parameters_unordered']['vid'] != '') {				
-		$vid = erLhcoreClassModelChatOnlineUser::fetchByVid($Params['user_parameters_unordered']['vid']);				
-		if ($vid !== false && $vid->chat_id > 0) {
+		$vid = erLhcoreClassModelChatOnlineUser::fetchByVid($Params['user_parameters_unordered']['vid']);
+		
+		
+		if ($vid !== false) {
 			$chatID = $vid->chat_id;
-			$checkHash = false;
+			$checkHash = false;			
 		} else {			
 			echo json_encode(array('stored' => 'false'));
 			exit;
@@ -24,9 +27,15 @@ if ($Params['user_parameters_unordered']['hash'] != '' || $Params['user_paramete
 	};
 		
 	try {
-		$chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $chatID);
-		if ( (($checkHash == true && $chat->hash == $hash) || $checkHash == false) && ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)) {
-
+		
+		if ($chatID > 0) {
+			$chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $chatID);
+		} else {
+			$chat = false;
+		}
+		
+		if ( (($checkHash == true && $chat !== false && $chat->hash == $hash) || $checkHash == false) && ( is_object($vid) || ($chat !== false && $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT))) {
+						
 			if (isset($_POST['data'])) {
 				
 			$imgData = base64_decode(str_replace('data:image/png;base64,','',$_POST['data']));
@@ -36,7 +45,12 @@ if ($Params['user_parameters_unordered']['hash'] != '' || $Params['user_paramete
 									
 			if (strlen($imgData) < $data['fs_max']*1024 && $imgData != '') {
 			
-				$path = 'var/storage/'.date('Y').'y/'.date('m').'/'.date('d').'/'.$chat->id.'/';
+				if ($chat !== false) {
+					$path = 'var/storage/'.date('Y').'y/'.date('m').'/'.date('d').'/'.$chat->id.'/';
+				} else {
+					$path = 'var/storage/'.date('Y').'y/'.date('m').'/'.date('d').'/'.$vid->id.'/';
+				}
+				
 				erLhcoreClassFileUpload::mkdirRecursive($path);
 				$fileNameHash = sha1($imgData . time());
 				file_put_contents($path . $fileNameHash,$imgData);
@@ -45,13 +59,20 @@ if ($Params['user_parameters_unordered']['hash'] != '' || $Params['user_paramete
 				
 				if ($imageSize) {
 				
+					
+					
 					try {
 						$db = ezcDbInstance::get();
 						$db->beginTransaction();
 						
-							if ($chat->screenshot !== false){
+							if ($chat !== false && $chat->screenshot !== false){
 								$chat->screenshot->removeThis();
 								$chat->screenshot_id = 0;
+							}
+						
+							if (is_object($vid) && $vid->screenshot !== false){
+								$vid->screenshot->removeThis();
+								$vid->screenshot_id = 0;
 							}
 							
 							$fileUpload = new erLhcoreClassModelChatFile();
@@ -62,19 +83,30 @@ if ($Params['user_parameters_unordered']['hash'] != '' || $Params['user_paramete
 							$fileUpload->user_id = 0;
 							$fileUpload->upload_name = 'screenshot.png';
 							$fileUpload->file_path = $path;
-							$fileUpload->chat_id = $chat->id;
+							
+							if ($chat !== false) {
+								$fileUpload->chat_id = $chat->id;
+							} else {
+								$fileUpload->chat_id = 0;
+							}
+							
 							$fileUpload->extension = 'png';						
 							$fileUpload->saveThis();
 
-							$chat->user_typing_txt = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Screenshot ready...');
-							$chat->user_typing = time();
+							if ($chat !== false) {
+								$chat->user_typing_txt = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Screenshot ready...');
+								$chat->user_typing = time();
+								
+								$chat->screenshot_id = $fileUpload->id;
+								$chat->updateThis();
+							}
 							
-							$chat->screenshot_id = $fileUpload->id;
-							$chat->updateThis();
-							
-							if ($chat->online_user !== false) {
+							if ($chat !== false && $chat->online_user !== false) {
 								$chat->online_user->screenshot_id = $fileUpload->id;
-								$chat->online_user->updateThis();
+								$chat->online_user->saveThis();
+							} elseif (is_object($vid)) {
+								$vid->screenshot_id = $fileUpload->id;
+								$vid->saveThis();
 							}
 							
 						$db->commit();
@@ -82,7 +114,7 @@ if ($Params['user_parameters_unordered']['hash'] != '' || $Params['user_paramete
 						echo json_encode(array('stored' => 'true'));
 						exit;
 						
-					} catch (Exception $e) {					
+					} catch (Exception $e) {								
 						$db->rollback();
 					}
 				}
