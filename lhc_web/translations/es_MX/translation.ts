@@ -4718,6 +4718,10 @@ Lista de funciones</translation>
       <translation>Correo electrónico del destinatario, esto se utiliza si la aplicación no se pudo determinar quién debe recibir un correo electrónico.</translation>
     </message>
     <message>
+      <source>BCC recipients, can be separated by comma.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Content</source>
       <translation>Contenido</translation>
     </message>
@@ -4796,6 +4800,29 @@ Lista de funciones</translation>
     <message>
       <source>Please enter valid file type!</source>
       <translation>Por favor, introduzca un tipo de fichero válido</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/screenshot</name>
+    <message>
+      <source>Screenshot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Take user screenshot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Perhaps screenshot is under way or screenshot is not supported on client browser, click refresh to check for a screenshot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Refresh</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

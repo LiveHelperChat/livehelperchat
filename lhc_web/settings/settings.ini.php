@@ -47,7 +47,8 @@ return array (
       	18 => 'sve',
       	19 => 'per',
       	20 => 'ell',
-      	21 => 'site_admin'
+      	21 => 'dnk',
+      	22 => 'site_admin'
       ),
     ),
     'default_url' =>
@@ -160,6 +161,24 @@ return array (
       array (
         'locale' => 'es_MX',
         'content_language' => 'es',
+      	'dir_language' => 'ltr',
+        'title' => '',
+        'description' => '',
+        'theme' =>
+        array (
+          0 => 'customtheme',
+          1 => 'defaulttheme',
+        ),
+        'default_url' =>
+        array (
+          'module' => 'chat',
+          'view' => 'startchat',
+        ),
+      ),
+      'dnk' =>
+      array (
+        'locale' => 'da_DA',
+        'content_language' => 'da',
       	'dir_language' => 'ltr',
         'title' => '',
         'description' => '',

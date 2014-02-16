@@ -1185,11 +1185,11 @@
     </message>
     <message>
       <source>Use PHP-GeoIP module</source>
-      <translation type="unfinished"/>
+      <translation>使用PHP-GeoIP模块</translation>
     </message>
     <message>
       <source>Support for PHP-GeoIP detected</source>
-      <translation type="unfinished"/>
+      <translation>PHP-GeoIP支持检测</translation>
     </message>
     <message>
       <source>Requests will be comming from</source>
@@ -1493,7 +1493,7 @@
     </message>
     <message>
       <source>Setting service provider failed, please check that you have installed php-GeoIP module and GeoIPCity.dat file is available!</source>
-      <translation type="unfinished"/>
+      <translation>设置失败，请检查是否已安装php-GeoIP模块和GeoIPCity.dat文件!</translation>
     </message>
     <message>
       <source>Please choose a service provider!</source>
@@ -3957,15 +3957,15 @@
     </message>
     <message>
       <source>Date format E.g (Y-m-d)</source>
-      <translation type="unfinished"/>
+      <translation>日期格式 例如 (Y-m-d)</translation>
     </message>
     <message>
       <source>Full date format E.g (Y-m-d H:i:s)</source>
-      <translation type="unfinished"/>
+      <translation>完整日期格式 例如 (Y-m-d H:i:s)</translation>
     </message>
     <message>
       <source>Hour format E.g (H:i:s)</source>
-      <translation type="unfinished"/>
+      <translation>时间格式 例如 (H:i:s)</translation>
     </message>
     <message>
       <source>Live Helper Chat update</source>
@@ -4710,6 +4710,10 @@
       <translation>收件人的电子邮件，这是如果应用程序使用，不能确定谁应该收到一封电子邮件。</translation>
     </message>
     <message>
+      <source>BCC recipients, can be separated by comma.</source>
+      <translation>多个密送的收件人，可以用逗号隔开.</translation>
+    </message>
+    <message>
       <source>Content</source>
       <translation>内容</translation>
     </message>
@@ -4788,6 +4792,29 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>请输入有效的文件类型 ！</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/screenshot</name>
+    <message>
+      <source>Screenshot</source>
+      <translation>截图</translation>
+    </message>
+    <message>
+      <source>Take user screenshot</source>
+      <translation>获取用户截图</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>空...</translation>
+    </message>
+    <message>
+      <source>Perhaps screenshot is under way or screenshot is not supported on client browser, click refresh to check for a screenshot</source>
+      <translation>可能正在截图，或是客户的浏览器不支持截图功能。请点击刷新试试看</translation>
+    </message>
+    <message>
+      <source>Refresh</source>
+      <translation>刷新</translation>
     </message>
   </context>
 </TS>
