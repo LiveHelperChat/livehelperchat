@@ -480,7 +480,19 @@ function lh(){
         				inst.operatorTyping = false;
         			    $('#id-operator-typing').fadeOut();
         			}
-
+        			
+        			// Execute pending operations
+        			if (data.op != '') {
+	   	    			 $.each(data.op,function(i,item) {
+	   	    				 	 if (inst.isWidgetMode) {
+	   	    				 		 parent.postMessage(item, '*');
+	   	    					 } else if (window.opener) {
+	   	    						 window.opener.postMessage(item, '*');	  
+	   	    					 };
+	   	    			 });	    			
+        			};	
+        			
+        			
 	           } else {
 	               $('#status-chat').html(data.status);
 	               $('#ChatMessageContainer').remove();
@@ -1535,6 +1547,28 @@ function lh(){
             }}).prop('disabled', !$.support.fileInput)
             .parent().addClass($.support.fileInput ? undefined : 'disabled');
     };
+       
+    this.addRemoteCommand = function(chat_id,operation) {
+    	$.postJSON(this.wwwDir + 'chat/addoperation/' + chat_id,{'operation':operation}, function(data){
+    		
+    	});    	
+    	if (operation == 'lhc_screenshot') {
+    		$('#user-screenshot-container').html('').addClass('screenshot-pending');
+    		var inst = this;
+    		setTimeout(function(){
+    			inst.updateScreenshot(chat_id);
+    		},5000);    		
+    	};
+    };
+
+    this.updateScreenshot = function(chat_id) {
+    	$('#user-screenshot-container').html('').addClass('screenshot-pending');
+    	$.get(this.wwwDir + 'chat/checkscreenshot/' + chat_id,function(data){
+    		$('#user-screenshot-container').html(data);
+    		$('#user-screenshot-container').removeClass('screenshot-pending');
+    	}); 
+    };
+
 }
 
 var lhinst = new lh();

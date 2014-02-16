@@ -807,7 +807,15 @@ border-top-right-radius: 6px;
 	}
 }
 
-
 .table-list .button {
 	margin-bottom:0;
+}
+
+.screnshot-container {
+	display:inline-block;
+}
+
+.screenshot-pending{
+	background:url(../images/general/loading.gif) no-repeat center center;
+	min-height:150px;
 }

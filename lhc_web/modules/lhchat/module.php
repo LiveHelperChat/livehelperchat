@@ -116,6 +116,11 @@ $ViewList['refreshonlineinfo'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['checkscreenshot'] = array(
+    'params' => array('chat_id'),
+    'functions' => array( 'use' )
+);
+
 $ViewList['operatortyping'] = array(
     'params' => array('chat_id','status'),
     'functions' => array( 'use' )
@@ -160,7 +165,12 @@ $ViewList['pendingchats'] = array(
 $ViewList['addmsgadmin'] = array(
     'params' => array('chat_id'),
     'functions' => array( 'use' )
-    );
+);
+
+$ViewList['addoperation'] = array(
+    'params' => array('chat_id'),
+    'functions' => array( 'use' )
+);
 
 $ViewList['saveremarks'] = array(
     'params' => array('chat_id'),

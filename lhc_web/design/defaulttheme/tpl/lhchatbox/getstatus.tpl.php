@@ -183,7 +183,7 @@ var lhc_Chatbox = {
     },
 
  	getAppendRequestArguments : function() {
-		    var nickOption = (typeof LHCChatboxOptions.nick !== 'undefined') ?  '&nick='+escape(LHCChatboxOptions.nick) : (this.cookieData.nick ? '&nick='+escape(this.cookieData.nick) : '');
+		    var nickOption = (typeof LHCChatboxOptions.nick !== 'undefined') ?  '&nick='+encodeURIComponent(LHCChatboxOptions.nick) : (this.cookieData.nick ? '&nick='+encodeURIComponent(this.cookieData.nick) : '');
 		    var disableOption = (typeof LHCChatboxOptions.disable_nick_change !== 'undefined') ?  '&dnc=true' : '';
 		    return nickOption+disableOption;
     },
@@ -216,7 +216,7 @@ var lhc_Chatbox = {
 
    		  this.removeById('lhc_container_chatbox');
 
-   		  this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chatbox/chatwidget')?>/(chat_height)/<?php echo $heightchatcontent;?>/(identifier)/"+LHCChatboxOptions.identifier+'/(hashchatbox)/'+LHCChatboxOptions.hashchatbox+this.getAppendCookieArguments()+'?URLReferer='+escape(document.location)+this.getAppendRequestArguments();
+   		  this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chatbox/chatwidget')?>/(chat_height)/<?php echo $heightchatcontent;?>/(identifier)/"+LHCChatboxOptions.identifier+'/(hashchatbox)/'+LHCChatboxOptions.hashchatbox+this.getAppendCookieArguments()+'?URLReferer='+encodeURIComponent(document.location)+this.getAppendRequestArguments();
 
    		  this.addCookieAttribute('is_opened',1);
 

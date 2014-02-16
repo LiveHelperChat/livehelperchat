@@ -58,7 +58,9 @@ class erLhcoreClassModelChat {
                'nc_cb_executed'    		=> $this->nc_cb_executed,
        		
        		    //
-               'remarks'    		=> $this->remarks,
+               'remarks'    			=> $this->remarks,
+               'operation'    			=> $this->operation,
+               'screenshot_id'    		=> $this->screenshot_id,
        );
    }
 
@@ -200,6 +202,19 @@ class erLhcoreClassModelChat {
        			return $this->department;
        		break;
 
+       	case 'screenshot':
+       			$this->screenshot = false;
+       			if ($this->screenshot_id > 0) {
+       				try {
+       					$this->screenshot = erLhcoreClassModelChatFile::fetch($this->screenshot_id);
+       				} catch (Exception $e) {
+       			
+       				}
+       			}
+       			
+       			return $this->screenshot;
+       		break;	
+       		
        	default:
        		break;
        }
@@ -329,6 +344,11 @@ class erLhcoreClassModelChat {
    public $chat_variables = '';
    
    public $remarks = '';
+   
+   // Pending operations from user side
+   public $operation = '';
+   
+   public $screenshot_id = 0;
 
 }
 

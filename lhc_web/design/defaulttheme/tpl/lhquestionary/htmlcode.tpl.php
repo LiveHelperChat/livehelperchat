@@ -96,7 +96,4 @@ $('#LocaleID,#PositionID,#id_show_widget_on_open,#id_status_text,#UnitsTop,#id_t
     generateEmbedCode();
 });
 generateEmbedCode();
-<?php
-// '?URLReferer=\'+escape(document.location);'
-?>
 </script>

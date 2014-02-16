@@ -67,6 +67,11 @@ $ViewList['deletechatfile'] = array(
 		'functions' => array( 'file_delete_chat' )
 );
 
+$ViewList['storescreenshot'] = array(
+		'params' => array(),
+		'uparams' => array('vid','hash','hash_resume'),
+);
+
 $FunctionList['use'] = array('explain' => 'Allow user to configure files upload');
 $FunctionList['use_operator'] = array('explain' => 'Allow operators to upload files');
 $FunctionList['file_list'] = array('explain' => 'Allow operators to list all uploaded files');

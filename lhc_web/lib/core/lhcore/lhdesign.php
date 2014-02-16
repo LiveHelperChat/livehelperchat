@@ -12,6 +12,8 @@ class erLhcoreClassDesign
     		$debug = ezcDebug::getInstance();
     	}
 
+
+
         $instance = erLhcoreClassSystem::instance();
 
         // Check extensions directories
@@ -80,7 +82,9 @@ class erLhcoreClassDesign
             	}
             	
             	if ($isMultiInclude === false) {
-            		$debug->log( $logString, 0, array( "source"  => "erLhcoreClassDesign", "category" =>  "designtpl - $path" )  );
+                    if ($debugOutput == true) {
+            		  $debug->log( $logString, 0, array( "source"  => "erLhcoreClassDesign", "category" =>  "designtpl - $path" )  );
+                    }
             		return $tplDir;
             	} else {
             		$multiTemplates[] = $tplDir;

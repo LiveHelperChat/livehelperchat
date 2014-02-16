@@ -11,10 +11,7 @@
 				<?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/online_user_info.tpl.php')); ?>
 			</div>
 		</div>
-
 	</div>
 </section>
-
 <?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/user_chats.tpl.php')); ?>
-
 <?php endif; ?>
