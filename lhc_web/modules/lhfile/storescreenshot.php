@@ -11,7 +11,7 @@ if ($Params['user_parameters_unordered']['hash'] != '' || $Params['user_paramete
 	
 	if ($Params['user_parameters_unordered']['hash'] != '') {
 		list($chatID,$hash) = explode('_',$Params['user_parameters_unordered']['hash']);
-	} else if (1== -1 && $Params['user_parameters_unordered']['hash_resume'] != '') {		
+	} else if ($Params['user_parameters_unordered']['hash_resume'] != '') {		
 		list($chatID,$hash) = explode('_',$Params['user_parameters_unordered']['hash_resume']);
 	} elseif ($Params['user_parameters_unordered']['vid'] != '') {				
 		$vid = erLhcoreClassModelChatOnlineUser::fetchByVid($Params['user_parameters_unordered']['vid']);
