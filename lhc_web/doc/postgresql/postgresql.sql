@@ -27,10 +27,11 @@ CREATE TABLE "lh_abstract_email_template" (
     "reply_to" varchar(300) NOT NULL,
     "reply_to_ac" integer NOT NULL,
     "recipient" varchar(300) NOT NULL,
+    "bcc_recipients" varchar(200) NOT NULL,
     PRIMARY KEY ("id")
 );
 
-INSERT INTO "lh_abstract_email_template" VALUES (1,'Send mail to user','Live Helper Chat',0,'',0,'Dear {user_chat_nick},\r\n\r\n{additional_message}\r\n\r\nLive Support response:\r\n{messages_content}\r\n\r\nSincerely,\r\nLive Support Team\r\n','{name_surname} has responded to your request',1,'',1,''),(2,'Support request from user','',0,'',0,'Hello,\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nAdditional data, if any:\r\n{additional_data}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nLink to chat if any:\r\n{prefillchat}\r\n\r\nSincerely,\r\nLive Support Team','Support request from user',0,'',0,'admin@example.com'),(3,'User mail for himself','Live Helper Chat',0,'',0,'Dear {user_chat_nick},\r\n\r\nTranscript:\r\n{messages_content}\r\n\r\nSincerely,\r\nLive Support Team\r\n','Chat transcript',0,'',0,''),(4,'New chat request','Live Helper Chat',0,'',0,'Hello,\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nClick to accept chat automatically\r\n{url_accept}\r\n\r\nSincerely,\r\nLive Support Team','New chat request',0,'',0,'admin@example.com'),(5,'Chat was closed','Live Helper Chat',0,'',0,'Hello,\r\n\r\n{operator} has closed a chat\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nAdditional data, if any:\r\n{additional_data}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nSincerely,\r\nLive Support Team','Chat was closed',0,'',0,'');
+INSERT INTO "lh_abstract_email_template" VALUES (1,'Send mail to user','Live Helper Chat',0,'',0,'Dear {user_chat_nick},\r\n\r\n{additional_message}\r\n\r\nLive Support response:\r\n{messages_content}\r\n\r\nSincerely,\r\nLive Support Team\r\n','{name_surname} has responded to your request',1,'',1,'',''),(2,'Support request from user','',0,'',0,'Hello,\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nAdditional data, if any:\r\n{additional_data}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nLink to chat if any:\r\n{prefillchat}\r\n\r\nSincerely,\r\nLive Support Team','Support request from user',0,'',0,'admin@example.com',''),(3,'User mail for himself','Live Helper Chat',0,'',0,'Dear {user_chat_nick},\r\n\r\nTranscript:\r\n{messages_content}\r\n\r\nSincerely,\r\nLive Support Team\r\n','Chat transcript',0,'',0,'',''),(4,'New chat request','Live Helper Chat',0,'',0,'Hello,\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nClick to accept chat automatically\r\n{url_accept}\r\n\r\nSincerely,\r\nLive Support Team','New chat request',0,'',0,'admin@example.com',''),(5,'Chat was closed','Live Helper Chat',0,'',0,'Hello,\r\n\r\n{operator} has closed a chat\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nAdditional data, if any:\r\n{additional_data}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nSincerely,\r\nLive Support Team','Chat was closed',0,'',0,'','');
 CREATE TABLE "lh_abstract_proactive_chat_invitation" (
     "id" integer NOT NULL,
     "siteaccess" varchar(20) NOT NULL,
@@ -81,10 +82,12 @@ CREATE TABLE "lh_chat" (
     "email" varchar(200) NOT NULL,
     "country_code" varchar(200) NOT NULL,
     "country_name" varchar(200) NOT NULL,
+    "operation" varchar(150) NOT NULL,
     "user_typing" integer NOT NULL,
     "user_typing_txt" varchar(100) NOT NULL,
     "operator_typing" integer NOT NULL,
     "operator_typing_id" integer NOT NULL,
+    "screenshot_id" integer NOT NULL,
     "phone" varchar(200) NOT NULL,
     "has_unread_messages" integer NOT NULL,
     "last_user_msg_time" integer NOT NULL,
