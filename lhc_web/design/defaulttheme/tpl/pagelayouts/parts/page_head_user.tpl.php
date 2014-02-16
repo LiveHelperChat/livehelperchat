@@ -14,8 +14,8 @@ foreach ($ReverseOrder as $pathItem) : ?><?php echo htmlspecialchars($pathItem['
 <meta name="robots" content="noindex, nofollow">
 <meta name="copyright" content="Remigijus Kiminas, livehelperchat.com">
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_css.tpl.php'));?>
-<?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_css_extension.tpl.php'));?>
+<?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_css_extension_multiinclude.tpl.php'));?>
 
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_js.tpl.php'));?>
-<?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_js_extension.tpl.php'));?>
+<?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_js_extension_multiinclude.tpl.php'));?>
 
