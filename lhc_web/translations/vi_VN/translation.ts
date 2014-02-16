@@ -4710,6 +4710,10 @@
       <translation>Email người nhận, điều này được sử dụng nếu ứng dụng không thể xác định ai sẽ nhận được email.</translation>
     </message>
     <message>
+      <source>BCC recipients, can be separated by comma.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Content</source>
       <translation>Thành phần</translation>
     </message>
@@ -4787,6 +4791,29 @@
     <name>file/configurations</name>
     <message>
       <source>Please enter valid file type!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/screenshot</name>
+    <message>
+      <source>Screenshot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Take user screenshot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Perhaps screenshot is under way or screenshot is not supported on client browser, click refresh to check for a screenshot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Refresh</source>
       <translation type="unfinished"/>
     </message>
   </context>

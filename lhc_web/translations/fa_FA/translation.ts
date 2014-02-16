@@ -4710,6 +4710,10 @@
       <translation>گیرنده ایمیل، این مورد وقتی استفاده میشود که برنامه نتواند بفهمد چه کسی باید ایمیل را دریافت کند.</translation>
     </message>
     <message>
+      <source>BCC recipients, can be separated by comma.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Content</source>
       <translation>متن</translation>
     </message>
@@ -4788,6 +4792,29 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>لطفا نوع فایل معتبر وارد کنید!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/screenshot</name>
+    <message>
+      <source>Screenshot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Take user screenshot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Perhaps screenshot is under way or screenshot is not supported on client browser, click refresh to check for a screenshot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Refresh</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

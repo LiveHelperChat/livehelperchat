@@ -1,61 +1,61 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="fr">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="da">
   <context>
     <name>system/buttons</name>
     <message>
       <source>Save</source>
-      <translation>Enregistrer</translation>
+      <translation>Gem</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Mettre à jour</translation>
+      <translation>Opdater</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Annuler</translation>
+      <translation>Afbryd</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation>Modifier</translation>
+      <translation>Rediger</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation>Effacer</translation>
+      <translation>Slet</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Vide...</translation>
+      <translation>Tom...</translation>
     </message>
     <message>
       <source>New</source>
-      <translation>Nouveau</translation>
+      <translation>Ny</translation>
     </message>
     <message>
       <source>Updated</source>
-      <translation>Mis à jour</translation>
+      <translation>Opdateret</translation>
     </message>
     <message>
       <source>Send</source>
-      <translation>Envoyer</translation>
+      <translation>Send</translation>
     </message>
     <message>
       <source>Save and continue</source>
-      <translation>Enregistrer et continuer</translation>
+      <translation>Gem og fortsæt</translation>
     </message>
     <message>
       <source>Continue</source>
-      <translation>Continuer</translation>
+      <translation>Fortsæt</translation>
     </message>
     <message>
       <source>Start archiving</source>
-      <translation>Commencer l&apos;archivage</translation>
+      <translation>Start arkivering</translation>
     </message>
     <message>
       <source>Return</source>
-      <translation>Retour</translation>
+      <translation>Vend tilbage</translation>
     </message>
     <message>
       <source>Delete department</source>
-      <translation>Supprimer le département</translation>
+      <translation>Slet afdeling</translation>
     </message>
     <message>
       <source>Test</source>
@@ -63,213 +63,213 @@
     </message>
     <message>
       <source>Send test message</source>
-      <translation>Envoyer un message de test</translation>
+      <translation>Send testmeddelelse</translation>
     </message>
   </context>
   <context>
     <name>abstract/abstract_form</name>
     <message>
       <source>Updated!</source>
-      <translation>Mis à jour !</translation>
+      <translation>Opdateret!</translation>
     </message>
   </context>
   <context>
     <name>abstract/proactivechatinvitation</name>
     <message>
       <source>If you want pro active chat invitation to work it has to be enabled in</source>
-      <translation>Si vous souhaitez les invitations proactives, vous devez les activer dans </translation>
+      <translation>Hvis du vil have proaktiv chatinvitation at virke skal det være slået til</translation>
     </message>
     <message>
       <source>chat configuration</source>
-      <translation>Configuration du chat</translation>
+      <translation>chatkonfiguration</translation>
     </message>
     <message>
       <source>also online users tracking has to be</source>
-      <translation>de plus, le suivi des visiteurs en ligne doit être</translation>
+      <translation>Registrering af onlinebrugere skal også være</translation>
     </message>
     <message>
       <source>enabled</source>
-      <translation>activé</translation>
+      <translation>aktiveret</translation>
     </message>
     <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation>Langage, laisser vide pour tous. Exemple : lit, rus, ger, etc.</translation>
+      <translation>Sprog, efterlad tom for alle. F.eks. rus, ger, etc...</translation>
     </message>
     <message>
       <source>Position</source>
-      <translation>Position</translation>
+      <translation>Stilling</translation>
     </message>
     <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
-      <translation>Message d&apos;attente. Visible quand le visiteur commence un chat et attend qu&apos;un conseiller accepte le chat.</translation>
+      <translation>Ventebesked. Synlig når brugere starter chat og venter nogen til at acceptere en chat.</translation>
     </message>
     <message>
       <source>Wait timeout. Time in seconds before timeout message is shown.</source>
-      <translation>Timeout d&apos;attente. Durée en seconde avant affichage du message de timeout</translation>
+      <translation>Ventetimeout. Tid i sekunder, før timeout besked bliver vist.</translation>
     </message>
     <message>
       <source>Show visitor this message then wait timeout passes.</source>
-      <translation>Afficher ce message au visiteur après timeout</translation>
+      <translation>Vise besøgende denne besked og derefter vente på timeout.</translation>
     </message>
     <message>
       <source>Auto responder</source>
-      <translation>Répondeur automatique</translation>
+      <translation>Autosvar</translation>
     </message>
     <message>
       <source>Name for personal purposes</source>
-      <translation>Nom à usage personnel</translation>
+      <translation>Navn til personlige formål</translation>
     </message>
     <message>
       <source>Operator name</source>
-      <translation>Nom de l&apos;opérateur</translation>
+      <translation>Operatørnavn</translation>
     </message>
     <message>
       <source>Time on site in seconds</source>
-      <translation>Temps passé sur le site (secondes)</translation>
+      <translation>Tid på site i sekunder</translation>
     </message>
     <message>
       <source>Pageviews</source>
-      <translation>Pages vues</translation>
+      <translation>Sidevisninger</translation>
     </message>
     <message>
       <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
-      <translation type="unfinished"/>
+      <translation>Henvisende domæne uden www, fx google søgeord matcher nogen af google-domæne</translation>
     </message>
     <message>
       <source>How many times user show invitation, 0 - untill users closes it, &gt; 0 limits.</source>
-      <translation type="unfinished"/>
+      <translation>Hvor mange gange bruger Vis invitation, 0 - indtil brugere lukker det, &gt; 0 grænser.</translation>
     </message>
     <message>
       <source>Requires e-mail</source>
-      <translation>Requiert un courriel</translation>
+      <translation>Kræver e-mail</translation>
     </message>
     <message>
       <source>Show random operator profile</source>
-      <translation>Montrer un  profil d&apos;opérateur au hasard</translation>
+      <translation>Vis tilfældig operatørprofil</translation>
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation>Identifiant; pour quel identifiant ce message doit être affiché (laisser vide pour &quot;Tous&quot;)</translation>
+      <translation>Id, for hvilke id denne meddelelse skal vises, efterlad tom for alle</translation>
     </message>
     <message>
       <source>Matched times</source>
-      <translation>Nombre d&apos;occurences</translation>
+      <translation>Matchede gange</translation>
     </message>
     <message>
       <source>Message to user</source>
-      <translation>Message au visiteur</translation>
+      <translation>Meddelelse til bruger</translation>
     </message>
     <message>
       <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
-      <translation>Message d&apos;attente. Visible quand le visiteur démarre un chat et attend qu&apos;un conseiller accepte le chat.</translation>
+      <translation>Ventebesked. Synlig når brugere starter chat og venter nogen til at acceptere en chat.</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
-      <translation>Invitations proactives </translation>
+      <translation>Proaktive chatinvitationer</translation>
     </message>
   </context>
   <context>
     <name>abstract/list</name>
     <message>
       <source>Are you sure?</source>
-      <translation>Etes-vous sûr?</translation>
+      <translation>Er du sikker?</translation>
     </message>
   </context>
   <context>
     <name>chat/activechats</name>
     <message>
       <source>Active chats list</source>
-      <translation>Liste des chats actifs</translation>
+      <translation>Liste over aktive chat</translation>
     </message>
     <message>
       <source>Information</source>
-      <translation>Information</translation>
+      <translation>Oplysninger</translation>
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation>Ouvrir dans une nouvelle fenêtre</translation>
+      <translation>Åben i et nyt vindue</translation>
     </message>
     <message>
       <source>Close chat</source>
-      <translation>Fermer le chat</translation>
+      <translation>Luk chat</translation>
     </message>
     <message>
       <source>Delete chat</source>
-      <translation>Supprimer le Chat</translation>
+      <translation>Slet chat</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Vide...</translation>
+      <translation>Tom...</translation>
     </message>
     <message>
       <source>Chats lists</source>
-      <translation>Liste des chats</translation>
+      <translation>Chatlister</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Chats actifs</translation>
+      <translation>Aktive chats</translation>
     </message>
   </context>
   <context>
     <name>chat/chat</name>
     <message>
       <source>Show/Hide right column</source>
-      <translation>Afficher/masquer la colonne de droite</translation>
+      <translation>Vis/Skjul højre kolonne</translation>
     </message>
     <message>
       <source>User is typing now...</source>
-      <translation>Le visiteur est en train d&apos;écrire...</translation>
+      <translation>Brugeren skriver nu...</translation>
     </message>
     <message>
       <source>This chat is closed.</source>
-      <translation>Ce chat est fermé.</translation>
+      <translation>Denne chat er lukket.</translation>
     </message>
     <message>
       <source>Pending confirm</source>
-      <translation>En attente de confirmation</translation>
+      <translation>Ventende Bekræft</translation>
     </message>
     <message>
       <source>Enter your message</source>
-      <translation>Entrez votre message</translation>
+      <translation>Indtast din besked</translation>
     </message>
     <message>
       <source>Send</source>
-      <translation>Envoyer</translation>
+      <translation>Send</translation>
     </message>
     <message>
       <source>Close</source>
-      <translation>Fermer</translation>
+      <translation>Luk</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
-      <translation>La chatbox est désactivée.</translation>
+      <translation>Chatbox er deaktiveret</translation>
     </message>
     <message>
       <source>Invalid hash or auto creation is disabled</source>
-      <translation>Hash (code) invalide ou auto création désactivée</translation>
+      <translation>Ugyldig hash eller automatisk oprettelse er deaktiveret</translation>
     </message>
     <message>
       <source>Visitor</source>
-      <translation>Visiteur</translation>
+      <translation>Besøgende</translation>
     </message>
     <message>
       <source>Chat started</source>
-      <translation>Chat commencé</translation>
+      <translation>Chat startede</translation>
     </message>
     <message>
       <source>is typing now...</source>
-      <translation>est en train d&apos;écrire...</translation>
+      <translation>skriver nu...</translation>
     </message>
     <message>
       <source>Operator is typing now...</source>
-      <translation>L&apos;opérateur est en train d&apos;écrire...</translation>
+      <translation>Operatøren skriver nu...</translation>
     </message>
   </context>
   <context>
     <name>chat/blockedusers</name>
     <message>
       <source>Blocked users</source>
-      <translation>Visiteurs bloqués</translation>
+      <translation>Blokerede brugere</translation>
     </message>
     <message>
       <source>IP</source>
@@ -277,53 +277,53 @@
     </message>
     <message>
       <source>Date</source>
-      <translation>Date</translation>
+      <translation>Dato</translation>
     </message>
     <message>
       <source>Users who are blocked</source>
-      <translation>Visiteurs bloqués</translation>
+      <translation>Brugere, der er blokeret</translation>
     </message>
     <message>
       <source>Remove block</source>
-      <translation>Retirer le blocage</translation>
+      <translation>Fjerne blokkering</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Vide...</translation>
+      <translation>Tom...</translation>
     </message>
     <message>
       <source>User was blocked!</source>
-      <translation>Le visiteur a été bloqué !</translation>
+      <translation>Brugeren blev blokeret!</translation>
     </message>
     <message>
       <source>User blocking failed, perhaps you do not have permission to block users?</source>
-      <translation>Echec du blocage du visiteur,  vous n&apos;avez pas peut-être les droits pour bloquer ?</translation>
+      <translation>Bruger-blokerering mislykkedes, måske du har ikke tilladelse til at blokere brugere?</translation>
     </message>
   </context>
   <context>
     <name>kernel/message</name>
     <message>
       <source>Are you sure?</source>
-      <translation>Êtes-vous sûr?</translation>
+      <translation>Er du sikker?</translation>
     </message>
   </context>
   <context>
     <name>chat/cannedmsg</name>
     <message>
       <source>Canned messages</source>
-      <translation>Messages pré définis</translation>
+      <translation>Forhåndsbeskeder</translation>
     </message>
     <message>
       <source>Message</source>
-      <translation>Message</translation>
+      <translation>Meddelelser</translation>
     </message>
     <message>
       <source>User</source>
-      <translation type="unfinished"/>
+      <translation>Bruger</translation>
     </message>
     <message>
       <source>Delay</source>
-      <translation>Délai</translation>
+      <translation>Forsinkelse</translation>
     </message>
     <message>
       <source>Position</source>
@@ -331,376 +331,376 @@
     </message>
     <message>
       <source>Edit message</source>
-      <translation>Modifier le message</translation>
+      <translation>Rediger meddelelse</translation>
     </message>
     <message>
       <source>Delete message</source>
-      <translation>Effacer le message</translation>
+      <translation>Slet meddelelse</translation>
     </message>
     <message>
       <source>New canned message</source>
-      <translation>Nouveau message prédéfini</translation>
+      <translation>Ny forhåndsbesked</translation>
     </message>
     <message>
       <source>Edit canned message</source>
-      <translation>Modifier message prédéfini</translation>
+      <translation>Rediger forhåndsbeskeder</translation>
     </message>
     <message>
       <source>Delay in seconds</source>
-      <translation>Délai en secondes</translation>
+      <translation>Forsinkelse i sekunder</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Afdeling</translation>
     </message>
     <message>
       <source>Personal canned message</source>
-      <translation type="unfinished"/>
+      <translation>Personlig dåse besked</translation>
     </message>
     <message>
       <source>Canned message was saved</source>
-      <translation type="unfinished"/>
+      <translation>Dåse meddelelsen blev gemt</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Configuration du système</translation>
+      <translation>Systemopsætning</translation>
     </message>
     <message>
       <source>Please enter canned message</source>
-      <translation>Veuillez saisir le message prédéfini</translation>
+      <translation>Angiv forhåndsbesked</translation>
     </message>
     <message>
       <source>Please enter a canned message</source>
-      <translation>Veuillez saisir un message prédéfini</translation>
+      <translation>Indtast forhåndsbesked</translation>
     </message>
   </context>
   <context>
     <name>department/edit</name>
     <message>
       <source>Any</source>
-      <translation type="unfinished"/>
+      <translation>Enhver</translation>
     </message>
     <message>
       <source>Edit department</source>
-      <translation>Modifier le département</translation>
+      <translation>Rediger afdeling</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Nom</translation>
+      <translation>Navn</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Courriel</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation>Désactivé</translation>
+      <translation>Deaktiveret</translation>
     </message>
     <message>
       <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
-      <translation type="unfinished"/>
+      <translation>Forsinkelse i sekunder før orlov er vist en meddelelsesformular. 0 Betyder funktionalitet er deaktiveret, </translation>
     </message>
     <message>
       <source>Priority</source>
-      <translation>Priorité</translation>
+      <translation>Prioritet</translation>
     </message>
     <message>
       <source>Automate online hours</source>
-      <translation type="unfinished"/>
+      <translation>Automatisere online timer</translation>
     </message>
     <message>
       <source>Work hours/work days logic is active</source>
-      <translation>Logique des Jours/Heures d&apos;ouverture est active</translation>
+      <translation>Arbejde timer/arbejde dage logik er aktiv</translation>
     </message>
     <message>
       <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
-      <translation>Jours/heures de travail, pendant ces journées/heures, le chat sera actif automatiquement</translation>
+      <translation>Arbejdsdage/arbejde timer, i løbet af disse dage/timer vil chat være aktive automatisk</translation>
     </message>
     <message>
       <source>Monday</source>
-      <translation>Lundi</translation>
+      <translation>Mandag</translation>
     </message>
     <message>
       <source>Tuesday</source>
-      <translation>Mardi</translation>
+      <translation>Tirsdag</translation>
     </message>
     <message>
       <source>Wednesday</source>
-      <translation>Mercredi</translation>
+      <translation>Onsdag</translation>
     </message>
     <message>
       <source>Thursday</source>
-      <translation>Jeudi</translation>
+      <translation>Torsdag</translation>
     </message>
     <message>
       <source>Friday</source>
-      <translation>Vendredi</translation>
+      <translation>Fredag</translation>
     </message>
     <message>
       <source>Saturday</source>
-      <translation>Samedi</translation>
+      <translation>Lørdag</translation>
     </message>
     <message>
       <source>Sunday</source>
-      <translation>Dimanche</translation>
+      <translation>Søndag</translation>
     </message>
     <message>
       <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation>Heures actives, format 24 heures, 1 - 24</translation>
+      <translation>Arbejde timer, 24 timer format, 1-24</translation>
     </message>
     <message>
       <source>From, E.g. 8</source>
-      <translation>De, Ex. 8</translation>
+      <translation>Fra fx 8</translation>
     </message>
     <message>
       <source>To, E.g. 17</source>
-      <translation>À, Ex. 17</translation>
+      <translation>Til fx 17</translation>
     </message>
     <message>
       <source>Notifications about new chats</source>
-      <translation type="unfinished"/>
+      <translation>Meddelelser om nye chats</translation>
     </message>
     <message>
       <source>XMPP recipients</source>
-      <translation>Destinataires XMPP</translation>
+      <translation>XMPP-modtagere</translation>
     </message>
     <message>
       <source>XMPP group recipients</source>
-      <translation>Groupe XMPP de récipients</translation>
+      <translation>XMPP gruppe modtagere</translation>
     </message>
     <message>
       <source>E.g somechat@conference.server.org/LiveChat</source>
-      <translation>Ex. somechat@conference.server.org/LiveChat</translation>
+      <translation>Fx somechat@conference.server.org/ LiveChat</translation>
     </message>
     <message>
       <source>These messages will be send as group messages</source>
-      <translation>Ces messages seront envoyé comme message de groupe</translation>
+      <translation>Disse beskeder vil blive sendt som gruppemeddelelser</translation>
     </message>
     <message>
       <source>Inform about new chats using</source>
-      <translation>Informer de nouveaux messages utilisant</translation>
+      <translation>Informere om nye chats ved hjælp af</translation>
     </message>
     <message>
       <source>XMPP messages</source>
-      <translation>Messages XMPP</translation>
+      <translation>XMPP meddelelser</translation>
     </message>
     <message>
       <source>Mail messages</source>
-      <translation>Courriel</translation>
+      <translation>Mail-meddelelser</translation>
     </message>
     <message>
       <source>How many seconds chat can be pending before about chat is informed a staff</source>
-      <translation>Combien de secondes peuvent passé avant d&apos;informer un représentant</translation>
+      <translation>Hvor mange sekunder chat kan være ventende før om chat er informeret en personale</translation>
     </message>
     <message>
       <source>Other</source>
-      <translation type="unfinished"/>
+      <translation>Andet</translation>
     </message>
     <message>
       <source>Inform then chat is closed by operator, only mail notification is send.</source>
-      <translation>Informer que le chat a été fermé par l&apos;opérateur</translation>
+      <translation>Informere så chat er lukket af operatøren, kun mail meddelelsen sendes.</translation>
     </message>
     <message>
       <source>Chat transfer worklow</source>
-      <translation type="unfinished"/>
+      <translation>Chatoverførsel arbejdsproces</translation>
     </message>
     <message>
       <source>To what department chat should be transfered if it is not accepted</source>
-      <translation>Vers quel département les chats doivent être transférés s&apos;ils ne sont pas acceptés</translation>
+      <translation>Til hvilken afdeling skal chat overføres, hvis det ikke er accepteret</translation>
     </message>
     <message>
       <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
-      <translation>Timeout en secondes avant qu&apos;un chat soit transféré vers un autre département. Minimum 5 secondes.</translation>
+      <translation>Timeout i sekunder før chat overføres til en anden afdeling. Mindst 5 sekunder.</translation>
     </message>
     <message>
       <source>Miscellaneous</source>
-      <translation type="unfinished"/>
+      <translation>Diverse</translation>
     </message>
     <message>
       <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
-      <translation>Ce champ est limité à 50 caractères et peut être utilisé pour tout besoin par des extensions. Ce champ est aussi indexé. </translation>
+      <translation>Dette felt er max 50 tegn langt og kan bruges til enhver form af udvidelser. Dette felt er også indekseret.</translation>
     </message>
     <message>
       <source>None</source>
-      <translation>Personne</translation>
+      <translation>Ingen</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Configuration du système</translation>
+      <translation>Systemkonfiguration</translation>
     </message>
     <message>
       <source>departments</source>
-      <translation>Départements</translation>
+      <translation>afdelinger</translation>
     </message>
     <message>
       <source>Edit a department</source>
-      <translation>Modifier un département</translation>
+      <translation>Rediger en afdeling</translation>
     </message>
   </context>
   <context>
     <name>chat/chatnotexists</name>
     <message>
       <source>Resume chat</source>
-      <translation>Reprendre le chat</translation>
+      <translation>Genoptag chat</translation>
     </message>
     <message>
       <source>Chat was deleted</source>
-      <translation>Le chat à été supprimé</translation>
+      <translation>Chat blev slettet</translation>
     </message>
   </context>
   <context>
     <name>chat/adminchat</name>
     <message>
       <source>Footprint</source>
-      <translation>Empreinte</translation>
+      <translation>Fodaftryk</translation>
     </message>
     <message>
       <source>Visitor</source>
-      <translation>Visiteur</translation>
+      <translation>Besøgende</translation>
     </message>
     <message>
       <source>General information</source>
-      <translation>Information générales</translation>
+      <translation>Generelle oplysninger</translation>
     </message>
     <message>
       <source>Files</source>
-      <translation>Fichiers</translation>
+      <translation>Filer</translation>
     </message>
     <message>
       <source>Pending chat</source>
-      <translation>Chat en attente</translation>
+      <translation>Ventende chat</translation>
     </message>
     <message>
       <source>Active chat</source>
-      <translation>Chat actif</translation>
+      <translation>Aktiv chat</translation>
     </message>
     <message>
       <source>Closed chat</source>
-      <translation>Chat fermé</translation>
+      <translation>Lukket chat</translation>
     </message>
     <message>
       <source>Chatbox chat</source>
-      <translation>Chatbox chat</translation>
+      <translation>Chatboks chat</translation>
     </message>
     <message>
       <source>Operators chat</source>
-      <translation>Chat des opérateurs</translation>
+      <translation>Operatørchat</translation>
     </message>
     <message>
       <source>Information</source>
-      <translation>Information</translation>
+      <translation>Oplysninger</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Afdeling</translation>
     </message>
     <message>
       <source>Country</source>
-      <translation>Pays</translation>
+      <translation>Land</translation>
     </message>
     <message>
       <source>City</source>
-      <translation>Ville</translation>
+      <translation>City</translation>
     </message>
     <message>
       <source>Page</source>
-      <translation>Page</translation>
+      <translation>Side</translation>
     </message>
     <message>
       <source>Came from</source>
-      <translation>Envoyé par</translation>
+      <translation>Kom fra</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Courriel</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation>Téléphone</translation>
+      <translation>Telefon</translation>
     </message>
     <message>
       <source>Additional data</source>
-      <translation>Données supplémentaires</translation>
+      <translation>Supplerende data</translation>
     </message>
     <message>
       <source>Created</source>
-      <translation>Créé</translation>
+      <translation>Lavet</translation>
     </message>
     <message>
       <source>Waited</source>
-      <translation>En attente</translation>
+      <translation>Ventede</translation>
     </message>
     <message>
       <source>Chat duration</source>
-      <translation>Durée du chat</translation>
+      <translation>Chat varighed</translation>
     </message>
     <message>
       <source>Actions</source>
-      <translation>Actions</translation>
+      <translation>Handlinger</translation>
     </message>
     <message>
       <source>Close dialog</source>
-      <translation>Fermer le dialogue</translation>
+      <translation>Luk dialog</translation>
     </message>
     <message>
       <source>Close chat</source>
-      <translation>Fermer chat</translation>
+      <translation>Luk chat</translation>
     </message>
     <message>
       <source>Delete chat</source>
-      <translation>Supprimer le chat</translation>
+      <translation>Slet chat</translation>
     </message>
     <message>
       <source>Transfer chat</source>
-      <translation>Transférer chat</translation>
+      <translation>Overfør chat</translation>
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation>Êtes-vous sûr ?</translation>
+      <translation>Er du sikker?</translation>
     </message>
     <message>
       <source>Block user</source>
-      <translation>Bloquer le visiteur</translation>
+      <translation>Blokkerbruger</translation>
     </message>
     <message>
       <source>Send mail</source>
-      <translation>Envoyer un courriel</translation>
+      <translation>Send mail</translation>
     </message>
     <message>
       <source>Print</source>
-      <translation>Imprimer</translation>
+      <translation>Udskriv</translation>
     </message>
     <message>
       <source>Attatch uploaded file</source>
-      <translation type="unfinished"/>
+      <translation>Attatch uploadet fil</translation>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
-      <translation>Chats entre opérateurs (initiateur)</translation>
+      <translation>Chat mellem operatører, chat initialiserer</translation>
     </message>
     <message>
       <source>Chat owner</source>
-      <translation>Propriétaire du chat</translation>
+      <translation>Chatejer</translation>
     </message>
     <message>
       <source>Map</source>
-      <translation>Carte</translation>
+      <translation>Kort</translation>
     </message>
     <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
-      <translation>Détection impossible. Assurez-vous que la détection GEO est activée</translation>
+      <translation>Kunne ikke dektektere. Vær sikker på at GEO-detektion er aktiveret</translation>
     </message>
     <message>
       <source>Browsing information</source>
-      <translation>Informations de navigation</translation>
+      <translation>Browsing oplysninger</translation>
     </message>
     <message>
       <source>Refresh</source>
-      <translation>Rafraîchir</translation>
+      <translation>Opdater</translation>
     </message>
     <message>
       <source>Remarks</source>
-      <translation type="unfinished"/>
+      <translation>Bemærkninger</translation>
     </message>
     <message>
       <source>Chats</source>
@@ -708,89 +708,89 @@
     </message>
     <message>
       <source>Send</source>
-      <translation>Envoyer</translation>
+      <translation>Send</translation>
     </message>
     <message>
       <source>Reopen chat</source>
-      <translation>Réouvrir le chat</translation>
+      <translation>Genåbne chat</translation>
     </message>
     <message>
       <source>Select a canned message</source>
-      <translation>Choisissez un message prédéfini</translation>
+      <translation>Vælg forhåndsbesked</translation>
     </message>
     <message>
       <source>Fill textarea with canned message</source>
-      <translation>Remplir le textarea avec un message prédéfini</translation>
+      <translation>Fyld textarea med forhåndsbesked</translation>
     </message>
     <message>
       <source>Send delayed canned message instantly</source>
-      <translation>Envoyer instantanément le message prédéfini différé</translation>
+      <translation>Send forsinket forhåndsbesked øjeblikkeligt</translation>
     </message>
     <message>
       <source>Messages</source>
-      <translation type="unfinished"/>
+      <translation>Meddelelser</translation>
     </message>
   </context>
   <context>
     <name>files/files</name>
     <message>
       <source>Refresh</source>
-      <translation>Rafraîchir</translation>
+      <translation>Opdater</translation>
     </message>
     <message>
       <source>Delete file</source>
-      <translation>Supprimer le fichier</translation>
+      <translation>Slet filen</translation>
     </message>
     <message>
       <source>Download file</source>
-      <translation>Télécharger le fichier</translation>
+      <translation>Hent filen</translation>
     </message>
     <message>
       <source>Drop your files here.</source>
-      <translation>Déposer vos fichiers ici</translation>
+      <translation>Drop dine filer her.</translation>
     </message>
     <message>
       <source>Not an accepted file type</source>
-      <translation>Format de fichier non accepté</translation>
+      <translation>Ikke en accepteret filtype</translation>
     </message>
     <message>
       <source>Filesize is too big</source>
-      <translation>Fichier trop lourd</translation>
+      <translation>Filstørrelse er for stor</translation>
     </message>
   </context>
   <context>
     <name>chat/syncadmininterface</name>
     <message>
       <source>Open in a new window</source>
-      <translation>Ouvrir dans une nouvelle fenêtre</translation>
+      <translation>Åben i et nyt vindue</translation>
     </message>
     <message>
       <source>Add chat</source>
-      <translation>Ajouter chat</translation>
+      <translation>Tilføj chat</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Vide...</translation>
+      <translation>Tom...</translation>
     </message>
     <message>
       <source>Start chat</source>
-      <translation>Démarrer le chat</translation>
+      <translation>Start chat</translation>
     </message>
     <message>
       <source>Last activity</source>
-      <translation>Dernière activité</translation>
+      <translation>Seneste aktivitet</translation>
     </message>
     <message>
       <source>ago</source>
-      <translation>Il y a</translation>
+      <translation>siden</translation>
     </message>
     <message>
       <source>Accept chat</source>
-      <translation>Accepter le chat</translation>
+      <translation>Accepter chat</translation>
     </message>
     <message>
       <source>h.</source>
-      <translation>h.</translation>
+      <translation>t.</translation>
     </message>
     <message>
       <source>m.</source>
@@ -805,983 +805,983 @@
     <name>front/default</name>
     <message>
       <source>Pending confirm</source>
-      <translation>En attente de confirmation</translation>
+      <translation>Ventende bekræft</translation>
     </message>
     <message>
       <source>All pending chats</source>
-      <translation>Tous les chats en attente</translation>
+      <translation>Alle ventende chats</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Chats actifs</translation>
+      <translation>Aktive chats</translation>
     </message>
     <message>
       <source>All active chats</source>
-      <translation>Tous les chats actifs</translation>
+      <translation>Alle aktive chats</translation>
     </message>
     <message>
       <source>Unread messages</source>
-      <translation>Messages non lus</translation>
+      <translation>Ulæste beskeder</translation>
     </message>
     <message>
       <source>All unread chats</source>
-      <translation>Tous les chats non lus</translation>
+      <translation>Alle ulæste chats</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Chats fermés</translation>
+      <translation>Lukkede chats</translation>
     </message>
     <message>
       <source>All closed chats</source>
-      <translation>Tous les chats fermés</translation>
+      <translation>Alle lukkede chats</translation>
     </message>
     <message>
       <source>You do not have permission to use chattabschrome function</source>
-      <translation type="unfinished"/>
+      <translation>Du har ikke tilladelse til at bruge chattabschrome funktion</translation>
     </message>
     <message>
       <source>Please</source>
-      <translation type="unfinished"/>
+      <translation>Venligst</translation>
     </message>
     <message>
       <source>login first.</source>
-      <translation type="unfinished"/>
+      <translation>login først.</translation>
     </message>
     <message>
       <source>Online operators</source>
-      <translation>Opérateurs en ligne</translation>
+      <translation>Online operatører</translation>
     </message>
   </context>
   <context>
     <name>chat/startchat</name>
     <message>
       <source>Name</source>
-      <translation>Nom</translation>
+      <translation>Navn</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Courriel</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation>Téléphone</translation>
+      <translation>Telefon</translation>
     </message>
     <message>
       <source>Enter your message</source>
-      <translation>Entrez votre message</translation>
+      <translation>Indtast din besked</translation>
     </message>
     <message>
       <source>Your question</source>
-      <translation>Votre question</translation>
+      <translation>Dit spørgsmål</translation>
     </message>
     <message>
       <source>Start chat</source>
-      <translation>Démarrer le chat</translation>
+      <translation>Start chat</translation>
     </message>
     <message>
       <source>There are no online operators at the moment, please leave a message</source>
-      <translation>Il n&apos;y a pas d&apos;opérateur en ligne pour l&apos;instant, merci de laisser un message</translation>
+      <translation>Der er ingen online operatører i øjeblikket, efterlad en besked</translation>
     </message>
     <message>
       <source>Leave a message</source>
-      <translation>Laisser un message</translation>
+      <translation>Efterlad en besked</translation>
     </message>
     <message>
       <source>Your request was sent!</source>
-      <translation>Votre demande a été transmise</translation>
+      <translation>Din anmodning blev sendt!</translation>
     </message>
     <message>
       <source>I accept my personal data will be handled according to</source>
-      <translation type="unfinished"/>
+      <translation>Jeg accepterer min personlige data vil blive behandlet i henhold til</translation>
     </message>
     <message>
       <source>our terms and to the Law</source>
-      <translation type="unfinished"/>
+      <translation>vores vilkår og at loven</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Département</translation>
+      <translation>Afdeling</translation>
     </message>
     <message>
       <source>Offline</source>
-      <translation>Hors ligne</translation>
+      <translation>Offline</translation>
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
-      <translation>Tapez votre message ici et tapez &quot;Entrée&quot; pour envoyer...</translation>
+      <translation>Skriv din besked her og tryk enter for at sende...</translation>
     </message>
     <message>
       <source>Send</source>
-      <translation>Envoyer</translation>
+      <translation>Send</translation>
     </message>
     <message>
       <source>Personal assistant</source>
-      <translation>Assistant personnel</translation>
+      <translation>Personlig assistent</translation>
     </message>
     <message>
       <source>Fill out this form to start a chat</source>
-      <translation>Remplissez ce formulaire pour démarrer une conversation</translation>
+      <translation>Udfyld denne formular for at starte en chat</translation>
     </message>
     <message>
       <source>There are no online operators at the moment, please leave your message</source>
-      <translation>Il n&apos;y a pas d&apos;opérateur en ligne pour l&apos;instant, merci de laisser un message</translation>
+      <translation>Der er ingen online operatører i øjeblikket, kan du efterlade din besked</translation>
     </message>
     <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
-      <translation>Vous n&apos;êtes pas autorisé à discuter ! Contactez le propriétaire du site.</translation>
+      <translation>Du har ikke tilladelse til at chatte! Kontakt ejeren af webstedet.</translation>
     </message>
     <message>
       <source>Invalid captcha code, please enable Javascript!</source>
-      <translation>Le code de captcha est invalide, s&apos;il vous plaît activer le Javascript !</translation>
+      <translation>Ugyldig captcha kode, du skal aktivere Javascript!</translation>
     </message>
     <message>
       <source>Please enter your name</source>
-      <translation>Veuillez entrer votre nom</translation>
+      <translation>Angiv venligst dit navn</translation>
     </message>
     <message>
       <source>Maximum 50 characters</source>
-      <translation>Maximum de 50 caractères</translation>
+      <translation>Højst 50 tegn</translation>
     </message>
     <message>
       <source>Please enter a valid email address</source>
-      <translation>Veuillez entrer une adresse courriel valide</translation>
+      <translation>Angiv en gyldig emailadresse</translation>
     </message>
     <message>
       <source>Please enter your message</source>
-      <translation>Veuillez entrer votre message</translation>
+      <translation>Indtast venligst din besked</translation>
     </message>
     <message>
       <source>Maximum</source>
-      <translation type="unfinished"/>
+      <translation>Maksimum</translation>
     </message>
     <message>
       <source>characters for a message</source>
-      <translation type="unfinished"/>
+      <translation>tegn for en meddelelse</translation>
     </message>
     <message>
       <source>You have to accept our Terms Of Service</source>
-      <translation type="unfinished"/>
+      <translation>Du er nødt til at acceptere vores Terms Of Service</translation>
     </message>
     <message>
       <source>Please enter your phone</source>
-      <translation>Veuillez entrer votre téléphone</translation>
+      <translation>Angiv venligst dit telefonnummer</translation>
     </message>
     <message>
       <source>Maximum 100 characters for phone</source>
-      <translation>Maximum de 100 caractères pour téléphone</translation>
+      <translation>Højst 100 tegn for telefon</translation>
     </message>
     <message>
       <source>Could not determine a default department!</source>
-      <translation>Impossible de déterminer le département par défaut</translation>
+      <translation>Kunne ikke bestemme en standard afdeling!</translation>
     </message>
     <message>
       <source>is required</source>
-      <translation type="unfinished"/>
+      <translation>er påkrævet</translation>
     </message>
     <message>
       <source>Live Support</source>
-      <translation>Support en ligne</translation>
+      <translation>Live Support</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
-      <translation type="unfinished"/>
+      <translation>Angiv venligst en besked, max tegn</translation>
     </message>
     <message>
       <source>Visitor</source>
-      <translation>Visiteur</translation>
+      <translation>Besøgende</translation>
     </message>
     <message>
       <source>Fill in the form to start a chat</source>
-      <translation>Remplissez le formulaire pour commencer une conversation</translation>
+      <translation>Udfyld formularen for at starte en chat</translation>
     </message>
   </context>
   <context>
     <name>chat/checkchatstatus</name>
     <message>
       <source>A support staff member has joined this chat</source>
-      <translation>Un opérateur a rejoint ce chat</translation>
+      <translation>En supportmedarbejder har sluttede denne chat</translation>
     </message>
     <message>
       <source>A support staff member has closed this chat</source>
-      <translation>Un membre du personnel de soutien a fermé ce chat</translation>
+      <translation>En supportmedarbejder har lukket denne chat</translation>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
-      <translation>En attendant d&apos;être mis en rapport avec un opérateur, vous pouvez écrire vos questions et dès qu&apos;un opérateur rejoindra ce chat, il verra vos messages</translation>
+      <translation>Venter på at supportmedarbejder er klar til at deltage.  Du kan skrive dine spørgsmål, og så snart en supportmedarbejder bekræfter denne chat, han får dine meddelelser</translation>
     </message>
     <message>
       <source>At this moment there are no logged in support staff members, but you can leave your messages</source>
-      <translation>Pour l&apos;instant, aucun opérateur n&apos;est connecté, mais vous pouvez laisser vos messages</translation>
+      <translation>I øjeblikket er der ingen supportmedarbejder online, men du efterlade din besked</translation>
     </message>
   </context>
   <context>
     <name>chat/closedchats</name>
     <message>
       <source>Closed chats list</source>
-      <translation>Liste des chats terminés</translation>
+      <translation>Liste over lukkede chats</translation>
     </message>
     <message>
       <source>Information</source>
-      <translation>Information</translation>
+      <translation>Oplysninger</translation>
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation>Ouvrir dans une nouvelle fenêtre</translation>
+      <translation>Åben i et nyt vindue</translation>
     </message>
     <message>
       <source>Delete chat</source>
-      <translation>Supprimer le chat</translation>
+      <translation>Slette chat</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Vide...</translation>
+      <translation>Tom...</translation>
     </message>
     <message>
       <source>Chats list</source>
-      <translation>Liste des chats</translation>
+      <translation>Chat liste</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Chats terminés</translation>
+      <translation>Lukkede chats</translation>
     </message>
   </context>
   <context>
     <name>chat/user_settings</name>
     <message>
       <source>Enable/Disable sound about new messages from the operator</source>
-      <translation>Activer/Désactiver les sons des nouveaux messages de l&apos;opérateur</translation>
+      <translation>Aktiver/Deaktiver lyden om nye meddelelser fra operatøren</translation>
     </message>
     <message>
       <source>Print</source>
-      <translation>Imprimer</translation>
+      <translation>Udskriv</translation>
     </message>
     <message>
       <source>Send chat transcript to your e-mail</source>
-      <translation>Envoyez la transcription du chat à votre adresse courriel</translation>
+      <translation>Send chat-udskrift til din e-mail</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new messages from users</source>
-      <translation>Activer/Désactiver les sons des nouveaux messages des visiteurs</translation>
+      <translation>Aktiver/Deaktiver lyden om nye meddelelser fra brugere</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new pending chats</source>
-      <translation>Activer/Désactiver les sons des nouveaux chats en attente</translation>
+      <translation>Aktiver/Deaktiver lyden om nye ventende chats</translation>
     </message>
     <message>
       <source>Change my status to online/offline</source>
-      <translation>Changer mon statut En ligne / Hors ligne</translation>
+      <translation>Ændre min status til online/offline</translation>
     </message>
   </context>
   <context>
     <name>chat/editchatconfig</name>
     <message>
       <source>Edit</source>
-      <translation>Modifier</translation>
+      <translation>Rediger</translation>
     </message>
     <message>
       <source>Value in</source>
-      <translation>Valeur dans</translation>
+      <translation>Værdi i</translation>
     </message>
     <message>
       <source>site access</source>
-      <translation>accès au site</translation>
+      <translation>site tilgang</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Mettre à jour</translation>
+      <translation>Opdater</translation>
     </message>
     <message>
       <source>Data updated</source>
-      <translation>Données mises à jour</translation>
+      <translation>Data opdateret</translation>
     </message>
   </context>
   <context>
     <name>chat/errors/adminchatnopermission</name>
     <message>
       <source>You do not have permission to access the current chat!</source>
-      <translation>Vous n&apos;êtes pas autorisé à accéder à ce chat !</translation>
+      <translation>Du har ikke tilladelse til at få adgang til den aktuelle chat!</translation>
     </message>
   </context>
   <context>
     <name>chat/errors/entertext</name>
     <message>
       <source>Please enter text!</source>
-      <translation>Veuillez entrer du texte !</translation>
+      <translation>Angiv tekst!</translation>
     </message>
   </context>
   <context>
     <name>chat/onlineusers</name>
     <message>
       <source>GEO detection configuration</source>
-      <translation>Configuration de la Géo Détection</translation>
+      <translation>Opsætning af GEO-detektion</translation>
     </message>
     <message>
       <source>GEO Enabled</source>
-      <translation>Geolocalisation activée</translation>
+      <translation>GEO aktiveret</translation>
     </message>
     <message>
       <source>Use this service</source>
-      <translation>Utiliser ce service</translation>
+      <translation>Brug denne tjeneste</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Enregistrer</translation>
+      <translation>Gem</translation>
     </message>
     <message>
       <source>Use mod_geoip2</source>
-      <translation>Utiliser mod_geoip2</translation>
+      <translation>Brug mod_geoip2</translation>
     </message>
     <message>
       <source>Country code server variable</source>
-      <translation>Variable de serveur pour le code pays</translation>
+      <translation>Landekode servervariabel</translation>
     </message>
     <message>
       <source>Country name server variable</source>
-      <translation>Variable de serveur du nom de pays</translation>
+      <translation>Land navneserver variabel</translation>
     </message>
     <message>
       <source>City name server variable</source>
-      <translation>Variable de serveur du nom de la ville</translation>
+      <translation>Byens navneserver variabel</translation>
     </message>
     <message>
       <source>Latitude variable</source>
-      <translation>Variable de latitude</translation>
+      <translation>Breddegrad</translation>
     </message>
     <message>
       <source>Longitude variable</source>
-      <translation>Variable de longitude</translation>
+      <translation>Længdegrad</translation>
     </message>
     <message>
       <source>Use MaxMind, does not depend on any third party remote service</source>
-      <translation type="unfinished"/>
+      <translation>Brug MaxMind, afhænger ikke af nogen tredje part fjerntjeneste</translation>
     </message>
     <message>
       <source>You can download city/country database from.</source>
-      <translation type="unfinished"/>
+      <translation>Du kan downloade by/land database fra.</translation>
     </message>
     <message>
       <source>bcmath php extension detected</source>
-      <translation type="unfinished"/>
+      <translation>BCMath php forlængelse opdaget</translation>
     </message>
     <message>
       <source>Location of city database</source>
-      <translation type="unfinished"/>
+      <translation>Beliggenhed af by-database</translation>
     </message>
     <message>
       <source>User country based detection, faster</source>
-      <translation type="unfinished"/>
+      <translation>Brugerens land baseret detektion, hurtigere</translation>
     </message>
     <message>
       <source>File exists</source>
-      <translation type="unfinished"/>
+      <translation>Fil eksisterer</translation>
     </message>
     <message>
       <source>File does not exists</source>
-      <translation type="unfinished"/>
+      <translation>Fil eksisterer ikke</translation>
     </message>
     <message>
       <source>User city based detection, slower</source>
-      <translation type="unfinished"/>
+      <translation>Bruger byen baseret detektion, langsommere</translation>
     </message>
     <message>
       <source>Use PHP-GeoIP module</source>
-      <translation type="unfinished"/>
+      <translation>Brug PHP-GeoIP modul</translation>
     </message>
     <message>
       <source>Support for PHP-GeoIP detected</source>
-      <translation type="unfinished"/>
+      <translation>Support for PHP-GeoIP registreret</translation>
     </message>
     <message>
       <source>Requests will be comming from</source>
-      <translation>Les requêtes viendront de</translation>
+      <translation>Anmodninger kommer fra</translation>
     </message>
     <message>
       <source>API Key</source>
-      <translation>Clé API</translation>
+      <translation>API-nøgle</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Nom d&apos;utilisateur</translation>
+      <translation>Brugernavn</translation>
     </message>
     <message>
       <source>IP, if your site remote IP is different from detected one, please provide correct remote IP address</source>
-      <translation>IP, si l&apos;IP distante de votre site est différente de celle détectée, s&apos;il vous plaît entrer la bonne IP distante</translation>
+      <translation>IP, hvis dit websteds eksterne IP-adresse er anderledes end den registrerede, bedes du give den korrekte eksterne IP-adresse</translation>
     </message>
     <message>
       <source>Map location</source>
-      <translation>Localisation sur la carte</translation>
+      <translation>Kortplacering</translation>
     </message>
     <message>
       <source>Drag a marker where you want to have map centered by default. Zoom is also saved.</source>
-      <translation>Déplacez un marqueur pour indiquer le centrage par défaut de la carte. Le niveau de zoom est également enregistré.</translation>
+      <translation>Træk et mærke, hvor du vil have kort centreret som standard. Zoom gemmes også.</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Paramètres mis à jour</translation>
+      <translation>Indstillinger opdateret</translation>
     </message>
     <message>
       <source>Send message</source>
-      <translation>Envoyer le message</translation>
+      <translation>Send meddelelse</translation>
     </message>
     <message>
       <source>City</source>
-      <translation>Ville</translation>
+      <translation>By</translation>
     </message>
     <message>
       <source>Lat.</source>
-      <translation>Lat.</translation>
+      <translation>Br.</translation>
     </message>
     <message>
       <source>Lon.</source>
-      <translation>Lon.</translation>
+      <translation>Læn.</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Identifiant</translation>
+      <translation>Id</translation>
     </message>
     <message>
       <source>Last activity</source>
-      <translation>Activité récente</translation>
+      <translation>Seneste aktivitet</translation>
     </message>
     <message>
       <source>ago</source>
-      <translation>(depuis)</translation>
+      <translation>siden</translation>
     </message>
     <message>
       <source>User does not have any message from operator</source>
-      <translation>L&apos;utilisateur n&apos;a aucun message de l&apos;opérateur</translation>
+      <translation>Brugeren har ikke nogen besked fra operatøren</translation>
     </message>
     <message>
       <source>User have not seen message from operator, or message window still open.</source>
-      <translation>L&apos;utilisateur n&apos;a pas vu le message du conseiller ou la fenêtre de message est toujours ouverte.</translation>
+      <translation>Brugeren har ikke set besked fra operatøren, eller beskedrude stadig åben.</translation>
     </message>
     <message>
       <source>User has seen message from operator.</source>
-      <translation>Le visiteur a vu le message de l&apos;opérateur.</translation>
+      <translation>Brugeren har set meddelelse fra driftslederen.</translation>
     </message>
     <message>
       <source>User is chatting</source>
-      <translation>Le visiteur est en train de chatter</translation>
+      <translation>Brugeren chatter</translation>
     </message>
     <message>
       <source>User is not having any chat right now</source>
-      <translation>Le visiteur n&apos;est pas en train de chatter pour le moment</translation>
+      <translation>Brugeren chatter ikke lige nu</translation>
     </message>
     <message>
       <source>has send message to user</source>
-      <translation>a envoyé un message au visiteur</translation>
+      <translation>har sendt meddelelse til bruger</translation>
     </message>
     <message>
       <source>No one has send any message to user yet</source>
-      <translation>Personne n&apos;a envoyé de message au visiteur jusqu&apos;à présent</translation>
+      <translation>Ingen har send en besked til brugeren endnu</translation>
     </message>
     <message>
       <source>First visit</source>
-      <translation>Première visite</translation>
+      <translation>Første besøg</translation>
     </message>
     <message>
       <source>Last visit</source>
-      <translation>Dernière visite </translation>
+      <translation>Sidste besøg</translation>
     </message>
     <message>
       <source>Total visits</source>
-      <translation>Nombre total de visites</translation>
+      <translation>Totale besøg</translation>
     </message>
     <message>
       <source>time(s) invitation logic was applied</source>
-      <translation>La logique d&apos;invitation a été appliquée</translation>
+      <translation>gang(e) invitationslogik blev anvendt</translation>
     </message>
     <message>
       <source>Pageviews</source>
-      <translation>Pages vues</translation>
+      <translation>Sidevisninger</translation>
     </message>
     <message>
       <source>Total pageviews</source>
-      <translation>Nombre total de pages vues</translation>
+      <translation>Samlede sidevisninger</translation>
     </message>
     <message>
       <source>Time on site</source>
-      <translation>Heure du site</translation>
+      <translation>Tid på site</translation>
     </message>
     <message>
       <source>Total time on site</source>
-      <translation>Durée totale sur le site</translation>
+      <translation>Samlede tid på webstedet</translation>
     </message>
     <message>
       <source>Current page</source>
-      <translation>Page courante</translation>
+      <translation>Nuværende side</translation>
     </message>
     <message>
       <source>Came from</source>
-      <translation>Envoyé par</translation>
+      <translation>Kom fra</translation>
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation>Êtes-vous sûr?</translation>
+      <translation>Er du sikker?</translation>
     </message>
     <message>
       <source>Clear list</source>
-      <translation>Effacer la liste</translation>
+      <translation>Ryd liste</translation>
     </message>
     <message>
       <source>Online visitors</source>
-      <translation>Visiteurs en ligne</translation>
+      <translation>Besøgende online</translation>
     </message>
     <message>
       <source>User tracking is disabled, enable it at</source>
-      <translation>Le suivi des visiteurs est désactivé, activez le sur</translation>
+      <translation>Sporing af brugere er deaktiveret, aktiver den ved</translation>
     </message>
     <message>
       <source>Chat configuration</source>
-      <translation>Configuration du chat</translation>
+      <translation>Chat konfiguration</translation>
     </message>
     <message>
       <source>List</source>
-      <translation>Liste</translation>
+      <translation>Vis</translation>
     </message>
     <message>
       <source>online users</source>
-      <translation type="unfinished"/>
+      <translation>onlinebrugere</translation>
     </message>
     <message>
       <source>Show visitors who visited site in the past</source>
-      <translation>Montrez les visiteurs qui ont visité le site dans le passé</translation>
+      <translation>Vise besøgende, der besøgte webstedet tidligere</translation>
     </message>
     <message>
       <source>seconds</source>
-      <translation>secondes</translation>
+      <translation>sekunder</translation>
     </message>
     <message>
       <source>minit</source>
-      <translation>minutes</translation>
+      <translation>minit</translation>
     </message>
     <message>
       <source>minits</source>
-      <translation>minutes</translation>
+      <translation>minits</translation>
     </message>
     <message>
       <source>hour</source>
-      <translation>heure</translation>
+      <translation>time</translation>
     </message>
     <message>
       <source>day</source>
-      <translation type="unfinished"/>
+      <translation>dag</translation>
     </message>
     <message>
       <source>days</source>
-      <translation type="unfinished"/>
+      <translation>dage</translation>
     </message>
     <message>
       <source>Page</source>
-      <translation>Page</translation>
+      <translation>Side</translation>
     </message>
     <message>
       <source>Status</source>
-      <translation>Statut</translation>
+      <translation>Status</translation>
     </message>
     <message>
       <source>Action</source>
-      <translation>Action</translation>
+      <translation>Handling</translation>
     </message>
     <message>
       <source>User does not have any messages from the operator</source>
-      <translation>Le visiteur n&apos;a pas de messages de l&apos;opérateur</translation>
+      <translation>Brugeren har ingen meddelelser fra operatør</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation>Le visiteur n&apos;a pas vu le message de l&apos;opérateur ou la fenêtre de message est encore ouverte</translation>
+      <translation>Brugeren har ikke set en besked fra operatøren, eller besked-vindue er stadig åbent.</translation>
     </message>
     <message>
       <source>User has seen the message from the operator.</source>
-      <translation>Le visiteur a vu le message de l&apos;opérateur.</translation>
+      <translation>Brugeren har set beskeden fra operatøren.</translation>
     </message>
     <message>
       <source>has sent a message to the user</source>
-      <translation>a envoyé un message au visiteur</translation>
+      <translation>har sendt en meddelelse til brugeren</translation>
     </message>
     <message>
       <source>No one has sent a message to the user yet</source>
-      <translation>Aucun message n&apos;a été envoyé au visiteur</translation>
+      <translation>Ingen har sendt en besked til brugeren endnu</translation>
     </message>
     <message>
       <source>first visit</source>
-      <translation>première visite</translation>
+      <translation>første besøg</translation>
     </message>
     <message>
       <source>last visit</source>
-      <translation>dernière visite</translation>
+      <translation>sidste besøg</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Vide...</translation>
+      <translation>Tom...</translation>
     </message>
     <message>
       <source>Map</source>
-      <translation>Carte</translation>
+      <translation>Kort</translation>
     </message>
     <message>
       <source>User has message from operator</source>
-      <translation>L&apos;utilisateur a un message de l&apos;opérateur</translation>
+      <translation>Bruger har meddelelse fra operatør</translation>
     </message>
     <message>
       <source>Marker timeout before it dissapears from map</source>
-      <translation>Délai avant la disparition des marqueurs de la carte</translation>
+      <translation>Markør-timeout før det forsvinder fra kort</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
-      <translation>Le téléversement de fichier par les visiteurs est actif</translation>
+      <translation>Filupload for brugerne er aktive</translation>
     </message>
     <message>
       <source>Files upload for operators is active</source>
-      <translation>Le téléversement de fichier par les opérateurs est actif</translation>
+      <translation>Filupload for operatører er aktiv</translation>
     </message>
     <message>
       <source>Country code variable does not exist!</source>
-      <translation>La variable code pays n&apos;existe pas</translation>
+      <translation>Landekode-variabel findes ikke!</translation>
     </message>
     <message>
       <source>Country name variable does not exist!</source>
-      <translation>La variable nom de pays n&apos;existe pas</translation>
+      <translation>Landenavnevariabel findes ikke!</translation>
     </message>
     <message>
       <source>Please enter city variable!</source>
-      <translation>S&apos;il vous plaît entrez la variable &quot;ville&quot; !</translation>
+      <translation>Indtast venligst by-variabel!</translation>
     </message>
     <message>
       <source>Please enter latitude variable!</source>
-      <translation>S&apos;il vous plaît entrez la variable &quot;latitude&quot; !</translation>
+      <translation>Venligst indtaste breddegrad variabel!</translation>
     </message>
     <message>
       <source>Please enter longitude variable!</source>
-      <translation>S&apos;il vous plaît entrez la variable &quot;longitude&quot; !</translation>
+      <translation>Indtast længdegrad variabel!</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages!</source>
-      <translation>Le paramétrage du fournisseur de service a échoué, vérifiez que votre fournisseur accepte les requêtes vers des pages distantes!</translation>
+      <translation>Indstilling af udbyder mislykkedes. Kontroller at din udbyder tillader dig at lave anmodninger til eksterne sider!</translation>
     </message>
     <message>
       <source>MaxMind city file does not exists!</source>
-      <translation type="unfinished"/>
+      <translation>MaxMind by fil gør ikke eksisterer!</translation>
     </message>
     <message>
       <source>MaxMind country file does not exists!</source>
-      <translation type="unfinished"/>
+      <translation>MaxMind land fil gør ikke eksisterer!</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that MaxMind database files exists!</source>
-      <translation type="unfinished"/>
+      <translation>Indstilling-udbyder mislykkedes, Kontroller at MaxMind databasefiler findes!</translation>
     </message>
     <message>
       <source>Please enter the API key!</source>
-      <translation>Veuillez entrer la clé API !</translation>
+      <translation>Indtast venligst API-nøgle!</translation>
     </message>
     <message>
       <source>Please enter the API username!</source>
-      <translation>Veuillez entrer le nom d&apos;utilisateur de l&apos;API</translation>
+      <translation>Angiv API brugernavn!</translation>
     </message>
     <message>
       <source>Please enter IP!</source>
-      <translation>S&apos;il vous plaît entrez l&apos;adresse IP !</translation>
+      <translation>Angiv IP!</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key and username is correct!</source>
-      <translation>Merci de vérifier que votre fournisseur de services vous permet de faire des requêtes vers des pages distantes et que votre clé API et votre nom d&apos;utilisateur est correct!</translation>
+      <translation>Indstilling-udbyder mislykkedes, Kontroller at din udbyder tillader dig at foretage anmodninger til eksterne sider og din API-nøgle og Brugernavn er korrekte!</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!</source>
-      <translation>Merci de vérifier que votre service provider vous permet de faire des requêtes vers des pages distantes et que votre clé API est correct!</translation>
+      <translation>Indstilling-udbyder mislykkedes, Kontroller at din udbyder tillader dig at fremsætte anmodninger til eksterne sider og din API-nøgle er korrekt!</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that you have installed php-GeoIP module and GeoIPCity.dat file is available!</source>
-      <translation type="unfinished"/>
+      <translation>Indstilling-udbyder mislykkedes, Kontroller at du har installeret php-GeoIP modul og GeoIPCity.dat fil er tilgængelig!</translation>
     </message>
     <message>
       <source>Please choose a service provider!</source>
-      <translation>Veuillez choisir un fournisseur de services !</translation>
+      <translation>Vælg en tjenesteudbyder!</translation>
     </message>
     <message>
       <source>Online users</source>
-      <translation>Utilisateurs en ligne</translation>
+      <translation>Brugere online</translation>
     </message>
   </context>
   <context>
     <name>chat/getstatus</name>
     <message>
       <source>Live help is online...</source>
-      <translation>L&apos;aide en ligne est disponible...</translation>
+      <translation>Live hjælp er online...</translation>
     </message>
     <message>
       <source>Live help is offline...</source>
-      <translation>L&apos;aide en ligne est indisponible...</translation>
+      <translation>Live hjælp er offline...</translation>
     </message>
     <message>
       <source>Close</source>
-      <translation>Fermer</translation>
+      <translation>Luk</translation>
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation>Ouvrir dans une nouvelle fenêtre</translation>
+      <translation>Åben i et nyt vindue</translation>
     </message>
     <message>
       <source>Minimize/Restore</source>
-      <translation>Réduire/Restaurer</translation>
+      <translation>Minimer/gendan</translation>
     </message>
   </context>
   <context>
     <name>chat/listchatconfig</name>
     <message>
       <source>Chat configuration</source>
-      <translation>Configuration du chat</translation>
+      <translation>Chat konfiguration</translation>
     </message>
     <message>
       <source>Notifications about new chats</source>
-      <translation>Notifications à propos de nouveaux chats</translation>
+      <translation>Meddelelser om nye chats</translation>
     </message>
     <message>
       <source>Copyright settings</source>
-      <translation>Paramètres de droits d&apos;auteur</translation>
+      <translation>Copyright indstillinger</translation>
     </message>
     <message>
       <source>Application name</source>
-      <translation>Nom de l&apos;application</translation>
+      <translation>Programnavn</translation>
     </message>
     <message>
       <source>Site settings</source>
-      <translation>Paramètres du site</translation>
+      <translation>Indstillinger for websted</translation>
     </message>
     <message>
       <source>Online tracking</source>
-      <translation>Suivi en ligne</translation>
+      <translation>Online tracking</translation>
     </message>
     <message>
       <source>Misc</source>
-      <translation>Autre</translation>
+      <translation>Diverse</translation>
     </message>
     <message>
       <source>Workflow</source>
-      <translation>Flux de travail</translation>
+      <translation>Workflow</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Actualiser</translation>
+      <translation>Opdater</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Réglages enregistrés</translation>
+      <translation>Indstillinger opdateret</translation>
     </message>
     <message>
       <source>List chat configuration</source>
-      <translation>Liste de configuration du chat</translation>
+      <translation>Vis chat-opsætning</translation>
     </message>
   </context>
   <context>
     <name>system/configuration</name>
     <message>
       <source>Request notification permission</source>
-      <translation>Demander l&apos;autorisation des notifications sur le bureau</translation>
+      <translation>Anmodningensbesked tilladelser</translation>
     </message>
     <message>
       <source>New chat notification settings</source>
-      <translation>Paramètres de notification de nouveau chat</translation>
+      <translation>Nye chat-besked-indstillinger</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Configuration du système</translation>
+      <translation>Systemkonfiguration</translation>
     </message>
     <message>
       <source>Chat related</source>
-      <translation>En lien au chat</translation>
+      <translation>Chatrelateret</translation>
     </message>
     <message>
       <source>Departments</source>
-      <translation>Départements</translation>
+      <translation>Afdelinger</translation>
     </message>
     <message>
       <source>Blocked users</source>
-      <translation>Visiteurs bloqués</translation>
+      <translation>Blokerede brugere</translation>
     </message>
     <message>
       <source>Chat configuration</source>
-      <translation>Configuration du chat</translation>
+      <translation>Chatkonfiguration</translation>
     </message>
     <message>
       <source>GEO detection configuration</source>
-      <translation>Configuration de la géodétection</translation>
+      <translation>GEO-detektions konfiguration</translation>
     </message>
     <message>
       <source>Synchronization and sound settings</source>
-      <translation>Paramètres de synchronisation et de son</translation>
+      <translation>Synkronisering og lydindstillinger</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
-      <translation>Paramètres du formulaire &quot;Démarrer un chat&quot;</translation>
+      <translation>Start chatformular-indstillinger</translation>
     </message>
     <message>
       <source>Canned messages</source>
-      <translation>Messages pré définis</translation>
+      <translation>Forhåndsbeskeder</translation>
     </message>
     <message>
       <source>E-mail templates</source>
-      <translation>Templates de courriel</translation>
+      <translation>E-mail-skabeloner</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
-      <translation>Invitations chat pro active</translation>
+      <translation>Proaktive chatinvitationer</translation>
     </message>
     <message>
       <source>Auto responder</source>
-      <translation>Répondeur automatique</translation>
+      <translation>Autosvar</translation>
     </message>
     <message>
       <source>SMTP settings</source>
-      <translation>Paramètres SMTP</translation>
+      <translation>SMTP-indstillinger</translation>
     </message>
     <message>
       <source>XMPP settings</source>
-      <translation>Réglages XMPP</translation>
+      <translation>XMPP indstillinger</translation>
     </message>
     <message>
       <source>Languages configuration</source>
-      <translation>Configuration des langues</translation>
+      <translation>Sprogkonfiguration</translation>
     </message>
     <message>
       <source>Chats list</source>
-      <translation>Liste des chats</translation>
+      <translation>Chatliste</translation>
     </message>
     <message>
       <source>Chat archive</source>
-      <translation>Archive du chat</translation>
+      <translation>Chatarkiv</translation>
     </message>
     <message>
       <source>Time zone settings</source>
-      <translation type="unfinished"/>
+      <translation>Tidszoneindstillinger</translation>
     </message>
     <message>
       <source>Update information</source>
-      <translation type="unfinished"/>
+      <translation>Opdater information</translation>
     </message>
     <message>
       <source>Live help embed code</source>
-      <translation>Code d&apos;intégration de l&apos;aide en ligne</translation>
+      <translation>Live-hjælp indlejringskode</translation>
     </message>
     <message>
       <source>FAQ embed code</source>
-      <translation>Code d&apos;intégration de la FAQ</translation>
+      <translation>FAQ indlejringskode</translation>
     </message>
     <message>
       <source>Questionary embed code</source>
-      <translation>Code d&apos;intégration du questionnaire</translation>
+      <translation>Spørgeskema indlejringskode</translation>
     </message>
     <message>
       <source>Chatbox embed code</source>
-      <translation>Code d&apos;intégration de chatbox</translation>
+      <translation>Chatboks indlejringskode</translation>
     </message>
     <message>
       <source>Statistic</source>
-      <translation>Statistiques</translation>
+      <translation>Statistik</translation>
     </message>
     <message>
       <source>Users and their permissions</source>
-      <translation>Utilisateurs et leurs autorisations</translation>
+      <translation>Brugerne og deres tilladelser</translation>
     </message>
     <message>
       <source>Users</source>
-      <translation>Utilisateurs</translation>
+      <translation>Brugere</translation>
     </message>
     <message>
       <source>List of groups</source>
-      <translation>Liste des groupes</translation>
+      <translation>Liste over grupper</translation>
     </message>
     <message>
       <source>List of roles</source>
-      <translation>Liste des rôles</translation>
+      <translation>Liste over roller</translation>
     </message>
     <message>
       <source>Files uploads configuration</source>
-      <translation>Configuration des téléversements de fichiers</translation>
+      <translation>Filupload-konfiguration</translation>
     </message>
     <message>
       <source>Files upload configuration</source>
-      <translation>Configuration des téléversements de fichiers</translation>
+      <translation>Filupload-konfiguration</translation>
     </message>
     <message>
       <source>List of files</source>
-      <translation>Liste des fichiers</translation>
+      <translation>Liste af filer</translation>
     </message>
     <message>
       <source>Other</source>
-      <translation>Autre</translation>
+      <translation>Andre</translation>
     </message>
     <message>
       <source>File configuration</source>
-      <translation>Configuration de fichier</translation>
+      <translation>Konfiguration af fil</translation>
     </message>
     <message>
       <source>New file</source>
-      <translation type="unfinished"/>
+      <translation>Ny fil</translation>
     </message>
   </context>
   <context>
     <name>system/htmlcode</name>
     <message>
       <source>Widget embed code</source>
-      <translation>Code d&apos;intégration widget</translation>
+      <translation>Widget indlejringskode</translation>
     </message>
     <message>
       <source>Page embed code</source>
-      <translation>Code d&apos;intégration dans la page</translation>
+      <translation>Side indlejringskode</translation>
     </message>
     <message>
       <source>HTML code</source>
-      <translation>Code HTML</translation>
+      <translation>HTML-kode</translation>
     </message>
     <message>
       <source>Choose a language</source>
-      <translation>Choisir une langue</translation>
+      <translation>Vælg et sprog</translation>
     </message>
     <message>
       <source>Chatbox messages content height</source>
-      <translation>Hauteur du contenu de messages de la chatbox</translation>
+      <translation>Chatboksmeddelelser indholdshøjde</translation>
     </message>
     <message>
       <source>Choose prefered http mode</source>
-      <translation type="unfinished"/>
+      <translation>Vælg foretrukket http-tilstand</translation>
     </message>
     <message>
       <source>Based on site (default)</source>
-      <translation type="unfinished"/>
+      <translation>Baseret på webstedet (standard)</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>
-      <translation>Copier le code du champs vers la page où vous voulez le faire apparaître</translation>
+      <translation>Kopier koden fra tekstområdet til siden hvor du ønsker det skal gengives</translation>
     </message>
     <message>
       <source>Chatbox</source>
-      <translation>Chatbox</translation>
+      <translation>Chatboks</translation>
     </message>
     <message>
       <source>Position from the top, is only used if the Middle left or the Middle right side is chosen</source>
-      <translation>Position depuis le haut, utilisé uniquement si Milieu gauche ou Milieu droite est sélectionné</translation>
+      <translation>Placer fra toppen, bruges kun, hvis midterste venstre eller i midten til højre er valgt</translation>
     </message>
     <message>
       <source>Pixels</source>
-      <translation>Pixels</translation>
+      <translation>Pixel</translation>
     </message>
     <message>
       <source>Percents</source>
-      <translation>Pourcents</translation>
+      <translation>Procent</translation>
     </message>
     <message>
       <source>Size</source>
-      <translation>Taille</translation>
+      <translation>Størrelse</translation>
     </message>
     <message>
       <source>Width</source>
-      <translation>Largeur</translation>
+      <translation>Bredde</translation>
     </message>
     <message>
       <source>Height</source>
-      <translation>Hauteur</translation>
+      <translation>Højde</translation>
     </message>
     <message>
       <source>Position</source>
@@ -1789,43 +1789,43 @@
     </message>
     <message>
       <source>Bottom right corner of the screen</source>
-      <translation>Coin inférieur droit de l&apos;écran</translation>
+      <translation>Nederste højre hjørne af skærmen</translation>
     </message>
     <message>
       <source>Bottom left corner of the screen</source>
-      <translation>Coin inférieur gauche de l&apos;écran</translation>
+      <translation>Nederste venstre hjørne af skærmen</translation>
     </message>
     <message>
       <source>Middle right side of the screen</source>
-      <translation>Partie droite du milieu de l&apos;écran</translation>
+      <translation>Midterste højre side af skærmen</translation>
     </message>
     <message>
       <source>Middle left side of the screen</source>
-      <translation>Partie gauche du milieu de l&apos;écran</translation>
+      <translation>Midterste venstre side af skærmen</translation>
     </message>
     <message>
       <source>Disable minimize icon</source>
-      <translation type="unfinished"/>
+      <translation>Deaktiver minimer-ikon</translation>
     </message>
     <message>
       <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
-      <translation type="unfinished"/>
+      <translation>Vis Chatboks indhold i stedet for widget, vil brugerne kunne kun minimere, lukke ikke den.</translation>
     </message>
     <message>
       <source>Show chatbox content minimized first time if content is shown.</source>
-      <translation type="unfinished"/>
+      <translation>Vis Chatboks indhold minimeret første gang, hvis indhold er vist.</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation>Copier le code depuis le champ texte vers le footer avant le tag de fermeture &amp;lt;/body&amp;gt;</translation>
+      <translation>Kopier koden fra tekstområdet til sidefoden, før afsluttende &amp;lt; / body &amp;gt; tag</translation>
     </message>
     <message>
       <source>Copy the code from the textarea to page where you want it to be rendered</source>
-      <translation>Copier le code du champ texte vers la page où vous voulez l&apos;afficher</translation>
+      <translation>Kopier koden fra textarea til side, hvor du ønsker det skal gengives</translation>
     </message>
     <message>
       <source>Status text</source>
-      <translation>Texte de statut</translation>
+      <translation>Statustekst</translation>
     </message>
     <message>
       <source>FAQ</source>
@@ -1833,1103 +1833,1103 @@
     </message>
     <message>
       <source>Position from the top, only used if the Middle left or the Middle right side is chosen</source>
-      <translation>Position par rapport au haut, utilisez seulement si milieu gauche ou milieu droite sont sélectionnés</translation>
+      <translation>Placering fra toppen, bruges kun hvis midterste venstre eller i midten til højre er valgt</translation>
     </message>
     <message>
       <source>Help us to grow</source>
-      <translation>Aidez-nous à grandir</translation>
+      <translation>Hjælp os med at vokse</translation>
     </message>
     <message>
       <source>Hide status when offline</source>
-      <translation>Masquer le statut si hors ligne</translation>
+      <translation>Skjul status når du arbejder offline</translation>
     </message>
     <message>
       <source>Show a leave a message form when there are no online operators</source>
-      <translation>Afficher un formulaire &quot;Laissez un message&quot; quand il n&apos;y a pas d&apos;opérateur en ligne</translation>
+      <translation>Vis en meddelelsesformular, når der ikke er online operatører</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Département</translation>
+      <translation>Afdeling</translation>
     </message>
     <message>
       <source>Any</source>
-      <translation>N&apos;importe quel</translation>
+      <translation>Enhver</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want your status to appear</source>
-      <translation>Copier le code de la zone de texte vers la page à l&apos;emplacement où vous souhaiter faire apparaître le statut</translation>
+      <translation>Kopier koden fra tekstområdet til den side, hvor du vil at din status skal vises</translation>
     </message>
     <message>
       <source>On a mouse click show the page widget</source>
-      <translation>Montrer la page de widget sur un clic souris</translation>
+      <translation>På et museklik: Vis sidewidget</translation>
     </message>
     <message>
       <source>Automatically check for messages from the operator/invitation messages</source>
-      <translation>Vérifier automatiquement les messages des opérateurs / messages d&apos;invitation</translation>
+      <translation>Søg automatisk efter meddelelser fra operatør/invitation e-mails</translation>
     </message>
     <message>
       <source>It increases server load, because every 15 seconds is checked for operator message or invitation message.</source>
-      <translation>Cela augmente la charge du serveur , car un test  de messages des opérateurs/messages d&apos;invitation est effectué toutes les 15 secondes</translation>
+      <translation>Det øger serverbelastning, fordi den hvert 15 sekund bliver tjekket for meddelelse til operatør- eller invitationsbesked.</translation>
     </message>
     <message>
       <source>Disable pro active invitations, usefull if you want disable them from site part.</source>
-      <translation>Désactiver les invitations pro actives, utile si vous voulez les désactiver de la partie du site.</translation>
+      <translation>Deaktivere proaktive invitationer, nyttigt hvis du vil deaktivere dem fra del af webstedet.</translation>
     </message>
     <message>
       <source>Popup window size</source>
-      <translation>Taille de la fenêtre popup</translation>
+      <translation>Popup vinduesstørrelse</translation>
     </message>
     <message>
       <source>Popup window width in pixels</source>
-      <translation>Largeur de la fenêtre popup en pixels</translation>
+      <translation>Popup vinduesbredde i pixels</translation>
     </message>
     <message>
       <source>Popup window height in pixels</source>
-      <translation>Hauteur de la fenêtre popup en pixels</translation>
+      <translation>Popup vindueshøjde i pixels</translation>
     </message>
     <message>
       <source>Widget width</source>
-      <translation>Largeur du widget</translation>
+      <translation>Widget bredde</translation>
     </message>
     <message>
       <source>Widget width in pixels</source>
-      <translation>Largeur du widget en pixels</translation>
+      <translation>Widget bredde i pixels</translation>
     </message>
     <message>
       <source>height</source>
-      <translation>hauteur</translation>
+      <translation>højde</translation>
     </message>
     <message>
       <source>Widget height in pixels</source>
-      <translation>Hauteur du widget en pixels</translation>
+      <translation>Widget højde i pixels</translation>
     </message>
     <message>
       <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>Placement d&apos;origine - affiché où le html est intégré</translation>
+      <translation>Oprindelig placering - det bliver vist, hvor html er integreret</translation>
     </message>
     <message>
       <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
-      <translation>Identifiant, ceci peut être utilisé comme filtre pour les invitations proactives et  est utilisé pour avoir des messages différents pour différents domaines. Chaine de caractères sans espaces ou caractères spéciaux.</translation>
+      <translation>Id, dette kan bruges som filter for proaktive chatinvitationer og er nyttige til at have forskellige beskeder til forskellige domæner. Kun streng uden mellemrum eller specialtegn.</translation>
     </message>
     <message>
       <source>Leave empty if it is not important to you</source>
-      <translation>Laisser vide si ce n&apos;est pas important pour vous</translation>
+      <translation>Lad være tomt, hvis det ikke er vigtigt for dig</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Configuration du système</translation>
+      <translation>Systemkonfiguration</translation>
     </message>
     <message>
       <source>Embed code</source>
-      <translation> Code d&apos;intégration</translation>
+      <translation>Indlejringskode</translation>
     </message>
   </context>
   <context>
     <name>chat/lists</name>
     <message>
       <source>Choose what type of list you want to see</source>
-      <translation>Sélectionnez le type de liste que vous souhaitez voir</translation>
+      <translation>Vælg, hvilken type liste, du ønsker at se</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>Chats en attente</translation>
+      <translation>Ventende chats</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Chats actifs</translation>
+      <translation>Aktive chats</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Chats terminés</translation>
+      <translation>Lukkede chats</translation>
     </message>
     <message>
       <source>Operators chats</source>
-      <translation>Chats entre opérateurs </translation>
+      <translation>Operatører chats</translation>
     </message>
     <message>
       <source>Chats with unread messages</source>
-      <translation>Chats avec des messages non lus</translation>
+      <translation>Chats med ulæste meddelelser</translation>
     </message>
     <message>
       <source>Chat lists</source>
-      <translation>Liste des chats</translation>
+      <translation>Chatlister</translation>
     </message>
   </context>
   <context>
     <name>chat/syncadmin</name>
     <message>
       <source>System assistant</source>
-      <translation>Assistance système</translation>
+      <translation>Systemassistent</translation>
     </message>
   </context>
   <context>
     <name>chat/lists/search_panel</name>
     <message>
       <source>Nick</source>
-      <translation>Surnom</translation>
+      <translation>Alias</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Courriel</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Date range from to</source>
-      <translation>Période du &quot;&quot; au &quot;&quot;</translation>
+      <translation>Datointerval fra til</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Afdeling</translation>
     </message>
     <message>
       <source>User</source>
-      <translation type="unfinished"/>
+      <translation>Bruger</translation>
     </message>
     <message>
       <source>Search</source>
-      <translation>Rechercher</translation>
+      <translation>Søg</translation>
     </message>
     <message>
       <source>Select department</source>
-      <translation type="unfinished"/>
+      <translation>Vælg afdeling</translation>
     </message>
     <message>
       <source>Select user</source>
-      <translation type="unfinished"/>
+      <translation>Vælg bruger</translation>
     </message>
   </context>
   <context>
     <name>chat/operatorschats</name>
     <message>
       <source>Operators chats list</source>
-      <translation>Liste des chats entre opérateurs</translation>
+      <translation>Operatører chatliste</translation>
     </message>
     <message>
       <source>Operators chats</source>
-      <translation>Chats entre opérateurs</translation>
+      <translation>Operatører chats</translation>
     </message>
   </context>
   <context>
     <name>chat/part/operator_profile</name>
     <message>
       <source>Skype call</source>
-      <translation>Appel Skype</translation>
+      <translation>Skypeopkald</translation>
     </message>
   </context>
   <context>
     <name>chat/pendingchats</name>
     <message>
       <source>Pending chats list</source>
-      <translation>Liste des chats en attente</translation>
+      <translation>Liste over ventende chat</translation>
     </message>
     <message>
       <source>Information</source>
-      <translation>Information</translation>
+      <translation>Oplysninger</translation>
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation>Ouvrir dans une nouvelle fenêtre</translation>
+      <translation>Åben i et nyt vindue</translation>
     </message>
     <message>
       <source>Reject chat</source>
-      <translation>Refuser le chat</translation>
+      <translation>Afvis chat</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Vide...</translation>
+      <translation>Tom...</translation>
     </message>
     <message>
       <source>Chats list</source>
-      <translation>Liste des chats</translation>
+      <translation>Chat liste</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>Chats en attente</translation>
+      <translation>Ventende chats</translation>
     </message>
   </context>
   <context>
     <name>chat/previewchat</name>
     <message>
       <source>Last 100 messages rows</source>
-      <translation>Les 100 derniers messages</translation>
+      <translation>Sidste 100 meddelelsesrækker</translation>
     </message>
   </context>
   <context>
     <name>chat/sendchat</name>
     <message>
       <source>Enter your e-mail</source>
-      <translation>Entrez votre courriel</translation>
+      <translation>Indtast din e-mail</translation>
     </message>
   </context>
   <context>
     <name>chat/sendmail</name>
     <message>
       <source>Send mail to the user</source>
-      <translation>Envoyer un courriel au visiteur</translation>
+      <translation>Send mail til brugeren</translation>
     </message>
     <message>
       <source>Recipient</source>
-      <translation>Destinataire</translation>
+      <translation>Modtager</translation>
     </message>
     <message>
       <source>Recipient e-mail</source>
-      <translation>Courriel du destinataire</translation>
+      <translation>Modtagerens e-mail</translation>
     </message>
     <message>
       <source>Subject</source>
-      <translation>Sujet</translation>
+      <translation>Emne</translation>
     </message>
     <message>
       <source>From name</source>
-      <translation>Nom de l&apos;expéditeur</translation>
+      <translation>Fra navn</translation>
     </message>
     <message>
       <source>Reply e-mail</source>
-      <translation>Courriel de réponse</translation>
+      <translation>Svar e-mail</translation>
     </message>
     <message>
       <source>From e-mail</source>
-      <translation>Courriel de l&apos;expéditeur</translation>
+      <translation>Fra e-mail</translation>
     </message>
     <message>
       <source>Type your message to the user</source>
-      <translation>Tapez votre message au visiteur</translation>
+      <translation>Skriv din meddelelse til brugeren</translation>
     </message>
     <message>
       <source>Send the mail</source>
-      <translation>Envoyer le courriel</translation>
+      <translation>Send mailen</translation>
     </message>
     <message>
       <source>Embed link to file</source>
-      <translation type="unfinished"/>
+      <translation>Integrere link til filen</translation>
     </message>
     <message>
       <source>Mail was sent to the user</source>
-      <translation>Courriel envoyé au visiteur</translation>
+      <translation>Mail blev sendt til brugeren</translation>
     </message>
     <message>
       <source>Please enter recipient e-mail!</source>
-      <translation>Veuillez entrer le courriel du destinataire</translation>
+      <translation>Indtast modtagerens e-mail!</translation>
     </message>
     <message>
       <source>From e-mail is missing!</source>
-      <translation>Le courriel de l&apos;expéditeur est manquant</translation>
+      <translation>Fra e-mail mangler!</translation>
     </message>
     <message>
       <source>Reply e-mail is missing!</source>
-      <translation>Le courriel du destinataire est manquant</translation>
+      <translation>Svar e-mail mangler!</translation>
     </message>
     <message>
       <source>Subject is missing!</source>
-      <translation>Le sujet est manquant !</translation>
+      <translation>Emnet mangler!</translation>
     </message>
   </context>
   <context>
     <name>chat/sendnotice</name>
     <message>
       <source>Send a message to the user</source>
-      <translation>Envoyer un message au visiteur</translation>
+      <translation>Send meddelelse til brugeren</translation>
     </message>
     <message>
       <source>If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.</source>
-      <translation>Si le message a déjà été envoyé, il sera noté comme non envoyé et le message du chat sera montré de nouveau au visiteur</translation>
+      <translation>Hvis meddelelsen allerede er sendt, vil dette markere den som ikke leveret og brugeren vil blive vist chatmeddelelsen igen.</translation>
     </message>
     <message>
       <source>Type your message to the user</source>
-      <translation>Entrez votre message pour le visiteur</translation>
+      <translation>Skriv din meddelelse til brugeren</translation>
     </message>
     <message>
       <source>Send the message</source>
-      <translation>Envoyez le message</translation>
+      <translation>Send meddelelsen</translation>
     </message>
     <message>
       <source>Message was sent to the user</source>
-      <translation>Le message a été envoyé au visiteur</translation>
+      <translation>Meddelelse blev sendt til  brugeren</translation>
     </message>
     <message>
       <source>Start chat with operator</source>
-      <translation>Commencer un chat avec un opérateur</translation>
+      <translation>Start chat med operatøren</translation>
     </message>
     <message>
       <source>Type your message to the operator</source>
-      <translation>Tapez votre message pour l&apos;opérateur</translation>
+      <translation>Skriv din meddelelse til operatøren</translation>
     </message>
   </context>
   <context>
     <name>chat/startchatformsettings</name>
     <message>
       <source>Start a chat form settings</source>
-      <translation>Paramètres du formulaire &quot;Démarrer un chat&quot;</translation>
+      <translation>Start en chat formularindstillinger</translation>
     </message>
     <message>
       <source>At least one field has to be visible and required in the popup and page widget</source>
-      <translation>Au moins un champ doit être visible et requis dans le popup et le widget de page</translation>
+      <translation>Mindst ét felt må være synlig og påkrævet i popup og side widget</translation>
     </message>
     <message>
       <source>Enable leave a message functionality automatically if there are no online operators</source>
-      <translation type="unfinished"/>
+      <translation>Aktiver efterlade en besked funktionalitet automatisk, hvis der er ingen online operatører</translation>
     </message>
     <message>
       <source>Online form settings</source>
-      <translation type="unfinished"/>
+      <translation>Onlineformular indstillinger</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Nom</translation>
+      <translation>Navn</translation>
     </message>
     <message>
       <source>This field is visible in the popup</source>
-      <translation>Ce champ est visible dans le popup</translation>
+      <translation>Dette felt er synligt i popup</translation>
     </message>
     <message>
       <source>This field is visible in the page widget</source>
-      <translation>Ce champ est visible dans le widget</translation>
+      <translation>Feltet er synligt i side widget</translation>
     </message>
     <message>
       <source>This field is invisible but prefilled data is collected</source>
-      <translation type="unfinished"/>
+      <translation>Dette felt er usynlig men forudfyldte data er indsamlet</translation>
     </message>
     <message>
       <source>This field is</source>
-      <translation>Ce champ est</translation>
+      <translation>Dette felt er</translation>
     </message>
     <message>
       <source>Required</source>
-      <translation>Obligatoire</translation>
+      <translation>Påkrævet</translation>
     </message>
     <message>
       <source>Optional</source>
-      <translation>Optionel</translation>
+      <translation>Valgfri</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Courriel</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Message</source>
-      <translation>Message</translation>
+      <translation>Meddelelser</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation>Téléphone</translation>
+      <translation>Telefon</translation>
     </message>
     <message>
       <source>Terms of service acceptance checkbox</source>
-      <translation type="unfinished"/>
+      <translation>Vilkår for service accept afkrydsningsfeltet</translation>
     </message>
     <message>
       <source>Offline form settings</source>
-      <translation type="unfinished"/>
+      <translation>Offline Formularindstillinger</translation>
     </message>
     <message>
       <source>E-mail is always required</source>
-      <translation type="unfinished"/>
+      <translation>E-mail er altid påkrævet</translation>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>
-      <translation>Veuillez choisir au moins un champ pour un popup</translation>
+      <translation>Vælg mindst ét felt til en popup</translation>
     </message>
     <message>
       <source>Please choose at least one field for a page widget</source>
-      <translation>Veuillez choisir au moins un champ pour un widget de page</translation>
+      <translation>Vælg mindst ét felt til en side widget</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
-      <translation>Paramètres du formulaire &quot;Démarrer un chat&quot;</translation>
+      <translation>Start chatformular-indstillinger</translation>
     </message>
   </context>
   <context>
     <name>chat/syncandsoundesetting</name>
     <message>
       <source>Save</source>
-      <translation>Enregistrer</translation>
+      <translation>Gem</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Mettre à jour</translation>
+      <translation>Opdatering</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Annuler</translation>
+      <translation>Annuller</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Paramètres mis à jour</translation>
+      <translation>Indstillingerne opdateret</translation>
     </message>
     <message>
       <source>Synchronisation and sound settings</source>
-      <translation>Paramètres de synchronisation et de son</translation>
+      <translation>Synkronisering og lydindstillinger</translation>
     </message>
     <message>
       <source>How many seconds for a user to be considered as being online</source>
-      <translation>Au bout de combien de secondes, un visiteur est-il considéré comme en ligne?</translation>
+      <translation>Hvor mange sekunder for at en bruger anses for at være online</translation>
     </message>
     <message>
       <source>Value in seconds</source>
-      <translation>Valeur en secondes</translation>
+      <translation>Værdi i sekunder</translation>
     </message>
     <message>
       <source>Sync for new chats, interval in seconds</source>
-      <translation>Synchroniser pour nouvelles conversations, intervalle en secondes</translation>
+      <translation>Sync for nye chats, interval i sekunder</translation>
     </message>
     <message>
       <source>Sync for a new user message, interval in seconds</source>
-      <translation>Synchronisation de nouveau messages du visiteur, intervalle en secondes</translation>
+      <translation>Synkronisering for en ny brugermeddelelse, interval i sekunder</translation>
     </message>
     <message>
       <source>Check for messages from the operators, interval in seconds</source>
-      <translation>Vérifier les message en provenance des opérateurs, intervalle en secondes</translation>
+      <translation>Kontroller om der er meddelelser fra operatørerne, interval i sekunder</translation>
     </message>
     <message>
       <source>Long polling</source>
-      <translation type="unfinished"/>
+      <translation>Lange afstemningssteder</translation>
     </message>
     <message>
       <source>Enable long polling</source>
-      <translation type="unfinished"/>
+      <translation>Aktivere lange afstemningssteder</translation>
     </message>
     <message>
       <source>How many seconds keep connection to server?</source>
-      <translation type="unfinished"/>
+      <translation>Hvor mange sekunder holde forbindelsen til serveren?</translation>
     </message>
     <message>
       <source>New chat request notification settings</source>
-      <translation type="unfinished"/>
+      <translation>Nye chat anmodningen Meddelelsesindstillinger</translation>
     </message>
     <message>
       <source>Play a new pending chat sound on a new chat request</source>
-      <translation> Jouer un son &quot;Nouveau chat en attente&quot; à chaque nouvelle de demande de chat</translation>
+      <translation>Afspil en &quot;ny ventende chat&quot;-lyd på en ny anmodning om chat</translation>
     </message>
     <message>
       <source>Play a sound on a new message for a back office user</source>
-      <translation>Jouer un son à chaque nouveau message pour un opérateur</translation>
+      <translation>Afspil en lyd, ved en ny besked til en backoffice-bruger</translation>
     </message>
     <message>
       <source>Play a sound on a new message for a front end user</source>
-      <translation>Jouer un son à chaque nouveau message pour un visiteur </translation>
+      <translation>Afspil en lyd ved en ny besked til en frontendbruger</translation>
     </message>
     <message>
       <source>Show alert message on a new chat request</source>
-      <translation type="unfinished"/>
+      <translation>Vis besked på en ny anmodning om chat</translation>
     </message>
     <message>
       <source>How many times play sound notification</source>
-      <translation type="unfinished"/>
+      <translation>Hvor mange gange spille lydunderretning</translation>
     </message>
     <message>
       <source>Number</source>
-      <translation type="unfinished"/>
+      <translation>Antal</translation>
     </message>
     <message>
       <source>Delay between sound notifications in seconds</source>
-      <translation type="unfinished"/>
+      <translation>Forsinkelse mellem lyd meddelelser i sekunder</translation>
     </message>
     <message>
       <source>delay in seconds</source>
-      <translation type="unfinished"/>
+      <translation>forsinkelse i sekunder</translation>
     </message>
     <message>
       <source>Seconds</source>
-      <translation type="unfinished"/>
+      <translation>Sekunder</translation>
     </message>
     <message>
       <source>Please enter a valid online timeout value!</source>
-      <translation>Merci d&apos;entrer une valeur de timeout valide!</translation>
+      <translation>Angiv en gyldig online timeout-værdi!</translation>
     </message>
     <message>
       <source>Please enter a valid server connection timeout value!</source>
-      <translation type="unfinished"/>
+      <translation>Angiv en gyldigt server forbindelse timeoutværdi!</translation>
     </message>
     <message>
       <source>Please enter a valid operator message timeout value!</source>
-      <translation>Veuillez entrer une valeur de délai d&apos;attente de message opérateur valide !</translation>
+      <translation>Angiv en gyldig operatørbesked timeoutværdi!</translation>
     </message>
     <message>
       <source>Please enter a valid new messages polling sync interval!</source>
-      <translation type="unfinished"/>
+      <translation>Angiv en gyldig nye meddelelser polling synkr.interval!</translation>
     </message>
     <message>
       <source>Please enter a valid back office sync interval!</source>
-      <translation>Merci d&apos;entrer une valeur d&apos;intervalle de synchronisation du back-office valide!</translation>
+      <translation>Angiv en gyldig BackOffice synkr.interval!</translation>
     </message>
     <message>
       <source>Please enter a valid new messages sync interval!</source>
-      <translation>Veuillez saisir un interval de synchronisation de nouveau messages valide !</translation>
+      <translation>Angiv et gyldigt synkr.interval for nye beskeder!</translation>
     </message>
     <message>
       <source>Synchronization and sound settings</source>
-      <translation>Paramétrages synchronisation et sons</translation>
+      <translation>Synkronisering og lydindstillinger</translation>
     </message>
   </context>
   <context>
     <name>chat/statistic</name>
     <message>
       <source>Statistic</source>
-      <translation>Statistiques</translation>
+      <translation>Statistik</translation>
     </message>
     <message>
       <source>Total statistic</source>
-      <translation>Statistiques totales</translation>
+      <translation>Total statistik</translation>
     </message>
     <message>
       <source>Parameter</source>
-      <translation>Paramètre</translation>
+      <translation>Parameter</translation>
     </message>
     <message>
       <source>Value</source>
-      <translation>Valeur</translation>
+      <translation>Værdi</translation>
     </message>
     <message>
       <source>Total chats</source>
-      <translation>Nombre total de chats</translation>
+      <translation>Samlet antal chats</translation>
     </message>
     <message>
       <source>Total pending chats</source>
-      <translation>Nombre total de chats en attente</translation>
+      <translation>Samlet antal ubesvarede chats</translation>
     </message>
     <message>
       <source>Total active chats</source>
-      <translation>Nombre total de chats actifs</translation>
+      <translation>Samlet antal aktive chats</translation>
     </message>
     <message>
       <source>Total closed chats</source>
-      <translation>Nombre total de chats fermés</translation>
+      <translation>Antal afsluttede chats</translation>
     </message>
     <message>
       <source>Chatbox chats</source>
-      <translation>Messages de chatbox</translation>
+      <translation>Chatbox chats</translation>
     </message>
     <message>
       <source>Total messages (including visitors, system and operators messages)</source>
-      <translation>Nombre total de messages (incluant les messages visiteurs, système et opérateurs)</translation>
+      <translation>Samlet antal meddelelser(herunder meddelelser fra besøgende, system og operatører)</translation>
     </message>
     <message>
       <source>Total messages (only visitors)</source>
-      <translation>Nombre de messages (visiteurs seulement)</translation>
+      <translation>Total antal meddelelser (kun besøgende)</translation>
     </message>
     <message>
       <source>Total messages (only system messages)</source>
-      <translation>Nombre de messages (système seulement)</translation>
+      <translation>Total antal meddelelser (kun systemmeddelelser)</translation>
     </message>
     <message>
       <source>Total messages (only operators)</source>
-      <translation>Nombre de messages  (opérateurs seulement)</translation>
+      <translation>Total meddelelser (kun operatører)</translation>
     </message>
     <message>
       <source>Last 24h statistic</source>
-      <translation>Statistiques dernières 24 h.</translation>
+      <translation>Statistik for de seneste 24t</translation>
     </message>
     <message>
       <source>Operators last 24h statistic, top 100 by chats number</source>
-      <translation>Statistiques opérateurs des dernières 24 heures, top 100 par nombre de chat</translation>
+      <translation>Operatørerstatistik sidste 24t , top 100 af antal chats</translation>
     </message>
     <message>
       <source>User</source>
-      <translation>Utilisateur</translation>
+      <translation>Bruger</translation>
     </message>
     <message>
       <source>Total messages</source>
-      <translation>Nombre total de messages</translation>
+      <translation>Samlet antal meddelelser</translation>
     </message>
     <message>
       <source>Votes</source>
-      <translation>Votes</translation>
+      <translation>Stemmer</translation>
     </message>
     <message>
       <source>Last activity</source>
-      <translation>Activité récente</translation>
+      <translation>Seneste aktivitet</translation>
     </message>
     <message>
       <source>ago</source>
-      <translation>(depuis)</translation>
+      <translation>siden</translation>
     </message>
   </context>
   <context>
     <name>chat/transferchat</name>
     <message>
       <source>Transfer to a user</source>
-      <translation>Transférer à un opérateur</translation>
+      <translation>Overfør til en bruger</translation>
     </message>
     <message>
       <source>Logged in users</source>
-      <translation>Opérateurs connectés</translation>
+      <translation>Brugere logget på</translation>
     </message>
     <message>
       <source>Transfer a chat to one of your departments users</source>
-      <translation>Transférer un chat vers un membre de votre département</translation>
+      <translation>Overfør en chat til en af dine afdelingers brugere</translation>
     </message>
     <message>
       <source>Transfer</source>
-      <translation>Transférer</translation>
+      <translation>Overfør</translation>
     </message>
     <message>
       <source>Transfer to a department</source>
-      <translation>Transférer à un département</translation>
+      <translation>Overfør til en afdeling</translation>
     </message>
     <message>
       <source>Departments</source>
-      <translation>Départements</translation>
+      <translation>Afdelinger</translation>
     </message>
   </context>
   <context>
     <name>chat/unreadchats</name>
     <message>
       <source>Unread chats list</source>
-      <translation>Liste des chats non lus</translation>
+      <translation>Ulæste chat liste</translation>
     </message>
     <message>
       <source>Information</source>
-      <translation>Information</translation>
+      <translation>Oplysninger</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Vide...</translation>
+      <translation>Tom...</translation>
     </message>
   </context>
   <context>
     <name>chat/userjoined</name>
     <message>
       <source>User has joined the chat!</source>
-      <translation>Le visiteur a rejoint le chat !</translation>
+      <translation>Brugeren har tiltrådt chatten!</translation>
     </message>
   </context>
   <context>
     <name>chat/userleftchat</name>
     <message>
       <source>User has left the chat!</source>
-      <translation>Le visiteur a quitté le chat !</translation>
+      <translation>Brugeren har forladt chatten!</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/archive</name>
     <message>
       <source>Chat archive</source>
-      <translation>Archive des chats</translation>
+      <translation>Chatarkiv</translation>
     </message>
     <message>
       <source>Archives list</source>
-      <translation>Liste des archives</translation>
+      <translation>Arkiv-liste</translation>
     </message>
     <message>
       <source>New archive</source>
-      <translation>Nouvelle archive</translation>
+      <translation>Nyt arkiv</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/archivechats</name>
     <message>
       <source>Archiving has finished.</source>
-      <translation>L&apos;archivage est terminé</translation>
+      <translation>Arkivering er færdig.</translation>
     </message>
     <message>
       <source>See archived chats</source>
-      <translation>Voir les chats archivés</translation>
+      <translation>Se arkiverede chat</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/editarchive</name>
     <message>
       <source>Edit archive</source>
-      <translation>Modifier l&apos;archive</translation>
+      <translation>Redigera rkiv</translation>
     </message>
     <message>
       <source>Archive updated</source>
-      <translation>Archive mise à jour</translation>
+      <translation>Arkiv opdateret</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/newarchive</name>
     <message>
       <source>Date from</source>
-      <translation>Du</translation>
+      <translation>Dato fra</translation>
     </message>
     <message>
       <source>E.g</source>
-      <translation>i.e.</translation>
+      <translation>Fx</translation>
     </message>
     <message>
       <source>Date to</source>
-      <translation>au</translation>
+      <translation>Dato til</translation>
     </message>
     <message>
       <source>New archive</source>
-      <translation>Nouvelle archive</translation>
+      <translation>Nyt arkiv</translation>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>
-      <translation>Veuillez entrer une plage valide de dates !</translation>
+      <translation>Angiv en gyldig fra datointerval!</translation>
     </message>
     <message>
       <source>Please enter a valid to date range!</source>
-      <translation>Veuillez entrer une plage de dates valide !</translation>
+      <translation>Angiv en gyldig til datointerval!</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/list</name>
     <message>
       <source>Archives list</source>
-      <translation>Liste des archives</translation>
+      <translation>Arkiver liste</translation>
     </message>
     <message>
       <source>From date</source>
-      <translation>Depuis</translation>
+      <translation>Fra dato</translation>
     </message>
     <message>
       <source>Till date</source>
-      <translation>Jusqu&apos;au</translation>
+      <translation>Indtil dato</translation>
     </message>
     <message>
       <source>Chats in archive</source>
-      <translation>Chats archivés</translation>
+      <translation>Chats i arkiv</translation>
     </message>
     <message>
       <source>Messages in archive</source>
-      <translation>Messages archivés</translation>
+      <translation>Meddelelser i arkiv</translation>
     </message>
     <message>
       <source>List chats</source>
-      <translation>Lister les chats</translation>
+      <translation>Chat-oversigt</translation>
     </message>
     <message>
       <source>Process again</source>
-      <translation>Procéder de nouveau</translation>
+      <translation>Bearbejd igen</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation>Modifier</translation>
+      <translation>Rediger</translation>
     </message>
     <message>
       <source>Archived chats</source>
-      <translation>Chats archivés</translation>
+      <translation>Arkiverede chat</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/listarchivechats</name>
     <message>
       <source>Archived chats</source>
-      <translation>Chats archivés</translation>
+      <translation>Arkiverede chat</translation>
     </message>
     <message>
       <source>Information</source>
-      <translation>Information</translation>
+      <translation>Oplysninger</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/process</name>
     <message>
       <source>Process archive</source>
-      <translation>Archiver</translation>
+      <translation>Bearbejd arkiv</translation>
     </message>
     <message>
       <source>Process</source>
-      <translation>Procéder</translation>
+      <translation>Proces</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/process_content</name>
     <message>
       <source>Date from</source>
-      <translation>Depuis</translation>
+      <translation>Dato fra</translation>
     </message>
     <message>
       <source>Date to</source>
-      <translation>Jusqu&apos;au</translation>
+      <translation>Dato til</translation>
     </message>
     <message>
       <source>Potential chats to archive</source>
-      <translation>Chats archivables</translation>
+      <translation>Potentielle chats til arkiv</translation>
     </message>
     <message>
       <source>Archived chats</source>
-      <translation>Chats archivés</translation>
+      <translation>Arkiverede chat</translation>
     </message>
     <message>
       <source>Archive progress</source>
-      <translation>Progrès de l&apos;archivage</translation>
+      <translation>Arkiv fremskridt</translation>
     </message>
     <message>
       <source>Pending for action...</source>
-      <translation>En attente d&apos;action...</translation>
+      <translation>Ventende for handling...</translation>
     </message>
     <message>
       <source>Terms dictionary</source>
-      <translation>Dictionnaire des termes</translation>
+      <translation>Ordbog</translation>
     </message>
     <message>
       <source>first archived chat ID</source>
-      <translation>ID du premier chat archivé</translation>
+      <translation>første arkiverede chat-ID</translation>
     </message>
     <message>
       <source>last archived chat ID</source>
-      <translation>ID du dernier chat archivé</translation>
+      <translation>sidste arkiverede chat-ID</translation>
     </message>
     <message>
       <source>number of archived chats</source>
-      <translation>Nombre de chats archivés</translation>
+      <translation>antallet af arkiverede chats</translation>
     </message>
     <message>
       <source>number of archived messages</source>
-      <translation>Nombre de messages archivés</translation>
+      <translation>antallet af arkiverede meddelelser</translation>
     </message>
     <message>
       <source>Error accoured during archive process</source>
-      <translation>Une erreur est survenue durant l&apos;archivage</translation>
+      <translation>Fejl under arkiveringsprocessen</translation>
     </message>
   </context>
   <context>
     <name>chatbox/configuration</name>
     <message>
       <source>Chatbox</source>
-      <translation>Chatbox</translation>
+      <translation>Chatboks</translation>
     </message>
     <message>
       <source>General</source>
-      <translation>Général</translation>
+      <translation>Generelt</translation>
     </message>
     <message>
       <source>General settings</source>
-      <translation>Paramètres généraux</translation>
+      <translation>Generelle indstillinger</translation>
     </message>
     <message>
       <source>Chatbox list</source>
-      <translation>Liste des chatbox</translation>
+      <translation>Chatboksen liste</translation>
     </message>
   </context>
   <context>
     <name>system/messages</name>
     <message>
       <source>Updated</source>
-      <translation>Mis à jour</translation>
+      <translation>Opdateret</translation>
     </message>
   </context>
   <context>
     <name>chatbox/form</name>
     <message>
       <source>Chatbox name</source>
-      <translation>Nom de la chatbox</translation>
+      <translation>Chatboks-navn</translation>
     </message>
     <message>
       <source>Name of manager</source>
-      <translation>Nom du responsable</translation>
+      <translation>Navn på overordnet</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Identifiant</translation>
+      <translation>Id</translation>
     </message>
     <message>
       <source>Chatbox active</source>
-      <translation>Chatbox active</translation>
+      <translation>Chatboks aktiv</translation>
     </message>
   </context>
   <context>
     <name>chatbox/generalsettings</name>
     <message>
       <source>Chatbox settings</source>
-      <translation>Paramètres de la chatbox</translation>
+      <translation>Chatboks-indstillinger</translation>
     </message>
     <message>
       <source>Default new chatbox name</source>
-      <translation>Nom par défaut des visiteurs de la chatbox</translation>
+      <translation>Standardnavnet for ny chatboks</translation>
     </message>
     <message>
       <source>Default operator name</source>
-      <translation>Nom par défaut des opérateurs</translation>
+      <translation>Standardnavnet for operatør</translation>
     </message>
     <message>
       <source>Messages limit in the chatbox</source>
-      <translation>Limite de message dans la chatbox</translation>
+      <translation>Meddelelsesgrænse i chatboksen</translation>
     </message>
     <message>
       <source>Auto creation by chatbox identifier is enabled</source>
-      <translation>L&apos;auto création de chatbox par identifiant est activée</translation>
+      <translation>Automatisk oprettelse af chatboks id er aktiveret</translation>
     </message>
     <message>
       <source>Secret hash, this is used when auto creation is disabled</source>
-      <translation>Hash secret, utilisé quand l&apos;auto-création est désactivée</translation>
+      <translation>Hemmeligt hash, dette bruges når automatisk oprettelse er deaktiveret</translation>
     </message>
     <message>
       <source>more information on how to use it</source>
-      <translation>plus d&apos;informations sur la façon de l&apos;utiliser</translation>
+      <translation>mere information om hvordan man bruger det.</translation>
     </message>
   </context>
   <context>
     <name>questionary/htmlcode</name>
     <message>
       <source>Status text</source>
-      <translation>Texte de statut</translation>
+      <translation>Statustekst</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page header or footer</source>
-      <translation>Copier le code de la zone de texte vers l&apos;entête ou le pied de page</translation>
+      <translation>Kopier koden fra tekstområdet i sidehovedet eller sidefoden</translation>
     </message>
     <message>
       <source>Expand the widget automatically for new users</source>
-      <translation>Développer le widget automatiquement pour les nouveaux visiteurs</translation>
+      <translation>Udvid widget automatisk for nye brugere</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation>Copier le code du champ texte vers le footer, avant le tag de fermeture &amp;lt;/body&amp;gt; tag</translation>
+      <translation>Kopier koden fra tekstområdet til sidefoden, før afsluttende &amp;lt; / body &amp;gt; tag</translation>
     </message>
     <message>
       <source>HTML code</source>
-      <translation>Code HTML</translation>
+      <translation>HTML-kode</translation>
     </message>
   </context>
   <context>
     <name>chatbox/list</name>
     <message>
       <source>Chatbox list</source>
-      <translation>Liste des chatbox</translation>
+      <translation>Chatboks-liste</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Nom</translation>
+      <translation>Navn</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Identifiant</translation>
+      <translation>Id</translation>
     </message>
     <message>
       <source>Chatbox</source>
-      <translation>Chatbox</translation>
+      <translation>Chatboks</translation>
     </message>
   </context>
   <context>
     <name>user/userlist</name>
     <message>
       <source>Edit</source>
-      <translation>Modifier</translation>
+      <translation>Rediger</translation>
     </message>
     <message>
       <source>Users</source>
-      <translation>Utilisateurs</translation>
+      <translation>Brugere</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Nom d&apos;utilisateur</translation>
+      <translation>Brugernavn</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Courriel</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Last activity</source>
-      <translation>Activité récente</translation>
+      <translation>Seneste aktivitet</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation>Supprimer</translation>
+      <translation>Slet</translation>
     </message>
     <message>
       <source>New user</source>
-      <translation>Nouvel utilisateur</translation>
+      <translation>Ny bruger</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Configuration du système</translation>
+      <translation>Systemkonfiguration</translation>
     </message>
   </context>
   <context>
     <name>kernel/messages</name>
     <message>
       <source>Are you sure?</source>
-      <translation>Etes-vous sûr?</translation>
+      <translation>Er du sikker?</translation>
     </message>
   </context>
   <context>
     <name>chatbox/new</name>
     <message>
       <source>New chatbox</source>
-      <translation>Nouvelle chatbox</translation>
+      <translation>Ny chatboks</translation>
     </message>
     <message>
       <source>New</source>
-      <translation>Nouveau</translation>
+      <translation>Ny</translation>
     </message>
   </context>
   <context>
     <name>department/departments</name>
     <message>
       <source>Departments</source>
-      <translation>Départements</translation>
+      <translation>Afdelinger</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Nom</translation>
+      <translation>Navn</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Courriel</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Edit department</source>
-      <translation>Modifier le département</translation>
+      <translation>Rediger afdeling</translation>
     </message>
     <message>
       <source>New department</source>
-      <translation>Nouveau département</translation>
+      <translation>Ny afdeling</translation>
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation>Etes-vous sûr?</translation>
+      <translation>Er du sikker?</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Configuration du système</translation>
+      <translation>Systemkonfiguration</translation>
     </message>
   </context>
   <context>
     <name>user/account</name>
     <message>
       <source>Updated</source>
-      <translation>Mis à jour</translation>
+      <translation>Opdateret</translation>
     </message>
     <message>
       <source>Logged user</source>
-      <translation>Utilisateur connecté</translation>
+      <translation>Bruger logget</translation>
     </message>
     <message>
       <source>Account data</source>
-      <translation>Données du compte</translation>
+      <translation>Kontooplysninger</translation>
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
-      <translation>N&apos;entrez pas de mot de passe sauf si vous voulez le changer</translation>
+      <translation>Skriv ikke en adgangskode, medmindre du ønsker at ændre det</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Nom d&apos;utilisateur</translation>
+      <translation>Brugernavn</translation>
     </message>
     <message>
       <source>Your username</source>
-      <translation type="unfinished"/>
+      <translation>Dit brugernavn</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation>Mot de passe</translation>
+      <translation>Adgangskode</translation>
     </message>
     <message>
       <source>Enter a new password</source>
-      <translation>Entrez un nouveau mot de passe</translation>
+      <translation>Angiv en ny adgangskode</translation>
     </message>
     <message>
       <source>Repeat password</source>
-      <translation>Répétez le mot de passe</translation>
+      <translation>Gentag adgangskode</translation>
     </message>
     <message>
       <source>Repeat the new password</source>
-      <translation>Répéter le nouveau mot de passe</translation>
+      <translation>Gentag ny adgangskode</translation>
     </message>
     <message>
       <source>Email</source>
-      <translation>Courriel</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Nom</translation>
+      <translation>Navn</translation>
     </message>
     <message>
       <source>Surname</source>
-      <translation>Nom de famille</translation>
+      <translation>Efternavn</translation>
     </message>
     <message>
       <source>Skype</source>
@@ -2937,90 +2937,90 @@
     </message>
     <message>
       <source>XMPP username</source>
-      <translation>Nom d&apos;utilisateur XMPP</translation>
+      <translation>XMPP-brugernavn</translation>
     </message>
     <message>
       <source>Photo</source>
-      <translation>Photo</translation>
+      <translation>Foto</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Mettre à jour</translation>
+      <translation>Opdater</translation>
     </message>
     <message>
       <source>Return</source>
-      <translation>Retour</translation>
+      <translation>Vend tilbage</translation>
     </message>
     <message>
       <source>Assigned departments</source>
-      <translation>Départements assignés</translation>
+      <translation>Tildelte afdelinger</translation>
     </message>
     <message>
       <source>Visible lists</source>
-      <translation>Listes visibles</translation>
+      <translation>Synlige lister</translation>
     </message>
     <message>
       <source>Pending chats tab enabled</source>
-      <translation>Onglet conversations en attente activée</translation>
+      <translation>&quot;Ventende chats&quot;-fanen aktiveret</translation>
     </message>
     <message>
       <source>Active chats tab enabled</source>
-      <translation>Onglet conversations actives activé</translation>
+      <translation>&quot;Aktive chats&quot;-fanen aktiveret</translation>
     </message>
     <message>
       <source>Unread chats tab enabled</source>
-      <translation>Onglet conversations non lues activé</translation>
+      <translation>&quot;Ulæste chats&quot;-fanen aktiveret</translation>
     </message>
     <message>
       <source>Closed chats tab enabled</source>
-      <translation>Onglet conversations fermées activé</translation>
+      <translation>&quot;Lukkede chats&quot;-fanen aktiveret</translation>
     </message>
     <message>
       <source>Personal canned messages</source>
-      <translation type="unfinished"/>
+      <translation>Personlige dåse meddelelser</translation>
     </message>
     <message>
       <source>Account updated</source>
-      <translation>Compte mis à jour</translation>
+      <translation>Konto opdateret</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation>Supprimer</translation>
+      <translation>Slet</translation>
     </message>
     <message>
       <source>Please enter a username!</source>
-      <translation>Veuillez entrer un nom d&apos;utilisateur !</translation>
+      <translation>Angiv et brugernavn!</translation>
     </message>
     <message>
       <source>User exists!</source>
-      <translation>Cet utilisateur existe!</translation>
+      <translation>Brugeren findes!</translation>
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation>Adresse courriel erronée</translation>
+      <translation>Forkert e-mail-adresse</translation>
     </message>
     <message>
       <source>Please enter a name</source>
-      <translation>Veuillez entrer un nom</translation>
+      <translation>Angiv et navn</translation>
     </message>
     <message>
       <source>Passwords mismatch</source>
-      <translation>Les mots de passe ne correspondent pas</translation>
+      <translation>Adgangskoder stemmer ikke oversens</translation>
     </message>
   </context>
   <context>
     <name>department/new</name>
     <message>
       <source>New department</source>
-      <translation>Nouveau département</translation>
+      <translation>Ny afdeling</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Configuration du système</translation>
+      <translation>Systemkonfiguration</translation>
     </message>
     <message>
       <source>Departments</source>
-      <translation>Départements</translation>
+      <translation>Afdelinger</translation>
     </message>
   </context>
   <context>
@@ -3031,73 +3031,73 @@
     </message>
     <message>
       <source>Ask a question</source>
-      <translation>Poser une question</translation>
+      <translation>Stil et spørgsmål</translation>
     </message>
     <message>
       <source>Type your question</source>
-      <translation>Entrez votre question</translation>
+      <translation>Skriv dit spørgsmål</translation>
     </message>
     <message>
       <source>Question</source>
-      <translation>Question</translation>
+      <translation>Spørgsmål</translation>
     </message>
     <message>
       <source>Send your question</source>
-      <translation>Envoyez votre question</translation>
+      <translation>Send dit spørgsmål</translation>
     </message>
     <message>
       <source>Your question was submitted!</source>
-      <translation>Votre question a été soumise !</translation>
+      <translation>Dit spørgsmål blev indsendt!</translation>
     </message>
     <message>
       <source>Please enter a question!</source>
-      <translation>Veuillez saisir une question !</translation>
+      <translation>Angiv et spørgsmål!</translation>
     </message>
   </context>
   <context>
     <name>faq/new</name>
     <message>
       <source>Question</source>
-      <translation>Question</translation>
+      <translation>Spørgsmål</translation>
     </message>
     <message>
       <source>Answer</source>
-      <translation>Réponse</translation>
+      <translation>Svar</translation>
     </message>
     <message>
       <source>URL, enter * at the end for the wildcard</source>
-      <translation>URL, entrez * à la fin pour le métacaractère</translation>
+      <translation>URL-adresse, Indtast * i slutningen for wildcard</translation>
     </message>
     <message>
       <source>The URL where this question should appear, leave it empty for all</source>
-      <translation>URL où la question doit apparaître, laissez vide pour &quot;Toutes&quot;</translation>
+      <translation>Den webadresse, hvor dette spørgsmål skal vises, lad det være tomt for alle</translation>
     </message>
     <message>
       <source>Question is active</source>
-      <translation>La question est active</translation>
+      <translation>Spørgsmålet er aktivt</translation>
     </message>
     <message>
       <source>New question</source>
-      <translation>Nouvelle question</translation>
+      <translation>Nyt spørgsmål</translation>
     </message>
   </context>
   <context>
     <name>faq/list</name>
     <message>
       <source>FAQ</source>
-      <translation>FAQ</translation>
+      <translation>OFTE STILLEDE SPØRGSMÅL</translation>
     </message>
     <message>
       <source>Question</source>
-      <translation>Question</translation>
+      <translation>Spørgsmål</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation>Actif</translation>
+      <translation>Aktiv</translation>
     </message>
     <message>
       <source>Y</source>
-      <translation>O</translation>
+      <translation>J</translation>
     </message>
     <message>
       <source>N</source>
@@ -3105,42 +3105,42 @@
     </message>
     <message>
       <source>Edit</source>
-      <translation>Modifier</translation>
+      <translation>Rediger</translation>
     </message>
     <message>
       <source>Delete this question</source>
-      <translation>Supprimer cette question</translation>
+      <translation>Slet dette spørgsmål</translation>
     </message>
     <message>
       <source>New question</source>
-      <translation>Nouvelle question</translation>
+      <translation>Nyt spørgsmål</translation>
     </message>
   </context>
   <context>
     <name>faq/view</name>
     <message>
       <source>View</source>
-      <translation>Voir</translation>
+      <translation>Vis</translation>
     </message>
     <message>
       <source>Please enter a manager name!</source>
-      <translation>Veuillez entrer un nom de responsable !</translation>
+      <translation>Angiv navn på overordnet!</translation>
     </message>
     <message>
       <source>Please enter a chatbox name!</source>
-      <translation>Veuillez entrer un nom de chatbox!</translation>
+      <translation>Angiv et chatboksnavn!</translation>
     </message>
     <message>
       <source>Please enter a chatbox identifier!</source>
-      <translation>Veuillez entrer un identifiant pour la chatbox !</translation>
+      <translation>Angiv et chatboks-id!</translation>
     </message>
     <message>
       <source>Please enter answer!</source>
-      <translation>Veuillez entrer une réponse !</translation>
+      <translation>Indtast venligst svaret!</translation>
     </message>
     <message>
       <source>Please enter question!</source>
-      <translation>Veuillez entrer la question!</translation>
+      <translation>Angiv venligst spørgsmål!</translation>
     </message>
     <message>
       <source>FAQ</source>
@@ -3148,34 +3148,34 @@
     </message>
     <message>
       <source>FAQ description</source>
-      <translation>Description FAQ</translation>
+      <translation>FAQ beskrivelse</translation>
     </message>
   </context>
   <context>
     <name>file/list</name>
     <message>
       <source>List of files</source>
-      <translation>Liste des fichiers</translation>
+      <translation>Liste af filer</translation>
     </message>
     <message>
       <source>Upload a file</source>
-      <translation type="unfinished"/>
+      <translation>Upload en fil</translation>
     </message>
     <message>
       <source>Upload name</source>
-      <translation>Nom de téléversement</translation>
+      <translation>Upload navn</translation>
     </message>
     <message>
       <source>File size</source>
-      <translation>Taille du fichier</translation>
+      <translation>Filstørrelse</translation>
     </message>
     <message>
       <source>Embed BB code</source>
-      <translation type="unfinished"/>
+      <translation>Integrere BB kode</translation>
     </message>
     <message>
       <source>User</source>
-      <translation>Utilisateur</translation>
+      <translation>Bruger</translation>
     </message>
     <message>
       <source>Chat</source>
@@ -3183,335 +3183,335 @@
     </message>
     <message>
       <source>Extension</source>
-      <translation>Extension</translation>
+      <translation>Filtypenavn</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation>Date</translation>
+      <translation>Dato</translation>
     </message>
     <message>
       <source>Delete the file</source>
-      <translation>Supprimer ce fichier</translation>
+      <translation>Slet filen</translation>
     </message>
   </context>
   <context>
     <name>file/configuration</name>
     <message>
       <source>File configuration</source>
-      <translation>Configuration de fichier</translation>
+      <translation>Konfiguration af fil</translation>
     </message>
     <message>
       <source>Allowed files types for operators</source>
-      <translation>Type de fichier autorisés pour les opérateurs</translation>
+      <translation>Tilladte filtyper for operatører</translation>
     </message>
     <message>
       <source>Allowed files types for users</source>
-      <translation>Type de fichier autorisés pour les visiteurs</translation>
+      <translation>Tilladte filtyper for brugere</translation>
     </message>
     <message>
       <source>Maximum file size in KB</source>
-      <translation>Taille maximale des fichiers en KB</translation>
+      <translation>Maksimal filstørrelse i KB</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Paramètres mis à jour</translation>
+      <translation>Indstillingerne opdateret</translation>
     </message>
     <message>
       <source>Please enter valid file type!</source>
-      <translation>Veuillez entrer un type de fichier valide!</translation>
+      <translation>Indtast venligst gyldig filtype!</translation>
     </message>
     <message>
       <source>Please enter valid maximum file size!</source>
-      <translation>Veuillez entrer une taille de fichier maximale valide !</translation>
+      <translation>Indtast venligst gyldig maksimum filstørrelse!</translation>
     </message>
   </context>
   <context>
     <name>file/new</name>
     <message>
       <source>New file</source>
-      <translation type="unfinished"/>
+      <translation>Ny fil</translation>
     </message>
     <message>
       <source>File name</source>
-      <translation type="unfinished"/>
+      <translation>Filnavn</translation>
     </message>
     <message>
       <source>Upload</source>
-      <translation type="unfinished"/>
+      <translation>Upload</translation>
     </message>
     <message>
       <source>File uploaded</source>
-      <translation type="unfinished"/>
+      <translation>Upload fil</translation>
     </message>
   </context>
   <context>
     <name>kernel/nopermission</name>
     <message>
       <source>Go back</source>
-      <translation>Retour</translation>
+      <translation>Gå tilbage</translation>
     </message>
     <message>
       <source>You do not have permission to access the module</source>
-      <translation>Vous n&apos;avez pas la permission d&apos;accéder à ce module</translation>
+      <translation>Du har ikke tilladelse til at få adgang til modulet</translation>
     </message>
     <message>
       <source>and use</source>
-      <translation>et utiliser</translation>
+      <translation>og brug</translation>
     </message>
     <message>
       <source>function</source>
-      <translation>fonction</translation>
+      <translation>funktion</translation>
     </message>
     <message>
       <source>You do not have permission to edit selected object</source>
-      <translation>Vous n&apos;avez pas les autorisations pour modifier l&apos;objet sélectionné</translation>
+      <translation>Du har ikke tilladelse til at redigere valgte objekt</translation>
     </message>
   </context>
   <context>
     <name>core/paginator</name>
     <message>
       <source>Page</source>
-      <translation>Page</translation>
+      <translation>Side</translation>
     </message>
     <message>
       <source>of</source>
-      <translation>de</translation>
+      <translation>af</translation>
     </message>
     <message>
       <source>Found</source>
-      <translation>Trouvé</translation>
+      <translation>Fundet</translation>
     </message>
     <message>
       <source>Go to page</source>
-      <translation>Aller à la page</translation>
+      <translation>Gå til side</translation>
     </message>
   </context>
   <context>
     <name>permission/editrole</name>
     <message>
       <source>Role edit</source>
-      <translation>Modifier les rôles</translation>
+      <translation>Rediger rolle</translation>
     </message>
     <message>
       <source>Title</source>
-      <translation>Titre</translation>
+      <translation>Titel</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Mettre à jour</translation>
+      <translation>Opdater</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Annuler</translation>
+      <translation>Annuller</translation>
     </message>
     <message>
       <source>Assigned functions</source>
-      <translation>Fonctions assignées</translation>
+      <translation>Tildelte funktioner</translation>
     </message>
     <message>
       <source>Module</source>
-      <translation>Module</translation>
+      <translation>Modul</translation>
     </message>
     <message>
       <source>Function</source>
-      <translation>Fonction</translation>
+      <translation>Funktion</translation>
     </message>
     <message>
       <source>Remove selected policy</source>
-      <translation>Supprimer la stratégie sélectionnée</translation>
+      <translation>Fjern valgte politik</translation>
     </message>
     <message>
       <source>New policy</source>
-      <translation>Nouvelle stratégie</translation>
+      <translation>Ny politik</translation>
     </message>
     <message>
       <source>Role assigned groups</source>
-      <translation>Rôles de groupes</translation>
+      <translation>Tildelte grupperrolle</translation>
     </message>
     <message>
       <source>Remove selected role</source>
-      <translation>Supprimer le rôle sélectionné</translation>
+      <translation>Fjern markerede rolle</translation>
     </message>
     <message>
       <source>Assign a group</source>
-      <translation>Assigner à un groupe</translation>
+      <translation>Tildel en gruppe</translation>
     </message>
     <message>
       <source>All modules</source>
-      <translation>Tous les modules</translation>
+      <translation>Alle moduler</translation>
     </message>
     <message>
       <source>All functions</source>
-      <translation>Toutes les fonctions</translation>
+      <translation>Alle funktioner</translation>
     </message>
     <message>
       <source>Please enter role name</source>
-      <translation>Veuillez entrer le nom de rôle</translation>
+      <translation>Angiv rollenavn</translation>
     </message>
     <message>
       <source>Please choose module</source>
-      <translation>Veuillez choisir un module</translation>
+      <translation>Vælg modul</translation>
     </message>
     <message>
       <source>Please choose module function</source>
-      <translation>Veuillez choisir la fonction du module</translation>
+      <translation>Vælg modulfunktion</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Configuration du système</translation>
+      <translation>Systemkonfiguration</translation>
     </message>
     <message>
       <source>List of roles</source>
-      <translation>Liste des rôles</translation>
+      <translation>Liste over roller</translation>
     </message>
   </context>
   <context>
     <name>permission/groupassignrole</name>
     <message>
       <source>Title</source>
-      <translation>Titre</translation>
+      <translation>Titel</translation>
     </message>
     <message>
       <source>Assign</source>
-      <translation>Assigner</translation>
+      <translation>Tildel</translation>
     </message>
   </context>
   <context>
     <name>permission/modulefunctions</name>
     <message>
       <source>All functions</source>
-      <translation>Toutes les fonctions</translation>
+      <translation>Alle funktioner</translation>
     </message>
   </context>
   <context>
     <name>permission/newpolicy</name>
     <message>
       <source>New policy</source>
-      <translation>Nouvelle stratégie</translation>
+      <translation>Ny politik</translation>
     </message>
     <message>
       <source>Assigned functions</source>
-      <translation>Fonctions assignées</translation>
+      <translation>Tildelte funktioner</translation>
     </message>
     <message>
       <source>Choose a module</source>
-      <translation>Choisir un module</translation>
+      <translation>Vælg et modul</translation>
     </message>
     <message>
       <source>All modules</source>
-      <translation>Tous les modules</translation>
+      <translation>Alle moduler</translation>
     </message>
     <message>
       <source>Choose a module function</source>
-      <translation>Choisir une fonction du module</translation>
+      <translation>Vælg en modulfunktion</translation>
     </message>
     <message>
       <source>All functions</source>
-      <translation>Toutes les fonctions</translation>
+      <translation>Alle funktioner</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Enregistrer</translation>
+      <translation>Gem</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Annuler</translation>
+      <translation>Annuller</translation>
     </message>
   </context>
   <context>
     <name>permission/newrole</name>
     <message>
       <source>New role</source>
-      <translation>Nouveau rôle</translation>
+      <translation>Ny rolle</translation>
     </message>
     <message>
       <source>Title</source>
-      <translation>Titre</translation>
+      <translation>Titel</translation>
     </message>
     <message>
       <source>Policy list</source>
-      <translation>Liste des stratégies</translation>
+      <translation>Politikliste</translation>
     </message>
     <message>
       <source>Module</source>
-      <translation>Module</translation>
+      <translation>Modul</translation>
     </message>
     <message>
       <source>Function</source>
-      <translation>Fonction</translation>
+      <translation>Funktion</translation>
     </message>
     <message>
       <source>New policy</source>
-      <translation>Nouvelle stratégie</translation>
+      <translation>Ny politik</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Enregistrer</translation>
+      <translation>Gem</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Annuler</translation>
+      <translation>Annuller</translation>
     </message>
     <message>
       <source>Please enter role name</source>
-      <translation>Veuillez entrer le nom de rôle</translation>
+      <translation>Angiv rollenavn</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Configuration du système</translation>
+      <translation>Systemkonfiguration</translation>
     </message>
     <message>
       <source>List of roles</source>
-      <translation>Liste des rôles</translation>
+      <translation>Liste over roller</translation>
     </message>
   </context>
   <context>
     <name>permission/roleassigngroup</name>
     <message>
       <source>Title</source>
-      <translation>Titre</translation>
+      <translation>Titel</translation>
     </message>
     <message>
       <source>Assign</source>
-      <translation>Assigner</translation>
+      <translation>Tildel</translation>
     </message>
   </context>
   <context>
     <name>permission/roles</name>
     <message>
       <source>List of roles</source>
-      <translation>Liste des rôles</translation>
+      <translation>Liste over roller</translation>
     </message>
     <message>
       <source>Title</source>
-      <translation>Titre</translation>
+      <translation>Titel</translation>
     </message>
     <message>
       <source>Edit a role</source>
-      <translation>Modifier un rôle</translation>
+      <translation>Rediger en rolle</translation>
     </message>
     <message>
       <source>Delete a role</source>
-      <translation>Supprimer un rôle</translation>
+      <translation>Slet en rolle</translation>
     </message>
     <message>
       <source>New role</source>
-      <translation>Nouveau rôle</translation>
+      <translation>Ny rolle</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Configuration du système</translation>
+      <translation>Systemkonfiguration</translation>
     </message>
   </context>
   <context>
     <name>questionary/answers</name>
     <message>
       <source>Answer</source>
-      <translation>Réponse</translation>
+      <translation>Svar</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation>Date</translation>
+      <translation>Dato</translation>
     </message>
     <message>
       <source>IP</source>
@@ -3519,74 +3519,74 @@
     </message>
     <message>
       <source>View</source>
-      <translation>Voir</translation>
+      <translation>Visning</translation>
     </message>
     <message>
       <source>Delete the answer</source>
-      <translation>Supprimer la réponse</translation>
+      <translation>Slet svar</translation>
     </message>
     <message>
       <source>Option name</source>
-      <translation>Nom de l&apos;option</translation>
+      <translation>Indstilling</translation>
     </message>
     <message>
       <source>Progress</source>
-      <translation>Progression</translation>
+      <translation>Fremskridt</translation>
     </message>
     <message>
       <source>Votes</source>
-      <translation>Votes</translation>
+      <translation>Stemmer</translation>
     </message>
   </context>
   <context>
     <name>questionary/edit</name>
     <message>
       <source>Edit the question</source>
-      <translation>Modifier la question</translation>
+      <translation>Rediger spørgsmålet</translation>
     </message>
     <message>
       <source>Question</source>
-      <translation>Question</translation>
+      <translation>Spørgsmål</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Enregistrer</translation>
+      <translation>Gem</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Mettre à jour</translation>
+      <translation>Opdater</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Annuler</translation>
+      <translation>Afbryd</translation>
     </message>
     <message>
       <source>Voting options</source>
-      <translation>Options de vote</translation>
+      <translation>Stemmeindstillinger</translation>
     </message>
     <message>
       <source>Answers</source>
-      <translation>Réponses</translation>
+      <translation>Svar</translation>
     </message>
     <message>
       <source>Updated</source>
-      <translation>Mis à jour</translation>
+      <translation>Opdateret</translation>
     </message>
     <message>
       <source>If there are no options to choose from, the user will be shown a text field where he will be able to enter his own answer.</source>
-      <translation>S&apos;il n&apos;y a aucune option disponible, l&apos;utilisateur pourra saisir sa propre réponse dans un champ texte.</translation>
+      <translation>Hvis der ikke er nogen muligheder at vælge fra, bliver brugeren vist et tekstfelt hvor han vil være i stand til at angive sit eget svar.</translation>
     </message>
     <message>
       <source>Option</source>
-      <translation>Option</translation>
+      <translation>Indstilling</translation>
     </message>
     <message>
       <source>Enter name...</source>
-      <translation>Entrez le nom...</translation>
+      <translation>Angiv navn...</translation>
     </message>
     <message>
       <source>Option position</source>
-      <translation>Position de l&apos;option</translation>
+      <translation>Indstilling - position</translation>
     </message>
     <message>
       <source>Position</source>
@@ -3594,54 +3594,54 @@
     </message>
     <message>
       <source>Edit</source>
-      <translation>Modifier</translation>
+      <translation>Rediger</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation>Effacer</translation>
+      <translation>Slet</translation>
     </message>
     <message>
       <source>Please enter a question!</source>
-      <translation>Veuillez saisir une question !</translation>
+      <translation>Angiv et spørgsmål!</translation>
     </message>
     <message>
       <source>Please enter an option!</source>
-      <translation>Veuillez saisir une option !</translation>
+      <translation>Angiv en valgmulighed!</translation>
     </message>
     <message>
       <source>Edit a question</source>
-      <translation>Modifier une question</translation>
+      <translation>Rediger et spørgsmål</translation>
     </message>
   </context>
   <context>
     <name>questionary/list</name>
     <message>
       <source>Questions</source>
-      <translation>Questions</translation>
+      <translation>Spørgsmål</translation>
     </message>
     <message>
       <source>Question</source>
-      <translation>Question</translation>
+      <translation>Spørgsmål</translation>
     </message>
     <message>
       <source>Location</source>
-      <translation>Lieu</translation>
+      <translation>Placering</translation>
     </message>
     <message>
       <source>Priority</source>
-      <translation>Priorité</translation>
+      <translation>Prioritering</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation>Actif</translation>
+      <translation>Aktiv</translation>
     </message>
     <message>
       <source>Revote</source>
-      <translation type="unfinished"/>
+      <translation>Stem igen</translation>
     </message>
     <message>
       <source>Y</source>
-      <translation>O</translation>
+      <translation>J</translation>
     </message>
     <message>
       <source>N</source>
@@ -3649,178 +3649,178 @@
     </message>
     <message>
       <source>Edit the question</source>
-      <translation>Modifier la question</translation>
+      <translation>Redigere spørgsmålet</translation>
     </message>
     <message>
       <source>Delete the question</source>
-      <translation>Supprimer la question</translation>
+      <translation>Slet spørgsmålet</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Vide...</translation>
+      <translation>Tom...</translation>
     </message>
     <message>
       <source>New question</source>
-      <translation>Nouvelle question</translation>
+      <translation>Nyt spørgsmål</translation>
     </message>
     <message>
       <source>Off</source>
-      <translation type="unfinished"/>
+      <translation>Slukket</translation>
     </message>
     <message>
       <source>Questionary</source>
-      <translation>Questionnaire</translation>
+      <translation>Spørgeskema</translation>
     </message>
   </context>
   <context>
     <name>questionary/newquestion</name>
     <message>
       <source>Enter a new question</source>
-      <translation>Entrer une nouvelle question</translation>
+      <translation>Stil et nyt spørgsmål</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Enregistrer</translation>
+      <translation>Gem</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Annuler</translation>
+      <translation>Afbryd</translation>
     </message>
     <message>
       <source>New question</source>
-      <translation>Nouvelle question</translation>
+      <translation>Nyt spørgsmål</translation>
     </message>
   </context>
   <context>
     <name>questionary/previewanswer</name>
     <message>
       <source>Preview the answer</source>
-      <translation>Obtenir un aperçu de la réponse</translation>
+      <translation>Forhåndsvisning af svar</translation>
     </message>
   </context>
   <context>
     <name>questionary/form_question</name>
     <message>
       <source>Question</source>
-      <translation>Question</translation>
+      <translation>Spørgsmål</translation>
     </message>
     <message>
       <source>Question intro</source>
-      <translation>Introduction à la question</translation>
+      <translation>Spørgsmålsindledning</translation>
     </message>
     <message>
       <source>Show questions for all the URLs containing this string E.g /shop/basket</source>
-      <translation>Montrer les questions pour toutes les urls contenant la chaîne E.g/shop/basket</translation>
+      <translation>Vis spørgsmål for alle de webadresser, der indeholder denne streng fx /shop/basket</translation>
     </message>
     <message>
       <source>Priority, if multiple questions match a location, the question with the higher priority will be shown</source>
-      <translation>Priorité, si plusieurs questions correspondent à l&apos;adresse, la question avec la plus haute priorité sera affichée.</translation>
+      <translation>Prioritet, hvis flere spørgsmål svarer til en placering, vil spørgsmål med højere prioritet bliver vist</translation>
     </message>
     <message>
       <source>Revote time (hours), before can revote. Default 0 - never. Higher value allow revote after seconds expire since last vote</source>
-      <translation type="unfinished"/>
+      <translation>Revote tid (timer), før kan revote. Standard 0 - aldrig. Højere værdi tillade revote efter sekunder udløbe siden sidste afstemning</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation>Actif</translation>
+      <translation>Aktive</translation>
     </message>
   </context>
   <context>
     <name>questionary/votingwidget</name>
     <message>
       <source>Questionary</source>
-      <translation>Questionnaire</translation>
+      <translation>Questionary</translation>
     </message>
     <message>
       <source>Thank you!</source>
-      <translation>Merci!</translation>
+      <translation>Tak!</translation>
     </message>
     <message>
       <source>You have already voted, thank you!</source>
-      <translation>Vous avez déjà voté, merci !</translation>
+      <translation>Du har allerede stemt, tak!</translation>
     </message>
     <message>
       <source>Vote</source>
-      <translation>Vote</translation>
+      <translation>Stem</translation>
     </message>
     <message>
       <source>Send</source>
-      <translation>Envoyer</translation>
+      <translation>Send</translation>
     </message>
     <message>
       <source>We do not have any requests for now.</source>
-      <translation>Nous n&apos;avons aucune questions pour le moment.</translation>
+      <translation>Vi har ikke nogen anmodninger lige nu.</translation>
     </message>
     <message>
       <source>Please choose one of the options!</source>
-      <translation>Veuillez choisir une des options !</translation>
+      <translation>Vælg venligst en af mulighederne!</translation>
     </message>
     <message>
       <source>No question was detected</source>
-      <translation>Aucune question n&apos;a été détectée</translation>
+      <translation>Inden spørgsmål registreret</translation>
     </message>
     <message>
       <source>Please enter your feedback!</source>
-      <translation>Veuillez nous donner vos impressions!</translation>
+      <translation>Angiv venligst feedback!</translation>
     </message>
     <message>
       <source>You have already send your feedback!</source>
-      <translation>Vous avez déjà envoyé vos impressions !</translation>
+      <translation>Du har allerede indsendt feedback</translation>
     </message>
   </context>
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
       <source>Clean cache</source>
-      <translation>Vider le cache</translation>
+      <translation>Tøm cache</translation>
     </message>
     <message>
       <source>Home</source>
-      <translation>Accueil</translation>
+      <translation>Hjem</translation>
     </message>
     <message>
       <source>Chats transferred to you directly</source>
-      <translation>Chats transférés directement à vous</translation>
+      <translation>Chats overført til dig direkte</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Vide...</translation>
+      <translation>Tom...</translation>
     </message>
     <message>
       <source>Transferred to your department</source>
-      <translation>Transféré vers votre département</translation>
+      <translation>Overført til din afdeling</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>Chats en attente</translation>
+      <translation>Ventende chats</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Chats actifs</translation>
+      <translation>Aktive chats</translation>
     </message>
     <message>
       <source>Unread messages</source>
-      <translation>Messages non lus</translation>
+      <translation>Ulæste beskeder</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Chats terminés</translation>
+      <translation>Lukkede chats</translation>
     </message>
     <message>
       <source>Configuration</source>
-      <translation>Configuration</translation>
+      <translation>Konfiguration</translation>
     </message>
     <message>
       <source>Chats list</source>
-      <translation>Liste des chats</translation>
+      <translation>Chat liste</translation>
     </message>
     <message>
       <source>Chat rooms</source>
-      <translation>Salles de chat</translation>
+      <translation>Chat-rum</translation>
     </message>
     <message>
       <source>New chat request</source>
-      <translation>Nouvelle demande de chat</translation>
+      <translation>Ny chatanmodning</translation>
     </message>
     <message>
       <source>Menu</source>
@@ -3828,113 +3828,113 @@
     </message>
     <message>
       <source>Online visitors</source>
-      <translation>Visiteurs connectés</translation>
+      <translation>Besøgende online</translation>
     </message>
     <message>
       <source>Questionary</source>
-      <translation>Questionnaire</translation>
+      <translation>Spørgeskema</translation>
     </message>
     <message>
       <source>FAQ</source>
-      <translation>FAQ</translation>
+      <translation>OFTE STILLEDE SPØRGSMÅL</translation>
     </message>
     <message>
       <source>Chatbox</source>
-      <translation>Chatbox</translation>
+      <translation>Chatboks</translation>
     </message>
     <message>
       <source>Account</source>
-      <translation>Compte</translation>
+      <translation>Konto</translation>
     </message>
     <message>
       <source>Logout</source>
-      <translation>Déconnexion</translation>
+      <translation>Logout</translation>
     </message>
   </context>
   <context>
     <name>system/languages</name>
     <message>
       <source>Languages configuration</source>
-      <translation>Configuration des langues</translation>
+      <translation>Sprogindstillinger</translation>
     </message>
     <message>
       <source>Your language</source>
-      <translation>Votre langue</translation>
+      <translation>Dit sprog</translation>
     </message>
     <message>
       <source>Language</source>
-      <translation>Langue</translation>
+      <translation>Sprog</translation>
     </message>
     <message>
       <source>General language settings</source>
-      <translation>Paramètres généraux de langue</translation>
+      <translation>Generelle sprogindstillinger</translation>
     </message>
     <message>
       <source>Current site access</source>
-      <translation>Accès au site courant</translation>
+      <translation>Nuværende site-adgang</translation>
     </message>
     <message>
       <source>Site access</source>
-      <translation>Accès au site</translation>
+      <translation>Adgang til site</translation>
     </message>
     <message>
       <source>options for</source>
-      <translation>Options pour</translation>
+      <translation>indstillinger for</translation>
     </message>
     <message>
       <source>Theme, separate themes by new line</source>
-      <translation>Thème, un thème par ligne</translation>
+      <translation>Tema, adskil temaer af ny linje</translation>
     </message>
     <message>
       <source>Default module</source>
-      <translation>Module par défaut</translation>
+      <translation>Standardmodul</translation>
     </message>
     <message>
       <source>Default view</source>
-      <translation>Vue par défaut</translation>
+      <translation>Standardvisning</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Réglages enregistrés</translation>
+      <translation>Indstillinger opdateret</translation>
     </message>
     <message>
       <source>Please choose correct language</source>
-      <translation>Merci de choisir la bonne langue</translation>
+      <translation>Vælg venligst korrekt sprog</translation>
     </message>
     <message>
       <source>Please enter theme</source>
-      <translation>Veuillez entrer le thème</translation>
+      <translation>Angiv tema</translation>
     </message>
     <message>
       <source>Please enter module name</source>
-      <translation>Veuillez entrer le nom du module</translation>
+      <translation>Angiv modulnavn</translation>
     </message>
     <message>
       <source>Please enter view name</source>
-      <translation>Veuillez entrer le nom de la vue</translation>
+      <translation>Angiv visningsnavn</translation>
     </message>
   </context>
   <context>
     <name>system/smtp</name>
     <message>
       <source>SMTP settings</source>
-      <translation>Paramètres SMTP</translation>
+      <translation>SMTP-indstillinger</translation>
     </message>
     <message>
       <source>SMTP enabled</source>
-      <translation>SMTP activé</translation>
+      <translation>SMTP aktiveret</translation>
     </message>
     <message>
       <source>Login</source>
-      <translation>Identification</translation>
+      <translation>Login</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation>Mot de passe</translation>
+      <translation>Adgangskode</translation>
     </message>
     <message>
       <source>Host</source>
-      <translation>Hôte</translation>
+      <translation>Host</translation>
     </message>
     <message>
       <source>Port</source>
@@ -3942,498 +3942,498 @@
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Paramètres mis à jour</translation>
+      <translation>Indstillinger opdateret</translation>
     </message>
   </context>
   <context>
     <name>system/timezone</name>
     <message>
       <source>Time zone settings</source>
-      <translation type="unfinished"/>
+      <translation>Tidszoneindstillinger</translation>
     </message>
     <message>
       <source>Set application specific time zone</source>
-      <translation type="unfinished"/>
+      <translation>Indstil program bestemt tidszone</translation>
     </message>
     <message>
       <source>Date format E.g (Y-m-d)</source>
-      <translation type="unfinished"/>
+      <translation>Datoformat fx (Å-m-d)</translation>
     </message>
     <message>
       <source>Full date format E.g (Y-m-d H:i:s)</source>
-      <translation type="unfinished"/>
+      <translation>Fuld datoformat fx (Å-m-d T:m:s)</translation>
     </message>
     <message>
       <source>Hour format E.g (H:i:s)</source>
-      <translation type="unfinished"/>
+      <translation>Timeformat fx (T:m:s)</translation>
     </message>
     <message>
       <source>Live Helper Chat update</source>
-      <translation type="unfinished"/>
+      <translation>Live Helper Chat opdatering</translation>
     </message>
     <message>
       <source>Time zone</source>
-      <translation type="unfinished"/>
+      <translation>Tidszone</translation>
     </message>
   </context>
   <context>
     <name>user/edit</name>
     <message>
       <source>Server default time zone</source>
-      <translation type="unfinished"/>
+      <translation>Server standardtidszone</translation>
     </message>
     <message>
       <source>User edit</source>
-      <translation>Modifier l&apos;utilisateur</translation>
+      <translation>Rediger bruger</translation>
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
-      <translation>N&apos;entrez pas de mot de passe sauf si vous voulez le changer</translation>
+      <translation>Skrive ikke adgangskode, medmindre du ønsker at ændre det</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Nom d&apos;utilisateur</translation>
+      <translation>Brugernavn</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation>Mot de passe</translation>
+      <translation>Adgangskode</translation>
     </message>
     <message>
       <source>Repeat the new password</source>
-      <translation>Répéter le nouveau mot de passe</translation>
+      <translation>Gentag nyt password</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Courriel</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Nom</translation>
+      <translation>Navn</translation>
     </message>
     <message>
       <source>Surname</source>
-      <translation>Nom de famille</translation>
+      <translation>Efternavn</translation>
     </message>
     <message>
       <source>Photo</source>
-      <translation>Photo</translation>
+      <translation>Foto</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Enregistrer</translation>
+      <translation>Gem</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Mettre à jour</translation>
+      <translation>Opdater</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Annuler</translation>
+      <translation>Annuller</translation>
     </message>
     <message>
       <source>Assigned departments</source>
-      <translation>Départements assignés</translation>
+      <translation>Tildelte afdelinger</translation>
     </message>
     <message>
       <source>User time zone</source>
-      <translation type="unfinished"/>
+      <translation>Brugers tidszone</translation>
     </message>
     <message>
       <source>Application default time zone</source>
-      <translation type="unfinished"/>
+      <translation>Ansøgning standardtidszone</translation>
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation>Adresse courriel erronée</translation>
+      <translation>Forkert emailadresse</translation>
     </message>
     <message>
       <source>Invalid CSRF token!</source>
-      <translation>Jeton CSRF non valide !</translation>
+      <translation>Ugyldigt CSRF token!</translation>
     </message>
     <message>
       <source>Please enter a name</source>
-      <translation>Veuillez entrer un nom</translation>
+      <translation>Angiv et navn</translation>
     </message>
     <message>
       <source>Passwords mismatch</source>
-      <translation>Les mots de passe ne correspondent pas</translation>
+      <translation>Adgangskoder stemmer ikke overens</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Configuration du système</translation>
+      <translation>Systemkonfiguration</translation>
     </message>
     <message>
       <source>Users</source>
-      <translation>Utilisateurs</translation>
+      <translation>Brugere</translation>
     </message>
   </context>
   <context>
     <name>system/update</name>
     <message>
       <source>Your version</source>
-      <translation type="unfinished"/>
+      <translation>Din version</translation>
     </message>
     <message>
       <source>Current version</source>
-      <translation type="unfinished"/>
+      <translation>Nuværende version</translation>
     </message>
     <message>
       <source>Last database update</source>
-      <translation type="unfinished"/>
+      <translation>Seneste databaseopdatering</translation>
     </message>
     <message>
       <source>News</source>
-      <translation type="unfinished"/>
+      <translation>Nyheder</translation>
     </message>
     <message>
       <source>Missing updates from new versions.</source>
-      <translation type="unfinished"/>
+      <translation>Manglende opdateringer fra nye versioner.</translation>
     </message>
     <message>
       <source>Update instructions</source>
-      <translation type="unfinished"/>
+      <translation>Opdateringensinstrukser</translation>
     </message>
     <message>
       <source>You are running current version. No updates required</source>
-      <translation type="unfinished"/>
+      <translation>Du kører den aktuelle version. Ingen opdateringer nødvendigt</translation>
     </message>
     <message>
       <source>Live Helper Chat update information</source>
-      <translation type="unfinished"/>
+      <translation>Live Helper Chat opdateringsoplysninger</translation>
     </message>
   </context>
   <context>
     <name>user/new</name>
     <message>
       <source>User group</source>
-      <translation>Groupe d&apos;utilisateurs</translation>
+      <translation>Brugergruppe</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation>Désactivé</translation>
+      <translation>Deaktiveret</translation>
     </message>
     <message>
       <source>Do not show user status as online</source>
-      <translation>Ne pas afficher le statut de l&apos;utilisateur comme en ligne</translation>
+      <translation>Vis ikke brugerstatus som online</translation>
     </message>
     <message>
       <source>All departments</source>
-      <translation>Tous les départements</translation>
+      <translation>Alle afdelinger</translation>
     </message>
     <message>
       <source>New user</source>
-      <translation>Nouvel utilisateur</translation>
+      <translation>Ny bruger</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Nom d&apos;utilisateur</translation>
+      <translation>Brugernavn</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Courriel</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation>Mot de passe</translation>
+      <translation>Adgangskode</translation>
     </message>
     <message>
       <source>Repeat the new password</source>
-      <translation>Répéter le nouveau mot de passe</translation>
+      <translation>Gentag ny adgangskode</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Nom</translation>
+      <translation>Navn</translation>
     </message>
     <message>
       <source>Surname</source>
-      <translation>Nom de famille</translation>
+      <translation>Efternavn</translation>
     </message>
     <message>
       <source>Photo</source>
-      <translation>Photo</translation>
+      <translation>Foto</translation>
     </message>
     <message>
       <source>Departments</source>
-      <translation>Départements</translation>
+      <translation>Afdelinger</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Enregistrer</translation>
+      <translation>Gem</translation>
     </message>
     <message>
       <source>Please choose a default user group</source>
-      <translation>Veuillez choisir un groupe d&apos;utilisateurs par défaut</translation>
+      <translation>Vælg en standardgruppe for brugeren</translation>
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation>Adresse courriel erronée</translation>
+      <translation>Forkert emailadresse</translation>
     </message>
     <message>
       <source>Please enter a name</source>
-      <translation>Veuillez entrer un nom</translation>
+      <translation>Angiv et navn</translation>
     </message>
     <message>
       <source>Please enter a username</source>
-      <translation>Veuillez entrer un nom d&apos;utilisateur</translation>
+      <translation>Angiv et brugernavn</translation>
     </message>
     <message>
       <source>User exists</source>
-      <translation>L&apos;utilisateur existe déja</translation>
+      <translation>Bruger findes allerede</translation>
     </message>
     <message>
       <source>Passwords mismatch</source>
-      <translation>Les mots de passe ne correspondent pas</translation>
+      <translation>Adgangskoder stemmer ikke overens</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Configuration du système</translation>
+      <translation>Systemkonfiguration</translation>
     </message>
     <message>
       <source>Users</source>
-      <translation>Utilisateurs</translation>
+      <translation>Brugere</translation>
     </message>
     <message>
       <source>Please enter a group name</source>
-      <translation>Veuillez entrer un nom de groupe</translation>
+      <translation>Skriv et gruppenavn</translation>
     </message>
   </context>
   <context>
     <name>user/editgroup</name>
     <message>
       <source>Group edit</source>
-      <translation>Modifier le groupe</translation>
+      <translation>Rediger gruppen</translation>
     </message>
     <message>
       <source>Title</source>
-      <translation>Titre</translation>
+      <translation>Titel</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Mettre à jour</translation>
+      <translation>Opdater</translation>
     </message>
     <message>
       <source>Assigned users</source>
-      <translation>Utilisateurs assignés</translation>
+      <translation>Tildelte brugere</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Nom d&apos;utilisateur</translation>
+      <translation>Username</translation>
     </message>
     <message>
       <source>Remove user from the group</source>
-      <translation>Enlever un utilisateur du groupe</translation>
+      <translation>Fjern bruger fra gruppen</translation>
     </message>
     <message>
       <source>Assign user</source>
-      <translation>Assigner un utilisateur</translation>
+      <translation>Tildel bruger</translation>
     </message>
     <message>
       <source>Assigned roles</source>
-      <translation>Rôles assignés</translation>
+      <translation>Tildelte roller</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Nom</translation>
+      <translation>Navn</translation>
     </message>
     <message>
       <source>Remove role from group</source>
-      <translation>Supprimer le rôle du groupe</translation>
+      <translation>Fjern rollen fra gruppen</translation>
     </message>
     <message>
       <source>Assign role</source>
-      <translation>Assigner le rôle</translation>
+      <translation>Tildel rolle</translation>
     </message>
     <message>
       <source>Please enter a group name</source>
-      <translation>Veuillez entrer un nom de groupe</translation>
+      <translation>Skriv et gruppenavn</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Configuration du système</translation>
+      <translation>Systemkonfiguration</translation>
     </message>
     <message>
       <source>Groups</source>
-      <translation>Groupes</translation>
+      <translation>Grupper</translation>
     </message>
   </context>
   <context>
     <name>user/forgotpassword</name>
     <message>
       <source>Password reminder</source>
-      <translation>Mot de passé oublié</translation>
+      <translation>Påmindelse om adgangskode</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Courriel</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Restore password</source>
-      <translation>Récupérer mon mot de passe</translation>
+      <translation>Gendan adgangskode</translation>
     </message>
     <message>
       <source>Invalid e-mail address!</source>
-      <translation>Adresse courriel invalide!</translation>
+      <translation>Ugyldig emailadresse</translation>
     </message>
     <message>
       <source>Password remind</source>
-      <translation>Mot de passe oublié</translation>
+      <translation>Adgangskodepåmindelse</translation>
     </message>
     <message>
       <source>Click this link and You will be sent a new password</source>
-      <translation>Cliquez ce lien et un nouveau mot de passe vous sera envoyé</translation>
+      <translation>Klik på dette link og du vil modtage en ny adgangskode</translation>
     </message>
   </context>
   <context>
     <name>user/forgotpasswordsent</name>
     <message>
       <source>Password reminder</source>
-      <translation>Mot de passe oublié</translation>
+      <translation>Påmindelse om adgangskode</translation>
     </message>
     <message>
       <source>E-mail sent. Click the link in the email and You will be sent out a new password.</source>
-      <translation>Courriel envoyé. Cliquez le lien dans le mail et un nouveau mot de passe vous sera envoyé</translation>
+      <translation>E-mail sendt. Klik på linket i e-mailen, og du vil få tilsendt et nyt kodeord.</translation>
     </message>
   </context>
   <context>
     <name>user/groupassignuser</name>
     <message>
       <source>Username</source>
-      <translation>Nom d&apos;utilisateur</translation>
+      <translation>Username</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Courriel</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Nom</translation>
+      <translation>Navn</translation>
     </message>
     <message>
       <source>Surname</source>
-      <translation>Nom de famille</translation>
+      <translation>Efternavn</translation>
     </message>
     <message>
       <source>Assign</source>
-      <translation>Assigner</translation>
+      <translation>Tildel</translation>
     </message>
     <message>
       <source>User was assigned to the group!</source>
-      <translation>L&apos;utilisateur a été affecté au groupe !</translation>
+      <translation>Brugeren blev tildelt til gruppen!</translation>
     </message>
   </context>
   <context>
     <name>user/grouplist</name>
     <message>
       <source>Groups</source>
-      <translation>Groupes</translation>
+      <translation>Grupper</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Nom</translation>
+      <translation>Navn</translation>
     </message>
     <message>
       <source>Edit group</source>
-      <translation>Modifier groupe</translation>
+      <translation>Rediger gruppe</translation>
     </message>
     <message>
       <source>Delete group</source>
-      <translation>Supprimer le groupe</translation>
+      <translation>Slet gruppe</translation>
     </message>
     <message>
       <source>New group</source>
-      <translation>Nouveau groupe</translation>
+      <translation>Ny gruppe</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Configuration système</translation>
+      <translation>Systemkonfiguration</translation>
     </message>
   </context>
   <context>
     <name>gallery/album_list_admin</name>
     <message>
       <source>Are you sure?</source>
-      <translation>Etes-vous sûr?</translation>
+      <translation>Er du sikker?</translation>
     </message>
   </context>
   <context>
     <name>user/login</name>
     <message>
       <source>Please login</source>
-      <translation>Veuillez vous identifier</translation>
+      <translation>Venligst login</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Nom d&apos;utilisateur</translation>
+      <translation>Brugernavn</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation>Mot de passe</translation>
+      <translation>Adgangskode</translation>
     </message>
     <message>
       <source>Remember me</source>
-      <translation>Se souvenir de moi</translation>
+      <translation>Husk mig</translation>
     </message>
     <message>
       <source>Login</source>
-      <translation>Identification</translation>
+      <translation>Login</translation>
     </message>
     <message>
       <source>Password reminder</source>
-      <translation>Mot de passe oublié</translation>
+      <translation>Påmindelse om adgangskode</translation>
     </message>
     <message>
       <source>Incorrect username or password</source>
-      <translation>Nom d&apos;utilisateur ou mot de passe incorrect</translation>
+      <translation>Forkert brugernavn eller adgangskode</translation>
     </message>
   </context>
   <context>
     <name>user/newgroup</name>
     <message>
       <source>New group</source>
-      <translation>Nouveau groupe</translation>
+      <translation>Ny gruppe</translation>
     </message>
     <message>
       <source>Title</source>
-      <translation>Titre</translation>
+      <translation>Titel</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Enregistrer</translation>
+      <translation>Gem</translation>
     </message>
     <message>
       <source>Save and assign the user</source>
-      <translation>Enregistrez et affecter un utilisateur</translation>
+      <translation>Gemme og tildel til brugeren</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Configuration système</translation>
+      <translation>Systemkonfiguration</translation>
     </message>
     <message>
       <source>Groups</source>
-      <translation>Groupes</translation>
+      <translation>Grupper</translation>
     </message>
   </context>
   <context>
     <name>user/remindpassword</name>
     <message>
       <source>New password</source>
-      <translation>Nouveau mot de passe</translation>
+      <translation>Ny adgangskode</translation>
     </message>
     <message>
       <source>Hash was not found or was used already</source>
-      <translation>Hash non trouvé ou déjà utilisé</translation>
+      <translation>Hash blev ikke fundet eller er allerede blevet brugt</translation>
     </message>
     <message>
       <source>Password remind - new password</source>
-      <translation>Mot de passe oublié - Nouveau mot de passe </translation>
+      <translation>Adgangskode påmindelse - ny adgangskode</translation>
     </message>
     <message>
       <source>New password:</source>
-      <translation>Nouveau mot de passe:</translation>
+      <translation>Ny adgangskode:</translation>
     </message>
     <message>
       <source>New password has been sent to your email.</source>
-      <translation>Un nouveau mot de passe a été envoyé par courriel</translation>
+      <translation>Ny adgangskode er blevet sendt til din email.</translation>
     </message>
   </context>
   <context>
@@ -4444,46 +4444,46 @@
     </message>
     <message>
       <source>IP address</source>
-      <translation>Adresse IP </translation>
+      <translation>IP-adresse</translation>
     </message>
     <message>
       <source>Current page</source>
-      <translation>Page courante</translation>
+      <translation>Aktuel side</translation>
     </message>
     <message>
       <source>Last visit</source>
-      <translation>Dernière visite</translation>
+      <translation>Sidste besøg</translation>
     </message>
     <message>
       <source>User agent</source>
-      <translation>Utilisateur</translation>
+      <translation>Brugeragent</translation>
     </message>
     <message>
       <source>Country code</source>
-      <translation>Code du pays</translation>
+      <translation>Landekode</translation>
     </message>
     <message>
       <source>Country name</source>
-      <translation>Nom du pays</translation>
+      <translation>Landenavn</translation>
     </message>
     <message>
       <source>Message seen</source>
-      <translation>Message vu</translation>
+      <translation>Meddelelse set</translation>
     </message>
   </context>
   <context>
     <name>system/xmpp</name>
     <message>
       <source>XMPP settings</source>
-      <translation>Réglages XMPP</translation>
+      <translation>XMPP indstillinger</translation>
     </message>
     <message>
       <source>XMPP active</source>
-      <translation>XMPP actif</translation>
+      <translation>XMPP aktive</translation>
     </message>
     <message>
       <source>XMPP Message content</source>
-      <translation>Contenu du message XMPP</translation>
+      <translation>XMPP beskedens indhold</translation>
     </message>
     <message>
       <source>XMPP</source>
@@ -4491,11 +4491,11 @@
     </message>
     <message>
       <source>Use standard XMPP service</source>
-      <translation>Utiliser le service XMPP standard</translation>
+      <translation>Bruge standard XMPP service</translation>
     </message>
     <message>
       <source>Host</source>
-      <translation>Hôte</translation>
+      <translation>Server</translation>
     </message>
     <message>
       <source>Port</source>
@@ -4503,43 +4503,43 @@
     </message>
     <message>
       <source>Login</source>
-      <translation>Identification</translation>
+      <translation>Login</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation>Mot de passe</translation>
+      <translation>Adgangskode</translation>
     </message>
     <message>
       <source>Resource</source>
-      <translation>Ressource</translation>
+      <translation>Resourse</translation>
     </message>
     <message>
       <source>Server</source>
-      <translation>Serveur</translation>
+      <translation>Server</translation>
     </message>
     <message>
       <source>Recipients</source>
-      <translation>Destinataires</translation>
+      <translation>Modtagere</translation>
     </message>
     <message>
       <source>Default recipients</source>
-      <translation>Destinataires par défaut</translation>
+      <translation>Standardmodtagere</translation>
     </message>
     <message>
       <source>Test recipients</source>
-      <translation>Tester les destinataires</translation>
+      <translation>Test modtagere</translation>
     </message>
     <message>
       <source>Individual recipients</source>
-      <translation>Destinataires individuel</translation>
+      <translation>Individuelle modtagere</translation>
     </message>
     <message>
       <source>Test group recipients</source>
-      <translation>Tester les groupes de destinataires</translation>
+      <translation>Test gruppe modtagere</translation>
     </message>
     <message>
       <source>Test message will be send to your account e-mail</source>
-      <translation>Le message de test sera envoyé à votre adresse courriel</translation>
+      <translation>Testmeddelelse vil blive send til din konto e-mail</translation>
     </message>
     <message>
       <source>GTalk</source>
@@ -4547,274 +4547,274 @@
     </message>
     <message>
       <source>Use GTalk for messaging</source>
-      <translation>Utiliser GTalk pour la messagerie</translation>
+      <translation>Brug GTalk til meddelelser</translation>
     </message>
     <message>
       <source>Information for your google app</source>
-      <translation>Information de l&apos;application Google</translation>
+      <translation>Oplysninger for din google app</translation>
     </message>
     <message>
       <source>Redirect URL, this url you will have to enter in your google app configuration</source>
-      <translation>URL de redirection, vous devez placé cet URL dans la configuration de votre application Google</translation>
+      <translation>Omdirigere URL, denne webadresse, du bliver nødt til at indtaste i din google app konfiguration</translation>
     </message>
     <message>
       <source>Enter your app information bellow</source>
-      <translation>Entrez les informations de l&apos;application ci-dessous</translation>
+      <translation>Indtast din app oplysninger bellow</translation>
     </message>
     <message>
       <source>OAuth 2.0 Client ID</source>
-      <translation>OAuth 2.0 Client ID</translation>
+      <translation>OAuth 2.0 klient-ID</translation>
     </message>
     <message>
       <source>Please enter your Client ID</source>
-      <translation>Veuillez entrer votre numéro de client</translation>
+      <translation>Angiv venligst din klient-ID</translation>
     </message>
     <message>
       <source>Client secret</source>
-      <translation>Secret client</translation>
+      <translation>Klienten hemmelighed</translation>
     </message>
     <message>
       <source>This message will be send to your e-mail</source>
-      <translation>Ce message sera envoyer à votre courriel</translation>
+      <translation>Denne meddelelse vil blive send til din e-mail</translation>
     </message>
     <message>
       <source>Send test message</source>
-      <translation>Envoyer un message de test</translation>
+      <translation>Send testmeddelelse</translation>
     </message>
     <message>
       <source>Revoke access token</source>
-      <translation>Retirer le jeton d&apos;accès</translation>
+      <translation>Tilbagekalde adgangstoken</translation>
     </message>
     <message>
       <source>Revoke permission to send a message</source>
-      <translation>Retirer la permission d&apos;envoyer un message</translation>
+      <translation>Tilbagekalde tilladelse til at sende en besked</translation>
     </message>
     <message>
       <source>Authentificate and grant permission to send a message</source>
-      <translation>S&apos;authentifier et donner la permission d&apos;envoyer un message</translation>
+      <translation>Authentificate og tilskud tilladelse til at sende en besked</translation>
     </message>
     <message>
       <source>Grant permission to send a message</source>
-      <translation>Donner la permission d&apos;envoyer un message</translation>
+      <translation>Give tilladelse til at sende en besked</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Réglages enregistrés</translation>
+      <translation>Indstillinger opdateret</translation>
     </message>
     <message>
       <source>Succesfully authorised, now you can try to send a message</source>
-      <translation>Authentification réussie, vous pouvez maintenant essayer d&apos;envoyer un message</translation>
+      <translation>Held godkendt, nu kan du prøve at sende en besked</translation>
     </message>
     <message>
       <source>Token was revoked</source>
-      <translation>Le jeton a été retiré</translation>
+      <translation>Token blev tilbagekaldt</translation>
     </message>
     <message>
       <source>XMPP message was sent succesfuly</source>
-      <translation>Message XMPP envoyé avec succès</translation>
+      <translation>XMPP besked blev sendt succesfuly</translation>
     </message>
   </context>
   <context>
     <name>file/file</name>
     <message>
       <source>Download file</source>
-      <translation>Télécharger ce fichier</translation>
+      <translation>Hent filen</translation>
     </message>
   </context>
   <context>
     <name>chat/syncuser</name>
     <message>
       <source>Chat was automatically transferred to</source>
-      <translation>Le chat a été automatiquement transféré à</translation>
+      <translation>Chat blev automatisk overført til</translation>
     </message>
     <message>
       <source>from</source>
-      <translation>de</translation>
+      <translation>fra</translation>
     </message>
     <message>
       <source>Support staff member has closed this chat</source>
-      <translation>Un opérateur a fermé ce chat</translation>
+      <translation>Supportmedarbejder har lukket denne chat</translation>
     </message>
     <message>
       <source>You do not have permission to view this chat, or chat was deleted</source>
-      <translation>Vous n&apos;avez pas les droits pour voir ce chat ou ce chat a été supprimé</translation>
+      <translation>Du har ikke tilladelse til at se denne chat, eller chat blev slettet</translation>
     </message>
     <message>
       <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-      <translation>Le support a fermé cette fenêtre de chat, mais vous pouvez laisser des messages; l&apos;administrateur les lira ultérieurement.</translation>
+      <translation>Support har lukket chat-vinduet, men du kan efterlade beskeder, og administratoren vil læse dem senere.</translation>
     </message>
     <message>
       <source>You do not have permission to view this chat, or the chat was deleted</source>
-      <translation>Vous n&apos;avez pas l&apos;autorisation de visualiser ce chat, ou ce chat a été supprimé</translation>
+      <translation>Du har ikke tilladelse til at se denne chat, eller chatten blev slettet</translation>
     </message>
   </context>
   <context>
     <name>departament/edit</name>
     <message>
       <source>Please enter a department name</source>
-      <translation>Veuillez entrer un nom de département</translation>
+      <translation>Angiv et afdelingsnavn</translation>
     </message>
     <message>
       <source>Transfer department has to be different one than self</source>
-      <translation>Le département de transfert ne peut pas être lui-même</translation>
+      <translation>Overførsel afdeling har til at være anderledes end selv</translation>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>
-      <translation>Veuillez entrer un interval de date valide (depuis)!</translation>
+      <translation>Angiv et gyldigt fra-datointerval!</translation>
     </message>
     <message>
       <source>Please enter a valid to date range!</source>
-      <translation>Veuillez entrer un interval de date valide (jusqu&apos;au)!</translation>
+      <translation>Angiv et gyldigt til-datointerval!</translation>
     </message>
   </context>
   <context>
     <name>abstract/email_template</name>
     <message>
       <source>Name, for personal purposes</source>
-      <translation>Nom, pour utilisation personnelle</translation>
+      <translation>Navn, til personlige formål</translation>
     </message>
     <message>
       <source>Subject</source>
-      <translation>Sujet</translation>
+      <translation>Emne</translation>
     </message>
     <message>
       <source>Allow user to change subject</source>
-      <translation>Autoriser l&apos;utilisateur à changer le sujet</translation>
+      <translation>Tillad brugeren at ændre emnet</translation>
     </message>
     <message>
       <source>From name</source>
-      <translation>Nom de l&apos;expéditeur</translation>
+      <translation>Fra-navn</translation>
     </message>
     <message>
       <source>Allow to change from name</source>
-      <translation>Permettre de changer le nom de l&apos;expéditeur</translation>
+      <translation>Gør det muligt for at ændre fra-navn</translation>
     </message>
     <message>
       <source>From e-mail, if mail was not sent for some reason, this mail will get a failed delivery message</source>
-      <translation>Courriel de l&apos;expéditeur, dans le cas où un mail n&apos;est pas expédié pour une raison quelconque, un message de non distribution sera adressé à cette adresse.</translation>
+      <translation>Fra e-mail, hvis e-mail ikke blev sendt, vil denne mail få en mislykket-levering-besked</translation>
     </message>
     <message>
       <source>Allow to change from e-mail</source>
-      <translation>Permettre de changer le courriel de l&apos;expéditeur</translation>
+      <translation>Gør det muligt for at ændre fra-e-mail</translation>
     </message>
     <message>
       <source>Reply to</source>
-      <translation>Répondre à</translation>
+      <translation>Besvar</translation>
     </message>
     <message>
       <source>Allow to change reply e-mail</source>
-      <translation>Permettre de changer l&apos;adresse du destinataire</translation>
+      <translation>Gør det muligt for at ændre svar e-mail</translation>
     </message>
     <message>
       <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
-      <translation>Courriel du destinataire, utilisé si l&apos;application ne peux déterminer le destinataire d&apos;un message</translation>
+      <translation>Modtagerens email, dette bruges hvis systemet ikke kunne bestemme hvem der skal modtage en e-mail.</translation>
     </message>
     <message>
       <source>BCC recipients, can be separated by comma.</source>
-      <translation type="unfinished"/>
+      <translation>BCC-modtagere, kan være adskilt af komma.</translation>
     </message>
     <message>
       <source>Content</source>
-      <translation>Contenu</translation>
+      <translation>Indhold</translation>
     </message>
     <message>
       <source>E-mail templates</source>
-      <translation>Modèles de courriel</translation>
+      <translation>E-mail-temaer</translation>
     </message>
   </context>
   <context>
     <name>chat/closechatadmin</name>
     <message>
       <source>has closed the chat!</source>
-      <translation>a fermé le chat !</translation>
+      <translation>har lukket chatten!</translation>
     </message>
   </context>
   <context>
     <name>chat/deletechatadmin</name>
     <message>
       <source>You do not have rights to delete a chat</source>
-      <translation>Vous n&apos;avez pas les droits pour supprimer un chat</translation>
+      <translation>Du har ikke rettigheder til at slette en chat</translation>
     </message>
   </context>
   <context>
     <name>chat/reopenchat</name>
     <message>
       <source>has reopened the chat!</source>
-      <translation>a réouvert le chat!</translation>
+      <translation>har genåbnet chatten!</translation>
     </message>
     <message>
       <source>No permission to reopen the chat!</source>
-      <translation>Pas de permission pour réouvrir le chat!</translation>
+      <translation>Ingen tilladelse til at genåbne chatten!</translation>
     </message>
   </context>
   <context>
     <name>chat/single</name>
     <message>
       <source>Chat started with</source>
-      <translation>Chat commencé avec</translation>
+      <translation>Chat startede med</translation>
     </message>
   </context>
   <context>
     <name>chat/transferuser</name>
     <message>
       <source>Chat was assigned to selected department</source>
-      <translation>Le chat a été assigné au département sélectionné</translation>
+      <translation>Chat var tilknyttet valgte afdeling</translation>
     </message>
     <message>
       <source>Chat was assigned to selected user</source>
-      <translation>Le chat a été assigné à l&apos;opérateur sélectionné</translation>
+      <translation>Chat var tildelt valgte bruger</translation>
     </message>
   </context>
   <context>
     <name>chat/voteaction</name>
     <message>
       <source>Thumbs up</source>
-      <translation>Excellent</translation>
+      <translation>Tommelfingeren opad</translation>
     </message>
     <message>
       <source>Thumbs down</source>
-      <translation>Mauvais</translation>
+      <translation>Tommelfingeren nedad</translation>
     </message>
     <message>
       <source>Removed thumb vote</source>
-      <translation>Supprimer le vote</translation>
+      <translation>Fjernet tommelfingerafstemning</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/viewarchivedchat</name>
     <message>
       <source>View archived chat</source>
-      <translation>Voir le chat archivé</translation>
+      <translation>Se arkiverede chat</translation>
     </message>
   </context>
   <context>
     <name>file/configurations</name>
     <message>
       <source>Please enter valid file type!</source>
-      <translation>Veuillez entrer un type de fichier valide!</translation>
+      <translation>Indtast venligst gyldig filtype!</translation>
     </message>
   </context>
   <context>
     <name>chat/screenshot</name>
     <message>
       <source>Screenshot</source>
-      <translation type="unfinished"/>
+      <translation>Screenshot</translation>
     </message>
     <message>
       <source>Take user screenshot</source>
-      <translation type="unfinished"/>
+      <translation>Tag brugeren screenshot</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation type="unfinished"/>
+      <translation>Tom...</translation>
     </message>
     <message>
       <source>Perhaps screenshot is under way or screenshot is not supported on client browser, click refresh to check for a screenshot</source>
-      <translation type="unfinished"/>
+      <translation>Måske screenshot er undervejs eller screenshot er ikke understøttes på klient-browser, klik på Opdater for at kontrollere, om et screenshot</translation>
     </message>
     <message>
       <source>Refresh</source>
-      <translation type="unfinished"/>
+      <translation>Opdater</translation>
     </message>
   </context>
 </TS>

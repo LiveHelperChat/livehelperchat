@@ -4710,6 +4710,10 @@
       <translation>E-mail do destinatário, isto é usado se o aplicativo não pôde determinar quem deve receber um e-mail.</translation>
     </message>
     <message>
+      <source>BCC recipients, can be separated by comma.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Content</source>
       <translation>Conteúdo</translation>
     </message>
@@ -4788,6 +4792,29 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Por favor insira um tipo de arquivo válido!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/screenshot</name>
+    <message>
+      <source>Screenshot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Take user screenshot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Perhaps screenshot is under way or screenshot is not supported on client browser, click refresh to check for a screenshot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Refresh</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>
