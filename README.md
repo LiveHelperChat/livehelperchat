@@ -30,7 +30,7 @@ Few main features
  * Chrome extension
  * Repeatable sound notifications
  * Work hours
- * See what user sees with screenshot feature
+ * See what user see with screenshot feature
  * Drag & Drop widgets, minimize/maximize widgets
  * Multiple chats same time
  * See what users are typing before they send a message

@@ -37,6 +37,8 @@ class erLhcoreClassModelChatOnlineUser {
                'requires_email'   	=> $this->requires_email,
                'dep_id'   			=> $this->dep_id,
                'reopen_chat'   		=> $this->reopen_chat,
+	       	   'operation'   		=> $this->operation,
+	       	   'screenshot_id'   	=> $this->screenshot_id
        );
    }
 
@@ -178,7 +180,20 @@ class erLhcoreClassModelChatOnlineUser {
 
        		   return $this->lastactivity_ago;
        		break;
-
+       		
+       	case 'screenshot':
+       			$this->screenshot = false;
+       			if ($this->screenshot_id > 0) {
+       				try {
+       					$this->screenshot = erLhcoreClassModelChatFile::fetch($this->screenshot_id);
+       				} catch (Exception $e) {
+       		
+       				}
+       			}
+       		
+       		return $this->screenshot;
+       		break;
+       			
        	default:
        		break;
        }
@@ -614,6 +629,9 @@ class erLhcoreClassModelChatOnlineUser {
    public $requires_email = 0;
    public $dep_id = 0;
    public $invitation_seen_count = 0;
+   public $screenshot_id = 0;
+   public $operation = '';
+      
    
    // 0 - do not reopen
    // 1 - reopen chat

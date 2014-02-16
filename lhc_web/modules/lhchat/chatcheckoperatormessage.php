@@ -36,6 +36,12 @@ if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDet
 			$tpl->set('reopen_chat',$chat);
 		}
 		
+		if ($userInstance->operation != ''){
+			$tpl->set('operation',$userInstance->operation);
+			$userInstance->operation = '';
+			$userInstance->saveThis();
+		}
+		
 	    echo $tpl->fetch();
 	}
 }

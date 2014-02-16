@@ -1,3 +1,14 @@
+1.88v
+
+Features
+1. Option to take screenshot in online users list.
+2. Danish language
+
+Fixes
+1. In right column was incorectly calculated time since last message.
+
+execute doc/update_db/update_67.sql for update
+
 1.87v
 
 Features

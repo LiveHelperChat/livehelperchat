@@ -1547,7 +1547,22 @@ function lh(){
             }}).prop('disabled', !$.support.fileInput)
             .parent().addClass($.support.fileInput ? undefined : 'disabled');
     };
-       
+    
+    this.addExecutionCommand = function(online_user_id,operation) {
+    	$.postJSON(this.wwwDir + 'chat/addonlineoperation/' + online_user_id,{'operation':operation}, function(data){
+    		if (LHCCallbacks.addExecutionCommand) {
+   	        	LHCCallbacks.addExecutionCommand(online_user_id);
+   	        };
+    	});
+    	if (operation == 'lhc_screenshot') {
+    		$('#user-screenshot-container').html('').addClass('screenshot-pending');
+    		var inst = this;
+    		setTimeout(function(){
+    			inst.updateScreenshotOnline(online_user_id);
+    		},15000);    		
+    	};
+    };
+    
     this.addRemoteCommand = function(chat_id,operation) {
     	$.postJSON(this.wwwDir + 'chat/addoperation/' + chat_id,{'operation':operation}, function(data){
     		if (LHCCallbacks.addRemoteCommand) {
@@ -1562,10 +1577,18 @@ function lh(){
     		},5000);    		
     	};
     };
-
+    
     this.updateScreenshot = function(chat_id) {
     	$('#user-screenshot-container').html('').addClass('screenshot-pending');
     	$.get(this.wwwDir + 'chat/checkscreenshot/' + chat_id,function(data){
+    		$('#user-screenshot-container').html(data);
+    		$('#user-screenshot-container').removeClass('screenshot-pending');
+    	}); 
+    };
+
+    this.updateScreenshotOnline = function(online_id) {
+    	$('#user-screenshot-container').html('').addClass('screenshot-pending');
+    	$.get(this.wwwDir + 'chat/checkscreenshotonline/' + online_id,function(data){
     		$('#user-screenshot-container').html(data);
     		$('#user-screenshot-container').removeClass('screenshot-pending');
     	}); 
