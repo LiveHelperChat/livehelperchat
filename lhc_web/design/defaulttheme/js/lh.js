@@ -936,8 +936,7 @@ function lh(){
 	                   $('#status-chat').html(data.result);
 	               }
 
-	               if (data.ru != '') {
-	            	   inst.userclosedchatembed();
+	               if (data.ru != '') {	            	   
 	            	   document.location = data.ru;
 	               }
 	               
