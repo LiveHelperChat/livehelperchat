@@ -820,8 +820,14 @@ border-top-right-radius: 6px;
 	min-height:150px;
 }
 
+.bb-list{
+	margin-left:0;
+	margin-bottom:0;
+}
+
 .bb-list li{
 		margin-left:2px;
+		margin-bottom:2px;
 }
 
 .bb-list a{
@@ -829,6 +835,7 @@ border-top-right-radius: 6px;
 	display:inline-block;	
 	border:1px solid #ccc;	 
 	width:32px;
+	height:32px;
 }
 .bb-list a:hover{
 	background-color:#CECECE;
