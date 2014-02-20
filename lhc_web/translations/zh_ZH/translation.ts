@@ -4805,6 +4805,14 @@
       <translation>获取用户截图</translation>
     </message>
     <message>
+      <source>Refresh</source>
+      <translation>刷新</translation>
+    </message>
+    <message>
+      <source>Taken</source>
+      <translation>截取</translation>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>空...</translation>
     </message>
@@ -4813,8 +4821,8 @@
       <translation>可能正在截图，或是客户的浏览器不支持截图功能。请点击刷新试试看</translation>
     </message>
     <message>
-      <source>Refresh</source>
-      <translation>刷新</translation>
+      <source>Screenshot ready...</source>
+      <translation>准备截图...</translation>
     </message>
   </context>
 </TS>

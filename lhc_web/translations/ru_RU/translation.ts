@@ -4806,6 +4806,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Refresh</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Taken</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation type="unfinished"/>
     </message>
@@ -4814,7 +4822,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Refresh</source>
+      <source>Screenshot ready...</source>
       <translation type="unfinished"/>
     </message>
   </context>

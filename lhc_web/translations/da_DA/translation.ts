@@ -137,7 +137,7 @@
     </message>
     <message>
       <source>How many times user show invitation, 0 - untill users closes it, &gt; 0 limits.</source>
-      <translation>Hvor mange gange bruger Vis invitation, 0 - indtil brugere lukker det, &gt; 0 grænser.</translation>
+      <translation>Hvor mange gange bruger vis invitation, 0 - indtil brugere lukker det, &gt; 0 grænser.</translation>
     </message>
     <message>
       <source>Requires e-mail</source>
@@ -355,11 +355,11 @@
     </message>
     <message>
       <source>Personal canned message</source>
-      <translation>Personlig dåse besked</translation>
+      <translation>Personlig forhåndsbesked</translation>
     </message>
     <message>
       <source>Canned message was saved</source>
-      <translation>Dåse meddelelsen blev gemt</translation>
+      <translation>Forhåndsmeddelelsen blev gemt</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -398,7 +398,7 @@
     </message>
     <message>
       <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
-      <translation>Forsinkelse i sekunder før orlov er vist en meddelelsesformular. 0 Betyder funktionalitet er deaktiveret, </translation>
+      <translation>Forsinkelse i sekunder før &quot;efterlad en besked&quot; bliver vist. 0 Betyder funktionalitet er deaktiveret, </translation>
     </message>
     <message>
       <source>Priority</source>
@@ -406,15 +406,15 @@
     </message>
     <message>
       <source>Automate online hours</source>
-      <translation>Automatisere online timer</translation>
+      <translation>Automatiser online timer</translation>
     </message>
     <message>
       <source>Work hours/work days logic is active</source>
-      <translation>Arbejde timer/arbejde dage logik er aktiv</translation>
+      <translation>Arbejdstimer/-dage logik er aktiv</translation>
     </message>
     <message>
       <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
-      <translation>Arbejdsdage/arbejde timer, i løbet af disse dage/timer vil chat være aktive automatisk</translation>
+      <translation>Arbejdsdage/-timer, i løbet af disse dage/timer vil chat være aktive automatisk</translation>
     </message>
     <message>
       <source>Monday</source>
@@ -446,7 +446,7 @@
     </message>
     <message>
       <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation>Arbejde timer, 24 timer format, 1-24</translation>
+      <translation>Arbejdstimer, 24 timer format, 1-24</translation>
     </message>
     <message>
       <source>From, E.g. 8</source>
@@ -466,7 +466,7 @@
     </message>
     <message>
       <source>XMPP group recipients</source>
-      <translation>XMPP gruppe modtagere</translation>
+      <translation>XMPP gruppemodtagere</translation>
     </message>
     <message>
       <source>E.g somechat@conference.server.org/LiveChat</source>
@@ -498,7 +498,7 @@
     </message>
     <message>
       <source>Inform then chat is closed by operator, only mail notification is send.</source>
-      <translation>Informere så chat er lukket af operatøren, kun mail meddelelsen sendes.</translation>
+      <translation>Informer hvis chat er lukket af operatøren, kun mail meddelelsen sendes.</translation>
     </message>
     <message>
       <source>Chat transfer worklow</source>
@@ -672,7 +672,7 @@
     </message>
     <message>
       <source>Attatch uploaded file</source>
-      <translation>Attatch uploadet fil</translation>
+      <translation>Vedhæft uploadet fil</translation>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
@@ -837,7 +837,7 @@
     </message>
     <message>
       <source>You do not have permission to use chattabschrome function</source>
-      <translation>Du har ikke tilladelse til at bruge chattabschrome funktion</translation>
+      <translation>Du har ikke tilladelse til at bruge chattabs chromefunktion</translation>
     </message>
     <message>
       <source>Please</source>
@@ -896,7 +896,7 @@
     </message>
     <message>
       <source>our terms and to the Law</source>
-      <translation>vores vilkår og at loven</translation>
+      <translation>vores vilkår og lovgivningen</translation>
     </message>
     <message>
       <source>Department</source>
@@ -960,7 +960,7 @@
     </message>
     <message>
       <source>You have to accept our Terms Of Service</source>
-      <translation>Du er nødt til at acceptere vores Terms Of Service</translation>
+      <translation>Du er nødt til at acceptere vore betingelser</translation>
     </message>
     <message>
       <source>Please enter your phone</source>
@@ -972,7 +972,7 @@
     </message>
     <message>
       <source>Could not determine a default department!</source>
-      <translation>Kunne ikke bestemme en standard afdeling!</translation>
+      <translation>Kunne ikke bestemme en standardafdeling!</translation>
     </message>
     <message>
       <source>is required</source>
@@ -1161,7 +1161,7 @@
     </message>
     <message>
       <source>bcmath php extension detected</source>
-      <translation>BCMath php forlængelse opdaget</translation>
+      <translation>BCMath php-udvidelse opdaget</translation>
     </message>
     <message>
       <source>Location of city database</source>
@@ -1169,7 +1169,7 @@
     </message>
     <message>
       <source>User country based detection, faster</source>
-      <translation>Brugerens land baseret detektion, hurtigere</translation>
+      <translation>Brugerens landbaserede detektion, hurtigere</translation>
     </message>
     <message>
       <source>File exists</source>
@@ -1181,7 +1181,7 @@
     </message>
     <message>
       <source>User city based detection, slower</source>
-      <translation>Bruger byen baseret detektion, langsommere</translation>
+      <translation>Bruger bybaseret detektion, langsommere</translation>
     </message>
     <message>
       <source>Use PHP-GeoIP module</source>
@@ -1461,11 +1461,11 @@
     </message>
     <message>
       <source>MaxMind city file does not exists!</source>
-      <translation>MaxMind by fil gør ikke eksisterer!</translation>
+      <translation>MaxMind by fil eksisterer ikke!</translation>
     </message>
     <message>
       <source>MaxMind country file does not exists!</source>
-      <translation>MaxMind land fil gør ikke eksisterer!</translation>
+      <translation>MaxMind land fil eksisterer ikke!</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that MaxMind database files exists!</source>
@@ -1489,7 +1489,7 @@
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!</source>
-      <translation>Indstilling-udbyder mislykkedes, Kontroller at din udbyder tillader dig at fremsætte anmodninger til eksterne sider og din API-nøgle er korrekt!</translation>
+      <translation>Indstilling for udbyder mislykkedes, Kontroller at din udbyder tillader dig at lave anmodninger til eksterne sider og at din API-nøgle er korrekt!</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that you have installed php-GeoIP module and GeoIPCity.dat file is available!</source>
@@ -1531,7 +1531,7 @@
     <name>chat/listchatconfig</name>
     <message>
       <source>Chat configuration</source>
-      <translation>Chat konfiguration</translation>
+      <translation>Chatkonfiguration</translation>
     </message>
     <message>
       <source>Notifications about new chats</source>
@@ -1539,7 +1539,7 @@
     </message>
     <message>
       <source>Copyright settings</source>
-      <translation>Copyright indstillinger</translation>
+      <translation>Copyrightindstillinger</translation>
     </message>
     <message>
       <source>Application name</source>
@@ -1551,7 +1551,7 @@
     </message>
     <message>
       <source>Online tracking</source>
-      <translation>Online tracking</translation>
+      <translation>Online sporing</translation>
     </message>
     <message>
       <source>Misc</source>
@@ -1809,7 +1809,7 @@
     </message>
     <message>
       <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
-      <translation>Vis Chatboks indhold i stedet for widget, vil brugerne kunne kun minimere, lukke ikke den.</translation>
+      <translation>Vis Chatboks indhold i stedet for widget, brugerne vil kun kunne minimere, lukke ikke den.</translation>
     </message>
     <message>
       <source>Show chatbox content minimized first time if content is shown.</source>
@@ -2100,7 +2100,7 @@
     </message>
     <message>
       <source>Embed link to file</source>
-      <translation>Integrere link til filen</translation>
+      <translation>Integrer link til filen</translation>
     </message>
     <message>
       <source>Mail was sent to the user</source>
@@ -2166,11 +2166,11 @@
     </message>
     <message>
       <source>Enable leave a message functionality automatically if there are no online operators</source>
-      <translation>Aktiver efterlade en besked funktionalitet automatisk, hvis der er ingen online operatører</translation>
+      <translation>Aktiver &quot;efterlade en besked funktionalitet&quot; automatisk, hvis ingen operatører er online</translation>
     </message>
     <message>
       <source>Online form settings</source>
-      <translation>Onlineformular indstillinger</translation>
+      <translation>Online formularindstillinger</translation>
     </message>
     <message>
       <source>Name</source>
@@ -2214,11 +2214,11 @@
     </message>
     <message>
       <source>Terms of service acceptance checkbox</source>
-      <translation>Vilkår for service accept afkrydsningsfeltet</translation>
+      <translation>Afkrydsningsfeltet for accept af betingelser</translation>
     </message>
     <message>
       <source>Offline form settings</source>
-      <translation>Offline Formularindstillinger</translation>
+      <translation>Offline formularindstillinger</translation>
     </message>
     <message>
       <source>E-mail is always required</source>
@@ -2281,19 +2281,19 @@
     </message>
     <message>
       <source>Long polling</source>
-      <translation>Lange afstemningssteder</translation>
+      <translation>Lang afstemning</translation>
     </message>
     <message>
       <source>Enable long polling</source>
-      <translation>Aktivere lange afstemningssteder</translation>
+      <translation>Aktiver lang afstemning</translation>
     </message>
     <message>
       <source>How many seconds keep connection to server?</source>
-      <translation>Hvor mange sekunder holde forbindelsen til serveren?</translation>
+      <translation>Hvor mange sekunder skal forbindelsen til serveren holdes?</translation>
     </message>
     <message>
       <source>New chat request notification settings</source>
-      <translation>Nye chat anmodningen Meddelelsesindstillinger</translation>
+      <translation>Ny chat-anmodning meddelelsesindstillinger</translation>
     </message>
     <message>
       <source>Play a new pending chat sound on a new chat request</source>
@@ -2309,11 +2309,11 @@
     </message>
     <message>
       <source>Show alert message on a new chat request</source>
-      <translation>Vis besked på en ny anmodning om chat</translation>
+      <translation>Vis besked ved en ny anmodning om chat</translation>
     </message>
     <message>
       <source>How many times play sound notification</source>
-      <translation>Hvor mange gange spille lydunderretning</translation>
+      <translation>Hvor mange gange afspilles lydunderretning</translation>
     </message>
     <message>
       <source>Number</source>
@@ -2321,7 +2321,7 @@
     </message>
     <message>
       <source>Delay between sound notifications in seconds</source>
-      <translation>Forsinkelse mellem lyd meddelelser i sekunder</translation>
+      <translation>Forsinkelse mellem lydmeddelelser i sekunder</translation>
     </message>
     <message>
       <source>delay in seconds</source>
@@ -2337,7 +2337,7 @@
     </message>
     <message>
       <source>Please enter a valid server connection timeout value!</source>
-      <translation>Angiv en gyldigt server forbindelse timeoutværdi!</translation>
+      <translation>Angiv en gyldig server-forbindelse timeoutværdi!</translation>
     </message>
     <message>
       <source>Please enter a valid operator message timeout value!</source>
@@ -2345,7 +2345,7 @@
     </message>
     <message>
       <source>Please enter a valid new messages polling sync interval!</source>
-      <translation>Angiv en gyldig nye meddelelser polling synkr.interval!</translation>
+      <translation>Angiv en gyldig ny meddelelses polling synkr.interval!</translation>
     </message>
     <message>
       <source>Please enter a valid back office sync interval!</source>
@@ -2977,7 +2977,7 @@
     </message>
     <message>
       <source>Personal canned messages</source>
-      <translation>Personlige dåse meddelelser</translation>
+      <translation>Personlige forhåndsmeddelelser</translation>
     </message>
     <message>
       <source>Account updated</source>
@@ -3085,7 +3085,7 @@
     <name>faq/list</name>
     <message>
       <source>FAQ</source>
-      <translation>OFTE STILLEDE SPØRGSMÅL</translation>
+      <translation>FAQ</translation>
     </message>
     <message>
       <source>Question</source>
@@ -3171,7 +3171,7 @@
     </message>
     <message>
       <source>Embed BB code</source>
-      <translation>Integrere BB kode</translation>
+      <translation>Integrer BB kode</translation>
     </message>
     <message>
       <source>User</source>
@@ -3836,7 +3836,7 @@
     </message>
     <message>
       <source>FAQ</source>
-      <translation>OFTE STILLEDE SPØRGSMÅL</translation>
+      <translation>FAQ</translation>
     </message>
     <message>
       <source>Chatbox</source>
@@ -3953,7 +3953,7 @@
     </message>
     <message>
       <source>Set application specific time zone</source>
-      <translation>Indstil program bestemt tidszone</translation>
+      <translation>Indstil programbestemt tidszone</translation>
     </message>
     <message>
       <source>Date format E.g (Y-m-d)</source>
@@ -4040,7 +4040,7 @@
     </message>
     <message>
       <source>Application default time zone</source>
-      <translation>Ansøgning standardtidszone</translation>
+      <translation>Programmets standardtidszone</translation>
     </message>
     <message>
       <source>Wrong email address</source>
@@ -4359,7 +4359,7 @@
     <name>user/login</name>
     <message>
       <source>Please login</source>
-      <translation>Venligst login</translation>
+      <translation>Venligst log ind</translation>
     </message>
     <message>
       <source>Username</source>
@@ -4479,7 +4479,7 @@
     </message>
     <message>
       <source>XMPP active</source>
-      <translation>XMPP aktive</translation>
+      <translation>XMPP aktiv</translation>
     </message>
     <message>
       <source>XMPP Message content</source>
@@ -4491,7 +4491,7 @@
     </message>
     <message>
       <source>Use standard XMPP service</source>
-      <translation>Bruge standard XMPP service</translation>
+      <translation>Brug standard XMPP-service</translation>
     </message>
     <message>
       <source>Host</source>
@@ -4535,7 +4535,7 @@
     </message>
     <message>
       <source>Test group recipients</source>
-      <translation>Test gruppe modtagere</translation>
+      <translation>Test gruppemodtagere</translation>
     </message>
     <message>
       <source>Test message will be send to your account e-mail</source>
@@ -4555,11 +4555,11 @@
     </message>
     <message>
       <source>Redirect URL, this url you will have to enter in your google app configuration</source>
-      <translation>Omdirigere URL, denne webadresse, du bliver nødt til at indtaste i din google app konfiguration</translation>
+      <translation>Omdiriger URL, denne webadresse, skal du indtaste i din google app konfiguration</translation>
     </message>
     <message>
       <source>Enter your app information bellow</source>
-      <translation>Indtast din app oplysninger bellow</translation>
+      <translation>Indtast dine app-oplysninger nedenfor</translation>
     </message>
     <message>
       <source>OAuth 2.0 Client ID</source>
@@ -4567,11 +4567,11 @@
     </message>
     <message>
       <source>Please enter your Client ID</source>
-      <translation>Angiv venligst din klient-ID</translation>
+      <translation>Angiv venligst dit klient-ID</translation>
     </message>
     <message>
       <source>Client secret</source>
-      <translation>Klienten hemmelighed</translation>
+      <translation>Klient-hemmelighed</translation>
     </message>
     <message>
       <source>This message will be send to your e-mail</source>
@@ -4583,19 +4583,19 @@
     </message>
     <message>
       <source>Revoke access token</source>
-      <translation>Tilbagekalde adgangstoken</translation>
+      <translation>Tilbagekald adgangstoken</translation>
     </message>
     <message>
       <source>Revoke permission to send a message</source>
-      <translation>Tilbagekalde tilladelse til at sende en besked</translation>
+      <translation>Tilbagekald tilladelse til at sende en besked</translation>
     </message>
     <message>
       <source>Authentificate and grant permission to send a message</source>
-      <translation>Authentificate og tilskud tilladelse til at sende en besked</translation>
+      <translation>Authenticer og giv tilladelse til at sende en besked</translation>
     </message>
     <message>
       <source>Grant permission to send a message</source>
-      <translation>Give tilladelse til at sende en besked</translation>
+      <translation>Giv tilladelse til at sende en besked</translation>
     </message>
     <message>
       <source>Settings updated</source>
@@ -4603,7 +4603,7 @@
     </message>
     <message>
       <source>Succesfully authorised, now you can try to send a message</source>
-      <translation>Held godkendt, nu kan du prøve at sende en besked</translation>
+      <translation>Godkendt, nu kan du prøve at sende en besked</translation>
     </message>
     <message>
       <source>Token was revoked</source>
@@ -4611,7 +4611,7 @@
     </message>
     <message>
       <source>XMPP message was sent succesfuly</source>
-      <translation>XMPP besked blev sendt succesfuly</translation>
+      <translation>XMPP besked blev sendt succesfuldt</translation>
     </message>
   </context>
   <context>
@@ -4656,7 +4656,7 @@
     </message>
     <message>
       <source>Transfer department has to be different one than self</source>
-      <translation>Overførsel afdeling har til at være anderledes end selv</translation>
+      <translation>Overførselsafdeling skal være anderledes end egen.</translation>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>
@@ -4802,7 +4802,15 @@
     </message>
     <message>
       <source>Take user screenshot</source>
-      <translation>Tag brugeren screenshot</translation>
+      <translation>Tag bruger-screenshot</translation>
+    </message>
+    <message>
+      <source>Refresh</source>
+      <translation>Opdater</translation>
+    </message>
+    <message>
+      <source>Taken</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Empty...</source>
@@ -4810,11 +4818,11 @@
     </message>
     <message>
       <source>Perhaps screenshot is under way or screenshot is not supported on client browser, click refresh to check for a screenshot</source>
-      <translation>Måske screenshot er undervejs eller screenshot er ikke understøttes på klient-browser, klik på Opdater for at kontrollere, om et screenshot</translation>
+      <translation>Screenshot er måske undervejs eller screenshot er ikke understøttet på klient-browser, klik på Opdater for at kontrollere, om et screenshot er tilgængeligt</translation>
     </message>
     <message>
-      <source>Refresh</source>
-      <translation>Opdater</translation>
+      <source>Screenshot ready...</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>
