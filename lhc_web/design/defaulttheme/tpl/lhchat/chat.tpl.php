@@ -48,12 +48,17 @@
         lhinst.initTypingMonitoringUser('<?php echo $chat_id?>');
         </script>
     </div>
-
+	<div id="bbcodeReveal" class="reveal-modal"></div>
     <div class="pt5" id="ChatSendButtonContainer">
     	<input type="button" class="tiny round button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Send')?>" onclick="lhinst.addmsguser()" />
-    	<?php if ( isset($chat_embed_mode) && $chat_embed_mode == true ) : ?>
-    	<input type="button" class="secondary tiny button round right" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>" onclick="lhinst.userclosedchatembed();" />
-    	<?php endif;?>
+    	
+    	<ul class="button-group round right">
+    		<li><input type="button" class="tiny secondary button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','BB Code')?>" data-reveal-id="bbcodeReveal" data-reveal-ajax="<?php echo erLhcoreClassDesign::baseurl('chat/bbcodeinsert')?>" /></li>
+    		<?php if ( isset($chat_embed_mode) && $chat_embed_mode == true ) : ?>
+    		<li><input type="button" class="tiny secondary button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>" onclick="lhinst.userclosedchatembed();" /></li>
+    		<?php endif;?>
+    	</ul>
+    	
     </div>
 
 
