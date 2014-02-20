@@ -819,3 +819,17 @@ border-top-right-radius: 6px;
 	background:url(../images/general/loading.gif) no-repeat center center;
 	min-height:150px;
 }
+
+.bb-list li{
+		margin-left:2px;
+}
+
+.bb-list a{
+	padding:2px;
+	display:inline-block;	
+	border:1px solid #ccc;	 
+	width:32px;
+}
+.bb-list a:hover{
+	background-color:#CECECE;
+}
