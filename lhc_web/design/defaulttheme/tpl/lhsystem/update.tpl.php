@@ -20,7 +20,7 @@
 <script>
 (function() {
   $.ajax({
-      url: 'https://api.github.com/repos/remdex/livehelperchat/contents/lhc_web/doc/update_db',   
+      url: 'https://api.github.com/repos/LiveHelperChat/livehelperchat/contents/lhc_web/doc/update_db',   
       dataType: 'jsonp',      
       jsonp: 'callback',
       jsonpCallback: 'jsonpCallback',
