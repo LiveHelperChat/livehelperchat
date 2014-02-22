@@ -3165,6 +3165,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Identifier has to be shorter than 10 characters!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter question!</source>
       <translation type="unfinished"/>
     </message>
