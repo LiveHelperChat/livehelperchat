@@ -1150,6 +1150,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Region name server variable</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Latitude variable</source>
       <translation type="unfinished"/>
     </message>

@@ -77,6 +77,9 @@ if ( isset($_POST['StoreGeoIPConfiguration']) ) {
         'ServerVariableGEOIP_LATITUDE' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
         ),
+        'ServerVariableGEOIP_REGION' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+        ),
         'ServerVariableGEOIP_LONGITUDE' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
         ),
@@ -139,6 +142,12 @@ if ( isset($_POST['StoreGeoIPConfiguration']) ) {
                     $data['mod_geo_ip_city_name'] = $form->ServerVariableGEOIP_CITY;
                 } else {
                     $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Please enter city variable!');
+                }
+
+                if ( $form->hasValidData( 'ServerVariableGEOIP_REGION' ) && $form->ServerVariableGEOIP_REGION != '' ) {
+                    $data['mod_geo_ip_region_name'] = $form->ServerVariableGEOIP_REGION;
+                } else {
+                    $data['mod_geo_ip_region_name'] = '';
                 }
 
                 if ( $form->hasValidData( 'ServerVariableGEOIP_LATITUDE' ) && $form->ServerVariableGEOIP_LATITUDE != '' ) {

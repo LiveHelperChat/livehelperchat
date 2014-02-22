@@ -48,6 +48,9 @@
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','City name server variable'); ?></label>
         <input type="text" name="ServerVariableGEOIP_CITY" value="<?php isset($geo_data['mod_geo_ip_city_name']) ? print $geo_data['mod_geo_ip_city_name'] : print 'GEOIP_CITY' ?>">
 
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Region name server variable'); ?></label>
+        <input type="text" name="ServerVariableGEOIP_REGION" value="<?php isset($geo_data['mod_geo_ip_region_name']) ? print $geo_data['mod_geo_ip_region_name'] : print 'GEOIP_REGION' ?>">
+
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Latitude variable'); ?></label>
         <input type="text" name="ServerVariableGEOIP_LATITUDE" value="<?php isset($geo_data['mod_geo_ip_latitude']) ? print $geo_data['mod_geo_ip_latitude'] : print 'GEOIP_LATITUDE' ?>">
 
