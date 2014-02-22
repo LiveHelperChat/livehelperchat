@@ -1,6 +1,6 @@
 <div class="text-center">
 <ul class="bb-list inline-list">	
-	<li><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert','Image');?>" class="icon-picture" data-bb-code=" [img]<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert','Link title image');?>[/img] "></a></li>
+	<li><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert','Image');?>" class="icon-picture" data-bb-code=" [img]<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert','Link to image');?>[/img] "></a></li>
 	<li><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert','Link');?>" class="icon-link" data-bb-code=" [url=http://example.com]<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert','Link title');?>[/url] "></a></li>
 	<li><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert','Bold');?>" data-bb-code=" [b][/b] "><strong>B</strong></a></li>
 	<li><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert','Italic');?>" data-bb-code=" [i][/i] "><em>I</em></a></li>

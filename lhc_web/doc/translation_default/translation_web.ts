@@ -4858,11 +4858,15 @@
   <context>
     <name>chat/bbcodeinsert</name>
     <message>
+      <source>Link title image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Image</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Link title image</source>
+      <source>Link to image</source>
       <translation type="unfinished"/>
     </message>
     <message>
