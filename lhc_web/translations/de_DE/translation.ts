@@ -59,11 +59,11 @@
     </message>
     <message>
       <source>Test</source>
-      <translation type="unfinished"/>
+      <translation>Test</translation>
     </message>
     <message>
       <source>Send test message</source>
-      <translation type="unfinished"/>
+      <translation>Sende Test Nachricht</translation>
     </message>
   </context>
   <context>
@@ -235,6 +235,10 @@
     <message>
       <source>Send</source>
       <translation>Senden</translation>
+    </message>
+    <message>
+      <source>BB Code</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Close</source>
@@ -410,7 +414,7 @@
     </message>
     <message>
       <source>Work hours/work days logic is active</source>
-      <translation type="unfinished"/>
+      <translation>Arbeitstage / Zeit Einstellung aktiv</translation>
     </message>
     <message>
       <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
@@ -418,35 +422,35 @@
     </message>
     <message>
       <source>Monday</source>
-      <translation type="unfinished"/>
+      <translation>Montag</translation>
     </message>
     <message>
       <source>Tuesday</source>
-      <translation type="unfinished"/>
+      <translation>Dienstag</translation>
     </message>
     <message>
       <source>Wednesday</source>
-      <translation type="unfinished"/>
+      <translation>Mittwoch</translation>
     </message>
     <message>
       <source>Thursday</source>
-      <translation type="unfinished"/>
+      <translation>Donnerstag</translation>
     </message>
     <message>
       <source>Friday</source>
-      <translation type="unfinished"/>
+      <translation>Freitag</translation>
     </message>
     <message>
       <source>Saturday</source>
-      <translation type="unfinished"/>
+      <translation>Samstag</translation>
     </message>
     <message>
       <source>Sunday</source>
-      <translation type="unfinished"/>
+      <translation>Sonntag</translation>
     </message>
     <message>
       <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation type="unfinished"/>
+      <translation>Arbeitsstunden, 24 Stunden Format, 1 - 24</translation>
     </message>
     <message>
       <source>From, E.g. 8</source>
@@ -482,7 +486,7 @@
     </message>
     <message>
       <source>XMPP messages</source>
-      <translation type="unfinished"/>
+      <translation>XMPP Nachricht</translation>
     </message>
     <message>
       <source>Mail messages</source>
@@ -564,7 +568,7 @@
     </message>
     <message>
       <source>Files</source>
-      <translation type="unfinished"/>
+      <translation>Datein</translation>
     </message>
     <message>
       <source>Pending chat</source>
@@ -735,27 +739,27 @@
     <name>files/files</name>
     <message>
       <source>Refresh</source>
-      <translation type="unfinished"/>
+      <translation>Aktualisieren</translation>
     </message>
     <message>
       <source>Delete file</source>
-      <translation type="unfinished"/>
+      <translation>Lösche Datei</translation>
     </message>
     <message>
       <source>Download file</source>
-      <translation type="unfinished"/>
+      <translation>Datei Download</translation>
     </message>
     <message>
       <source>Drop your files here.</source>
-      <translation type="unfinished"/>
+      <translation>Ziehe Datein hier her</translation>
     </message>
     <message>
       <source>Not an accepted file type</source>
-      <translation type="unfinished"/>
+      <translation>Datei Typ nicht akzeptiert</translation>
     </message>
     <message>
       <source>Filesize is too big</source>
-      <translation type="unfinished"/>
+      <translation>Datei zu groß</translation>
     </message>
   </context>
   <context>
@@ -916,7 +920,7 @@
     </message>
     <message>
       <source>Personal assistant</source>
-      <translation type="unfinished"/>
+      <translation>Personal Assistent</translation>
     </message>
     <message>
       <source>Fill out this form to start a chat</source>
@@ -1142,6 +1146,10 @@
     <message>
       <source>City name server variable</source>
       <translation>Ortsnamen-Servervariabel</translation>
+    </message>
+    <message>
+      <source>Region name server variable</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Latitude variable</source>
@@ -1429,11 +1437,11 @@
     </message>
     <message>
       <source>Files upload for users is active</source>
-      <translation type="unfinished"/>
+      <translation>Dateiupload für Benutzer aktiv</translation>
     </message>
     <message>
       <source>Files upload for operators is active</source>
-      <translation type="unfinished"/>
+      <translation>Dateiupload für Mitarbeiter aktiv</translation>
     </message>
     <message>
       <source>Country code variable does not exist!</source>
@@ -1638,7 +1646,7 @@
     </message>
     <message>
       <source>XMPP settings</source>
-      <translation type="unfinished"/>
+      <translation>XMPP Einstellung</translation>
     </message>
     <message>
       <source>Languages configuration</source>
@@ -1698,15 +1706,15 @@
     </message>
     <message>
       <source>Files uploads configuration</source>
-      <translation type="unfinished"/>
+      <translation>Dateiuploads Einstellungen</translation>
     </message>
     <message>
       <source>Files upload configuration</source>
-      <translation type="unfinished"/>
+      <translation>Dateiupload Einstellungen</translation>
     </message>
     <message>
       <source>List of files</source>
-      <translation type="unfinished"/>
+      <translation>Datei Liste</translation>
     </message>
     <message>
       <source>Other</source>
@@ -1714,7 +1722,7 @@
     </message>
     <message>
       <source>File configuration</source>
-      <translation type="unfinished"/>
+      <translation>Datei Einstellungen</translation>
     </message>
     <message>
       <source>New file</source>
@@ -1966,11 +1974,11 @@
     <name>chat/lists/search_panel</name>
     <message>
       <source>Nick</source>
-      <translation type="unfinished"/>
+      <translation>Spitzname</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>E-Mail</translation>
     </message>
     <message>
       <source>Date range from to</source>
@@ -1986,7 +1994,7 @@
     </message>
     <message>
       <source>Search</source>
-      <translation type="unfinished"/>
+      <translation>Suche</translation>
     </message>
     <message>
       <source>Select department</source>
@@ -2012,7 +2020,7 @@
     <name>chat/part/operator_profile</name>
     <message>
       <source>Skype call</source>
-      <translation type="unfinished"/>
+      <translation>Skype Anruf</translation>
     </message>
   </context>
   <context>
@@ -2933,15 +2941,15 @@
     </message>
     <message>
       <source>Skype</source>
-      <translation type="unfinished"/>
+      <translation>Skype</translation>
     </message>
     <message>
       <source>XMPP username</source>
-      <translation type="unfinished"/>
+      <translation>XMPP Nutzername</translation>
     </message>
     <message>
       <source>Photo</source>
-      <translation type="unfinished"/>
+      <translation>Foto</translation>
     </message>
     <message>
       <source>Update</source>
@@ -2985,7 +2993,7 @@
     </message>
     <message>
       <source>Delete</source>
-      <translation type="unfinished"/>
+      <translation>Löschen</translation>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -3155,7 +3163,7 @@
     <name>file/list</name>
     <message>
       <source>List of files</source>
-      <translation type="unfinished"/>
+      <translation>Liste der Datein</translation>
     </message>
     <message>
       <source>Upload a file</source>
@@ -3163,11 +3171,11 @@
     </message>
     <message>
       <source>Upload name</source>
-      <translation type="unfinished"/>
+      <translation>Upload Name</translation>
     </message>
     <message>
       <source>File size</source>
-      <translation type="unfinished"/>
+      <translation>Dateigröße</translation>
     </message>
     <message>
       <source>Embed BB code</source>
@@ -3175,30 +3183,30 @@
     </message>
     <message>
       <source>User</source>
-      <translation type="unfinished"/>
+      <translation>Benutzer</translation>
     </message>
     <message>
       <source>Chat</source>
-      <translation type="unfinished"/>
+      <translation>Chat</translation>
     </message>
     <message>
       <source>Extension</source>
-      <translation type="unfinished"/>
+      <translation>Erweiterung</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation type="unfinished"/>
+      <translation>Datum</translation>
     </message>
     <message>
       <source>Delete the file</source>
-      <translation type="unfinished"/>
+      <translation>Lösche Datei</translation>
     </message>
   </context>
   <context>
     <name>file/configuration</name>
     <message>
       <source>File configuration</source>
-      <translation type="unfinished"/>
+      <translation>Datei Einstellungen</translation>
     </message>
     <message>
       <source>Allowed files types for operators</source>
@@ -3210,11 +3218,11 @@
     </message>
     <message>
       <source>Maximum file size in KB</source>
-      <translation type="unfinished"/>
+      <translation>Maximale Dateigröße in KB</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Einstellungen aktualisiert</translation>
     </message>
     <message>
       <source>Please enter valid file type!</source>
@@ -4016,7 +4024,7 @@
     </message>
     <message>
       <source>Photo</source>
-      <translation type="unfinished"/>
+      <translation>Foto</translation>
     </message>
     <message>
       <source>Save</source>
@@ -4150,7 +4158,7 @@
     </message>
     <message>
       <source>Photo</source>
-      <translation type="unfinished"/>
+      <translation>Foto</translation>
     </message>
     <message>
       <source>Departments</source>
@@ -4491,39 +4499,39 @@
     </message>
     <message>
       <source>Use standard XMPP service</source>
-      <translation type="unfinished"/>
+      <translation>Standard XMPP-Dienst verwenden</translation>
     </message>
     <message>
       <source>Host</source>
-      <translation type="unfinished"/>
+      <translation>Host</translation>
     </message>
     <message>
       <source>Port</source>
-      <translation type="unfinished"/>
+      <translation>Port</translation>
     </message>
     <message>
       <source>Login</source>
-      <translation type="unfinished"/>
+      <translation>Anmelden</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation type="unfinished"/>
+      <translation>Passwort</translation>
     </message>
     <message>
       <source>Resource</source>
-      <translation type="unfinished"/>
+      <translation>Resource</translation>
     </message>
     <message>
       <source>Server</source>
-      <translation type="unfinished"/>
+      <translation>Server</translation>
     </message>
     <message>
       <source>Recipients</source>
-      <translation type="unfinished"/>
+      <translation>Empfänger</translation>
     </message>
     <message>
       <source>Default recipients</source>
-      <translation type="unfinished"/>
+      <translation>Standard Empfänger</translation>
     </message>
     <message>
       <source>Test recipients</source>
@@ -4539,7 +4547,7 @@
     </message>
     <message>
       <source>Test message will be send to your account e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Testnachricht an Ihre Emailadresse senden</translation>
     </message>
     <message>
       <source>GTalk</source>
@@ -4599,7 +4607,7 @@
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Einstellungen aktualisiert</translation>
     </message>
     <message>
       <source>Succesfully authorised, now you can try to send a message</source>
@@ -4607,7 +4615,7 @@
     </message>
     <message>
       <source>Token was revoked</source>
-      <translation type="unfinished"/>
+      <translation>Token wurde aufgehoben</translation>
     </message>
     <message>
       <source>XMPP message was sent succesfuly</source>
@@ -4618,7 +4626,7 @@
     <name>file/file</name>
     <message>
       <source>Download file</source>
-      <translation type="unfinished"/>
+      <translation>Download Datei</translation>
     </message>
   </context>
   <context>
@@ -4822,6 +4830,33 @@
     </message>
     <message>
       <source>Screenshot ready...</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/bbcodeinsert</name>
+    <message>
+      <source>Image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Link title image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Link</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Link title</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bold</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Italic</source>
       <translation type="unfinished"/>
     </message>
   </context>

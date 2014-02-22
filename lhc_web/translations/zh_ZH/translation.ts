@@ -237,6 +237,10 @@
       <translation>发送</translation>
     </message>
     <message>
+      <source>BB Code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Close</source>
       <translation>关闭</translation>
     </message>
@@ -1142,6 +1146,10 @@
     <message>
       <source>City name server variable</source>
       <translation>城市名称服务器变量</translation>
+    </message>
+    <message>
+      <source>Region name server variable</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Latitude variable</source>
@@ -4823,6 +4831,33 @@
     <message>
       <source>Screenshot ready...</source>
       <translation>准备截图...</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/bbcodeinsert</name>
+    <message>
+      <source>Image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Link title image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Link</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Link title</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bold</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Italic</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>
