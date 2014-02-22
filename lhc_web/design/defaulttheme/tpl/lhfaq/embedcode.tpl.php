@@ -31,7 +31,7 @@ function generateEmbedCode(){
 
     var id_tag = '<!-- Place this tag where you want the Live Helper FAQ module to render. -->'+"\n"+'<div id="lhc_faq_embed_container" ></div>'+"\n\n<!-- Place this tag after the Live Helper FAQ module tag. -->\n";
 
-    var script = '<script type="text/javascript">'+"\nvar LHCFAQOptions = {url:'replace_me_with_dynamic_url'};\n"+
+    var script = '<script type="text/javascript">'+"\nvar LHCFAQOptions = {url:'replace_me_with_dynamic_url',identifier:''};\n"+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
         'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'faq/embed'+"';\n"+

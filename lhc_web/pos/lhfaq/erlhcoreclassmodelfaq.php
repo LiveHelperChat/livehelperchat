@@ -39,6 +39,19 @@ $def->properties['is_wildcard']->columnName   = 'is_wildcard';
 $def->properties['is_wildcard']->propertyName = 'is_wildcard';
 $def->properties['is_wildcard']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+/**
+ * Submiter e-mail
+ * */
+$def->properties['email'] = new ezcPersistentObjectProperty();
+$def->properties['email']->columnName   = 'email';
+$def->properties['email']->propertyName = 'email';
+$def->properties['email']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['identifier'] = new ezcPersistentObjectProperty();
+$def->properties['identifier']->columnName   = 'identifier';
+$def->properties['identifier']->propertyName = 'identifier';
+$def->properties['identifier']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 return $def;
 
 ?>

@@ -141,7 +141,7 @@ var lhc_FAQ = {
 
    		  this.removeById('lhc_container_faq');
 
-   		  this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('faq/faqwidget')?>"+'?URLReferer='+encodeURIComponent(document.location)+'&URLModule='+LHCFAQOptions.url;
+   		  this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('faq/faqwidget')?>"+'?URLReferer='+encodeURIComponent(document.location)+'&URLModule='+encodeURIComponent(LHCFAQOptions.url)+'&identifier='+encodeURIComponent(LHCFAQOptions.identifier);
 
    		  this.iframe_html = '<iframe id="lhcfaq_iframe" allowTransparency="true" scrolling="no" class="lhc-loading" frameborder="0" ' +
                        ( this.initial_iframe_url != '' ? ' src="'    + this.initial_iframe_url + '"' : '' ) +

@@ -328,6 +328,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `question` varchar(250) NOT NULL,
 				  `answer` text NOT NULL,
 				  `url` varchar(250) NOT NULL,
+				  `email` varchar(50) NOT NULL,
+				  `identifier` varchar(10) NOT NULL,
 				  `active` int(11) NOT NULL,
 				  `has_url` tinyint(1) NOT NULL,
 				  `is_wildcard` tinyint(1) NOT NULL,
@@ -335,6 +337,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  KEY `active` (`active`),
 				  KEY `active_url` (`active`,`url`),
 				  KEY `has_url` (`has_url`),
+				  KEY `identifier` (`identifier`),
 				  KEY `is_wildcard` (`is_wildcard`)
 				) DEFAULT CHARSET=utf8;");
 

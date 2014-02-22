@@ -62,7 +62,7 @@ function generateEmbedCode(){
 	var top = '/(top)/'+($('#id_top_text').val() == '' ? 400 : $('#id_top_text').val());
 	var topposition = '/(units)/'+$('#UnitsTop').val();
 
-    var script = '<script type="text/javascript">'+"\nvar LHCFAQOptions = {status_text:'"+textStatus+"',url:'replace_me_with_dynamic_url'};\n"+
+    var script = '<script type="text/javascript">'+"\nvar LHCFAQOptions = {status_text:'"+textStatus+"',url:'replace_me_with_dynamic_url',identifier:''};\n"+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
         'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'faq/getstatus'+id_position+top+topposition+"';\n"+

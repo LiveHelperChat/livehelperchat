@@ -25,6 +25,12 @@ class erLhcoreClassFaq {
 	   			'URL' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
 	   			),
+	   			'Email' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'validate_email'
+	   			),
+	   			'Identifier' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+	   			),
 	   			'ActiveFAQ' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	   			)
@@ -37,6 +43,20 @@ class erLhcoreClassFaq {
 	   		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('faq/view','Please enter answer!');
 	   	} else {
 	   		$faq->answer = $form->answer;
+	   	}
+
+	   	if ( $form->hasValidData( 'Identifier' ) )
+	   	{
+	   		$faq->identifier = $form->Identifier;
+	   	} else {
+	   		$faq->identifier = '';
+	   	}
+
+	   	if ( $form->hasValidData( 'Email' ) )
+	   	{
+	   		$faq->email = $form->Email;
+	   	} else {
+	   		$faq->email = '';
 	   	}
 
 	   	if ( !$form->hasValidData( 'question' ) || $form->question == '')
