@@ -4862,11 +4862,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Image</source>
+      <source>Link to image</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Link to image</source>
+      <source>Image</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4883,6 +4883,18 @@
     </message>
     <message>
       <source>Italic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter link to an image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a link</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Here is a link</source>
       <translation type="unfinished"/>
     </message>
   </context>

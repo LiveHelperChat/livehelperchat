@@ -237,6 +237,10 @@
       <translation>Wyśli</translation>
     </message>
     <message>
+      <source>BB Code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Close</source>
       <translation>Zamknij</translation>
     </message>
@@ -1142,6 +1146,10 @@
     <message>
       <source>City name server variable</source>
       <translation>Zmienna serwera - nazwa miasta</translation>
+    </message>
+    <message>
+      <source>Region name server variable</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Latitude variable</source>
@@ -4822,6 +4830,33 @@
     </message>
     <message>
       <source>Screenshot ready...</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/bbcodeinsert</name>
+    <message>
+      <source>Image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Link title image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Link</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Link title</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bold</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Italic</source>
       <translation type="unfinished"/>
     </message>
   </context>
