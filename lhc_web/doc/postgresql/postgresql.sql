@@ -252,6 +252,8 @@ CREATE TABLE "lh_faq" (
     "question" varchar(500) NOT NULL,
     "answer" text NOT NULL,
     "url" varchar(500) NOT NULL,
+    "email" varchar(50) NOT NULL,
+    "identifier" varchar(10) NOT NULL,
     "active" integer NOT NULL,
     "has_url" int4 NOT NULL,
     "is_wildcard" int4 NOT NULL,
@@ -560,6 +562,7 @@ CREATE INDEX departament_online_hours ON lh_departament USING btree (online_hour
 CREATE INDEX faq_active_url ON lh_faq USING btree (active, has_url);
 CREATE INDEX faq_has_url ON lh_faq USING btree (has_url);
 CREATE INDEX faq_is_wildcard ON lh_faq USING btree (is_wildcard);	
+CREATE INDEX faq_identifier ON lh_faq USING btree (identifier);	
 CREATE INDEX grouprole_role_id_group_id ON lh_grouprole USING btree (role_id, group_id);
 CREATE INDEX groupuser_group_id_user_id ON lh_groupuser USING btree (group_id, user_id);
 CREATE INDEX groupuser_user_id ON lh_groupuser USING btree (user_id);
