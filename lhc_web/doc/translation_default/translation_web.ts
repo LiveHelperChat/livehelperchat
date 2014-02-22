@@ -3048,6 +3048,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Question</source>
       <translation type="unfinished"/>
     </message>
@@ -3083,6 +3087,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Submitter e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier, can be used to filter questions by identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Question is active</source>
       <translation type="unfinished"/>
     </message>
@@ -3099,6 +3111,10 @@
     </message>
     <message>
       <source>Question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier</source>
       <translation type="unfinished"/>
     </message>
     <message>
