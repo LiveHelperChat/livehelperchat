@@ -5,6 +5,7 @@ header('P3P: CP="NOI ADM DEV COM NAV OUR STP"');
 
 $referer = '';
 $dynamic_url = '';
+$identifier = '';
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhfaq/faqwidget.tpl.php');
 $tpl->set('referer',$referer);
@@ -21,12 +22,25 @@ if (isset($_GET['URLModule']))
 	$tpl->set('dynamic_url',$dynamic_url);
 }
 
+if (isset($_GET['identifier']))
+{
+	$identifier = ($_GET['identifier'] != '' && $_GET['identifier'] != 'undefined') ? (string) $_GET['identifier'] : '';
+	$tpl->set('identifier',$identifier);
+}
+
 if ($dynamic_url == '') {
 	$dynamic_url = base64_decode(rawurldecode((string)$Params['user_parameters_unordered']['url']));
 	if (empty($dynamic_url)){
 		$dynamic_url = $referer;
 	} else {
 		$tpl->set('referer',$dynamic_url);
+	}
+}
+
+if ($identifier == '') {
+	$identifier = rawurldecode((string)$Params['user_parameters_unordered']['identifier']);
+	if (!empty($identifier)){
+		$tpl->set('identifier',$identifier);
 	}
 }
 
@@ -48,6 +62,12 @@ if ($dynamic_url != ''){
 	$dynamic_url_append .= '/(url)/'.rawurlencode(base64_encode($dynamic_url));
 }
 
+if ($identifier != ''){
+	$dynamic_url_append .= '/(identifier)/'.rawurlencode($identifier);
+}
+
+
+
 $embedMode = false;
 if ((string)$Params['user_parameters_unordered']['mode'] == 'embed') {
 	$dynamic_url_append .= '/(mode)/embed';
@@ -63,17 +83,22 @@ $session = erLhcoreClassFaq::getSession();
 $q = $session->database->createSelectQuery();
 $q->select( "COUNT(id)" )->from( "lh_faq" );
 
-$q->where(
-		$q->expr->eq( 'active', 1 ),
-		$q->expr->lOr(
-				$q->expr->eq( 'url', $q->bindValue('') ),
-				$q->expr->eq( 'url', $q->bindValue( trim($matchStringURL) ) ),
-				$q->expr->lAnd(
-						$q->expr->eq( 'is_wildcard', $q->bindValue(1) ),
-						$q->expr->like( $session->database->quote(trim($matchStringURL)),'concat(left(url,length(url)-1),\'%\')'))
-		)
+$whereConditions = array();
+$whereConditions[] = $q->expr->eq( 'active', 1 );
+$whereConditions[] = $q->expr->lOr(
+							$q->expr->eq( 'url', $q->bindValue('') ),
+							$q->expr->eq( 'url', $q->bindValue( trim($matchStringURL) ) ),
+							$q->expr->lAnd(
+									$q->expr->eq( 'is_wildcard', $q->bindValue(1) ),
+									$q->expr->like( $session->database->quote(trim($matchStringURL)),'concat(left(url,length(url)-1),\'%\')'))
+					);
 
-);
+if ($identifier != '') {
+	$whereConditions[] = $q->expr->eq( 'identifier', $q->bindValue($identifier) );
+}
+
+$q->where($whereConditions);
+
 
 $stmt = $q->prepare();
 $stmt->execute();
@@ -89,16 +114,19 @@ $items = array();
 
 if ($pages->items_total > 0) {
 	$q = $session->createFindQuery( 'erLhcoreClassModelFaq' );
-	$q->where(
-			$q->expr->eq( 'active', 1 ),
-			$q->expr->lOr(
+	$whereConditions = array();
+	$whereConditions[] = $q->expr->eq( 'active', 1 );
+	$whereConditions[] = $q->expr->lOr(
 					$q->expr->eq( 'url', $q->bindValue('') ),
 					$q->expr->eq( 'url', $q->bindValue( trim($matchStringURL) ) ),
 					$q->expr->lAnd(
-						$q->expr->eq( 'is_wildcard', $q->bindValue(1) ),
-						$q->expr->like( $session->database->quote(trim($matchStringURL)),'concat(left(url,length(url)-1),\'%\')')) )
-
-	);
+			$q->expr->eq( 'is_wildcard', $q->bindValue(1) ),
+			$q->expr->like( $session->database->quote(trim($matchStringURL)),'concat(left(url,length(url)-1),\'%\')')) );
+	
+	if ($identifier != '') {
+		$whereConditions[] = $q->expr->eq( 'identifier', $q->bindValue($identifier) );
+	}	
+	$q->where($whereConditions);
 	$q->limit($pages->items_per_page, $pages->low);
 	$q->orderBy('has_url DESC, id DESC' ); // Questions with matched URL has higher priority
 	$items = $session->find( $q );
@@ -112,6 +140,8 @@ if ( isset($_POST['send']) )
 	$definition = array(
 			'question' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'),
+			'email' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'validate_email'),
 			'url' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
 	);
@@ -142,6 +172,13 @@ if ( isset($_POST['send']) )
 		$item_new->url = $form->url;
 	}
 
+	if ( $form->hasValidData( 'email' ) )
+	{
+		$item_new->email = $form->email;
+	}
+
+	$item_new->identifier = $identifier;
+	
 	if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
 		if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600 || $hashCaptcha != sha1($_SERVER['REMOTE_ADDR'].$form->$nameField.erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ))){
 			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid captcha code, please enable Javascript!');

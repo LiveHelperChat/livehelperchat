@@ -1,7 +1,7 @@
 var lhc_FAQEmbed = function() {
 	var self = this;
 	this.showVotingForm = function() {
-   		  this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('faq/faqwidget')?>/(mode)/embed"+'?URLReferer='+encodeURIComponent(document.location)+'&URLModule='+LHCFAQOptions.url;
+   		  this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('faq/faqwidget')?>/(mode)/embed"+'?URLReferer='+encodeURIComponent(document.location)+'&URLModule='+encodeURIComponent(LHCFAQOptions.url)+'&identifier='+encodeURIComponent(LHCFAQOptions.identifier);
    		  this.iframe_html = '<iframe id="lhcfaq_iframe_embed" allowTransparency="true" scrolling="no" class="loading" frameborder="0" ' +
                        ( this.initial_iframe_url != '' ? ' src="'    + this.initial_iframe_url + '"' : '' ) +
                        ' width="100%"' +

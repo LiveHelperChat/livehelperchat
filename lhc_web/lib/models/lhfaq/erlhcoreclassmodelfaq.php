@@ -10,8 +10,10 @@ class erLhcoreClassModelFaq {
 				'answer'     => $this->answer,
 				'url'        => $this->url,
 				'active'     => $this->active,
-				'has_url'    	=> $this->has_url,
-				'is_wildcard'   => $this->is_wildcard
+				'has_url'    => $this->has_url,
+				'is_wildcard'=> $this->is_wildcard,
+				'email'   	 => $this->email,
+				'identifier' => $this->identifier
 		);
 	}
 
@@ -157,7 +159,8 @@ class erLhcoreClassModelFaq {
 	public $active = 1;
 	public $has_url = 0;
 	public $is_wildcard = 0;
-
+	public $email = '';
+	public $identifier = '';	
 }
 
 ?>

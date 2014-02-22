@@ -6,6 +6,7 @@
 	<tr>
 	    <th width="1%">ID</th>
 	    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/list','Question');?></th>
+	    <th class="one"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/list','Identifier');?></th>
 	    <th class="one"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/list','Active');?></th>
 	    <th nowrap width="1%" ></th>
 	    <th nowrap width="1%" ></th>
@@ -15,6 +16,7 @@
 	    <tr>
 	        <td><?php echo $item->id; ?></td>
 	        <td><a href="<?php echo erLhcoreClassDesign::baseurl('faq/view')?>/<?php echo $item->id; ?>"><?php echo htmlspecialchars($item->question)?></a></td>
+	        <td><?php echo htmlspecialchars($item->identifier)?></td>	       
 	        <td><?php if ($item->active == 1) : ?><b><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/list','Y');?></b><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/list','N');?><?php endif;?></td>
 	        <td nowrap><a class="small button round" href="<?php echo erLhcoreClassDesign::baseurl('faq/view')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/list','Edit');?></a></td>
 	        <td nowrap class="right"><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="small alert button round csfr-required" href="<?php echo erLhcoreClassDesign::baseurl('faq/delete')?>/<?php echo $item->id; ?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/list','Delete this question');?></a></td>

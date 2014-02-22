@@ -1,3 +1,23 @@
+1.89v
+
+Features
+1. FAQ module supports identifiers and e-mail field. 
+https://github.com/remdex/livehelperchat/issues/297
+https://github.com/remdex/livehelperchat/issues/292
+2. Region support for geo location
+https://github.com/remdex/livehelperchat/issues/298
+3. BB Code button in chatbox and live help.
+4. Saint Martin flag
+https://github.com/remdex/livehelperchat/issues/294
+
+
+Fixes
+1. In page embed live help visitors were not redirected to leave a message form.
+https://github.com/remdex/livehelperchat/issues/291
+
+
+execute doc/update_db/update_68.sql for update
+
 1.88v
 
 Features
