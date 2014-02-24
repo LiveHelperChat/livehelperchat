@@ -3046,6 +3046,10 @@
       <translation>Napiště svů dotaz</translation>
     </message>
     <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Question</source>
       <translation>Otázka</translation>
     </message>
@@ -3081,6 +3085,14 @@
       <translation>URL stránky, kde se má tato otázka zobrazit. Nevyplňujte pokud ji chcete zobrazit všude</translation>
     </message>
     <message>
+      <source>Submitter e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier, can be used to filter questions by identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Question is active</source>
       <translation>Dotaz je aktivní</translation>
     </message>
@@ -3098,6 +3110,10 @@
     <message>
       <source>Question</source>
       <translation>Otázka</translation>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Active</source>
@@ -3145,6 +3161,10 @@
     <message>
       <source>Please enter answer!</source>
       <translation>Prosím, zadejte odpověď!</translation>
+    </message>
+    <message>
+      <source>Identifier has to be shorter than 10 characters!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter question!</source>
@@ -4836,12 +4856,16 @@
   <context>
     <name>chat/bbcodeinsert</name>
     <message>
-      <source>Image</source>
-      <translation>Obrázek</translation>
-    </message>
-    <message>
       <source>Link title image</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Link to image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Image</source>
+      <translation>Obrázek</translation>
     </message>
     <message>
       <source>Link</source>
@@ -4858,6 +4882,18 @@
     <message>
       <source>Italic</source>
       <translation>Italika</translation>
+    </message>
+    <message>
+      <source>Please enter link to an image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a link</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Here is a link</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

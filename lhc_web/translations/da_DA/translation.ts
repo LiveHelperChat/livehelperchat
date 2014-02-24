@@ -238,7 +238,7 @@
     </message>
     <message>
       <source>BB Code</source>
-      <translation type="unfinished"/>
+      <translation>BB Kode</translation>
     </message>
     <message>
       <source>Close</source>
@@ -1149,7 +1149,7 @@
     </message>
     <message>
       <source>Region name server variable</source>
-      <translation type="unfinished"/>
+      <translation>Region navneserver variabel</translation>
     </message>
     <message>
       <source>Latitude variable</source>
@@ -3046,6 +3046,10 @@
       <translation>Skriv dit spørgsmål</translation>
     </message>
     <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
       <source>Question</source>
       <translation>Spørgsmål</translation>
     </message>
@@ -3081,6 +3085,14 @@
       <translation>Den webadresse, hvor dette spørgsmål skal vises, lad det være tomt for alle</translation>
     </message>
     <message>
+      <source>Submitter e-mail</source>
+      <translation>Indsender email</translation>
+    </message>
+    <message>
+      <source>Identifier, can be used to filter questions by identifier</source>
+      <translation>Identifier kan bruges til at filtrere spørgsmål ved identifikation</translation>
+    </message>
+    <message>
       <source>Question is active</source>
       <translation>Spørgsmålet er aktivt</translation>
     </message>
@@ -3098,6 +3110,10 @@
     <message>
       <source>Question</source>
       <translation>Spørgsmål</translation>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation>Identifier</translation>
     </message>
     <message>
       <source>Active</source>
@@ -3145,6 +3161,10 @@
     <message>
       <source>Please enter answer!</source>
       <translation>Indtast venligst svaret!</translation>
+    </message>
+    <message>
+      <source>Identifier has to be shorter than 10 characters!</source>
+      <translation>Identifier skal være kortere end 10 tegn!</translation>
     </message>
     <message>
       <source>Please enter question!</source>
@@ -4818,7 +4838,7 @@
     </message>
     <message>
       <source>Taken</source>
-      <translation type="unfinished"/>
+      <translation>Taget</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -4830,34 +4850,50 @@
     </message>
     <message>
       <source>Screenshot ready...</source>
-      <translation type="unfinished"/>
+      <translation>Skærmbillede klar ...</translation>
     </message>
   </context>
   <context>
     <name>chat/bbcodeinsert</name>
     <message>
-      <source>Image</source>
-      <translation type="unfinished"/>
+      <source>Link title image</source>
+      <translation>Link titel billede</translation>
     </message>
     <message>
-      <source>Link title image</source>
-      <translation type="unfinished"/>
+      <source>Link to image</source>
+      <translation>Link til billede</translation>
+    </message>
+    <message>
+      <source>Image</source>
+      <translation>Billede</translation>
     </message>
     <message>
       <source>Link</source>
-      <translation type="unfinished"/>
+      <translation>Link</translation>
     </message>
     <message>
       <source>Link title</source>
-      <translation type="unfinished"/>
+      <translation>Link Titel</translation>
     </message>
     <message>
       <source>Bold</source>
-      <translation type="unfinished"/>
+      <translation>Fed</translation>
     </message>
     <message>
       <source>Italic</source>
-      <translation type="unfinished"/>
+      <translation>Kursiv</translation>
+    </message>
+    <message>
+      <source>Please enter link to an image</source>
+      <translation>Please enter link to an image</translation>
+    </message>
+    <message>
+      <source>Please enter a link</source>
+      <translation>Indtast venligst et link</translation>
+    </message>
+    <message>
+      <source>Here is a link</source>
+      <translation>Her er et link</translation>
     </message>
   </context>
 </TS>
