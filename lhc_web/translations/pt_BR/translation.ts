@@ -238,7 +238,7 @@
     </message>
     <message>
       <source>BB Code</source>
-      <translation type="unfinished"/>
+      <translation>Código BB</translation>
     </message>
     <message>
       <source>Close</source>
@@ -1149,7 +1149,7 @@
     </message>
     <message>
       <source>Region name server variable</source>
-      <translation type="unfinished"/>
+      <translation>Variável para nome da região</translation>
     </message>
     <message>
       <source>Latitude variable</source>
@@ -3046,6 +3046,10 @@
       <translation>Digite sua pergunta</translation>
     </message>
     <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
       <source>Question</source>
       <translation>Pergunta</translation>
     </message>
@@ -3081,6 +3085,14 @@
       <translation>A URL onde esta questão deve aparecer, deixe-o vazio para todos</translation>
     </message>
     <message>
+      <source>Submitter e-mail</source>
+      <translation>Enviado por e-mail</translation>
+    </message>
+    <message>
+      <source>Identifier, can be used to filter questions by identifier</source>
+      <translation>Identificador, pode ser usafo para filtrar perguntas por identificador</translation>
+    </message>
+    <message>
       <source>Question is active</source>
       <translation>Pergunta está ativa</translation>
     </message>
@@ -3098,6 +3110,10 @@
     <message>
       <source>Question</source>
       <translation>Pergunta</translation>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation>Identificador</translation>
     </message>
     <message>
       <source>Active</source>
@@ -3145,6 +3161,10 @@
     <message>
       <source>Please enter answer!</source>
       <translation>Por favor, digite uma resposta!</translation>
+    </message>
+    <message>
+      <source>Identifier has to be shorter than 10 characters!</source>
+      <translation>Identificador tem que possuir menos de 10 caracteres!</translation>
     </message>
     <message>
       <source>Please enter question!</source>
@@ -4836,28 +4856,44 @@
   <context>
     <name>chat/bbcodeinsert</name>
     <message>
-      <source>Image</source>
-      <translation type="unfinished"/>
+      <source>Link title image</source>
+      <translation>Link título da imagem</translation>
     </message>
     <message>
-      <source>Link title image</source>
-      <translation type="unfinished"/>
+      <source>Link to image</source>
+      <translation>ink para a imagem</translation>
+    </message>
+    <message>
+      <source>Image</source>
+      <translation>Imagem</translation>
     </message>
     <message>
       <source>Link</source>
-      <translation type="unfinished"/>
+      <translation>Link</translation>
     </message>
     <message>
       <source>Link title</source>
-      <translation type="unfinished"/>
+      <translation>Titulo do link</translation>
     </message>
     <message>
       <source>Bold</source>
-      <translation type="unfinished"/>
+      <translation>Negrito</translation>
     </message>
     <message>
       <source>Italic</source>
-      <translation type="unfinished"/>
+      <translation>Itálico</translation>
+    </message>
+    <message>
+      <source>Please enter link to an image</source>
+      <translation>Por favor insira o link para uma imagem</translation>
+    </message>
+    <message>
+      <source>Please enter a link</source>
+      <translation>Por favor insira o link</translation>
+    </message>
+    <message>
+      <source>Here is a link</source>
+      <translation>Aqui está um link</translation>
     </message>
   </context>
 </TS>

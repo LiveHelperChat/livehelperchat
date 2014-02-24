@@ -3046,6 +3046,10 @@
       <translation>Ketik pertanyaan Anda</translation>
     </message>
     <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Question</source>
       <translation>Pertanyaan</translation>
     </message>
@@ -3081,6 +3085,14 @@
       <translation>URL dimana pertanyaan seharusnya muncul, biarkan kosong untuk semua</translation>
     </message>
     <message>
+      <source>Submitter e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier, can be used to filter questions by identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Question is active</source>
       <translation>Pertanyaan aktif</translation>
     </message>
@@ -3098,6 +3110,10 @@
     <message>
       <source>Question</source>
       <translation>Pertanyaan</translation>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Active</source>
@@ -3145,6 +3161,10 @@
     <message>
       <source>Please enter answer!</source>
       <translation>Silakan masukkan jawaban!</translation>
+    </message>
+    <message>
+      <source>Identifier has to be shorter than 10 characters!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter question!</source>
@@ -4836,11 +4856,15 @@
   <context>
     <name>chat/bbcodeinsert</name>
     <message>
-      <source>Image</source>
+      <source>Link title image</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Link title image</source>
+      <source>Link to image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Image</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4857,6 +4881,18 @@
     </message>
     <message>
       <source>Italic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter link to an image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a link</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Here is a link</source>
       <translation type="unfinished"/>
     </message>
   </context>
