@@ -19,12 +19,16 @@ if  ($chatTransfer->dep_id > 0) {
 	} else {
 		$chat->user_id = $currentUser->getUserID();
 		$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
+		$chat->user_typing_txt = (string)$chat->user.' '.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has joined the chat!'),ENT_QUOTES);
+		$chat->user_typing  = time();
 	}
 }
 
 if ($chatTransfer->transfer_to_user_id == $currentUser->getUserID()){
 	$chat->user_id = $currentUser->getUserID();
 	$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
+	$chat->user_typing_txt = (string)$chat->user.' '.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has joined the chat!'),ENT_QUOTES);
+	$chat->user_typing  = time();
 }
 
 if ( !erLhcoreClassChat::hasAccessToRead($chat) )
