@@ -368,6 +368,10 @@ $ViewList['accept'] = array(
     'params' => array('hash','validation_hash','email')
 );
 
+$ViewList['sendchat'] = array(
+		'params' => array('chat_id','hash')
+);
+
 $FunctionList['use'] = array('explain' => 'General permission to use chat module');
 $FunctionList['singlechatwindow'] = array('explain' =>'Allow user to use single chat window functionality');
 $FunctionList['allowchattabs'] = array('explain' =>'Allow user to user chat rooms functionality');
