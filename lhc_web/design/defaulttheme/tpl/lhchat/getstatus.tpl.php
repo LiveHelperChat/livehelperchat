@@ -101,7 +101,7 @@ var lh_inst  = {
     urlopen : "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/startchat')?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?>",
 
     windowname : "startchatwindow",
-
+	substatus : '',
     cookieData : {},
     cookieDataPers : {},
 
@@ -293,8 +293,10 @@ var lh_inst  = {
           this.removeById('lhc_container');
 
           if ( url_to_open != undefined ) {
+           		this.chatOpenedCallback('internal_invitation');	
                 this.initial_iframe_url = url_to_open+this.getAppendCookieArguments()+'?URLReferer='+encodeURIComponent(document.location)+this.parseOptions()+this.parseStorageArguments()+'&dt='+encodeURIComponent(document.title);
           } else {
+          		this.chatOpenedCallback('internal');	
                 this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?>"+this.getAppendCookieArguments()+'?URLReferer='+encodeURIComponent(document.location)+this.parseOptions()+this.parseStorageArguments()+'&dt='+encodeURIComponent(document.title);
           };
 
@@ -330,7 +332,8 @@ var lh_inst  = {
 		  var domContainerId = 'lhc_container';
 		  <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/drag_drop_logic.tpl.php')); ?>		  
 		      
-		  if (this.cookieData.m) {this.min();};
+		  if (this.cookieData.m) {this.min();};		  
+		 	  
     },
 
     lh_openchatWindow : function() {
@@ -340,10 +343,18 @@ var lh_inst  = {
         var popupHeight = (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.popup_height != 'undefined') ? parseInt(LHCChatOptions.opt.popup_height) : 520;
         var popupWidth = (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.popup_width != 'undefined') ? parseInt(LHCChatOptions.opt.popup_width) : 500;
         window.open(this.urlopen+this.getAppendCookieArguments()+'?URLReferer='+encodeURIComponent(document.location)+this.parseOptions()+this.parseStorageArguments(),this.windowname,"menubar=1,resizable=1,width="+popupWidth+",height="+popupHeight);
+        this.chatOpenedCallback('external');
         <?php endif; ?>
         return false;
     },
 
+    chatOpenedCallback : function(type){
+    	if (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.callback != 'undefined' && typeof LHCChatOptions.callback.start_chat_cb != 'undefined') {
+    		LHCChatOptions.callback.start_chat_cb(type+this.substatus);
+    		this.substatus = '';
+    	}
+    },
+    
     showStatusWidget : function() {
 
         var statusTEXT = '<a id="<?php ($isOnlineHelp == true) ? print 'online-icon' : print 'offline-icon' ?>" class="status-icon" href="#" onclick="return lh_inst.lh_openchatWindow()" ><?php if ($isOnlineHelp == true) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Live help is online...')?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Live help is offline...')?><?php endif;?></a>';
@@ -532,6 +543,7 @@ lh_inst.showStatusWidget();
 
 if (lh_inst.cookieData.hash) {
 	lh_inst.stopCheckNewMessage();
+	lh_inst.substatus = '_reopen';
     lh_inst.showStartWindow();
 }
 
