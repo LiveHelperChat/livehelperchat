@@ -238,7 +238,7 @@
     </message>
     <message>
       <source>BB Code</source>
-      <translation type="unfinished"/>
+      <translation>BB Kodas</translation>
     </message>
     <message>
       <source>Close</source>
@@ -323,7 +323,7 @@
     </message>
     <message>
       <source>User</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojas</translation>
     </message>
     <message>
       <source>Delay</source>
@@ -355,15 +355,15 @@
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Departamentas</translation>
     </message>
     <message>
       <source>Personal canned message</source>
-      <translation type="unfinished"/>
+      <translation>Asmeninės numatytosios žinutės</translation>
     </message>
     <message>
       <source>Canned message was saved</source>
-      <translation type="unfinished"/>
+      <translation>Žinutė buvo išsaugota</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -382,7 +382,7 @@
     <name>department/edit</name>
     <message>
       <source>Any</source>
-      <translation type="unfinished"/>
+      <translation>Bet kuris</translation>
     </message>
     <message>
       <source>Edit department</source>
@@ -1149,7 +1149,7 @@
     </message>
     <message>
       <source>Region name server variable</source>
-      <translation type="unfinished"/>
+      <translation>Regiono pavadinimo serverio kintamasis</translation>
     </message>
     <message>
       <source>Latitude variable</source>
@@ -1173,7 +1173,7 @@
     </message>
     <message>
       <source>Location of city database</source>
-      <translation type="unfinished"/>
+      <translation>Miestų duomenų bazės vieta</translation>
     </message>
     <message>
       <source>User country based detection, faster</source>
@@ -1193,11 +1193,11 @@
     </message>
     <message>
       <source>Use PHP-GeoIP module</source>
-      <translation type="unfinished"/>
+      <translation>Naudoti PHP-GeoIP modulį</translation>
     </message>
     <message>
       <source>Support for PHP-GeoIP detected</source>
-      <translation type="unfinished"/>
+      <translation>Palaikymas PHP-GeoIP aptiktas</translation>
     </message>
     <message>
       <source>Requests will be comming from</source>
@@ -1501,7 +1501,7 @@
     </message>
     <message>
       <source>Setting service provider failed, please check that you have installed php-GeoIP module and GeoIPCity.dat file is available!</source>
-      <translation type="unfinished"/>
+      <translation>Nepavyko nustatyti paslaugos taikėjo, prašome patikrinti ar turite instaliavę php-GeoIP modulį ir GeoIPCity.dar failas yra pasiekiamas</translation>
     </message>
     <message>
       <source>Please choose a service provider!</source>
@@ -1666,7 +1666,7 @@
     </message>
     <message>
       <source>Update information</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinti informaciją</translation>
     </message>
     <message>
       <source>Live help embed code</source>
@@ -2194,7 +2194,7 @@
     </message>
     <message>
       <source>This field is invisible but prefilled data is collected</source>
-      <translation type="unfinished"/>
+      <translation>Šis laukas yra nematomas, bet iš anksto paduoti duomenys yra kaupiami.</translation>
     </message>
     <message>
       <source>This field is</source>
@@ -2909,7 +2909,7 @@
     </message>
     <message>
       <source>Your username</source>
-      <translation type="unfinished"/>
+      <translation>Jūsų vartotojo vardas</translation>
     </message>
     <message>
       <source>Password</source>
@@ -2985,7 +2985,7 @@
     </message>
     <message>
       <source>Personal canned messages</source>
-      <translation type="unfinished"/>
+      <translation>Asmeninės numatytosios žinutės</translation>
     </message>
     <message>
       <source>Account updated</source>
@@ -3047,7 +3047,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>El. paštas</translation>
     </message>
     <message>
       <source>Question</source>
@@ -3086,11 +3086,11 @@
     </message>
     <message>
       <source>Submitter e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Užklausėjo el. paštas</translation>
     </message>
     <message>
       <source>Identifier, can be used to filter questions by identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identifikatorius, gali būti naudojamas filtruoti klausimus pagal identifikatorių</translation>
     </message>
     <message>
       <source>Question is active</source>
@@ -3113,7 +3113,7 @@
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identifikatorius</translation>
     </message>
     <message>
       <source>Active</source>
@@ -3164,7 +3164,7 @@
     </message>
     <message>
       <source>Identifier has to be shorter than 10 characters!</source>
-      <translation type="unfinished"/>
+      <translation>Identifikatorius turi būti trumpesnis negu 10 ženklų</translation>
     </message>
     <message>
       <source>Please enter question!</source>
@@ -3665,7 +3665,7 @@
     </message>
     <message>
       <source>Revote</source>
-      <translation type="unfinished"/>
+      <translation>Perbalsavimas</translation>
     </message>
     <message>
       <source>Y</source>
@@ -3693,7 +3693,7 @@
     </message>
     <message>
       <source>Off</source>
-      <translation type="unfinished"/>
+      <translation>Išjungtas</translation>
     </message>
     <message>
       <source>Questionary</source>
@@ -3746,7 +3746,7 @@
     </message>
     <message>
       <source>Revote time (hours), before can revote. Default 0 - never. Higher value allow revote after seconds expire since last vote</source>
-      <translation type="unfinished"/>
+      <translation>Perbalsavimo laikas valandomis, po kiek valandų galima vėl balsuoti. Standartiškai 0 - niekada. Jeigu daugiau negu 0 po tiek valandų galima vėl balsuoti.</translation>
     </message>
     <message>
       <source>Active</source>
@@ -3985,19 +3985,19 @@
     </message>
     <message>
       <source>Date format E.g (Y-m-d)</source>
-      <translation type="unfinished"/>
+      <translation>Datos formatas Pvz. (Y-m-d)</translation>
     </message>
     <message>
       <source>Full date format E.g (Y-m-d H:i:s)</source>
-      <translation type="unfinished"/>
+      <translation>Pilnas datos formatas Pvz. (Y-m-d H:i:s)</translation>
     </message>
     <message>
       <source>Hour format E.g (H:i:s)</source>
-      <translation type="unfinished"/>
+      <translation>Valandų formatas Pvz. (H:i:s)</translation>
     </message>
     <message>
       <source>Live Helper Chat update</source>
-      <translation type="unfinished"/>
+      <translation>Live Helpe Chat atnaujinimai</translation>
     </message>
     <message>
       <source>Time zone</source>
@@ -4099,35 +4099,35 @@
     <name>system/update</name>
     <message>
       <source>Your version</source>
-      <translation type="unfinished"/>
+      <translation>Jūsų versija</translation>
     </message>
     <message>
       <source>Current version</source>
-      <translation type="unfinished"/>
+      <translation>Dabartinė versija</translation>
     </message>
     <message>
       <source>Last database update</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinis duomenų bazės atnaujinimas</translation>
     </message>
     <message>
       <source>News</source>
-      <translation type="unfinished"/>
+      <translation>Naujienos</translation>
     </message>
     <message>
       <source>Missing updates from new versions.</source>
-      <translation type="unfinished"/>
+      <translation>Trūkstami atnaujinimai iš naujos versijos</translation>
     </message>
     <message>
       <source>Update instructions</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinimo instrukcijos</translation>
     </message>
     <message>
       <source>You are running current version. No updates required</source>
-      <translation type="unfinished"/>
+      <translation>Jūs naudojate naujausia versiją. Nereikalingi jokie atnaujinimai.</translation>
     </message>
     <message>
       <source>Live Helper Chat update information</source>
-      <translation type="unfinished"/>
+      <translation>Live Helper Chat atnaujinimo informacija</translation>
     </message>
   </context>
   <context>
@@ -4739,7 +4739,7 @@
     </message>
     <message>
       <source>BCC recipients, can be separated by comma.</source>
-      <translation type="unfinished"/>
+      <translation>BCC gavėjai, gali būti atskirti kableliu</translation>
     </message>
     <message>
       <source>Content</source>
@@ -4826,81 +4826,81 @@
     <name>chat/screenshot</name>
     <message>
       <source>Screenshot</source>
-      <translation type="unfinished"/>
+      <translation>Ekrano nuotrauka</translation>
     </message>
     <message>
       <source>Take user screenshot</source>
-      <translation type="unfinished"/>
+      <translation>Fotografuoti naršyklės vaizdą</translation>
     </message>
     <message>
       <source>Refresh</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinti</translation>
     </message>
     <message>
       <source>Taken</source>
-      <translation type="unfinished"/>
+      <translation>Atlikta</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation type="unfinished"/>
+      <translation>Tuščia...</translation>
     </message>
     <message>
       <source>Perhaps screenshot is under way or screenshot is not supported on client browser, click refresh to check for a screenshot</source>
-      <translation type="unfinished"/>
+      <translation>Galbūt ekrano nuotrauka dar yra daroma arba ši galimybė nėra palaikoma vartotojo naršyklės, paspauskite atnaujinti norėdami patikrinti ar buvo padaryta ekrano nuotrauka.</translation>
     </message>
     <message>
       <source>Screenshot ready...</source>
-      <translation type="unfinished"/>
+      <translation>Ekrano nuotrauka paruošta...</translation>
     </message>
   </context>
   <context>
     <name>chat/bbcodeinsert</name>
     <message>
       <source>Link title image</source>
-      <translation type="unfinished"/>
+      <translation>Nuorodos paveiksliuko pavadinimas</translation>
     </message>
     <message>
       <source>Link to image</source>
-      <translation type="unfinished"/>
+      <translation>Nuoroda į paveiksliuką</translation>
     </message>
     <message>
       <source>Image</source>
-      <translation type="unfinished"/>
+      <translation>paveiksliukas</translation>
     </message>
     <message>
       <source>Link</source>
-      <translation type="unfinished"/>
+      <translation>Nuoroda</translation>
     </message>
     <message>
       <source>Link title</source>
-      <translation type="unfinished"/>
+      <translation>Nuorodos pavadinimas</translation>
     </message>
     <message>
       <source>Bold</source>
-      <translation type="unfinished"/>
+      <translation>Paryškinimas</translation>
     </message>
     <message>
       <source>Italic</source>
-      <translation type="unfinished"/>
+      <translation>Pasvyrasis tekstas</translation>
     </message>
     <message>
       <source>Please enter link to an image</source>
-      <translation type="unfinished"/>
+      <translation>Prašome įvesti nuorodą į paveiksliuką</translation>
     </message>
     <message>
       <source>Please enter a link</source>
-      <translation type="unfinished"/>
+      <translation>Prašoma įvesti nuoroda</translation>
     </message>
     <message>
       <source>Here is a link</source>
-      <translation type="unfinished"/>
+      <translation>Štai nuoroda</translation>
     </message>
   </context>
   <context>
     <name>chat/accepttrasnfer</name>
     <message>
       <source>has joined the chat!</source>
-      <translation type="unfinished"/>
+      <translation>prisijungė prie pokalbio</translation>
     </message>
   </context>
 </TS>

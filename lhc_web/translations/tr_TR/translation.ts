@@ -35,7 +35,7 @@
     </message>
     <message>
       <source>Send</source>
-      <translation type="unfinished"/>
+      <translation>Gönder</translation>
     </message>
     <message>
       <source>Save and continue</source>
@@ -121,7 +121,7 @@
     </message>
     <message>
       <source>Operator name</source>
-      <translation type="unfinished"/>
+      <translation>Operatör İsmi</translation>
     </message>
     <message>
       <source>Time on site in seconds</source>
@@ -172,7 +172,7 @@
     <name>abstract/list</name>
     <message>
       <source>Are you sure?</source>
-      <translation type="unfinished"/>
+      <translation>Emin misiniz? </translation>
     </message>
   </context>
   <context>
@@ -254,7 +254,7 @@
     </message>
     <message>
       <source>Visitor</source>
-      <translation type="unfinished"/>
+      <translation>Ziyaretçi</translation>
     </message>
     <message>
       <source>Chat started</source>
@@ -262,7 +262,7 @@
     </message>
     <message>
       <source>is typing now...</source>
-      <translation type="unfinished"/>
+      <translation>şu an yazıyor...</translation>
     </message>
     <message>
       <source>Operator is typing now...</source>
@@ -576,11 +576,11 @@
     </message>
     <message>
       <source>Active chat</source>
-      <translation type="unfinished"/>
+      <translation>Aktif Konuşma</translation>
     </message>
     <message>
       <source>Closed chat</source>
-      <translation type="unfinished"/>
+      <translation>Kapanmış Konuşma</translation>
     </message>
     <message>
       <source>Chatbox chat</source>
@@ -732,7 +732,7 @@
     </message>
     <message>
       <source>Messages</source>
-      <translation type="unfinished"/>
+      <translation>Mesajlar</translation>
     </message>
   </context>
   <context>
@@ -1306,7 +1306,7 @@
     </message>
     <message>
       <source>Total pageviews</source>
-      <translation type="unfinished"/>
+      <translation>Toplam sayfa görüntülenmesi</translation>
     </message>
     <message>
       <source>Time on site</source>
@@ -1639,7 +1639,7 @@
     </message>
     <message>
       <source>Auto responder</source>
-      <translation type="unfinished"/>
+      <translation>Otomatik yanıtlayıcı</translation>
     </message>
     <message>
       <source>SMTP settings</source>
@@ -1991,7 +1991,7 @@
     </message>
     <message>
       <source>User</source>
-      <translation type="unfinished"/>
+      <translation>Kullanıcı</translation>
     </message>
     <message>
       <source>Search</source>
@@ -1999,11 +1999,11 @@
     </message>
     <message>
       <source>Select department</source>
-      <translation type="unfinished"/>
+      <translation>Seçili departman</translation>
     </message>
     <message>
       <source>Select user</source>
-      <translation type="unfinished"/>
+      <translation>Seçili kullanıcı</translation>
     </message>
   </context>
   <context>
@@ -2066,7 +2066,7 @@
     <name>chat/sendchat</name>
     <message>
       <source>Enter your e-mail</source>
-      <translation type="unfinished"/>
+      <translation>E-posta adresinizi giriniz</translation>
     </message>
   </context>
   <context>
@@ -3277,7 +3277,7 @@
     <name>kernel/nopermission</name>
     <message>
       <source>Go back</source>
-      <translation type="unfinished"/>
+      <translation>Geri Dön</translation>
     </message>
     <message>
       <source>You do not have permission to access the module</source>
@@ -3293,7 +3293,7 @@
     </message>
     <message>
       <source>You do not have permission to edit selected object</source>
-      <translation type="unfinished"/>
+      <translation>Seçili objeyi düzenleyebilmeniz için izne sahip değilsiniz</translation>
     </message>
   </context>
   <context>
@@ -3853,7 +3853,7 @@
     </message>
     <message>
       <source>Menu</source>
-      <translation type="unfinished"/>
+      <translation>Menü</translation>
     </message>
     <message>
       <source>Online visitors</source>

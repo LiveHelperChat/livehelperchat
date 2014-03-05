@@ -1277,7 +1277,7 @@
     </message>
     <message>
       <source>has send message to user</source>
-      <translation type="unfinished"/>
+      <translation>odeslal zprávu uživateli</translation>
     </message>
     <message>
       <source>No one has send any message to user yet</source>
@@ -2242,7 +2242,7 @@
     </message>
     <message>
       <source>Start chat form settings</source>
-      <translation type="unfinished"/>
+      <translation>Nastavení formuláře spouštějící rozhovor</translation>
     </message>
   </context>
   <context>
@@ -4103,7 +4103,7 @@
     </message>
     <message>
       <source>Current version</source>
-      <translation>Stavající verze</translation>
+      <translation>Aktuální verze</translation>
     </message>
     <message>
       <source>Last database update</source>
