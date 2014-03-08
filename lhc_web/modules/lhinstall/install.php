@@ -530,6 +530,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('explicit_http_mode', '',0,'Please enter explicit http mode. Either http: or https:, do not forget : at the end.', '0'),
                 ('track_domain',	'',	0,	'Set your domain to enable user tracking across different domain subdomains.',	0),
                 ('max_message_length','500',0,'Maximum message length in characters', '0'),
+                ('need_help_tip','1',0,'Show need help tooltip?', '0'),
                 ('geo_data', '', '0', '', '1')");
 
 

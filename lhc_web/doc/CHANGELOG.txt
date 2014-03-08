@@ -1,8 +1,10 @@
 1.90v
 
+Features
 1. Operator voting update upon user vote
 2. Changed alert to confirm on new chat request. If user clicks ok. We open chat.
 3. Datepicker for date fields.
+4. Improved drag & drop logic. Now user won't be able to drag widget outside of it's viewport.
 
 execute doc/update_db/update_69.sql for update
 
