@@ -1,3 +1,11 @@
+1.90v
+
+1. Operator voting update upon user vote
+2. Changed alert to confirm on new chat request. If user clicks ok. We open chat.
+3. Datepicker for date fields.
+
+execute doc/update_db/update_69.sql for update
+
 1.89v
 
 Features
