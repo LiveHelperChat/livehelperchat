@@ -1067,6 +1067,10 @@ function lh(){
 	        	                      } else {
 	        	                    	  $('#user-chat-status-'+item.chat_id).removeClass('icon-user-online');
 	        	                      };
+	        	                      
+	        	                      if (typeof item.oad != 'undefined') {	        	                    
+	        	                    	  eval(item.oad);
+	        	                      };
 	
 	                            });
 	        	            };
@@ -1098,6 +1102,12 @@ function lh(){
 	    }
 	};
 
+	this.updateVoteStatus = function(chat_id) {
+		$.getJSON(this.wwwDir + 'chat/updatechatstatus/'+chat_id ,{ }, function(data){
+			$('#main-user-info-tab-'+chat_id).html(data.result);
+		});
+	};
+	
 	this.updateChatLastMessageID = function(chat_id,message_id)
 	{
 	    this.chatsSynchronisingMsg[this.getChatIndex(chat_id)] = chat_id+','+message_id;
@@ -1232,8 +1242,16 @@ function lh(){
 	    
 	    if (confLH.show_alert == 1) {
 	    	setTimeout(function() {
-	    		alert(confLH.transLation.new_chat);
-	    	},1000);	    	
+	    		if ($('#right-pending-chats ul').size() > 0) {
+		    		if (confirm(confLH.transLation.new_chat)){		    		
+		    			if (identifier == 'pending_chat'){
+		    	    		inst.startChatNewWindow(chat_id,'ChatRequest');
+		    	    	} else {
+		    	    		inst.startChatNewWindowTransferByTransfer(chat_id);
+		    	    	};
+		    		};
+	    		};	    		
+	    	},5000);	    	
 	    };
 	};
 

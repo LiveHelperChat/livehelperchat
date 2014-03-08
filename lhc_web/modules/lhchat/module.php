@@ -172,6 +172,11 @@ $ViewList['addmsgadmin'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['updatechatstatus'] = array(
+    'params' => array('chat_id'),
+    'functions' => array( 'use' )
+);
+
 $ViewList['addoperation'] = array(
     'params' => array('chat_id'),
     'functions' => array( 'use' )

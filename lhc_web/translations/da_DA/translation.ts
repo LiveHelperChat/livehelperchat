@@ -4896,4 +4896,11 @@
       <translation>Her er et link</translation>
     </message>
   </context>
+  <context>
+    <name>chat/accepttrasnfer</name>
+    <message>
+      <source>has joined the chat!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
 </TS>

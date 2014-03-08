@@ -14,7 +14,9 @@ $positionArgument = array (
 				'chrome_radius' => 'top-right',
 				'border_widget' => 'border:1px solid #e3e3e3;border-left:0;border-bottom:0;',
 				'background_position' => '0',
-				'widget_radius' => '-webkit-border-top-right-radius: 20px;-moz-border-radius-topright: 20px;border-top-right-radius: 20px;'
+				'widget_radius' => '-webkit-border-top-right-radius: 20px;-moz-border-radius-topright: 20px;border-top-right-radius: 20px;',
+				'nh_hor_pos' => 'margin-left:10px;',
+				'nh_tr_pos' => 'left:15px;'
 		),
 		'bottom_right' => array (
 				'pos' => 'r',
@@ -29,7 +31,9 @@ $positionArgument = array (
 				'background_position' => 'left',
 				'chrome_radius' => 'top-left',
 				'border_widget' => 'border:1px solid #e3e3e3;border-right:0;border-bottom:0;',
-				'widget_radius' => '-webkit-border-top-left-radius: 20px;-moz-border-radius-topleft: 20px;border-top-left-radius: 20px;'
+				'widget_radius' => '-webkit-border-top-left-radius: 20px;-moz-border-radius-topleft: 20px;border-top-left-radius: 20px;',
+				'nh_hor_pos' => 'margin-left:-80px;',
+				'nh_tr_pos' => 'right:15px;'
 		),
 		'middle_right' => array (
 				'pos' => 'r',
@@ -44,7 +48,9 @@ $positionArgument = array (
 				'padding_text' => '10px 10px 10px 35px',
 				'background_position' => '0',
 				'chrome_radius' => 'top-left',
-				'widget_radius' => '-webkit-border-top-left-radius: 20px;-moz-border-radius-topleft: 20px;border-top-left-radius: 20px;      -webkit-border-bottom-left-radius: 20px;-moz-border-radius-bottomleft: 20px;border-bottom-left-radius: 20px;'
+				'widget_radius' => '-webkit-border-top-left-radius: 20px;-moz-border-radius-topleft: 20px;border-top-left-radius: 20px;      -webkit-border-bottom-left-radius: 20px;-moz-border-radius-bottomleft: 20px;border-bottom-left-radius: 20px;',
+				'nh_hor_pos' => 'margin-left:-230px;',
+				'nh_tr_pos' => 'right:15px;'
 		),
 		'middle_left' => array (
 				'radius' => 'left',
@@ -59,7 +65,9 @@ $positionArgument = array (
 				'pos' => 'l',
 				'background_position' => '95%',
 				'chrome_radius' => 'top-right',
-				'widget_radius' => '-webkit-border-top-right-radius: 20px;-moz-border-radius-topright: 20px;border-top-right-radius: 20px;      -webkit-border-bottom-right-radius: 20px;-moz-border-radius-bottomright: 20px;border-bottom-right-radius: 20px;'
+				'widget_radius' => '-webkit-border-top-right-radius: 20px;-moz-border-radius-topright: 20px;border-top-right-radius: 20px;      -webkit-border-bottom-right-radius: 20px;-moz-border-radius-bottomright: 20px;border-bottom-right-radius: 20px;',
+				'nh_hor_pos' => 'margin-left:160px;',
+				'nh_tr_pos' => ''
 		)
 );
 
@@ -101,7 +109,7 @@ var lh_inst  = {
     urlopen : "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/startchat')?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?>",
 
     windowname : "startchatwindow",
-
+	substatus : '',
     cookieData : {},
     cookieDataPers : {},
 
@@ -287,14 +295,18 @@ var lh_inst  = {
 
     showStartWindow : function(url_to_open) {
 
+    	  this.lhc_need_help_hide();
+
 	      // Do not check for new messages
           this.stopCheckNewMessage();
 
           this.removeById('lhc_container');
 
           if ( url_to_open != undefined ) {
+           		this.chatOpenedCallback('internal_invitation');	
                 this.initial_iframe_url = url_to_open+this.getAppendCookieArguments()+'?URLReferer='+encodeURIComponent(document.location)+this.parseOptions()+this.parseStorageArguments()+'&dt='+encodeURIComponent(document.title);
           } else {
+          		this.chatOpenedCallback('internal');	
                 this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?>"+this.getAppendCookieArguments()+'?URLReferer='+encodeURIComponent(document.location)+this.parseOptions()+this.parseStorageArguments()+'&dt='+encodeURIComponent(document.title);
           };
 
@@ -330,34 +342,50 @@ var lh_inst  = {
 		  var domContainerId = 'lhc_container';
 		  <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/drag_drop_logic.tpl.php')); ?>		  
 		      
-		  if (this.cookieData.m) {this.min();};
+		  if (this.cookieData.m) {this.min();};		  
+		 	  
     },
 
-    lh_openchatWindow : function() {
+    lh_openchatWindow : function() {    	
         <?php if ($click == 'internal') : ?>
         this.showStartWindow();
         <?php else : ?>
+        this.lhc_need_help_hide();
         var popupHeight = (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.popup_height != 'undefined') ? parseInt(LHCChatOptions.opt.popup_height) : 520;
         var popupWidth = (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.popup_width != 'undefined') ? parseInt(LHCChatOptions.opt.popup_width) : 500;
         window.open(this.urlopen+this.getAppendCookieArguments()+'?URLReferer='+encodeURIComponent(document.location)+this.parseOptions()+this.parseStorageArguments(),this.windowname,"menubar=1,resizable=1,width="+popupWidth+",height="+popupHeight);
+        this.chatOpenedCallback('external');
         <?php endif; ?>
         return false;
     },
 
+    chatOpenedCallback : function(type){
+    	if (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.callback != 'undefined' && typeof LHCChatOptions.callback.start_chat_cb != 'undefined') {
+    		LHCChatOptions.callback.start_chat_cb(type+this.substatus);
+    		this.substatus = '';
+    	}
+    },
+    
     showStatusWidget : function() {
 
         var statusTEXT = '<a id="<?php ($isOnlineHelp == true) ? print 'online-icon' : print 'offline-icon' ?>" class="status-icon" href="#" onclick="return lh_inst.lh_openchatWindow()" ><?php if ($isOnlineHelp == true) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Live help is online...')?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Live help is offline...')?><?php endif;?></a>';
 
         var raw_css = "#lhc_status_container * {direction:<?php (erConfigClassLhConfig::getInstance()->getOverrideValue('site','dir_language') == 'ltr' || erConfigClassLhConfig::getInstance()->getOverrideValue('site','dir_language') == '') ? print 'ltr;text-align:left;' : print 'rtl;text-align:right;'; ?>;font-family:arial;font-size:12px;box-sizing: content-box;zoom:1;margin:0;padding:0}\n#lhc_status_container .status-icon{text-decoration:none;font-size:12px;font-weight:bold;color:#000;display:block;padding:<?php echo $currentPosition['padding_text']?>;background:url('<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/icons/user_green_chat.png');?>') no-repeat <?php echo $currentPosition['background_position']?> center}\n#lhc_status_container:hover{<?php echo $currentPosition['widget_hover']?>}\n#lhc_status_container #offline-icon{background-image:url('<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/icons/user_gray_chat.png');?>')}\n#lhc_status_container{box-sizing: content-box;<?php echo $currentPosition['widget_radius']?>-webkit-box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);<?php echo $currentPosition['border_widget']?>;-moz-box-shadow:<?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);padding:5px 0px 0px 5px;width:190px;font-family:arial;font-size:12px;transition: 1s;position:fixed;<?php echo $currentPosition['position']?>;background-color:#f6f6f6;z-index:9989;}\n";
         this.addCss(raw_css);
-
-        var htmlStatus = '<div id="lhc_status_container">'+statusTEXT+'</div>';
+	
+		<?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/we_here.tpl.php')); ?>	
+        
+        var htmlStatus = '<div id="lhc_status_container">'+subStatus+statusTEXT+'</div>';
 
         var fragment = this.appendHTML(htmlStatus);
-
+        
+		
+        
         document.body.insertBefore(fragment, document.body.childNodes[0]);
     },
 
+    
+    
     timeoutInstance : null,
 
     stopCheckNewMessage : function() {
@@ -464,6 +492,17 @@ var lh_inst  = {
     	};    			
     },
     
+    lhc_need_help_hide :function() {
+    	this.removeById('lhc_need_help_container');
+    	this.addCookieAttribute('hnh',1);
+    	return false;
+    },
+    
+    lhc_need_help_click : function() {
+    	this.lhc_need_help_hide();
+    	this.lh_openchatWindow();    	
+    },
+    
     handleMessage : function(e) {
     	var action = e.data.split(':')[0];
     	if (action == 'lhc_sizing_chat') {
@@ -532,6 +571,7 @@ lh_inst.showStatusWidget();
 
 if (lh_inst.cookieData.hash) {
 	lh_inst.stopCheckNewMessage();
+	lh_inst.substatus = '_reopen';
     lh_inst.showStartWindow();
 }
 

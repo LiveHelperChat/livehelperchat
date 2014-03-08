@@ -4896,4 +4896,11 @@
       <translation>Aqui está um link</translation>
     </message>
   </context>
+  <context>
+    <name>chat/accepttrasnfer</name>
+    <message>
+      <source>has joined the chat!</source>
+      <translation>entrou no chat!</translation>
+    </message>
+  </context>
 </TS>

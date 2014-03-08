@@ -23,6 +23,7 @@ class erLhcoreClassChat {
 			'operator_typing',
 			'has_unread_messages',			
 			'operation',			
+			'operation_admin',			
 			'screenshot_id',			
 			'last_msg_id',
 			'mail_send',

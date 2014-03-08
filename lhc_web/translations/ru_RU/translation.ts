@@ -4897,4 +4897,11 @@
       <translation type="unfinished"/>
     </message>
   </context>
+  <context>
+    <name>chat/accepttrasnfer</name>
+    <message>
+      <source>has joined the chat!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
 </TS>

@@ -61,6 +61,9 @@
 		    		
 		    <?php $attribute = 'track_online_visitors';$boolValue = true;?>
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>		
+		    				    				    		
+		    <?php $attribute = 'need_help_tip';$boolValue = true;?>
+		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>		
 		    				    		
 		    <?php $attribute = 'sound_invitation';$boolValue = true;?>
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>		
