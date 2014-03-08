@@ -10,7 +10,7 @@ subStatus = '<div id="lhc_need_help_container" style="width:235px;<?php echo $cu
 if (imageTooltip !== false) {
 subStatus += '<div onclick="return lh_inst.lhc_need_help_click();" style="padding-right:10px;float:left;cursor:pointer;"><img style="border-radius:30px;border:1px solid #d0d0d0" width="60" height="60" src="' + imageTooltip + '"></div>';
 };
-subStatus += '<div onclick="return lh_inst.lhc_need_help_click();" style="font-size:16px;font-weight:bold;cursor:pointer;">'+titleText+'</div>'+
-'<span onclick="return lh_inst.lhc_need_help_click();" style="cursor:pointer;">'+subTitleText+'</span>'+
+subStatus += '<div onclick="return lh_inst.lhc_need_help_click();" style="font-size:16px;font-weight:bold;cursor:pointer;line-height:1.5">'+titleText+'</div>'+
+'<span onclick="return lh_inst.lhc_need_help_click();" style="cursor:pointer;line-height:1.5">'+subTitleText+'</span>'+
 '</div>';};
 <?php endif;?>
