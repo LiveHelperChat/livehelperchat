@@ -237,7 +237,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
     	       /*DATABASE TABLES SETUP*/
     	       $db = ezcDbInstance::get();
 
-        	   $db->query("CREATE TABLE `lh_chat` (
+        	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
 				  `nick` varchar(50) NOT NULL,
 				  `status` int(11) NOT NULL DEFAULT '0',
@@ -305,7 +305,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   KEY `ip` (`ip`)
                 ) DEFAULT CHARSET=utf8;");
 
-        	   $db->query("CREATE TABLE `lh_chat_archive_range` (
+        	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_archive_range` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
         	   `range_from` int(11) NOT NULL,
         	   `range_to` int(11) NOT NULL,
@@ -323,7 +323,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  KEY `siteaccess_position` (`siteaccess`,`position`)
 				) DEFAULT CHARSET=utf8;");
 
-        	   $db->query("CREATE TABLE `lh_faq` (
+        	   $db->query("CREATE TABLE IF NOT EXISTS `lh_faq` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
 				  `question` varchar(250) NOT NULL,
 				  `answer` text NOT NULL,
@@ -341,7 +341,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  KEY `is_wildcard` (`is_wildcard`)
 				) DEFAULT CHARSET=utf8;");
 
-        	   $db->query("CREATE TABLE `lh_chat_file` (
+        	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_file` (
         	   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
         	   `name` varchar(255) NOT NULL,
         	   `upload_name` varchar(255) NOT NULL,
@@ -357,7 +357,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   KEY `user_id` (`user_id`)
         	   ) DEFAULT CHARSET=utf8;");
 
-        	   $db->query("CREATE TABLE `lh_abstract_email_template` (
+        	   $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_email_template` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
 				  `name` varchar(250) NOT NULL,
 				  `from_name` varchar(150) NOT NULL,
@@ -381,7 +381,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   		(4,	'New chat request',	'Live Helper Chat',	0,	'',	0,	'Hello,\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nClick to accept chat automatically\r\n{url_accept}\r\n\r\nSincerely,\r\nLive Support Team',	'New chat request',	0,	'',	0,	'{$adminEmail}',''),
         	   		(5,	'Chat was closed',	'Live Helper Chat',	0,	'',	0,	'Hello,\r\n\r\n{operator} has closed a chat\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nAdditional data, if any:\r\n{additional_data}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nSincerely,\r\nLive Support Team',	'Chat was closed',	0,	'',	0,	'','');");
 
-        	   $db->query("CREATE TABLE `lh_question` (
+        	   $db->query("CREATE TABLE IF NOT EXISTS `lh_question` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
         	   `question` varchar(250) NOT NULL,
         	   `location` varchar(250) NOT NULL,
@@ -395,7 +395,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   KEY `active_priority` (`active`,`priority`)
         	   ) DEFAULT CHARSET=utf8;");
 
-        	   $db->query("CREATE TABLE `lh_question_answer` (
+        	   $db->query("CREATE TABLE IF NOT EXISTS `lh_question_answer` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
         	   `ip` bigint(20) NOT NULL,
         	   `question_id` int(11) NOT NULL,
@@ -406,7 +406,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   KEY `question_id` (`question_id`)
         	   ) DEFAULT CHARSET=utf8");
 
-        	   $db->query("CREATE TABLE `lh_question_option` (
+        	   $db->query("CREATE TABLE IF NOT EXISTS `lh_question_option` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
         	   `question_id` int(11) NOT NULL,
         	   `option_name` varchar(250) NOT NULL,
@@ -415,7 +415,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   KEY `question_id` (`question_id`)
         	   ) DEFAULT CHARSET=utf8;");
 
-        	   $db->query("CREATE TABLE `lh_question_option_answer` (
+        	   $db->query("CREATE TABLE IF NOT EXISTS `lh_question_option_answer` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
         	   `question_id` int(11) NOT NULL,
         	   `option_id` int(11) NOT NULL,
@@ -426,7 +426,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   KEY `ip` (`ip`)
         	   ) DEFAULT CHARSET=utf8");
 
-        	   $db->query("CREATE TABLE `lh_chatbox` (
+        	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chatbox` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
 				  `identifier` varchar(50) NOT NULL,
 				  `name` varchar(100) NOT NULL,
@@ -448,7 +448,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  KEY `user_id` (`user_id`)
                 ) DEFAULT CHARSET=utf8;");
 
-        	   $db->query("CREATE TABLE `lh_chat_online_user_footprint` (
+        	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_online_user_footprint` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
 				  `chat_id` int(11) NOT NULL,
 				  `online_user_id` int(11) NOT NULL,
@@ -532,7 +532,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('geo_data', '', '0', '', '1')");
 
 
-        	   $db->query("CREATE TABLE `lh_chat_online_user` (
+        	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_online_user` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
                   `vid` varchar(50) NOT NULL,
                   `ip` varchar(50) NOT NULL,
@@ -573,7 +573,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  KEY `last_visit_dep_id` (`last_visit`,`dep_id`)
                 ) DEFAULT CHARSET=utf8;");
 
-        	   $db->query("CREATE TABLE `lh_abstract_proactive_chat_invitation` (
+        	   $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_proactive_chat_invitation` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
 				  `siteaccess` varchar(10) NOT NULL,
 				  `time_on_site` int(11) NOT NULL,
@@ -595,7 +595,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  KEY `time_on_site_pageviews_siteaccess_position` (`time_on_site`,`pageviews`,`siteaccess`,`identifier`,`position`)
 				) DEFAULT CHARSET=utf8;");
         	   
-        	   $db->query("CREATE TABLE `lh_chat_accept` (
+        	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_accept` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
         	   `chat_id` int(11) NOT NULL,
         	   `hash` varchar(50) NOT NULL,
@@ -606,7 +606,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   ) DEFAULT CHARSET=utf8;");
         	   
         	   //Default departament
-        	   $db->query("CREATE TABLE `lh_departament` (
+        	   $db->query("CREATE TABLE IF NOT EXISTS `lh_departament` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
 				  `name` varchar(100) NOT NULL,
 				  `email` varchar(100) NOT NULL,
@@ -698,7 +698,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                erLhcoreClassRole::getSession()->save($GroupRoleOperators);
 
                // Users
-               $db->query("CREATE TABLE `lh_users` (
+               $db->query("CREATE TABLE IF NOT EXISTS `lh_users` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
                   `username` varchar(40) NOT NULL,
                   `password` varchar(40) NOT NULL,
@@ -731,7 +731,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 erLhcoreClassUser::getSession()->save($UserData);
 
                 // User departaments
-                $db->query("CREATE TABLE `lh_userdep` (
+                $db->query("CREATE TABLE IF NOT EXISTS `lh_userdep` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
                   `user_id` int(11) NOT NULL,
                   `dep_id` int(11) NOT NULL,
@@ -747,7 +747,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 $db->query("INSERT INTO `lh_userdep` (`user_id`,`dep_id`,`last_activity`,`hide_online`) VALUES ({$UserData->id},0,0,0)");
 
                 // Transfer chat
-                $db->query("CREATE TABLE `lh_transfer` (
+                $db->query("CREATE TABLE IF NOT EXISTS `lh_transfer` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
 				  `chat_id` int(11) NOT NULL,
 				  `dep_id` int(11) NOT NULL,
