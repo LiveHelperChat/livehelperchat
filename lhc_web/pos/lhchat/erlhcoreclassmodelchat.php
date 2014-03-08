@@ -212,6 +212,11 @@ $def->properties['operation']->columnName   = 'operation';
 $def->properties['operation']->propertyName = 'operation';
 $def->properties['operation']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['operation_admin'] = new ezcPersistentObjectProperty();
+$def->properties['operation_admin']->columnName   = 'operation_admin';
+$def->properties['operation_admin']->propertyName = 'operation_admin';
+$def->properties['operation_admin']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $def->properties['screenshot_id'] = new ezcPersistentObjectProperty();
 $def->properties['screenshot_id']->columnName   = 'screenshot_id';
 $def->properties['screenshot_id']->propertyName = 'screenshot_id';

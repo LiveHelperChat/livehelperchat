@@ -15,6 +15,8 @@ if ($chat->hash == $Params['user_parameters']['hash'] && ($chat->status == erLhc
         $chat->user_typing = time();
         $chat->user_typing_txt = ($chat->fbst == 1 ? erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voteaction','Thumbs up') : ($chat->fbst == 2 ? erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voteaction','Thumbs down') : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voteaction','Removed thumb vote')));
 
+        $chat->operation_admin .= "lhinst.updateVoteStatus(".$chat->id.");";
+        
         $chat->updateThis();
 
         echo json_encode(array('error' => 'false', 'status' => $chat->fbst));

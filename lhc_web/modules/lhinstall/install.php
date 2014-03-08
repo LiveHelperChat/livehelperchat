@@ -272,6 +272,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `lon` varchar(10) NOT NULL,
 				  `city` varchar(100) NOT NULL,
 				  `operation` varchar(200) NOT NULL,
+				  `operation_admin` varchar(200) NOT NULL,
 				  `mail_send` int(11) NOT NULL,
         	   	  `screenshot_id` int(11) NOT NULL,
         	   	  `wait_time` int(11) NOT NULL,

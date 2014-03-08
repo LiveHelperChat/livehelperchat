@@ -59,7 +59,13 @@ class erLhcoreClassModelChat {
        		
        		    //
                'remarks'    			=> $this->remarks,
+       		   // What operation is pending visitor?
                'operation'    			=> $this->operation,
+       		
+       		   // What operation is pending operator?
+               'operation_admin'    	=> $this->operation_admin,
+       		
+       		   // Screenshot ID? maps to file
                'screenshot_id'    		=> $this->screenshot_id,
        );
    }
@@ -347,6 +353,8 @@ class erLhcoreClassModelChat {
    
    // Pending operations from user side
    public $operation = '';
+   
+   public $operation_admin = '';
    
    public $screenshot_id = 0;
 
