@@ -15,10 +15,10 @@
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range from to');?></label>
 			<div class="row">
 				<div class="columns large-6">
-					<input type="text" name="timefrom" placeholder="E.g <?php echo date('Y-m-d',time()-7*24*3600)?>" value="<?php echo htmlspecialchars($input->timefrom)?>" />
+					<input type="text" name="timefrom" id="id_timefrom" placeholder="E.g <?php echo date('Y-m-d',time()-7*24*3600)?>" value="<?php echo htmlspecialchars($input->timefrom)?>" />
 				</div>
 				<div class="columns large-6">
-					<input type="text" name="timeto" placeholder="E.g <?php echo date('Y-m-d')?>" value="<?php echo htmlspecialchars($input->timeto)?>" />
+					<input type="text" name="timeto" id="id_timeto" placeholder="E.g <?php echo date('Y-m-d')?>" value="<?php echo htmlspecialchars($input->timeto)?>" />
 				</div>
 			</div>
 		</div>		
@@ -51,3 +51,11 @@
 	</div>
 
 </form>
+
+<script>
+$(function() {
+	$('#id_timefrom,#id_timeto').fdatepicker({
+		format: 'yyyy-mm-dd'
+	});
+});
+</script>
