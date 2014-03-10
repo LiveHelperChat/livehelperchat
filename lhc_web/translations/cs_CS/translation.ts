@@ -833,7 +833,7 @@
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Uzavřené roznovory</translation>
+      <translation>Uzavřené rozhovory</translation>
     </message>
     <message>
       <source>All closed chats</source>
@@ -1533,6 +1533,14 @@
     <message>
       <source>Minimize/Restore</source>
       <translation>Minimalizovat/Obnovit</translation>
+    </message>
+    <message>
+      <source>Need help?</source>
+      <translation>Potřebujete pomoc?</translation>
+    </message>
+    <message>
+      <source>Our staff is always ready to help</source>
+      <translation>Náš tým je stále připraven vám pomoci</translation>
     </message>
   </context>
   <context>
@@ -3113,7 +3121,7 @@
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identifikátor</translation>
     </message>
     <message>
       <source>Active</source>
@@ -3164,7 +3172,7 @@
     </message>
     <message>
       <source>Identifier has to be shorter than 10 characters!</source>
-      <translation type="unfinished"/>
+      <translation>Délka identifikátoru musí být méně než 10 znaků!</translation>
     </message>
     <message>
       <source>Please enter question!</source>
@@ -4861,7 +4869,7 @@
     </message>
     <message>
       <source>Link to image</source>
-      <translation type="unfinished"/>
+      <translation>Odkaz na obrázek</translation>
     </message>
     <message>
       <source>Image</source>
@@ -4889,11 +4897,11 @@
     </message>
     <message>
       <source>Please enter a link</source>
-      <translation type="unfinished"/>
+      <translation>Prosím zadejte odkaz</translation>
     </message>
     <message>
       <source>Here is a link</source>
-      <translation type="unfinished"/>
+      <translation>Zde je odkaz</translation>
     </message>
   </context>
   <context>

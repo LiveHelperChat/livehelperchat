@@ -1534,6 +1534,14 @@
       <source>Minimize/Restore</source>
       <translation>بازنشانی/کاهش</translation>
     </message>
+    <message>
+      <source>Need help?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Our staff is always ready to help</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/listchatconfig</name>
