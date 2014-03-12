@@ -1536,11 +1536,11 @@
     </message>
     <message>
       <source>Need help?</source>
-      <translation type="unfinished"/>
+      <translation>Precisa de ajuda?</translation>
     </message>
     <message>
       <source>Our staff is always ready to help</source>
-      <translation type="unfinished"/>
+      <translation>Estamos sempre prontos para te ajudar</translation>
     </message>
   </context>
   <context>
