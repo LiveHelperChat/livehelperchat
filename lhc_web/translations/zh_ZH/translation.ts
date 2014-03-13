@@ -667,6 +667,10 @@
       <translation>黑名单</translation>
     </message>
     <message>
+      <source>Mail was send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Send mail</source>
       <translation>发送邮件</translation>
     </message>

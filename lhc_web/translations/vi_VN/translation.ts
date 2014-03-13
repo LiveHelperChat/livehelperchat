@@ -667,6 +667,10 @@
       <translation>Khoá người sử dụng</translation>
     </message>
     <message>
+      <source>Mail was send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Send mail</source>
       <translation>Gửi mail</translation>
     </message>

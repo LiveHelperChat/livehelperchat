@@ -667,6 +667,10 @@
       <translation>Blokuoti vartotoją</translation>
     </message>
     <message>
+      <source>Mail was send</source>
+      <translation>Laiškas buvo išsiųstas</translation>
+    </message>
+    <message>
       <source>Send mail</source>
       <translation>Siųsti el. laišką</translation>
     </message>
@@ -1536,11 +1540,11 @@
     </message>
     <message>
       <source>Need help?</source>
-      <translation type="unfinished"/>
+      <translation>Reikia pagalbos?</translation>
     </message>
     <message>
       <source>Our staff is always ready to help</source>
-      <translation type="unfinished"/>
+      <translation>Mūsų kolektyvas visada pasirengęs padėti</translation>
     </message>
   </context>
   <context>

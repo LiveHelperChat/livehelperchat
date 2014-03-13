@@ -667,6 +667,10 @@
       <translation>บล็อกผู้ใช้</translation>
     </message>
     <message>
+      <source>Mail was send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Send mail</source>
       <translation>ส่งจดหมาย</translation>
     </message>
@@ -980,7 +984,7 @@
     </message>
     <message>
       <source>is required</source>
-      <translation type="unfinished"/>
+      <translation>จำเป็นต้องมี</translation>
     </message>
     <message>
       <source>Live Support</source>
@@ -1161,11 +1165,11 @@
     </message>
     <message>
       <source>Use MaxMind, does not depend on any third party remote service</source>
-      <translation type="unfinished"/>
+      <translation>การใช้งาน MaxMind ไม่ได้ขึ้นอยู่กับการให้บริการควบคุมระยะไกลของบุคคลที่สามใดๆทั้งนั้น</translation>
     </message>
     <message>
       <source>You can download city/country database from.</source>
-      <translation type="unfinished"/>
+      <translation>คุณสามารถดาวน์โหลด ฐานข้อมูล เมือง/ประเทศ จาก</translation>
     </message>
     <message>
       <source>bcmath php extension detected</source>
@@ -1349,7 +1353,7 @@
     </message>
     <message>
       <source>online users</source>
-      <translation type="unfinished"/>
+      <translation>ผู้ใช้ออนไลน์</translation>
     </message>
     <message>
       <source>Show visitors who visited site in the past</source>
@@ -1373,11 +1377,11 @@
     </message>
     <message>
       <source>day</source>
-      <translation type="unfinished"/>
+      <translation>วัน</translation>
     </message>
     <message>
       <source>days</source>
-      <translation type="unfinished"/>
+      <translation>วัน</translation>
     </message>
     <message>
       <source>Page</source>
@@ -1994,11 +1998,11 @@
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>แผนก</translation>
     </message>
     <message>
       <source>User</source>
-      <translation type="unfinished"/>
+      <translation>ผู้ใช้งาน</translation>
     </message>
     <message>
       <source>Search</source>
@@ -2006,11 +2010,11 @@
     </message>
     <message>
       <source>Select department</source>
-      <translation type="unfinished"/>
+      <translation>เลือก แผนก</translation>
     </message>
     <message>
       <source>Select user</source>
-      <translation type="unfinished"/>
+      <translation>เลือก ผู้ใช้งาน</translation>
     </message>
   </context>
   <context>
@@ -2182,11 +2186,11 @@
     </message>
     <message>
       <source>Enable leave a message functionality automatically if there are no online operators</source>
-      <translation type="unfinished"/>
+      <translation>ถ้าไม่มีผู้ปฏิบัติการออนไลน์ ให้เปิดฟังชั่นการทำงานฝากข้อความแบบอัตโนมัติ</translation>
     </message>
     <message>
       <source>Online form settings</source>
-      <translation type="unfinished"/>
+      <translation>ตั้งค่าฟอร์มออนไลน์</translation>
     </message>
     <message>
       <source>Name</source>
@@ -2234,11 +2238,11 @@
     </message>
     <message>
       <source>Offline form settings</source>
-      <translation type="unfinished"/>
+      <translation>ตั้งค่าฟอร์มอ๊อฟไลน์</translation>
     </message>
     <message>
       <source>E-mail is always required</source>
-      <translation type="unfinished"/>
+      <translation>อีเมล์จำเป็นต้องมีเสมอ</translation>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>
