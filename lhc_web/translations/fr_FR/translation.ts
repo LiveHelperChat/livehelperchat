@@ -667,6 +667,10 @@
       <translation>Bloquer le visiteur</translation>
     </message>
     <message>
+      <source>Mail was send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Send mail</source>
       <translation>Envoyer un courriel</translation>
     </message>

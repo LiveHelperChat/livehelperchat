@@ -7,6 +7,7 @@
 <?php if (isset($message_saved) && $message_saved == 'true') : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','Mail was sent to the user'); ?>
 <script>
 setTimeout(function(){
+	parent.lhinst.updateVoteStatus('<?php echo $chat->id?>');
     parent.$.colorbox.close();
 },3000);
 </script>

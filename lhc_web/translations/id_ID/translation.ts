@@ -667,6 +667,10 @@
       <translation>Blokir pengguna</translation>
     </message>
     <message>
+      <source>Mail was send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Send mail</source>
       <translation>Kirim surat</translation>
     </message>

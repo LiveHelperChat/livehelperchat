@@ -667,6 +667,10 @@
       <translation>بلاک کاربر</translation>
     </message>
     <message>
+      <source>Mail was send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Send mail</source>
       <translation>ارسال ایمیل</translation>
     </message>

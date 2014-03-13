@@ -667,6 +667,10 @@
       <translation>Blokovat uživatele</translation>
     </message>
     <message>
+      <source>Mail was send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Send mail</source>
       <translation>Odeslat e-mail</translation>
     </message>

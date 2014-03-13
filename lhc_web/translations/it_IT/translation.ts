@@ -51,7 +51,7 @@
     </message>
     <message>
       <source>Return</source>
-      <translation type="unfinished"/>
+      <translation>Invio</translation>
     </message>
     <message>
       <source>Delete department</source>
@@ -105,7 +105,7 @@
     </message>
     <message>
       <source>Wait timeout. Time in seconds before timeout message is shown.</source>
-      <translation type="unfinished"/>
+      <translation>Timeout attesa. Tempo in secondi prima che il messaggio di timeout venga visualizzato.</translation>
     </message>
     <message>
       <source>Show visitor this message then wait timeout passes.</source>
@@ -161,7 +161,7 @@
     </message>
     <message>
       <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
-      <translation type="unfinished"/>
+      <translation>Attendi messaggio. Visibile quando gli utenti iniziano una conversazione e sono in attesa di qualcuno che accetti la chat.</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -584,7 +584,7 @@
     </message>
     <message>
       <source>Chatbox chat</source>
-      <translation type="unfinished"/>
+      <translation>Box della chat</translation>
     </message>
     <message>
       <source>Operators chat</source>
@@ -665,6 +665,10 @@
     <message>
       <source>Block user</source>
       <translation>Blocco degli utenti</translation>
+    </message>
+    <message>
+      <source>Mail was send</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Send mail</source>
@@ -1237,11 +1241,11 @@
     </message>
     <message>
       <source>Lat.</source>
-      <translation type="unfinished"/>
+      <translation>Lat.</translation>
     </message>
     <message>
       <source>Lon.</source>
-      <translation type="unfinished"/>
+      <translation>Lon.</translation>
     </message>
     <message>
       <source>Identifier</source>
@@ -1253,7 +1257,7 @@
     </message>
     <message>
       <source>ago</source>
-      <translation type="unfinished"/>
+      <translation>fa</translation>
     </message>
     <message>
       <source>User does not have any message from operator</source>
@@ -1489,7 +1493,7 @@
     </message>
     <message>
       <source>Please enter IP!</source>
-      <translation type="unfinished"/>
+      <translation>Per favore inserisci un IP!</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key and username is correct!</source>
@@ -1773,7 +1777,7 @@
     </message>
     <message>
       <source>Chatbox</source>
-      <translation type="unfinished"/>
+      <translation>Chatbox</translation>
     </message>
     <message>
       <source>Position from the top, is only used if the Middle left or the Middle right side is chosen</source>
@@ -1781,11 +1785,11 @@
     </message>
     <message>
       <source>Pixels</source>
-      <translation type="unfinished"/>
+      <translation>Pixel</translation>
     </message>
     <message>
       <source>Percents</source>
-      <translation type="unfinished"/>
+      <translation>Percentuali</translation>
     </message>
     <message>
       <source>Size</source>
@@ -1937,7 +1941,7 @@
     </message>
     <message>
       <source>Embed code</source>
-      <translation type="unfinished"/>
+      <translation>Codice incluso</translation>
     </message>
   </context>
   <context>
@@ -2163,7 +2167,7 @@
     </message>
     <message>
       <source>Start chat with operator</source>
-      <translation type="unfinished"/>
+      <translation>inizia chat con operatore</translation>
     </message>
     <message>
       <source>Type your message to the operator</source>
@@ -2178,7 +2182,7 @@
     </message>
     <message>
       <source>At least one field has to be visible and required in the popup and page widget</source>
-      <translation type="unfinished"/>
+      <translation>Almeno un campo deve essere visibile e obbligatorio nel popup e nel widget della pagina</translation>
     </message>
     <message>
       <source>Enable leave a message functionality automatically if there are no online operators</source>
@@ -2456,7 +2460,7 @@
     </message>
     <message>
       <source>ago</source>
-      <translation type="unfinished"/>
+      <translation>fa</translation>
     </message>
   </context>
   <context>
@@ -2523,7 +2527,7 @@
     </message>
     <message>
       <source>Archives list</source>
-      <translation type="unfinished"/>
+      <translation>Lista archivi</translation>
     </message>
     <message>
       <source>New archive</source>
@@ -2534,29 +2538,29 @@
     <name>chatarchive/archivechats</name>
     <message>
       <source>Archiving has finished.</source>
-      <translation type="unfinished"/>
+      <translation>Archiviazione terminata.</translation>
     </message>
     <message>
       <source>See archived chats</source>
-      <translation type="unfinished"/>
+      <translation>Mostra le conversazioni archiviate</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/editarchive</name>
     <message>
       <source>Edit archive</source>
-      <translation type="unfinished"/>
+      <translation>Modifica archivio</translation>
     </message>
     <message>
       <source>Archive updated</source>
-      <translation type="unfinished"/>
+      <translation>Archivio modificato</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/newarchive</name>
     <message>
       <source>Date from</source>
-      <translation type="unfinished"/>
+      <translation>Data da</translation>
     </message>
     <message>
       <source>E.g</source>
@@ -2564,11 +2568,11 @@
     </message>
     <message>
       <source>Date to</source>
-      <translation type="unfinished"/>
+      <translation>Data a</translation>
     </message>
     <message>
       <source>New archive</source>
-      <translation type="unfinished"/>
+      <translation>Nuovo archivio</translation>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>
@@ -2583,11 +2587,11 @@
     <name>chatarchive/list</name>
     <message>
       <source>Archives list</source>
-      <translation type="unfinished"/>
+      <translation>Lista archivi</translation>
     </message>
     <message>
       <source>From date</source>
-      <translation type="unfinished"/>
+      <translation>Da</translation>
     </message>
     <message>
       <source>Till date</source>
@@ -2599,11 +2603,11 @@
     </message>
     <message>
       <source>Messages in archive</source>
-      <translation type="unfinished"/>
+      <translation>Messaggi in archivio</translation>
     </message>
     <message>
       <source>List chats</source>
-      <translation type="unfinished"/>
+      <translation>Elenco conversazioni</translation>
     </message>
     <message>
       <source>Process again</source>
@@ -2611,22 +2615,22 @@
     </message>
     <message>
       <source>Edit</source>
-      <translation type="unfinished"/>
+      <translation>Modifica</translation>
     </message>
     <message>
       <source>Archived chats</source>
-      <translation type="unfinished"/>
+      <translation>Conversazioni archiviate</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/listarchivechats</name>
     <message>
       <source>Archived chats</source>
-      <translation type="unfinished"/>
+      <translation>Conversazioni archiviate</translation>
     </message>
     <message>
       <source>Information</source>
-      <translation type="unfinished"/>
+      <translation>Informazione</translation>
     </message>
   </context>
   <context>
@@ -2644,11 +2648,11 @@
     <name>chatarchive/process_content</name>
     <message>
       <source>Date from</source>
-      <translation type="unfinished"/>
+      <translation>Data da</translation>
     </message>
     <message>
       <source>Date to</source>
-      <translation type="unfinished"/>
+      <translation>Data a</translation>
     </message>
     <message>
       <source>Potential chats to archive</source>
@@ -2756,15 +2760,15 @@
     </message>
     <message>
       <source>Auto creation by chatbox identifier is enabled</source>
-      <translation type="unfinished"/>
+      <translation>Creazione automatica da identificatore chatbox abilitata</translation>
     </message>
     <message>
       <source>Secret hash, this is used when auto creation is disabled</source>
-      <translation type="unfinished"/>
+      <translation>Hash segreto, utilizzato quanto l&apos;auto creazione è disabilitata</translation>
     </message>
     <message>
       <source>more information on how to use it</source>
-      <translation type="unfinished"/>
+      <translation>più informazioni su come usarlo</translation>
     </message>
   </context>
   <context>
@@ -4395,11 +4399,11 @@
     <name>user/login</name>
     <message>
       <source>Please login</source>
-      <translation>Per favore Login</translation>
+      <translation>Per favore accedi</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Username</translation>
+      <translation>Nome utente</translation>
     </message>
     <message>
       <source>Password</source>
@@ -4411,7 +4415,7 @@
     </message>
     <message>
       <source>Login</source>
-      <translation>Login</translation>
+      <translation>Accedi</translation>
     </message>
     <message>
       <source>Password reminder</source>
@@ -4419,7 +4423,7 @@
     </message>
     <message>
       <source>Incorrect username or password</source>
-      <translation>Username o password incorretti</translation>
+      <translation>Nome utente o password incorretti</translation>
     </message>
   </context>
   <context>
@@ -4476,7 +4480,7 @@
     <name>lhxml/userinfo</name>
     <message>
       <source>ID</source>
-      <translation type="unfinished"/>
+      <translation>ID</translation>
     </message>
     <message>
       <source>IP address</source>
@@ -4484,7 +4488,7 @@
     </message>
     <message>
       <source>Current page</source>
-      <translation type="unfinished"/>
+      <translation>Pagina attuale</translation>
     </message>
     <message>
       <source>Last visit</source>
@@ -4504,7 +4508,7 @@
     </message>
     <message>
       <source>Message seen</source>
-      <translation type="unfinished"/>
+      <translation>Messaggio visto</translation>
     </message>
   </context>
   <context>

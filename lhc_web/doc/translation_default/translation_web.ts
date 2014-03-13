@@ -669,6 +669,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Mail was send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Send mail</source>
       <translation type="unfinished"/>
     </message>

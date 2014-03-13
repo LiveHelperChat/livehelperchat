@@ -667,6 +667,10 @@
       <translation>Blokkeer gebruiker</translation>
     </message>
     <message>
+      <source>Mail was send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Send mail</source>
       <translation>Stuur email</translation>
     </message>

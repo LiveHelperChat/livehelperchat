@@ -57,6 +57,10 @@ a.icon-print:hover{
 	color:#2ba6cb;
 }
 
+a.icon-mail-send{
+	color:green;
+}
+
 .button-group a.icon-mail{
 	color:#FFF;
 }

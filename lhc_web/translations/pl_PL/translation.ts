@@ -667,6 +667,10 @@
       <translation>Zablokuj użytkownika</translation>
     </message>
     <message>
+      <source>Mail was send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Send mail</source>
       <translation>Wyśli wiadomość</translation>
     </message>
