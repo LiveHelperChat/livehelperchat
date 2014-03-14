@@ -98,6 +98,7 @@ return b};a._generateCookieString=function(b,a,c){b=encodeURIComponent(b);a=(a+"
 function(b){var a=b.indexOf("="),a=0>a?b.length:a;return{key:decodeURIComponent(b.substr(0,a)),value:decodeURIComponent(b.substr(a+1))}};a._renewCache=function(){a._cache=a._getCookieObjectFromString(a._document.cookie);a._cachedDocumentCookie=a._document.cookie};a._areEnabled=function(){return a._navigator.cookieEnabled||"1"===a.set("cookies.js",1).get("cookies.js")};a.enabled=a._areEnabled();"function"===typeof define&&define.amd?define(function(){return a}):"undefined"!==typeof exports?("undefined"!==
 typeof module&&module.exports&&(exports=module.exports=a),exports.lhc_Cookies=a):window.lhc_Cookies=a})();
 
+lhc_Cookies.defaults = {secure: <?php erLhcoreClassModelChatConfig::fetch('use_secure_cookie')->current_value == 1 ? print 'true' : print 'false' ?>};
 
 var lh_inst  = {
    JSON : {
@@ -433,7 +434,7 @@ var lh_inst  = {
     },
 
     storePersistenCookie : function(){
-	    lhc_Cookies('lhc_per',this.JSON.stringify(this.cookieDataPers),{expires:16070400<?php $trackDomain != '' ? print ",domain:'.{$trackDomain}'" : ''?><?php erLhcoreClassModelChatConfig::fetch('use_secure_cookie')->current_value == 1 ? print ',secure:true' :'' ?>});
+	    lhc_Cookies('lhc_per',this.JSON.stringify(this.cookieDataPers),{expires:16070400<?php $trackDomain != '' ? print ",domain:'.{$trackDomain}'" : ''?>});
     },
 
     storeSesCookie : function(){
@@ -442,7 +443,7 @@ var lh_inst  = {
     		sessionStorage.setItem('lhc_ses',this.JSON.stringify(this.cookieData));
     	} else {
     	<?php endif;?>
-	    	lhc_Cookies('lhc_ses',this.JSON.stringify(this.cookieData),{<?php erLhcoreClassModelChatConfig::fetch('use_secure_cookie')->current_value == 1 ? print 'secure:true' : print 'secure:undefined' ?><?php $trackDomain != '' ? print ",domain:'.{$trackDomain}'" : ''?>});
+	    	lhc_Cookies('lhc_ses',this.JSON.stringify(this.cookieData),{<?php $trackDomain != '' ? print "domain:'.{$trackDomain}'" : ''?>});
 	    <?php if ($trackDomain == '') : ?>}<?php endif;?>
     },
 
