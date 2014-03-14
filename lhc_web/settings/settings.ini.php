@@ -48,7 +48,9 @@ return array (
       	19 => 'per',
       	20 => 'ell',
       	21 => 'dnk',
-      	22 => 'site_admin'
+      	22 => 'rou',
+      	23 => 'bgr',
+      	24 => 'site_admin'
       ),
     ),
     'default_url' =>
@@ -517,6 +519,42 @@ return array (
     		'view' => 'startchat'
     	),
       ),
+      'rou' =>
+      array (
+    	'locale' => 'ro_RO',
+    	'content_language' => 'ro',
+    	'dir_language' => 'ltr',
+    	'title' => '',
+    	'description' => '',
+    	'theme' =>
+      	array (
+    		0 => 'customtheme',
+    		1 => 'defaulttheme'
+      	),
+    	   'default_url' =>
+    	array (
+    		'module' => 'chat',
+    		'view' => 'startchat'
+    	),
+      ),
+      'bgr' =>
+      array (
+    	'locale' => 'bg_BG',
+    	'content_language' => 'bg',
+    	'dir_language' => 'ltr',
+    	'title' => '',
+    	'description' => '',
+    	'theme' =>
+      	array (
+    		0 => 'customtheme',
+    		1 => 'defaulttheme'
+      	),
+    	   'default_url' =>
+    	array (
+    		'module' => 'chat',
+    		'view' => 'startchat'
+    	),
+      ),	
       'site_admin' =>
       array (
         'locale' => 'en_EN',

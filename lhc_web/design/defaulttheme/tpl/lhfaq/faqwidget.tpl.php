@@ -37,7 +37,7 @@
 		  <form action="<?php echo erLhcoreClassDesign::baseurl('faq/faqwidget')?><?php echo $dynamic_url_append?>" method="post" onsubmit="return lhinst.addCaptcha('<?php echo time()?>',$(this))">
 			  <h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','Type your question');?></h2>
 
-			  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','E-mail')?>:</label>
+			  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','E-mail')?>:<?php if (erLhcoreClassModelChatConfig::fetch('faq_email_required')->current_value == 1) : ?>*<?php endif;?></label>
 			  <input type="text" name="email" value="<?php echo htmlspecialchars($item_new->email);?>" />
 
 			  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','Question')?>:*</label>

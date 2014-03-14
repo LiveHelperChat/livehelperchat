@@ -433,7 +433,7 @@ var lh_inst  = {
     },
 
     storePersistenCookie : function(){
-	    lhc_Cookies('lhc_per',this.JSON.stringify(this.cookieDataPers),{expires:16070400<?php $trackDomain != '' ? print ",domain:'.{$trackDomain}'" : ''?>});
+	    lhc_Cookies('lhc_per',this.JSON.stringify(this.cookieDataPers),{expires:16070400<?php $trackDomain != '' ? print ",domain:'.{$trackDomain}'" : ''?><?php erLhcoreClassModelChatConfig::fetch('use_secure_cookie')->current_value == 1 ? print ',secure:true' :'' ?>});
     },
 
     storeSesCookie : function(){
@@ -442,7 +442,7 @@ var lh_inst  = {
     		sessionStorage.setItem('lhc_ses',this.JSON.stringify(this.cookieData));
     	} else {
     	<?php endif;?>
-	    	lhc_Cookies('lhc_ses',this.JSON.stringify(this.cookieData)<?php $trackDomain != '' ? print ",{domain:'.{$trackDomain}'}" : ''?>);
+	    	lhc_Cookies('lhc_ses',this.JSON.stringify(this.cookieData),{<?php erLhcoreClassModelChatConfig::fetch('use_secure_cookie')->current_value == 1 ? print 'secure:true' : print 'secure:undefined' ?><?php $trackDomain != '' ? print ",domain:'.{$trackDomain}'" : ''?>});
 	    <?php if ($trackDomain == '') : ?>}<?php endif;?>
     },
 
@@ -494,8 +494,34 @@ var lh_inst  = {
     
     lhc_need_help_hide :function() {
     	this.removeById('lhc_need_help_container');
-    	this.addCookieAttribute('hnh',1);
+    	this.addCookieAttributePersistent('lhc_hnh','<?php echo ((erLhcoreClassModelChatConfig::fetch('need_help_tip_timeout')->current_value * 3600) + time())?>');
     	return false;
+    },
+    
+    getPersistentAttribute : function(attr) {
+    	<?php if ($trackDomain == '') : ?>
+    	if (localStorage) {    	
+	    	return localStorage.getItem(attr);
+    	} else {
+    	<?php endif;?>
+	    	if (this.cookieDataPers[attr]){
+		    	return this.cookieDataPers[attr];
+	    	}
+	    	return null;    	
+    	<?php if ($trackDomain == '') : ?>}<?php endif;?>
+    },
+    
+    addCookieAttributePersistent : function(attr, value){
+    	<?php if ($trackDomain == '') : ?>
+    	if (localStorage) {
+    		localStorage.setItem(attr,value);
+    	} else {
+    	<?php endif;?>
+    	if (!this.cookieDataPers[attr] || this.cookieDataPers[attr] != value){
+	    	this.cookieDataPers[attr] = value;
+	    	this.storePersistenCookie();	    	
+    	}
+    	<?php if ($trackDomain == '') : ?>}<?php endif;?>
     },
     
     lhc_need_help_click : function() {

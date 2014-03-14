@@ -172,11 +172,12 @@ if ( isset($_POST['send']) )
 		$item_new->url = $form->url;
 	}
 
-	if ( $form->hasValidData( 'email' ) )
-	{
+	if ( $form->hasValidData( 'email' ) ) {
 		$item_new->email = $form->email;
+	} elseif (erLhcoreClassModelChatConfig::fetch('faq_email_required')->current_value == 1 && !$form->hasValidData( 'email' )) {
+		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','Please enter your email address!');
 	}
-
+	
 	$item_new->identifier = $identifier;
 	
 	if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
@@ -200,7 +201,8 @@ if ( isset($_POST['send']) )
 
 	if (count($Errors) == 0) {
 		$item_new->active = 0;
-		$item_new->saveThis();
+		$item_new->saveThis();		
+		erLhcoreClassChatMail::sendMailFAQ($item_new);		
 		$item_new = new erLhcoreClassFaq();
 		$tpl->set('success',true);
 

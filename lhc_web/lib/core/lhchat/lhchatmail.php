@@ -169,6 +169,43 @@ class erLhcoreClassChatMail {
     	$mail->ClearAddresses();
     }
 
+    public static function sendMailFAQ($faq) {
+
+    	$sendMail = erLhAbstractModelEmailTemplate::fetch(6);
+
+    	$mail = new PHPMailer();
+    	$mail->CharSet = "UTF-8";
+
+    	if ($sendMail->from_email != '') {
+    		$mail->Sender = $sendMail->from_email;
+    	}
+
+    	if ($faq->email != ''){
+    		$mail->From = $faq->email;
+    		$mail->AddReplyTo($faq->email);
+    	}
+
+    	$mail->Subject = $sendMail->subject;
+    	
+    	$mail->Body = str_replace(array('{email}','{question}','{url_request}'), array($faq->email,$faq->question,erLhcoreClassXMP::getBaseHost() . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('user/login').'/(r)/'.rawurlencode(base64_encode('faq/view/'.$faq->id))), $sendMail->content);
+    	
+    	if ($sendMail->recipient != '') { // Perhaps template has default recipient
+    		$emailRecipient = explode(',',$sendMail->recipient);
+    	} else { // Lets find first user and send him an e-mail
+    		$list = erLhcoreClassModelUser::getUserList(array('limit' => 1,'sort' => 'id ASC'));
+    		$user = array_pop($list);
+    		$emailRecipient = array($user->email);
+    	}
+    	
+    	foreach ($emailRecipient as $receiver) {
+    		$mail->AddAddress( $receiver );
+    	}
+    	
+    	self::setupSMTP($mail);
+    	
+    	$mail->Send();    	
+    }
+    
     public static function sendMailRequest($inputData, erLhcoreClassModelChat $chat, $params = array()) {
 
     	$sendMail = erLhAbstractModelEmailTemplate::fetch(2);

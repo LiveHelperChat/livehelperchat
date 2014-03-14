@@ -1,0 +1,4918 @@
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ro_RO">
+  <context>
+    <name>system/buttons</name>
+    <message>
+      <source>Save</source>
+      <translation>Salveaza</translation>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation>Actualizeaza</translation>
+    </message>
+    <message>
+      <source>Cancel</source>
+      <translation>Abandon</translation>
+    </message>
+    <message>
+      <source>Edit</source>
+      <translation>Editeaza</translation>
+    </message>
+    <message>
+      <source>Delete</source>
+      <translation>Sterge</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Goleste...</translation>
+    </message>
+    <message>
+      <source>New</source>
+      <translation>Nou</translation>
+    </message>
+    <message>
+      <source>Updated</source>
+      <translation>Actualizat</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Save and continue</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Continue</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start archiving</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Return</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send test message</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>abstract/abstract_form</name>
+    <message>
+      <source>Updated!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>abstract/proactivechatinvitation</name>
+    <message>
+      <source>If you want pro active chat invitation to work it has to be enabled in</source>
+      <translation>Daca doresti ca invitatiile pro-active de conversatie sa fie functionale trebuie sa fie activate in</translation>
+    </message>
+    <message>
+      <source>chat configuration</source>
+      <translation>Configurarea conversatiilor</translation>
+    </message>
+    <message>
+      <source>also online users tracking has to be</source>
+      <translation>urmarirea utilizatorilor online trebuie deasemenea sa fie</translation>
+    </message>
+    <message>
+      <source>enabled</source>
+      <translation>activat</translation>
+    </message>
+    <message>
+      <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
+      <translation>Limbile utilizate, lasati liber pentru TOATE. E.g lit, rus, ger etc...</translation>
+    </message>
+    <message>
+      <source>Position</source>
+      <translation>Pozitia</translation>
+    </message>
+    <message>
+      <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wait timeout. Time in seconds before timeout message is shown.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show visitor this message then wait timeout passes.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto responder</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name for personal purposes</source>
+      <translation>Numele pentru scop personal</translation>
+    </message>
+    <message>
+      <source>Operator name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time on site in seconds</source>
+      <translation>Timpul petrecut pe site - in secunde</translation>
+    </message>
+    <message>
+      <source>Pageviews</source>
+      <translation>Pagini vizitate</translation>
+    </message>
+    <message>
+      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How many times user show invitation, 0 - untill users closes it, &gt; 0 limits.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Requires e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show random operator profile</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
+      <translation>Identificator - pentru care identificator va fi aratat acest mesaj. Lasati liber pentru toate</translation>
+    </message>
+    <message>
+      <source>Matched times</source>
+      <translation>Elemente potrivite</translation>
+    </message>
+    <message>
+      <source>Message to user</source>
+      <translation>Mesaj catre utilizator</translation>
+    </message>
+    <message>
+      <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pro active chat invitations</source>
+      <translation>Invitatii pro-active pentru conversatii</translation>
+    </message>
+  </context>
+  <context>
+    <name>abstract/list</name>
+    <message>
+      <source>Are you sure?</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/activechats</name>
+    <message>
+      <source>Active chats list</source>
+      <translation>Lista conversatii active</translation>
+    </message>
+    <message>
+      <source>Information</source>
+      <translation>Informatii</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Deschide in fereastra noua</translation>
+    </message>
+    <message>
+      <source>Close chat</source>
+      <translation>Inchide conversatia</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Sterge conversatia</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Goleste...</translation>
+    </message>
+    <message>
+      <source>Chats lists</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Conversatii active</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/chat</name>
+    <message>
+      <source>Show/Hide right column</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User is typing now...</source>
+      <translation>Utilizatorul scrie</translation>
+    </message>
+    <message>
+      <source>This chat is closed.</source>
+      <translation>Aceasta conversatie este inchisa</translation>
+    </message>
+    <message>
+      <source>Pending confirm</source>
+      <translation>Astepata confirmarea</translation>
+    </message>
+    <message>
+      <source>Enter your message</source>
+      <translation>Scrie mesajul tau:</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Trimite</translation>
+    </message>
+    <message>
+      <source>BB Code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Close</source>
+      <translation>Inchide</translation>
+    </message>
+    <message>
+      <source>Chatbox is disabled.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid hash or auto creation is disabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat started</source>
+      <translation>Conversatie inceputa</translation>
+    </message>
+    <message>
+      <source>is typing now...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator is typing now...</source>
+      <translation>Operatorul scrie</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/blockedusers</name>
+    <message>
+      <source>Blocked users</source>
+      <translation>Utilizatori blocati</translation>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation>IP</translation>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>Data</translation>
+    </message>
+    <message>
+      <source>Users who are blocked</source>
+      <translation>Utilizatori blocati</translation>
+    </message>
+    <message>
+      <source>Remove block</source>
+      <translation>Deblocheaza</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Goleste...</translation>
+    </message>
+    <message>
+      <source>User was blocked!</source>
+      <translation>Utilizatorul a fost blocat!</translation>
+    </message>
+    <message>
+      <source>User blocking failed, perhaps you do not have permission to block users?</source>
+      <translation>Blocarea utilizatorului a esuat. Verificati daca aveti permisiunea de a bloca utilizatori</translation>
+    </message>
+  </context>
+  <context>
+    <name>kernel/message</name>
+    <message>
+      <source>Are you sure?</source>
+      <translation>Sunteti sigur?</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/cannedmsg</name>
+    <message>
+      <source>Canned messages</source>
+      <translation>Mesaj conservat</translation>
+    </message>
+    <message>
+      <source>Message</source>
+      <translation>Mesaj</translation>
+    </message>
+    <message>
+      <source>User</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delay</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Position</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit message</source>
+      <translation>Editeaza mesaj</translation>
+    </message>
+    <message>
+      <source>Delete message</source>
+      <translation>Sterge mesaj</translation>
+    </message>
+    <message>
+      <source>New canned message</source>
+      <translation>Mesaj conservat nou </translation>
+    </message>
+    <message>
+      <source>Edit canned message</source>
+      <translation>Editeaza mesajul conservat</translation>
+    </message>
+    <message>
+      <source>Delay in seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Personal canned message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Canned message was saved</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Configuratia sistemului</translation>
+    </message>
+    <message>
+      <source>Please enter canned message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a canned message</source>
+      <translation>Va rog sa introduceti un nou mesaj conservat</translation>
+    </message>
+  </context>
+  <context>
+    <name>department/edit</name>
+    <message>
+      <source>Any</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit department</source>
+      <translation>Editeaza departamentul</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Numele</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automate online hours</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Work hours/work days logic is active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Monday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tuesday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wednesday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Thursday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Friday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Saturday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sunday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Work hours, 24 hours format, 1 - 24</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>From, E.g. 8</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To, E.g. 17</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Notifications about new chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP group recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E.g somechat@conference.server.org/LiveChat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>These messages will be send as group messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inform about new chats using</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How many seconds chat can be pending before about chat is informed a staff</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inform then chat is closed by operator, only mail notification is send.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat transfer worklow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To what department chat should be transfered if it is not accepted</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Miscellaneous</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>None</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Configuratia sistemului</translation>
+    </message>
+    <message>
+      <source>departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit a department</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/chatnotexists</name>
+    <message>
+      <source>Resume chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was deleted</source>
+      <translation>Conversatia a fost stearsa</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/adminchat</name>
+    <message>
+      <source>Footprint</source>
+      <translation>Amprenta</translation>
+    </message>
+    <message>
+      <source>Visitor</source>
+      <translation>Vizitator</translation>
+    </message>
+    <message>
+      <source>General information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Files</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Information</source>
+      <translation>Informatii</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>Tara</translation>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>Oras</translation>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation>Pagina</translation>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation>Vine de la</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Telefon</translation>
+    </message>
+    <message>
+      <source>Additional data</source>
+      <translation>Date suplimentare</translation>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation>Creat</translation>
+    </message>
+    <message>
+      <source>Waited</source>
+      <translation>Asteptat</translation>
+    </message>
+    <message>
+      <source>Chat duration</source>
+      <translation>Durata conversatiilor</translation>
+    </message>
+    <message>
+      <source>Actions</source>
+      <translation>Actiuni</translation>
+    </message>
+    <message>
+      <source>Close dialog</source>
+      <translation>Inchide dialogul</translation>
+    </message>
+    <message>
+      <source>Close chat</source>
+      <translation>Inchide conversatia</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Sterge conversatia</translation>
+    </message>
+    <message>
+      <source>Transfer chat</source>
+      <translation>Transfera conversatia</translation>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>Sunteti sigur?</translation>
+    </message>
+    <message>
+      <source>Block user</source>
+      <translation>Blocheaza utilizator</translation>
+    </message>
+    <message>
+      <source>Mail was send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send mail</source>
+      <translation>Transmite E-mail</translation>
+    </message>
+    <message>
+      <source>Print</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Attatch uploaded file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat between operators, chat initializer</source>
+      <translation>Conversatii intre operatori, Initiere conversatie</translation>
+    </message>
+    <message>
+      <source>Chat owner</source>
+      <translation>Proprietarul conversatiei</translation>
+    </message>
+    <message>
+      <source>Map</source>
+      <translation>Harta</translation>
+    </message>
+    <message>
+      <source>Could not detect. Make sure that GEO detection is enabled.</source>
+      <translation>Nu am putut identifica. Verificati daca  verificarea geografica este activa</translation>
+    </message>
+    <message>
+      <source>Browsing information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Refresh</source>
+      <translation>Improspateaza</translation>
+    </message>
+    <message>
+      <source>Remarks</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Trimite</translation>
+    </message>
+    <message>
+      <source>Reopen chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select a canned message</source>
+      <translation>Selecteaza mesaj conservat</translation>
+    </message>
+    <message>
+      <source>Fill textarea with canned message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send delayed canned message instantly</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>files/files</name>
+    <message>
+      <source>Refresh</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Download file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Drop your files here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Not an accepted file type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Filesize is too big</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/syncadmininterface</name>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Deschide in fereastra noua</translation>
+    </message>
+    <message>
+      <source>Add chat</source>
+      <translation>Adauga conversatia</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Goleste...</translation>
+    </message>
+    <message>
+      <source>Start chat</source>
+      <translation>Icepe conversatia</translation>
+    </message>
+    <message>
+      <source>Last activity</source>
+      <translation>Ultima activitate</translation>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation>in urma</translation>
+    </message>
+    <message>
+      <source>Accept chat</source>
+      <translation>Accespta conversatia</translation>
+    </message>
+    <message>
+      <source>h.</source>
+      <translation>h.</translation>
+    </message>
+    <message>
+      <source>m.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>s.</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>front/default</name>
+    <message>
+      <source>Pending confirm</source>
+      <translation>Astepata confirmarea</translation>
+    </message>
+    <message>
+      <source>All pending chats</source>
+      <translation>Totalul conversatiilor in asteptare</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Conversatii active</translation>
+    </message>
+    <message>
+      <source>All active chats</source>
+      <translation>Toate conversatiile active</translation>
+    </message>
+    <message>
+      <source>Unread messages</source>
+      <translation>Mesaje necitite</translation>
+    </message>
+    <message>
+      <source>All unread chats</source>
+      <translation>Toate conversatiile necitite</translation>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation>Conversatii inchise</translation>
+    </message>
+    <message>
+      <source>All closed chats</source>
+      <translation>Toate conversatiile inchise</translation>
+    </message>
+    <message>
+      <source>You do not have permission to use chattabschrome function</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>login first.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online operators</source>
+      <translation>Operatori online</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/startchat</name>
+    <message>
+      <source>Name</source>
+      <translation>Numele</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Telefon</translation>
+    </message>
+    <message>
+      <source>Enter your message</source>
+      <translation>Scrie mesajul tau:</translation>
+    </message>
+    <message>
+      <source>Your question</source>
+      <translation>Intrebare ta</translation>
+    </message>
+    <message>
+      <source>Start chat</source>
+      <translation>Icepe conversatia</translation>
+    </message>
+    <message>
+      <source>There are no online operators at the moment, please leave a message</source>
+      <translation>Nu sunt operatori online. Lasati un mesaj, va rog!</translation>
+    </message>
+    <message>
+      <source>Leave a message</source>
+      <translation>Lasa un mesaj</translation>
+    </message>
+    <message>
+      <source>Your request was sent!</source>
+      <translation>Solicitarea a fost transmisa!</translation>
+    </message>
+    <message>
+      <source>I accept my personal data will be handled according to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>our terms and to the Law</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Departament</translation>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Personal assistant</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Fill out this form to start a chat</source>
+      <translation>Completeaza formularul pentru a incepe o conversatie</translation>
+    </message>
+    <message>
+      <source>There are no online operators at the moment, please leave your message</source>
+      <translation>Nu sunt operatori online. Lasati mesajul dumneavoastra, va rog!</translation>
+    </message>
+    <message>
+      <source>You do not have permission to chat! Please contact site owner.</source>
+      <translation>Nu aveti permisiuni pentru conversatie. Contactati administratorul sitului.</translation>
+    </message>
+    <message>
+      <source>Invalid captcha code, please enable Javascript!</source>
+      <translation>Cod captcha invalid. Activati javascript</translation>
+    </message>
+    <message>
+      <source>Please enter your name</source>
+      <translation>Scrie numele tau:</translation>
+    </message>
+    <message>
+      <source>Maximum 50 characters</source>
+      <translation>Maxim 50 de caractere</translation>
+    </message>
+    <message>
+      <source>Please enter a valid email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter your message</source>
+      <translation>Scrie mesajul tau:</translation>
+    </message>
+    <message>
+      <source>Maximum</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>characters for a message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You have to accept our Terms Of Service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter your phone</source>
+      <translation>Scrie telefonul tau:</translation>
+    </message>
+    <message>
+      <source>Maximum 100 characters for phone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not determine a default department!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>is required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live Support</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a message, max characters</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor</source>
+      <translation>Vizitator</translation>
+    </message>
+    <message>
+      <source>Fill in the form to start a chat</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/checkchatstatus</name>
+    <message>
+      <source>A support staff member has joined this chat</source>
+      <translation>Un operator de suport s-a alaturat conversatiei</translation>
+    </message>
+    <message>
+      <source>A support staff member has closed this chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
+      <translation>Este in astptare confirmarea unui oprator de suport. Scrieti mesajul si imediat ce un operator va confirma conversatia veti primi raspunsul</translation>
+    </message>
+    <message>
+      <source>At this moment there are no logged in support staff members, but you can leave your messages</source>
+      <translation>Niciun oprator de suport nu este activ. Scrieti mesajul si imediat ce un operator va confirma conversatia veti primi raspunsul</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/closedchats</name>
+    <message>
+      <source>Closed chats list</source>
+      <translation>Liste de conversatii inchise</translation>
+    </message>
+    <message>
+      <source>Information</source>
+      <translation>Informatii</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Deschide in fereastra noua</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Sterge conversatia</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Goleste...</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Liste de conversatii</translation>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation>Conversatii inchise</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/user_settings</name>
+    <message>
+      <source>Enable/Disable sound about new messages from the operator</source>
+      <translation>Activeaza/dezactiveaza alerta sonora pentru mesaje ale operatorului</translation>
+    </message>
+    <message>
+      <source>Print</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send chat transcript to your e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new messages from users</source>
+      <translation>Activeaza/dezactiveaza alerta sonora pentru mesajele de la utilizatori</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new pending chats</source>
+      <translation>Activeaza/dezactiveaza alerta sonora pentru conversatii</translation>
+    </message>
+    <message>
+      <source>Change my status to online/offline</source>
+      <translation>Schimba statusul meu activ/inactiv</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/editchatconfig</name>
+    <message>
+      <source>Edit</source>
+      <translation>Editeaza</translation>
+    </message>
+    <message>
+      <source>Value in</source>
+      <translation>Valoare in</translation>
+    </message>
+    <message>
+      <source>site access</source>
+      <translation>acces pe website</translation>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation>Actualizare</translation>
+    </message>
+    <message>
+      <source>Data updated</source>
+      <translation>Informatii actualizate</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/errors/adminchatnopermission</name>
+    <message>
+      <source>You do not have permission to access the current chat!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/errors/entertext</name>
+    <message>
+      <source>Please enter text!</source>
+      <translation>Va rog introduceti textul</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/onlineusers</name>
+    <message>
+      <source>GEO detection configuration</source>
+      <translation>Configurarea detectarii pozitiei geografice</translation>
+    </message>
+    <message>
+      <source>GEO Enabled</source>
+      <translation>Geolocatie activata</translation>
+    </message>
+    <message>
+      <source>Use this service</source>
+      <translation>Utilizati acest serviciu</translation>
+    </message>
+    <message>
+      <source>Save</source>
+      <translation>Salveaza</translation>
+    </message>
+    <message>
+      <source>Use mod_geoip2</source>
+      <translation>Utilizati mod_geoip2</translation>
+    </message>
+    <message>
+      <source>Country code server variable</source>
+      <translation>Variabila pentru serverul cu coduri de tara</translation>
+    </message>
+    <message>
+      <source>Country name server variable</source>
+      <translation>Variabila pentru serverul cu nume de tara</translation>
+    </message>
+    <message>
+      <source>City name server variable</source>
+      <translation>Variabila pentru serverul cu nume de orase</translation>
+    </message>
+    <message>
+      <source>Region name server variable</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Latitude variable</source>
+      <translation>Variabila pentru latitudine</translation>
+    </message>
+    <message>
+      <source>Longitude variable</source>
+      <translation>Variabila pentru logitudine</translation>
+    </message>
+    <message>
+      <source>Use MaxMind, does not depend on any third party remote service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You can download city/country database from.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>bcmath php extension detected</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Location of city database</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User country based detection, faster</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File exists</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File does not exists</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User city based detection, slower</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use PHP-GeoIP module</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Support for PHP-GeoIP detected</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Requests will be comming from</source>
+      <translation>Solicitarile vor fi primite de la</translation>
+    </message>
+    <message>
+      <source>API Key</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>IP, if your site remote IP is different from detected one, please provide correct remote IP address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Map location</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Drag a marker where you want to have map centered by default. Zoom is also saved.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Setarile au fost actualizate</translation>
+    </message>
+    <message>
+      <source>Send message</source>
+      <translation>Trimite mesajul</translation>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>Oras</translation>
+    </message>
+    <message>
+      <source>Lat.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Lon.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation>Identificator</translation>
+    </message>
+    <message>
+      <source>Last activity</source>
+      <translation>Ultima activitate</translation>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User does not have any message from operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User have not seen message from operator, or message window still open.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has seen message from operator.</source>
+      <translation>Utilizatorul a citit mesajul de la operator.</translation>
+    </message>
+    <message>
+      <source>User is chatting</source>
+      <translation>Utilizatorul se afla in conversatie</translation>
+    </message>
+    <message>
+      <source>User is not having any chat right now</source>
+      <translation>Momentan utilizatorul nu poarta nicio conversatie</translation>
+    </message>
+    <message>
+      <source>has send message to user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No one has send any message to user yet</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>First visit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last visit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total visits</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>time(s) invitation logic was applied</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pageviews</source>
+      <translation>Pagini vizualizate</translation>
+    </message>
+    <message>
+      <source>Total pageviews</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time on site</source>
+      <translation>Timpul de activitate pe site</translation>
+    </message>
+    <message>
+      <source>Total time on site</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Current page</source>
+      <translation>Pagina curenta</translation>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation>Vine de la</translation>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Clear list</source>
+      <translation>Goleste lista</translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Utilizatori online</translation>
+    </message>
+    <message>
+      <source>User tracking is disabled, enable it at</source>
+      <translation>Urmarirea utilizatorilor este dezactivata, activati aceasta optiune</translation>
+    </message>
+    <message>
+      <source>Chat configuration</source>
+      <translation>Configurarea conversatiilor</translation>
+    </message>
+    <message>
+      <source>List</source>
+      <translation>Lista</translation>
+    </message>
+    <message>
+      <source>online users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show visitors who visited site in the past</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>seconds</source>
+      <translation>secunde</translation>
+    </message>
+    <message>
+      <source>minit</source>
+      <translation>minut</translation>
+    </message>
+    <message>
+      <source>minits</source>
+      <translation>minute</translation>
+    </message>
+    <message>
+      <source>hour</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>day</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation>Pagina</translation>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation>Text pentr stare</translation>
+    </message>
+    <message>
+      <source>Action</source>
+      <translation>Actiune</translation>
+    </message>
+    <message>
+      <source>User does not have any messages from the operator</source>
+      <translation>Utilizatorul nu are niciun mesaj de la operator</translation>
+    </message>
+    <message>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <translation>Utilizatorul nu a citit mesajul de la operator, sau fereastra de mesaje este inca deschisa.</translation>
+    </message>
+    <message>
+      <source>User has seen the message from the operator.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>has sent a message to the user</source>
+      <translation>a transmis un mesaj utilizatorului</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>Nimeni nu a transmis vreun mesaj utilizatorului</translation>
+    </message>
+    <message>
+      <source>first visit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>last visit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Goleste...</translation>
+    </message>
+    <message>
+      <source>Map</source>
+      <translation>Harta</translation>
+    </message>
+    <message>
+      <source>User has message from operator</source>
+      <translation>Utilizatorul are mesaj de la operator</translation>
+    </message>
+    <message>
+      <source>Marker timeout before it dissapears from map</source>
+      <translation>Timpul de expirare a markerului, acesta va disparea de pe harta</translation>
+    </message>
+    <message>
+      <source>Files upload for users is active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Files upload for operators is active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country code variable does not exist!</source>
+      <translation>Variabila pentru codul de tara nu exista!</translation>
+    </message>
+    <message>
+      <source>Country name variable does not exist!</source>
+      <translation>Variabila pentru numele de tara nu exista!</translation>
+    </message>
+    <message>
+      <source>Please enter city variable!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter latitude variable!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter longitude variable!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages!</source>
+      <translation>Definirea furnizorului de srvicii a esuat, verificati daca furnizorul de servicii va permite solictari in pginile externe</translation>
+    </message>
+    <message>
+      <source>MaxMind city file does not exists!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>MaxMind country file does not exists!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that MaxMind database files exists!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter the API key!</source>
+      <translation>Va rog sa introduceti cheia API!</translation>
+    </message>
+    <message>
+      <source>Please enter the API username!</source>
+      <translation>Va rog sa introduceti parola API!</translation>
+    </message>
+    <message>
+      <source>Please enter IP!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key and username is correct!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that you have installed php-GeoIP module and GeoIPCity.dat file is available!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a service provider!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online users</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/getstatus</name>
+    <message>
+      <source>Live help is online...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live help is offline...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Close</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimize/Restore</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help?</source>
+      <translation>Aveti intrebari?</translation>
+    </message>
+    <message>
+      <source>Our staff is always ready to help</source>
+      <translation>Suntem aici pentru a va ajuta!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/listchatconfig</name>
+    <message>
+      <source>Chat configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Notifications about new chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copyright settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Application name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Site settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online tracking</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Misc</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Workflow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List chat configuration</source>
+      <translation>Ultima configuratie pentru conversatii</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/configuration</name>
+    <message>
+      <source>Request notification permission</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New chat notification settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat related</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Blocked users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>GEO detection configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Synchronization and sound settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start chat form settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Canned messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail templates</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pro active chat invitations</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto responder</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>SMTP settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat archive</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time zone settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live help embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users and their permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List of groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List of roles</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Files uploads configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Files upload configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List of files</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New file</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>system/htmlcode</name>
+    <message>
+      <source>Widget embed code</source>
+      <translation>Codul pentru widget</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>Codul ce trebueiinclus in pagina</translation>
+    </message>
+    <message>
+      <source>HTML code</source>
+      <translation>Cod HTML</translation>
+    </message>
+    <message>
+      <source>Choose a language</source>
+      <translation>Alege o limba</translation>
+    </message>
+    <message>
+      <source>Chatbox messages content height</source>
+      <translation>Inaltimea casetei de conversatie afisate</translation>
+    </message>
+    <message>
+      <source>Choose prefered http mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Based on site (default)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the page where you want it to be rendered</source>
+      <translation>Copiati codul din zona de text in zona head sau footer a paginii</translation>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Position from the top, is only used if the Middle left or the Middle right side is chosen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pixels</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Percents</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Size</source>
+      <translation>Dimensiuni</translation>
+    </message>
+    <message>
+      <source>Width</source>
+      <translation>Latime</translation>
+    </message>
+    <message>
+      <source>Height</source>
+      <translation>Inaltime</translation>
+    </message>
+    <message>
+      <source>Position</source>
+      <translation>Pozitie</translation>
+    </message>
+    <message>
+      <source>Bottom right corner of the screen</source>
+      <translation>Coltul Dreapta-jos</translation>
+    </message>
+    <message>
+      <source>Bottom left corner of the screen</source>
+      <translation>Coltul Stanga-jos</translation>
+    </message>
+    <message>
+      <source>Middle right side of the screen</source>
+      <translation>Mijloc-dreapta</translation>
+    </message>
+    <message>
+      <source>Middle left side of the screen</source>
+      <translation>Mijloc-stanga</translation>
+    </message>
+    <message>
+      <source>Disable minimize icon</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show chatbox content minimized first time if content is shown.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy the code from the textarea to page where you want it to be rendered</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Status text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Position from the top, only used if the Middle left or the Middle right side is chosen</source>
+      <translation>Distanta fata de inceputul paginii. Folosita numai daca se alege Mijloc-stanga sau Mijloc-dreapta pentru afisare</translation>
+    </message>
+    <message>
+      <source>Help us to grow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide status when offline</source>
+      <translation>Ascunde starea cand nu este operator activ</translation>
+    </message>
+    <message>
+      <source>Show a leave a message form when there are no online operators</source>
+      <translation>Afiseaza un mesaj atunci cand nu exista operatori online</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Departament</translation>
+    </message>
+    <message>
+      <source>Any</source>
+      <translation>Oricare</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the page where you want your status to appear</source>
+      <translation>Copiati codul din zona de text in pagina si locul unde doriti sa apara aplicatia de conversatii online</translation>
+    </message>
+    <message>
+      <source>On a mouse click show the page widget</source>
+      <translation>La click arata widget in loc de pop-up</translation>
+    </message>
+    <message>
+      <source>Automatically check for messages from the operator/invitation messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>It increases server load, because every 15 seconds is checked for operator message or invitation message.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disable pro active invitations, usefull if you want disable them from site part.</source>
+      <translation>Dezactiveaza invitatiile pro-active. Este util cand doriti sa fie inactive pentru vizitatorii sitului</translation>
+    </message>
+    <message>
+      <source>Popup window size</source>
+      <translation>Dimensiunile ferestrei pop-up</translation>
+    </message>
+    <message>
+      <source>Popup window width in pixels</source>
+      <translation>Latimea ferestrei pop-up - pixeli</translation>
+    </message>
+    <message>
+      <source>Popup window height in pixels</source>
+      <translation>Inaltimea ferestrei pop-up - pixeli</translation>
+    </message>
+    <message>
+      <source>Widget width</source>
+      <translation>Inaltime widget - pixeli</translation>
+    </message>
+    <message>
+      <source>Widget width in pixels</source>
+      <translation>Latimea widghet - pixeli</translation>
+    </message>
+    <message>
+      <source>height</source>
+      <translation>inaltime</translation>
+    </message>
+    <message>
+      <source>Widget height in pixels</source>
+      <translation>Inaltime widget - pixeli</translation>
+    </message>
+    <message>
+      <source>Native placement - it will be shown where the html is embedded</source>
+      <translation>Pozitie implicita - se afiseaza acolo unde este introdus codul</translation>
+    </message>
+    <message>
+      <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
+      <translation>Identificator. poate fi folosit drept filtru pentru invitatiille pro-active, este util atunci cand aven mai multe mesaje predefinite</translation>
+    </message>
+    <message>
+      <source>Leave empty if it is not important to you</source>
+      <translation>Lasa liber daca este neimportant pentru tine</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Configuratia sistemului</translation>
+    </message>
+    <message>
+      <source>Embed code</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/lists</name>
+    <message>
+      <source>Choose what type of list you want to see</source>
+      <translation>Alge tipul de lista pe care il doresti</translation>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation>Conversatii in asteptare</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Conversatii active</translation>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation>Conversatii inchise</translation>
+    </message>
+    <message>
+      <source>Operators chats</source>
+      <translation>Conversatii ale operatorului</translation>
+    </message>
+    <message>
+      <source>Chats with unread messages</source>
+      <translation>Conversatii cu mesaje necitite</translation>
+    </message>
+    <message>
+      <source>Chat lists</source>
+      <translation>Liste de conversatii</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/syncadmin</name>
+    <message>
+      <source>System assistant</source>
+      <translation>Asistent de sistem</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/lists/search_panel</name>
+    <message>
+      <source>Nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date range from to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Search</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select user</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/operatorschats</name>
+    <message>
+      <source>Operators chats list</source>
+      <translation>Lista de conversatii ale operatorului</translation>
+    </message>
+    <message>
+      <source>Operators chats</source>
+      <translation>Conversatii ale operatorului</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/part/operator_profile</name>
+    <message>
+      <source>Skype call</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/pendingchats</name>
+    <message>
+      <source>Pending chats list</source>
+      <translation>Lista conversatiilor in asteptare</translation>
+    </message>
+    <message>
+      <source>Information</source>
+      <translation>Informatii</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reject chat</source>
+      <translation>Respinge conversatia</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Goleste...</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Lista de conversatii</translation>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation>Conversatii in asteptare</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/previewchat</name>
+    <message>
+      <source>Last 100 messages rows</source>
+      <translation>Randuri cu ultimele 100 mesaje</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/sendchat</name>
+    <message>
+      <source>Enter your e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/sendmail</name>
+    <message>
+      <source>Send mail to the user</source>
+      <translation>Transmite utilizatorului un e-mail</translation>
+    </message>
+    <message>
+      <source>Recipient</source>
+      <translation>Destinatar</translation>
+    </message>
+    <message>
+      <source>Recipient e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subject</source>
+      <translation>Subiect</translation>
+    </message>
+    <message>
+      <source>From name</source>
+      <translation>De la</translation>
+    </message>
+    <message>
+      <source>Reply e-mail</source>
+      <translation>E-mail pentru raspuns</translation>
+    </message>
+    <message>
+      <source>From e-mail</source>
+      <translation>E-mail expeditor</translation>
+    </message>
+    <message>
+      <source>Type your message to the user</source>
+      <translation>Scrie mesajul catre utilizator</translation>
+    </message>
+    <message>
+      <source>Send the mail</source>
+      <translation>Transmite E-mail</translation>
+    </message>
+    <message>
+      <source>Embed link to file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail was sent to the user</source>
+      <translation>Mesajul a fost transmis utilizatorului</translation>
+    </message>
+    <message>
+      <source>Please enter recipient e-mail!</source>
+      <translation>Va rog sa scrieti mailul destinatarului</translation>
+    </message>
+    <message>
+      <source>From e-mail is missing!</source>
+      <translation>E-mailul expeditorului nu exista</translation>
+    </message>
+    <message>
+      <source>Reply e-mail is missing!</source>
+      <translation>E-mailul de raspuns nu exista</translation>
+    </message>
+    <message>
+      <source>Subject is missing!</source>
+      <translation>Lipseste subiectul</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/sendnotice</name>
+    <message>
+      <source>Send a message to the user</source>
+      <translation>Transmite utilizatorului un mesaj</translation>
+    </message>
+    <message>
+      <source>If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.</source>
+      <translation>Daca mesajul a fost deja trimis, aceasta optiune il va marca netransmis si utilizatorul il va primi inca o data</translation>
+    </message>
+    <message>
+      <source>Type your message to the user</source>
+      <translation>Scrie mesajul catre utilizator</translation>
+    </message>
+    <message>
+      <source>Send the message</source>
+      <translation>transmite mesajul</translation>
+    </message>
+    <message>
+      <source>Message was sent to the user</source>
+      <translation>Mesajul a fost transmis utilizatorului</translation>
+    </message>
+    <message>
+      <source>Start chat with operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Type your message to the operator</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/startchatformsettings</name>
+    <message>
+      <source>Start a chat form settings</source>
+      <translation>Setari pentru formularul de incepere a unei conversatii</translation>
+    </message>
+    <message>
+      <source>At least one field has to be visible and required in the popup and page widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable leave a message functionality automatically if there are no online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online form settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This field is visible in the popup</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This field is visible in the page widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This field is invisible but prefilled data is collected</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This field is</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Optional</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Terms of service acceptance checkbox</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline form settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail is always required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose at least one field for a popup</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose at least one field for a page widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start chat form settings</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/syncandsoundesetting</name>
+    <message>
+      <source>Save</source>
+      <translation>Salveaza</translation>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation>Actualizeaza</translation>
+    </message>
+    <message>
+      <source>Cancel</source>
+      <translation>Abandon</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Setarile au fost actualizate</translation>
+    </message>
+    <message>
+      <source>Synchronisation and sound settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How many seconds for a user to be considered as being online</source>
+      <translation>Cate secunde pentru ca un operator sa fie considerat online</translation>
+    </message>
+    <message>
+      <source>Value in seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sync for new chats, interval in seconds</source>
+      <translation>Sincronizare cu noile conversatii - secunde</translation>
+    </message>
+    <message>
+      <source>Sync for a new user message, interval in seconds</source>
+      <translation>Sincronizare pentru un nou mesaj de la utilizatori - secumnde</translation>
+    </message>
+    <message>
+      <source>Check for messages from the operators, interval in seconds</source>
+      <translation>Verifica existenta mesajelor de la operator - secunde</translation>
+    </message>
+    <message>
+      <source>Long polling</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable long polling</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How many seconds keep connection to server?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New chat request notification settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Play a new pending chat sound on a new chat request</source>
+      <translation>Emite un semnal sonor pentru solicitare conversatie noua</translation>
+    </message>
+    <message>
+      <source>Play a sound on a new message for a back office user</source>
+      <translation>Emite un semnal sonor pentru mesaj nou pentru administrator</translation>
+    </message>
+    <message>
+      <source>Play a sound on a new message for a front end user</source>
+      <translation>Emite un semnal sonor pentru mesaj nou catre utilizator</translation>
+    </message>
+    <message>
+      <source>Show alert message on a new chat request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How many times play sound notification</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delay between sound notifications in seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>delay in seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a valid online timeout value!</source>
+      <translation>Introduceti o valoare corecta pentru timpul de expirare!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid server connection timeout value!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a valid operator message timeout value!</source>
+      <translation>Introduceti o valoare corecta pentru timpul in care mesajul operatorilor expira</translation>
+    </message>
+    <message>
+      <source>Please enter a valid new messages polling sync interval!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a valid back office sync interval!</source>
+      <translation>Introduceti o valoare corecta pentru timpul de sincronizare zona de adminstrare</translation>
+    </message>
+    <message>
+      <source>Please enter a valid new messages sync interval!</source>
+      <translation>Introduceti o valoare corecta pentru timpul de sincronizare a noilor mesaje</translation>
+    </message>
+    <message>
+      <source>Synchronization and sound settings</source>
+      <translation>Setari pentru sincronizare si semnale sonore</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/statistic</name>
+    <message>
+      <source>Statistic</source>
+      <translation>Statistic</translation>
+    </message>
+    <message>
+      <source>Total statistic</source>
+      <translation>Statistici totale</translation>
+    </message>
+    <message>
+      <source>Parameter</source>
+      <translation>Parametru</translation>
+    </message>
+    <message>
+      <source>Value</source>
+      <translation>Valoare</translation>
+    </message>
+    <message>
+      <source>Total chats</source>
+      <translation>Totalul conversatiilor</translation>
+    </message>
+    <message>
+      <source>Total pending chats</source>
+      <translation>Totalul conversatiilor in asteptare</translation>
+    </message>
+    <message>
+      <source>Total active chats</source>
+      <translation>Totalul conversatiilor active</translation>
+    </message>
+    <message>
+      <source>Total closed chats</source>
+      <translation>Totalul conversatiilor inchise</translation>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation>Conversatii in Chatbox</translation>
+    </message>
+    <message>
+      <source>Total messages (including visitors, system and operators messages)</source>
+      <translation>Total mesaje (inclusiv vizitatori, system si operatori)</translation>
+    </message>
+    <message>
+      <source>Total messages (only visitors)</source>
+      <translation>Total mesaje (doar vizitatori)</translation>
+    </message>
+    <message>
+      <source>Total messages (only system messages)</source>
+      <translation>Total mesaje (doar mesaje system)</translation>
+    </message>
+    <message>
+      <source>Total messages (only operators)</source>
+      <translation>Total mesaje (doar operatori)</translation>
+    </message>
+    <message>
+      <source>Last 24h statistic</source>
+      <translation>Statisca pentru ultimile 24 de ore</translation>
+    </message>
+    <message>
+      <source>Operators last 24h statistic, top 100 by chats number</source>
+      <translation>Statistica activitatii operatorilor, top 100 operatori functie de numarul de conversatii</translation>
+    </message>
+    <message>
+      <source>User</source>
+      <translation>Utilizator</translation>
+    </message>
+    <message>
+      <source>Total messages</source>
+      <translation>Total mesaje</translation>
+    </message>
+    <message>
+      <source>Votes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last activity</source>
+      <translation>Ultima activitate</translation>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/transferchat</name>
+    <message>
+      <source>Transfer to a user</source>
+      <translation>Transfera catre un utilizator</translation>
+    </message>
+    <message>
+      <source>Logged in users</source>
+      <translation>Utilizatori activi inregistrati</translation>
+    </message>
+    <message>
+      <source>Transfer a chat to one of your departments users</source>
+      <translation>Transfera conversatia catre un utilizator din departamentul tau</translation>
+    </message>
+    <message>
+      <source>Transfer</source>
+      <translation>Transfera</translation>
+    </message>
+    <message>
+      <source>Transfer to a department</source>
+      <translation>Transfera catre un departament</translation>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation>Departamente</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/unreadchats</name>
+    <message>
+      <source>Unread chats list</source>
+      <translation>Liste de conversatii necitite</translation>
+    </message>
+    <message>
+      <source>Information</source>
+      <translation>Informatii</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Goleste...</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/userjoined</name>
+    <message>
+      <source>User has joined the chat!</source>
+      <translation>Utilizatorul s-a alaturat conversatiei</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/userleftchat</name>
+    <message>
+      <source>User has left the chat!</source>
+      <translation>Utilizatorul a parasit conversatia</translation>
+    </message>
+  </context>
+  <context>
+    <name>chatarchive/archive</name>
+    <message>
+      <source>Chat archive</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Archives list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New archive</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chatarchive/archivechats</name>
+    <message>
+      <source>Archiving has finished.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>See archived chats</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chatarchive/editarchive</name>
+    <message>
+      <source>Edit archive</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Archive updated</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chatarchive/newarchive</name>
+    <message>
+      <source>Date from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E.g</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New archive</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a valid from date range!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a valid to date range!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chatarchive/list</name>
+    <message>
+      <source>Archives list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>From date</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Till date</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats in archive</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages in archive</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Process again</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Archived chats</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chatarchive/listarchivechats</name>
+    <message>
+      <source>Archived chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Information</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chatarchive/process</name>
+    <message>
+      <source>Process archive</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Process</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chatarchive/process_content</name>
+    <message>
+      <source>Date from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Potential chats to archive</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Archived chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Archive progress</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending for action...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Terms dictionary</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>first archived chat ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>last archived chat ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>number of archived chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>number of archived messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Error accoured during archive process</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chatbox/configuration</name>
+    <message>
+      <source>Chatbox</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>General</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>General settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox list</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>system/messages</name>
+    <message>
+      <source>Updated</source>
+      <translation>Actualizat</translation>
+    </message>
+  </context>
+  <context>
+    <name>chatbox/form</name>
+    <message>
+      <source>Chatbox name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name of manager</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox active</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chatbox/generalsettings</name>
+    <message>
+      <source>Chatbox settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default new chatbox name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default operator name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages limit in the chatbox</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto creation by chatbox identifier is enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Secret hash, this is used when auto creation is disabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>more information on how to use it</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>questionary/htmlcode</name>
+    <message>
+      <source>Status text</source>
+      <translation>Text pentr stare</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the page header or footer</source>
+      <translation>Copiati codul din zona de text in zona head sau footer a paginii</translation>
+    </message>
+    <message>
+      <source>Expand the widget automatically for new users</source>
+      <translation>Extinde widget-ul pentru noii utilizatori</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>HTML code</source>
+      <translation>Cod HTML</translation>
+    </message>
+  </context>
+  <context>
+    <name>chatbox/list</name>
+    <message>
+      <source>Chatbox list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>user/userlist</name>
+    <message>
+      <source>Edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last activity</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>kernel/messages</name>
+    <message>
+      <source>Are you sure?</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chatbox/new</name>
+    <message>
+      <source>New chatbox</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>department/departments</name>
+    <message>
+      <source>Departments</source>
+      <translation>Departamente</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Numele</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Edit department</source>
+      <translation>Editeaza departamentul</translation>
+    </message>
+    <message>
+      <source>New department</source>
+      <translation>Departament nou</translation>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Configuratia sistemului</translation>
+    </message>
+  </context>
+  <context>
+    <name>user/account</name>
+    <message>
+      <source>Updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Logged user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Account data</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do not enter a password unless you want to change it</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Your username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter a new password</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Repeat password</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Repeat the new password</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Email</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Surname</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Skype</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Photo</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Return</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assigned departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visible lists</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats tab enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats tab enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unread chats tab enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats tab enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Personal canned messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Account updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a username!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User exists!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wrong email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>department/new</name>
+    <message>
+      <source>New department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>faq/faqwidget</name>
+    <message>
+      <source>FAQ</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Ask a question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Type your question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send your question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Your question was submitted!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a question!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>faq/new</name>
+    <message>
+      <source>Question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Answer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>URL, enter * at the end for the wildcard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>The URL where this question should appear, leave it empty for all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Submitter e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier, can be used to filter questions by identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Question is active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New question</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>faq/list</name>
+    <message>
+      <source>FAQ</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Y</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>N</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete this question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New question</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>faq/view</name>
+    <message>
+      <source>View</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a manager name!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a chatbox name!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a chatbox identifier!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter answer!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier has to be shorter than 10 characters!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter question!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>FAQ description</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>file/list</name>
+    <message>
+      <source>List of files</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Upload a file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Upload name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File size</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Embed BB code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Extension</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete the file</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>file/configuration</name>
+    <message>
+      <source>File configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Allowed files types for operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Allowed files types for users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Maximum file size in KB</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter valid file type!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter valid maximum file size!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>file/new</name>
+    <message>
+      <source>New file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Upload</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File uploaded</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>kernel/nopermission</name>
+    <message>
+      <source>Go back</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You do not have permission to access the module</source>
+      <translation>Nu aveti permisiuni pentru accesarea modulului</translation>
+    </message>
+    <message>
+      <source>and use</source>
+      <translation>si folositi</translation>
+    </message>
+    <message>
+      <source>function</source>
+      <translation>functie</translation>
+    </message>
+    <message>
+      <source>You do not have permission to edit selected object</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>core/paginator</name>
+    <message>
+      <source>Page</source>
+      <translation>Pagina</translation>
+    </message>
+    <message>
+      <source>of</source>
+      <translation>al</translation>
+    </message>
+    <message>
+      <source>Found</source>
+      <translation>Gasit</translation>
+    </message>
+    <message>
+      <source>Go to page</source>
+      <translation>Salt la pagina</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/editrole</name>
+    <message>
+      <source>Role edit</source>
+      <translation>Editeaza rolul</translation>
+    </message>
+    <message>
+      <source>Title</source>
+      <translation>Titlu</translation>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation>Actualizeaza</translation>
+    </message>
+    <message>
+      <source>Cancel</source>
+      <translation>Abandon</translation>
+    </message>
+    <message>
+      <source>Assigned functions</source>
+      <translation>Functii alocate</translation>
+    </message>
+    <message>
+      <source>Module</source>
+      <translation>Modul</translation>
+    </message>
+    <message>
+      <source>Function</source>
+      <translation>Functie</translation>
+    </message>
+    <message>
+      <source>Remove selected policy</source>
+      <translation>Sterge politica selectata</translation>
+    </message>
+    <message>
+      <source>New policy</source>
+      <translation>Politica noua</translation>
+    </message>
+    <message>
+      <source>Role assigned groups</source>
+      <translation>Grupuri cu acelasi rol</translation>
+    </message>
+    <message>
+      <source>Remove selected role</source>
+      <translation>Sterge rolul selectat</translation>
+    </message>
+    <message>
+      <source>Assign a group</source>
+      <translation>Aloca un grup</translation>
+    </message>
+    <message>
+      <source>All modules</source>
+      <translation>Toate modulele</translation>
+    </message>
+    <message>
+      <source>All functions</source>
+      <translation>Toate functiile</translation>
+    </message>
+    <message>
+      <source>Please enter role name</source>
+      <translation>Screti o denumire pentru rol</translation>
+    </message>
+    <message>
+      <source>Please choose module</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose module function</source>
+      <translation>Va rugam sa alegeti o functie a modulului</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Configuratia sistemului</translation>
+    </message>
+    <message>
+      <source>List of roles</source>
+      <translation>Lista de roluri</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/groupassignrole</name>
+    <message>
+      <source>Title</source>
+      <translation>Titlu</translation>
+    </message>
+    <message>
+      <source>Assign</source>
+      <translation>Aloca</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/modulefunctions</name>
+    <message>
+      <source>All functions</source>
+      <translation>Toate functiile</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/newpolicy</name>
+    <message>
+      <source>New policy</source>
+      <translation>Politica noua</translation>
+    </message>
+    <message>
+      <source>Assigned functions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a module</source>
+      <translation>Alege un modul</translation>
+    </message>
+    <message>
+      <source>All modules</source>
+      <translation>Toate modulele</translation>
+    </message>
+    <message>
+      <source>Choose a module function</source>
+      <translation>Alegeti o functie a modulului</translation>
+    </message>
+    <message>
+      <source>All functions</source>
+      <translation>Toate functiile</translation>
+    </message>
+    <message>
+      <source>Save</source>
+      <translation>Salveaza</translation>
+    </message>
+    <message>
+      <source>Cancel</source>
+      <translation>Abandon</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/newrole</name>
+    <message>
+      <source>New role</source>
+      <translation>Rol nou</translation>
+    </message>
+    <message>
+      <source>Title</source>
+      <translation>Titlu</translation>
+    </message>
+    <message>
+      <source>Policy list</source>
+      <translation>Lista de politici</translation>
+    </message>
+    <message>
+      <source>Module</source>
+      <translation>Modul</translation>
+    </message>
+    <message>
+      <source>Function</source>
+      <translation>Functie</translation>
+    </message>
+    <message>
+      <source>New policy</source>
+      <translation>Politica noua</translation>
+    </message>
+    <message>
+      <source>Save</source>
+      <translation>Salveaza</translation>
+    </message>
+    <message>
+      <source>Cancel</source>
+      <translation>Abandon</translation>
+    </message>
+    <message>
+      <source>Please enter role name</source>
+      <translation>Va rog sa alegeti numele rolului</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Configurarea conversatiilor</translation>
+    </message>
+    <message>
+      <source>List of roles</source>
+      <translation>Lista de roluri</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/roleassigngroup</name>
+    <message>
+      <source>Title</source>
+      <translation>Titlu</translation>
+    </message>
+    <message>
+      <source>Assign</source>
+      <translation>Aloca</translation>
+    </message>
+  </context>
+  <context>
+    <name>permission/roles</name>
+    <message>
+      <source>List of roles</source>
+      <translation>Lista de roluri</translation>
+    </message>
+    <message>
+      <source>Title</source>
+      <translation>Titlu</translation>
+    </message>
+    <message>
+      <source>Edit a role</source>
+      <translation>Editeaza un rol</translation>
+    </message>
+    <message>
+      <source>Delete a role</source>
+      <translation>Sterge un rol</translation>
+    </message>
+    <message>
+      <source>New role</source>
+      <translation>Rol nou</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Configuratia sistemului</translation>
+    </message>
+  </context>
+  <context>
+    <name>questionary/answers</name>
+    <message>
+      <source>Answer</source>
+      <translation>Raspuns</translation>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>Data</translation>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation>IP</translation>
+    </message>
+    <message>
+      <source>View</source>
+      <translation>Vedere</translation>
+    </message>
+    <message>
+      <source>Delete the answer</source>
+      <translation>Stergeti raspunsul</translation>
+    </message>
+    <message>
+      <source>Option name</source>
+      <translation>Denumirea optiunii</translation>
+    </message>
+    <message>
+      <source>Progress</source>
+      <translation>Progres</translation>
+    </message>
+    <message>
+      <source>Votes</source>
+      <translation>Voturi</translation>
+    </message>
+  </context>
+  <context>
+    <name>questionary/edit</name>
+    <message>
+      <source>Edit the question</source>
+      <translation>Editati intrebarea.</translation>
+    </message>
+    <message>
+      <source>Question</source>
+      <translation>Intrebare</translation>
+    </message>
+    <message>
+      <source>Save</source>
+      <translation>Salveaza</translation>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation>Actualizeaza</translation>
+    </message>
+    <message>
+      <source>Cancel</source>
+      <translation>Abandon</translation>
+    </message>
+    <message>
+      <source>Voting options</source>
+      <translation>Optiuni de vot</translation>
+    </message>
+    <message>
+      <source>Answers</source>
+      <translation>Raspunsuri</translation>
+    </message>
+    <message>
+      <source>Updated</source>
+      <translation>Actualizat</translation>
+    </message>
+    <message>
+      <source>If there are no options to choose from, the user will be shown a text field where he will be able to enter his own answer.</source>
+      <translation>Daca nu exista optiuni din care sa aleaga, utilizatorului i se va oferi o fereastra text unde sa-si scrie propria optiune.</translation>
+    </message>
+    <message>
+      <source>Option</source>
+      <translation>Optiune</translation>
+    </message>
+    <message>
+      <source>Enter name...</source>
+      <translation>Introduceti numele...</translation>
+    </message>
+    <message>
+      <source>Option position</source>
+      <translation>Pozitia optiunii</translation>
+    </message>
+    <message>
+      <source>Position</source>
+      <translation>Pozitie</translation>
+    </message>
+    <message>
+      <source>Edit</source>
+      <translation>Editeaza</translation>
+    </message>
+    <message>
+      <source>Delete</source>
+      <translation>Sterge</translation>
+    </message>
+    <message>
+      <source>Please enter a question!</source>
+      <translation>Va rog sa formulati o intrebare!</translation>
+    </message>
+    <message>
+      <source>Please enter an option!</source>
+      <translation>Va rog sa introduceti o optiune!</translation>
+    </message>
+    <message>
+      <source>Edit a question</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>questionary/list</name>
+    <message>
+      <source>Questions</source>
+      <translation>Intrebari</translation>
+    </message>
+    <message>
+      <source>Question</source>
+      <translation>Intrebare</translation>
+    </message>
+    <message>
+      <source>Location</source>
+      <translation>Locatie</translation>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation>Prioritate</translation>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation>Activ</translation>
+    </message>
+    <message>
+      <source>Revote</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Y</source>
+      <translation>Y</translation>
+    </message>
+    <message>
+      <source>N</source>
+      <translation>N</translation>
+    </message>
+    <message>
+      <source>Edit the question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete the question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Goleste...</translation>
+    </message>
+    <message>
+      <source>New question</source>
+      <translation>Intrebare noua</translation>
+    </message>
+    <message>
+      <source>Off</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Questionary</source>
+      <translation>Chestionar</translation>
+    </message>
+  </context>
+  <context>
+    <name>questionary/newquestion</name>
+    <message>
+      <source>Enter a new question</source>
+      <translation>Introduceti o noua intrebare</translation>
+    </message>
+    <message>
+      <source>Save</source>
+      <translation>Salveaza</translation>
+    </message>
+    <message>
+      <source>Cancel</source>
+      <translation>Abandon</translation>
+    </message>
+    <message>
+      <source>New question</source>
+      <translation>Intrebare noua</translation>
+    </message>
+  </context>
+  <context>
+    <name>questionary/previewanswer</name>
+    <message>
+      <source>Preview the answer</source>
+      <translation>Previzualizare raspuns</translation>
+    </message>
+  </context>
+  <context>
+    <name>questionary/form_question</name>
+    <message>
+      <source>Question</source>
+      <translation>Intrebare</translation>
+    </message>
+    <message>
+      <source>Question intro</source>
+      <translation>Preambulul intrebarii</translation>
+    </message>
+    <message>
+      <source>Show questions for all the URLs containing this string E.g /shop/basket</source>
+      <translation>Arata toate intrebarile, de pe orice adresa, ce contine aceasta expresie. E.g /shop/basket</translation>
+    </message>
+    <message>
+      <source>Priority, if multiple questions match a location, the question with the higher priority will be shown</source>
+      <translation>Prioritate. daca mai multe intrebari vin de pe aceeasi adresa vor fi afisate primele cele prioritare</translation>
+    </message>
+    <message>
+      <source>Revote time (hours), before can revote. Default 0 - never. Higher value allow revote after seconds expire since last vote</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation>Activ</translation>
+    </message>
+  </context>
+  <context>
+    <name>questionary/votingwidget</name>
+    <message>
+      <source>Questionary</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Thank you!</source>
+      <translation>Multumim!</translation>
+    </message>
+    <message>
+      <source>You have already voted, thank you!</source>
+      <translation>Ati votat deja, va multumim!</translation>
+    </message>
+    <message>
+      <source>Vote</source>
+      <translation>Voteaza</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Trimite</translation>
+    </message>
+    <message>
+      <source>We do not have any requests for now.</source>
+      <translation>In acest moment nu avem nicio cerere.</translation>
+    </message>
+    <message>
+      <source>Please choose one of the options!</source>
+      <translation>va rugam sa alegeti una din optiuni!</translation>
+    </message>
+    <message>
+      <source>No question was detected</source>
+      <translation>Nu am detectat nicio intrebare</translation>
+    </message>
+    <message>
+      <source>Please enter your feedback!</source>
+      <translation>Va rugam sa ne transmiteti sugestiile dumneavoastra!</translation>
+    </message>
+    <message>
+      <source>You have already send your feedback!</source>
+      <translation>Deja ne-ati transmis sugestiile dumneavoastra!</translation>
+    </message>
+  </context>
+  <context>
+    <name>pagelayout/pagelayout</name>
+    <message>
+      <source>Clean cache</source>
+      <translation>Curata memoria cache</translation>
+    </message>
+    <message>
+      <source>Home</source>
+      <translation>Acasa</translation>
+    </message>
+    <message>
+      <source>Chats transferred to you directly</source>
+      <translation>Conversatii transferate direct dumneaostra</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Goleste...</translation>
+    </message>
+    <message>
+      <source>Transferred to your department</source>
+      <translation>Transfera catre departamentul tau</translation>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation>Conversatii in asteptare</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Conversatii active</translation>
+    </message>
+    <message>
+      <source>Unread messages</source>
+      <translation>Mesaj necitit</translation>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation>Conversatii inchise</translation>
+    </message>
+    <message>
+      <source>Configuration</source>
+      <translation>Configurare</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Lista de conversatii</translation>
+    </message>
+    <message>
+      <source>Chat rooms</source>
+      <translation>Camere de conversatie</translation>
+    </message>
+    <message>
+      <source>New chat request</source>
+      <translation>Cerere conversatie noua</translation>
+    </message>
+    <message>
+      <source>Menu</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Vizitatoritori online</translation>
+    </message>
+    <message>
+      <source>Questionary</source>
+      <translation>Chestionar</translation>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation>FAQ - intrebari frecvente</translation>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Account</source>
+      <translation>Cont</translation>
+    </message>
+    <message>
+      <source>Logout</source>
+      <translation>Iesire</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/languages</name>
+    <message>
+      <source>Languages configuration</source>
+      <translation>Configurari de limba</translation>
+    </message>
+    <message>
+      <source>Your language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Language</source>
+      <translation>Limba</translation>
+    </message>
+    <message>
+      <source>General language settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Current site access</source>
+      <translation>Accesul actual pe site</translation>
+    </message>
+    <message>
+      <source>Site access</source>
+      <translation>Acces website</translation>
+    </message>
+    <message>
+      <source>options for</source>
+      <translation>optiuni pentru</translation>
+    </message>
+    <message>
+      <source>Theme, separate themes by new line</source>
+      <translation>Teme, separati temele prin linie noua</translation>
+    </message>
+    <message>
+      <source>Default module</source>
+      <translation>Modul implicit</translation>
+    </message>
+    <message>
+      <source>Default view</source>
+      <translation>Vedere implicita</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Setarile au fost actualizate</translation>
+    </message>
+    <message>
+      <source>Please choose correct language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter theme</source>
+      <translation>Va rog sa alegeti tema</translation>
+    </message>
+    <message>
+      <source>Please enter module name</source>
+      <translation>Va rog sa alegeti numele modulului</translation>
+    </message>
+    <message>
+      <source>Please enter view name</source>
+      <translation>Va rog sa alegeti numele vederii</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/smtp</name>
+    <message>
+      <source>SMTP settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>SMTP enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Login</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Host</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Port</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>system/timezone</name>
+    <message>
+      <source>Time zone settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set application specific time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date format E.g (Y-m-d)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Full date format E.g (Y-m-d H:i:s)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hour format E.g (H:i:s)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live Helper Chat update</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>user/edit</name>
+    <message>
+      <source>Server default time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do not enter a password unless you want to change it</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Repeat the new password</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Surname</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Photo</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Save</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cancel</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assigned departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Application default time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wrong email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid CSRF token!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>system/update</name>
+    <message>
+      <source>Your version</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Current version</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last database update</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>News</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Missing updates from new versions.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update instructions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You are running current version. No updates required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live Helper Chat update information</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>user/new</name>
+    <message>
+      <source>User group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do not show user status as online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Repeat the new password</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Surname</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Photo</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Save</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a default user group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wrong email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User exists</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a group name</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>user/editgroup</name>
+    <message>
+      <source>Group edit</source>
+      <translation>Editeaza grupul</translation>
+    </message>
+    <message>
+      <source>Title</source>
+      <translation>Titlu</translation>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation>Actualizeaza</translation>
+    </message>
+    <message>
+      <source>Assigned users</source>
+      <translation>Utilizatori desemnati</translation>
+    </message>
+    <message>
+      <source>Username</source>
+      <translation>Nume utilizator</translation>
+    </message>
+    <message>
+      <source>Remove user from the group</source>
+      <translation>Sterge utilizator din grup</translation>
+    </message>
+    <message>
+      <source>Assign user</source>
+      <translation>Aloca utilizator</translation>
+    </message>
+    <message>
+      <source>Assigned roles</source>
+      <translation>Roluri desemnate</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Numele</translation>
+    </message>
+    <message>
+      <source>Remove role from group</source>
+      <translation>Sterge rol din grup</translation>
+    </message>
+    <message>
+      <source>Assign role</source>
+      <translation>Aloca rol</translation>
+    </message>
+    <message>
+      <source>Please enter a group name</source>
+      <translation>Va rog sa scrieti o denumire a grupului</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Configurarea conversatiilor</translation>
+    </message>
+    <message>
+      <source>Groups</source>
+      <translation>Grupuri</translation>
+    </message>
+  </context>
+  <context>
+    <name>user/forgotpassword</name>
+    <message>
+      <source>Password reminder</source>
+      <translation>reamintire parola</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Restore password</source>
+      <translation>restaureaza parola</translation>
+    </message>
+    <message>
+      <source>Invalid e-mail address!</source>
+      <translation>Adresa de mail incorecta</translation>
+    </message>
+    <message>
+      <source>Password remind</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Click this link and You will be sent a new password</source>
+      <translation>Click pe acest link si o noua parola va va fi transmisa</translation>
+    </message>
+  </context>
+  <context>
+    <name>user/forgotpasswordsent</name>
+    <message>
+      <source>Password reminder</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail sent. Click the link in the email and You will be sent out a new password.</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>user/groupassignuser</name>
+    <message>
+      <source>Username</source>
+      <translation>Nume utilizator</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Numele</translation>
+    </message>
+    <message>
+      <source>Surname</source>
+      <translation>Porecla</translation>
+    </message>
+    <message>
+      <source>Assign</source>
+      <translation>aloca</translation>
+    </message>
+    <message>
+      <source>User was assigned to the group!</source>
+      <translation>Utilizatorul a fost adaugat grupului</translation>
+    </message>
+  </context>
+  <context>
+    <name>user/grouplist</name>
+    <message>
+      <source>Groups</source>
+      <translation>Grupuri</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit group</source>
+      <translation>Editeaza grup</translation>
+    </message>
+    <message>
+      <source>Delete group</source>
+      <translation>Sterge grup</translation>
+    </message>
+    <message>
+      <source>New group</source>
+      <translation>Grup nou</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Configuratia sistemului</translation>
+    </message>
+  </context>
+  <context>
+    <name>gallery/album_list_admin</name>
+    <message>
+      <source>Are you sure?</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>user/login</name>
+    <message>
+      <source>Please login</source>
+      <translation>Te rog sa te autorizezi</translation>
+    </message>
+    <message>
+      <source>Username</source>
+      <translation>Nume utilizator</translation>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation>Parola</translation>
+    </message>
+    <message>
+      <source>Remember me</source>
+      <translation>Retine datele mele</translation>
+    </message>
+    <message>
+      <source>Login</source>
+      <translation>Autorizare</translation>
+    </message>
+    <message>
+      <source>Password reminder</source>
+      <translation>Recuperare parola</translation>
+    </message>
+    <message>
+      <source>Incorrect username or password</source>
+      <translation>Nume utilizator sau parola incorecte</translation>
+    </message>
+  </context>
+  <context>
+    <name>user/newgroup</name>
+    <message>
+      <source>New group</source>
+      <translation>Grup nou</translation>
+    </message>
+    <message>
+      <source>Title</source>
+      <translation>Titlu</translation>
+    </message>
+    <message>
+      <source>Save</source>
+      <translation>Salveaza</translation>
+    </message>
+    <message>
+      <source>Save and assign the user</source>
+      <translation>Salveaza si aloca utilizatorul</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Configuratia sistemului</translation>
+    </message>
+    <message>
+      <source>Groups</source>
+      <translation>Grupuri</translation>
+    </message>
+  </context>
+  <context>
+    <name>user/remindpassword</name>
+    <message>
+      <source>New password</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hash was not found or was used already</source>
+      <translation>Ciolectia nu este de gasit sau a fost folosita deja</translation>
+    </message>
+    <message>
+      <source>Password remind - new password</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New password:</source>
+      <translation>Parola noua:</translation>
+    </message>
+    <message>
+      <source>New password has been sent to your email.</source>
+      <translation>Parola noua v-a fost trimisa prin E-mail.</translation>
+    </message>
+  </context>
+  <context>
+    <name>lhxml/userinfo</name>
+    <message>
+      <source>ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>IP address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Current page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last visit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User agent</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message seen</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>system/xmpp</name>
+    <message>
+      <source>XMPP settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP Message content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use standard XMPP service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Host</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Port</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Login</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Resource</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Server</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Individual recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test group recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test message will be send to your account e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>GTalk</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use GTalk for messaging</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Information for your google app</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Redirect URL, this url you will have to enter in your google app configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter your app information bellow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>OAuth 2.0 Client ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter your Client ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Client secret</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This message will be send to your e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send test message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Revoke access token</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Revoke permission to send a message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Authentificate and grant permission to send a message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Grant permission to send a message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Succesfully authorised, now you can try to send a message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Token was revoked</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP message was sent succesfuly</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>file/file</name>
+    <message>
+      <source>Download file</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/syncuser</name>
+    <message>
+      <source>Chat was automatically transferred to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Support staff member has closed this chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You do not have permission to view this chat, or chat was deleted</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
+      <translation>Echipa de suport a incis conversatia. Puteti lasa un mesaj ce va fi citit mai tarziu de catre administrator.</translation>
+    </message>
+    <message>
+      <source>You do not have permission to view this chat, or the chat was deleted</source>
+      <translation>Nu aveti permisiuni pentru aceasta conversatie sau a fost stearsa</translation>
+    </message>
+  </context>
+  <context>
+    <name>departament/edit</name>
+    <message>
+      <source>Please enter a department name</source>
+      <translation>Scrieti un nume de departament</translation>
+    </message>
+    <message>
+      <source>Transfer department has to be different one than self</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a valid from date range!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a valid to date range!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>abstract/email_template</name>
+    <message>
+      <source>Name, for personal purposes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subject</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Allow user to change subject</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>From name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Allow to change from name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>From e-mail, if mail was not sent for some reason, this mail will get a failed delivery message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Allow to change from e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reply to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Allow to change reply e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>BCC recipients, can be separated by comma.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail templates</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/closechatadmin</name>
+    <message>
+      <source>has closed the chat!</source>
+      <translation>a inchis conversatia!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/deletechatadmin</name>
+    <message>
+      <source>You do not have rights to delete a chat</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/reopenchat</name>
+    <message>
+      <source>has reopened the chat!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No permission to reopen the chat!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/single</name>
+    <message>
+      <source>Chat started with</source>
+      <translation>Conversatie inceputa cu</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/transferuser</name>
+    <message>
+      <source>Chat was assigned to selected department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was assigned to selected user</source>
+      <translation>Conversatia a fost alocata utilizatorului slectat</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/voteaction</name>
+    <message>
+      <source>Thumbs up</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Thumbs down</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Removed thumb vote</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chatarchive/viewarchivedchat</name>
+    <message>
+      <source>View archived chat</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>file/configurations</name>
+    <message>
+      <source>Please enter valid file type!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/screenshot</name>
+    <message>
+      <source>Screenshot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Take user screenshot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Refresh</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Taken</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Perhaps screenshot is under way or screenshot is not supported on client browser, click refresh to check for a screenshot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Screenshot ready...</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/bbcodeinsert</name>
+    <message>
+      <source>Link title image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Link to image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Link</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Link title</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bold</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Italic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter link to an image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a link</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Here is a link</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/accepttrasnfer</name>
+    <message>
+      <source>has joined the chat!</source>
+      <translation>s-a alaturat conversatiei</translation>
+    </message>
+  </context>
+</TS>
