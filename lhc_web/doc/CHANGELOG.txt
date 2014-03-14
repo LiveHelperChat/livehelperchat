@@ -1,3 +1,14 @@
+1.91v
+
+Features
+1. Option to set timeout for help tooltip
+2. Option to set required e-mail for FAQ
+3. E-mail notification for new FAQ item
+4. Option to set secure parameter for cookies in chat module
+5. Bulgarian and Romanian languages
+
+execute doc/update_db/update_70.sql for update
+
 1.90v
 
 Features
