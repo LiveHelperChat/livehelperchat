@@ -11,8 +11,10 @@
 			<div class="columns small-8">
 	            <select name="CannedMessage-<?php echo $chat->id?>" id="id_CannedMessage-<?php echo $chat->id?>">
 	            	<option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Select a canned message')?></option>
-	            <?php foreach (erLhcoreClassModelCannedMsg::getCannedMessages($chat->dep_id,erLhcoreClassUser::instance()->getUserID()) as $item) : ?>
-	            	<option data-delay="<?php echo $item->delay?>" value="<?php echo $item->id?>"><?php echo htmlspecialchars(str_replace('{nick}', $chat->nick, $item->msg))?></option>
+	            <?php 
+	            $nameSupport = (string)erLhcoreClassUser::instance()->getUserData(true)->name_support;
+	            foreach (erLhcoreClassModelCannedMsg::getCannedMessages($chat->dep_id,erLhcoreClassUser::instance()->getUserID()) as $item) : ?>
+	            	<option data-delay="<?php echo $item->delay?>" value="<?php echo $item->id?>"><?php echo htmlspecialchars(str_replace(array('{nick}','{operator}'), array($chat->nick,$nameSupport), $item->msg))?></option>
 	            <?php endforeach;?>
 	            </select>
 	         </div>
