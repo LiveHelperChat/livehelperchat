@@ -58,14 +58,14 @@ var lhc_ChatboxPage = {
     },
 
    storeSesCookie : function(){
-    	if (sessionStorage) {
-    		sessionStorage.setItem('lhc_chb',this.JSON.stringify(this.cookieData));
+    	if (localStorage) {
+    		localStorage.setItem('lhc_chb',this.JSON.stringify(this.cookieData));
     	}
    },
 
    initSessionStorage : function(){
-    	if (sessionStorage && sessionStorage.getItem('lhc_chb')) {
-    		this.cookieData = this.JSON.parse(sessionStorage.getItem('lhc_chb'));
+    	if (localStorage && localStorage.getItem('lhc_chb')) {
+    		this.cookieData = this.JSON.parse(localStorage.getItem('lhc_chb'));
     	}
    },
 

@@ -144,10 +144,10 @@ class erLhcoreClassChatbox {
 
 
     public static function getVisitorName() {
-    	if (isset($_SESSION['lhc_chatbox_nick'])) {
-    		return $_SESSION['lhc_chatbox_nick'];
-    	} elseif (isset($_GET['nick']) && !empty($_GET['nick'])) {
+    	if (isset($_GET['nick']) && !empty($_GET['nick'])) {
     		return htmlspecialchars_decode(rawurldecode($_GET['nick']),ENT_QUOTES);
+    	} elseif (isset($_SESSION['lhc_chatbox_nick'])) {
+    		return $_SESSION['lhc_chatbox_nick'];  
     	} else {
     		$_SESSION['lhc_chatbox_nick'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Visitor').'_'.mt_rand(0, 1000);
     		return $_SESSION['lhc_chatbox_nick'];
