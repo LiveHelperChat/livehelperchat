@@ -668,7 +668,7 @@
     </message>
     <message>
       <source>Mail was send</source>
-      <translation type="unfinished"/>
+      <translation>E-mail byl odeslán</translation>
     </message>
     <message>
       <source>Send mail</source>
@@ -3059,7 +3059,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Question</source>
@@ -3076,6 +3076,10 @@
     <message>
       <source>Please enter a question!</source>
       <translation>Prosím, zadejte dotaz!</translation>
+    </message>
+    <message>
+      <source>Please enter your email address!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

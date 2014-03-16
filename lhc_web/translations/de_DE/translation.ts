@@ -3077,6 +3077,10 @@
       <source>Please enter a question!</source>
       <translation>Bitte geben Sie eine Frage ein!</translation>
     </message>
+    <message>
+      <source>Please enter your email address!</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>faq/new</name>

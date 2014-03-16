@@ -1544,7 +1544,7 @@
     </message>
     <message>
       <source>Our staff is always ready to help</source>
-      <translation type="unfinished"/>
+      <translation>Екипът ни е винаги на разположение да помогне</translation>
     </message>
   </context>
   <context>
@@ -2523,7 +2523,7 @@
     <name>chatarchive/archive</name>
     <message>
       <source>Chat archive</source>
-      <translation type="unfinished"/>
+      <translation>Архив с чатове</translation>
     </message>
     <message>
       <source>Archives list</source>
@@ -3076,6 +3076,10 @@
     <message>
       <source>Please enter a question!</source>
       <translation>Въведете въпрос!</translation>
+    </message>
+    <message>
+      <source>Please enter your email address!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -3993,7 +3997,7 @@
     </message>
     <message>
       <source>Set application specific time zone</source>
-      <translation type="unfinished"/>
+      <translation>Избиране на специфична за приложението часова зона</translation>
     </message>
     <message>
       <source>Date format E.g (Y-m-d)</source>
@@ -4127,7 +4131,7 @@
     </message>
     <message>
       <source>Missing updates from new versions.</source>
-      <translation type="unfinished"/>
+      <translation>Липсващи обновления от новите версии</translation>
     </message>
     <message>
       <source>Update instructions</source>
@@ -4139,7 +4143,7 @@
     </message>
     <message>
       <source>Live Helper Chat update information</source>
-      <translation type="unfinished"/>
+      <translation>Информация за обновяване на Live Helper Chat</translation>
     </message>
   </context>
   <context>
@@ -4399,7 +4403,7 @@
     <name>user/login</name>
     <message>
       <source>Please login</source>
-      <translation type="unfinished"/>
+      <translation>Влизане в системата</translation>
     </message>
     <message>
       <source>Username</source>
@@ -4419,7 +4423,7 @@
     </message>
     <message>
       <source>Password reminder</source>
-      <translation type="unfinished"/>
+      <translation>Напомняне за паролата</translation>
     </message>
     <message>
       <source>Incorrect username or password</source>
@@ -4673,7 +4677,7 @@
     </message>
     <message>
       <source>Support staff member has closed this chat</source>
-      <translation type="unfinished"/>
+      <translation>Екипът за поддръжка е затворил този чат</translation>
     </message>
     <message>
       <source>You do not have permission to view this chat, or chat was deleted</source>
