@@ -670,7 +670,7 @@
     </message>
     <message>
       <source>Mail was send</source>
-      <translation type="unfinished"/>
+      <translation>El correo ha sido enviado</translation>
     </message>
     <message>
       <source>Send mail</source>
@@ -3080,6 +3080,10 @@
     <message>
       <source>Please enter a question!</source>
       <translation>Por favor, introduzca una pregunta!</translation>
+    </message>
+    <message>
+      <source>Please enter your email address!</source>
+      <translation>Por favor provea su correo!</translation>
     </message>
   </context>
   <context>

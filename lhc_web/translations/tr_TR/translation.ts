@@ -3078,6 +3078,10 @@
       <source>Please enter a question!</source>
       <translation>Lütfen bir soru girin!</translation>
     </message>
+    <message>
+      <source>Please enter your email address!</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>faq/new</name>

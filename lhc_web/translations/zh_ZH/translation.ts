@@ -238,7 +238,7 @@
     </message>
     <message>
       <source>BB Code</source>
-      <translation type="unfinished"/>
+      <translation>BB 代码</translation>
     </message>
     <message>
       <source>Close</source>
@@ -668,7 +668,7 @@
     </message>
     <message>
       <source>Mail was send</source>
-      <translation type="unfinished"/>
+      <translation>邮件已发送</translation>
     </message>
     <message>
       <source>Send mail</source>
@@ -1153,7 +1153,7 @@
     </message>
     <message>
       <source>Region name server variable</source>
-      <translation type="unfinished"/>
+      <translation>区域的名称服务器变量</translation>
     </message>
     <message>
       <source>Latitude variable</source>
@@ -1540,11 +1540,11 @@
     </message>
     <message>
       <source>Need help?</source>
-      <translation type="unfinished"/>
+      <translation>需要帮助吗？</translation>
     </message>
     <message>
       <source>Our staff is always ready to help</source>
-      <translation type="unfinished"/>
+      <translation>我们的工作人员总是乐于帮助</translation>
     </message>
   </context>
   <context>
@@ -3059,7 +3059,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>电子邮件</translation>
     </message>
     <message>
       <source>Question</source>
@@ -3076,6 +3076,10 @@
     <message>
       <source>Please enter a question!</source>
       <translation>请输入一个问题！</translation>
+    </message>
+    <message>
+      <source>Please enter your email address!</source>
+      <translation>请输入您的电子邮件地址 ！</translation>
     </message>
   </context>
   <context>
@@ -3098,11 +3102,11 @@
     </message>
     <message>
       <source>Submitter e-mail</source>
-      <translation type="unfinished"/>
+      <translation>提交者电子邮件</translation>
     </message>
     <message>
       <source>Identifier, can be used to filter questions by identifier</source>
-      <translation type="unfinished"/>
+      <translation>标识符，可用于筛选问题由标识符</translation>
     </message>
     <message>
       <source>Question is active</source>
@@ -3125,7 +3129,7 @@
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>标识符</translation>
     </message>
     <message>
       <source>Active</source>
@@ -3176,7 +3180,7 @@
     </message>
     <message>
       <source>Identifier has to be shorter than 10 characters!</source>
-      <translation type="unfinished"/>
+      <translation>标识符必须要少于 10 个字符 ！</translation>
     </message>
     <message>
       <source>Please enter question!</source>
@@ -4869,50 +4873,50 @@
     <name>chat/bbcodeinsert</name>
     <message>
       <source>Link title image</source>
-      <translation type="unfinished"/>
+      <translation>链接标题图像</translation>
     </message>
     <message>
       <source>Link to image</source>
-      <translation type="unfinished"/>
+      <translation>链接到图像</translation>
     </message>
     <message>
       <source>Image</source>
-      <translation type="unfinished"/>
+      <translation>图像</translation>
     </message>
     <message>
       <source>Link</source>
-      <translation type="unfinished"/>
+      <translation>链接</translation>
     </message>
     <message>
       <source>Link title</source>
-      <translation type="unfinished"/>
+      <translation>链接标题</translation>
     </message>
     <message>
       <source>Bold</source>
-      <translation type="unfinished"/>
+      <translation>加粗</translation>
     </message>
     <message>
       <source>Italic</source>
-      <translation type="unfinished"/>
+      <translation>斜体</translation>
     </message>
     <message>
       <source>Please enter link to an image</source>
-      <translation type="unfinished"/>
+      <translation>请输入图像的链接</translation>
     </message>
     <message>
       <source>Please enter a link</source>
-      <translation type="unfinished"/>
+      <translation>请输入一个链接</translation>
     </message>
     <message>
       <source>Here is a link</source>
-      <translation type="unfinished"/>
+      <translation>这是一个链接</translation>
     </message>
   </context>
   <context>
     <name>chat/accepttrasnfer</name>
     <message>
       <source>has joined the chat!</source>
-      <translation type="unfinished"/>
+      <translation>已加入聊天 ！</translation>
     </message>
   </context>
 </TS>

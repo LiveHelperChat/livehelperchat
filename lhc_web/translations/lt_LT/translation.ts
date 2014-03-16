@@ -3077,6 +3077,10 @@
       <source>Please enter a question!</source>
       <translation>Prašome įvesti klausima!</translation>
     </message>
+    <message>
+      <source>Please enter your email address!</source>
+      <translation>Prašome įvesti el. pašto adresą!</translation>
+    </message>
   </context>
   <context>
     <name>faq/new</name>

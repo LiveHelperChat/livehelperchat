@@ -64,6 +64,9 @@
 		    				    				    		
 		    <?php $attribute = 'need_help_tip';$boolValue = true;?>
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>		
+		    				    				    		
+		    <?php $attribute = 'need_help_tip_timeout';?>
+		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 		    				    		
 		    <?php $attribute = 'sound_invitation';$boolValue = true;?>
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>		
@@ -97,6 +100,9 @@
 		    		    		    
 		    <?php $attribute = 'explicit_http_mode'?>
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+		    		    		    
+		    <?php $attribute = 'use_secure_cookie';$boolValue = true;?>
+		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 		    
 		    <?php $attribute = 'session_captcha';$boolValue = true;?>
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
@@ -117,6 +123,9 @@
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>	
 		     
 		    <?php $attribute = 'voting_days_limit'?>
+		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+		     
+		    <?php $attribute = 'faq_email_required';$boolValue = true;?>
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 		    
 		    <?php $attribute = 'max_message_length'?>

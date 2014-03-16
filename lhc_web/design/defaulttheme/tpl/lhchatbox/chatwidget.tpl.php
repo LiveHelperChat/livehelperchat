@@ -56,12 +56,11 @@
     lhinst.setWidgetMode(true);
     lhinst.setSyncUserURL('chatbox/syncuser/');
     
-    $( document ).ready(function() {
+    $( window ).load(function() {
     	setTimeout(function(){
     		$('#messagesBlock').scrollTop($('#messagesBlock').prop('scrollHeight'));
     	},100);
     });
-	
 	
     lhinst.scheduleSync();
 </script>
