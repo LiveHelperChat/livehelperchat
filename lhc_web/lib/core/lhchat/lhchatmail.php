@@ -176,6 +176,8 @@ class erLhcoreClassChatMail {
     	$mail = new PHPMailer();
     	$mail->CharSet = "UTF-8";
 
+    	$mail->FromName = $sendMail->from_name;
+    	
     	if ($sendMail->from_email != '') {
     		$mail->Sender = $sendMail->from_email;
     	}
