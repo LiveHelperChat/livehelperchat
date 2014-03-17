@@ -95,7 +95,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
     $blocked = 'true';
 }
 
-echo json_encode(array('error' => 'false', 'uw' => $userOwner, 'ott' => $ott, 'message_id' => $LastMessageID, 'result' => trim($content) == '' ? 'false' : trim($content), 'status' => $status, 'blocked' => $blocked ));
+echo json_encode(array('error' => 'false', 'op' => '', 'uw' => $userOwner, 'ott' => $ott, 'message_id' => $LastMessageID, 'result' => trim($content) == '' ? 'false' : trim($content), 'status' => $status, 'blocked' => $blocked ));
 exit;
 
 ?>

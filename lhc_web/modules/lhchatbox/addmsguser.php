@@ -14,6 +14,7 @@ $form = new ezcInputForm( INPUT_POST, $definition );
 $partsReturn = array();
 $partsReturn['or'] = '';
 $partsReturn['ur'] = '';
+$partsReturn['op'] = '';
 $sender = '';
 $error = 'f';
 
