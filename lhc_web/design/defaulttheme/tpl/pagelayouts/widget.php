@@ -43,6 +43,9 @@ if (!!window.postMessage) {
 };
 </script>
 <?php endif;?>
-
+<?php if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true) {
+		$debug = ezcDebug::getInstance();
+		echo $debug->generateOutput();
+} ?>
 </body>
 </html>
