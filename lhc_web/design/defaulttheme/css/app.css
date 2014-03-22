@@ -380,7 +380,8 @@ div.system-response {
 }
 
 div.message-row {
-	padding:4px 2px;
+	padding:2px 2px;
+	line-height:130%;
 }
 
 div.message-row-in {
