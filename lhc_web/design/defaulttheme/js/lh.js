@@ -1527,18 +1527,18 @@ function lh(){
 
     this.disableChatSoundUser = function(inst)
     {
-    	if (inst.hasClass('sound-disabled')){
+    	if (inst.hasClass('icon-mute')){
     		$.get(this.wwwDir+  'user/setsettingajax/chat_message/1');
     		confLH.new_message_sound_user_enabled = 1;
-    		inst.removeClass('sound-disabled');
+    		inst.removeClass('icon-mute');
     	} else {
     		$.get(this.wwwDir+  'user/setsettingajax/chat_message/0');
     		confLH.new_message_sound_user_enabled = 0;
-    		inst.addClass('sound-disabled');
+    		inst.addClass('icon-mute');
     	};
 
     	if (!!window.postMessage && parent) {
-    		if (inst.hasClass('sound-disabled')){
+    		if (inst.hasClass('icon-mute')){
     			parent.postMessage("lhc_ch:s:0", '*');
     		} else {
     			parent.postMessage("lhc_ch:s:1", '*');
