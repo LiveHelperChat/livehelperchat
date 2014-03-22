@@ -1358,11 +1358,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Show visitors who visited site in the past</source>
+      <source>Refresh list every</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>second</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show visitors who visited site in the past</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2262,6 +2270,10 @@
   <context>
     <name>chat/syncandsoundesetting</name>
     <message>
+      <source>Long polling</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Save</source>
       <translation type="unfinished"/>
     </message>
@@ -2294,15 +2306,23 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Sync for a new user message, interval in seconds</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Check for messages from the operators, interval in seconds</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Long polling</source>
+      <source>Messages settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sync for a new user message, interval in seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show browser notification for new messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Long polling (experimental)</source>
       <translation type="unfinished"/>
     </message>
     <message>

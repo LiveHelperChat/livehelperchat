@@ -52,6 +52,9 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
         ),
         'EnableLongPolling' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+        'ShowBrowserNotificationMessage' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         )
     );
     
@@ -70,7 +73,12 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
         $data['long_polling_enabled'] = false;
     }
     
-    
+    if ( $form->hasValidData( 'ShowBrowserNotificationMessage' ) && $form->ShowBrowserNotificationMessage == true ) {
+        $data['browser_notification_message'] = true;
+    } else {
+        $data['browser_notification_message'] = false;
+    }
+        
     if ( $form->hasValidData( 'PlayOnMessageBackOffice' ) && $form->PlayOnMessageBackOffice == true ) {
         $data['new_message_sound_admin_enabled'] = true;
     } else {
