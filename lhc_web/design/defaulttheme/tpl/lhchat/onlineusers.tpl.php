@@ -25,8 +25,16 @@
 
 
 <div class="row">
-	<div class="columns small-6">
+	<div class="columns small-3">
 		<label><span id="online-users-count">0</span> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','online users');?></label>
+	</div>
+	<div class="columns small-3">
+		<select id="updateTimeout" onchange="lhinst.syncOnlineUsers()" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Refresh list every');?>">
+		    	<option value="1">1 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','second');?></option>		    	
+		    	<option value="3">3 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','seconds');?></option>		    	
+		    	<option value="5">5 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','seconds');?></option>		    	
+		    	<option value="10" selected="selected">10 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','seconds');?></option>		    	
+		</select>
 	</div>
 	<div class="columns small-3">
 		<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
@@ -36,7 +44,7 @@
 						'on_change'		 => 'lhinst.syncOnlineUsers()',
 	                    'list_function'  => 'erLhcoreClassModelDepartament::getList'
 	    )); ?>
-	</div>
+	</div>	
 	<div class="columns small-3">
 		<select id="userTimeout" onchange="lhinst.syncOnlineUsers()" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Show visitors who visited site in the past');?>">
 		    	<option value="30">30 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','seconds');?></option>

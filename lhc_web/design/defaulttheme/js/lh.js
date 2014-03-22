@@ -1391,19 +1391,18 @@ function lh(){
     {
     	var inst = this;
 
-    	clearTimeout(inst.lastOnlineSyncTimeout);
-
+    	clearTimeout(inst.lastOnlineSyncTimeout);    	
         $.getJSON(this.wwwDir + 'chat/onlineusers/(method)/ajax/(timeout)/'+$('#userTimeout').val()+( parseInt($('#id_department_id').val()) > 0 ? '/(department)/'+parseInt($('#id_department_id').val()) : '' ), {} , function(data) {
            $('#online-users').html(data.result);
            $('#online-users-count').html(data.oc);
            
            inst.lastOnlineSyncTimeout = setTimeout(function(){
                lhinst.syncOnlineUsers();
-           },10000); // Check online users for every 10 seconds
+           },parseInt($('#updateTimeout').val())*1000); // Check online users for every 10 seconds
 		}).fail(function(){
 			inst.lastOnlineSyncTimeout = setTimeout(function(){
 	               lhinst.syncOnlineUsers();
-	        },10000); // Check online users for every 10 seconds
+	        },parseInt($('#updateTimeout').val())*1000); // Check online users for every 10 seconds
 		});
     };
 
