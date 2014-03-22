@@ -227,7 +227,7 @@ var lh_inst  = {
         this.removeById('lhc_container');
         var popupHeight = (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.popup_height != 'undefined') ? parseInt(LHCChatOptions.opt.popup_height) : 520;
         var popupWidth = (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.popup_width != 'undefined') ? parseInt(LHCChatOptions.opt.popup_width) : 500;
-        window.open(this.urlopen+this.getAppendCookieArguments()+'?URLReferer='+encodeURIComponent(document.location)+this.parseOptions()+this.parseStorageArguments(),this.windowname,"menubar=1,resizable=1,width="+popupWidth+",height="+popupHeight);
+        window.open(this.urlopen+this.getAppendCookieArguments()+'?URLReferer='+encodeURIComponent(document.location)+this.parseOptions()+this.parseStorageArguments(),this.windowname,"scrollbars=yes,menubar=1,resizable=1,width="+popupWidth+",height="+popupHeight);
         this.removeCookieAttr('hash');
     },
 
@@ -354,7 +354,7 @@ var lh_inst  = {
         this.lhc_need_help_hide();
         var popupHeight = (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.popup_height != 'undefined') ? parseInt(LHCChatOptions.opt.popup_height) : 520;
         var popupWidth = (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.popup_width != 'undefined') ? parseInt(LHCChatOptions.opt.popup_width) : 500;
-        window.open(this.urlopen+this.getAppendCookieArguments()+'?URLReferer='+encodeURIComponent(document.location)+this.parseOptions()+this.parseStorageArguments(),this.windowname,"menubar=1,resizable=1,width="+popupWidth+",height="+popupHeight);
+        window.open(this.urlopen+this.getAppendCookieArguments()+'?URLReferer='+encodeURIComponent(document.location)+this.parseOptions()+this.parseStorageArguments(),this.windowname,"scrollbars=yes,menubar=1,resizable=1,width="+popupWidth+",height="+popupHeight);
         this.chatOpenedCallback('external');
         <?php endif; ?>
         return false;
