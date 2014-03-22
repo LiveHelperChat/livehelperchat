@@ -1,7 +1,7 @@
 1.92v
 
 Features
-1. Option to have browser notification for new messages also not only for new chat request we have now.
+1. Option to have browser notification for new messages also not only for new chat request we have now. Can be found at "Synchronization and sound settings"
 2. Messages line height adjusted
 3. Submit button is disabled then user clicks it. I saw some duplicate chat request on demo. I ques users just did not waited enough after form submition.
 4. Option to choose refresh interval on online users list.
@@ -10,9 +10,9 @@ Features
 
 Bugfixes
 1. FF browsers did not showed scrollbar in popup.
-2. Then chat was accepted on chrome browser notification was not hidden automatically. Seems there was some internal browser API changes.
+2. Then chat was accepted using chrome browser notification was not hidden automatically. Seems there was some internal browser API changes.
 3. Some complex cases fixed then site is using https and in some places http. Read http://livehelperchat.com/how-to-configure-https-and-http-259a.html
-4. Correct cache key forchatbox then memcached is used.
+4. Correct cache key for chatbox then memcached is used.
 
 execute doc/update_db/update_71.sql for update
 
