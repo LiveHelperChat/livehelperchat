@@ -535,6 +535,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('need_help_tip_timeout','24',0,'Need help tooltip timeout, after how many hours show again tooltip?', '0'),
                 ('use_secure_cookie','0',0,'Use secure cookie, check this if you want to force SSL all the time', '0'),
                 ('faq_email_required','0',0,'Is visitor e-mail required for FAQ', '0'),
+                ('disable_print','0',0,'Disable chat print', '0'),
+                ('disable_send','0',0,'Disable chat transcript send', '0'),
                 ('geo_data', '', '0', '', '1')");
 
         	   
