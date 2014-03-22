@@ -534,11 +534,11 @@
     </message>
     <message>
       <source>departments</source>
-      <translation type="unfinished"/>
+      <translation>Dipartimenti</translation>
     </message>
     <message>
       <source>Edit a department</source>
-      <translation type="unfinished"/>
+      <translation>Modifica dipartimento</translation>
     </message>
   </context>
   <context>
@@ -1781,7 +1781,7 @@
     </message>
     <message>
       <source>Position from the top, is only used if the Middle left or the Middle right side is chosen</source>
-      <translation type="unfinished"/>
+      <translation>La posizione dall&apos;alto è usata solo se le posizioni centrale sinistra e centrale destra sono scelte </translation>
     </message>
     <message>
       <source>Pixels</source>
@@ -1837,15 +1837,15 @@
     </message>
     <message>
       <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation type="unfinished"/>
+      <translation>Copia il codice dall&apos;area di testo nel footer, prima della chiusura &amp;lt;/body&amp;gt; tag</translation>
     </message>
     <message>
       <source>Copy the code from the textarea to page where you want it to be rendered</source>
-      <translation type="unfinished"/>
+      <translation>Copiare il codice nell&apos;area o nella pagina dove si vuole attivare</translation>
     </message>
     <message>
       <source>Status text</source>
-      <translation type="unfinished"/>
+      <translation>Testo di stato</translation>
     </message>
     <message>
       <source>FAQ</source>
@@ -1857,7 +1857,7 @@
     </message>
     <message>
       <source>Help us to grow</source>
-      <translation type="unfinished"/>
+      <translation>Aiutaci a crescere</translation>
     </message>
     <message>
       <source>Hide status when offline</source>
@@ -2092,7 +2092,7 @@
     </message>
     <message>
       <source>Recipient e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Indirizzo e-mail</translation>
     </message>
     <message>
       <source>Subject</source>
@@ -2171,7 +2171,7 @@
     </message>
     <message>
       <source>Type your message to the operator</source>
-      <translation type="unfinished"/>
+      <translation>Scrivi il tuo messaggio all&apos;operatore</translation>
     </message>
   </context>
   <context>
@@ -2277,7 +2277,7 @@
     </message>
     <message>
       <source>Synchronisation and sound settings</source>
-      <translation type="unfinished"/>
+      <translation>Sincronizzazione e impostazioni suoni</translation>
     </message>
     <message>
       <source>How many seconds for a user to be considered as being online</source>
@@ -2285,7 +2285,7 @@
     </message>
     <message>
       <source>Value in seconds</source>
-      <translation type="unfinished"/>
+      <translation>Valore in secondi</translation>
     </message>
     <message>
       <source>Sync for new chats, interval in seconds</source>
@@ -2523,7 +2523,7 @@
     <name>chatarchive/archive</name>
     <message>
       <source>Chat archive</source>
-      <translation type="unfinished"/>
+      <translation>Archivio chat</translation>
     </message>
     <message>
       <source>Archives list</source>
@@ -2564,7 +2564,7 @@
     </message>
     <message>
       <source>E.g</source>
-      <translation type="unfinished"/>
+      <translation>E.g</translation>
     </message>
     <message>
       <source>Date to</source>
@@ -2576,11 +2576,11 @@
     </message>
     <message>
       <source>Please enter a valid from date range!</source>
-      <translation type="unfinished"/>
+      <translation>Inserire un valore valido nell&apos;intervallo data</translation>
     </message>
     <message>
       <source>Please enter a valid to date range!</source>
-      <translation type="unfinished"/>
+      <translation>Si prega di inserire una valore valido per intervallo di date!</translation>
     </message>
   </context>
   <context>
@@ -2595,11 +2595,11 @@
     </message>
     <message>
       <source>Till date</source>
-      <translation type="unfinished"/>
+      <translation>Fino ad oggi</translation>
     </message>
     <message>
       <source>Chats in archive</source>
-      <translation type="unfinished"/>
+      <translation>Chat in archivio</translation>
     </message>
     <message>
       <source>Messages in archive</source>
@@ -2611,7 +2611,7 @@
     </message>
     <message>
       <source>Process again</source>
-      <translation type="unfinished"/>
+      <translation>Processa di nuovo</translation>
     </message>
     <message>
       <source>Edit</source>
@@ -2637,11 +2637,11 @@
     <name>chatarchive/process</name>
     <message>
       <source>Process archive</source>
-      <translation type="unfinished"/>
+      <translation>Processa archivio</translation>
     </message>
     <message>
       <source>Process</source>
-      <translation type="unfinished"/>
+      <translation>Processo</translation>
     </message>
   </context>
   <context>
@@ -2656,15 +2656,15 @@
     </message>
     <message>
       <source>Potential chats to archive</source>
-      <translation type="unfinished"/>
+      <translation>Potenziali chat da archiviare</translation>
     </message>
     <message>
       <source>Archived chats</source>
-      <translation type="unfinished"/>
+      <translation>Chat archiviate</translation>
     </message>
     <message>
       <source>Archive progress</source>
-      <translation type="unfinished"/>
+      <translation>Progresso archivio</translation>
     </message>
     <message>
       <source>Pending for action...</source>
@@ -2672,27 +2672,27 @@
     </message>
     <message>
       <source>Terms dictionary</source>
-      <translation type="unfinished"/>
+      <translation>Dizionario termini</translation>
     </message>
     <message>
       <source>first archived chat ID</source>
-      <translation type="unfinished"/>
+      <translation>Prima chat archiviata ID</translation>
     </message>
     <message>
       <source>last archived chat ID</source>
-      <translation type="unfinished"/>
+      <translation>Ultima chat archiviata ID</translation>
     </message>
     <message>
       <source>number of archived chats</source>
-      <translation type="unfinished"/>
+      <translation>numero di chat archiviate</translation>
     </message>
     <message>
       <source>number of archived messages</source>
-      <translation type="unfinished"/>
+      <translation>numero di messaggi archiviati</translation>
     </message>
     <message>
       <source>Error accoured during archive process</source>
-      <translation type="unfinished"/>
+      <translation>Errore durante il processo di archivio</translation>
     </message>
   </context>
   <context>
@@ -2787,7 +2787,7 @@
     </message>
     <message>
       <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation type="unfinished"/>
+      <translation>Copia il codice nel campo di testo nel footer, prima di chiudere &amp;lt;/body&amp;gt; tag</translation>
     </message>
     <message>
       <source>HTML code</source>
@@ -2810,7 +2810,7 @@
     </message>
     <message>
       <source>Chatbox</source>
-      <translation type="unfinished"/>
+      <translation>Chatbox</translation>
     </message>
   </context>
   <context>
@@ -2859,7 +2859,7 @@
     <name>chatbox/new</name>
     <message>
       <source>New chatbox</source>
-      <translation type="unfinished"/>
+      <translation>Nuova Chatbox</translation>
     </message>
     <message>
       <source>New</source>
@@ -3013,7 +3013,7 @@
     </message>
     <message>
       <source>User exists!</source>
-      <translation type="unfinished"/>
+      <translation>L&apos;utente esiste già!</translation>
     </message>
     <message>
       <source>Wrong email address</source>
