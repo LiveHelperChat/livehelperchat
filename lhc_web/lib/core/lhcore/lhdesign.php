@@ -145,10 +145,12 @@ class erLhcoreClassDesign
         	$file = 'cache/compiledtemplates/'.md5('multi_'.$path.$instance->WWWDirLang.$instance->Language).'.php';
         	rename($fileName,$file);
         	
-        	$logString .= "COMPILED MULTITEMPLATE - ".$file."<br/>";
         	
-        	if ($debugOutput == true)
+        	
+        	if ($debugOutput == true){
+        		$logString .= "COMPILED MULTITEMPLATE - ".$file."<br/>";
         		$debug->log( $logString, 0, array( "source"  => "shop", "erLhcoreClassDesign" =>  "designtpl - $path" )  );
+        	}
         	
         	return $file;
         }
