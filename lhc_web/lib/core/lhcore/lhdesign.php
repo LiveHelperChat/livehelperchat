@@ -104,7 +104,9 @@ class erLhcoreClassDesign
 
             if (file_exists($tplDir)) {
             	
-            	$logString .= "Found IN - ".$tplDir."<br/>";
+            	if ($debugOutput == true){
+            		$logString .= "Found IN - ".$tplDir."<br/>";
+            	}
             
             	if ($isMultiInclude === false) {
             		if ($debugOutput == true) {            			
