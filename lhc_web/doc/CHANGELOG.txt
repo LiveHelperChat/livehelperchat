@@ -1,3 +1,13 @@
+1.93v
+
+Features
+1. Job title field for operator, this job title field will be shown instead of "Personal assistant" if it's set.
+2. Option to assign pro active invitations to particular users. Just enter users id's separated by comma. Perhaps in some far feature i will add more user friendly assigment workflow, or someone will suport it :)
+3. {name},{department},{country},{city} variables in subject for mail "Support request from user"
+4. Disabled department widget won't be shown. Option to show widget but then in content will be written "Department is disabled"
+
+execute doc/update_db/update_72.sql for update
+
 1.92v
 
 Features

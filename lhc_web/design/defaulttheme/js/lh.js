@@ -1280,7 +1280,7 @@ function lh(){
 		    	    // 0 is PERMISSION_ALLOWED
 		    	    var notification = window.webkitNotifications.createNotification(
 		    	      WWW_DIR_JAVASCRIPT_FILES_NOTIFICATION + '/notification.png',
-		    	      'Live Helper Chat',
+		    	      'Live Help',
 		    	      confLH.transLation.new_chat
 		    	    );
 		    	    notification.onclick = function () {
@@ -1296,7 +1296,7 @@ function lh(){
 		    	  }
 	    	  } else if(window.Notification) {
 	    		  if (window.Notification.permission == 'granted') {
-		  				var notification = new Notification('Live Helper Chat', { icon: WWW_DIR_JAVASCRIPT_FILES_NOTIFICATION + '/notification.png', body: confLH.transLation.new_chat });
+		  				var notification = new Notification('Live Help', { icon: WWW_DIR_JAVASCRIPT_FILES_NOTIFICATION + '/notification.png', body: confLH.transLation.new_chat });
 		  				notification.onclick = function () {
 			    	    	if (identifier == 'pending_chat'){
 			    	    		inst.startChatNewWindow(chat_id,'ChatRequest');
