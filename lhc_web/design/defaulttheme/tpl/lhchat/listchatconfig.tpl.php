@@ -125,6 +125,9 @@
 		    <?php $attribute = 'voting_days_limit'?>
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 		     
+		    <?php $attribute = 'hide_disabled_department';$boolValue = true;?>
+		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+		     
 		    <?php $attribute = 'faq_email_required';$boolValue = true;?>
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 		    

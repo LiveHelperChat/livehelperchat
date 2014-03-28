@@ -1,3 +1,9 @@
+<?php if ($disabled_department === true) : ?>
+
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Department is disabled');?></h1>
+
+<?php else : ?>
+
 <?php if (isset($errors)) : ?>
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
@@ -71,4 +77,6 @@
 <?php else : ?>
 	<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','There are no online operators at the moment, please leave your message')?></h1>
 	<?php include(erLhcoreClassDesign::designtpl('lhchat/offline_form_startchat.tpl.php'));?>
+<?php endif;?>
+
 <?php endif;?>

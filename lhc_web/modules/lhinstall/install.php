@@ -536,6 +536,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('use_secure_cookie','0',0,'Use secure cookie, check this if you want to force SSL all the time', '0'),
                 ('faq_email_required','0',0,'Is visitor e-mail required for FAQ', '0'),
                 ('disable_print','0',0,'Disable chat print', '0'),
+                ('hide_disabled_department','1',0,'Hide disabled department widget', '0'),
                 ('disable_send','0',0,'Disable chat transcript send', '0'),
                 ('geo_data', '', '0', '', '1')");
 
@@ -591,6 +592,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `executed_times` int(11) NOT NULL,
 				  `hide_after_ntimes` int(11) NOT NULL,
 				  `name` varchar(50) NOT NULL,
+				  `operator_ids` varchar(100) NOT NULL,
 				  `wait_message` varchar(250) NOT NULL,
 				  `timeout_message` varchar(250) NOT NULL,
 				  `referrer` varchar(250) NOT NULL,
@@ -717,6 +719,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `surname` varchar(100) NOT NULL,
                   `filepath` varchar(200) NOT NULL,
                   `filename` varchar(200) NOT NULL,
+                  `job_title` varchar(100) NOT NULL,
                   `xmpp_username` varchar(200) NOT NULL,
                   `skype` varchar(50) NOT NULL,
                   `disabled` tinyint(4) NOT NULL,
