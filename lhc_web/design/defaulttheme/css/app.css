@@ -524,6 +524,8 @@ div.message-row-in {
 }
 
 .top-bar-section .icon-user,
+.top-bar-section .icon-cloud,
+.user-settings-list .icon-cloud,
 .user-settings-list .icon-user{
 	color:#a3ff60;
 }

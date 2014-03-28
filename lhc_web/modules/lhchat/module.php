@@ -11,6 +11,12 @@ $ViewList['adminchat'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['changestatus'] = array(
+    'params' => array('chat_id'),
+    'uparams' => array(),
+    'functions' => array( 'canchangechatstatus' )
+);
+
 $ViewList['printchatadmin'] = array(
     'params' => array('chat_id'),
     'uparams' => array(),
@@ -394,6 +400,7 @@ $FunctionList['allowtransfertoanyuser'] = array('explain' =>'Allow user to trans
 $FunctionList['viewstatistic'] = array('explain' =>'Allow user to view statistic');
 $FunctionList['use_onlineusers'] = array('explain' =>'Allow user to view online visitors');
 $FunctionList['chattabschrome'] = array('explain' =>'Allow user to user chrome extension');
+$FunctionList['canchangechatstatus'] = array('explain' =>'Allow user to change chat status');
 
 
 ?>

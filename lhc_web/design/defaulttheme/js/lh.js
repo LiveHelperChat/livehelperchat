@@ -1518,7 +1518,7 @@ function lh(){
     	}
     	return false;
     };
-
+    
     this.disableUserAsOnline = function(inst)
     {
     	if (inst.hasClass('user-online-disabled')){
@@ -1530,7 +1530,44 @@ function lh(){
     	}
     	return false;
     };
+    
+    this.closeReveal = function(id){
+		$(id).foundation('reveal', 'close');
+	},
+	
+    this.changeChatStatus = function(chat_id){    	
+    	if ($('#myModal').size() == 0){
+    		$('body').append('<div id="myModal" class="reveal-modal"></div>');    	
+    	}    	
+    	$('#myModal').foundation('reveal','open',{url: this.wwwDir+  'chat/changestatus/'+chat_id});
+    };
+    
+    this.changeStatusAction = function(form,chat_id){
+    	var inst = this;
+    	$.postJSON(form.attr('action'),form.serialize(), function(data) {
+	   		 if (data.error == 'false') {
+	   			$('#myModal').foundation('reveal', 'close');
+	   			inst.updateVoteStatus(chat_id);
+	   		 } else {
+	   			 alert(data.result);
+	   		 }
+	   	 });
+    	return false;
+    };
+    
+    this.changeVisibility = function(inst)
+    {
+    	if (inst.hasClass('user-online-disabled')){
+    		$.get(this.wwwDir+  'user/setinvisible/false');
+    		inst.removeClass('user-online-disabled');
+    	} else {
+    		$.get(this.wwwDir+  'user/setinvisible/true');
+    		inst.addClass('user-online-disabled');
+    	}
+    	return false;
+    };
 
+    
     this.disableChatSoundUser = function(inst)
     {
     	if (inst.hasClass('icon-mute')){

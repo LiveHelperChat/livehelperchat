@@ -97,6 +97,9 @@ if (isset($_POST['Update']))
         ),
    		'UserTimeZone' => new ezcInputFormDefinitionElement(
    				ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   		),
+   		'UserInvisible' => new ezcInputFormDefinitionElement(
+   				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
    		)
     );
 
@@ -158,6 +161,13 @@ if (isset($_POST['Update']))
 	    }
     }
     
+    if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','changevisibility') ) {
+	    if ( $form->hasValidData( 'UserInvisible' ) && $form->UserInvisible == true ) {
+	    	$UserData->invisible_mode = 1;
+	    } else {
+	    	$UserData->invisible_mode = 0;
+	    }
+    }
     
     if ( $form->hasValidData( 'XMPPUsername' ) && $form->XMPPUsername != '')
     {

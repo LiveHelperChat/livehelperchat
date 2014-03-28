@@ -19,6 +19,7 @@ class erLhcoreClassModelUser {
 			   'skype'     	 	 => $this->skype,
 			   'job_title'     	 => $this->job_title,
 			   'time_zone'     	 => $this->time_zone,
+			   'invisible_mode'  => $this->invisible_mode,
 			   'xmpp_username'   => $this->xmpp_username,
        );
    }
@@ -329,6 +330,7 @@ class erLhcoreClassModelUser {
     public $disabled = 0;
     public $hide_online = 0;
     public $all_departments = 0;
+    public $invisible_mode = 0;
     public $time_zone = '';
 }
 

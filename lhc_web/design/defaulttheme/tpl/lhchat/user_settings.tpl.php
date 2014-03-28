@@ -13,12 +13,26 @@ if ( $currentUser->hasAccessTo('lhuser','changeonlinestatus') ) {
 		$UserData = $currentUser->getUserData(true);
 	}
 }
+
+$canChangeVisibilityMode = false;
+if ( $currentUser->hasAccessTo('lhuser','changevisibility') ) {
+	$canChangeVisibilityMode = true;
+	if ( !isset($UserData) ) {
+		$UserData = $currentUser->getUserData(true);
+	}
+}
+
 ?>
 <?php if (!isset($hideULSetting)) : ?>
 <ul class="no-bullet inline-list user-settings-list">
 <?php endif;?>
 	<li><a href="#"><i class="icon-sound<?php $soundMessageEnabled == 0 ? print ' icon-mute' : ''?>" onclick="return lhinst.disableChatSoundAdmin($(this))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Enable/Disable sound about new messages from users');?>"></i></a></li>
 	<li><a href="#"><i class="icon-sound<?php $soundNewChatEnabled == 0 ? print ' icon-mute' : ''?>" onclick="return lhinst.disableNewChatSoundAdmin($(this))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Enable/Disable sound about new pending chats');?>"></i></a></li>
+		
+	<?php if ($canChangeVisibilityMode == true) : ?>
+	<li><a href="#"><i class="icon-cloud<?php $UserData->invisible_mode == 1 ? print ' user-online-disabled' : ''?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my visibility to visible/unvisible');?>" onclick="return lhinst.changeVisibility($(this))"></i></a></li>
+	<?php endif;?>
+		
 	<?php if ($canChangeOnlineStatus == true) : ?>
 		<li><a href="#"><i class="icon-user<?php $UserData->hide_online == 1 ? print ' user-online-disabled' : ''?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my status to online/offline');?>" onclick="return lhinst.disableUserAsOnline($(this))"></i></a></li>
 	<?php endif;?>

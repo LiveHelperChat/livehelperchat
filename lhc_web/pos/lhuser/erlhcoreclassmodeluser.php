@@ -64,6 +64,11 @@ $def->properties['all_departments']->columnName   = 'all_departments';
 $def->properties['all_departments']->propertyName = 'all_departments';
 $def->properties['all_departments']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['invisible_mode'] = new ezcPersistentObjectProperty();
+$def->properties['invisible_mode']->columnName   = 'invisible_mode';
+$def->properties['invisible_mode']->propertyName = 'invisible_mode';
+$def->properties['invisible_mode']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['filepath'] = new ezcPersistentObjectProperty();
 $def->properties['filepath']->columnName   = 'filepath';
 $def->properties['filepath']->propertyName = 'filepath';

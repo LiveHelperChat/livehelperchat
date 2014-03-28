@@ -725,6 +725,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `disabled` tinyint(4) NOT NULL,
                   `hide_online` tinyint(1) NOT NULL,
                   `all_departments` tinyint(1) NOT NULL,
+                  `invisible_mode` tinyint(1) NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `hide_online` (`hide_online`),
                   KEY `email` (`email`),

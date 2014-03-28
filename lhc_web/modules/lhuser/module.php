@@ -88,6 +88,11 @@ $ViewList['setoffline'] = array (
 		'params' => array('status')
 );
 
+$ViewList['setinvisible'] = array (
+		'functions' => array( 'changevisibility' ),
+		'params' => array('status')
+);
+
 $FunctionList['groupassignuser'] = array('explain' => 'Allow user to assign user to group');
 $FunctionList['editgroup'] = array('explain' => 'Allow user to edit group');
 $FunctionList['creategroup'] = array('explain' => 'Allow user to create group');
@@ -104,5 +109,6 @@ $FunctionList['userlistonlineall'] = array('explain' => 'Allow user to see logge
 $FunctionList['changeonlinestatus'] = array('explain' => 'Allow user to change his online status');
 $FunctionList['changeskypenick'] = array('explain' => 'Allow user to change/enter his skype nick');
 $FunctionList['personalcannedmsg'] = array('explain' => 'Allow user to have personal canned messages');
+$FunctionList['changevisibility'] = array('explain' => 'Allow user to change his visibility mode');
 
 ?>

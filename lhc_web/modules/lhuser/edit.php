@@ -43,6 +43,9 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
 		'HideMyStatus' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 		),
+		'UserInvisible' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+		),
 		'DefaultGroup' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'int',
 				null,
@@ -102,6 +105,12 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
     	$UserData->xmpp_username = $form->XMPPUsername;
     } else {
     	$UserData->xmpp_username = '';
+    }
+    
+    if ( $form->hasValidData( 'UserInvisible' ) && $form->UserInvisible == true ) {
+    	$UserData->invisible_mode = 1;
+    } else {
+    	$UserData->invisible_mode = 0;
     }
     
     if ( $form->hasValidData( 'JobTitle' ) && $form->JobTitle != '')
