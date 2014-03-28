@@ -150,6 +150,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Enter operators IDs from whom random operator should be shown, separated by comma</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
       <translation type="unfinished"/>
     </message>
@@ -220,6 +224,34 @@
     </message>
     <message>
       <source>User is typing now...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Change chat status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cancel</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -573,6 +605,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Click to change chat status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Pending chat</source>
       <translation type="unfinished"/>
     </message>
@@ -740,6 +776,10 @@
       <source>Messages</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Invalid chat status</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>files/files</name>
@@ -864,6 +904,10 @@
   </context>
   <context>
     <name>chat/startchat</name>
+    <message>
+      <source>Department is disabled</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Name</source>
       <translation type="unfinished"/>
@@ -1075,6 +1119,10 @@
     </message>
     <message>
       <source>Enable/Disable sound about new pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Change my visibility to visible/unvisible</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2974,6 +3022,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Job title</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat status will not change upon pending chat opening</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Skype</source>
       <translation type="unfinished"/>
     </message>
@@ -2995,6 +3051,10 @@
     </message>
     <message>
       <source>Assigned departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All departments</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4170,6 +4230,10 @@
   </context>
   <context>
     <name>user/new</name>
+    <message>
+      <source>Invisible mode</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>User group</source>
       <translation type="unfinished"/>

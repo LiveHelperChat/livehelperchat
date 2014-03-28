@@ -1356,12 +1356,20 @@
       <translation>pengguna online</translation>
     </message>
     <message>
-      <source>Show visitors who visited site in the past</source>
-      <translation>Menunjukkan pengunjung yang mengunjungi situs di masa lalu</translation>
+      <source>Refresh list every</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>second</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>seconds</source>
       <translation>detik</translation>
+    </message>
+    <message>
+      <source>Show visitors who visited site in the past</source>
+      <translation>Menunjukkan pengunjung yang mengunjungi situs di masa lalu</translation>
     </message>
     <message>
       <source>minit</source>
@@ -2260,6 +2268,10 @@
   <context>
     <name>chat/syncandsoundesetting</name>
     <message>
+      <source>Long polling</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Save</source>
       <translation>Simpan</translation>
     </message>
@@ -2292,15 +2304,23 @@
       <translation>Sinkronisasi untuk percakapan baru, selang waktu dalam detik</translation>
     </message>
     <message>
-      <source>Sync for a new user message, interval in seconds</source>
-      <translation>Sinkronisasi untuk pesan pengguna baru, selang waktu dalam detik</translation>
-    </message>
-    <message>
       <source>Check for messages from the operators, interval in seconds</source>
       <translation>Periksa pesan dari operator, selang waktu dalam hitungan detik</translation>
     </message>
     <message>
-      <source>Long polling</source>
+      <source>Messages settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sync for a new user message, interval in seconds</source>
+      <translation>Sinkronisasi untuk pesan pengguna baru, selang waktu dalam detik</translation>
+    </message>
+    <message>
+      <source>Show browser notification for new messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Long polling (experimental)</source>
       <translation type="unfinished"/>
     </message>
     <message>

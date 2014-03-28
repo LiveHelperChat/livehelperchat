@@ -1356,12 +1356,20 @@
       <translation>Usuários online</translation>
     </message>
     <message>
-      <source>Show visitors who visited site in the past</source>
-      <translation>Mostrar visitates de retorno</translation>
+      <source>Refresh list every</source>
+      <translation>Atualizar lista a cada</translation>
+    </message>
+    <message>
+      <source>second</source>
+      <translation>segundo(s)</translation>
     </message>
     <message>
       <source>seconds</source>
       <translation>segundos</translation>
+    </message>
+    <message>
+      <source>Show visitors who visited site in the past</source>
+      <translation>Mostrar visitates de retorno</translation>
     </message>
     <message>
       <source>minit</source>
@@ -2260,6 +2268,10 @@
   <context>
     <name>chat/syncandsoundesetting</name>
     <message>
+      <source>Long polling</source>
+      <translation>longa sondagem</translation>
+    </message>
+    <message>
       <source>Save</source>
       <translation>Salvar</translation>
     </message>
@@ -2292,16 +2304,24 @@
       <translation>Sincronização para novos chats, intervalo em segundos</translation>
     </message>
     <message>
-      <source>Sync for a new user message, interval in seconds</source>
-      <translation>Sincronize para uma nova mensagem de usuário, intervalo em segundos</translation>
-    </message>
-    <message>
       <source>Check for messages from the operators, interval in seconds</source>
       <translation>Intervalo em segundos para verificar se há mensagens de operadores </translation>
     </message>
     <message>
-      <source>Long polling</source>
-      <translation>longa sondagem</translation>
+      <source>Messages settings</source>
+      <translation>Configurações de mensagens</translation>
+    </message>
+    <message>
+      <source>Sync for a new user message, interval in seconds</source>
+      <translation>Sincronize para uma nova mensagem de usuário, intervalo em segundos</translation>
+    </message>
+    <message>
+      <source>Show browser notification for new messages</source>
+      <translation>Mostrar notificação do browser para novas mensagens</translation>
+    </message>
+    <message>
+      <source>Long polling (experimental)</source>
+      <translation>Votação longa (experimental)</translation>
     </message>
     <message>
       <source>Enable long polling</source>

@@ -1356,12 +1356,20 @@
       <translation>ผู้ใช้ออนไลน์</translation>
     </message>
     <message>
-      <source>Show visitors who visited site in the past</source>
-      <translation>แสดงผู้เยี่ยมชมผู้เยี่ยมชมไซต์ในอดีต</translation>
+      <source>Refresh list every</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>second</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>seconds</source>
       <translation>วินาที</translation>
+    </message>
+    <message>
+      <source>Show visitors who visited site in the past</source>
+      <translation>แสดงผู้เยี่ยมชมผู้เยี่ยมชมไซต์ในอดีต</translation>
     </message>
     <message>
       <source>minit</source>
@@ -2260,6 +2268,10 @@
   <context>
     <name>chat/syncandsoundesetting</name>
     <message>
+      <source>Long polling</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Save</source>
       <translation>บันทึก</translation>
     </message>
@@ -2292,15 +2304,23 @@
       <translation>ซิงค์สำหรับนั่งคุยใหม่ ช่วงเวลาเป็นวินาที</translation>
     </message>
     <message>
-      <source>Sync for a new user message, interval in seconds</source>
-      <translation>ซิงค์สำหรับข้อความผู้ใช้ใหม่ ช่วงเวลาเป็นวินาที</translation>
-    </message>
-    <message>
       <source>Check for messages from the operators, interval in seconds</source>
       <translation>ตรวจสอบข้อความจากตัวดำเนินการ ช่วงเวลาเป็นวินาที</translation>
     </message>
     <message>
-      <source>Long polling</source>
+      <source>Messages settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sync for a new user message, interval in seconds</source>
+      <translation>ซิงค์สำหรับข้อความผู้ใช้ใหม่ ช่วงเวลาเป็นวินาที</translation>
+    </message>
+    <message>
+      <source>Show browser notification for new messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Long polling (experimental)</source>
       <translation type="unfinished"/>
     </message>
     <message>

@@ -1356,12 +1356,20 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Show visitors who visited site in the past</source>
+      <source>Refresh list every</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>second</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>seconds</source>
       <translation>sekundi</translation>
+    </message>
+    <message>
+      <source>Show visitors who visited site in the past</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>minit</source>
@@ -2260,6 +2268,10 @@
   <context>
     <name>chat/syncandsoundesetting</name>
     <message>
+      <source>Long polling</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Save</source>
       <translation>Pohrani</translation>
     </message>
@@ -2292,15 +2304,23 @@
       <translation>Sinkronizacija novih razgovora. Interval u sekundama</translation>
     </message>
     <message>
-      <source>Sync for a new user message, interval in seconds</source>
-      <translation>Sinkroniziranje novih korisničkih poruka. Interval u sekundama</translation>
-    </message>
-    <message>
       <source>Check for messages from the operators, interval in seconds</source>
       <translation>Provjera ima li poruka operatera. Interval u sekudama.</translation>
     </message>
     <message>
-      <source>Long polling</source>
+      <source>Messages settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sync for a new user message, interval in seconds</source>
+      <translation>Sinkroniziranje novih korisničkih poruka. Interval u sekundama</translation>
+    </message>
+    <message>
+      <source>Show browser notification for new messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Long polling (experimental)</source>
       <translation type="unfinished"/>
     </message>
     <message>

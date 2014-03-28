@@ -1356,12 +1356,20 @@
       <translation>σε απευθείας σύνδεση χρήστες</translation>
     </message>
     <message>
-      <source>Show visitors who visited site in the past</source>
-      <translation>Δείξουν στους επισκέπτες που επισκεφθήκατε το site στο παρελθόν</translation>
+      <source>Refresh list every</source>
+      <translation>Ανανέωση λίστας κάθε</translation>
+    </message>
+    <message>
+      <source>second</source>
+      <translation>δεύτερο</translation>
     </message>
     <message>
       <source>seconds</source>
       <translation>δευτερόλεπτα</translation>
+    </message>
+    <message>
+      <source>Show visitors who visited site in the past</source>
+      <translation>Δείξουν στους επισκέπτες που επισκεφθήκατε το site στο παρελθόν</translation>
     </message>
     <message>
       <source>minit</source>
@@ -2260,6 +2268,10 @@
   <context>
     <name>chat/syncandsoundesetting</name>
     <message>
+      <source>Long polling</source>
+      <translation>Μεγάλη δημοσκόπηση</translation>
+    </message>
+    <message>
       <source>Save</source>
       <translation>Αποθήκευση</translation>
     </message>
@@ -2292,16 +2304,24 @@
       <translation>Συγχρονισμού για νέες συνομιλίες, χρονικό διάστημα σε δευτερόλεπτα</translation>
     </message>
     <message>
-      <source>Sync for a new user message, interval in seconds</source>
-      <translation>Συγχρονισμού για ένα νέο μήνυμα του χρήστη, το χρονικό διάστημα σε δευτερόλεπτα</translation>
-    </message>
-    <message>
       <source>Check for messages from the operators, interval in seconds</source>
       <translation>Ελέγξτε για μηνύματα από τους διαχειριστές, χρονικό διάστημα σε δευτερόλεπτα</translation>
     </message>
     <message>
-      <source>Long polling</source>
-      <translation>Μεγάλη δημοσκόπηση</translation>
+      <source>Messages settings</source>
+      <translation>Ρυθμίσεις μηνυμάτων</translation>
+    </message>
+    <message>
+      <source>Sync for a new user message, interval in seconds</source>
+      <translation>Συγχρονισμού για ένα νέο μήνυμα του χρήστη, το χρονικό διάστημα σε δευτερόλεπτα</translation>
+    </message>
+    <message>
+      <source>Show browser notification for new messages</source>
+      <translation>Εμφάνιση ειδοποίησης περιήγησης για νέα μηνύματα</translation>
+    </message>
+    <message>
+      <source>Long polling (experimental)</source>
+      <translation>Μακράς σταθμοσκόπησης (πειραματική)</translation>
     </message>
     <message>
       <source>Enable long polling</source>

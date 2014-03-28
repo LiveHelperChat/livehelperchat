@@ -1356,12 +1356,20 @@
       <translation>在线用户</translation>
     </message>
     <message>
-      <source>Show visitors who visited site in the past</source>
-      <translation>顯示在過去的遊客誰訪問的網站</translation>
+      <source>Refresh list every</source>
+      <translation>刷新列表于每</translation>
+    </message>
+    <message>
+      <source>second</source>
+      <translation>秒</translation>
     </message>
     <message>
       <source>seconds</source>
       <translation>秒</translation>
+    </message>
+    <message>
+      <source>Show visitors who visited site in the past</source>
+      <translation>顯示在過去的遊客誰訪問的網站</translation>
     </message>
     <message>
       <source>minit</source>
@@ -2260,6 +2268,10 @@
   <context>
     <name>chat/syncandsoundesetting</name>
     <message>
+      <source>Long polling</source>
+      <translation>长轮询</translation>
+    </message>
+    <message>
       <source>Save</source>
       <translation>节省</translation>
     </message>
@@ -2292,16 +2304,24 @@
       <translation>新的聊天记录，在几秒钟的时间间隔同步</translation>
     </message>
     <message>
-      <source>Sync for a new user message, interval in seconds</source>
-      <translation>为一个新的用户信息，以秒为单位的时间间隔同步</translation>
-    </message>
-    <message>
       <source>Check for messages from the operators, interval in seconds</source>
       <translation>从运营商的消息，检查间隔，以秒</translation>
     </message>
     <message>
-      <source>Long polling</source>
-      <translation>长轮询</translation>
+      <source>Messages settings</source>
+      <translation>管理选项</translation>
+    </message>
+    <message>
+      <source>Sync for a new user message, interval in seconds</source>
+      <translation>为一个新的用户信息，以秒为单位的时间间隔同步</translation>
+    </message>
+    <message>
+      <source>Show browser notification for new messages</source>
+      <translation>在浏览器显示新消息提示</translation>
+    </message>
+    <message>
+      <source>Long polling (experimental)</source>
+      <translation>推送(试验中)</translation>
     </message>
     <message>
       <source>Enable long polling</source>
