@@ -646,14 +646,20 @@ function lh(){
 	    if ($('#CSChatMessage-'+chat_id).length != 0){
 	       $('#CSChatMessage-'+chat_id).unbind('keyup', 'enter', function(){});
 	    }
-
-	    $.postJSON(this.wwwDir + this.deletechatadmin + chat_id ,{}, function(data){
-	       if (data.error == 'true')
-	       {
-	           alert(data.result);
-	       }
+	    	    
+	    $.ajax({
+	        type: "POST",
+	        url: this.wwwDir + this.deletechatadmin + chat_id,
+	        cache: false,
+	        dataType: 'json',
+	        async: false
+	    }).done(function(data){	    
+	    	if (data.error == 'true')
+		    {
+		       alert(data.result);
+		    }
 	    });
-
+	    
 	     if (hidetab == true) {
 
 	        // Remove active tab
