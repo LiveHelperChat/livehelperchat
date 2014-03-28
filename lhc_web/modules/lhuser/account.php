@@ -86,6 +86,9 @@ if (isset($_POST['Update']))
         'Username' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
+        'JobTitle' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
         'Skype' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
@@ -137,6 +140,13 @@ if (isset($_POST['Update']))
     	$UserData->surname = $form->Surname;
     } else {
     	$UserData->surname = '';
+    }
+        
+    if ( $form->hasValidData( 'JobTitle' ) && $form->JobTitle != '')
+    {
+    	$UserData->job_title = $form->JobTitle;
+    } else {
+    	$UserData->job_title = '';
     }
 
     if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','changeskypenick') ) {

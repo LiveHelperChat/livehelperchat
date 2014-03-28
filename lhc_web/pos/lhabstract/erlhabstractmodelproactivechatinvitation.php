@@ -54,6 +54,11 @@ $def->properties['operator_name']->columnName   = 'operator_name';
 $def->properties['operator_name']->propertyName = 'operator_name';
 $def->properties['operator_name']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['operator_ids'] = new ezcPersistentObjectProperty();
+$def->properties['operator_ids']->columnName   = 'operator_ids';
+$def->properties['operator_ids']->propertyName = 'operator_ids';
+$def->properties['operator_ids']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $def->properties['wait_message'] = new ezcPersistentObjectProperty();
 $def->properties['wait_message']->columnName   = 'wait_message';
 $def->properties['wait_message']->propertyName = 'wait_message';

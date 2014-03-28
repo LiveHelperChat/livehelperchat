@@ -25,6 +25,9 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
         'Username' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
+   		'JobTitle' => new ezcInputFormDefinitionElement(
+   				ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   		),
         'Skype' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
@@ -101,6 +104,12 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
     	$UserData->xmpp_username = '';
     }
     
+    if ( $form->hasValidData( 'JobTitle' ) && $form->JobTitle != '')
+    {
+    	$UserData->job_title = $form->JobTitle;
+    } else {
+    	$UserData->job_title = '';
+    }
     
     if ( $form->hasInputField( 'Password' ) && (!$form->hasInputField( 'Password1' ) || $form->Password != $form->Password1  ) ) // check for optional field
     {

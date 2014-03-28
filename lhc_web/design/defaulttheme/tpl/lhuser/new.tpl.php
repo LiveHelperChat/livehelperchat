@@ -25,7 +25,10 @@
 
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Surname');?></label>
 <input class="inputfield" type="text" name="Surname" value="<?php echo htmlspecialchars($user->surname);?>" />
- 
+
+<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Job title');?></label>
+<input type="text" name="JobTitle" value="<?php echo htmlspecialchars($user->job_title);?>"/>
+
 <?php include(erLhcoreClassDesign::designtpl('lhuser/parts/time_zone.tpl.php'));?>
 
 <div class="row">

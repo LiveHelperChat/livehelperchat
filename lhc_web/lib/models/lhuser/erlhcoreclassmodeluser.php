@@ -17,6 +17,7 @@ class erLhcoreClassModelUser {
                'filepath'     	 => $this->filepath,
 			   'filename'     	 => $this->filename,
 			   'skype'     	 	 => $this->skype,
+			   'job_title'     	 => $this->job_title,
 			   'time_zone'     	 => $this->time_zone,
 			   'xmpp_username'   => $this->xmpp_username,
        );
@@ -322,6 +323,7 @@ class erLhcoreClassModelUser {
     public $filepath = '';
     public $filename = '';
     public $surname = '';
+    public $job_title = '';
     public $skype = '';
     public $xmpp_username = '';
     public $disabled = 0;

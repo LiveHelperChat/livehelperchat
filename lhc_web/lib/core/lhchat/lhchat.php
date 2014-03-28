@@ -671,7 +671,21 @@ class erLhcoreClassChat {
     	$db = ezcDbInstance::get();
 		$agoTime = time()-$isOnlineUser;
 
-    	$SQL = 'SELECT count(*) FROM (SELECT count(lh_users.id) FROM lh_users INNER JOIN lh_userdep ON lh_userdep.user_id = lh_users.id WHERE lh_userdep.last_activity > :last_activity AND lh_userdep.hide_online = 0 GROUP BY lh_users.id) as online_users';
+		$filterOperators = '';
+		if ( isset($params['operators']) && !empty($params['operators']) ) {
+			$operators = array();
+			foreach ($params['operators'] as $operatorID) {
+				if ((int)$operatorID > 0){
+					$operators[] = (int)$operatorID;
+				}
+			}
+						
+			if (!empty($operators)){
+				$filterOperators = ' AND lh_users.id IN ('.implode(',',$operators).')';
+			}
+		}
+		
+    	$SQL = 'SELECT count(*) FROM (SELECT count(lh_users.id) FROM lh_users INNER JOIN lh_userdep ON lh_userdep.user_id = lh_users.id WHERE lh_userdep.last_activity > :last_activity AND lh_userdep.hide_online = 0 ' . $filterOperators . ' GROUP BY lh_users.id) as online_users';
     	$stmt = $db->prepare($SQL);
     	$stmt->bindValue(':last_activity',$agoTime,PDO::PARAM_INT);
     	$stmt->execute();
@@ -680,7 +694,7 @@ class erLhcoreClassChat {
     	if ($count > 0){
 	    	$offsetRandom = rand(0, $count-1);
 
-	    	$SQL = "SELECT lh_users.id FROM lh_users INNER JOIN lh_userdep ON lh_userdep.user_id = lh_users.id WHERE lh_userdep.last_activity > :last_activity AND lh_userdep.hide_online = 0 GROUP BY lh_users.id LIMIT 1 OFFSET {$offsetRandom}";
+	    	$SQL = "SELECT lh_users.id FROM lh_users INNER JOIN lh_userdep ON lh_userdep.user_id = lh_users.id WHERE lh_userdep.last_activity > :last_activity AND lh_userdep.hide_online = 0 {$filterOperators} GROUP BY lh_users.id LIMIT 1 OFFSET {$offsetRandom}";
 	    	$stmt = $db->prepare($SQL);
 	    	$stmt->bindValue(':last_activity',$agoTime,PDO::PARAM_INT);
 	    	$stmt->execute();

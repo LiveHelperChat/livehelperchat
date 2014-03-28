@@ -22,6 +22,7 @@ class erLhAbstractModelProactiveChatInvitation {
 			'requires_email'		=> $this->requires_email,
 			'show_random_operator'	=> $this->show_random_operator,
 			'hide_after_ntimes'	    => $this->hide_after_ntimes,
+			'operator_ids'	    => $this->operator_ids,
 		);
 
 		return $stateArray;
@@ -120,6 +121,14 @@ class erLhAbstractModelProactiveChatInvitation {
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
    						)),
+   				'operator_ids' => array (
+   						'type' => 'text',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Enter operators IDs from whom random operator should be shown, separated by comma'),
+   						'required' => false,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'string'
+   						)),
    				'identifier' => array (
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Identifier, for what identifier this message should be shown, leave empty for all'),
@@ -127,7 +136,7 @@ class erLhAbstractModelProactiveChatInvitation {
    						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'string'
-   						)),
+   						)),   				
    				'executed_times' => array (
    						'type' => 'none',
    						'hide_edit' => true,
@@ -329,7 +338,7 @@ class erLhAbstractModelProactiveChatInvitation {
 			$item->last_visit = time();
 
 			if ($message->show_random_operator == 1) {
-				$item->operator_user_id = erLhcoreClassChat::getRandomOnlineUserID();
+				$item->operator_user_id = erLhcoreClassChat::getRandomOnlineUserID(array('operators' => explode(',',trim($message->operator_ids))));				
 			}
 
 			$message->executed_times += 1;
@@ -358,6 +367,7 @@ class erLhAbstractModelProactiveChatInvitation {
 	public $show_random_operator = 0;
 	public $hide_after_ntimes = 0;
 	public $referrer = '';
+	public $operator_ids = '';
 
 	public $hide_add = false;
 	public $hide_delete = false;

@@ -44,6 +44,11 @@ $def->properties['surname']->columnName   = 'surname';
 $def->properties['surname']->propertyName = 'surname';
 $def->properties['surname']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['job_title'] = new ezcPersistentObjectProperty();
+$def->properties['job_title']->columnName   = 'job_title';
+$def->properties['job_title']->propertyName = 'job_title';
+$def->properties['job_title']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $def->properties['disabled'] = new ezcPersistentObjectProperty();
 $def->properties['disabled']->columnName   = 'disabled';
 $def->properties['disabled']->propertyName = 'disabled';

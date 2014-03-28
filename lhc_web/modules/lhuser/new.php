@@ -31,7 +31,10 @@ if (isset($_POST['Update_account']))
 		),
 		'HideMyStatus' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-		),  
+		), 
+   		'JobTitle' => new ezcInputFormDefinitionElement(
+   				ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   		),
    		'UserTimeZone' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
@@ -71,6 +74,13 @@ if (isset($_POST['Update_account']))
         $UserData->surname = $form->Surname;
     } else {
     	$UserData->surname = '';
+    }
+    
+    if ( $form->hasValidData( 'JobTitle' ) && $form->JobTitle != '')
+    {
+    	$UserData->job_title = $form->JobTitle;
+    } else {
+    	$UserData->job_title = '';
     }
     
     if ( $form->hasValidData( 'UserTimeZone' ) && $form->UserTimeZone != '')
