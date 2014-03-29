@@ -31,7 +31,12 @@
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Surname');?></label>
 <input type="text" class="inputfield" name="Surname" value="<?php echo htmlspecialchars($user->surname);?>"/>
 
+<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Job title');?></label>
+<input type="text" name="JobTitle" value="<?php echo htmlspecialchars($user->job_title);?>"/>
+	    
 <?php include(erLhcoreClassDesign::designtpl('lhuser/parts/time_zone.tpl.php'));?>
+
+<label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Chat status will not change upon pending chat opening');?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Invisible mode')?>&nbsp;<input type="checkbox" value="on" name="UserInvisible" <?php echo $user->invisible_mode == 1 ? 'checked="checked"' : '' ?> /></label>
 
 <div class="row">
 	<div class="columns small-6">

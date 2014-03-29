@@ -86,6 +86,9 @@ if (isset($_POST['Update']))
         'Username' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
+        'JobTitle' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
         'Skype' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
@@ -94,6 +97,9 @@ if (isset($_POST['Update']))
         ),
    		'UserTimeZone' => new ezcInputFormDefinitionElement(
    				ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   		),
+   		'UserInvisible' => new ezcInputFormDefinitionElement(
+   				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
    		)
     );
 
@@ -138,6 +144,13 @@ if (isset($_POST['Update']))
     } else {
     	$UserData->surname = '';
     }
+        
+    if ( $form->hasValidData( 'JobTitle' ) && $form->JobTitle != '')
+    {
+    	$UserData->job_title = $form->JobTitle;
+    } else {
+    	$UserData->job_title = '';
+    }
 
     if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','changeskypenick') ) {
 	    if ( $form->hasValidData( 'Skype' ) && $form->Skype != '')
@@ -148,6 +161,13 @@ if (isset($_POST['Update']))
 	    }
     }
     
+    if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','changevisibility') ) {
+	    if ( $form->hasValidData( 'UserInvisible' ) && $form->UserInvisible == true ) {
+	    	$UserData->invisible_mode = 1;
+	    } else {
+	    	$UserData->invisible_mode = 0;
+	    }
+    }
     
     if ( $form->hasValidData( 'XMPPUsername' ) && $form->XMPPUsername != '')
     {

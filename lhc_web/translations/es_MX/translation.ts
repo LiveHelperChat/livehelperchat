@@ -1360,12 +1360,20 @@
       <translation>usuarios en línea</translation>
     </message>
     <message>
-      <source>Show visitors who visited site in the past</source>
-      <translation>Mostrar a los visitantes que visitaron el sitio en el pasado</translation>
+      <source>Refresh list every</source>
+      <translation>Actualice la lista cada</translation>
+    </message>
+    <message>
+      <source>second</source>
+      <translation>segundo</translation>
     </message>
     <message>
       <source>seconds</source>
       <translation>segundos</translation>
+    </message>
+    <message>
+      <source>Show visitors who visited site in the past</source>
+      <translation>Mostrar a los visitantes que visitaron el sitio en el pasado</translation>
     </message>
     <message>
       <source>minit</source>
@@ -2264,6 +2272,10 @@
   <context>
     <name>chat/syncandsoundesetting</name>
     <message>
+      <source>Long polling</source>
+      <translation>Sondeo largo</translation>
+    </message>
+    <message>
       <source>Save</source>
       <translation>Guardar</translation>
     </message>
@@ -2296,16 +2308,24 @@
       <translation>Sincronizar los nuevos chats, intervalo en segundos</translation>
     </message>
     <message>
-      <source>Sync for a new user message, interval in seconds</source>
-      <translation>Sincronización de nuevos mensajes de usuario, intervalo en segundos</translation>
-    </message>
-    <message>
       <source>Check for messages from the operators, interval in seconds</source>
       <translation>Compruebe los mensajes de los operadores, intervalo en segundos</translation>
     </message>
     <message>
-      <source>Long polling</source>
-      <translation>Sondeo largo</translation>
+      <source>Messages settings</source>
+      <translation>Configuración de mensajes</translation>
+    </message>
+    <message>
+      <source>Sync for a new user message, interval in seconds</source>
+      <translation>Sincronización de nuevos mensajes de usuario, intervalo en segundos</translation>
+    </message>
+    <message>
+      <source>Show browser notification for new messages</source>
+      <translation>Mostrar notificaciones del navegador para mensajes nuevos</translation>
+    </message>
+    <message>
+      <source>Long polling (experimental)</source>
+      <translation>Long polling (experimental)</translation>
     </message>
     <message>
       <source>Enable long polling</source>
@@ -4867,7 +4887,7 @@
     </message>
     <message>
       <source>Perhaps screenshot is under way or screenshot is not supported on client browser, click refresh to check for a screenshot</source>
-      <translation>Quizas la captura de pantalla está en camino o no es soportado por el explorador del cliente, presione actualizar para revisar por imagenes</translation>
+      <translation>Quizas la captura de pantalla está en camino o no es soportado por el navegador del cliente, presione actualizar para revisar por imagenes</translation>
     </message>
     <message>
       <source>Screenshot ready...</source>

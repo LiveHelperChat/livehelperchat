@@ -1356,12 +1356,20 @@
       <translation>onlinebrugere</translation>
     </message>
     <message>
-      <source>Show visitors who visited site in the past</source>
-      <translation>Vise besøgende, der besøgte webstedet tidligere</translation>
+      <source>Refresh list every</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>second</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>seconds</source>
       <translation>sekunder</translation>
+    </message>
+    <message>
+      <source>Show visitors who visited site in the past</source>
+      <translation>Vise besøgende, der besøgte webstedet tidligere</translation>
     </message>
     <message>
       <source>minit</source>
@@ -2260,6 +2268,10 @@
   <context>
     <name>chat/syncandsoundesetting</name>
     <message>
+      <source>Long polling</source>
+      <translation>Lang afstemning</translation>
+    </message>
+    <message>
       <source>Save</source>
       <translation>Gem</translation>
     </message>
@@ -2292,16 +2304,24 @@
       <translation>Sync for nye chats, interval i sekunder</translation>
     </message>
     <message>
-      <source>Sync for a new user message, interval in seconds</source>
-      <translation>Synkronisering for en ny brugermeddelelse, interval i sekunder</translation>
-    </message>
-    <message>
       <source>Check for messages from the operators, interval in seconds</source>
       <translation>Kontroller om der er meddelelser fra operatørerne, interval i sekunder</translation>
     </message>
     <message>
-      <source>Long polling</source>
-      <translation>Lang afstemning</translation>
+      <source>Messages settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sync for a new user message, interval in seconds</source>
+      <translation>Synkronisering for en ny brugermeddelelse, interval i sekunder</translation>
+    </message>
+    <message>
+      <source>Show browser notification for new messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Long polling (experimental)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Enable long polling</source>

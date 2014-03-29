@@ -1,3 +1,33 @@
+1.93v
+
+Features
+1. Job title field for operator, this job title field will be shown instead of "Personal assistant" if it's set.
+2. Option to assign pro active invitations to particular users. Just enter users id's separated by comma. Perhaps in some far feature i will add more user friendly assigment workflow, or someone will suport it :)
+3. {name},{department},{country},{city} variables in subject for mail "Support request from user"
+4. Disabled department widget won't be shown. Option to show widget but then in content will be written "Department is disabled"
+5. Invisible mode. This allows to open chat without influencing chat status. To operator has to be assigned "Users, groups management" => "Allow user to change his visibility mode"
+6. Option to change chat status. To operator has to be assigned "Chat" => "Allow user to change chat status" permission.
+
+execute doc/update_db/update_72.sql for update
+
+1.92v
+
+Features
+1. Option to have browser notification for new messages also not only for new chat request we have now. Can be found at "Synchronization and sound settings"
+2. Messages line height adjusted
+3. Submit button is disabled then user clicks it. I saw some duplicate chat request on demo. I ques users just did not waited enough after form submition.
+4. Option to choose refresh interval on online users list.
+5. {operator} variable in canned messages.
+6. nodejs extension updated.
+
+Bugfixes
+1. FF browsers did not showed scrollbar in popup.
+2. Then chat was accepted using chrome browser notification was not hidden automatically. Seems there was some internal browser API changes.
+3. Some complex cases fixed then site is using https and in some places http. Read http://livehelperchat.com/how-to-configure-https-and-http-259a.html
+4. Correct cache key for chatbox then memcached is used.
+
+execute doc/update_db/update_71.sql for update
+
 1.91v
 
 Features

@@ -526,7 +526,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('file_configuration',	'a:7:{i:0;b:0;s:5:\"ft_op\";s:43:\"gif|jpe?g|png|zip|rar|xls|doc|docx|xlsx|pdf\";s:5:\"ft_us\";s:26:\"gif|jpe?g|png|doc|docx|pdf\";s:6:\"fs_max\";i:2048;s:18:\"active_user_upload\";b:0;s:16:\"active_op_upload\";b:1;s:19:\"active_admin_upload\";b:1;}',	0,	'Files configuration item',	1),
                 ('accept_chat_link_timeout',	'300',	0,	'How many seconds chat accept link is valid. Set 0 to force login all the time manually.',	0),
                 ('session_captcha',0,	0,	'Use session captcha. LHC have to be installed on the same domain or subdomain.',	0),
-                ('sync_sound_settings',	'a:15:{i:0;b:0;s:12:\"repeat_sound\";i:1;s:18:\"repeat_sound_delay\";i:5;s:10:\"show_alert\";b:0;s:22:\"new_chat_sound_enabled\";b:1;s:31:\"new_message_sound_admin_enabled\";b:1;s:30:\"new_message_sound_user_enabled\";b:1;s:14:\"online_timeout\";d:300;s:22:\"check_for_operator_msg\";d:10;s:21:\"back_office_sinterval\";d:10;s:22:\"chat_message_sinterval\";d:3.5;s:20:\"long_polling_enabled\";b:0;s:30:\"polling_chat_message_sinterval\";d:1.5;s:29:\"polling_back_office_sinterval\";d:5;s:18:\"connection_timeout\";i:30;}',	0,	'',	1),
+                ('sync_sound_settings',	'a:16:{i:0;b:0;s:12:\"repeat_sound\";i:1;s:18:\"repeat_sound_delay\";i:5;s:10:\"show_alert\";b:0;s:22:\"new_chat_sound_enabled\";b:1;s:31:\"new_message_sound_admin_enabled\";b:1;s:30:\"new_message_sound_user_enabled\";b:1;s:14:\"online_timeout\";d:300;s:22:\"check_for_operator_msg\";d:10;s:21:\"back_office_sinterval\";d:10;s:22:\"chat_message_sinterval\";d:3.5;s:20:\"long_polling_enabled\";b:0;s:30:\"polling_chat_message_sinterval\";d:1.5;s:29:\"polling_back_office_sinterval\";d:5;s:18:\"connection_timeout\";i:30;s:28:\"browser_notification_message\";b:0;}',	0,	'',	1),
                 ('sound_invitation', 1, 0, 'Play sound on invitation to chat.',	0),
                 ('explicit_http_mode', '',0,'Please enter explicit http mode. Either http: or https:, do not forget : at the end.', '0'),
                 ('track_domain',	'',	0,	'Set your domain to enable user tracking across different domain subdomains.',	0),
@@ -535,9 +535,13 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('need_help_tip_timeout','24',0,'Need help tooltip timeout, after how many hours show again tooltip?', '0'),
                 ('use_secure_cookie','0',0,'Use secure cookie, check this if you want to force SSL all the time', '0'),
                 ('faq_email_required','0',0,'Is visitor e-mail required for FAQ', '0'),
+                ('disable_print','0',0,'Disable chat print', '0'),
+                ('hide_disabled_department','1',0,'Hide disabled department widget', '0'),
+                ('disable_send','0',0,'Disable chat transcript send', '0'),
                 ('geo_data', '', '0', '', '1')");
 
-
+        	   
+        	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_online_user` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
                   `vid` varchar(50) NOT NULL,
@@ -588,6 +592,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `executed_times` int(11) NOT NULL,
 				  `hide_after_ntimes` int(11) NOT NULL,
 				  `name` varchar(50) NOT NULL,
+				  `operator_ids` varchar(100) NOT NULL,
 				  `wait_message` varchar(250) NOT NULL,
 				  `timeout_message` varchar(250) NOT NULL,
 				  `referrer` varchar(250) NOT NULL,
@@ -714,11 +719,13 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `surname` varchar(100) NOT NULL,
                   `filepath` varchar(200) NOT NULL,
                   `filename` varchar(200) NOT NULL,
+                  `job_title` varchar(100) NOT NULL,
                   `xmpp_username` varchar(200) NOT NULL,
                   `skype` varchar(50) NOT NULL,
                   `disabled` tinyint(4) NOT NULL,
                   `hide_online` tinyint(1) NOT NULL,
                   `all_departments` tinyint(1) NOT NULL,
+                  `invisible_mode` tinyint(1) NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `hide_online` (`hide_online`),
                   KEY `email` (`email`),

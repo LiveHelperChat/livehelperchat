@@ -1357,12 +1357,20 @@
       <translation>пользователей онлайн</translation>
     </message>
     <message>
-      <source>Show visitors who visited site in the past</source>
-      <translation>Показывать бывших посетителей сайта</translation>
+      <source>Refresh list every</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>second</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>seconds</source>
       <translation>секунд</translation>
+    </message>
+    <message>
+      <source>Show visitors who visited site in the past</source>
+      <translation>Показывать бывших посетителей сайта</translation>
     </message>
     <message>
       <source>minit</source>
@@ -2261,6 +2269,10 @@
   <context>
     <name>chat/syncandsoundesetting</name>
     <message>
+      <source>Long polling</source>
+      <translation>Ожидание опроса</translation>
+    </message>
+    <message>
       <source>Save</source>
       <translation>Сохранить</translation>
     </message>
@@ -2293,16 +2305,24 @@
       <translation>Синхронизация с новым чатом, интервал в секундах</translation>
     </message>
     <message>
-      <source>Sync for a new user message, interval in seconds</source>
-      <translation>Синхронизация с сообщением нового пользователя, интервал в секундах</translation>
-    </message>
-    <message>
       <source>Check for messages from the operators, interval in seconds</source>
       <translation>Интервал проверки сообщений от оператора в секундах</translation>
     </message>
     <message>
-      <source>Long polling</source>
-      <translation>Ожидание опроса</translation>
+      <source>Messages settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sync for a new user message, interval in seconds</source>
+      <translation>Синхронизация с сообщением нового пользователя, интервал в секундах</translation>
+    </message>
+    <message>
+      <source>Show browser notification for new messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Long polling (experimental)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Enable long polling</source>

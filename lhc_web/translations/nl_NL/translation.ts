@@ -35,7 +35,7 @@
     </message>
     <message>
       <source>Send</source>
-      <translation type="unfinished"/>
+      <translation>Verstuur</translation>
     </message>
     <message>
       <source>Save and continue</source>
@@ -234,7 +234,7 @@
     </message>
     <message>
       <source>Send</source>
-      <translation>Zend</translation>
+      <translation>Verstuur</translation>
     </message>
     <message>
       <source>BB Code</source>
@@ -545,7 +545,7 @@
     <name>chat/chatnotexists</name>
     <message>
       <source>Resume chat</source>
-      <translation type="unfinished"/>
+      <translation>Hervat Chat</translation>
     </message>
     <message>
       <source>Chat was deleted</source>
@@ -668,7 +668,7 @@
     </message>
     <message>
       <source>Mail was send</source>
-      <translation type="unfinished"/>
+      <translation>Email is verzonden</translation>
     </message>
     <message>
       <source>Send mail</source>
@@ -888,7 +888,7 @@
     </message>
     <message>
       <source>There are no online operators at the moment, please leave a message</source>
-      <translation type="unfinished"/>
+      <translation>Er zijn op dit moment geen ondersteuningsmedewerkers online, Laat een bericht achter.</translation>
     </message>
     <message>
       <source>Leave a message</source>
@@ -916,11 +916,11 @@
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
-      <translation type="unfinished"/>
+      <translation>Typ hier uw bericht en druk op enter om te versturen</translation>
     </message>
     <message>
       <source>Send</source>
-      <translation type="unfinished"/>
+      <translation>Verstuur</translation>
     </message>
     <message>
       <source>Personal assistant</source>
@@ -932,7 +932,7 @@
     </message>
     <message>
       <source>There are no online operators at the moment, please leave your message</source>
-      <translation type="unfinished"/>
+      <translation>Er zijn op dit moment geen ondersteuningsmedewerkers online, Laat een bericht achter.</translation>
     </message>
     <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
@@ -1011,7 +1011,7 @@
     </message>
     <message>
       <source>A support staff member has closed this chat</source>
-      <translation type="unfinished"/>
+      <translation>De ondersteunings medewerker heeft deze chat gesloten</translation>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
@@ -1065,7 +1065,7 @@
     </message>
     <message>
       <source>Send chat transcript to your e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Stuur chat-sessie naar uw e-mail</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new messages from users</source>
@@ -1281,11 +1281,11 @@
     </message>
     <message>
       <source>has send message to user</source>
-      <translation type="unfinished"/>
+      <translation>heeft bericht naar gebruiker gestuurd</translation>
     </message>
     <message>
       <source>No one has send any message to user yet</source>
-      <translation type="unfinished"/>
+      <translation>Niemand heeft een bericht gestuurd naar de gebruiker</translation>
     </message>
     <message>
       <source>First visit</source>
@@ -1356,12 +1356,20 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Show visitors who visited site in the past</source>
+      <source>Refresh list every</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>second</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>seconds</source>
       <translation>seconden</translation>
+    </message>
+    <message>
+      <source>Show visitors who visited site in the past</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>minit</source>
@@ -1520,7 +1528,7 @@
     <name>chat/getstatus</name>
     <message>
       <source>Live help is online...</source>
-      <translation type="unfinished"/>
+      <translation>Chat ondersteuning is online...</translation>
     </message>
     <message>
       <source>Live help is offline...</source>
@@ -1540,11 +1548,11 @@
     </message>
     <message>
       <source>Need help?</source>
-      <translation type="unfinished"/>
+      <translation>Hulp Nodig?</translation>
     </message>
     <message>
       <source>Our staff is always ready to help</source>
-      <translation type="unfinished"/>
+      <translation>Ons personeel is altijd klaar om u te helpen</translation>
     </message>
   </context>
   <context>
@@ -2260,6 +2268,10 @@
   <context>
     <name>chat/syncandsoundesetting</name>
     <message>
+      <source>Long polling</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Save</source>
       <translation>Opslaan</translation>
     </message>
@@ -2292,15 +2304,23 @@
       <translation>Synchroniseer chat berichten, interval in seconden</translation>
     </message>
     <message>
-      <source>Sync for a new user message, interval in seconds</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Check for messages from the operators, interval in seconds</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Long polling</source>
+      <source>Messages settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sync for a new user message, interval in seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show browser notification for new messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Long polling (experimental)</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3051,11 +3071,11 @@
     </message>
     <message>
       <source>Ask a question</source>
-      <translation type="unfinished"/>
+      <translation>Stel u vraag.</translation>
     </message>
     <message>
       <source>Type your question</source>
-      <translation type="unfinished"/>
+      <translation>Type u vraag.</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -3063,19 +3083,19 @@
     </message>
     <message>
       <source>Question</source>
-      <translation type="unfinished"/>
+      <translation>Vraag</translation>
     </message>
     <message>
       <source>Send your question</source>
-      <translation type="unfinished"/>
+      <translation>Verstuur uw vraag</translation>
     </message>
     <message>
       <source>Your question was submitted!</source>
-      <translation type="unfinished"/>
+      <translation>Uw aanvraag is ingediend!</translation>
     </message>
     <message>
       <source>Please enter a question!</source>
-      <translation type="unfinished"/>
+      <translation>Vul een vraag in!</translation>
     </message>
     <message>
       <source>Please enter your email address!</source>
@@ -3086,7 +3106,7 @@
     <name>faq/new</name>
     <message>
       <source>Question</source>
-      <translation type="unfinished"/>
+      <translation>Vraag</translation>
     </message>
     <message>
       <source>Answer</source>
@@ -3110,11 +3130,11 @@
     </message>
     <message>
       <source>Question is active</source>
-      <translation type="unfinished"/>
+      <translation>Vraag is actief</translation>
     </message>
     <message>
       <source>New question</source>
-      <translation type="unfinished"/>
+      <translation>Nieuwe vraag</translation>
     </message>
   </context>
   <context>
@@ -3125,7 +3145,7 @@
     </message>
     <message>
       <source>Question</source>
-      <translation type="unfinished"/>
+      <translation>Vraag</translation>
     </message>
     <message>
       <source>Identifier</source>
@@ -3149,11 +3169,11 @@
     </message>
     <message>
       <source>Delete this question</source>
-      <translation type="unfinished"/>
+      <translation>Verwijderd deze vraag</translation>
     </message>
     <message>
       <source>New question</source>
-      <translation type="unfinished"/>
+      <translation>Nieuwe vraag</translation>
     </message>
   </context>
   <context>
@@ -3184,7 +3204,7 @@
     </message>
     <message>
       <source>Please enter question!</source>
-      <translation type="unfinished"/>
+      <translation>Vul de vraag in!</translation>
     </message>
     <message>
       <source>FAQ</source>
@@ -3654,7 +3674,7 @@
     </message>
     <message>
       <source>Edit a question</source>
-      <translation type="unfinished"/>
+      <translation>Bewerk een vraag</translation>
     </message>
   </context>
   <context>
@@ -3693,11 +3713,11 @@
     </message>
     <message>
       <source>Edit the question</source>
-      <translation type="unfinished"/>
+      <translation>Vraag bewerken</translation>
     </message>
     <message>
       <source>Delete the question</source>
-      <translation type="unfinished"/>
+      <translation>Verwijder de vraag</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -3773,7 +3793,7 @@
     <name>questionary/votingwidget</name>
     <message>
       <source>Questionary</source>
-      <translation type="unfinished"/>
+      <translation>Enquete</translation>
     </message>
     <message>
       <source>Thank you!</source>
@@ -4677,7 +4697,7 @@
     </message>
     <message>
       <source>Support staff member has closed this chat</source>
-      <translation type="unfinished"/>
+      <translation>De ondersteunings medewerker heeft deze chat gesloten</translation>
     </message>
     <message>
       <source>You do not have permission to view this chat, or chat was deleted</source>

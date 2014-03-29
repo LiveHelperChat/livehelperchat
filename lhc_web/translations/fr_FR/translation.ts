@@ -1356,12 +1356,20 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Show visitors who visited site in the past</source>
-      <translation>Montrez les visiteurs qui ont visité le site dans le passé</translation>
+      <source>Refresh list every</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>second</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>seconds</source>
       <translation>secondes</translation>
+    </message>
+    <message>
+      <source>Show visitors who visited site in the past</source>
+      <translation>Montrez les visiteurs qui ont visité le site dans le passé</translation>
     </message>
     <message>
       <source>minit</source>
@@ -2260,6 +2268,10 @@
   <context>
     <name>chat/syncandsoundesetting</name>
     <message>
+      <source>Long polling</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Save</source>
       <translation>Enregistrer</translation>
     </message>
@@ -2292,15 +2304,23 @@
       <translation>Synchroniser pour nouvelles conversations, intervalle en secondes</translation>
     </message>
     <message>
-      <source>Sync for a new user message, interval in seconds</source>
-      <translation>Synchronisation de nouveau messages du visiteur, intervalle en secondes</translation>
-    </message>
-    <message>
       <source>Check for messages from the operators, interval in seconds</source>
       <translation>Vérifier les message en provenance des opérateurs, intervalle en secondes</translation>
     </message>
     <message>
-      <source>Long polling</source>
+      <source>Messages settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sync for a new user message, interval in seconds</source>
+      <translation>Synchronisation de nouveau messages du visiteur, intervalle en secondes</translation>
+    </message>
+    <message>
+      <source>Show browser notification for new messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Long polling (experimental)</source>
       <translation type="unfinished"/>
     </message>
     <message>

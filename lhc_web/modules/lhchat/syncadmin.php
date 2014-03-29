@@ -52,10 +52,12 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
 	                $tpl->set('messages',$Messages);
 	                $tpl->set('chat',$Chat);
 	
+	                $msgText = '';
 	                if ($userOwner == 'true') {
 	                	foreach ($Messages as $msg) {
 	                		if ($msg['user_id'] != $currentUser->getUserID()) {
 	                			$userOwner = 'false';
+	                			$msgText = $msg['msg'];
 	                			break;
 	                		}
 	                	}
@@ -65,7 +67,7 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
 	
 	                $templateResult = $tpl->fetch();
 	
-	                $ReturnMessages[] = array('chat_id' => $chat_id, 'mn' => $newMessagesNumber, 'content' => $templateResult, 'message_id' => $LastMessageIDs['id']);
+	                $ReturnMessages[] = array('chat_id' => $chat_id,'nck' => $Chat->nick, 'mn' => $newMessagesNumber,'msg' => $msgText, 'content' => $templateResult, 'message_id' => $LastMessageIDs['id']);
 	            }
 		          
 	            if ($Chat->is_user_typing == true) {

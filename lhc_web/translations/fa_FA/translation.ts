@@ -1356,12 +1356,20 @@
       <translation>کاربران آنلاین</translation>
     </message>
     <message>
-      <source>Show visitors who visited site in the past</source>
-      <translation>نمایش بازدیدکنندگانی که قبلا از سایت بازدید کرده اند</translation>
+      <source>Refresh list every</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>second</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>seconds</source>
       <translation>ثانیه ها</translation>
+    </message>
+    <message>
+      <source>Show visitors who visited site in the past</source>
+      <translation>نمایش بازدیدکنندگانی که قبلا از سایت بازدید کرده اند</translation>
     </message>
     <message>
       <source>minit</source>
@@ -2260,6 +2268,10 @@
   <context>
     <name>chat/syncandsoundesetting</name>
     <message>
+      <source>Long polling</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Save</source>
       <translation>ذخیره</translation>
     </message>
@@ -2292,15 +2304,23 @@
       <translation>هماهنگی برای چت های جدید، به ثانیه</translation>
     </message>
     <message>
-      <source>Sync for a new user message, interval in seconds</source>
-      <translation>هماهنگی برای پیام جدید کاربر بر اساس ثانیه</translation>
-    </message>
-    <message>
       <source>Check for messages from the operators, interval in seconds</source>
       <translation>بررسی پیام ها از اپراتورها در هر ثانیه</translation>
     </message>
     <message>
-      <source>Long polling</source>
+      <source>Messages settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sync for a new user message, interval in seconds</source>
+      <translation>هماهنگی برای پیام جدید کاربر بر اساس ثانیه</translation>
+    </message>
+    <message>
+      <source>Show browser notification for new messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Long polling (experimental)</source>
       <translation type="unfinished"/>
     </message>
     <message>

@@ -1356,12 +1356,20 @@
       <translation>prisijungę vartotojai</translation>
     </message>
     <message>
-      <source>Show visitors who visited site in the past</source>
-      <translation>Rodyti lankytojus, kurie aplankė per pastarasias</translation>
+      <source>Refresh list every</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>second</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>seconds</source>
       <translation>sekundžių</translation>
+    </message>
+    <message>
+      <source>Show visitors who visited site in the past</source>
+      <translation>Rodyti lankytojus, kurie aplankė per pastarasias</translation>
     </message>
     <message>
       <source>minit</source>
@@ -2260,6 +2268,10 @@
   <context>
     <name>chat/syncandsoundesetting</name>
     <message>
+      <source>Long polling</source>
+      <translation>Ilga užklausa</translation>
+    </message>
+    <message>
       <source>Save</source>
       <translation>Saugoti</translation>
     </message>
@@ -2292,16 +2304,24 @@
       <translation>Tikrinti ar nėra naujų užklausų, kas nurodytą intervalą</translation>
     </message>
     <message>
-      <source>Sync for a new user message, interval in seconds</source>
-      <translation>Tikrinti ar neparašė vartotojas, kas nurodytą sekundžių skaičių</translation>
-    </message>
-    <message>
       <source>Check for messages from the operators, interval in seconds</source>
       <translation>Tikrint ar nėra žinučių iš operatorių, intervalas sekundėmis</translation>
     </message>
     <message>
-      <source>Long polling</source>
-      <translation>Ilga užklausa</translation>
+      <source>Messages settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sync for a new user message, interval in seconds</source>
+      <translation>Tikrinti ar neparašė vartotojas, kas nurodytą sekundžių skaičių</translation>
+    </message>
+    <message>
+      <source>Show browser notification for new messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Long polling (experimental)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Enable long polling</source>

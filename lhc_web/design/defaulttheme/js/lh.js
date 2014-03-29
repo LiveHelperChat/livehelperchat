@@ -18,6 +18,8 @@ $.postJSON = function(url, data, callback) {
 	return $.post(url, data, callback, "json");
 };
 
+
+
 /*Port FN accordion*/
 (function(e,t,n){"use strict";e.fn.foundationAccordion=function(t){var n=function(e){return e.hasClass("hover")&&!Modernizr.touch};e(document).on("mouseenter",".accordion-lhc li",function(){var t=e(this).parent();if(n(t)){var r=e(this).children(".content-lhc").first();e(".content-lhc",t).not(r).hide().parent("li").removeClass("active-lhc"),r.show(0,function(){r.parent("li").addClass("active-lhc")})}}),e(document).on("click.fndtn",".accordion-lhc li .title-lhc",function(){var t=e(this).closest("li"),r=t.parent();if(!n(r)){var i=t.children(".content-lhc").first();t.hasClass("active-lhc")?r.find("li").removeClass("active-lhc").end().find(".content-lhc").hide():(e(".content-lhc",r).not(i).hide().parent("li").removeClass("active-lhc"),i.show(0,function(){i.parent("li").addClass("active-lhc")}))}})}})(jQuery,this);
 
@@ -455,7 +457,7 @@ function lh(){
                 			if ( confLH.new_message_sound_user_enabled == 1 && data.uw == 'false') {
                 			     inst.playNewMessageSound();
                 			};
-
+                			
                 			// Set last message ID                			
                 			inst.last_message_id = data.message_id;
                 			
@@ -644,14 +646,20 @@ function lh(){
 	    if ($('#CSChatMessage-'+chat_id).length != 0){
 	       $('#CSChatMessage-'+chat_id).unbind('keyup', 'enter', function(){});
 	    }
-
-	    $.postJSON(this.wwwDir + this.deletechatadmin + chat_id ,{}, function(data){
-	       if (data.error == 'true')
-	       {
-	           alert(data.result);
-	       }
+	    	    
+	    $.ajax({
+	        type: "POST",
+	        url: this.wwwDir + this.deletechatadmin + chat_id,
+	        cache: false,
+	        dataType: 'json',
+	        async: false
+	    }).done(function(data){	    
+	    	if (data.error == 'true')
+		    {
+		       alert(data.result);
+		    }
 	    });
-
+	    
 	     if (hidetab == true) {
 
 	        // Remove active tab
@@ -682,7 +690,7 @@ function lh(){
 
 	this.startChatNewWindow = function(chat_id,name)
 	{
-	    window.open(this.wwwDir + 'chat/single/'+chat_id,'chatwindow-chat-id-'+chat_id,"menubar=1,resizable=1,width=800,height=650");
+	    window.open(this.wwwDir + 'chat/single/'+chat_id,'chatwindow-chat-id-'+chat_id,"menubar=1,resizable=1,width=800,height=650").focus();
 	    var inst = this;
 	    setTimeout(function(){
 	    	inst.syncadmininterfacestatic();
@@ -1046,11 +1054,18 @@ function lh(){
 	        		                		  $(document).foundation('section', 'resize');
 	        		                	  }
 	        		                  }
+	        		                  
+	        		                  if ( confLH.new_message_browser_notification == 1 && data.uw == 'false') {	        		                	 
+	        		                	  lhinst.showNewMessageNotification(item.chat_id,item.msg,item.nck);
+	  	                			  };
+	  	                			
 	                            });
 	
 	                            if ( confLH.new_message_sound_admin_enabled == 1  && data.uw == 'false') {
 	                            	lhinst.playNewMessageSound();
 	                            };
+	                            
+	                            
 	        	            };
 	
 	        	            if (data.result_status != 'false')
@@ -1189,6 +1204,68 @@ function lh(){
 	    };
 	};
 	
+	this.focusChanged = function(status){		
+		if (confLH.new_message_browser_notification == 1 && status == true){
+			if (window.webkitNotifications || window.Notification) {
+				var inst = this;
+				$.each(this.chatsSynchronising, function( index, chat_id ) {				
+					if (typeof inst.notificationsArrayMessages[chat_id] !== 'undefined') {					
+						if (window.webkitNotifications) {
+							inst.notificationsArrayMessages[chat_id].cancel();
+						} else {
+							inst.notificationsArrayMessages[chat_id].close();
+						}
+					}
+				});
+			}
+		}
+	};
+	
+	this.notificationsArrayMessages = [];
+	
+	this.showNewMessageNotification = function(chat_id,message,nick) {		
+		try {
+		if (window.webkitNotifications || window.Notification) {
+			if (focused == false) {
+				if (typeof this.notificationsArrayMessages[chat_id] !== 'undefined') {
+					if (window.webkitNotifications) {
+						this.notificationsArrayMessages[chat_id].cancel();
+					} else {
+						this.notificationsArrayMessages[chat_id].close();
+					}
+				};
+				if (window.webkitNotifications) {
+			    	  var havePermission = window.webkitNotifications.checkPermission();
+			    	  if (havePermission == 0) {
+			    	    // 0 is PERMISSION_ALLOWED
+			    	    var notification = window.webkitNotifications.createNotification(
+			    	      WWW_DIR_JAVASCRIPT_FILES_NOTIFICATION + '/notification.png',
+			    	      nick,
+			    	      message
+			    	    );
+			    	    notification.onclick = function () {
+			    	    	window.focus();
+			    	    	notification.cancel();
+			    	    };
+			    	    notification.show();
+			    	    this.notificationsArrayMessages[chat_id] = notification;
+			    	  }
+		    	  } else if(window.Notification) {
+		    		  if (window.Notification.permission == 'granted') {
+			  				var notification = new Notification(nick, { icon: WWW_DIR_JAVASCRIPT_FILES_NOTIFICATION + '/notification.png', body: message });
+			  				notification.onclick = function () {			  				
+			  					window.focus();
+				    	        notification.close();				    	        
+				    	    };				    	
+				    	    this.notificationsArrayMessages[chat_id] = notification;
+			    	  }
+		    	  }
+			}			
+		  }
+		} catch(err) {		     
+        	console.log(err);
+        };		
+	};	
 	
 	this.playSoundNewAction = function(identifier,chat_id) {
 	    if (confLH.new_chat_sound_enabled == 1 && (identifier == 'pending_chat' || identifier == 'transfer_chat' )) {
@@ -1209,7 +1286,7 @@ function lh(){
 		    	    // 0 is PERMISSION_ALLOWED
 		    	    var notification = window.webkitNotifications.createNotification(
 		    	      WWW_DIR_JAVASCRIPT_FILES_NOTIFICATION + '/notification.png',
-		    	      'Live Helper Chat',
+		    	      'Live Help',
 		    	      confLH.transLation.new_chat
 		    	    );
 		    	    notification.onclick = function () {
@@ -1218,14 +1295,14 @@ function lh(){
 		    	    	} else {
 		    	    		inst.startChatNewWindowTransferByTransfer(chat_id);
 		    	    	};
-		    	        notification.close();
+		    	        notification.cancel();
 		    	    };
 		    	    notification.show();
 		    	    this.notificationsArray.push(notification);
 		    	  }
 	    	  } else if(window.Notification) {
 	    		  if (window.Notification.permission == 'granted') {
-		  				var notification = new Notification('Live Helper Chat', { icon: WWW_DIR_JAVASCRIPT_FILES_NOTIFICATION + '/notification.png', body: confLH.transLation.new_chat });
+		  				var notification = new Notification('Live Help', { icon: WWW_DIR_JAVASCRIPT_FILES_NOTIFICATION + '/notification.png', body: confLH.transLation.new_chat });
 		  				notification.onclick = function () {
 			    	    	if (identifier == 'pending_chat'){
 			    	    		inst.startChatNewWindow(chat_id,'ChatRequest');
@@ -1260,7 +1337,15 @@ function lh(){
 		clearTimeout(this.soundIsPlaying);
 		
 		$.each(this.notificationsArray,function(i,item) {
-			item.close();
+			try {
+				 if (window.webkitNotifications) {
+					 item.cancel();
+				 } else {
+					item.close();
+				}
+			} catch(err) {		     
+	        	console.log(err);
+	        };
 		});
 		
 		// Reset array
@@ -1391,19 +1476,18 @@ function lh(){
     {
     	var inst = this;
 
-    	clearTimeout(inst.lastOnlineSyncTimeout);
-
+    	clearTimeout(inst.lastOnlineSyncTimeout);    	
         $.getJSON(this.wwwDir + 'chat/onlineusers/(method)/ajax/(timeout)/'+$('#userTimeout').val()+( parseInt($('#id_department_id').val()) > 0 ? '/(department)/'+parseInt($('#id_department_id').val()) : '' ), {} , function(data) {
            $('#online-users').html(data.result);
            $('#online-users-count').html(data.oc);
            
            inst.lastOnlineSyncTimeout = setTimeout(function(){
                lhinst.syncOnlineUsers();
-           },10000); // Check online users for every 10 seconds
+           },parseInt($('#updateTimeout').val())*1000); // Check online users for every 10 seconds
 		}).fail(function(){
 			inst.lastOnlineSyncTimeout = setTimeout(function(){
 	               lhinst.syncOnlineUsers();
-	        },10000); // Check online users for every 10 seconds
+	        },parseInt($('#updateTimeout').val())*1000); // Check online users for every 10 seconds
 		});
     };
 
@@ -1434,7 +1518,7 @@ function lh(){
     	}
     	return false;
     };
-
+    
     this.disableUserAsOnline = function(inst)
     {
     	if (inst.hasClass('user-online-disabled')){
@@ -1446,21 +1530,58 @@ function lh(){
     	}
     	return false;
     };
+    
+    this.closeReveal = function(id){
+		$(id).foundation('reveal', 'close');
+	},
+	
+    this.changeChatStatus = function(chat_id){    	
+    	if ($('#myModal').size() == 0){
+    		$('body').append('<div id="myModal" class="reveal-modal"></div>');    	
+    	}    	
+    	$('#myModal').foundation('reveal','open',{url: this.wwwDir+  'chat/changestatus/'+chat_id});
+    };
+    
+    this.changeStatusAction = function(form,chat_id){
+    	var inst = this;
+    	$.postJSON(form.attr('action'),form.serialize(), function(data) {
+	   		 if (data.error == 'false') {
+	   			$('#myModal').foundation('reveal', 'close');
+	   			inst.updateVoteStatus(chat_id);
+	   		 } else {
+	   			 alert(data.result);
+	   		 }
+	   	 });
+    	return false;
+    };
+    
+    this.changeVisibility = function(inst)
+    {
+    	if (inst.hasClass('user-online-disabled')){
+    		$.get(this.wwwDir+  'user/setinvisible/false');
+    		inst.removeClass('user-online-disabled');
+    	} else {
+    		$.get(this.wwwDir+  'user/setinvisible/true');
+    		inst.addClass('user-online-disabled');
+    	}
+    	return false;
+    };
 
+    
     this.disableChatSoundUser = function(inst)
     {
-    	if (inst.hasClass('sound-disabled')){
+    	if (inst.hasClass('icon-mute')){
     		$.get(this.wwwDir+  'user/setsettingajax/chat_message/1');
     		confLH.new_message_sound_user_enabled = 1;
-    		inst.removeClass('sound-disabled');
+    		inst.removeClass('icon-mute');
     	} else {
     		$.get(this.wwwDir+  'user/setsettingajax/chat_message/0');
     		confLH.new_message_sound_user_enabled = 0;
-    		inst.addClass('sound-disabled');
+    		inst.addClass('icon-mute');
     	};
 
     	if (!!window.postMessage && parent) {
-    		if (inst.hasClass('sound-disabled')){
+    		if (inst.hasClass('icon-mute')){
     			parent.postMessage("lhc_ch:s:0", '*');
     		} else {
     			parent.postMessage("lhc_ch:s:1", '*');
@@ -1472,6 +1593,7 @@ function lh(){
 
     this.addCaptcha = function(timestamp,inst) {
     	if (inst.find('.form-protected').size() == 0){
+    			 inst.find('input[type="submit"]').attr('disabled','disabled');
 		    	 $.getJSON(this.wwwDir + 'captcha/captchastring/form/'+timestamp, function(data) {
 		    		 inst.append('<input type="hidden" value="'+timestamp+'" name="captcha_'+data.result+'" /><input type="hidden" value="'+timestamp+'" name="tscaptcha" /><input type="hidden" class="form-protected" value="1" />');
 		    		 inst.submit();
@@ -1735,6 +1857,11 @@ function gMapsCallback(){
 
 };
 
+var focused = true;
+window.onfocus = window.onblur = function(e) {
+    focused = (e || event).type === "focus";
+    lhinst.focusChanged(focused);
+};
 
 /*Helper functions*/
 function chatsyncuser()

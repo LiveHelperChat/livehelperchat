@@ -8,6 +8,18 @@ header('Cache-Control: no-store, no-cache, must-revalidate' );
 header('Cache-Control: post-check=0, pre-check=0', false );
 header('Pragma: no-cache' );
 
+if ((int)$Params['user_parameters_unordered']['department'] > 0 && erLhcoreClassModelChatConfig::fetch('hide_disabled_department')->current_value == 1){
+	try {
+		$department = erLhcoreClassModelDepartament::fetch((int)$Params['user_parameters_unordered']['department']);
+		if ($department->disabled == 1) {
+			// Hide disabled department
+			exit;
+		}
+	} catch (Exception $e) {
+		exit;
+	}
+}
+
 $tpl = erLhcoreClassTemplate::getInstance('lhchat/getstatusembed.tpl.php');
 $tpl->set('leaveamessage',(string)$Params['user_parameters_unordered']['leaveamessage'] == 'true');
 $tpl->set('hide_offline',$Params['user_parameters_unordered']['hide_offline']);

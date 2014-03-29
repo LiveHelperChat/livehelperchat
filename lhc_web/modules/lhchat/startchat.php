@@ -16,6 +16,20 @@ if ((string)$Params['user_parameters_unordered']['hash'] != '') {
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/startchat.tpl.php');
 $tpl->set('referer','');
 $tpl->set('referer_site','');
+$disabled_department = false;
+
+if ((int)$Params['user_parameters_unordered']['department'] > 0 && erLhcoreClassModelChatConfig::fetch('hide_disabled_department')->current_value == 1){
+	try {
+		$department = erLhcoreClassModelDepartament::fetch((int)$Params['user_parameters_unordered']['department']);
+		if ($department->disabled == 1) {
+			$disabled_department = true;
+		}
+	} catch (Exception $e) {
+		exit;
+	}
+}
+
+$tpl->set('disabled_department',$disabled_department);
 
 // Start chat field options
 $startData = erLhcoreClassModelChatConfig::fetch('start_chat_data');
@@ -97,7 +111,7 @@ $tpl->set('leaveamessage',$leaveamessage);
 $department = (int)$Params['user_parameters_unordered']['department'] > 0 ? (int)$Params['user_parameters_unordered']['department'] : false;
 $tpl->set('department',$department);
 
-if (isset($_POST['StartChat'])) {
+if (isset($_POST['StartChat']) && $disabled_department === false) {
    // Validate post data
    $Errors = erLhcoreClassChatValidator::validateStartChat($inputData,$startDataFields,$chat,$additionalParams);
 

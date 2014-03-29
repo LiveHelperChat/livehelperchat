@@ -15,13 +15,17 @@
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Sync for new chats, interval in seconds');?></label>
 <input type="text" name="SyncBackOffice" value="<?php echo htmlspecialchars(isset($sound_data['back_office_sinterval']) ? $sound_data['back_office_sinterval'] : '')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Value in seconds');?>" />
 
-<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Sync for a new user message, interval in seconds');?></label>
-<input type="text" name="SyncForUserMessagesEvery" value="<?php echo htmlspecialchars(isset($sound_data['chat_message_sinterval']) ? $sound_data['chat_message_sinterval'] : '')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Value in seconds');?>" />
-
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Check for messages from the operators, interval in seconds');?></label>
 <input type="text" name="SyncForOperatorMessagesEvery" value="<?php echo htmlspecialchars(isset($sound_data['check_for_operator_msg']) ? $sound_data['check_for_operator_msg'] : '')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Value in seconds');?>" />
 
-<h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Long polling');?></h2>
+<h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Messages settings');?></h2>
+
+<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Sync for a new user message, interval in seconds');?></label>
+<input type="text" name="SyncForUserMessagesEvery" value="<?php echo htmlspecialchars(isset($sound_data['chat_message_sinterval']) ? $sound_data['chat_message_sinterval'] : '')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Value in seconds');?>" />
+
+<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Show browser notification for new messages');?> <input type="checkbox" name="ShowBrowserNotificationMessage" value="1" <?php echo isset($sound_data['browser_notification_message']) && $sound_data['browser_notification_message'] == 1 ? 'checked="checked"' : '' ?> /></label>
+
+<h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Long polling (experimental)');?></h2>
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Enable long polling');?> <input type="checkbox" name="EnableLongPolling" value="on" <?php echo isset($sound_data['long_polling_enabled']) && $sound_data['long_polling_enabled'] == 1 ? 'checked="checked"' : '' ?> /></label>
 
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','How many seconds keep connection to server?');?></label>

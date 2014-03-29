@@ -25,6 +25,9 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
         'Username' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
+   		'JobTitle' => new ezcInputFormDefinitionElement(
+   				ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   		),
         'Skype' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
@@ -38,6 +41,9 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 		),
 		'HideMyStatus' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+		),
+		'UserInvisible' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 		),
 		'DefaultGroup' => new ezcInputFormDefinitionElement(
@@ -101,6 +107,18 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
     	$UserData->xmpp_username = '';
     }
     
+    if ( $form->hasValidData( 'UserInvisible' ) && $form->UserInvisible == true ) {
+    	$UserData->invisible_mode = 1;
+    } else {
+    	$UserData->invisible_mode = 0;
+    }
+    
+    if ( $form->hasValidData( 'JobTitle' ) && $form->JobTitle != '')
+    {
+    	$UserData->job_title = $form->JobTitle;
+    } else {
+    	$UserData->job_title = '';
+    }
     
     if ( $form->hasInputField( 'Password' ) && (!$form->hasInputField( 'Password1' ) || $form->Password != $form->Password1  ) ) // check for optional field
     {

@@ -45,6 +45,11 @@ $def->properties['surname']->columnName   = 'surname';
 $def->properties['surname']->propertyName = 'surname';
 $def->properties['surname']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['job_title'] = new ezcPersistentObjectProperty();
+$def->properties['job_title']->columnName   = 'job_title';
+$def->properties['job_title']->propertyName = 'job_title';
+$def->properties['job_title']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $def->properties['disabled'] = new ezcPersistentObjectProperty();
 $def->properties['disabled']->columnName   = 'disabled';
 $def->properties['disabled']->propertyName = 'disabled';
@@ -59,6 +64,11 @@ $def->properties['all_departments'] = new ezcPersistentObjectProperty();
 $def->properties['all_departments']->columnName   = 'all_departments';
 $def->properties['all_departments']->propertyName = 'all_departments';
 $def->properties['all_departments']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['invisible_mode'] = new ezcPersistentObjectProperty();
+$def->properties['invisible_mode']->columnName   = 'invisible_mode';
+$def->properties['invisible_mode']->propertyName = 'invisible_mode';
+$def->properties['invisible_mode']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 $def->properties['filepath'] = new ezcPersistentObjectProperty();
 $def->properties['filepath']->columnName   = 'filepath';

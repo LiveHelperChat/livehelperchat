@@ -221,7 +221,7 @@ class erLhcoreClassChatMail {
     	
     	$mail->From = $chat->email;
     	$mail->FromName = $chat->nick;
-    	$mail->Subject = $sendMail->subject;
+    	$mail->Subject = str_replace(array('{name}','{department}','{country}','{city}'),array($chat->nick,(string)$chat->department,$chat->country_name,$chat->city),$sendMail->subject);
     	$mail->AddReplyTo($chat->email,$chat->nick);
     	
     	$prefillchat = '-'; 
