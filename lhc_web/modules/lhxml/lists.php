@@ -16,10 +16,10 @@ if ($currentUser->hasAccessTo('lhchat','use_onlineusers')){
 	$onlineUsers = erLhcoreClassModelChatOnlineUser::getList();
 }
 
-$columnsToHide = array('user_id','transfer_timeout_ts','transfer_timeout_ac','transfer_if_na','na_cb_executed','status','mail_send','online_user_id','dep_id','last_msg_id','hash','user_status','support_informed','support_informed','country_code','user_typing','user_typing_txt','lat','lon','chat_initiator','chat_variables','chat_duration','operator_typing','has_unread_messages','last_user_msg_time','additional_data');
+$columnsToHide = array('wait_timeout','wait_timeout_send','status_sub','timeout_message','nc_cb_executed','fbst','user_id','transfer_timeout_ts','operator_typing_id','transfer_timeout_ac','transfer_if_na','na_cb_executed','status','remarks','operation','operation_admin','screenshot_id','mail_send','online_user_id','dep_id','last_msg_id','hash','user_status','support_informed','support_informed','country_code','user_typing','user_typing_txt','lat','lon','chat_initiator','chat_variables','chat_duration','operator_typing','has_unread_messages','last_user_msg_time','additional_data');
 $columnsName = array('id' => 'ID','nick' => 'Nick','time' => 'Time','referrer' => 'Referrer','session_referrer' => 'Original referrer','ip' => 'IP','country_name' => 'Country','email' => 'E-mail','priority' => 'Priority','name' => 'Department','phone' => 'Phone','city' => 'City','wait_time' => 'Waited');
 
-$onlineuserscolumnsToHide = array('vid','user_country_code','current_page', 'chat_id', 'operator_user_id', 'message_seen','operator_user_proactive','message_seen_ts','lat','lon','invitation_id','time_on_site','tt_time_on_site','invitation_count','store_chat');
+$onlineuserscolumnsToHide = array('dep_id','requires_email','invitation_seen_count','screenshot_id','operation','reopen_chat','vid','user_country_code','page_title','invitation_assigned','current_page', 'chat_id', 'operator_user_id', 'message_seen','operator_user_proactive','message_seen_ts','lat','lon','invitation_id','time_on_site','tt_time_on_site','invitation_count','store_chat');
 $onlineuserscolumnsNames = array('id' => 'ID','operator_message' => 'Operator message', 'ip' => 'IP','identifier' => 'Identifier','user_agent' => 'Browser','last_visit' => 'Last visit','first_visit' => 'First visit','total_visits' => 'Total visits','user_country_name' => 'Country','city' => 'City','pages_count' => 'Pages viewed','tt_pages_count' => 'Total pages viewed');
 
 echo json_encode(array(
