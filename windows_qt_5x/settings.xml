@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<pmsettings>
+ <username>admin</username>
+ <password>demo</password>
+ <host>http://dev.livehelperchat.com/</host>
+ <autologin>true</autologin>
+ <language>en</language>
+</pmsettings>
