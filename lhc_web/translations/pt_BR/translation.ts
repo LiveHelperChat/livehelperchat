@@ -148,6 +148,10 @@
       <translation>Ver perfil do operador aleatório</translation>
     </message>
     <message>
+      <source>Enter operators IDs from whom random operator should be shown, separated by comma</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
       <translation>Identificador, para qual identificador esta mensagem deve ser mostrada, deixe em branco para todos</translation>
     </message>
@@ -221,6 +225,34 @@
       <translation>O usuário está digitando...</translation>
     </message>
     <message>
+      <source>Change chat status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cancel</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>This chat is closed.</source>
       <translation>Este chat está fechado.</translation>
     </message>
@@ -267,6 +299,41 @@
     <message>
       <source>Operator is typing now...</source>
       <translation>O operador está digitando...</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/bbcodeinsert</name>
+    <message>
+      <source>Image</source>
+      <translation>Imagem</translation>
+    </message>
+    <message>
+      <source>Link</source>
+      <translation>Link</translation>
+    </message>
+    <message>
+      <source>Link title</source>
+      <translation>Titulo do link</translation>
+    </message>
+    <message>
+      <source>Bold</source>
+      <translation>Negrito</translation>
+    </message>
+    <message>
+      <source>Italic</source>
+      <translation>Itálico</translation>
+    </message>
+    <message>
+      <source>Please enter link to an image</source>
+      <translation>Por favor insira o link para uma imagem</translation>
+    </message>
+    <message>
+      <source>Please enter a link</source>
+      <translation>Por favor insira o link</translation>
+    </message>
+    <message>
+      <source>Here is a link</source>
+      <translation>Aqui está um link</translation>
     </message>
   </context>
   <context>
@@ -571,6 +638,10 @@
       <translation>Arquivos</translation>
     </message>
     <message>
+      <source>Click to change chat status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Pending chat</source>
       <translation>Chat pendente</translation>
     </message>
@@ -738,6 +809,10 @@
       <source>Messages</source>
       <translation>Mensagens</translation>
     </message>
+    <message>
+      <source>Invalid chat status</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>files/files</name>
@@ -810,6 +885,37 @@
     </message>
   </context>
   <context>
+    <name>chat/screenshot</name>
+    <message>
+      <source>Screenshot</source>
+      <translation>Captura de tela</translation>
+    </message>
+    <message>
+      <source>Take user screenshot</source>
+      <translation>Capturar a tela do usuário</translation>
+    </message>
+    <message>
+      <source>Refresh</source>
+      <translation>Atualizar</translation>
+    </message>
+    <message>
+      <source>Taken</source>
+      <translation>Capturado</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Vazio...</translation>
+    </message>
+    <message>
+      <source>Perhaps screenshot is under way or screenshot is not supported on client browser, click refresh to check for a screenshot</source>
+      <translation>Talvez a captura de tela esteja em andamento ou a captura de tela não é suportada no browser do cliente, clique em Atualizar para verificar se há uma imagem</translation>
+    </message>
+    <message>
+      <source>Screenshot ready...</source>
+      <translation>Captura de tela pronta...</translation>
+    </message>
+  </context>
+  <context>
     <name>front/default</name>
     <message>
       <source>Pending confirm</source>
@@ -862,6 +968,10 @@
   </context>
   <context>
     <name>chat/startchat</name>
+    <message>
+      <source>Department is disabled</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Name</source>
       <translation>Nome</translation>
@@ -1074,6 +1184,10 @@
     <message>
       <source>Enable/Disable sound about new pending chats</source>
       <translation>Ativar/Desativar sons de novos chats pendentes</translation>
+    </message>
+    <message>
+      <source>Change my visibility to visible/invisible</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Change my status to online/offline</source>
@@ -2268,10 +2382,6 @@
   <context>
     <name>chat/syncandsoundesetting</name>
     <message>
-      <source>Long polling</source>
-      <translation>longa sondagem</translation>
-    </message>
-    <message>
       <source>Save</source>
       <translation>Salvar</translation>
     </message>
@@ -2972,6 +3082,14 @@
       <translation>Sobrenome</translation>
     </message>
     <message>
+      <source>Job title</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat status will not change upon pending chat opening</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Skype</source>
       <translation>Skype</translation>
     </message>
@@ -2994,6 +3112,10 @@
     <message>
       <source>Assigned departments</source>
       <translation>Departamentos atribuídos</translation>
+    </message>
+    <message>
+      <source>All departments</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visible lists</source>
@@ -4169,6 +4291,10 @@
   <context>
     <name>user/new</name>
     <message>
+      <source>Invisible mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User group</source>
       <translation>Grupo de usuário</translation>
     </message>
@@ -4787,6 +4913,13 @@
     </message>
   </context>
   <context>
+    <name>chat/accepttrasnfer</name>
+    <message>
+      <source>has joined the chat!</source>
+      <translation>entrou no chat!</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/closechatadmin</name>
     <message>
       <source>has closed the chat!</source>
@@ -4856,87 +4989,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Por favor insira um tipo de arquivo válido!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/screenshot</name>
-    <message>
-      <source>Screenshot</source>
-      <translation>Captura de tela</translation>
-    </message>
-    <message>
-      <source>Take user screenshot</source>
-      <translation>Capturar a tela do usuário</translation>
-    </message>
-    <message>
-      <source>Refresh</source>
-      <translation>Atualizar</translation>
-    </message>
-    <message>
-      <source>Taken</source>
-      <translation>Capturado</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Vazio...</translation>
-    </message>
-    <message>
-      <source>Perhaps screenshot is under way or screenshot is not supported on client browser, click refresh to check for a screenshot</source>
-      <translation>Talvez a captura de tela esteja em andamento ou a captura de tela não é suportada no browser do cliente, clique em Atualizar para verificar se há uma imagem</translation>
-    </message>
-    <message>
-      <source>Screenshot ready...</source>
-      <translation>Captura de tela pronta...</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/bbcodeinsert</name>
-    <message>
-      <source>Link title image</source>
-      <translation>Link título da imagem</translation>
-    </message>
-    <message>
-      <source>Link to image</source>
-      <translation>ink para a imagem</translation>
-    </message>
-    <message>
-      <source>Image</source>
-      <translation>Imagem</translation>
-    </message>
-    <message>
-      <source>Link</source>
-      <translation>Link</translation>
-    </message>
-    <message>
-      <source>Link title</source>
-      <translation>Titulo do link</translation>
-    </message>
-    <message>
-      <source>Bold</source>
-      <translation>Negrito</translation>
-    </message>
-    <message>
-      <source>Italic</source>
-      <translation>Itálico</translation>
-    </message>
-    <message>
-      <source>Please enter link to an image</source>
-      <translation>Por favor insira o link para uma imagem</translation>
-    </message>
-    <message>
-      <source>Please enter a link</source>
-      <translation>Por favor insira o link</translation>
-    </message>
-    <message>
-      <source>Here is a link</source>
-      <translation>Aqui está um link</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/accepttrasnfer</name>
-    <message>
-      <source>has joined the chat!</source>
-      <translation>entrou no chat!</translation>
     </message>
   </context>
 </TS>

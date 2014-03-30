@@ -148,6 +148,10 @@
       <translation>显示随机算子配置文件</translation>
     </message>
     <message>
+      <source>Enter operators IDs from whom random operator should be shown, separated by comma</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
       <translation>標識符，標識符是什麼，應該顯示這個消息，留下空</translation>
     </message>
@@ -221,6 +225,34 @@
       <translation>用户现在打字...</translation>
     </message>
     <message>
+      <source>Change chat status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cancel</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>This chat is closed.</source>
       <translation>这个聊天被关闭。</translation>
     </message>
@@ -267,6 +299,41 @@
     <message>
       <source>Operator is typing now...</source>
       <translation>运营商现在打字...</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/bbcodeinsert</name>
+    <message>
+      <source>Image</source>
+      <translation>图像</translation>
+    </message>
+    <message>
+      <source>Link</source>
+      <translation>链接</translation>
+    </message>
+    <message>
+      <source>Link title</source>
+      <translation>链接标题</translation>
+    </message>
+    <message>
+      <source>Bold</source>
+      <translation>加粗</translation>
+    </message>
+    <message>
+      <source>Italic</source>
+      <translation>斜体</translation>
+    </message>
+    <message>
+      <source>Please enter link to an image</source>
+      <translation>请输入图像的链接</translation>
+    </message>
+    <message>
+      <source>Please enter a link</source>
+      <translation>请输入一个链接</translation>
+    </message>
+    <message>
+      <source>Here is a link</source>
+      <translation>这是一个链接</translation>
     </message>
   </context>
   <context>
@@ -571,6 +638,10 @@
       <translation>档</translation>
     </message>
     <message>
+      <source>Click to change chat status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Pending chat</source>
       <translation>待聊天</translation>
     </message>
@@ -738,6 +809,10 @@
       <source>Messages</source>
       <translation>消息</translation>
     </message>
+    <message>
+      <source>Invalid chat status</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>files/files</name>
@@ -810,6 +885,37 @@
     </message>
   </context>
   <context>
+    <name>chat/screenshot</name>
+    <message>
+      <source>Screenshot</source>
+      <translation>截图</translation>
+    </message>
+    <message>
+      <source>Take user screenshot</source>
+      <translation>获取用户截图</translation>
+    </message>
+    <message>
+      <source>Refresh</source>
+      <translation>刷新</translation>
+    </message>
+    <message>
+      <source>Taken</source>
+      <translation>截取</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>空...</translation>
+    </message>
+    <message>
+      <source>Perhaps screenshot is under way or screenshot is not supported on client browser, click refresh to check for a screenshot</source>
+      <translation>可能正在截图，或是客户的浏览器不支持截图功能。请点击刷新试试看</translation>
+    </message>
+    <message>
+      <source>Screenshot ready...</source>
+      <translation>准备截图...</translation>
+    </message>
+  </context>
+  <context>
     <name>front/default</name>
     <message>
       <source>Pending confirm</source>
@@ -862,6 +968,10 @@
   </context>
   <context>
     <name>chat/startchat</name>
+    <message>
+      <source>Department is disabled</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Name</source>
       <translation>名</translation>
@@ -1074,6 +1184,10 @@
     <message>
       <source>Enable/Disable sound about new pending chats</source>
       <translation>启用/禁用声音有关新挂起聊天</translation>
+    </message>
+    <message>
+      <source>Change my visibility to visible/invisible</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Change my status to online/offline</source>
@@ -2268,10 +2382,6 @@
   <context>
     <name>chat/syncandsoundesetting</name>
     <message>
-      <source>Long polling</source>
-      <translation>长轮询</translation>
-    </message>
-    <message>
       <source>Save</source>
       <translation>节省</translation>
     </message>
@@ -2972,6 +3082,14 @@
       <translation>姓</translation>
     </message>
     <message>
+      <source>Job title</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat status will not change upon pending chat opening</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Skype</source>
       <translation>Skype</translation>
     </message>
@@ -2994,6 +3112,10 @@
     <message>
       <source>Assigned departments</source>
       <translation>分配的部门</translation>
+    </message>
+    <message>
+      <source>All departments</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visible lists</source>
@@ -4169,6 +4291,10 @@
   <context>
     <name>user/new</name>
     <message>
+      <source>Invisible mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User group</source>
       <translation>用户组</translation>
     </message>
@@ -4787,6 +4913,13 @@
     </message>
   </context>
   <context>
+    <name>chat/accepttrasnfer</name>
+    <message>
+      <source>has joined the chat!</source>
+      <translation>已加入聊天 ！</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/closechatadmin</name>
     <message>
       <source>has closed the chat!</source>
@@ -4856,87 +4989,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>请输入有效的文件类型 ！</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/screenshot</name>
-    <message>
-      <source>Screenshot</source>
-      <translation>截图</translation>
-    </message>
-    <message>
-      <source>Take user screenshot</source>
-      <translation>获取用户截图</translation>
-    </message>
-    <message>
-      <source>Refresh</source>
-      <translation>刷新</translation>
-    </message>
-    <message>
-      <source>Taken</source>
-      <translation>截取</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>空...</translation>
-    </message>
-    <message>
-      <source>Perhaps screenshot is under way or screenshot is not supported on client browser, click refresh to check for a screenshot</source>
-      <translation>可能正在截图，或是客户的浏览器不支持截图功能。请点击刷新试试看</translation>
-    </message>
-    <message>
-      <source>Screenshot ready...</source>
-      <translation>准备截图...</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/bbcodeinsert</name>
-    <message>
-      <source>Link title image</source>
-      <translation>链接标题图像</translation>
-    </message>
-    <message>
-      <source>Link to image</source>
-      <translation>链接到图像</translation>
-    </message>
-    <message>
-      <source>Image</source>
-      <translation>图像</translation>
-    </message>
-    <message>
-      <source>Link</source>
-      <translation>链接</translation>
-    </message>
-    <message>
-      <source>Link title</source>
-      <translation>链接标题</translation>
-    </message>
-    <message>
-      <source>Bold</source>
-      <translation>加粗</translation>
-    </message>
-    <message>
-      <source>Italic</source>
-      <translation>斜体</translation>
-    </message>
-    <message>
-      <source>Please enter link to an image</source>
-      <translation>请输入图像的链接</translation>
-    </message>
-    <message>
-      <source>Please enter a link</source>
-      <translation>请输入一个链接</translation>
-    </message>
-    <message>
-      <source>Here is a link</source>
-      <translation>这是一个链接</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/accepttrasnfer</name>
-    <message>
-      <source>has joined the chat!</source>
-      <translation>已加入聊天 ！</translation>
     </message>
   </context>
 </TS>

@@ -148,6 +148,10 @@
       <translation>Rodyti atsitiktinį operatoriaus profilį</translation>
     </message>
     <message>
+      <source>Enter operators IDs from whom random operator should be shown, separated by comma</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
       <translation>Identifikatorius, kuriam identifikatoriui ši žinutė turėtų būti rodoma. Palikite tuščia visiems</translation>
     </message>
@@ -221,6 +225,34 @@
       <translation>Vartototojas šiuo metu rašo žinutę...</translation>
     </message>
     <message>
+      <source>Change chat status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cancel</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>This chat is closed.</source>
       <translation>Šis pokalbis yra uždarytas</translation>
     </message>
@@ -267,6 +299,41 @@
     <message>
       <source>Operator is typing now...</source>
       <translation>Operatorius šiuo metu rašo žinutę...</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/bbcodeinsert</name>
+    <message>
+      <source>Image</source>
+      <translation>paveiksliukas</translation>
+    </message>
+    <message>
+      <source>Link</source>
+      <translation>Nuoroda</translation>
+    </message>
+    <message>
+      <source>Link title</source>
+      <translation>Nuorodos pavadinimas</translation>
+    </message>
+    <message>
+      <source>Bold</source>
+      <translation>Paryškinimas</translation>
+    </message>
+    <message>
+      <source>Italic</source>
+      <translation>Pasvyrasis tekstas</translation>
+    </message>
+    <message>
+      <source>Please enter link to an image</source>
+      <translation>Prašome įvesti nuorodą į paveiksliuką</translation>
+    </message>
+    <message>
+      <source>Please enter a link</source>
+      <translation>Prašoma įvesti nuoroda</translation>
+    </message>
+    <message>
+      <source>Here is a link</source>
+      <translation>Štai nuoroda</translation>
     </message>
   </context>
   <context>
@@ -571,6 +638,10 @@
       <translation>Failai</translation>
     </message>
     <message>
+      <source>Click to change chat status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Pending chat</source>
       <translation>Laukiantis patvirtinimo</translation>
     </message>
@@ -738,6 +809,10 @@
       <source>Messages</source>
       <translation>Žinutės</translation>
     </message>
+    <message>
+      <source>Invalid chat status</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>files/files</name>
@@ -810,6 +885,37 @@
     </message>
   </context>
   <context>
+    <name>chat/screenshot</name>
+    <message>
+      <source>Screenshot</source>
+      <translation>Ekrano nuotrauka</translation>
+    </message>
+    <message>
+      <source>Take user screenshot</source>
+      <translation>Fotografuoti naršyklės vaizdą</translation>
+    </message>
+    <message>
+      <source>Refresh</source>
+      <translation>Atnaujinti</translation>
+    </message>
+    <message>
+      <source>Taken</source>
+      <translation>Atlikta</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Tuščia...</translation>
+    </message>
+    <message>
+      <source>Perhaps screenshot is under way or screenshot is not supported on client browser, click refresh to check for a screenshot</source>
+      <translation>Galbūt ekrano nuotrauka dar yra daroma arba ši galimybė nėra palaikoma vartotojo naršyklės, paspauskite atnaujinti norėdami patikrinti ar buvo padaryta ekrano nuotrauka.</translation>
+    </message>
+    <message>
+      <source>Screenshot ready...</source>
+      <translation>Ekrano nuotrauka paruošta...</translation>
+    </message>
+  </context>
+  <context>
     <name>front/default</name>
     <message>
       <source>Pending confirm</source>
@@ -862,6 +968,10 @@
   </context>
   <context>
     <name>chat/startchat</name>
+    <message>
+      <source>Department is disabled</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Name</source>
       <translation>Vardas</translation>
@@ -1074,6 +1184,10 @@
     <message>
       <source>Enable/Disable sound about new pending chats</source>
       <translation>Įjungti/Išjungti garsą apie naujas užklausas iš vartotojų</translation>
+    </message>
+    <message>
+      <source>Change my visibility to visible/invisible</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Change my status to online/offline</source>
@@ -2268,10 +2382,6 @@
   <context>
     <name>chat/syncandsoundesetting</name>
     <message>
-      <source>Long polling</source>
-      <translation>Ilga užklausa</translation>
-    </message>
-    <message>
       <source>Save</source>
       <translation>Saugoti</translation>
     </message>
@@ -2972,6 +3082,14 @@
       <translation>Pavardė</translation>
     </message>
     <message>
+      <source>Job title</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat status will not change upon pending chat opening</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Skype</source>
       <translation>Skype</translation>
     </message>
@@ -2994,6 +3112,10 @@
     <message>
       <source>Assigned departments</source>
       <translation>Priskirti departamentai</translation>
+    </message>
+    <message>
+      <source>All departments</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visible lists</source>
@@ -4169,6 +4291,10 @@
   <context>
     <name>user/new</name>
     <message>
+      <source>Invisible mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User group</source>
       <translation>Vartotojų grupė</translation>
     </message>
@@ -4787,6 +4913,13 @@
     </message>
   </context>
   <context>
+    <name>chat/accepttrasnfer</name>
+    <message>
+      <source>has joined the chat!</source>
+      <translation>prisijungė prie pokalbio</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/closechatadmin</name>
     <message>
       <source>has closed the chat!</source>
@@ -4856,87 +4989,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Prašome pasirinkti korektišką failo tipą!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/screenshot</name>
-    <message>
-      <source>Screenshot</source>
-      <translation>Ekrano nuotrauka</translation>
-    </message>
-    <message>
-      <source>Take user screenshot</source>
-      <translation>Fotografuoti naršyklės vaizdą</translation>
-    </message>
-    <message>
-      <source>Refresh</source>
-      <translation>Atnaujinti</translation>
-    </message>
-    <message>
-      <source>Taken</source>
-      <translation>Atlikta</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Tuščia...</translation>
-    </message>
-    <message>
-      <source>Perhaps screenshot is under way or screenshot is not supported on client browser, click refresh to check for a screenshot</source>
-      <translation>Galbūt ekrano nuotrauka dar yra daroma arba ši galimybė nėra palaikoma vartotojo naršyklės, paspauskite atnaujinti norėdami patikrinti ar buvo padaryta ekrano nuotrauka.</translation>
-    </message>
-    <message>
-      <source>Screenshot ready...</source>
-      <translation>Ekrano nuotrauka paruošta...</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/bbcodeinsert</name>
-    <message>
-      <source>Link title image</source>
-      <translation>Nuorodos paveiksliuko pavadinimas</translation>
-    </message>
-    <message>
-      <source>Link to image</source>
-      <translation>Nuoroda į paveiksliuką</translation>
-    </message>
-    <message>
-      <source>Image</source>
-      <translation>paveiksliukas</translation>
-    </message>
-    <message>
-      <source>Link</source>
-      <translation>Nuoroda</translation>
-    </message>
-    <message>
-      <source>Link title</source>
-      <translation>Nuorodos pavadinimas</translation>
-    </message>
-    <message>
-      <source>Bold</source>
-      <translation>Paryškinimas</translation>
-    </message>
-    <message>
-      <source>Italic</source>
-      <translation>Pasvyrasis tekstas</translation>
-    </message>
-    <message>
-      <source>Please enter link to an image</source>
-      <translation>Prašome įvesti nuorodą į paveiksliuką</translation>
-    </message>
-    <message>
-      <source>Please enter a link</source>
-      <translation>Prašoma įvesti nuoroda</translation>
-    </message>
-    <message>
-      <source>Here is a link</source>
-      <translation>Štai nuoroda</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/accepttrasnfer</name>
-    <message>
-      <source>has joined the chat!</source>
-      <translation>prisijungė prie pokalbio</translation>
     </message>
   </context>
 </TS>
