@@ -151,7 +151,7 @@
     </message>
     <message>
       <source>Enter operators IDs from whom random operator should be shown, separated by comma</source>
-      <translation type="unfinished"/>
+      <translation>Introduzca las IDs de los operadores que serán mostradas al azar, separadas por comas</translation>
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
@@ -228,31 +228,31 @@
     </message>
     <message>
       <source>Change chat status</source>
-      <translation type="unfinished"/>
+      <translation>Cambiar estado</translation>
     </message>
     <message>
       <source>Pending</source>
-      <translation type="unfinished"/>
+      <translation>Pendiente</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>Activo</translation>
     </message>
     <message>
       <source>Closed</source>
-      <translation type="unfinished"/>
+      <translation>Cerrado</translation>
     </message>
     <message>
       <source>Chatbox chat</source>
-      <translation type="unfinished"/>
+      <translation>Chat de Chatbox</translation>
     </message>
     <message>
       <source>Operators chat</source>
-      <translation type="unfinished"/>
+      <translation>Chat de operadores</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation type="unfinished"/>
+      <translation>Cancelar</translation>
     </message>
     <message>
       <source>This chat is closed.</source>
@@ -641,7 +641,7 @@
     </message>
     <message>
       <source>Click to change chat status</source>
-      <translation type="unfinished"/>
+      <translation>Haga clic para cambiar estado</translation>
     </message>
     <message>
       <source>Pending chat</source>
@@ -813,7 +813,7 @@
     </message>
     <message>
       <source>Invalid chat status</source>
-      <translation type="unfinished"/>
+      <translation>Estado de chat inválido</translation>
     </message>
   </context>
   <context>
@@ -972,7 +972,7 @@
     <name>chat/startchat</name>
     <message>
       <source>Department is disabled</source>
-      <translation type="unfinished"/>
+      <translation>El departamento esta deshabilitado</translation>
     </message>
     <message>
       <source>Name</source>
@@ -1189,7 +1189,7 @@
     </message>
     <message>
       <source>Change my visibility to visible/invisible</source>
-      <translation type="unfinished"/>
+      <translation>Cambiar mi visibilidad a visible/invisible</translation>
     </message>
     <message>
       <source>Change my status to online/offline</source>
@@ -1804,7 +1804,7 @@
     </message>
     <message>
       <source>Update information</source>
-      <translation>Actualizar información</translation>
+      <translation>Información sobre Actualización</translation>
     </message>
     <message>
       <source>Live help embed code</source>
@@ -3087,11 +3087,11 @@
     </message>
     <message>
       <source>Job title</source>
-      <translation type="unfinished"/>
+      <translation>Título en el trabajo</translation>
     </message>
     <message>
       <source>Chat status will not change upon pending chat opening</source>
-      <translation type="unfinished"/>
+      <translation>El estado del chat no cambiará al abrir el chat en espera</translation>
     </message>
     <message>
       <source>Skype</source>
@@ -3119,7 +3119,7 @@
     </message>
     <message>
       <source>All departments</source>
-      <translation type="unfinished"/>
+      <translation>Todos los departamentos</translation>
     </message>
     <message>
       <source>Visible lists</source>
@@ -4297,7 +4297,7 @@
     <name>user/new</name>
     <message>
       <source>Invisible mode</source>
-      <translation type="unfinished"/>
+      <translation>Modo invisible</translation>
     </message>
     <message>
       <source>User group</source>
