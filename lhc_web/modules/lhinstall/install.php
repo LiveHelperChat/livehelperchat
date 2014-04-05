@@ -538,6 +538,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('disable_print','0',0,'Disable chat print', '0'),
                 ('hide_disabled_department','1',0,'Hide disabled department widget', '0'),
                 ('disable_send','0',0,'Disable chat transcript send', '0'),
+                ('ignore_user_status','0',0,'Ignore users online statuses and use departments online hours', '0'),
                 ('geo_data', '', '0', '', '1')");
 
         	   

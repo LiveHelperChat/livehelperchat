@@ -1,0 +1,1 @@
+INSERT INTO `lh_chat_config` (`identifier`, `value`, `type`, `explain`, `hidden`) VALUES ('ignore_user_status','0',0,'Ignore users online statuses and use departments online hours', '0');

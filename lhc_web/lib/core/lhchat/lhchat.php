@@ -610,24 +610,27 @@ class erLhcoreClassChat {
     public static function isOnline($dep_id = false, $exclipic = false, $params = array())
     {
        $isOnlineUser = isset($params['online_timeout']) ? $params['online_timeout'] : (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'];
-            
+       $ignoreUserStatus = (isset($params['ignore_user_status']) && $params['ignore_user_status'] == 1) ? true : false;
+       
        $db = ezcDbInstance::get();
 	   $rowsNumber = 0;
        
        if ($dep_id !== false) {
        		$exclipicFilter = ($exclipic == false) ? ' OR dep_id = 0' : '';
-			if (is_numeric($dep_id)) {
-	           $stmt = $db->prepare("SELECT COUNT(id) AS found FROM lh_userdep WHERE (last_activity > :last_activity AND hide_online = 0) AND (dep_id = :dep_id {$exclipicFilter})");
-	           $stmt->bindValue(':dep_id',$dep_id,PDO::PARAM_INT);
-	           $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
-			} elseif ( is_array($dep_id) ) {
-				$stmt = $db->prepare('SELECT COUNT(id) AS found FROM lh_userdep WHERE (last_activity > :last_activity AND hide_online = 0) AND (dep_id IN ('. implode(',', $dep_id) .") {$exclipicFilter})");
-				$stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
-			}
-
-			$stmt->execute();
-			$rowsNumber = $stmt->fetchColumn();	
-		
+       		
+       		if ($ignoreUserStatus === false) {       		
+				if (is_numeric($dep_id)) {
+		           $stmt = $db->prepare("SELECT COUNT(id) AS found FROM lh_userdep WHERE (last_activity > :last_activity AND hide_online = 0) AND (dep_id = :dep_id {$exclipicFilter})");
+		           $stmt->bindValue(':dep_id',$dep_id,PDO::PARAM_INT);
+		           $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
+				} elseif ( is_array($dep_id) ) {
+					$stmt = $db->prepare('SELECT COUNT(id) AS found FROM lh_userdep WHERE (last_activity > :last_activity AND hide_online = 0) AND (dep_id IN ('. implode(',', $dep_id) .") {$exclipicFilter})");
+					$stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
+				}
+				$stmt->execute();
+				$rowsNumber = $stmt->fetchColumn();	
+       		}
+			
 			if ($rowsNumber == 0) { // Perhaps auto active is turned on for some of departments							
 				$daysColumns = array('`mod`','`tud`','`wed`','`thd`','`frd`','`sad`','`sud`');
 				$columns = date('N')-1;
@@ -646,11 +649,14 @@ class erLhcoreClassChat {
 			}					
 
        } else {
-           $stmt = $db->prepare('SELECT COUNT(id) AS found FROM lh_userdep WHERE last_activity > :last_activity AND hide_online = 0');
-           $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
-           $stmt->execute();
-           $rowsNumber = $stmt->fetchColumn();        
-                                 
+       	
+	       	if ($ignoreUserStatus === false) {
+	           $stmt = $db->prepare('SELECT COUNT(id) AS found FROM lh_userdep WHERE last_activity > :last_activity AND hide_online = 0');
+	           $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
+	           $stmt->execute();
+	           $rowsNumber = $stmt->fetchColumn();        
+	       }
+	       	         
            if ($rowsNumber == 0){ // Perhaps auto active is turned on for some of departments
            		$daysColumns = array('`mod`','`tud`','`wed`','`thd`','`frd`','`sad`','`sud`');           		
            		$columns = date('N')-1;           		
