@@ -39,6 +39,7 @@ a.icon-cancel-squared,
 a.icon-users,
 a.icon-block,
 a.icon-mail,
+a.icon-reply,
 a.icon-print {
 	font-size:14px;
 	color:#86B5CC;
@@ -54,6 +55,7 @@ a.icon-users:hover,
 a.icon-block:hover,
 a.icon-mail:hover,
 a.icon-sound:hover,
+a.icon-reply:hover,
 a.icon-print:hover{
 	color:#2ba6cb;
 }

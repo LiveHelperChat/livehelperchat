@@ -870,6 +870,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Redirect user to contact form.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Accept chat</source>
       <translation type="unfinished"/>
     </message>
@@ -4925,6 +4933,10 @@
     <name>chat/closechatadmin</name>
     <message>
       <source>has closed the chat!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>has redirected user to contact form!</source>
       <translation type="unfinished"/>
     </message>
   </context>

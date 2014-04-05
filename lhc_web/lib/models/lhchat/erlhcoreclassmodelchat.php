@@ -286,6 +286,7 @@ class erLhcoreClassModelChat {
 
    const STATUS_SUB_DEFAULT = 0;
    const STATUS_SUB_OWNER_CHANGED = 1;
+   const STATUS_SUB_CONTACT_FORM = 2;
    
    const USER_STATUS_JOINED_CHAT = 0;
    const USER_STATUS_CLOSED_CHAT = 1;

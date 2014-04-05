@@ -794,6 +794,14 @@ function lh(){
 		$.colorbox({'iframe':true,height:'500px',width:'500px', href:this.wwwDir+'chat/previewchat/'+chat_id});
 	};
 	
+	this.redirectContact = function(chat_id,message){		
+		if (confirm(message)){	
+			$.postJSON(this.wwwDir + 'chat/redirectcontact/' + chat_id, function(data){				
+				lhinst.syncadmininterfacestatic();
+			});
+		}		
+	};
+	
 	this.transferChatDep = function(chat_id)
 	{
 	    var user_id = $('[name=DepartamentID'+chat_id+']:checked').val();

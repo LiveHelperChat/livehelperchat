@@ -11,6 +11,12 @@ $ViewList['adminchat'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['redirectcontact'] = array(
+    'params' => array('chat_id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['changestatus'] = array(
     'params' => array('chat_id'),
     'uparams' => array(),

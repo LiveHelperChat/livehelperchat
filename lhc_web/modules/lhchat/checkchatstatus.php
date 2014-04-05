@@ -44,7 +44,7 @@ try {
     			}
     		}   		
     	}    	
-
+    	
 	    if ( erLhcoreClassChat::isOnline($chat->dep_id,false,array('online_timeout' => (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'])) ) {
 	         $tpl->set('is_online',true);
 	    } else {
@@ -71,7 +71,17 @@ try {
 	    } else {
 	    	$tpl->set('is_closed',false);
 	    }
-
+	    
+	    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM) {
+	    	$activated = 'false';
+	    	$department = $chat->department;
+	    	if ($department !== false) {
+	    		$baseURL = (isset($Params['user_parameters_unordered']['mode']) && $Params['user_parameters_unordered']['mode'] == 'widget') ? erLhcoreClassDesign::baseurl('chat/chatwidget') : erLhcoreClassDesign::baseurl('chat/startchat');
+	    		$ru = $baseURL.'/(department)/'.$department->id.'/(offline)/true/(leaveamessage)/true/(chatprefill)/'.$chat->id.'_'.$chat->hash;
+	    	}
+	    }
+	    
+	    
 	    $tpl->set('chat', $chat);
     }
 
