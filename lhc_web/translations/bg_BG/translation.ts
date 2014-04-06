@@ -746,6 +746,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Redirect user to contact form.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Print</source>
       <translation>Отпечатване</translation>
     </message>
@@ -865,6 +869,14 @@
     </message>
     <message>
       <source>ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Redirect user to contact form.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Are you sure?</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4924,6 +4936,10 @@
     <message>
       <source>has closed the chat!</source>
       <translation>затвори чата!</translation>
+    </message>
+    <message>
+      <source>has redirected user to contact form!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

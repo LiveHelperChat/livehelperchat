@@ -746,6 +746,10 @@
       <translation>Send epost</translation>
     </message>
     <message>
+      <source>Redirect user to contact form.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Print</source>
       <translation>Print</translation>
     </message>
@@ -866,6 +870,14 @@
     <message>
       <source>ago</source>
       <translation>siden</translation>
+    </message>
+    <message>
+      <source>Redirect user to contact form.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Accept chat</source>
@@ -4924,6 +4936,10 @@
     <message>
       <source>has closed the chat!</source>
       <translation>har lukket samtalen!</translation>
+    </message>
+    <message>
+      <source>has redirected user to contact form!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

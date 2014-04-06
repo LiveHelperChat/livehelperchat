@@ -748,6 +748,10 @@
       <translation>Enviar correo</translation>
     </message>
     <message>
+      <source>Redirect user to contact form.</source>
+      <translation>Redirigir usuario al formulario de contacto.</translation>
+    </message>
+    <message>
       <source>Print</source>
       <translation>Imprimir</translation>
     </message>
@@ -868,6 +872,14 @@
     <message>
       <source>ago</source>
       <translation>hace</translation>
+    </message>
+    <message>
+      <source>Redirect user to contact form.</source>
+      <translation>Redirigir usuario al formulario de contacto.</translation>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>Esta seguro?</translation>
     </message>
     <message>
       <source>Accept chat</source>
@@ -1650,7 +1662,7 @@
     </message>
     <message>
       <source>Live help is offline...</source>
-      <translation>Soporte no está en línea...</translation>
+      <translation>Soporte fuera de línea...</translation>
     </message>
     <message>
       <source>Close</source>
@@ -4929,6 +4941,10 @@
     <message>
       <source>has closed the chat!</source>
       <translation>ha cerrado el chat!</translation>
+    </message>
+    <message>
+      <source>has redirected user to contact form!</source>
+      <translation>ha redirigido al usuario al formulario de contacto!</translation>
     </message>
   </context>
   <context>

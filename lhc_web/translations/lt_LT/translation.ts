@@ -149,7 +149,7 @@
     </message>
     <message>
       <source>Enter operators IDs from whom random operator should be shown, separated by comma</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite operatorių ID, iš kurių atsitiktinis operatoriaus profilis turėtų būti rodomas, gali būti atskirti kableliu</translation>
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
@@ -226,31 +226,31 @@
     </message>
     <message>
       <source>Change chat status</source>
-      <translation type="unfinished"/>
+      <translation>Pakeisti pokalbio būseną</translation>
     </message>
     <message>
       <source>Pending</source>
-      <translation type="unfinished"/>
+      <translation>Laukiama</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvus</translation>
     </message>
     <message>
       <source>Closed</source>
-      <translation type="unfinished"/>
+      <translation>Uždarytas</translation>
     </message>
     <message>
       <source>Chatbox chat</source>
-      <translation type="unfinished"/>
+      <translation>Chatbox pokalbis</translation>
     </message>
     <message>
       <source>Operators chat</source>
-      <translation type="unfinished"/>
+      <translation>Operatorių pokalbis</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation type="unfinished"/>
+      <translation>Atšaukti</translation>
     </message>
     <message>
       <source>This chat is closed.</source>
@@ -639,7 +639,7 @@
     </message>
     <message>
       <source>Click to change chat status</source>
-      <translation type="unfinished"/>
+      <translation>Paspauskite norėdami pakeisti pokalbio būseną</translation>
     </message>
     <message>
       <source>Pending chat</source>
@@ -746,6 +746,10 @@
       <translation>Siųsti el. laišką</translation>
     </message>
     <message>
+      <source>Redirect user to contact form.</source>
+      <translation>Nukreipti vartotoją į kontaktų formą</translation>
+    </message>
+    <message>
       <source>Print</source>
       <translation>Spausdinti</translation>
     </message>
@@ -811,7 +815,7 @@
     </message>
     <message>
       <source>Invalid chat status</source>
-      <translation type="unfinished"/>
+      <translation>Nekorektiškas pokalbio statusas</translation>
     </message>
   </context>
   <context>
@@ -866,6 +870,14 @@
     <message>
       <source>ago</source>
       <translation>prieš</translation>
+    </message>
+    <message>
+      <source>Redirect user to contact form.</source>
+      <translation>Nukreipti vartotoją į kontaktų formą</translation>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>Ar esate tuo tikri?</translation>
     </message>
     <message>
       <source>Accept chat</source>
@@ -970,7 +982,7 @@
     <name>chat/startchat</name>
     <message>
       <source>Department is disabled</source>
-      <translation type="unfinished"/>
+      <translation>Departamentas išjungtas</translation>
     </message>
     <message>
       <source>Name</source>
@@ -1187,7 +1199,7 @@
     </message>
     <message>
       <source>Change my visibility to visible/invisible</source>
-      <translation type="unfinished"/>
+      <translation>Pakeisti mano matomumą į matomas/nematomas</translation>
     </message>
     <message>
       <source>Change my status to online/offline</source>
@@ -1471,11 +1483,11 @@
     </message>
     <message>
       <source>Refresh list every</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinti sąrašą kas</translation>
     </message>
     <message>
       <source>second</source>
-      <translation type="unfinished"/>
+      <translation>sekundes</translation>
     </message>
     <message>
       <source>seconds</source>
@@ -2419,7 +2431,7 @@
     </message>
     <message>
       <source>Messages settings</source>
-      <translation type="unfinished"/>
+      <translation>Žinučių nustatymai</translation>
     </message>
     <message>
       <source>Sync for a new user message, interval in seconds</source>
@@ -2427,11 +2439,11 @@
     </message>
     <message>
       <source>Show browser notification for new messages</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti naršyklės pranešimą naujoms žinutėms</translation>
     </message>
     <message>
       <source>Long polling (experimental)</source>
-      <translation type="unfinished"/>
+      <translation>Ilgas tikrinimas (beta)</translation>
     </message>
     <message>
       <source>Enable long polling</source>
@@ -3083,11 +3095,11 @@
     </message>
     <message>
       <source>Job title</source>
-      <translation type="unfinished"/>
+      <translation>Pareigos darbe</translation>
     </message>
     <message>
       <source>Chat status will not change upon pending chat opening</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio būsena nepasikeis atsidarius laukiantį pokalbį</translation>
     </message>
     <message>
       <source>Skype</source>
@@ -3115,7 +3127,7 @@
     </message>
     <message>
       <source>All departments</source>
-      <translation type="unfinished"/>
+      <translation>Visi departamentai</translation>
     </message>
     <message>
       <source>Visible lists</source>
@@ -4292,7 +4304,7 @@
     <name>user/new</name>
     <message>
       <source>Invisible mode</source>
-      <translation type="unfinished"/>
+      <translation>Nematomas rešimas</translation>
     </message>
     <message>
       <source>User group</source>
@@ -4924,6 +4936,10 @@
     <message>
       <source>has closed the chat!</source>
       <translation>uždarė pokalbį!</translation>
+    </message>
+    <message>
+      <source>has redirected user to contact form!</source>
+      <translation>nukreipė vartotoją į kontaktų formą!</translation>
     </message>
   </context>
   <context>

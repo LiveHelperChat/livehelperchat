@@ -325,7 +325,7 @@
     </message>
     <message>
       <source>Please enter link to an image</source>
-      <translation type="unfinished"/>
+      <translation>Prosím zadejte link k obrázku</translation>
     </message>
     <message>
       <source>Please enter a link</source>
@@ -477,7 +477,7 @@
     </message>
     <message>
       <source>Automate online hours</source>
-      <translation type="unfinished"/>
+      <translation>Automatizovat provozní hodiny</translation>
     </message>
     <message>
       <source>Work hours/work days logic is active</source>
@@ -639,7 +639,7 @@
     </message>
     <message>
       <source>Click to change chat status</source>
-      <translation type="unfinished"/>
+      <translation>Kliknutím změnte stav rozhovoru</translation>
     </message>
     <message>
       <source>Pending chat</source>
@@ -746,6 +746,10 @@
       <translation>Odeslat e-mail</translation>
     </message>
     <message>
+      <source>Redirect user to contact form.</source>
+      <translation>Přesměrovat uživatele do kontaktního formuláře.</translation>
+    </message>
+    <message>
       <source>Print</source>
       <translation>Tisk</translation>
     </message>
@@ -811,7 +815,7 @@
     </message>
     <message>
       <source>Invalid chat status</source>
-      <translation type="unfinished"/>
+      <translation>Neplatný stav rozhovoru</translation>
     </message>
   </context>
   <context>
@@ -866,6 +870,14 @@
     <message>
       <source>ago</source>
       <translation>zpátky</translation>
+    </message>
+    <message>
+      <source>Redirect user to contact form.</source>
+      <translation>Přesměrovat uživatele do kontaktního formuláře.</translation>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>Jste si jistý/á?</translation>
     </message>
     <message>
       <source>Accept chat</source>
@@ -1090,7 +1102,7 @@
     </message>
     <message>
       <source>Could not determine a default department!</source>
-      <translation type="unfinished"/>
+      <translation>Nelze zjistit výchozí oddělení!</translation>
     </message>
     <message>
       <source>is required</source>
@@ -1187,7 +1199,7 @@
     </message>
     <message>
       <source>Change my visibility to visible/invisible</source>
-      <translation type="unfinished"/>
+      <translation>Změnit stav na viditelný/neviditelný</translation>
     </message>
     <message>
       <source>Change my status to online/offline</source>
@@ -2419,7 +2431,7 @@
     </message>
     <message>
       <source>Messages settings</source>
-      <translation type="unfinished"/>
+      <translation>Nastavení zpráv</translation>
     </message>
     <message>
       <source>Sync for a new user message, interval in seconds</source>
@@ -2427,7 +2439,7 @@
     </message>
     <message>
       <source>Show browser notification for new messages</source>
-      <translation type="unfinished"/>
+      <translation>Zobrazovat v prohlížeči upozornění na nové zprávy </translation>
     </message>
     <message>
       <source>Long polling (experimental)</source>
@@ -3221,7 +3233,7 @@
     </message>
     <message>
       <source>Please enter your email address!</source>
-      <translation type="unfinished"/>
+      <translation>Prosím zadejte svoji e-mailovou adresu!</translation>
     </message>
   </context>
   <context>
@@ -3244,7 +3256,7 @@
     </message>
     <message>
       <source>Submitter e-mail</source>
-      <translation type="unfinished"/>
+      <translation>E-mail odesílatele</translation>
     </message>
     <message>
       <source>Identifier, can be used to filter questions by identifier</source>
@@ -4147,7 +4159,7 @@
     </message>
     <message>
       <source>Full date format E.g (Y-m-d H:i:s)</source>
-      <translation type="unfinished"/>
+      <translation>Plný formát datumu např. (Y-m-d H:i:s)</translation>
     </message>
     <message>
       <source>Hour format E.g (H:i:s)</source>
@@ -4681,7 +4693,7 @@
     </message>
     <message>
       <source>Use standard XMPP service</source>
-      <translation type="unfinished"/>
+      <translation>Použít standardní službu XMPP</translation>
     </message>
     <message>
       <source>Host</source>
@@ -4924,6 +4936,10 @@
     <message>
       <source>has closed the chat!</source>
       <translation>ukončil rozhovor!</translation>
+    </message>
+    <message>
+      <source>has redirected user to contact form!</source>
+      <translation>přesměroval uživatele do kontaktního formuláře!</translation>
     </message>
   </context>
   <context>

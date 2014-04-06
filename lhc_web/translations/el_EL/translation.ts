@@ -746,6 +746,10 @@
       <translation>Αποστολή μηνύματος</translation>
     </message>
     <message>
+      <source>Redirect user to contact form.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Print</source>
       <translation>Εκτύπωση</translation>
     </message>
@@ -866,6 +870,14 @@
     <message>
       <source>ago</source>
       <translation>πριν</translation>
+    </message>
+    <message>
+      <source>Redirect user to contact form.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Accept chat</source>
@@ -4924,6 +4936,10 @@
     <message>
       <source>has closed the chat!</source>
       <translation>έκλεισε το chat!</translation>
+    </message>
+    <message>
+      <source>has redirected user to contact form!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
