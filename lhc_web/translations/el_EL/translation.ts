@@ -149,7 +149,7 @@
     </message>
     <message>
       <source>Enter operators IDs from whom random operator should be shown, separated by comma</source>
-      <translation type="unfinished"/>
+      <translation>Εισάγετε αναγνωριστικά φορείς από τους οποίους θα πρέπει να εμφανιστεί τυχαία χειριστή, χωρίζονται με κόμμα</translation>
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
@@ -226,31 +226,31 @@
     </message>
     <message>
       <source>Change chat status</source>
-      <translation type="unfinished"/>
+      <translation>Αλλαγή κατάστασης του chat</translation>
     </message>
     <message>
       <source>Pending</source>
-      <translation type="unfinished"/>
+      <translation>Σε εκκρεμότητα</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>Ενεργό</translation>
     </message>
     <message>
       <source>Closed</source>
-      <translation type="unfinished"/>
+      <translation>Κλειστά</translation>
     </message>
     <message>
       <source>Chatbox chat</source>
-      <translation type="unfinished"/>
+      <translation>Chatbox chat</translation>
     </message>
     <message>
       <source>Operators chat</source>
-      <translation type="unfinished"/>
+      <translation>Φορείς συνομιλίας</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation type="unfinished"/>
+      <translation>&quot;Άκυρο&quot;</translation>
     </message>
     <message>
       <source>This chat is closed.</source>
@@ -639,7 +639,7 @@
     </message>
     <message>
       <source>Click to change chat status</source>
-      <translation type="unfinished"/>
+      <translation>Κάντε κλικ για να αλλάξετε την κατάστασής της συζήτησής</translation>
     </message>
     <message>
       <source>Pending chat</source>
@@ -747,7 +747,7 @@
     </message>
     <message>
       <source>Redirect user to contact form.</source>
-      <translation type="unfinished"/>
+      <translation>Ανακατεύθυνση χρήστη για την φόρμα επικοινωνίας.</translation>
     </message>
     <message>
       <source>Print</source>
@@ -815,7 +815,7 @@
     </message>
     <message>
       <source>Invalid chat status</source>
-      <translation type="unfinished"/>
+      <translation>Μη έγκυρη chat κατάσταση</translation>
     </message>
   </context>
   <context>
@@ -873,11 +873,11 @@
     </message>
     <message>
       <source>Redirect user to contact form.</source>
-      <translation type="unfinished"/>
+      <translation>Ανακατεύθυνση χρήστη για την φόρμα επικοινωνίας.</translation>
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation type="unfinished"/>
+      <translation>Είσαι σίγουρος?</translation>
     </message>
     <message>
       <source>Accept chat</source>
@@ -982,7 +982,7 @@
     <name>chat/startchat</name>
     <message>
       <source>Department is disabled</source>
-      <translation type="unfinished"/>
+      <translation>Τμήμα είναι άτομα με ειδικές ανάγκες</translation>
     </message>
     <message>
       <source>Name</source>
@@ -1199,7 +1199,7 @@
     </message>
     <message>
       <source>Change my visibility to visible/invisible</source>
-      <translation type="unfinished"/>
+      <translation>Αλλάξετε την προβολή μου σε ορατό/αόρατο</translation>
     </message>
     <message>
       <source>Change my status to online/offline</source>
@@ -3095,11 +3095,11 @@
     </message>
     <message>
       <source>Job title</source>
-      <translation type="unfinished"/>
+      <translation>Τιτλος</translation>
     </message>
     <message>
       <source>Chat status will not change upon pending chat opening</source>
-      <translation type="unfinished"/>
+      <translation>Κατάστασής της συζήτησής δεν θα αλλάξει κατά την εν αναμονή chat άνοιγμα</translation>
     </message>
     <message>
       <source>Skype</source>
@@ -3127,7 +3127,7 @@
     </message>
     <message>
       <source>All departments</source>
-      <translation type="unfinished"/>
+      <translation>Όλα τα τμήματα</translation>
     </message>
     <message>
       <source>Visible lists</source>
@@ -4304,7 +4304,7 @@
     <name>user/new</name>
     <message>
       <source>Invisible mode</source>
-      <translation type="unfinished"/>
+      <translation>Invisible μοντέλο</translation>
     </message>
     <message>
       <source>User group</source>
@@ -4939,7 +4939,7 @@
     </message>
     <message>
       <source>has redirected user to contact form!</source>
-      <translation type="unfinished"/>
+      <translation>έχει ανακατεύθυνση χρήστη για την φόρμα επικοινωνίας!</translation>
     </message>
   </context>
   <context>
