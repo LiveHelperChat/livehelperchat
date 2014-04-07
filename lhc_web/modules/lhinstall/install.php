@@ -72,10 +72,10 @@ switch ((int)$Params['user_parameters']['step_id']) {
 
 		$definition = array(
             'DatabaseUsername' => new ezcInputFormDefinitionElement(
-                ezcInputFormDefinitionElement::REQUIRED, 'string'
+                ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
             ),
             'DatabasePassword' => new ezcInputFormDefinitionElement(
-                ezcInputFormDefinitionElement::REQUIRED, 'string'
+                ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
             ),
             'DatabaseHost' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::REQUIRED, 'string'
@@ -160,22 +160,22 @@ switch ((int)$Params['user_parameters']['step_id']) {
 	    {
     		$definition = array(
                 'AdminUsername' => new ezcInputFormDefinitionElement(
-                    ezcInputFormDefinitionElement::REQUIRED, 'string'
+                    ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
                 ),
                 'AdminPassword' => new ezcInputFormDefinitionElement(
-                    ezcInputFormDefinitionElement::REQUIRED, 'string'
+                    ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
                 ),
                 'AdminPassword1' => new ezcInputFormDefinitionElement(
-                    ezcInputFormDefinitionElement::REQUIRED, 'string'
+                    ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
                 ),
                 'AdminEmail' => new ezcInputFormDefinitionElement(
                     ezcInputFormDefinitionElement::REQUIRED, 'validate_email'
                 ),
                 'AdminName' => new ezcInputFormDefinitionElement(
-                    ezcInputFormDefinitionElement::OPTIONAL, 'string'
+                    ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
                 ),
                 'AdminSurname' => new ezcInputFormDefinitionElement(
-                    ezcInputFormDefinitionElement::OPTIONAL, 'string'
+                    ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
                 ),
                 'DefaultDepartament' => new ezcInputFormDefinitionElement(
                     ezcInputFormDefinitionElement::REQUIRED, 'string'
