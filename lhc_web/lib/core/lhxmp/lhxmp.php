@@ -160,7 +160,7 @@ class erLhcoreClassXMP {
 	}
 	
 	public static function getBaseHost(){
-		return (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 'https://' : 'http://';
+		return ( (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || isset($_SERVER['HTTP_USESSL']) ) ? 'https://' : 'http://';
 	}
 	
 	public static function sendXMPMessage($chat) {
