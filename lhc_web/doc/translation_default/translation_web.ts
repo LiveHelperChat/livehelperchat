@@ -263,6 +263,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Close</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Enter your message</source>
       <translation type="unfinished"/>
     </message>
@@ -272,10 +276,6 @@
     </message>
     <message>
       <source>BB Code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Close</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -467,6 +467,14 @@
     </message>
     <message>
       <source>Disabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Will not be visible to visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hidden</source>
       <translation type="unfinished"/>
     </message>
     <message>
