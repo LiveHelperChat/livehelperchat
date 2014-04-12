@@ -28,11 +28,22 @@
 		    <?php endif; ?>
 
 		    <?php if ($currentUser->hasAccessTo('lhabstract','use')) : ?>
-		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/EmailTemplate"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','E-mail templates');?></a></li>
-		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/ProactiveChatInvitation"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Pro active chat invitations');?></a></li>
-		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/AutoResponder"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Auto responder');?></a></li>
+		    
+			    <?php if ($currentUser->hasAccessTo('lhsystem','changetemplates')) : ?>
+			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/EmailTemplate"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','E-mail templates');?></a></li>
+			    <?php endif; ?>
+			    
+			    <?php if ($currentUser->hasAccessTo('lhchat','administrateinvitations')) : ?>
+			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/ProactiveChatInvitation"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Pro active chat invitations');?></a></li>
+			    <?php endif;?>
+			    
+			    <?php if ($currentUser->hasAccessTo('lhchat','administrateresponder')) : ?>
+			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/AutoResponder"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Auto responder');?></a></li>
+			    <?php endif;?>
+		    
 		    <?php endif; ?>
 
+		    
 		    <?php if ($currentUser->hasAccessTo('lhsystem','configuresmtp')) : ?>
 		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('system/smtp')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','SMTP settings');?></a></li>
 		    <?php endif; ?>

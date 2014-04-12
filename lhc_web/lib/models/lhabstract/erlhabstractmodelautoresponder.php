@@ -76,7 +76,7 @@ class erLhAbstractModelAutoResponder {
 
 	public function getModuleTranslations()
 	{
-		return array('name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Auto responder'));
+		return array('permission' => array('module' => 'lhchat','function' => 'administrateresponder'),'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Auto responder'));
 	}
 
 	public static function getCount($params = array())

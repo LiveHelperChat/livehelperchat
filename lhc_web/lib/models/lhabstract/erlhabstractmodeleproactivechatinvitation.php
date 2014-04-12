@@ -182,7 +182,7 @@ class erLhAbstractModelProactiveChatInvitation {
 
 	public function getModuleTranslations()
 	{
-		return array('name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Pro active chat invitations'));
+		return array('permission' => array('module' => 'lhchat','function' => 'administrateinvitations'),'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Pro active chat invitations'));
 	}
 
 	public static function getCount($params = array())

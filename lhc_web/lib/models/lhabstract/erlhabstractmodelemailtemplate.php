@@ -137,7 +137,7 @@ class erLhAbstractModelEmailTemplate {
 
 	public function getModuleTranslations()
 	{
-		return array('name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','E-mail templates'));
+		return array('permission' => array('module' => 'lhsystem','function' => 'changetemplates'),'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','E-mail templates'));
 	}
 
 	public static function getCount($params = array())
