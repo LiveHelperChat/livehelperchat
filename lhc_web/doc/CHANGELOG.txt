@@ -1,3 +1,22 @@
+1.95v
+
+Mega release.
+
+Sponsored features
+1. Browser offers, see site for more information.
+
+Other features
+2. Hidden option for department, usefull if you want to have fancy department workflow and let say some department to which chat is transfered you wish were invisible to user.
+3. Operator won't see others departments visitors in online visitors. Also updated javascript code generation to have this.
+4. Option to close embeded chat if operator has closed it faster then user closed it.
+
+In general these changes
+https://github.com/LiveHelperChat/livehelperchat/issues/343
+https://github.com/LiveHelperChat/livehelperchat/issues/342
+https://github.com/LiveHelperChat/livehelperchat/issues/341
+
+execute doc/update_db/update_74.sql for update
+
 1.94v
 
 Features

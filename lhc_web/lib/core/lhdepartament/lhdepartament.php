@@ -91,6 +91,9 @@ class erLhcoreClassDepartament{
 	   			'Disabled' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	   			),
+	   			'Hidden' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	   			),
 	   			'inform_close' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	   			),
@@ -186,6 +189,12 @@ class erLhcoreClassDepartament{
 	   		$department->disabled = 1;
 	   	} else {
 	   		$department->disabled = 0;
+	   	}
+	   		   	
+	   	if ( $form->hasValidData( 'Hidden' ) && $form->Hidden === true ) {
+	   		$department->hidden = 1;
+	   	} else {
+	   		$department->hidden = 0;
 	   	}
 	   		   	
 	   	if ( $form->hasValidData( 'mod' ) && $form->mod === true ) {

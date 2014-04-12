@@ -94,6 +94,14 @@
 		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chatbox/embedcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Page embed code');?></a></li>
 		</ul>
 	<?php endif; ?>
+
+	<?php if ($currentUser->hasAccessTo('lhbrowseoffer','manage_bo')) : ?>
+		<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Browse offers embed code');?></h4>
+		<ul class="circle small-list">
+		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('browseoffer/htmlcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Embed code');?></a></li>
+		</ul>
+	<?php endif; ?>
+	
 	</div>
 
 </div>

@@ -81,7 +81,7 @@
     </message>
     <message>
       <source>chat configuration</source>
-      <translation type="unfinished"/>
+      <translation>Настройки на чата</translation>
     </message>
     <message>
       <source>also online users tracking has to be</source>
@@ -89,7 +89,7 @@
     </message>
     <message>
       <source>enabled</source>
-      <translation type="unfinished"/>
+      <translation>Включен</translation>
     </message>
     <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
@@ -2204,7 +2204,7 @@
     <name>chat/previewchat</name>
     <message>
       <source>Last 100 messages rows</source>
-      <translation type="unfinished"/>
+      <translation>Последните 100 съобщения</translation>
     </message>
   </context>
   <context>
@@ -4073,7 +4073,7 @@
     </message>
     <message>
       <source>Site access</source>
-      <translation type="unfinished"/>
+      <translation>Достъп до сайта</translation>
     </message>
     <message>
       <source>options for</source>
@@ -4089,7 +4089,7 @@
     </message>
     <message>
       <source>Default view</source>
-      <translation type="unfinished"/>
+      <translation>Изглед по подразбиране</translation>
     </message>
     <message>
       <source>Settings updated</source>

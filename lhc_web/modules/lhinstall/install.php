@@ -426,8 +426,33 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   PRIMARY KEY (`id`),
         	   KEY `question_id` (`question_id`),
         	   KEY `ip` (`ip`)
-        	   ) DEFAULT CHARSET=utf8");
-
+        	   ) DEFAULT CHARSET=utf8;");
+        	   
+        	   $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_browse_offer_invitation` (
+				  `id` int(11) NOT NULL AUTO_INCREMENT,
+				  `siteaccess` varchar(10) NOT NULL,
+				  `time_on_site` int(11) NOT NULL,
+				  `content` longtext NOT NULL,
+				  `lhc_iframe_content` tinyint(4) NOT NULL,
+				  `custom_iframe_url` varchar(250) NOT NULL,
+				  `name` varchar(250) NOT NULL,
+				  `identifier` varchar(50) NOT NULL,
+				  `executed_times` int(11) NOT NULL,
+				  `url` varchar(250) NOT NULL,
+				  `active` int(11) NOT NULL,
+				  `has_url` int(11) NOT NULL,
+				  `is_wildcard` int(11) NOT NULL,
+				  `referrer` varchar(250) NOT NULL,
+				  `priority` varchar(250) NOT NULL,
+				  `hash` varchar(40) NOT NULL,
+				  `width` int(11) NOT NULL,
+				  `height` int(11) NOT NULL,
+				  `unit` varchar(10) NOT NULL,
+				  PRIMARY KEY (`id`),
+				  KEY `active` (`active`),
+				  KEY `identifier` (`identifier`)
+				) DEFAULT CHARSET=utf8;");
+        	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chatbox` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
 				  `identifier` varchar(50) NOT NULL,
@@ -628,6 +653,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `department_transfer_id` int(11) NOT NULL,
 				  `transfer_timeout` int(11) NOT NULL,
 				  `disabled` int(11) NOT NULL,
+				  `hidden` int(11) NOT NULL,
 				  `delay_lm` int(11) NOT NULL,
 				  `identifier` varchar(50) NOT NULL,
 				  `mod` tinyint(1) NOT NULL,
@@ -645,7 +671,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `inform_delay` int(11) NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `identifier` (`identifier`),
-				  KEY `disabled` (`disabled`),
+				  KEY `disabled_hidden` (`disabled`, `hidden`),
 				  KEY `oha_sh_eh` (`online_hours_active`,`start_hour`,`end_hour`)
 				) DEFAULT CHARSET=utf8;");
 
@@ -858,6 +884,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                     array('module' => 'lhquestionary',  'function' => 'manage_questionary'),
                     array('module' => 'lhfaq',   		'function' => 'manage_faq'),
                     array('module' => 'lhchatbox',   	'function' => 'manage_chatbox'),
+                    array('module' => 'lhbrowseoffer',   'function' => 'manage_bo'),
                     array('module' => 'lhxml',   		'function' => '*'),
                     array('module' => 'lhfile',   		'function' => 'use_operator'),
                     array('module' => 'lhfile',   		'function' => 'file_delete_chat')

@@ -37,9 +37,19 @@ if ($department !== false){
 	$filter['filter']['dep_id'] = $department;
 }
 
+/**
+ * Append user departments filter
+ * */
+$departmentParams = array();
+$userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
+if ($userDepartments !== true){
+	$departmentParams['filterin']['id'] = $filter['filterin']['dep_id'] = $userDepartments;
+}
+
 $items = erLhcoreClassModelChatOnlineUser::getList($filter);
 $tpl->set('items',$items);
 $tpl->set('is_ajax',$is_ajax);
+$tpl->set('departmentParams',$departmentParams);
 $tpl->set('tracking_enabled',erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1);
 $tpl->set('geo_location_data',erLhcoreClassModelChatConfig::fetch('geo_location_data')->data);
 

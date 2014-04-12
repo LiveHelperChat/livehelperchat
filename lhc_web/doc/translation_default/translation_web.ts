@@ -1655,15 +1655,15 @@
   <context>
     <name>chat/getstatus</name>
     <message>
+      <source>Close</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Live help is online...</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Live help is offline...</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Close</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1833,6 +1833,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Browse offers embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Statistic</source>
       <translation type="unfinished"/>
     </message>
@@ -1880,23 +1884,31 @@
   <context>
     <name>system/htmlcode</name>
     <message>
-      <source>Widget embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Page embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>HTML code</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Choose a language</source>
+      <source>Popup width</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Chatbox messages content height</source>
+      <source>Popup height, used only if iframe is used</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Leave empty if it is not important to you</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a language</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1905,6 +1917,18 @@
     </message>
     <message>
       <source>Based on site (default)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox messages content height</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1996,6 +2020,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide status when offline</source>
       <translation type="unfinished"/>
     </message>
@@ -2064,19 +2092,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Leave empty if it is not important to you</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>System configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Embed code</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -2918,11 +2934,19 @@
   <context>
     <name>questionary/htmlcode</name>
     <message>
-      <source>Status text</source>
+      <source>Show overlay</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show different offers for the same user</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Copy the code from the text area to the page header or footer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Status text</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4043,6 +4067,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Browse offers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Account</source>
       <translation type="unfinished"/>
     </message>
@@ -5007,6 +5035,92 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation type="unfinished"></translation>
+    </message>
+  </context>
+  <context>
+    <name>browseoffer/index</name>
+    <message>
+      <source>Browse offers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>General</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Browse your offers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>HTML Code</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>abstract/browserofferinvitation</name>
+    <message>
+      <source>Name for personal purposes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time on site on single page in seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority, the lower the higher</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Popup width</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Popup height</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Measure units, px or percents</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>URL, enter * at the end for the wildcard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom iframe URL, takes priority over default content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default popup content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Load content in lhc iframe</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Matched times</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Browser offer invitations</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

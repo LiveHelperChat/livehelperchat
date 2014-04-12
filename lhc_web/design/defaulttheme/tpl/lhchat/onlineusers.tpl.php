@@ -37,12 +37,14 @@
 		</select>
 	</div>
 	<div class="columns small-3">
-		<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
+		<?php 		
+		echo erLhcoreClassRenderHelper::renderCombobox( array (
 	                    'input_name'     => 'department_id',
 						'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select department'),
 	                    'selected_id'    => 0,			
 						'on_change'		 => 'lhinst.syncOnlineUsers()',
-	                    'list_function'  => 'erLhcoreClassModelDepartament::getList'
+	                    'list_function'  => 'erLhcoreClassModelDepartament::getList',
+						'list_function_params' => $departmentParams
 	    )); ?>
 	</div>	
 	<div class="columns small-3">

@@ -120,6 +120,11 @@ $def->properties['disabled']->columnName   = 'disabled';
 $def->properties['disabled']->propertyName = 'disabled';
 $def->properties['disabled']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['hidden'] = new ezcPersistentObjectProperty();
+$def->properties['hidden']->columnName   = 'hidden';
+$def->properties['hidden']->propertyName = 'hidden';
+$def->properties['hidden']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 /**
  * Delay before leave a message window is shown
  * */

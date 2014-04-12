@@ -8,6 +8,13 @@ if (isset($_POST['CancelAction'])) {
     exit;
 }
 
+$object_trans = $ObjectData->getModuleTranslations();
+
+if (isset($object_trans['permission']) && !$currentUser->hasAccessTo($object_trans['permission']['module'],$object_trans['permission']['function'])) {
+	erLhcoreClassModule::redirect();
+	exit;
+}
+
 if (isset($_POST['SaveClient']) || isset($_POST['UpdateClient']))
 {
 	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
@@ -43,12 +50,18 @@ if (isset($_POST['SaveClient']) || isset($_POST['UpdateClient']))
 $tpl->set('object',$ObjectData);
 $tpl->set('identifier',$Params['user_parameters']['identifier']);
 
-$object_trans = $ObjectData->getModuleTranslations();
+
 $tpl->set('object_trans',$object_trans);
 
 $Result['content'] = $tpl->fetch();
 
-$Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','System configuration')),
-		array('url' => erLhcoreClassDesign::baseurl('abstract/list').'/'.$Params['user_parameters']['identifier'], 'title' => $object_trans['name']),
-		array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Edit'))
-);
+if (isset($object_trans['path'])){
+	$Result['path'][] = $object_trans['path'];
+	$Result['path'][] = array('url' => erLhcoreClassDesign::baseurl('abstract/list').'/'.$Params['user_parameters']['identifier'], 'title' => $object_trans['name']);
+	$Result['path'][] = array('title' =>erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Edit'));
+} else {
+	$Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','System configuration')),
+			array('url' => erLhcoreClassDesign::baseurl('abstract/list').'/'.$Params['user_parameters']['identifier'], 'title' => $object_trans['name']),
+			array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Edit'))
+	);
+}

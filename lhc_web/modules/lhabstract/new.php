@@ -1,10 +1,16 @@
 <?php
 
-$tpl = new erLhcoreClassTemplate( 'lhabstract/new.tpl.php');
-
+$tpl = erLhcoreClassTemplate::getInstance('lhabstract/new.tpl.php');
 
 $objectClass = 'erLhAbstractModel'.$Params['user_parameters']['identifier'];
 $objectData = new $objectClass;
+
+$object_trans = $objectData->getModuleTranslations();
+
+if (isset($object_trans['permission']) && !$currentUser->hasAccessTo($object_trans['permission']['module'],$object_trans['permission']['function'])) {
+	erLhcoreClassModule::redirect();
+	exit;
+}
 
 if (isset($_POST['CancelAction'])) {
     erLhcoreClassModule::redirect('abstract/list','/'.$Params['user_parameters']['identifier']);
@@ -50,14 +56,18 @@ if ( isset($_POST['SaveClient']) || isset($_POST['UpdateClient']) ) {
 }
 
 $tpl->set('object',$objectData);
-
-$object_trans = $objectData->getModuleTranslations();
 $tpl->set('object_trans',$object_trans);
 
 $tpl->set('identifier',$Params['user_parameters']['identifier']);
 $Result['content'] = $tpl->fetch();
 
-$Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','System configuration')),
-		array('url' => erLhcoreClassDesign::baseurl('abstract/list').'/'.$Params['user_parameters']['identifier'], 'title' => $object_trans['name']),
-		array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','New'))
-);
+if (isset($object_trans['path'])){
+	$Result['path'][] = $object_trans['path'];
+	$Result['path'][] = array('url' => erLhcoreClassDesign::baseurl('abstract/list').'/'.$Params['user_parameters']['identifier'], 'title' => $object_trans['name']);	
+	$Result['path'][] = array('title' =>erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','New'));
+} else {
+	$Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','System configuration')),
+			array('url' => erLhcoreClassDesign::baseurl('abstract/list').'/'.$Params['user_parameters']['identifier'], 'title' => $object_trans['name']),
+			array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','New'))
+	);
+}

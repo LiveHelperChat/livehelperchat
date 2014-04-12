@@ -1,4 +1,4 @@
-<?php $departments = erLhcoreClassModelDepartament::getList(array('filter' => array('disabled' => 0)));
+<?php $departments = erLhcoreClassModelDepartament::getList(array('filter' => array('disabled' => 0, 'hidden' => 0)));
 // Show only if there are more than 1 department
 if (count($departments) > 1) : ?>
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Department');?></label>
