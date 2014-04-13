@@ -261,6 +261,10 @@
       <translation>Ожидание подтверждения</translation>
     </message>
     <message>
+      <source>Close</source>
+      <translation>Закрыть</translation>
+    </message>
+    <message>
       <source>Enter your message</source>
       <translation>Введите сообщение</translation>
     </message>
@@ -271,10 +275,6 @@
     <message>
       <source>BB Code</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Close</source>
-      <translation>Закрыть</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -466,6 +466,14 @@
     <message>
       <source>Disabled</source>
       <translation>Отключено</translation>
+    </message>
+    <message>
+      <source>Will not be visible to visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hidden</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
@@ -1654,16 +1662,16 @@
   <context>
     <name>chat/getstatus</name>
     <message>
+      <source>Close</source>
+      <translation>Закрыть</translation>
+    </message>
+    <message>
       <source>Live help is online...</source>
       <translation>Менеджер в сети...</translation>
     </message>
     <message>
       <source>Live help is offline...</source>
       <translation>Менеджер не в сети</translation>
-    </message>
-    <message>
-      <source>Close</source>
-      <translation>Закрыть</translation>
     </message>
     <message>
       <source>Open in a new window</source>
@@ -1832,6 +1840,10 @@
       <translation>Код Чатбокса</translation>
     </message>
     <message>
+      <source>Browse offers embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Statistic</source>
       <translation>Статистика</translation>
     </message>
@@ -1879,24 +1891,32 @@
   <context>
     <name>system/htmlcode</name>
     <message>
-      <source>Widget embed code</source>
-      <translation>Код виджета</translation>
-    </message>
-    <message>
-      <source>Page embed code</source>
-      <translation>Код блока страницы</translation>
-    </message>
-    <message>
       <source>HTML code</source>
       <translation>HTML код</translation>
     </message>
     <message>
-      <source>Choose a language</source>
-      <translation>Выберите язык</translation>
+      <source>Popup width</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Chatbox messages content height</source>
-      <translation>Высота содержимого Chatbox контейнера</translation>
+      <source>Popup height, used only if iframe is used</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
+      <translation>Идентификатор, который может быть использован как фильтр для проактивных приглашений (полезен, если Вы хотите получать различные сообщения для различных доменов). Ограничения: только строка, без пробелов и спец. символов</translation>
+    </message>
+    <message>
+      <source>Leave empty if it is not important to you</source>
+      <translation>Оставьте пустым, если это не важно для Вас</translation>
+    </message>
+    <message>
+      <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a language</source>
+      <translation>Выберите язык</translation>
     </message>
     <message>
       <source>Choose prefered http mode</source>
@@ -1905,6 +1925,18 @@
     <message>
       <source>Based on site (default)</source>
       <translation>Основанный на сайте (по умолчанию)</translation>
+    </message>
+    <message>
+      <source>Widget embed code</source>
+      <translation>Код виджета</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>Код блока страницы</translation>
+    </message>
+    <message>
+      <source>Chatbox messages content height</source>
+      <translation>Высота содержимого Chatbox контейнера</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>
@@ -1995,6 +2027,10 @@
       <translation>Помогите нашему развитию</translation>
     </message>
     <message>
+      <source>Embed code</source>
+      <translation>Код для вставки</translation>
+    </message>
+    <message>
       <source>Hide status when offline</source>
       <translation>Скрыть статус если оффлайн</translation>
     </message>
@@ -2063,20 +2099,8 @@
       <translation>Отображать виджет в там, где он встроен в HTML код</translation>
     </message>
     <message>
-      <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
-      <translation>Идентификатор, который может быть использован как фильтр для проактивных приглашений (полезен, если Вы хотите получать различные сообщения для различных доменов). Ограничения: только строка, без пробелов и спец. символов</translation>
-    </message>
-    <message>
-      <source>Leave empty if it is not important to you</source>
-      <translation>Оставьте пустым, если это не важно для Вас</translation>
-    </message>
-    <message>
       <source>System configuration</source>
       <translation>Настройки Системы</translation>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation>Код для вставки</translation>
     </message>
   </context>
   <context>
@@ -2917,12 +2941,20 @@
   <context>
     <name>questionary/htmlcode</name>
     <message>
-      <source>Status text</source>
-      <translation>Статус текста</translation>
+      <source>Show overlay</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show different offers for the same user</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Copy the code from the text area to the page header or footer</source>
       <translation>Скопируйте код из текстового поля в шапку или подвал страницы</translation>
+    </message>
+    <message>
+      <source>Status text</source>
+      <translation>Статус текста</translation>
     </message>
     <message>
       <source>Expand the widget automatically for new users</source>
@@ -4042,6 +4074,10 @@
       <translation>Чатбокс</translation>
     </message>
     <message>
+      <source>Browse offers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Account</source>
       <translation>Аккаунт</translation>
     </message>
@@ -5006,6 +5042,92 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Пожалуйста, введите правильный тип файла</translation>
+    </message>
+  </context>
+  <context>
+    <name>browseoffer/index</name>
+    <message>
+      <source>Browse offers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>General</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Browse your offers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>HTML Code</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>abstract/browserofferinvitation</name>
+    <message>
+      <source>Name for personal purposes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time on site on single page in seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority, the lower the higher</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Popup width</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Popup height</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Measure units, px or percents</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>URL, enter * at the end for the wildcard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom iframe URL, takes priority over default content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default popup content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Load content in lhc iframe</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Matched times</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Browser offer invitations</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

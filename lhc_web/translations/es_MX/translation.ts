@@ -263,6 +263,10 @@
       <translation>En espera de confirmación</translation>
     </message>
     <message>
+      <source>Close</source>
+      <translation>Cerrar</translation>
+    </message>
+    <message>
       <source>Enter your message</source>
       <translation>Ingrese su mensaje</translation>
     </message>
@@ -273,10 +277,6 @@
     <message>
       <source>BB Code</source>
       <translation>Código BB</translation>
-    </message>
-    <message>
-      <source>Close</source>
-      <translation>Cerrar</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -468,6 +468,14 @@
     <message>
       <source>Disabled</source>
       <translation>Deshabilitado</translation>
+    </message>
+    <message>
+      <source>Will not be visible to visitor</source>
+      <translation>No será visible para los visitantes</translation>
+    </message>
+    <message>
+      <source>Hidden</source>
+      <translation>Oculto</translation>
     </message>
     <message>
       <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
@@ -1657,16 +1665,16 @@
   <context>
     <name>chat/getstatus</name>
     <message>
+      <source>Close</source>
+      <translation>Cerrar</translation>
+    </message>
+    <message>
       <source>Live help is online...</source>
       <translation>Soporte en linea...</translation>
     </message>
     <message>
       <source>Live help is offline...</source>
       <translation>Soporte fuera de línea...</translation>
-    </message>
-    <message>
-      <source>Close</source>
-      <translation>Cerrar</translation>
     </message>
     <message>
       <source>Open in a new window</source>
@@ -1835,6 +1843,10 @@
       <translation>Código de inserción para Chatbox</translation>
     </message>
     <message>
+      <source>Browse offers embed code</source>
+      <translation>Código para insertar ofertas en el navegador</translation>
+    </message>
+    <message>
       <source>Statistic</source>
       <translation>Estadística</translation>
     </message>
@@ -1882,24 +1894,32 @@
   <context>
     <name>system/htmlcode</name>
     <message>
-      <source>Widget embed code</source>
-      <translation>Código de inserción del Widget</translation>
-    </message>
-    <message>
-      <source>Page embed code</source>
-      <translation>Código de inserción para la página</translation>
-    </message>
-    <message>
       <source>HTML code</source>
       <translation>Código HTML</translation>
     </message>
     <message>
-      <source>Choose a language</source>
-      <translation>Elija un idioma</translation>
+      <source>Popup width</source>
+      <translation>Ancho del popup</translation>
     </message>
     <message>
-      <source>Chatbox messages content height</source>
-      <translation>Altura del contenido del Chatbox</translation>
+      <source>Popup height, used only if iframe is used</source>
+      <translation>Altura del popup, solamente si se utiliza una iframe</translation>
+    </message>
+    <message>
+      <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
+      <translation>Identificador, este se puede utilizar como filtro para invitaciones pro activas de chat, es útil tener diferentes mensajes para diferentes dominios. Sólo caracteres sin espacios ni caracteres especiales.</translation>
+    </message>
+    <message>
+      <source>Leave empty if it is not important to you</source>
+      <translation>Dejar en blanco si no es importante para ti</translation>
+    </message>
+    <message>
+      <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
+      <translation>Tiempo para mostrar las ofertas en días, después de cuantos días mostrar ofertas nuevamente al visitante, dejar vacío para que sea por la duración de la sesión</translation>
+    </message>
+    <message>
+      <source>Choose a language</source>
+      <translation>Elija un idioma</translation>
     </message>
     <message>
       <source>Choose prefered http mode</source>
@@ -1908,6 +1928,18 @@
     <message>
       <source>Based on site (default)</source>
       <translation>Basado en el sitio (predefinido)</translation>
+    </message>
+    <message>
+      <source>Widget embed code</source>
+      <translation>Código de inserción del Widget</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>Código de inserción para la página</translation>
+    </message>
+    <message>
+      <source>Chatbox messages content height</source>
+      <translation>Altura del contenido del Chatbox</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>
@@ -1998,6 +2030,10 @@
       <translation>Ayudanos a crecer</translation>
     </message>
     <message>
+      <source>Embed code</source>
+      <translation>Insertar código</translation>
+    </message>
+    <message>
       <source>Hide status when offline</source>
       <translation>Ocultar estado sin está fuera de línea</translation>
     </message>
@@ -2066,20 +2102,8 @@
       <translation>Colocación natural - se mostrará donde el código HTML esté incrustado</translation>
     </message>
     <message>
-      <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
-      <translation>Identificador, este se puede utilizar como filtro para invitaciones pro activas de chat, es útil tener diferentes mensajes para diferentes dominios. Sólo caracteres sin espacios ni caracteres especiales.</translation>
-    </message>
-    <message>
-      <source>Leave empty if it is not important to you</source>
-      <translation>Dejar en blanco si no es importante para ti</translation>
-    </message>
-    <message>
       <source>System configuration</source>
       <translation>Configuración del sistema</translation>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation>Insertar código</translation>
     </message>
   </context>
   <context>
@@ -2920,12 +2944,20 @@
   <context>
     <name>questionary/htmlcode</name>
     <message>
-      <source>Status text</source>
-      <translation>Texto de estado</translation>
+      <source>Show overlay</source>
+      <translation>Mostrar transparencia</translation>
+    </message>
+    <message>
+      <source>Show different offers for the same user</source>
+      <translation>Mostrar distintas ofertas para el mismo usuario</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page header or footer</source>
       <translation>Copie el código del área de texto en el encabezado o pie de página</translation>
+    </message>
+    <message>
+      <source>Status text</source>
+      <translation>Texto de estado</translation>
     </message>
     <message>
       <source>Expand the widget automatically for new users</source>
@@ -4046,6 +4078,10 @@
       <translation>Chatbox</translation>
     </message>
     <message>
+      <source>Browse offers</source>
+      <translation>Ver ofertas</translation>
+    </message>
+    <message>
       <source>Account</source>
       <translation>Cuenta</translation>
     </message>
@@ -5010,6 +5046,92 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Por favor, introduzca un tipo de archivo válido</translation>
+    </message>
+  </context>
+  <context>
+    <name>browseoffer/index</name>
+    <message>
+      <source>Browse offers</source>
+      <translation>Ver ofertas</translation>
+    </message>
+    <message>
+      <source>General</source>
+      <translation>General</translation>
+    </message>
+    <message>
+      <source>Browse your offers</source>
+      <translation>Ver sus ofertas</translation>
+    </message>
+    <message>
+      <source>HTML Code</source>
+      <translation>Código HTML</translation>
+    </message>
+  </context>
+  <context>
+    <name>abstract/browserofferinvitation</name>
+    <message>
+      <source>Name for personal purposes</source>
+      <translation>Nombre para propósitos personales</translation>
+    </message>
+    <message>
+      <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
+      <translation>Idioma, dejar vacío para todos. Ej. lit, rus, ger, etc...</translation>
+    </message>
+    <message>
+      <source>Time on site on single page in seconds</source>
+      <translation>Tiempo en segundos en una página del sitio</translation>
+    </message>
+    <message>
+      <source>Priority, the lower the higher</source>
+      <translation>Prioridad, entre más bajo mayor prioridad</translation>
+    </message>
+    <message>
+      <source>Popup width</source>
+      <translation>Ancho del popup</translation>
+    </message>
+    <message>
+      <source>Popup height</source>
+      <translation>Alto del popup</translation>
+    </message>
+    <message>
+      <source>Measure units, px or percents</source>
+      <translation>Unidad de medida, px o porciento</translation>
+    </message>
+    <message>
+      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
+      <translation>Dominio de referencia sin www, Ej. la palabra clave google será igual a cualquiera del dominio de google</translation>
+    </message>
+    <message>
+      <source>URL, enter * at the end for the wildcard</source>
+      <translation>URL, introduzca * al final para comodín</translation>
+    </message>
+    <message>
+      <source>Custom iframe URL, takes priority over default content</source>
+      <translation>URL personalizada del iframe, tiene prioridad sobre el contenido predefinido</translation>
+    </message>
+    <message>
+      <source>Default popup content</source>
+      <translation>Contenido predefinido del popup</translation>
+    </message>
+    <message>
+      <source>Load content in lhc iframe</source>
+      <translation>Cargar el contenido en el iframe</translation>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation>Activo</translation>
+    </message>
+    <message>
+      <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
+      <translation>Identificador, para que identificador deberá mostrarse este mensaje, deje vacío para todos</translation>
+    </message>
+    <message>
+      <source>Matched times</source>
+      <translation>Veces encontrado</translation>
+    </message>
+    <message>
+      <source>Browser offer invitations</source>
+      <translation>Invitaciones de ofertas del navegador</translation>
     </message>
   </context>
 </TS>

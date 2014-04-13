@@ -261,6 +261,10 @@
       <translation>Wachten op bevestiging</translation>
     </message>
     <message>
+      <source>Close</source>
+      <translation>Sluiten</translation>
+    </message>
+    <message>
       <source>Enter your message</source>
       <translation>Type bericht</translation>
     </message>
@@ -271,10 +275,6 @@
     <message>
       <source>BB Code</source>
       <translation>BB Code</translation>
-    </message>
-    <message>
-      <source>Close</source>
-      <translation>Sluiten</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -466,6 +466,14 @@
     <message>
       <source>Disabled</source>
       <translation>Uitgeschakeld</translation>
+    </message>
+    <message>
+      <source>Will not be visible to visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hidden</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
@@ -1653,16 +1661,16 @@
   <context>
     <name>chat/getstatus</name>
     <message>
+      <source>Close</source>
+      <translation>Sluiten</translation>
+    </message>
+    <message>
       <source>Live help is online...</source>
       <translation>Chat ondersteuning is online...</translation>
     </message>
     <message>
       <source>Live help is offline...</source>
       <translation>Live hulp is offline...</translation>
-    </message>
-    <message>
-      <source>Close</source>
-      <translation>Sluiten</translation>
     </message>
     <message>
       <source>Open in a new window</source>
@@ -1831,6 +1839,10 @@
       <translation>Chatbox embed code</translation>
     </message>
     <message>
+      <source>Browse offers embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Statistic</source>
       <translation>Statistiek</translation>
     </message>
@@ -1878,24 +1890,32 @@
   <context>
     <name>system/htmlcode</name>
     <message>
-      <source>Widget embed code</source>
-      <translation>Widget embed code</translation>
-    </message>
-    <message>
-      <source>Page embed code</source>
-      <translation>Pagina embed code</translation>
-    </message>
-    <message>
       <source>HTML code</source>
       <translation>HTML code</translation>
     </message>
     <message>
-      <source>Choose a language</source>
-      <translation>Kies taal</translation>
+      <source>Popup width</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Chatbox messages content height</source>
-      <translation>Chatbox berichtinhoud hoogte</translation>
+      <source>Popup height, used only if iframe is used</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
+      <translation>Identificatie, dit kan worden gebruikt als filter voor pro-actieve chat uitnodigingen en is handig bij het gebruik van verschillende berichten voor verschillende domeinen. Alleen een string zonder spaties of speciale tekens.</translation>
+    </message>
+    <message>
+      <source>Leave empty if it is not important to you</source>
+      <translation>Laat dit leeg als het niet belangrijk voor u is</translation>
+    </message>
+    <message>
+      <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a language</source>
+      <translation>Kies taal</translation>
     </message>
     <message>
       <source>Choose prefered http mode</source>
@@ -1904,6 +1924,18 @@
     <message>
       <source>Based on site (default)</source>
       <translation>Gebaseerd op site (standaard)</translation>
+    </message>
+    <message>
+      <source>Widget embed code</source>
+      <translation>Widget embed code</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>Pagina embed code</translation>
+    </message>
+    <message>
+      <source>Chatbox messages content height</source>
+      <translation>Chatbox berichtinhoud hoogte</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>
@@ -1994,6 +2026,10 @@
       <translation>Help ons te groeien</translation>
     </message>
     <message>
+      <source>Embed code</source>
+      <translation>Embed code</translation>
+    </message>
+    <message>
       <source>Hide status when offline</source>
       <translation>Verberg status wanneer offline</translation>
     </message>
@@ -2062,20 +2098,8 @@
       <translation>Native positionering - het zal getoond worden waar de html geplaatst is</translation>
     </message>
     <message>
-      <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
-      <translation>Identificatie, dit kan worden gebruikt als filter voor pro-actieve chat uitnodigingen en is handig bij het gebruik van verschillende berichten voor verschillende domeinen. Alleen een string zonder spaties of speciale tekens.</translation>
-    </message>
-    <message>
-      <source>Leave empty if it is not important to you</source>
-      <translation>Laat dit leeg als het niet belangrijk voor u is</translation>
-    </message>
-    <message>
       <source>System configuration</source>
       <translation>Systeem configuratie</translation>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation>Embed code</translation>
     </message>
   </context>
   <context>
@@ -2916,12 +2940,20 @@
   <context>
     <name>questionary/htmlcode</name>
     <message>
-      <source>Status text</source>
-      <translation>Statustekst</translation>
+      <source>Show overlay</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show different offers for the same user</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Copy the code from the text area to the page header or footer</source>
       <translation>Kopieer de code uit het tekstvak naar de pagina-header of -footer</translation>
+    </message>
+    <message>
+      <source>Status text</source>
+      <translation>Statustekst</translation>
     </message>
     <message>
       <source>Expand the widget automatically for new users</source>
@@ -4041,6 +4073,10 @@
       <translation>Chatbox</translation>
     </message>
     <message>
+      <source>Browse offers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Account</source>
       <translation>Account</translation>
     </message>
@@ -5005,6 +5041,92 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Voer s.v.p. een geldig bestandstype in!</translation>
+    </message>
+  </context>
+  <context>
+    <name>browseoffer/index</name>
+    <message>
+      <source>Browse offers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>General</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Browse your offers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>HTML Code</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>abstract/browserofferinvitation</name>
+    <message>
+      <source>Name for personal purposes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time on site on single page in seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority, the lower the higher</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Popup width</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Popup height</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Measure units, px or percents</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>URL, enter * at the end for the wildcard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom iframe URL, takes priority over default content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default popup content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Load content in lhc iframe</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Matched times</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Browser offer invitations</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>
