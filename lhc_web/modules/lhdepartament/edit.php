@@ -4,6 +4,18 @@ $tpl = erLhcoreClassTemplate::getInstance('lhdepartament/edit.tpl.php');
 
 $Departament = erLhcoreClassDepartament::getSession()->load( 'erLhcoreClassModelDepartament', (int)$Params['user_parameters']['departament_id'] );
 
+/**
+ * Append user departments filter
+* */
+$departmentParams = array();
+$userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
+if ($userDepartments !== true) {
+	if (!in_array($Departament->id, $userDepartments)) {
+		erLhcoreClassModule::redirect('departament/departaments');
+		exit;
+	}
+}
+
 if ( isset($_POST['Cancel_departament']) ) {
     erLhcoreClassModule::redirect('departament/departaments');
     exit;
