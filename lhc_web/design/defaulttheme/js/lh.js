@@ -1162,7 +1162,7 @@ function lh(){
                             inst.trackLastIDS[item.last_id_identifier] = parseInt(item.last_id);
                         } else if (inst.trackLastIDS[item.last_id_identifier] < parseInt(item.last_id)) {
                             inst.trackLastIDS[item.last_id_identifier] = parseInt(item.last_id);
-                            inst.playSoundNewAction(item.last_id_identifier,parseInt(item.last_id));
+                            inst.playSoundNewAction(item.last_id_identifier,parseInt(item.last_id),(item.nick ? item.nick : 'Live Help'),(item.msg ? item.msg : confLH.transLation.new_chat));
                         };
                         if (parseInt(item.last_id) > 0) {
                         	hasPendingItems = true;                        	
@@ -1275,7 +1275,7 @@ function lh(){
         };		
 	};	
 	
-	this.playSoundNewAction = function(identifier,chat_id) {
+	this.playSoundNewAction = function(identifier,chat_id,nick,message) {
 	    if (confLH.new_chat_sound_enabled == 1 && (identifier == 'pending_chat' || identifier == 'transfer_chat' )) {
 	    	this.soundPlayedTimes = 0;
 	        this.playNewChatAudio();
@@ -1294,8 +1294,8 @@ function lh(){
 		    	    // 0 is PERMISSION_ALLOWED
 		    	    var notification = window.webkitNotifications.createNotification(
 		    	      WWW_DIR_JAVASCRIPT_FILES_NOTIFICATION + '/notification.png',
-		    	      'Live Help',
-		    	      confLH.transLation.new_chat
+		    	      nick,
+		    	      message
 		    	    );
 		    	    notification.onclick = function () {
 		    	    	if (identifier == 'pending_chat'){
@@ -1310,7 +1310,7 @@ function lh(){
 		    	  }
 	    	  } else if(window.Notification) {
 	    		  if (window.Notification.permission == 'granted') {
-		  				var notification = new Notification('Live Help', { icon: WWW_DIR_JAVASCRIPT_FILES_NOTIFICATION + '/notification.png', body: confLH.transLation.new_chat });
+		  				var notification = new Notification(nick, { icon: WWW_DIR_JAVASCRIPT_FILES_NOTIFICATION + '/notification.png', body: message });
 		  				notification.onclick = function () {
 			    	    	if (identifier == 'pending_chat'){
 			    	    		inst.startChatNewWindow(chat_id,'ChatRequest');

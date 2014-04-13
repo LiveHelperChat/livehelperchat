@@ -50,11 +50,16 @@ if ($pendingTabEnabled == true) {
 	 * Get last pending chat
 	 * */
 	$lastPendingChatID = 0;
+	$lastChatNick = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor');
+	$lastMessage = erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','New chat request');
 	if (!empty($pendingChats)) {
 		$lastPendingChatID = max(array_keys($pendingChats));
+		$chatRecent = reset($pendingChats);
+		$lastChatNick = $chatRecent->nick;
+		$lastMessage = erLhcoreClassChat::getGetLastChatMessagePending($chatRecent->id);
 	}
 
-	$ReturnMessages[] = array('dom_id_status' => '.pn-cnt', 'dom_item_count' => count($pendingChats),'dom_id' => '#right-pending-chats,#pending-chat-list', 'last_id_identifier' => 'pending_chat', 'last_id' => $lastPendingChatID, 'content' => trim($tpl->fetch('lhchat/lists/pendingchats.tpl.php')));
+	$ReturnMessages[] = array('nick' => $lastChatNick,'msg' => $lastMessage, 'dom_id_status' => '.pn-cnt', 'dom_item_count' => count($pendingChats),'dom_id' => '#right-pending-chats,#pending-chat-list', 'last_id_identifier' => 'pending_chat', 'last_id' => $lastPendingChatID, 'content' => trim($tpl->fetch('lhchat/lists/pendingchats.tpl.php')));
 }
 
 // Transfered chats

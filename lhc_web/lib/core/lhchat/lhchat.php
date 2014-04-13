@@ -814,6 +814,22 @@ class erLhcoreClassChat {
 
        return $row;
    }
+   
+   /**
+    * Get last message for browser notification
+    *
+    * */
+   public static function getGetLastChatMessagePending($chat_id)
+   {
+       $db = ezcDbInstance::get();
+       $stmt = $db->prepare('SELECT lh_msg.msg FROM lh_msg INNER JOIN ( SELECT id FROM lh_msg WHERE chat_id = :chat_id ORDER BY id DESC LIMIT 3 OFFSET 0) AS items ON lh_msg.id = items.id');
+       $stmt->bindValue( ':chat_id',$chat_id,PDO::PARAM_INT);
+       $stmt->setFetchMode(PDO::FETCH_ASSOC);
+       $stmt->execute();
+       $rows = $stmt->fetchAll(PDO::FETCH_COLUMN);
+        
+       return implode("\n", array_reverse($rows));
+   }
 
 
    /**
