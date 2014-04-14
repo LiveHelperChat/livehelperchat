@@ -253,6 +253,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `dep_id` int(11) NOT NULL,
 				  `user_status` int(11) NOT NULL DEFAULT '0',
 				  `support_informed` int(11) NOT NULL DEFAULT '0',
+				  `unread_messages_informed` int(11) NOT NULL DEFAULT '0',
+				  `reinform_timeout` int(11) NOT NULL DEFAULT '0',
 				  `email` varchar(100) NOT NULL,
 				  `country_code` varchar(100) NOT NULL,
 				  `country_name` varchar(100) NOT NULL,
@@ -381,7 +383,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   		(3,	'User mail for himself',	'Live Helper Chat',	0,	'',	0,	'Dear {user_chat_nick},\r\n\r\nTranscript:\r\n{messages_content}\r\n\r\nSincerely,\r\nLive Support Team\r\n',	'Chat transcript',	0,	'',	0,	'',''),
         	   		(4,	'New chat request',	'Live Helper Chat',	0,	'',	0,	'Hello,\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nClick to accept chat automatically\r\n{url_accept}\r\n\r\nSincerely,\r\nLive Support Team',	'New chat request',	0,	'',	0,	'{$adminEmail}',''),
         	   		(5,	'Chat was closed',	'Live Helper Chat',	0,	'',	0,	'Hello,\r\n\r\n{operator} has closed a chat\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nAdditional data, if any:\r\n{additional_data}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nSincerely,\r\nLive Support Team',	'Chat was closed',	0,	'',	0,	'',''),
-        	   		(6,	'New FAQ question',	'Live Helper Chat',	0,	'',	0,	'Hello,\r\n\r\nNew FAQ question\r\nEmail: {email}\r\n\r\nQuestion:\r\n{question}\r\n\r\nURL to answer a question:\r\n{url_request}\r\n\r\nSincerely,\r\nLive Support Team',	'New FAQ question',	0,	'',	0,	'',	'');");
+        	   		(6,	'New FAQ question',	'Live Helper Chat',	0,	'',	0,	'Hello,\r\n\r\nNew FAQ question\r\nEmail: {email}\r\n\r\nQuestion:\r\n{question}\r\n\r\nURL to answer a question:\r\n{url_request}\r\n\r\nSincerely,\r\nLive Support Team',	'New FAQ question',	0,	'',	0,	'',	''),
+        	   		(7,	'New unread message',	'Live Helper Chat',	0,	'',	0,	'Hello,\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nClick to accept chat automatically\r\n{url_accept}\r\n\r\nSincerely,\r\nLive Support Team',	'New chat request',	0,	'',	0,	'{$adminEmail}','');");
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_question` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -666,9 +669,11 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `frd` tinyint(1) NOT NULL,
 				  `sad` tinyint(1) NOT NULL,
 				  `sud` tinyint(1) NOT NULL,
+				  `inform_unread` tinyint(1) NOT NULL,
 				  `start_hour` int(2) NOT NULL,
 				  `end_hour` int(2) NOT NULL,
 				  `inform_close` int(11) NOT NULL,
+				  `inform_unread_delay` int(11) NOT NULL,
 				  `inform_options` varchar(250) NOT NULL,
 				  `online_hours_active` tinyint(1) NOT NULL,
 				  `inform_delay` int(11) NOT NULL,

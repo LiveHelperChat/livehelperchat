@@ -41,6 +41,8 @@ class erLhcoreClassModelChat {
                'chat_initiator'     	=> $this->chat_initiator,
 
        		   'online_user_id'     	=> $this->online_user_id,
+       		   'unread_messages_informed' => $this->unread_messages_informed,
+       		   'reinform_timeout'     	=> $this->reinform_timeout,
 
        		   // Wait timeout attribute
                'wait_timeout'     		=> $this->wait_timeout,
@@ -358,7 +360,9 @@ class erLhcoreClassModelChat {
    public $operation_admin = '';
    
    public $screenshot_id = 0;
-
+   
+   public $unread_messages_informed = 0;
+   public $reinform_timeout = 0;
 }
 
 ?>

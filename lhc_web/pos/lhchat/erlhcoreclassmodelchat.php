@@ -142,6 +142,27 @@ $def->properties['has_unread_messages']->columnName   = 'has_unread_messages';
 $def->properties['has_unread_messages']->propertyName = 'has_unread_messages';
 $def->properties['has_unread_messages']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+/**
+ * Repeatable chat inform
+ * */
+$def->properties['unread_messages_informed'] = new ezcPersistentObjectProperty();
+$def->properties['unread_messages_informed']->columnName   = 'unread_messages_informed';
+$def->properties['unread_messages_informed']->propertyName = 'unread_messages_informed';
+$def->properties['unread_messages_informed']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+/**
+ * After how many seconds inform from last user message
+ * */
+$def->properties['reinform_timeout'] = new ezcPersistentObjectProperty();
+$def->properties['reinform_timeout']->columnName   = 'reinform_timeout';
+$def->properties['reinform_timeout']->propertyName = 'reinform_timeout';
+$def->properties['reinform_timeout']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+/**
+ * END Repetable chat inform
+ * */
+
+
 $def->properties['last_user_msg_time'] = new ezcPersistentObjectProperty();
 $def->properties['last_user_msg_time']->columnName   = 'last_user_msg_time';
 $def->properties['last_user_msg_time']->propertyName = 'last_user_msg_time';

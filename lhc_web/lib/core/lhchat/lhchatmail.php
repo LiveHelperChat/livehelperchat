@@ -259,8 +259,8 @@ class erLhcoreClassChatMail {
     	$mail->ClearAddresses();
     }
     
-    public static function sendMailUnacceptedChat(erLhcoreClassModelChat $chat) {
-    	$sendMail = erLhAbstractModelEmailTemplate::fetch(4);
+    public static function sendMailUnacceptedChat(erLhcoreClassModelChat $chat, $templateID = 4) {
+    	$sendMail = erLhAbstractModelEmailTemplate::fetch($templateID);
     	
     	$mail = new PHPMailer();
     	$mail->CharSet = "UTF-8";

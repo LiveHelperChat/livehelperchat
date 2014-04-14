@@ -30,6 +30,8 @@ class erLhcoreClassModelDepartament {
                'disabled'    			=> $this->disabled,
                'hidden'    				=> $this->hidden,
                'delay_lm' 				=> $this->delay_lm,
+               'inform_unread' 			=> $this->inform_unread,
+               'inform_unread_delay' 	=> $this->inform_unread_delay
        );
    }
 
@@ -218,7 +220,10 @@ class erLhcoreClassModelDepartament {
     public $online_hours_active = 0;
     public $disabled = 0;
     public $hidden = 0;
-    
+    public $inform_unread = 0;
+    public $inform_unread_delay = 0;
+
+
     // 0 - disabled
     // > 0 - delay in seconds
     public $delay_lm = 0;
