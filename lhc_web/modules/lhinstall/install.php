@@ -616,6 +616,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `pageviews` int(11) NOT NULL,
 				  `message` text NOT NULL,
 				  `executed_times` int(11) NOT NULL,
+				  `dep_id` int(11) NOT NULL,
 				  `hide_after_ntimes` int(11) NOT NULL,
 				  `name` varchar(50) NOT NULL,
 				  `operator_ids` varchar(100) NOT NULL,
@@ -629,7 +630,9 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  `identifier` varchar(50) NOT NULL,
         	   	  `requires_email` int(11) NOT NULL,
 				  PRIMARY KEY (`id`),
-				  KEY `time_on_site_pageviews_siteaccess_position` (`time_on_site`,`pageviews`,`siteaccess`,`identifier`,`position`)
+				  KEY `time_on_site_pageviews_siteaccess_position` (`time_on_site`,`pageviews`,`siteaccess`,`identifier`,`position`),
+        	      KEY `identifier` (`identifier`),
+        	      KEY `dep_id` (`dep_id`)
 				) DEFAULT CHARSET=utf8;");
         	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_accept` (
