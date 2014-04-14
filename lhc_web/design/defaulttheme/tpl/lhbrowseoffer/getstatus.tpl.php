@@ -106,7 +106,7 @@ var lhc_BrowseOffer = {
          	document.body.insertBefore(fragment, document.body.childNodes[0]);
          	<?php endif; ?>
          	document.getElementById('lhc_container_browseoffer').style.marginTop = '-'+(document.getElementById('lhc_container_browseoffer').offsetHeight/2)+'px';
-         	document.getElementById('lhc_container_browseoffer').style.marginLeft = '-'+(document.getElementById('lhc_container_browseoffer').offsetWidth/2)+'px';
+         	document.getElementById('lhc_container_browseoffer').style.marginLeft = '-<?php if ($units == '%') : ?><?php echo $size/2,$units?><?php else : ?>'+(document.getElementById('lhc_container_browseoffer').offsetWidth/2)+'px<?php endif;?>';
          	document.getElementById('lhc_container_browseoffer').style.top = '50%';  
    },
 
