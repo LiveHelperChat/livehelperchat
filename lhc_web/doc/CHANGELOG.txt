@@ -1,3 +1,10 @@
+1.96v
+
+Github changes
+https://github.com/LiveHelperChat/livehelperchat/issues/345
+
+execute doc/update_db/update_75.sql for update
+
 1.95v
 
 Mega release.

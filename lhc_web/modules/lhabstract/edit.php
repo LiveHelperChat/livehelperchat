@@ -15,6 +15,13 @@ if (isset($object_trans['permission']) && !$currentUser->hasAccessTo($object_tra
 	exit;
 }
 
+if ( method_exists($ObjectData,'checkPermission') ) {
+	if ( $ObjectData->checkPermission() === false ) {
+		erLhcoreClassModule::redirect();
+		exit;
+	}
+}
+
 if (isset($_POST['SaveClient']) || isset($_POST['UpdateClient']))
 {
 	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {

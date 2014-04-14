@@ -13,6 +13,7 @@ class erLhAbstractModelProactiveChatInvitation {
 			'pageviews' 	=> $this->pageviews,
 			'message' 		=> $this->message,
 			'identifier' 	=> $this->identifier,
+			'dep_id' 		=> $this->dep_id,
 			'executed_times'=> $this->executed_times,
 			'position'		=> $this->position,
 			'operator_name'	=> $this->operator_name,
@@ -40,9 +41,40 @@ class erLhAbstractModelProactiveChatInvitation {
 	{
 		return $this->name;
 	}
-
+	
+	public function checkPermission(){
+		
+		$currentUser = erLhcoreClassUser::instance();
+		
+		/**
+		 * Append user departments filter
+		 * */
+		$departmentParams = array();
+		$userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
+		if ($userDepartments !== true) {
+			if (!in_array($this->dep_id, $userDepartments)) {
+				return false;
+			}
+		}
+	}
+	
+	public static function getFilter(){
+		
+		$currentUser = erLhcoreClassUser::instance();
+		$departmentParams = array();
+		$userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
+		if ($userDepartments !== true){
+			$departmentParams['filterin']['dep_id'] = $userDepartments;
+		}
+		
+		return $departmentParams;
+	}
+	
    	public function getFields()
    	{
+   		$currentUser = erLhcoreClassUser::instance();
+   		$userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
+   		
    		return array(
    				'name' => array(
    						'type' => 'text',
@@ -137,6 +169,17 @@ class erLhAbstractModelProactiveChatInvitation {
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'string'
    						)),   				
+   				'dep_id' => array (
+   						'type' => 'combobox',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Department'),
+   						'required' => false,
+   						'hidden' => true,
+   						'source' => 'erLhcoreClassModelDepartament::getList',
+   						'hide_optional' => $userDepartments !== true,
+   						'params_call' => ($userDepartments === true) ? array() : array('filterin' => array('id' => $userDepartments)),
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'int'
+   						)),   				
    				'executed_times' => array (
    						'type' => 'none',
    						'hide_edit' => true,
@@ -190,19 +233,30 @@ class erLhAbstractModelProactiveChatInvitation {
 		$session = erLhcoreClassAbstract::getSession();
 		$q = $session->database->createSelectQuery();
 		$q->select( "COUNT(id)" )->from( "lh_abstract_proactive_chat_invitation" );
-
+		
+		$conditions = array();
+		
 		if (isset($params['filter']) && count($params['filter']) > 0)
 		{
-	   		$conditions = array();
-
-		   	foreach ($params['filter'] as $field => $fieldValue)
-		   	{
-		    	$conditions[] = $q->expr->eq( $field, $fieldValue );
-		   	}
-
-	   		$q->where( $conditions );
+			foreach ($params['filter'] as $field => $fieldValue)
+			{
+				$conditions[] = $q->expr->eq( $field, $q->bindValue($fieldValue) );
+			}
 		}
-
+		
+		if (isset($params['filterin']) && count($params['filterin']) > 0)
+		{
+			foreach ($params['filterin'] as $field => $fieldValue)
+			{
+				$conditions[] = $q->expr->in( $field, $fieldValue );
+			}
+		}
+		
+		if ( count($conditions) > 0)
+		{
+			$q->where( $conditions );
+		}
+		
 		$stmt = $q->prepare();
 		$stmt->execute();
 		$result = $stmt->fetchColumn();
@@ -318,6 +372,7 @@ class erLhAbstractModelProactiveChatInvitation {
 		$q->where( $q->expr->lte( 'time_on_site', $q->bindValue( $item->time_on_site ) ).' AND '.$q->expr->lte( 'pageviews', $q->bindValue( $item->pages_count ) ).'
 				AND ('.$q->expr->eq( 'siteaccess', $q->bindValue( erLhcoreClassSystem::instance()->SiteAccess ) ).' OR siteaccess = \'\')
 				AND ('.$q->expr->eq( 'identifier', $q->bindValue( $item->identifier ) ).' OR identifier = \'\')
+				AND ('.$q->expr->eq( 'dep_id', $q->bindValue( $item->dep_id ) ).' OR dep_id = 0)
 				AND ('.$q->expr->like( $session->database->quote(trim($referrer)), 'concat(referrer,\'%\')' ).' OR referrer = \'\')'
 		)
 		->orderBy('position ASC')
@@ -366,6 +421,7 @@ class erLhAbstractModelProactiveChatInvitation {
 	public $wait_timeout = 0;
 	public $show_random_operator = 0;
 	public $hide_after_ntimes = 0;
+	public $dep_id = 0;
 	public $referrer = '';
 	public $operator_ids = '';
 

@@ -19,8 +19,15 @@ if ( isset($objectData->has_filter) &&  $objectData->has_filter === true ) {
 	$tpl->set('filter',erLhAbstractModelNewspaper::FILTER_NAME);
 }
 
+$filterObject = array();
+if ( method_exists($objectData,'getFilter') ) {
+	$filterObject = $objectData->getFilter();
+}
+
+$tpl->set('filterObject',$filterObject);
+		
 $pages = new lhPaginator();
-$pages->items_total = call_user_func('erLhAbstractModel'.$Params['user_parameters']['identifier'].'::getCount',$filterParams['filter']);
+$pages->items_total = call_user_func('erLhAbstractModel'.$Params['user_parameters']['identifier'].'::getCount',array_merge($filterParams['filter'],$filterObject));
 $pages->translationContext = 'abstract/list';
 $pages->serverURL = erLhcoreClassDesign::baseurl('abstract/list').'/'.$Params['user_parameters']['identifier'].$append;
 $pages->setItemsPerPage(20);

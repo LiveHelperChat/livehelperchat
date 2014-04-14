@@ -64,6 +64,12 @@ $def->properties['wait_message']->columnName   = 'wait_message';
 $def->properties['wait_message']->propertyName = 'wait_message';
 $def->properties['wait_message']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+// Department ID
+$def->properties['dep_id'] = new ezcPersistentObjectProperty();
+$def->properties['dep_id']->columnName   = 'dep_id';
+$def->properties['dep_id']->propertyName = 'dep_id';
+$def->properties['dep_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 // Timeout in seconds.
 $def->properties['wait_timeout'] = new ezcPersistentObjectProperty();
 $def->properties['wait_timeout']->columnName   = 'wait_timeout';

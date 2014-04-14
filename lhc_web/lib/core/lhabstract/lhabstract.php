@@ -68,8 +68,12 @@ class erLhcoreClassAbstract {
         	case 'combobox':
 
         	        $onchange = isset($attr['on_change']) ? $attr['on_change'] : '';
-
-            	    $return = '<select class="abstract_input" name="AbstractInput_'.$name.'"'.$onchange.'><option value="0">Choose option</option>';
+        	        $return = '<select class="abstract_input" name="AbstractInput_'.$name.'"'.$onchange.'>';
+        	        
+        	        if (!isset($attr['hide_optional']) || $attr['hide_optional'] == false){
+            	    	$return .= '<option value="0">Choose option</option>';
+        	        }
+            	    
             	    $items = call_user_func($attr['source'],$attr['params_call']);
             	    foreach ($items as $item)
             	    {

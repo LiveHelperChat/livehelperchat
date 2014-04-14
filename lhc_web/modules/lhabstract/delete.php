@@ -14,6 +14,13 @@ if (isset($object_trans['permission']) && !$currentUser->hasAccessTo($object_tra
 	exit;
 }
 
+if ( method_exists($ObjectData,'checkPermission') ) {
+	if ( $ObjectData->checkPermission() === false ) {
+		erLhcoreClassModule::redirect();
+		exit;
+	}
+}
+
 $ObjectData->removeThis();
 
 $cache = CSCacheAPC::getMem();
