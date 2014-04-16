@@ -29,3 +29,7 @@ COMMENT='';
 ALTER TABLE `lh_abstract_proactive_chat_invitation`
 ADD `requires_username` int(11) NOT NULL,
 COMMENT='';
+
+ALTER TABLE `lh_chat_online_user`
+ADD `online_attr` varchar(250) NOT NULL,
+COMMENT='';

@@ -39,7 +39,8 @@ class erLhcoreClassModelChatOnlineUser {
                'dep_id'   			=> $this->dep_id,
                'reopen_chat'   		=> $this->reopen_chat,
 	       	   'operation'   		=> $this->operation,
-	       	   'screenshot_id'   	=> $this->screenshot_id
+	       	   'screenshot_id'   	=> $this->screenshot_id,
+	       	   'online_attr'   		=> $this->online_attr
        );
    }
 
@@ -550,6 +551,14 @@ class erLhcoreClassModelChatOnlineUser {
 	           		$item->tt_pages_count++;
 	           		$item->store_chat = true;
 	           		
+	           		if ( isset($_GET['onattr']) && is_array($_GET['onattr']) && !(empty($_GET['onattr'])) ) {
+	           			$stringOnlineAttr = array();
+	           			foreach ($_GET['onattr'] as $field => $value){
+	           				$stringOnlineAttr[] = $field.' - '.$value;
+	           			}
+	           			$item->online_attr = implode("\n", $stringOnlineAttr);
+	           		}
+	           		
 	           		if ($item->has_message_from_operator == true) {
 	           			$item->invitation_seen_count++;
 	           		}
@@ -635,6 +644,7 @@ class erLhcoreClassModelChatOnlineUser {
    public $invitation_seen_count = 0;
    public $screenshot_id = 0;
    public $operation = '';
+   public $online_attr = '';
       
    
    // 0 - do not reopen

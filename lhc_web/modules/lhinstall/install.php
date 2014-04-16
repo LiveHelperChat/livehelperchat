@@ -607,6 +607,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  `screenshot_id` int(11) NOT NULL,
         	   	  `identifier` varchar(50) NOT NULL,
         	   	  `operation` varchar(200) NOT NULL,
+        	   	  `online_attr` varchar(250) NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `vid` (`vid`),
 				  KEY `dep_id` (`dep_id`),

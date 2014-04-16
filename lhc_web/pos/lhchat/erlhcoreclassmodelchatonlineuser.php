@@ -186,11 +186,15 @@ $def->properties['operation']->columnName   = 'operation';
 $def->properties['operation']->propertyName = 'operation';
 $def->properties['operation']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
-// Operation for online visitor
 $def->properties['screenshot_id'] = new ezcPersistentObjectProperty();
 $def->properties['screenshot_id']->columnName   = 'screenshot_id';
 $def->properties['screenshot_id']->propertyName = 'screenshot_id';
 $def->properties['screenshot_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['online_attr'] = new ezcPersistentObjectProperty();
+$def->properties['online_attr']->columnName   = 'online_attr';
+$def->properties['online_attr']->propertyName = 'online_attr';
+$def->properties['online_attr']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 
 return $def;

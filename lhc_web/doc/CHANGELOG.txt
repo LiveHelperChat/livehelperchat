@@ -4,6 +4,14 @@ Github changes
 https://github.com/LiveHelperChat/livehelperchat/issues/345
 https://github.com/LiveHelperChat/livehelperchat/issues/346
 
+https://github.com/LiveHelperChat/livehelperchat/issues/348
+Sample argument
+LHCChatOptions.attr_online = new Array();
+LHCChatOptions.attr_online.push({'name':'email','value':'remdex@gmail.com'});
+LHCChatOptions.attr_online.push({'name':'phone','value':'370454654'});
+LHCChatOptions.attr_online.push({'name':'username','value':'Username here'});
+
+
 execute doc/update_db/update_75.sql for update
 
 1.95v
