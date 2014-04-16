@@ -29,6 +29,7 @@ if (isset($_POST['askQuestion']))
     $validationFields['Question'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
     $validationFields['DepartamentID'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1) );
     $validationFields['Email'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'validate_email' );
+    $validationFields['Username'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
     
     if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
     	// Start session if required only
@@ -51,6 +52,14 @@ if (isset($_POST['askQuestion']))
         $inputData->question = $form->Question;
     }
 
+    
+    if ( (!$form->hasValidData( 'Username' ) || trim($form->Username) == '') && $userInstance->requires_username == 1) {
+        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your name');
+    } elseif ( $form->hasValidData( 'Username' ) ) {
+        $inputData->username = $chat->nick = $form->Username;
+    }
+
+    
     if ($form->hasValidData( 'Question' ) && $form->Question != '' && mb_strlen($form->Question) > (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value)
     {
         $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum').' '.(int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','characters for a message');
@@ -100,8 +109,10 @@ if (isset($_POST['askQuestion']))
        $chat->referrer = isset($_POST['URLRefer']) ? $_POST['URLRefer'] : '';
        $chat->session_referrer = isset($_POST['r']) ? $_POST['r'] : '';
 
-       $chat->nick = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor');
-
+       if ($chat->nick == '') {
+       		$chat->nick = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor');
+       }
+       
        erLhcoreClassModelChat::detectLocation($chat);
      
        $chat->priority = is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : $chat->department->priority;

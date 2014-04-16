@@ -21,6 +21,7 @@ class erLhAbstractModelProactiveChatInvitation {
 			'timeout_message'	=> $this->timeout_message,
 			'wait_timeout'		=> $this->wait_timeout,
 			'requires_email'		=> $this->requires_email,
+			'requires_username'		=> $this->requires_username,
 			'show_random_operator'	=> $this->show_random_operator,
 			'hide_after_ntimes'	    => $this->hide_after_ntimes,
 			'operator_ids'	    => $this->operator_ids,
@@ -141,6 +142,13 @@ class erLhAbstractModelProactiveChatInvitation {
    				'requires_email' => array (
    						'type' => 'checkbox',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Requires e-mail'),
+   						'required' => false,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+   						)),
+   				'requires_username' => array (
+   						'type' => 'checkbox',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Requires name'),
    						'required' => false,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
@@ -387,6 +395,7 @@ class erLhAbstractModelProactiveChatInvitation {
 			$item->invitation_id = $message->id;
 			$item->invitation_seen_count = 0;
 			$item->requires_email = $message->requires_email;
+			$item->requires_username = $message->requires_username;
 			$item->invitation_count++;
 			$item->store_chat = true;
 			$item->invitation_assigned = true;
@@ -412,6 +421,7 @@ class erLhAbstractModelProactiveChatInvitation {
 	public $message = '';
 	public $position = 0;
 	public $requires_email = 0;
+	public $requires_username = 0;
 	public $name = '';
 	public $identifier = '';
 	public $executed_times = 0;

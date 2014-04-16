@@ -35,6 +35,7 @@ class erLhcoreClassModelChatOnlineUser {
                'total_visits'    	=> $this->total_visits,
                'invitation_count'   => $this->invitation_count,
                'requires_email'   	=> $this->requires_email,
+               'requires_username'  => $this->requires_username,
                'dep_id'   			=> $this->dep_id,
                'reopen_chat'   		=> $this->reopen_chat,
 	       	   'operation'   		=> $this->operation,
@@ -629,6 +630,7 @@ class erLhcoreClassModelChatOnlineUser {
    public $total_visits = 0;
    public $invitation_count = 0;
    public $requires_email = 0;
+   public $requires_username = 0;
    public $dep_id = 0;
    public $invitation_seen_count = 0;
    public $screenshot_id = 0;
