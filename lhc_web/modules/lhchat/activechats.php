@@ -10,6 +10,15 @@ if (isset($_GET['doSearch'])) {
 	$filterParams['is_search'] = false;
 }
 
+if ($Params['user_parameters_unordered']['print'] == 1){
+	$tpl = erLhcoreClassTemplate::getInstance('lhchat/printchats.tpl.php');
+	$items = erLhcoreClassChat::getActiveChats(10000,0,$filterParams['filter']);
+	$tpl->set('items',$items);
+	$Result['content'] = $tpl->fetch();
+	$Result['pagelayout'] = 'popup';
+	return;
+}
+
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 
 $pages = new lhPaginator();

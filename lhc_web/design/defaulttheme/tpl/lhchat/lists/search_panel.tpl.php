@@ -45,10 +45,13 @@
 		</div>
 	</div>
 		
+	<ul class="button-group radius">
+		<li><input type="submit" name="doSearch" class="button small" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" /></li>
+		<?php if ($pages->items_total > 0) : ?>
+		<li><a target="_blank" class="button small" href="<?php echo $pages->serverURL?>/(print)/1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Print');?></a></li>
+		<?php endif; ?>
+	</ul>
 	
-	<div>
-		<input type="submit" name="doSearch" class="button radius small" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
-	</div>
 
 </form>
 
