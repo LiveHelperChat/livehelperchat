@@ -146,6 +146,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Requires name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show random operator profile</source>
       <translation type="unfinished"/>
     </message>
@@ -155,6 +159,10 @@
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -571,6 +579,14 @@
     </message>
     <message>
       <source>How many seconds chat can be pending before about chat is informed a staff</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inform about unread messages if from last unread user message have passed (seconds)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter value in seconds</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1388,6 +1404,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Additional information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Last activity</source>
       <translation type="unfinished"/>
     </message>
@@ -2169,6 +2189,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Print</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Select department</source>
       <translation type="unfinished"/>
     </message>
@@ -2315,6 +2339,14 @@
     </message>
     <message>
       <source>Type your message to the user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Requires e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Requires name</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4892,6 +4924,10 @@
     <name>departament/edit</name>
     <message>
       <source>Please enter a department name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum 5 seconds</source>
       <translation type="unfinished"/>
     </message>
     <message>

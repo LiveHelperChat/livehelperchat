@@ -469,11 +469,11 @@
     </message>
     <message>
       <source>Will not be visible to visitor</source>
-      <translation type="unfinished"/>
+      <translation>Wird nicht sichtbar für Besucher sein</translation>
     </message>
     <message>
       <source>Hidden</source>
-      <translation type="unfinished"/>
+      <translation>Versteckt</translation>
     </message>
     <message>
       <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
@@ -755,7 +755,7 @@
     </message>
     <message>
       <source>Redirect user to contact form.</source>
-      <translation type="unfinished"/>
+      <translation>Nutzer auf Kontaktformular weiterleiten.</translation>
     </message>
     <message>
       <source>Print</source>
@@ -881,11 +881,11 @@
     </message>
     <message>
       <source>Redirect user to contact form.</source>
-      <translation type="unfinished"/>
+      <translation>Nutzer auf Kontaktformular weiterleiten.</translation>
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation type="unfinished"/>
+      <translation>Sind Sie sicher?</translation>
     </message>
     <message>
       <source>Accept chat</source>
@@ -4975,7 +4975,7 @@
     </message>
     <message>
       <source>has redirected user to contact form!</source>
-      <translation type="unfinished"/>
+      <translation>Nutzer wurde auf Kontaktformular weitergeleitet!</translation>
     </message>
   </context>
   <context>
@@ -5059,7 +5059,7 @@
     </message>
     <message>
       <source>HTML Code</source>
-      <translation type="unfinished"/>
+      <translation>HTML Code</translation>
     </message>
   </context>
   <context>
@@ -5070,7 +5070,7 @@
     </message>
     <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation type="unfinished"/>
+      <translation>Sprache, für alle Sprachen leer lassen. z.B. lit, rus, ger, etc...</translation>
     </message>
     <message>
       <source>Time on site on single page in seconds</source>
@@ -5114,7 +5114,7 @@
     </message>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>Aktiv</translation>
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>

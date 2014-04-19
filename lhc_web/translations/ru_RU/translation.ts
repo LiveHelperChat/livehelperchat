@@ -390,7 +390,7 @@
     </message>
     <message>
       <source>User</source>
-      <translation type="unfinished"/>
+      <translation>Пользователь</translation>
     </message>
     <message>
       <source>Delay</source>
@@ -485,7 +485,7 @@
     </message>
     <message>
       <source>Automate online hours</source>
-      <translation type="unfinished"/>
+      <translation>Автоматизация онлайн часов</translation>
     </message>
     <message>
       <source>Work hours/work days logic is active</source>
@@ -573,7 +573,7 @@
     </message>
     <message>
       <source>Other</source>
-      <translation type="unfinished"/>
+      <translation>Другие</translation>
     </message>
     <message>
       <source>Inform then chat is closed by operator, only mail notification is send.</source>
@@ -593,7 +593,7 @@
     </message>
     <message>
       <source>Miscellaneous</source>
-      <translation type="unfinished"/>
+      <translation>Разное</translation>
     </message>
     <message>
       <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
@@ -1683,11 +1683,11 @@
     </message>
     <message>
       <source>Need help?</source>
-      <translation type="unfinished"/>
+      <translation>Нужна помощь?</translation>
     </message>
     <message>
       <source>Our staff is always ready to help</source>
-      <translation type="unfinished"/>
+      <translation>Наши сотрудники всегда готовы помочь</translation>
     </message>
   </context>
   <context>
@@ -1821,7 +1821,7 @@
     </message>
     <message>
       <source>Update information</source>
-      <translation type="unfinished"/>
+      <translation>Обновить информацию</translation>
     </message>
     <message>
       <source>Live help embed code</source>
@@ -2365,7 +2365,7 @@
     </message>
     <message>
       <source>This field is invisible but prefilled data is collected</source>
-      <translation type="unfinished"/>
+      <translation>Это поле невидимо, но  данные сохраняются</translation>
     </message>
     <message>
       <source>This field is</source>
@@ -3868,7 +3868,7 @@
     </message>
     <message>
       <source>Revote</source>
-      <translation type="unfinished"/>
+      <translation>Переголосования</translation>
     </message>
     <message>
       <source>Y</source>
@@ -4306,15 +4306,15 @@
     <name>system/update</name>
     <message>
       <source>Your version</source>
-      <translation type="unfinished"/>
+      <translation>Ваша версия</translation>
     </message>
     <message>
       <source>Current version</source>
-      <translation type="unfinished"/>
+      <translation>Текущая версия</translation>
     </message>
     <message>
       <source>Last database update</source>
-      <translation type="unfinished"/>
+      <translation>Последнее обновление базы данных</translation>
     </message>
     <message>
       <source>News</source>
@@ -4326,15 +4326,15 @@
     </message>
     <message>
       <source>Update instructions</source>
-      <translation type="unfinished"/>
+      <translation>Инструкции по обновлению</translation>
     </message>
     <message>
       <source>You are running current version. No updates required</source>
-      <translation type="unfinished"/>
+      <translation>Вы используете текущую версию. Обновления не требуется</translation>
     </message>
     <message>
       <source>Live Helper Chat update information</source>
-      <translation type="unfinished"/>
+      <translation>Живой чат дополнительные сведения об обновлении</translation>
     </message>
   </context>
   <context>

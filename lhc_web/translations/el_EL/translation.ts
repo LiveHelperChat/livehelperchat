@@ -469,11 +469,11 @@
     </message>
     <message>
       <source>Will not be visible to visitor</source>
-      <translation type="unfinished"/>
+      <translation>Δεν θα είναι ορατό στον επισκέπτη</translation>
     </message>
     <message>
       <source>Hidden</source>
-      <translation type="unfinished"/>
+      <translation>Κρυφό</translation>
     </message>
     <message>
       <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
@@ -1840,7 +1840,7 @@
     </message>
     <message>
       <source>Browse offers embed code</source>
-      <translation type="unfinished"/>
+      <translation>Αναζήτηση προσφορές ενσωματώνει τον κώδικα</translation>
     </message>
     <message>
       <source>Statistic</source>
@@ -1895,11 +1895,11 @@
     </message>
     <message>
       <source>Popup width</source>
-      <translation type="unfinished"/>
+      <translation>Υπερεμφανιζόμενο πλάτος</translation>
     </message>
     <message>
       <source>Popup height, used only if iframe is used</source>
-      <translation type="unfinished"/>
+      <translation>Υπερεμφανιζόμενο ύψος, χρησιμοποιείται μόνο αν χρησιμοποιείται iframe</translation>
     </message>
     <message>
       <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
@@ -1911,7 +1911,7 @@
     </message>
     <message>
       <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
-      <translation type="unfinished"/>
+      <translation>Προσφορά χρονικού ορίου σε ημέρες, μετά δείχνουν πόσες μέρες προσφέρει για τον ίδιο επισκέπτη και πάλι, αφήστε κενό για συνεδρία</translation>
     </message>
     <message>
       <source>Choose a language</source>
@@ -2941,11 +2941,11 @@
     <name>questionary/htmlcode</name>
     <message>
       <source>Show overlay</source>
-      <translation type="unfinished"/>
+      <translation>Προβολή επικάλυψης</translation>
     </message>
     <message>
       <source>Show different offers for the same user</source>
-      <translation type="unfinished"/>
+      <translation>Εμφάνιση διαφορετικές προσφορές για τον ίδιο χρήστη</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page header or footer</source>
@@ -4074,7 +4074,7 @@
     </message>
     <message>
       <source>Browse offers</source>
-      <translation type="unfinished"/>
+      <translation>Αναζήτηση προσφέρει</translation>
     </message>
     <message>
       <source>Account</source>
@@ -5047,86 +5047,86 @@
     <name>browseoffer/index</name>
     <message>
       <source>Browse offers</source>
-      <translation type="unfinished"/>
+      <translation>Αναζήτηση προσφέρει</translation>
     </message>
     <message>
       <source>General</source>
-      <translation type="unfinished"/>
+      <translation>Γενική</translation>
     </message>
     <message>
       <source>Browse your offers</source>
-      <translation type="unfinished"/>
+      <translation>Περιηγηθείτε σας προσφορές</translation>
     </message>
     <message>
       <source>HTML Code</source>
-      <translation type="unfinished"/>
+      <translation>Κώδικα HTML</translation>
     </message>
   </context>
   <context>
     <name>abstract/browserofferinvitation</name>
     <message>
       <source>Name for personal purposes</source>
-      <translation type="unfinished"/>
+      <translation>Όνομα για προσωπικούς σκοπούς</translation>
     </message>
     <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation type="unfinished"/>
+      <translation>Γλώσσα, αφήστε κενό για όλους. Π.χ. φωτισμό, rus, ger κλπ...</translation>
     </message>
     <message>
       <source>Time on site on single page in seconds</source>
-      <translation type="unfinished"/>
+      <translation>Χρόνος στον ιστότοπο σε μεμονωμένη σελίδα σε δευτερόλεπτα</translation>
     </message>
     <message>
       <source>Priority, the lower the higher</source>
-      <translation type="unfinished"/>
+      <translation>Προτεραιότητα, τόσο χαμηλότερο το υψηλότερο</translation>
     </message>
     <message>
       <source>Popup width</source>
-      <translation type="unfinished"/>
+      <translation>Υπερεμφανιζόμενο πλάτος</translation>
     </message>
     <message>
       <source>Popup height</source>
-      <translation type="unfinished"/>
+      <translation>Υπερεμφανιζόμενο ύψος</translation>
     </message>
     <message>
       <source>Measure units, px or percents</source>
-      <translation type="unfinished"/>
+      <translation>Μονάδες μέτρησης, px ή percents</translation>
     </message>
     <message>
       <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
-      <translation type="unfinished"/>
+      <translation>Referrer τομέα χωρίς το www, π.χ. google λέξη-κλειδί θα συμφωνούν με οποιοδήποτε τομέα google</translation>
     </message>
     <message>
       <source>URL, enter * at the end for the wildcard</source>
-      <translation type="unfinished"/>
+      <translation>Διεύθυνση URL, πληκτρολογήστε * στο τέλος για το χαρακτήρα μπαλαντέρ</translation>
     </message>
     <message>
       <source>Custom iframe URL, takes priority over default content</source>
-      <translation type="unfinished"/>
+      <translation>Διεύθυνση URL έθιμο iframe, έχει προτεραιότητα πάνω από το προεπιλεγμένο περιεχόμενο</translation>
     </message>
     <message>
       <source>Default popup content</source>
-      <translation type="unfinished"/>
+      <translation>Προεπιλογή αναδυόμενο παράθυρο περιεχόμενο</translation>
     </message>
     <message>
       <source>Load content in lhc iframe</source>
-      <translation type="unfinished"/>
+      <translation>Περιεχόμενο φορτίο σε lhc iframe</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>Ενεργό</translation>
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation type="unfinished"/>
+      <translation>Αναγνωριστικό, για ποιο προσδιοριστικό πρέπει να εμφανιστεί αυτό το μήνυμα, αφήστε κενό για όλους</translation>
     </message>
     <message>
       <source>Matched times</source>
-      <translation type="unfinished"/>
+      <translation>Συμφωνημένα φορές</translation>
     </message>
     <message>
       <source>Browser offer invitations</source>
-      <translation type="unfinished"/>
+      <translation>Πρόγραμμα περιήγησης προσφορά προσκλήσεις</translation>
     </message>
   </context>
 </TS>

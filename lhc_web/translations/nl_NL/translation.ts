@@ -469,11 +469,11 @@
     </message>
     <message>
       <source>Will not be visible to visitor</source>
-      <translation type="unfinished"/>
+      <translation>Zal niet zichtbaar zijn voor bezoeker</translation>
     </message>
     <message>
       <source>Hidden</source>
-      <translation type="unfinished"/>
+      <translation>Verborgen</translation>
     </message>
     <message>
       <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
@@ -581,15 +581,15 @@
     </message>
     <message>
       <source>Chat transfer worklow</source>
-      <translation>Chat verplaatsings-workflow</translation>
+      <translation>Chat doorzettings-workflow</translation>
     </message>
     <message>
       <source>To what department chat should be transfered if it is not accepted</source>
-      <translation>Naar welke afdeling de chat moet worden verplaatst als hij niet geaccepteerd wordt</translation>
+      <translation>Naar welke afdeling de chat moet worden doorgezet als hij niet geaccepteerd wordt</translation>
     </message>
     <message>
       <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
-      <translation>Timeout in seconden voordat een chat verplaatst wordt naar een andere afdeling. Minimaal 5 seconden.</translation>
+      <translation>Timeout in seconden voordat een chat doorgezet wordt naar een andere afdeling. Minimaal 5 seconden.</translation>
     </message>
     <message>
       <source>Miscellaneous</source>
@@ -735,7 +735,7 @@
     </message>
     <message>
       <source>Transfer chat</source>
-      <translation>Verhuis chat</translation>
+      <translation>Zet chat door</translation>
     </message>
     <message>
       <source>Are you sure?</source>
@@ -1840,7 +1840,7 @@
     </message>
     <message>
       <source>Browse offers embed code</source>
-      <translation type="unfinished"/>
+      <translation>Embed code aanbiedingen doorbladeren</translation>
     </message>
     <message>
       <source>Statistic</source>
@@ -1895,11 +1895,11 @@
     </message>
     <message>
       <source>Popup width</source>
-      <translation type="unfinished"/>
+      <translation>Breedte popup</translation>
     </message>
     <message>
       <source>Popup height, used only if iframe is used</source>
-      <translation type="unfinished"/>
+      <translation>Hoogte popup, alleen gebruikt bij gebruik van iframe</translation>
     </message>
     <message>
       <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
@@ -1911,7 +1911,7 @@
     </message>
     <message>
       <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
-      <translation type="unfinished"/>
+      <translation>Timeout van aanbieding in dagen, na hoeveel dagen dezelfde bezoeker de aanbiedingen weer krijgt, laat leeg voor sessie</translation>
     </message>
     <message>
       <source>Choose a language</source>
@@ -2633,7 +2633,7 @@
     <name>chat/transferchat</name>
     <message>
       <source>Transfer to a user</source>
-      <translation>Verplaats naar een gebruiker</translation>
+      <translation>Zet door naar een gebruiker</translation>
     </message>
     <message>
       <source>Logged in users</source>
@@ -2641,15 +2641,15 @@
     </message>
     <message>
       <source>Transfer a chat to one of your departments users</source>
-      <translation>Verplaats een chat naar één van de gebruikers in jouw afdeling</translation>
+      <translation>Zet een chat door naar één van de gebruikers in jouw afdeling</translation>
     </message>
     <message>
       <source>Transfer</source>
-      <translation>Transfer</translation>
+      <translation>Zet door</translation>
     </message>
     <message>
       <source>Transfer to a department</source>
-      <translation>Verplaats naar een afdeling</translation>
+      <translation>Zet door naar een afdeling</translation>
     </message>
     <message>
       <source>Departments</source>
@@ -2941,11 +2941,11 @@
     <name>questionary/htmlcode</name>
     <message>
       <source>Show overlay</source>
-      <translation type="unfinished"/>
+      <translation>Toon overlay</translation>
     </message>
     <message>
       <source>Show different offers for the same user</source>
-      <translation type="unfinished"/>
+      <translation>Toon verschillende aanbiedingen voor dezelfde gebruiker</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page header or footer</source>
@@ -4010,7 +4010,7 @@
     </message>
     <message>
       <source>Chats transferred to you directly</source>
-      <translation>Chats direkt naar jou verplaatst</translation>
+      <translation>Chats direkt naar jou doorgezet</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -4018,7 +4018,7 @@
     </message>
     <message>
       <source>Transferred to your department</source>
-      <translation>Verplaatst naar jou afdeling</translation>
+      <translation>Doorgezet naar jouw afdeling</translation>
     </message>
     <message>
       <source>Pending chats</source>
@@ -4074,7 +4074,7 @@
     </message>
     <message>
       <source>Browse offers</source>
-      <translation type="unfinished"/>
+      <translation>Blader aanbiedingen door</translation>
     </message>
     <message>
       <source>Account</source>
@@ -4863,7 +4863,7 @@
     <name>chat/syncuser</name>
     <message>
       <source>Chat was automatically transferred to</source>
-      <translation>De chat werd automatisch verplaatst naar</translation>
+      <translation>De chat werd automatisch doorgezet naar</translation>
     </message>
     <message>
       <source>from</source>
@@ -4894,7 +4894,7 @@
     </message>
     <message>
       <source>Transfer department has to be different one than self</source>
-      <translation>De afdeling waarnaar wordt verplaatst mag niet de eigen afdeling zijn</translation>
+      <translation>De afdeling waarnaar wordt doorgezet mag niet de eigen afdeling zijn</translation>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>
@@ -5047,86 +5047,86 @@
     <name>browseoffer/index</name>
     <message>
       <source>Browse offers</source>
-      <translation type="unfinished"/>
+      <translation>Blader aanbiedingen door</translation>
     </message>
     <message>
       <source>General</source>
-      <translation type="unfinished"/>
+      <translation>Algemeen</translation>
     </message>
     <message>
       <source>Browse your offers</source>
-      <translation type="unfinished"/>
+      <translation>Blader uw aanbiedingen door</translation>
     </message>
     <message>
       <source>HTML Code</source>
-      <translation type="unfinished"/>
+      <translation>HTML Code</translation>
     </message>
   </context>
   <context>
     <name>abstract/browserofferinvitation</name>
     <message>
       <source>Name for personal purposes</source>
-      <translation type="unfinished"/>
+      <translation>Naam voor persoonlijke doeleinden</translation>
     </message>
     <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation type="unfinished"/>
+      <translation>Taal, laat leeg voor alle. Bijv. lit, rus, ger etc...</translation>
     </message>
     <message>
       <source>Time on site on single page in seconds</source>
-      <translation type="unfinished"/>
+      <translation>Tijd op site op enkele pagina in seconden</translation>
     </message>
     <message>
       <source>Priority, the lower the higher</source>
-      <translation type="unfinished"/>
+      <translation>Prioriteit, hoe lager hoe groter</translation>
     </message>
     <message>
       <source>Popup width</source>
-      <translation type="unfinished"/>
+      <translation>Breedte popup</translation>
     </message>
     <message>
       <source>Popup height</source>
-      <translation type="unfinished"/>
+      <translation>Hoogte popup</translation>
     </message>
     <message>
       <source>Measure units, px or percents</source>
-      <translation type="unfinished"/>
+      <translation>Eenheid, px of procenten</translation>
     </message>
     <message>
       <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
-      <translation type="unfinished"/>
+      <translation>Referrerdomein zonder www, bv. sleutelwoord &apos;Google&apos; matcht op alle Google domeinen</translation>
     </message>
     <message>
       <source>URL, enter * at the end for the wildcard</source>
-      <translation type="unfinished"/>
+      <translation>URL, voer een * in aan het eind als joker</translation>
     </message>
     <message>
       <source>Custom iframe URL, takes priority over default content</source>
-      <translation type="unfinished"/>
+      <translation>Aangepast iframe URL, krijgt prioriteit over standaard inhoud</translation>
     </message>
     <message>
       <source>Default popup content</source>
-      <translation type="unfinished"/>
+      <translation>Standaard popup inhoud</translation>
     </message>
     <message>
       <source>Load content in lhc iframe</source>
-      <translation type="unfinished"/>
+      <translation>Laad inhoud in lhc iframe</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>Actief</translation>
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation type="unfinished"/>
+      <translation>Identificatie, voor welke identificatie dit bericht getoond moet worden, laat leeg voor overal</translation>
     </message>
     <message>
       <source>Matched times</source>
-      <translation type="unfinished"/>
+      <translation>Aantal treffers</translation>
     </message>
     <message>
       <source>Browser offer invitations</source>
-      <translation type="unfinished"/>
+      <translation>Blader aanbiedings-uitnodigingen door</translation>
     </message>
   </context>
 </TS>

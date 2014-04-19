@@ -149,7 +149,7 @@
     </message>
     <message>
       <source>Enter operators IDs from whom random operator should be shown, separated by comma</source>
-      <translation type="unfinished"/>
+      <translation>Indtast operatørens ID fra hvem tilfældig operatør skal vises, adskilt af komma</translation>
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
@@ -226,31 +226,31 @@
     </message>
     <message>
       <source>Change chat status</source>
-      <translation type="unfinished"/>
+      <translation>Ændre chat status</translation>
     </message>
     <message>
       <source>Pending</source>
-      <translation type="unfinished"/>
+      <translation>Afventer</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>Aktiv</translation>
     </message>
     <message>
       <source>Closed</source>
-      <translation type="unfinished"/>
+      <translation>Lukket</translation>
     </message>
     <message>
       <source>Chatbox chat</source>
-      <translation type="unfinished"/>
+      <translation>Chatbox chat</translation>
     </message>
     <message>
       <source>Operators chat</source>
-      <translation type="unfinished"/>
+      <translation>Operatør chat</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation type="unfinished"/>
+      <translation>Annuller</translation>
     </message>
     <message>
       <source>This chat is closed.</source>
@@ -469,11 +469,11 @@
     </message>
     <message>
       <source>Will not be visible to visitor</source>
-      <translation type="unfinished"/>
+      <translation>Vil ikke være synligt for besøgende</translation>
     </message>
     <message>
       <source>Hidden</source>
-      <translation type="unfinished"/>
+      <translation>Skjult</translation>
     </message>
     <message>
       <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
@@ -647,7 +647,7 @@
     </message>
     <message>
       <source>Click to change chat status</source>
-      <translation type="unfinished"/>
+      <translation>Klik for at ændre chatstatus</translation>
     </message>
     <message>
       <source>Pending chat</source>
@@ -747,7 +747,7 @@
     </message>
     <message>
       <source>Mail was send</source>
-      <translation type="unfinished"/>
+      <translation>Mail blev sendt</translation>
     </message>
     <message>
       <source>Send mail</source>
@@ -755,7 +755,7 @@
     </message>
     <message>
       <source>Redirect user to contact form.</source>
-      <translation type="unfinished"/>
+      <translation>Omdirigere brugeren til en kontakt formular.</translation>
     </message>
     <message>
       <source>Print</source>
@@ -823,7 +823,7 @@
     </message>
     <message>
       <source>Invalid chat status</source>
-      <translation type="unfinished"/>
+      <translation>Ugyldig chatstatus</translation>
     </message>
   </context>
   <context>
@@ -881,11 +881,11 @@
     </message>
     <message>
       <source>Redirect user to contact form.</source>
-      <translation type="unfinished"/>
+      <translation>Omdirigere brugeren til en kontakt formular.</translation>
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation type="unfinished"/>
+      <translation>Er du sikker?</translation>
     </message>
     <message>
       <source>Accept chat</source>
@@ -990,7 +990,7 @@
     <name>chat/startchat</name>
     <message>
       <source>Department is disabled</source>
-      <translation type="unfinished"/>
+      <translation>Afdelingen er deaktiveret</translation>
     </message>
     <message>
       <source>Name</source>
@@ -1207,7 +1207,7 @@
     </message>
     <message>
       <source>Change my visibility to visible/invisible</source>
-      <translation type="unfinished"/>
+      <translation>Ændre min synlighed til synlig / usynlig</translation>
     </message>
     <message>
       <source>Change my status to online/offline</source>
@@ -1491,11 +1491,11 @@
     </message>
     <message>
       <source>Refresh list every</source>
-      <translation type="unfinished"/>
+      <translation>Opdater listen hver</translation>
     </message>
     <message>
       <source>second</source>
-      <translation type="unfinished"/>
+      <translation>sekund</translation>
     </message>
     <message>
       <source>seconds</source>
@@ -1682,11 +1682,11 @@
     </message>
     <message>
       <source>Need help?</source>
-      <translation type="unfinished"/>
+      <translation>Brug for hjælp?</translation>
     </message>
     <message>
       <source>Our staff is always ready to help</source>
-      <translation type="unfinished"/>
+      <translation>Vores personale er altid klar til at hjælpe</translation>
     </message>
   </context>
   <context>
@@ -1840,7 +1840,7 @@
     </message>
     <message>
       <source>Browse offers embed code</source>
-      <translation type="unfinished"/>
+      <translation>Gennemse tilbud embed kode</translation>
     </message>
     <message>
       <source>Statistic</source>
@@ -1895,11 +1895,11 @@
     </message>
     <message>
       <source>Popup width</source>
-      <translation type="unfinished"/>
+      <translation>Popup bredde</translation>
     </message>
     <message>
       <source>Popup height, used only if iframe is used</source>
-      <translation type="unfinished"/>
+      <translation>Popup højde, anvendes kun, hvis der anvendes iframe</translation>
     </message>
     <message>
       <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
@@ -1911,7 +1911,7 @@
     </message>
     <message>
       <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
-      <translation type="unfinished"/>
+      <translation>Offer timeout i dage, efter hvor mange dage viser tilbud til den samme besøgende igen, lad tomme for sessionen</translation>
     </message>
     <message>
       <source>Choose a language</source>
@@ -2455,7 +2455,7 @@
     </message>
     <message>
       <source>Messages settings</source>
-      <translation type="unfinished"/>
+      <translation>Besked indstillinger</translation>
     </message>
     <message>
       <source>Sync for a new user message, interval in seconds</source>
@@ -2463,11 +2463,11 @@
     </message>
     <message>
       <source>Show browser notification for new messages</source>
-      <translation type="unfinished"/>
+      <translation>Vis browser notifikationer for nye meddelelser</translation>
     </message>
     <message>
       <source>Long polling (experimental)</source>
-      <translation type="unfinished"/>
+      <translation>Lang polling (eksperimentel)</translation>
     </message>
     <message>
       <source>Enable long polling</source>
@@ -2941,11 +2941,11 @@
     <name>questionary/htmlcode</name>
     <message>
       <source>Show overlay</source>
-      <translation type="unfinished"/>
+      <translation>Vis overlay</translation>
     </message>
     <message>
       <source>Show different offers for the same user</source>
-      <translation type="unfinished"/>
+      <translation>Vis forskellige tilbud til den samme bruger</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page header or footer</source>
@@ -3127,11 +3127,11 @@
     </message>
     <message>
       <source>Job title</source>
-      <translation type="unfinished"/>
+      <translation>Jobtitel</translation>
     </message>
     <message>
       <source>Chat status will not change upon pending chat opening</source>
-      <translation type="unfinished"/>
+      <translation>Chat status vil ikke ændre på ventende chat åbning</translation>
     </message>
     <message>
       <source>Skype</source>
@@ -3159,7 +3159,7 @@
     </message>
     <message>
       <source>All departments</source>
-      <translation type="unfinished"/>
+      <translation>Alle afdelinger</translation>
     </message>
     <message>
       <source>Visible lists</source>
@@ -3265,7 +3265,7 @@
     </message>
     <message>
       <source>Please enter your email address!</source>
-      <translation type="unfinished"/>
+      <translation>Indtast venligst din email adresse!</translation>
     </message>
   </context>
   <context>
@@ -4074,7 +4074,7 @@
     </message>
     <message>
       <source>Browse offers</source>
-      <translation type="unfinished"/>
+      <translation>Gennemse tilbud</translation>
     </message>
     <message>
       <source>Account</source>
@@ -4340,7 +4340,7 @@
     <name>user/new</name>
     <message>
       <source>Invisible mode</source>
-      <translation type="unfinished"/>
+      <translation>Usynlig tilstand</translation>
     </message>
     <message>
       <source>User group</source>
@@ -4964,7 +4964,7 @@
     <name>chat/accepttrasnfer</name>
     <message>
       <source>has joined the chat!</source>
-      <translation type="unfinished"/>
+      <translation>har sluttet sig til chatten!</translation>
     </message>
   </context>
   <context>
@@ -4975,7 +4975,7 @@
     </message>
     <message>
       <source>has redirected user to contact form!</source>
-      <translation type="unfinished"/>
+      <translation>har omdirigeret bruger til en kontakt formular!</translation>
     </message>
   </context>
   <context>
@@ -5047,86 +5047,86 @@
     <name>browseoffer/index</name>
     <message>
       <source>Browse offers</source>
-      <translation type="unfinished"/>
+      <translation>Gennemse tilbud</translation>
     </message>
     <message>
       <source>General</source>
-      <translation type="unfinished"/>
+      <translation>Generelt</translation>
     </message>
     <message>
       <source>Browse your offers</source>
-      <translation type="unfinished"/>
+      <translation>Gennemse dine tilbud</translation>
     </message>
     <message>
       <source>HTML Code</source>
-      <translation type="unfinished"/>
+      <translation>HTML Kode</translation>
     </message>
   </context>
   <context>
     <name>abstract/browserofferinvitation</name>
     <message>
       <source>Name for personal purposes</source>
-      <translation type="unfinished"/>
+      <translation>Navn til personlige formål</translation>
     </message>
     <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation type="unfinished"/>
+      <translation>Sprog, efterlad tom for alle. F.eks. rus, ger, etc...</translation>
     </message>
     <message>
       <source>Time on site on single page in seconds</source>
-      <translation type="unfinished"/>
+      <translation>Tid på stedet på én side i sekunder</translation>
     </message>
     <message>
       <source>Priority, the lower the higher</source>
-      <translation type="unfinished"/>
+      <translation>Prioritet, jo lavere jo højere</translation>
     </message>
     <message>
       <source>Popup width</source>
-      <translation type="unfinished"/>
+      <translation>Popup bredde</translation>
     </message>
     <message>
       <source>Popup height</source>
-      <translation type="unfinished"/>
+      <translation>Popup højde</translation>
     </message>
     <message>
       <source>Measure units, px or percents</source>
-      <translation type="unfinished"/>
+      <translation>Måleenheder, px eller procenter</translation>
     </message>
     <message>
       <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
-      <translation type="unfinished"/>
+      <translation>Henvisende domæne uden www, fx google søgeord matcher nogen af google-domæne</translation>
     </message>
     <message>
       <source>URL, enter * at the end for the wildcard</source>
-      <translation type="unfinished"/>
+      <translation>URL-adresse, Indtast * enden for wildcard</translation>
     </message>
     <message>
       <source>Custom iframe URL, takes priority over default content</source>
-      <translation type="unfinished"/>
+      <translation>Brugerdefineret IFRAME URL, går forud for standard indhold</translation>
     </message>
     <message>
       <source>Default popup content</source>
-      <translation type="unfinished"/>
+      <translation>Standard popup indhold</translation>
     </message>
     <message>
       <source>Load content in lhc iframe</source>
-      <translation type="unfinished"/>
+      <translation>Load indhold i lhc iframe</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>Aktiv</translation>
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation type="unfinished"/>
+      <translation>Id, for hvilke id denne besked skal vises, efterlade tom for alle</translation>
     </message>
     <message>
       <source>Matched times</source>
-      <translation type="unfinished"/>
+      <translation>Matchede gange</translation>
     </message>
     <message>
       <source>Browser offer invitations</source>
-      <translation type="unfinished"/>
+      <translation>Browser tilbuds invitationer</translation>
     </message>
   </context>
 </TS>
