@@ -55,7 +55,7 @@ if ($pendingTabEnabled == true) {
 	if (!empty($pendingChats)) {
 		$lastPendingChatID = max(array_keys($pendingChats));
 		$chatRecent = reset($pendingChats);
-		$lastChatNick = $chatRecent->nick;
+		$lastChatNick = $chatRecent->nick.' | '.$chatRecent->department;
 		$lastMessage = erLhcoreClassChat::getGetLastChatMessagePending($chatRecent->id);
 	}
 
