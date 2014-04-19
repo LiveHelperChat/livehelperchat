@@ -12,6 +12,8 @@ class erLhcoreClassChat {
 
 	public static $chatListIgnoreField = array(
 			'remarks',			
+			'unread_messages_informed',			
+			'reinform_timeout',			
 			'user_typing_txt',
 			'hash',
 			'ip',
