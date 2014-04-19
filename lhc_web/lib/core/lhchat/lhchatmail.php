@@ -179,17 +179,16 @@ class erLhcoreClassChatMail {
     	$mail->FromName = $sendMail->from_name;
     	
     	if ($sendMail->from_email != '') {
-    		$mail->Sender = $sendMail->from_email;
+    		$mail->From = $mail->Sender = $sendMail->from_email;
     	}
 
-    	if ($faq->email != ''){
-    		$mail->From = $faq->email;
+    	if ($faq->email != ''){    
     		$mail->AddReplyTo($faq->email);
     	}
 
     	$mail->Subject = $sendMail->subject;
     	
-    	$mail->Body = str_replace(array('{email}','{question}','{url_request}'), array($faq->email,$faq->question,erLhcoreClassXMP::getBaseHost() . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('user/login').'/(r)/'.rawurlencode(base64_encode('faq/view/'.$faq->id))), $sendMail->content);
+    	$mail->Body = str_replace(array('{email}','{question}','{url_request}','{url_question}'), array($faq->email,$faq->question,erLhcoreClassXMP::getBaseHost() . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('user/login').'/(r)/'.rawurlencode(base64_encode('faq/view/'.$faq->id)),$faq->url), $sendMail->content);
     	
     	if ($sendMail->recipient != '') { // Perhaps template has default recipient
     		$emailRecipient = explode(',',$sendMail->recipient);
@@ -216,11 +215,11 @@ class erLhcoreClassChatMail {
     	$mail->CharSet = "UTF-8";
 
     	if ($sendMail->from_email != '') {
-    		$mail->Sender = $sendMail->from_email;
-    	}
-    	
-    	$mail->From = $chat->email;
-    	$mail->FromName = $chat->nick;
+    		$mail->From = $mail->Sender = $sendMail->from_email;
+    	}    	
+    
+    	$mail->FromName = $sendMail->from_name;
+    	    	
     	$mail->Subject = str_replace(array('{name}','{department}','{country}','{city}'),array($chat->nick,(string)$chat->department,$chat->country_name,$chat->city),$sendMail->subject);
     	$mail->AddReplyTo($chat->email,$chat->nick);
     	
@@ -271,8 +270,7 @@ class erLhcoreClassChatMail {
     	
     	$mail->FromName = $sendMail->from_name;
     	
-    	if ($chat->email != '') {
-    		$mail->From = $chat->email;
+    	if ($chat->email != '') {    		
     		$mail->AddReplyTo($chat->email,$chat->nick);
     	}
     	  	
@@ -338,7 +336,7 @@ class erLhcoreClassChatMail {
     		$mail->Sender = $mail->From = $sendMail->from_email;
     	}
 
-    	$mail->FromName = $chat->nick != '' ? $chat->nick : $sendMail->from_name;    	
+    	$mail->FromName = $sendMail->from_name;    	
     	$mail->Subject = $sendMail->subject;
     	   	    	
     	$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 10,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
@@ -368,8 +366,7 @@ class erLhcoreClassChatMail {
     	$cfgSite = erConfigClassLhConfig::getInstance();
     	$secretHash = $cfgSite->getSetting( 'site', 'secrethash' );
     	
-    	if ($chat->email != '') {
-    		$mail->From = $chat->email;
+    	if ($chat->email != '') {    	
     		$mail->AddReplyTo($chat->email, $chat->nick);
     	}
 
