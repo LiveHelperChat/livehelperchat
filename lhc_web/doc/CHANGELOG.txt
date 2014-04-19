@@ -11,7 +11,8 @@ LHCChatOptions.attr_online.push({'name':'email','value':'remdex@gmail.com'});
 LHCChatOptions.attr_online.push({'name':'phone','value':'370454654'});
 LHCChatOptions.attr_online.push({'name':'username','value':'Username here'});
 
-https://github.com/LiveHelperChat/livehelperchat/issues/350
+https://github.com/LiveHelperChat/livehelperchat/issues/351
+New variable for FAQ template - {url_question}
 
 execute doc/update_db/update_75.sql for update
 
