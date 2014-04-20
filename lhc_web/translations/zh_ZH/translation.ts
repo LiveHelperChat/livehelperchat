@@ -144,6 +144,10 @@
       <translation>需要電子郵件</translation>
     </message>
     <message>
+      <source>Requires name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show random operator profile</source>
       <translation>显示随机算子配置文件</translation>
     </message>
@@ -154,6 +158,10 @@
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
       <translation>標識符，標識符是什麼，應該顯示這個消息，留下空</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Matched times</source>
@@ -570,6 +578,14 @@
     <message>
       <source>How many seconds chat can be pending before about chat is informed a staff</source>
       <translation>多少秒聊天可能挂起之前关于聊天是告知工作人员</translation>
+    </message>
+    <message>
+      <source>Inform about unread messages if from last unread user message have passed (seconds)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter value in seconds</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Other</source>
@@ -1386,6 +1402,10 @@
       <translation>识别码</translation>
     </message>
     <message>
+      <source>Additional information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Last activity</source>
       <translation>上次活动</translation>
     </message>
@@ -2167,6 +2187,10 @@
       <translation>搜索</translation>
     </message>
     <message>
+      <source>Print</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Select department</source>
       <translation>选择部门</translation>
     </message>
@@ -2314,6 +2338,14 @@
     <message>
       <source>Type your message to the user</source>
       <translation>输入您的信息给用户</translation>
+    </message>
+    <message>
+      <source>Requires e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Requires name</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Send the message</source>
@@ -4891,6 +4923,10 @@
     <message>
       <source>Please enter a department name</source>
       <translation>请输入一个部门名称</translation>
+    </message>
+    <message>
+      <source>Minimum 5 seconds</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Transfer department has to be different one than self</source>

@@ -144,6 +144,10 @@
       <translation>Требует e-mail</translation>
     </message>
     <message>
+      <source>Requires name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show random operator profile</source>
       <translation>Показать профиль случайного оператора</translation>
     </message>
@@ -154,6 +158,10 @@
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
       <translation>Идентификатор, что должно отображаться это сообщение, идентификатор оставьте пустым для всех</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Matched times</source>
@@ -570,6 +578,14 @@
     <message>
       <source>How many seconds chat can be pending before about chat is informed a staff</source>
       <translation>Через сколько секунд операторы получат уведомление о чате находящемся в режиме ожидания</translation>
+    </message>
+    <message>
+      <source>Inform about unread messages if from last unread user message have passed (seconds)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter value in seconds</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Other</source>
@@ -1387,6 +1403,10 @@
       <translation>Идентификатор</translation>
     </message>
     <message>
+      <source>Additional information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Last activity</source>
       <translation>последняя активность</translation>
     </message>
@@ -2168,6 +2188,10 @@
       <translation>Поиск</translation>
     </message>
     <message>
+      <source>Print</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Select department</source>
       <translation>Выбрать отдел</translation>
     </message>
@@ -2315,6 +2339,14 @@
     <message>
       <source>Type your message to the user</source>
       <translation>Напишите сообщение пользователю</translation>
+    </message>
+    <message>
+      <source>Requires e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Requires name</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Send the message</source>
@@ -4892,6 +4924,10 @@
     <message>
       <source>Please enter a department name</source>
       <translation>введите имя департамента</translation>
+    </message>
+    <message>
+      <source>Minimum 5 seconds</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Transfer department has to be different one than self</source>

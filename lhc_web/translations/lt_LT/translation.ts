@@ -144,6 +144,10 @@
       <translation>Reikalingas e-pašto adresas</translation>
     </message>
     <message>
+      <source>Requires name</source>
+      <translation>Reikalaujama vardo</translation>
+    </message>
+    <message>
       <source>Show random operator profile</source>
       <translation>Rodyti atsitiktinį operatoriaus profilį</translation>
     </message>
@@ -154,6 +158,10 @@
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
       <translation>Identifikatorius, kuriam identifikatoriui ši žinutė turėtų būti rodoma. Palikite tuščia visiems</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Departamentas</translation>
     </message>
     <message>
       <source>Matched times</source>
@@ -469,11 +477,11 @@
     </message>
     <message>
       <source>Will not be visible to visitor</source>
-      <translation type="unfinished"/>
+      <translation>Nebus matoma lankytojui</translation>
     </message>
     <message>
       <source>Hidden</source>
-      <translation type="unfinished"/>
+      <translation>Paslėptas</translation>
     </message>
     <message>
       <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
@@ -570,6 +578,14 @@
     <message>
       <source>How many seconds chat can be pending before about chat is informed a staff</source>
       <translation>Kiek sekundžių laukti, kol apie pokalbį bus informuotas personalas</translation>
+    </message>
+    <message>
+      <source>Inform about unread messages if from last unread user message have passed (seconds)</source>
+      <translation>Informuoti apie neperskaitytą žinutę jei nuo paskutinės vartotojo žinutės praėjo (sekundės)</translation>
+    </message>
+    <message>
+      <source>Please enter value in seconds</source>
+      <translation>Prašome įvesti reikšmę sekundėmis</translation>
     </message>
     <message>
       <source>Other</source>
@@ -1386,6 +1402,10 @@
       <translation>Identifikatorius</translation>
     </message>
     <message>
+      <source>Additional information</source>
+      <translation>Papildoma informacija</translation>
+    </message>
+    <message>
       <source>Last activity</source>
       <translation>Paskutinis aktyvumas</translation>
     </message>
@@ -1840,7 +1860,7 @@
     </message>
     <message>
       <source>Browse offers embed code</source>
-      <translation type="unfinished"/>
+      <translation>Naršymo pasiūlymų įterpimo kodas</translation>
     </message>
     <message>
       <source>Statistic</source>
@@ -1895,11 +1915,11 @@
     </message>
     <message>
       <source>Popup width</source>
-      <translation type="unfinished"/>
+      <translation>Iššokančio langelio plotis</translation>
     </message>
     <message>
       <source>Popup height, used only if iframe is used</source>
-      <translation type="unfinished"/>
+      <translation>Iššokančio langelio aukštis, naudojama tik jei naudojamas iframa&apos;s</translation>
     </message>
     <message>
       <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
@@ -1911,7 +1931,7 @@
     </message>
     <message>
       <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
-      <translation type="unfinished"/>
+      <translation>Naršymo pasiūlymų pertrauka tarp pasiūlymų, po kiek dienų rodyti pasiūlymą, tam pačiam lankytojui. Palikite tuščia jeigu norite, kad pasiūlymas būtų rodomas kiekvieną kartą atėjus į svetainę</translation>
     </message>
     <message>
       <source>Choose a language</source>
@@ -2167,6 +2187,10 @@
       <translation>Ieškoti</translation>
     </message>
     <message>
+      <source>Print</source>
+      <translation>Spausdinti</translation>
+    </message>
+    <message>
       <source>Select department</source>
       <translation>Pasirinkite departamentą</translation>
     </message>
@@ -2314,6 +2338,14 @@
     <message>
       <source>Type your message to the user</source>
       <translation>Parašykite savo žinutę vartotojui</translation>
+    </message>
+    <message>
+      <source>Requires e-mail</source>
+      <translation>Reikalaujama el. pašto adreso</translation>
+    </message>
+    <message>
+      <source>Requires name</source>
+      <translation>Reikalaujama vardo</translation>
     </message>
     <message>
       <source>Send the message</source>
@@ -2941,11 +2973,11 @@
     <name>questionary/htmlcode</name>
     <message>
       <source>Show overlay</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti pilką foną</translation>
     </message>
     <message>
       <source>Show different offers for the same user</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti skirtingus pasiūlymus tam pačiam vartotojui.</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page header or footer</source>
@@ -4074,7 +4106,7 @@
     </message>
     <message>
       <source>Browse offers</source>
-      <translation type="unfinished"/>
+      <translation>Naršymo pasiūlymai</translation>
     </message>
     <message>
       <source>Account</source>
@@ -4893,6 +4925,10 @@
       <translation>Prašome įvesti departamento vardą</translation>
     </message>
     <message>
+      <source>Minimum 5 seconds</source>
+      <translation>Minimum 5 sekundės</translation>
+    </message>
+    <message>
       <source>Transfer department has to be different one than self</source>
       <translation>Pervedamas departamentas negali būti jis pats</translation>
     </message>
@@ -5047,86 +5083,86 @@
     <name>browseoffer/index</name>
     <message>
       <source>Browse offers</source>
-      <translation type="unfinished"/>
+      <translation>Naršymo pasiūlymai</translation>
     </message>
     <message>
       <source>General</source>
-      <translation type="unfinished"/>
+      <translation>Bendra</translation>
     </message>
     <message>
       <source>Browse your offers</source>
-      <translation type="unfinished"/>
+      <translation>Naršyto po savo pasiūlymus</translation>
     </message>
     <message>
       <source>HTML Code</source>
-      <translation type="unfinished"/>
+      <translation>HTML Kodas</translation>
     </message>
   </context>
   <context>
     <name>abstract/browserofferinvitation</name>
     <message>
       <source>Name for personal purposes</source>
-      <translation type="unfinished"/>
+      <translation>Pavadinimas asmeniniais tikslais</translation>
     </message>
     <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation type="unfinished"/>
+      <translation>Kalba, palikite tuščią visoms.  Pvz. lit, rus, ger ir t.t</translation>
     </message>
     <message>
       <source>Time on site on single page in seconds</source>
-      <translation type="unfinished"/>
+      <translation>Laikas praleista viename puslapyje sekundėmis</translation>
     </message>
     <message>
       <source>Priority, the lower the higher</source>
-      <translation type="unfinished"/>
+      <translation>Prioritetas, kuo mažesnis skaičius tuo aukščiau</translation>
     </message>
     <message>
       <source>Popup width</source>
-      <translation type="unfinished"/>
+      <translation>Iššokančio lango plotis</translation>
     </message>
     <message>
       <source>Popup height</source>
-      <translation type="unfinished"/>
+      <translation>Iššokančio lango aukštis</translation>
     </message>
     <message>
       <source>Measure units, px or percents</source>
-      <translation type="unfinished"/>
+      <translation>Matavimo vienatai, pikseliai arba procentai</translation>
     </message>
     <message>
       <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
-      <translation type="unfinished"/>
+      <translation>Domenas iš kurio atėjo lankytojas be www. Pvz. google raktažodis atitiks visus googles domenus.</translation>
     </message>
     <message>
       <source>URL, enter * at the end for the wildcard</source>
-      <translation type="unfinished"/>
+      <translation>URL, įveskite * gale jeigu nesvarbus URL adreso galas.</translation>
     </message>
     <message>
       <source>Custom iframe URL, takes priority over default content</source>
-      <translation type="unfinished"/>
+      <translation>Turinio iframe URL, bus naudojamas vietoj turinio jeigu užpildytas</translation>
     </message>
     <message>
       <source>Default popup content</source>
-      <translation type="unfinished"/>
+      <translation>Standartinis iššokančio lango turinys</translation>
     </message>
     <message>
       <source>Load content in lhc iframe</source>
-      <translation type="unfinished"/>
+      <translation>Krauti turinį LHC iframe</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvus</translation>
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation type="unfinished"/>
+      <translation>Identifikatorius, kokiam identifikatoriui šis pranešimas turėtų būti rodomas, palikte tuščia visiems.</translation>
     </message>
     <message>
       <source>Matched times</source>
-      <translation type="unfinished"/>
+      <translation>Pritaikyta kartų</translation>
     </message>
     <message>
       <source>Browser offer invitations</source>
-      <translation type="unfinished"/>
+      <translation>Naršymo pasiūlymai</translation>
     </message>
   </context>
 </TS>

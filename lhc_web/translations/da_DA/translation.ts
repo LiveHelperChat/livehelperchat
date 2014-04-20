@@ -144,6 +144,10 @@
       <translation>Kræver e-mail</translation>
     </message>
     <message>
+      <source>Requires name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show random operator profile</source>
       <translation>Vis tilfældig operatørprofil</translation>
     </message>
@@ -154,6 +158,10 @@
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
       <translation>Id, for hvilke id denne meddelelse skal vises, efterlad tom for alle</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Matched times</source>
@@ -570,6 +578,14 @@
     <message>
       <source>How many seconds chat can be pending before about chat is informed a staff</source>
       <translation>Hvor mange sekunder chat kan være ventende før om chat er informeret en personale</translation>
+    </message>
+    <message>
+      <source>Inform about unread messages if from last unread user message have passed (seconds)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter value in seconds</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Other</source>
@@ -1386,6 +1402,10 @@
       <translation>Id</translation>
     </message>
     <message>
+      <source>Additional information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Last activity</source>
       <translation>Seneste aktivitet</translation>
     </message>
@@ -2167,6 +2187,10 @@
       <translation>Søg</translation>
     </message>
     <message>
+      <source>Print</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Select department</source>
       <translation>Vælg afdeling</translation>
     </message>
@@ -2314,6 +2338,14 @@
     <message>
       <source>Type your message to the user</source>
       <translation>Skriv din meddelelse til brugeren</translation>
+    </message>
+    <message>
+      <source>Requires e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Requires name</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Send the message</source>
@@ -4891,6 +4923,10 @@
     <message>
       <source>Please enter a department name</source>
       <translation>Angiv et afdelingsnavn</translation>
+    </message>
+    <message>
+      <source>Minimum 5 seconds</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Transfer department has to be different one than self</source>

@@ -146,6 +146,10 @@
       <translation>Correo necesario</translation>
     </message>
     <message>
+      <source>Requires name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show random operator profile</source>
       <translation>Mostrar perfil de operador aleatorio</translation>
     </message>
@@ -156,6 +160,10 @@
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
       <translation>Identificador, para que identificador deberá mostrarse este mensaje, dejar vacío para todos</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Matched times</source>
@@ -572,6 +580,14 @@
     <message>
       <source>How many seconds chat can be pending before about chat is informed a staff</source>
       <translation>¿Cuántos segundos el chat puede estar pendiente antes de que sea informado al personal?</translation>
+    </message>
+    <message>
+      <source>Inform about unread messages if from last unread user message have passed (seconds)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter value in seconds</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Other</source>
@@ -1389,6 +1405,10 @@
       <translation>Identificador</translation>
     </message>
     <message>
+      <source>Additional information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Last activity</source>
       <translation>Última actividad</translation>
     </message>
@@ -2171,6 +2191,10 @@
       <translation>Buscar</translation>
     </message>
     <message>
+      <source>Print</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Select department</source>
       <translation>Selecciona departamento</translation>
     </message>
@@ -2318,6 +2342,14 @@
     <message>
       <source>Type your message to the user</source>
       <translation>Escriba su mensaje al usuario</translation>
+    </message>
+    <message>
+      <source>Requires e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Requires name</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Send the message</source>
@@ -4896,6 +4928,10 @@
     <message>
       <source>Please enter a department name</source>
       <translation>Por favor ingrese un nombre de departamento</translation>
+    </message>
+    <message>
+      <source>Minimum 5 seconds</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Transfer department has to be different one than self</source>

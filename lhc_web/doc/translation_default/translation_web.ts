@@ -1272,6 +1272,10 @@
   <context>
     <name>chat/onlineusers</name>
     <message>
+      <source>Empty...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>GEO detection configuration</source>
       <translation type="unfinished"/>
     </message>
@@ -1564,11 +1568,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <source>User has seen the message from the operator.</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>User has seen the message from the operator.</source>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1585,10 +1589,6 @@
     </message>
     <message>
       <source>last visit</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Empty...</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2198,6 +2198,10 @@
     </message>
     <message>
       <source>Select user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Type to search</source>
       <translation type="unfinished"/>
     </message>
   </context>
