@@ -22,12 +22,11 @@
 	    <p class="title" data-section-title><a href="#panel1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','List');?></a></p>
 	    <div class="content" data-section-content>
 
-
 <div class="row">
-	<div class="columns small-3">
-		<label><span id="online-users-count">{{online.onlineusers.length}}</span> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','online users');?></label>
+	<div class="columns small-1">
+		<label class="inline" id="online-users-count" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','online users');?>">{{online.onlineusers.length}}</label>
 	</div>
-	<div class="columns small-2">
+	<div class="columns small-4">
 		<input ng-model="query" type="text" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Type to search')?>">
 	</div>
 	<div class="columns small-3">
