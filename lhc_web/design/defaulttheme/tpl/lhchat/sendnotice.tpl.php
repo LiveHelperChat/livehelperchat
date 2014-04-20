@@ -9,7 +9,6 @@
 <script>
 setTimeout(function(){
     parent.$.colorbox.close();
-    parent.lhinst.syncOnlineUsers();
 },3000);
 </script>
 

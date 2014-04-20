@@ -10,13 +10,17 @@ if (is_numeric($Params['user_parameters_unordered']['clear_list']) && $Params['u
 	}
 
     erLhcoreClassModelChatOnlineUser::cleanAllRecords();
-
     erLhcoreClassModule::redirect('chat/onlineusers');
     exit;
 }
 
 if (is_numeric($Params['user_parameters_unordered']['deletevisitor']) && $Params['user_parameters_unordered']['deletevisitor'] > 0) {
-
+	
+	if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
+		die('Invalid CSRF Token');
+		exit;
+	}
+	
 	try {
 		$visitor = erLhcoreClassModelChatOnlineUser::fetch($Params['user_parameters_unordered']['deletevisitor']);
 		$visitor->removeThis();
@@ -46,21 +50,19 @@ if ($userDepartments !== true){
 	$departmentParams['filterin']['id'] = $filter['filterin']['dep_id'] = $userDepartments;
 }
 
-$items = erLhcoreClassModelChatOnlineUser::getList($filter);
-$tpl->set('items',$items);
-$tpl->set('is_ajax',$is_ajax);
+if ($is_ajax == true) {
+	$items = erLhcoreClassModelChatOnlineUser::getList($filter);
+	erLhcoreClassChat::prefillGetAttributes($items,array('lastactivity_ago','time_on_site_front','can_view_chat','operator_user_send','operator_user_string','first_visit_front','last_visit_front'));
+	echo json_encode(array_values($items));
+	exit;
+}
+
 $tpl->set('departmentParams',$departmentParams);
 $tpl->set('tracking_enabled',erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1);
 $tpl->set('geo_location_data',erLhcoreClassModelChatConfig::fetch('geo_location_data')->data);
 
-
-if ($is_ajax == false){
-    $Result['content'] = $tpl->fetch();
-    $Result['path'] = array(
-    array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Online visitors')));
-} else {
-    echo json_encode(array('oc' => erLhcoreClassModelChatOnlineUser::getCount(array('filtergt' => array('last_visit' => (time()-$timeout)))),'result' => $tpl->fetch()));
-    exit;
-}
+$Result['content'] = $tpl->fetch();
+$Result['path'] = array(array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Online visitors')));
+$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.min.js;js/angular.lhc.js').'"></script>';
 
 ?>

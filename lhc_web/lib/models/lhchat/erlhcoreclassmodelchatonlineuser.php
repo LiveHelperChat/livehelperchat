@@ -72,11 +72,11 @@ class erLhcoreClassModelChatOnlineUser {
    public function __get($var) {
        switch ($var) {
        	case 'last_visit_front':
-       		  return date(erLhcoreClassModule::$dateDateHourFormat,$this->last_visit);
+       		  return $this->last_visit_front = date(erLhcoreClassModule::$dateDateHourFormat,$this->last_visit);
        		break;
 
        	case 'first_visit_front':
-       		  return date(erLhcoreClassModule::$dateDateHourFormat,$this->first_visit);
+       		  return $this->first_visit_front = date(erLhcoreClassModule::$dateDateHourFormat,$this->first_visit);
        		break;
 
        	case 'invitation':
@@ -134,8 +134,19 @@ class erLhcoreClassModelChatOnlineUser {
        	        return $this->operator_user;
        	    break;
 
+       	case 'operator_user_send':
+       	        $this->operator_user_send = $this->operator_user !== false;       	       
+       	        return $this->operator_user_send;
+       	    break;
+
+       	case 'operator_user_string':
+       	        $this->operator_user_string = (string)$this->operator_user;       	       
+       	        return $this->operator_user_string;
+       	    break;
+
        	case 'time_on_site_front':
-       			return gmdate(erLhcoreClassModule::$dateHourFormat,$this->time_on_site);
+       			$this->time_on_site_front = gmdate(erLhcoreClassModule::$dateHourFormat,$this->time_on_site);
+       			return $this->time_on_site_front;
        		break;
 
        	case 'tt_time_on_site_front':

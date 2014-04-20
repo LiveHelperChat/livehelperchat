@@ -8,4 +8,4 @@
 </div>
 
 <script type="text/javascript" language="javascript" src="<?php echo erLhcoreClassDesign::designJS('js/app.js');?>"></script>
-
+<?php echo isset($Result['additional_footer_js']) ? $Result['additional_footer_js'] : ''?>

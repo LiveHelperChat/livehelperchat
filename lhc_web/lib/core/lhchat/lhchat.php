@@ -1012,6 +1012,17 @@ class erLhcoreClassChat {
 	   	return false;
    }
 
+   /**
+    * Is there any better way to initialize __get variables?
+    * */
+   public static function prefillGetAttributes(& $objects, $attrs = array()) {   		
+   		foreach ($objects as $object) {
+   			foreach ($attrs as $attr) {
+   				$object->{$attr};
+   			}
+   		}
+   }
+   
    private static $persistentSession;
 }
 

@@ -1479,26 +1479,7 @@ function lh(){
             this.syncadmincall();
         }
     };
-
-    this.syncOnlineUsers = function()
-    {
-    	var inst = this;
-
-    	clearTimeout(inst.lastOnlineSyncTimeout);    	
-        $.getJSON(this.wwwDir + 'chat/onlineusers/(method)/ajax/(timeout)/'+$('#userTimeout').val()+( parseInt($('#id_department_id').val()) > 0 ? '/(department)/'+parseInt($('#id_department_id').val()) : '' ), {} , function(data) {
-           $('#online-users').html(data.result);
-           $('#online-users-count').html(data.oc);
-           
-           inst.lastOnlineSyncTimeout = setTimeout(function(){
-               lhinst.syncOnlineUsers();
-           },parseInt($('#updateTimeout').val())*1000); // Check online users for every 10 seconds
-		}).fail(function(){
-			inst.lastOnlineSyncTimeout = setTimeout(function(){
-	               lhinst.syncOnlineUsers();
-	        },parseInt($('#updateTimeout').val())*1000); // Check online users for every 10 seconds
-		});
-    };
-
+    
     this.disableChatSoundAdmin = function(inst)
     {
     	if (inst.hasClass('icon-mute')){
@@ -1875,11 +1856,6 @@ window.onfocus = window.onblur = function(e) {
 function chatsyncuser()
 {
     lhinst.syncusercall();
-}
-
-function startOnlineSync()
-{
-    lhinst.syncOnlineUsers();
 }
 
 function chatsyncuserpending()
