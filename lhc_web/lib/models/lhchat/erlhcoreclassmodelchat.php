@@ -210,6 +210,10 @@ class erLhcoreClassModelChat {
        			return $this->department;
        		break;
 
+       	case 'department_name':
+       			return $this->department_name = (string)$this->department;
+       		break;
+       		
        	case 'screenshot':
        			$this->screenshot = false;
        			if ($this->screenshot_id > 0) {
@@ -223,6 +227,22 @@ class erLhcoreClassModelChat {
        			return $this->screenshot;
        		break;	
        		
+       	case 'unread_time':
+       		
+	       		$diff = time()-$this->last_user_msg_time;
+	       		$hours = floor($diff/3600);
+	       		$minits = floor(($diff - ($hours * 3600))/60);
+	       		$seconds = ($diff - ($hours * 3600) - ($minits * 60));
+	       		
+       			$this->unread_time = array(
+       				'hours' => $hours,
+       				'minits' => $minits,
+       				'seconds' => $seconds,
+       			); 
+       			 
+       			return $this->unread_time;
+       		break;
+       			
        	default:
        		break;
        }

@@ -601,7 +601,9 @@ function lh(){
 	    if ($('#CSChatMessage-'+chat_id).length != 0){
 	       $('#CSChatMessage-'+chat_id).unbind('keyup', 'enter', function(){});
 	    }
-
+	    
+	    this.removeSynchroChat(chat_id);
+	    
 	    if (hidetab == true) {
 
 	    	$.ajax({
@@ -622,8 +624,8 @@ function lh(){
 	            window.close();
 	        };
 	    };
-
-	    this.removeSynchroChat(chat_id);
+	    
+	   
 	    this.syncadmininterfacestatic();
 	};
 
@@ -1136,52 +1138,6 @@ function lh(){
 	    this.chatsSynchronisingMsg[this.getChatIndex(chat_id)] = chat_id+','+message_id;
 	};
 
-
-	this.syncadmininterface = function()
-	{
-	    var inst = this;
-
-	    $.getJSON(this.wwwDir + this.syncadmininterfaceurl ,{ }, function(data){
-	        // If no error
-	        if (data.error == 'false')
-	        {
-	        	var hasPendingItems = false;
-                $.each(data.result,function(i,item) {
-                    if (item.content != '') { $(item.dom_id).html(item.content); }
-
-                    if (item.dom_id_status != undefined) {
-                    	if (parseInt(item.dom_item_count) > 0) {
-                    		$(item.dom_id_status).html(' ('+item.dom_item_count+')');
-                    	} else {
-                    		$(item.dom_id_status).html('');
-                    	};
-                    };
-
-                    if ( item.last_id_identifier ) {
-                        if (inst.trackLastIDS[item.last_id_identifier] == undefined ) {
-                            inst.trackLastIDS[item.last_id_identifier] = parseInt(item.last_id);
-                        } else if (inst.trackLastIDS[item.last_id_identifier] < parseInt(item.last_id)) {
-                            inst.trackLastIDS[item.last_id_identifier] = parseInt(item.last_id);
-                            inst.playSoundNewAction(item.last_id_identifier,parseInt(item.last_id),(item.nick ? item.nick : 'Live Help'),(item.msg ? item.msg : confLH.transLation.new_chat));
-                        };
-                        if (parseInt(item.last_id) > 0) {
-                        	hasPendingItems = true;                        	
-                        };
-                    };
-                });
-                
-                if (hasPendingItems == false) {
-                	inst.hideNotifications();
-                };
-                
-                $(document).foundation('section', 'resize');
-	        };
-	        setTimeout(chatsyncadmininterface,confLH.back_office_sinterval);
-    	}).fail(function(){
-    		setTimeout(chatsyncadmininterface,confLH.back_office_sinterval);
-    	});
-	};
-
 	this.requestNotificationPermission = function() {
 		if (window.webkitNotifications) {
 			window.webkitNotifications.requestPermission();
@@ -1362,7 +1318,14 @@ function lh(){
 	
 	this.syncadmininterfacestatic = function()
 	{
-		var inst = this;
+		try {
+			var lhcController = angular.element('body').scope(); 
+			lhcController.loadChatList();
+		} catch(err) {		     
+        	//
+        };
+        
+		/*var inst = this;
 	    $.getJSON(this.wwwDir + this.syncadmininterfaceurl ,{ }, function(data){
 	        // If no error
 	        if (data.error == 'false')
@@ -1385,7 +1348,7 @@ function lh(){
                 	clearTimeout(inst.soundIsPlaying);
                 }
 	        }
-    	});
+    	});*/
 	};
 
 	this.transferUserDialog = function(chat_id,title)
@@ -1866,9 +1829,4 @@ function chatsyncuserpending()
 function chatsyncadmin()
 {
     lhinst.syncadmincall();
-}
-
-function chatsyncadmininterface()
-{
-    lhinst.syncadmininterface();
 }

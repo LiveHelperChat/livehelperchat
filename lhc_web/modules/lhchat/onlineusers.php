@@ -52,7 +52,7 @@ if ($userDepartments !== true){
 
 if ($is_ajax == true) {
 	$items = erLhcoreClassModelChatOnlineUser::getList($filter);
-	erLhcoreClassChat::prefillGetAttributes($items,array('lastactivity_ago','time_on_site_front','can_view_chat','operator_user_send','operator_user_string','first_visit_front','last_visit_front'));
+	erLhcoreClassChat::prefillGetAttributes($items,array('lastactivity_ago','time_on_site_front','can_view_chat','operator_user_send','operator_user_string','first_visit_front','last_visit_front'),array(),array('do_not_clean' => true));
 	echo json_encode(array_values($items));
 	exit;
 }
@@ -63,6 +63,6 @@ $tpl->set('geo_location_data',erLhcoreClassModelChatConfig::fetch('geo_location_
 
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Online visitors')));
-$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.min.js;js/angular.lhc.js').'"></script>';
+$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.online.js').'"></script>';
 
 ?>

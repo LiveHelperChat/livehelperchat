@@ -4,90 +4,120 @@ var phonecatApp = angular.module('lhcApp', [
 ]);
 
 var services = angular.module('lhcAppServices', []);
+var lhcAppControllers = angular.module('lhcAppControllers', []);
 
-services.factory('OnlineUsersFactory', ['$http','$q',function ($http, $q) {
+services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
 	
-	this.loadOnlineUsers = function(params){
+	this.loadChatList = function(params){
 		var deferred = $q.defer();		
-		$http.get(WWW_DIR_JAVASCRIPT + 'chat/onlineusers/(method)/ajax/(timeout)/'+params.timeout + (params.department > 0 ? '/(department)/' + params.department : '' )).success(function(data) {
-			 deferred.resolve(data);		
+		$http.get(WWW_DIR_JAVASCRIPT + 'chat/syncadmininterface').success(function(data) {
+			 deferred.resolve(data);			 
+		}).error(function(){
+			deferred.reject('error');
 		});		
 		return deferred.promise;
 	};
 	
-	this.deleteOnlineUser = function(params){
-		var deferred = $q.defer();		
-		$http.post(WWW_DIR_JAVASCRIPT +'chat/onlineusers/(deletevisitor)/'+params.user_id + '/(csfr)/'+confLH.csrf_token).success(function(data) {
-			 deferred.resolve(data);		
-		});		
-		return deferred.promise;
-	};
+	this.truncate = function (text, length, end) {
+        if (isNaN(length))
+            length = 10;
+
+        if (end === undefined)
+            end = "...";
+
+        if (text.length <= length || text.length - end.length <= length) {
+            return text;
+        }
+        else {
+            return String(text).substring(0, length-end.length) + end;
+        }
+    };   
 	
 	return this;
 }]);
 
-var lhcAppControllers = angular.module('lhcAppControllers', []);
 
-lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootScope', '$log','$interval','OnlineUsersFactory', function($scope, $http, $location, $rootScope, $log, $interval, OnlineUsersFactory) {
-	  	  		
-		var timeoutId;		
-		this.onlineusers = [];
-		this.updateTimeout = 10;
-		this.userTimeout = 3600;	
-		this.department = 0;	
-		this.predicate = 'last_visit';
-		this.reverse = true;
+lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location','$rootScope', '$log','$interval','LiveHelperChatFactory', function($scope, $http, $location, $rootScope, $log, $interval,LiveHelperChatFactory) {
+
+	$scope.predicate = 'last_visit';
+	$scope.pending_chats = {};
+	$scope.active_chats = {};
+	$scope.closed_chats = {};
+	$scope.unread_chats = {};
+	$scope.transfer_dep_chats = {};
+	$scope.transfer_chats = {};
+	$scope.timeoutControl = null;
+	
+	$scope.loadChatList = function() {
+		clearTimeout($scope.timeoutControl);
+		LiveHelperChatFactory.loadChatList().then(function(data){	
+						
+				var hasPendingItems = false;
+				
+				angular.forEach(data.result, function(item, key){					
+					$scope[key] = item;					
+					if ( item.last_id_identifier ) {
+	                    if (lhinst.trackLastIDS[item.last_id_identifier] == undefined ) {
+	                    	lhinst.trackLastIDS[item.last_id_identifier] = parseInt(item.last_id);
+	                    } else if (lhinst.trackLastIDS[item.last_id_identifier] < parseInt(item.last_id)) {
+	                    	lhinst.trackLastIDS[item.last_id_identifier] = parseInt(item.last_id);
+	                    	lhinst.playSoundNewAction(item.last_id_identifier,parseInt(item.last_id),(item.nick ? item.nick : 'Live Help'),(item.msg ? item.msg : confLH.transLation.new_chat));
+	                    };
+	                    if (parseInt(item.last_id) > 0) {
+	                    	hasPendingItems = true;                        	
+	                    };	                   
+	                };
+				});
+				
+				if (hasPendingItems == false) {
+					lhinst.hideNotifications();
+                };
+                
+                if ($scope.pending_chats.length == 0) {
+                	clearTimeout(lhinst.soundIsPlaying);
+				};
 		
-		var that = this;
-			
-		this.updateList = function(){
-			OnlineUsersFactory.loadOnlineUsers({timeout: that.userTimeout,department : that.department}).then(function(data){
-				that.onlineusers = data;				
-			});
-		};
-								
-		timeoutId = $interval(function() {		
-			that.updateList();			
-		},this.updateTimeout * 1000);
-		
-		$scope.$watch('online.updateTimeout', function(newVal,oldVal) {       
-			if (newVal != oldVal) {			
-				$interval.cancel(timeoutId);				
-				timeoutId = $interval(function() {		
-					that.updateList();			
-				},newVal*1000);				
-			}
+				setTimeout(function(){
+					$(document).foundation('section', 'resize');
+				},500);	
+				
+				$scope.timeoutControl = setTimeout(function(){
+					$scope.loadChatList();
+				},confLH.back_office_sinterval);
+		},function(error){
+				$scope.timeoutControl = setTimeout(function(){
+					$scope.loadChatList();
+				},confLH.back_office_sinterval);
 		});
+	};
+	
+	this.previewChat = function(chat_id){
+		$.colorbox({'iframe':true,height:'500px',width:'500px', href:WWW_DIR_JAVASCRIPT+'chat/previewchat/'+chat_id});
+	};		
+	
+	this.redirectContact = function(chat_id,message) {	
+		return lhinst.redirectContact(chat_id,message);				
+	};
+	
+	this.startChatNewWindow = function(chat_id,name) {
+		return lhinst.startChatNewWindow(chat_id,name);	
+	};
 		
-		$scope.$watch('online.userTimeout + online.department', function(newVal,oldVal) { 
-				that.updateList();			
-		});
+	this.startChat = function (chat_id,name) {		
+		return lhinst.startChat(chat_id,$('#tabs'),LiveHelperChatFactory.truncate(name,10));				
+	};
+	
+	this.startChatNewWindowTransfer = function(chat_id,name,transfer_id) {
+		return lhinst.startChatNewWindowTransfer(chat_id,name,transfer_id);
+	};
 		
-		this.showOnlineUserInfo = function(user_id) {
-			$.colorbox({onComplete:function(){$(document).foundation('section', 'reflow');},width:'550px',href:WWW_DIR_JAVASCRIPT+'chat/getonlineuserinfo/'+user_id});
-		};
-		
-		this.previewChat = function(ou) {
-			if (ou.chat_id > 0 && ou.can_view_chat == 1) {
-				$.colorbox({'iframe':true, height:'500px', width:'500px', href: WWW_DIR_JAVASCRIPT + 'chat/previewchat/'+ou.chat_id});
-			}
-		};
-		
-		this.sendMessage = function(user_id) {
-			$.colorbox({'iframe':true,height:'500px',width:'500px', href:WWW_DIR_JAVASCRIPT+'chat/sendnotice/'+user_id});
-		};
-		
-		this.deleteUser = function(user,q) {
-			if (confirm(q)){
-				 OnlineUsersFactory.deleteOnlineUser({user_id: user.id}).then(function(data){						
-					that.onlineusers.splice(that.onlineusers.indexOf(user),1);	
-				 });								 
-			};
-		};
-		
-		$scope.$on('$destroy', function disableController() {
-			$interval.cancel(timeoutId);	
-		});
-		
-		this.updateList();	  
+	this.startChatTransfer = function(chat_id,name,transfer_id) {
+		return lhinst.startChatTransfer(chat_id,$('#tabs'),name,transfer_id);
+	};
+	
+	this.startChatOperator = function(user_id) {
+		window.open(WWW_DIR_JAVASCRIPT + 'chat/startchatwithoperator'+user_id,'operatorchatwindow-'+user_id,'menubar=1,resizable=1,width=780,height=450');
+	};
+	
+	$scope.loadChatList();
 }]);

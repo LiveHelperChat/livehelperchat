@@ -49,7 +49,9 @@ class erLhcoreClassChat {
 			'fbst',
 			'operator_typing_id',
 			'chat_initiator',
-			'chat_variables'
+			'chat_variables',
+			// Angular remake
+			'referrer'
 	);
 	
     /**
@@ -1015,12 +1017,36 @@ class erLhcoreClassChat {
    /**
     * Is there any better way to initialize __get variables?
     * */
-   public static function prefillGetAttributes(& $objects, $attrs = array()) {   		
-   		foreach ($objects as $object) {
+   public static function prefillGetAttributes(& $objects, $attrs = array(),$attrRemove = array(), $params = array()) {   		
+   		foreach ($objects as & $object) {
    			foreach ($attrs as $attr) {
    				$object->{$attr};
-   			}
+   			};
+   			
+   			foreach ($attrRemove as $attr) {
+   				$object->{$attr} = null;
+   			};
+   			
+   			if (!isset($params['do_not_clean']))
+   			$object = (object)array_filter((array)$object);
    		}
+   }
+
+   /**
+    * Is there any better way to initialize __get variables?
+    * */
+   public static function prefillGetAttributesObject(& $object, $attrs = array(),$attrRemove = array(), $params = array()) {   		
+   	
+   			foreach ($attrs as $attr) {
+   				$object->{$attr};
+   			};
+   			
+   			foreach ($attrRemove as $attr) {
+   				$object->{$attr} = null;
+   			};
+   			
+   			if (!isset($params['do_not_clean']))
+   			$object = (object)array_filter((array)$object);   		
    }
    
    private static $persistentSession;
