@@ -6,6 +6,13 @@ var phonecatApp = angular.module('lhcApp', [
 var services = angular.module('lhcAppServices', []);
 var lhcAppControllers = angular.module('lhcAppControllers', []);
 
+angular.element(document).ready(function(){
+    var element = angular.element(document.querySelector("form"));
+    element.triggerHandler("$destroy");
+    //‌​
+});
+
+
 services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
 	
 	this.loadChatList = function(params){
