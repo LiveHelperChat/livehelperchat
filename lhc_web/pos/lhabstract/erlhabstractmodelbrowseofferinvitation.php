@@ -7,7 +7,8 @@ $def->class = "erLhAbstractModelBrowseOfferInvitation";
 $def->idProperty = new ezcPersistentObjectIdProperty();
 $def->idProperty->columnName = 'id';
 $def->idProperty->propertyName = 'id';
-$def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentNativeGenerator' );
+$def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentSequenceGenerator' );
+$def->idProperty->generator->params['sequence'] = 'lh_abstract_browse_offer_invitation_id_seq';
 
 $def->properties['siteaccess'] = new ezcPersistentObjectProperty();
 $def->properties['siteaccess']->columnName   = 'siteaccess';
