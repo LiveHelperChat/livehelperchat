@@ -23,17 +23,72 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 	  	  		
 		var timeoutId;		
 		this.onlineusers = [];
+		$scope.onlineusersGrouped = [];
 		this.updateTimeout = 10;
 		this.userTimeout = 3600;	
 		this.department = 0;	
 		this.predicate = 'last_visit';
 		this.reverse = true;
+		$scope.groupByField = 'none';
 		
 		var that = this;
-			
+				
+		function sortOn( collection, name ) {			 
+            collection.sort(
+                function( a, b ) {
+                    if ( a[ name ] <= b[ name ] ) {
+                        return( -1 );
+                    }
+                    return( 1 );
+                }
+            );
+        };
+        
+        // http://www.bennadel.com/blog/2456-grouping-nested-ngrepeat-lists-in-angularjs.htm
+        // I group the friends list on the given property.
+        $scope.groupBy = function( attribute ) {
+            // First, reset the groups.
+            $scope.onlineusersGrouped = [];
+            
+            // Now, sort the collection of friend on the
+            // grouping-property. This just makes it easier
+            // to split the collection.
+            sortOn( that.onlineusers, attribute );
+
+            // I determine which group we are currently in.
+            var groupValue = "_INVALID_GROUP_VALUE_";
+
+            // As we loop over each friend, add it to the
+            // current group - we'll create a NEW group every
+            // time we come across a new attribute value.
+            for ( var i = 0 ; i < that.onlineusers.length ; i++ ) {
+                var friend = that.onlineusers[ i ];
+                // Should we create a new group?
+                if ( friend[ attribute ] !== groupValue ) {
+
+                    var group = {
+                        label: friend[ attribute ],
+                        ou: []
+                    };
+
+                    groupValue = group.label;
+                    $scope.onlineusersGrouped.push( group );
+                }
+                // Add the friend to the currently active
+                // grouping.
+                group.ou.push( friend );
+            }
+        };
+        
 		this.updateList = function(){
 			OnlineUsersFactory.loadOnlineUsers({timeout: that.userTimeout,department : that.department}).then(function(data){
-				that.onlineusers = data;				
+				that.onlineusers = data;
+				if ($scope.groupByField != 'none') {
+					$scope.groupBy($scope.groupByField);
+				} else {
+					$scope.onlineusersGrouped = [];
+					$scope.onlineusersGrouped.push({label:'',ou:that.onlineusers});
+				}				
 			});
 		};
 								
@@ -50,7 +105,7 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 			}
 		});
 		
-		$scope.$watch('online.userTimeout + online.department', function(newVal,oldVal) { 
+		$scope.$watch('online.userTimeout + online.department + groupByField', function(newVal,oldVal) { 
 				that.updateList();			
 		});
 		
@@ -78,7 +133,5 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 		
 		$scope.$on('$destroy', function disableController() {
 			$interval.cancel(timeoutId);	
-		});
-		
-		this.updateList();	  
+		});			  
 }]);

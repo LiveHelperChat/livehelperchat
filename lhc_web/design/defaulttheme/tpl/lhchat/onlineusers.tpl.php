@@ -26,10 +26,21 @@
 	<div class="columns small-1">
 		<label class="inline" id="online-users-count" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','online users');?>">{{online.onlineusers.length}}</label>
 	</div>
-	<div class="columns small-4">
+	<div class="columns small-3">
 		<input ng-model="query" type="text" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Type to search')?>">
 	</div>
-	<div class="columns small-3">
+	<div class="columns small-2">
+		<select ng-model="groupByField" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Group list by');?>">
+		    	<option value="none"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Group by');?></option>
+		    	<option value="user_country_name"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User country');?></option>
+		    	<option value="current_page"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Page');?></option>
+		    	<option value="page_title"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Page title');?></option>
+		    	<option value="referrer"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Referrer');?></option>
+		    	<option value="identifier"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Identifier');?></option>
+		    	<option value="dep_id"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Department');?></option>
+		</select>
+	</div>	
+	<div class="columns small-2">
 		<?php 		
 		echo erLhcoreClassRenderHelper::renderCombobox( array (
 	                    'input_name'     => 'department_id',
@@ -76,6 +87,43 @@
     <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Action');?></th>
 </tr>
 </thead>
+
+<tbody ng-repeat="group in onlineusersGrouped">
+	<tr ng-show="group.label != ''">
+		<td colspan="5"><h5>{{group.label}} ({{group.ou.length}})</h5></td>
+	</tr>		
+	<tr ng-repeat="ou in group.ou | orderBy:online.predicate:online.reverse | filter:query track by ou.id">
+    	<td nowrap>{{ou.lastactivity_ago}} <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','ago');?></td>
+    	<td>{{ou.time_on_site_front}}</td>    	
+    	<td><div class="page-url"><span><a target="_blank" href="{{ou.current_page}}" title="{{ou.current_page}}">{{ou.page_title || ou.current_page}}</a></span></div></td>
+        <td><div class="page-url"><span><a target="_blank" href="{{ou.referrer}}">{{ou.referrer}}</a></span></div></td>
+        <td>       
+	        <div style="width:270px">
+		        <span ng-if="ou.user_country_code != ''"><img ng-src="<?php echo erLhcoreClassDesign::design('images/flags');?>/{{ou.user_country_code}}.png" alt="{{ou.user_country_name}}" title="{{ou.user_country_name}} | {{ou.city}}" /></span>
+		        <a ng-click="online.showOnlineUserInfo(ou.id)"><img ng-src="{{ou.operator_message == '' ? '<?php echo erLhcoreClassDesign::design('images/icons/user_inactive.png');?>' : (ou.message_seen == 1 ? '<?php echo erLhcoreClassDesign::design('images/icons/user_green_32.png');?>' : '<?php echo erLhcoreClassDesign::design('images/icons/user.png');?>')}}" ng-attr-title="{{ou.operator_message == '' ? '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User does not have any messages from the operator');?>' : ou.message_seen == 1 ? '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User has seen the message from the operator.');?>' : '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User has not seen a message from the operator, or the message window is still open.');?>'}}" /></a>
+		        <img src="<?php echo erLhcoreClassDesign::design('images/icons/browsers.png');?>" title="{{ou.user_agent}}" />
+		        <img ng-show="ou.chat_id > 0" ng-class="{'action-image': ou.can_view_chat}" ng-click="online.previewChat(ou)" src="<?php echo erLhcoreClassDesign::design('images/icons/user_comment.png');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User is chatting');?>" />
+		        <img ng-show="ou.chat_id == 0" src="<?php echo erLhcoreClassDesign::design('images/icons/user_comment_inactive.png');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User is not having any chat right now');?>" />
+		        <img ng-show="ou.operator_user_send" src="<?php echo erLhcoreClassDesign::design('images/icons/user_suit_32.png');?>" title="{{ou.operator_user_string}} <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','has sent a message to the user');?>" />
+		        <img ng-show="!ou.operator_user_send" src="<?php echo erLhcoreClassDesign::design('images/icons/user_suit_32_inactive.png');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','No one has sent a message to the user yet');?>" />
+		        <img src="<?php echo erLhcoreClassDesign::design('images/icons/ip.png');?>" title="{{ou.ip}}" />
+		        <img src="<?php echo erLhcoreClassDesign::design('images/icons/information.png');?>" title="{{ou.first_visit_front}} - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','first visit');?><?php echo "\n";?>{{ou.last_visit_front}} - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','last visit');?><?php echo "\n"?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Pageviews');?> - {{ou.pages_count}} {{ou.identifier != '' ? '\nIdentifier - '+ou.identifier : ''}}" />
+				<i ng-class="{'returned-user': ou.total_visits > 1}" class="icon-reply return-user" title="{{ou.total_visits}}"></i>
+	        </div>
+        </td>        
+        <td>
+        <div style="width:80px">
+	        <ul class="button-group round">
+	            <li><a ng-click="online.sendMessage(ou.id)" class="button small icon-comment" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Send message');?>"></a></li>		      
+	            <li><a ng-click="online.deleteUser(ou,'<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/list','Are you sure?')?>');" class="small alert button icon-cancel-squared" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Delete');?>, ID - {{ou.id}}"></a></li>		      
+			</ul>
+			</div>
+        </td>
+	</tr>	
+</tbody>
+    
+    
+<?php /*?>
     <tr ng-repeat="ou in online.onlineusers | orderBy:online.predicate:online.reverse | filter:query track by ou.id">
     	<td nowrap>{{ou.lastactivity_ago}} <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','ago');?></td>
     	<td>{{ou.time_on_site_front}}</td>    	
@@ -104,6 +152,8 @@
 			</div>
         </td>
     </tr>
+    */ ?>
+    
 </table>
 
 </div>
