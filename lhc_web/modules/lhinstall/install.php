@@ -59,6 +59,12 @@ switch ((int)$Params['user_parameters']['step_id']) {
 		if (!extension_loaded('mbstring'))
 			$Errors[] = "mbstring extension not detected. Please install php extension";	
 		
+		if (!extension_loaded('gd'))
+			$Errors[] = "gd extension not detected. Please install php extension";	
+		
+		if (!function_exists('json_encode'))
+			$Errors[] = "json support not detected. Please install php extension";	
+		
 		if (version_compare(PHP_VERSION, '5.3.0','<')) {
 			$Errors[] = "Minimum 5.3.0 PHP version is required";	
 		}
