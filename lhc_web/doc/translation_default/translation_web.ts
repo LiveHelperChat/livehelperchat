@@ -1516,6 +1516,34 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Group list by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page title</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Referrer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Refresh list every</source>
       <translation type="unfinished"/>
     </message>
@@ -1549,10 +1577,6 @@
     </message>
     <message>
       <source>days</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Page</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4039,6 +4063,10 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
+      <source>Empty...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Clean cache</source>
       <translation type="unfinished"/>
     </message>
@@ -4048,10 +4076,6 @@
     </message>
     <message>
       <source>Chats transferred to you directly</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Empty...</source>
       <translation type="unfinished"/>
     </message>
     <message>
