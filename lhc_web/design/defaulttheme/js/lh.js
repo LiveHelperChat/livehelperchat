@@ -601,7 +601,9 @@ function lh(){
 	    if ($('#CSChatMessage-'+chat_id).length != 0){
 	       $('#CSChatMessage-'+chat_id).unbind('keyup', 'enter', function(){});
 	    }
-
+	    
+	    this.removeSynchroChat(chat_id);
+	    
 	    if (hidetab == true) {
 
 	    	$.ajax({
@@ -622,8 +624,8 @@ function lh(){
 	            window.close();
 	        };
 	    };
-
-	    this.removeSynchroChat(chat_id);
+	    
+	   
 	    this.syncadmininterfacestatic();
 	};
 
@@ -792,6 +794,14 @@ function lh(){
 	this.previewChat = function(chat_id)
 	{
 		$.colorbox({'iframe':true,height:'500px',width:'500px', href:this.wwwDir+'chat/previewchat/'+chat_id});
+	};
+	
+	this.redirectContact = function(chat_id,message){		
+		if (confirm(message)){	
+			$.postJSON(this.wwwDir + 'chat/redirectcontact/' + chat_id, function(data){				
+				lhinst.syncadmininterfacestatic();
+			});
+		}		
 	};
 	
 	this.transferChatDep = function(chat_id)
@@ -1128,52 +1138,6 @@ function lh(){
 	    this.chatsSynchronisingMsg[this.getChatIndex(chat_id)] = chat_id+','+message_id;
 	};
 
-
-	this.syncadmininterface = function()
-	{
-	    var inst = this;
-
-	    $.getJSON(this.wwwDir + this.syncadmininterfaceurl ,{ }, function(data){
-	        // If no error
-	        if (data.error == 'false')
-	        {
-	        	var hasPendingItems = false;
-                $.each(data.result,function(i,item) {
-                    if (item.content != '') { $(item.dom_id).html(item.content); }
-
-                    if (item.dom_id_status != undefined) {
-                    	if (parseInt(item.dom_item_count) > 0) {
-                    		$(item.dom_id_status).html(' ('+item.dom_item_count+')');
-                    	} else {
-                    		$(item.dom_id_status).html('');
-                    	};
-                    };
-
-                    if ( item.last_id_identifier ) {
-                        if (inst.trackLastIDS[item.last_id_identifier] == undefined ) {
-                            inst.trackLastIDS[item.last_id_identifier] = parseInt(item.last_id);
-                        } else if (inst.trackLastIDS[item.last_id_identifier] < parseInt(item.last_id)) {
-                            inst.trackLastIDS[item.last_id_identifier] = parseInt(item.last_id);
-                            inst.playSoundNewAction(item.last_id_identifier,parseInt(item.last_id));
-                        };
-                        if (parseInt(item.last_id) > 0) {
-                        	hasPendingItems = true;                        	
-                        };
-                    };
-                });
-                
-                if (hasPendingItems == false) {
-                	inst.hideNotifications();
-                };
-                
-                $(document).foundation('section', 'resize');
-	        };
-	        setTimeout(chatsyncadmininterface,confLH.back_office_sinterval);
-    	}).fail(function(){
-    		setTimeout(chatsyncadmininterface,confLH.back_office_sinterval);
-    	});
-	};
-
 	this.requestNotificationPermission = function() {
 		if (window.webkitNotifications) {
 			window.webkitNotifications.requestPermission();
@@ -1267,7 +1231,7 @@ function lh(){
         };		
 	};	
 	
-	this.playSoundNewAction = function(identifier,chat_id) {
+	this.playSoundNewAction = function(identifier,chat_id,nick,message) {
 	    if (confLH.new_chat_sound_enabled == 1 && (identifier == 'pending_chat' || identifier == 'transfer_chat' )) {
 	    	this.soundPlayedTimes = 0;
 	        this.playNewChatAudio();
@@ -1286,8 +1250,8 @@ function lh(){
 		    	    // 0 is PERMISSION_ALLOWED
 		    	    var notification = window.webkitNotifications.createNotification(
 		    	      WWW_DIR_JAVASCRIPT_FILES_NOTIFICATION + '/notification.png',
-		    	      'Live Help',
-		    	      confLH.transLation.new_chat
+		    	      nick,
+		    	      message
 		    	    );
 		    	    notification.onclick = function () {
 		    	    	if (identifier == 'pending_chat'){
@@ -1302,7 +1266,7 @@ function lh(){
 		    	  }
 	    	  } else if(window.Notification) {
 	    		  if (window.Notification.permission == 'granted') {
-		  				var notification = new Notification('Live Help', { icon: WWW_DIR_JAVASCRIPT_FILES_NOTIFICATION + '/notification.png', body: confLH.transLation.new_chat });
+		  				var notification = new Notification(nick, { icon: WWW_DIR_JAVASCRIPT_FILES_NOTIFICATION + '/notification.png', body: message });
 		  				notification.onclick = function () {
 			    	    	if (identifier == 'pending_chat'){
 			    	    		inst.startChatNewWindow(chat_id,'ChatRequest');
@@ -1354,7 +1318,14 @@ function lh(){
 	
 	this.syncadmininterfacestatic = function()
 	{
-		var inst = this;
+		try {
+			var lhcController = angular.element('body').scope(); 
+			lhcController.loadChatList();
+		} catch(err) {		     
+        	//
+        };
+        
+		/*var inst = this;
 	    $.getJSON(this.wwwDir + this.syncadmininterfaceurl ,{ }, function(data){
 	        // If no error
 	        if (data.error == 'false')
@@ -1377,7 +1348,7 @@ function lh(){
                 	clearTimeout(inst.soundIsPlaying);
                 }
 	        }
-    	});
+    	});*/
 	};
 
 	this.transferUserDialog = function(chat_id,title)
@@ -1471,26 +1442,7 @@ function lh(){
             this.syncadmincall();
         }
     };
-
-    this.syncOnlineUsers = function()
-    {
-    	var inst = this;
-
-    	clearTimeout(inst.lastOnlineSyncTimeout);    	
-        $.getJSON(this.wwwDir + 'chat/onlineusers/(method)/ajax/(timeout)/'+$('#userTimeout').val()+( parseInt($('#id_department_id').val()) > 0 ? '/(department)/'+parseInt($('#id_department_id').val()) : '' ), {} , function(data) {
-           $('#online-users').html(data.result);
-           $('#online-users-count').html(data.oc);
-           
-           inst.lastOnlineSyncTimeout = setTimeout(function(){
-               lhinst.syncOnlineUsers();
-           },parseInt($('#updateTimeout').val())*1000); // Check online users for every 10 seconds
-		}).fail(function(){
-			inst.lastOnlineSyncTimeout = setTimeout(function(){
-	               lhinst.syncOnlineUsers();
-	        },parseInt($('#updateTimeout').val())*1000); // Check online users for every 10 seconds
-		});
-    };
-
+    
     this.disableChatSoundAdmin = function(inst)
     {
     	if (inst.hasClass('icon-mute')){
@@ -1869,11 +1821,6 @@ function chatsyncuser()
     lhinst.syncusercall();
 }
 
-function startOnlineSync()
-{
-    lhinst.syncOnlineUsers();
-}
-
 function chatsyncuserpending()
 {
     lhinst.chatsyncuserpending();
@@ -1882,9 +1829,4 @@ function chatsyncuserpending()
 function chatsyncadmin()
 {
     lhinst.syncadmincall();
-}
-
-function chatsyncadmininterface()
-{
-    lhinst.syncadmininterface();
 }

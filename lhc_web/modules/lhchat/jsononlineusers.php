@@ -7,6 +7,14 @@ if ($department !== false){
 	$filter['filter']['dep_id'] = $department;
 }
 
+/**
+ * Append user departments filter
+ * */
+$userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
+if ($userDepartments !== true){
+	$filter['filterin']['dep_id'] = $userDepartments;
+}
+
 $items = erLhcoreClassModelChatOnlineUser::getList($filter);
 
 $returnItems = array();

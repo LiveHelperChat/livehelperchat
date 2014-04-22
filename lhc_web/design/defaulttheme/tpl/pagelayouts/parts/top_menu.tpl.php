@@ -23,7 +23,10 @@
 			<?php endif;?>
 			<?php if ($currentUser->hasAccessTo('lhchatbox','manage_chatbox')) : ?>
 			<li><a href="<?php echo erLhcoreClassDesign::baseurl('chatbox/configuration')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Chatbox');?></a></li>
-			<?php endif; ?>
+			<?php endif; ?>			
+			<?php if ($currentUser->hasAccessTo('lhbrowseoffer','manage_bo')) : ?>
+			<li><a href="<?php echo erLhcoreClassDesign::baseurl('browseoffer/index')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Browse offers');?></a></li>
+			<?php endif; ?>			
 			<li class="divider"></li>
 			<?php if ($currentUser->hasAccessTo('lhsystem','use')) : ?>
 			<li><a href="<?php echo erLhcoreClassDesign::baseurl('system/configuration')?>"><i class="icon-tools"></i></a></li>

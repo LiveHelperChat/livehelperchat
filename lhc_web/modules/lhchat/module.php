@@ -11,6 +11,12 @@ $ViewList['adminchat'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['redirectcontact'] = array(
+    'params' => array('chat_id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['changestatus'] = array(
     'params' => array('chat_id'),
     'uparams' => array(),
@@ -144,32 +150,32 @@ $ViewList['syncadmin'] = array(
 
 $ViewList['activechats'] = array(
     'params' => array(),
-    'uparams' => array('nick','email','timefrom','timeto','department_id','user_id'),
+    'uparams' => array('nick','email','timefrom','timeto','department_id','user_id','print'),
     'functions' => array( 'use' )
 );
 
 $ViewList['closedchats'] = array(
     'params' => array(),
-    'uparams' => array('nick','email','timefrom','timeto','department_id','user_id'),
+    'uparams' => array('nick','email','timefrom','timeto','department_id','user_id','print'),
     'functions' => array( 'use' )
 );
 
 $ViewList['operatorschats'] = array(
     'params' => array(),
-	'uparams' => array('nick','email','timefrom','timeto','department_id','user_id'),
+	'uparams' => array('nick','email','timefrom','timeto','department_id','user_id','print'),
     'functions' => array( 'use' )
 );
 
 $ViewList['unreadchats'] = array(
     'script' => 'unreadchats.php',
     'params' => array(),
-	'uparams' => array('nick','email','timefrom','timeto','department_id','user_id'),
+	'uparams' => array('nick','email','timefrom','timeto','department_id','user_id','print'),
     'functions' => array( 'use' )
 );
 
 $ViewList['pendingchats'] = array(
     'params' => array(),
-    'uparams' => array('nick','email','timefrom','timeto','department_id','user_id'),
+    'uparams' => array('nick','email','timefrom','timeto','department_id','user_id','print'),
     'functions' => array( 'use' )
     );
 
@@ -401,6 +407,8 @@ $FunctionList['viewstatistic'] = array('explain' =>'Allow user to view statistic
 $FunctionList['use_onlineusers'] = array('explain' =>'Allow user to view online visitors');
 $FunctionList['chattabschrome'] = array('explain' =>'Allow user to user chrome extension');
 $FunctionList['canchangechatstatus'] = array('explain' =>'Allow user to change chat status');
+$FunctionList['administrateinvitations'] = array('explain' =>'Allow user to change pro active invitations');
+$FunctionList['administrateresponder'] = array('explain' =>'Allow user to change auto responder');
 
 
 ?>

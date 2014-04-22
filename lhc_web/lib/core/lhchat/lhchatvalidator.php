@@ -211,8 +211,10 @@ class erLhcoreClassChatValidator {
         	$chat->transfer_timeout_ts = time();
         	$chat->transfer_timeout_ac = $chat->department->transfer_timeout;
         }
-
         
+        if ($chat->department !== false && $chat->department->inform_unread == 1) {
+        	$chat->reinform_timeout = $chat->department->inform_unread_delay;        	
+        }
         
         $inputForm->departament_id = $chat->dep_id;
 

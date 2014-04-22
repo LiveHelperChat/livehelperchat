@@ -27,7 +27,7 @@
 	        	$paramsFilter['sort'] = $sort;
 	    	}
 
-	    	$paramsFilter = array_merge($paramsFilter,$filter_params);
+	    	$paramsFilter = array_merge($paramsFilter,$filter_params,$filterObject);
 	    	$items = call_user_func('erLhAbstractModel'.$identifier.'::getList',$paramsFilter);
 		}
 

@@ -91,11 +91,20 @@ class erLhcoreClassDepartament{
 	   			'Disabled' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	   			),
+	   			'Hidden' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	   			),
 	   			'inform_close' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	   			),
+	   			'inform_unread' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	   			),
 	   			'StartHour' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0, 'mx_range' => 24)
+	   			),
+	   			'inform_unread_delay' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 5)
 	   			),
 	   			'EndHour' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0, 'mx_range' => 24)
@@ -182,10 +191,31 @@ class erLhcoreClassDepartament{
 	   		$department->inform_close = 0;
 	   	}
 	   		   	
+	   		   	
+	   	if ( $form->hasValidData( 'inform_unread' ) && $form->inform_unread === true ) {
+	   		$department->inform_unread = 1;
+	   	} else {
+	   		$department->inform_unread = 0;
+	   	}
+	   		   	
+	   	if ($form->hasValidData( 'inform_unread_delay' )) {
+	   		$department->inform_unread_delay = $form->inform_unread_delay;
+	   	} elseif ($department->inform_unread == 1) {
+	   		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Minimum 5 seconds');
+	   	} else {
+	   		$department->inform_unread_delay = 0;
+	   	}
+	   		   	
 	   	if ( $form->hasValidData( 'Disabled' ) && $form->Disabled === true ) {
 	   		$department->disabled = 1;
 	   	} else {
 	   		$department->disabled = 0;
+	   	}
+	   		   	
+	   	if ( $form->hasValidData( 'Hidden' ) && $form->Hidden === true ) {
+	   		$department->hidden = 1;
+	   	} else {
+	   		$department->hidden = 0;
 	   	}
 	   		   	
 	   	if ( $form->hasValidData( 'mod' ) && $form->mod === true ) {

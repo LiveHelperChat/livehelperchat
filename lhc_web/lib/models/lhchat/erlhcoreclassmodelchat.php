@@ -41,6 +41,8 @@ class erLhcoreClassModelChat {
                'chat_initiator'     	=> $this->chat_initiator,
 
        		   'online_user_id'     	=> $this->online_user_id,
+       		   'unread_messages_informed' => $this->unread_messages_informed,
+       		   'reinform_timeout'     	=> $this->reinform_timeout,
 
        		   // Wait timeout attribute
                'wait_timeout'     		=> $this->wait_timeout,
@@ -208,6 +210,10 @@ class erLhcoreClassModelChat {
        			return $this->department;
        		break;
 
+       	case 'department_name':
+       			return $this->department_name = (string)$this->department;
+       		break;
+       		
        	case 'screenshot':
        			$this->screenshot = false;
        			if ($this->screenshot_id > 0) {
@@ -221,6 +227,22 @@ class erLhcoreClassModelChat {
        			return $this->screenshot;
        		break;	
        		
+       	case 'unread_time':
+       		
+	       		$diff = time()-$this->last_user_msg_time;
+	       		$hours = floor($diff/3600);
+	       		$minits = floor(($diff - ($hours * 3600))/60);
+	       		$seconds = ($diff - ($hours * 3600) - ($minits * 60));
+	       		
+       			$this->unread_time = array(
+       				'hours' => $hours,
+       				'minits' => $minits,
+       				'seconds' => $seconds,
+       			); 
+       			 
+       			return $this->unread_time;
+       		break;
+       			
        	default:
        		break;
        }
@@ -286,6 +308,7 @@ class erLhcoreClassModelChat {
 
    const STATUS_SUB_DEFAULT = 0;
    const STATUS_SUB_OWNER_CHANGED = 1;
+   const STATUS_SUB_CONTACT_FORM = 2;
    
    const USER_STATUS_JOINED_CHAT = 0;
    const USER_STATUS_CLOSED_CHAT = 1;
@@ -357,7 +380,9 @@ class erLhcoreClassModelChat {
    public $operation_admin = '';
    
    public $screenshot_id = 0;
-
+   
+   public $unread_messages_informed = 0;
+   public $reinform_timeout = 0;
 }
 
 ?>

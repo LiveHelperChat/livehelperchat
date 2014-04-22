@@ -26,6 +26,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 	
 	    $chat->support_informed = 1;
 	    $chat->has_unread_messages = 0;
+	    $chat->unread_messages_informed = 0;
 	    erLhcoreClassChat::getSession()->update($chat);
     
 	}

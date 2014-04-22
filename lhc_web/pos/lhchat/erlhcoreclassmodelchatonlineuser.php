@@ -150,6 +150,11 @@ $def->properties['requires_email']->columnName   = 'requires_email';
 $def->properties['requires_email']->propertyName = 'requires_email';
 $def->properties['requires_email']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['requires_username'] = new ezcPersistentObjectProperty();
+$def->properties['requires_username']->columnName   = 'requires_username';
+$def->properties['requires_username']->propertyName = 'requires_username';
+$def->properties['requires_username']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['invitation_seen_count'] = new ezcPersistentObjectProperty();
 $def->properties['invitation_seen_count']->columnName   = 'invitation_seen_count';
 $def->properties['invitation_seen_count']->propertyName = 'invitation_seen_count';
@@ -182,11 +187,15 @@ $def->properties['operation']->columnName   = 'operation';
 $def->properties['operation']->propertyName = 'operation';
 $def->properties['operation']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
-// Operation for online visitor
 $def->properties['screenshot_id'] = new ezcPersistentObjectProperty();
 $def->properties['screenshot_id']->columnName   = 'screenshot_id';
 $def->properties['screenshot_id']->propertyName = 'screenshot_id';
 $def->properties['screenshot_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['online_attr'] = new ezcPersistentObjectProperty();
+$def->properties['online_attr']->columnName   = 'online_attr';
+$def->properties['online_attr']->propertyName = 'online_attr';
+$def->properties['online_attr']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 
 return $def;

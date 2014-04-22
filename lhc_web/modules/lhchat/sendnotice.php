@@ -10,6 +10,8 @@ if ( isset($_POST['SendMessage']) ) {
     
     $validationFields = array();
     $validationFields['Message'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
+    $validationFields['RequiresEmail'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
+    $validationFields['RequiresUsername'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
     
     $form = new ezcInputForm( INPUT_POST, $validationFields );    
     $Errors = array();
@@ -22,6 +24,18 @@ if ( isset($_POST['SendMessage']) ) {
 
     if ($form->hasValidData( 'Message' ) && $form->Message != '' && mb_strlen($form->Message) > (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value) {
         $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum').' '.(int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','characters for a message');
+    }
+
+    if ($form->hasValidData( 'RequiresEmail' ) && $form->RequiresEmail == true) {
+        $visitor->requires_email = 1;
+    } else {
+    	$visitor->requires_email = 0;
+    }
+
+    if ($form->hasValidData( 'RequiresUsername' ) && $form->RequiresUsername == true) {
+        $visitor->requires_username = 1;
+    } else {
+    	$visitor->requires_username = 0;
     }
     
     if (count($Errors) == 0) { 

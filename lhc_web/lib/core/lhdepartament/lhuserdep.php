@@ -42,6 +42,33 @@ class erLhcoreClassUserDep{
          return $idArray;
    }
 
+   public static function parseUserDepartmetnsForFilter($userID) {   	   	
+   		$userDepartments = self::getUserDepartaments($userID);
+   		
+   		if (!empty($userDepartments)) {
+   			
+   			// Not needed
+   			$index = array_search(-1, $userDepartments);
+   			if ($index !== false){
+   				unset($userDepartments[$index]);
+   			}
+   		
+   			$index = array_search(0, $userDepartments);
+   			if ($index !== false){
+   				return true; // All departments
+   			}
+   			
+   			if (!empty($userDepartments)){
+   				return $userDepartments;
+   			} else {
+   				return array(-1); // No assigned departments
+   			}
+   			
+   		} else {
+   			return array(-1); // No assigned departments
+   		}
+   }
+   
    public static function getDefaultUserDepartment($userID = false) {
    		return array_shift(self::getUserDepartaments($userID = false));
    }

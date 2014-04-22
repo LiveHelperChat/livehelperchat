@@ -12,6 +12,8 @@ class erLhcoreClassChat {
 
 	public static $chatListIgnoreField = array(
 			'remarks',			
+			'unread_messages_informed',			
+			'reinform_timeout',			
 			'user_typing_txt',
 			'hash',
 			'ip',
@@ -47,7 +49,9 @@ class erLhcoreClassChat {
 			'fbst',
 			'operator_typing_id',
 			'chat_initiator',
-			'chat_variables'
+			'chat_variables',
+			// Angular remake
+			'referrer'
 	);
 	
     /**
@@ -586,24 +590,27 @@ class erLhcoreClassChat {
     public static function isOnline($dep_id = false, $exclipic = false, $params = array())
     {
        $isOnlineUser = isset($params['online_timeout']) ? $params['online_timeout'] : (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'];
-            
+       $ignoreUserStatus = (isset($params['ignore_user_status']) && $params['ignore_user_status'] == 1) ? true : false;
+       
        $db = ezcDbInstance::get();
 	   $rowsNumber = 0;
        
        if ($dep_id !== false) {
        		$exclipicFilter = ($exclipic == false) ? ' OR dep_id = 0' : '';
-			if (is_numeric($dep_id)) {
-	           $stmt = $db->prepare("SELECT COUNT(id) AS found FROM lh_userdep WHERE (last_activity > :last_activity AND hide_online = 0) AND (dep_id = :dep_id {$exclipicFilter})");
-	           $stmt->bindValue(':dep_id',$dep_id,PDO::PARAM_INT);
-	           $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
-			} elseif ( is_array($dep_id) ) {
-				$stmt = $db->prepare('SELECT COUNT(id) AS found FROM lh_userdep WHERE (last_activity > :last_activity AND hide_online = 0) AND (dep_id IN ('. implode(',', $dep_id) .") {$exclipicFilter})");
-				$stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
-			}
-
-			$stmt->execute();
-			$rowsNumber = $stmt->fetchColumn();	
-		
+       		
+       		if ($ignoreUserStatus === false) {       		
+				if (is_numeric($dep_id)) {
+		           $stmt = $db->prepare("SELECT COUNT(id) AS found FROM lh_userdep WHERE (last_activity > :last_activity AND hide_online = 0) AND (dep_id = :dep_id {$exclipicFilter})");
+		           $stmt->bindValue(':dep_id',$dep_id,PDO::PARAM_INT);
+		           $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
+				} elseif ( is_array($dep_id) ) {
+					$stmt = $db->prepare('SELECT COUNT(id) AS found FROM lh_userdep WHERE (last_activity > :last_activity AND hide_online = 0) AND (dep_id IN ('. implode(',', $dep_id) .") {$exclipicFilter})");
+					$stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
+				}
+				$stmt->execute();
+				$rowsNumber = $stmt->fetchColumn();	
+       		}
+			
 			if ($rowsNumber == 0) { // Perhaps auto active is turned on for some of departments							
 				$daysColumns = array('`mod`','`tud`','`wed`','`thd`','`frd`','`sad`','`sud`');
 				$columns = date('N')-1;
@@ -622,11 +629,14 @@ class erLhcoreClassChat {
 			}					
 
        } else {
-           $stmt = $db->prepare('SELECT COUNT(id) AS found FROM lh_userdep WHERE last_activity > :last_activity AND hide_online = 0');
-           $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
-           $stmt->execute();
-           $rowsNumber = $stmt->fetchColumn();        
-                                 
+       	
+	       	if ($ignoreUserStatus === false) {
+	           $stmt = $db->prepare('SELECT COUNT(id) AS found FROM lh_userdep WHERE last_activity > :last_activity AND hide_online = 0');
+	           $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
+	           $stmt->execute();
+	           $rowsNumber = $stmt->fetchColumn();        
+	       }
+	       	         
            if ($rowsNumber == 0){ // Perhaps auto active is turned on for some of departments
            		$daysColumns = array('`mod`','`tud`','`wed`','`thd`','`frd`','`sad`','`sud`');           		
            		$columns = date('N')-1;           		
@@ -784,6 +794,22 @@ class erLhcoreClassChat {
        $row = $stmt->fetch();
 
        return $row;
+   }
+   
+   /**
+    * Get last message for browser notification
+    *
+    * */
+   public static function getGetLastChatMessagePending($chat_id)
+   {
+       $db = ezcDbInstance::get();
+       $stmt = $db->prepare('SELECT lh_msg.msg FROM lh_msg INNER JOIN ( SELECT id FROM lh_msg WHERE chat_id = :chat_id ORDER BY id DESC LIMIT 3 OFFSET 0) AS items ON lh_msg.id = items.id');
+       $stmt->bindValue( ':chat_id',$chat_id,PDO::PARAM_INT);
+       $stmt->setFetchMode(PDO::FETCH_ASSOC);
+       $stmt->execute();
+       $rows = $stmt->fetchAll(PDO::FETCH_COLUMN);
+        
+       return implode("\n", array_reverse($rows));
    }
 
 
@@ -965,6 +991,41 @@ class erLhcoreClassChat {
 	   	return false;
    }
 
+   /**
+    * Is there any better way to initialize __get variables?
+    * */
+   public static function prefillGetAttributes(& $objects, $attrs = array(),$attrRemove = array(), $params = array()) {   		
+   		foreach ($objects as & $object) {
+   			foreach ($attrs as $attr) {
+   				$object->{$attr};
+   			};
+   			
+   			foreach ($attrRemove as $attr) {
+   				$object->{$attr} = null;
+   			};
+   			
+   			if (!isset($params['do_not_clean']))
+   			$object = (object)array_filter((array)$object);
+   		}
+   }
+
+   /**
+    * Is there any better way to initialize __get variables?
+    * */
+   public static function prefillGetAttributesObject(& $object, $attrs = array(),$attrRemove = array(), $params = array()) {   		
+   	
+   			foreach ($attrs as $attr) {
+   				$object->{$attr};
+   			};
+   			
+   			foreach ($attrRemove as $attr) {
+   				$object->{$attr} = null;
+   			};
+   			
+   			if (!isset($params['do_not_clean']))
+   			$object = (object)array_filter((array)$object);   		
+   }
+   
    private static $persistentSession;
 }
 

@@ -65,6 +65,12 @@ $def->properties['wait_message']->columnName   = 'wait_message';
 $def->properties['wait_message']->propertyName = 'wait_message';
 $def->properties['wait_message']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+// Department ID
+$def->properties['dep_id'] = new ezcPersistentObjectProperty();
+$def->properties['dep_id']->columnName   = 'dep_id';
+$def->properties['dep_id']->propertyName = 'dep_id';
+$def->properties['dep_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 // Timeout in seconds.
 $def->properties['wait_timeout'] = new ezcPersistentObjectProperty();
 $def->properties['wait_timeout']->columnName   = 'wait_timeout';
@@ -75,6 +81,11 @@ $def->properties['requires_email'] = new ezcPersistentObjectProperty();
 $def->properties['requires_email']->columnName   = 'requires_email';
 $def->properties['requires_email']->propertyName = 'requires_email';
 $def->properties['requires_email']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['requires_username'] = new ezcPersistentObjectProperty();
+$def->properties['requires_username']->columnName   = 'requires_username';
+$def->properties['requires_username']->propertyName = 'requires_username';
+$def->properties['requires_username']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 $def->properties['show_random_operator'] = new ezcPersistentObjectProperty();
 $def->properties['show_random_operator']->columnName   = 'show_random_operator';

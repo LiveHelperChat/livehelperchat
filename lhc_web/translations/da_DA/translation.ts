@@ -144,12 +144,24 @@
       <translation>Kræver e-mail</translation>
     </message>
     <message>
+      <source>Requires name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show random operator profile</source>
       <translation>Vis tilfældig operatørprofil</translation>
     </message>
     <message>
+      <source>Enter operators IDs from whom random operator should be shown, separated by comma</source>
+      <translation>Indtast operatørens ID fra hvem tilfældig operatør skal vises, adskilt af komma</translation>
+    </message>
+    <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
       <translation>Id, for hvilke id denne meddelelse skal vises, efterlad tom for alle</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Matched times</source>
@@ -221,12 +233,44 @@
       <translation>Brugeren skriver nu...</translation>
     </message>
     <message>
+      <source>Change chat status</source>
+      <translation>Ændre chat status</translation>
+    </message>
+    <message>
+      <source>Pending</source>
+      <translation>Afventer</translation>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation>Aktiv</translation>
+    </message>
+    <message>
+      <source>Closed</source>
+      <translation>Lukket</translation>
+    </message>
+    <message>
+      <source>Chatbox chat</source>
+      <translation>Chatbox chat</translation>
+    </message>
+    <message>
+      <source>Operators chat</source>
+      <translation>Operatør chat</translation>
+    </message>
+    <message>
+      <source>Cancel</source>
+      <translation>Annuller</translation>
+    </message>
+    <message>
       <source>This chat is closed.</source>
       <translation>Denne chat er lukket.</translation>
     </message>
     <message>
       <source>Pending confirm</source>
       <translation>Ventende Bekræft</translation>
+    </message>
+    <message>
+      <source>Close</source>
+      <translation>Luk</translation>
     </message>
     <message>
       <source>Enter your message</source>
@@ -239,10 +283,6 @@
     <message>
       <source>BB Code</source>
       <translation>BB Kode</translation>
-    </message>
-    <message>
-      <source>Close</source>
-      <translation>Luk</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -267,6 +307,41 @@
     <message>
       <source>Operator is typing now...</source>
       <translation>Operatøren skriver nu...</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/bbcodeinsert</name>
+    <message>
+      <source>Image</source>
+      <translation>Billede</translation>
+    </message>
+    <message>
+      <source>Link</source>
+      <translation>Link</translation>
+    </message>
+    <message>
+      <source>Link title</source>
+      <translation>Link Titel</translation>
+    </message>
+    <message>
+      <source>Bold</source>
+      <translation>Fed</translation>
+    </message>
+    <message>
+      <source>Italic</source>
+      <translation>Kursiv</translation>
+    </message>
+    <message>
+      <source>Please enter link to an image</source>
+      <translation>Please enter link to an image</translation>
+    </message>
+    <message>
+      <source>Please enter a link</source>
+      <translation>Indtast venligst et link</translation>
+    </message>
+    <message>
+      <source>Here is a link</source>
+      <translation>Her er et link</translation>
     </message>
   </context>
   <context>
@@ -401,6 +476,14 @@
       <translation>Deaktiveret</translation>
     </message>
     <message>
+      <source>Will not be visible to visitor</source>
+      <translation>Vil ikke være synligt for besøgende</translation>
+    </message>
+    <message>
+      <source>Hidden</source>
+      <translation>Skjult</translation>
+    </message>
+    <message>
       <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
       <translation>Forsinkelse i sekunder før &quot;efterlad en besked&quot; bliver vist. 0 Betyder funktionalitet er deaktiveret, </translation>
     </message>
@@ -497,6 +580,14 @@
       <translation>Hvor mange sekunder chat kan være ventende før om chat er informeret en personale</translation>
     </message>
     <message>
+      <source>Inform about unread messages if from last unread user message have passed (seconds)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter value in seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Other</source>
       <translation>Andet</translation>
     </message>
@@ -569,6 +660,10 @@
     <message>
       <source>Files</source>
       <translation>Filer</translation>
+    </message>
+    <message>
+      <source>Click to change chat status</source>
+      <translation>Klik for at ændre chatstatus</translation>
     </message>
     <message>
       <source>Pending chat</source>
@@ -668,11 +763,15 @@
     </message>
     <message>
       <source>Mail was send</source>
-      <translation type="unfinished"/>
+      <translation>Mail blev sendt</translation>
     </message>
     <message>
       <source>Send mail</source>
       <translation>Send mail</translation>
+    </message>
+    <message>
+      <source>Redirect user to contact form.</source>
+      <translation>Omdirigere brugeren til en kontakt formular.</translation>
     </message>
     <message>
       <source>Print</source>
@@ -738,6 +837,10 @@
       <source>Messages</source>
       <translation>Meddelelser</translation>
     </message>
+    <message>
+      <source>Invalid chat status</source>
+      <translation>Ugyldig chatstatus</translation>
+    </message>
   </context>
   <context>
     <name>files/files</name>
@@ -793,6 +896,14 @@
       <translation>siden</translation>
     </message>
     <message>
+      <source>Redirect user to contact form.</source>
+      <translation>Omdirigere brugeren til en kontakt formular.</translation>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>Er du sikker?</translation>
+    </message>
+    <message>
       <source>Accept chat</source>
       <translation>Accepter chat</translation>
     </message>
@@ -807,6 +918,37 @@
     <message>
       <source>s.</source>
       <translation>s.</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/screenshot</name>
+    <message>
+      <source>Screenshot</source>
+      <translation>Screenshot</translation>
+    </message>
+    <message>
+      <source>Take user screenshot</source>
+      <translation>Tag bruger-screenshot</translation>
+    </message>
+    <message>
+      <source>Refresh</source>
+      <translation>Opdater</translation>
+    </message>
+    <message>
+      <source>Taken</source>
+      <translation>Taget</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Tom...</translation>
+    </message>
+    <message>
+      <source>Perhaps screenshot is under way or screenshot is not supported on client browser, click refresh to check for a screenshot</source>
+      <translation>Screenshot er måske undervejs eller screenshot er ikke understøttet på klient-browser, klik på Opdater for at kontrollere, om et screenshot er tilgængeligt</translation>
+    </message>
+    <message>
+      <source>Screenshot ready...</source>
+      <translation>Skærmbillede klar ...</translation>
     </message>
   </context>
   <context>
@@ -862,6 +1004,10 @@
   </context>
   <context>
     <name>chat/startchat</name>
+    <message>
+      <source>Department is disabled</source>
+      <translation>Afdelingen er deaktiveret</translation>
+    </message>
     <message>
       <source>Name</source>
       <translation>Navn</translation>
@@ -1076,6 +1222,10 @@
       <translation>Aktiver/Deaktiver lyden om nye ventende chats</translation>
     </message>
     <message>
+      <source>Change my visibility to visible/invisible</source>
+      <translation>Ændre min synlighed til synlig / usynlig</translation>
+    </message>
+    <message>
       <source>Change my status to online/offline</source>
       <translation>Ændre min status til online/offline</translation>
     </message>
@@ -1252,6 +1402,10 @@
       <translation>Id</translation>
     </message>
     <message>
+      <source>Additional information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Last activity</source>
       <translation>Seneste aktivitet</translation>
     </message>
@@ -1357,11 +1511,11 @@
     </message>
     <message>
       <source>Refresh list every</source>
-      <translation type="unfinished"/>
+      <translation>Opdater listen hver</translation>
     </message>
     <message>
       <source>second</source>
-      <translation type="unfinished"/>
+      <translation>sekund</translation>
     </message>
     <message>
       <source>seconds</source>
@@ -1527,16 +1681,16 @@
   <context>
     <name>chat/getstatus</name>
     <message>
+      <source>Close</source>
+      <translation>Luk</translation>
+    </message>
+    <message>
       <source>Live help is online...</source>
       <translation>Live hjælp er online...</translation>
     </message>
     <message>
       <source>Live help is offline...</source>
       <translation>Live hjælp er offline...</translation>
-    </message>
-    <message>
-      <source>Close</source>
-      <translation>Luk</translation>
     </message>
     <message>
       <source>Open in a new window</source>
@@ -1548,11 +1702,11 @@
     </message>
     <message>
       <source>Need help?</source>
-      <translation type="unfinished"/>
+      <translation>Brug for hjælp?</translation>
     </message>
     <message>
       <source>Our staff is always ready to help</source>
-      <translation type="unfinished"/>
+      <translation>Vores personale er altid klar til at hjælpe</translation>
     </message>
   </context>
   <context>
@@ -1705,6 +1859,10 @@
       <translation>Chatboks indlejringskode</translation>
     </message>
     <message>
+      <source>Browse offers embed code</source>
+      <translation>Gennemse tilbud embed kode</translation>
+    </message>
+    <message>
       <source>Statistic</source>
       <translation>Statistik</translation>
     </message>
@@ -1752,24 +1910,32 @@
   <context>
     <name>system/htmlcode</name>
     <message>
-      <source>Widget embed code</source>
-      <translation>Widget indlejringskode</translation>
-    </message>
-    <message>
-      <source>Page embed code</source>
-      <translation>Side indlejringskode</translation>
-    </message>
-    <message>
       <source>HTML code</source>
       <translation>HTML-kode</translation>
     </message>
     <message>
-      <source>Choose a language</source>
-      <translation>Vælg et sprog</translation>
+      <source>Popup width</source>
+      <translation>Popup bredde</translation>
     </message>
     <message>
-      <source>Chatbox messages content height</source>
-      <translation>Chatboksmeddelelser indholdshøjde</translation>
+      <source>Popup height, used only if iframe is used</source>
+      <translation>Popup højde, anvendes kun, hvis der anvendes iframe</translation>
+    </message>
+    <message>
+      <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
+      <translation>Id, dette kan bruges som filter for proaktive chatinvitationer og er nyttige til at have forskellige beskeder til forskellige domæner. Kun streng uden mellemrum eller specialtegn.</translation>
+    </message>
+    <message>
+      <source>Leave empty if it is not important to you</source>
+      <translation>Lad være tomt, hvis det ikke er vigtigt for dig</translation>
+    </message>
+    <message>
+      <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
+      <translation>Offer timeout i dage, efter hvor mange dage viser tilbud til den samme besøgende igen, lad tomme for sessionen</translation>
+    </message>
+    <message>
+      <source>Choose a language</source>
+      <translation>Vælg et sprog</translation>
     </message>
     <message>
       <source>Choose prefered http mode</source>
@@ -1778,6 +1944,18 @@
     <message>
       <source>Based on site (default)</source>
       <translation>Baseret på webstedet (standard)</translation>
+    </message>
+    <message>
+      <source>Widget embed code</source>
+      <translation>Widget indlejringskode</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>Side indlejringskode</translation>
+    </message>
+    <message>
+      <source>Chatbox messages content height</source>
+      <translation>Chatboksmeddelelser indholdshøjde</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>
@@ -1868,6 +2046,10 @@
       <translation>Hjælp os med at vokse</translation>
     </message>
     <message>
+      <source>Embed code</source>
+      <translation>Indlejringskode</translation>
+    </message>
+    <message>
       <source>Hide status when offline</source>
       <translation>Skjul status når du arbejder offline</translation>
     </message>
@@ -1936,20 +2118,8 @@
       <translation>Oprindelig placering - det bliver vist, hvor html er integreret</translation>
     </message>
     <message>
-      <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
-      <translation>Id, dette kan bruges som filter for proaktive chatinvitationer og er nyttige til at have forskellige beskeder til forskellige domæner. Kun streng uden mellemrum eller specialtegn.</translation>
-    </message>
-    <message>
-      <source>Leave empty if it is not important to you</source>
-      <translation>Lad være tomt, hvis det ikke er vigtigt for dig</translation>
-    </message>
-    <message>
       <source>System configuration</source>
       <translation>Systemkonfiguration</translation>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation>Indlejringskode</translation>
     </message>
   </context>
   <context>
@@ -2015,6 +2185,10 @@
     <message>
       <source>Search</source>
       <translation>Søg</translation>
+    </message>
+    <message>
+      <source>Print</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Select department</source>
@@ -2166,6 +2340,14 @@
       <translation>Skriv din meddelelse til brugeren</translation>
     </message>
     <message>
+      <source>Requires e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Requires name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Send the message</source>
       <translation>Send meddelelsen</translation>
     </message>
@@ -2268,10 +2450,6 @@
   <context>
     <name>chat/syncandsoundesetting</name>
     <message>
-      <source>Long polling</source>
-      <translation>Lang afstemning</translation>
-    </message>
-    <message>
       <source>Save</source>
       <translation>Gem</translation>
     </message>
@@ -2309,7 +2487,7 @@
     </message>
     <message>
       <source>Messages settings</source>
-      <translation type="unfinished"/>
+      <translation>Besked indstillinger</translation>
     </message>
     <message>
       <source>Sync for a new user message, interval in seconds</source>
@@ -2317,11 +2495,11 @@
     </message>
     <message>
       <source>Show browser notification for new messages</source>
-      <translation type="unfinished"/>
+      <translation>Vis browser notifikationer for nye meddelelser</translation>
     </message>
     <message>
       <source>Long polling (experimental)</source>
-      <translation type="unfinished"/>
+      <translation>Lang polling (eksperimentel)</translation>
     </message>
     <message>
       <source>Enable long polling</source>
@@ -2794,12 +2972,20 @@
   <context>
     <name>questionary/htmlcode</name>
     <message>
-      <source>Status text</source>
-      <translation>Statustekst</translation>
+      <source>Show overlay</source>
+      <translation>Vis overlay</translation>
+    </message>
+    <message>
+      <source>Show different offers for the same user</source>
+      <translation>Vis forskellige tilbud til den samme bruger</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page header or footer</source>
       <translation>Kopier koden fra tekstområdet i sidehovedet eller sidefoden</translation>
+    </message>
+    <message>
+      <source>Status text</source>
+      <translation>Statustekst</translation>
     </message>
     <message>
       <source>Expand the widget automatically for new users</source>
@@ -2972,6 +3158,14 @@
       <translation>Efternavn</translation>
     </message>
     <message>
+      <source>Job title</source>
+      <translation>Jobtitel</translation>
+    </message>
+    <message>
+      <source>Chat status will not change upon pending chat opening</source>
+      <translation>Chat status vil ikke ændre på ventende chat åbning</translation>
+    </message>
+    <message>
       <source>Skype</source>
       <translation>Skype</translation>
     </message>
@@ -2994,6 +3188,10 @@
     <message>
       <source>Assigned departments</source>
       <translation>Tildelte afdelinger</translation>
+    </message>
+    <message>
+      <source>All departments</source>
+      <translation>Alle afdelinger</translation>
     </message>
     <message>
       <source>Visible lists</source>
@@ -3099,7 +3297,7 @@
     </message>
     <message>
       <source>Please enter your email address!</source>
-      <translation type="unfinished"/>
+      <translation>Indtast venligst din email adresse!</translation>
     </message>
   </context>
   <context>
@@ -3907,6 +4105,10 @@
       <translation>Chatboks</translation>
     </message>
     <message>
+      <source>Browse offers</source>
+      <translation>Gennemse tilbud</translation>
+    </message>
+    <message>
       <source>Account</source>
       <translation>Konto</translation>
     </message>
@@ -4168,6 +4370,10 @@
   </context>
   <context>
     <name>user/new</name>
+    <message>
+      <source>Invisible mode</source>
+      <translation>Usynlig tilstand</translation>
+    </message>
     <message>
       <source>User group</source>
       <translation>Brugergruppe</translation>
@@ -4719,6 +4925,10 @@
       <translation>Angiv et afdelingsnavn</translation>
     </message>
     <message>
+      <source>Minimum 5 seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Transfer department has to be different one than self</source>
       <translation>Overførselsafdeling skal være anderledes end egen.</translation>
     </message>
@@ -4787,10 +4997,21 @@
     </message>
   </context>
   <context>
+    <name>chat/accepttrasnfer</name>
+    <message>
+      <source>has joined the chat!</source>
+      <translation>har sluttet sig til chatten!</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/closechatadmin</name>
     <message>
       <source>has closed the chat!</source>
       <translation>har lukket chatten!</translation>
+    </message>
+    <message>
+      <source>has redirected user to contact form!</source>
+      <translation>har omdirigeret bruger til en kontakt formular!</translation>
     </message>
   </context>
   <context>
@@ -4859,84 +5080,89 @@
     </message>
   </context>
   <context>
-    <name>chat/screenshot</name>
+    <name>browseoffer/index</name>
     <message>
-      <source>Screenshot</source>
-      <translation>Screenshot</translation>
+      <source>Browse offers</source>
+      <translation>Gennemse tilbud</translation>
     </message>
     <message>
-      <source>Take user screenshot</source>
-      <translation>Tag bruger-screenshot</translation>
+      <source>General</source>
+      <translation>Generelt</translation>
     </message>
     <message>
-      <source>Refresh</source>
-      <translation>Opdater</translation>
+      <source>Browse your offers</source>
+      <translation>Gennemse dine tilbud</translation>
     </message>
     <message>
-      <source>Taken</source>
-      <translation>Taget</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Tom...</translation>
-    </message>
-    <message>
-      <source>Perhaps screenshot is under way or screenshot is not supported on client browser, click refresh to check for a screenshot</source>
-      <translation>Screenshot er måske undervejs eller screenshot er ikke understøttet på klient-browser, klik på Opdater for at kontrollere, om et screenshot er tilgængeligt</translation>
-    </message>
-    <message>
-      <source>Screenshot ready...</source>
-      <translation>Skærmbillede klar ...</translation>
+      <source>HTML Code</source>
+      <translation>HTML Kode</translation>
     </message>
   </context>
   <context>
-    <name>chat/bbcodeinsert</name>
+    <name>abstract/browserofferinvitation</name>
     <message>
-      <source>Link title image</source>
-      <translation>Link titel billede</translation>
+      <source>Name for personal purposes</source>
+      <translation>Navn til personlige formål</translation>
     </message>
     <message>
-      <source>Link to image</source>
-      <translation>Link til billede</translation>
+      <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
+      <translation>Sprog, efterlad tom for alle. F.eks. rus, ger, etc...</translation>
     </message>
     <message>
-      <source>Image</source>
-      <translation>Billede</translation>
+      <source>Time on site on single page in seconds</source>
+      <translation>Tid på stedet på én side i sekunder</translation>
     </message>
     <message>
-      <source>Link</source>
-      <translation>Link</translation>
+      <source>Priority, the lower the higher</source>
+      <translation>Prioritet, jo lavere jo højere</translation>
     </message>
     <message>
-      <source>Link title</source>
-      <translation>Link Titel</translation>
+      <source>Popup width</source>
+      <translation>Popup bredde</translation>
     </message>
     <message>
-      <source>Bold</source>
-      <translation>Fed</translation>
+      <source>Popup height</source>
+      <translation>Popup højde</translation>
     </message>
     <message>
-      <source>Italic</source>
-      <translation>Kursiv</translation>
+      <source>Measure units, px or percents</source>
+      <translation>Måleenheder, px eller procenter</translation>
     </message>
     <message>
-      <source>Please enter link to an image</source>
-      <translation>Please enter link to an image</translation>
+      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
+      <translation>Henvisende domæne uden www, fx google søgeord matcher nogen af google-domæne</translation>
     </message>
     <message>
-      <source>Please enter a link</source>
-      <translation>Indtast venligst et link</translation>
+      <source>URL, enter * at the end for the wildcard</source>
+      <translation>URL-adresse, Indtast * enden for wildcard</translation>
     </message>
     <message>
-      <source>Here is a link</source>
-      <translation>Her er et link</translation>
+      <source>Custom iframe URL, takes priority over default content</source>
+      <translation>Brugerdefineret IFRAME URL, går forud for standard indhold</translation>
     </message>
-  </context>
-  <context>
-    <name>chat/accepttrasnfer</name>
     <message>
-      <source>has joined the chat!</source>
-      <translation type="unfinished"/>
+      <source>Default popup content</source>
+      <translation>Standard popup indhold</translation>
+    </message>
+    <message>
+      <source>Load content in lhc iframe</source>
+      <translation>Load indhold i lhc iframe</translation>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation>Aktiv</translation>
+    </message>
+    <message>
+      <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
+      <translation>Id, for hvilke id denne besked skal vises, efterlade tom for alle</translation>
+    </message>
+    <message>
+      <source>Matched times</source>
+      <translation>Matchede gange</translation>
+    </message>
+    <message>
+      <source>Browser offer invitations</source>
+      <translation>Browser tilbuds invitationer</translation>
     </message>
   </context>
 </TS>

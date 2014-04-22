@@ -35,10 +35,12 @@ class erLhcoreClassModelChatOnlineUser {
                'total_visits'    	=> $this->total_visits,
                'invitation_count'   => $this->invitation_count,
                'requires_email'   	=> $this->requires_email,
+               'requires_username'  => $this->requires_username,
                'dep_id'   			=> $this->dep_id,
                'reopen_chat'   		=> $this->reopen_chat,
 	       	   'operation'   		=> $this->operation,
-	       	   'screenshot_id'   	=> $this->screenshot_id
+	       	   'screenshot_id'   	=> $this->screenshot_id,
+	       	   'online_attr'   		=> $this->online_attr
        );
    }
 
@@ -70,11 +72,11 @@ class erLhcoreClassModelChatOnlineUser {
    public function __get($var) {
        switch ($var) {
        	case 'last_visit_front':
-       		  return date(erLhcoreClassModule::$dateDateHourFormat,$this->last_visit);
+       		  return $this->last_visit_front = date(erLhcoreClassModule::$dateDateHourFormat,$this->last_visit);
        		break;
 
        	case 'first_visit_front':
-       		  return date(erLhcoreClassModule::$dateDateHourFormat,$this->first_visit);
+       		  return $this->first_visit_front = date(erLhcoreClassModule::$dateDateHourFormat,$this->first_visit);
        		break;
 
        	case 'invitation':
@@ -132,8 +134,19 @@ class erLhcoreClassModelChatOnlineUser {
        	        return $this->operator_user;
        	    break;
 
+       	case 'operator_user_send':
+       	        $this->operator_user_send = $this->operator_user !== false;       	       
+       	        return $this->operator_user_send;
+       	    break;
+
+       	case 'operator_user_string':
+       	        $this->operator_user_string = (string)$this->operator_user;       	       
+       	        return $this->operator_user_string;
+       	    break;
+
        	case 'time_on_site_front':
-       			return gmdate(erLhcoreClassModule::$dateHourFormat,$this->time_on_site);
+       			$this->time_on_site_front = gmdate(erLhcoreClassModule::$dateHourFormat,$this->time_on_site);
+       			return $this->time_on_site_front;
        		break;
 
        	case 'tt_time_on_site_front':
@@ -549,6 +562,14 @@ class erLhcoreClassModelChatOnlineUser {
 	           		$item->tt_pages_count++;
 	           		$item->store_chat = true;
 	           		
+	           		if ( isset($_GET['onattr']) && is_array($_GET['onattr']) && !(empty($_GET['onattr'])) ) {
+	           			$stringOnlineAttr = array();
+	           			foreach ($_GET['onattr'] as $field => $value){
+	           				$stringOnlineAttr[] = $field.' - '.$value;
+	           			}
+	           			$item->online_attr = implode("\n", $stringOnlineAttr);
+	           		}
+	           		
 	           		if ($item->has_message_from_operator == true) {
 	           			$item->invitation_seen_count++;
 	           		}
@@ -629,10 +650,12 @@ class erLhcoreClassModelChatOnlineUser {
    public $total_visits = 0;
    public $invitation_count = 0;
    public $requires_email = 0;
+   public $requires_username = 0;
    public $dep_id = 0;
    public $invitation_seen_count = 0;
    public $screenshot_id = 0;
    public $operation = '';
+   public $online_attr = '';
       
    
    // 0 - do not reopen

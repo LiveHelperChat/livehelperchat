@@ -116,10 +116,25 @@ $def->properties['inform_close']->columnName   = 'inform_close';
 $def->properties['inform_close']->propertyName = 'inform_close';
 $def->properties['inform_close']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['inform_unread'] = new ezcPersistentObjectProperty();
+$def->properties['inform_unread']->columnName   = 'inform_unread';
+$def->properties['inform_unread']->propertyName = 'inform_unread';
+$def->properties['inform_unread']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['inform_unread_delay'] = new ezcPersistentObjectProperty();
+$def->properties['inform_unread_delay']->columnName   = 'inform_unread_delay';
+$def->properties['inform_unread_delay']->propertyName = 'inform_unread_delay';
+$def->properties['inform_unread_delay']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['disabled'] = new ezcPersistentObjectProperty();
 $def->properties['disabled']->columnName   = 'disabled';
 $def->properties['disabled']->propertyName = 'disabled';
 $def->properties['disabled']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['hidden'] = new ezcPersistentObjectProperty();
+$def->properties['hidden']->columnName   = 'hidden';
+$def->properties['hidden']->propertyName = 'hidden';
+$def->properties['hidden']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 /**
  * Delay before leave a message window is shown

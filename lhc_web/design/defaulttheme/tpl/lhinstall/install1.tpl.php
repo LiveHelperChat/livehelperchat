@@ -52,6 +52,14 @@
         <td><?php echo extension_loaded ('pdo_mysql' ) ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'; ?></td>
     </tr>
     <tr>
+        <td>Is the gd extension installed</td>
+        <td><?php echo extension_loaded ('gd' ) ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'; ?></td>
+    </tr>
+    <tr>
+        <td>Is the json extension detected</td>
+        <td><?php echo function_exists('json_encode') ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'; ?></td>
+    </tr>
+    <tr>
         <td>Minimum 5.3 PHP</td>
         <td><?php echo (version_compare(PHP_VERSION, '5.3.0','<')) ? '<span class="round label alert">No</span>' : '<span class="success label round">Yes</span>'; ?></td>
     </tr>

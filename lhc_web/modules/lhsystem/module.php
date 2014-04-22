@@ -54,5 +54,6 @@ $FunctionList['configurelanguages'] = array('explain' => 'Allow user to configur
 $FunctionList['changelanguage'] = array('explain' => 'Allow user to change his languages');
 $FunctionList['timezone'] = array('explain' => 'Allow user to change global time zone');
 $FunctionList['performupdate'] = array('explain' => 'Allow user to update Live Helper Chat');
+$FunctionList['changetemplates'] = array('explain' => 'Allow user to change e-mail templates');
 
 ?>

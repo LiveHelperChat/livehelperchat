@@ -260,7 +260,7 @@ class erLhcoreClassIPDetect {
 	{
 		$pieces = explode ("/", $ip, 2);
 		$left_piece = $pieces[0];
-		$right_piece = $pieces[1];
+		$right_piece = isset($pieces[1]) ? $pieces[1] : '';
 
 		// Extract out the main IP pieces
 		$ip_pieces = explode("::", $left_piece, 2);

@@ -48,6 +48,11 @@ class erLhcoreClassChatWorkflow {
     			$chat->last_msg_id = $msg->id;
     		}
 
+    		if ($departmentTransfer->inform_unread == 1) {
+    			$chat->reinform_timeout = $departmentTransfer->inform_unread_delay;
+    			$chat->unread_messages_informed = 0;
+    		}
+    		
     		// Our new department also has a transfer rule
     		if ($departmentTransfer->department_transfer !== false) {
     			$chat->transfer_if_na = 1;
@@ -95,7 +100,35 @@ class erLhcoreClassChatWorkflow {
     		}
     	}
     }
-        
+
+    public static function unreadInformWorkflow($options = array(), & $chat) {
+    	 
+    	$chat->unread_messages_informed = 1;
+    	$chat->updateThis();
+
+    	if (in_array('mail', $options['options'])) {
+    		erLhcoreClassChatMail::sendMailUnacceptedChat($chat,7);
+    	}
+
+    	if (in_array('xmp', $options['options'])) {
+    		erLhcoreClassXMP::sendXMPMessage($chat);
+    	}
+    	 
+    	// Execute callback if it exists
+    	$extensions = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'extensions' );
+    	$instance = erLhcoreClassSystem::instance();
+    	 
+    	foreach ($extensions as $ext) {
+    		$callbackFile = $instance->SiteDir . '/extension/' . $ext . '/callbacks/unread_message_chat.php';
+    		if (file_exists($callbackFile)) {
+    			include $callbackFile;
+    		}
+    	}
+    	 
+    }
+    
+    
+    
     public static function newChatInformWorkflow($options = array(), & $chat) {
     	
     	$chat->nc_cb_executed = 1;

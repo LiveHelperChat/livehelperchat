@@ -87,6 +87,7 @@ return array_merge(array (
 		'erLhAbstractModelEmailTemplate' 			=> 'lib/models/lhabstract/erlhabstractmodelemailtemplate.php',
 		'erLhAbstractModelProactiveChatInvitation'  => 'lib/models/lhabstract/erlhabstractmodeleproactivechatinvitation.php',
 		'erLhAbstractModelAutoResponder'  			=> 'lib/models/lhabstract/erlhabstractmodelautoresponder.php',
+		'erLhAbstractModelBrowseOfferInvitation'  	=> 'lib/models/lhabstract/erlhabstractmodelbrowseofferinvitation.php',
 		'erLhcoreClassAbstract' 		 => 'lib/core/lhabstract/lhabstract.php',
 		'erLhcoreClassChatMail' 		 => 'lib/core/lhchat/lhchatmail.php',
 

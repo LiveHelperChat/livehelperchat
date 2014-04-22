@@ -59,6 +59,12 @@ switch ((int)$Params['user_parameters']['step_id']) {
 		if (!extension_loaded('mbstring'))
 			$Errors[] = "mbstring extension not detected. Please install php extension";	
 		
+		if (!extension_loaded('gd'))
+			$Errors[] = "gd extension not detected. Please install php extension";	
+		
+		if (!function_exists('json_encode'))
+			$Errors[] = "json support not detected. Please install php extension";	
+		
 		if (version_compare(PHP_VERSION, '5.3.0','<')) {
 			$Errors[] = "Minimum 5.3.0 PHP version is required";	
 		}
@@ -72,10 +78,10 @@ switch ((int)$Params['user_parameters']['step_id']) {
 
 		$definition = array(
             'DatabaseUsername' => new ezcInputFormDefinitionElement(
-                ezcInputFormDefinitionElement::REQUIRED, 'string'
+                ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
             ),
             'DatabasePassword' => new ezcInputFormDefinitionElement(
-                ezcInputFormDefinitionElement::REQUIRED, 'string'
+                ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
             ),
             'DatabaseHost' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::REQUIRED, 'string'
@@ -160,22 +166,22 @@ switch ((int)$Params['user_parameters']['step_id']) {
 	    {
     		$definition = array(
                 'AdminUsername' => new ezcInputFormDefinitionElement(
-                    ezcInputFormDefinitionElement::REQUIRED, 'string'
+                    ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
                 ),
                 'AdminPassword' => new ezcInputFormDefinitionElement(
-                    ezcInputFormDefinitionElement::REQUIRED, 'string'
+                    ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
                 ),
                 'AdminPassword1' => new ezcInputFormDefinitionElement(
-                    ezcInputFormDefinitionElement::REQUIRED, 'string'
+                    ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
                 ),
                 'AdminEmail' => new ezcInputFormDefinitionElement(
                     ezcInputFormDefinitionElement::REQUIRED, 'validate_email'
                 ),
                 'AdminName' => new ezcInputFormDefinitionElement(
-                    ezcInputFormDefinitionElement::OPTIONAL, 'string'
+                    ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
                 ),
                 'AdminSurname' => new ezcInputFormDefinitionElement(
-                    ezcInputFormDefinitionElement::OPTIONAL, 'string'
+                    ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
                 ),
                 'DefaultDepartament' => new ezcInputFormDefinitionElement(
                     ezcInputFormDefinitionElement::REQUIRED, 'string'
@@ -253,6 +259,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `dep_id` int(11) NOT NULL,
 				  `user_status` int(11) NOT NULL DEFAULT '0',
 				  `support_informed` int(11) NOT NULL DEFAULT '0',
+				  `unread_messages_informed` int(11) NOT NULL DEFAULT '0',
+				  `reinform_timeout` int(11) NOT NULL DEFAULT '0',
 				  `email` varchar(100) NOT NULL,
 				  `country_code` varchar(100) NOT NULL,
 				  `country_name` varchar(100) NOT NULL,
@@ -381,7 +389,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   		(3,	'User mail for himself',	'Live Helper Chat',	0,	'',	0,	'Dear {user_chat_nick},\r\n\r\nTranscript:\r\n{messages_content}\r\n\r\nSincerely,\r\nLive Support Team\r\n',	'Chat transcript',	0,	'',	0,	'',''),
         	   		(4,	'New chat request',	'Live Helper Chat',	0,	'',	0,	'Hello,\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nClick to accept chat automatically\r\n{url_accept}\r\n\r\nSincerely,\r\nLive Support Team',	'New chat request',	0,	'',	0,	'{$adminEmail}',''),
         	   		(5,	'Chat was closed',	'Live Helper Chat',	0,	'',	0,	'Hello,\r\n\r\n{operator} has closed a chat\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nAdditional data, if any:\r\n{additional_data}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nSincerely,\r\nLive Support Team',	'Chat was closed',	0,	'',	0,	'',''),
-        	   		(6,	'New FAQ question',	'Live Helper Chat',	0,	'',	0,	'Hello,\r\n\r\nNew FAQ question\r\nEmail: {email}\r\n\r\nQuestion:\r\n{question}\r\n\r\nURL to answer a question:\r\n{url_request}\r\n\r\nSincerely,\r\nLive Support Team',	'New FAQ question',	0,	'',	0,	'',	'');");
+        	   		(6,	'New FAQ question',	'Live Helper Chat',	0,	'',	0,	'Hello,\r\n\r\nNew FAQ question\r\nEmail: {email}\r\n\r\nQuestion:\r\n{question}\r\n\r\nQuestion URL:\r\n{url_question}\r\n\r\nURL to answer a question:\r\n{url_request}\r\n\r\nSincerely,\r\nLive Support Team',	'New FAQ question',	0,	'',	0,	'',	''),
+        	   		(7,	'New unread message',	'Live Helper Chat',	0,	'',	0,	'Hello,\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nClick to accept chat automatically\r\n{url_accept}\r\n\r\nSincerely,\r\nLive Support Team',	'New chat request',	0,	'',	0,	'{$adminEmail}','');");
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_question` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -426,8 +435,33 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   PRIMARY KEY (`id`),
         	   KEY `question_id` (`question_id`),
         	   KEY `ip` (`ip`)
-        	   ) DEFAULT CHARSET=utf8");
-
+        	   ) DEFAULT CHARSET=utf8;");
+        	   
+        	   $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_browse_offer_invitation` (
+				  `id` int(11) NOT NULL AUTO_INCREMENT,
+				  `siteaccess` varchar(10) NOT NULL,
+				  `time_on_site` int(11) NOT NULL,
+				  `content` longtext NOT NULL,
+				  `lhc_iframe_content` tinyint(4) NOT NULL,
+				  `custom_iframe_url` varchar(250) NOT NULL,
+				  `name` varchar(250) NOT NULL,
+				  `identifier` varchar(50) NOT NULL,
+				  `executed_times` int(11) NOT NULL,
+				  `url` varchar(250) NOT NULL,
+				  `active` int(11) NOT NULL,
+				  `has_url` int(11) NOT NULL,
+				  `is_wildcard` int(11) NOT NULL,
+				  `referrer` varchar(250) NOT NULL,
+				  `priority` varchar(250) NOT NULL,
+				  `hash` varchar(40) NOT NULL,
+				  `width` int(11) NOT NULL,
+				  `height` int(11) NOT NULL,
+				  `unit` varchar(10) NOT NULL,
+				  PRIMARY KEY (`id`),
+				  KEY `active` (`active`),
+				  KEY `identifier` (`identifier`)
+				) DEFAULT CHARSET=utf8;");
+        	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chatbox` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
 				  `identifier` varchar(50) NOT NULL,
@@ -538,6 +572,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('disable_print','0',0,'Disable chat print', '0'),
                 ('hide_disabled_department','1',0,'Hide disabled department widget', '0'),
                 ('disable_send','0',0,'Disable chat transcript send', '0'),
+                ('ignore_user_status','0',0,'Ignore users online statuses and use departments online hours', '0'),
                 ('geo_data', '', '0', '', '1')");
 
         	   
@@ -574,9 +609,11 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  `time_on_site` int(11) NOT NULL,
   				  `tt_time_on_site` int(11) NOT NULL,
         	   	  `requires_email` int(11) NOT NULL,
+        	   	  `requires_username` int(11) NOT NULL,
         	   	  `screenshot_id` int(11) NOT NULL,
         	   	  `identifier` varchar(50) NOT NULL,
         	   	  `operation` varchar(200) NOT NULL,
+        	   	  `online_attr` varchar(250) NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `vid` (`vid`),
 				  KEY `dep_id` (`dep_id`),
@@ -590,6 +627,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `pageviews` int(11) NOT NULL,
 				  `message` text NOT NULL,
 				  `executed_times` int(11) NOT NULL,
+				  `dep_id` int(11) NOT NULL,
 				  `hide_after_ntimes` int(11) NOT NULL,
 				  `name` varchar(50) NOT NULL,
 				  `operator_ids` varchar(100) NOT NULL,
@@ -602,8 +640,11 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `position` int(11) NOT NULL,
         	   	  `identifier` varchar(50) NOT NULL,
         	   	  `requires_email` int(11) NOT NULL,
+        	   	  `requires_username` int(11) NOT NULL,
 				  PRIMARY KEY (`id`),
-				  KEY `time_on_site_pageviews_siteaccess_position` (`time_on_site`,`pageviews`,`siteaccess`,`identifier`,`position`)
+				  KEY `time_on_site_pageviews_siteaccess_position` (`time_on_site`,`pageviews`,`siteaccess`,`identifier`,`position`),
+        	      KEY `identifier` (`identifier`),
+        	      KEY `dep_id` (`dep_id`)
 				) DEFAULT CHARSET=utf8;");
         	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_accept` (
@@ -627,6 +668,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `department_transfer_id` int(11) NOT NULL,
 				  `transfer_timeout` int(11) NOT NULL,
 				  `disabled` int(11) NOT NULL,
+				  `hidden` int(11) NOT NULL,
 				  `delay_lm` int(11) NOT NULL,
 				  `identifier` varchar(50) NOT NULL,
 				  `mod` tinyint(1) NOT NULL,
@@ -636,15 +678,17 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `frd` tinyint(1) NOT NULL,
 				  `sad` tinyint(1) NOT NULL,
 				  `sud` tinyint(1) NOT NULL,
+				  `inform_unread` tinyint(1) NOT NULL,
 				  `start_hour` int(2) NOT NULL,
 				  `end_hour` int(2) NOT NULL,
 				  `inform_close` int(11) NOT NULL,
+				  `inform_unread_delay` int(11) NOT NULL,
 				  `inform_options` varchar(250) NOT NULL,
 				  `online_hours_active` tinyint(1) NOT NULL,
 				  `inform_delay` int(11) NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `identifier` (`identifier`),
-				  KEY `disabled` (`disabled`),
+				  KEY `disabled_hidden` (`disabled`, `hidden`),
 				  KEY `oha_sh_eh` (`online_hours_active`,`start_hour`,`end_hour`)
 				) DEFAULT CHARSET=utf8;");
 
@@ -857,6 +901,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                     array('module' => 'lhquestionary',  'function' => 'manage_questionary'),
                     array('module' => 'lhfaq',   		'function' => 'manage_faq'),
                     array('module' => 'lhchatbox',   	'function' => 'manage_chatbox'),
+                    array('module' => 'lhbrowseoffer',   'function' => 'manage_bo'),
                     array('module' => 'lhxml',   		'function' => '*'),
                     array('module' => 'lhfile',   		'function' => 'use_operator'),
                     array('module' => 'lhfile',   		'function' => 'file_delete_chat')

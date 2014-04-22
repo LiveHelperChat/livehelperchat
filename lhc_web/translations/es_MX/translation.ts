@@ -146,12 +146,24 @@
       <translation>Correo necesario</translation>
     </message>
     <message>
+      <source>Requires name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show random operator profile</source>
       <translation>Mostrar perfil de operador aleatorio</translation>
     </message>
     <message>
+      <source>Enter operators IDs from whom random operator should be shown, separated by comma</source>
+      <translation>Introduzca las IDs de los operadores que serán mostradas al azar, separadas por comas</translation>
+    </message>
+    <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
       <translation>Identificador, para que identificador deberá mostrarse este mensaje, dejar vacío para todos</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Matched times</source>
@@ -223,12 +235,44 @@
       <translation>El usuario está escribiendo...</translation>
     </message>
     <message>
+      <source>Change chat status</source>
+      <translation>Cambiar estado</translation>
+    </message>
+    <message>
+      <source>Pending</source>
+      <translation>Pendiente</translation>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation>Activo</translation>
+    </message>
+    <message>
+      <source>Closed</source>
+      <translation>Cerrado</translation>
+    </message>
+    <message>
+      <source>Chatbox chat</source>
+      <translation>Chat de Chatbox</translation>
+    </message>
+    <message>
+      <source>Operators chat</source>
+      <translation>Chat de operadores</translation>
+    </message>
+    <message>
+      <source>Cancel</source>
+      <translation>Cancelar</translation>
+    </message>
+    <message>
       <source>This chat is closed.</source>
       <translation>Este chat está cerrado.</translation>
     </message>
     <message>
       <source>Pending confirm</source>
       <translation>En espera de confirmación</translation>
+    </message>
+    <message>
+      <source>Close</source>
+      <translation>Cerrar</translation>
     </message>
     <message>
       <source>Enter your message</source>
@@ -241,10 +285,6 @@
     <message>
       <source>BB Code</source>
       <translation>Código BB</translation>
-    </message>
-    <message>
-      <source>Close</source>
-      <translation>Cerrar</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -269,6 +309,41 @@
     <message>
       <source>Operator is typing now...</source>
       <translation>El operador está escribiendo...</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/bbcodeinsert</name>
+    <message>
+      <source>Image</source>
+      <translation>Imagen</translation>
+    </message>
+    <message>
+      <source>Link</source>
+      <translation>Enlace</translation>
+    </message>
+    <message>
+      <source>Link title</source>
+      <translation>Título del enlace</translation>
+    </message>
+    <message>
+      <source>Bold</source>
+      <translation>Negritas</translation>
+    </message>
+    <message>
+      <source>Italic</source>
+      <translation>Itálica</translation>
+    </message>
+    <message>
+      <source>Please enter link to an image</source>
+      <translation>Por favor introduzca el enlace a una imagen</translation>
+    </message>
+    <message>
+      <source>Please enter a link</source>
+      <translation>Por favor introduzca un enlace</translation>
+    </message>
+    <message>
+      <source>Here is a link</source>
+      <translation>Aquí hay un enlace</translation>
     </message>
   </context>
   <context>
@@ -403,6 +478,14 @@
       <translation>Deshabilitado</translation>
     </message>
     <message>
+      <source>Will not be visible to visitor</source>
+      <translation>No será visible para los visitantes</translation>
+    </message>
+    <message>
+      <source>Hidden</source>
+      <translation>Oculto</translation>
+    </message>
+    <message>
       <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
       <translation>Retraso en segundos antes de el formulario deje un mensaje sea mostrado, 0 significa deshabilitado</translation>
     </message>
@@ -499,6 +582,14 @@
       <translation>¿Cuántos segundos el chat puede estar pendiente antes de que sea informado al personal?</translation>
     </message>
     <message>
+      <source>Inform about unread messages if from last unread user message have passed (seconds)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter value in seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Other</source>
       <translation>Otro</translation>
     </message>
@@ -571,6 +662,10 @@
     <message>
       <source>Files</source>
       <translation>Archivos</translation>
+    </message>
+    <message>
+      <source>Click to change chat status</source>
+      <translation>Haga clic para cambiar estado</translation>
     </message>
     <message>
       <source>Pending chat</source>
@@ -677,6 +772,10 @@
       <translation>Enviar correo</translation>
     </message>
     <message>
+      <source>Redirect user to contact form.</source>
+      <translation>Redirigir usuario al formulario de contacto.</translation>
+    </message>
+    <message>
       <source>Print</source>
       <translation>Imprimir</translation>
     </message>
@@ -740,6 +839,10 @@
       <source>Messages</source>
       <translation>Mensajes</translation>
     </message>
+    <message>
+      <source>Invalid chat status</source>
+      <translation>Estado de chat inválido</translation>
+    </message>
   </context>
   <context>
     <name>files/files</name>
@@ -795,6 +898,14 @@
       <translation>hace</translation>
     </message>
     <message>
+      <source>Redirect user to contact form.</source>
+      <translation>Redirigir usuario al formulario de contacto.</translation>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>Esta seguro?</translation>
+    </message>
+    <message>
       <source>Accept chat</source>
       <translation>Aceptar chat</translation>
     </message>
@@ -809,6 +920,37 @@
     <message>
       <source>s.</source>
       <translation>s.</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/screenshot</name>
+    <message>
+      <source>Screenshot</source>
+      <translation>Pantalla</translation>
+    </message>
+    <message>
+      <source>Take user screenshot</source>
+      <translation>Capturar pantalla del usuario</translation>
+    </message>
+    <message>
+      <source>Refresh</source>
+      <translation>Actualizar</translation>
+    </message>
+    <message>
+      <source>Taken</source>
+      <translation>Tomada</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Vacío...</translation>
+    </message>
+    <message>
+      <source>Perhaps screenshot is under way or screenshot is not supported on client browser, click refresh to check for a screenshot</source>
+      <translation>Quizas la captura de pantalla está en camino o no es soportado por el navegador del cliente, presione actualizar para revisar por imagenes</translation>
+    </message>
+    <message>
+      <source>Screenshot ready...</source>
+      <translation>Captura de pantalla lista...</translation>
     </message>
   </context>
   <context>
@@ -864,6 +1006,10 @@
   </context>
   <context>
     <name>chat/startchat</name>
+    <message>
+      <source>Department is disabled</source>
+      <translation>El departamento esta deshabilitado</translation>
+    </message>
     <message>
       <source>Name</source>
       <translation>Nombre</translation>
@@ -1078,6 +1224,10 @@
       <translation>Activar / Desactivar el sonido de nuevos chats pendientes</translation>
     </message>
     <message>
+      <source>Change my visibility to visible/invisible</source>
+      <translation>Cambiar mi visibilidad a visible/invisible</translation>
+    </message>
+    <message>
       <source>Change my status to online/offline</source>
       <translation>Cambiar mi estado de línea / fuera de línea</translation>
     </message>
@@ -1253,6 +1403,10 @@
     <message>
       <source>Identifier</source>
       <translation>Identificador</translation>
+    </message>
+    <message>
+      <source>Additional information</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Last activity</source>
@@ -1531,16 +1685,16 @@
   <context>
     <name>chat/getstatus</name>
     <message>
+      <source>Close</source>
+      <translation>Cerrar</translation>
+    </message>
+    <message>
       <source>Live help is online...</source>
       <translation>Soporte en linea...</translation>
     </message>
     <message>
       <source>Live help is offline...</source>
-      <translation>Soporte no está en línea...</translation>
-    </message>
-    <message>
-      <source>Close</source>
-      <translation>Cerrar</translation>
+      <translation>Soporte fuera de línea...</translation>
     </message>
     <message>
       <source>Open in a new window</source>
@@ -1690,7 +1844,7 @@
     </message>
     <message>
       <source>Update information</source>
-      <translation>Actualizar información</translation>
+      <translation>Información sobre Actualización</translation>
     </message>
     <message>
       <source>Live help embed code</source>
@@ -1707,6 +1861,10 @@
     <message>
       <source>Chatbox embed code</source>
       <translation>Código de inserción para Chatbox</translation>
+    </message>
+    <message>
+      <source>Browse offers embed code</source>
+      <translation>Código para insertar ofertas en el navegador</translation>
     </message>
     <message>
       <source>Statistic</source>
@@ -1756,24 +1914,32 @@
   <context>
     <name>system/htmlcode</name>
     <message>
-      <source>Widget embed code</source>
-      <translation>Código de inserción del Widget</translation>
-    </message>
-    <message>
-      <source>Page embed code</source>
-      <translation>Código de inserción para la página</translation>
-    </message>
-    <message>
       <source>HTML code</source>
       <translation>Código HTML</translation>
     </message>
     <message>
-      <source>Choose a language</source>
-      <translation>Elija un idioma</translation>
+      <source>Popup width</source>
+      <translation>Ancho del popup</translation>
     </message>
     <message>
-      <source>Chatbox messages content height</source>
-      <translation>Altura del contenido del Chatbox</translation>
+      <source>Popup height, used only if iframe is used</source>
+      <translation>Altura del popup, solamente si se utiliza una iframe</translation>
+    </message>
+    <message>
+      <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
+      <translation>Identificador, este se puede utilizar como filtro para invitaciones pro activas de chat, es útil tener diferentes mensajes para diferentes dominios. Sólo caracteres sin espacios ni caracteres especiales.</translation>
+    </message>
+    <message>
+      <source>Leave empty if it is not important to you</source>
+      <translation>Dejar en blanco si no es importante para ti</translation>
+    </message>
+    <message>
+      <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
+      <translation>Tiempo para mostrar las ofertas en días, después de cuantos días mostrar ofertas nuevamente al visitante, dejar vacío para que sea por la duración de la sesión</translation>
+    </message>
+    <message>
+      <source>Choose a language</source>
+      <translation>Elija un idioma</translation>
     </message>
     <message>
       <source>Choose prefered http mode</source>
@@ -1782,6 +1948,18 @@
     <message>
       <source>Based on site (default)</source>
       <translation>Basado en el sitio (predefinido)</translation>
+    </message>
+    <message>
+      <source>Widget embed code</source>
+      <translation>Código de inserción del Widget</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>Código de inserción para la página</translation>
+    </message>
+    <message>
+      <source>Chatbox messages content height</source>
+      <translation>Altura del contenido del Chatbox</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>
@@ -1872,6 +2050,10 @@
       <translation>Ayudanos a crecer</translation>
     </message>
     <message>
+      <source>Embed code</source>
+      <translation>Insertar código</translation>
+    </message>
+    <message>
       <source>Hide status when offline</source>
       <translation>Ocultar estado sin está fuera de línea</translation>
     </message>
@@ -1940,20 +2122,8 @@
       <translation>Colocación natural - se mostrará donde el código HTML esté incrustado</translation>
     </message>
     <message>
-      <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
-      <translation>Identificador, este se puede utilizar como filtro para invitaciones pro activas de chat, es útil tener diferentes mensajes para diferentes dominios. Sólo caracteres sin espacios ni caracteres especiales.</translation>
-    </message>
-    <message>
-      <source>Leave empty if it is not important to you</source>
-      <translation>Dejar en blanco si no es importante para ti</translation>
-    </message>
-    <message>
       <source>System configuration</source>
       <translation>Configuración del sistema</translation>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation>Insertar código</translation>
     </message>
   </context>
   <context>
@@ -2019,6 +2189,10 @@
     <message>
       <source>Search</source>
       <translation>Buscar</translation>
+    </message>
+    <message>
+      <source>Print</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Select department</source>
@@ -2170,6 +2344,14 @@
       <translation>Escriba su mensaje al usuario</translation>
     </message>
     <message>
+      <source>Requires e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Requires name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Send the message</source>
       <translation>Enviar el mensaje</translation>
     </message>
@@ -2271,10 +2453,6 @@
   </context>
   <context>
     <name>chat/syncandsoundesetting</name>
-    <message>
-      <source>Long polling</source>
-      <translation>Sondeo largo</translation>
-    </message>
     <message>
       <source>Save</source>
       <translation>Guardar</translation>
@@ -2798,12 +2976,20 @@
   <context>
     <name>questionary/htmlcode</name>
     <message>
-      <source>Status text</source>
-      <translation>Texto de estado</translation>
+      <source>Show overlay</source>
+      <translation>Mostrar transparencia</translation>
+    </message>
+    <message>
+      <source>Show different offers for the same user</source>
+      <translation>Mostrar distintas ofertas para el mismo usuario</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page header or footer</source>
       <translation>Copie el código del área de texto en el encabezado o pie de página</translation>
+    </message>
+    <message>
+      <source>Status text</source>
+      <translation>Texto de estado</translation>
     </message>
     <message>
       <source>Expand the widget automatically for new users</source>
@@ -2976,6 +3162,14 @@
       <translation>Apellido</translation>
     </message>
     <message>
+      <source>Job title</source>
+      <translation>Título en el trabajo</translation>
+    </message>
+    <message>
+      <source>Chat status will not change upon pending chat opening</source>
+      <translation>El estado del chat no cambiará al abrir el chat en espera</translation>
+    </message>
+    <message>
       <source>Skype</source>
       <translation>Skype</translation>
     </message>
@@ -2998,6 +3192,10 @@
     <message>
       <source>Assigned departments</source>
       <translation>Departamentos asignados</translation>
+    </message>
+    <message>
+      <source>All departments</source>
+      <translation>Todos los departamentos</translation>
     </message>
     <message>
       <source>Visible lists</source>
@@ -3912,6 +4110,10 @@
       <translation>Chatbox</translation>
     </message>
     <message>
+      <source>Browse offers</source>
+      <translation>Ver ofertas</translation>
+    </message>
+    <message>
       <source>Account</source>
       <translation>Cuenta</translation>
     </message>
@@ -4173,6 +4375,10 @@
   </context>
   <context>
     <name>user/new</name>
+    <message>
+      <source>Invisible mode</source>
+      <translation>Modo invisible</translation>
+    </message>
     <message>
       <source>User group</source>
       <translation>Grupo de usuarios</translation>
@@ -4724,6 +4930,10 @@
       <translation>Por favor ingrese un nombre de departamento</translation>
     </message>
     <message>
+      <source>Minimum 5 seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Transfer department has to be different one than self</source>
       <translation>El departamento a transferir tiene que ser diferente al actual</translation>
     </message>
@@ -4792,10 +5002,21 @@
     </message>
   </context>
   <context>
+    <name>chat/accepttrasnfer</name>
+    <message>
+      <source>has joined the chat!</source>
+      <translation>se ha unido al chat!</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/closechatadmin</name>
     <message>
       <source>has closed the chat!</source>
       <translation>ha cerrado el chat!</translation>
+    </message>
+    <message>
+      <source>has redirected user to contact form!</source>
+      <translation>ha redirigido al usuario al formulario de contacto!</translation>
     </message>
   </context>
   <context>
@@ -4864,84 +5085,89 @@
     </message>
   </context>
   <context>
-    <name>chat/screenshot</name>
+    <name>browseoffer/index</name>
     <message>
-      <source>Screenshot</source>
-      <translation>Pantalla</translation>
+      <source>Browse offers</source>
+      <translation>Ver ofertas</translation>
     </message>
     <message>
-      <source>Take user screenshot</source>
-      <translation>Capturar pantalla del usuario</translation>
+      <source>General</source>
+      <translation>General</translation>
     </message>
     <message>
-      <source>Refresh</source>
-      <translation>Actualizar</translation>
+      <source>Browse your offers</source>
+      <translation>Ver sus ofertas</translation>
     </message>
     <message>
-      <source>Taken</source>
-      <translation>Tomada</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Vacío...</translation>
-    </message>
-    <message>
-      <source>Perhaps screenshot is under way or screenshot is not supported on client browser, click refresh to check for a screenshot</source>
-      <translation>Quizas la captura de pantalla está en camino o no es soportado por el navegador del cliente, presione actualizar para revisar por imagenes</translation>
-    </message>
-    <message>
-      <source>Screenshot ready...</source>
-      <translation>Captura de pantalla lista...</translation>
+      <source>HTML Code</source>
+      <translation>Código HTML</translation>
     </message>
   </context>
   <context>
-    <name>chat/bbcodeinsert</name>
+    <name>abstract/browserofferinvitation</name>
     <message>
-      <source>Link title image</source>
-      <translation>Título del enlace de la imagen</translation>
+      <source>Name for personal purposes</source>
+      <translation>Nombre para propósitos personales</translation>
     </message>
     <message>
-      <source>Link to image</source>
-      <translation>Enlace a imagen</translation>
+      <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
+      <translation>Idioma, dejar vacío para todos. Ej. lit, rus, ger, etc...</translation>
     </message>
     <message>
-      <source>Image</source>
-      <translation>Imagen</translation>
+      <source>Time on site on single page in seconds</source>
+      <translation>Tiempo en segundos en una página del sitio</translation>
     </message>
     <message>
-      <source>Link</source>
-      <translation>Enlace</translation>
+      <source>Priority, the lower the higher</source>
+      <translation>Prioridad, entre más bajo mayor prioridad</translation>
     </message>
     <message>
-      <source>Link title</source>
-      <translation>Título del enlace</translation>
+      <source>Popup width</source>
+      <translation>Ancho del popup</translation>
     </message>
     <message>
-      <source>Bold</source>
-      <translation>Negritas</translation>
+      <source>Popup height</source>
+      <translation>Alto del popup</translation>
     </message>
     <message>
-      <source>Italic</source>
-      <translation>Itálica</translation>
+      <source>Measure units, px or percents</source>
+      <translation>Unidad de medida, px o porciento</translation>
     </message>
     <message>
-      <source>Please enter link to an image</source>
-      <translation>Por favor introduzca el enlace a una imagen</translation>
+      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
+      <translation>Dominio de referencia sin www, Ej. la palabra clave google será igual a cualquiera del dominio de google</translation>
     </message>
     <message>
-      <source>Please enter a link</source>
-      <translation>Por favor introduzca un enlace</translation>
+      <source>URL, enter * at the end for the wildcard</source>
+      <translation>URL, introduzca * al final para comodín</translation>
     </message>
     <message>
-      <source>Here is a link</source>
-      <translation>Aquí hay un enlace</translation>
+      <source>Custom iframe URL, takes priority over default content</source>
+      <translation>URL personalizada del iframe, tiene prioridad sobre el contenido predefinido</translation>
     </message>
-  </context>
-  <context>
-    <name>chat/accepttrasnfer</name>
     <message>
-      <source>has joined the chat!</source>
-      <translation>se ha unido al chat!</translation>
+      <source>Default popup content</source>
+      <translation>Contenido predefinido del popup</translation>
+    </message>
+    <message>
+      <source>Load content in lhc iframe</source>
+      <translation>Cargar el contenido en el iframe</translation>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation>Activo</translation>
+    </message>
+    <message>
+      <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
+      <translation>Identificador, para que identificador deberá mostrarse este mensaje, deje vacío para todos</translation>
+    </message>
+    <message>
+      <source>Matched times</source>
+      <translation>Veces encontrado</translation>
+    </message>
+    <message>
+      <source>Browser offer invitations</source>
+      <translation>Invitaciones de ofertas del navegador</translation>
     </message>
   </context>
 </TS>
