@@ -89,7 +89,7 @@
 </thead>
 <tbody ng-repeat="group in onlineusersGrouped track by group.id">
 	<tr ng-show="group.label != ''">
-		<td colspan="5"><h5>{{group.label}} ({{group.ou.length}})</h5></td>
+		<td colspan="6"><h5>{{group.label}} ({{group.ou.length}})</h5></td>
 	</tr>		
 	<tr ng-repeat="ou in group.ou | orderBy:online.predicate:online.reverse | filter:query track by ou.id">
     	<td nowrap>{{ou.lastactivity_ago}} <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','ago');?></td>

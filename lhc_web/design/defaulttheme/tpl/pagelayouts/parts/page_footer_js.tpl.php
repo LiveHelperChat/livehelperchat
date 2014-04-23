@@ -1,0 +1,2 @@
+<script type="text/javascript" language="javascript" src="<?php echo erLhcoreClassDesign::designJS('js/app.js;js/angular.min.js;js/angular.lhc.js');?>"></script>
+<?php echo isset($Result['additional_footer_js']) ? $Result['additional_footer_js'] : ''?>
