@@ -87,7 +87,7 @@
     <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Action');?></th>
 </tr>
 </thead>
-<tbody ng-repeat="group in onlineusersGrouped">
+<tbody ng-repeat="group in onlineusersGrouped track by group.id">
 	<tr ng-show="group.label != ''">
 		<td colspan="5"><h5>{{group.label}} ({{group.ou.length}})</h5></td>
 	</tr>		

@@ -68,6 +68,7 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 
                     var group = {
                         label: friend[ attribute ],
+                        id: i,
                         ou: []
                     };
 
@@ -87,7 +88,7 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 					$scope.groupBy($scope.groupByField);
 				} else {
 					$scope.onlineusersGrouped = [];
-					$scope.onlineusersGrouped.push({label:'',ou:that.onlineusers});
+					$scope.onlineusersGrouped.push({label:'',id:0,ou:that.onlineusers});
 				}				
 			});
 		};
