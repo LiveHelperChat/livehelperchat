@@ -122,8 +122,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		return lhinst.startChatTransfer(chat_id,$('#tabs'),name,transfer_id);
 	};
 	
-	this.startChatOperator = function(user_id) {
-		window.open(WWW_DIR_JAVASCRIPT + 'chat/startchatwithoperator'+user_id,'operatorchatwindow-'+user_id,'menubar=1,resizable=1,width=780,height=450');
+	this.startChatOperator = function(user_id) {	
+		window.open(WWW_DIR_JAVASCRIPT + 'chat/startchatwithoperator/'+user_id,'operatorchatwindow-'+user_id,'menubar=1,resizable=1,width=780,height=450');
 	};
 	
 	$scope.loadChatList();
