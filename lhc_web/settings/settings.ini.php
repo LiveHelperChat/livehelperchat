@@ -50,7 +50,8 @@ return array (
       	21 => 'dnk',
       	22 => 'rou',
       	23 => 'bgr',
-      	24 => 'site_admin'
+      	24 => 'tha',
+      	25 => 'site_admin'
       ),
     ),
     'default_url' =>
