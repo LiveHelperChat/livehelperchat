@@ -88,8 +88,12 @@ return array_merge(array (
 		'erLhAbstractModelProactiveChatInvitation'  => 'lib/models/lhabstract/erlhabstractmodeleproactivechatinvitation.php',
 		'erLhAbstractModelAutoResponder'  			=> 'lib/models/lhabstract/erlhabstractmodelautoresponder.php',
 		'erLhAbstractModelBrowseOfferInvitation'  	=> 'lib/models/lhabstract/erlhabstractmodelbrowseofferinvitation.php',
-		'erLhcoreClassAbstract' 		 => 'lib/core/lhabstract/lhabstract.php',
-		'erLhcoreClassChatMail' 		 => 'lib/core/lhchat/lhchatmail.php',
+		'erLhAbstractModelForm'  					=> 'lib/models/lhabstract/erlhabstractmodelform.php',
+		'erLhAbstractModelFormCollected'  			=> 'lib/models/lhabstract/erlhabstractmodelformcollected.php',
+		
+		'erLhcoreClassFormRenderer'  		=> 'lib/core/lhform/lhformrenderer.php',
+		'erLhcoreClassAbstract' 			=> 'lib/core/lhabstract/lhabstract.php',
+		'erLhcoreClassChatMail' 		 	=> 'lib/core/lhchat/lhchatmail.php',
 
 		// Chatbox
 		'erLhcoreClassChatbox'				=> 'lib/core/lhchatbox/lhchatbox.php',

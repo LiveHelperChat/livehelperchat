@@ -385,4 +385,39 @@ class erLhcoreClassSearchHandler {
 
         return $return;
    }
+   
+   public static function isFile($fileName)
+   {
+	   	$supportedExtensions = array (
+	   			'zip','doc','docx','pdf','xls','xlsx','jpg','jpeg','png','bmp','rar','7z'
+	   	);
+	   	 
+	   	if (isset($_FILES[$fileName]) &&  is_uploaded_file($_FILES[$fileName]["tmp_name"]) && $_FILES[$fileName]["error"] == 0 )
+	   	{
+	   		$fileNameAray = explode('.',$_FILES[$fileName]['name']);
+	   		end($fileNameAray);
+	   		$extension = strtolower(current($fileNameAray));
+	   		return in_array($extension,$supportedExtensions);
+	   	}
+	   	 
+	   	return false;
+   }
+   
+   public static function moveUploadedFile($fileName,$destination_dir)
+   {
+	   	if (isset($_FILES[$fileName]) &&  is_uploaded_file($_FILES[$fileName]["tmp_name"]) && $_FILES[$fileName]["error"] == 0 )
+	   	{
+	   		$fileNameAray = explode('.',$_FILES[$fileName]['name']);
+	   		end($fileNameAray);
+	   		$extension = current($fileNameAray);
+	   		 
+	   		$fileNamePhysic = md5($_FILES[$fileName]['tmp_name']).time().'.'.strtolower($extension);
+	   
+	   		move_uploaded_file($_FILES[$fileName]["tmp_name"],$destination_dir . $fileNamePhysic);
+	   		chmod($destination_dir . $fileNamePhysic, 0644);
+	   		 
+	   		return $fileNamePhysic;
+	   	}
+   }
+   
 }
