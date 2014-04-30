@@ -2,6 +2,7 @@
 
 Github changes
 https://github.com/LiveHelperChat/livehelperchat/issues/363
+https://github.com/LiveHelperChat/livehelperchat/issues/366
 
 execute doc/update_db/update_76.sql for update
 

@@ -217,7 +217,7 @@ class erLhcoreClassFormRenderer {
     		$form = new ezcInputForm( INPUT_POST, $validationFields );
     		$Errors = array();
     		 
-    		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && ($form->{$params['name']} == '' || $params['default'] == $form->{$params['name']}))) {
+    		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && ($form->{$params['name']} == '' || (isset($params['default']) && $params['default'] == $form->{$params['name']})))) {
     			self::$errors[] = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
     		} elseif ($form->hasValidData( $params['name'] )) {
     			$value = htmlspecialchars($form->{$params['name']});
@@ -231,13 +231,19 @@ class erLhcoreClassFormRenderer {
     			$value = (isset($params['default']) ? htmlspecialchars($params['default']) : '');
     		}
     	}
-    	    	
     	
     	$options = [];
-    	foreach (explode('#',$params['options']) as $option) {
-    		$isSelected= $value == $option ? 'selected="selected"' : '';
-    		$options[] = "<option =\"".htmlspecialchars($option)."\" {$isSelected}>".htmlspecialchars($option).'</option>';
-    	};
+    	if (isset($params['from']) && isset($params['till'])){
+    		for ($i = $params['from']; $i < $params['till']; $i++) {
+    			$isSelected= $value == $i ? 'selected="selected"' : '';
+    			$options[] = "<option =\"".htmlspecialchars($i)."\" {$isSelected}>".htmlspecialchars($i).'</option>';
+    		}
+    	} else {    	
+	    	foreach (explode('#',$params['options']) as $option) {
+	    		$isSelected= $value == $option ? 'selected="selected"' : '';
+	    		$options[] = "<option =\"".htmlspecialchars($option)."\" {$isSelected}>".htmlspecialchars($option).'</option>';
+	    	};
+    	}
     	    	
     	return "<select {$additionalAttributes} name=\"{$params['name']}\">".implode('', $options)."</select>";  	
     }
