@@ -188,6 +188,302 @@
     </message>
   </context>
   <context>
+    <name>chat/getstatus</name>
+    <message>
+      <source>Close</source>
+      <translation>Luk</translation>
+    </message>
+    <message>
+      <source>Live help is online...</source>
+      <translation>Live hjælp er online...</translation>
+    </message>
+    <message>
+      <source>Live help is offline...</source>
+      <translation>Live hjælp er offline...</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Åben i et nyt vindue</translation>
+    </message>
+    <message>
+      <source>Minimize/Restore</source>
+      <translation>Minimer/gendan</translation>
+    </message>
+    <message>
+      <source>Need help?</source>
+      <translation>Brug for hjælp?</translation>
+    </message>
+    <message>
+      <source>Our staff is always ready to help</source>
+      <translation>Vores personale er altid klar til at hjælpe</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/htmlcode</name>
+    <message>
+      <source>HTML code</source>
+      <translation>HTML-kode</translation>
+    </message>
+    <message>
+      <source>Popup width</source>
+      <translation>Popup bredde</translation>
+    </message>
+    <message>
+      <source>Popup height, used only if iframe is used</source>
+      <translation>Popup højde, anvendes kun, hvis der anvendes iframe</translation>
+    </message>
+    <message>
+      <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
+      <translation>Id, dette kan bruges som filter for proaktive chatinvitationer og er nyttige til at have forskellige beskeder til forskellige domæner. Kun streng uden mellemrum eller specialtegn.</translation>
+    </message>
+    <message>
+      <source>Leave empty if it is not important to you</source>
+      <translation>Lad være tomt, hvis det ikke er vigtigt for dig</translation>
+    </message>
+    <message>
+      <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
+      <translation>Offer timeout i dage, efter hvor mange dage viser tilbud til den samme besøgende igen, lad tomme for sessionen</translation>
+    </message>
+    <message>
+      <source>Choose a language</source>
+      <translation>Vælg et sprog</translation>
+    </message>
+    <message>
+      <source>Choose prefered http mode</source>
+      <translation>Vælg foretrukket http-tilstand</translation>
+    </message>
+    <message>
+      <source>Based on site (default)</source>
+      <translation>Baseret på webstedet (standard)</translation>
+    </message>
+    <message>
+      <source>Widget embed code</source>
+      <translation>Widget indlejringskode</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>Side indlejringskode</translation>
+    </message>
+    <message>
+      <source>Chatbox messages content height</source>
+      <translation>Chatboksmeddelelser indholdshøjde</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the page where you want it to be rendered</source>
+      <translation>Kopier koden fra tekstområdet til siden hvor du ønsker det skal gengives</translation>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation>Chatboks</translation>
+    </message>
+    <message>
+      <source>Position from the top, is only used if the Middle left or the Middle right side is chosen</source>
+      <translation>Placer fra toppen, bruges kun, hvis midterste venstre eller i midten til højre er valgt</translation>
+    </message>
+    <message>
+      <source>Pixels</source>
+      <translation>Pixel</translation>
+    </message>
+    <message>
+      <source>Percents</source>
+      <translation>Procent</translation>
+    </message>
+    <message>
+      <source>Size</source>
+      <translation>Størrelse</translation>
+    </message>
+    <message>
+      <source>Width</source>
+      <translation>Bredde</translation>
+    </message>
+    <message>
+      <source>Height</source>
+      <translation>Højde</translation>
+    </message>
+    <message>
+      <source>Position</source>
+      <translation>Position</translation>
+    </message>
+    <message>
+      <source>Bottom right corner of the screen</source>
+      <translation>Nederste højre hjørne af skærmen</translation>
+    </message>
+    <message>
+      <source>Bottom left corner of the screen</source>
+      <translation>Nederste venstre hjørne af skærmen</translation>
+    </message>
+    <message>
+      <source>Middle right side of the screen</source>
+      <translation>Midterste højre side af skærmen</translation>
+    </message>
+    <message>
+      <source>Middle left side of the screen</source>
+      <translation>Midterste venstre side af skærmen</translation>
+    </message>
+    <message>
+      <source>Disable minimize icon</source>
+      <translation>Deaktiver minimer-ikon</translation>
+    </message>
+    <message>
+      <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
+      <translation>Vis Chatboks indhold i stedet for widget, brugerne vil kun kunne minimere, lukke ikke den.</translation>
+    </message>
+    <message>
+      <source>Show chatbox content minimized first time if content is shown.</source>
+      <translation>Vis Chatboks indhold minimeret første gang, hvis indhold er vist.</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
+      <translation>Kopier koden fra tekstområdet til sidefoden, før afsluttende &amp;lt; / body &amp;gt; tag</translation>
+    </message>
+    <message>
+      <source>Copy the code from the textarea to page where you want it to be rendered</source>
+      <translation>Kopier koden fra textarea til side, hvor du ønsker det skal gengives</translation>
+    </message>
+    <message>
+      <source>Status text</source>
+      <translation>Statustekst</translation>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation>FAQ</translation>
+    </message>
+    <message>
+      <source>Position from the top, only used if the Middle left or the Middle right side is chosen</source>
+      <translation>Placering fra toppen, bruges kun hvis midterste venstre eller i midten til højre er valgt</translation>
+    </message>
+    <message>
+      <source>Help us to grow</source>
+      <translation>Hjælp os med at vokse</translation>
+    </message>
+    <message>
+      <source>Embed code</source>
+      <translation>Indlejringskode</translation>
+    </message>
+    <message>
+      <source>Hide status when offline</source>
+      <translation>Skjul status når du arbejder offline</translation>
+    </message>
+    <message>
+      <source>Show a leave a message form when there are no online operators</source>
+      <translation>Vis en meddelelsesformular, når der ikke er online operatører</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Afdeling</translation>
+    </message>
+    <message>
+      <source>Any</source>
+      <translation>Enhver</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the page where you want your status to appear</source>
+      <translation>Kopier koden fra tekstområdet til den side, hvor du vil at din status skal vises</translation>
+    </message>
+    <message>
+      <source>On a mouse click show the page widget</source>
+      <translation>På et museklik: Vis sidewidget</translation>
+    </message>
+    <message>
+      <source>Automatically check for messages from the operator/invitation messages</source>
+      <translation>Søg automatisk efter meddelelser fra operatør/invitation e-mails</translation>
+    </message>
+    <message>
+      <source>It increases server load, because every 15 seconds is checked for operator message or invitation message.</source>
+      <translation>Det øger serverbelastning, fordi den hvert 15 sekund bliver tjekket for meddelelse til operatør- eller invitationsbesked.</translation>
+    </message>
+    <message>
+      <source>Disable pro active invitations, usefull if you want disable them from site part.</source>
+      <translation>Deaktivere proaktive invitationer, nyttigt hvis du vil deaktivere dem fra del af webstedet.</translation>
+    </message>
+    <message>
+      <source>Popup window size</source>
+      <translation>Popup vinduesstørrelse</translation>
+    </message>
+    <message>
+      <source>Popup window width in pixels</source>
+      <translation>Popup vinduesbredde i pixels</translation>
+    </message>
+    <message>
+      <source>Popup window height in pixels</source>
+      <translation>Popup vindueshøjde i pixels</translation>
+    </message>
+    <message>
+      <source>Widget width</source>
+      <translation>Widget bredde</translation>
+    </message>
+    <message>
+      <source>Widget width in pixels</source>
+      <translation>Widget bredde i pixels</translation>
+    </message>
+    <message>
+      <source>height</source>
+      <translation>højde</translation>
+    </message>
+    <message>
+      <source>Widget height in pixels</source>
+      <translation>Widget højde i pixels</translation>
+    </message>
+    <message>
+      <source>Native placement - it will be shown where the html is embedded</source>
+      <translation>Oprindelig placering - det bliver vist, hvor html er integreret</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Systemkonfiguration</translation>
+    </message>
+  </context>
+  <context>
+    <name>questionary/htmlcode</name>
+    <message>
+      <source>Show overlay</source>
+      <translation>Vis overlay</translation>
+    </message>
+    <message>
+      <source>Show different offers for the same user</source>
+      <translation>Vis forskellige tilbud til den samme bruger</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the page header or footer</source>
+      <translation>Kopier koden fra tekstområdet i sidehovedet eller sidefoden</translation>
+    </message>
+    <message>
+      <source>Status text</source>
+      <translation>Statustekst</translation>
+    </message>
+    <message>
+      <source>Expand the widget automatically for new users</source>
+      <translation>Udvid widget automatisk for nye brugere</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
+      <translation>Kopier koden fra tekstområdet til sidefoden, før afsluttende &amp;lt; / body &amp;gt; tag</translation>
+    </message>
+    <message>
+      <source>HTML code</source>
+      <translation>HTML-kode</translation>
+    </message>
+  </context>
+  <context>
+    <name>browseoffer/index</name>
+    <message>
+      <source>Browse offers</source>
+      <translation>Gennemse tilbud</translation>
+    </message>
+    <message>
+      <source>General</source>
+      <translation>Generelt</translation>
+    </message>
+    <message>
+      <source>Browse your offers</source>
+      <translation>Gennemse dine tilbud</translation>
+    </message>
+    <message>
+      <source>HTML Code</source>
+      <translation>HTML Kode</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/activechats</name>
     <message>
       <source>Active chats list</source>
@@ -1510,6 +1806,34 @@
       <translation>onlinebrugere</translation>
     </message>
     <message>
+      <source>Group list by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation>Side</translation>
+    </message>
+    <message>
+      <source>Page title</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Referrer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Refresh list every</source>
       <translation>Opdater listen hver</translation>
     </message>
@@ -1526,12 +1850,12 @@
       <translation>Vise besøgende, der besøgte webstedet tidligere</translation>
     </message>
     <message>
-      <source>minit</source>
-      <translation>minit</translation>
+      <source>minute</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>minits</source>
-      <translation>minits</translation>
+      <source>minutes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>hour</source>
@@ -1546,28 +1870,12 @@
       <translation>dage</translation>
     </message>
     <message>
-      <source>Page</source>
-      <translation>Side</translation>
-    </message>
-    <message>
       <source>Status</source>
       <translation>Status</translation>
     </message>
     <message>
       <source>Action</source>
       <translation>Handling</translation>
-    </message>
-    <message>
-      <source>User does not have any messages from the operator</source>
-      <translation>Brugeren har ingen meddelelser fra operatør</translation>
-    </message>
-    <message>
-      <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation>Brugeren har ikke set en besked fra operatøren, eller besked-vindue er stadig åbent.</translation>
-    </message>
-    <message>
-      <source>User has seen the message from the operator.</source>
-      <translation>Brugeren har set beskeden fra operatøren.</translation>
     </message>
     <message>
       <source>has sent a message to the user</source>
@@ -1586,10 +1894,6 @@
       <translation>sidste besøg</translation>
     </message>
     <message>
-      <source>Empty...</source>
-      <translation>Tom...</translation>
-    </message>
-    <message>
       <source>Map</source>
       <translation>Kort</translation>
     </message>
@@ -1600,6 +1904,18 @@
     <message>
       <source>Marker timeout before it dissapears from map</source>
       <translation>Markør-timeout før det forsvinder fra kort</translation>
+    </message>
+    <message>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <translation>Brugeren har ikke set en besked fra operatøren, eller besked-vindue er stadig åbent.</translation>
+    </message>
+    <message>
+      <source>User has seen the message from the operator.</source>
+      <translation>Brugeren har set beskeden fra operatøren.</translation>
+    </message>
+    <message>
+      <source>User does not have any messages from the operator</source>
+      <translation>Brugeren har ingen meddelelser fra operatør</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -1676,37 +1992,6 @@
     <message>
       <source>Online users</source>
       <translation>Brugere online</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/getstatus</name>
-    <message>
-      <source>Close</source>
-      <translation>Luk</translation>
-    </message>
-    <message>
-      <source>Live help is online...</source>
-      <translation>Live hjælp er online...</translation>
-    </message>
-    <message>
-      <source>Live help is offline...</source>
-      <translation>Live hjælp er offline...</translation>
-    </message>
-    <message>
-      <source>Open in a new window</source>
-      <translation>Åben i et nyt vindue</translation>
-    </message>
-    <message>
-      <source>Minimize/Restore</source>
-      <translation>Minimer/gendan</translation>
-    </message>
-    <message>
-      <source>Need help?</source>
-      <translation>Brug for hjælp?</translation>
-    </message>
-    <message>
-      <source>Our staff is always ready to help</source>
-      <translation>Vores personale er altid klar til at hjælpe</translation>
     </message>
   </context>
   <context>
@@ -1908,221 +2193,6 @@
     </message>
   </context>
   <context>
-    <name>system/htmlcode</name>
-    <message>
-      <source>HTML code</source>
-      <translation>HTML-kode</translation>
-    </message>
-    <message>
-      <source>Popup width</source>
-      <translation>Popup bredde</translation>
-    </message>
-    <message>
-      <source>Popup height, used only if iframe is used</source>
-      <translation>Popup højde, anvendes kun, hvis der anvendes iframe</translation>
-    </message>
-    <message>
-      <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
-      <translation>Id, dette kan bruges som filter for proaktive chatinvitationer og er nyttige til at have forskellige beskeder til forskellige domæner. Kun streng uden mellemrum eller specialtegn.</translation>
-    </message>
-    <message>
-      <source>Leave empty if it is not important to you</source>
-      <translation>Lad være tomt, hvis det ikke er vigtigt for dig</translation>
-    </message>
-    <message>
-      <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
-      <translation>Offer timeout i dage, efter hvor mange dage viser tilbud til den samme besøgende igen, lad tomme for sessionen</translation>
-    </message>
-    <message>
-      <source>Choose a language</source>
-      <translation>Vælg et sprog</translation>
-    </message>
-    <message>
-      <source>Choose prefered http mode</source>
-      <translation>Vælg foretrukket http-tilstand</translation>
-    </message>
-    <message>
-      <source>Based on site (default)</source>
-      <translation>Baseret på webstedet (standard)</translation>
-    </message>
-    <message>
-      <source>Widget embed code</source>
-      <translation>Widget indlejringskode</translation>
-    </message>
-    <message>
-      <source>Page embed code</source>
-      <translation>Side indlejringskode</translation>
-    </message>
-    <message>
-      <source>Chatbox messages content height</source>
-      <translation>Chatboksmeddelelser indholdshøjde</translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the page where you want it to be rendered</source>
-      <translation>Kopier koden fra tekstområdet til siden hvor du ønsker det skal gengives</translation>
-    </message>
-    <message>
-      <source>Chatbox</source>
-      <translation>Chatboks</translation>
-    </message>
-    <message>
-      <source>Position from the top, is only used if the Middle left or the Middle right side is chosen</source>
-      <translation>Placer fra toppen, bruges kun, hvis midterste venstre eller i midten til højre er valgt</translation>
-    </message>
-    <message>
-      <source>Pixels</source>
-      <translation>Pixel</translation>
-    </message>
-    <message>
-      <source>Percents</source>
-      <translation>Procent</translation>
-    </message>
-    <message>
-      <source>Size</source>
-      <translation>Størrelse</translation>
-    </message>
-    <message>
-      <source>Width</source>
-      <translation>Bredde</translation>
-    </message>
-    <message>
-      <source>Height</source>
-      <translation>Højde</translation>
-    </message>
-    <message>
-      <source>Position</source>
-      <translation>Position</translation>
-    </message>
-    <message>
-      <source>Bottom right corner of the screen</source>
-      <translation>Nederste højre hjørne af skærmen</translation>
-    </message>
-    <message>
-      <source>Bottom left corner of the screen</source>
-      <translation>Nederste venstre hjørne af skærmen</translation>
-    </message>
-    <message>
-      <source>Middle right side of the screen</source>
-      <translation>Midterste højre side af skærmen</translation>
-    </message>
-    <message>
-      <source>Middle left side of the screen</source>
-      <translation>Midterste venstre side af skærmen</translation>
-    </message>
-    <message>
-      <source>Disable minimize icon</source>
-      <translation>Deaktiver minimer-ikon</translation>
-    </message>
-    <message>
-      <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
-      <translation>Vis Chatboks indhold i stedet for widget, brugerne vil kun kunne minimere, lukke ikke den.</translation>
-    </message>
-    <message>
-      <source>Show chatbox content minimized first time if content is shown.</source>
-      <translation>Vis Chatboks indhold minimeret første gang, hvis indhold er vist.</translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation>Kopier koden fra tekstområdet til sidefoden, før afsluttende &amp;lt; / body &amp;gt; tag</translation>
-    </message>
-    <message>
-      <source>Copy the code from the textarea to page where you want it to be rendered</source>
-      <translation>Kopier koden fra textarea til side, hvor du ønsker det skal gengives</translation>
-    </message>
-    <message>
-      <source>Status text</source>
-      <translation>Statustekst</translation>
-    </message>
-    <message>
-      <source>FAQ</source>
-      <translation>FAQ</translation>
-    </message>
-    <message>
-      <source>Position from the top, only used if the Middle left or the Middle right side is chosen</source>
-      <translation>Placering fra toppen, bruges kun hvis midterste venstre eller i midten til højre er valgt</translation>
-    </message>
-    <message>
-      <source>Help us to grow</source>
-      <translation>Hjælp os med at vokse</translation>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation>Indlejringskode</translation>
-    </message>
-    <message>
-      <source>Hide status when offline</source>
-      <translation>Skjul status når du arbejder offline</translation>
-    </message>
-    <message>
-      <source>Show a leave a message form when there are no online operators</source>
-      <translation>Vis en meddelelsesformular, når der ikke er online operatører</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Afdeling</translation>
-    </message>
-    <message>
-      <source>Any</source>
-      <translation>Enhver</translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the page where you want your status to appear</source>
-      <translation>Kopier koden fra tekstområdet til den side, hvor du vil at din status skal vises</translation>
-    </message>
-    <message>
-      <source>On a mouse click show the page widget</source>
-      <translation>På et museklik: Vis sidewidget</translation>
-    </message>
-    <message>
-      <source>Automatically check for messages from the operator/invitation messages</source>
-      <translation>Søg automatisk efter meddelelser fra operatør/invitation e-mails</translation>
-    </message>
-    <message>
-      <source>It increases server load, because every 15 seconds is checked for operator message or invitation message.</source>
-      <translation>Det øger serverbelastning, fordi den hvert 15 sekund bliver tjekket for meddelelse til operatør- eller invitationsbesked.</translation>
-    </message>
-    <message>
-      <source>Disable pro active invitations, usefull if you want disable them from site part.</source>
-      <translation>Deaktivere proaktive invitationer, nyttigt hvis du vil deaktivere dem fra del af webstedet.</translation>
-    </message>
-    <message>
-      <source>Popup window size</source>
-      <translation>Popup vinduesstørrelse</translation>
-    </message>
-    <message>
-      <source>Popup window width in pixels</source>
-      <translation>Popup vinduesbredde i pixels</translation>
-    </message>
-    <message>
-      <source>Popup window height in pixels</source>
-      <translation>Popup vindueshøjde i pixels</translation>
-    </message>
-    <message>
-      <source>Widget width</source>
-      <translation>Widget bredde</translation>
-    </message>
-    <message>
-      <source>Widget width in pixels</source>
-      <translation>Widget bredde i pixels</translation>
-    </message>
-    <message>
-      <source>height</source>
-      <translation>højde</translation>
-    </message>
-    <message>
-      <source>Widget height in pixels</source>
-      <translation>Widget højde i pixels</translation>
-    </message>
-    <message>
-      <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>Oprindelig placering - det bliver vist, hvor html er integreret</translation>
-    </message>
-    <message>
-      <source>System configuration</source>
-      <translation>Systemkonfiguration</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/lists</name>
     <message>
       <source>Choose what type of list you want to see</source>
@@ -2151,6 +2221,93 @@
     <message>
       <source>Chat lists</source>
       <translation>Chatlister</translation>
+    </message>
+  </context>
+  <context>
+    <name>pagelayout/pagelayout</name>
+    <message>
+      <source>Empty...</source>
+      <translation>Tom...</translation>
+    </message>
+    <message>
+      <source>Clean cache</source>
+      <translation>Tøm cache</translation>
+    </message>
+    <message>
+      <source>Home</source>
+      <translation>Hjem</translation>
+    </message>
+    <message>
+      <source>Chats transferred to you directly</source>
+      <translation>Chats overført til dig direkte</translation>
+    </message>
+    <message>
+      <source>Transferred to your department</source>
+      <translation>Overført til din afdeling</translation>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation>Ventende chats</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Aktive chats</translation>
+    </message>
+    <message>
+      <source>Unread messages</source>
+      <translation>Ulæste beskeder</translation>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation>Lukkede chats</translation>
+    </message>
+    <message>
+      <source>Configuration</source>
+      <translation>Konfiguration</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Chat liste</translation>
+    </message>
+    <message>
+      <source>Chat rooms</source>
+      <translation>Chat-rum</translation>
+    </message>
+    <message>
+      <source>New chat request</source>
+      <translation>Ny chatanmodning</translation>
+    </message>
+    <message>
+      <source>Menu</source>
+      <translation>Menu</translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Besøgende online</translation>
+    </message>
+    <message>
+      <source>Questionary</source>
+      <translation>Spørgeskema</translation>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation>FAQ</translation>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation>Chatboks</translation>
+    </message>
+    <message>
+      <source>Browse offers</source>
+      <translation>Gennemse tilbud</translation>
+    </message>
+    <message>
+      <source>Account</source>
+      <translation>Konto</translation>
+    </message>
+    <message>
+      <source>Logout</source>
+      <translation>Logout</translation>
     </message>
   </context>
   <context>
@@ -2197,6 +2354,10 @@
     <message>
       <source>Select user</source>
       <translation>Vælg bruger</translation>
+    </message>
+    <message>
+      <source>Type to search</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -2967,37 +3128,6 @@
     <message>
       <source>more information on how to use it</source>
       <translation>mere information om hvordan man bruger det.</translation>
-    </message>
-  </context>
-  <context>
-    <name>questionary/htmlcode</name>
-    <message>
-      <source>Show overlay</source>
-      <translation>Vis overlay</translation>
-    </message>
-    <message>
-      <source>Show different offers for the same user</source>
-      <translation>Vis forskellige tilbud til den samme bruger</translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the page header or footer</source>
-      <translation>Kopier koden fra tekstområdet i sidehovedet eller sidefoden</translation>
-    </message>
-    <message>
-      <source>Status text</source>
-      <translation>Statustekst</translation>
-    </message>
-    <message>
-      <source>Expand the widget automatically for new users</source>
-      <translation>Udvid widget automatisk for nye brugere</translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation>Kopier koden fra tekstområdet til sidefoden, før afsluttende &amp;lt; / body &amp;gt; tag</translation>
-    </message>
-    <message>
-      <source>HTML code</source>
-      <translation>HTML-kode</translation>
     </message>
   </context>
   <context>
@@ -4031,93 +4161,6 @@
     </message>
   </context>
   <context>
-    <name>pagelayout/pagelayout</name>
-    <message>
-      <source>Clean cache</source>
-      <translation>Tøm cache</translation>
-    </message>
-    <message>
-      <source>Home</source>
-      <translation>Hjem</translation>
-    </message>
-    <message>
-      <source>Chats transferred to you directly</source>
-      <translation>Chats overført til dig direkte</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Tom...</translation>
-    </message>
-    <message>
-      <source>Transferred to your department</source>
-      <translation>Overført til din afdeling</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Ventende chats</translation>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation>Aktive chats</translation>
-    </message>
-    <message>
-      <source>Unread messages</source>
-      <translation>Ulæste beskeder</translation>
-    </message>
-    <message>
-      <source>Closed chats</source>
-      <translation>Lukkede chats</translation>
-    </message>
-    <message>
-      <source>Configuration</source>
-      <translation>Konfiguration</translation>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation>Chat liste</translation>
-    </message>
-    <message>
-      <source>Chat rooms</source>
-      <translation>Chat-rum</translation>
-    </message>
-    <message>
-      <source>New chat request</source>
-      <translation>Ny chatanmodning</translation>
-    </message>
-    <message>
-      <source>Menu</source>
-      <translation>Menu</translation>
-    </message>
-    <message>
-      <source>Online visitors</source>
-      <translation>Besøgende online</translation>
-    </message>
-    <message>
-      <source>Questionary</source>
-      <translation>Spørgeskema</translation>
-    </message>
-    <message>
-      <source>FAQ</source>
-      <translation>FAQ</translation>
-    </message>
-    <message>
-      <source>Chatbox</source>
-      <translation>Chatboks</translation>
-    </message>
-    <message>
-      <source>Browse offers</source>
-      <translation>Gennemse tilbud</translation>
-    </message>
-    <message>
-      <source>Account</source>
-      <translation>Konto</translation>
-    </message>
-    <message>
-      <source>Logout</source>
-      <translation>Logout</translation>
-    </message>
-  </context>
-  <context>
     <name>system/languages</name>
     <message>
       <source>Languages configuration</source>
@@ -4942,6 +4985,73 @@
     </message>
   </context>
   <context>
+    <name>abstract/browserofferinvitation</name>
+    <message>
+      <source>Name for personal purposes</source>
+      <translation>Navn til personlige formål</translation>
+    </message>
+    <message>
+      <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
+      <translation>Sprog, efterlad tom for alle. F.eks. rus, ger, etc...</translation>
+    </message>
+    <message>
+      <source>Time on site on single page in seconds</source>
+      <translation>Tid på stedet på én side i sekunder</translation>
+    </message>
+    <message>
+      <source>Priority, the lower the higher</source>
+      <translation>Prioritet, jo lavere jo højere</translation>
+    </message>
+    <message>
+      <source>Popup width</source>
+      <translation>Popup bredde</translation>
+    </message>
+    <message>
+      <source>Popup height</source>
+      <translation>Popup højde</translation>
+    </message>
+    <message>
+      <source>Measure units, px or percents</source>
+      <translation>Måleenheder, px eller procenter</translation>
+    </message>
+    <message>
+      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
+      <translation>Henvisende domæne uden www, fx google søgeord matcher nogen af google-domæne</translation>
+    </message>
+    <message>
+      <source>URL, enter * at the end for the wildcard</source>
+      <translation>URL-adresse, Indtast * enden for wildcard</translation>
+    </message>
+    <message>
+      <source>Custom iframe URL, takes priority over default content</source>
+      <translation>Brugerdefineret IFRAME URL, går forud for standard indhold</translation>
+    </message>
+    <message>
+      <source>Default popup content</source>
+      <translation>Standard popup indhold</translation>
+    </message>
+    <message>
+      <source>Load content in lhc iframe</source>
+      <translation>Load indhold i lhc iframe</translation>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation>Aktiv</translation>
+    </message>
+    <message>
+      <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
+      <translation>Id, for hvilke id denne besked skal vises, efterlade tom for alle</translation>
+    </message>
+    <message>
+      <source>Matched times</source>
+      <translation>Matchede gange</translation>
+    </message>
+    <message>
+      <source>Browser offer invitations</source>
+      <translation>Browser tilbuds invitationer</translation>
+    </message>
+  </context>
+  <context>
     <name>abstract/email_template</name>
     <message>
       <source>Name, for personal purposes</source>
@@ -5077,92 +5187,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Indtast venligst gyldig filtype!</translation>
-    </message>
-  </context>
-  <context>
-    <name>browseoffer/index</name>
-    <message>
-      <source>Browse offers</source>
-      <translation>Gennemse tilbud</translation>
-    </message>
-    <message>
-      <source>General</source>
-      <translation>Generelt</translation>
-    </message>
-    <message>
-      <source>Browse your offers</source>
-      <translation>Gennemse dine tilbud</translation>
-    </message>
-    <message>
-      <source>HTML Code</source>
-      <translation>HTML Kode</translation>
-    </message>
-  </context>
-  <context>
-    <name>abstract/browserofferinvitation</name>
-    <message>
-      <source>Name for personal purposes</source>
-      <translation>Navn til personlige formål</translation>
-    </message>
-    <message>
-      <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation>Sprog, efterlad tom for alle. F.eks. rus, ger, etc...</translation>
-    </message>
-    <message>
-      <source>Time on site on single page in seconds</source>
-      <translation>Tid på stedet på én side i sekunder</translation>
-    </message>
-    <message>
-      <source>Priority, the lower the higher</source>
-      <translation>Prioritet, jo lavere jo højere</translation>
-    </message>
-    <message>
-      <source>Popup width</source>
-      <translation>Popup bredde</translation>
-    </message>
-    <message>
-      <source>Popup height</source>
-      <translation>Popup højde</translation>
-    </message>
-    <message>
-      <source>Measure units, px or percents</source>
-      <translation>Måleenheder, px eller procenter</translation>
-    </message>
-    <message>
-      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
-      <translation>Henvisende domæne uden www, fx google søgeord matcher nogen af google-domæne</translation>
-    </message>
-    <message>
-      <source>URL, enter * at the end for the wildcard</source>
-      <translation>URL-adresse, Indtast * enden for wildcard</translation>
-    </message>
-    <message>
-      <source>Custom iframe URL, takes priority over default content</source>
-      <translation>Brugerdefineret IFRAME URL, går forud for standard indhold</translation>
-    </message>
-    <message>
-      <source>Default popup content</source>
-      <translation>Standard popup indhold</translation>
-    </message>
-    <message>
-      <source>Load content in lhc iframe</source>
-      <translation>Load indhold i lhc iframe</translation>
-    </message>
-    <message>
-      <source>Active</source>
-      <translation>Aktiv</translation>
-    </message>
-    <message>
-      <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation>Id, for hvilke id denne besked skal vises, efterlade tom for alle</translation>
-    </message>
-    <message>
-      <source>Matched times</source>
-      <translation>Matchede gange</translation>
-    </message>
-    <message>
-      <source>Browser offer invitations</source>
-      <translation>Browser tilbuds invitationer</translation>
     </message>
   </context>
 </TS>

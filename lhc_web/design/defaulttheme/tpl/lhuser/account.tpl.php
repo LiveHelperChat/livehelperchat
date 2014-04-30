@@ -86,6 +86,8 @@
 
     </div>
   </section>
+  
+  <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','see_assigned_departments')) : ?>
   <section <?php if ($tab == 'tab_departments') : ?>class="active"<?php endif;?>>
     <p class="title" data-section-title><a href="#departments"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Assigned departments');?></a></p>
     <div class="content" data-section-content data-slug="departments">
@@ -110,6 +112,10 @@
 	<?php } ?>
     </div>
   </section>
+  <?php endif; ?>
+   
+   
+  <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','change_visibility_list')) : ?>
   <section <?php if ($tab == 'tab_settings') : ?>class="active"<?php endif;?>>
     <p class="title" data-section-title ><a href="#lists"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Visible lists');?></a></p>
     <div class="content" data-section-content data-slug="lists">
@@ -127,6 +133,7 @@
 
     </div>
   </section>
+  <?php endif; ?>
   
   <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','personalcannedmsg')) : ?>
   <section <?php if ($tab == 'tab_canned') : ?>class="active"<?php endif;?>>
@@ -135,6 +142,6 @@
 	  <?php include(erLhcoreClassDesign::designtpl('lhuser/parts/canned_messages.tpl.php'));?>
     </div>
   </section>
-   <?php endif; ?>
+  <?php endif; ?>
   
 </div>

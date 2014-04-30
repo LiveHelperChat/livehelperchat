@@ -8,6 +8,7 @@
 	</ul>
 	<section class="top-bar-section">
 		<ul class="right">
+			 <?php if ($currentUser->hasAccessTo('lhchat','use')) : ?>
 			<li><a href="javascript:void(0)" onclick="javascript:lhinst.chatTabsOpen()"><i class="icon-chat"></i></a></li>
 			<li class="divider"></li>
 			<li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/lists')?>" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Chats list');?></a></li>
@@ -15,6 +16,8 @@
 			<li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/onlineusers')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Online visitors');?></a></li>
 			<?php endif;?>
 			<li class="divider"></li>
+			<?php endif;?>
+						
 			<?php if ($currentUser->hasAccessTo('lhquestionary','manage_questionary')) : ?>
 			<li><a href="<?php echo erLhcoreClassDesign::baseurl('questionary/list')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Questionary');?></a></li>
 			<?php endif;?>

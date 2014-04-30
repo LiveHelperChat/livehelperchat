@@ -188,6 +188,302 @@
     </message>
   </context>
   <context>
+    <name>chat/getstatus</name>
+    <message>
+      <source>Close</source>
+      <translation>ปิด</translation>
+    </message>
+    <message>
+      <source>Live help is online...</source>
+      <translation>ออนไลน์อยู่ด้วย...</translation>
+    </message>
+    <message>
+      <source>Live help is offline...</source>
+      <translation>ด้วยอยู่ในสถานะออฟไลน์...</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>เปิดในหน้าต่างใหม่</translation>
+    </message>
+    <message>
+      <source>Minimize/Restore</source>
+      <translation>ลด/คืน</translation>
+    </message>
+    <message>
+      <source>Need help?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Our staff is always ready to help</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>system/htmlcode</name>
+    <message>
+      <source>HTML code</source>
+      <translation>โค้ด HTML</translation>
+    </message>
+    <message>
+      <source>Popup width</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Popup height, used only if iframe is used</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
+      <translation>รหัส นี้สามารถใช้เป็นตัวกรองสำหรับ pro ใช้งานสนทนาเชิญ และจะใช้เต็มรูปแบบมีข้อความสำหรับโดเมนที่แตกต่างกัน เฉพาะสายอักขระไม่ มีช่องว่างหรืออักขระพิเศษ</translation>
+    </message>
+    <message>
+      <source>Leave empty if it is not important to you</source>
+      <translation>ปล่อยให้ว่างไว้ถ้าไม่สำคัญสำหรับคุณ</translation>
+    </message>
+    <message>
+      <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a language</source>
+      <translation>เลือกภาษา</translation>
+    </message>
+    <message>
+      <source>Choose prefered http mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Based on site (default)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget embed code</source>
+      <translation>เครื่องมือฝังรหัส</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>หน้าฝังรหัส</translation>
+    </message>
+    <message>
+      <source>Chatbox messages content height</source>
+      <translation>Chatbox สูงเนื้อหาข้อความ</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the page where you want it to be rendered</source>
+      <translation>คัดลอกรหัสจากพื้นที่ข้อความเพจที่คุณต้องการได้</translation>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation>Chatbox</translation>
+    </message>
+    <message>
+      <source>Position from the top, is only used if the Middle left or the Middle right side is chosen</source>
+      <translation>จากด้านบน ถูกใช้ถ้าเลือกซ้ายกลางหรือขวากลาง</translation>
+    </message>
+    <message>
+      <source>Pixels</source>
+      <translation>พิกเซล</translation>
+    </message>
+    <message>
+      <source>Percents</source>
+      <translation>เปอร์เซ็นต์</translation>
+    </message>
+    <message>
+      <source>Size</source>
+      <translation>ขนาด</translation>
+    </message>
+    <message>
+      <source>Width</source>
+      <translation>ความกว้าง</translation>
+    </message>
+    <message>
+      <source>Height</source>
+      <translation>ความสูง</translation>
+    </message>
+    <message>
+      <source>Position</source>
+      <translation>ตำแหน่ง</translation>
+    </message>
+    <message>
+      <source>Bottom right corner of the screen</source>
+      <translation>ด้านล่างมุมขวาของหน้าจอ</translation>
+    </message>
+    <message>
+      <source>Bottom left corner of the screen</source>
+      <translation>มุมซ้ายล่างของหน้าจอ</translation>
+    </message>
+    <message>
+      <source>Middle right side of the screen</source>
+      <translation>ตรงกลางด้านขวาของหน้าจอ</translation>
+    </message>
+    <message>
+      <source>Middle left side of the screen</source>
+      <translation>กลางซ้ายของหน้าจอ</translation>
+    </message>
+    <message>
+      <source>Disable minimize icon</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show chatbox content minimized first time if content is shown.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
+      <translation>คัดลอกรหัสจากพื้นที่ข้อความท้ายกระดาษ ก่อนปิด &amp;lt; / ร่างกาย &amp;gt; แท็ก</translation>
+    </message>
+    <message>
+      <source>Copy the code from the textarea to page where you want it to be rendered</source>
+      <translation>คัดลอกโค้ดจากในพื้นที่ข้อความเพจที่คุณต้องการได้</translation>
+    </message>
+    <message>
+      <source>Status text</source>
+      <translation>ข้อความสถานะ</translation>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation>คำถามที่ถามบ่อย</translation>
+    </message>
+    <message>
+      <source>Position from the top, only used if the Middle left or the Middle right side is chosen</source>
+      <translation>เลือกตำแหน่งจากด้านบน ใช้ถ้าตรงกลางด้านซ้ายหรือด้านขวาตรงกลาง</translation>
+    </message>
+    <message>
+      <source>Help us to grow</source>
+      <translation>ช่วยให้เราเติบโต</translation>
+    </message>
+    <message>
+      <source>Embed code</source>
+      <translation>ฝังรหัส</translation>
+    </message>
+    <message>
+      <source>Hide status when offline</source>
+      <translation>ซ่อนสถานะเมื่อคุณออฟไลน์</translation>
+    </message>
+    <message>
+      <source>Show a leave a message form when there are no online operators</source>
+      <translation>แสดงเป็นลาแบบข้อความเมื่อมีผู้ประกอบการไม่ออนไลน์</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>แผนก</translation>
+    </message>
+    <message>
+      <source>Any</source>
+      <translation>ใด ๆ</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the page where you want your status to appear</source>
+      <translation>คัดลอกรหัสจากบริเวณข้อความที่คุณต้องการให้สถานะของคุณปรากฏขึ้นที่หน้า</translation>
+    </message>
+    <message>
+      <source>On a mouse click show the page widget</source>
+      <translation>คลิกเมาส์บนแสดง widget หน้า</translation>
+    </message>
+    <message>
+      <source>Automatically check for messages from the operator/invitation messages</source>
+      <translation>ตรวจสอบโดยอัตโนมัติสำหรับข้อความจากข้อความการดำเนินการ/หนังสือเชิญ</translation>
+    </message>
+    <message>
+      <source>It increases server load, because every 15 seconds is checked for operator message or invitation message.</source>
+      <translation>มันเพิ่มเซิร์ฟเวอร์โหลด เพราะทุกวินาทีที่มีการตรวจสอบสำหรับตัวดำเนินการข้อความหรือข้อความเชิญ</translation>
+    </message>
+    <message>
+      <source>Disable pro active invitations, usefull if you want disable them from site part.</source>
+      <translation>ปิดใช้งาน pro เชิญ ประโยชน์ถ้าคุณต้องการปิดใช้งานจากเว็บไซต์ส่วน</translation>
+    </message>
+    <message>
+      <source>Popup window size</source>
+      <translation>ขนาดหน้าต่างแบบผุดขึ้น</translation>
+    </message>
+    <message>
+      <source>Popup window width in pixels</source>
+      <translation>ความกว้างของหน้าต่างแบบผุดขึ้นเป็นพิกเซล</translation>
+    </message>
+    <message>
+      <source>Popup window height in pixels</source>
+      <translation>ความสูงของหน้าต่างแบบผุดขึ้นในพิกเซล</translation>
+    </message>
+    <message>
+      <source>Widget width</source>
+      <translation>ความกว้างของเครื่องมือ</translation>
+    </message>
+    <message>
+      <source>Widget width in pixels</source>
+      <translation>เครื่องมือความกว้างเป็นพิกเซล</translation>
+    </message>
+    <message>
+      <source>height</source>
+      <translation>ความสูง</translation>
+    </message>
+    <message>
+      <source>Widget height in pixels</source>
+      <translation>เครื่องมือความสูงเป็นพิกเซล</translation>
+    </message>
+    <message>
+      <source>Native placement - it will be shown where the html is embedded</source>
+      <translation>แม่วาง - จะแสดงที่ html ถูกฝัง</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>การกำหนดค่าระบบ</translation>
+    </message>
+  </context>
+  <context>
+    <name>questionary/htmlcode</name>
+    <message>
+      <source>Show overlay</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show different offers for the same user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the page header or footer</source>
+      <translation>คัดลอกรหัสจากพื้นที่ข้อความหัวกระดาษหรือท้ายกระดาษ</translation>
+    </message>
+    <message>
+      <source>Status text</source>
+      <translation>ข้อความสถานะ</translation>
+    </message>
+    <message>
+      <source>Expand the widget automatically for new users</source>
+      <translation>ขยายเครื่องมืออัตโนมัติสำหรับผู้ใช้ใหม่</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
+      <translation>คัดลอกรหัสจากพื้นที่ข้อความท้ายกระดาษ ก่อนปิด &amp;lt; / ร่างกาย &amp;gt; แท็ก</translation>
+    </message>
+    <message>
+      <source>HTML code</source>
+      <translation>โค้ด HTML</translation>
+    </message>
+  </context>
+  <context>
+    <name>browseoffer/index</name>
+    <message>
+      <source>Browse offers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>General</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Browse your offers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>HTML Code</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/activechats</name>
     <message>
       <source>Active chats list</source>
@@ -1510,6 +1806,34 @@
       <translation>ผู้ใช้ออนไลน์</translation>
     </message>
     <message>
+      <source>Group list by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation>หน้า</translation>
+    </message>
+    <message>
+      <source>Page title</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Referrer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Refresh list every</source>
       <translation type="unfinished"/>
     </message>
@@ -1526,12 +1850,12 @@
       <translation>แสดงผู้เยี่ยมชมผู้เยี่ยมชมไซต์ในอดีต</translation>
     </message>
     <message>
-      <source>minit</source>
-      <translation>minit</translation>
+      <source>minute</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>minits</source>
-      <translation>minits</translation>
+      <source>minutes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>hour</source>
@@ -1546,28 +1870,12 @@
       <translation>วัน</translation>
     </message>
     <message>
-      <source>Page</source>
-      <translation>หน้า</translation>
-    </message>
-    <message>
       <source>Status</source>
       <translation>สถานะ</translation>
     </message>
     <message>
       <source>Action</source>
       <translation>การดำเนินการ</translation>
-    </message>
-    <message>
-      <source>User does not have any messages from the operator</source>
-      <translation>ผู้ใช้ที่มีข้อความใด ๆ จากตัวดำเนินการ</translation>
-    </message>
-    <message>
-      <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation>ผู้ใช้ยังไม่เห็นข้อความจากตัวดำเนินการ หรือหน้าต่างข้อความยังคงเปิดอยู่</translation>
-    </message>
-    <message>
-      <source>User has seen the message from the operator.</source>
-      <translation>ผู้ใช้ได้เห็นข้อความจากตัวดำเนินการ</translation>
     </message>
     <message>
       <source>has sent a message to the user</source>
@@ -1586,10 +1894,6 @@
       <translation>เยี่ยมชมล่าสุด</translation>
     </message>
     <message>
-      <source>Empty...</source>
-      <translation>ว่างเปล่า...</translation>
-    </message>
-    <message>
       <source>Map</source>
       <translation>แผนที่</translation>
     </message>
@@ -1600,6 +1904,18 @@
     <message>
       <source>Marker timeout before it dissapears from map</source>
       <translation>เครื่องหมายการหมดเวลาก่อนที่จะหายจากแผนที่</translation>
+    </message>
+    <message>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <translation>ผู้ใช้ยังไม่เห็นข้อความจากตัวดำเนินการ หรือหน้าต่างข้อความยังคงเปิดอยู่</translation>
+    </message>
+    <message>
+      <source>User has seen the message from the operator.</source>
+      <translation>ผู้ใช้ได้เห็นข้อความจากตัวดำเนินการ</translation>
+    </message>
+    <message>
+      <source>User does not have any messages from the operator</source>
+      <translation>ผู้ใช้ที่มีข้อความใด ๆ จากตัวดำเนินการ</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -1676,37 +1992,6 @@
     <message>
       <source>Online users</source>
       <translation>ผู้ใช้ออนไลน์</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/getstatus</name>
-    <message>
-      <source>Close</source>
-      <translation>ปิด</translation>
-    </message>
-    <message>
-      <source>Live help is online...</source>
-      <translation>ออนไลน์อยู่ด้วย...</translation>
-    </message>
-    <message>
-      <source>Live help is offline...</source>
-      <translation>ด้วยอยู่ในสถานะออฟไลน์...</translation>
-    </message>
-    <message>
-      <source>Open in a new window</source>
-      <translation>เปิดในหน้าต่างใหม่</translation>
-    </message>
-    <message>
-      <source>Minimize/Restore</source>
-      <translation>ลด/คืน</translation>
-    </message>
-    <message>
-      <source>Need help?</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Our staff is always ready to help</source>
-      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -1908,221 +2193,6 @@
     </message>
   </context>
   <context>
-    <name>system/htmlcode</name>
-    <message>
-      <source>HTML code</source>
-      <translation>โค้ด HTML</translation>
-    </message>
-    <message>
-      <source>Popup width</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Popup height, used only if iframe is used</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
-      <translation>รหัส นี้สามารถใช้เป็นตัวกรองสำหรับ pro ใช้งานสนทนาเชิญ และจะใช้เต็มรูปแบบมีข้อความสำหรับโดเมนที่แตกต่างกัน เฉพาะสายอักขระไม่ มีช่องว่างหรืออักขระพิเศษ</translation>
-    </message>
-    <message>
-      <source>Leave empty if it is not important to you</source>
-      <translation>ปล่อยให้ว่างไว้ถ้าไม่สำคัญสำหรับคุณ</translation>
-    </message>
-    <message>
-      <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose a language</source>
-      <translation>เลือกภาษา</translation>
-    </message>
-    <message>
-      <source>Choose prefered http mode</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Based on site (default)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Widget embed code</source>
-      <translation>เครื่องมือฝังรหัส</translation>
-    </message>
-    <message>
-      <source>Page embed code</source>
-      <translation>หน้าฝังรหัส</translation>
-    </message>
-    <message>
-      <source>Chatbox messages content height</source>
-      <translation>Chatbox สูงเนื้อหาข้อความ</translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the page where you want it to be rendered</source>
-      <translation>คัดลอกรหัสจากพื้นที่ข้อความเพจที่คุณต้องการได้</translation>
-    </message>
-    <message>
-      <source>Chatbox</source>
-      <translation>Chatbox</translation>
-    </message>
-    <message>
-      <source>Position from the top, is only used if the Middle left or the Middle right side is chosen</source>
-      <translation>จากด้านบน ถูกใช้ถ้าเลือกซ้ายกลางหรือขวากลาง</translation>
-    </message>
-    <message>
-      <source>Pixels</source>
-      <translation>พิกเซล</translation>
-    </message>
-    <message>
-      <source>Percents</source>
-      <translation>เปอร์เซ็นต์</translation>
-    </message>
-    <message>
-      <source>Size</source>
-      <translation>ขนาด</translation>
-    </message>
-    <message>
-      <source>Width</source>
-      <translation>ความกว้าง</translation>
-    </message>
-    <message>
-      <source>Height</source>
-      <translation>ความสูง</translation>
-    </message>
-    <message>
-      <source>Position</source>
-      <translation>ตำแหน่ง</translation>
-    </message>
-    <message>
-      <source>Bottom right corner of the screen</source>
-      <translation>ด้านล่างมุมขวาของหน้าจอ</translation>
-    </message>
-    <message>
-      <source>Bottom left corner of the screen</source>
-      <translation>มุมซ้ายล่างของหน้าจอ</translation>
-    </message>
-    <message>
-      <source>Middle right side of the screen</source>
-      <translation>ตรงกลางด้านขวาของหน้าจอ</translation>
-    </message>
-    <message>
-      <source>Middle left side of the screen</source>
-      <translation>กลางซ้ายของหน้าจอ</translation>
-    </message>
-    <message>
-      <source>Disable minimize icon</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Show chatbox content minimized first time if content is shown.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation>คัดลอกรหัสจากพื้นที่ข้อความท้ายกระดาษ ก่อนปิด &amp;lt; / ร่างกาย &amp;gt; แท็ก</translation>
-    </message>
-    <message>
-      <source>Copy the code from the textarea to page where you want it to be rendered</source>
-      <translation>คัดลอกโค้ดจากในพื้นที่ข้อความเพจที่คุณต้องการได้</translation>
-    </message>
-    <message>
-      <source>Status text</source>
-      <translation>ข้อความสถานะ</translation>
-    </message>
-    <message>
-      <source>FAQ</source>
-      <translation>คำถามที่ถามบ่อย</translation>
-    </message>
-    <message>
-      <source>Position from the top, only used if the Middle left or the Middle right side is chosen</source>
-      <translation>เลือกตำแหน่งจากด้านบน ใช้ถ้าตรงกลางด้านซ้ายหรือด้านขวาตรงกลาง</translation>
-    </message>
-    <message>
-      <source>Help us to grow</source>
-      <translation>ช่วยให้เราเติบโต</translation>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation>ฝังรหัส</translation>
-    </message>
-    <message>
-      <source>Hide status when offline</source>
-      <translation>ซ่อนสถานะเมื่อคุณออฟไลน์</translation>
-    </message>
-    <message>
-      <source>Show a leave a message form when there are no online operators</source>
-      <translation>แสดงเป็นลาแบบข้อความเมื่อมีผู้ประกอบการไม่ออนไลน์</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>แผนก</translation>
-    </message>
-    <message>
-      <source>Any</source>
-      <translation>ใด ๆ</translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the page where you want your status to appear</source>
-      <translation>คัดลอกรหัสจากบริเวณข้อความที่คุณต้องการให้สถานะของคุณปรากฏขึ้นที่หน้า</translation>
-    </message>
-    <message>
-      <source>On a mouse click show the page widget</source>
-      <translation>คลิกเมาส์บนแสดง widget หน้า</translation>
-    </message>
-    <message>
-      <source>Automatically check for messages from the operator/invitation messages</source>
-      <translation>ตรวจสอบโดยอัตโนมัติสำหรับข้อความจากข้อความการดำเนินการ/หนังสือเชิญ</translation>
-    </message>
-    <message>
-      <source>It increases server load, because every 15 seconds is checked for operator message or invitation message.</source>
-      <translation>มันเพิ่มเซิร์ฟเวอร์โหลด เพราะทุกวินาทีที่มีการตรวจสอบสำหรับตัวดำเนินการข้อความหรือข้อความเชิญ</translation>
-    </message>
-    <message>
-      <source>Disable pro active invitations, usefull if you want disable them from site part.</source>
-      <translation>ปิดใช้งาน pro เชิญ ประโยชน์ถ้าคุณต้องการปิดใช้งานจากเว็บไซต์ส่วน</translation>
-    </message>
-    <message>
-      <source>Popup window size</source>
-      <translation>ขนาดหน้าต่างแบบผุดขึ้น</translation>
-    </message>
-    <message>
-      <source>Popup window width in pixels</source>
-      <translation>ความกว้างของหน้าต่างแบบผุดขึ้นเป็นพิกเซล</translation>
-    </message>
-    <message>
-      <source>Popup window height in pixels</source>
-      <translation>ความสูงของหน้าต่างแบบผุดขึ้นในพิกเซล</translation>
-    </message>
-    <message>
-      <source>Widget width</source>
-      <translation>ความกว้างของเครื่องมือ</translation>
-    </message>
-    <message>
-      <source>Widget width in pixels</source>
-      <translation>เครื่องมือความกว้างเป็นพิกเซล</translation>
-    </message>
-    <message>
-      <source>height</source>
-      <translation>ความสูง</translation>
-    </message>
-    <message>
-      <source>Widget height in pixels</source>
-      <translation>เครื่องมือความสูงเป็นพิกเซล</translation>
-    </message>
-    <message>
-      <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>แม่วาง - จะแสดงที่ html ถูกฝัง</translation>
-    </message>
-    <message>
-      <source>System configuration</source>
-      <translation>การกำหนดค่าระบบ</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/lists</name>
     <message>
       <source>Choose what type of list you want to see</source>
@@ -2151,6 +2221,93 @@
     <message>
       <source>Chat lists</source>
       <translation>รายการสนทนา</translation>
+    </message>
+  </context>
+  <context>
+    <name>pagelayout/pagelayout</name>
+    <message>
+      <source>Empty...</source>
+      <translation>ว่างเปล่า...</translation>
+    </message>
+    <message>
+      <source>Clean cache</source>
+      <translation>ดีแคช</translation>
+    </message>
+    <message>
+      <source>Home</source>
+      <translation>บ้าน</translation>
+    </message>
+    <message>
+      <source>Chats transferred to you directly</source>
+      <translation>โอนย้ายให้คุณโดยตรงอีกเลย</translation>
+    </message>
+    <message>
+      <source>Transferred to your department</source>
+      <translation>โอนย้ายไปที่แผนกของคุณ</translation>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation>สนทนาค้างอยู่</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>สนทนาที่ใช้งานอยู่</translation>
+    </message>
+    <message>
+      <source>Unread messages</source>
+      <translation>ข้อความที่ยังไม่ได้อ่าน</translation>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation>ปิดอีกเลย</translation>
+    </message>
+    <message>
+      <source>Configuration</source>
+      <translation>ตั้งค่าคอนฟิก</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>รายการสนทนา</translation>
+    </message>
+    <message>
+      <source>Chat rooms</source>
+      <translation>ห้องสนทนา</translation>
+    </message>
+    <message>
+      <source>New chat request</source>
+      <translation>ขอสนทนาใหม่</translation>
+    </message>
+    <message>
+      <source>Menu</source>
+      <translation>เมนู</translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>ผู้เยี่ยมชมออนไลน์</translation>
+    </message>
+    <message>
+      <source>Questionary</source>
+      <translation>Questionary</translation>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation>คำถามที่ถามบ่อย</translation>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation>Chatbox</translation>
+    </message>
+    <message>
+      <source>Browse offers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Account</source>
+      <translation>บัญชี</translation>
+    </message>
+    <message>
+      <source>Logout</source>
+      <translation>ออกจากระบบ</translation>
     </message>
   </context>
   <context>
@@ -2197,6 +2354,10 @@
     <message>
       <source>Select user</source>
       <translation>เลือก ผู้ใช้งาน</translation>
+    </message>
+    <message>
+      <source>Type to search</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -2967,37 +3128,6 @@
     <message>
       <source>more information on how to use it</source>
       <translation>ข้อมูลเพิ่มเติมเกี่ยวกับวิธีการใช้</translation>
-    </message>
-  </context>
-  <context>
-    <name>questionary/htmlcode</name>
-    <message>
-      <source>Show overlay</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Show different offers for the same user</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the page header or footer</source>
-      <translation>คัดลอกรหัสจากพื้นที่ข้อความหัวกระดาษหรือท้ายกระดาษ</translation>
-    </message>
-    <message>
-      <source>Status text</source>
-      <translation>ข้อความสถานะ</translation>
-    </message>
-    <message>
-      <source>Expand the widget automatically for new users</source>
-      <translation>ขยายเครื่องมืออัตโนมัติสำหรับผู้ใช้ใหม่</translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation>คัดลอกรหัสจากพื้นที่ข้อความท้ายกระดาษ ก่อนปิด &amp;lt; / ร่างกาย &amp;gt; แท็ก</translation>
-    </message>
-    <message>
-      <source>HTML code</source>
-      <translation>โค้ด HTML</translation>
     </message>
   </context>
   <context>
@@ -4031,93 +4161,6 @@
     </message>
   </context>
   <context>
-    <name>pagelayout/pagelayout</name>
-    <message>
-      <source>Clean cache</source>
-      <translation>ดีแคช</translation>
-    </message>
-    <message>
-      <source>Home</source>
-      <translation>บ้าน</translation>
-    </message>
-    <message>
-      <source>Chats transferred to you directly</source>
-      <translation>โอนย้ายให้คุณโดยตรงอีกเลย</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>ว่างเปล่า...</translation>
-    </message>
-    <message>
-      <source>Transferred to your department</source>
-      <translation>โอนย้ายไปที่แผนกของคุณ</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>สนทนาค้างอยู่</translation>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation>สนทนาที่ใช้งานอยู่</translation>
-    </message>
-    <message>
-      <source>Unread messages</source>
-      <translation>ข้อความที่ยังไม่ได้อ่าน</translation>
-    </message>
-    <message>
-      <source>Closed chats</source>
-      <translation>ปิดอีกเลย</translation>
-    </message>
-    <message>
-      <source>Configuration</source>
-      <translation>ตั้งค่าคอนฟิก</translation>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation>รายการสนทนา</translation>
-    </message>
-    <message>
-      <source>Chat rooms</source>
-      <translation>ห้องสนทนา</translation>
-    </message>
-    <message>
-      <source>New chat request</source>
-      <translation>ขอสนทนาใหม่</translation>
-    </message>
-    <message>
-      <source>Menu</source>
-      <translation>เมนู</translation>
-    </message>
-    <message>
-      <source>Online visitors</source>
-      <translation>ผู้เยี่ยมชมออนไลน์</translation>
-    </message>
-    <message>
-      <source>Questionary</source>
-      <translation>Questionary</translation>
-    </message>
-    <message>
-      <source>FAQ</source>
-      <translation>คำถามที่ถามบ่อย</translation>
-    </message>
-    <message>
-      <source>Chatbox</source>
-      <translation>Chatbox</translation>
-    </message>
-    <message>
-      <source>Browse offers</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Account</source>
-      <translation>บัญชี</translation>
-    </message>
-    <message>
-      <source>Logout</source>
-      <translation>ออกจากระบบ</translation>
-    </message>
-  </context>
-  <context>
     <name>system/languages</name>
     <message>
       <source>Languages configuration</source>
@@ -4942,6 +4985,73 @@
     </message>
   </context>
   <context>
+    <name>abstract/browserofferinvitation</name>
+    <message>
+      <source>Name for personal purposes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time on site on single page in seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority, the lower the higher</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Popup width</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Popup height</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Measure units, px or percents</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>URL, enter * at the end for the wildcard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom iframe URL, takes priority over default content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default popup content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Load content in lhc iframe</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Matched times</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Browser offer invitations</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>abstract/email_template</name>
     <message>
       <source>Name, for personal purposes</source>
@@ -5077,92 +5187,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>กรุณาระบุชนิดแฟ้มที่ถูกต้อง</translation>
-    </message>
-  </context>
-  <context>
-    <name>browseoffer/index</name>
-    <message>
-      <source>Browse offers</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>General</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Browse your offers</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>HTML Code</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>abstract/browserofferinvitation</name>
-    <message>
-      <source>Name for personal purposes</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Time on site on single page in seconds</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Priority, the lower the higher</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Popup width</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Popup height</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Measure units, px or percents</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>URL, enter * at the end for the wildcard</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Custom iframe URL, takes priority over default content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Default popup content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Load content in lhc iframe</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Active</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Matched times</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Browser offer invitations</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

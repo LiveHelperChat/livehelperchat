@@ -1,7 +1,8 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('browseoffer/index','Form');?></h1>
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/index','Form');?></h1>
 
-<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('browseoffer/index','General');?></h4>
 <ul class="circle small-list">
-    <li><a href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/Form"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('browseoffer/index','List of forms');?></a></li>
-    <li><a href="<?php echo erLhcoreClassDesign::baseurl('form/htmlcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('browseoffer/index','HTML Code');?></a></li>
+    <li><a href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/Form"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/index','List of forms');?></a></li>
+    <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhform','generate_js')) : ?>
+    <li><a href="<?php echo erLhcoreClassDesign::baseurl('form/embedcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/index','Page embed code');?></a></li>
+    <?php endif;?>
 </ul>

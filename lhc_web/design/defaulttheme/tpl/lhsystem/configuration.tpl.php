@@ -3,7 +3,7 @@
 <?php $currentUser = erLhcoreClassUser::instance(); ?>
 
 <div class="row">
-
+	<?php if ($currentUser->hasAccessTo('lhchat','use')) : ?>
 	<div class="columns small-6">
 		<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Chat related');?></h4>
 		<ul class="circle small-list">
@@ -72,7 +72,8 @@
 
 		</ul>
 	</div>
-
+	<?php endif;?>
+	
 	<div class="columns small-6">
 	<?php if ($currentUser->hasAccessTo('lhsystem','generatejs')) : ?>
 		<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Live help embed code');?></h4>
@@ -111,13 +112,22 @@
 		<ul class="circle small-list">
 		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('browseoffer/htmlcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Embed code');?></a></li>
 		</ul>
-	<?php endif; ?>
-	
+	<?php endif; ?>	
 	</div>
-
 </div>
 
-<hr>
+
+<?php if ($currentUser->hasAccessTo('lhform','manage_fm')) : ?>	
+	<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Form module');?></h4>
+	<ul class="circle small-list">
+	    <li><a href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/Form"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('browseoffer/index','List of forms');?></a></li>
+	    
+	    <?php if ($currentUser->hasAccessTo('lhform','generate_js')) : ?>	
+	    <li><a href="<?php echo erLhcoreClassDesign::baseurl('form/embedcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('browseoffer/index','Page embed code');?></a></li>
+	    <?php endif;?>	    
+	</ul>
+	<hr>
+<?php endif; ?>
 
 <?php if ($currentUser->hasAccessTo('lhchat','viewstatistic')) : ?>
 	<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Statistic');?></h4>
@@ -127,7 +137,7 @@
 	<hr>
 <?php endif; ?>
 
-
+<?php if ($currentUser->hasAccessTo('lhuser','userlist') || $currentUser->hasAccessTo('lhuser','grouplist') || $currentUser->hasAccessTo('lhpermission','list')) : ?>
 <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Users and their permissions');?></h4>
 <ul class="circle small-list">
     <?php if ($currentUser->hasAccessTo('lhuser','userlist')) : ?>
@@ -141,9 +151,10 @@
     <?php if ($currentUser->hasAccessTo('lhpermission','list')) : ?>
     <li><a href="<?php echo erLhcoreClassDesign::baseurl('permission/roles')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','List of roles');?></a></li>
     <?php endif; ?>
-
 </ul>
 <hr>
+<?php endif;?>
+
 
 <?php if ($currentUser->hasAccessTo('lhfile','use') || $currentUser->hasAccessTo('lhfile','file_list')) : ?>
 <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Files uploads configuration');?></h4>
@@ -159,10 +170,10 @@
 <hr>
 <?php endif; ?>
 
-
 <?php if ($currentUser->hasAccessTo('lhsystem','expirecache')) : ?>
 <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Other');?></h4>
 <ul class="circle small-list">
 	<li><a href="<?php echo erLhcoreClassDesign::baseurl('system/expirecache')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Clean cache');?></a></li>
 </ul>
+<hr>
 <?php endif; ?>

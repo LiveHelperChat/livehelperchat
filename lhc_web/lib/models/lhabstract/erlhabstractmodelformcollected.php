@@ -55,18 +55,45 @@ class erLhAbstractModelFormCollected {
 	   	       $this->left_menu = '';
 	   		   return $this->left_menu;
 	   		break;
-	   				
+	   		
+	   	case 'ctime_front':
+	   			return $this->ctime_front = date('Ymd') == date('Ymd',$this->ctime) ? date(erLhcoreClassModule::$dateHourFormat,$this->ctime) : date(erLhcoreClassModule::$dateDateHourFormat,$this->ctime);
+	   		break;
+	   		
+	   	case 'ctime_full_front':
+	   			return $this->ctime_full_front = date(erLhcoreClassModule::$dateDateHourFormat,$this->ctime);
+	   		break;
+	   		
+	   	case 'content_array':
+	   			return $this->content_array = unserialize($this->content);
+	   		break;
+	   		
+	   	case 'form':
+	   			return $this->form = erLhAbstractModelForm::fetch($this->form_id);
+	   		break;
+	   						
 	   	default:
 	   		break;
 	   }
 	}
 	
-	public function updateThis(){
+	public function getAttrValue($attrDesc) {		
+		$attrs = explode(',',$attrDesc);
+		
+		$attrCollected = array();
+		
+		foreach ($attrs as $attr) {
+			$attrCollected[] = $this->content_array[$attr]['value'];
+		}
+		
+		return implode(', ', $attrCollected);
+	}
+	
+	public function updateThis() {
 		$this->saveThis();
 	}
 	
-	public function saveThis()
-	{	
+	public function saveThis() {
 		erLhcoreClassAbstract::getSession()->saveOrUpdate($this);
 	}
 	
@@ -85,6 +112,13 @@ class erLhAbstractModelFormCollected {
 
 	public function removeThis()
 	{
+		foreach ($this->content_array as $key => $content) {
+			if ($content['definition']['type'] == 'file' && file_exists($content['filepath'] . $content['filename'])) {
+				unlink($content['filepath'] . $content['filename']);				
+				erLhcoreClassFileUpload::removeRecursiveIfEmpty('var/', str_replace('var/', '', $content['filepath']));
+			}
+		}
+				
 		erLhcoreClassAbstract::getSession()->delete($this);
 	}
 
@@ -145,14 +179,12 @@ class erLhAbstractModelFormCollected {
 
     	return $objects;
 	}
-
 	
    	public $id = null;
 	public $form_id = null;
 	public $ctime = null;	
 	public $ip = '';
 	public $content = '';
-	
 
 }
 

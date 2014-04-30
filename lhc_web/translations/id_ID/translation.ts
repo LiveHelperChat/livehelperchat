@@ -188,6 +188,302 @@
     </message>
   </context>
   <context>
+    <name>chat/getstatus</name>
+    <message>
+      <source>Close</source>
+      <translation>Tutup</translation>
+    </message>
+    <message>
+      <source>Live help is online...</source>
+      <translation>Bantuan langsung sedang online...</translation>
+    </message>
+    <message>
+      <source>Live help is offline...</source>
+      <translation>Bantuan langsung sedang offline...</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Buka di jendela baru</translation>
+    </message>
+    <message>
+      <source>Minimize/Restore</source>
+      <translation>Kecilkan/Pulihkan</translation>
+    </message>
+    <message>
+      <source>Need help?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Our staff is always ready to help</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>system/htmlcode</name>
+    <message>
+      <source>HTML code</source>
+      <translation>Kode HTML</translation>
+    </message>
+    <message>
+      <source>Popup width</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Popup height, used only if iframe is used</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
+      <translation>Pengenal, dapat digunakan sebagai filter untuk undangan percakapan pro aktif dan berguna memiliki pesan yang berbeda untuk domain yang berbeda. Hanya deret tanpa spasi atau karakter spesial.</translation>
+    </message>
+    <message>
+      <source>Leave empty if it is not important to you</source>
+      <translation>Biarkan kosong jika tidak penting bagi Anda</translation>
+    </message>
+    <message>
+      <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a language</source>
+      <translation>Pilih bahasa</translation>
+    </message>
+    <message>
+      <source>Choose prefered http mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Based on site (default)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget embed code</source>
+      <translation>Kode pencantuman widget</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>Kode pencantuman halaman</translation>
+    </message>
+    <message>
+      <source>Chatbox messages content height</source>
+      <translation>Tinggi muatan pesan kotak percakapan </translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the page where you want it to be rendered</source>
+      <translation>Salin kode dari area teks ke halaman yang Anda inginkan untuk dirender</translation>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation>Kotak percakapan</translation>
+    </message>
+    <message>
+      <source>Position from the top, is only used if the Middle left or the Middle right side is chosen</source>
+      <translation>Posisi dari atas, hanya digunakan jika bagian kiri samping atau bagian kanan samping di pilih</translation>
+    </message>
+    <message>
+      <source>Pixels</source>
+      <translation>Piksel</translation>
+    </message>
+    <message>
+      <source>Percents</source>
+      <translation>Persen</translation>
+    </message>
+    <message>
+      <source>Size</source>
+      <translation>Ukuran</translation>
+    </message>
+    <message>
+      <source>Width</source>
+      <translation>Lebar</translation>
+    </message>
+    <message>
+      <source>Height</source>
+      <translation>Tinggi</translation>
+    </message>
+    <message>
+      <source>Position</source>
+      <translation>Posisi</translation>
+    </message>
+    <message>
+      <source>Bottom right corner of the screen</source>
+      <translation>Pojok kanan bawah layar</translation>
+    </message>
+    <message>
+      <source>Bottom left corner of the screen</source>
+      <translation>Pojok kiri bawah layar</translation>
+    </message>
+    <message>
+      <source>Middle right side of the screen</source>
+      <translation>Bagian tengah kanan dari layar</translation>
+    </message>
+    <message>
+      <source>Middle left side of the screen</source>
+      <translation>Bagian tengah kiri dari layar</translation>
+    </message>
+    <message>
+      <source>Disable minimize icon</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show chatbox content minimized first time if content is shown.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
+      <translation>Salin kode dari textarea ke footer, sebelum tanda penutup &lt;/body&gt;</translation>
+    </message>
+    <message>
+      <source>Copy the code from the textarea to page where you want it to be rendered</source>
+      <translation>Salin kode dari area teks ke halaman dimana Anda inginkan untuk diterjemahkan</translation>
+    </message>
+    <message>
+      <source>Status text</source>
+      <translation>Teks status</translation>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation>pertanyaan yang sering diajukan</translation>
+    </message>
+    <message>
+      <source>Position from the top, only used if the Middle left or the Middle right side is chosen</source>
+      <translation>Posisi dari atas, hanya digunakan jika bagian tengah kiri atau bagian tengah kanan di pilih</translation>
+    </message>
+    <message>
+      <source>Help us to grow</source>
+      <translation>Bantu kami untuk berkembang</translation>
+    </message>
+    <message>
+      <source>Embed code</source>
+      <translation>Kode pencantuman</translation>
+    </message>
+    <message>
+      <source>Hide status when offline</source>
+      <translation>Sembunyikan status ketika offline</translation>
+    </message>
+    <message>
+      <source>Show a leave a message form when there are no online operators</source>
+      <translation>Tunjukkan formulir tinggalkan pesan ketika tidak ada operator yang sedang online</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Departemen</translation>
+    </message>
+    <message>
+      <source>Any</source>
+      <translation>Apapun</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the page where you want your status to appear</source>
+      <translation>Salin kode dari area teks ke halaman dimana anda ingin status anda muncul</translation>
+    </message>
+    <message>
+      <source>On a mouse click show the page widget</source>
+      <translation>Pada klik mouse tampilkan widget halaman</translation>
+    </message>
+    <message>
+      <source>Automatically check for messages from the operator/invitation messages</source>
+      <translation>Periksa pesan dari operator/pesan undangan secara otomatis</translation>
+    </message>
+    <message>
+      <source>It increases server load, because every 15 seconds is checked for operator message or invitation message.</source>
+      <translation>Hal ini meningkatkan beban server, karena pesan operator tau pesan undangan diperiksa setiap 15 detik.</translation>
+    </message>
+    <message>
+      <source>Disable pro active invitations, usefull if you want disable them from site part.</source>
+      <translation>Nonaktifkan undangan pro aktif, berguna jika Anda ingin menonaktifkan mereka dari bagian situs.</translation>
+    </message>
+    <message>
+      <source>Popup window size</source>
+      <translation>Ukuran jendela popup</translation>
+    </message>
+    <message>
+      <source>Popup window width in pixels</source>
+      <translation>Lebar jendela popup dalam piksel</translation>
+    </message>
+    <message>
+      <source>Popup window height in pixels</source>
+      <translation>Tinggi jendela popup dalam piksel</translation>
+    </message>
+    <message>
+      <source>Widget width</source>
+      <translation>Lebar widget</translation>
+    </message>
+    <message>
+      <source>Widget width in pixels</source>
+      <translation>Lebar widget dalam piksel</translation>
+    </message>
+    <message>
+      <source>height</source>
+      <translation>tinggi</translation>
+    </message>
+    <message>
+      <source>Widget height in pixels</source>
+      <translation>Tinggi widget dalam piksel</translation>
+    </message>
+    <message>
+      <source>Native placement - it will be shown where the html is embedded</source>
+      <translation>Penempatan asli - akan ditampilkan di mana html tercantum</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Konfigurasi sistem</translation>
+    </message>
+  </context>
+  <context>
+    <name>questionary/htmlcode</name>
+    <message>
+      <source>Show overlay</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show different offers for the same user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the page header or footer</source>
+      <translation>Salin kode dari area teks ke header atau footer halaman</translation>
+    </message>
+    <message>
+      <source>Status text</source>
+      <translation>Teks status</translation>
+    </message>
+    <message>
+      <source>Expand the widget automatically for new users</source>
+      <translation>Besarkan widget secara otomatis untuk pengguna baru</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
+      <translation>Salin kode dari textarea ke footer, sebelum tanda penutup &lt;/body&gt;</translation>
+    </message>
+    <message>
+      <source>HTML code</source>
+      <translation>Kode HTML</translation>
+    </message>
+  </context>
+  <context>
+    <name>browseoffer/index</name>
+    <message>
+      <source>Browse offers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>General</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Browse your offers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>HTML Code</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/activechats</name>
     <message>
       <source>Active chats list</source>
@@ -1510,6 +1806,34 @@
       <translation>pengguna online</translation>
     </message>
     <message>
+      <source>Group list by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation>Halaman</translation>
+    </message>
+    <message>
+      <source>Page title</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Referrer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Refresh list every</source>
       <translation type="unfinished"/>
     </message>
@@ -1526,12 +1850,12 @@
       <translation>Menunjukkan pengunjung yang mengunjungi situs di masa lalu</translation>
     </message>
     <message>
-      <source>minit</source>
-      <translation>menit</translation>
+      <source>minute</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>minits</source>
-      <translation>menit</translation>
+      <source>minutes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>hour</source>
@@ -1546,28 +1870,12 @@
       <translation>hari</translation>
     </message>
     <message>
-      <source>Page</source>
-      <translation>Halaman</translation>
-    </message>
-    <message>
       <source>Status</source>
       <translation>Status</translation>
     </message>
     <message>
       <source>Action</source>
       <translation>Tindakan</translation>
-    </message>
-    <message>
-      <source>User does not have any messages from the operator</source>
-      <translation>Pengguna tidak memiliki pesan apapun dari operator</translation>
-    </message>
-    <message>
-      <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation>Pengguna belum melihat pesan dari operator, atau jendela pesan masih terbuka.</translation>
-    </message>
-    <message>
-      <source>User has seen the message from the operator.</source>
-      <translation>Pengguna telah melihat pesan dari operator.</translation>
     </message>
     <message>
       <source>has sent a message to the user</source>
@@ -1586,10 +1894,6 @@
       <translation>kunjungan terakhir</translation>
     </message>
     <message>
-      <source>Empty...</source>
-      <translation>Kosong...</translation>
-    </message>
-    <message>
       <source>Map</source>
       <translation>Peta</translation>
     </message>
@@ -1600,6 +1904,18 @@
     <message>
       <source>Marker timeout before it dissapears from map</source>
       <translation>Batas waktu penanda sebelum menghilang dari peta</translation>
+    </message>
+    <message>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <translation>Pengguna belum melihat pesan dari operator, atau jendela pesan masih terbuka.</translation>
+    </message>
+    <message>
+      <source>User has seen the message from the operator.</source>
+      <translation>Pengguna telah melihat pesan dari operator.</translation>
+    </message>
+    <message>
+      <source>User does not have any messages from the operator</source>
+      <translation>Pengguna tidak memiliki pesan apapun dari operator</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -1676,37 +1992,6 @@
     <message>
       <source>Online users</source>
       <translation>Pengguna online</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/getstatus</name>
-    <message>
-      <source>Close</source>
-      <translation>Tutup</translation>
-    </message>
-    <message>
-      <source>Live help is online...</source>
-      <translation>Bantuan langsung sedang online...</translation>
-    </message>
-    <message>
-      <source>Live help is offline...</source>
-      <translation>Bantuan langsung sedang offline...</translation>
-    </message>
-    <message>
-      <source>Open in a new window</source>
-      <translation>Buka di jendela baru</translation>
-    </message>
-    <message>
-      <source>Minimize/Restore</source>
-      <translation>Kecilkan/Pulihkan</translation>
-    </message>
-    <message>
-      <source>Need help?</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Our staff is always ready to help</source>
-      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -1908,221 +2193,6 @@
     </message>
   </context>
   <context>
-    <name>system/htmlcode</name>
-    <message>
-      <source>HTML code</source>
-      <translation>Kode HTML</translation>
-    </message>
-    <message>
-      <source>Popup width</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Popup height, used only if iframe is used</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
-      <translation>Pengenal, dapat digunakan sebagai filter untuk undangan percakapan pro aktif dan berguna memiliki pesan yang berbeda untuk domain yang berbeda. Hanya deret tanpa spasi atau karakter spesial.</translation>
-    </message>
-    <message>
-      <source>Leave empty if it is not important to you</source>
-      <translation>Biarkan kosong jika tidak penting bagi Anda</translation>
-    </message>
-    <message>
-      <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose a language</source>
-      <translation>Pilih bahasa</translation>
-    </message>
-    <message>
-      <source>Choose prefered http mode</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Based on site (default)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Widget embed code</source>
-      <translation>Kode pencantuman widget</translation>
-    </message>
-    <message>
-      <source>Page embed code</source>
-      <translation>Kode pencantuman halaman</translation>
-    </message>
-    <message>
-      <source>Chatbox messages content height</source>
-      <translation>Tinggi muatan pesan kotak percakapan </translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the page where you want it to be rendered</source>
-      <translation>Salin kode dari area teks ke halaman yang Anda inginkan untuk dirender</translation>
-    </message>
-    <message>
-      <source>Chatbox</source>
-      <translation>Kotak percakapan</translation>
-    </message>
-    <message>
-      <source>Position from the top, is only used if the Middle left or the Middle right side is chosen</source>
-      <translation>Posisi dari atas, hanya digunakan jika bagian kiri samping atau bagian kanan samping di pilih</translation>
-    </message>
-    <message>
-      <source>Pixels</source>
-      <translation>Piksel</translation>
-    </message>
-    <message>
-      <source>Percents</source>
-      <translation>Persen</translation>
-    </message>
-    <message>
-      <source>Size</source>
-      <translation>Ukuran</translation>
-    </message>
-    <message>
-      <source>Width</source>
-      <translation>Lebar</translation>
-    </message>
-    <message>
-      <source>Height</source>
-      <translation>Tinggi</translation>
-    </message>
-    <message>
-      <source>Position</source>
-      <translation>Posisi</translation>
-    </message>
-    <message>
-      <source>Bottom right corner of the screen</source>
-      <translation>Pojok kanan bawah layar</translation>
-    </message>
-    <message>
-      <source>Bottom left corner of the screen</source>
-      <translation>Pojok kiri bawah layar</translation>
-    </message>
-    <message>
-      <source>Middle right side of the screen</source>
-      <translation>Bagian tengah kanan dari layar</translation>
-    </message>
-    <message>
-      <source>Middle left side of the screen</source>
-      <translation>Bagian tengah kiri dari layar</translation>
-    </message>
-    <message>
-      <source>Disable minimize icon</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Show chatbox content minimized first time if content is shown.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation>Salin kode dari textarea ke footer, sebelum tanda penutup &lt;/body&gt;</translation>
-    </message>
-    <message>
-      <source>Copy the code from the textarea to page where you want it to be rendered</source>
-      <translation>Salin kode dari area teks ke halaman dimana Anda inginkan untuk diterjemahkan</translation>
-    </message>
-    <message>
-      <source>Status text</source>
-      <translation>Teks status</translation>
-    </message>
-    <message>
-      <source>FAQ</source>
-      <translation>pertanyaan yang sering diajukan</translation>
-    </message>
-    <message>
-      <source>Position from the top, only used if the Middle left or the Middle right side is chosen</source>
-      <translation>Posisi dari atas, hanya digunakan jika bagian tengah kiri atau bagian tengah kanan di pilih</translation>
-    </message>
-    <message>
-      <source>Help us to grow</source>
-      <translation>Bantu kami untuk berkembang</translation>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation>Kode pencantuman</translation>
-    </message>
-    <message>
-      <source>Hide status when offline</source>
-      <translation>Sembunyikan status ketika offline</translation>
-    </message>
-    <message>
-      <source>Show a leave a message form when there are no online operators</source>
-      <translation>Tunjukkan formulir tinggalkan pesan ketika tidak ada operator yang sedang online</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Departemen</translation>
-    </message>
-    <message>
-      <source>Any</source>
-      <translation>Apapun</translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the page where you want your status to appear</source>
-      <translation>Salin kode dari area teks ke halaman dimana anda ingin status anda muncul</translation>
-    </message>
-    <message>
-      <source>On a mouse click show the page widget</source>
-      <translation>Pada klik mouse tampilkan widget halaman</translation>
-    </message>
-    <message>
-      <source>Automatically check for messages from the operator/invitation messages</source>
-      <translation>Periksa pesan dari operator/pesan undangan secara otomatis</translation>
-    </message>
-    <message>
-      <source>It increases server load, because every 15 seconds is checked for operator message or invitation message.</source>
-      <translation>Hal ini meningkatkan beban server, karena pesan operator tau pesan undangan diperiksa setiap 15 detik.</translation>
-    </message>
-    <message>
-      <source>Disable pro active invitations, usefull if you want disable them from site part.</source>
-      <translation>Nonaktifkan undangan pro aktif, berguna jika Anda ingin menonaktifkan mereka dari bagian situs.</translation>
-    </message>
-    <message>
-      <source>Popup window size</source>
-      <translation>Ukuran jendela popup</translation>
-    </message>
-    <message>
-      <source>Popup window width in pixels</source>
-      <translation>Lebar jendela popup dalam piksel</translation>
-    </message>
-    <message>
-      <source>Popup window height in pixels</source>
-      <translation>Tinggi jendela popup dalam piksel</translation>
-    </message>
-    <message>
-      <source>Widget width</source>
-      <translation>Lebar widget</translation>
-    </message>
-    <message>
-      <source>Widget width in pixels</source>
-      <translation>Lebar widget dalam piksel</translation>
-    </message>
-    <message>
-      <source>height</source>
-      <translation>tinggi</translation>
-    </message>
-    <message>
-      <source>Widget height in pixels</source>
-      <translation>Tinggi widget dalam piksel</translation>
-    </message>
-    <message>
-      <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>Penempatan asli - akan ditampilkan di mana html tercantum</translation>
-    </message>
-    <message>
-      <source>System configuration</source>
-      <translation>Konfigurasi sistem</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/lists</name>
     <message>
       <source>Choose what type of list you want to see</source>
@@ -2151,6 +2221,93 @@
     <message>
       <source>Chat lists</source>
       <translation>Daftar percakapan</translation>
+    </message>
+  </context>
+  <context>
+    <name>pagelayout/pagelayout</name>
+    <message>
+      <source>Empty...</source>
+      <translation>Kosong...</translation>
+    </message>
+    <message>
+      <source>Clean cache</source>
+      <translation>Bersihkan cache</translation>
+    </message>
+    <message>
+      <source>Home</source>
+      <translation>Home</translation>
+    </message>
+    <message>
+      <source>Chats transferred to you directly</source>
+      <translation>Percakapan dipindahkan ke anda secara langsung</translation>
+    </message>
+    <message>
+      <source>Transferred to your department</source>
+      <translation>Dipindahkan ke departemen anda</translation>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation>Percakapan tertunda</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Percakapan aktif</translation>
+    </message>
+    <message>
+      <source>Unread messages</source>
+      <translation>Pesan belum terbaca</translation>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation>Percakapan yang sudah tertutup</translation>
+    </message>
+    <message>
+      <source>Configuration</source>
+      <translation>Konfigurasi</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Daftar percakapan</translation>
+    </message>
+    <message>
+      <source>Chat rooms</source>
+      <translation>Ruang percakapan</translation>
+    </message>
+    <message>
+      <source>New chat request</source>
+      <translation>Permintaan percakapan baru</translation>
+    </message>
+    <message>
+      <source>Menu</source>
+      <translation>Menu</translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Pengunjung online</translation>
+    </message>
+    <message>
+      <source>Questionary</source>
+      <translation>Kuisioner</translation>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation>Pertanyaan yang sering diajukan</translation>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation>Kotak percakapan</translation>
+    </message>
+    <message>
+      <source>Browse offers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Account</source>
+      <translation>Akun</translation>
+    </message>
+    <message>
+      <source>Logout</source>
+      <translation>Logout</translation>
     </message>
   </context>
   <context>
@@ -2197,6 +2354,10 @@
     <message>
       <source>Select user</source>
       <translation>Pilih pengguna</translation>
+    </message>
+    <message>
+      <source>Type to search</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -2967,37 +3128,6 @@
     <message>
       <source>more information on how to use it</source>
       <translation>informasi lebih lanjut mengenai bagaimana menggunakannya</translation>
-    </message>
-  </context>
-  <context>
-    <name>questionary/htmlcode</name>
-    <message>
-      <source>Show overlay</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Show different offers for the same user</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the page header or footer</source>
-      <translation>Salin kode dari area teks ke header atau footer halaman</translation>
-    </message>
-    <message>
-      <source>Status text</source>
-      <translation>Teks status</translation>
-    </message>
-    <message>
-      <source>Expand the widget automatically for new users</source>
-      <translation>Besarkan widget secara otomatis untuk pengguna baru</translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation>Salin kode dari textarea ke footer, sebelum tanda penutup &lt;/body&gt;</translation>
-    </message>
-    <message>
-      <source>HTML code</source>
-      <translation>Kode HTML</translation>
     </message>
   </context>
   <context>
@@ -4031,93 +4161,6 @@
     </message>
   </context>
   <context>
-    <name>pagelayout/pagelayout</name>
-    <message>
-      <source>Clean cache</source>
-      <translation>Bersihkan cache</translation>
-    </message>
-    <message>
-      <source>Home</source>
-      <translation>Home</translation>
-    </message>
-    <message>
-      <source>Chats transferred to you directly</source>
-      <translation>Percakapan dipindahkan ke anda secara langsung</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Kosong...</translation>
-    </message>
-    <message>
-      <source>Transferred to your department</source>
-      <translation>Dipindahkan ke departemen anda</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Percakapan tertunda</translation>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation>Percakapan aktif</translation>
-    </message>
-    <message>
-      <source>Unread messages</source>
-      <translation>Pesan belum terbaca</translation>
-    </message>
-    <message>
-      <source>Closed chats</source>
-      <translation>Percakapan yang sudah tertutup</translation>
-    </message>
-    <message>
-      <source>Configuration</source>
-      <translation>Konfigurasi</translation>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation>Daftar percakapan</translation>
-    </message>
-    <message>
-      <source>Chat rooms</source>
-      <translation>Ruang percakapan</translation>
-    </message>
-    <message>
-      <source>New chat request</source>
-      <translation>Permintaan percakapan baru</translation>
-    </message>
-    <message>
-      <source>Menu</source>
-      <translation>Menu</translation>
-    </message>
-    <message>
-      <source>Online visitors</source>
-      <translation>Pengunjung online</translation>
-    </message>
-    <message>
-      <source>Questionary</source>
-      <translation>Kuisioner</translation>
-    </message>
-    <message>
-      <source>FAQ</source>
-      <translation>Pertanyaan yang sering diajukan</translation>
-    </message>
-    <message>
-      <source>Chatbox</source>
-      <translation>Kotak percakapan</translation>
-    </message>
-    <message>
-      <source>Browse offers</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Account</source>
-      <translation>Akun</translation>
-    </message>
-    <message>
-      <source>Logout</source>
-      <translation>Logout</translation>
-    </message>
-  </context>
-  <context>
     <name>system/languages</name>
     <message>
       <source>Languages configuration</source>
@@ -4942,6 +4985,73 @@
     </message>
   </context>
   <context>
+    <name>abstract/browserofferinvitation</name>
+    <message>
+      <source>Name for personal purposes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time on site on single page in seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority, the lower the higher</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Popup width</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Popup height</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Measure units, px or percents</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>URL, enter * at the end for the wildcard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom iframe URL, takes priority over default content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default popup content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Load content in lhc iframe</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Matched times</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Browser offer invitations</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>abstract/email_template</name>
     <message>
       <source>Name, for personal purposes</source>
@@ -5077,92 +5187,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Silakan masukkan tipe berkas yang sah!</translation>
-    </message>
-  </context>
-  <context>
-    <name>browseoffer/index</name>
-    <message>
-      <source>Browse offers</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>General</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Browse your offers</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>HTML Code</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>abstract/browserofferinvitation</name>
-    <message>
-      <source>Name for personal purposes</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Time on site on single page in seconds</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Priority, the lower the higher</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Popup width</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Popup height</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Measure units, px or percents</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>URL, enter * at the end for the wildcard</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Custom iframe URL, takes priority over default content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Default popup content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Load content in lhc iframe</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Active</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Matched times</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Browser offer invitations</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

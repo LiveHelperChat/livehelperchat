@@ -112,6 +112,9 @@
 		    
 		    <?php $attribute = 'disable_popup_restore';$boolValue = true;?>
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+		    
+		    <?php $attribute = 'bbc_button_visible';$boolValue = true;?>
+		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 		    		    
 		    <?php $attribute = 'reopen_chat_enabled';$boolValue = true;?>
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>

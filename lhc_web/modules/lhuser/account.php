@@ -7,7 +7,7 @@ $UserData = $currentUser->getUserData();
 
 $tpl->set('tab',$Params['user_parameters_unordered']['tab'] == 'canned' ? 'tab_canned' : '');
 
-if (isset($_POST['UpdateTabsSettings_account']))
+if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','change_visibility_list') && isset($_POST['UpdateTabsSettings_account']))
 {
 	$definition = array(
 			'pendingTabEnabled' => new ezcInputFormDefinitionElement(

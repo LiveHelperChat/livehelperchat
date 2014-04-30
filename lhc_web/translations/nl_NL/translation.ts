@@ -188,6 +188,302 @@
     </message>
   </context>
   <context>
+    <name>chat/getstatus</name>
+    <message>
+      <source>Close</source>
+      <translation>Sluiten</translation>
+    </message>
+    <message>
+      <source>Live help is online...</source>
+      <translation>Chat ondersteuning is online...</translation>
+    </message>
+    <message>
+      <source>Live help is offline...</source>
+      <translation>Live hulp is offline...</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Open in een nieuw venster</translation>
+    </message>
+    <message>
+      <source>Minimize/Restore</source>
+      <translation>Minimaliseer/Herstel</translation>
+    </message>
+    <message>
+      <source>Need help?</source>
+      <translation>Hulp Nodig?</translation>
+    </message>
+    <message>
+      <source>Our staff is always ready to help</source>
+      <translation>Ons personeel is altijd klaar om u te helpen</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/htmlcode</name>
+    <message>
+      <source>HTML code</source>
+      <translation>HTML code</translation>
+    </message>
+    <message>
+      <source>Popup width</source>
+      <translation>Breedte popup</translation>
+    </message>
+    <message>
+      <source>Popup height, used only if iframe is used</source>
+      <translation>Hoogte popup, alleen gebruikt bij gebruik van iframe</translation>
+    </message>
+    <message>
+      <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
+      <translation>Identificatie, dit kan worden gebruikt als filter voor pro-actieve chat uitnodigingen en is handig bij het gebruik van verschillende berichten voor verschillende domeinen. Alleen een string zonder spaties of speciale tekens.</translation>
+    </message>
+    <message>
+      <source>Leave empty if it is not important to you</source>
+      <translation>Laat dit leeg als het niet belangrijk voor u is</translation>
+    </message>
+    <message>
+      <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
+      <translation>Timeout van aanbieding in dagen, na hoeveel dagen dezelfde bezoeker de aanbiedingen weer krijgt, laat leeg voor sessie</translation>
+    </message>
+    <message>
+      <source>Choose a language</source>
+      <translation>Kies taal</translation>
+    </message>
+    <message>
+      <source>Choose prefered http mode</source>
+      <translation>Kies geprefereerde http modus</translation>
+    </message>
+    <message>
+      <source>Based on site (default)</source>
+      <translation>Gebaseerd op site (standaard)</translation>
+    </message>
+    <message>
+      <source>Widget embed code</source>
+      <translation>Widget embed code</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>Pagina embed code</translation>
+    </message>
+    <message>
+      <source>Chatbox messages content height</source>
+      <translation>Chatbox berichtinhoud hoogte</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the page where you want it to be rendered</source>
+      <translation>Kopieer de code uit het tekstvak naar de pagina waar je het getoond wilt hebben</translation>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation>Chatbox</translation>
+    </message>
+    <message>
+      <source>Position from the top, is only used if the Middle left or the Middle right side is chosen</source>
+      <translation>Positie vanaf de bovenkant, alleen gebruikt als midden-links of midden-rechts gekozen is</translation>
+    </message>
+    <message>
+      <source>Pixels</source>
+      <translation>Pixels</translation>
+    </message>
+    <message>
+      <source>Percents</source>
+      <translation>Procenten</translation>
+    </message>
+    <message>
+      <source>Size</source>
+      <translation>Grootte</translation>
+    </message>
+    <message>
+      <source>Width</source>
+      <translation>Wijdte</translation>
+    </message>
+    <message>
+      <source>Height</source>
+      <translation>Hoogte</translation>
+    </message>
+    <message>
+      <source>Position</source>
+      <translation>Positie</translation>
+    </message>
+    <message>
+      <source>Bottom right corner of the screen</source>
+      <translation>Rechtsonderin de hoek</translation>
+    </message>
+    <message>
+      <source>Bottom left corner of the screen</source>
+      <translation>Linksonderin de hoek</translation>
+    </message>
+    <message>
+      <source>Middle right side of the screen</source>
+      <translation>Rechts in het midden</translation>
+    </message>
+    <message>
+      <source>Middle left side of the screen</source>
+      <translation>Links in het midden</translation>
+    </message>
+    <message>
+      <source>Disable minimize icon</source>
+      <translation>Schakel minimaliseer-icon uit</translation>
+    </message>
+    <message>
+      <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
+      <translation>Toon chatboxinhoud in plaats van widget, gebruikers kunnen het alleen minimaliseren, niet sluiten.</translation>
+    </message>
+    <message>
+      <source>Show chatbox content minimized first time if content is shown.</source>
+      <translation>Toon chatboxinhoud eerst geminimaliseerd de eerste keer dat inhoud getoond wordt.</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
+      <translation>Kopieer de code uit het tekstvak naar de footer, voor de sluitende &amp;lt;/body&amp;gt; tag</translation>
+    </message>
+    <message>
+      <source>Copy the code from the textarea to page where you want it to be rendered</source>
+      <translation>Kopieer de code uit het tekstvak naar de pagina waar je het getoond wilt hebben</translation>
+    </message>
+    <message>
+      <source>Status text</source>
+      <translation>Statustekst</translation>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation>FAQ</translation>
+    </message>
+    <message>
+      <source>Position from the top, only used if the Middle left or the Middle right side is chosen</source>
+      <translation>Positie vanaf de bovenkant, alleen gebruikt als midden-links of midden-rechts gekozen is</translation>
+    </message>
+    <message>
+      <source>Help us to grow</source>
+      <translation>Help ons te groeien</translation>
+    </message>
+    <message>
+      <source>Embed code</source>
+      <translation>Embed code</translation>
+    </message>
+    <message>
+      <source>Hide status when offline</source>
+      <translation>Verberg status wanneer offline</translation>
+    </message>
+    <message>
+      <source>Show a leave a message form when there are no online operators</source>
+      <translation>Laat een bericht-achterlaat-scherm zien als er geen online operators zijn</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Afdeling</translation>
+    </message>
+    <message>
+      <source>Any</source>
+      <translation>Elke</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the page where you want your status to appear</source>
+      <translation>Kopieer de code uit het tekstvak naar de pagina waar u uw status getoond wilt hebben</translation>
+    </message>
+    <message>
+      <source>On a mouse click show the page widget</source>
+      <translation>Toon het pagina widget wanneer geklikt wordt</translation>
+    </message>
+    <message>
+      <source>Automatically check for messages from the operator/invitation messages</source>
+      <translation>Check automatisch op berichten van de operator of uitnodigingsberichten</translation>
+    </message>
+    <message>
+      <source>It increases server load, because every 15 seconds is checked for operator message or invitation message.</source>
+      <translation>Dit zorgt voor een hogere server load, omdat elke 15 seconden wordt gecheckt op operatorberichten of uitnodigingsberichten.</translation>
+    </message>
+    <message>
+      <source>Disable pro active invitations, usefull if you want disable them from site part.</source>
+      <translation>Schakel pro-actieve uitnodigingen uit, handig voor als je ze wilt uitschakelen vanaf de site-kant.</translation>
+    </message>
+    <message>
+      <source>Popup window size</source>
+      <translation>Grootte popup-scherm</translation>
+    </message>
+    <message>
+      <source>Popup window width in pixels</source>
+      <translation>Breedte popup-scherm in pixels</translation>
+    </message>
+    <message>
+      <source>Popup window height in pixels</source>
+      <translation>Hoogte popup-scherm in pixels</translation>
+    </message>
+    <message>
+      <source>Widget width</source>
+      <translation>Breedte widget</translation>
+    </message>
+    <message>
+      <source>Widget width in pixels</source>
+      <translation>Breedte widget in pixels</translation>
+    </message>
+    <message>
+      <source>height</source>
+      <translation>hoogte</translation>
+    </message>
+    <message>
+      <source>Widget height in pixels</source>
+      <translation>Hoogte widget in pixels</translation>
+    </message>
+    <message>
+      <source>Native placement - it will be shown where the html is embedded</source>
+      <translation>Native positionering - het zal getoond worden waar de html geplaatst is</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Systeem configuratie</translation>
+    </message>
+  </context>
+  <context>
+    <name>questionary/htmlcode</name>
+    <message>
+      <source>Show overlay</source>
+      <translation>Toon overlay</translation>
+    </message>
+    <message>
+      <source>Show different offers for the same user</source>
+      <translation>Toon verschillende aanbiedingen voor dezelfde gebruiker</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the page header or footer</source>
+      <translation>Kopieer de code uit het tekstvak naar de pagina-header of -footer</translation>
+    </message>
+    <message>
+      <source>Status text</source>
+      <translation>Statustekst</translation>
+    </message>
+    <message>
+      <source>Expand the widget automatically for new users</source>
+      <translation>Klap het widget automatisch uit voor nieuwe gebruikers</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
+      <translation>Kopieer de code uit het tekstvak naar de footer, voor de sluitende &amp;lt;/body&amp;gt; tag</translation>
+    </message>
+    <message>
+      <source>HTML code</source>
+      <translation>HTML kodas</translation>
+    </message>
+  </context>
+  <context>
+    <name>browseoffer/index</name>
+    <message>
+      <source>Browse offers</source>
+      <translation>Blader aanbiedingen door</translation>
+    </message>
+    <message>
+      <source>General</source>
+      <translation>Algemeen</translation>
+    </message>
+    <message>
+      <source>Browse your offers</source>
+      <translation>Blader uw aanbiedingen door</translation>
+    </message>
+    <message>
+      <source>HTML Code</source>
+      <translation>HTML Code</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/activechats</name>
     <message>
       <source>Active chats list</source>
@@ -1510,6 +1806,34 @@
       <translation>online gebruikers</translation>
     </message>
     <message>
+      <source>Group list by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation>Pagina</translation>
+    </message>
+    <message>
+      <source>Page title</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Referrer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Refresh list every</source>
       <translation>Ververs lijst elke</translation>
     </message>
@@ -1526,12 +1850,12 @@
       <translation>Toon bezoekers die de site in het verleden bezochten</translation>
     </message>
     <message>
-      <source>minit</source>
-      <translation>minuut</translation>
+      <source>minute</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>minits</source>
-      <translation>minuten</translation>
+      <source>minutes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>hour</source>
@@ -1546,28 +1870,12 @@
       <translation>dagen</translation>
     </message>
     <message>
-      <source>Page</source>
-      <translation>Pagina</translation>
-    </message>
-    <message>
       <source>Status</source>
       <translation>Status</translation>
     </message>
     <message>
       <source>Action</source>
       <translation>Actie</translation>
-    </message>
-    <message>
-      <source>User does not have any messages from the operator</source>
-      <translation>Gebruiker heeft geen berichten van de operator</translation>
-    </message>
-    <message>
-      <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation>Gebruiker heeft geen bericht van de operator gezien, of het bericht staat nog open</translation>
-    </message>
-    <message>
-      <source>User has seen the message from the operator.</source>
-      <translation>De gebruiker heeft het bericht van de operator gezien.</translation>
     </message>
     <message>
       <source>has sent a message to the user</source>
@@ -1586,10 +1894,6 @@
       <translation>laatste bezoek</translation>
     </message>
     <message>
-      <source>Empty...</source>
-      <translation>Leeg...</translation>
-    </message>
-    <message>
       <source>Map</source>
       <translation>Kaart</translation>
     </message>
@@ -1600,6 +1904,18 @@
     <message>
       <source>Marker timeout before it dissapears from map</source>
       <translation>Timeout voordat de marker van de kaart verdwijnt</translation>
+    </message>
+    <message>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <translation>Gebruiker heeft geen bericht van de operator gezien, of het bericht staat nog open</translation>
+    </message>
+    <message>
+      <source>User has seen the message from the operator.</source>
+      <translation>De gebruiker heeft het bericht van de operator gezien.</translation>
+    </message>
+    <message>
+      <source>User does not have any messages from the operator</source>
+      <translation>Gebruiker heeft geen berichten van de operator</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -1676,37 +1992,6 @@
     <message>
       <source>Online users</source>
       <translation>Online gebruikers</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/getstatus</name>
-    <message>
-      <source>Close</source>
-      <translation>Sluiten</translation>
-    </message>
-    <message>
-      <source>Live help is online...</source>
-      <translation>Chat ondersteuning is online...</translation>
-    </message>
-    <message>
-      <source>Live help is offline...</source>
-      <translation>Live hulp is offline...</translation>
-    </message>
-    <message>
-      <source>Open in a new window</source>
-      <translation>Open in een nieuw venster</translation>
-    </message>
-    <message>
-      <source>Minimize/Restore</source>
-      <translation>Minimaliseer/Herstel</translation>
-    </message>
-    <message>
-      <source>Need help?</source>
-      <translation>Hulp Nodig?</translation>
-    </message>
-    <message>
-      <source>Our staff is always ready to help</source>
-      <translation>Ons personeel is altijd klaar om u te helpen</translation>
     </message>
   </context>
   <context>
@@ -1908,221 +2193,6 @@
     </message>
   </context>
   <context>
-    <name>system/htmlcode</name>
-    <message>
-      <source>HTML code</source>
-      <translation>HTML code</translation>
-    </message>
-    <message>
-      <source>Popup width</source>
-      <translation>Breedte popup</translation>
-    </message>
-    <message>
-      <source>Popup height, used only if iframe is used</source>
-      <translation>Hoogte popup, alleen gebruikt bij gebruik van iframe</translation>
-    </message>
-    <message>
-      <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
-      <translation>Identificatie, dit kan worden gebruikt als filter voor pro-actieve chat uitnodigingen en is handig bij het gebruik van verschillende berichten voor verschillende domeinen. Alleen een string zonder spaties of speciale tekens.</translation>
-    </message>
-    <message>
-      <source>Leave empty if it is not important to you</source>
-      <translation>Laat dit leeg als het niet belangrijk voor u is</translation>
-    </message>
-    <message>
-      <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
-      <translation>Timeout van aanbieding in dagen, na hoeveel dagen dezelfde bezoeker de aanbiedingen weer krijgt, laat leeg voor sessie</translation>
-    </message>
-    <message>
-      <source>Choose a language</source>
-      <translation>Kies taal</translation>
-    </message>
-    <message>
-      <source>Choose prefered http mode</source>
-      <translation>Kies geprefereerde http modus</translation>
-    </message>
-    <message>
-      <source>Based on site (default)</source>
-      <translation>Gebaseerd op site (standaard)</translation>
-    </message>
-    <message>
-      <source>Widget embed code</source>
-      <translation>Widget embed code</translation>
-    </message>
-    <message>
-      <source>Page embed code</source>
-      <translation>Pagina embed code</translation>
-    </message>
-    <message>
-      <source>Chatbox messages content height</source>
-      <translation>Chatbox berichtinhoud hoogte</translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the page where you want it to be rendered</source>
-      <translation>Kopieer de code uit het tekstvak naar de pagina waar je het getoond wilt hebben</translation>
-    </message>
-    <message>
-      <source>Chatbox</source>
-      <translation>Chatbox</translation>
-    </message>
-    <message>
-      <source>Position from the top, is only used if the Middle left or the Middle right side is chosen</source>
-      <translation>Positie vanaf de bovenkant, alleen gebruikt als midden-links of midden-rechts gekozen is</translation>
-    </message>
-    <message>
-      <source>Pixels</source>
-      <translation>Pixels</translation>
-    </message>
-    <message>
-      <source>Percents</source>
-      <translation>Procenten</translation>
-    </message>
-    <message>
-      <source>Size</source>
-      <translation>Grootte</translation>
-    </message>
-    <message>
-      <source>Width</source>
-      <translation>Wijdte</translation>
-    </message>
-    <message>
-      <source>Height</source>
-      <translation>Hoogte</translation>
-    </message>
-    <message>
-      <source>Position</source>
-      <translation>Positie</translation>
-    </message>
-    <message>
-      <source>Bottom right corner of the screen</source>
-      <translation>Rechtsonderin de hoek</translation>
-    </message>
-    <message>
-      <source>Bottom left corner of the screen</source>
-      <translation>Linksonderin de hoek</translation>
-    </message>
-    <message>
-      <source>Middle right side of the screen</source>
-      <translation>Rechts in het midden</translation>
-    </message>
-    <message>
-      <source>Middle left side of the screen</source>
-      <translation>Links in het midden</translation>
-    </message>
-    <message>
-      <source>Disable minimize icon</source>
-      <translation>Schakel minimaliseer-icon uit</translation>
-    </message>
-    <message>
-      <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
-      <translation>Toon chatboxinhoud in plaats van widget, gebruikers kunnen het alleen minimaliseren, niet sluiten.</translation>
-    </message>
-    <message>
-      <source>Show chatbox content minimized first time if content is shown.</source>
-      <translation>Toon chatboxinhoud eerst geminimaliseerd de eerste keer dat inhoud getoond wordt.</translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation>Kopieer de code uit het tekstvak naar de footer, voor de sluitende &amp;lt;/body&amp;gt; tag</translation>
-    </message>
-    <message>
-      <source>Copy the code from the textarea to page where you want it to be rendered</source>
-      <translation>Kopieer de code uit het tekstvak naar de pagina waar je het getoond wilt hebben</translation>
-    </message>
-    <message>
-      <source>Status text</source>
-      <translation>Statustekst</translation>
-    </message>
-    <message>
-      <source>FAQ</source>
-      <translation>FAQ</translation>
-    </message>
-    <message>
-      <source>Position from the top, only used if the Middle left or the Middle right side is chosen</source>
-      <translation>Positie vanaf de bovenkant, alleen gebruikt als midden-links of midden-rechts gekozen is</translation>
-    </message>
-    <message>
-      <source>Help us to grow</source>
-      <translation>Help ons te groeien</translation>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation>Embed code</translation>
-    </message>
-    <message>
-      <source>Hide status when offline</source>
-      <translation>Verberg status wanneer offline</translation>
-    </message>
-    <message>
-      <source>Show a leave a message form when there are no online operators</source>
-      <translation>Laat een bericht-achterlaat-scherm zien als er geen online operators zijn</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Afdeling</translation>
-    </message>
-    <message>
-      <source>Any</source>
-      <translation>Elke</translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the page where you want your status to appear</source>
-      <translation>Kopieer de code uit het tekstvak naar de pagina waar u uw status getoond wilt hebben</translation>
-    </message>
-    <message>
-      <source>On a mouse click show the page widget</source>
-      <translation>Toon het pagina widget wanneer geklikt wordt</translation>
-    </message>
-    <message>
-      <source>Automatically check for messages from the operator/invitation messages</source>
-      <translation>Check automatisch op berichten van de operator of uitnodigingsberichten</translation>
-    </message>
-    <message>
-      <source>It increases server load, because every 15 seconds is checked for operator message or invitation message.</source>
-      <translation>Dit zorgt voor een hogere server load, omdat elke 15 seconden wordt gecheckt op operatorberichten of uitnodigingsberichten.</translation>
-    </message>
-    <message>
-      <source>Disable pro active invitations, usefull if you want disable them from site part.</source>
-      <translation>Schakel pro-actieve uitnodigingen uit, handig voor als je ze wilt uitschakelen vanaf de site-kant.</translation>
-    </message>
-    <message>
-      <source>Popup window size</source>
-      <translation>Grootte popup-scherm</translation>
-    </message>
-    <message>
-      <source>Popup window width in pixels</source>
-      <translation>Breedte popup-scherm in pixels</translation>
-    </message>
-    <message>
-      <source>Popup window height in pixels</source>
-      <translation>Hoogte popup-scherm in pixels</translation>
-    </message>
-    <message>
-      <source>Widget width</source>
-      <translation>Breedte widget</translation>
-    </message>
-    <message>
-      <source>Widget width in pixels</source>
-      <translation>Breedte widget in pixels</translation>
-    </message>
-    <message>
-      <source>height</source>
-      <translation>hoogte</translation>
-    </message>
-    <message>
-      <source>Widget height in pixels</source>
-      <translation>Hoogte widget in pixels</translation>
-    </message>
-    <message>
-      <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>Native positionering - het zal getoond worden waar de html geplaatst is</translation>
-    </message>
-    <message>
-      <source>System configuration</source>
-      <translation>Systeem configuratie</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/lists</name>
     <message>
       <source>Choose what type of list you want to see</source>
@@ -2151,6 +2221,93 @@
     <message>
       <source>Chat lists</source>
       <translation>Chat overzicht</translation>
+    </message>
+  </context>
+  <context>
+    <name>pagelayout/pagelayout</name>
+    <message>
+      <source>Empty...</source>
+      <translation>Leeg</translation>
+    </message>
+    <message>
+      <source>Clean cache</source>
+      <translation>Cache opschonen</translation>
+    </message>
+    <message>
+      <source>Home</source>
+      <translation>Home</translation>
+    </message>
+    <message>
+      <source>Chats transferred to you directly</source>
+      <translation>Chats direkt naar jou doorgezet</translation>
+    </message>
+    <message>
+      <source>Transferred to your department</source>
+      <translation>Doorgezet naar jouw afdeling</translation>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation>Chats wachtend</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Actieve chats</translation>
+    </message>
+    <message>
+      <source>Unread messages</source>
+      <translation>Ongelezen berichten</translation>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation>Gesloten chats</translation>
+    </message>
+    <message>
+      <source>Configuration</source>
+      <translation>Configuratie</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Chat overzicht</translation>
+    </message>
+    <message>
+      <source>Chat rooms</source>
+      <translation>Chat rooms</translation>
+    </message>
+    <message>
+      <source>New chat request</source>
+      <translation>Nieuwe chat aanvraag</translation>
+    </message>
+    <message>
+      <source>Menu</source>
+      <translation>Menu</translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Online gebruikers</translation>
+    </message>
+    <message>
+      <source>Questionary</source>
+      <translation>Enquete</translation>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation>FAQ</translation>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation>Chatbox</translation>
+    </message>
+    <message>
+      <source>Browse offers</source>
+      <translation>Blader aanbiedingen door</translation>
+    </message>
+    <message>
+      <source>Account</source>
+      <translation>Account</translation>
+    </message>
+    <message>
+      <source>Logout</source>
+      <translation>Uitloggen</translation>
     </message>
   </context>
   <context>
@@ -2197,6 +2354,10 @@
     <message>
       <source>Select user</source>
       <translation>Selecteer gebruiker</translation>
+    </message>
+    <message>
+      <source>Type to search</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -2967,37 +3128,6 @@
     <message>
       <source>more information on how to use it</source>
       <translation>meer informatie over hoe het te gebruiken</translation>
-    </message>
-  </context>
-  <context>
-    <name>questionary/htmlcode</name>
-    <message>
-      <source>Show overlay</source>
-      <translation>Toon overlay</translation>
-    </message>
-    <message>
-      <source>Show different offers for the same user</source>
-      <translation>Toon verschillende aanbiedingen voor dezelfde gebruiker</translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the page header or footer</source>
-      <translation>Kopieer de code uit het tekstvak naar de pagina-header of -footer</translation>
-    </message>
-    <message>
-      <source>Status text</source>
-      <translation>Statustekst</translation>
-    </message>
-    <message>
-      <source>Expand the widget automatically for new users</source>
-      <translation>Klap het widget automatisch uit voor nieuwe gebruikers</translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation>Kopieer de code uit het tekstvak naar de footer, voor de sluitende &amp;lt;/body&amp;gt; tag</translation>
-    </message>
-    <message>
-      <source>HTML code</source>
-      <translation>HTML kodas</translation>
     </message>
   </context>
   <context>
@@ -4031,93 +4161,6 @@
     </message>
   </context>
   <context>
-    <name>pagelayout/pagelayout</name>
-    <message>
-      <source>Clean cache</source>
-      <translation>Cache opschonen</translation>
-    </message>
-    <message>
-      <source>Home</source>
-      <translation>Home</translation>
-    </message>
-    <message>
-      <source>Chats transferred to you directly</source>
-      <translation>Chats direkt naar jou doorgezet</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Leeg</translation>
-    </message>
-    <message>
-      <source>Transferred to your department</source>
-      <translation>Doorgezet naar jouw afdeling</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Chats wachtend</translation>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation>Actieve chats</translation>
-    </message>
-    <message>
-      <source>Unread messages</source>
-      <translation>Ongelezen berichten</translation>
-    </message>
-    <message>
-      <source>Closed chats</source>
-      <translation>Gesloten chats</translation>
-    </message>
-    <message>
-      <source>Configuration</source>
-      <translation>Configuratie</translation>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation>Chat overzicht</translation>
-    </message>
-    <message>
-      <source>Chat rooms</source>
-      <translation>Chat rooms</translation>
-    </message>
-    <message>
-      <source>New chat request</source>
-      <translation>Nieuwe chat aanvraag</translation>
-    </message>
-    <message>
-      <source>Menu</source>
-      <translation>Menu</translation>
-    </message>
-    <message>
-      <source>Online visitors</source>
-      <translation>Online gebruikers</translation>
-    </message>
-    <message>
-      <source>Questionary</source>
-      <translation>Enquete</translation>
-    </message>
-    <message>
-      <source>FAQ</source>
-      <translation>FAQ</translation>
-    </message>
-    <message>
-      <source>Chatbox</source>
-      <translation>Chatbox</translation>
-    </message>
-    <message>
-      <source>Browse offers</source>
-      <translation>Blader aanbiedingen door</translation>
-    </message>
-    <message>
-      <source>Account</source>
-      <translation>Account</translation>
-    </message>
-    <message>
-      <source>Logout</source>
-      <translation>Uitloggen</translation>
-    </message>
-  </context>
-  <context>
     <name>system/languages</name>
     <message>
       <source>Languages configuration</source>
@@ -4942,6 +4985,73 @@
     </message>
   </context>
   <context>
+    <name>abstract/browserofferinvitation</name>
+    <message>
+      <source>Name for personal purposes</source>
+      <translation>Naam voor persoonlijke doeleinden</translation>
+    </message>
+    <message>
+      <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
+      <translation>Taal, laat leeg voor alle. Bijv. lit, rus, ger etc...</translation>
+    </message>
+    <message>
+      <source>Time on site on single page in seconds</source>
+      <translation>Tijd op site op enkele pagina in seconden</translation>
+    </message>
+    <message>
+      <source>Priority, the lower the higher</source>
+      <translation>Prioriteit, hoe lager hoe groter</translation>
+    </message>
+    <message>
+      <source>Popup width</source>
+      <translation>Breedte popup</translation>
+    </message>
+    <message>
+      <source>Popup height</source>
+      <translation>Hoogte popup</translation>
+    </message>
+    <message>
+      <source>Measure units, px or percents</source>
+      <translation>Eenheid, px of procenten</translation>
+    </message>
+    <message>
+      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
+      <translation>Referrerdomein zonder www, bv. sleutelwoord &apos;Google&apos; matcht op alle Google domeinen</translation>
+    </message>
+    <message>
+      <source>URL, enter * at the end for the wildcard</source>
+      <translation>URL, voer een * in aan het eind als joker</translation>
+    </message>
+    <message>
+      <source>Custom iframe URL, takes priority over default content</source>
+      <translation>Aangepast iframe URL, krijgt prioriteit over standaard inhoud</translation>
+    </message>
+    <message>
+      <source>Default popup content</source>
+      <translation>Standaard popup inhoud</translation>
+    </message>
+    <message>
+      <source>Load content in lhc iframe</source>
+      <translation>Laad inhoud in lhc iframe</translation>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation>Actief</translation>
+    </message>
+    <message>
+      <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
+      <translation>Identificatie, voor welke identificatie dit bericht getoond moet worden, laat leeg voor overal</translation>
+    </message>
+    <message>
+      <source>Matched times</source>
+      <translation>Aantal treffers</translation>
+    </message>
+    <message>
+      <source>Browser offer invitations</source>
+      <translation>Blader aanbiedings-uitnodigingen door</translation>
+    </message>
+  </context>
+  <context>
     <name>abstract/email_template</name>
     <message>
       <source>Name, for personal purposes</source>
@@ -5077,92 +5187,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Voer s.v.p. een geldig bestandstype in!</translation>
-    </message>
-  </context>
-  <context>
-    <name>browseoffer/index</name>
-    <message>
-      <source>Browse offers</source>
-      <translation>Blader aanbiedingen door</translation>
-    </message>
-    <message>
-      <source>General</source>
-      <translation>Algemeen</translation>
-    </message>
-    <message>
-      <source>Browse your offers</source>
-      <translation>Blader uw aanbiedingen door</translation>
-    </message>
-    <message>
-      <source>HTML Code</source>
-      <translation>HTML Code</translation>
-    </message>
-  </context>
-  <context>
-    <name>abstract/browserofferinvitation</name>
-    <message>
-      <source>Name for personal purposes</source>
-      <translation>Naam voor persoonlijke doeleinden</translation>
-    </message>
-    <message>
-      <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation>Taal, laat leeg voor alle. Bijv. lit, rus, ger etc...</translation>
-    </message>
-    <message>
-      <source>Time on site on single page in seconds</source>
-      <translation>Tijd op site op enkele pagina in seconden</translation>
-    </message>
-    <message>
-      <source>Priority, the lower the higher</source>
-      <translation>Prioriteit, hoe lager hoe groter</translation>
-    </message>
-    <message>
-      <source>Popup width</source>
-      <translation>Breedte popup</translation>
-    </message>
-    <message>
-      <source>Popup height</source>
-      <translation>Hoogte popup</translation>
-    </message>
-    <message>
-      <source>Measure units, px or percents</source>
-      <translation>Eenheid, px of procenten</translation>
-    </message>
-    <message>
-      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
-      <translation>Referrerdomein zonder www, bv. sleutelwoord &apos;Google&apos; matcht op alle Google domeinen</translation>
-    </message>
-    <message>
-      <source>URL, enter * at the end for the wildcard</source>
-      <translation>URL, voer een * in aan het eind als joker</translation>
-    </message>
-    <message>
-      <source>Custom iframe URL, takes priority over default content</source>
-      <translation>Aangepast iframe URL, krijgt prioriteit over standaard inhoud</translation>
-    </message>
-    <message>
-      <source>Default popup content</source>
-      <translation>Standaard popup inhoud</translation>
-    </message>
-    <message>
-      <source>Load content in lhc iframe</source>
-      <translation>Laad inhoud in lhc iframe</translation>
-    </message>
-    <message>
-      <source>Active</source>
-      <translation>Actief</translation>
-    </message>
-    <message>
-      <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation>Identificatie, voor welke identificatie dit bericht getoond moet worden, laat leeg voor overal</translation>
-    </message>
-    <message>
-      <source>Matched times</source>
-      <translation>Aantal treffers</translation>
-    </message>
-    <message>
-      <source>Browser offer invitations</source>
-      <translation>Blader aanbiedings-uitnodigingen door</translation>
     </message>
   </context>
 </TS>

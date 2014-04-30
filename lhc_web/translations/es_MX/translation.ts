@@ -147,7 +147,7 @@
     </message>
     <message>
       <source>Requires name</source>
-      <translation type="unfinished"/>
+      <translation>Requiere nombre</translation>
     </message>
     <message>
       <source>Show random operator profile</source>
@@ -163,7 +163,7 @@
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Departamento</translation>
     </message>
     <message>
       <source>Matched times</source>
@@ -187,6 +187,302 @@
     <message>
       <source>Are you sure?</source>
       <translation>¿Está seguro?</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/getstatus</name>
+    <message>
+      <source>Close</source>
+      <translation>Cerrar</translation>
+    </message>
+    <message>
+      <source>Live help is online...</source>
+      <translation>Soporte en linea...</translation>
+    </message>
+    <message>
+      <source>Live help is offline...</source>
+      <translation>Soporte fuera de línea...</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Abrir en una nueva ventana</translation>
+    </message>
+    <message>
+      <source>Minimize/Restore</source>
+      <translation>Minimizar / Restaurar</translation>
+    </message>
+    <message>
+      <source>Need help?</source>
+      <translation>Necesita ayuda?</translation>
+    </message>
+    <message>
+      <source>Our staff is always ready to help</source>
+      <translation>Nuestro personal esta siempre dispuesto a ayudar</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/htmlcode</name>
+    <message>
+      <source>HTML code</source>
+      <translation>Código HTML</translation>
+    </message>
+    <message>
+      <source>Popup width</source>
+      <translation>Ancho del popup</translation>
+    </message>
+    <message>
+      <source>Popup height, used only if iframe is used</source>
+      <translation>Altura del popup, solamente si se utiliza una iframe</translation>
+    </message>
+    <message>
+      <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
+      <translation>Identificador, este se puede utilizar como filtro para invitaciones pro activas de chat, es útil tener diferentes mensajes para diferentes dominios. Sólo caracteres sin espacios ni caracteres especiales.</translation>
+    </message>
+    <message>
+      <source>Leave empty if it is not important to you</source>
+      <translation>Dejar en blanco si no es importante para ti</translation>
+    </message>
+    <message>
+      <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
+      <translation>Tiempo para mostrar las ofertas en días, después de cuantos días mostrar ofertas nuevamente al visitante, dejar vacío para que sea por la duración de la sesión</translation>
+    </message>
+    <message>
+      <source>Choose a language</source>
+      <translation>Elija un idioma</translation>
+    </message>
+    <message>
+      <source>Choose prefered http mode</source>
+      <translation>Escoja modo http preferido</translation>
+    </message>
+    <message>
+      <source>Based on site (default)</source>
+      <translation>Basado en el sitio (predefinido)</translation>
+    </message>
+    <message>
+      <source>Widget embed code</source>
+      <translation>Código de inserción del Widget</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>Código de inserción para la página</translation>
+    </message>
+    <message>
+      <source>Chatbox messages content height</source>
+      <translation>Altura del contenido del Chatbox</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the page where you want it to be rendered</source>
+      <translation>Copie el código del área de texto a la página en el lugar donde quiere que se muestre</translation>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation>Chatbox</translation>
+    </message>
+    <message>
+      <source>Position from the top, is only used if the Middle left or the Middle right side is chosen</source>
+      <translation>Posición de la parte superior, sólo se utiliza si se escoge el centro izquierdo o el centro derecho</translation>
+    </message>
+    <message>
+      <source>Pixels</source>
+      <translation>Píxeles</translation>
+    </message>
+    <message>
+      <source>Percents</source>
+      <translation>Porcentajes</translation>
+    </message>
+    <message>
+      <source>Size</source>
+      <translation>Tamaño</translation>
+    </message>
+    <message>
+      <source>Width</source>
+      <translation>Ancho</translation>
+    </message>
+    <message>
+      <source>Height</source>
+      <translation>Altura</translation>
+    </message>
+    <message>
+      <source>Position</source>
+      <translation>Posición</translation>
+    </message>
+    <message>
+      <source>Bottom right corner of the screen</source>
+      <translation>Esquina inferior derecha de la pantalla</translation>
+    </message>
+    <message>
+      <source>Bottom left corner of the screen</source>
+      <translation>Esquina inferior izquierda de la pantalla</translation>
+    </message>
+    <message>
+      <source>Middle right side of the screen</source>
+      <translation>Parte central derecha de la pantalla</translation>
+    </message>
+    <message>
+      <source>Middle left side of the screen</source>
+      <translation>Parte central izquierda de la pantalla</translation>
+    </message>
+    <message>
+      <source>Disable minimize icon</source>
+      <translation>Deshabilitar botón minimizar</translation>
+    </message>
+    <message>
+      <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
+      <translation>Mostrar contenido del chat en vez de Widget, los usuarios solo podrán minimizar, no cerrarlo.</translation>
+    </message>
+    <message>
+      <source>Show chatbox content minimized first time if content is shown.</source>
+      <translation>Mostrar el contenido del chatbox minimizado la primera vez si el contenido se muestra.</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
+      <translation>Copia el código del área de texto al pie de página, antes de la etiqueta &lt;/body&gt;</translation>
+    </message>
+    <message>
+      <source>Copy the code from the textarea to page where you want it to be rendered</source>
+      <translation>Copie el código del área de texto en la página donde desea que se muestre</translation>
+    </message>
+    <message>
+      <source>Status text</source>
+      <translation>Texto de estado</translation>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation>Preguntas frecuentes</translation>
+    </message>
+    <message>
+      <source>Position from the top, only used if the Middle left or the Middle right side is chosen</source>
+      <translation>Posición de la parte superior, sólo se utiliza si se escoge en medio a la izquierdo o en medio a la derecha</translation>
+    </message>
+    <message>
+      <source>Help us to grow</source>
+      <translation>Ayudanos a crecer</translation>
+    </message>
+    <message>
+      <source>Embed code</source>
+      <translation>Insertar código</translation>
+    </message>
+    <message>
+      <source>Hide status when offline</source>
+      <translation>Ocultar estado sin está fuera de línea</translation>
+    </message>
+    <message>
+      <source>Show a leave a message form when there are no online operators</source>
+      <translation>Muestra una forma de dejar un mensaje cuando no hay operadores en línea</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Departamento</translation>
+    </message>
+    <message>
+      <source>Any</source>
+      <translation>Cualquier</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the page where you want your status to appear</source>
+      <translation>Copie el código de la área de texto a la página donde desea que aparezca su estado</translation>
+    </message>
+    <message>
+      <source>On a mouse click show the page widget</source>
+      <translation>Mostrar el Widget en la página con un clic</translation>
+    </message>
+    <message>
+      <source>Automatically check for messages from the operator/invitation messages</source>
+      <translation>Comprobar automáticamente los mensajes / invitaciones del operador</translation>
+    </message>
+    <message>
+      <source>It increases server load, because every 15 seconds is checked for operator message or invitation message.</source>
+      <translation>Incrementa la carga del servidor, porque cada 15 segundos comprueba los mensajes o invitaciones para el operador</translation>
+    </message>
+    <message>
+      <source>Disable pro active invitations, usefull if you want disable them from site part.</source>
+      <translation>Desactivar invitaciones pro activas, muy útil si quieres desactivarlos de la parte del sitio.</translation>
+    </message>
+    <message>
+      <source>Popup window size</source>
+      <translation>Tamaño de la ventana emergente</translation>
+    </message>
+    <message>
+      <source>Popup window width in pixels</source>
+      <translation>Anchura de la ventana emergente en píxeles</translation>
+    </message>
+    <message>
+      <source>Popup window height in pixels</source>
+      <translation>Altura de la ventana emergente en píxeles</translation>
+    </message>
+    <message>
+      <source>Widget width</source>
+      <translation>Ancho del Widget</translation>
+    </message>
+    <message>
+      <source>Widget width in pixels</source>
+      <translation>Ancho del Widget en píxeles</translation>
+    </message>
+    <message>
+      <source>height</source>
+      <translation>altura</translation>
+    </message>
+    <message>
+      <source>Widget height in pixels</source>
+      <translation>Altura del Widget en píxeles</translation>
+    </message>
+    <message>
+      <source>Native placement - it will be shown where the html is embedded</source>
+      <translation>Colocación natural - se mostrará donde el código HTML esté incrustado</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Configuración del sistema</translation>
+    </message>
+  </context>
+  <context>
+    <name>questionary/htmlcode</name>
+    <message>
+      <source>Show overlay</source>
+      <translation>Mostrar transparencia</translation>
+    </message>
+    <message>
+      <source>Show different offers for the same user</source>
+      <translation>Mostrar distintas ofertas para el mismo usuario</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the page header or footer</source>
+      <translation>Copie el código del área de texto en el encabezado o pie de página</translation>
+    </message>
+    <message>
+      <source>Status text</source>
+      <translation>Texto de estado</translation>
+    </message>
+    <message>
+      <source>Expand the widget automatically for new users</source>
+      <translation>Expandir el widget automáticamente para los nuevos usuarios</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
+      <translation>Copia el código del área de texto al pie de página, antes de la etiqueta &lt;/body&gt;</translation>
+    </message>
+    <message>
+      <source>HTML code</source>
+      <translation>Código HTML</translation>
+    </message>
+  </context>
+  <context>
+    <name>browseoffer/index</name>
+    <message>
+      <source>Browse offers</source>
+      <translation>Ver ofertas</translation>
+    </message>
+    <message>
+      <source>General</source>
+      <translation>General</translation>
+    </message>
+    <message>
+      <source>Browse your offers</source>
+      <translation>Ver sus ofertas</translation>
+    </message>
+    <message>
+      <source>HTML Code</source>
+      <translation>Código HTML</translation>
     </message>
   </context>
   <context>
@@ -583,11 +879,11 @@
     </message>
     <message>
       <source>Inform about unread messages if from last unread user message have passed (seconds)</source>
-      <translation type="unfinished"/>
+      <translation>Informar sobre mensajes no leídos si desde el último mensaje del usuario no leído han pasado (segundos)</translation>
     </message>
     <message>
       <source>Please enter value in seconds</source>
-      <translation type="unfinished"/>
+      <translation>Por favor introduzca el valor en segundos</translation>
     </message>
     <message>
       <source>Other</source>
@@ -1406,7 +1702,7 @@
     </message>
     <message>
       <source>Additional information</source>
-      <translation type="unfinished"/>
+      <translation>Información adicional</translation>
     </message>
     <message>
       <source>Last activity</source>
@@ -1514,6 +1810,34 @@
       <translation>usuarios en línea</translation>
     </message>
     <message>
+      <source>Group list by</source>
+      <translation>Agrupar lista por</translation>
+    </message>
+    <message>
+      <source>Group by</source>
+      <translation>Agrupar por</translation>
+    </message>
+    <message>
+      <source>User country</source>
+      <translation>País del usuario</translation>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation>Página</translation>
+    </message>
+    <message>
+      <source>Page title</source>
+      <translation>Título de la página</translation>
+    </message>
+    <message>
+      <source>Referrer</source>
+      <translation>Referido</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Departamento</translation>
+    </message>
+    <message>
       <source>Refresh list every</source>
       <translation>Actualice la lista cada</translation>
     </message>
@@ -1530,12 +1854,12 @@
       <translation>Mostrar a los visitantes que visitaron el sitio en el pasado</translation>
     </message>
     <message>
-      <source>minit</source>
-      <translation>Minútos</translation>
+      <source>minute</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>minits</source>
-      <translation>minútos</translation>
+      <source>minutes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>hour</source>
@@ -1550,28 +1874,12 @@
       <translation>días</translation>
     </message>
     <message>
-      <source>Page</source>
-      <translation>Página</translation>
-    </message>
-    <message>
       <source>Status</source>
       <translation>Estado</translation>
     </message>
     <message>
       <source>Action</source>
       <translation>Acción</translation>
-    </message>
-    <message>
-      <source>User does not have any messages from the operator</source>
-      <translation>El usuario no tiene ningún mensaje del operador</translation>
-    </message>
-    <message>
-      <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation>El usuario no ha visto un mensaje del operador o la ventana del mensaje sigue abierta.</translation>
-    </message>
-    <message>
-      <source>User has seen the message from the operator.</source>
-      <translation>El usuario ha visto el mensaje del operador.</translation>
     </message>
     <message>
       <source>has sent a message to the user</source>
@@ -1590,10 +1898,6 @@
       <translation>última visita</translation>
     </message>
     <message>
-      <source>Empty...</source>
-      <translation>Vacío...</translation>
-    </message>
-    <message>
       <source>Map</source>
       <translation>Mapa</translation>
     </message>
@@ -1604,6 +1908,18 @@
     <message>
       <source>Marker timeout before it dissapears from map</source>
       <translation>Tiempo de espera antes de que el marcador desaparezca del mapa</translation>
+    </message>
+    <message>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <translation>El usuario no ha visto un mensaje del operador o la ventana del mensaje sigue abierta.</translation>
+    </message>
+    <message>
+      <source>User has seen the message from the operator.</source>
+      <translation>El usuario ha visto el mensaje del operador.</translation>
+    </message>
+    <message>
+      <source>User does not have any messages from the operator</source>
+      <translation>El usuario no tiene ningún mensaje del operador</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -1680,37 +1996,6 @@
     <message>
       <source>Online users</source>
       <translation>Usuarios en línea</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/getstatus</name>
-    <message>
-      <source>Close</source>
-      <translation>Cerrar</translation>
-    </message>
-    <message>
-      <source>Live help is online...</source>
-      <translation>Soporte en linea...</translation>
-    </message>
-    <message>
-      <source>Live help is offline...</source>
-      <translation>Soporte fuera de línea...</translation>
-    </message>
-    <message>
-      <source>Open in a new window</source>
-      <translation>Abrir en una nueva ventana</translation>
-    </message>
-    <message>
-      <source>Minimize/Restore</source>
-      <translation>Minimizar / Restaurar</translation>
-    </message>
-    <message>
-      <source>Need help?</source>
-      <translation>Necesita ayuda?</translation>
-    </message>
-    <message>
-      <source>Our staff is always ready to help</source>
-      <translation>Nuestro personal esta siempre dispuesto a ayudar</translation>
     </message>
   </context>
   <context>
@@ -1912,221 +2197,6 @@
     </message>
   </context>
   <context>
-    <name>system/htmlcode</name>
-    <message>
-      <source>HTML code</source>
-      <translation>Código HTML</translation>
-    </message>
-    <message>
-      <source>Popup width</source>
-      <translation>Ancho del popup</translation>
-    </message>
-    <message>
-      <source>Popup height, used only if iframe is used</source>
-      <translation>Altura del popup, solamente si se utiliza una iframe</translation>
-    </message>
-    <message>
-      <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
-      <translation>Identificador, este se puede utilizar como filtro para invitaciones pro activas de chat, es útil tener diferentes mensajes para diferentes dominios. Sólo caracteres sin espacios ni caracteres especiales.</translation>
-    </message>
-    <message>
-      <source>Leave empty if it is not important to you</source>
-      <translation>Dejar en blanco si no es importante para ti</translation>
-    </message>
-    <message>
-      <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
-      <translation>Tiempo para mostrar las ofertas en días, después de cuantos días mostrar ofertas nuevamente al visitante, dejar vacío para que sea por la duración de la sesión</translation>
-    </message>
-    <message>
-      <source>Choose a language</source>
-      <translation>Elija un idioma</translation>
-    </message>
-    <message>
-      <source>Choose prefered http mode</source>
-      <translation>Escoja modo http preferido</translation>
-    </message>
-    <message>
-      <source>Based on site (default)</source>
-      <translation>Basado en el sitio (predefinido)</translation>
-    </message>
-    <message>
-      <source>Widget embed code</source>
-      <translation>Código de inserción del Widget</translation>
-    </message>
-    <message>
-      <source>Page embed code</source>
-      <translation>Código de inserción para la página</translation>
-    </message>
-    <message>
-      <source>Chatbox messages content height</source>
-      <translation>Altura del contenido del Chatbox</translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the page where you want it to be rendered</source>
-      <translation>Copie el código del área de texto a la página en el lugar donde quiere que se muestre</translation>
-    </message>
-    <message>
-      <source>Chatbox</source>
-      <translation>Chatbox</translation>
-    </message>
-    <message>
-      <source>Position from the top, is only used if the Middle left or the Middle right side is chosen</source>
-      <translation>Posición de la parte superior, sólo se utiliza si se escoge el centro izquierdo o el centro derecho</translation>
-    </message>
-    <message>
-      <source>Pixels</source>
-      <translation>Píxeles</translation>
-    </message>
-    <message>
-      <source>Percents</source>
-      <translation>Porcentajes</translation>
-    </message>
-    <message>
-      <source>Size</source>
-      <translation>Tamaño</translation>
-    </message>
-    <message>
-      <source>Width</source>
-      <translation>Ancho</translation>
-    </message>
-    <message>
-      <source>Height</source>
-      <translation>Altura</translation>
-    </message>
-    <message>
-      <source>Position</source>
-      <translation>Posición</translation>
-    </message>
-    <message>
-      <source>Bottom right corner of the screen</source>
-      <translation>Esquina inferior derecha de la pantalla</translation>
-    </message>
-    <message>
-      <source>Bottom left corner of the screen</source>
-      <translation>Esquina inferior izquierda de la pantalla</translation>
-    </message>
-    <message>
-      <source>Middle right side of the screen</source>
-      <translation>Parte central derecha de la pantalla</translation>
-    </message>
-    <message>
-      <source>Middle left side of the screen</source>
-      <translation>Parte central izquierda de la pantalla</translation>
-    </message>
-    <message>
-      <source>Disable minimize icon</source>
-      <translation>Deshabilitar botón minimizar</translation>
-    </message>
-    <message>
-      <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
-      <translation>Mostrar contenido del chat en vez de Widget, los usuarios solo podrán minimizar, no cerrarlo.</translation>
-    </message>
-    <message>
-      <source>Show chatbox content minimized first time if content is shown.</source>
-      <translation>Mostrar el contenido del chatbox minimizado la primera vez si el contenido se muestra.</translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation>Copia el código del área de texto al pie de página, antes de la etiqueta &lt;/body&gt;</translation>
-    </message>
-    <message>
-      <source>Copy the code from the textarea to page where you want it to be rendered</source>
-      <translation>Copie el código del área de texto en la página donde desea que se muestre</translation>
-    </message>
-    <message>
-      <source>Status text</source>
-      <translation>Texto de estado</translation>
-    </message>
-    <message>
-      <source>FAQ</source>
-      <translation>Preguntas frecuentes</translation>
-    </message>
-    <message>
-      <source>Position from the top, only used if the Middle left or the Middle right side is chosen</source>
-      <translation>Posición de la parte superior, sólo se utiliza si se escoge en medio a la izquierdo o en medio a la derecha</translation>
-    </message>
-    <message>
-      <source>Help us to grow</source>
-      <translation>Ayudanos a crecer</translation>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation>Insertar código</translation>
-    </message>
-    <message>
-      <source>Hide status when offline</source>
-      <translation>Ocultar estado sin está fuera de línea</translation>
-    </message>
-    <message>
-      <source>Show a leave a message form when there are no online operators</source>
-      <translation>Muestra una forma de dejar un mensaje cuando no hay operadores en línea</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Departamento</translation>
-    </message>
-    <message>
-      <source>Any</source>
-      <translation>Cualquier</translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the page where you want your status to appear</source>
-      <translation>Copie el código de la área de texto a la página donde desea que aparezca su estado</translation>
-    </message>
-    <message>
-      <source>On a mouse click show the page widget</source>
-      <translation>Mostrar el Widget en la página con un clic</translation>
-    </message>
-    <message>
-      <source>Automatically check for messages from the operator/invitation messages</source>
-      <translation>Comprobar automáticamente los mensajes / invitaciones del operador</translation>
-    </message>
-    <message>
-      <source>It increases server load, because every 15 seconds is checked for operator message or invitation message.</source>
-      <translation>Incrementa la carga del servidor, porque cada 15 segundos comprueba los mensajes o invitaciones para el operador</translation>
-    </message>
-    <message>
-      <source>Disable pro active invitations, usefull if you want disable them from site part.</source>
-      <translation>Desactivar invitaciones pro activas, muy útil si quieres desactivarlos de la parte del sitio.</translation>
-    </message>
-    <message>
-      <source>Popup window size</source>
-      <translation>Tamaño de la ventana emergente</translation>
-    </message>
-    <message>
-      <source>Popup window width in pixels</source>
-      <translation>Anchura de la ventana emergente en píxeles</translation>
-    </message>
-    <message>
-      <source>Popup window height in pixels</source>
-      <translation>Altura de la ventana emergente en píxeles</translation>
-    </message>
-    <message>
-      <source>Widget width</source>
-      <translation>Ancho del Widget</translation>
-    </message>
-    <message>
-      <source>Widget width in pixels</source>
-      <translation>Ancho del Widget en píxeles</translation>
-    </message>
-    <message>
-      <source>height</source>
-      <translation>altura</translation>
-    </message>
-    <message>
-      <source>Widget height in pixels</source>
-      <translation>Altura del Widget en píxeles</translation>
-    </message>
-    <message>
-      <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>Colocación natural - se mostrará donde el código HTML esté incrustado</translation>
-    </message>
-    <message>
-      <source>System configuration</source>
-      <translation>Configuración del sistema</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/lists</name>
     <message>
       <source>Choose what type of list you want to see</source>
@@ -2155,6 +2225,93 @@
     <message>
       <source>Chat lists</source>
       <translation>Listas de chats</translation>
+    </message>
+  </context>
+  <context>
+    <name>pagelayout/pagelayout</name>
+    <message>
+      <source>Empty...</source>
+      <translation>Vacío...</translation>
+    </message>
+    <message>
+      <source>Clean cache</source>
+      <translation>Limpiar Caché</translation>
+    </message>
+    <message>
+      <source>Home</source>
+      <translation>Inicio</translation>
+    </message>
+    <message>
+      <source>Chats transferred to you directly</source>
+      <translation>Chats transferidos directamente</translation>
+    </message>
+    <message>
+      <source>Transferred to your department</source>
+      <translation>Transferido a su departamento</translation>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation>Chats pendientes</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Chats activos</translation>
+    </message>
+    <message>
+      <source>Unread messages</source>
+      <translation>Mensajes no leídos</translation>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation>Chats cerrados</translation>
+    </message>
+    <message>
+      <source>Configuration</source>
+      <translation>Configuración</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Lista de Chats</translation>
+    </message>
+    <message>
+      <source>Chat rooms</source>
+      <translation>Ventana de Chats</translation>
+    </message>
+    <message>
+      <source>New chat request</source>
+      <translation>Nueva solicitud de chat</translation>
+    </message>
+    <message>
+      <source>Menu</source>
+      <translation>Menú</translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Visitantes en línea</translation>
+    </message>
+    <message>
+      <source>Questionary</source>
+      <translation>Cuestionario</translation>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation>Preguntas frecuentes</translation>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation>Chatbox</translation>
+    </message>
+    <message>
+      <source>Browse offers</source>
+      <translation>Ver ofertas</translation>
+    </message>
+    <message>
+      <source>Account</source>
+      <translation>Cuenta</translation>
+    </message>
+    <message>
+      <source>Logout</source>
+      <translation>Cerrar Sesión</translation>
     </message>
   </context>
   <context>
@@ -2192,7 +2349,7 @@
     </message>
     <message>
       <source>Print</source>
-      <translation type="unfinished"/>
+      <translation>Imprimir</translation>
     </message>
     <message>
       <source>Select department</source>
@@ -2201,6 +2358,10 @@
     <message>
       <source>Select user</source>
       <translation>Selecciona usuario</translation>
+    </message>
+    <message>
+      <source>Type to search</source>
+      <translation>Teclee para buscar</translation>
     </message>
   </context>
   <context>
@@ -2345,11 +2506,11 @@
     </message>
     <message>
       <source>Requires e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Requiere correo</translation>
     </message>
     <message>
       <source>Requires name</source>
-      <translation type="unfinished"/>
+      <translation>Requiere nombre</translation>
     </message>
     <message>
       <source>Send the message</source>
@@ -2971,37 +3132,6 @@
     <message>
       <source>more information on how to use it</source>
       <translation>Más información sobre cómo usarlo</translation>
-    </message>
-  </context>
-  <context>
-    <name>questionary/htmlcode</name>
-    <message>
-      <source>Show overlay</source>
-      <translation>Mostrar transparencia</translation>
-    </message>
-    <message>
-      <source>Show different offers for the same user</source>
-      <translation>Mostrar distintas ofertas para el mismo usuario</translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the page header or footer</source>
-      <translation>Copie el código del área de texto en el encabezado o pie de página</translation>
-    </message>
-    <message>
-      <source>Status text</source>
-      <translation>Texto de estado</translation>
-    </message>
-    <message>
-      <source>Expand the widget automatically for new users</source>
-      <translation>Expandir el widget automáticamente para los nuevos usuarios</translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation>Copia el código del área de texto al pie de página, antes de la etiqueta &lt;/body&gt;</translation>
-    </message>
-    <message>
-      <source>HTML code</source>
-      <translation>Código HTML</translation>
     </message>
   </context>
   <context>
@@ -4036,93 +4166,6 @@
     </message>
   </context>
   <context>
-    <name>pagelayout/pagelayout</name>
-    <message>
-      <source>Clean cache</source>
-      <translation>Limpiar Caché</translation>
-    </message>
-    <message>
-      <source>Home</source>
-      <translation>Inicio</translation>
-    </message>
-    <message>
-      <source>Chats transferred to you directly</source>
-      <translation>Chats transferidos directamente</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Vacío...</translation>
-    </message>
-    <message>
-      <source>Transferred to your department</source>
-      <translation>Transferido a su departamento</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Chats pendientes</translation>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation>Chats activos</translation>
-    </message>
-    <message>
-      <source>Unread messages</source>
-      <translation>Mensajes no leídos</translation>
-    </message>
-    <message>
-      <source>Closed chats</source>
-      <translation>Chats cerrados</translation>
-    </message>
-    <message>
-      <source>Configuration</source>
-      <translation>Configuración</translation>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation>Lista de Chats</translation>
-    </message>
-    <message>
-      <source>Chat rooms</source>
-      <translation>Ventana de Chats</translation>
-    </message>
-    <message>
-      <source>New chat request</source>
-      <translation>Nueva solicitud de chat</translation>
-    </message>
-    <message>
-      <source>Menu</source>
-      <translation>Menú</translation>
-    </message>
-    <message>
-      <source>Online visitors</source>
-      <translation>Visitantes en línea</translation>
-    </message>
-    <message>
-      <source>Questionary</source>
-      <translation>Cuestionario</translation>
-    </message>
-    <message>
-      <source>FAQ</source>
-      <translation>Preguntas frecuentes</translation>
-    </message>
-    <message>
-      <source>Chatbox</source>
-      <translation>Chatbox</translation>
-    </message>
-    <message>
-      <source>Browse offers</source>
-      <translation>Ver ofertas</translation>
-    </message>
-    <message>
-      <source>Account</source>
-      <translation>Cuenta</translation>
-    </message>
-    <message>
-      <source>Logout</source>
-      <translation>Cerrar Sesión</translation>
-    </message>
-  </context>
-  <context>
     <name>system/languages</name>
     <message>
       <source>Languages configuration</source>
@@ -4931,7 +4974,7 @@
     </message>
     <message>
       <source>Minimum 5 seconds</source>
-      <translation type="unfinished"/>
+      <translation>5 segundos mínimo</translation>
     </message>
     <message>
       <source>Transfer department has to be different one than self</source>
@@ -4944,6 +4987,73 @@
     <message>
       <source>Please enter a valid to date range!</source>
       <translation>Por favor, introduzca un rango de fechas válido</translation>
+    </message>
+  </context>
+  <context>
+    <name>abstract/browserofferinvitation</name>
+    <message>
+      <source>Name for personal purposes</source>
+      <translation>Nombre para propósitos personales</translation>
+    </message>
+    <message>
+      <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
+      <translation>Idioma, dejar vacío para todos. Ej. lit, rus, ger, etc...</translation>
+    </message>
+    <message>
+      <source>Time on site on single page in seconds</source>
+      <translation>Tiempo en segundos en una página del sitio</translation>
+    </message>
+    <message>
+      <source>Priority, the lower the higher</source>
+      <translation>Prioridad, entre más bajo mayor prioridad</translation>
+    </message>
+    <message>
+      <source>Popup width</source>
+      <translation>Ancho del popup</translation>
+    </message>
+    <message>
+      <source>Popup height</source>
+      <translation>Alto del popup</translation>
+    </message>
+    <message>
+      <source>Measure units, px or percents</source>
+      <translation>Unidad de medida, px o porciento</translation>
+    </message>
+    <message>
+      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
+      <translation>Dominio de referencia sin www, Ej. la palabra clave google será igual a cualquiera del dominio de google</translation>
+    </message>
+    <message>
+      <source>URL, enter * at the end for the wildcard</source>
+      <translation>URL, introduzca * al final para comodín</translation>
+    </message>
+    <message>
+      <source>Custom iframe URL, takes priority over default content</source>
+      <translation>URL personalizada del iframe, tiene prioridad sobre el contenido predefinido</translation>
+    </message>
+    <message>
+      <source>Default popup content</source>
+      <translation>Contenido predefinido del popup</translation>
+    </message>
+    <message>
+      <source>Load content in lhc iframe</source>
+      <translation>Cargar el contenido en el iframe</translation>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation>Activo</translation>
+    </message>
+    <message>
+      <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
+      <translation>Identificador, para que identificador deberá mostrarse este mensaje, deje vacío para todos</translation>
+    </message>
+    <message>
+      <source>Matched times</source>
+      <translation>Veces encontrado</translation>
+    </message>
+    <message>
+      <source>Browser offer invitations</source>
+      <translation>Invitaciones de ofertas del navegador</translation>
     </message>
   </context>
   <context>
@@ -5082,92 +5192,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Por favor, introduzca un tipo de archivo válido</translation>
-    </message>
-  </context>
-  <context>
-    <name>browseoffer/index</name>
-    <message>
-      <source>Browse offers</source>
-      <translation>Ver ofertas</translation>
-    </message>
-    <message>
-      <source>General</source>
-      <translation>General</translation>
-    </message>
-    <message>
-      <source>Browse your offers</source>
-      <translation>Ver sus ofertas</translation>
-    </message>
-    <message>
-      <source>HTML Code</source>
-      <translation>Código HTML</translation>
-    </message>
-  </context>
-  <context>
-    <name>abstract/browserofferinvitation</name>
-    <message>
-      <source>Name for personal purposes</source>
-      <translation>Nombre para propósitos personales</translation>
-    </message>
-    <message>
-      <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation>Idioma, dejar vacío para todos. Ej. lit, rus, ger, etc...</translation>
-    </message>
-    <message>
-      <source>Time on site on single page in seconds</source>
-      <translation>Tiempo en segundos en una página del sitio</translation>
-    </message>
-    <message>
-      <source>Priority, the lower the higher</source>
-      <translation>Prioridad, entre más bajo mayor prioridad</translation>
-    </message>
-    <message>
-      <source>Popup width</source>
-      <translation>Ancho del popup</translation>
-    </message>
-    <message>
-      <source>Popup height</source>
-      <translation>Alto del popup</translation>
-    </message>
-    <message>
-      <source>Measure units, px or percents</source>
-      <translation>Unidad de medida, px o porciento</translation>
-    </message>
-    <message>
-      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
-      <translation>Dominio de referencia sin www, Ej. la palabra clave google será igual a cualquiera del dominio de google</translation>
-    </message>
-    <message>
-      <source>URL, enter * at the end for the wildcard</source>
-      <translation>URL, introduzca * al final para comodín</translation>
-    </message>
-    <message>
-      <source>Custom iframe URL, takes priority over default content</source>
-      <translation>URL personalizada del iframe, tiene prioridad sobre el contenido predefinido</translation>
-    </message>
-    <message>
-      <source>Default popup content</source>
-      <translation>Contenido predefinido del popup</translation>
-    </message>
-    <message>
-      <source>Load content in lhc iframe</source>
-      <translation>Cargar el contenido en el iframe</translation>
-    </message>
-    <message>
-      <source>Active</source>
-      <translation>Activo</translation>
-    </message>
-    <message>
-      <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation>Identificador, para que identificador deberá mostrarse este mensaje, deje vacío para todos</translation>
-    </message>
-    <message>
-      <source>Matched times</source>
-      <translation>Veces encontrado</translation>
-    </message>
-    <message>
-      <source>Browser offer invitations</source>
-      <translation>Invitaciones de ofertas del navegador</translation>
     </message>
   </context>
 </TS>

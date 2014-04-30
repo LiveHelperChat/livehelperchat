@@ -188,6 +188,302 @@
     </message>
   </context>
   <context>
+    <name>chat/getstatus</name>
+    <message>
+      <source>Close</source>
+      <translation>Κλείσιμο</translation>
+    </message>
+    <message>
+      <source>Live help is online...</source>
+      <translation>Ζωντανή βοήθεια είναι σε απευθείας σύνδεση...</translation>
+    </message>
+    <message>
+      <source>Live help is offline...</source>
+      <translation>Ζωντανή βοήθεια είναι σε μη απευθείας σύνδεση...</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Άνοιγμα σε νέο παράθυρο</translation>
+    </message>
+    <message>
+      <source>Minimize/Restore</source>
+      <translation>Ελαχιστοποίηση/επαναφορά</translation>
+    </message>
+    <message>
+      <source>Need help?</source>
+      <translation>Χρειάζεστε βοήθεια;</translation>
+    </message>
+    <message>
+      <source>Our staff is always ready to help</source>
+      <translation>Το προσωπικό μας είναι πάντα έτοιμο να βοηθήσει</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/htmlcode</name>
+    <message>
+      <source>HTML code</source>
+      <translation>Κώδικα HTML</translation>
+    </message>
+    <message>
+      <source>Popup width</source>
+      <translation>Υπερεμφανιζόμενο πλάτος</translation>
+    </message>
+    <message>
+      <source>Popup height, used only if iframe is used</source>
+      <translation>Υπερεμφανιζόμενο ύψος, χρησιμοποιείται μόνο αν χρησιμοποιείται iframe</translation>
+    </message>
+    <message>
+      <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
+      <translation>Αναγνωριστικό, αυτό μπορεί να χρησιμοποιηθεί ως φίλτρο για προσκλήσεις προορατικού συνομιλίας και είναι χρήση έχοντας πλήρη διαφορετικά μηνύματα για διαφορετικούς τομείς. Μόνο συμβολοσειρά χωρίς διαστήματα ή ειδικούς χαρακτήρες.</translation>
+    </message>
+    <message>
+      <source>Leave empty if it is not important to you</source>
+      <translation>Αφήστε κενό εάν δεν είναι σημαντικό για εσάς</translation>
+    </message>
+    <message>
+      <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
+      <translation>Προσφορά χρονικού ορίου σε ημέρες, μετά δείχνουν πόσες μέρες προσφέρει για τον ίδιο επισκέπτη και πάλι, αφήστε κενό για συνεδρία</translation>
+    </message>
+    <message>
+      <source>Choose a language</source>
+      <translation>Επιλέξτε μια γλώσσα</translation>
+    </message>
+    <message>
+      <source>Choose prefered http mode</source>
+      <translation>Επιλέξτε την προτιμώμενη λειτουργία http</translation>
+    </message>
+    <message>
+      <source>Based on site (default)</source>
+      <translation>Με βάση την τοποθεσία (προεπιλογή)</translation>
+    </message>
+    <message>
+      <source>Widget embed code</source>
+      <translation>Ενσωματώστε τον κώδικα widget</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>Σελίδα ενσωματώνει τον κώδικα</translation>
+    </message>
+    <message>
+      <source>Chatbox messages content height</source>
+      <translation>Μηνύματα chatbox περιεχομένου ύψος</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the page where you want it to be rendered</source>
+      <translation>Αντιγράψτε τον κώδικα από την περιοχή κειμένου στη σελίδα όπου θέλετε να καθίστανται</translation>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation>Chatbox</translation>
+    </message>
+    <message>
+      <source>Position from the top, is only used if the Middle left or the Middle right side is chosen</source>
+      <translation>Θέση από την κορυφή, να χρησιμοποιείται μόνο αν η μέση αριστερά ή δεξιά πλευρά μέση επιλέγεται</translation>
+    </message>
+    <message>
+      <source>Pixels</source>
+      <translation>Εικονοκύτταρα</translation>
+    </message>
+    <message>
+      <source>Percents</source>
+      <translation>Percents</translation>
+    </message>
+    <message>
+      <source>Size</source>
+      <translation>Μέγεθος</translation>
+    </message>
+    <message>
+      <source>Width</source>
+      <translation>Πλάτος</translation>
+    </message>
+    <message>
+      <source>Height</source>
+      <translation>Ύψος</translation>
+    </message>
+    <message>
+      <source>Position</source>
+      <translation>Θέση</translation>
+    </message>
+    <message>
+      <source>Bottom right corner of the screen</source>
+      <translation>Κάτω δεξιά γωνία της οθόνης</translation>
+    </message>
+    <message>
+      <source>Bottom left corner of the screen</source>
+      <translation>Κάτω αριστερή γωνία της οθόνης</translation>
+    </message>
+    <message>
+      <source>Middle right side of the screen</source>
+      <translation>Μεσαία δεξιά πλευρά της οθόνης</translation>
+    </message>
+    <message>
+      <source>Middle left side of the screen</source>
+      <translation>Μεσαία αριστερή πλευρά της οθόνης</translation>
+    </message>
+    <message>
+      <source>Disable minimize icon</source>
+      <translation>Απενεργοποίηση Ελαχιστοποίηση εικονίδιο</translation>
+    </message>
+    <message>
+      <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
+      <translation>Εμφάνιση chatbox περιεχομένου αντί του widget, οι χρήστες θα είναι σε θέση μόνο να ελαχιστοποιήσει, όχι το κλείσιμό του.</translation>
+    </message>
+    <message>
+      <source>Show chatbox content minimized first time if content is shown.</source>
+      <translation>Εμφάνιση περιεχομένου chatbox ελαχιστοποιείται πρώτη φορά αν εμφανίζεται περιεχόμενο.</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
+      <translation>Αντιγράψτε τον κώδικα από την περιοχή κειμένου στο υποσέλιδο, πριν από το κλείσιμο &amp;lt; / σώματος &amp;gt; ετικέτα</translation>
+    </message>
+    <message>
+      <source>Copy the code from the textarea to page where you want it to be rendered</source>
+      <translation>Αντιγράψτε τον κώδικα από την περιοχή κειμένου στη σελίδα όπου θέλετε να καθίστανται</translation>
+    </message>
+    <message>
+      <source>Status text</source>
+      <translation>Κείμενο κατάστασης</translation>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation>Συχνές ερωτήσεις</translation>
+    </message>
+    <message>
+      <source>Position from the top, only used if the Middle left or the Middle right side is chosen</source>
+      <translation>Επιλέγεται η θέση από την κορυφή, να χρησιμοποιηθεί μόνο αν η μέση αριστερά ή δεξιά πλευρά μέση</translation>
+    </message>
+    <message>
+      <source>Help us to grow</source>
+      <translation>Βοηθήστε μας να αυξάνονται</translation>
+    </message>
+    <message>
+      <source>Embed code</source>
+      <translation>Ενσωματώστε τον κώδικα</translation>
+    </message>
+    <message>
+      <source>Hide status when offline</source>
+      <translation>Απόκρυψη status, όταν είναι εκτός σύνδεσης</translation>
+    </message>
+    <message>
+      <source>Show a leave a message form when there are no online operators</source>
+      <translation>Δείχνουν μια άδεια ένα μήνυμα μορφή, όταν δεν υπάρχουν καμία σε απευθείας σύνδεση φορείς</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Τμήμα</translation>
+    </message>
+    <message>
+      <source>Any</source>
+      <translation>Κάθε</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the page where you want your status to appear</source>
+      <translation>Αντιγράψτε τον κώδικα από την περιοχή κειμένου στη σελίδα όπου θέλετε την κατάστασή σας για να εμφανιστεί</translation>
+    </message>
+    <message>
+      <source>On a mouse click show the page widget</source>
+      <translation>Σχετικά με ένα κλικ του ποντικιού για να δείτε τα widget σελίδα</translation>
+    </message>
+    <message>
+      <source>Automatically check for messages from the operator/invitation messages</source>
+      <translation>Αυτόματος έλεγχος για μηνύματα από το χειριστή/πρόσκληση μηνύματα</translation>
+    </message>
+    <message>
+      <source>It increases server load, because every 15 seconds is checked for operator message or invitation message.</source>
+      <translation>Αυξάνει το φορτίο server, επειδή κάθε 15 δευτερόλεπτα ελέγχεται για μήνυμα τηλεφωνητή ή μήνυμα πρόσκλησης.</translation>
+    </message>
+    <message>
+      <source>Disable pro active invitations, usefull if you want disable them from site part.</source>
+      <translation>Απενεργοποιήσετε προορατικού προσκλήσεις, χρήσιμο αν θέλετε να απενεργοποιήσετε από τμήμα τοποθεσίας.</translation>
+    </message>
+    <message>
+      <source>Popup window size</source>
+      <translation>Αναδυόμενο παράθυρο μέγεθος</translation>
+    </message>
+    <message>
+      <source>Popup window width in pixels</source>
+      <translation>Αναδυόμενο παράθυρο πλάτος σε pixel</translation>
+    </message>
+    <message>
+      <source>Popup window height in pixels</source>
+      <translation>Αναδυόμενο παράθυρο ύψος, σε pixel</translation>
+    </message>
+    <message>
+      <source>Widget width</source>
+      <translation>Πλάτος του widget</translation>
+    </message>
+    <message>
+      <source>Widget width in pixels</source>
+      <translation>Widget πλάτος σε pixel</translation>
+    </message>
+    <message>
+      <source>height</source>
+      <translation>ύψος</translation>
+    </message>
+    <message>
+      <source>Widget height in pixels</source>
+      <translation>Widget ύψος, σε pixel</translation>
+    </message>
+    <message>
+      <source>Native placement - it will be shown where the html is embedded</source>
+      <translation>Μητρική τοποθέτηση - θα παρουσιαστεί όπου ενσωματώνεται το html</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Διαμόρφωση του συστήματος</translation>
+    </message>
+  </context>
+  <context>
+    <name>questionary/htmlcode</name>
+    <message>
+      <source>Show overlay</source>
+      <translation>Προβολή επικάλυψης</translation>
+    </message>
+    <message>
+      <source>Show different offers for the same user</source>
+      <translation>Εμφάνιση διαφορετικές προσφορές για τον ίδιο χρήστη</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the page header or footer</source>
+      <translation>Αντιγράψτε τον κώδικα από την περιοχή κειμένου στην κεφαλίδα σελίδας ή υποσέλιδο</translation>
+    </message>
+    <message>
+      <source>Status text</source>
+      <translation>Κείμενο κατάστασης</translation>
+    </message>
+    <message>
+      <source>Expand the widget automatically for new users</source>
+      <translation>Επεκτείνετε το widget αυτόματα για τους νέους χρήστες</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
+      <translation>Αντιγράψτε τον κώδικα από την περιοχή κειμένου στο υποσέλιδο, πριν από το κλείσιμο &amp;lt; / σώματος &amp;gt; ετικέτα</translation>
+    </message>
+    <message>
+      <source>HTML code</source>
+      <translation>Κώδικας HTML</translation>
+    </message>
+  </context>
+  <context>
+    <name>browseoffer/index</name>
+    <message>
+      <source>Browse offers</source>
+      <translation>Αναζήτηση προσφέρει</translation>
+    </message>
+    <message>
+      <source>General</source>
+      <translation>Γενική</translation>
+    </message>
+    <message>
+      <source>Browse your offers</source>
+      <translation>Περιηγηθείτε σας προσφορές</translation>
+    </message>
+    <message>
+      <source>HTML Code</source>
+      <translation>Κώδικα HTML</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/activechats</name>
     <message>
       <source>Active chats list</source>
@@ -1510,6 +1806,34 @@
       <translation>σε απευθείας σύνδεση χρήστες</translation>
     </message>
     <message>
+      <source>Group list by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation>Σελίδα</translation>
+    </message>
+    <message>
+      <source>Page title</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Referrer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Refresh list every</source>
       <translation>Ανανέωση λίστας κάθε</translation>
     </message>
@@ -1526,12 +1850,12 @@
       <translation>Δείξουν στους επισκέπτες που επισκεφθήκατε το site στο παρελθόν</translation>
     </message>
     <message>
-      <source>minit</source>
-      <translation>λεπτό</translation>
+      <source>minute</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>minits</source>
-      <translation>λεπτά</translation>
+      <source>minutes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>hour</source>
@@ -1546,28 +1870,12 @@
       <translation>ημέρες</translation>
     </message>
     <message>
-      <source>Page</source>
-      <translation>Σελίδα</translation>
-    </message>
-    <message>
       <source>Status</source>
       <translation>Κατάσταση</translation>
     </message>
     <message>
       <source>Action</source>
       <translation>Ενέργεια</translation>
-    </message>
-    <message>
-      <source>User does not have any messages from the operator</source>
-      <translation>Χρήστης δεν έχει οποιαδήποτε μηνύματα από τον φορέα εκμετάλλευσης</translation>
-    </message>
-    <message>
-      <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation>Χρήστη δεν έχει δει ένα μήνυμα από τον φορέα εκμετάλλευσης, ή το παράθυρο μηνύματος είναι ακόμα ανοιχτή.</translation>
-    </message>
-    <message>
-      <source>User has seen the message from the operator.</source>
-      <translation>Χρήστης έχει δει το μήνυμα από τον φορέα εκμετάλλευσης.</translation>
     </message>
     <message>
       <source>has sent a message to the user</source>
@@ -1586,10 +1894,6 @@
       <translation>τελευταία επίσκεψη</translation>
     </message>
     <message>
-      <source>Empty...</source>
-      <translation>Άδειο...</translation>
-    </message>
-    <message>
       <source>Map</source>
       <translation>Χάρτης</translation>
     </message>
@@ -1600,6 +1904,18 @@
     <message>
       <source>Marker timeout before it dissapears from map</source>
       <translation>Χρονικό όριο δείκτη πριν εξαφανιστεί από το χάρτη</translation>
+    </message>
+    <message>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <translation>Χρήστη δεν έχει δει ένα μήνυμα από τον φορέα εκμετάλλευσης, ή το παράθυρο μηνύματος είναι ακόμα ανοιχτή.</translation>
+    </message>
+    <message>
+      <source>User has seen the message from the operator.</source>
+      <translation>Χρήστης έχει δει το μήνυμα από τον φορέα εκμετάλλευσης.</translation>
+    </message>
+    <message>
+      <source>User does not have any messages from the operator</source>
+      <translation>Χρήστης δεν έχει οποιαδήποτε μηνύματα από τον φορέα εκμετάλλευσης</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -1676,37 +1992,6 @@
     <message>
       <source>Online users</source>
       <translation>Συνδεδεμένοι χρήστες</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/getstatus</name>
-    <message>
-      <source>Close</source>
-      <translation>Κλείσιμο</translation>
-    </message>
-    <message>
-      <source>Live help is online...</source>
-      <translation>Ζωντανή βοήθεια είναι σε απευθείας σύνδεση...</translation>
-    </message>
-    <message>
-      <source>Live help is offline...</source>
-      <translation>Ζωντανή βοήθεια είναι σε μη απευθείας σύνδεση...</translation>
-    </message>
-    <message>
-      <source>Open in a new window</source>
-      <translation>Άνοιγμα σε νέο παράθυρο</translation>
-    </message>
-    <message>
-      <source>Minimize/Restore</source>
-      <translation>Ελαχιστοποίηση/επαναφορά</translation>
-    </message>
-    <message>
-      <source>Need help?</source>
-      <translation>Χρειάζεστε βοήθεια;</translation>
-    </message>
-    <message>
-      <source>Our staff is always ready to help</source>
-      <translation>Το προσωπικό μας είναι πάντα έτοιμο να βοηθήσει</translation>
     </message>
   </context>
   <context>
@@ -1908,221 +2193,6 @@
     </message>
   </context>
   <context>
-    <name>system/htmlcode</name>
-    <message>
-      <source>HTML code</source>
-      <translation>Κώδικα HTML</translation>
-    </message>
-    <message>
-      <source>Popup width</source>
-      <translation>Υπερεμφανιζόμενο πλάτος</translation>
-    </message>
-    <message>
-      <source>Popup height, used only if iframe is used</source>
-      <translation>Υπερεμφανιζόμενο ύψος, χρησιμοποιείται μόνο αν χρησιμοποιείται iframe</translation>
-    </message>
-    <message>
-      <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
-      <translation>Αναγνωριστικό, αυτό μπορεί να χρησιμοποιηθεί ως φίλτρο για προσκλήσεις προορατικού συνομιλίας και είναι χρήση έχοντας πλήρη διαφορετικά μηνύματα για διαφορετικούς τομείς. Μόνο συμβολοσειρά χωρίς διαστήματα ή ειδικούς χαρακτήρες.</translation>
-    </message>
-    <message>
-      <source>Leave empty if it is not important to you</source>
-      <translation>Αφήστε κενό εάν δεν είναι σημαντικό για εσάς</translation>
-    </message>
-    <message>
-      <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
-      <translation>Προσφορά χρονικού ορίου σε ημέρες, μετά δείχνουν πόσες μέρες προσφέρει για τον ίδιο επισκέπτη και πάλι, αφήστε κενό για συνεδρία</translation>
-    </message>
-    <message>
-      <source>Choose a language</source>
-      <translation>Επιλέξτε μια γλώσσα</translation>
-    </message>
-    <message>
-      <source>Choose prefered http mode</source>
-      <translation>Επιλέξτε την προτιμώμενη λειτουργία http</translation>
-    </message>
-    <message>
-      <source>Based on site (default)</source>
-      <translation>Με βάση την τοποθεσία (προεπιλογή)</translation>
-    </message>
-    <message>
-      <source>Widget embed code</source>
-      <translation>Ενσωματώστε τον κώδικα widget</translation>
-    </message>
-    <message>
-      <source>Page embed code</source>
-      <translation>Σελίδα ενσωματώνει τον κώδικα</translation>
-    </message>
-    <message>
-      <source>Chatbox messages content height</source>
-      <translation>Μηνύματα chatbox περιεχομένου ύψος</translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the page where you want it to be rendered</source>
-      <translation>Αντιγράψτε τον κώδικα από την περιοχή κειμένου στη σελίδα όπου θέλετε να καθίστανται</translation>
-    </message>
-    <message>
-      <source>Chatbox</source>
-      <translation>Chatbox</translation>
-    </message>
-    <message>
-      <source>Position from the top, is only used if the Middle left or the Middle right side is chosen</source>
-      <translation>Θέση από την κορυφή, να χρησιμοποιείται μόνο αν η μέση αριστερά ή δεξιά πλευρά μέση επιλέγεται</translation>
-    </message>
-    <message>
-      <source>Pixels</source>
-      <translation>Εικονοκύτταρα</translation>
-    </message>
-    <message>
-      <source>Percents</source>
-      <translation>Percents</translation>
-    </message>
-    <message>
-      <source>Size</source>
-      <translation>Μέγεθος</translation>
-    </message>
-    <message>
-      <source>Width</source>
-      <translation>Πλάτος</translation>
-    </message>
-    <message>
-      <source>Height</source>
-      <translation>Ύψος</translation>
-    </message>
-    <message>
-      <source>Position</source>
-      <translation>Θέση</translation>
-    </message>
-    <message>
-      <source>Bottom right corner of the screen</source>
-      <translation>Κάτω δεξιά γωνία της οθόνης</translation>
-    </message>
-    <message>
-      <source>Bottom left corner of the screen</source>
-      <translation>Κάτω αριστερή γωνία της οθόνης</translation>
-    </message>
-    <message>
-      <source>Middle right side of the screen</source>
-      <translation>Μεσαία δεξιά πλευρά της οθόνης</translation>
-    </message>
-    <message>
-      <source>Middle left side of the screen</source>
-      <translation>Μεσαία αριστερή πλευρά της οθόνης</translation>
-    </message>
-    <message>
-      <source>Disable minimize icon</source>
-      <translation>Απενεργοποίηση Ελαχιστοποίηση εικονίδιο</translation>
-    </message>
-    <message>
-      <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
-      <translation>Εμφάνιση chatbox περιεχομένου αντί του widget, οι χρήστες θα είναι σε θέση μόνο να ελαχιστοποιήσει, όχι το κλείσιμό του.</translation>
-    </message>
-    <message>
-      <source>Show chatbox content minimized first time if content is shown.</source>
-      <translation>Εμφάνιση περιεχομένου chatbox ελαχιστοποιείται πρώτη φορά αν εμφανίζεται περιεχόμενο.</translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation>Αντιγράψτε τον κώδικα από την περιοχή κειμένου στο υποσέλιδο, πριν από το κλείσιμο &amp;lt; / σώματος &amp;gt; ετικέτα</translation>
-    </message>
-    <message>
-      <source>Copy the code from the textarea to page where you want it to be rendered</source>
-      <translation>Αντιγράψτε τον κώδικα από την περιοχή κειμένου στη σελίδα όπου θέλετε να καθίστανται</translation>
-    </message>
-    <message>
-      <source>Status text</source>
-      <translation>Κείμενο κατάστασης</translation>
-    </message>
-    <message>
-      <source>FAQ</source>
-      <translation>Συχνές ερωτήσεις</translation>
-    </message>
-    <message>
-      <source>Position from the top, only used if the Middle left or the Middle right side is chosen</source>
-      <translation>Επιλέγεται η θέση από την κορυφή, να χρησιμοποιηθεί μόνο αν η μέση αριστερά ή δεξιά πλευρά μέση</translation>
-    </message>
-    <message>
-      <source>Help us to grow</source>
-      <translation>Βοηθήστε μας να αυξάνονται</translation>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation>Ενσωματώστε τον κώδικα</translation>
-    </message>
-    <message>
-      <source>Hide status when offline</source>
-      <translation>Απόκρυψη status, όταν είναι εκτός σύνδεσης</translation>
-    </message>
-    <message>
-      <source>Show a leave a message form when there are no online operators</source>
-      <translation>Δείχνουν μια άδεια ένα μήνυμα μορφή, όταν δεν υπάρχουν καμία σε απευθείας σύνδεση φορείς</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Τμήμα</translation>
-    </message>
-    <message>
-      <source>Any</source>
-      <translation>Κάθε</translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the page where you want your status to appear</source>
-      <translation>Αντιγράψτε τον κώδικα από την περιοχή κειμένου στη σελίδα όπου θέλετε την κατάστασή σας για να εμφανιστεί</translation>
-    </message>
-    <message>
-      <source>On a mouse click show the page widget</source>
-      <translation>Σχετικά με ένα κλικ του ποντικιού για να δείτε τα widget σελίδα</translation>
-    </message>
-    <message>
-      <source>Automatically check for messages from the operator/invitation messages</source>
-      <translation>Αυτόματος έλεγχος για μηνύματα από το χειριστή/πρόσκληση μηνύματα</translation>
-    </message>
-    <message>
-      <source>It increases server load, because every 15 seconds is checked for operator message or invitation message.</source>
-      <translation>Αυξάνει το φορτίο server, επειδή κάθε 15 δευτερόλεπτα ελέγχεται για μήνυμα τηλεφωνητή ή μήνυμα πρόσκλησης.</translation>
-    </message>
-    <message>
-      <source>Disable pro active invitations, usefull if you want disable them from site part.</source>
-      <translation>Απενεργοποιήσετε προορατικού προσκλήσεις, χρήσιμο αν θέλετε να απενεργοποιήσετε από τμήμα τοποθεσίας.</translation>
-    </message>
-    <message>
-      <source>Popup window size</source>
-      <translation>Αναδυόμενο παράθυρο μέγεθος</translation>
-    </message>
-    <message>
-      <source>Popup window width in pixels</source>
-      <translation>Αναδυόμενο παράθυρο πλάτος σε pixel</translation>
-    </message>
-    <message>
-      <source>Popup window height in pixels</source>
-      <translation>Αναδυόμενο παράθυρο ύψος, σε pixel</translation>
-    </message>
-    <message>
-      <source>Widget width</source>
-      <translation>Πλάτος του widget</translation>
-    </message>
-    <message>
-      <source>Widget width in pixels</source>
-      <translation>Widget πλάτος σε pixel</translation>
-    </message>
-    <message>
-      <source>height</source>
-      <translation>ύψος</translation>
-    </message>
-    <message>
-      <source>Widget height in pixels</source>
-      <translation>Widget ύψος, σε pixel</translation>
-    </message>
-    <message>
-      <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>Μητρική τοποθέτηση - θα παρουσιαστεί όπου ενσωματώνεται το html</translation>
-    </message>
-    <message>
-      <source>System configuration</source>
-      <translation>Διαμόρφωση του συστήματος</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/lists</name>
     <message>
       <source>Choose what type of list you want to see</source>
@@ -2151,6 +2221,93 @@
     <message>
       <source>Chat lists</source>
       <translation>Λίστες συνομιλίας</translation>
+    </message>
+  </context>
+  <context>
+    <name>pagelayout/pagelayout</name>
+    <message>
+      <source>Empty...</source>
+      <translation>Άδειο...</translation>
+    </message>
+    <message>
+      <source>Clean cache</source>
+      <translation>Καθαρισμός προσωρινής μνήμης</translation>
+    </message>
+    <message>
+      <source>Home</source>
+      <translation>Αρχική</translation>
+    </message>
+    <message>
+      <source>Chats transferred to you directly</source>
+      <translation>Συνομιλίες να σας παραχωρήσει άμεσα</translation>
+    </message>
+    <message>
+      <source>Transferred to your department</source>
+      <translation>Μεταφορά στο τμήμα σας</translation>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation>Συνομιλίες σε αναμονή</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Ενεργές συνομιλίες</translation>
+    </message>
+    <message>
+      <source>Unread messages</source>
+      <translation>Μη αναγνωσμένα μηνύματα</translation>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation>Ανενεργές συνομιλίες</translation>
+    </message>
+    <message>
+      <source>Configuration</source>
+      <translation>Παραμετροποίηση</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Λίστα συνομιλιών</translation>
+    </message>
+    <message>
+      <source>Chat rooms</source>
+      <translation>Δωμάτια συνομιλίας</translation>
+    </message>
+    <message>
+      <source>New chat request</source>
+      <translation>Αίτημα νέας συνομιλίας</translation>
+    </message>
+    <message>
+      <source>Menu</source>
+      <translation>Μενού</translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Συνδεδεμένοι χρήστες</translation>
+    </message>
+    <message>
+      <source>Questionary</source>
+      <translation>Ερωτηματολόγιο</translation>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation>Συχνές ερωτήσεις</translation>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation>Chatbox</translation>
+    </message>
+    <message>
+      <source>Browse offers</source>
+      <translation>Αναζήτηση προσφέρει</translation>
+    </message>
+    <message>
+      <source>Account</source>
+      <translation>Λογαριασμός</translation>
+    </message>
+    <message>
+      <source>Logout</source>
+      <translation>Αποσύνδεση</translation>
     </message>
   </context>
   <context>
@@ -2197,6 +2354,10 @@
     <message>
       <source>Select user</source>
       <translation>Επέλεξε χρήστη</translation>
+    </message>
+    <message>
+      <source>Type to search</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -2967,37 +3128,6 @@
     <message>
       <source>more information on how to use it</source>
       <translation>περισσότερες πληροφορίες για το πώς να το χρησιμοποιήσει</translation>
-    </message>
-  </context>
-  <context>
-    <name>questionary/htmlcode</name>
-    <message>
-      <source>Show overlay</source>
-      <translation>Προβολή επικάλυψης</translation>
-    </message>
-    <message>
-      <source>Show different offers for the same user</source>
-      <translation>Εμφάνιση διαφορετικές προσφορές για τον ίδιο χρήστη</translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the page header or footer</source>
-      <translation>Αντιγράψτε τον κώδικα από την περιοχή κειμένου στην κεφαλίδα σελίδας ή υποσέλιδο</translation>
-    </message>
-    <message>
-      <source>Status text</source>
-      <translation>Κείμενο κατάστασης</translation>
-    </message>
-    <message>
-      <source>Expand the widget automatically for new users</source>
-      <translation>Επεκτείνετε το widget αυτόματα για τους νέους χρήστες</translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation>Αντιγράψτε τον κώδικα από την περιοχή κειμένου στο υποσέλιδο, πριν από το κλείσιμο &amp;lt; / σώματος &amp;gt; ετικέτα</translation>
-    </message>
-    <message>
-      <source>HTML code</source>
-      <translation>Κώδικας HTML</translation>
     </message>
   </context>
   <context>
@@ -4031,93 +4161,6 @@
     </message>
   </context>
   <context>
-    <name>pagelayout/pagelayout</name>
-    <message>
-      <source>Clean cache</source>
-      <translation>Καθαρισμός προσωρινής μνήμης</translation>
-    </message>
-    <message>
-      <source>Home</source>
-      <translation>Αρχική</translation>
-    </message>
-    <message>
-      <source>Chats transferred to you directly</source>
-      <translation>Συνομιλίες να σας παραχωρήσει άμεσα</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Άδειο...</translation>
-    </message>
-    <message>
-      <source>Transferred to your department</source>
-      <translation>Μεταφορά στο τμήμα σας</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Συνομιλίες σε αναμονή</translation>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation>Ενεργές συνομιλίες</translation>
-    </message>
-    <message>
-      <source>Unread messages</source>
-      <translation>Μη αναγνωσμένα μηνύματα</translation>
-    </message>
-    <message>
-      <source>Closed chats</source>
-      <translation>Ανενεργές συνομιλίες</translation>
-    </message>
-    <message>
-      <source>Configuration</source>
-      <translation>Παραμετροποίηση</translation>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation>Λίστα συνομιλιών</translation>
-    </message>
-    <message>
-      <source>Chat rooms</source>
-      <translation>Δωμάτια συνομιλίας</translation>
-    </message>
-    <message>
-      <source>New chat request</source>
-      <translation>Αίτημα νέας συνομιλίας</translation>
-    </message>
-    <message>
-      <source>Menu</source>
-      <translation>Μενού</translation>
-    </message>
-    <message>
-      <source>Online visitors</source>
-      <translation>Συνδεδεμένοι χρήστες</translation>
-    </message>
-    <message>
-      <source>Questionary</source>
-      <translation>Ερωτηματολόγιο</translation>
-    </message>
-    <message>
-      <source>FAQ</source>
-      <translation>Συχνές ερωτήσεις</translation>
-    </message>
-    <message>
-      <source>Chatbox</source>
-      <translation>Chatbox</translation>
-    </message>
-    <message>
-      <source>Browse offers</source>
-      <translation>Αναζήτηση προσφέρει</translation>
-    </message>
-    <message>
-      <source>Account</source>
-      <translation>Λογαριασμός</translation>
-    </message>
-    <message>
-      <source>Logout</source>
-      <translation>Αποσύνδεση</translation>
-    </message>
-  </context>
-  <context>
     <name>system/languages</name>
     <message>
       <source>Languages configuration</source>
@@ -4942,6 +4985,73 @@
     </message>
   </context>
   <context>
+    <name>abstract/browserofferinvitation</name>
+    <message>
+      <source>Name for personal purposes</source>
+      <translation>Όνομα για προσωπικούς σκοπούς</translation>
+    </message>
+    <message>
+      <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
+      <translation>Γλώσσα, αφήστε κενό για όλους. Π.χ. φωτισμό, rus, ger κλπ...</translation>
+    </message>
+    <message>
+      <source>Time on site on single page in seconds</source>
+      <translation>Χρόνος στον ιστότοπο σε μεμονωμένη σελίδα σε δευτερόλεπτα</translation>
+    </message>
+    <message>
+      <source>Priority, the lower the higher</source>
+      <translation>Προτεραιότητα, τόσο χαμηλότερο το υψηλότερο</translation>
+    </message>
+    <message>
+      <source>Popup width</source>
+      <translation>Υπερεμφανιζόμενο πλάτος</translation>
+    </message>
+    <message>
+      <source>Popup height</source>
+      <translation>Υπερεμφανιζόμενο ύψος</translation>
+    </message>
+    <message>
+      <source>Measure units, px or percents</source>
+      <translation>Μονάδες μέτρησης, px ή percents</translation>
+    </message>
+    <message>
+      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
+      <translation>Referrer τομέα χωρίς το www, π.χ. google λέξη-κλειδί θα συμφωνούν με οποιοδήποτε τομέα google</translation>
+    </message>
+    <message>
+      <source>URL, enter * at the end for the wildcard</source>
+      <translation>Διεύθυνση URL, πληκτρολογήστε * στο τέλος για το χαρακτήρα μπαλαντέρ</translation>
+    </message>
+    <message>
+      <source>Custom iframe URL, takes priority over default content</source>
+      <translation>Διεύθυνση URL έθιμο iframe, έχει προτεραιότητα πάνω από το προεπιλεγμένο περιεχόμενο</translation>
+    </message>
+    <message>
+      <source>Default popup content</source>
+      <translation>Προεπιλογή αναδυόμενο παράθυρο περιεχόμενο</translation>
+    </message>
+    <message>
+      <source>Load content in lhc iframe</source>
+      <translation>Περιεχόμενο φορτίο σε lhc iframe</translation>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation>Ενεργό</translation>
+    </message>
+    <message>
+      <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
+      <translation>Αναγνωριστικό, για ποιο προσδιοριστικό πρέπει να εμφανιστεί αυτό το μήνυμα, αφήστε κενό για όλους</translation>
+    </message>
+    <message>
+      <source>Matched times</source>
+      <translation>Συμφωνημένα φορές</translation>
+    </message>
+    <message>
+      <source>Browser offer invitations</source>
+      <translation>Πρόγραμμα περιήγησης προσφορά προσκλήσεις</translation>
+    </message>
+  </context>
+  <context>
     <name>abstract/email_template</name>
     <message>
       <source>Name, for personal purposes</source>
@@ -5077,92 +5187,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Παρακαλούμε, εισάγετε έγκυρο αρχείο τύπου!</translation>
-    </message>
-  </context>
-  <context>
-    <name>browseoffer/index</name>
-    <message>
-      <source>Browse offers</source>
-      <translation>Αναζήτηση προσφέρει</translation>
-    </message>
-    <message>
-      <source>General</source>
-      <translation>Γενική</translation>
-    </message>
-    <message>
-      <source>Browse your offers</source>
-      <translation>Περιηγηθείτε σας προσφορές</translation>
-    </message>
-    <message>
-      <source>HTML Code</source>
-      <translation>Κώδικα HTML</translation>
-    </message>
-  </context>
-  <context>
-    <name>abstract/browserofferinvitation</name>
-    <message>
-      <source>Name for personal purposes</source>
-      <translation>Όνομα για προσωπικούς σκοπούς</translation>
-    </message>
-    <message>
-      <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation>Γλώσσα, αφήστε κενό για όλους. Π.χ. φωτισμό, rus, ger κλπ...</translation>
-    </message>
-    <message>
-      <source>Time on site on single page in seconds</source>
-      <translation>Χρόνος στον ιστότοπο σε μεμονωμένη σελίδα σε δευτερόλεπτα</translation>
-    </message>
-    <message>
-      <source>Priority, the lower the higher</source>
-      <translation>Προτεραιότητα, τόσο χαμηλότερο το υψηλότερο</translation>
-    </message>
-    <message>
-      <source>Popup width</source>
-      <translation>Υπερεμφανιζόμενο πλάτος</translation>
-    </message>
-    <message>
-      <source>Popup height</source>
-      <translation>Υπερεμφανιζόμενο ύψος</translation>
-    </message>
-    <message>
-      <source>Measure units, px or percents</source>
-      <translation>Μονάδες μέτρησης, px ή percents</translation>
-    </message>
-    <message>
-      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
-      <translation>Referrer τομέα χωρίς το www, π.χ. google λέξη-κλειδί θα συμφωνούν με οποιοδήποτε τομέα google</translation>
-    </message>
-    <message>
-      <source>URL, enter * at the end for the wildcard</source>
-      <translation>Διεύθυνση URL, πληκτρολογήστε * στο τέλος για το χαρακτήρα μπαλαντέρ</translation>
-    </message>
-    <message>
-      <source>Custom iframe URL, takes priority over default content</source>
-      <translation>Διεύθυνση URL έθιμο iframe, έχει προτεραιότητα πάνω από το προεπιλεγμένο περιεχόμενο</translation>
-    </message>
-    <message>
-      <source>Default popup content</source>
-      <translation>Προεπιλογή αναδυόμενο παράθυρο περιεχόμενο</translation>
-    </message>
-    <message>
-      <source>Load content in lhc iframe</source>
-      <translation>Περιεχόμενο φορτίο σε lhc iframe</translation>
-    </message>
-    <message>
-      <source>Active</source>
-      <translation>Ενεργό</translation>
-    </message>
-    <message>
-      <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation>Αναγνωριστικό, για ποιο προσδιοριστικό πρέπει να εμφανιστεί αυτό το μήνυμα, αφήστε κενό για όλους</translation>
-    </message>
-    <message>
-      <source>Matched times</source>
-      <translation>Συμφωνημένα φορές</translation>
-    </message>
-    <message>
-      <source>Browser offer invitations</source>
-      <translation>Πρόγραμμα περιήγησης προσφορά προσκλήσεις</translation>
     </message>
   </context>
 </TS>

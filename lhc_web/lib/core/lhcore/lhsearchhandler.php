@@ -411,7 +411,7 @@ class erLhcoreClassSearchHandler {
 	   		end($fileNameAray);
 	   		$extension = current($fileNameAray);
 	   		 
-	   		$fileNamePhysic = md5($_FILES[$fileName]['tmp_name']).time().'.'.strtolower($extension);
+	   		$fileNamePhysic = md5($_FILES[$fileName]['tmp_name'].time()).strtolower($extension);
 	   
 	   		move_uploaded_file($_FILES[$fileName]["tmp_name"],$destination_dir . $fileNamePhysic);
 	   		chmod($destination_dir . $fileNamePhysic, 0644);

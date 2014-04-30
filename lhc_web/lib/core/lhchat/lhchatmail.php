@@ -325,6 +325,45 @@ class erLhcoreClassChatMail {
     	}
     }
     
+    public static function informFormFilled($formCollected) {
+    	$sendMail = erLhAbstractModelEmailTemplate::fetch(8);
+    	
+    	$mail = new PHPMailer();
+    	$mail->CharSet = "UTF-8";
+    	
+    	if ($sendMail->from_email != '') {
+    		$mail->From = $mail->Sender = $sendMail->from_email;
+    	}
+    	
+    	$mail->FromName = $sendMail->from_name;    	
+    	$mail->Subject = str_replace(array('{form_name}'),array($formCollected->form),$sendMail->subject);   	     	
+    	$mail->Body = str_replace(array('{form_name}','{ip}','{url_download}'), array((string)$formCollected->form,$formCollected->ip,erLhcoreClassXMP::getBaseHost() . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurldirect('user/login').'/(r)/'.rawurlencode(base64_encode('form/downloaditem/'.$formCollected->id))), $sendMail->content);
+
+    	$emailRecipient = array();
+    	if ($formCollected->form->recipient != '') {
+    		$emailRecipient = array($formCollected->form->recipient);
+    	} elseif ($sendMail->recipient != '') {
+    		$emailRecipient = array($sendMail->recipient);
+    	}
+
+    	if (!empty($emailRecipient)) {    	
+	    	foreach ($emailRecipient as $receiver) {
+	    		$mail->AddAddress( $receiver );
+	    	}
+	    	
+	    	self::setupSMTP($mail);
+	    	
+	    	if ($sendMail->bcc_recipients != '') {
+	    		$recipientsBCC = explode(',',$sendMail->bcc_recipients);
+	    		foreach ($recipientsBCC as $recipientBCC) {
+	    			$mail->AddBCC(trim($recipientBCC));
+	    		}
+	    	}
+	    	
+	    	$mail->Send();
+	    	$mail->ClearAddresses();
+    	}
+    }
     
     public static function informChatClosed(erLhcoreClassModelChat $chat, $operator = false) {
     	$sendMail = erLhAbstractModelEmailTemplate::fetch(5);

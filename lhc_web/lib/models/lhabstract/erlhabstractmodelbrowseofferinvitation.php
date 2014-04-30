@@ -189,7 +189,7 @@ class erLhAbstractModelBrowseOfferInvitation {
 
 	public function getModuleTranslations()
 	{
-		return array('path' => array('url' => erLhcoreClassDesign::baseurl('browseoffer/index'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('browseoffer/index','Browse offers')),'permission' => array('module' => 'lhbrowseoffer','function' => 'manage_bo'),'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/browserofferinvitation','Browser offer invitations'));
+		return array('path' => array('url' => erLhcoreClassDesign::baseurl('browseoffer/index'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('browseoffer/index','Browse offers')),'permission_delete' => array('module' => 'lhbrowseoffer','function' => 'manage_bo'),'permission' => array('module' => 'lhbrowseoffer','function' => 'manage_bo'),'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/browserofferinvitation','Browser offer invitations'));
 	}
 
 	public static function getCount($params = array())

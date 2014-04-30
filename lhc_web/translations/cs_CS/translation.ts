@@ -161,7 +161,7 @@
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Oddělení</translation>
     </message>
     <message>
       <source>Matched times</source>
@@ -185,6 +185,302 @@
     <message>
       <source>Are you sure?</source>
       <translation>Jste si jistý?</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/getstatus</name>
+    <message>
+      <source>Close</source>
+      <translation>Zavřít</translation>
+    </message>
+    <message>
+      <source>Live help is online...</source>
+      <translation>Online pomoc je dostupná...</translation>
+    </message>
+    <message>
+      <source>Live help is offline...</source>
+      <translation>Online pomoc je nyní nedostupná...</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Otevřít v novém okně</translation>
+    </message>
+    <message>
+      <source>Minimize/Restore</source>
+      <translation>Minimalizovat/Obnovit</translation>
+    </message>
+    <message>
+      <source>Need help?</source>
+      <translation>Potřebujete pomoc?</translation>
+    </message>
+    <message>
+      <source>Our staff is always ready to help</source>
+      <translation>Náš tým je stále připraven vám pomoci</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/htmlcode</name>
+    <message>
+      <source>HTML code</source>
+      <translation>HTML kód</translation>
+    </message>
+    <message>
+      <source>Popup width</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Popup height, used only if iframe is used</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Leave empty if it is not important to you</source>
+      <translation>Pokud to pro vás není důležité, nevyplňujte</translation>
+    </message>
+    <message>
+      <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a language</source>
+      <translation>Zvolte jazyk</translation>
+    </message>
+    <message>
+      <source>Choose prefered http mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Based on site (default)</source>
+      <translation>Převzato z webu  (výchozí) </translation>
+    </message>
+    <message>
+      <source>Widget embed code</source>
+      <translation>Embedovaný kód Widgetu</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>Embedovaný kód na stránku</translation>
+    </message>
+    <message>
+      <source>Chatbox messages content height</source>
+      <translation>Výška Chatboxu</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the page where you want it to be rendered</source>
+      <translation>Zkopírujte kód z textového okna do místa v kódu stránky, kde chcete zobrazovat okno LHC </translation>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation>Chatbox</translation>
+    </message>
+    <message>
+      <source>Position from the top, is only used if the Middle left or the Middle right side is chosen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pixels</source>
+      <translation>Pixelů</translation>
+    </message>
+    <message>
+      <source>Percents</source>
+      <translation>Procent</translation>
+    </message>
+    <message>
+      <source>Size</source>
+      <translation>Velikost</translation>
+    </message>
+    <message>
+      <source>Width</source>
+      <translation>Šířka</translation>
+    </message>
+    <message>
+      <source>Height</source>
+      <translation>Výška</translation>
+    </message>
+    <message>
+      <source>Position</source>
+      <translation>Pozice</translation>
+    </message>
+    <message>
+      <source>Bottom right corner of the screen</source>
+      <translation>Dolní pravý roh obrazovky</translation>
+    </message>
+    <message>
+      <source>Bottom left corner of the screen</source>
+      <translation>Levý dolní roh obrazovky</translation>
+    </message>
+    <message>
+      <source>Middle right side of the screen</source>
+      <translation>Střední pravá strana obrazovky</translation>
+    </message>
+    <message>
+      <source>Middle left side of the screen</source>
+      <translation>Střední levá část obrazovky</translation>
+    </message>
+    <message>
+      <source>Disable minimize icon</source>
+      <translation>Vypnout zobrazení ikony minimalizování</translation>
+    </message>
+    <message>
+      <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show chatbox content minimized first time if content is shown.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy the code from the textarea to page where you want it to be rendered</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Status text</source>
+      <translation>Stavový text</translation>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation>FAQ</translation>
+    </message>
+    <message>
+      <source>Position from the top, only used if the Middle left or the Middle right side is chosen</source>
+      <translation>Umístění od vrchu strany. Používá se pouze pokud máte zvolený typ zobrazení Uprostřed vlevo nebo Uprostřed vpravo</translation>
+    </message>
+    <message>
+      <source>Help us to grow</source>
+      <translation>Pomožte nám růst</translation>
+    </message>
+    <message>
+      <source>Embed code</source>
+      <translation>Embedovaný kód</translation>
+    </message>
+    <message>
+      <source>Hide status when offline</source>
+      <translation>Nezobrazovat stav pokud je operátor offline</translation>
+    </message>
+    <message>
+      <source>Show a leave a message form when there are no online operators</source>
+      <translation>Zobrazovat formulář pro zanechání vzkazu pokud nejsou operátoři online</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Oddělení</translation>
+    </message>
+    <message>
+      <source>Any</source>
+      <translation>libovolné</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the page where you want your status to appear</source>
+      <translation>Zkopírujte kód z textového okna do místa v kódu stránky, kde chcete zobrazovat stav</translation>
+    </message>
+    <message>
+      <source>On a mouse click show the page widget</source>
+      <translation>Zobrazit widget po kliku myší</translation>
+    </message>
+    <message>
+      <source>Automatically check for messages from the operator/invitation messages</source>
+      <translation>Automaticky kontrolovat  zprávy od operátora/pozvánky</translation>
+    </message>
+    <message>
+      <source>It increases server load, because every 15 seconds is checked for operator message or invitation message.</source>
+      <translation>To zvýší zatížení serveru, protože je každých 15 sekund jsou kontrolovány zprávy pro operátory a pozvánky.</translation>
+    </message>
+    <message>
+      <source>Disable pro active invitations, usefull if you want disable them from site part.</source>
+      <translation>Deaktivace proaktivních pozvánek k rozhovoru. Použijte, pokud chcete vypnout jejich použití na webu.</translation>
+    </message>
+    <message>
+      <source>Popup window size</source>
+      <translation>Velikost vyskakovacího okna</translation>
+    </message>
+    <message>
+      <source>Popup window width in pixels</source>
+      <translation>Šířka vyskakovacího okna v pixelech</translation>
+    </message>
+    <message>
+      <source>Popup window height in pixels</source>
+      <translation>Výška vyskakovacího okna v pixelech</translation>
+    </message>
+    <message>
+      <source>Widget width</source>
+      <translation>Šířka Widgetu</translation>
+    </message>
+    <message>
+      <source>Widget width in pixels</source>
+      <translation>Šířka Widgetu v pixelech</translation>
+    </message>
+    <message>
+      <source>height</source>
+      <translation>výška</translation>
+    </message>
+    <message>
+      <source>Widget height in pixels</source>
+      <translation>Výška widgetu v pixelech</translation>
+    </message>
+    <message>
+      <source>Native placement - it will be shown where the html is embedded</source>
+      <translation>Původní umístění - zobrazí se v místě, kde se nachází kód v HTML stránky</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Nastavení systému</translation>
+    </message>
+  </context>
+  <context>
+    <name>questionary/htmlcode</name>
+    <message>
+      <source>Show overlay</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show different offers for the same user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the page header or footer</source>
+      <translation>Zkopírujte kód z okna do hlavičky nebo patičky stránky</translation>
+    </message>
+    <message>
+      <source>Status text</source>
+      <translation>Stavové hlášení</translation>
+    </message>
+    <message>
+      <source>Expand the widget automatically for new users</source>
+      <translation>Rozbalit widget automaticky všem novým uživatelům</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>HTML code</source>
+      <translation>HTML kód</translation>
+    </message>
+  </context>
+  <context>
+    <name>browseoffer/index</name>
+    <message>
+      <source>Browse offers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>General</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Browse your offers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>HTML Code</source>
+      <translation>HTML kód</translation>
     </message>
   </context>
   <context>
@@ -481,7 +777,7 @@
     </message>
     <message>
       <source>Hidden</source>
-      <translation type="unfinished"/>
+      <translation>Skrytý</translation>
     </message>
     <message>
       <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
@@ -1510,6 +1806,34 @@
       <translation>online uživatelé</translation>
     </message>
     <message>
+      <source>Group list by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation>Odkud</translation>
+    </message>
+    <message>
+      <source>Page title</source>
+      <translation>Název stránky</translation>
+    </message>
+    <message>
+      <source>Referrer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Oddělení</translation>
+    </message>
+    <message>
       <source>Refresh list every</source>
       <translation>Aktualizovat seznam každých</translation>
     </message>
@@ -1526,12 +1850,12 @@
       <translation>Zobrazit návštěvníky, kteří byli na stránce před </translation>
     </message>
     <message>
-      <source>minit</source>
-      <translation>minutou</translation>
+      <source>minute</source>
+      <translation>minuta</translation>
     </message>
     <message>
-      <source>minits</source>
-      <translation>minutami</translation>
+      <source>minutes</source>
+      <translation>minut</translation>
     </message>
     <message>
       <source>hour</source>
@@ -1546,28 +1870,12 @@
       <translation>dní</translation>
     </message>
     <message>
-      <source>Page</source>
-      <translation>Odkud</translation>
-    </message>
-    <message>
       <source>Status</source>
       <translation>Stav</translation>
     </message>
     <message>
       <source>Action</source>
       <translation>Akce</translation>
-    </message>
-    <message>
-      <source>User does not have any messages from the operator</source>
-      <translation>Uživatel nemá žádnou zprávu od operátora</translation>
-    </message>
-    <message>
-      <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation>Uživatel ještě nečetl zprávu od operátora nebo je okno se zprávou stále otevřené.</translation>
-    </message>
-    <message>
-      <source>User has seen the message from the operator.</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>has sent a message to the user</source>
@@ -1586,10 +1894,6 @@
       <translation>poslední návštěva</translation>
     </message>
     <message>
-      <source>Empty...</source>
-      <translation>Prázdné...</translation>
-    </message>
-    <message>
       <source>Map</source>
       <translation>Mapa</translation>
     </message>
@@ -1600,6 +1904,18 @@
     <message>
       <source>Marker timeout before it dissapears from map</source>
       <translation>Doba, za jakou zmizí značka z mapy</translation>
+    </message>
+    <message>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <translation>Uživatel ještě nečetl zprávu od operátora nebo je okno se zprávou stále otevřené.</translation>
+    </message>
+    <message>
+      <source>User has seen the message from the operator.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User does not have any messages from the operator</source>
+      <translation>Uživatel nemá žádnou zprávu od operátora</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -1676,37 +1992,6 @@
     <message>
       <source>Online users</source>
       <translation>Online uživatelé</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/getstatus</name>
-    <message>
-      <source>Close</source>
-      <translation>Zavřít</translation>
-    </message>
-    <message>
-      <source>Live help is online...</source>
-      <translation>Online pomoc je dostupná...</translation>
-    </message>
-    <message>
-      <source>Live help is offline...</source>
-      <translation>Online pomoc je nyní nedostupná...</translation>
-    </message>
-    <message>
-      <source>Open in a new window</source>
-      <translation>Otevřít v novém okně</translation>
-    </message>
-    <message>
-      <source>Minimize/Restore</source>
-      <translation>Minimalizovat/Obnovit</translation>
-    </message>
-    <message>
-      <source>Need help?</source>
-      <translation>Potřebujete pomoc?</translation>
-    </message>
-    <message>
-      <source>Our staff is always ready to help</source>
-      <translation>Náš tým je stále připraven vám pomoci</translation>
     </message>
   </context>
   <context>
@@ -1908,221 +2193,6 @@
     </message>
   </context>
   <context>
-    <name>system/htmlcode</name>
-    <message>
-      <source>HTML code</source>
-      <translation>HTML kód</translation>
-    </message>
-    <message>
-      <source>Popup width</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Popup height, used only if iframe is used</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Leave empty if it is not important to you</source>
-      <translation>Pokud to pro vás není důležité, nevyplňujte</translation>
-    </message>
-    <message>
-      <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose a language</source>
-      <translation>Zvolte jazyk</translation>
-    </message>
-    <message>
-      <source>Choose prefered http mode</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Based on site (default)</source>
-      <translation>Převzato z webu  (výchozí) </translation>
-    </message>
-    <message>
-      <source>Widget embed code</source>
-      <translation>Embedovaný kód Widgetu</translation>
-    </message>
-    <message>
-      <source>Page embed code</source>
-      <translation>Embedovaný kód na stránku</translation>
-    </message>
-    <message>
-      <source>Chatbox messages content height</source>
-      <translation>Výška Chatboxu</translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the page where you want it to be rendered</source>
-      <translation>Zkopírujte kód z textového okna do místa v kódu stránky, kde chcete zobrazovat okno LHC </translation>
-    </message>
-    <message>
-      <source>Chatbox</source>
-      <translation>Chatbox</translation>
-    </message>
-    <message>
-      <source>Position from the top, is only used if the Middle left or the Middle right side is chosen</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Pixels</source>
-      <translation>Pixelů</translation>
-    </message>
-    <message>
-      <source>Percents</source>
-      <translation>Procent</translation>
-    </message>
-    <message>
-      <source>Size</source>
-      <translation>Velikost</translation>
-    </message>
-    <message>
-      <source>Width</source>
-      <translation>Šířka</translation>
-    </message>
-    <message>
-      <source>Height</source>
-      <translation>Výška</translation>
-    </message>
-    <message>
-      <source>Position</source>
-      <translation>Pozice</translation>
-    </message>
-    <message>
-      <source>Bottom right corner of the screen</source>
-      <translation>Dolní pravý roh obrazovky</translation>
-    </message>
-    <message>
-      <source>Bottom left corner of the screen</source>
-      <translation>Levý dolní roh obrazovky</translation>
-    </message>
-    <message>
-      <source>Middle right side of the screen</source>
-      <translation>Střední pravá strana obrazovky</translation>
-    </message>
-    <message>
-      <source>Middle left side of the screen</source>
-      <translation>Střední levá část obrazovky</translation>
-    </message>
-    <message>
-      <source>Disable minimize icon</source>
-      <translation>Vypnout zobrazení ikony minimalizování</translation>
-    </message>
-    <message>
-      <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Show chatbox content minimized first time if content is shown.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Copy the code from the textarea to page where you want it to be rendered</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Status text</source>
-      <translation>Stavový text</translation>
-    </message>
-    <message>
-      <source>FAQ</source>
-      <translation>FAQ</translation>
-    </message>
-    <message>
-      <source>Position from the top, only used if the Middle left or the Middle right side is chosen</source>
-      <translation>Umístění od vrchu strany. Používá se pouze pokud máte zvolený typ zobrazení Uprostřed vlevo nebo Uprostřed vpravo</translation>
-    </message>
-    <message>
-      <source>Help us to grow</source>
-      <translation>Pomožte nám růst</translation>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation>Embedovaný kód</translation>
-    </message>
-    <message>
-      <source>Hide status when offline</source>
-      <translation>Nezobrazovat stav pokud je operátor offline</translation>
-    </message>
-    <message>
-      <source>Show a leave a message form when there are no online operators</source>
-      <translation>Zobrazovat formulář pro zanechání vzkazu pokud nejsou operátoři online</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Oddělení</translation>
-    </message>
-    <message>
-      <source>Any</source>
-      <translation>libovolné</translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the page where you want your status to appear</source>
-      <translation>Zkopírujte kód z textového okna do místa v kódu stránky, kde chcete zobrazovat stav</translation>
-    </message>
-    <message>
-      <source>On a mouse click show the page widget</source>
-      <translation>Zobrazit widget po kliku myší</translation>
-    </message>
-    <message>
-      <source>Automatically check for messages from the operator/invitation messages</source>
-      <translation>Automaticky kontrolovat  zprávy od operátora/pozvánky</translation>
-    </message>
-    <message>
-      <source>It increases server load, because every 15 seconds is checked for operator message or invitation message.</source>
-      <translation>To zvýší zatížení serveru, protože je každých 15 sekund jsou kontrolovány zprávy pro operátory a pozvánky.</translation>
-    </message>
-    <message>
-      <source>Disable pro active invitations, usefull if you want disable them from site part.</source>
-      <translation>Deaktivace proaktivních pozvánek k rozhovoru. Použijte, pokud chcete vypnout jejich použití na webu.</translation>
-    </message>
-    <message>
-      <source>Popup window size</source>
-      <translation>Velikost vyskakovacího okna</translation>
-    </message>
-    <message>
-      <source>Popup window width in pixels</source>
-      <translation>Šířka vyskakovacího okna v pixelech</translation>
-    </message>
-    <message>
-      <source>Popup window height in pixels</source>
-      <translation>Výška vyskakovacího okna v pixelech</translation>
-    </message>
-    <message>
-      <source>Widget width</source>
-      <translation>Šířka Widgetu</translation>
-    </message>
-    <message>
-      <source>Widget width in pixels</source>
-      <translation>Šířka Widgetu v pixelech</translation>
-    </message>
-    <message>
-      <source>height</source>
-      <translation>výška</translation>
-    </message>
-    <message>
-      <source>Widget height in pixels</source>
-      <translation>Výška widgetu v pixelech</translation>
-    </message>
-    <message>
-      <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>Původní umístění - zobrazí se v místě, kde se nachází kód v HTML stránky</translation>
-    </message>
-    <message>
-      <source>System configuration</source>
-      <translation>Nastavení systému</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/lists</name>
     <message>
       <source>Choose what type of list you want to see</source>
@@ -2151,6 +2221,93 @@
     <message>
       <source>Chat lists</source>
       <translation>Seznamy rozhovorů</translation>
+    </message>
+  </context>
+  <context>
+    <name>pagelayout/pagelayout</name>
+    <message>
+      <source>Empty...</source>
+      <translation>Prázdné...</translation>
+    </message>
+    <message>
+      <source>Clean cache</source>
+      <translation>Vymazat cache</translation>
+    </message>
+    <message>
+      <source>Home</source>
+      <translation>Domů</translation>
+    </message>
+    <message>
+      <source>Chats transferred to you directly</source>
+      <translation>Rozhovory přesměrované přímo vám</translation>
+    </message>
+    <message>
+      <source>Transferred to your department</source>
+      <translation>Přesměrováno do vašeho oddělení</translation>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation>Čekající rozhovory</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Aktivní rozhovory</translation>
+    </message>
+    <message>
+      <source>Unread messages</source>
+      <translation>Nepřečtené zprávy</translation>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation>Ukončené rozhovory</translation>
+    </message>
+    <message>
+      <source>Configuration</source>
+      <translation>Nastavení</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Seznam rozhovorů</translation>
+    </message>
+    <message>
+      <source>Chat rooms</source>
+      <translation>Místnosti k rozhovorům</translation>
+    </message>
+    <message>
+      <source>New chat request</source>
+      <translation>Požadavek na nový rozhovor</translation>
+    </message>
+    <message>
+      <source>Menu</source>
+      <translation>Menu</translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Online návštěvníci</translation>
+    </message>
+    <message>
+      <source>Questionary</source>
+      <translation>Dotazníky</translation>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation>FAQ</translation>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation>Chatbox</translation>
+    </message>
+    <message>
+      <source>Browse offers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Account</source>
+      <translation>Účet</translation>
+    </message>
+    <message>
+      <source>Logout</source>
+      <translation>Odhlásit se</translation>
     </message>
   </context>
   <context>
@@ -2188,7 +2345,7 @@
     </message>
     <message>
       <source>Print</source>
-      <translation type="unfinished"/>
+      <translation>Tisk</translation>
     </message>
     <message>
       <source>Select department</source>
@@ -2197,6 +2354,10 @@
     <message>
       <source>Select user</source>
       <translation>Zvolte uživatele</translation>
+    </message>
+    <message>
+      <source>Type to search</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -2967,37 +3128,6 @@
     <message>
       <source>more information on how to use it</source>
       <translation>více informací, jak jej použít</translation>
-    </message>
-  </context>
-  <context>
-    <name>questionary/htmlcode</name>
-    <message>
-      <source>Show overlay</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Show different offers for the same user</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the page header or footer</source>
-      <translation>Zkopírujte kód z okna do hlavičky nebo patičky stránky</translation>
-    </message>
-    <message>
-      <source>Status text</source>
-      <translation>Stavové hlášení</translation>
-    </message>
-    <message>
-      <source>Expand the widget automatically for new users</source>
-      <translation>Rozbalit widget automaticky všem novým uživatelům</translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>HTML code</source>
-      <translation>HTML kód</translation>
     </message>
   </context>
   <context>
@@ -4031,93 +4161,6 @@
     </message>
   </context>
   <context>
-    <name>pagelayout/pagelayout</name>
-    <message>
-      <source>Clean cache</source>
-      <translation>Vymazat cache</translation>
-    </message>
-    <message>
-      <source>Home</source>
-      <translation>Domů</translation>
-    </message>
-    <message>
-      <source>Chats transferred to you directly</source>
-      <translation>Rozhovory přesměrované přímo vám</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Prázdné...</translation>
-    </message>
-    <message>
-      <source>Transferred to your department</source>
-      <translation>Přesměrováno do vašeho oddělení</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Čekající rozhovory</translation>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation>Aktivní rozhovory</translation>
-    </message>
-    <message>
-      <source>Unread messages</source>
-      <translation>Nepřečtené zprávy</translation>
-    </message>
-    <message>
-      <source>Closed chats</source>
-      <translation>Ukončené rozhovory</translation>
-    </message>
-    <message>
-      <source>Configuration</source>
-      <translation>Nastavení</translation>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation>Seznam rozhovorů</translation>
-    </message>
-    <message>
-      <source>Chat rooms</source>
-      <translation>Místnosti k rozhovorům</translation>
-    </message>
-    <message>
-      <source>New chat request</source>
-      <translation>Požadavek na nový rozhovor</translation>
-    </message>
-    <message>
-      <source>Menu</source>
-      <translation>Menu</translation>
-    </message>
-    <message>
-      <source>Online visitors</source>
-      <translation>Online návštěvníci</translation>
-    </message>
-    <message>
-      <source>Questionary</source>
-      <translation>Dotazníky</translation>
-    </message>
-    <message>
-      <source>FAQ</source>
-      <translation>FAQ</translation>
-    </message>
-    <message>
-      <source>Chatbox</source>
-      <translation>Chatbox</translation>
-    </message>
-    <message>
-      <source>Browse offers</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Account</source>
-      <translation>Účet</translation>
-    </message>
-    <message>
-      <source>Logout</source>
-      <translation>Odhlásit se</translation>
-    </message>
-  </context>
-  <context>
     <name>system/languages</name>
     <message>
       <source>Languages configuration</source>
@@ -4942,6 +4985,73 @@
     </message>
   </context>
   <context>
+    <name>abstract/browserofferinvitation</name>
+    <message>
+      <source>Name for personal purposes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time on site on single page in seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority, the lower the higher</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Popup width</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Popup height</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Measure units, px or percents</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>URL, enter * at the end for the wildcard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom iframe URL, takes priority over default content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default popup content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Load content in lhc iframe</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation>Aktivní</translation>
+    </message>
+    <message>
+      <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Matched times</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Browser offer invitations</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>abstract/email_template</name>
     <message>
       <source>Name, for personal purposes</source>
@@ -5077,92 +5187,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Prosím vyberte platný typ souboru!</translation>
-    </message>
-  </context>
-  <context>
-    <name>browseoffer/index</name>
-    <message>
-      <source>Browse offers</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>General</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Browse your offers</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>HTML Code</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>abstract/browserofferinvitation</name>
-    <message>
-      <source>Name for personal purposes</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Time on site on single page in seconds</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Priority, the lower the higher</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Popup width</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Popup height</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Measure units, px or percents</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>URL, enter * at the end for the wildcard</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Custom iframe URL, takes priority over default content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Default popup content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Load content in lhc iframe</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Active</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Matched times</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Browser offer invitations</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

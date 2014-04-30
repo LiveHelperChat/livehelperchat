@@ -70,7 +70,7 @@
     <name>abstract/abstract_form</name>
     <message>
       <source>Updated!</source>
-      <translation type="unfinished"/>
+      <translation>Ažurirano!</translation>
     </message>
   </context>
   <context>
@@ -184,6 +184,302 @@
     <name>abstract/list</name>
     <message>
       <source>Are you sure?</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/getstatus</name>
+    <message>
+      <source>Close</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live help is online...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live help is offline...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimize/Restore</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Our staff is always ready to help</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>system/htmlcode</name>
+    <message>
+      <source>HTML code</source>
+      <translation>HTML kod</translation>
+    </message>
+    <message>
+      <source>Popup width</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Popup height, used only if iframe is used</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
+      <translation>Oznaka. Može se upotrijebiti kao filter proaktivnih pozivnica za razgovor. Korisno je imati različite poruke za različite domene. Samo niz znakova bez specijalnih znakova i razmaka.</translation>
+    </message>
+    <message>
+      <source>Leave empty if it is not important to you</source>
+      <translation>Ostavite prazno ako Vam nije važno</translation>
+    </message>
+    <message>
+      <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a language</source>
+      <translation>Izaberi jezik</translation>
+    </message>
+    <message>
+      <source>Choose prefered http mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Based on site (default)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget embed code</source>
+      <translation>Kod za ugradnju widgeta</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>Kod za ugradnju u stranice</translation>
+    </message>
+    <message>
+      <source>Chatbox messages content height</source>
+      <translation>Visina sadržaja chatbox poruka</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the page where you want it to be rendered</source>
+      <translation>Kopiraj kod iz kućice s tekstom na stranicu na kojoj treba biti prikazan</translation>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Position from the top, is only used if the Middle left or the Middle right side is chosen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pixels</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Percents</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Size</source>
+      <translation>Veličina</translation>
+    </message>
+    <message>
+      <source>Width</source>
+      <translation>Širina</translation>
+    </message>
+    <message>
+      <source>Height</source>
+      <translation>Visina</translation>
+    </message>
+    <message>
+      <source>Position</source>
+      <translation>Pozicija</translation>
+    </message>
+    <message>
+      <source>Bottom right corner of the screen</source>
+      <translation>Donji desni kut ekrana</translation>
+    </message>
+    <message>
+      <source>Bottom left corner of the screen</source>
+      <translation>Donji lijevi kut ekrana</translation>
+    </message>
+    <message>
+      <source>Middle right side of the screen</source>
+      <translation>Sredina desne strane ekrana</translation>
+    </message>
+    <message>
+      <source>Middle left side of the screen</source>
+      <translation>Sredina lijeve strane ekrana</translation>
+    </message>
+    <message>
+      <source>Disable minimize icon</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show chatbox content minimized first time if content is shown.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy the code from the textarea to page where you want it to be rendered</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Status text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Position from the top, only used if the Middle left or the Middle right side is chosen</source>
+      <translation>Pozicija od vrha. Koristi se samo ako je odabrana srednja lijeva ili srednja desna strana</translation>
+    </message>
+    <message>
+      <source>Help us to grow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide status when offline</source>
+      <translation>Sakrij status dok si offline</translation>
+    </message>
+    <message>
+      <source>Show a leave a message form when there are no online operators</source>
+      <translation>Prikaži ostavi poruku obrazac ako nema operatera online</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Odjel</translation>
+    </message>
+    <message>
+      <source>Any</source>
+      <translation>Bilo koji</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the page where you want your status to appear</source>
+      <translation>Kopirajte kod iz kućice s tekstom na stranicu gdje treba biti prikazan vaš status</translation>
+    </message>
+    <message>
+      <source>On a mouse click show the page widget</source>
+      <translation>Na klik mišem prikaži widget na stranici</translation>
+    </message>
+    <message>
+      <source>Automatically check for messages from the operator/invitation messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>It increases server load, because every 15 seconds is checked for operator message or invitation message.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disable pro active invitations, usefull if you want disable them from site part.</source>
+      <translation>Onemogući pro aktivne pozivnice. Korisno ako ih želite onemogućiti u dijelu web sjedišta.</translation>
+    </message>
+    <message>
+      <source>Popup window size</source>
+      <translation>Veličina popup prozora</translation>
+    </message>
+    <message>
+      <source>Popup window width in pixels</source>
+      <translation>Širina popup przora u pikselima</translation>
+    </message>
+    <message>
+      <source>Popup window height in pixels</source>
+      <translation>Visina popup prozora u pikselima</translation>
+    </message>
+    <message>
+      <source>Widget width</source>
+      <translation>Širina widgeta</translation>
+    </message>
+    <message>
+      <source>Widget width in pixels</source>
+      <translation>Širina widgeta u pikselima</translation>
+    </message>
+    <message>
+      <source>height</source>
+      <translation>visina</translation>
+    </message>
+    <message>
+      <source>Widget height in pixels</source>
+      <translation>Visina widgeta u pikselima</translation>
+    </message>
+    <message>
+      <source>Native placement - it will be shown where the html is embedded</source>
+      <translation>Prirodan položaj - bit će pokazano tamo gdje je ugrađen HTML</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Konfiguracija sistema</translation>
+    </message>
+  </context>
+  <context>
+    <name>questionary/htmlcode</name>
+    <message>
+      <source>Show overlay</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show different offers for the same user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the page header or footer</source>
+      <translation>Kopiraj kod iz kućice s tekstom u zaglavlje ili podnožje stranice</translation>
+    </message>
+    <message>
+      <source>Status text</source>
+      <translation>Status tekst</translation>
+    </message>
+    <message>
+      <source>Expand the widget automatically for new users</source>
+      <translation>Proširi widget automatski za nove korisnike</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>HTML code</source>
+      <translation>HTML kod</translation>
+    </message>
+  </context>
+  <context>
+    <name>browseoffer/index</name>
+    <message>
+      <source>Browse offers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>General</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Browse your offers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>HTML Code</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -1510,6 +1806,34 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Group list by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation>Stranica</translation>
+    </message>
+    <message>
+      <source>Page title</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Referrer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Refresh list every</source>
       <translation type="unfinished"/>
     </message>
@@ -1526,12 +1850,12 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>minit</source>
-      <translation>minit</translation>
+      <source>minute</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>minits</source>
-      <translation>minits</translation>
+      <source>minutes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>hour</source>
@@ -1546,28 +1870,12 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Page</source>
-      <translation>Stranica</translation>
-    </message>
-    <message>
       <source>Status</source>
       <translation>Status</translation>
     </message>
     <message>
       <source>Action</source>
       <translation>Aktivnost</translation>
-    </message>
-    <message>
-      <source>User does not have any messages from the operator</source>
-      <translation>Korisnik nema poruka od operatera</translation>
-    </message>
-    <message>
-      <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation>Korisnik nije vidio poruku operatera ili je prozor s porukom još otvoren</translation>
-    </message>
-    <message>
-      <source>User has seen the message from the operator.</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>has sent a message to the user</source>
@@ -1586,10 +1894,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Empty...</source>
-      <translation>Prazno...</translation>
-    </message>
-    <message>
       <source>Map</source>
       <translation>Mapa</translation>
     </message>
@@ -1600,6 +1904,18 @@
     <message>
       <source>Marker timeout before it dissapears from map</source>
       <translation>Oznaka isteka vremena prije nego nestane s mape</translation>
+    </message>
+    <message>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <translation>Korisnik nije vidio poruku operatera ili je prozor s porukom još otvoren</translation>
+    </message>
+    <message>
+      <source>User has seen the message from the operator.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User does not have any messages from the operator</source>
+      <translation>Korisnik nema poruka od operatera</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -1679,37 +1995,6 @@
     </message>
   </context>
   <context>
-    <name>chat/getstatus</name>
-    <message>
-      <source>Close</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live help is online...</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live help is offline...</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Open in a new window</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Minimize/Restore</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help?</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Our staff is always ready to help</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
     <name>chat/listchatconfig</name>
     <message>
       <source>Chat configuration</source>
@@ -1760,11 +2045,11 @@
     <name>system/configuration</name>
     <message>
       <source>Request notification permission</source>
-      <translation type="unfinished"/>
+      <translation>Zatraži dozvolu za obavijesti</translation>
     </message>
     <message>
       <source>New chat notification settings</source>
-      <translation type="unfinished"/>
+      <translation>Nove postavke obavijesti za razgovor</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -1772,7 +2057,7 @@
     </message>
     <message>
       <source>Chat related</source>
-      <translation type="unfinished"/>
+      <translation>Vezano uz razgovor</translation>
     </message>
     <message>
       <source>Departments</source>
@@ -1780,19 +2065,19 @@
     </message>
     <message>
       <source>Blocked users</source>
-      <translation type="unfinished"/>
+      <translation>Blokirani korisnici</translation>
     </message>
     <message>
       <source>Chat configuration</source>
-      <translation type="unfinished"/>
+      <translation>Postavke razgovora</translation>
     </message>
     <message>
       <source>GEO detection configuration</source>
-      <translation type="unfinished"/>
+      <translation>Postavke GEO detekcije</translation>
     </message>
     <message>
       <source>Synchronization and sound settings</source>
-      <translation type="unfinished"/>
+      <translation>Postavke za sinkronizaciju i zvuk</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
@@ -1800,15 +2085,15 @@
     </message>
     <message>
       <source>Canned messages</source>
-      <translation type="unfinished"/>
+      <translation>Arhivirane poruke</translation>
     </message>
     <message>
       <source>E-mail templates</source>
-      <translation type="unfinished"/>
+      <translation>Predlošci za e-poštu</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
-      <translation type="unfinished"/>
+      <translation>Proaktivni pozivi za razgovor</translation>
     </message>
     <message>
       <source>Auto responder</source>
@@ -1816,7 +2101,7 @@
     </message>
     <message>
       <source>SMTP settings</source>
-      <translation type="unfinished"/>
+      <translation>SMTP postavke</translation>
     </message>
     <message>
       <source>XMPP settings</source>
@@ -1824,11 +2109,11 @@
     </message>
     <message>
       <source>Languages configuration</source>
-      <translation type="unfinished"/>
+      <translation>Postavke jezika</translation>
     </message>
     <message>
       <source>Chats list</source>
-      <translation type="unfinished"/>
+      <translation>Lista razgovora</translation>
     </message>
     <message>
       <source>Chat archive</source>
@@ -1864,11 +2149,11 @@
     </message>
     <message>
       <source>Statistic</source>
-      <translation type="unfinished"/>
+      <translation>Statistika</translation>
     </message>
     <message>
       <source>Users and their permissions</source>
-      <translation type="unfinished"/>
+      <translation>Korisnici i njihove dozvole</translation>
     </message>
     <message>
       <source>Users</source>
@@ -1896,7 +2181,7 @@
     </message>
     <message>
       <source>Other</source>
-      <translation type="unfinished"/>
+      <translation>Ostalo</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -1905,221 +2190,6 @@
     <message>
       <source>New file</source>
       <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>system/htmlcode</name>
-    <message>
-      <source>HTML code</source>
-      <translation>HTML kod</translation>
-    </message>
-    <message>
-      <source>Popup width</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Popup height, used only if iframe is used</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
-      <translation>Oznaka. Može se upotrijebiti kao filter proaktivnih pozivnica za razgovor. Korisno je imati različite poruke za različite domene. Samo niz znakova bez specijalnih znakova i razmaka.</translation>
-    </message>
-    <message>
-      <source>Leave empty if it is not important to you</source>
-      <translation>Ostavite prazno ako Vam nije važno</translation>
-    </message>
-    <message>
-      <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose a language</source>
-      <translation>Izaberi jezik</translation>
-    </message>
-    <message>
-      <source>Choose prefered http mode</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Based on site (default)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Widget embed code</source>
-      <translation>Kod za ugradnju widgeta</translation>
-    </message>
-    <message>
-      <source>Page embed code</source>
-      <translation>Kod za ugradnju u stranice</translation>
-    </message>
-    <message>
-      <source>Chatbox messages content height</source>
-      <translation>Visina sadržaja chatbox poruka</translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the page where you want it to be rendered</source>
-      <translation>Kopiraj kod iz kućice s tekstom na stranicu na kojoj treba biti prikazan</translation>
-    </message>
-    <message>
-      <source>Chatbox</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Position from the top, is only used if the Middle left or the Middle right side is chosen</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Pixels</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Percents</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Size</source>
-      <translation>Veličina</translation>
-    </message>
-    <message>
-      <source>Width</source>
-      <translation>Širina</translation>
-    </message>
-    <message>
-      <source>Height</source>
-      <translation>Visina</translation>
-    </message>
-    <message>
-      <source>Position</source>
-      <translation>Pozicija</translation>
-    </message>
-    <message>
-      <source>Bottom right corner of the screen</source>
-      <translation>Donji desni kut ekrana</translation>
-    </message>
-    <message>
-      <source>Bottom left corner of the screen</source>
-      <translation>Donji lijevi kut ekrana</translation>
-    </message>
-    <message>
-      <source>Middle right side of the screen</source>
-      <translation>Sredina desne strane ekrana</translation>
-    </message>
-    <message>
-      <source>Middle left side of the screen</source>
-      <translation>Sredina lijeve strane ekrana</translation>
-    </message>
-    <message>
-      <source>Disable minimize icon</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Show chatbox content minimized first time if content is shown.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Copy the code from the textarea to page where you want it to be rendered</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Status text</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>FAQ</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Position from the top, only used if the Middle left or the Middle right side is chosen</source>
-      <translation>Pozicija od vrha. Koristi se samo ako je odabrana srednja lijeva ili srednja desna strana</translation>
-    </message>
-    <message>
-      <source>Help us to grow</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Hide status when offline</source>
-      <translation>Sakrij status dok si offline</translation>
-    </message>
-    <message>
-      <source>Show a leave a message form when there are no online operators</source>
-      <translation>Prikaži ostavi poruku obrazac ako nema operatera online</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Odjel</translation>
-    </message>
-    <message>
-      <source>Any</source>
-      <translation>Bilo koji</translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the page where you want your status to appear</source>
-      <translation>Kopirajte kod iz kućice s tekstom na stranicu gdje treba biti prikazan vaš status</translation>
-    </message>
-    <message>
-      <source>On a mouse click show the page widget</source>
-      <translation>Na klik mišem prikaži widget na stranici</translation>
-    </message>
-    <message>
-      <source>Automatically check for messages from the operator/invitation messages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>It increases server load, because every 15 seconds is checked for operator message or invitation message.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Disable pro active invitations, usefull if you want disable them from site part.</source>
-      <translation>Onemogući pro aktivne pozivnice. Korisno ako ih želite onemogućiti u dijelu web sjedišta.</translation>
-    </message>
-    <message>
-      <source>Popup window size</source>
-      <translation>Veličina popup prozora</translation>
-    </message>
-    <message>
-      <source>Popup window width in pixels</source>
-      <translation>Širina popup przora u pikselima</translation>
-    </message>
-    <message>
-      <source>Popup window height in pixels</source>
-      <translation>Visina popup prozora u pikselima</translation>
-    </message>
-    <message>
-      <source>Widget width</source>
-      <translation>Širina widgeta</translation>
-    </message>
-    <message>
-      <source>Widget width in pixels</source>
-      <translation>Širina widgeta u pikselima</translation>
-    </message>
-    <message>
-      <source>height</source>
-      <translation>visina</translation>
-    </message>
-    <message>
-      <source>Widget height in pixels</source>
-      <translation>Visina widgeta u pikselima</translation>
-    </message>
-    <message>
-      <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>Prirodan položaj - bit će pokazano tamo gdje je ugrađen HTML</translation>
-    </message>
-    <message>
-      <source>System configuration</source>
-      <translation>Konfiguracija sistema</translation>
     </message>
   </context>
   <context>
@@ -2151,6 +2221,93 @@
     <message>
       <source>Chat lists</source>
       <translation>Lista razgovora</translation>
+    </message>
+  </context>
+  <context>
+    <name>pagelayout/pagelayout</name>
+    <message>
+      <source>Empty...</source>
+      <translation>Prazno...</translation>
+    </message>
+    <message>
+      <source>Clean cache</source>
+      <translation>Počisti memoriju</translation>
+    </message>
+    <message>
+      <source>Home</source>
+      <translation>Naslovnica</translation>
+    </message>
+    <message>
+      <source>Chats transferred to you directly</source>
+      <translation>Razgovori preneseni direktno vama</translation>
+    </message>
+    <message>
+      <source>Transferred to your department</source>
+      <translation>Preneseno vašem odjelu</translation>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation>Razgovori na čekanju</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Aktivni razgovori</translation>
+    </message>
+    <message>
+      <source>Unread messages</source>
+      <translation>Nepročitane poruke</translation>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation>Završeni razgovori</translation>
+    </message>
+    <message>
+      <source>Configuration</source>
+      <translation>Konfiguracija</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Lista razgovora</translation>
+    </message>
+    <message>
+      <source>Chat rooms</source>
+      <translation>Sobe za razgovor</translation>
+    </message>
+    <message>
+      <source>New chat request</source>
+      <translation>Novi zahtjev za razgovor</translation>
+    </message>
+    <message>
+      <source>Menu</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Online posjetitelja</translation>
+    </message>
+    <message>
+      <source>Questionary</source>
+      <translation>Upitnik</translation>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation>FAQ</translation>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Browse offers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Account</source>
+      <translation>Korisnički račun</translation>
+    </message>
+    <message>
+      <source>Logout</source>
+      <translation>Odjava</translation>
     </message>
   </context>
   <context>
@@ -2196,6 +2353,10 @@
     </message>
     <message>
       <source>Select user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Type to search</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -2384,15 +2545,15 @@
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Ime</translation>
     </message>
     <message>
       <source>This field is visible in the popup</source>
-      <translation type="unfinished"/>
+      <translation>Ovo polje je vidljivo u pop-upu</translation>
     </message>
     <message>
       <source>This field is visible in the page widget</source>
-      <translation type="unfinished"/>
+      <translation>Ovo polje je vidljivo u widgetu stranice</translation>
     </message>
     <message>
       <source>This field is invisible but prefilled data is collected</source>
@@ -2400,23 +2561,23 @@
     </message>
     <message>
       <source>This field is</source>
-      <translation type="unfinished"/>
+      <translation>Ovo polje je</translation>
     </message>
     <message>
       <source>Required</source>
-      <translation type="unfinished"/>
+      <translation>Obvezno</translation>
     </message>
     <message>
       <source>Optional</source>
-      <translation type="unfinished"/>
+      <translation>Neobvezno</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>E-pošta</translation>
     </message>
     <message>
       <source>Message</source>
-      <translation type="unfinished"/>
+      <translation>Poruka</translation>
     </message>
     <message>
       <source>Phone</source>
@@ -2436,11 +2597,11 @@
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>
-      <translation type="unfinished"/>
+      <translation>Molimo odaberite barem jedno polje za pop-up</translation>
     </message>
     <message>
       <source>Please choose at least one field for a page widget</source>
-      <translation type="unfinished"/>
+      <translation>Molimo odaberite barem jedno polje za widget stranice</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
@@ -2575,7 +2736,7 @@
     </message>
     <message>
       <source>Synchronization and sound settings</source>
-      <translation type="unfinished"/>
+      <translation>Postavke sinkronizacije i zvuka</translation>
     </message>
   </context>
   <context>
@@ -2970,37 +3131,6 @@
     </message>
   </context>
   <context>
-    <name>questionary/htmlcode</name>
-    <message>
-      <source>Show overlay</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Show different offers for the same user</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the page header or footer</source>
-      <translation>Kopiraj kod iz kućice s tekstom u zaglavlje ili podnožje stranice</translation>
-    </message>
-    <message>
-      <source>Status text</source>
-      <translation>Status tekst</translation>
-    </message>
-    <message>
-      <source>Expand the widget automatically for new users</source>
-      <translation>Proširi widget automatski za nove korisnike</translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>HTML code</source>
-      <translation>HTML kod</translation>
-    </message>
-  </context>
-  <context>
     <name>chatbox/list</name>
     <message>
       <source>Chatbox list</source>
@@ -3265,11 +3395,11 @@
     <name>faq/faqwidget</name>
     <message>
       <source>FAQ</source>
-      <translation type="unfinished"/>
+      <translation>FAQ</translation>
     </message>
     <message>
       <source>Ask a question</source>
-      <translation type="unfinished"/>
+      <translation>Postavi pitanje</translation>
     </message>
     <message>
       <source>Type your question</source>
@@ -3281,11 +3411,11 @@
     </message>
     <message>
       <source>Question</source>
-      <translation type="unfinished"/>
+      <translation>Pitanje</translation>
     </message>
     <message>
       <source>Send your question</source>
-      <translation type="unfinished"/>
+      <translation>Pošalji pitanje</translation>
     </message>
     <message>
       <source>Your question was submitted!</source>
@@ -3293,7 +3423,7 @@
     </message>
     <message>
       <source>Please enter a question!</source>
-      <translation type="unfinished"/>
+      <translation>Molimo unesite pitanje!</translation>
     </message>
     <message>
       <source>Please enter your email address!</source>
@@ -3304,11 +3434,11 @@
     <name>faq/new</name>
     <message>
       <source>Question</source>
-      <translation type="unfinished"/>
+      <translation>Pitanje</translation>
     </message>
     <message>
       <source>Answer</source>
-      <translation type="unfinished"/>
+      <translation>Odgovor</translation>
     </message>
     <message>
       <source>URL, enter * at the end for the wildcard</source>
@@ -3316,7 +3446,7 @@
     </message>
     <message>
       <source>The URL where this question should appear, leave it empty for all</source>
-      <translation type="unfinished"/>
+      <translation>URL gdje bi se ovo pitanje trebalo pojaviti, ostavite prazno za sve</translation>
     </message>
     <message>
       <source>Submitter e-mail</source>
@@ -3328,11 +3458,11 @@
     </message>
     <message>
       <source>Question is active</source>
-      <translation type="unfinished"/>
+      <translation>Pitanje je aktivno</translation>
     </message>
     <message>
       <source>New question</source>
-      <translation type="unfinished"/>
+      <translation>Novo pitanje</translation>
     </message>
   </context>
   <context>
@@ -3355,11 +3485,11 @@
     </message>
     <message>
       <source>Y</source>
-      <translation type="unfinished"/>
+      <translation>D</translation>
     </message>
     <message>
       <source>N</source>
-      <translation type="unfinished"/>
+      <translation>N</translation>
     </message>
     <message>
       <source>Edit</source>
@@ -3367,22 +3497,22 @@
     </message>
     <message>
       <source>Delete this question</source>
-      <translation type="unfinished"/>
+      <translation>Obrišite ovo pitanje</translation>
     </message>
     <message>
       <source>New question</source>
-      <translation type="unfinished"/>
+      <translation>Novo pitanje</translation>
     </message>
   </context>
   <context>
     <name>faq/view</name>
     <message>
       <source>View</source>
-      <translation type="unfinished"/>
+      <translation>Pogled</translation>
     </message>
     <message>
       <source>Please enter a manager name!</source>
-      <translation type="unfinished"/>
+      <translation>Molimo unesite ime upravljača</translation>
     </message>
     <message>
       <source>Please enter a chatbox name!</source>
@@ -3394,7 +3524,7 @@
     </message>
     <message>
       <source>Please enter answer!</source>
-      <translation type="unfinished"/>
+      <translation>Molimo unesite odgovor!</translation>
     </message>
     <message>
       <source>Identifier has to be shorter than 10 characters!</source>
@@ -3406,11 +3536,11 @@
     </message>
     <message>
       <source>FAQ</source>
-      <translation type="unfinished"/>
+      <translation>ČPP</translation>
     </message>
     <message>
       <source>FAQ description</source>
-      <translation type="unfinished"/>
+      <translation>Opis ČPP</translation>
     </message>
   </context>
   <context>
@@ -4031,93 +4161,6 @@
     </message>
   </context>
   <context>
-    <name>pagelayout/pagelayout</name>
-    <message>
-      <source>Clean cache</source>
-      <translation>Počisti memoriju</translation>
-    </message>
-    <message>
-      <source>Home</source>
-      <translation>Naslovnica</translation>
-    </message>
-    <message>
-      <source>Chats transferred to you directly</source>
-      <translation>Razgovori preneseni direktno vama</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Prazno...</translation>
-    </message>
-    <message>
-      <source>Transferred to your department</source>
-      <translation>Preneseno vašem odjelu</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Razgovori na čekanju</translation>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation>Aktivni razgovori</translation>
-    </message>
-    <message>
-      <source>Unread messages</source>
-      <translation>Nepročitane poruke</translation>
-    </message>
-    <message>
-      <source>Closed chats</source>
-      <translation>Završeni razgovori</translation>
-    </message>
-    <message>
-      <source>Configuration</source>
-      <translation>Konfiguracija</translation>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation>Lista razgovora</translation>
-    </message>
-    <message>
-      <source>Chat rooms</source>
-      <translation>Sobe za razgovor</translation>
-    </message>
-    <message>
-      <source>New chat request</source>
-      <translation>Novi zahtjev za razgovor</translation>
-    </message>
-    <message>
-      <source>Menu</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online visitors</source>
-      <translation>Online posjetitelja</translation>
-    </message>
-    <message>
-      <source>Questionary</source>
-      <translation>Upitnik</translation>
-    </message>
-    <message>
-      <source>FAQ</source>
-      <translation>FAQ</translation>
-    </message>
-    <message>
-      <source>Chatbox</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Browse offers</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Account</source>
-      <translation>Korisnički račun</translation>
-    </message>
-    <message>
-      <source>Logout</source>
-      <translation>Odjava</translation>
-    </message>
-  </context>
-  <context>
     <name>system/languages</name>
     <message>
       <source>Languages configuration</source>
@@ -4254,7 +4297,7 @@
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
-      <translation type="unfinished"/>
+      <translation>Ne unosite lozinku osim ako ju ne želite promijeniti</translation>
     </message>
     <message>
       <source>Username</source>
@@ -4432,7 +4475,7 @@
     </message>
     <message>
       <source>Please choose a default user group</source>
-      <translation type="unfinished"/>
+      <translation>Molimo odaberite zadanu korisničku grupu</translation>
     </message>
     <message>
       <source>Wrong email address</source>
@@ -4942,22 +4985,89 @@
     </message>
   </context>
   <context>
+    <name>abstract/browserofferinvitation</name>
+    <message>
+      <source>Name for personal purposes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time on site on single page in seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority, the lower the higher</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Popup width</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Popup height</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Measure units, px or percents</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>URL, enter * at the end for the wildcard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom iframe URL, takes priority over default content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default popup content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Load content in lhc iframe</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Matched times</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Browser offer invitations</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>abstract/email_template</name>
     <message>
       <source>Name, for personal purposes</source>
-      <translation type="unfinished"/>
+      <translation>Ime u osobne svrhe</translation>
     </message>
     <message>
       <source>Subject</source>
-      <translation type="unfinished"/>
+      <translation>Naslov</translation>
     </message>
     <message>
       <source>Allow user to change subject</source>
-      <translation type="unfinished"/>
+      <translation>Dozvoli korisniku da promjeni naslov</translation>
     </message>
     <message>
       <source>From name</source>
-      <translation type="unfinished"/>
+      <translation>Od ime</translation>
     </message>
     <message>
       <source>Allow to change from name</source>
@@ -4973,11 +5083,11 @@
     </message>
     <message>
       <source>Reply to</source>
-      <translation type="unfinished"/>
+      <translation>Odgovori</translation>
     </message>
     <message>
       <source>Allow to change reply e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Dozvoli promjenu e-pošte za odgovor</translation>
     </message>
     <message>
       <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
@@ -4989,11 +5099,11 @@
     </message>
     <message>
       <source>Content</source>
-      <translation type="unfinished"/>
+      <translation>Sadržaj</translation>
     </message>
     <message>
       <source>E-mail templates</source>
-      <translation type="unfinished"/>
+      <translation>Predlošci za e-poštu</translation>
     </message>
   </context>
   <context>
@@ -5076,92 +5186,6 @@
     <name>file/configurations</name>
     <message>
       <source>Please enter valid file type!</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>browseoffer/index</name>
-    <message>
-      <source>Browse offers</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>General</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Browse your offers</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>HTML Code</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>abstract/browserofferinvitation</name>
-    <message>
-      <source>Name for personal purposes</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Time on site on single page in seconds</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Priority, the lower the higher</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Popup width</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Popup height</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Measure units, px or percents</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>URL, enter * at the end for the wildcard</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Custom iframe URL, takes priority over default content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Default popup content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Load content in lhc iframe</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Active</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Matched times</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Browser offer invitations</source>
       <translation type="unfinished"/>
     </message>
   </context>

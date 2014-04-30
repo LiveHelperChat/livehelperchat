@@ -63,7 +63,7 @@
     </message>
     <message>
       <source>Send test message</source>
-      <translation type="unfinished"/>
+      <translation>Skicka testmeddelande</translation>
     </message>
   </context>
   <context>
@@ -133,11 +133,11 @@
     </message>
     <message>
       <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
-      <translation type="unfinished"/>
+      <translation>Hänvisningsdomän utan www, exempelvis google sökord matchar alla google domäner</translation>
     </message>
     <message>
       <source>How many times user show invitation, 0 - untill users closes it, &gt; 0 limits.</source>
-      <translation type="unfinished"/>
+      <translation>Hur många gånger användare visar inbjudan, 0 - tills användare stänger ned, &gt; 0 gränser.</translation>
     </message>
     <message>
       <source>Requires e-mail</source>
@@ -145,7 +145,7 @@
     </message>
     <message>
       <source>Requires name</source>
-      <translation type="unfinished"/>
+      <translation>Namn är obligatoriskt</translation>
     </message>
     <message>
       <source>Show random operator profile</source>
@@ -153,7 +153,7 @@
     </message>
     <message>
       <source>Enter operators IDs from whom random operator should be shown, separated by comma</source>
-      <translation type="unfinished"/>
+      <translation>Ange operatörs ID från vilken en slumpmässig operatör visas, separerat med komma</translation>
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
@@ -161,7 +161,7 @@
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Avdelning</translation>
     </message>
     <message>
       <source>Matched times</source>
@@ -188,1497 +188,6 @@
     </message>
   </context>
   <context>
-    <name>chat/activechats</name>
-    <message>
-      <source>Active chats list</source>
-      <translation>Lista på aktiva chattar</translation>
-    </message>
-    <message>
-      <source>Information</source>
-      <translation>Information</translation>
-    </message>
-    <message>
-      <source>Open in a new window</source>
-      <translation>Öppna i ett nytt fönster</translation>
-    </message>
-    <message>
-      <source>Close chat</source>
-      <translation>Stäng chatt</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Ta bort chatt</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Tom...</translation>
-    </message>
-    <message>
-      <source>Chats lists</source>
-      <translation>Chattlista</translation>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation>Aktiva chattar</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/chat</name>
-    <message>
-      <source>Show/Hide right column</source>
-      <translation>Visa/Dölj höger kolumn</translation>
-    </message>
-    <message>
-      <source>User is typing now...</source>
-      <translation>Användaren skriver...</translation>
-    </message>
-    <message>
-      <source>Change chat status</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Pending</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Active</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Closed</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chatbox chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Operators chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Cancel</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>This chat is closed.</source>
-      <translation>Den här chatten är stängd</translation>
-    </message>
-    <message>
-      <source>Pending confirm</source>
-      <translation>Väntar på bekräftelse</translation>
-    </message>
-    <message>
-      <source>Close</source>
-      <translation>Stäng</translation>
-    </message>
-    <message>
-      <source>Enter your message</source>
-      <translation>Skriv in ditt meddelande</translation>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation>Skicka</translation>
-    </message>
-    <message>
-      <source>BB Code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chatbox is disabled.</source>
-      <translation>Chattboxen är avaktiverad</translation>
-    </message>
-    <message>
-      <source>Invalid hash or auto creation is disabled</source>
-      <translation>Felaktig hash eller så är autoskapandet avaktiverat</translation>
-    </message>
-    <message>
-      <source>Visitor</source>
-      <translation>Besökare</translation>
-    </message>
-    <message>
-      <source>Chat started</source>
-      <translation>Chatt startad</translation>
-    </message>
-    <message>
-      <source>is typing now...</source>
-      <translation>skriver nu ...</translation>
-    </message>
-    <message>
-      <source>Operator is typing now...</source>
-      <translation>Operatören skriver...</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/bbcodeinsert</name>
-    <message>
-      <source>Image</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Link</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Link title</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Bold</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Italic</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter link to an image</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter a link</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Here is a link</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/blockedusers</name>
-    <message>
-      <source>Blocked users</source>
-      <translation>Blockerade användare</translation>
-    </message>
-    <message>
-      <source>IP</source>
-      <translation>IP</translation>
-    </message>
-    <message>
-      <source>Date</source>
-      <translation>Datum</translation>
-    </message>
-    <message>
-      <source>Users who are blocked</source>
-      <translation>Blockerade användare</translation>
-    </message>
-    <message>
-      <source>Remove block</source>
-      <translation>Ta bort blockering</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Tom...</translation>
-    </message>
-    <message>
-      <source>User was blocked!</source>
-      <translation>Användare blockerad!</translation>
-    </message>
-    <message>
-      <source>User blocking failed, perhaps you do not have permission to block users?</source>
-      <translation>Det gick inte att blockera användaren, kanske saknar du rättigheter för detta?</translation>
-    </message>
-  </context>
-  <context>
-    <name>kernel/message</name>
-    <message>
-      <source>Are you sure?</source>
-      <translation>Är du säker?</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/cannedmsg</name>
-    <message>
-      <source>Canned messages</source>
-      <translation>Sparade snabbmeddelanden</translation>
-    </message>
-    <message>
-      <source>Message</source>
-      <translation>Meddelande</translation>
-    </message>
-    <message>
-      <source>User</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Delay</source>
-      <translation>Fördröjning</translation>
-    </message>
-    <message>
-      <source>Position</source>
-      <translation>Position</translation>
-    </message>
-    <message>
-      <source>Edit message</source>
-      <translation>Redigera meddelande</translation>
-    </message>
-    <message>
-      <source>Delete message</source>
-      <translation>Ta bort meddelande</translation>
-    </message>
-    <message>
-      <source>New canned message</source>
-      <translation>Nytt snabbmeddelande</translation>
-    </message>
-    <message>
-      <source>Edit canned message</source>
-      <translation>Redigera snabbmeddelande</translation>
-    </message>
-    <message>
-      <source>Delay in seconds</source>
-      <translation>Fördröjning i sekunder</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Personal canned message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Canned message was saved</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>System configuration</source>
-      <translation>System inställningar</translation>
-    </message>
-    <message>
-      <source>Please enter canned message</source>
-      <translation>Skriv in snabbmeddelande</translation>
-    </message>
-    <message>
-      <source>Please enter a canned message</source>
-      <translation>Skriv in snabbmeddelande</translation>
-    </message>
-  </context>
-  <context>
-    <name>department/edit</name>
-    <message>
-      <source>Any</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Edit department</source>
-      <translation>Redigera avdelning</translation>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>Namn</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-post</translation>
-    </message>
-    <message>
-      <source>Disabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Will not be visible to visitor</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Hidden</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Priority</source>
-      <translation>Prioritet</translation>
-    </message>
-    <message>
-      <source>Automate online hours</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Work hours/work days logic is active</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Monday</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Tuesday</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Wednesday</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Thursday</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Friday</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Saturday</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Sunday</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>From, E.g. 8</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>To, E.g. 17</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Notifications about new chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMPP recipients</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMPP group recipients</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>E.g somechat@conference.server.org/LiveChat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>These messages will be send as group messages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Inform about new chats using</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMPP messages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Mail messages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>How many seconds chat can be pending before about chat is informed a staff</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Inform about unread messages if from last unread user message have passed (seconds)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter value in seconds</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Other</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Inform then chat is closed by operator, only mail notification is send.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat transfer worklow</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>To what department chat should be transfered if it is not accepted</source>
-      <translation>Till vilken avdelning chatten ska vidarebefordras om den inte blir accepterad</translation>
-    </message>
-    <message>
-      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
-      <translation>Timeout i sekunder innan chatten vidarebefodras till en annan avdelning. Minst 5s.</translation>
-    </message>
-    <message>
-      <source>Miscellaneous</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
-      <translation>Det här fältet kan vara 50 tecken långt och kan användas för tillägg. Det här fältet är även  indexerat.</translation>
-    </message>
-    <message>
-      <source>None</source>
-      <translation>Ingen</translation>
-    </message>
-    <message>
-      <source>System configuration</source>
-      <translation>System inställningar</translation>
-    </message>
-    <message>
-      <source>departments</source>
-      <translation>avdelningar</translation>
-    </message>
-    <message>
-      <source>Edit a department</source>
-      <translation>Redigera en avdelning</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/chatnotexists</name>
-    <message>
-      <source>Resume chat</source>
-      <translation>Återuppta chatt</translation>
-    </message>
-    <message>
-      <source>Chat was deleted</source>
-      <translation>Chatt borttagen</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/adminchat</name>
-    <message>
-      <source>Footprint</source>
-      <translation>Fotspår</translation>
-    </message>
-    <message>
-      <source>Visitor</source>
-      <translation>Besökare</translation>
-    </message>
-    <message>
-      <source>General information</source>
-      <translation>Allmän information</translation>
-    </message>
-    <message>
-      <source>Files</source>
-      <translation>Filer</translation>
-    </message>
-    <message>
-      <source>Click to change chat status</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Pending chat</source>
-      <translation>Väntande chatt</translation>
-    </message>
-    <message>
-      <source>Active chat</source>
-      <translation>Aktiv chatt</translation>
-    </message>
-    <message>
-      <source>Closed chat</source>
-      <translation>Stängd chatt</translation>
-    </message>
-    <message>
-      <source>Chatbox chat</source>
-      <translation>Chattbox chatt</translation>
-    </message>
-    <message>
-      <source>Operators chat</source>
-      <translation>Operatörschatt</translation>
-    </message>
-    <message>
-      <source>Information</source>
-      <translation>Information</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation>Land</translation>
-    </message>
-    <message>
-      <source>City</source>
-      <translation>Stad</translation>
-    </message>
-    <message>
-      <source>Page</source>
-      <translation>Sida</translation>
-    </message>
-    <message>
-      <source>Came from</source>
-      <translation>Kom från</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-post</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Telefonnr</translation>
-    </message>
-    <message>
-      <source>Additional data</source>
-      <translation>Extra data</translation>
-    </message>
-    <message>
-      <source>Created</source>
-      <translation>Skapad</translation>
-    </message>
-    <message>
-      <source>Waited</source>
-      <translation>Väntat</translation>
-    </message>
-    <message>
-      <source>Chat duration</source>
-      <translation>Chattlängd</translation>
-    </message>
-    <message>
-      <source>Actions</source>
-      <translation>Aktiviteter</translation>
-    </message>
-    <message>
-      <source>Close dialog</source>
-      <translation>Stäng dialogrutan</translation>
-    </message>
-    <message>
-      <source>Close chat</source>
-      <translation>Stäng chatt</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Ta bort chatt</translation>
-    </message>
-    <message>
-      <source>Transfer chat</source>
-      <translation>Vidarebefodra chatten</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>Är du säker?</translation>
-    </message>
-    <message>
-      <source>Block user</source>
-      <translation>Blockera användare</translation>
-    </message>
-    <message>
-      <source>Mail was send</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Send mail</source>
-      <translation>Skicka e-post</translation>
-    </message>
-    <message>
-      <source>Redirect user to contact form.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Print</source>
-      <translation>Skriv ut</translation>
-    </message>
-    <message>
-      <source>Attatch uploaded file</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat between operators, chat initializer</source>
-      <translation>Chatt mellan operatörer, initerad av</translation>
-    </message>
-    <message>
-      <source>Chat owner</source>
-      <translation>Chattägare</translation>
-    </message>
-    <message>
-      <source>Map</source>
-      <translation>Karta</translation>
-    </message>
-    <message>
-      <source>Could not detect. Make sure that GEO detection is enabled.</source>
-      <translation>Kunde inte hitta. Kontrollera att GEO spårning är aktiverad.</translation>
-    </message>
-    <message>
-      <source>Browsing information</source>
-      <translation>Browsing information</translation>
-    </message>
-    <message>
-      <source>Refresh</source>
-      <translation>Uppdatera</translation>
-    </message>
-    <message>
-      <source>Remarks</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chats</source>
-      <translation>Chattar</translation>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation>Skicka</translation>
-    </message>
-    <message>
-      <source>Reopen chat</source>
-      <translation>Återuppta chatten</translation>
-    </message>
-    <message>
-      <source>Select a canned message</source>
-      <translation>Välj snabbmeddelande</translation>
-    </message>
-    <message>
-      <source>Fill textarea with canned message</source>
-      <translation>Fyll textrutan med snabbmeddelandet</translation>
-    </message>
-    <message>
-      <source>Send delayed canned message instantly</source>
-      <translation>Skicka snabbmeddelande direkt</translation>
-    </message>
-    <message>
-      <source>Messages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid chat status</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>files/files</name>
-    <message>
-      <source>Refresh</source>
-      <translation>Uppdatera</translation>
-    </message>
-    <message>
-      <source>Delete file</source>
-      <translation>Ta bort fil</translation>
-    </message>
-    <message>
-      <source>Download file</source>
-      <translation>Ladda ner fil</translation>
-    </message>
-    <message>
-      <source>Drop your files here.</source>
-      <translation>Släpp dina filer här.</translation>
-    </message>
-    <message>
-      <source>Not an accepted file type</source>
-      <translation>Inte en godkänd filtyp</translation>
-    </message>
-    <message>
-      <source>Filesize is too big</source>
-      <translation>Filstorleken är för stor</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/syncadmininterface</name>
-    <message>
-      <source>Open in a new window</source>
-      <translation>Öppna i ett nytt fönster</translation>
-    </message>
-    <message>
-      <source>Add chat</source>
-      <translation>Lägg till en chatt</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Tom...</translation>
-    </message>
-    <message>
-      <source>Start chat</source>
-      <translation>Starta chatt</translation>
-    </message>
-    <message>
-      <source>Last activity</source>
-      <translation>Senaste aktivitet</translation>
-    </message>
-    <message>
-      <source>ago</source>
-      <translation>sedan</translation>
-    </message>
-    <message>
-      <source>Redirect user to contact form.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Accept chat</source>
-      <translation>Acceptera chatt</translation>
-    </message>
-    <message>
-      <source>h.</source>
-      <translation>h.</translation>
-    </message>
-    <message>
-      <source>m.</source>
-      <translation>m.</translation>
-    </message>
-    <message>
-      <source>s.</source>
-      <translation>s.</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/screenshot</name>
-    <message>
-      <source>Screenshot</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Take user screenshot</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Refresh</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Taken</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Perhaps screenshot is under way or screenshot is not supported on client browser, click refresh to check for a screenshot</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Screenshot ready...</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>front/default</name>
-    <message>
-      <source>Pending confirm</source>
-      <translation>Väntar på bekräftelse</translation>
-    </message>
-    <message>
-      <source>All pending chats</source>
-      <translation>Alla väntande chattar </translation>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation>Aktiva chattar</translation>
-    </message>
-    <message>
-      <source>All active chats</source>
-      <translation>Alla aktiva chattar</translation>
-    </message>
-    <message>
-      <source>Unread messages</source>
-      <translation>Olästa meddelanden</translation>
-    </message>
-    <message>
-      <source>All unread chats</source>
-      <translation>Alla olästa chattar</translation>
-    </message>
-    <message>
-      <source>Closed chats</source>
-      <translation>Avslutade chattar</translation>
-    </message>
-    <message>
-      <source>All closed chats</source>
-      <translation>Alla avslutade chattar</translation>
-    </message>
-    <message>
-      <source>You do not have permission to use chattabschrome function</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>login first.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online operators</source>
-      <translation>Tillgängliga operatörer</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/startchat</name>
-    <message>
-      <source>Department is disabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>Namn</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-post</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Telefonnr</translation>
-    </message>
-    <message>
-      <source>Enter your message</source>
-      <translation>Lämna ditt meddelande</translation>
-    </message>
-    <message>
-      <source>Your question</source>
-      <translation>Din fråga</translation>
-    </message>
-    <message>
-      <source>Start chat</source>
-      <translation>Starta chatt</translation>
-    </message>
-    <message>
-      <source>There are no online operators at the moment, please leave a message</source>
-      <translation>Det finns inga operatörer tillgängliga för närvarande, vänligen lämna ett meddelande</translation>
-    </message>
-    <message>
-      <source>Leave a message</source>
-      <translation>Lämna ett meddelande</translation>
-    </message>
-    <message>
-      <source>Your request was sent!</source>
-      <translation>Din förfrågan skickades!</translation>
-    </message>
-    <message>
-      <source>I accept my personal data will be handled according to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>our terms and to the Law</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Avdelning</translation>
-    </message>
-    <message>
-      <source>Offline</source>
-      <translation>Otillgänglig</translation>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Skriv in ditt meddelande och tryck enter för att skicka...</translation>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation>Skicka</translation>
-    </message>
-    <message>
-      <source>Personal assistant</source>
-      <translation>Personlig assistans</translation>
-    </message>
-    <message>
-      <source>Fill out this form to start a chat</source>
-      <translation>Fyll i formuläret för att starta en chatt</translation>
-    </message>
-    <message>
-      <source>There are no online operators at the moment, please leave your message</source>
-      <translation>Det finns inga operatörer tillgängliga för närvarande, vänligen lämna ditt meddelande</translation>
-    </message>
-    <message>
-      <source>You do not have permission to chat! Please contact site owner.</source>
-      <translation>Du har inte rättigheter att chatta, vänligen kontakta webbplatsens ägare.</translation>
-    </message>
-    <message>
-      <source>Invalid captcha code, please enable Javascript!</source>
-      <translation>Ogiltig captcha kod, vänligen aktivera Javascript!</translation>
-    </message>
-    <message>
-      <source>Please enter your name</source>
-      <translation>Vänligen skriv in ditt namn</translation>
-    </message>
-    <message>
-      <source>Maximum 50 characters</source>
-      <translation>Max 50 tecken</translation>
-    </message>
-    <message>
-      <source>Please enter a valid email address</source>
-      <translation>Vänligen ange en giltig e-post adress</translation>
-    </message>
-    <message>
-      <source>Please enter your message</source>
-      <translation>Vänligen skriv in ditt meddelande</translation>
-    </message>
-    <message>
-      <source>Maximum</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>characters for a message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You have to accept our Terms Of Service</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter your phone</source>
-      <translation>Vänligen ange ditt telefonnummer</translation>
-    </message>
-    <message>
-      <source>Maximum 100 characters for phone</source>
-      <translation>Max 100 tecken för telefonnr</translation>
-    </message>
-    <message>
-      <source>Could not determine a default department!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>is required</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live Support</source>
-      <translation>Live support</translation>
-    </message>
-    <message>
-      <source>Please enter a message, max characters</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visitor</source>
-      <translation>Besökare</translation>
-    </message>
-    <message>
-      <source>Fill in the form to start a chat</source>
-      <translation>Fyll i formuläret för att starta en chatt</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/checkchatstatus</name>
-    <message>
-      <source>A support staff member has joined this chat</source>
-      <translation>En support medarbetare har anslutit till chatten</translation>
-    </message>
-    <message>
-      <source>A support staff member has closed this chat</source>
-      <translation>En support medarbetare har stängt chatten</translation>
-    </message>
-    <message>
-      <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
-      <translation>I väntan på att en support medarbetare ansluter kan du skriva dina frågor så får han dem när han ansluter till chatten.</translation>
-    </message>
-    <message>
-      <source>At this moment there are no logged in support staff members, but you can leave your messages</source>
-      <translation>För närvarande finns ingen support medarbetare tillgänglig, men du kan lämnna ett meddelande</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/closedchats</name>
-    <message>
-      <source>Closed chats list</source>
-      <translation>Lista på avslutade chattar</translation>
-    </message>
-    <message>
-      <source>Information</source>
-      <translation>Information</translation>
-    </message>
-    <message>
-      <source>Open in a new window</source>
-      <translation>Öppna i ett nytt fönster</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Ta bort chatt</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Tom...</translation>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation>Chattlista</translation>
-    </message>
-    <message>
-      <source>Closed chats</source>
-      <translation>Avslutade chattar</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/user_settings</name>
-    <message>
-      <source>Enable/Disable sound about new messages from the operator</source>
-      <translation>Av-/aktivera ljud för nya meddelanden från operatören</translation>
-    </message>
-    <message>
-      <source>Print</source>
-      <translation>Skriv ut</translation>
-    </message>
-    <message>
-      <source>Send chat transcript to your e-mail</source>
-      <translation>Skicka chattloggen till din e-post</translation>
-    </message>
-    <message>
-      <source>Enable/Disable sound about new messages from users</source>
-      <translation>Av-/aktivera ljud för nya meddelanden från användare</translation>
-    </message>
-    <message>
-      <source>Enable/Disable sound about new pending chats</source>
-      <translation>Av-/aktivera ljud för väntande chattar</translation>
-    </message>
-    <message>
-      <source>Change my visibility to visible/invisible</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Change my status to online/offline</source>
-      <translation>Ändra min status till tillgänglig/frånvarande</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/editchatconfig</name>
-    <message>
-      <source>Edit</source>
-      <translation>Redigera</translation>
-    </message>
-    <message>
-      <source>Value in</source>
-      <translation>Värde i</translation>
-    </message>
-    <message>
-      <source>site access</source>
-      <translation>webbplatsåtkomst</translation>
-    </message>
-    <message>
-      <source>Update</source>
-      <translation>Uppdatera</translation>
-    </message>
-    <message>
-      <source>Data updated</source>
-      <translation>Data uppdaterat</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/errors/adminchatnopermission</name>
-    <message>
-      <source>You do not have permission to access the current chat!</source>
-      <translation>Du har inte rättigheter att ansluta till den aktuella chatten!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/errors/entertext</name>
-    <message>
-      <source>Please enter text!</source>
-      <translation>Vänligen skriv in text</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/onlineusers</name>
-    <message>
-      <source>GEO detection configuration</source>
-      <translation>Geografisk plats inställningar</translation>
-    </message>
-    <message>
-      <source>GEO Enabled</source>
-      <translation>GEO aktiverad</translation>
-    </message>
-    <message>
-      <source>Use this service</source>
-      <translation>Använd denna tjänst</translation>
-    </message>
-    <message>
-      <source>Save</source>
-      <translation>Spara</translation>
-    </message>
-    <message>
-      <source>Use mod_geoip2</source>
-      <translation>Använd mod_geoip2</translation>
-    </message>
-    <message>
-      <source>Country code server variable</source>
-      <translation>Landskod server värde</translation>
-    </message>
-    <message>
-      <source>Country name server variable</source>
-      <translation>Land namnserver värde</translation>
-    </message>
-    <message>
-      <source>City name server variable</source>
-      <translation>Stad namnserver värde</translation>
-    </message>
-    <message>
-      <source>Region name server variable</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Latitude variable</source>
-      <translation>Latitude värde</translation>
-    </message>
-    <message>
-      <source>Longitude variable</source>
-      <translation>Longitude värde</translation>
-    </message>
-    <message>
-      <source>Use MaxMind, does not depend on any third party remote service</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You can download city/country database from.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>bcmath php extension detected</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Location of city database</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User country based detection, faster</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>File exists</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>File does not exists</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User city based detection, slower</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Use PHP-GeoIP module</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Support for PHP-GeoIP detected</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Requests will be comming from</source>
-      <translation>Förfrågningar kommer att komma från</translation>
-    </message>
-    <message>
-      <source>API Key</source>
-      <translation>API nyckel</translation>
-    </message>
-    <message>
-      <source>Username</source>
-      <translation>Användarnamn</translation>
-    </message>
-    <message>
-      <source>IP, if your site remote IP is different from detected one, please provide correct remote IP address</source>
-      <translation>IP, om ditt webbplats fjärr ip är skilt från den automatiskt funna, ange korrekt fjärr IP adress</translation>
-    </message>
-    <message>
-      <source>Map location</source>
-      <translation>Plats på kartan</translation>
-    </message>
-    <message>
-      <source>Drag a marker where you want to have map centered by default. Zoom is also saved.</source>
-      <translation>Dra markören dit du vill ha kartan centrerad som standard. Även zoom nivå sparas.</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Inställningar uppdaterade</translation>
-    </message>
-    <message>
-      <source>Send message</source>
-      <translation>Skicka meddelandet</translation>
-    </message>
-    <message>
-      <source>City</source>
-      <translation>Stad</translation>
-    </message>
-    <message>
-      <source>Lat.</source>
-      <translation>Lat.</translation>
-    </message>
-    <message>
-      <source>Lon.</source>
-      <translation>Lon.</translation>
-    </message>
-    <message>
-      <source>Identifier</source>
-      <translation>Identifierare</translation>
-    </message>
-    <message>
-      <source>Additional information</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Last activity</source>
-      <translation>Senaste aktivitet</translation>
-    </message>
-    <message>
-      <source>ago</source>
-      <translation>sedan</translation>
-    </message>
-    <message>
-      <source>User does not have any message from operator</source>
-      <translation>Användaren har inte fått något meddelande från operatör</translation>
-    </message>
-    <message>
-      <source>User have not seen message from operator, or message window still open.</source>
-      <translation>Användaren har inte sett operatörens meddelande eller så är meddelanderutan fortfarande öppen.</translation>
-    </message>
-    <message>
-      <source>User has seen message from operator.</source>
-      <translation>Användaren har sett meddelandet från operatören.</translation>
-    </message>
-    <message>
-      <source>User is chatting</source>
-      <translation>Användaren är i chatten</translation>
-    </message>
-    <message>
-      <source>User is not having any chat right now</source>
-      <translation>Användaren är f n inte i en chatt</translation>
-    </message>
-    <message>
-      <source>has send message to user</source>
-      <translation>har skickat meddelande till användaren</translation>
-    </message>
-    <message>
-      <source>No one has send any message to user yet</source>
-      <translation>Ingen har skickat meddelande till användaren ännu</translation>
-    </message>
-    <message>
-      <source>First visit</source>
-      <translation>Första besök</translation>
-    </message>
-    <message>
-      <source>Last visit</source>
-      <translation>Senaste besök</translation>
-    </message>
-    <message>
-      <source>Total visits</source>
-      <translation>Totalt antal besök</translation>
-    </message>
-    <message>
-      <source>time(s) invitation logic was applied</source>
-      <translation>gång(er) inbjudningslogik var nyttjad</translation>
-    </message>
-    <message>
-      <source>Pageviews</source>
-      <translation>Sidan sedd ggr</translation>
-    </message>
-    <message>
-      <source>Total pageviews</source>
-      <translation>Totalt antal sidvisningar</translation>
-    </message>
-    <message>
-      <source>Time on site</source>
-      <translation>Tid på webbplatsen</translation>
-    </message>
-    <message>
-      <source>Total time on site</source>
-      <translation>Total tid på webbplatsen</translation>
-    </message>
-    <message>
-      <source>Current page</source>
-      <translation>Aktuell sida</translation>
-    </message>
-    <message>
-      <source>Came from</source>
-      <translation>Kom från</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>Är du säker?</translation>
-    </message>
-    <message>
-      <source>Clear list</source>
-      <translation>Rensa lista</translation>
-    </message>
-    <message>
-      <source>Online visitors</source>
-      <translation>Besökare online</translation>
-    </message>
-    <message>
-      <source>User tracking is disabled, enable it at</source>
-      <translation>Användarspårning är avaktiverad, aktivera den på</translation>
-    </message>
-    <message>
-      <source>Chat configuration</source>
-      <translation>Chatt inställningar</translation>
-    </message>
-    <message>
-      <source>List</source>
-      <translation>Lista</translation>
-    </message>
-    <message>
-      <source>online users</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Refresh list every</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>second</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>seconds</source>
-      <translation>sekunder</translation>
-    </message>
-    <message>
-      <source>Show visitors who visited site in the past</source>
-      <translation>Visa besökare som besökt siten tidigare</translation>
-    </message>
-    <message>
-      <source>minit</source>
-      <translation>minut</translation>
-    </message>
-    <message>
-      <source>minits</source>
-      <translation>minuter</translation>
-    </message>
-    <message>
-      <source>hour</source>
-      <translation>timme</translation>
-    </message>
-    <message>
-      <source>day</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>days</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Page</source>
-      <translation>Sida</translation>
-    </message>
-    <message>
-      <source>Status</source>
-      <translation>Status</translation>
-    </message>
-    <message>
-      <source>Action</source>
-      <translation>Aktivitet</translation>
-    </message>
-    <message>
-      <source>User does not have any messages from the operator</source>
-      <translation>Användaren har inga meddelanden från operatören</translation>
-    </message>
-    <message>
-      <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation>Användaren har inte sett meddelandet från operatören eller så är meddelanderutan fortfarande öppet.</translation>
-    </message>
-    <message>
-      <source>User has seen the message from the operator.</source>
-      <translation>Användaren har sett meddelandet från operatören.</translation>
-    </message>
-    <message>
-      <source>has sent a message to the user</source>
-      <translation>har skickat meddelande till användaren</translation>
-    </message>
-    <message>
-      <source>No one has sent a message to the user yet</source>
-      <translation>Ingen har skickat meddelande till användaren ännu</translation>
-    </message>
-    <message>
-      <source>first visit</source>
-      <translation>första besök</translation>
-    </message>
-    <message>
-      <source>last visit</source>
-      <translation>senaste besök</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Tom...</translation>
-    </message>
-    <message>
-      <source>Map</source>
-      <translation>Karta</translation>
-    </message>
-    <message>
-      <source>User has message from operator</source>
-      <translation>Användaren har ett meddelande från operatören</translation>
-    </message>
-    <message>
-      <source>Marker timeout before it dissapears from map</source>
-      <translation>Tid innan markeringen tas bort från kartan</translation>
-    </message>
-    <message>
-      <source>Files upload for users is active</source>
-      <translation>Filuppladdning för användare är aktivt</translation>
-    </message>
-    <message>
-      <source>Files upload for operators is active</source>
-      <translation>Filuppladdning för operatörer är aktivt</translation>
-    </message>
-    <message>
-      <source>Country code variable does not exist!</source>
-      <translation>Landskoden existerar inte!</translation>
-    </message>
-    <message>
-      <source>Country name variable does not exist!</source>
-      <translation>Landskoden existerar inte</translation>
-    </message>
-    <message>
-      <source>Please enter city variable!</source>
-      <translation>Vänligen ange värde för stad!</translation>
-    </message>
-    <message>
-      <source>Please enter latitude variable!</source>
-      <translation>Vänligen ange värdet för latituden!</translation>
-    </message>
-    <message>
-      <source>Please enter longitude variable!</source>
-      <translation>Vänligen ange värdet för longituden!</translation>
-    </message>
-    <message>
-      <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages!</source>
-      <translation>Val av tjänsteleverantör misslyckades. Vänligen kontrollera att din tjänsteleverantör tillåter att ställa förfrågningar mot fjärrsidor.</translation>
-    </message>
-    <message>
-      <source>MaxMind city file does not exists!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>MaxMind country file does not exists!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Setting service provider failed, please check that MaxMind database files exists!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter the API key!</source>
-      <translation>Vänligen skriv in API nyckeln</translation>
-    </message>
-    <message>
-      <source>Please enter the API username!</source>
-      <translation>Vänligen skriv in API användarnamnet</translation>
-    </message>
-    <message>
-      <source>Please enter IP!</source>
-      <translation>Vänligen ange IPnummer!</translation>
-    </message>
-    <message>
-      <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key and username is correct!</source>
-      <translation>Val av tjänsteleverantör misslyckades, kontrollera att din tjänsteleverantör tillåter dig att göra förfrågningar från fjärrsidor och att din API nyckel och ditt användarnamn stämmer.</translation>
-    </message>
-    <message>
-      <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Setting service provider failed, please check that you have installed php-GeoIP module and GeoIPCity.dat file is available!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose a service provider!</source>
-      <translation>Vänligen välj en tjänsteleverantör!</translation>
-    </message>
-    <message>
-      <source>Online users</source>
-      <translation>Användare online</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/getstatus</name>
     <message>
       <source>Close</source>
@@ -1698,213 +207,15 @@
     </message>
     <message>
       <source>Minimize/Restore</source>
-      <translation type="unfinished"/>
+      <translation>Minimera/återställ</translation>
     </message>
     <message>
       <source>Need help?</source>
-      <translation type="unfinished"/>
+      <translation>Behöver du hjälp?</translation>
     </message>
     <message>
       <source>Our staff is always ready to help</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/listchatconfig</name>
-    <message>
-      <source>Chat configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Notifications about new chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Copyright settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Application name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Site settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online tracking</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Misc</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Workflow</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Update</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>List chat configuration</source>
-      <translation>Lista chatt inställningar</translation>
-    </message>
-  </context>
-  <context>
-    <name>system/configuration</name>
-    <message>
-      <source>Request notification permission</source>
-      <translation>Begär notifieringsrättighet</translation>
-    </message>
-    <message>
-      <source>New chat notification settings</source>
-      <translation>Inställningar, ny chatt notifiering</translation>
-    </message>
-    <message>
-      <source>System configuration</source>
-      <translation>System inställningar</translation>
-    </message>
-    <message>
-      <source>Chat related</source>
-      <translation>Chatt relaterad</translation>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation>Avdelningar</translation>
-    </message>
-    <message>
-      <source>Blocked users</source>
-      <translation>Blockerade användare</translation>
-    </message>
-    <message>
-      <source>Chat configuration</source>
-      <translation>Chatt inställningar</translation>
-    </message>
-    <message>
-      <source>GEO detection configuration</source>
-      <translation>Geografisk plats inställningar</translation>
-    </message>
-    <message>
-      <source>Synchronization and sound settings</source>
-      <translation>Synkronisering och ljudinställningar</translation>
-    </message>
-    <message>
-      <source>Start chat form settings</source>
-      <translation>Starta chatt , formulär inställningar</translation>
-    </message>
-    <message>
-      <source>Canned messages</source>
-      <translation>Snabbmeddelanden</translation>
-    </message>
-    <message>
-      <source>E-mail templates</source>
-      <translation>E-post mallar</translation>
-    </message>
-    <message>
-      <source>Pro active chat invitations</source>
-      <translation>Proaktiva chatt inbjudningar</translation>
-    </message>
-    <message>
-      <source>Auto responder</source>
-      <translation>Autosvar</translation>
-    </message>
-    <message>
-      <source>SMTP settings</source>
-      <translation>SMTP inställningar</translation>
-    </message>
-    <message>
-      <source>XMPP settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Languages configuration</source>
-      <translation>Språk inställningar</translation>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation>Chattlista</translation>
-    </message>
-    <message>
-      <source>Chat archive</source>
-      <translation>Chatt arkiv</translation>
-    </message>
-    <message>
-      <source>Time zone settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Update information</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live help embed code</source>
-      <translation>Live hjälp inbäddad kod</translation>
-    </message>
-    <message>
-      <source>FAQ embed code</source>
-      <translation>FAQ inbäddad kod</translation>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation>Frågeformulär inbäddad kod</translation>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation>Chattbox inbäddad kod</translation>
-    </message>
-    <message>
-      <source>Browse offers embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Statistic</source>
-      <translation>Statistik</translation>
-    </message>
-    <message>
-      <source>Users and their permissions</source>
-      <translation>Användare och rättigheter</translation>
-    </message>
-    <message>
-      <source>Users</source>
-      <translation>Användare</translation>
-    </message>
-    <message>
-      <source>List of groups</source>
-      <translation>Grupplista</translation>
-    </message>
-    <message>
-      <source>List of roles</source>
-      <translation>Roll lista</translation>
-    </message>
-    <message>
-      <source>Files uploads configuration</source>
-      <translation>Inställningar för filuppladdning</translation>
-    </message>
-    <message>
-      <source>Files upload configuration</source>
-      <translation>Inställningar för filuppladdning</translation>
-    </message>
-    <message>
-      <source>List of files</source>
-      <translation>Fil lista</translation>
-    </message>
-    <message>
-      <source>Other</source>
-      <translation>Andra</translation>
-    </message>
-    <message>
-      <source>File configuration</source>
-      <translation>Fil inställningar</translation>
-    </message>
-    <message>
-      <source>New file</source>
-      <translation type="unfinished"/>
+      <translation>Våra operatörer är alltid redo att hjälpa till</translation>
     </message>
   </context>
   <context>
@@ -1915,11 +226,11 @@
     </message>
     <message>
       <source>Popup width</source>
-      <translation type="unfinished"/>
+      <translation>Popup bredd</translation>
     </message>
     <message>
       <source>Popup height, used only if iframe is used</source>
-      <translation type="unfinished"/>
+      <translation>Popup höjd, används endast om iframe används</translation>
     </message>
     <message>
       <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
@@ -1931,7 +242,7 @@
     </message>
     <message>
       <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
-      <translation type="unfinished"/>
+      <translation>Erbjudande tidsbegränsat i dagar, efter hur många dagar att visa erbjudanden för samma besökare igen, lämna tomt för session</translation>
     </message>
     <message>
       <source>Choose a language</source>
@@ -1939,11 +250,11 @@
     </message>
     <message>
       <source>Choose prefered http mode</source>
-      <translation type="unfinished"/>
+      <translation>Välj föredraget http läge</translation>
     </message>
     <message>
       <source>Based on site (default)</source>
-      <translation type="unfinished"/>
+      <translation>Baserad på sida (standard)</translation>
     </message>
     <message>
       <source>Widget embed code</source>
@@ -2011,15 +322,15 @@
     </message>
     <message>
       <source>Disable minimize icon</source>
-      <translation type="unfinished"/>
+      <translation>Inaktivera minimerad ikon</translation>
     </message>
     <message>
       <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
-      <translation type="unfinished"/>
+      <translation>Visa chattboxens innehåll istället för widget, användare kommer endast att kunna minimera, ej stänga fönstret.</translation>
     </message>
     <message>
       <source>Show chatbox content minimized first time if content is shown.</source>
-      <translation type="unfinished"/>
+      <translation>Visa chattboxens innehåll minimerat första gången om innehållet visas.</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
@@ -2123,6 +434,1765 @@
     </message>
   </context>
   <context>
+    <name>questionary/htmlcode</name>
+    <message>
+      <source>Show overlay</source>
+      <translation>Visa övertäckning</translation>
+    </message>
+    <message>
+      <source>Show different offers for the same user</source>
+      <translation>Visa olika erbjudanden för samma användare</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the page header or footer</source>
+      <translation>Kopiera koden från textrutan till sidhuvudet eller sidfoten</translation>
+    </message>
+    <message>
+      <source>Status text</source>
+      <translation>Statustext</translation>
+    </message>
+    <message>
+      <source>Expand the widget automatically for new users</source>
+      <translation>Expandera widget&apos;en automatiskt för nya användare</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
+      <translation>Kopiera koden från textrutan till sidfoten före &amp;lt;/body&amp;gt; slut taggen</translation>
+    </message>
+    <message>
+      <source>HTML code</source>
+      <translation>HTML kod</translation>
+    </message>
+  </context>
+  <context>
+    <name>browseoffer/index</name>
+    <message>
+      <source>Browse offers</source>
+      <translation>Bläddra bland erbjudanden</translation>
+    </message>
+    <message>
+      <source>General</source>
+      <translation>Allmänt</translation>
+    </message>
+    <message>
+      <source>Browse your offers</source>
+      <translation>Bläddra bland dina erbjudanden</translation>
+    </message>
+    <message>
+      <source>HTML Code</source>
+      <translation>HTML kod</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/activechats</name>
+    <message>
+      <source>Active chats list</source>
+      <translation>Lista på aktiva chattar</translation>
+    </message>
+    <message>
+      <source>Information</source>
+      <translation>Information</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Öppna i ett nytt fönster</translation>
+    </message>
+    <message>
+      <source>Close chat</source>
+      <translation>Stäng chatt</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Ta bort chatt</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Tom...</translation>
+    </message>
+    <message>
+      <source>Chats lists</source>
+      <translation>Chattlista</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Aktiva chattar</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/chat</name>
+    <message>
+      <source>Show/Hide right column</source>
+      <translation>Visa/Dölj höger kolumn</translation>
+    </message>
+    <message>
+      <source>User is typing now...</source>
+      <translation>Användaren skriver...</translation>
+    </message>
+    <message>
+      <source>Change chat status</source>
+      <translation>Ändra chattens status</translation>
+    </message>
+    <message>
+      <source>Pending</source>
+      <translation>Vänteläge</translation>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation>Aktiv</translation>
+    </message>
+    <message>
+      <source>Closed</source>
+      <translation>Stängd</translation>
+    </message>
+    <message>
+      <source>Chatbox chat</source>
+      <translation>Chattbox chatt</translation>
+    </message>
+    <message>
+      <source>Operators chat</source>
+      <translation>Operatörs chatt</translation>
+    </message>
+    <message>
+      <source>Cancel</source>
+      <translation>Avbryt</translation>
+    </message>
+    <message>
+      <source>This chat is closed.</source>
+      <translation>Den här chatten är stängd</translation>
+    </message>
+    <message>
+      <source>Pending confirm</source>
+      <translation>Väntar på bekräftelse</translation>
+    </message>
+    <message>
+      <source>Close</source>
+      <translation>Stäng</translation>
+    </message>
+    <message>
+      <source>Enter your message</source>
+      <translation>Skriv in ditt meddelande</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Skicka</translation>
+    </message>
+    <message>
+      <source>BB Code</source>
+      <translation>BB kod</translation>
+    </message>
+    <message>
+      <source>Chatbox is disabled.</source>
+      <translation>Chattboxen är avaktiverad</translation>
+    </message>
+    <message>
+      <source>Invalid hash or auto creation is disabled</source>
+      <translation>Felaktig hash eller så är autoskapandet avaktiverat</translation>
+    </message>
+    <message>
+      <source>Visitor</source>
+      <translation>Besökare</translation>
+    </message>
+    <message>
+      <source>Chat started</source>
+      <translation>Chatt startad</translation>
+    </message>
+    <message>
+      <source>is typing now...</source>
+      <translation>skriver nu ...</translation>
+    </message>
+    <message>
+      <source>Operator is typing now...</source>
+      <translation>Operatören skriver...</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/bbcodeinsert</name>
+    <message>
+      <source>Image</source>
+      <translation>Bild</translation>
+    </message>
+    <message>
+      <source>Link</source>
+      <translation>Länk</translation>
+    </message>
+    <message>
+      <source>Link title</source>
+      <translation>Länk rubrik</translation>
+    </message>
+    <message>
+      <source>Bold</source>
+      <translation>Fetstil</translation>
+    </message>
+    <message>
+      <source>Italic</source>
+      <translation>Kursiv stil</translation>
+    </message>
+    <message>
+      <source>Please enter link to an image</source>
+      <translation>Var vänlig ange en länk till en bild</translation>
+    </message>
+    <message>
+      <source>Please enter a link</source>
+      <translation>Var vänlig ange en länk</translation>
+    </message>
+    <message>
+      <source>Here is a link</source>
+      <translation>Här är en länk</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/blockedusers</name>
+    <message>
+      <source>Blocked users</source>
+      <translation>Blockerade användare</translation>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation>IP</translation>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>Datum</translation>
+    </message>
+    <message>
+      <source>Users who are blocked</source>
+      <translation>Blockerade användare</translation>
+    </message>
+    <message>
+      <source>Remove block</source>
+      <translation>Ta bort blockering</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Tom...</translation>
+    </message>
+    <message>
+      <source>User was blocked!</source>
+      <translation>Användare blockerad!</translation>
+    </message>
+    <message>
+      <source>User blocking failed, perhaps you do not have permission to block users?</source>
+      <translation>Det gick inte att blockera användaren, kanske saknar du rättigheter för detta?</translation>
+    </message>
+  </context>
+  <context>
+    <name>kernel/message</name>
+    <message>
+      <source>Are you sure?</source>
+      <translation>Är du säker?</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/cannedmsg</name>
+    <message>
+      <source>Canned messages</source>
+      <translation>Sparade snabbmeddelanden</translation>
+    </message>
+    <message>
+      <source>Message</source>
+      <translation>Meddelande</translation>
+    </message>
+    <message>
+      <source>User</source>
+      <translation>Användare</translation>
+    </message>
+    <message>
+      <source>Delay</source>
+      <translation>Fördröjning</translation>
+    </message>
+    <message>
+      <source>Position</source>
+      <translation>Position</translation>
+    </message>
+    <message>
+      <source>Edit message</source>
+      <translation>Redigera meddelande</translation>
+    </message>
+    <message>
+      <source>Delete message</source>
+      <translation>Ta bort meddelande</translation>
+    </message>
+    <message>
+      <source>New canned message</source>
+      <translation>Nytt snabbmeddelande</translation>
+    </message>
+    <message>
+      <source>Edit canned message</source>
+      <translation>Redigera snabbmeddelande</translation>
+    </message>
+    <message>
+      <source>Delay in seconds</source>
+      <translation>Fördröjning i sekunder</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Avdelning</translation>
+    </message>
+    <message>
+      <source>Personal canned message</source>
+      <translation>Personligt förifyllt meddelande</translation>
+    </message>
+    <message>
+      <source>Canned message was saved</source>
+      <translation>Förifyllt meddelande sparades</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>System inställningar</translation>
+    </message>
+    <message>
+      <source>Please enter canned message</source>
+      <translation>Skriv in snabbmeddelande</translation>
+    </message>
+    <message>
+      <source>Please enter a canned message</source>
+      <translation>Skriv in snabbmeddelande</translation>
+    </message>
+  </context>
+  <context>
+    <name>department/edit</name>
+    <message>
+      <source>Any</source>
+      <translation>Något</translation>
+    </message>
+    <message>
+      <source>Edit department</source>
+      <translation>Redigera avdelning</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Namn</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-post</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation>Inaktiverad</translation>
+    </message>
+    <message>
+      <source>Will not be visible to visitor</source>
+      <translation>Kommer ej att vara synlig för besökare</translation>
+    </message>
+    <message>
+      <source>Hidden</source>
+      <translation>Gömd</translation>
+    </message>
+    <message>
+      <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
+      <translation>Fördröjning i sekunder tills lämna ett meddelande formuläret visas. 0 betyder att funktionen är inaktiverad.</translation>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation>Prioritet</translation>
+    </message>
+    <message>
+      <source>Automate online hours</source>
+      <translation>Automatisera onlinetimmar</translation>
+    </message>
+    <message>
+      <source>Work hours/work days logic is active</source>
+      <translation>Arbetstid/arbetsdagar logik är aktiv</translation>
+    </message>
+    <message>
+      <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
+      <translation>Arbetsdagar/arbetstimmar, under dessa dagar/timmar kommer chatten automatiskt att vara aktiv</translation>
+    </message>
+    <message>
+      <source>Monday</source>
+      <translation>Måndag</translation>
+    </message>
+    <message>
+      <source>Tuesday</source>
+      <translation>Tisdag</translation>
+    </message>
+    <message>
+      <source>Wednesday</source>
+      <translation>Onsdag</translation>
+    </message>
+    <message>
+      <source>Thursday</source>
+      <translation>Torsdag</translation>
+    </message>
+    <message>
+      <source>Friday</source>
+      <translation>Fredag</translation>
+    </message>
+    <message>
+      <source>Saturday</source>
+      <translation>Lördag</translation>
+    </message>
+    <message>
+      <source>Sunday</source>
+      <translation>Söndag</translation>
+    </message>
+    <message>
+      <source>Work hours, 24 hours format, 1 - 24</source>
+      <translation>Arbetstid, 24 timmars format, 1 - 24</translation>
+    </message>
+    <message>
+      <source>From, E.g. 8</source>
+      <translation>Från, exempelvis 8</translation>
+    </message>
+    <message>
+      <source>To, E.g. 17</source>
+      <translation>Till, exempelvis 17</translation>
+    </message>
+    <message>
+      <source>Notifications about new chats</source>
+      <translation>Notifieringar om nya chattar</translation>
+    </message>
+    <message>
+      <source>XMPP recipients</source>
+      <translation>XMPP mottagare</translation>
+    </message>
+    <message>
+      <source>XMPP group recipients</source>
+      <translation>XMPP mottagare grupp</translation>
+    </message>
+    <message>
+      <source>E.g somechat@conference.server.org/LiveChat</source>
+      <translation>Exempelvis somechat@conference.server.org/LiveChat</translation>
+    </message>
+    <message>
+      <source>These messages will be send as group messages</source>
+      <translation>Dessa meddelanden kommer att skickas som gruppmeddelanden</translation>
+    </message>
+    <message>
+      <source>Inform about new chats using</source>
+      <translation>Informera om nya chattar använder</translation>
+    </message>
+    <message>
+      <source>XMPP messages</source>
+      <translation>XMPP meddelanden</translation>
+    </message>
+    <message>
+      <source>Mail messages</source>
+      <translation>E-postmeddelanden</translation>
+    </message>
+    <message>
+      <source>How many seconds chat can be pending before about chat is informed a staff</source>
+      <translation>Hur många sekunder en chat kan vara i vänteläge förrän en ny operatör informeras</translation>
+    </message>
+    <message>
+      <source>Inform about unread messages if from last unread user message have passed (seconds)</source>
+      <translation>Informera om olästa meddelande om från senaste olästa meddelande användare har passerat (sekunder)</translation>
+    </message>
+    <message>
+      <source>Please enter value in seconds</source>
+      <translation>Var vänlig ange värdet i sekunder</translation>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation>Andra</translation>
+    </message>
+    <message>
+      <source>Inform then chat is closed by operator, only mail notification is send.</source>
+      <translation>Informera sedan stängs chatten av operatören, endast e-postnotifikation är tillgänglig.</translation>
+    </message>
+    <message>
+      <source>Chat transfer worklow</source>
+      <translation>Chatt flytt arbetsflöde</translation>
+    </message>
+    <message>
+      <source>To what department chat should be transfered if it is not accepted</source>
+      <translation>Till vilken avdelning chatten ska vidarebefordras om den inte blir accepterad</translation>
+    </message>
+    <message>
+      <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
+      <translation>Timeout i sekunder innan chatten vidarebefodras till en annan avdelning. Minst 5s.</translation>
+    </message>
+    <message>
+      <source>Miscellaneous</source>
+      <translation>Blandat</translation>
+    </message>
+    <message>
+      <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
+      <translation>Det här fältet kan vara 50 tecken långt och kan användas för tillägg. Det här fältet är även  indexerat.</translation>
+    </message>
+    <message>
+      <source>None</source>
+      <translation>Ingen</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>System inställningar</translation>
+    </message>
+    <message>
+      <source>departments</source>
+      <translation>avdelningar</translation>
+    </message>
+    <message>
+      <source>Edit a department</source>
+      <translation>Redigera en avdelning</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/chatnotexists</name>
+    <message>
+      <source>Resume chat</source>
+      <translation>Återuppta chatt</translation>
+    </message>
+    <message>
+      <source>Chat was deleted</source>
+      <translation>Chatt borttagen</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/adminchat</name>
+    <message>
+      <source>Footprint</source>
+      <translation>Fotspår</translation>
+    </message>
+    <message>
+      <source>Visitor</source>
+      <translation>Besökare</translation>
+    </message>
+    <message>
+      <source>General information</source>
+      <translation>Allmän information</translation>
+    </message>
+    <message>
+      <source>Files</source>
+      <translation>Filer</translation>
+    </message>
+    <message>
+      <source>Click to change chat status</source>
+      <translation>Klicka för att ändra status</translation>
+    </message>
+    <message>
+      <source>Pending chat</source>
+      <translation>Väntande chatt</translation>
+    </message>
+    <message>
+      <source>Active chat</source>
+      <translation>Aktiv chatt</translation>
+    </message>
+    <message>
+      <source>Closed chat</source>
+      <translation>Stängd chatt</translation>
+    </message>
+    <message>
+      <source>Chatbox chat</source>
+      <translation>Chattbox chatt</translation>
+    </message>
+    <message>
+      <source>Operators chat</source>
+      <translation>Operatörschatt</translation>
+    </message>
+    <message>
+      <source>Information</source>
+      <translation>Information</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Avdelning</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>Land</translation>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>Stad</translation>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation>Sida</translation>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation>Kom från</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-post</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Telefonnr</translation>
+    </message>
+    <message>
+      <source>Additional data</source>
+      <translation>Extra data</translation>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation>Skapad</translation>
+    </message>
+    <message>
+      <source>Waited</source>
+      <translation>Väntat</translation>
+    </message>
+    <message>
+      <source>Chat duration</source>
+      <translation>Chattlängd</translation>
+    </message>
+    <message>
+      <source>Actions</source>
+      <translation>Aktiviteter</translation>
+    </message>
+    <message>
+      <source>Close dialog</source>
+      <translation>Stäng dialogrutan</translation>
+    </message>
+    <message>
+      <source>Close chat</source>
+      <translation>Stäng chatt</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Ta bort chatt</translation>
+    </message>
+    <message>
+      <source>Transfer chat</source>
+      <translation>Vidarebefodra chatten</translation>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>Är du säker?</translation>
+    </message>
+    <message>
+      <source>Block user</source>
+      <translation>Blockera användare</translation>
+    </message>
+    <message>
+      <source>Mail was send</source>
+      <translation>Mejlet skickades</translation>
+    </message>
+    <message>
+      <source>Send mail</source>
+      <translation>Skicka e-post</translation>
+    </message>
+    <message>
+      <source>Redirect user to contact form.</source>
+      <translation>Vidarebefordra användare till kontaktformulär</translation>
+    </message>
+    <message>
+      <source>Print</source>
+      <translation>Skriv ut</translation>
+    </message>
+    <message>
+      <source>Attatch uploaded file</source>
+      <translation>Bifoga uppladdad fil</translation>
+    </message>
+    <message>
+      <source>Chat between operators, chat initializer</source>
+      <translation>Chatt mellan operatörer, initerad av</translation>
+    </message>
+    <message>
+      <source>Chat owner</source>
+      <translation>Chattägare</translation>
+    </message>
+    <message>
+      <source>Map</source>
+      <translation>Karta</translation>
+    </message>
+    <message>
+      <source>Could not detect. Make sure that GEO detection is enabled.</source>
+      <translation>Kunde inte hitta. Kontrollera att GEO spårning är aktiverad.</translation>
+    </message>
+    <message>
+      <source>Browsing information</source>
+      <translation>Browsing information</translation>
+    </message>
+    <message>
+      <source>Refresh</source>
+      <translation>Uppdatera</translation>
+    </message>
+    <message>
+      <source>Remarks</source>
+      <translation>Anmärkningar</translation>
+    </message>
+    <message>
+      <source>Chats</source>
+      <translation>Chattar</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Skicka</translation>
+    </message>
+    <message>
+      <source>Reopen chat</source>
+      <translation>Återuppta chatten</translation>
+    </message>
+    <message>
+      <source>Select a canned message</source>
+      <translation>Välj snabbmeddelande</translation>
+    </message>
+    <message>
+      <source>Fill textarea with canned message</source>
+      <translation>Fyll textrutan med snabbmeddelandet</translation>
+    </message>
+    <message>
+      <source>Send delayed canned message instantly</source>
+      <translation>Skicka snabbmeddelande direkt</translation>
+    </message>
+    <message>
+      <source>Messages</source>
+      <translation>Meddelanden</translation>
+    </message>
+    <message>
+      <source>Invalid chat status</source>
+      <translation>Ogiltig status på chatten</translation>
+    </message>
+  </context>
+  <context>
+    <name>files/files</name>
+    <message>
+      <source>Refresh</source>
+      <translation>Uppdatera</translation>
+    </message>
+    <message>
+      <source>Delete file</source>
+      <translation>Ta bort fil</translation>
+    </message>
+    <message>
+      <source>Download file</source>
+      <translation>Ladda ner fil</translation>
+    </message>
+    <message>
+      <source>Drop your files here.</source>
+      <translation>Släpp dina filer här.</translation>
+    </message>
+    <message>
+      <source>Not an accepted file type</source>
+      <translation>Inte en godkänd filtyp</translation>
+    </message>
+    <message>
+      <source>Filesize is too big</source>
+      <translation>Filstorleken är för stor</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/syncadmininterface</name>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Öppna i ett nytt fönster</translation>
+    </message>
+    <message>
+      <source>Add chat</source>
+      <translation>Lägg till en chatt</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Tom...</translation>
+    </message>
+    <message>
+      <source>Start chat</source>
+      <translation>Starta chatt</translation>
+    </message>
+    <message>
+      <source>Last activity</source>
+      <translation>Senaste aktivitet</translation>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation>sedan</translation>
+    </message>
+    <message>
+      <source>Redirect user to contact form.</source>
+      <translation>Vidarebefordra användare till kontaktformulär.</translation>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>Är du säker?</translation>
+    </message>
+    <message>
+      <source>Accept chat</source>
+      <translation>Acceptera chatt</translation>
+    </message>
+    <message>
+      <source>h.</source>
+      <translation>h.</translation>
+    </message>
+    <message>
+      <source>m.</source>
+      <translation>m.</translation>
+    </message>
+    <message>
+      <source>s.</source>
+      <translation>s.</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/screenshot</name>
+    <message>
+      <source>Screenshot</source>
+      <translation>Skärmdump</translation>
+    </message>
+    <message>
+      <source>Take user screenshot</source>
+      <translation>Ta skärmdump på användare</translation>
+    </message>
+    <message>
+      <source>Refresh</source>
+      <translation>Uppdatera</translation>
+    </message>
+    <message>
+      <source>Taken</source>
+      <translation>Tagen</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Tom...</translation>
+    </message>
+    <message>
+      <source>Perhaps screenshot is under way or screenshot is not supported on client browser, click refresh to check for a screenshot</source>
+      <translation>Möjligen försöker en skärmdump att tas eller så stöds inte detta i klient webbläsaren, klicka på uppdaterade för att kontrollera efter en skärmdump</translation>
+    </message>
+    <message>
+      <source>Screenshot ready...</source>
+      <translation>Skärmdump redo</translation>
+    </message>
+  </context>
+  <context>
+    <name>front/default</name>
+    <message>
+      <source>Pending confirm</source>
+      <translation>Väntar på bekräftelse</translation>
+    </message>
+    <message>
+      <source>All pending chats</source>
+      <translation>Alla väntande chattar </translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Aktiva chattar</translation>
+    </message>
+    <message>
+      <source>All active chats</source>
+      <translation>Alla aktiva chattar</translation>
+    </message>
+    <message>
+      <source>Unread messages</source>
+      <translation>Olästa meddelanden</translation>
+    </message>
+    <message>
+      <source>All unread chats</source>
+      <translation>Alla olästa chattar</translation>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation>Avslutade chattar</translation>
+    </message>
+    <message>
+      <source>All closed chats</source>
+      <translation>Alla avslutade chattar</translation>
+    </message>
+    <message>
+      <source>You do not have permission to use chattabschrome function</source>
+      <translation>Du har inte tillåtelse att använda chattabschrome funktion</translation>
+    </message>
+    <message>
+      <source>Please</source>
+      <translation>Var vänlig</translation>
+    </message>
+    <message>
+      <source>login first.</source>
+      <translation>logga in först.</translation>
+    </message>
+    <message>
+      <source>Online operators</source>
+      <translation>Tillgängliga operatörer</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/startchat</name>
+    <message>
+      <source>Department is disabled</source>
+      <translation>Avdelningen är inaktiverad</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Namn</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-post</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Telefonnr</translation>
+    </message>
+    <message>
+      <source>Enter your message</source>
+      <translation>Lämna ditt meddelande</translation>
+    </message>
+    <message>
+      <source>Your question</source>
+      <translation>Din fråga</translation>
+    </message>
+    <message>
+      <source>Start chat</source>
+      <translation>Starta chatt</translation>
+    </message>
+    <message>
+      <source>There are no online operators at the moment, please leave a message</source>
+      <translation>Det finns inga operatörer tillgängliga för närvarande, vänligen lämna ett meddelande</translation>
+    </message>
+    <message>
+      <source>Leave a message</source>
+      <translation>Lämna ett meddelande</translation>
+    </message>
+    <message>
+      <source>Your request was sent!</source>
+      <translation>Din förfrågan skickades!</translation>
+    </message>
+    <message>
+      <source>I accept my personal data will be handled according to</source>
+      <translation>Jag accepterar att min personliga data kommer att hanteras enligt</translation>
+    </message>
+    <message>
+      <source>our terms and to the Law</source>
+      <translation>våra användarvillkor och regler</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Avdelning</translation>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation>Otillgänglig</translation>
+    </message>
+    <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Skriv in ditt meddelande och tryck enter för att skicka...</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Skicka</translation>
+    </message>
+    <message>
+      <source>Personal assistant</source>
+      <translation>Personlig assistans</translation>
+    </message>
+    <message>
+      <source>Fill out this form to start a chat</source>
+      <translation>Fyll i formuläret för att starta en chatt</translation>
+    </message>
+    <message>
+      <source>There are no online operators at the moment, please leave your message</source>
+      <translation>Det finns inga operatörer tillgängliga för närvarande, vänligen lämna ditt meddelande</translation>
+    </message>
+    <message>
+      <source>You do not have permission to chat! Please contact site owner.</source>
+      <translation>Du har inte rättigheter att chatta, vänligen kontakta webbplatsens ägare.</translation>
+    </message>
+    <message>
+      <source>Invalid captcha code, please enable Javascript!</source>
+      <translation>Ogiltig captcha kod, vänligen aktivera Javascript!</translation>
+    </message>
+    <message>
+      <source>Please enter your name</source>
+      <translation>Vänligen skriv in ditt namn</translation>
+    </message>
+    <message>
+      <source>Maximum 50 characters</source>
+      <translation>Max 50 tecken</translation>
+    </message>
+    <message>
+      <source>Please enter a valid email address</source>
+      <translation>Vänligen ange en giltig e-post adress</translation>
+    </message>
+    <message>
+      <source>Please enter your message</source>
+      <translation>Vänligen skriv in ditt meddelande</translation>
+    </message>
+    <message>
+      <source>Maximum</source>
+      <translation>Maximum</translation>
+    </message>
+    <message>
+      <source>characters for a message</source>
+      <translation>tecken för ett meddelande</translation>
+    </message>
+    <message>
+      <source>You have to accept our Terms Of Service</source>
+      <translation>Du måste acceptera våra användarvillkor</translation>
+    </message>
+    <message>
+      <source>Please enter your phone</source>
+      <translation>Vänligen ange ditt telefonnummer</translation>
+    </message>
+    <message>
+      <source>Maximum 100 characters for phone</source>
+      <translation>Max 100 tecken för telefonnr</translation>
+    </message>
+    <message>
+      <source>Could not determine a default department!</source>
+      <translation>Kunde inte avgöra en standard avdelning</translation>
+    </message>
+    <message>
+      <source>is required</source>
+      <translation>är obligatorisk</translation>
+    </message>
+    <message>
+      <source>Live Support</source>
+      <translation>Live support</translation>
+    </message>
+    <message>
+      <source>Please enter a message, max characters</source>
+      <translation>Var vänlig skriv ett meddelande, max tecken</translation>
+    </message>
+    <message>
+      <source>Visitor</source>
+      <translation>Besökare</translation>
+    </message>
+    <message>
+      <source>Fill in the form to start a chat</source>
+      <translation>Fyll i formuläret för att starta en chatt</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/checkchatstatus</name>
+    <message>
+      <source>A support staff member has joined this chat</source>
+      <translation>En support medarbetare har anslutit till chatten</translation>
+    </message>
+    <message>
+      <source>A support staff member has closed this chat</source>
+      <translation>En support medarbetare har stängt chatten</translation>
+    </message>
+    <message>
+      <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
+      <translation>I väntan på att en support medarbetare ansluter kan du skriva dina frågor så får han dem när han ansluter till chatten.</translation>
+    </message>
+    <message>
+      <source>At this moment there are no logged in support staff members, but you can leave your messages</source>
+      <translation>För närvarande finns ingen support medarbetare tillgänglig, men du kan lämnna ett meddelande</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/closedchats</name>
+    <message>
+      <source>Closed chats list</source>
+      <translation>Lista på avslutade chattar</translation>
+    </message>
+    <message>
+      <source>Information</source>
+      <translation>Information</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Öppna i ett nytt fönster</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Ta bort chatt</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Tom...</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Chattlista</translation>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation>Avslutade chattar</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/user_settings</name>
+    <message>
+      <source>Enable/Disable sound about new messages from the operator</source>
+      <translation>Av-/aktivera ljud för nya meddelanden från operatören</translation>
+    </message>
+    <message>
+      <source>Print</source>
+      <translation>Skriv ut</translation>
+    </message>
+    <message>
+      <source>Send chat transcript to your e-mail</source>
+      <translation>Skicka chattloggen till din e-post</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new messages from users</source>
+      <translation>Av-/aktivera ljud för nya meddelanden från användare</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new pending chats</source>
+      <translation>Av-/aktivera ljud för väntande chattar</translation>
+    </message>
+    <message>
+      <source>Change my visibility to visible/invisible</source>
+      <translation>Ändra min status till synlig/ej synlig</translation>
+    </message>
+    <message>
+      <source>Change my status to online/offline</source>
+      <translation>Ändra min status till tillgänglig/frånvarande</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/editchatconfig</name>
+    <message>
+      <source>Edit</source>
+      <translation>Redigera</translation>
+    </message>
+    <message>
+      <source>Value in</source>
+      <translation>Värde i</translation>
+    </message>
+    <message>
+      <source>site access</source>
+      <translation>webbplatsåtkomst</translation>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation>Uppdatera</translation>
+    </message>
+    <message>
+      <source>Data updated</source>
+      <translation>Data uppdaterat</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/errors/adminchatnopermission</name>
+    <message>
+      <source>You do not have permission to access the current chat!</source>
+      <translation>Du har inte rättigheter att ansluta till den aktuella chatten!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/errors/entertext</name>
+    <message>
+      <source>Please enter text!</source>
+      <translation>Vänligen skriv in text</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/onlineusers</name>
+    <message>
+      <source>GEO detection configuration</source>
+      <translation>Geografisk plats inställningar</translation>
+    </message>
+    <message>
+      <source>GEO Enabled</source>
+      <translation>GEO aktiverad</translation>
+    </message>
+    <message>
+      <source>Use this service</source>
+      <translation>Använd denna tjänst</translation>
+    </message>
+    <message>
+      <source>Save</source>
+      <translation>Spara</translation>
+    </message>
+    <message>
+      <source>Use mod_geoip2</source>
+      <translation>Använd mod_geoip2</translation>
+    </message>
+    <message>
+      <source>Country code server variable</source>
+      <translation>Landskod server värde</translation>
+    </message>
+    <message>
+      <source>Country name server variable</source>
+      <translation>Land namnserver värde</translation>
+    </message>
+    <message>
+      <source>City name server variable</source>
+      <translation>Stad namnserver värde</translation>
+    </message>
+    <message>
+      <source>Region name server variable</source>
+      <translation>Regionsnamn servervariabel</translation>
+    </message>
+    <message>
+      <source>Latitude variable</source>
+      <translation>Latitude värde</translation>
+    </message>
+    <message>
+      <source>Longitude variable</source>
+      <translation>Longitude värde</translation>
+    </message>
+    <message>
+      <source>Use MaxMind, does not depend on any third party remote service</source>
+      <translation>Använd MaxMind, beror inte på någon tredjeparts extern tjänst</translation>
+    </message>
+    <message>
+      <source>You can download city/country database from.</source>
+      <translation>Du kan ladda ned stad/land databas från.</translation>
+    </message>
+    <message>
+      <source>bcmath php extension detected</source>
+      <translation>bcmath php tillägg upptäckt</translation>
+    </message>
+    <message>
+      <source>Location of city database</source>
+      <translation>Lokalisering av stadsdatabas</translation>
+    </message>
+    <message>
+      <source>User country based detection, faster</source>
+      <translation>Användare landsbaserad upptäckt, snabbare</translation>
+    </message>
+    <message>
+      <source>File exists</source>
+      <translation>Filen existerar</translation>
+    </message>
+    <message>
+      <source>File does not exists</source>
+      <translation>Filen existerar inte</translation>
+    </message>
+    <message>
+      <source>User city based detection, slower</source>
+      <translation>Användare stadsbaserad upptäckt, långsammare</translation>
+    </message>
+    <message>
+      <source>Use PHP-GeoIP module</source>
+      <translation>Använd PHP-GeoIP modul</translation>
+    </message>
+    <message>
+      <source>Support for PHP-GeoIP detected</source>
+      <translation>Kompabilitet med PHP-GeoIP upptäcktes</translation>
+    </message>
+    <message>
+      <source>Requests will be comming from</source>
+      <translation>Förfrågningar kommer att komma från</translation>
+    </message>
+    <message>
+      <source>API Key</source>
+      <translation>API nyckel</translation>
+    </message>
+    <message>
+      <source>Username</source>
+      <translation>Användarnamn</translation>
+    </message>
+    <message>
+      <source>IP, if your site remote IP is different from detected one, please provide correct remote IP address</source>
+      <translation>IP, om ditt webbplats fjärr ip är skilt från den automatiskt funna, ange korrekt fjärr IP adress</translation>
+    </message>
+    <message>
+      <source>Map location</source>
+      <translation>Plats på kartan</translation>
+    </message>
+    <message>
+      <source>Drag a marker where you want to have map centered by default. Zoom is also saved.</source>
+      <translation>Dra markören dit du vill ha kartan centrerad som standard. Även zoom nivå sparas.</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Inställningar uppdaterade</translation>
+    </message>
+    <message>
+      <source>Send message</source>
+      <translation>Skicka meddelandet</translation>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>Stad</translation>
+    </message>
+    <message>
+      <source>Lat.</source>
+      <translation>Lat.</translation>
+    </message>
+    <message>
+      <source>Lon.</source>
+      <translation>Lon.</translation>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation>Identifierare</translation>
+    </message>
+    <message>
+      <source>Additional information</source>
+      <translation>Ytterligare information</translation>
+    </message>
+    <message>
+      <source>Last activity</source>
+      <translation>Senaste aktivitet</translation>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation>sedan</translation>
+    </message>
+    <message>
+      <source>User does not have any message from operator</source>
+      <translation>Användaren har inte fått något meddelande från operatör</translation>
+    </message>
+    <message>
+      <source>User have not seen message from operator, or message window still open.</source>
+      <translation>Användaren har inte sett operatörens meddelande eller så är meddelanderutan fortfarande öppen.</translation>
+    </message>
+    <message>
+      <source>User has seen message from operator.</source>
+      <translation>Användaren har sett meddelandet från operatören.</translation>
+    </message>
+    <message>
+      <source>User is chatting</source>
+      <translation>Användaren är i chatten</translation>
+    </message>
+    <message>
+      <source>User is not having any chat right now</source>
+      <translation>Användaren är f n inte i en chatt</translation>
+    </message>
+    <message>
+      <source>has send message to user</source>
+      <translation>har skickat meddelande till användaren</translation>
+    </message>
+    <message>
+      <source>No one has send any message to user yet</source>
+      <translation>Ingen har skickat meddelande till användaren ännu</translation>
+    </message>
+    <message>
+      <source>First visit</source>
+      <translation>Första besök</translation>
+    </message>
+    <message>
+      <source>Last visit</source>
+      <translation>Senaste besök</translation>
+    </message>
+    <message>
+      <source>Total visits</source>
+      <translation>Totalt antal besök</translation>
+    </message>
+    <message>
+      <source>time(s) invitation logic was applied</source>
+      <translation>gång(er) inbjudningslogik var nyttjad</translation>
+    </message>
+    <message>
+      <source>Pageviews</source>
+      <translation>Sidan sedd ggr</translation>
+    </message>
+    <message>
+      <source>Total pageviews</source>
+      <translation>Totalt antal sidvisningar</translation>
+    </message>
+    <message>
+      <source>Time on site</source>
+      <translation>Tid på webbplatsen</translation>
+    </message>
+    <message>
+      <source>Total time on site</source>
+      <translation>Total tid på webbplatsen</translation>
+    </message>
+    <message>
+      <source>Current page</source>
+      <translation>Aktuell sida</translation>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation>Kom från</translation>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>Är du säker?</translation>
+    </message>
+    <message>
+      <source>Clear list</source>
+      <translation>Rensa lista</translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Besökare online</translation>
+    </message>
+    <message>
+      <source>User tracking is disabled, enable it at</source>
+      <translation>Användarspårning är avaktiverad, aktivera den på</translation>
+    </message>
+    <message>
+      <source>Chat configuration</source>
+      <translation>Chatt inställningar</translation>
+    </message>
+    <message>
+      <source>List</source>
+      <translation>Lista</translation>
+    </message>
+    <message>
+      <source>online users</source>
+      <translation>online användare</translation>
+    </message>
+    <message>
+      <source>Group list by</source>
+      <translation>Gruppera lista genom</translation>
+    </message>
+    <message>
+      <source>Group by</source>
+      <translation>Gruppera genom</translation>
+    </message>
+    <message>
+      <source>User country</source>
+      <translation>Användarens land</translation>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation>Sida</translation>
+    </message>
+    <message>
+      <source>Page title</source>
+      <translation>Sidrubrik</translation>
+    </message>
+    <message>
+      <source>Referrer</source>
+      <translation>Hänvisning</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Avdelning</translation>
+    </message>
+    <message>
+      <source>Refresh list every</source>
+      <translation>Uppdatera listan varje</translation>
+    </message>
+    <message>
+      <source>second</source>
+      <translation>sekund</translation>
+    </message>
+    <message>
+      <source>seconds</source>
+      <translation>sekunder</translation>
+    </message>
+    <message>
+      <source>Show visitors who visited site in the past</source>
+      <translation>Visa besökare som besökt siten tidigare</translation>
+    </message>
+    <message>
+      <source>minute</source>
+      <translation>minut</translation>
+    </message>
+    <message>
+      <source>minutes</source>
+      <translation>minuter</translation>
+    </message>
+    <message>
+      <source>hour</source>
+      <translation>timme</translation>
+    </message>
+    <message>
+      <source>day</source>
+      <translation>dag</translation>
+    </message>
+    <message>
+      <source>days</source>
+      <translation>dagars</translation>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation>Status</translation>
+    </message>
+    <message>
+      <source>Action</source>
+      <translation>Aktivitet</translation>
+    </message>
+    <message>
+      <source>has sent a message to the user</source>
+      <translation>har skickat meddelande till användaren</translation>
+    </message>
+    <message>
+      <source>No one has sent a message to the user yet</source>
+      <translation>Ingen har skickat meddelande till användaren ännu</translation>
+    </message>
+    <message>
+      <source>first visit</source>
+      <translation>första besök</translation>
+    </message>
+    <message>
+      <source>last visit</source>
+      <translation>senaste besök</translation>
+    </message>
+    <message>
+      <source>Map</source>
+      <translation>Karta</translation>
+    </message>
+    <message>
+      <source>User has message from operator</source>
+      <translation>Användaren har ett meddelande från operatören</translation>
+    </message>
+    <message>
+      <source>Marker timeout before it dissapears from map</source>
+      <translation>Tid innan markeringen tas bort från kartan</translation>
+    </message>
+    <message>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <translation>Användaren har inte sett meddelandet från operatören eller så är meddelanderutan fortfarande öppet.</translation>
+    </message>
+    <message>
+      <source>User has seen the message from the operator.</source>
+      <translation>Användaren har sett meddelandet från operatören.</translation>
+    </message>
+    <message>
+      <source>User does not have any messages from the operator</source>
+      <translation>Användaren har inga meddelanden från operatören</translation>
+    </message>
+    <message>
+      <source>Files upload for users is active</source>
+      <translation>Filuppladdning för användare är aktivt</translation>
+    </message>
+    <message>
+      <source>Files upload for operators is active</source>
+      <translation>Filuppladdning för operatörer är aktivt</translation>
+    </message>
+    <message>
+      <source>Country code variable does not exist!</source>
+      <translation>Landskoden existerar inte!</translation>
+    </message>
+    <message>
+      <source>Country name variable does not exist!</source>
+      <translation>Landskoden existerar inte</translation>
+    </message>
+    <message>
+      <source>Please enter city variable!</source>
+      <translation>Vänligen ange värde för stad!</translation>
+    </message>
+    <message>
+      <source>Please enter latitude variable!</source>
+      <translation>Vänligen ange värdet för latituden!</translation>
+    </message>
+    <message>
+      <source>Please enter longitude variable!</source>
+      <translation>Vänligen ange värdet för longituden!</translation>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages!</source>
+      <translation>Val av tjänsteleverantör misslyckades. Vänligen kontrollera att din tjänsteleverantör tillåter att ställa förfrågningar mot fjärrsidor.</translation>
+    </message>
+    <message>
+      <source>MaxMind city file does not exists!</source>
+      <translation>MaxMind stadsfil existerar inte!</translation>
+    </message>
+    <message>
+      <source>MaxMind country file does not exists!</source>
+      <translation>MaxMind landsfil existerar inte!</translation>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that MaxMind database files exists!</source>
+      <translation>Det gick inte att ställa in tjänsteleverantören, var vänlig kontrollera så att MaxMind databasfil existerar!</translation>
+    </message>
+    <message>
+      <source>Please enter the API key!</source>
+      <translation>Vänligen skriv in API nyckeln</translation>
+    </message>
+    <message>
+      <source>Please enter the API username!</source>
+      <translation>Vänligen skriv in API användarnamnet</translation>
+    </message>
+    <message>
+      <source>Please enter IP!</source>
+      <translation>Vänligen ange IPnummer!</translation>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key and username is correct!</source>
+      <translation>Val av tjänsteleverantör misslyckades, kontrollera att din tjänsteleverantör tillåter dig att göra förfrågningar från fjärrsidor och att din API nyckel och ditt användarnamn stämmer.</translation>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!</source>
+      <translation>Det gick inte att ställa in tjänsten, kontrollera att din tjänsteleverantör tillåter dig att göra förfrågningar till externa sidor och att din API nyckel är korrekt!</translation>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that you have installed php-GeoIP module and GeoIPCity.dat file is available!</source>
+      <translation>Det gick inte att ställa in tjänsteleverantör, var vänlig kontrollera att du har installerat php-GeoIP modulen och att GeoIPCity.dat filen är tillgänglig!</translation>
+    </message>
+    <message>
+      <source>Please choose a service provider!</source>
+      <translation>Vänligen välj en tjänsteleverantör!</translation>
+    </message>
+    <message>
+      <source>Online users</source>
+      <translation>Användare online</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/listchatconfig</name>
+    <message>
+      <source>Chat configuration</source>
+      <translation>Chatt konfiguration</translation>
+    </message>
+    <message>
+      <source>Notifications about new chats</source>
+      <translation>Notifieringar om nya chattar</translation>
+    </message>
+    <message>
+      <source>Copyright settings</source>
+      <translation>Copyright inställningar</translation>
+    </message>
+    <message>
+      <source>Application name</source>
+      <translation>Applikationens namn</translation>
+    </message>
+    <message>
+      <source>Site settings</source>
+      <translation>Sidinställningar</translation>
+    </message>
+    <message>
+      <source>Online tracking</source>
+      <translation>Online spårning</translation>
+    </message>
+    <message>
+      <source>Misc</source>
+      <translation>Blandat</translation>
+    </message>
+    <message>
+      <source>Workflow</source>
+      <translation>Arbetsflöde</translation>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation>Uppdatera</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Inställningar uppdaterade</translation>
+    </message>
+    <message>
+      <source>List chat configuration</source>
+      <translation>Lista chatt inställningar</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/configuration</name>
+    <message>
+      <source>Request notification permission</source>
+      <translation>Begär notifieringsrättighet</translation>
+    </message>
+    <message>
+      <source>New chat notification settings</source>
+      <translation>Inställningar, ny chatt notifiering</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>System inställningar</translation>
+    </message>
+    <message>
+      <source>Chat related</source>
+      <translation>Chatt relaterad</translation>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation>Avdelningar</translation>
+    </message>
+    <message>
+      <source>Blocked users</source>
+      <translation>Blockerade användare</translation>
+    </message>
+    <message>
+      <source>Chat configuration</source>
+      <translation>Chatt inställningar</translation>
+    </message>
+    <message>
+      <source>GEO detection configuration</source>
+      <translation>Geografisk plats inställningar</translation>
+    </message>
+    <message>
+      <source>Synchronization and sound settings</source>
+      <translation>Synkronisering och ljudinställningar</translation>
+    </message>
+    <message>
+      <source>Start chat form settings</source>
+      <translation>Starta chatt , formulär inställningar</translation>
+    </message>
+    <message>
+      <source>Canned messages</source>
+      <translation>Snabbmeddelanden</translation>
+    </message>
+    <message>
+      <source>E-mail templates</source>
+      <translation>E-post mallar</translation>
+    </message>
+    <message>
+      <source>Pro active chat invitations</source>
+      <translation>Proaktiva chatt inbjudningar</translation>
+    </message>
+    <message>
+      <source>Auto responder</source>
+      <translation>Autosvar</translation>
+    </message>
+    <message>
+      <source>SMTP settings</source>
+      <translation>SMTP inställningar</translation>
+    </message>
+    <message>
+      <source>XMPP settings</source>
+      <translation>XMPP inställningar</translation>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation>Språk inställningar</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Chattlista</translation>
+    </message>
+    <message>
+      <source>Chat archive</source>
+      <translation>Chatt arkiv</translation>
+    </message>
+    <message>
+      <source>Time zone settings</source>
+      <translation>Inställningar för tidszon</translation>
+    </message>
+    <message>
+      <source>Update information</source>
+      <translation>Uppdatera information</translation>
+    </message>
+    <message>
+      <source>Live help embed code</source>
+      <translation>Live hjälp inbäddad kod</translation>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation>FAQ inbäddad kod</translation>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation>Frågeformulär inbäddad kod</translation>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation>Chattbox inbäddad kod</translation>
+    </message>
+    <message>
+      <source>Browse offers embed code</source>
+      <translation>Bläddra bland erbjudanden inbäddad kod</translation>
+    </message>
+    <message>
+      <source>Statistic</source>
+      <translation>Statistik</translation>
+    </message>
+    <message>
+      <source>Users and their permissions</source>
+      <translation>Användare och rättigheter</translation>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation>Användare</translation>
+    </message>
+    <message>
+      <source>List of groups</source>
+      <translation>Grupplista</translation>
+    </message>
+    <message>
+      <source>List of roles</source>
+      <translation>Roll lista</translation>
+    </message>
+    <message>
+      <source>Files uploads configuration</source>
+      <translation>Inställningar för filuppladdning</translation>
+    </message>
+    <message>
+      <source>Files upload configuration</source>
+      <translation>Inställningar för filuppladdning</translation>
+    </message>
+    <message>
+      <source>List of files</source>
+      <translation>Fil lista</translation>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation>Andra</translation>
+    </message>
+    <message>
+      <source>File configuration</source>
+      <translation>Fil inställningar</translation>
+    </message>
+    <message>
+      <source>New file</source>
+      <translation>Ny fil</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/lists</name>
     <message>
       <source>Choose what type of list you want to see</source>
@@ -2154,6 +2224,93 @@
     </message>
   </context>
   <context>
+    <name>pagelayout/pagelayout</name>
+    <message>
+      <source>Empty...</source>
+      <translation>Tom...</translation>
+    </message>
+    <message>
+      <source>Clean cache</source>
+      <translation>Rensa cache</translation>
+    </message>
+    <message>
+      <source>Home</source>
+      <translation>Hem</translation>
+    </message>
+    <message>
+      <source>Chats transferred to you directly</source>
+      <translation>Chattar som vidarebefordrats direkt till dig</translation>
+    </message>
+    <message>
+      <source>Transferred to your department</source>
+      <translation>Vidarebefodrad till din avdelning</translation>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation>Väntande chattar</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Aktiva chattar</translation>
+    </message>
+    <message>
+      <source>Unread messages</source>
+      <translation>Olästa meddelanden</translation>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation>Avslutade chattar</translation>
+    </message>
+    <message>
+      <source>Configuration</source>
+      <translation>Inställningar</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Chattlista</translation>
+    </message>
+    <message>
+      <source>Chat rooms</source>
+      <translation>Chattrum</translation>
+    </message>
+    <message>
+      <source>New chat request</source>
+      <translation>Ny chattförfrågan</translation>
+    </message>
+    <message>
+      <source>Menu</source>
+      <translation>Meny</translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Besökare online</translation>
+    </message>
+    <message>
+      <source>Questionary</source>
+      <translation>Frågeformulär</translation>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation>FAQ</translation>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation>Chattbox</translation>
+    </message>
+    <message>
+      <source>Browse offers</source>
+      <translation>Bläddra bland erbjudanden</translation>
+    </message>
+    <message>
+      <source>Account</source>
+      <translation>Konto</translation>
+    </message>
+    <message>
+      <source>Logout</source>
+      <translation>Logga ut</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/syncadmin</name>
     <message>
       <source>System assistant</source>
@@ -2176,11 +2333,11 @@
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Avdelning</translation>
     </message>
     <message>
       <source>User</source>
-      <translation type="unfinished"/>
+      <translation>Användare</translation>
     </message>
     <message>
       <source>Search</source>
@@ -2188,15 +2345,19 @@
     </message>
     <message>
       <source>Print</source>
-      <translation type="unfinished"/>
+      <translation>Skriv ut</translation>
     </message>
     <message>
       <source>Select department</source>
-      <translation type="unfinished"/>
+      <translation>Välj avdelning</translation>
     </message>
     <message>
       <source>Select user</source>
-      <translation type="unfinished"/>
+      <translation>Välj användare</translation>
+    </message>
+    <message>
+      <source>Type to search</source>
+      <translation>Skriv in för att söka</translation>
     </message>
   </context>
   <context>
@@ -2214,7 +2375,7 @@
     <name>chat/part/operator_profile</name>
     <message>
       <source>Skype call</source>
-      <translation type="unfinished"/>
+      <translation>Skype samtal</translation>
     </message>
   </context>
   <context>
@@ -2302,7 +2463,7 @@
     </message>
     <message>
       <source>Embed link to file</source>
-      <translation type="unfinished"/>
+      <translation>Bädda in länk till fil</translation>
     </message>
     <message>
       <source>Mail was sent to the user</source>
@@ -2341,11 +2502,11 @@
     </message>
     <message>
       <source>Requires e-mail</source>
-      <translation type="unfinished"/>
+      <translation>E-post är obligatoriskt</translation>
     </message>
     <message>
       <source>Requires name</source>
-      <translation type="unfinished"/>
+      <translation>Namn är obligatoriskt</translation>
     </message>
     <message>
       <source>Send the message</source>
@@ -2376,11 +2537,11 @@
     </message>
     <message>
       <source>Enable leave a message functionality automatically if there are no online operators</source>
-      <translation type="unfinished"/>
+      <translation>Aktiver lämna ett meddelande funktion automatiskt om det inte finns någon operatör online</translation>
     </message>
     <message>
       <source>Online form settings</source>
-      <translation type="unfinished"/>
+      <translation>Online formulär inställningar</translation>
     </message>
     <message>
       <source>Name</source>
@@ -2396,7 +2557,7 @@
     </message>
     <message>
       <source>This field is invisible but prefilled data is collected</source>
-      <translation type="unfinished"/>
+      <translation>Detta fält är osynligt men förifylld data samlas in</translation>
     </message>
     <message>
       <source>This field is</source>
@@ -2424,15 +2585,15 @@
     </message>
     <message>
       <source>Terms of service acceptance checkbox</source>
-      <translation type="unfinished"/>
+      <translation>Användarvillkor, kryssruta</translation>
     </message>
     <message>
       <source>Offline form settings</source>
-      <translation type="unfinished"/>
+      <translation>Offline formulär inställningar</translation>
     </message>
     <message>
       <source>E-mail is always required</source>
-      <translation type="unfinished"/>
+      <translation>E-post är alltid obligatorisk</translation>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>
@@ -2487,7 +2648,7 @@
     </message>
     <message>
       <source>Messages settings</source>
-      <translation type="unfinished"/>
+      <translation>Inställningar meddelande</translation>
     </message>
     <message>
       <source>Sync for a new user message, interval in seconds</source>
@@ -2495,23 +2656,23 @@
     </message>
     <message>
       <source>Show browser notification for new messages</source>
-      <translation type="unfinished"/>
+      <translation>Visa webbläsarnotifikation för nya meddelanden</translation>
     </message>
     <message>
       <source>Long polling (experimental)</source>
-      <translation type="unfinished"/>
+      <translation>Realtid notifieringar (experimentalt)</translation>
     </message>
     <message>
       <source>Enable long polling</source>
-      <translation type="unfinished"/>
+      <translation>Aktivera långa omröstningar</translation>
     </message>
     <message>
       <source>How many seconds keep connection to server?</source>
-      <translation type="unfinished"/>
+      <translation>Hur många sekunder att upprätthålla anslutningen till servern?</translation>
     </message>
     <message>
       <source>New chat request notification settings</source>
-      <translation type="unfinished"/>
+      <translation>Ny chattförfrågan notifikationsinställningar</translation>
     </message>
     <message>
       <source>Play a new pending chat sound on a new chat request</source>
@@ -2527,27 +2688,27 @@
     </message>
     <message>
       <source>Show alert message on a new chat request</source>
-      <translation type="unfinished"/>
+      <translation>Visa notifikationsmeddelande vid en ny chattförfrågan</translation>
     </message>
     <message>
       <source>How many times play sound notification</source>
-      <translation type="unfinished"/>
+      <translation>Hur många gånger spela ljudnotifikation</translation>
     </message>
     <message>
       <source>Number</source>
-      <translation type="unfinished"/>
+      <translation>Nummer</translation>
     </message>
     <message>
       <source>Delay between sound notifications in seconds</source>
-      <translation type="unfinished"/>
+      <translation>Fördröjning mellan ljudnotifikationer i sekunder</translation>
     </message>
     <message>
       <source>delay in seconds</source>
-      <translation type="unfinished"/>
+      <translation>fördröjning i sekunder</translation>
     </message>
     <message>
       <source>Seconds</source>
-      <translation type="unfinished"/>
+      <translation>Sekunder</translation>
     </message>
     <message>
       <source>Please enter a valid online timeout value!</source>
@@ -2555,7 +2716,7 @@
     </message>
     <message>
       <source>Please enter a valid server connection timeout value!</source>
-      <translation type="unfinished"/>
+      <translation>Var vänlig ange ett giltigt värde för serveranslutningens timeout!</translation>
     </message>
     <message>
       <source>Please enter a valid operator message timeout value!</source>
@@ -2563,7 +2724,7 @@
     </message>
     <message>
       <source>Please enter a valid new messages polling sync interval!</source>
-      <translation type="unfinished"/>
+      <translation>Var vänlig ange ett nytt giltigt meddelande omröstning synkintervall!</translation>
     </message>
     <message>
       <source>Please enter a valid back office sync interval!</source>
@@ -2650,7 +2811,7 @@
     </message>
     <message>
       <source>Votes</source>
-      <translation type="unfinished"/>
+      <translation>Röster</translation>
     </message>
     <message>
       <source>Last activity</source>
@@ -2970,37 +3131,6 @@
     </message>
   </context>
   <context>
-    <name>questionary/htmlcode</name>
-    <message>
-      <source>Show overlay</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Show different offers for the same user</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the page header or footer</source>
-      <translation>Kopiera koden från textrutan till sidhuvudet eller sidfoten</translation>
-    </message>
-    <message>
-      <source>Status text</source>
-      <translation>Statustext</translation>
-    </message>
-    <message>
-      <source>Expand the widget automatically for new users</source>
-      <translation>Expandera widget&apos;en automatiskt för nya användare</translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation>Kopiera koden från textrutan till sidfoten före &amp;lt;/body&amp;gt; slut taggen</translation>
-    </message>
-    <message>
-      <source>HTML code</source>
-      <translation>HTML kod</translation>
-    </message>
-  </context>
-  <context>
     <name>chatbox/list</name>
     <message>
       <source>Chatbox list</source>
@@ -3127,7 +3257,7 @@
     </message>
     <message>
       <source>Your username</source>
-      <translation type="unfinished"/>
+      <translation>Ditt användarnamn</translation>
     </message>
     <message>
       <source>Password</source>
@@ -3159,19 +3289,19 @@
     </message>
     <message>
       <source>Job title</source>
-      <translation type="unfinished"/>
+      <translation>Jobbtitel</translation>
     </message>
     <message>
       <source>Chat status will not change upon pending chat opening</source>
-      <translation type="unfinished"/>
+      <translation>Chattens status kommer inte ändras vid vänteläge chatt öppning</translation>
     </message>
     <message>
       <source>Skype</source>
-      <translation type="unfinished"/>
+      <translation>Skype</translation>
     </message>
     <message>
       <source>XMPP username</source>
-      <translation type="unfinished"/>
+      <translation>XMPP användarnamn</translation>
     </message>
     <message>
       <source>Photo</source>
@@ -3191,7 +3321,7 @@
     </message>
     <message>
       <source>All departments</source>
-      <translation type="unfinished"/>
+      <translation>Alla avdelningar</translation>
     </message>
     <message>
       <source>Visible lists</source>
@@ -3215,7 +3345,7 @@
     </message>
     <message>
       <source>Personal canned messages</source>
-      <translation type="unfinished"/>
+      <translation>Personligt förifyllda meddelanden</translation>
     </message>
     <message>
       <source>Account updated</source>
@@ -3277,7 +3407,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>E-post</translation>
     </message>
     <message>
       <source>Question</source>
@@ -3297,7 +3427,7 @@
     </message>
     <message>
       <source>Please enter your email address!</source>
-      <translation type="unfinished"/>
+      <translation>Var vänlig ange din e-postadress!</translation>
     </message>
   </context>
   <context>
@@ -3320,11 +3450,11 @@
     </message>
     <message>
       <source>Submitter e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Inlämnare e-post</translation>
     </message>
     <message>
       <source>Identifier, can be used to filter questions by identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identifierare, kan användas för att filtrera frågor av identifieraren</translation>
     </message>
     <message>
       <source>Question is active</source>
@@ -3347,7 +3477,7 @@
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identifierare</translation>
     </message>
     <message>
       <source>Active</source>
@@ -3398,7 +3528,7 @@
     </message>
     <message>
       <source>Identifier has to be shorter than 10 characters!</source>
-      <translation type="unfinished"/>
+      <translation>Identifierare måste vara kortare än 10 tecken!</translation>
     </message>
     <message>
       <source>Please enter question!</source>
@@ -3421,7 +3551,7 @@
     </message>
     <message>
       <source>Upload a file</source>
-      <translation type="unfinished"/>
+      <translation>Ladda upp en fil</translation>
     </message>
     <message>
       <source>Upload name</source>
@@ -3433,7 +3563,7 @@
     </message>
     <message>
       <source>Embed BB code</source>
-      <translation type="unfinished"/>
+      <translation>Bädda in BB kod</translation>
     </message>
     <message>
       <source>User</source>
@@ -3491,19 +3621,19 @@
     <name>file/new</name>
     <message>
       <source>New file</source>
-      <translation type="unfinished"/>
+      <translation>Ny fil</translation>
     </message>
     <message>
       <source>File name</source>
-      <translation type="unfinished"/>
+      <translation>Filnamn</translation>
     </message>
     <message>
       <source>Upload</source>
-      <translation type="unfinished"/>
+      <translation>Ladda upp</translation>
     </message>
     <message>
       <source>File uploaded</source>
-      <translation type="unfinished"/>
+      <translation>Filen är uppladdad</translation>
     </message>
   </context>
   <context>
@@ -3899,7 +4029,7 @@
     </message>
     <message>
       <source>Revote</source>
-      <translation type="unfinished"/>
+      <translation>Omrösta</translation>
     </message>
     <message>
       <source>Y</source>
@@ -3927,7 +4057,7 @@
     </message>
     <message>
       <source>Off</source>
-      <translation type="unfinished"/>
+      <translation>Av</translation>
     </message>
     <message>
       <source>Questionary</source>
@@ -3980,7 +4110,7 @@
     </message>
     <message>
       <source>Revote time (hours), before can revote. Default 0 - never. Higher value allow revote after seconds expire since last vote</source>
-      <translation type="unfinished"/>
+      <translation>Omröstning tid (timmar), före omröstning kan ske. Standard 0 - aldrig. Högre värde tillåter omröstning efter sekunder sedan senaste omröstning</translation>
     </message>
     <message>
       <source>Active</source>
@@ -4028,93 +4158,6 @@
     <message>
       <source>You have already send your feedback!</source>
       <translation>Du har redan skickat din feedback!</translation>
-    </message>
-  </context>
-  <context>
-    <name>pagelayout/pagelayout</name>
-    <message>
-      <source>Clean cache</source>
-      <translation>Rensa cache</translation>
-    </message>
-    <message>
-      <source>Home</source>
-      <translation>Hem</translation>
-    </message>
-    <message>
-      <source>Chats transferred to you directly</source>
-      <translation>Chattar som vidarebefordrats direkt till dig</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Tom...</translation>
-    </message>
-    <message>
-      <source>Transferred to your department</source>
-      <translation>Vidarebefodrad till din avdelning</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Väntande chattar</translation>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation>Aktiva chattar</translation>
-    </message>
-    <message>
-      <source>Unread messages</source>
-      <translation>Olästa meddelanden</translation>
-    </message>
-    <message>
-      <source>Closed chats</source>
-      <translation>Avslutade chattar</translation>
-    </message>
-    <message>
-      <source>Configuration</source>
-      <translation>Inställningar</translation>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation>Chattlista</translation>
-    </message>
-    <message>
-      <source>Chat rooms</source>
-      <translation>Chattrum</translation>
-    </message>
-    <message>
-      <source>New chat request</source>
-      <translation>Ny chattförfrågan</translation>
-    </message>
-    <message>
-      <source>Menu</source>
-      <translation>Meny</translation>
-    </message>
-    <message>
-      <source>Online visitors</source>
-      <translation>Besökare online</translation>
-    </message>
-    <message>
-      <source>Questionary</source>
-      <translation>Frågeformulär</translation>
-    </message>
-    <message>
-      <source>FAQ</source>
-      <translation>FAQ</translation>
-    </message>
-    <message>
-      <source>Chatbox</source>
-      <translation>Chattbox</translation>
-    </message>
-    <message>
-      <source>Browse offers</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Account</source>
-      <translation>Konto</translation>
-    </message>
-    <message>
-      <source>Logout</source>
-      <translation>Logga ut</translation>
     </message>
   </context>
   <context>
@@ -4215,38 +4258,38 @@
     <name>system/timezone</name>
     <message>
       <source>Time zone settings</source>
-      <translation type="unfinished"/>
+      <translation>Inställningar för tidszon</translation>
     </message>
     <message>
       <source>Set application specific time zone</source>
-      <translation type="unfinished"/>
+      <translation>Ställ in specifik tidszon i applikationen</translation>
     </message>
     <message>
       <source>Date format E.g (Y-m-d)</source>
-      <translation type="unfinished"/>
+      <translation>Datumformat, exempelvis (Å-m-d)</translation>
     </message>
     <message>
       <source>Full date format E.g (Y-m-d H:i:s)</source>
-      <translation type="unfinished"/>
+      <translation>Fullt datumformat, exempelvis (Å-m-d H:i:s)</translation>
     </message>
     <message>
       <source>Hour format E.g (H:i:s)</source>
-      <translation type="unfinished"/>
+      <translation>Timformat, exempelvis (H:i:s)</translation>
     </message>
     <message>
       <source>Live Helper Chat update</source>
-      <translation type="unfinished"/>
+      <translation>Live Helper Chat uppdatering</translation>
     </message>
     <message>
       <source>Time zone</source>
-      <translation type="unfinished"/>
+      <translation>Tidszon</translation>
     </message>
   </context>
   <context>
     <name>user/edit</name>
     <message>
       <source>Server default time zone</source>
-      <translation type="unfinished"/>
+      <translation>Serverns standard tidszon</translation>
     </message>
     <message>
       <source>User edit</source>
@@ -4302,11 +4345,11 @@
     </message>
     <message>
       <source>User time zone</source>
-      <translation type="unfinished"/>
+      <translation>Användarens tidszon</translation>
     </message>
     <message>
       <source>Application default time zone</source>
-      <translation type="unfinished"/>
+      <translation>Applikationens standard tidszon</translation>
     </message>
     <message>
       <source>Wrong email address</source>
@@ -4337,42 +4380,42 @@
     <name>system/update</name>
     <message>
       <source>Your version</source>
-      <translation type="unfinished"/>
+      <translation>Din version</translation>
     </message>
     <message>
       <source>Current version</source>
-      <translation type="unfinished"/>
+      <translation>Nuvarande version</translation>
     </message>
     <message>
       <source>Last database update</source>
-      <translation type="unfinished"/>
+      <translation>Senaste databasuppdatering</translation>
     </message>
     <message>
       <source>News</source>
-      <translation type="unfinished"/>
+      <translation>Nyheter</translation>
     </message>
     <message>
       <source>Missing updates from new versions.</source>
-      <translation type="unfinished"/>
+      <translation>Saknade uppdateringar från nya versioner.</translation>
     </message>
     <message>
       <source>Update instructions</source>
-      <translation type="unfinished"/>
+      <translation>Uppdateringsinstruktioner.</translation>
     </message>
     <message>
       <source>You are running current version. No updates required</source>
-      <translation type="unfinished"/>
+      <translation>Du har den senaste versionen. Inga uppdatering behövs.</translation>
     </message>
     <message>
       <source>Live Helper Chat update information</source>
-      <translation type="unfinished"/>
+      <translation>Live Helper Chat uppdateringsinformation</translation>
     </message>
   </context>
   <context>
     <name>user/new</name>
     <message>
       <source>Invisible mode</source>
-      <translation type="unfinished"/>
+      <translation>Ej synligt läge</translation>
     </message>
     <message>
       <source>User group</source>
@@ -4745,143 +4788,143 @@
     <name>system/xmpp</name>
     <message>
       <source>XMPP settings</source>
-      <translation type="unfinished"/>
+      <translation>XMPP inställningar</translation>
     </message>
     <message>
       <source>XMPP active</source>
-      <translation type="unfinished"/>
+      <translation>XMPP aktiv</translation>
     </message>
     <message>
       <source>XMPP Message content</source>
-      <translation type="unfinished"/>
+      <translation>XMPP Meddelande innehåll</translation>
     </message>
     <message>
       <source>XMPP</source>
-      <translation type="unfinished"/>
+      <translation>XMPP</translation>
     </message>
     <message>
       <source>Use standard XMPP service</source>
-      <translation type="unfinished"/>
+      <translation>Använd standard XMPP tjänst</translation>
     </message>
     <message>
       <source>Host</source>
-      <translation type="unfinished"/>
+      <translation>Värd</translation>
     </message>
     <message>
       <source>Port</source>
-      <translation type="unfinished"/>
+      <translation>Port</translation>
     </message>
     <message>
       <source>Login</source>
-      <translation type="unfinished"/>
+      <translation>Logga in</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation type="unfinished"/>
+      <translation>Lösenord</translation>
     </message>
     <message>
       <source>Resource</source>
-      <translation type="unfinished"/>
+      <translation>Resurs</translation>
     </message>
     <message>
       <source>Server</source>
-      <translation type="unfinished"/>
+      <translation>Server</translation>
     </message>
     <message>
       <source>Recipients</source>
-      <translation type="unfinished"/>
+      <translation>Mottagare</translation>
     </message>
     <message>
       <source>Default recipients</source>
-      <translation type="unfinished"/>
+      <translation>Standard mottagare</translation>
     </message>
     <message>
       <source>Test recipients</source>
-      <translation type="unfinished"/>
+      <translation>Testmottagare</translation>
     </message>
     <message>
       <source>Individual recipients</source>
-      <translation type="unfinished"/>
+      <translation>Enskilda mottagare</translation>
     </message>
     <message>
       <source>Test group recipients</source>
-      <translation type="unfinished"/>
+      <translation>Mottagare testgrupp</translation>
     </message>
     <message>
       <source>Test message will be send to your account e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Textmeddelandet kommer att skickas till e-postadressen för ditt konto</translation>
     </message>
     <message>
       <source>GTalk</source>
-      <translation type="unfinished"/>
+      <translation>GTalk</translation>
     </message>
     <message>
       <source>Use GTalk for messaging</source>
-      <translation type="unfinished"/>
+      <translation>Använd GTalk för meddelanden</translation>
     </message>
     <message>
       <source>Information for your google app</source>
-      <translation type="unfinished"/>
+      <translation>Information för din google app</translation>
     </message>
     <message>
       <source>Redirect URL, this url you will have to enter in your google app configuration</source>
-      <translation type="unfinished"/>
+      <translation>Vidarebefordra URL, denna url måste du ange i din konfiguration för din google app</translation>
     </message>
     <message>
       <source>Enter your app information bellow</source>
-      <translation type="unfinished"/>
+      <translation>Skriv in din app information nedan</translation>
     </message>
     <message>
       <source>OAuth 2.0 Client ID</source>
-      <translation type="unfinished"/>
+      <translation>OAuth 2.0 Klient ID</translation>
     </message>
     <message>
       <source>Please enter your Client ID</source>
-      <translation type="unfinished"/>
+      <translation>Var vänlig skriv in ditt Klient ID</translation>
     </message>
     <message>
       <source>Client secret</source>
-      <translation type="unfinished"/>
+      <translation>Klient hemlighet</translation>
     </message>
     <message>
       <source>This message will be send to your e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Detta meddelande kommer att skickas till din e-post</translation>
     </message>
     <message>
       <source>Send test message</source>
-      <translation type="unfinished"/>
+      <translation>Skicka testmeddelande</translation>
     </message>
     <message>
       <source>Revoke access token</source>
-      <translation type="unfinished"/>
+      <translation>Upphäv access token</translation>
     </message>
     <message>
       <source>Revoke permission to send a message</source>
-      <translation type="unfinished"/>
+      <translation>Upphäv tillåtelse att skicka ett meddelande</translation>
     </message>
     <message>
       <source>Authentificate and grant permission to send a message</source>
-      <translation type="unfinished"/>
+      <translation>Verifiera och ge tillåtelse att skicka ett meddelande</translation>
     </message>
     <message>
       <source>Grant permission to send a message</source>
-      <translation type="unfinished"/>
+      <translation>Ge tillåtelse att skicka ett meddelande</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Inställningar uppdaterade</translation>
     </message>
     <message>
       <source>Succesfully authorised, now you can try to send a message</source>
-      <translation type="unfinished"/>
+      <translation>Verifierad, nu kan du försöka att skicka ett meddelande</translation>
     </message>
     <message>
       <source>Token was revoked</source>
-      <translation type="unfinished"/>
+      <translation>Token blev upphävd</translation>
     </message>
     <message>
       <source>XMPP message was sent succesfuly</source>
-      <translation type="unfinished"/>
+      <translation>XMPP meddelandet skickades</translation>
     </message>
   </context>
   <context>
@@ -4926,11 +4969,11 @@
     </message>
     <message>
       <source>Minimum 5 seconds</source>
-      <translation type="unfinished"/>
+      <translation>Minimum 5 sekunder</translation>
     </message>
     <message>
       <source>Transfer department has to be different one than self</source>
-      <translation type="unfinished"/>
+      <translation>Flyttavdelningen måste vara en annan avdelning än den själv</translation>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>
@@ -4939,6 +4982,73 @@
     <message>
       <source>Please enter a valid to date range!</source>
       <translation>Vänligen ange ett giltigt till datum!</translation>
+    </message>
+  </context>
+  <context>
+    <name>abstract/browserofferinvitation</name>
+    <message>
+      <source>Name for personal purposes</source>
+      <translation>Namn för personliga ändamål</translation>
+    </message>
+    <message>
+      <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
+      <translation>Språk, lämna tomt för alla. Exempelvis en, rus, ger etc...</translation>
+    </message>
+    <message>
+      <source>Time on site on single page in seconds</source>
+      <translation>Tid på enskild sida i sekunder</translation>
+    </message>
+    <message>
+      <source>Priority, the lower the higher</source>
+      <translation>Prioritet, desto lägre desto högre</translation>
+    </message>
+    <message>
+      <source>Popup width</source>
+      <translation>Popup bredd</translation>
+    </message>
+    <message>
+      <source>Popup height</source>
+      <translation>Popup höjd</translation>
+    </message>
+    <message>
+      <source>Measure units, px or percents</source>
+      <translation>Måttenheter, px eller procent</translation>
+    </message>
+    <message>
+      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
+      <translation>Hänvisningsdomän utan www, exempelvis google sökord kommer matcha alla google domäner</translation>
+    </message>
+    <message>
+      <source>URL, enter * at the end for the wildcard</source>
+      <translation>URL, ange * i slutet för wildcard</translation>
+    </message>
+    <message>
+      <source>Custom iframe URL, takes priority over default content</source>
+      <translation>Anpassad iframe URL, tar prioritet över standard innehåll</translation>
+    </message>
+    <message>
+      <source>Default popup content</source>
+      <translation>Standard popup innehåll</translation>
+    </message>
+    <message>
+      <source>Load content in lhc iframe</source>
+      <translation>Ladda innehåll i lhc frame</translation>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation>Aktiv</translation>
+    </message>
+    <message>
+      <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
+      <translation>Identifierare, för vilken identifierare detta meddelande ska visas, lämna tomt för alla</translation>
+    </message>
+    <message>
+      <source>Matched times</source>
+      <translation>Matchade tider</translation>
+    </message>
+    <message>
+      <source>Browser offer invitations</source>
+      <translation>Bläddra bland erbjudande om inbjudning</translation>
     </message>
   </context>
   <context>
@@ -4985,7 +5095,7 @@
     </message>
     <message>
       <source>BCC recipients, can be separated by comma.</source>
-      <translation type="unfinished"/>
+      <translation>BCC mottagare, kan separeras med ett kommatecken.</translation>
     </message>
     <message>
       <source>Content</source>
@@ -5000,7 +5110,7 @@
     <name>chat/accepttrasnfer</name>
     <message>
       <source>has joined the chat!</source>
-      <translation type="unfinished"/>
+      <translation>har gått med i chatten!</translation>
     </message>
   </context>
   <context>
@@ -5011,7 +5121,7 @@
     </message>
     <message>
       <source>has redirected user to contact form!</source>
-      <translation type="unfinished"/>
+      <translation>har vidarebefordrat användare till kontaktformulär!</translation>
     </message>
   </context>
   <context>
@@ -5077,92 +5187,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Vänligen ange en giltig filtyp!</translation>
-    </message>
-  </context>
-  <context>
-    <name>browseoffer/index</name>
-    <message>
-      <source>Browse offers</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>General</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Browse your offers</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>HTML Code</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>abstract/browserofferinvitation</name>
-    <message>
-      <source>Name for personal purposes</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Time on site on single page in seconds</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Priority, the lower the higher</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Popup width</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Popup height</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Measure units, px or percents</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>URL, enter * at the end for the wildcard</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Custom iframe URL, takes priority over default content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Default popup content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Load content in lhc iframe</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Active</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Matched times</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Browser offer invitations</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

@@ -1,3 +1,10 @@
+1.97v
+
+Github changes
+https://github.com/LiveHelperChat/livehelperchat/issues/363
+
+execute doc/update_db/update_76.sql for update
+
 1.96v
 
 Github changes

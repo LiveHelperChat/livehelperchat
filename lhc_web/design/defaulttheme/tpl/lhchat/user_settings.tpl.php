@@ -23,6 +23,9 @@ if ( $currentUser->hasAccessTo('lhuser','changevisibility') ) {
 }
 
 ?>
+
+<?php if ($currentUser->hasAccessTo('lhchat','use') ) : ?>
+
 <?php if (!isset($hideULSetting)) : ?>
 <ul class="no-bullet inline-list user-settings-list">
 <?php endif;?>
@@ -38,4 +41,6 @@ if ( $currentUser->hasAccessTo('lhuser','changevisibility') ) {
 	<?php endif;?>
 <?php if (!isset($hideULSetting)) : ?>
 </ul>
+<?php endif;?>
+
 <?php endif;?>
