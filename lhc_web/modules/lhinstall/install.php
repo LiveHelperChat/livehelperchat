@@ -47,6 +47,9 @@ switch ((int)$Params['user_parameters']['step_id']) {
 		if (!is_writable("var/storage"))
 	       $Errors[] = "var/storage is not writable";
 
+		if (!is_writable("var/storageform"))
+	       $Errors[] = "var/storageform is not writable";
+
 		if (!is_writable("var/userphoto"))
 	       $Errors[] = "var/userphoto is not writable";
 
