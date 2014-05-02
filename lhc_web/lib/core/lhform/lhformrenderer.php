@@ -234,7 +234,7 @@ class erLhcoreClassFormRenderer {
     	
     	$options = [];
     	if (isset($params['from']) && isset($params['till'])){
-    		for ($i = $params['from']; $i < $params['till']; $i++) {
+    		for ($i = $params['from']; $i <= $params['till']; $i++) {
     			$isSelected= $value == $i ? 'selected="selected"' : '';
     			$options[] = "<option =\"".htmlspecialchars($i)."\" {$isSelected}>".htmlspecialchars($i).'</option>';
     		}
