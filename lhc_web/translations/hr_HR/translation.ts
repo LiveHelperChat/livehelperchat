@@ -35,27 +35,27 @@
     </message>
     <message>
       <source>Send</source>
-      <translation type="unfinished"/>
+      <translation>Pošalji</translation>
     </message>
     <message>
       <source>Save and continue</source>
-      <translation type="unfinished"/>
+      <translation>Sačuvaj i nastavi</translation>
     </message>
     <message>
       <source>Continue</source>
-      <translation type="unfinished"/>
+      <translation>Nastavi</translation>
     </message>
     <message>
       <source>Start archiving</source>
-      <translation type="unfinished"/>
+      <translation>Počni arhivirati</translation>
     </message>
     <message>
       <source>Return</source>
-      <translation type="unfinished"/>
+      <translation>Povratak</translation>
     </message>
     <message>
       <source>Delete department</source>
-      <translation type="unfinished"/>
+      <translation>Obriši odjel</translation>
     </message>
     <message>
       <source>Test</source>
@@ -105,15 +105,15 @@
     </message>
     <message>
       <source>Wait timeout. Time in seconds before timeout message is shown.</source>
-      <translation type="unfinished"/>
+      <translation>Istek vremena čekanja. Vrijeme u sekundama prije nego što se poruka prikaže.</translation>
     </message>
     <message>
       <source>Show visitor this message then wait timeout passes.</source>
-      <translation type="unfinished"/>
+      <translation>Pokaži posjetitelju ovu poruku i zatim čekaj da vrijeme čekanje istekne.</translation>
     </message>
     <message>
       <source>Auto responder</source>
-      <translation type="unfinished"/>
+      <translation>Automatski odgovor</translation>
     </message>
     <message>
       <source>Name for personal purposes</source>
@@ -121,7 +121,7 @@
     </message>
     <message>
       <source>Operator name</source>
-      <translation type="unfinished"/>
+      <translation>Ime operatera</translation>
     </message>
     <message>
       <source>Time on site in seconds</source>
@@ -145,7 +145,7 @@
     </message>
     <message>
       <source>Requires name</source>
-      <translation type="unfinished"/>
+      <translation>Ime je obvezno</translation>
     </message>
     <message>
       <source>Show random operator profile</source>
@@ -157,11 +157,11 @@
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation type="unfinished"/>
+      <translation>Oznaka, za koju oznaku bi ova poruka trebala biti pokazana, ostavite prazno za sve</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Odjel</translation>
     </message>
     <message>
       <source>Matched times</source>
@@ -173,7 +173,7 @@
     </message>
     <message>
       <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
-      <translation type="unfinished"/>
+      <translation>Poruka za čekanje. Vidljivo kad korisnik započne razgovor i čeka da netko prihvati razgovor.</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -184,7 +184,7 @@
     <name>abstract/list</name>
     <message>
       <source>Are you sure?</source>
-      <translation type="unfinished"/>
+      <translation>Jeste li sigurni?</translation>
     </message>
   </context>
   <context>
@@ -211,11 +211,11 @@
     </message>
     <message>
       <source>Need help?</source>
-      <translation type="unfinished"/>
+      <translation>Trebate pomoć?</translation>
     </message>
     <message>
       <source>Our staff is always ready to help</source>
-      <translation type="unfinished"/>
+      <translation>Naše osoblje je uvijek spremno pomoći</translation>
     </message>
   </context>
   <context>
@@ -226,11 +226,11 @@
     </message>
     <message>
       <source>Popup width</source>
-      <translation type="unfinished"/>
+      <translation>Širina pop-upa</translation>
     </message>
     <message>
       <source>Popup height, used only if iframe is used</source>
-      <translation type="unfinished"/>
+      <translation>Visina pop-upa, koristi se samo ako je iframe u upotrebi</translation>
     </message>
     <message>
       <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
@@ -274,19 +274,19 @@
     </message>
     <message>
       <source>Chatbox</source>
-      <translation type="unfinished"/>
+      <translation>Chatbox</translation>
     </message>
     <message>
       <source>Position from the top, is only used if the Middle left or the Middle right side is chosen</source>
-      <translation type="unfinished"/>
+      <translation>Položaj od vrha, koristi se samo ako je odabrana srednja lijeva ili srednja desna strana</translation>
     </message>
     <message>
       <source>Pixels</source>
-      <translation type="unfinished"/>
+      <translation>Piksela</translation>
     </message>
     <message>
       <source>Percents</source>
-      <translation type="unfinished"/>
+      <translation>Postotak</translation>
     </message>
     <message>
       <source>Size</source>
@@ -342,15 +342,19 @@
     </message>
     <message>
       <source>Status text</source>
-      <translation type="unfinished"/>
+      <translation>Status tekst</translation>
     </message>
     <message>
       <source>FAQ</source>
-      <translation type="unfinished"/>
+      <translation>ČPP</translation>
     </message>
     <message>
       <source>Position from the top, only used if the Middle left or the Middle right side is chosen</source>
       <translation>Pozicija od vrha. Koristi se samo ako je odabrana srednja lijeva ili srednja desna strana</translation>
+    </message>
+    <message>
+      <source>Choose what form you want to embed</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Help us to grow</source>
@@ -358,7 +362,7 @@
     </message>
     <message>
       <source>Embed code</source>
-      <translation type="unfinished"/>
+      <translation>Kod za ugradnju</translation>
     </message>
     <message>
       <source>Hide status when offline</source>
@@ -441,7 +445,7 @@
     </message>
     <message>
       <source>Show different offers for the same user</source>
-      <translation type="unfinished"/>
+      <translation>Prikaži različite ponude za istog korisnika</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page header or footer</source>
@@ -468,18 +472,30 @@
     <name>browseoffer/index</name>
     <message>
       <source>Browse offers</source>
-      <translation type="unfinished"/>
+      <translation>Pretraži ponude</translation>
     </message>
     <message>
       <source>General</source>
-      <translation type="unfinished"/>
+      <translation>Općenito</translation>
     </message>
     <message>
       <source>Browse your offers</source>
-      <translation type="unfinished"/>
+      <translation>Pretraži svoje ponude</translation>
     </message>
     <message>
       <source>HTML Code</source>
+      <translation>HTML kod</translation>
+    </message>
+    <message>
+      <source>List of forms</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Form</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -511,7 +527,7 @@
     </message>
     <message>
       <source>Chats lists</source>
-      <translation type="unfinished"/>
+      <translation>Popis razgovora</translation>
     </message>
     <message>
       <source>Active chats</source>
@@ -530,31 +546,31 @@
     </message>
     <message>
       <source>Change chat status</source>
-      <translation type="unfinished"/>
+      <translation>Promijenite status razgovora</translation>
     </message>
     <message>
       <source>Pending</source>
-      <translation type="unfinished"/>
+      <translation>Na čekanju</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>Aktivan</translation>
     </message>
     <message>
       <source>Closed</source>
-      <translation type="unfinished"/>
+      <translation>Zatvoren</translation>
     </message>
     <message>
       <source>Chatbox chat</source>
-      <translation type="unfinished"/>
+      <translation>Razgovor u chatboxu</translation>
     </message>
     <message>
       <source>Operators chat</source>
-      <translation type="unfinished"/>
+      <translation>Razgovor za operatere</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation type="unfinished"/>
+      <translation>Poništi</translation>
     </message>
     <message>
       <source>This chat is closed.</source>
@@ -578,19 +594,19 @@
     </message>
     <message>
       <source>BB Code</source>
-      <translation type="unfinished"/>
+      <translation>BB ko</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
-      <translation type="unfinished"/>
+      <translation>Chatbox onemogućen.</translation>
     </message>
     <message>
       <source>Invalid hash or auto creation is disabled</source>
-      <translation type="unfinished"/>
+      <translation>Neispravan hash ili je automatsko kreiranje onemogućeno</translation>
     </message>
     <message>
       <source>Visitor</source>
-      <translation type="unfinished"/>
+      <translation>Posjetitelj</translation>
     </message>
     <message>
       <source>Chat started</source>
@@ -598,7 +614,7 @@
     </message>
     <message>
       <source>is typing now...</source>
-      <translation type="unfinished"/>
+      <translation>piše...</translation>
     </message>
     <message>
       <source>Operator is typing now...</source>
@@ -609,35 +625,35 @@
     <name>chat/bbcodeinsert</name>
     <message>
       <source>Image</source>
-      <translation type="unfinished"/>
+      <translation>Slika</translation>
     </message>
     <message>
       <source>Link</source>
-      <translation type="unfinished"/>
+      <translation>Poveznica</translation>
     </message>
     <message>
       <source>Link title</source>
-      <translation type="unfinished"/>
+      <translation>Naslov poveznice</translation>
     </message>
     <message>
       <source>Bold</source>
-      <translation type="unfinished"/>
+      <translation>Podebljano</translation>
     </message>
     <message>
       <source>Italic</source>
-      <translation type="unfinished"/>
+      <translation>Kurziv</translation>
     </message>
     <message>
       <source>Please enter link to an image</source>
-      <translation type="unfinished"/>
+      <translation>Molimo unesite poveznicu za sliku</translation>
     </message>
     <message>
       <source>Please enter a link</source>
-      <translation type="unfinished"/>
+      <translation>Molimo unesite poveznicu</translation>
     </message>
     <message>
       <source>Here is a link</source>
-      <translation type="unfinished"/>
+      <translation>Ovdje je poveznica</translation>
     </message>
   </context>
   <context>
@@ -686,7 +702,7 @@
     <name>chat/cannedmsg</name>
     <message>
       <source>Canned messages</source>
-      <translation>Arhivirane poruke</translation>
+      <translation>Automatizirane poruke</translation>
     </message>
     <message>
       <source>Message</source>
@@ -698,11 +714,11 @@
     </message>
     <message>
       <source>Delay</source>
-      <translation type="unfinished"/>
+      <translation>Odgađanje</translation>
     </message>
     <message>
       <source>Position</source>
-      <translation type="unfinished"/>
+      <translation>Pozicija</translation>
     </message>
     <message>
       <source>Edit message</source>
@@ -714,15 +730,15 @@
     </message>
     <message>
       <source>New canned message</source>
-      <translation>Nova canned poruka</translation>
+      <translation>Nova automatizirana poruka</translation>
     </message>
     <message>
       <source>Edit canned message</source>
-      <translation>Uredi canned poruku</translation>
+      <translation>Uredi automatiziranu poruku</translation>
     </message>
     <message>
       <source>Delay in seconds</source>
-      <translation type="unfinished"/>
+      <translation>Odgađanje u sekundama</translation>
     </message>
     <message>
       <source>Department</source>
@@ -742,11 +758,11 @@
     </message>
     <message>
       <source>Please enter canned message</source>
-      <translation type="unfinished"/>
+      <translation>Molimo upišite automatiziranu poruku</translation>
     </message>
     <message>
       <source>Please enter a canned message</source>
-      <translation>Molimo upišite novu canned poruku</translation>
+      <translation>Molimo upišite novu automatiziranu poruku</translation>
     </message>
   </context>
   <context>
@@ -773,11 +789,11 @@
     </message>
     <message>
       <source>Will not be visible to visitor</source>
-      <translation type="unfinished"/>
+      <translation>Neće biti vidljivo posjetitelju</translation>
     </message>
     <message>
       <source>Hidden</source>
-      <translation type="unfinished"/>
+      <translation>Skriveno</translation>
     </message>
     <message>
       <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
@@ -785,7 +801,7 @@
     </message>
     <message>
       <source>Priority</source>
-      <translation type="unfinished"/>
+      <translation>Prioritet</translation>
     </message>
     <message>
       <source>Automate online hours</source>
@@ -877,11 +893,11 @@
     </message>
     <message>
       <source>Inform about unread messages if from last unread user message have passed (seconds)</source>
-      <translation type="unfinished"/>
+      <translation>Obavjestite o nepročitanim porukama ako je od posljednje nepročitane poruke prošlo (sekundi)</translation>
     </message>
     <message>
       <source>Please enter value in seconds</source>
-      <translation type="unfinished"/>
+      <translation>Molimo unesite vrijednost u sekundama</translation>
     </message>
     <message>
       <source>Other</source>
@@ -897,11 +913,11 @@
     </message>
     <message>
       <source>To what department chat should be transfered if it is not accepted</source>
-      <translation type="unfinished"/>
+      <translation>Kojem odjelu ovaj razgovor treba biti proslijeđen ako ne bude prihvaćen</translation>
     </message>
     <message>
       <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
-      <translation type="unfinished"/>
+      <translation>Vrijeme u sekundama prije nego što se razgovor proslijedi drugom odjelu. Najmanje 5 sekundi.</translation>
     </message>
     <message>
       <source>Miscellaneous</source>
@@ -909,7 +925,7 @@
     </message>
     <message>
       <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
-      <translation type="unfinished"/>
+      <translation>Ovo polje ima maksimalnu duljinu od 50 znakova te se može koristiti u bilo koje svrhe putem ekstenzija. Ovo polje je također i indeksirano.</translation>
     </message>
     <message>
       <source>None</source>
@@ -932,7 +948,7 @@
     <name>chat/chatnotexists</name>
     <message>
       <source>Resume chat</source>
-      <translation type="unfinished"/>
+      <translation>Nastavi razgovor</translation>
     </message>
     <message>
       <source>Chat was deleted</source>
@@ -959,27 +975,27 @@
     </message>
     <message>
       <source>Click to change chat status</source>
-      <translation type="unfinished"/>
+      <translation>Klikni za promjenu statusa razgovora</translation>
     </message>
     <message>
       <source>Pending chat</source>
-      <translation type="unfinished"/>
+      <translation>Razgovor na čekanju</translation>
     </message>
     <message>
       <source>Active chat</source>
-      <translation type="unfinished"/>
+      <translation>Aktivni razgovor</translation>
     </message>
     <message>
       <source>Closed chat</source>
-      <translation type="unfinished"/>
+      <translation>Zatvoreni razgovor</translation>
     </message>
     <message>
       <source>Chatbox chat</source>
-      <translation type="unfinished"/>
+      <translation>Razgovor u chatboxu</translation>
     </message>
     <message>
       <source>Operators chat</source>
-      <translation type="unfinished"/>
+      <translation>Razgovor za operatere</translation>
     </message>
     <message>
       <source>Information</source>
@@ -1059,7 +1075,7 @@
     </message>
     <message>
       <source>Mail was send</source>
-      <translation type="unfinished"/>
+      <translation>Poruka poslana</translation>
     </message>
     <message>
       <source>Send mail</source>
@@ -1067,11 +1083,11 @@
     </message>
     <message>
       <source>Redirect user to contact form.</source>
-      <translation type="unfinished"/>
+      <translation>Preusmjeri korisnika na obrazac za kontakt.</translation>
     </message>
     <message>
       <source>Print</source>
-      <translation type="unfinished"/>
+      <translation>Ispis</translation>
     </message>
     <message>
       <source>Attatch uploaded file</source>
@@ -1095,7 +1111,7 @@
     </message>
     <message>
       <source>Browsing information</source>
-      <translation type="unfinished"/>
+      <translation>Informacije o pregledu</translation>
     </message>
     <message>
       <source>Refresh</source>
@@ -1107,7 +1123,7 @@
     </message>
     <message>
       <source>Chats</source>
-      <translation type="unfinished"/>
+      <translation>Razgovori</translation>
     </message>
     <message>
       <source>Send</source>
@@ -1115,19 +1131,19 @@
     </message>
     <message>
       <source>Reopen chat</source>
-      <translation type="unfinished"/>
+      <translation>Ponovno otvori razgovor</translation>
     </message>
     <message>
       <source>Select a canned message</source>
-      <translation>Izaberi canned poruku</translation>
+      <translation>Izaberi automatiziranu poruku</translation>
     </message>
     <message>
       <source>Fill textarea with canned message</source>
-      <translation type="unfinished"/>
+      <translation>Ispunite područje teksta automatiziranom porukom</translation>
     </message>
     <message>
       <source>Send delayed canned message instantly</source>
-      <translation type="unfinished"/>
+      <translation>Odmah pošalji odgođenu automatiziranu poruku</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -1135,7 +1151,7 @@
     </message>
     <message>
       <source>Invalid chat status</source>
-      <translation type="unfinished"/>
+      <translation>Neispravan status razgovora</translation>
     </message>
   </context>
   <context>
@@ -1193,11 +1209,11 @@
     </message>
     <message>
       <source>Redirect user to contact form.</source>
-      <translation type="unfinished"/>
+      <translation>Preusmjeri korisnika na obrazac za kontakt.</translation>
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation type="unfinished"/>
+      <translation>Jeste li sigurni?</translation>
     </message>
     <message>
       <source>Accept chat</source>
@@ -1209,11 +1225,11 @@
     </message>
     <message>
       <source>m.</source>
-      <translation type="unfinished"/>
+      <translation>m</translation>
     </message>
     <message>
       <source>s.</source>
-      <translation type="unfinished"/>
+      <translation>s</translation>
     </message>
   </context>
   <context>
@@ -1228,11 +1244,11 @@
     </message>
     <message>
       <source>Refresh</source>
-      <translation type="unfinished"/>
+      <translation>Osvježi</translation>
     </message>
     <message>
       <source>Taken</source>
-      <translation type="unfinished"/>
+      <translation>Uzeto</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -1244,7 +1260,7 @@
     </message>
     <message>
       <source>Screenshot ready...</source>
-      <translation type="unfinished"/>
+      <translation>Screenshot spreman</translation>
     </message>
   </context>
   <context>
@@ -1302,7 +1318,7 @@
     <name>chat/startchat</name>
     <message>
       <source>Department is disabled</source>
-      <translation type="unfinished"/>
+      <translation>Odjel je onemogućen</translation>
     </message>
     <message>
       <source>Name</source>
@@ -1354,15 +1370,15 @@
     </message>
     <message>
       <source>Offline</source>
-      <translation type="unfinished"/>
+      <translation>Offline</translation>
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
-      <translation type="unfinished"/>
+      <translation>Unesite svoju poruku i pritisnite enter za poslati...</translation>
     </message>
     <message>
       <source>Send</source>
-      <translation type="unfinished"/>
+      <translation>Pošalji</translation>
     </message>
     <message>
       <source>Personal assistant</source>
@@ -1418,7 +1434,7 @@
     </message>
     <message>
       <source>Maximum 100 characters for phone</source>
-      <translation type="unfinished"/>
+      <translation>Najviše 100 znakova za telefon</translation>
     </message>
     <message>
       <source>Could not determine a default department!</source>
@@ -1430,7 +1446,7 @@
     </message>
     <message>
       <source>Live Support</source>
-      <translation type="unfinished"/>
+      <translation>Pomoć uživo</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -1442,7 +1458,7 @@
     </message>
     <message>
       <source>Fill in the form to start a chat</source>
-      <translation type="unfinished"/>
+      <translation>Ispunite obrazac za započeti razgovor</translation>
     </message>
   </context>
   <context>
@@ -1453,7 +1469,7 @@
     </message>
     <message>
       <source>A support staff member has closed this chat</source>
-      <translation type="unfinished"/>
+      <translation>Član osoblja je ugasio ovaj razgovor</translation>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
@@ -1503,11 +1519,11 @@
     </message>
     <message>
       <source>Print</source>
-      <translation type="unfinished"/>
+      <translation>Ispis</translation>
     </message>
     <message>
       <source>Send chat transcript to your e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Pošalji transkript razgovora na e-mail</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new messages from users</source>
@@ -1519,7 +1535,7 @@
     </message>
     <message>
       <source>Change my visibility to visible/invisible</source>
-      <translation type="unfinished"/>
+      <translation>Promijeni moju vidljivost na vidljiv/nevidljiv</translation>
     </message>
     <message>
       <source>Change my status to online/offline</source>
@@ -1553,7 +1569,7 @@
     <name>chat/errors/adminchatnopermission</name>
     <message>
       <source>You do not have permission to access the current chat!</source>
-      <translation type="unfinished"/>
+      <translation>Nemate dozvolu za pristupiti trenutnom razgovoru!</translation>
     </message>
   </context>
   <context>
@@ -1599,7 +1615,7 @@
     </message>
     <message>
       <source>Region name server variable</source>
-      <translation type="unfinished"/>
+      <translation>Serverska varijabla za ime regije</translation>
     </message>
     <message>
       <source>Latitude variable</source>
@@ -1655,11 +1671,11 @@
     </message>
     <message>
       <source>API Key</source>
-      <translation type="unfinished"/>
+      <translation>API ključ</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation type="unfinished"/>
+      <translation>Korisničko ime</translation>
     </message>
     <message>
       <source>IP, if your site remote IP is different from detected one, please provide correct remote IP address</source>
@@ -1667,11 +1683,11 @@
     </message>
     <message>
       <source>Map location</source>
-      <translation type="unfinished"/>
+      <translation>Lokacija na mapi</translation>
     </message>
     <message>
       <source>Drag a marker where you want to have map centered by default. Zoom is also saved.</source>
-      <translation type="unfinished"/>
+      <translation>Povucite oznaku gdje želite da vam mapa bude automatski centrirana. Zumiranje se također sprema.</translation>
     </message>
     <message>
       <source>Settings updated</source>
@@ -1687,11 +1703,11 @@
     </message>
     <message>
       <source>Lat.</source>
-      <translation type="unfinished"/>
+      <translation>Geog. šir.</translation>
     </message>
     <message>
       <source>Lon.</source>
-      <translation type="unfinished"/>
+      <translation>Geog. duž.</translation>
     </message>
     <message>
       <source>Identifier</source>
@@ -1699,7 +1715,7 @@
     </message>
     <message>
       <source>Additional information</source>
-      <translation type="unfinished"/>
+      <translation>Dodatne informacije</translation>
     </message>
     <message>
       <source>Last activity</source>
@@ -1707,15 +1723,15 @@
     </message>
     <message>
       <source>ago</source>
-      <translation type="unfinished"/>
+      <translation>prije</translation>
     </message>
     <message>
       <source>User does not have any message from operator</source>
-      <translation type="unfinished"/>
+      <translation>Korisnik nema niti jednu poruku od operatera</translation>
     </message>
     <message>
       <source>User have not seen message from operator, or message window still open.</source>
-      <translation type="unfinished"/>
+      <translation>Korisnik nije vidio poruku operatera ili je prozor poruke još otvoren.</translation>
     </message>
     <message>
       <source>User has seen message from operator.</source>
@@ -1731,23 +1747,23 @@
     </message>
     <message>
       <source>has send message to user</source>
-      <translation type="unfinished"/>
+      <translation>je poslao poruku korisniku</translation>
     </message>
     <message>
       <source>No one has send any message to user yet</source>
-      <translation type="unfinished"/>
+      <translation>Nitko još nije poslao poruku korisniku</translation>
     </message>
     <message>
       <source>First visit</source>
-      <translation type="unfinished"/>
+      <translation>Prvi posjet</translation>
     </message>
     <message>
       <source>Last visit</source>
-      <translation type="unfinished"/>
+      <translation>Posljednji posjet</translation>
     </message>
     <message>
       <source>Total visits</source>
-      <translation type="unfinished"/>
+      <translation>Ukupno posjeta</translation>
     </message>
     <message>
       <source>time(s) invitation logic was applied</source>
@@ -1759,7 +1775,7 @@
     </message>
     <message>
       <source>Total pageviews</source>
-      <translation type="unfinished"/>
+      <translation>Ukupan broj pregleda stranica</translation>
     </message>
     <message>
       <source>Time on site</source>
@@ -1767,7 +1783,7 @@
     </message>
     <message>
       <source>Total time on site</source>
-      <translation type="unfinished"/>
+      <translation>Ukupno vrijeme provedeno na stranici</translation>
     </message>
     <message>
       <source>Current page</source>
@@ -1779,7 +1795,7 @@
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation type="unfinished"/>
+      <translation>Jeste li sigurni?</translation>
     </message>
     <message>
       <source>Clear list</source>
@@ -1807,15 +1823,15 @@
     </message>
     <message>
       <source>Group list by</source>
-      <translation type="unfinished"/>
+      <translation>Grupirajte popis po</translation>
     </message>
     <message>
       <source>Group by</source>
-      <translation type="unfinished"/>
+      <translation>Grupiraj po</translation>
     </message>
     <message>
       <source>User country</source>
-      <translation type="unfinished"/>
+      <translation>Država korisnika</translation>
     </message>
     <message>
       <source>Page</source>
@@ -1823,23 +1839,23 @@
     </message>
     <message>
       <source>Page title</source>
-      <translation type="unfinished"/>
+      <translation>Naslov stranice</translation>
     </message>
     <message>
       <source>Referrer</source>
-      <translation type="unfinished"/>
+      <translation>Odnosi se na</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Odjel</translation>
     </message>
     <message>
       <source>Refresh list every</source>
-      <translation type="unfinished"/>
+      <translation>Osvježi popis svake/svakih</translation>
     </message>
     <message>
       <source>second</source>
-      <translation type="unfinished"/>
+      <translation>sekunde/sekundi</translation>
     </message>
     <message>
       <source>seconds</source>
@@ -1847,19 +1863,19 @@
     </message>
     <message>
       <source>Show visitors who visited site in the past</source>
-      <translation type="unfinished"/>
+      <translation>Pokaži tko je posjetio ovu stranicu</translation>
     </message>
     <message>
       <source>minute</source>
-      <translation type="unfinished"/>
+      <translation>minuta</translation>
     </message>
     <message>
       <source>minutes</source>
-      <translation type="unfinished"/>
+      <translation>minute</translation>
     </message>
     <message>
       <source>hour</source>
-      <translation type="unfinished"/>
+      <translation>sat</translation>
     </message>
     <message>
       <source>day</source>
@@ -1887,11 +1903,11 @@
     </message>
     <message>
       <source>first visit</source>
-      <translation type="unfinished"/>
+      <translation>prvi posjet</translation>
     </message>
     <message>
       <source>last visit</source>
-      <translation type="unfinished"/>
+      <translation>zadnji posjet</translation>
     </message>
     <message>
       <source>Map</source>
@@ -1911,7 +1927,7 @@
     </message>
     <message>
       <source>User has seen the message from the operator.</source>
-      <translation type="unfinished"/>
+      <translation>Korisnik je vidio poruku operatera.</translation>
     </message>
     <message>
       <source>User does not have any messages from the operator</source>
@@ -1935,15 +1951,15 @@
     </message>
     <message>
       <source>Please enter city variable!</source>
-      <translation type="unfinished"/>
+      <translation>Molimo unesite varijablu grada!</translation>
     </message>
     <message>
       <source>Please enter latitude variable!</source>
-      <translation type="unfinished"/>
+      <translation>Molimo unesite varijablu geografske širine!</translation>
     </message>
     <message>
       <source>Please enter longitude variable!</source>
-      <translation type="unfinished"/>
+      <translation>Molimo unesite varijablu geografske dužine!</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages!</source>
@@ -1971,7 +1987,7 @@
     </message>
     <message>
       <source>Please enter IP!</source>
-      <translation type="unfinished"/>
+      <translation>Molimo unesite IP!</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key and username is correct!</source>
@@ -1987,11 +2003,11 @@
     </message>
     <message>
       <source>Please choose a service provider!</source>
-      <translation type="unfinished"/>
+      <translation>Molimo odaberite pružatelja usluge!</translation>
     </message>
     <message>
       <source>Online users</source>
-      <translation type="unfinished"/>
+      <translation>Online korisnici</translation>
     </message>
   </context>
   <context>
@@ -2085,11 +2101,11 @@
     </message>
     <message>
       <source>Canned messages</source>
-      <translation>Arhivirane poruke</translation>
+      <translation>Automatizirane poruke</translation>
     </message>
     <message>
       <source>E-mail templates</source>
-      <translation>Predlošci za e-poštu</translation>
+      <translation>Predlošci za e-mail</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -2097,7 +2113,7 @@
     </message>
     <message>
       <source>Auto responder</source>
-      <translation type="unfinished"/>
+      <translation>Automatski odgovor</translation>
     </message>
     <message>
       <source>SMTP settings</source>
@@ -2117,7 +2133,7 @@
     </message>
     <message>
       <source>Chat archive</source>
-      <translation type="unfinished"/>
+      <translation>Arhiva razgovora</translation>
     </message>
     <message>
       <source>Time zone settings</source>
@@ -2129,22 +2145,26 @@
     </message>
     <message>
       <source>Live help embed code</source>
-      <translation type="unfinished"/>
+      <translation>Kod za ugradnju pomoći uživo</translation>
     </message>
     <message>
       <source>FAQ embed code</source>
-      <translation type="unfinished"/>
+      <translation>Kod za ugradnju ČPP</translation>
     </message>
     <message>
       <source>Questionary embed code</source>
-      <translation type="unfinished"/>
+      <translation>Kod za ugradnju upitnika</translation>
     </message>
     <message>
       <source>Chatbox embed code</source>
-      <translation type="unfinished"/>
+      <translation>Kod za ugradnju chatboxa</translation>
     </message>
     <message>
       <source>Browse offers embed code</source>
+      <translation>Pregledavanje koda za ugradnju u stranicu</translation>
+    </message>
+    <message>
+      <source>Form module</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2243,7 +2263,7 @@
     </message>
     <message>
       <source>Transferred to your department</source>
-      <translation>Preneseno vašem odjelu</translation>
+      <translation>Preneseno vešem odjelu</translation>
     </message>
     <message>
       <source>Pending chats</source>
@@ -2279,7 +2299,7 @@
     </message>
     <message>
       <source>Menu</source>
-      <translation type="unfinished"/>
+      <translation>Izbornik</translation>
     </message>
     <message>
       <source>Online visitors</source>
@@ -2291,7 +2311,7 @@
     </message>
     <message>
       <source>FAQ</source>
-      <translation>FAQ</translation>
+      <translation>ČPP</translation>
     </message>
     <message>
       <source>Chatbox</source>
@@ -2299,7 +2319,7 @@
     </message>
     <message>
       <source>Browse offers</source>
-      <translation type="unfinished"/>
+      <translation>Pretraži ponude</translation>
     </message>
     <message>
       <source>Account</source>
@@ -2329,7 +2349,7 @@
     </message>
     <message>
       <source>Date range from to</source>
-      <translation type="unfinished"/>
+      <translation>Raspon datuma od do</translation>
     </message>
     <message>
       <source>Department</source>
@@ -2345,7 +2365,7 @@
     </message>
     <message>
       <source>Print</source>
-      <translation type="unfinished"/>
+      <translation>Ispis</translation>
     </message>
     <message>
       <source>Select department</source>
@@ -2357,7 +2377,7 @@
     </message>
     <message>
       <source>Type to search</source>
-      <translation type="unfinished"/>
+      <translation>Upišite za pretragu</translation>
     </message>
   </context>
   <context>
@@ -2420,7 +2440,7 @@
     <name>chat/sendchat</name>
     <message>
       <source>Enter your e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Unesite svoj e-mail</translation>
     </message>
   </context>
   <context>
@@ -2435,7 +2455,7 @@
     </message>
     <message>
       <source>Recipient e-mail</source>
-      <translation type="unfinished"/>
+      <translation>E-mail primatelja</translation>
     </message>
     <message>
       <source>Subject</source>
@@ -2502,11 +2522,11 @@
     </message>
     <message>
       <source>Requires e-mail</source>
-      <translation type="unfinished"/>
+      <translation>E-mail je obvezan</translation>
     </message>
     <message>
       <source>Requires name</source>
-      <translation type="unfinished"/>
+      <translation>Ime je obvezn</translation>
     </message>
     <message>
       <source>Send the message</source>
@@ -2518,11 +2538,11 @@
     </message>
     <message>
       <source>Start chat with operator</source>
-      <translation type="unfinished"/>
+      <translation>Započnite razgovor s operaterom</translation>
     </message>
     <message>
       <source>Type your message to the operator</source>
-      <translation type="unfinished"/>
+      <translation>Unesite svoju poruku operateru</translation>
     </message>
   </context>
   <context>
@@ -2573,7 +2593,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-pošta</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Message</source>
@@ -2581,7 +2601,7 @@
     </message>
     <message>
       <source>Phone</source>
-      <translation type="unfinished"/>
+      <translation>Telefon</translation>
     </message>
     <message>
       <source>Terms of service acceptance checkbox</source>
@@ -2605,7 +2625,7 @@
     </message>
     <message>
       <source>Start chat form settings</source>
-      <translation type="unfinished"/>
+      <translation>Postavke obrasca za početak razgovora</translation>
     </message>
   </context>
   <context>
@@ -2628,7 +2648,7 @@
     </message>
     <message>
       <source>Synchronisation and sound settings</source>
-      <translation type="unfinished"/>
+      <translation>Postavke za sinkronizaciju i zvuk</translation>
     </message>
     <message>
       <source>How many seconds for a user to be considered as being online</source>
@@ -2636,7 +2656,7 @@
     </message>
     <message>
       <source>Value in seconds</source>
-      <translation type="unfinished"/>
+      <translation>Vrijednost u sekundama</translation>
     </message>
     <message>
       <source>Sync for new chats, interval in seconds</source>
@@ -2648,7 +2668,7 @@
     </message>
     <message>
       <source>Messages settings</source>
-      <translation type="unfinished"/>
+      <translation>Postavke poruka</translation>
     </message>
     <message>
       <source>Sync for a new user message, interval in seconds</source>
@@ -2712,7 +2732,7 @@
     </message>
     <message>
       <source>Please enter a valid online timeout value!</source>
-      <translation type="unfinished"/>
+      <translation>Molimo unesite uspravnu vrijednost isteka vremena!</translation>
     </message>
     <message>
       <source>Please enter a valid server connection timeout value!</source>
@@ -2819,7 +2839,7 @@
     </message>
     <message>
       <source>ago</source>
-      <translation type="unfinished"/>
+      <translation>prije</translation>
     </message>
   </context>
   <context>
@@ -2882,91 +2902,91 @@
     <name>chatarchive/archive</name>
     <message>
       <source>Chat archive</source>
-      <translation type="unfinished"/>
+      <translation>Arhiva razgovora</translation>
     </message>
     <message>
       <source>Archives list</source>
-      <translation type="unfinished"/>
+      <translation>Popis arhiva</translation>
     </message>
     <message>
       <source>New archive</source>
-      <translation type="unfinished"/>
+      <translation>Nova arhiva</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/archivechats</name>
     <message>
       <source>Archiving has finished.</source>
-      <translation type="unfinished"/>
+      <translation>Arhiviranje završeno.</translation>
     </message>
     <message>
       <source>See archived chats</source>
-      <translation type="unfinished"/>
+      <translation>Pogledajte arhivirane razgovore</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/editarchive</name>
     <message>
       <source>Edit archive</source>
-      <translation type="unfinished"/>
+      <translation>Uredi arhivu</translation>
     </message>
     <message>
       <source>Archive updated</source>
-      <translation type="unfinished"/>
+      <translation>Arhiva ažurirana</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/newarchive</name>
     <message>
       <source>Date from</source>
-      <translation type="unfinished"/>
+      <translation>Od datuma</translation>
     </message>
     <message>
       <source>E.g</source>
-      <translation type="unfinished"/>
+      <translation>Npr.</translation>
     </message>
     <message>
       <source>Date to</source>
-      <translation type="unfinished"/>
+      <translation>Od datuma</translation>
     </message>
     <message>
       <source>New archive</source>
-      <translation type="unfinished"/>
+      <translation>Nova arhiva</translation>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>
-      <translation type="unfinished"/>
+      <translation>Molimo unesite ispravnu vrijednost od datuma!</translation>
     </message>
     <message>
       <source>Please enter a valid to date range!</source>
-      <translation type="unfinished"/>
+      <translation>Molimo unesite ispravnu vrijednost do datuma!</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/list</name>
     <message>
       <source>Archives list</source>
-      <translation type="unfinished"/>
+      <translation>Popis arhiva</translation>
     </message>
     <message>
       <source>From date</source>
-      <translation type="unfinished"/>
+      <translation>Od datuma</translation>
     </message>
     <message>
       <source>Till date</source>
-      <translation type="unfinished"/>
+      <translation>Do datuma</translation>
     </message>
     <message>
       <source>Chats in archive</source>
-      <translation type="unfinished"/>
+      <translation>Razgovori u arhivi</translation>
     </message>
     <message>
       <source>Messages in archive</source>
-      <translation type="unfinished"/>
+      <translation>Poruke u arhivi</translation>
     </message>
     <message>
       <source>List chats</source>
-      <translation type="unfinished"/>
+      <translation>Popis razgovora</translation>
     </message>
     <message>
       <source>Process again</source>
@@ -2974,22 +2994,22 @@
     </message>
     <message>
       <source>Edit</source>
-      <translation type="unfinished"/>
+      <translation>Uredi</translation>
     </message>
     <message>
       <source>Archived chats</source>
-      <translation type="unfinished"/>
+      <translation>Arhivirani razgovori</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/listarchivechats</name>
     <message>
       <source>Archived chats</source>
-      <translation type="unfinished"/>
+      <translation>Arhivirani razgovori</translation>
     </message>
     <message>
       <source>Information</source>
-      <translation type="unfinished"/>
+      <translation>Informacija</translation>
     </message>
   </context>
   <context>
@@ -3011,7 +3031,7 @@
     </message>
     <message>
       <source>Date to</source>
-      <translation type="unfinished"/>
+      <translation>Do datuma</translation>
     </message>
     <message>
       <source>Potential chats to archive</source>
@@ -3058,19 +3078,19 @@
     <name>chatbox/configuration</name>
     <message>
       <source>Chatbox</source>
-      <translation type="unfinished"/>
+      <translation>Chatbox</translation>
     </message>
     <message>
       <source>General</source>
-      <translation type="unfinished"/>
+      <translation>Općenito</translation>
     </message>
     <message>
       <source>General settings</source>
-      <translation type="unfinished"/>
+      <translation>Opće postavke</translation>
     </message>
     <message>
       <source>Chatbox list</source>
-      <translation type="unfinished"/>
+      <translation>Popis chatboxa</translation>
     </message>
   </context>
   <context>
@@ -3084,65 +3104,65 @@
     <name>chatbox/form</name>
     <message>
       <source>Chatbox name</source>
-      <translation type="unfinished"/>
+      <translation>Naziv chatboxa</translation>
     </message>
     <message>
       <source>Name of manager</source>
-      <translation type="unfinished"/>
+      <translation>Ime upravljača</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Oznaka</translation>
     </message>
     <message>
       <source>Chatbox active</source>
-      <translation type="unfinished"/>
+      <translation>Chatbox je aktivan</translation>
     </message>
   </context>
   <context>
     <name>chatbox/generalsettings</name>
     <message>
       <source>Chatbox settings</source>
-      <translation type="unfinished"/>
+      <translation>Postavke chatboxa</translation>
     </message>
     <message>
       <source>Default new chatbox name</source>
-      <translation type="unfinished"/>
+      <translation>Zadano ime novog chatboxa</translation>
     </message>
     <message>
       <source>Default operator name</source>
-      <translation type="unfinished"/>
+      <translation>Zadano ime operatera</translation>
     </message>
     <message>
       <source>Messages limit in the chatbox</source>
-      <translation type="unfinished"/>
+      <translation>Maksimalan broj poruka u chatboxu</translation>
     </message>
     <message>
       <source>Auto creation by chatbox identifier is enabled</source>
-      <translation type="unfinished"/>
+      <translation>Automatsko kreiranje putem oznake u chatboxu omogućeno</translation>
     </message>
     <message>
       <source>Secret hash, this is used when auto creation is disabled</source>
-      <translation type="unfinished"/>
+      <translation>Tajni hash, koristi se kad je automatsko kreiranje onemogućeno</translation>
     </message>
     <message>
       <source>more information on how to use it</source>
-      <translation type="unfinished"/>
+      <translation>više informacija u uporabi</translation>
     </message>
   </context>
   <context>
     <name>chatbox/list</name>
     <message>
       <source>Chatbox list</source>
-      <translation type="unfinished"/>
+      <translation>Popis chatboxa</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Ime</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Oznaka</translation>
     </message>
     <message>
       <source>Chatbox</source>
@@ -3289,11 +3309,11 @@
     </message>
     <message>
       <source>Job title</source>
-      <translation type="unfinished"/>
+      <translation>Naziv radnog mjesta</translation>
     </message>
     <message>
       <source>Chat status will not change upon pending chat opening</source>
-      <translation type="unfinished"/>
+      <translation>Status razgovora se neće promijeniti pri otvaranju razgovora</translation>
     </message>
     <message>
       <source>Skype</source>
@@ -3321,7 +3341,7 @@
     </message>
     <message>
       <source>All departments</source>
-      <translation type="unfinished"/>
+      <translation>Svi odjeli</translation>
     </message>
     <message>
       <source>Visible lists</source>
@@ -3395,7 +3415,7 @@
     <name>faq/faqwidget</name>
     <message>
       <source>FAQ</source>
-      <translation>FAQ</translation>
+      <translation>ČPP</translation>
     </message>
     <message>
       <source>Ask a question</source>
@@ -3403,11 +3423,11 @@
     </message>
     <message>
       <source>Type your question</source>
-      <translation type="unfinished"/>
+      <translation>Unesite svoje pitanje</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Question</source>
@@ -3419,7 +3439,7 @@
     </message>
     <message>
       <source>Your question was submitted!</source>
-      <translation type="unfinished"/>
+      <translation>Vaše pitanje je poslano!</translation>
     </message>
     <message>
       <source>Please enter a question!</source>
@@ -3427,7 +3447,7 @@
     </message>
     <message>
       <source>Please enter your email address!</source>
-      <translation type="unfinished"/>
+      <translation>Molimo unesite svoj adresu e-pošte!</translation>
     </message>
   </context>
   <context>
@@ -3450,11 +3470,11 @@
     </message>
     <message>
       <source>Submitter e-mail</source>
-      <translation type="unfinished"/>
+      <translation>E-mail podnositelja</translation>
     </message>
     <message>
       <source>Identifier, can be used to filter questions by identifier</source>
-      <translation type="unfinished"/>
+      <translation>Oznaka, može se koristiti za filtriranje pitanja po oznakama</translation>
     </message>
     <message>
       <source>Question is active</source>
@@ -3469,7 +3489,7 @@
     <name>faq/list</name>
     <message>
       <source>FAQ</source>
-      <translation>FAQ</translation>
+      <translation>ČPP</translation>
     </message>
     <message>
       <source>Question</source>
@@ -3477,7 +3497,7 @@
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Oznaka</translation>
     </message>
     <message>
       <source>Active</source>
@@ -3516,11 +3536,11 @@
     </message>
     <message>
       <source>Please enter a chatbox name!</source>
-      <translation type="unfinished"/>
+      <translation>Molimo unesite ime chatboxa!</translation>
     </message>
     <message>
       <source>Please enter a chatbox identifier!</source>
-      <translation type="unfinished"/>
+      <translation>Molimo koristite oznaku za chatbox!</translation>
     </message>
     <message>
       <source>Please enter answer!</source>
@@ -3528,7 +3548,7 @@
     </message>
     <message>
       <source>Identifier has to be shorter than 10 characters!</source>
-      <translation type="unfinished"/>
+      <translation>Oznaka mora biti kraća od 10 znakova!</translation>
     </message>
     <message>
       <source>Please enter question!</source>
@@ -3640,7 +3660,7 @@
     <name>kernel/nopermission</name>
     <message>
       <source>Go back</source>
-      <translation type="unfinished"/>
+      <translation>Natrag</translation>
     </message>
     <message>
       <source>You do not have permission to access the module</source>
@@ -3656,7 +3676,7 @@
     </message>
     <message>
       <source>You do not have permission to edit selected object</source>
-      <translation type="unfinished"/>
+      <translation>Nemate dozvolu uređivati odabrani predmet</translation>
     </message>
   </context>
   <context>
@@ -4227,31 +4247,31 @@
     <name>system/smtp</name>
     <message>
       <source>SMTP settings</source>
-      <translation type="unfinished"/>
+      <translation>SMTP postavke</translation>
     </message>
     <message>
       <source>SMTP enabled</source>
-      <translation type="unfinished"/>
+      <translation>SMTP omogućen</translation>
     </message>
     <message>
       <source>Login</source>
-      <translation type="unfinished"/>
+      <translation>Prijava</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation type="unfinished"/>
+      <translation>Lozinka</translation>
     </message>
     <message>
       <source>Host</source>
-      <translation type="unfinished"/>
+      <translation>Host</translation>
     </message>
     <message>
       <source>Port</source>
-      <translation type="unfinished"/>
+      <translation>Port</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Postavke ažurirane</translation>
     </message>
   </context>
   <context>
@@ -4415,7 +4435,7 @@
     <name>user/new</name>
     <message>
       <source>Invisible mode</source>
-      <translation type="unfinished"/>
+      <translation>Nevidljivi način rada</translation>
     </message>
     <message>
       <source>User group</source>
@@ -4483,7 +4503,7 @@
     </message>
     <message>
       <source>Please enter a name</source>
-      <translation>MOlimo upišite ime</translation>
+      <translation>Molimo upišite ime</translation>
     </message>
     <message>
       <source>Please enter a username</source>
@@ -4600,11 +4620,11 @@
     <name>user/forgotpasswordsent</name>
     <message>
       <source>Password reminder</source>
-      <translation type="unfinished"/>
+      <translation>Podsjetnik za lozinku</translation>
     </message>
     <message>
       <source>E-mail sent. Click the link in the email and You will be sent out a new password.</source>
-      <translation type="unfinished"/>
+      <translation>Poruka poslana. Kliknite na poveznicu u poruci i dobit ćete novu lozinku</translation>
     </message>
   </context>
   <context>
@@ -4938,11 +4958,11 @@
     <name>chat/syncuser</name>
     <message>
       <source>Chat was automatically transferred to</source>
-      <translation type="unfinished"/>
+      <translation>Razgovor je automatski upućen</translation>
     </message>
     <message>
       <source>from</source>
-      <translation type="unfinished"/>
+      <translation>od</translation>
     </message>
     <message>
       <source>Support staff member has closed this chat</source>
@@ -4969,7 +4989,7 @@
     </message>
     <message>
       <source>Minimum 5 seconds</source>
-      <translation type="unfinished"/>
+      <translation>Najmanje 5 sekundi</translation>
     </message>
     <message>
       <source>Transfer department has to be different one than self</source>
@@ -4981,38 +5001,38 @@
     </message>
     <message>
       <source>Please enter a valid to date range!</source>
-      <translation type="unfinished"/>
+      <translation>Molimo unesite ispravnu vrijednost do datuma!</translation>
     </message>
   </context>
   <context>
     <name>abstract/browserofferinvitation</name>
     <message>
       <source>Name for personal purposes</source>
-      <translation type="unfinished"/>
+      <translation>Ime za osobnu upotrebu</translation>
     </message>
     <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation type="unfinished"/>
+      <translation>Jezik, ostavi prazno za sve. Npr. lit., rus., eng., njem. itd...</translation>
     </message>
     <message>
       <source>Time on site on single page in seconds</source>
-      <translation type="unfinished"/>
+      <translation>Vrijeme na stranicu u sekundama</translation>
     </message>
     <message>
       <source>Priority, the lower the higher</source>
-      <translation type="unfinished"/>
+      <translation>Prioritet, od više prema nižem</translation>
     </message>
     <message>
       <source>Popup width</source>
-      <translation type="unfinished"/>
+      <translation>Širina pop-upa</translation>
     </message>
     <message>
       <source>Popup height</source>
-      <translation type="unfinished"/>
+      <translation>Visina pop-upa</translation>
     </message>
     <message>
       <source>Measure units, px or percents</source>
-      <translation type="unfinished"/>
+      <translation>Mjerna jedinica, pikseli ili postoci</translation>
     </message>
     <message>
       <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
@@ -5028,19 +5048,19 @@
     </message>
     <message>
       <source>Default popup content</source>
-      <translation type="unfinished"/>
+      <translation>Zadani pop-up sadržaj</translation>
     </message>
     <message>
       <source>Load content in lhc iframe</source>
-      <translation type="unfinished"/>
+      <translation>Učitaj sadržaj u lhc iframe</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>Aktivno</translation>
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation type="unfinished"/>
+      <translation>Oznaka, za koju oznaku bi ova poruka trebala biti pokazana, ostavite prazno za sve</translation>
     </message>
     <message>
       <source>Matched times</source>
@@ -5048,6 +5068,38 @@
     </message>
     <message>
       <source>Browser offer invitations</source>
+      <translation>Pozivnice za ponude za preglednik</translation>
+    </message>
+    <message>
+      <source>Content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Introduction attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XLS Columns</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Recipient</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Post content after form is submitted</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom pagelayout</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Forms list</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -5087,7 +5139,7 @@
     </message>
     <message>
       <source>Allow to change reply e-mail</source>
-      <translation>Dozvoli promjenu e-pošte za odgovor</translation>
+      <translation>Dozvoli promjenu e-maila za odgovor</translation>
     </message>
     <message>
       <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
@@ -5103,14 +5155,14 @@
     </message>
     <message>
       <source>E-mail templates</source>
-      <translation>Predlošci za e-poštu</translation>
+      <translation>Predlošci za e-mail</translation>
     </message>
   </context>
   <context>
     <name>chat/accepttrasnfer</name>
     <message>
       <source>has joined the chat!</source>
-      <translation type="unfinished"/>
+      <translation>se pridružio razgovoru!</translation>
     </message>
   </context>
   <context>
@@ -5121,7 +5173,7 @@
     </message>
     <message>
       <source>has redirected user to contact form!</source>
-      <translation type="unfinished"/>
+      <translation>je preusmjerio korisnika na obrazac za kontakt!</translation>
     </message>
   </context>
   <context>
@@ -5135,11 +5187,11 @@
     <name>chat/reopenchat</name>
     <message>
       <source>has reopened the chat!</source>
-      <translation type="unfinished"/>
+      <translation>je ponovno otvorio razgovor!</translation>
     </message>
     <message>
       <source>No permission to reopen the chat!</source>
-      <translation type="unfinished"/>
+      <translation>Ponovno otvaranje razgovora nije dozvoljeno!</translation>
     </message>
   </context>
   <context>
@@ -5186,6 +5238,102 @@
     <name>file/configurations</name>
     <message>
       <source>Please enter valid file type!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>form/collected</name>
+    <message>
+      <source>Download XLS</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>URL</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Intro</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>View</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Download</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>form/fill</name>
+    <message>
+      <source>Return</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Submit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Information collected</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>is required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>invalid date format</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>form/index</name>
+    <message>
+      <source>Form</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List of forms</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>form/viewcollected</name>
+    <message>
+      <source>collected information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Download</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Collected information</source>
       <translation type="unfinished"/>
     </message>
   </context>

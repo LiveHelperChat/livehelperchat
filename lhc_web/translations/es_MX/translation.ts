@@ -355,6 +355,10 @@
       <translation>Posición de la parte superior, sólo se utiliza si se escoge en medio a la izquierdo o en medio a la derecha</translation>
     </message>
     <message>
+      <source>Choose what form you want to embed</source>
+      <translation>Escoja el formulario que desea insertar</translation>
+    </message>
+    <message>
       <source>Help us to grow</source>
       <translation>Ayudanos a crecer</translation>
     </message>
@@ -483,6 +487,18 @@
     <message>
       <source>HTML Code</source>
       <translation>Código HTML</translation>
+    </message>
+    <message>
+      <source>List of forms</source>
+      <translation>Listado de formularios</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>Código de inserción para la página</translation>
+    </message>
+    <message>
+      <source>Form</source>
+      <translation>Formulario</translation>
     </message>
   </context>
   <context>
@@ -1855,11 +1871,11 @@
     </message>
     <message>
       <source>minute</source>
-      <translation type="unfinished"/>
+      <translation>minuto</translation>
     </message>
     <message>
       <source>minutes</source>
-      <translation type="unfinished"/>
+      <translation>minutos</translation>
     </message>
     <message>
       <source>hour</source>
@@ -2150,6 +2166,10 @@
     <message>
       <source>Browse offers embed code</source>
       <translation>Código para insertar ofertas en el navegador</translation>
+    </message>
+    <message>
+      <source>Form module</source>
+      <translation>Módulo de formulario</translation>
     </message>
     <message>
       <source>Statistic</source>
@@ -2569,7 +2589,7 @@
     </message>
     <message>
       <source>Required</source>
-      <translation>Necesario</translation>
+      <translation>es obligatorio</translation>
     </message>
     <message>
       <source>Optional</source>
@@ -5055,6 +5075,38 @@
       <source>Browser offer invitations</source>
       <translation>Invitaciones de ofertas del navegador</translation>
     </message>
+    <message>
+      <source>Content</source>
+      <translation>Contenido</translation>
+    </message>
+    <message>
+      <source>Name attributes</source>
+      <translation>Nombrar atributos</translation>
+    </message>
+    <message>
+      <source>Introduction attributes</source>
+      <translation>Atributos de introducción</translation>
+    </message>
+    <message>
+      <source>XLS Columns</source>
+      <translation>Columnas XLS</translation>
+    </message>
+    <message>
+      <source>Recipient</source>
+      <translation>Recibe</translation>
+    </message>
+    <message>
+      <source>Post content after form is submitted</source>
+      <translation>Postear el contenido después de que el formulario haya sido enviado</translation>
+    </message>
+    <message>
+      <source>Custom pagelayout</source>
+      <translation>Formato de página personaizado</translation>
+    </message>
+    <message>
+      <source>Forms list</source>
+      <translation>Lista para formularios</translation>
+    </message>
   </context>
   <context>
     <name>abstract/email_template</name>
@@ -5192,6 +5244,102 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Por favor, introduzca un tipo de archivo válido</translation>
+    </message>
+  </context>
+  <context>
+    <name>form/collected</name>
+    <message>
+      <source>Download XLS</source>
+      <translation>Descargar XLS</translation>
+    </message>
+    <message>
+      <source>URL</source>
+      <translation>URL</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Nombre</translation>
+    </message>
+    <message>
+      <source>Intro</source>
+      <translation>Intro</translation>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation>Hora</translation>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation>IP</translation>
+    </message>
+    <message>
+      <source>View</source>
+      <translation>Vista</translation>
+    </message>
+    <message>
+      <source>Download</source>
+      <translation>Descargar</translation>
+    </message>
+    <message>
+      <source>Delete</source>
+      <translation>Borrar</translation>
+    </message>
+  </context>
+  <context>
+    <name>form/fill</name>
+    <message>
+      <source>Return</source>
+      <translation>Regresar</translation>
+    </message>
+    <message>
+      <source>Submit</source>
+      <translation>Enviar</translation>
+    </message>
+    <message>
+      <source>Information collected</source>
+      <translation>Información recolectada</translation>
+    </message>
+    <message>
+      <source>is required</source>
+      <translation>es obligatorio</translation>
+    </message>
+    <message>
+      <source>invalid date format</source>
+      <translation>Formato de fecha inválido</translation>
+    </message>
+  </context>
+  <context>
+    <name>form/index</name>
+    <message>
+      <source>Form</source>
+      <translation>Formulario</translation>
+    </message>
+    <message>
+      <source>List of forms</source>
+      <translation>Lista de formularios</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>Código para incrustar en la página</translation>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>Fecha</translation>
+    </message>
+  </context>
+  <context>
+    <name>form/viewcollected</name>
+    <message>
+      <source>collected information</source>
+      <translation>información recolectada</translation>
+    </message>
+    <message>
+      <source>Download</source>
+      <translation>Descargar</translation>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation>Información recolectada</translation>
     </message>
   </context>
 </TS>

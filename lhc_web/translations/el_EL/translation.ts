@@ -145,7 +145,7 @@
     </message>
     <message>
       <source>Requires name</source>
-      <translation type="unfinished"/>
+      <translation>Απαιτεί όνομα</translation>
     </message>
     <message>
       <source>Show random operator profile</source>
@@ -161,7 +161,7 @@
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Τμήμα</translation>
     </message>
     <message>
       <source>Matched times</source>
@@ -353,6 +353,10 @@
       <translation>Επιλέγεται η θέση από την κορυφή, να χρησιμοποιηθεί μόνο αν η μέση αριστερά ή δεξιά πλευρά μέση</translation>
     </message>
     <message>
+      <source>Choose what form you want to embed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Help us to grow</source>
       <translation>Βοηθήστε μας να αυξάνονται</translation>
     </message>
@@ -481,6 +485,18 @@
     <message>
       <source>HTML Code</source>
       <translation>Κώδικα HTML</translation>
+    </message>
+    <message>
+      <source>List of forms</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Form</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -877,11 +893,11 @@
     </message>
     <message>
       <source>Inform about unread messages if from last unread user message have passed (seconds)</source>
-      <translation type="unfinished"/>
+      <translation>Ενημέρωση σχετικά με τα μη αναγνωσμένα μηνύματα, εάν από τελευταίος χρήστης μη αναγνωσμένο μήνυμα πέρασαν (δευτερόλεπτα)</translation>
     </message>
     <message>
       <source>Please enter value in seconds</source>
-      <translation type="unfinished"/>
+      <translation>Παρακαλούμε εισάγετε την τιμή σε δευτερόλεπτα</translation>
     </message>
     <message>
       <source>Other</source>
@@ -1699,7 +1715,7 @@
     </message>
     <message>
       <source>Additional information</source>
-      <translation type="unfinished"/>
+      <translation>Πρόσθετες πληροφορίες</translation>
     </message>
     <message>
       <source>Last activity</source>
@@ -1807,15 +1823,15 @@
     </message>
     <message>
       <source>Group list by</source>
-      <translation type="unfinished"/>
+      <translation>Λίστα ομάδων από</translation>
     </message>
     <message>
       <source>Group by</source>
-      <translation type="unfinished"/>
+      <translation>Ομαδοποίηση κατά</translation>
     </message>
     <message>
       <source>User country</source>
-      <translation type="unfinished"/>
+      <translation>Χώρα χρηστών</translation>
     </message>
     <message>
       <source>Page</source>
@@ -1823,15 +1839,15 @@
     </message>
     <message>
       <source>Page title</source>
-      <translation type="unfinished"/>
+      <translation>Τίτλος σελίδας</translation>
     </message>
     <message>
       <source>Referrer</source>
-      <translation type="unfinished"/>
+      <translation>Referrer</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Τμήμα</translation>
     </message>
     <message>
       <source>Refresh list every</source>
@@ -1851,11 +1867,11 @@
     </message>
     <message>
       <source>minute</source>
-      <translation type="unfinished"/>
+      <translation>λεπτό</translation>
     </message>
     <message>
       <source>minutes</source>
-      <translation type="unfinished"/>
+      <translation>λεπτά</translation>
     </message>
     <message>
       <source>hour</source>
@@ -2148,6 +2164,10 @@
       <translation>Αναζήτηση προσφορές ενσωματώνει τον κώδικα</translation>
     </message>
     <message>
+      <source>Form module</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Statistic</source>
       <translation>Στατιστική</translation>
     </message>
@@ -2345,7 +2365,7 @@
     </message>
     <message>
       <source>Print</source>
-      <translation type="unfinished"/>
+      <translation>Εκτύπωση</translation>
     </message>
     <message>
       <source>Select department</source>
@@ -2357,7 +2377,7 @@
     </message>
     <message>
       <source>Type to search</source>
-      <translation type="unfinished"/>
+      <translation>Πληκτρολόγηση για αναζήτηση</translation>
     </message>
   </context>
   <context>
@@ -2502,11 +2522,11 @@
     </message>
     <message>
       <source>Requires e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Απαιτεί e-mail</translation>
     </message>
     <message>
       <source>Requires name</source>
-      <translation type="unfinished"/>
+      <translation>Απαιτεί όνομα</translation>
     </message>
     <message>
       <source>Send the message</source>
@@ -4969,7 +4989,7 @@
     </message>
     <message>
       <source>Minimum 5 seconds</source>
-      <translation type="unfinished"/>
+      <translation>Ελάχιστο 5 δευτερόλεπτα</translation>
     </message>
     <message>
       <source>Transfer department has to be different one than self</source>
@@ -5049,6 +5069,38 @@
     <message>
       <source>Browser offer invitations</source>
       <translation>Πρόγραμμα περιήγησης προσφορά προσκλήσεις</translation>
+    </message>
+    <message>
+      <source>Content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Introduction attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XLS Columns</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Recipient</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Post content after form is submitted</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom pagelayout</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Forms list</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -5187,6 +5239,102 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Παρακαλούμε, εισάγετε έγκυρο αρχείο τύπου!</translation>
+    </message>
+  </context>
+  <context>
+    <name>form/collected</name>
+    <message>
+      <source>Download XLS</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>URL</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Intro</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>View</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Download</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>form/fill</name>
+    <message>
+      <source>Return</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Submit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Information collected</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>is required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>invalid date format</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>form/index</name>
+    <message>
+      <source>Form</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List of forms</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>form/viewcollected</name>
+    <message>
+      <source>collected information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Download</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>
