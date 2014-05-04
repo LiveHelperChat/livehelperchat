@@ -23,5 +23,6 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/paginator.tpl.php')); ?>
 <?php endif;?>
 
-
+<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartament','create')) : ?>
 <a class="small button" href="<?php echo erLhcoreClassDesign::baseurl('departament/new')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','New department');?></a>
+<?php endif;?>

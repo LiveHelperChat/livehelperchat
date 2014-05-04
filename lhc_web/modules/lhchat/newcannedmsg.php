@@ -3,6 +3,11 @@
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/newcannedmsg.tpl.php');
 $Departament = new erLhcoreClassModelCannedMsg();
 
+/**
+ * Append user departments filter
+ * */
+$userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
+
 if ( isset($_POST['Cancel_action']) ) {
     erLhcoreClassModule::redirect('chat/cannedmsg');
     exit;
@@ -43,10 +48,20 @@ if (isset($_POST['Save_action']))
     	$Departament->delay = $form->Delay;
     }
     
-    if ( $form->hasValidData( 'DepartmentID' )  ) {
-    	$Departament->department_id = $form->DepartmentID;
+	if ( $form->hasValidData( 'DepartmentID' )  ) {
+        $Departament->department_id = $form->DepartmentID;        
+        if ($userDepartments !== true) {
+        	if (!in_array($Departament->department_id, $userDepartments)) {
+        		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please choose a department');
+        	}
+        }
     } else {
-    	$Departament->department_id = 0;
+    	// User has to choose a department
+    	if ($userDepartments !== true) {    	
+    		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please choose a department');    		
+    	} else {
+    		$Departament->department_id = 0;
+    	}
     }
     
     if (count($Errors) == 0)
@@ -62,6 +77,7 @@ if (isset($_POST['Save_action']))
 }
 
 $tpl->set('msg',$Departament);
+$tpl->set('limitDepartments',$userDepartments !== true ? array('filterin' => array('id' => $userDepartments)) : array());
 
 $Result['content'] = $tpl->fetch();
 

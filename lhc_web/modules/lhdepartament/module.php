@@ -27,5 +27,6 @@ $FunctionList['create'] = array('explain' => 'Permission to create a new departm
 $FunctionList['edit'] = array('explain' => 'Permission to edit department');
 $FunctionList['delete'] = array('explain' => 'Permission to delete department');
 $FunctionList['selfedit'] = array('explain' => 'Allow user to choose his departments');
+$FunctionList['actworkflow'] = array('explain' => 'Allow user to change transfer workflow');
 
 ?>

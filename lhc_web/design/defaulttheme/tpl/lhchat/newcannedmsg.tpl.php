@@ -14,16 +14,22 @@
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Position');?></label>
     <input type="text" name="Position" value="<?php echo $msg->position?>" />
 
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Department');?></label>
-	<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
-							'input_name'     => 'DepartmentID',
-							'optional_field' =>  erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Any'),
-							'display_name'   => 'name',
-							'selected_id'    => $msg->department_id,
-							'list_function'  => 'erLhcoreClassModelDepartament::getList',
-							'list_function_params'  => array('limit' => '1000000'),
-	)); ?>
+    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Department');?></label>		
+	<?php 
+	$params = array (
+			'input_name'     => 'DepartmentID',			
+			'display_name'   => 'name',
+			'selected_id'    => $msg->department_id,
+			'list_function'  => 'erLhcoreClassModelDepartament::getList',
+			'list_function_params'  => array_merge(array('limit' => '1000000'),$limitDepartments)
+	);
+	
+	if (empty($limitDepartments)) {
+		$params['optional_field'] = erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Any');
+	}
 
+	echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
+		
     <ul class="button-group radius">
     <li><input type="submit" class="small button" name="Save_action" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/></li>
 	<li><input type="submit" class="small button" name="Cancel_action" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/></li>

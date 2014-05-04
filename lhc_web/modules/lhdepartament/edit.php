@@ -61,6 +61,7 @@ if (isset($_POST['Update_departament']) || isset($_POST['Save_departament'])  )
 
 $tpl->set('departament',$Departament);
 $tpl->set('currentUser',$currentUser);
+$tpl->set('limitDepartments',$userDepartments !== true ? array('filterin' => array('id' => $userDepartments)) : array());
 
 $Result['content'] = $tpl->fetch();
 

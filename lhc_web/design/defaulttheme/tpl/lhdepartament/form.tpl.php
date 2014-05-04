@@ -94,6 +94,8 @@
 			</div>
 	</section>
   
+   
+  <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartament','actworkflow')) : ?>
   <section>
 		    <p class="title" data-section-title><a href="#chattransfer"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Chat transfer worklow');?></a></p>	    
 		    <div class="content" data-section-content data-slug="chattransfer">	
@@ -104,7 +106,7 @@
 										'display_name'   => 'name',
 										'selected_id'    => $departament->department_transfer_id,
 										'list_function'  => 'erLhcoreClassModelDepartament::getList',
-										'list_function_params'  => array('limit' => '1000000'),
+										'list_function_params'  => array_merge(array('limit' => '1000000'),$limitDepartments),
 				)); ?>
 				
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.');?></label>
@@ -112,6 +114,7 @@
 						    	
   			</div>
   </section>
+  <?php endif; ?>
   
   <section>
 		    <p class="title" data-section-title><a href="#miscellaneous"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Miscellaneous');?></a></p>	    

@@ -128,11 +128,20 @@ class erLhcoreClassDepartament{
 	   		$department->name = $form->Name;
 	   	}
 	   	
-	   	if ( $form->hasValidData( 'TansferDepartmentID' ) )
-	   	{
-	   		$department->department_transfer_id = $form->TansferDepartmentID;
-	   	} else {
-	   		$department->department_transfer_id = 0;
+	   	if ( erLhcoreClassUser::instance()->hasAccessTo('lhdepartament','actworkflow') ) {
+		   	if ( $form->hasValidData( 'TansferDepartmentID' ) )
+		   	{
+		   		$department->department_transfer_id = $form->TansferDepartmentID;
+		   	} else {
+		   		$department->department_transfer_id = 0;
+		   	}
+		   	
+		   	if ( $form->hasValidData( 'TransferTimeout' ) )
+		   	{
+		   		$department->transfer_timeout = $form->TransferTimeout;
+		   	} else {
+		   		$department->transfer_timeout = 0;
+		   	}
 	   	}
 	   	
 	   	if ( $form->hasValidData( 'Identifier' ) )
@@ -145,13 +154,6 @@ class erLhcoreClassDepartament{
 	   		$department->delay_lm = $form->delay_lm;
 	   	} else {
 	   		$department->delay_lm = 0;
-	   	}
-	   	
-	   	if ( $form->hasValidData( 'TransferTimeout' ) )
-	   	{
-	   		$department->transfer_timeout = $form->TransferTimeout;
-	   	} else {
-	   		$department->transfer_timeout = 0;
 	   	}
 	   	
 	   	if ( $form->hasValidData( 'Email' ) ) {	   	
