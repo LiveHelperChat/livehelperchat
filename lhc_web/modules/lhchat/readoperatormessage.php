@@ -6,7 +6,7 @@ $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/readoperatormessage.tpl.php')
 $tpl->set('referer','');
 $tpl->set('referer_site','');
 
-$userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('vid' => (string)$Params['user_parameters_unordered']['vid']));
+$userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('check_message_operator' => true, 'vid' => (string)$Params['user_parameters_unordered']['vid']));
 $tpl->set('visitor',$userInstance);
 
 $department = (int)$Params['user_parameters_unordered']['department'] > 0 ? (int)$Params['user_parameters_unordered']['department'] : false;

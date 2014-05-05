@@ -141,7 +141,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
 	       // Assign chat to user
 	       if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 && (string)$Params['user_parameters_unordered']['vid'] != '') {
 	            // To track online users
-	            $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('vid' => (string)$Params['user_parameters_unordered']['vid']));
+	            $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('check_message_operator' => true,'vid' => (string)$Params['user_parameters_unordered']['vid']));
 
 	            if ($userInstance !== false) {
 	                $userInstance->chat_id = $chat->id;
