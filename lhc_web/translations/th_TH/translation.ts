@@ -761,6 +761,10 @@
       <translation>กรุณาป้อนข้อความที่บรรจุกระป๋อง</translation>
     </message>
     <message>
+      <source>Please choose a department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a canned message</source>
       <translation>กรุณาใส่ข้อความบรรจุกระป๋อง</translation>
     </message>
@@ -1192,10 +1196,6 @@
       <translation>เพิ่มแชท</translation>
     </message>
     <message>
-      <source>Empty...</source>
-      <translation>ว่างเปล่า...</translation>
-    </message>
-    <message>
       <source>Start chat</source>
       <translation>เริ่มต้นสนทนา</translation>
     </message>
@@ -1230,6 +1230,10 @@
     <message>
       <source>s.</source>
       <translation>s</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>ว่างเปล่า...</translation>
     </message>
   </context>
   <context>

@@ -761,6 +761,10 @@
       <translation>Παρακαλώ πληκτρολογήστε το προκαθορισμένο μήνυμα σας</translation>
     </message>
     <message>
+      <source>Please choose a department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a canned message</source>
       <translation>Παρακαλώ εισάγετε ένα προκαθορισμένο μήνυμα</translation>
     </message>
@@ -1192,10 +1196,6 @@
       <translation>Προσθέστε το chat</translation>
     </message>
     <message>
-      <source>Empty...</source>
-      <translation>Άδειο...</translation>
-    </message>
-    <message>
       <source>Start chat</source>
       <translation>ΖΩΝΤΑΝΗ ΣΥΝΔΕΣΗ</translation>
     </message>
@@ -1230,6 +1230,10 @@
     <message>
       <source>s.</source>
       <translation>s.</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Άδειο...</translation>
     </message>
   </context>
   <context>

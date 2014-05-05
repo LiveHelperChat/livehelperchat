@@ -761,6 +761,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Please choose a department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a canned message</source>
       <translation type="unfinished"/>
     </message>
@@ -1192,10 +1196,6 @@
       <translation>Добавяне на чат</translation>
     </message>
     <message>
-      <source>Empty...</source>
-      <translation>Празно...</translation>
-    </message>
-    <message>
       <source>Start chat</source>
       <translation>Започване на чат</translation>
     </message>
@@ -1230,6 +1230,10 @@
     <message>
       <source>s.</source>
       <translation>сек</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Празно...</translation>
     </message>
   </context>
   <context>

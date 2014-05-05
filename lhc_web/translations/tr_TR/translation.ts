@@ -761,6 +761,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Please choose a department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a canned message</source>
       <translation>Lütfen bir arşivlenmiş mesaj girin</translation>
     </message>
@@ -1192,10 +1196,6 @@
       <translation>Konuşma ekle</translation>
     </message>
     <message>
-      <source>Empty...</source>
-      <translation>Boş...</translation>
-    </message>
-    <message>
       <source>Start chat</source>
       <translation>Konuşma başlat</translation>
     </message>
@@ -1230,6 +1230,10 @@
     <message>
       <source>s.</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Boş...</translation>
     </message>
   </context>
   <context>

@@ -761,6 +761,10 @@
       <translation>Silakan masukkan pesan kaleng</translation>
     </message>
     <message>
+      <source>Please choose a department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a canned message</source>
       <translation>Silakan masukkan pesan kaleng</translation>
     </message>
@@ -1192,10 +1196,6 @@
       <translation>Tambahkan percakapan</translation>
     </message>
     <message>
-      <source>Empty...</source>
-      <translation>Kosong...</translation>
-    </message>
-    <message>
       <source>Start chat</source>
       <translation>Mulai percakapan</translation>
     </message>
@@ -1230,6 +1230,10 @@
     <message>
       <source>s.</source>
       <translation>detik.</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Kosong...</translation>
     </message>
   </context>
   <context>

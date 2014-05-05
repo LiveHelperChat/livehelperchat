@@ -761,6 +761,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Please choose a department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a canned message</source>
       <translation>Hãy nhập vào hộp tin nhắn</translation>
     </message>
@@ -1192,10 +1196,6 @@
       <translation>Thêm trò chuyện</translation>
     </message>
     <message>
-      <source>Empty...</source>
-      <translation>Rỗng...</translation>
-    </message>
-    <message>
       <source>Start chat</source>
       <translation>Bắt đầu trò chuyện</translation>
     </message>
@@ -1230,6 +1230,10 @@
     <message>
       <source>s.</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Rỗng...</translation>
     </message>
   </context>
   <context>

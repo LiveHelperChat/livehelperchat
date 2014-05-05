@@ -761,6 +761,10 @@
       <translation>Пожалуйста, введите текст шаблона сообщения</translation>
     </message>
     <message>
+      <source>Please choose a department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a canned message</source>
       <translation>Введите шаблон сообщения</translation>
     </message>
@@ -1193,10 +1197,6 @@
       <translation>Добавить чат</translation>
     </message>
     <message>
-      <source>Empty...</source>
-      <translation>Пусто...</translation>
-    </message>
-    <message>
       <source>Start chat</source>
       <translation>Начать чат</translation>
     </message>
@@ -1231,6 +1231,10 @@
     <message>
       <source>s.</source>
       <translation>сек.</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Пусто...</translation>
     </message>
   </context>
   <context>

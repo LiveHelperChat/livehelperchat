@@ -761,6 +761,10 @@
       <translation>لطفا پیام مسدود شده وارد کنید</translation>
     </message>
     <message>
+      <source>Please choose a department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a canned message</source>
       <translation>لطفا یک پیام مسدود شده وارد کنید</translation>
     </message>
@@ -1192,10 +1196,6 @@
       <translation>افزودن چت</translation>
     </message>
     <message>
-      <source>Empty...</source>
-      <translation>خالی...</translation>
-    </message>
-    <message>
       <source>Start chat</source>
       <translation>شروع چت</translation>
     </message>
@@ -1230,6 +1230,10 @@
     <message>
       <source>s.</source>
       <translation>s.</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>خالی...</translation>
     </message>
   </context>
   <context>

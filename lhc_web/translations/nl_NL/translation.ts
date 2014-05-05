@@ -761,6 +761,10 @@
       <translation>Voer s.v.p. voorgeprogrammeerd bericht in</translation>
     </message>
     <message>
+      <source>Please choose a department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a canned message</source>
       <translation>Nieuw voorgeprogrammeerd bericht</translation>
     </message>
@@ -1192,10 +1196,6 @@
       <translation>Voeg chat toe</translation>
     </message>
     <message>
-      <source>Empty...</source>
-      <translation>Leeg...</translation>
-    </message>
-    <message>
       <source>Start chat</source>
       <translation>Begin chat</translation>
     </message>
@@ -1230,6 +1230,10 @@
     <message>
       <source>s.</source>
       <translation>s.</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Leeg...</translation>
     </message>
   </context>
   <context>

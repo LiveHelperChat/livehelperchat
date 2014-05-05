@@ -761,6 +761,10 @@
       <translation>Te rog sa introduci un mesaj predefinit</translation>
     </message>
     <message>
+      <source>Please choose a department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a canned message</source>
       <translation>Va rog sa introduceti un nou mesaj conservat</translation>
     </message>
@@ -1192,10 +1196,6 @@
       <translation>Adauga conversatia</translation>
     </message>
     <message>
-      <source>Empty...</source>
-      <translation>Goleste...</translation>
-    </message>
-    <message>
       <source>Start chat</source>
       <translation>Icepe conversatia</translation>
     </message>
@@ -1230,6 +1230,10 @@
     <message>
       <source>s.</source>
       <translation>s.</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Goleste...</translation>
     </message>
   </context>
   <context>

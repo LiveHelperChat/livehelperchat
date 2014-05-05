@@ -761,6 +761,10 @@
       <translation>Prosím zadejte předpřipravenou zprávu</translation>
     </message>
     <message>
+      <source>Please choose a department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a canned message</source>
       <translation>Zadejte text předpřipravené zprávy</translation>
     </message>
@@ -1192,10 +1196,6 @@
       <translation>Přidat rozhovort</translation>
     </message>
     <message>
-      <source>Empty...</source>
-      <translation>Prázdné...</translation>
-    </message>
-    <message>
       <source>Start chat</source>
       <translation>Začít rozhovor</translation>
     </message>
@@ -1230,6 +1230,10 @@
     <message>
       <source>s.</source>
       <translation>s.</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Prázdné...</translation>
     </message>
   </context>
   <context>

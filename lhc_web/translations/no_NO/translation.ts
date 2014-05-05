@@ -761,6 +761,10 @@
       <translation>Skriv inn ferdig-melding</translation>
     </message>
     <message>
+      <source>Please choose a department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a canned message</source>
       <translation>Vennligst skriv inn forhåndsmelding</translation>
     </message>
@@ -1192,10 +1196,6 @@
       <translation>Legg til samtale</translation>
     </message>
     <message>
-      <source>Empty...</source>
-      <translation>Tom...</translation>
-    </message>
-    <message>
       <source>Start chat</source>
       <translation>Start samtale</translation>
     </message>
@@ -1230,6 +1230,10 @@
     <message>
       <source>s.</source>
       <translation>s.</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Tom...</translation>
     </message>
   </context>
   <context>

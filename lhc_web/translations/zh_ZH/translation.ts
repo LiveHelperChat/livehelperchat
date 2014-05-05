@@ -761,6 +761,10 @@
       <translation>请输入罐头消息</translation>
     </message>
     <message>
+      <source>Please choose a department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a canned message</source>
       <translation>请输入罐头消息</translation>
     </message>
@@ -1192,10 +1196,6 @@
       <translation>新增聊天</translation>
     </message>
     <message>
-      <source>Empty...</source>
-      <translation>空...</translation>
-    </message>
-    <message>
       <source>Start chat</source>
       <translation>开始聊天</translation>
     </message>
@@ -1230,6 +1230,10 @@
     <message>
       <source>s.</source>
       <translation>秒。</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>空...</translation>
     </message>
   </context>
   <context>

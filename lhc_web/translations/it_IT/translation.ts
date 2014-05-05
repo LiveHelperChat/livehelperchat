@@ -761,6 +761,10 @@
       <translation>Inserisci messaggi già preparati</translation>
     </message>
     <message>
+      <source>Please choose a department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a canned message</source>
       <translation>Perfavore inserisci un messaggio predefinito</translation>
     </message>
@@ -1192,10 +1196,6 @@
       <translation>Aggiungi Chat</translation>
     </message>
     <message>
-      <source>Empty...</source>
-      <translation>Vuoto...</translation>
-    </message>
-    <message>
       <source>Start chat</source>
       <translation>Avvia chat</translation>
     </message>
@@ -1230,6 +1230,10 @@
     <message>
       <source>s.</source>
       <translation>s.</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Vuoto...</translation>
     </message>
   </context>
   <context>

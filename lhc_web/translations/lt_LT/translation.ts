@@ -761,6 +761,10 @@
       <translation>Prašome įvesti paruoštą pranešimą</translation>
     </message>
     <message>
+      <source>Please choose a department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a canned message</source>
       <translation>Prašome įvesti paruoštą žinutę</translation>
     </message>
@@ -1192,10 +1196,6 @@
       <translation>Pridėti pokalbį</translation>
     </message>
     <message>
-      <source>Empty...</source>
-      <translation>Tuščia...</translation>
-    </message>
-    <message>
       <source>Start chat</source>
       <translation>Pradėti pokalbį</translation>
     </message>
@@ -1230,6 +1230,10 @@
     <message>
       <source>s.</source>
       <translation>s.</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Tuščia...</translation>
     </message>
   </context>
   <context>

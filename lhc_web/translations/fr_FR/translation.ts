@@ -761,6 +761,10 @@
       <translation>Veuillez saisir le message prédéfini</translation>
     </message>
     <message>
+      <source>Please choose a department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a canned message</source>
       <translation>Veuillez saisir un message prédéfini</translation>
     </message>
@@ -1192,10 +1196,6 @@
       <translation>Ajouter chat</translation>
     </message>
     <message>
-      <source>Empty...</source>
-      <translation>Vide...</translation>
-    </message>
-    <message>
       <source>Start chat</source>
       <translation>Démarrer le chat</translation>
     </message>
@@ -1230,6 +1230,10 @@
     <message>
       <source>s.</source>
       <translation>s.</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Vide...</translation>
     </message>
   </context>
   <context>
