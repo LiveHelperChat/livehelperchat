@@ -116,7 +116,7 @@ class erLhcoreClassModelChatOnlineUser {
 				if ($this->operator_user_id == $currentUser->getUserID()){
 					$this->can_view_chat = true; // Faster way
 				} else if ($this->chat instanceof erLhcoreClassModelChat) {
-       				$this->can_view_chat = erLhcoreClassChat::hasAccessToRead($chat);
+       				$this->can_view_chat = erLhcoreClassChat::hasAccessToRead($this->chat);
        			}
 
        			return $this->can_view_chat;
