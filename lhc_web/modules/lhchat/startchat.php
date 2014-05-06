@@ -67,7 +67,7 @@ if ((string)$Params['user_parameters_unordered']['chatprefill'] != '') {
 
 // Input fields holder
 $inputData->username = isset($_GET['prefill']['username']) ? (string)$_GET['prefill']['username'] : $inputData->username;
-$inputData->question = '';
+$inputData->question = isset($_GET['prefill']['question']) ? (string)$_GET['prefill']['question'] : '';
 $inputData->email = isset($_GET['prefill']['email']) ? (string)$_GET['prefill']['email'] : $inputData->email;
 $inputData->phone = isset($_GET['prefill']['phone']) ? (string)$_GET['prefill']['phone'] : $inputData->phone;
 $inputData->priority = is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : false;
