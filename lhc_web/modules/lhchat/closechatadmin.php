@@ -29,13 +29,13 @@ if ($chat->user_id == $currentUser->getUserID() || $currentUser->hasAccessTo('lh
 	    erLhcoreClassChat::getSession()->save($msg);
 
 	    erLhcoreClassChat::getSession()->update($chat);
-
-	    CSCacheAPC::getMem()->removeFromArray('lhc_open_chats', $chat->id);
-
+	    
 	    // Execute callback for close chat
-	    erLhcoreClassChat::closeChatCallback($chat,$userData);
+	    erLhcoreClassChat::closeChatCallback($chat,$userData);	   
 	}
 }
+
+CSCacheAPC::getMem()->removeFromArray('lhc_open_chats', (int)$Params['user_parameters']['chat_id']);
 
 echo json_encode(array('error' => 'false', 'result' => 'ok' ));
 exit;

@@ -33,12 +33,12 @@ if ($chat->user_id == $currentUser->getUserID() || $currentUser->hasAccessTo('lh
 
 	    $chat->updateThis();
 
-	    CSCacheAPC::getMem()->removeFromArray('lhc_open_chats', $chat->id);
-
 	    // Execute callback for close chat
 	    erLhcoreClassChat::closeChatCallback($chat,$userData);
 	}
 }
+
+CSCacheAPC::getMem()->removeFromArray('lhc_open_chats', (int)$Params['user_parameters']['chat_id']);
 
 header('Location: ' . $_SERVER['HTTP_REFERER']);
 exit;

@@ -126,7 +126,7 @@ function lh(){
     this.addTab = function(tabs, url, name, chat_id) {
     	tabs.find('> section.active').removeClass("active").attr('style','');
     	var nextElement = tabs.find('> section').size() + 5; // Leave some numbering for custom tabs
-    	tabs.append('<section class="active"><p class="title"><a class="chat-tab-item" id="chat-id-'+chat_id+'" href="#">'+ '<i id="user-chat-status-'+chat_id+'" class="icon-user-status icon-user icon-user-online"></i>' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</a><a href="#" onclick="return lhinst.removeDialogTab('+chat_id+',$(\'#tabs\'),true)" class="icon-cancel icon-close-chat"></a></p><div class="content" id="simple'+nextElement+'Tab">...</div></section>');
+    	tabs.append('<section class="active" id="chat-tab-'+chat_id+'"><p class="title"><a class="chat-tab-item" id="chat-id-'+chat_id+'" href="#">'+ '<i id="user-chat-status-'+chat_id+'" class="icon-user-status icon-user icon-user-online"></i>' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</a><a href="#" onclick="return lhinst.removeDialogTab('+chat_id+',$(\'#tabs\'),true)" class="icon-cancel icon-close-chat"></a></p><div class="content" id="simple'+nextElement+'Tab">...</div></section>');
 
     	$('#chat-id-'+chat_id).click(function() {
     		var inst = $(this);
@@ -612,8 +612,8 @@ function lh(){
 		        async: true
 		    });
 
-	    	var index = tabs.find(' > section.active').index();
-	    	tabs.find(' > section.active').remove();
+	    	var index = tabs.find(' > #chat-tab-'+chat_id).index();
+	    	tabs.find(' > #chat-tab-'+chat_id).remove();
 			tabs.find(' > section:eq(' + (index - 1) + ')').addClass("active");
 
 
