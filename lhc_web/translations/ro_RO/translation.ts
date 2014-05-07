@@ -23,7 +23,7 @@
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Goleste...</translation>
+      <translation>Gol...</translation>
     </message>
     <message>
       <source>New</source>
@@ -354,7 +354,7 @@
     </message>
     <message>
       <source>Choose what form you want to embed</source>
-      <translation type="unfinished"/>
+      <translation>Alege ce formular vrei sa pui pe site</translation>
     </message>
     <message>
       <source>Help us to grow</source>
@@ -488,15 +488,15 @@
     </message>
     <message>
       <source>List of forms</source>
-      <translation type="unfinished"/>
+      <translation>Lista formularelor</translation>
     </message>
     <message>
       <source>Page embed code</source>
-      <translation type="unfinished"/>
+      <translation>Cod de embed pe pagina</translation>
     </message>
     <message>
       <source>Form</source>
-      <translation type="unfinished"/>
+      <translation>Formular</translation>
     </message>
   </context>
   <context>
@@ -523,7 +523,7 @@
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Goleste...</translation>
+      <translation>Gol...</translation>
     </message>
     <message>
       <source>Chats lists</source>
@@ -680,7 +680,7 @@
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Goleste...</translation>
+      <translation>Gol...</translation>
     </message>
     <message>
       <source>User was blocked!</source>
@@ -762,7 +762,7 @@
     </message>
     <message>
       <source>Please choose a department</source>
-      <translation type="unfinished"/>
+      <translation>Te rog sa alegi un departament</translation>
     </message>
     <message>
       <source>Please enter a canned message</source>
@@ -1233,7 +1233,7 @@
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Goleste...</translation>
+      <translation>Gol...</translation>
     </message>
   </context>
   <context>
@@ -1504,7 +1504,7 @@
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Goleste...</translation>
+      <translation>Gol...</translation>
     </message>
     <message>
       <source>Chats list</source>
@@ -2169,7 +2169,7 @@
     </message>
     <message>
       <source>Form module</source>
-      <translation type="unfinished"/>
+      <translation>Modul formular</translation>
     </message>
     <message>
       <source>Statistic</source>
@@ -2251,7 +2251,7 @@
     <name>pagelayout/pagelayout</name>
     <message>
       <source>Empty...</source>
-      <translation>Goleste...</translation>
+      <translation>Gol...</translation>
     </message>
     <message>
       <source>Clean cache</source>
@@ -2422,7 +2422,7 @@
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Goleste...</translation>
+      <translation>Gol...</translation>
     </message>
     <message>
       <source>Chats list</source>
@@ -2885,7 +2885,7 @@
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Goleste...</translation>
+      <translation>Gol...</translation>
     </message>
   </context>
   <context>
@@ -4073,7 +4073,7 @@
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Goleste...</translation>
+      <translation>Gol...</translation>
     </message>
     <message>
       <source>New question</source>
@@ -5076,35 +5076,35 @@
     </message>
     <message>
       <source>Content</source>
-      <translation type="unfinished"/>
+      <translation>Continut</translation>
     </message>
     <message>
       <source>Name attributes</source>
-      <translation type="unfinished"/>
+      <translation>Atribute de nume</translation>
     </message>
     <message>
       <source>Introduction attributes</source>
-      <translation type="unfinished"/>
+      <translation>Atribute de introducere</translation>
     </message>
     <message>
       <source>XLS Columns</source>
-      <translation type="unfinished"/>
+      <translation>Coloane XLS</translation>
     </message>
     <message>
       <source>Recipient</source>
-      <translation type="unfinished"/>
+      <translation>Destinatar</translation>
     </message>
     <message>
       <source>Post content after form is submitted</source>
-      <translation type="unfinished"/>
+      <translation>Continut articol dupa ce formularul este trimis</translation>
     </message>
     <message>
       <source>Custom pagelayout</source>
-      <translation type="unfinished"/>
+      <translation>Layout pagina personalizat</translation>
     </message>
     <message>
       <source>Forms list</source>
-      <translation type="unfinished"/>
+      <translation>Lista formulare</translation>
     </message>
   </context>
   <context>
@@ -5249,96 +5249,96 @@
     <name>form/collected</name>
     <message>
       <source>Download XLS</source>
-      <translation type="unfinished"/>
+      <translation>Downloadeaza XLS</translation>
     </message>
     <message>
       <source>URL</source>
-      <translation type="unfinished"/>
+      <translation>URL</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Nume</translation>
     </message>
     <message>
       <source>Intro</source>
-      <translation type="unfinished"/>
+      <translation>Intro</translation>
     </message>
     <message>
       <source>Time</source>
-      <translation type="unfinished"/>
+      <translation>Ora</translation>
     </message>
     <message>
       <source>IP</source>
-      <translation type="unfinished"/>
+      <translation>IP</translation>
     </message>
     <message>
       <source>View</source>
-      <translation type="unfinished"/>
+      <translation>Vizualizeaza</translation>
     </message>
     <message>
       <source>Download</source>
-      <translation type="unfinished"/>
+      <translation>Descarca</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation type="unfinished"/>
+      <translation>Sterge</translation>
     </message>
   </context>
   <context>
     <name>form/fill</name>
     <message>
       <source>Return</source>
-      <translation type="unfinished"/>
+      <translation>Inapoi</translation>
     </message>
     <message>
       <source>Submit</source>
-      <translation type="unfinished"/>
+      <translation>Trimite</translation>
     </message>
     <message>
       <source>Information collected</source>
-      <translation type="unfinished"/>
+      <translation>Informatii colectate</translation>
     </message>
     <message>
       <source>is required</source>
-      <translation type="unfinished"/>
+      <translation>este obligatori</translation>
     </message>
     <message>
       <source>invalid date format</source>
-      <translation type="unfinished"/>
+      <translation>format data incorect</translation>
     </message>
   </context>
   <context>
     <name>form/index</name>
     <message>
       <source>Form</source>
-      <translation type="unfinished"/>
+      <translation>Formular</translation>
     </message>
     <message>
       <source>List of forms</source>
-      <translation type="unfinished"/>
+      <translation>Lista formulare</translation>
     </message>
     <message>
       <source>Page embed code</source>
-      <translation type="unfinished"/>
+      <translation>Cod embed pagina</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation type="unfinished"/>
+      <translation>Data</translation>
     </message>
   </context>
   <context>
     <name>form/viewcollected</name>
     <message>
       <source>collected information</source>
-      <translation type="unfinished"/>
+      <translation>informatii colectate</translation>
     </message>
     <message>
       <source>Download</source>
-      <translation type="unfinished"/>
+      <translation>Descarca</translation>
     </message>
     <message>
       <source>Collected information</source>
-      <translation type="unfinished"/>
+      <translation>Informatii colectate</translation>
     </message>
   </context>
 </TS>

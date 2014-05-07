@@ -51,7 +51,8 @@ return array (
       	22 => 'rou',
       	23 => 'bgr',
       	24 => 'tha',
-      	25 => 'site_admin'
+      	25 => 'geo',
+      	26 => 'site_admin'
       ),
     ),
     'default_url' =>
@@ -542,6 +543,24 @@ return array (
       array (
     	'locale' => 'bg_BG',
     	'content_language' => 'bg',
+    	'dir_language' => 'ltr',
+    	'title' => '',
+    	'description' => '',
+    	'theme' =>
+      	array (
+    		0 => 'customtheme',
+    		1 => 'defaulttheme'
+      	),
+    	   'default_url' =>
+    	array (
+    		'module' => 'chat',
+    		'view' => 'startchat'
+    	),
+      ),	
+      'geo' =>
+      array (
+    	'locale' => 'ka_KA',
+    	'content_language' => 'ka',
     	'dir_language' => 'ltr',
     	'title' => '',
     	'description' => '',
