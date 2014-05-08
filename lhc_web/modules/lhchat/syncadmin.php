@@ -28,64 +28,71 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
     	exit;
     }
     
-    while (true) {    	
-	    foreach ($_POST['chats'] as $chat_id_list)
-	    {
-	        list($chat_id,$MessageID) = explode(',',$chat_id_list);
-	
-	        $Chat = erLhcoreClassModelChat::fetch($chat_id);
-	
-	        if ( isset($hasAccessToReadArray[$chat_id]) || erLhcoreClassChat::hasAccessToRead($Chat) )
-	        {
-	        	$hasAccessToReadArray[$chat_id] = true;
-	        	
-	            if ( ($Chat->last_msg_id > (int)$MessageID) && count($Messages = erLhcoreClassChat::getPendingMessages($chat_id,$MessageID)) > 0)
-	            {
-	            	// If chat had flag that it contains unread messages set to 0
-	            	if ( $Chat->has_unread_messages == 1 || $Chat->unread_messages_informed == 1) {
-	            		 $Chat->has_unread_messages = 0;
-	            		 $Chat->unread_messages_informed = 0;
-	            		 $Chat->saveThis();
-	            	}
-	
-	            	$newMessagesNumber = count($Messages);
-	
-	                $tpl->set('messages',$Messages);
-	                $tpl->set('chat',$Chat);
-	
-	                $msgText = '';
-	                if ($userOwner == 'true') {
-	                	foreach ($Messages as $msg) {
-	                		if ($msg['user_id'] != $currentUser->getUserID()) {
-	                			$userOwner = 'false';
-	                			$msgText = $msg['msg'];
-	                			break;
-	                		}
-	                	}
-	                }
-	
-	                $LastMessageIDs = array_pop($Messages);
-	
-	                $templateResult = $tpl->fetch();
-	
-	                $ReturnMessages[] = array('chat_id' => $chat_id,'nck' => $Chat->nick, 'mn' => $newMessagesNumber,'msg' => $msgText, 'content' => $templateResult, 'message_id' => $LastMessageIDs['id']);
-	            }
-		          
-	            if ($Chat->is_user_typing == true) {
-	                $ReturnStatuses[$chat_id] = array('chat_id' => $chat_id, 'us' => $Chat->user_status, 'tp' => 'true','tx' => htmlspecialchars($Chat->user_typing_txt));
-	            } else {
-	                $ReturnStatuses[$chat_id] = array('chat_id' => $chat_id, 'us' => $Chat->user_status, 'tp' => 'false');
-	            }
-	            
-	            if ($Chat->operation_admin != '') {
-	            	$ReturnStatuses[$chat_id]['oad'] = $Chat->operation_admin;
-	            	$Chat->operation_admin = '';
-	            	$Chat->saveThis();
-	            }	            
-	        }
-	
+    $db = ezcDbInstance::get();        
+    while (true) {
+    	$db->beginTransaction();
+    	try {    	
+		    foreach ($_POST['chats'] as $chat_id_list)
+		    {
+		        list($chat_id,$MessageID) = explode(',',$chat_id_list);
+		
+		        $Chat = erLhcoreClassModelChat::fetch($chat_id);
+		
+		        if ( isset($hasAccessToReadArray[$chat_id]) || erLhcoreClassChat::hasAccessToRead($Chat) )
+		        {
+		        	$hasAccessToReadArray[$chat_id] = true;
+		        	
+		            if ( ($Chat->last_msg_id > (int)$MessageID) && count($Messages = erLhcoreClassChat::getPendingMessages($chat_id,$MessageID)) > 0)
+		            {
+		            	// If chat had flag that it contains unread messages set to 0
+		            	if ( $Chat->has_unread_messages == 1 || $Chat->unread_messages_informed == 1) {
+		            		 $Chat->has_unread_messages = 0;
+		            		 $Chat->unread_messages_informed = 0;
+		            		 $Chat->saveThis();
+		            	}
+		
+		            	$newMessagesNumber = count($Messages);
+		
+		                $tpl->set('messages',$Messages);
+		                $tpl->set('chat',$Chat);
+		
+		                $msgText = '';
+		                if ($userOwner == 'true') {
+		                	foreach ($Messages as $msg) {
+		                		if ($msg['user_id'] != $currentUser->getUserID()) {
+		                			$userOwner = 'false';
+		                			$msgText = $msg['msg'];
+		                			break;
+		                		}
+		                	}
+		                }
+		
+		                $LastMessageIDs = array_pop($Messages);
+		
+		                $templateResult = $tpl->fetch();
+		
+		                $ReturnMessages[] = array('chat_id' => $chat_id,'nck' => $Chat->nick, 'mn' => $newMessagesNumber,'msg' => $msgText, 'content' => $templateResult, 'message_id' => $LastMessageIDs['id']);
+		            }
+			          
+		            if ($Chat->is_user_typing == true) {
+		                $ReturnStatuses[$chat_id] = array('chat_id' => $chat_id, 'us' => $Chat->user_status, 'tp' => 'true','tx' => htmlspecialchars($Chat->user_typing_txt));
+		            } else {
+		                $ReturnStatuses[$chat_id] = array('chat_id' => $chat_id, 'us' => $Chat->user_status, 'tp' => 'false');
+		            }
+		            
+		            if ($Chat->operation_admin != '') {
+		            	$ReturnStatuses[$chat_id]['oad'] = $Chat->operation_admin;
+		            	$Chat->operation_admin = '';
+		            	$Chat->saveThis();
+		            }	            
+		        }
+		
+		    }
+	    	$db->commit();
+	    } catch (Exception $e) {
+	    	$db->rollback();
 	    }
-	
+	    
 	    if (count($ReturnMessages) > 0) {
 	    	$content = $ReturnMessages;
 	    	$breakSync = true;
