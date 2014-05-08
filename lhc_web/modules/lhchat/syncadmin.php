@@ -37,7 +37,8 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
 		        list($chat_id,$MessageID) = explode(',',$chat_id_list);
 		
 		        $Chat = erLhcoreClassModelChat::fetch($chat_id);
-		
+		        $Chat->updateIgnoreColumns = array('last_msg_id');
+		        
 		        if ( isset($hasAccessToReadArray[$chat_id]) || erLhcoreClassChat::hasAccessToRead($Chat) )
 		        {
 		        	$hasAccessToReadArray[$chat_id] = true;

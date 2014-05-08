@@ -114,7 +114,7 @@ class erLhcoreClassModelChat {
    }
 
    public function updateThis() {
-       	 erLhcoreClassChat::getSession()->update($this);
+       	 erLhcoreClassChat::getSession()->update($this,$this->updateIgnoreColumns);
    }
 
    public function setIP()
@@ -313,6 +313,8 @@ class erLhcoreClassModelChat {
    const USER_STATUS_JOINED_CHAT = 0;
    const USER_STATUS_CLOSED_CHAT = 1;
    const USER_STATUS_PENDING_REOPEN = 2;
+   
+   public $updateIgnoreColumns = array();
    
    public $id = null;
    public $nick = '';
