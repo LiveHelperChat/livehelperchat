@@ -23,17 +23,23 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && mb_strlen($form->m
 	        $msg->msg = trim($form->msg);
 	        $msg->chat_id = $Params['user_parameters']['chat_id'];
 	        $msg->user_id = 0;
-	        $chat->last_user_msg_time = $msg->time = time();
+	        $msg->time = time();
 	
 	        erLhcoreClassChat::getSession()->save($msg);
-	
+
+	        $stmt = $db->prepare('UPDATE lh_chat SET last_user_msg_time = :last_user_msg_time, last_msg_id = :last_msg_id, has_unread_messages = 1 WHERE id = :id');
+	        $stmt->bindValue(':id',$chat->id,PDO::PARAM_INT);
+	        $stmt->bindValue(':last_user_msg_time',$msg->time,PDO::PARAM_INT);
+
 	        // Set last message ID
-	        if ($chat->last_msg_id < $msg->id) {
-	        	$chat->last_msg_id = $msg->id;
+	        if ($chat->last_msg_id < $msg->id) {	        
+	        	$stmt->bindValue(':last_msg_id',$msg->id,PDO::PARAM_INT);
+	        } else {
+	        	$stmt->bindValue(':last_msg_id',$chat->last_msg_id,PDO::PARAM_INT);
 	        }
-	
-	        $chat->has_unread_messages = 1;
-	        $chat->updateThis();
+
+	        $stmt->execute();
+	        
 	    }	    
 	    $db->commit();
 	} catch (Exception $e) {

@@ -38,7 +38,11 @@ if (trim($form->msg) != '')
 	
 	        // Set last message ID
 	        if ($Chat->last_msg_id < $msg->id) {
-	
+	        	
+	        	$stmt = $db->prepare('UPDATE lh_chat SET status = :status, user_status = :user_status, last_msg_id = :last_msg_id WHERE id = :id');
+	        	$stmt->bindValue(':id',$Chat->id,PDO::PARAM_INT);
+	        	$stmt->bindValue(':last_msg_id',$msg->id,PDO::PARAM_INT);
+	        		        	
 	        	if ($userData->invisible_mode == 0) {
 		        	if ($Chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
 		        		$Chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;        		
@@ -52,9 +56,10 @@ if (trim($form->msg) != '')
 	        			$onlineuser->saveThis();
 	        		}
 	        	}
-	
-	        	$Chat->last_msg_id = $msg->id;
-	        	$Chat->updateThis();
+	        	
+	        	$stmt->bindValue(':user_status',$Chat->user_status,PDO::PARAM_INT);
+	        	$stmt->bindValue(':status',$Chat->status,PDO::PARAM_INT);
+	        	$stmt->execute();	        	
 	        }
 	
 	        echo json_encode(array('error' => 'false'));
