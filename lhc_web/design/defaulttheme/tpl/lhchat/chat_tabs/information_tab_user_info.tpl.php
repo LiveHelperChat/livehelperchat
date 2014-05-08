@@ -83,7 +83,17 @@
 	<?php if (!empty($chat->additional_data)) : ?>
 	<tr>
 		<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Additional data')?></td>
-		<td><?php echo htmlspecialchars($chat->additional_data)?></td>
+		<td>		
+		<?php if (is_array($chat->additional_data_array)) : ?>
+			<ul class="circle mb0">
+				<?php foreach ($chat->additional_data_array as $addItem) : ?>
+				<li><?php echo htmlspecialchars($addItem->key)?> - <?php echo htmlspecialchars($addItem->value)?></li>
+				<?php endforeach;?>
+			</ul>
+		<?php else : ?>
+		<?php echo htmlspecialchars($chat->additional_data)?>
+		<?php endif;?>
+		</td>
 	</tr>
 	<?php endif;?>
 	<tr>

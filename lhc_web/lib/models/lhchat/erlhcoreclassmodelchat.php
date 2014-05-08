@@ -242,6 +242,16 @@ class erLhcoreClassModelChat {
        			 
        			return $this->unread_time;
        		break;
+       		
+       	case 'additional_data_array':
+       			$jsonData = json_decode($this->additional_data);
+       			if ($jsonData !== null) {
+       				$this->additional_data_array = $jsonData;
+       			} else {
+       				$this->additional_data_array = $this->additional_data;
+       			}
+       			return $this->additional_data_array;
+       		break;
        			
        	default:
        		break;
