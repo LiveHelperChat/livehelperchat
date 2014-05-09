@@ -11,7 +11,7 @@ class erConfigClassLhCacheConfig
 
     public function __construct()
     {
-        $this->conf = include('cache/cacheconfig/settings.ini.php');
+        $this->conf = @include('cache/cacheconfig/settings.ini.php') or null;
         if ( !is_array($this->conf) ) {
         	// Restore default settings if error accours
         	$this->conf = array (
