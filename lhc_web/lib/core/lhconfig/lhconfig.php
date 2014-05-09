@@ -7,8 +7,8 @@ class erConfigClassLhConfig
 
     public function __construct()
     {
-	     $this->conf = @include('settings/settings.ini.php') or null;
-	  
+	     $this->conf = @include('settings/settings.ini.php');
+	  		     
          if ( !is_array($this->conf) ) {
 		    	$this->conf = include('settings/settings.ini.default.php');
          }
