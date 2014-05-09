@@ -32,8 +32,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
 		if (!is_writable("cache/cacheconfig/settings.ini.php"))
 	       $Errors[] = "cache/cacheconfig/settings.ini.php is not writable";
 
-	    if (!is_writable("settings/settings.ini.php"))
-	       $Errors[] = "settings/settings.ini.php is not writable";
+	    if (!is_writable("settings/"))
+	       $Errors[] = "settings/ is not writable";
 
 		if (!is_writable("cache/translations"))
 	       $Errors[] = "cache/translations is not writable";
