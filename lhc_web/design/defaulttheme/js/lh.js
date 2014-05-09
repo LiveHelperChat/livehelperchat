@@ -314,9 +314,18 @@ function lh(){
     this.initTypingMonitoringUser = function(chat_id) {
 
         var www_dir = this.wwwDir;
-        var inst = this;
-
+        var inst = this;        
+        
+        if (sessionStorage && sessionStorage.getItem('lhc_ttxt') && sessionStorage.getItem('lhc_ttxt') != '') {
+        	jQuery('#CSChatMessage').val(sessionStorage.getItem('lhc_ttxt'));
+    	}
+                
         jQuery('#CSChatMessage').bind('keyup', function (evt){
+        	
+        	 if (sessionStorage) {
+        		 sessionStorage.setItem('lhc_ttxt',$(this).val());
+         	 };
+        	
             if (inst.is_typing == false) {
                 inst.is_typing = true;
                 clearTimeout(inst.typing_timeout);
@@ -1416,7 +1425,11 @@ function lh(){
         var modeWindow = this.isWidgetMode == true ? '/(mode)/widget' : '';
 		$('#CSChatMessage').val('');
 		var inst = this;
-
+		
+		if (sessionStorage) {
+   		   sessionStorage.setItem('lhc_ttxt','');
+    	};
+    	 
         $.postJSON(this.wwwDir + this.addmsgurluser + this.chat_id + '/' + this.hash + modeWindow, pdata , function(data) {
         	
         	if (data.error == 'f'){
