@@ -13,7 +13,7 @@
 <table>
     <tr>
         <td>I can write to &quot;cache/cacheconfig/settings.ini.php&quot; file</td>
-        <td><?php echo is_writable("cache/cacheconfig/settings.ini.php") ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'?></td>
+        <td><?php echo is_writable("cache/cacheconfig/settings.ini.php") || touch("cache/cacheconfig/settings.ini.php") ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'?></td>
     </tr>
     <tr>
         <td>I can write to &quot;cache/translations&quot; directory</td>
