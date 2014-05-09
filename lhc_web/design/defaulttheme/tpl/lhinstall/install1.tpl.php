@@ -28,8 +28,8 @@
         <td><?php echo is_writable("cache/compiledtemplates") ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'?></td>
     </tr>
     <tr>
-        <td>I can write to &quot;settings/settings.ini.php&quot; directory</td>
-        <td><?php echo is_writable("settings/settings.ini.php") ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'?></td>
+        <td>I can write to &quot;settings/&quot; directory</td>
+        <td><?php echo is_writable("settings/") ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'?></td>
     </tr>
     <tr>
         <td>I can write to &quot;var/storage&quot; directory</td>
