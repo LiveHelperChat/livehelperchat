@@ -145,7 +145,7 @@
     </message>
     <message>
       <source>Requires name</source>
-      <translation type="unfinished"/>
+      <translation>Naam verplicht</translation>
     </message>
     <message>
       <source>Show random operator profile</source>
@@ -161,7 +161,7 @@
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Afdeling</translation>
     </message>
     <message>
       <source>Matched times</source>
@@ -354,7 +354,7 @@
     </message>
     <message>
       <source>Choose what form you want to embed</source>
-      <translation type="unfinished"/>
+      <translation>Kies welk formulier je wilt embedden</translation>
     </message>
     <message>
       <source>Help us to grow</source>
@@ -488,15 +488,15 @@
     </message>
     <message>
       <source>List of forms</source>
-      <translation type="unfinished"/>
+      <translation>Lijst van formulieren</translation>
     </message>
     <message>
       <source>Page embed code</source>
-      <translation type="unfinished"/>
+      <translation>Pagina embed code</translation>
     </message>
     <message>
       <source>Form</source>
-      <translation type="unfinished"/>
+      <translation>Formulier</translation>
     </message>
   </context>
   <context>
@@ -762,7 +762,7 @@
     </message>
     <message>
       <source>Please choose a department</source>
-      <translation type="unfinished"/>
+      <translation>Kies s.v.p. een afdeling</translation>
     </message>
     <message>
       <source>Please enter a canned message</source>
@@ -901,7 +901,7 @@
     </message>
     <message>
       <source>Please enter value in seconds</source>
-      <translation type="unfinished"/>
+      <translation>Voer s.v.p. waarde in seconden in</translation>
     </message>
     <message>
       <source>Other</source>
@@ -1719,7 +1719,7 @@
     </message>
     <message>
       <source>Additional information</source>
-      <translation type="unfinished"/>
+      <translation>Aanvullende informatie</translation>
     </message>
     <message>
       <source>Last activity</source>
@@ -1827,15 +1827,15 @@
     </message>
     <message>
       <source>Group list by</source>
-      <translation type="unfinished"/>
+      <translation>Groepeer lijst op</translation>
     </message>
     <message>
       <source>Group by</source>
-      <translation type="unfinished"/>
+      <translation>Groepeer op</translation>
     </message>
     <message>
       <source>User country</source>
-      <translation type="unfinished"/>
+      <translation>Gebruikersland</translation>
     </message>
     <message>
       <source>Page</source>
@@ -1843,15 +1843,15 @@
     </message>
     <message>
       <source>Page title</source>
-      <translation type="unfinished"/>
+      <translation>Pagina titel</translation>
     </message>
     <message>
       <source>Referrer</source>
-      <translation type="unfinished"/>
+      <translation>Referrer</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Afdeling</translation>
     </message>
     <message>
       <source>Refresh list every</source>
@@ -1871,11 +1871,11 @@
     </message>
     <message>
       <source>minute</source>
-      <translation type="unfinished"/>
+      <translation>minuut</translation>
     </message>
     <message>
       <source>minutes</source>
-      <translation type="unfinished"/>
+      <translation>minuten</translation>
     </message>
     <message>
       <source>hour</source>
@@ -2169,7 +2169,7 @@
     </message>
     <message>
       <source>Form module</source>
-      <translation type="unfinished"/>
+      <translation>Formulier module</translation>
     </message>
     <message>
       <source>Statistic</source>
@@ -2369,7 +2369,7 @@
     </message>
     <message>
       <source>Print</source>
-      <translation type="unfinished"/>
+      <translation>Print</translation>
     </message>
     <message>
       <source>Select department</source>
@@ -2381,7 +2381,7 @@
     </message>
     <message>
       <source>Type to search</source>
-      <translation type="unfinished"/>
+      <translation>Type om te zoeken</translation>
     </message>
   </context>
   <context>
@@ -2526,11 +2526,11 @@
     </message>
     <message>
       <source>Requires e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Email verplicht</translation>
     </message>
     <message>
       <source>Requires name</source>
-      <translation type="unfinished"/>
+      <translation>Naam verplicht</translation>
     </message>
     <message>
       <source>Send the message</source>
@@ -4993,7 +4993,7 @@
     </message>
     <message>
       <source>Minimum 5 seconds</source>
-      <translation type="unfinished"/>
+      <translation>Minimaal 5 seconden</translation>
     </message>
     <message>
       <source>Transfer department has to be different one than self</source>
@@ -5076,35 +5076,35 @@
     </message>
     <message>
       <source>Content</source>
-      <translation type="unfinished"/>
+      <translation>Inhoud</translation>
     </message>
     <message>
       <source>Name attributes</source>
-      <translation type="unfinished"/>
+      <translation>Naam eigenschappen</translation>
     </message>
     <message>
       <source>Introduction attributes</source>
-      <translation type="unfinished"/>
+      <translation>Introductie eigenschappen</translation>
     </message>
     <message>
       <source>XLS Columns</source>
-      <translation type="unfinished"/>
+      <translation>XLS Kolommen</translation>
     </message>
     <message>
       <source>Recipient</source>
-      <translation type="unfinished"/>
+      <translation>Ontvanger</translation>
     </message>
     <message>
       <source>Post content after form is submitted</source>
-      <translation type="unfinished"/>
+      <translation>Post inhoud nadat het formulier is verstuurd</translation>
     </message>
     <message>
       <source>Custom pagelayout</source>
-      <translation type="unfinished"/>
+      <translation>Custom paginalayout</translation>
     </message>
     <message>
       <source>Forms list</source>
-      <translation type="unfinished"/>
+      <translation>Formulierenlijst</translation>
     </message>
   </context>
   <context>
@@ -5249,96 +5249,96 @@
     <name>form/collected</name>
     <message>
       <source>Download XLS</source>
-      <translation type="unfinished"/>
+      <translation>Download XLS</translation>
     </message>
     <message>
       <source>URL</source>
-      <translation type="unfinished"/>
+      <translation>URL</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Naam</translation>
     </message>
     <message>
       <source>Intro</source>
-      <translation type="unfinished"/>
+      <translation>Intro</translation>
     </message>
     <message>
       <source>Time</source>
-      <translation type="unfinished"/>
+      <translation>Tijd</translation>
     </message>
     <message>
       <source>IP</source>
-      <translation type="unfinished"/>
+      <translation>IP</translation>
     </message>
     <message>
       <source>View</source>
-      <translation type="unfinished"/>
+      <translation>Bekijk</translation>
     </message>
     <message>
       <source>Download</source>
-      <translation type="unfinished"/>
+      <translation>Download</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation type="unfinished"/>
+      <translation>Verwijder</translation>
     </message>
   </context>
   <context>
     <name>form/fill</name>
     <message>
       <source>Return</source>
-      <translation type="unfinished"/>
+      <translation>Terug</translation>
     </message>
     <message>
       <source>Submit</source>
-      <translation type="unfinished"/>
+      <translation>Verstuur</translation>
     </message>
     <message>
       <source>Information collected</source>
-      <translation type="unfinished"/>
+      <translation>Informatie verzameld</translation>
     </message>
     <message>
       <source>is required</source>
-      <translation type="unfinished"/>
+      <translation>is verplicht</translation>
     </message>
     <message>
       <source>invalid date format</source>
-      <translation type="unfinished"/>
+      <translation>onjuist datumformaat</translation>
     </message>
   </context>
   <context>
     <name>form/index</name>
     <message>
       <source>Form</source>
-      <translation type="unfinished"/>
+      <translation>Formulier</translation>
     </message>
     <message>
       <source>List of forms</source>
-      <translation type="unfinished"/>
+      <translation>Lijst van formulieren</translation>
     </message>
     <message>
       <source>Page embed code</source>
-      <translation type="unfinished"/>
+      <translation>Pagina embed code</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation type="unfinished"/>
+      <translation>Datum</translation>
     </message>
   </context>
   <context>
     <name>form/viewcollected</name>
     <message>
       <source>collected information</source>
-      <translation type="unfinished"/>
+      <translation>verzamelde informatie</translation>
     </message>
     <message>
       <source>Download</source>
-      <translation type="unfinished"/>
+      <translation>Download</translation>
     </message>
     <message>
       <source>Collected information</source>
-      <translation type="unfinished"/>
+      <translation>Verzamelde informatie</translation>
     </message>
   </context>
 </TS>

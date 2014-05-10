@@ -11,7 +11,7 @@
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Zrušit</translation>
+      <translation>Storno</translation>
     </message>
     <message>
       <source>Edit</source>
@@ -81,7 +81,7 @@
     </message>
     <message>
       <source>chat configuration</source>
-      <translation>nastavení konverzace</translation>
+      <translation>nastavení rozhovoru</translation>
     </message>
     <message>
       <source>also online users tracking has to be</source>
@@ -101,7 +101,7 @@
     </message>
     <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
-      <translation>Zpráva při čekání. Viditelná, pokud uživatelé zahájí rozhovor a čekají na někoho, kdo konverzaci příjme .</translation>
+      <translation>Zpráva při čekání. Viditelná, pokud uživatelé zahájí rozhovor a čekají na někoho, kdo rozhovor příjme .</translation>
     </message>
     <message>
       <source>Wait timeout. Time in seconds before timeout message is shown.</source>
@@ -177,7 +177,7 @@
     </message>
     <message>
       <source>Pro active chat invitations</source>
-      <translation>Proaktivní pozvánky ke konverzaci</translation>
+      <translation>Proaktivní pozvánky k rozhovoru</translation>
     </message>
   </context>
   <context>
@@ -598,7 +598,7 @@
     </message>
     <message>
       <source>Chatbox is disabled.</source>
-      <translation>Chatbox je deaktivovaný.</translation>
+      <translation>Chatbox je vypnut.</translation>
     </message>
     <message>
       <source>Invalid hash or auto creation is disabled</source>
@@ -766,7 +766,7 @@
     </message>
     <message>
       <source>Please enter a canned message</source>
-      <translation>Zadejte text předpřipravené zprávy</translation>
+      <translation>Zadejte, prosím, předpřipravenou zprávu</translation>
     </message>
   </context>
   <context>
@@ -873,7 +873,7 @@
     </message>
     <message>
       <source>E.g somechat@conference.server.org/LiveChat</source>
-      <translation>např. konverzace@konferencni.server.cz/LiveChat</translation>
+      <translation>např. rozhovor@konferencni.server.cz/LiveChat</translation>
     </message>
     <message>
       <source>These messages will be send as group messages</source>
@@ -921,7 +921,7 @@
     </message>
     <message>
       <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
-      <translation>Časový limit ve sekundách, než je rozhovor přesměrován na jiné oddělení. Minimum 5 sekund.</translation>
+      <translation>Časový limit v sekundách, než je rozhovor přesměrován na jiné oddělení. Minimum 5 sekund.</translation>
     </message>
     <message>
       <source>Miscellaneous</source>
@@ -1450,7 +1450,7 @@
     </message>
     <message>
       <source>Live Support</source>
-      <translation>Online podpora</translation>
+      <translation>On-line podpora</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -1473,7 +1473,7 @@
     </message>
     <message>
       <source>A support staff member has closed this chat</source>
-      <translation>Člen podpory uzavřel tento rozhovor</translation>
+      <translation>Člen týmu podpory již ukončil tento rozhovor</translation>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
@@ -1587,15 +1587,15 @@
     <name>chat/onlineusers</name>
     <message>
       <source>GEO detection configuration</source>
-      <translation>Nastavení GEO detekce</translation>
+      <translation>Konfigurace geodetekce</translation>
     </message>
     <message>
       <source>GEO Enabled</source>
-      <translation>GEO zapnuto</translation>
+      <translation>GEO povoleno</translation>
     </message>
     <message>
       <source>Use this service</source>
-      <translation>Použít této služby</translation>
+      <translation>Použít tuto službu</translation>
     </message>
     <message>
       <source>Save</source>
@@ -1607,11 +1607,11 @@
     </message>
     <message>
       <source>Country code server variable</source>
-      <translation>Country code server variable</translation>
+      <translation>Proměnná serveru s kódem země</translation>
     </message>
     <message>
       <source>Country name server variable</source>
-      <translation>Proměnná Name serveru země</translation>
+      <translation>Proměnná serveru s názvem země</translation>
     </message>
     <message>
       <source>City name server variable</source>
@@ -1623,11 +1623,11 @@
     </message>
     <message>
       <source>Latitude variable</source>
-      <translation>Zeměpisná šířka</translation>
+      <translation>Proměnná zeměpisné šířky</translation>
     </message>
     <message>
       <source>Longitude variable</source>
-      <translation>Zeměpisná délka</translation>
+      <translation>Proměnná zeměpisné délky</translation>
     </message>
     <message>
       <source>Use MaxMind, does not depend on any third party remote service</source>
@@ -1671,7 +1671,7 @@
     </message>
     <message>
       <source>Requests will be comming from</source>
-      <translation>Požadavek od</translation>
+      <translation>Požadavky budou přicházet od</translation>
     </message>
     <message>
       <source>API Key</source>
@@ -1683,7 +1683,7 @@
     </message>
     <message>
       <source>IP, if your site remote IP is different from detected one, please provide correct remote IP address</source>
-      <translation>IP, pokud je vaše veřejná IP adresa stránky rozdílná od té rozpoznané, vyplňte, prosím, správnou veřejnou IP adresu</translation>
+      <translation>IP, pokud je veřejná IP adresa stránky rozdílná od té rozpoznané, poskytněte, prosím, správnou veřejnou IP adresu</translation>
     </message>
     <message>
       <source>Map location</source>
@@ -1739,7 +1739,7 @@
     </message>
     <message>
       <source>User has seen message from operator.</source>
-      <translation>Uživatel obdržel zprávu od operátora.</translation>
+      <translation>Uživatel si přečetl zprávu od operátora.</translation>
     </message>
     <message>
       <source>User is chatting</source>
@@ -1747,7 +1747,7 @@
     </message>
     <message>
       <source>User is not having any chat right now</source>
-      <translation>Uživatel nyní nepíše</translation>
+      <translation>Uživatel nevede v současnosti žádný rozhovor</translation>
     </message>
     <message>
       <source>has send message to user</source>
@@ -1783,7 +1783,7 @@
     </message>
     <message>
       <source>Time on site</source>
-      <translation>Délka návštěvy</translation>
+      <translation>Čas na stránce</translation>
     </message>
     <message>
       <source>Total time on site</source>
@@ -1839,7 +1839,7 @@
     </message>
     <message>
       <source>Page</source>
-      <translation>Odkud</translation>
+      <translation>Stránka</translation>
     </message>
     <message>
       <source>Page title</source>
@@ -1899,11 +1899,11 @@
     </message>
     <message>
       <source>has sent a message to the user</source>
-      <translation>poslat uživateli zprávu</translation>
+      <translation>již odeslal zprávu uživateli</translation>
     </message>
     <message>
       <source>No one has sent a message to the user yet</source>
-      <translation>Zatím nikdo uživateli neodpověděl</translation>
+      <translation>Uživateli dosud nikdo neodeslal zprávu</translation>
     </message>
     <message>
       <source>first visit</source>
@@ -1919,11 +1919,11 @@
     </message>
     <message>
       <source>User has message from operator</source>
-      <translation>Uživatel obdržel zprávu od operátora</translation>
+      <translation>Uživatel má zprávu od operátora</translation>
     </message>
     <message>
       <source>Marker timeout before it dissapears from map</source>
-      <translation>Doba, za jakou zmizí značka z mapy</translation>
+      <translation>Časová prodleva značky než zmizí z mapy</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>
@@ -1947,11 +1947,11 @@
     </message>
     <message>
       <source>Country code variable does not exist!</source>
-      <translation>Kód země neexistuje!</translation>
+      <translation>Proměnná s kódem země neexistuje!</translation>
     </message>
     <message>
       <source>Country name variable does not exist!</source>
-      <translation>Jméno země neexistuje!</translation>
+      <translation>Proměnná s názvem země neexistuje!</translation>
     </message>
     <message>
       <source>Please enter city variable!</source>
@@ -1967,7 +1967,7 @@
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages!</source>
-      <translation>Nastavení poskytovatele služby selhalo. Zkontrolujte, že poskytovatel umožňuje zasílat požadavky ze vzdálených serverů!</translation>
+      <translation>Nastavení poskytovatele služby selhalo, zkontrolujte, prosím, že Váš poskytovatel služby umožňuje provádění požadavků na vzdálené stránky!</translation>
     </message>
     <message>
       <source>MaxMind city file does not exists!</source>
@@ -1983,11 +1983,11 @@
     </message>
     <message>
       <source>Please enter the API key!</source>
-      <translation>Zadejte klíč API! </translation>
+      <translation>Zadejte, prosím, klíč API!</translation>
     </message>
     <message>
       <source>Please enter the API username!</source>
-      <translation>Zadejte uživatelské jméno pro API! </translation>
+      <translation>Zadejte, prosím, uživatelské jméno API!</translation>
     </message>
     <message>
       <source>Please enter IP!</source>
@@ -2263,11 +2263,11 @@
     </message>
     <message>
       <source>Chats transferred to you directly</source>
-      <translation>Rozhovory přesměrované přímo vám</translation>
+      <translation>Rozhovory přesměrované přímo Vám</translation>
     </message>
     <message>
       <source>Transferred to your department</source>
-      <translation>Přesměrováno do vašeho oddělení</translation>
+      <translation>Přesměrováno na Vaše oddělení</translation>
     </message>
     <message>
       <source>Pending chats</source>
@@ -2311,7 +2311,7 @@
     </message>
     <message>
       <source>Questionary</source>
-      <translation>Dotazníky</translation>
+      <translation>Dotazník</translation>
     </message>
     <message>
       <source>FAQ</source>
@@ -2518,7 +2518,7 @@
     </message>
     <message>
       <source>If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.</source>
-      <translation>Pokud již byla zpráva odeslána, toto označí zprávu za doručenou a uživateli bude zpráva chatu opět zobrazena.</translation>
+      <translation>Pokud již byla zpráva odeslána, toto ji označí za nedoručenou a uživateli bude tato zpráva rozhovoru opět zobrazena.</translation>
     </message>
     <message>
       <source>Type your message to the user</source>
@@ -2629,7 +2629,7 @@
     </message>
     <message>
       <source>Start chat form settings</source>
-      <translation>Nastavení formuláře spouštějící rozhovor</translation>
+      <translation>Nastavení úvodního formuláře rozhovoru</translation>
     </message>
   </context>
   <context>
@@ -2783,7 +2783,7 @@
     </message>
     <message>
       <source>Total chats</source>
-      <translation>Celkem konverzací</translation>
+      <translation>Celkem rozhovorů</translation>
     </message>
     <message>
       <source>Total pending chats</source>
@@ -2803,7 +2803,7 @@
     </message>
     <message>
       <source>Total messages (including visitors, system and operators messages)</source>
-      <translation>Celkem zpráv (včetně návštěvníků, systémových a operátorských zpráv)</translation>
+      <translation>Celkem zpráv (včetně zpráv návštěvníků, systému a operátorů)</translation>
     </message>
     <message>
       <source>Total messages (only visitors)</source>
@@ -2925,7 +2925,7 @@
     </message>
     <message>
       <source>See archived chats</source>
-      <translation>Prohlédnout archivované rozhovory</translation>
+      <translation>Zobrazit archivované rozhovory</translation>
     </message>
   </context>
   <context>
@@ -3353,19 +3353,19 @@
     </message>
     <message>
       <source>Pending chats tab enabled</source>
-      <translation>Záložka čekajících rozhovorů aktivní</translation>
+      <translation>Záložka čekajících rozhovorů povolena</translation>
     </message>
     <message>
       <source>Active chats tab enabled</source>
-      <translation>Zapnutá záložka aktivních chatů</translation>
+      <translation>Záložka aktivních rozhovorů povolena</translation>
     </message>
     <message>
       <source>Unread chats tab enabled</source>
-      <translation>Záložka nepřečtených rozhovorů aktivní</translation>
+      <translation>Záložka nepřečtených rozhovorů povolena</translation>
     </message>
     <message>
       <source>Closed chats tab enabled</source>
-      <translation>Záložka ukončených rozhovorů aktivní</translation>
+      <translation>Záložka ukončených rozhovorů povolena</translation>
     </message>
     <message>
       <source>Personal canned messages</source>
@@ -3564,7 +3564,7 @@
     </message>
     <message>
       <source>FAQ description</source>
-      <translation>DUK aprašymas</translation>
+      <translation>Popis FAQ</translation>
     </message>
   </context>
   <context>
@@ -4597,7 +4597,7 @@
     <name>user/forgotpassword</name>
     <message>
       <source>Password reminder</source>
-      <translation>Vytvoření nového hesla</translation>
+      <translation>Připomenutí hesla</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -4609,7 +4609,7 @@
     </message>
     <message>
       <source>Invalid e-mail address!</source>
-      <translation>Neplatný e-mail!</translation>
+      <translation>Neplatná e-mailová adresa!</translation>
     </message>
     <message>
       <source>Password remind</source>
@@ -4617,7 +4617,7 @@
     </message>
     <message>
       <source>Click this link and You will be sent a new password</source>
-      <translation>Kliknutím na odkaz v tomto e-mailu Vám odešlete nové heslo</translation>
+      <translation>Klikněte na tento odkaz a bude Vám zasláno nové heslo</translation>
     </message>
   </context>
   <context>
@@ -4758,7 +4758,7 @@
     </message>
     <message>
       <source>Hash was not found or was used already</source>
-      <translation>Hash nebyl nalezen nebo je již používán</translation>
+      <translation>Hash nebyl nalezen nebo již byl použit</translation>
     </message>
     <message>
       <source>Password remind - new password</source>
