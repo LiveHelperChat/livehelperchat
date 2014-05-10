@@ -136,6 +136,22 @@ $def->properties['hidden']->propertyName = 'hidden';
 $def->properties['hidden']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 /**
+ * Reset new chat callback execution
+ * */
+$def->properties['nc_cb_execute'] = new ezcPersistentObjectProperty();
+$def->properties['nc_cb_execute']->columnName   = 'nc_cb_execute';
+$def->properties['nc_cb_execute']->propertyName = 'nc_cb_execute';
+$def->properties['nc_cb_execute']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+/**
+ * Reset unanswered chat callback execution
+ * */
+$def->properties['na_cb_execute'] = new ezcPersistentObjectProperty();
+$def->properties['na_cb_execute']->columnName   = 'na_cb_execute';
+$def->properties['na_cb_execute']->propertyName = 'na_cb_execute';
+$def->properties['na_cb_execute']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+/**
  * Delay before leave a message window is shown
  * */
 $def->properties['delay_lm'] = new ezcPersistentObjectProperty();

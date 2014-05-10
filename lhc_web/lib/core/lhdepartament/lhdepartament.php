@@ -100,6 +100,12 @@ class erLhcoreClassDepartament{
 	   			'inform_unread' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	   			),
+	   			'nc_cb_execute' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	   			),
+	   			'na_cb_execute' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	   			),
 	   			'StartHour' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0, 'mx_range' => 24)
 	   			),
@@ -141,6 +147,20 @@ class erLhcoreClassDepartament{
 		   		$department->transfer_timeout = $form->TransferTimeout;
 		   	} else {
 		   		$department->transfer_timeout = 0;
+		   	}
+		   			   	
+		   	if ( $form->hasValidData( 'nc_cb_execute' ) && $form->nc_cb_execute == true )
+		   	{
+		   		$department->nc_cb_execute = 1;
+		   	} else {
+		   		$department->nc_cb_execute = 0;
+		   	}
+		   	
+		   	if ( $form->hasValidData( 'na_cb_execute' ) && $form->na_cb_execute == true )
+		   	{
+		   		$department->na_cb_execute = 1;
+		   	} else {
+		   		$department->na_cb_execute = 0;
 		   	}
 	   	}
 	   	

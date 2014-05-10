@@ -58,8 +58,16 @@ class erLhcoreClassChatWorkflow {
     			$chat->transfer_if_na = 1;
     			$chat->transfer_timeout_ac = $departmentTransfer->transfer_timeout;
     		}
+    		
+    		if ($chat->department->nc_cb_execute == 1) {
+    			$chat->nc_cb_executed = 0;
+    		}
+    		
+    		if ($chat->department->na_cb_execute == 1) {
+    			$chat->na_cb_executed = 0;
+    		}    		
     	}
-
+       	
     	$chat->updateThis();
     }
 

@@ -708,6 +708,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `frd` tinyint(1) NOT NULL,
 				  `sad` tinyint(1) NOT NULL,
 				  `sud` tinyint(1) NOT NULL,
+				  `nc_cb_execute` tinyint(1) NOT NULL,
+				  `na_cb_execute` tinyint(1) NOT NULL,
 				  `inform_unread` tinyint(1) NOT NULL,
 				  `start_hour` int(2) NOT NULL,
 				  `end_hour` int(2) NOT NULL,
