@@ -1,3 +1,26 @@
+1.98v
+
+Features/Changes/Bugfixes
+
+1. https://github.com/LiveHelperChat/livehelperchat/issues/381
+2. https://github.com/LiveHelperChat/livehelperchat/issues/362
+3. Changed map link in chat window to be compatible with new google maps version
+4. Referer page will open in a new window
+5. End range for form's module will be included in combobox also
+6. Pure SQL queries for performance improvement in a few places. Also implemented SQL transaction in a few places.
+7. Then user naviagates to another page on site to operator will be shown user status with new page.
+8. https://github.com/LiveHelperChat/livehelperchat/pull/380
+9. https://github.com/LiveHelperChat/livehelperchat/pull/373
+10. https://github.com/LiveHelperChat/livehelperchat/pull/379
+11. https://github.com/LiveHelperChat/livehelperchat/issues/375
+12. Fixed bug then same chat was transfred to department multiple times was not shown.
+13. https://github.com/LiveHelperChat/livehelperchat/pull/373
+14. Avoid showing widget URL instead of page url, then widget is opened.
+15. Now most of generic chat's list are ajax based.
+16. Fixed bug then closing tab, tab was not removed from session and upon page refresh was still open.
+
+execute doc/update_db/update_77.sql for update and create a directory 
+
 1.97v
 
 Github changes, another new module
