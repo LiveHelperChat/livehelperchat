@@ -5,7 +5,7 @@ $positionArgument = array (
 				'radius' => 'right',
 				'position' => 'bottom:0;left:0;',
 				'position_body' => 'bottom:0;left:0;',
-				'shadow' => '2px -2px 5px',
+				'shadow' => '1px -1px 5px',
 				'moz_radius' => 'topright',
 				'widget_hover' => '',
 				'padding_text' => '10px 10px 10px 35px',
@@ -22,7 +22,7 @@ $positionArgument = array (
 				'radius' => 'left',
 				'position' => 'bottom:0;right:0;',
 				'position_body' => 'bottom:0;right:0;',
-				'shadow' => '-2px -2px 5px',
+				'shadow' => '1px -1px 5px',
 				'moz_radius' => 'topleft',
 				'widget_hover' => '',
 				'padding_text' => '10px 10px 10px 35px',
@@ -37,7 +37,7 @@ $positionArgument = array (
 				'radius' => 'left',
 				'position' => "top:{$top_pos}{$units};right:-155px;",
 				'position_body' => "top:{$top_pos}{$units};right:0px;",
-				'shadow' => '0px 0px 10px',
+				'shadow' => '1px -1px 5px',
 				'widget_hover' => 'right:0;transition: 1s;',
 				'moz_radius' => 'topleft',
 				'padding_text' => '10px 10px 10px 35px',
@@ -52,7 +52,7 @@ $positionArgument = array (
 				'radius' => 'left',
 				'position' => "top:{$top_pos}{$units};left:-155px;",
 				'position_body' => "top:{$top_pos}{$units};left:0px;",
-				'shadow' => '0px 0px 10px',
+				'shadow' => '1px -1px 5px',
 				'padding_text' => '10px 35px 10px 9px',
 				'widget_hover' => 'left:0;transition: 1s;',
 				'moz_radius' => 'topright',
@@ -160,7 +160,7 @@ var lhc_Questionary = {
                               '<div id="lhc_questionary_header"><?php include(erLhcoreClassDesign::designtpl('lhchat/widget_brand/questionary.tpl.php')); ?><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" id="lhc_questionary_close"><img src="<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/icons/cancel.png');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" /></a></div>' +
                               this.iframe_html + '</div>';
 
-          raw_css = "#lhc_container_questionary * {direction:<?php (erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'dir_language') == 'ltr' || erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'dir_language') == '') ? print 'ltr;text-align:left;' : print 'rtl;text-align:right;'; ?>;font-family:arial\;line-height:100%\;font-size:12px\;box-sizing: content-box\;-moz-box-sizing:content-box;padding:0;margin:0;}\n#lhc_container_questionary img {border:0;}\n#lhc_questionary_title{float:left;}\n#lhc_questionary_header{position:relative;z-index:9990;height:15px;overflow:hidden;-webkit-border-<?php echo $currentPosition['chrome_radius']?>-radius: 10px;-moz-border-radius-<?php echo $currentPosition['moz_radius']?>: 10px;border-<?php echo $currentPosition['chrome_radius']?>-radius: 10px;background-color:#FFF;text-align:right;clear:both;border-bottom:1px solid #CCC;padding:5px;}\n#lhc_questionary_close{padding:2px;float:right;}\n#lhc_questionary_close:hover{background:#e5e5e5;}\n#lhc_container_questionary {height:<?php echo $heightwidget?>px;overflow: hidden;transition-property: height;transition-duration: 0.4s;-webkit-transition: height 0.4s ease-in-out;transition: height 0.4s;background-color:#FFF\;\nz-index:9990;\n position: fixed;<?php echo $currentPosition['position_body']?>;-webkit-box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);-moz-box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);border:1px solid #CCC;-webkit-border-radius: 10px;-moz-border-radius: 10px;border-radius: 10px;-moz-user-select:none; -khtml-user-drag:element;cursor: move;cursor: -moz-grab;cursor: -webkit-grab; }\n#lhc_container_questionary iframe{transition-property: height;transition-duration: 0.4s;-webkit-transition: height 0.4s ease-in-out;transition: height 0.4s;}\n#lhc_container_questionary iframe.lhc-loading{\nbackground: #FFF url(<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/general/loading.gif');?>) no-repeat center center; }";
+          raw_css = "#lhc_container_questionary * {direction:<?php (erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'dir_language') == 'ltr' || erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'dir_language') == '') ? print 'ltr;text-align:left;' : print 'rtl;text-align:right;'; ?>;font-family:arial\;line-height:100%\;font-size:12px\;box-sizing: content-box\;-moz-box-sizing:content-box;padding:0;margin:0;}\n#lhc_container_questionary img {border:0;}\n#lhc_questionary_title{float:left;}\n#lhc_questionary_header{position:relative;z-index:9990;height:15px;overflow:hidden;-webkit-border-<?php echo $currentPosition['chrome_radius']?>-radius: 10px;-moz-border-radius-<?php echo $currentPosition['moz_radius']?>: 10px;border-<?php echo $currentPosition['chrome_radius']?>-radius: 10px;background-color:#FFF;text-align:right;clear:both;border-bottom:1px solid #CCC;padding:5px;}\n#lhc_questionary_close{padding:2px;float:right;}\n#lhc_questionary_close:hover{background:#e5e5e5;}\n#lhc_container_questionary {height:<?php echo $heightwidget?>px;overflow: hidden;transition-property: height;transition-duration: 0.4s;-webkit-transition: height 0.4s ease-in-out;transition: height 0.4s;background-color:#FFF\;\nz-index:9990;\n position: fixed;<?php echo $currentPosition['position_body']?>;-webkit-box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);-moz-box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);border:1px solid #CCC;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;-moz-user-select:none; -khtml-user-drag:element;cursor: move;cursor: -moz-grab;cursor: -webkit-grab; }\n#lhc_container_questionary iframe{transition-property: height;transition-duration: 0.4s;-webkit-transition: height 0.4s ease-in-out;transition: height 0.4s;}\n#lhc_container_questionary iframe.lhc-loading{\nbackground: #FFF url(<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/general/loading.gif');?>) no-repeat center center; }";
 
           if (!this.cssWasAdded) {
           		this.cssWasAdded = true;
