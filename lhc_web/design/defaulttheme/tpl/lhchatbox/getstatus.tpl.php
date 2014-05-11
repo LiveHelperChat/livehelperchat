@@ -215,8 +215,9 @@ var lhc_Chatbox = {
 	showVotingForm : function() {
 
    		  this.removeById('lhc_container_chatbox');
-
-   		  this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chatbox/chatwidget')?>/(chat_height)/<?php echo $heightchatcontent;?>/(identifier)/"+LHCChatboxOptions.identifier+'/(hashchatbox)/'+LHCChatboxOptions.hashchatbox+this.getAppendCookieArguments()+'?URLReferer='+encodeURIComponent(document.location)+this.getAppendRequestArguments();
+		  var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
+		  
+   		  this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chatbox/chatwidget')?>/(chat_height)/<?php echo $heightchatcontent;?>/(identifier)/"+LHCChatboxOptions.identifier+'/(hashchatbox)/'+LHCChatboxOptions.hashchatbox+this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.getAppendRequestArguments();
 
    		  this.addCookieAttribute('is_opened',1);
 

@@ -147,8 +147,8 @@ var lhc_Questionary = {
 	showVotingForm : function() {
 
    		  this.removeById('lhc_container_questionary');
-
-   		  this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('questionary/votingwidget')?>"+'?URLReferer='+encodeURIComponent(document.location);
+	      var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
+   		  this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('questionary/votingwidget')?>"+'?URLReferer='+locationCurrent;
 
    		  this.iframe_html = '<iframe id="lhcquestionary_iframe" allowTransparency="true" scrolling="no" class="lhc-loading" frameborder="0" ' +
                        ( this.initial_iframe_url != '' ? ' src="'    + this.initial_iframe_url + '"' : '' ) +

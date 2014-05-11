@@ -2,8 +2,8 @@ var lhc_QuestionaryPage = function() {
 	var self = this;
 
 	this.showVotingForm = function() {
-
-   		  this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('questionary/votingwidget')?>/(mode)/embed"+'?URLReferer='+encodeURIComponent(document.location);
+		  var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
+   		  this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('questionary/votingwidget')?>/(mode)/embed"+'?URLReferer='+locationCurrent;
 
    		  this.iframe_html = '<iframe id="lhc_sizing_questionary_page" allowTransparency="true" scrolling="no" frameborder="0" ' +
                        ( this.initial_iframe_url != '' ? ' src="'    + this.initial_iframe_url + '"' : '' ) +
