@@ -924,6 +924,14 @@
       <translation>TIdsavbrudd før samtalen blir flyttet til en annen avdeling. Minimum 5 sekunder.</translation>
     </message>
     <message>
+      <source>Execute new chat logic again for recipient department?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Execute unanswered chat logic again for recipient department?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Miscellaneous</source>
       <translation type="unfinished"/>
     </message>

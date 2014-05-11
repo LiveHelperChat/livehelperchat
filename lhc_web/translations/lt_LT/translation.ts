@@ -924,6 +924,14 @@
       <translation>Laikas sekundėmis prieš tai kol pokalbis priskiriamas paveldinčiam departamentui. Minimum 5 sekundės.</translation>
     </message>
     <message>
+      <source>Execute new chat logic again for recipient department?</source>
+      <translation>Vykdyti naujos užklausos scenarijų perleistam departamentui?</translation>
+    </message>
+    <message>
+      <source>Execute unanswered chat logic again for recipient department?</source>
+      <translation>Vykdyti neatsakyto pokalbio scenarijų perleistam departamentui?</translation>
+    </message>
+    <message>
       <source>Miscellaneous</source>
       <translation>Įvairūs</translation>
     </message>

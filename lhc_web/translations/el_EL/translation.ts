@@ -924,6 +924,14 @@
       <translation>Χρονικό όριο σε δευτερόλεπτα πριν chat μεταφέρεται σε άλλη υπηρεσία. Ελάχιστο 5 δευτερόλεπτα.</translation>
     </message>
     <message>
+      <source>Execute new chat logic again for recipient department?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Execute unanswered chat logic again for recipient department?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Miscellaneous</source>
       <translation>Διάφορα</translation>
     </message>

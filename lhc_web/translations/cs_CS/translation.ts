@@ -924,6 +924,14 @@
       <translation>Časový limit v sekundách, než je rozhovor přesměrován na jiné oddělení. Minimum 5 sekund.</translation>
     </message>
     <message>
+      <source>Execute new chat logic again for recipient department?</source>
+      <translation>Znovu spustit logiku nových rozhovorů v oddělení příjemce?</translation>
+    </message>
+    <message>
+      <source>Execute unanswered chat logic again for recipient department?</source>
+      <translation>Znovu spustit logiku nevyřízených rozhovorů v oddělení příjemce?</translation>
+    </message>
+    <message>
       <source>Miscellaneous</source>
       <translation>Různé</translation>
     </message>

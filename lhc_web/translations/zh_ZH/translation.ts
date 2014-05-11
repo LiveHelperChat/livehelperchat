@@ -924,6 +924,14 @@
       <translation>超時聊天秒前被轉移到另一個部門。至少5秒。</translation>
     </message>
     <message>
+      <source>Execute new chat logic again for recipient department?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Execute unanswered chat logic again for recipient department?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Miscellaneous</source>
       <translation>杂项</translation>
     </message>

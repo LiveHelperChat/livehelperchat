@@ -924,6 +924,14 @@
       <translation>Timeout i sekunder før chat overføres til en anden afdeling. Mindst 5 sekunder.</translation>
     </message>
     <message>
+      <source>Execute new chat logic again for recipient department?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Execute unanswered chat logic again for recipient department?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Miscellaneous</source>
       <translation>Diverse</translation>
     </message>

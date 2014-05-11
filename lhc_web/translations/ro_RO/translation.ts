@@ -924,6 +924,14 @@
       <translation>Timp in secunde inainte ca discutia sa fie transferata unui alt departament. Minim 5 secunde.</translation>
     </message>
     <message>
+      <source>Execute new chat logic again for recipient department?</source>
+      <translation>Executa logica pentru conversatie noua din nou pentru departamentul care primeste?</translation>
+    </message>
+    <message>
+      <source>Execute unanswered chat logic again for recipient department?</source>
+      <translation>Executa logica pentru conversatie necitita din nou pentru departamentul care primeste?</translation>
+    </message>
+    <message>
       <source>Miscellaneous</source>
       <translation>Altele</translation>
     </message>

@@ -924,6 +924,14 @@
       <translation>Время ожидания, после которого чат будет переведен на другой департамент. Минимум 5 секунд.</translation>
     </message>
     <message>
+      <source>Execute new chat logic again for recipient department?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Execute unanswered chat logic again for recipient department?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Miscellaneous</source>
       <translation>Разное</translation>
     </message>
