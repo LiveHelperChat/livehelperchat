@@ -764,7 +764,7 @@
     </message>
     <message>
       <source>Please choose a department</source>
-      <translation type="unfinished"/>
+      <translation>Por favor elija un departamento</translation>
     </message>
     <message>
       <source>Please enter a canned message</source>
@@ -927,11 +927,11 @@
     </message>
     <message>
       <source>Execute new chat logic again for recipient department?</source>
-      <translation type="unfinished"/>
+      <translation>¿Ejecutar nuevamente lógica de chat nuevo para el departamento receptor?</translation>
     </message>
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
-      <translation type="unfinished"/>
+      <translation>¿Ejecutar nuevamente lógica de chat no respondido para el departamento receptor?</translation>
     </message>
     <message>
       <source>Miscellaneous</source>

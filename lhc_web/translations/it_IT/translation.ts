@@ -817,7 +817,7 @@
     </message>
     <message>
       <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
-      <translation type="unfinished"/>
+      <translation>Giorni lavorativi/ore lavorative, durante questo periodo la chat sarà attiva automaticamente.</translation>
     </message>
     <message>
       <source>Monday</source>
@@ -881,7 +881,7 @@
     </message>
     <message>
       <source>Inform about new chats using</source>
-      <translation type="unfinished"/>
+      <translation>Informa circa le nuove chat usando</translation>
     </message>
     <message>
       <source>XMPP messages</source>
@@ -4820,11 +4820,11 @@
     <name>system/xmpp</name>
     <message>
       <source>XMPP settings</source>
-      <translation type="unfinished"/>
+      <translation>Impostazioni XMPP</translation>
     </message>
     <message>
       <source>XMPP active</source>
-      <translation type="unfinished"/>
+      <translation>XMPP attivo</translation>
     </message>
     <message>
       <source>XMPP Message content</source>
@@ -4840,27 +4840,27 @@
     </message>
     <message>
       <source>Host</source>
-      <translation type="unfinished"/>
+      <translation>Host</translation>
     </message>
     <message>
       <source>Port</source>
-      <translation type="unfinished"/>
+      <translation>Porta</translation>
     </message>
     <message>
       <source>Login</source>
-      <translation type="unfinished"/>
+      <translation>Accesso</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation type="unfinished"/>
+      <translation>Password</translation>
     </message>
     <message>
       <source>Resource</source>
-      <translation type="unfinished"/>
+      <translation>Risorsa</translation>
     </message>
     <message>
       <source>Server</source>
-      <translation type="unfinished"/>
+      <translation>Server</translation>
     </message>
     <message>
       <source>Recipients</source>
@@ -4884,7 +4884,7 @@
     </message>
     <message>
       <source>Test message will be send to your account e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Un messaggio di test sarà inviato al vostro account e-mail</translation>
     </message>
     <message>
       <source>GTalk</source>
@@ -4944,7 +4944,7 @@
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Impostazioni aggiornate</translation>
     </message>
     <message>
       <source>Succesfully authorised, now you can try to send a message</source>
@@ -4956,7 +4956,7 @@
     </message>
     <message>
       <source>XMPP message was sent succesfuly</source>
-      <translation type="unfinished"/>
+      <translation>Messaggio XMPP inviato con successo</translation>
     </message>
   </context>
   <context>
