@@ -29,6 +29,9 @@ if ((string)$Params['user_parameters_unordered']['hash'] != '') {
 	exit;
 }
 
+
+
+
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/chatwidget.tpl.php');
 $tpl->set('referer','');
 $tpl->set('referer_site','');
@@ -107,6 +110,14 @@ if ((string)$Params['user_parameters_unordered']['hash_resume'] != '') {
 if ((string)$Params['user_parameters_unordered']['vid'] != '') {
 	$inputData->vid = (string)$Params['user_parameters_unordered']['vid'];
 }
+
+// Reopen chat automatically if possible
+if ( erLhcoreClassModelChatConfig::fetch('automatically_reopen_chat')->current_value == 1 && erLhcoreClassModelChatConfig::fetch('reopen_chat_enabled')->current_value == 1 && ($reopenData = erLhcoreClassChat::canReopenDirectly()) !== false ) {
+	$sound = is_numeric($Params['user_parameters_unordered']['sound']) ? '/(sound)/'.$Params['user_parameters_unordered']['sound'] : '';
+	erLhcoreClassModule::redirect('chat/reopen','/' . $reopenData['id'] . '/' . $reopenData['hash'] . '/(mode)/widget' . $modeAppend . $sound );
+	exit;
+}
+
 
 $chat = new erLhcoreClassModelChat();
 
