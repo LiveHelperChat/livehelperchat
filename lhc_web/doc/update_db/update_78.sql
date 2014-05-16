@@ -1,0 +1,2 @@
+
+INSERT INTO `lh_chat_config` (`identifier`, `value`, `type`, `explain`, `hidden`) VALUES ('disable_html5_storage','0',0,'Disable HMTL5 secure storage, check it if your site is switching between http and https', '0');

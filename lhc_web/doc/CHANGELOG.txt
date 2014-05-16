@@ -1,3 +1,12 @@
+1.99v
+
+Features/Changes/Bugfixes
+
+1. https://github.com/LiveHelperChat/livehelperchat/issues/381
+
+execute doc/update_db/update_78.sql for update
+
+
 1.98v
 
 Features/Changes/Bugfixes
@@ -19,7 +28,7 @@ Features/Changes/Bugfixes
 15. Now most of generic chat's list are ajax based.
 16. Fixed bug then closing tab, tab was not removed from session and upon page refresh was still open.
 
-execute doc/update_db/update_77.sql for update and create a directory 
+execute doc/update_db/update_77.sql for update
 
 1.97v
 

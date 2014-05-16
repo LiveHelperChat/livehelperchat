@@ -78,6 +78,7 @@ if (key_exists($position, $positionArgument)){
 }
 
 $trackDomain = erLhcoreClassModelChatConfig::fetch('track_domain')->current_value;
+$disableHTML5Storage = (int)erLhcoreClassModelChatConfig::fetch('disable_html5_storage')->current_value;
 
 ?>
 
@@ -114,6 +115,10 @@ var lh_inst  = {
     cookieData : {},
     cookieDataPers : {},
 
+    getCookieDomain : function(domain) {
+    	return '.'+document.location.hostname.replace(/^(?:[a-z0-9\-\.]+\.)??([a-z0-9\-]+)?(\.com|\.net|\.org|\.biz|\.ws|\.in|\.me|\.co\.uk|\.co|\.org\.uk|\.ltd\.uk|\.plc\.uk|\.me\.uk|\.edu|\.mil|\.br\.com|\.cn\.com|\.eu\.com|\.hu\.com|\.no\.com|\.qc\.com|\.sa\.com|\.se\.com|\.se\.net|\.us\.com|\.uy\.com|\.ac|\.co\.ac|\.gv\.ac|\.or\.ac|\.ac\.ac|\.af|\.am|\.as|\.at|\.ac\.at|\.co\.at|\.gv\.at|\.or\.at|\.asn\.au|\.com\.au|\.edu\.au|\.org\.au|\.net\.au|\.id\.au|\.be|\.ac\.be|\.adm\.br|\.adv\.br|\.am\.br|\.arq\.br|\.art\.br|\.bio\.br|\.cng\.br|\.cnt\.br|\.com\.br|\.ecn\.br|\.eng\.br|\.esp\.br|\.etc\.br|\.eti\.br|\.fm\.br|\.fot\.br|\.fst\.br|\.g12\.br|\.gov\.br|\.ind\.br|\.inf\.br|\.jor\.br|\.lel\.br|\.med\.br|\.mil\.br|\.net\.br|\.nom\.br|\.ntr\.br|\.odo\.br|\.org\.br|\.ppg\.br|\.pro\.br|\.psc\.br|\.psi\.br|\.rec\.br|\.slg\.br|\.tmp\.br|\.tur\.br|\.tv\.br|\.vet\.br|\.zlg\.br|\.br|\.ab\.ca|\.bc\.ca|\.mb\.ca|\.nb\.ca|\.nf\.ca|\.ns\.ca|\.nt\.ca|\.on\.ca|\.pe\.ca|\.qc\.ca|\.sk\.ca|\.yk\.ca|\.ca|\.cc|\.ac\.cn|\.com\.cn|\.edu\.cn|\.gov\.cn|\.org\.cn|\.bj\.cn|\.sh\.cn|\.tj\.cn|\.cq\.cn|\.he\.cn|\.nm\.cn|\.ln\.cn|\.jl\.cn|\.hl\.cn|\.js\.cn|\.zj\.cn|\.ah\.cn|\.gd\.cn|\.gx\.cn|\.hi\.cn|\.sc\.cn|\.gz\.cn|\.yn\.cn|\.xz\.cn|\.sn\.cn|\.gs\.cn|\.qh\.cn|\.nx\.cn|\.xj\.cn|\.tw\.cn|\.hk\.cn|\.mo\.cn|\.cn|\.cx|\.cz|\.de|\.dk|\.fo|\.com\.ec|\.tm\.fr|\.com\.fr|\.asso\.fr|\.presse\.fr|\.fr|\.gf|\.gs|\.co\.il|\.net\.il|\.ac\.il|\.k12\.il|\.gov\.il|\.muni\.il|\.ac\.in|\.co\.in|\.org\.in|\.ernet\.in|\.gov\.in|\.net\.in|\.res\.in|\.is|\.it|\.ac\.jp|\.co\.jp|\.go\.jp|\.or\.jp|\.ne\.jp|\.ac\.kr|\.co\.kr|\.go\.kr|\.ne\.kr|\.nm\.kr|\.or\.kr|\.li|\.lt|\.lu|\.asso\.mc|\.tm\.mc|\.com\.mm|\.org\.mm|\.net\.mm|\.edu\.mm|\.gov\.mm|\.ms|\.nl|\.no|\.nu|\.pl|\.ro|\.org\.ro|\.store\.ro|\.tm\.ro|\.firm\.ro|\.www\.ro|\.arts\.ro|\.rec\.ro|\.info\.ro|\.nom\.ro|\.nt\.ro|\.se|\.si|\.com\.sg|\.org\.sg|\.net\.sg|\.gov\.sg|\.sk|\.st|\.tf|\.ac\.th|\.co\.th|\.go\.th|\.mi\.th|\.net\.th|\.or\.th|\.tm|\.to|\.com\.tr|\.edu\.tr|\.gov\.tr|\.k12\.tr|\.net\.tr|\.org\.tr|\.com\.tw|\.org\.tw|\.net\.tw|\.ac\.uk|\.uk\.com|\.uk\.net|\.gb\.com|\.gb\.net|\.vg|\.sh|\.kz|\.ch|\.info|\.ua|\.gov|\.name|\.pro|\.ie|\.hk|\.com\.hk|\.org\.hk|\.net\.hk|\.edu\.hk|\.us|\.tk|\.cd|\.by|\.ad|\.lv|\.eu\.lv|\.bz|\.es|\.jp|\.cl|\.ag|\.mobi|\.eu|\.co\.nz|\.org\.nz|\.net\.nz|\.maori\.nz|\.iwi\.nz|\.io|\.la|\.md|\.sc|\.sg|\.vc|\.tw|\.travel|\.my|\.se|\.tv|\.pt|\.com\.pt|\.edu\.pt|\.asia|\.fi|\.com\.ve|\.net\.ve|\.fi|\.org\.ve|\.web\.ve|\.info\.ve|\.co\.ve|\.tel|\.im|\.gr|\.ru|\.net\.ru|\.org\.ru|\.hr|\.com\.hr)$/, '$1$2');
+    },
+    
     addCss : function(css_content) {
         var head = document.getElementsByTagName('head')[0];
         var style = document.createElement('style');
@@ -464,21 +469,21 @@ var lh_inst  = {
     },
 
     storePersistenCookie : function(){
-	    lhc_Cookies('lhc_per',this.JSON.stringify(this.cookieDataPers),{expires:16070400<?php $trackDomain != '' ? print ",domain:'.{$trackDomain}'" : ''?>});
+	    lhc_Cookies('lhc_per',this.JSON.stringify(this.cookieDataPers),{expires:16070400<?php $trackDomain != '' || $disableHTML5Storage == 1 ? ($trackDomain != '' ? print ",domain:'.{$trackDomain}'" : print ",domain:this.getCookieDomain()") : ''?>});
     },
 
     storeSesCookie : function(){
-    	<?php if ($trackDomain == '') : ?>
+    	<?php if ($trackDomain == '' && $disableHTML5Storage == 0) : ?>
     	if (sessionStorage) {
     		sessionStorage.setItem('lhc_ses',this.JSON.stringify(this.cookieData));
     	} else {
     	<?php endif;?>
-	    	lhc_Cookies('lhc_ses',this.JSON.stringify(this.cookieData),{<?php $trackDomain != '' ? print "domain:'.{$trackDomain}'" : ''?>});
-	    <?php if ($trackDomain == '') : ?>}<?php endif;?>
+	    	lhc_Cookies('lhc_ses',this.JSON.stringify(this.cookieData),{<?php $trackDomain != '' || $disableHTML5Storage == 1 ? ($trackDomain != '' ? print "domain:'.{$trackDomain}'" : print "domain:this.getCookieDomain()") : ''?>});
+	    <?php if ($trackDomain == '' && $disableHTML5Storage == 0) : ?>}<?php endif;?>
     },
 
     initSessionStorage : function(){
-    	<?php if ($trackDomain == '') : ?>
+    	<?php if ($trackDomain == '' && $disableHTML5Storage == 0) : ?>
     	if (sessionStorage && sessionStorage.getItem('lhc_ses')) {
     		this.cookieData = this.JSON.parse(sessionStorage.getItem('lhc_ses'));
     	} else {
@@ -487,7 +492,7 @@ var lh_inst  = {
 			if ( typeof cookieData === "string" && cookieData ) {
 				this.cookieData = this.JSON.parse(cookieData);
 			}
-		<?php if ($trackDomain == '') : ?>}<?php endif;?>
+		<?php if ($trackDomain == '' && $disableHTML5Storage == 0) : ?>}<?php endif;?>
     },
 
     storeReferrer : function(ref){
@@ -525,12 +530,17 @@ var lh_inst  = {
     
     lhc_need_help_hide :function() {
     	this.removeById('lhc_need_help_container');
+    	<?php if (erLhcoreClassModelChatConfig::fetch('need_help_tip_timeout')->current_value > 0) : ?>
     	this.addCookieAttributePersistent('lhc_hnh','<?php echo ((erLhcoreClassModelChatConfig::fetch('need_help_tip_timeout')->current_value * 3600) + time())?>');
+    	<?php else : ?>
+    	this.addCookieAttribute('lhc_hnh','<?php echo ((24 * 3600) + time())?>');    	
+    	<?php endif; ?>
+    	
     	return false;
     },
     
     getPersistentAttribute : function(attr) {
-    	<?php if ($trackDomain == '') : ?>
+    	<?php if ($trackDomain == '' && $disableHTML5Storage == 0) : ?>
     	if (localStorage) {    	
 	    	return localStorage.getItem(attr);
     	} else {
@@ -539,11 +549,11 @@ var lh_inst  = {
 		    	return this.cookieDataPers[attr];
 	    	}
 	    	return null;    	
-    	<?php if ($trackDomain == '') : ?>}<?php endif;?>
+    	<?php if ($trackDomain == '' && $disableHTML5Storage == 0) : ?>}<?php endif;?>
     },
     
     addCookieAttributePersistent : function(attr, value){
-    	<?php if ($trackDomain == '') : ?>
+    	<?php if ($trackDomain == '' && $disableHTML5Storage == 0) : ?>
     	if (localStorage) {
     		localStorage.setItem(attr,value);
     	} else {
@@ -552,7 +562,7 @@ var lh_inst  = {
 	    	this.cookieDataPers[attr] = value;
 	    	this.storePersistenCookie();	    	
     	}
-    	<?php if ($trackDomain == '') : ?>}<?php endif;?>
+    	<?php if ($trackDomain == '' && $disableHTML5Storage == 0) : ?>}<?php endif;?>
     },
     
     lhc_need_help_click : function() {

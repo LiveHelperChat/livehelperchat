@@ -103,6 +103,9 @@
 		    		    		    
 		    <?php $attribute = 'use_secure_cookie';$boolValue = true;?>
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+		    		    		    
+		    <?php $attribute = 'disable_html5_storage';$boolValue = true;?>
+		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 		    
 		    <?php $attribute = 'session_captcha';$boolValue = true;?>
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>

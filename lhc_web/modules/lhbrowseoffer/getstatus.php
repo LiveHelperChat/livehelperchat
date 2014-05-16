@@ -26,7 +26,7 @@ if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDet
 		$tpl->set('invite',$matched);
 		$tpl->set('showoverlay',(string)$Params['user_parameters_unordered']['showoverlay'] == 'true' ? true : false);	
 		$tpl->set('canreopen',(string)$Params['user_parameters_unordered']['canreopen'] == 'true' ? true : false);	
-		$tpl->set('timeout',(!is_null($Params['user_parameters_unordered']['timeout']) && (int)$Params['user_parameters_unordered']['timeout'] >= 0) ? (int)$Params['user_parameters_unordered']['timeout'] : false);
+		$tpl->set('timeout',(!is_null($Params['user_parameters_unordered']['timeout']) && (int)$Params['user_parameters_unordered']['timeout'] > 0) ? (int)$Params['user_parameters_unordered']['timeout'] : false);
 		echo $tpl->fetch();
 	}
 }

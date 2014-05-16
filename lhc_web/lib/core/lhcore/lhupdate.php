@@ -2,8 +2,8 @@
 
 class erLhcoreClassUpdate
 {
-	const DB_VERSION = 77;
-	const LHC_RELEASE = 198;
+	const DB_VERSION = 78;
+	const LHC_RELEASE = 199;
 	
 	public static function getMissingUpdates($data){
 		

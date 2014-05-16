@@ -1,7 +1,7 @@
 var subStatus = '';
 <?php if ( $isOnlineHelp == true && erLhcoreClassModelChatConfig::fetch('need_help_tip')->current_value == 1) : ?>
-var lhc_hnh = lh_inst.getPersistentAttribute('lhc_hnh');
-if (lhc_hnh == null || parseInt(lhc_hnh) < <?php echo time()?>) {
+var lhc_hnh = <?php if (erLhcoreClassModelChatConfig::fetch('need_help_tip_timeout')->current_value > 0) : ?>lh_inst.getPersistentAttribute('lhc_hnh');<?php else : ?>lh_inst.cookieData.lhc_hnh;<?php endif;?>
+if (lhc_hnh == null || lhc_hnh == undefined || parseInt(lhc_hnh) < <?php echo time()?>) {
 var titleText = (typeof LHCChatOptions.opt.nh_title_text != 'undefined') ? LHCChatOptions.opt.nh_title_text : '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Need help?')?>';
 var subTitleText = (typeof LHCChatOptions.opt.nh_sub_title_text != 'undefined') ? LHCChatOptions.opt.nh_sub_title_text : '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Our staff is always ready to help')?>';
 var imageTooltip = (typeof LHCChatOptions.opt.nh_image != 'undefined') ? LHCChatOptions.opt.nh_image : '<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/general/operator.png');?>';
