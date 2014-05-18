@@ -156,7 +156,7 @@ class erLhAbstractModelBrowseOfferInvitation {
    				'callback_content' => array(
    						'type' => 'textarea',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/browserofferinvitation','Callback content, must be valid json'),
-   						'required' => true,
+   						'required' => false,
    						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
