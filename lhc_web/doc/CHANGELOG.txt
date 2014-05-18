@@ -6,6 +6,7 @@ Features/Changes/Bugfixes
 2. https://github.com/LiveHelperChat/livehelperchat/issues/382
 3. https://github.com/LiveHelperChat/livehelperchat/issues/374
 4. https://github.com/LiveHelperChat/livehelperchat/issues/360
+5. Then user reopens chat, chat status won't be changed unless it's closed. 
 
 execute doc/update_db/update_78.sql for update
 If you are using XMPP notifications edit xmpp notifications and in "XMPP Message about accepted chat" enter
