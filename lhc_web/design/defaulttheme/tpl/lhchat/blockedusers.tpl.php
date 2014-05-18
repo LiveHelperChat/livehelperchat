@@ -1,5 +1,26 @@
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Blocked users');?></h1>
 
+<?php if (isset($block_saved) && $block_saved == true) : ?>
+		<?php $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Updated'); ?>
+		<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
+<?php endif; ?>
+
+<?php if (isset($errors)) : ?>
+	<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
+<?php endif; ?>
+
+<form action="<?php echo erLhcoreClassDesign::baseurl('chat/blockedusers')?>"  method="post">
+<div class="row">
+	<div class="columns small-4">
+		<input type="text" name="IPToBlock" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','IP');?>" />
+	</div>	
+	<div class="columns small-8">
+		<input type="submit" class="button small" name="AddBlock" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>" />
+	</div>
+</div>
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+</form>
+
 <?php if (!empty($items)) : ?>
 <table class="twelve" cellpadding="0" cellspacing="0">
 <thead>

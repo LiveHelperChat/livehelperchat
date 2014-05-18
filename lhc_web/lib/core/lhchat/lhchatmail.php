@@ -274,7 +274,7 @@ class erLhcoreClassChatMail {
     		$mail->AddReplyTo($chat->email,$chat->nick);
     	}
     	  	
-    	$mail->Subject = $sendMail->subject;
+    	$mail->Subject = str_replace(array('{chat_id}'), array($chat->id), $sendMail->subject);
     	   	    	
     	$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 10,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
     	$messagesContent = '';
@@ -305,7 +305,7 @@ class erLhcoreClassChatMail {
     	    	
     	foreach ($emailRecipient as $receiver) {   
     		$veryfyEmail = 	sha1(sha1($receiver.$secretHash).$secretHash);
-    		$mail->Body = str_replace(array('{phone}','{name}','{email}','{message}','{additional_data}','{url_request}','{ip}','{department}','{url_accept}','{country}','{city}'), array($chat->phone,$chat->nick,$chat->email,$messagesContent,$chat->additional_data,$chat->referrer,erLhcoreClassIPDetect::getIP(),(string)$chat->department,'http://' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('chat/accept').'/'.erLhcoreClassModelChatAccept::generateAcceptLink($chat).'/'.$veryfyEmail.'/'.$receiver,$chat->country_name,$chat->city), $sendMail->content);
+    		$mail->Body = str_replace(array('{user_name}','{chat_id}','{phone}','{name}','{email}','{message}','{additional_data}','{url_request}','{ip}','{department}','{url_accept}','{country}','{city}'), array($chat->user_name,$chat->id,$chat->phone,$chat->nick,$chat->email,$messagesContent,$chat->additional_data,$chat->referrer,erLhcoreClassIPDetect::getIP(),(string)$chat->department,'http://' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('chat/accept').'/'.erLhcoreClassModelChatAccept::generateAcceptLink($chat).'/'.$veryfyEmail.'/'.$receiver,$chat->country_name,$chat->city), $sendMail->content);
     		$mail->AddAddress( $receiver );    		    		
     		$mail->Send();
     		$mail->ClearAddresses();
@@ -316,7 +316,7 @@ class erLhcoreClassChatMail {
     		foreach ($recipientsBCC as $receiver) {
     			$receiver = trim($receiver);
     			$veryfyEmail = 	sha1(sha1($receiver.$secretHash).$secretHash);
-    			$mail->Body = str_replace(array('{phone}','{name}','{email}','{message}','{additional_data}','{url_request}','{ip}','{department}','{url_accept}','{country}','{city}'), array($chat->phone,$chat->nick,$chat->email,$messagesContent,$chat->additional_data,$chat->referrer,erLhcoreClassIPDetect::getIP(),(string)$chat->department,'http://' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('chat/accept').'/'.erLhcoreClassModelChatAccept::generateAcceptLink($chat).'/'.$veryfyEmail.'/'.$receiver,$chat->country_name,$chat->city), $sendMail->content);
+    			$mail->Body = str_replace(array('{user_name}','{chat_id}','{phone}','{name}','{email}','{message}','{additional_data}','{url_request}','{ip}','{department}','{url_accept}','{country}','{city}'), array($chat->user_name,$chat->id,$chat->phone,$chat->nick,$chat->email,$messagesContent,$chat->additional_data,$chat->referrer,erLhcoreClassIPDetect::getIP(),(string)$chat->department,'http://' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('chat/accept').'/'.erLhcoreClassModelChatAccept::generateAcceptLink($chat).'/'.$veryfyEmail.'/'.$receiver,$chat->country_name,$chat->city), $sendMail->content);
     			$mail->AddAddress( $receiver );
     			$mail->Send();
     			$mail->ClearAddresses();

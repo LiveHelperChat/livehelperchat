@@ -39,10 +39,24 @@ class erLhcoreClassModelUser {
        $this->password = sha1($password.$secretHash.sha1($password));
    }
 
-   public static function fetch($user_id)
-   {
-   	 $user = erLhcoreClassUser::getSession('slave')->load( 'erLhcoreClassModelUser', (int)$user_id );
-   	 return $user;
+   public static function fetch($user_id, $useCache = false)
+   {   	
+	   	if ($useCache == true) {
+	   		
+		   	if (isset($GLOBALS['erLhcoreClassModelUser_'.$user_id])) return $GLOBALS['erLhcoreClassModelUser_'.$user_id];
+			   	
+		   	try {
+		   		$GLOBALS['erLhcoreClassModelUser_'.$user_id] = erLhcoreClassUser::getSession('slave')->load( 'erLhcoreClassModelUser', (int)$user_id );
+		   	} catch (Exception $e) {
+		   		$GLOBALS['erLhcoreClassModelUser_'.$user_id] = null;
+		   	}
+		   	
+		   	return $GLOBALS['erLhcoreClassModelUser_'.$user_id];
+	   	}
+	   		   	
+   	 	$user = $GLOBALS['erLhcoreClassModelUser_'.$user_id] = erLhcoreClassUser::getSession('slave')->load( 'erLhcoreClassModelUser', (int)$user_id );
+   	 	   	 	
+   	 	return $user;
    }
 
    public function __toString()

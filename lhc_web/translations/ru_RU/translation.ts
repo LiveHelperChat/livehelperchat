@@ -5128,7 +5128,7 @@
     </message>
     <message>
       <source>Allow user to change subject</source>
-      <translation>Позволяет юзеру менять тему письма</translation>
+      <translation>Разрешить пользователю изменять тему письма</translation>
     </message>
     <message>
       <source>From name</source>

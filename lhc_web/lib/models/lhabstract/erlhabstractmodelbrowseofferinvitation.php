@@ -25,6 +25,7 @@ class erLhAbstractModelBrowseOfferInvitation {
 			'width'					=> $this->width,
 			'height'				=> $this->height,
 			'unit'					=> $this->unit,
+			'callback_content'		=> $this->callback_content
 		);
 
 		return $stateArray;
@@ -147,6 +148,14 @@ class erLhAbstractModelBrowseOfferInvitation {
    				'content' => array(
    						'type' => 'textarea',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/browserofferinvitation','Default popup content'),
+   						'required' => true,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
+   				'callback_content' => array(
+   						'type' => 'textarea',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/browserofferinvitation','Callback content, must be valid json'),
    						'required' => true,
    						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
@@ -413,6 +422,7 @@ class erLhAbstractModelBrowseOfferInvitation {
 	public $width = 0;
 	public $height = 0;
 	public $unit = '';
+	public $callback_content = '';
 
 	
 	public $hide_add = false;

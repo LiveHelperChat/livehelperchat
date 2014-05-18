@@ -25,7 +25,7 @@ if ($activeTabEnabled == true) {
 	 * Active chats
 	 * */
 	$chats = erLhcoreClassChat::getActiveChats(10,0,array('ignore_fields' => erLhcoreClassChat::$chatListIgnoreField));
-	erLhcoreClassChat::prefillGetAttributes($chats,array('time_created_front','department_name'),array('department','time','status','dep_id','user_id'));	
+	erLhcoreClassChat::prefillGetAttributes($chats,array('time_created_front','department_name','user_name'),array('department','time','status','dep_id','user_id','user'));	
 	$ReturnMessages['active_chats'] = array('list' => array_values($chats));
 }
 

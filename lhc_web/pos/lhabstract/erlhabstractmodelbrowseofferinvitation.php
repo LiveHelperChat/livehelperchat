@@ -27,6 +27,11 @@ $def->properties['content']->columnName   = 'content';
 $def->properties['content']->propertyName = 'content';
 $def->properties['content']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['callback_content'] = new ezcPersistentObjectProperty();
+$def->properties['callback_content']->columnName   = 'callback_content';
+$def->properties['callback_content']->propertyName = 'callback_content';
+$def->properties['callback_content']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $def->properties['lhc_iframe_content'] = new ezcPersistentObjectProperty();
 $def->properties['lhc_iframe_content']->columnName   = 'lhc_iframe_content';
 $def->properties['lhc_iframe_content']->propertyName = 'lhc_iframe_content';
@@ -88,7 +93,6 @@ $def->properties['hash'] = new ezcPersistentObjectProperty();
 $def->properties['hash']->columnName   = 'hash';
 $def->properties['hash']->propertyName = 'hash';
 $def->properties['hash']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
-
 
 $def->properties['width'] = new ezcPersistentObjectProperty();
 $def->properties['width']->columnName   = 'width';

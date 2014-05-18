@@ -135,7 +135,16 @@ class erLhcoreClassChatWorkflow {
     	 
     }
     
-    
+    public static function chatAcceptedWorkflow($options = array(), & $chat) {    	
+    	if (in_array('mail_accepted', $options['options'])) {
+    		erLhcoreClassChatMail::sendMailUnacceptedChat($chat,9);
+    	}
+    	
+    	if (in_array('xmp_accepted', $options['options'])) {    	
+    		erLhcoreClassXMP::sendXMPMessage($chat,array('template' => 'xmp_accepted_message'));
+    	}
+    }
+
     
     public static function newChatInformWorkflow($options = array(), & $chat) {
     	

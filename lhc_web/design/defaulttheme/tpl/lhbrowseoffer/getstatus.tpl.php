@@ -50,7 +50,7 @@ var lhc_BrowseOffer = {
         return(EObj=document.getElementById(EId))?EObj.parentNode.removeChild(EObj):false;
     },
 
-    hide : function(params) {
+    hide : function() {
         var th = document.getElementsByTagName('head')[0];
         var s = document.createElement('script');
         s.setAttribute('type','text/javascript');
@@ -63,9 +63,8 @@ var lhc_BrowseOffer = {
         this.addCookieAttributePersistent('was_opened',true);
      
         if (LHCBROWSEOFFEROptions.closeCallback) {
-        	LHCBROWSEOFFEROptions.closeCallback(params);
-        }
-            
+        	LHCBROWSEOFFEROptions.closeCallback(<?php echo $invite->callback_content?>);
+        }            
     },
     		
 	showBrowseOffer : function() {
@@ -104,7 +103,11 @@ var lhc_BrowseOffer = {
          var s = document.createElement('script');
          s.setAttribute('type','text/javascript');
          s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('browseoffer/addhit')?>/<?php echo $invite->hash?>');
-         th.appendChild(s);        
+         th.appendChild(s);
+         
+         if (LHCBROWSEOFFEROptions.openCallback) {
+        	LHCBROWSEOFFEROptions.openCallback(<?php echo $invite->callback_content?>);
+         }          
     },
 
    reflow : function(){

@@ -3,9 +3,15 @@
 Features/Changes/Bugfixes
 
 1. https://github.com/LiveHelperChat/livehelperchat/issues/381
+2. https://github.com/LiveHelperChat/livehelperchat/issues/382
+3. https://github.com/LiveHelperChat/livehelperchat/issues/374
+4. https://github.com/LiveHelperChat/livehelperchat/issues/360
 
 execute doc/update_db/update_78.sql for update
-
+If you are using XMPP notifications edit xmpp notifications and in "XMPP Message about accepted chat" enter
+{user_name} has accepted a chat [{chat_id}]
+{messages}
+{url_accept}
 
 1.98v
 

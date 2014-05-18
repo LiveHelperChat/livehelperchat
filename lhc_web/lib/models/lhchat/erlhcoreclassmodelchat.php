@@ -161,11 +161,15 @@ class erLhcoreClassModelChat {
        		   return $this->chat_duration_front;
        		break;
 
+       	case 'user_name':
+       			return $this->user_name = (string)$this->user;
+       		break;	
+       		
        	case 'user':
        		   $this->user = false;
        		   if ($this->user_id > 0) {
        		   		try {
-       		   			$this->user = erLhcoreClassModelUser::fetch($this->user_id);
+       		   			$this->user = erLhcoreClassModelUser::fetch($this->user_id,true);
        		   		} catch (Exception $e) {
        		   			$this->user = false;
        		   		}
