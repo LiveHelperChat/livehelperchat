@@ -155,8 +155,6 @@
 		     
 		    <?php $attribute = 'faq_email_required';$boolValue = true;?>
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
-		    
-		       		    
 		    	    
 		</div>
 	</section>
