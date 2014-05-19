@@ -5,4 +5,6 @@
  <host>http://dev.livehelperchat.com/</host>
  <autologin>true</autologin>
  <language>en</language>
+ <autooffline>0</autooffline>
+ <offlinetimeout>180</offlinetimeout>
 </pmsettings>
