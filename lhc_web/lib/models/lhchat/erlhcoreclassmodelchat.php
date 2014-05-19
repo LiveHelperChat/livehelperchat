@@ -328,7 +328,7 @@ class erLhcoreClassModelChat {
    const USER_STATUS_CLOSED_CHAT = 1;
    const USER_STATUS_PENDING_REOPEN = 2;
    
-   public $updateIgnoreColumns = array();
+   
    
    public $id = null;
    public $nick = '';
@@ -399,6 +399,8 @@ class erLhcoreClassModelChat {
    
    public $unread_messages_informed = 0;
    public $reinform_timeout = 0;
+   
+   public $updateIgnoreColumns = array();
 }
 
 ?>
