@@ -11,6 +11,10 @@ $closedChats = erLhcoreClassChat::getClosedChats(10);
 $pendingChats = erLhcoreClassChat::getPendingChats(10);
 $transferedChats = erLhcoreClassTransfer::getTransferChats();
 
+erLhcoreClassChat::prefillGetAttributes($activeChats,array(),array('updateIgnoreColumns'));
+erLhcoreClassChat::prefillGetAttributes($closedChats,array(),array('updateIgnoreColumns'));
+erLhcoreClassChat::prefillGetAttributes($pendingChats,array(),array('updateIgnoreColumns'));
+
 $onlineUsers = array();
 if ($currentUser->hasAccessTo('lhchat','use_onlineusers')){
 	$onlineUsers = erLhcoreClassModelChatOnlineUser::getList();
