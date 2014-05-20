@@ -34,8 +34,9 @@
     	<?php endif;?>
         <textarea rows="4" name="ChatMessage" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Enter your message')?>" id="CSChatMessage"></textarea>
         <script type="text/javascript">
-        jQuery('#CSChatMessage').bind('keyup', 'return', function (evt){
+        jQuery('#CSChatMessage').bind('keydown', 'return', function (evt){
             lhinst.addmsguserchatbox();
+            return false;
         });
         </script>
     </div>
