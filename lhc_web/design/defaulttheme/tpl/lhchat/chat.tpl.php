@@ -48,8 +48,9 @@
 	            <i></i>
 	    </div>
         <script type="text/javascript">
-        jQuery('#CSChatMessage').bind('keyup', 'return', function (evt){
+        jQuery('#CSChatMessage').bind('keydown', 'return', function (evt){
             lhinst.addmsguser();
+            return false;
         });
         lhinst.initTypingMonitoringUser('<?php echo $chat_id?>');
         </script>
