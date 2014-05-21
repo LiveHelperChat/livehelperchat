@@ -683,6 +683,10 @@
       <translation>Prazno...</translation>
     </message>
     <message>
+      <source>Please enter an IP to block</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User was blocked!</source>
       <translation>Korisnik je blokiran!</translation>
     </message>
@@ -860,8 +864,8 @@
       <translation>Do, npr. 17</translation>
     </message>
     <message>
-      <source>Notifications about new chats</source>
-      <translation>Obavijesti o novim razgovorima</translation>
+      <source>Notifications</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>XMPP recipients</source>
@@ -902,6 +906,10 @@
     <message>
       <source>Please enter value in seconds</source>
       <translation>Molimo unesite vrijednost u sekundama</translation>
+    </message>
+    <message>
+      <source>Inform then chat is accepted by one of the staff members using</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Other</source>
@@ -2051,6 +2059,14 @@
     <message>
       <source>Misc</source>
       <translation>Ostalo</translation>
+    </message>
+    <message>
+      <source>Cookie related</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat related</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Workflow</source>
@@ -3669,6 +3685,102 @@
     </message>
   </context>
   <context>
+    <name>form/collected</name>
+    <message>
+      <source>Download XLS</source>
+      <translation>Preuzmi XLS</translation>
+    </message>
+    <message>
+      <source>URL</source>
+      <translation>URL</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Ime</translation>
+    </message>
+    <message>
+      <source>Intro</source>
+      <translation>Intro</translation>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation>Vrijeme</translation>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation>IP</translation>
+    </message>
+    <message>
+      <source>View</source>
+      <translation>Pogled</translation>
+    </message>
+    <message>
+      <source>Download</source>
+      <translation>Preuzmi</translation>
+    </message>
+    <message>
+      <source>Delete</source>
+      <translation>Obriši</translation>
+    </message>
+  </context>
+  <context>
+    <name>form/fill</name>
+    <message>
+      <source>Return</source>
+      <translation>Vrati</translation>
+    </message>
+    <message>
+      <source>Submit</source>
+      <translation>Pošalji</translation>
+    </message>
+    <message>
+      <source>Information collected</source>
+      <translation>Prikupljena informacija</translation>
+    </message>
+    <message>
+      <source>is required</source>
+      <translation>je obvezna</translation>
+    </message>
+    <message>
+      <source>invalid date format</source>
+      <translation>neispravan format datuma</translation>
+    </message>
+  </context>
+  <context>
+    <name>form/index</name>
+    <message>
+      <source>Form</source>
+      <translation>Obrazac</translation>
+    </message>
+    <message>
+      <source>List of forms</source>
+      <translation>Popis obrazaca</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>Kod za ugradnju u stranice</translation>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>Datu</translation>
+    </message>
+  </context>
+  <context>
+    <name>form/viewcollected</name>
+    <message>
+      <source>collected information</source>
+      <translation>prikupljene informacije</translation>
+    </message>
+    <message>
+      <source>Download</source>
+      <translation>Preuzmi</translation>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation>Prikupljene informacije</translation>
+    </message>
+  </context>
+  <context>
     <name>kernel/nopermission</name>
     <message>
       <source>Go back</source>
@@ -4831,6 +4943,10 @@
       <translation>Sadržaj XMPP poruke</translation>
     </message>
     <message>
+      <source>XMPP Message about accepted chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>XMPP</source>
       <translation>XMPP</translation>
     </message>
@@ -5063,6 +5179,10 @@
       <translation>Zadani pop-up sadržaj</translation>
     </message>
     <message>
+      <source>Callback content, must be valid json</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Load content in lhc iframe</source>
       <translation>Učitaj sadržaj u lhc iframe</translation>
     </message>
@@ -5251,102 +5371,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Molimo unesite ispravnu vrstu datoteke </translation>
-    </message>
-  </context>
-  <context>
-    <name>form/collected</name>
-    <message>
-      <source>Download XLS</source>
-      <translation>Preuzmi XLS</translation>
-    </message>
-    <message>
-      <source>URL</source>
-      <translation>URL</translation>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>Ime</translation>
-    </message>
-    <message>
-      <source>Intro</source>
-      <translation>Intro</translation>
-    </message>
-    <message>
-      <source>Time</source>
-      <translation>Vrijeme</translation>
-    </message>
-    <message>
-      <source>IP</source>
-      <translation>IP</translation>
-    </message>
-    <message>
-      <source>View</source>
-      <translation>Pogled</translation>
-    </message>
-    <message>
-      <source>Download</source>
-      <translation>Preuzmi</translation>
-    </message>
-    <message>
-      <source>Delete</source>
-      <translation>Obriši</translation>
-    </message>
-  </context>
-  <context>
-    <name>form/fill</name>
-    <message>
-      <source>Return</source>
-      <translation>Vrati</translation>
-    </message>
-    <message>
-      <source>Submit</source>
-      <translation>Pošalji</translation>
-    </message>
-    <message>
-      <source>Information collected</source>
-      <translation>Prikupljena informacija</translation>
-    </message>
-    <message>
-      <source>is required</source>
-      <translation>je obvezna</translation>
-    </message>
-    <message>
-      <source>invalid date format</source>
-      <translation>neispravan format datuma</translation>
-    </message>
-  </context>
-  <context>
-    <name>form/index</name>
-    <message>
-      <source>Form</source>
-      <translation>Obrazac</translation>
-    </message>
-    <message>
-      <source>List of forms</source>
-      <translation>Popis obrazaca</translation>
-    </message>
-    <message>
-      <source>Page embed code</source>
-      <translation>Kod za ugradnju u stranice</translation>
-    </message>
-    <message>
-      <source>Date</source>
-      <translation>Datu</translation>
-    </message>
-  </context>
-  <context>
-    <name>form/viewcollected</name>
-    <message>
-      <source>collected information</source>
-      <translation>prikupljene informacije</translation>
-    </message>
-    <message>
-      <source>Download</source>
-      <translation>Preuzmi</translation>
-    </message>
-    <message>
-      <source>Collected information</source>
-      <translation>Prikupljene informacije</translation>
     </message>
   </context>
 </TS>

@@ -685,6 +685,10 @@
       <translation>Vacío...</translation>
     </message>
     <message>
+      <source>Please enter an IP to block</source>
+      <translation>Por favor introduzca la IP a bloquear</translation>
+    </message>
+    <message>
       <source>User was blocked!</source>
       <translation>El usuario fue bloqueado!</translation>
     </message>
@@ -862,8 +866,8 @@
       <translation>Hasta, Ej. 17</translation>
     </message>
     <message>
-      <source>Notifications about new chats</source>
-      <translation>Notificación acerca de nuevos chats</translation>
+      <source>Notifications</source>
+      <translation>Notificaciones</translation>
     </message>
     <message>
       <source>XMPP recipients</source>
@@ -904,6 +908,10 @@
     <message>
       <source>Please enter value in seconds</source>
       <translation>Por favor introduzca el valor en segundos</translation>
+    </message>
+    <message>
+      <source>Inform then chat is accepted by one of the staff members using</source>
+      <translation>Informar cuando el chat es aceptado por un agente de soporte usando</translation>
     </message>
     <message>
       <source>Other</source>
@@ -2055,6 +2063,14 @@
     <message>
       <source>Misc</source>
       <translation>Misc</translation>
+    </message>
+    <message>
+      <source>Cookie related</source>
+      <translation>Cookie relacionada</translation>
+    </message>
+    <message>
+      <source>Chat related</source>
+      <translation>Chat relacionado</translation>
     </message>
     <message>
       <source>Workflow</source>
@@ -3673,6 +3689,102 @@
     </message>
   </context>
   <context>
+    <name>form/collected</name>
+    <message>
+      <source>Download XLS</source>
+      <translation>Descargar XLS</translation>
+    </message>
+    <message>
+      <source>URL</source>
+      <translation>URL</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Nombre</translation>
+    </message>
+    <message>
+      <source>Intro</source>
+      <translation>Intro</translation>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation>Hora</translation>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation>IP</translation>
+    </message>
+    <message>
+      <source>View</source>
+      <translation>Vista</translation>
+    </message>
+    <message>
+      <source>Download</source>
+      <translation>Descargar</translation>
+    </message>
+    <message>
+      <source>Delete</source>
+      <translation>Borrar</translation>
+    </message>
+  </context>
+  <context>
+    <name>form/fill</name>
+    <message>
+      <source>Return</source>
+      <translation>Regresar</translation>
+    </message>
+    <message>
+      <source>Submit</source>
+      <translation>Enviar</translation>
+    </message>
+    <message>
+      <source>Information collected</source>
+      <translation>Información recolectada</translation>
+    </message>
+    <message>
+      <source>is required</source>
+      <translation>es obligatorio</translation>
+    </message>
+    <message>
+      <source>invalid date format</source>
+      <translation>Formato de fecha inválido</translation>
+    </message>
+  </context>
+  <context>
+    <name>form/index</name>
+    <message>
+      <source>Form</source>
+      <translation>Formulario</translation>
+    </message>
+    <message>
+      <source>List of forms</source>
+      <translation>Lista de formularios</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>Código para incrustar en la página</translation>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>Fecha</translation>
+    </message>
+  </context>
+  <context>
+    <name>form/viewcollected</name>
+    <message>
+      <source>collected information</source>
+      <translation>información recolectada</translation>
+    </message>
+    <message>
+      <source>Download</source>
+      <translation>Descargar</translation>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation>Información recolectada</translation>
+    </message>
+  </context>
+  <context>
     <name>kernel/nopermission</name>
     <message>
       <source>Go back</source>
@@ -4836,6 +4948,10 @@
       <translation>Contenido del mensaje XMPP</translation>
     </message>
     <message>
+      <source>XMPP Message about accepted chat</source>
+      <translation>Mensaje XMPP acerca del chat aceptado</translation>
+    </message>
+    <message>
       <source>XMPP</source>
       <translation>XMPP</translation>
     </message>
@@ -5068,6 +5184,10 @@
       <translation>Contenido predefinido del popup</translation>
     </message>
     <message>
+      <source>Callback content, must be valid json</source>
+      <translation>Contenido de respuesta, deberá ser json válido</translation>
+    </message>
+    <message>
       <source>Load content in lhc iframe</source>
       <translation>Cargar el contenido en el iframe</translation>
     </message>
@@ -5256,102 +5376,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Por favor, introduzca un tipo de archivo válido</translation>
-    </message>
-  </context>
-  <context>
-    <name>form/collected</name>
-    <message>
-      <source>Download XLS</source>
-      <translation>Descargar XLS</translation>
-    </message>
-    <message>
-      <source>URL</source>
-      <translation>URL</translation>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>Nombre</translation>
-    </message>
-    <message>
-      <source>Intro</source>
-      <translation>Intro</translation>
-    </message>
-    <message>
-      <source>Time</source>
-      <translation>Hora</translation>
-    </message>
-    <message>
-      <source>IP</source>
-      <translation>IP</translation>
-    </message>
-    <message>
-      <source>View</source>
-      <translation>Vista</translation>
-    </message>
-    <message>
-      <source>Download</source>
-      <translation>Descargar</translation>
-    </message>
-    <message>
-      <source>Delete</source>
-      <translation>Borrar</translation>
-    </message>
-  </context>
-  <context>
-    <name>form/fill</name>
-    <message>
-      <source>Return</source>
-      <translation>Regresar</translation>
-    </message>
-    <message>
-      <source>Submit</source>
-      <translation>Enviar</translation>
-    </message>
-    <message>
-      <source>Information collected</source>
-      <translation>Información recolectada</translation>
-    </message>
-    <message>
-      <source>is required</source>
-      <translation>es obligatorio</translation>
-    </message>
-    <message>
-      <source>invalid date format</source>
-      <translation>Formato de fecha inválido</translation>
-    </message>
-  </context>
-  <context>
-    <name>form/index</name>
-    <message>
-      <source>Form</source>
-      <translation>Formulario</translation>
-    </message>
-    <message>
-      <source>List of forms</source>
-      <translation>Lista de formularios</translation>
-    </message>
-    <message>
-      <source>Page embed code</source>
-      <translation>Código para incrustar en la página</translation>
-    </message>
-    <message>
-      <source>Date</source>
-      <translation>Fecha</translation>
-    </message>
-  </context>
-  <context>
-    <name>form/viewcollected</name>
-    <message>
-      <source>collected information</source>
-      <translation>información recolectada</translation>
-    </message>
-    <message>
-      <source>Download</source>
-      <translation>Descargar</translation>
-    </message>
-    <message>
-      <source>Collected information</source>
-      <translation>Información recolectada</translation>
     </message>
   </context>
 </TS>

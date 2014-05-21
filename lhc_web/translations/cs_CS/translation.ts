@@ -683,6 +683,10 @@
       <translation>Prázdné...</translation>
     </message>
     <message>
+      <source>Please enter an IP to block</source>
+      <translation>Prosím, zadejte IP, kterou hcete blokovat</translation>
+    </message>
+    <message>
       <source>User was blocked!</source>
       <translation>Uživatel je blokovaný!</translation>
     </message>
@@ -860,8 +864,8 @@
       <translation>Do, např. 17</translation>
     </message>
     <message>
-      <source>Notifications about new chats</source>
-      <translation>Upozornění na nové rozhovory</translation>
+      <source>Notifications</source>
+      <translation>Upozornění</translation>
     </message>
     <message>
       <source>XMPP recipients</source>
@@ -902,6 +906,10 @@
     <message>
       <source>Please enter value in seconds</source>
       <translation>Zadejte, prosím, hodnotu v sekundách</translation>
+    </message>
+    <message>
+      <source>Inform then chat is accepted by one of the staff members using</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Other</source>
@@ -2051,6 +2059,14 @@
     <message>
       <source>Misc</source>
       <translation>Různé</translation>
+    </message>
+    <message>
+      <source>Cookie related</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat related</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Workflow</source>
@@ -3669,6 +3685,102 @@
     </message>
   </context>
   <context>
+    <name>form/collected</name>
+    <message>
+      <source>Download XLS</source>
+      <translation>Stáhnout XLS</translation>
+    </message>
+    <message>
+      <source>URL</source>
+      <translation>URL</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Jméno</translation>
+    </message>
+    <message>
+      <source>Intro</source>
+      <translation>Úvod</translation>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation>Čas</translation>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation>IP adresa</translation>
+    </message>
+    <message>
+      <source>View</source>
+      <translation>Zobrazit</translation>
+    </message>
+    <message>
+      <source>Download</source>
+      <translation>Stáhnout</translation>
+    </message>
+    <message>
+      <source>Delete</source>
+      <translation>Smazat</translation>
+    </message>
+  </context>
+  <context>
+    <name>form/fill</name>
+    <message>
+      <source>Return</source>
+      <translation>Návrat</translation>
+    </message>
+    <message>
+      <source>Submit</source>
+      <translation>Odeslat</translation>
+    </message>
+    <message>
+      <source>Information collected</source>
+      <translation>Informace uchovány</translation>
+    </message>
+    <message>
+      <source>is required</source>
+      <translation>je vyžadováno</translation>
+    </message>
+    <message>
+      <source>invalid date format</source>
+      <translation>neplatný formát data</translation>
+    </message>
+  </context>
+  <context>
+    <name>form/index</name>
+    <message>
+      <source>Form</source>
+      <translation>Formulář</translation>
+    </message>
+    <message>
+      <source>List of forms</source>
+      <translation>Seznam formulářů</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>Vložený kód na stránku</translation>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>Datum</translation>
+    </message>
+  </context>
+  <context>
+    <name>form/viewcollected</name>
+    <message>
+      <source>collected information</source>
+      <translation>uchovaná informace</translation>
+    </message>
+    <message>
+      <source>Download</source>
+      <translation>Stáhnout</translation>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation>Uchované informace</translation>
+    </message>
+  </context>
+  <context>
     <name>kernel/nopermission</name>
     <message>
       <source>Go back</source>
@@ -4831,6 +4943,10 @@
       <translation>Obsah XMPP zprávy</translation>
     </message>
     <message>
+      <source>XMPP Message about accepted chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>XMPP</source>
       <translation>XMPP</translation>
     </message>
@@ -5063,6 +5179,10 @@
       <translation>Výchozí obsah vyskakovacího okna</translation>
     </message>
     <message>
+      <source>Callback content, must be valid json</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Load content in lhc iframe</source>
       <translation>Načíst obsah v lhc iframe</translation>
     </message>
@@ -5251,102 +5371,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Prosím vyberte platný typ souboru!</translation>
-    </message>
-  </context>
-  <context>
-    <name>form/collected</name>
-    <message>
-      <source>Download XLS</source>
-      <translation>Stáhnout XLS</translation>
-    </message>
-    <message>
-      <source>URL</source>
-      <translation>URL</translation>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>Jméno</translation>
-    </message>
-    <message>
-      <source>Intro</source>
-      <translation>Úvod</translation>
-    </message>
-    <message>
-      <source>Time</source>
-      <translation>Čas</translation>
-    </message>
-    <message>
-      <source>IP</source>
-      <translation>IP adresa</translation>
-    </message>
-    <message>
-      <source>View</source>
-      <translation>Zobrazit</translation>
-    </message>
-    <message>
-      <source>Download</source>
-      <translation>Stáhnout</translation>
-    </message>
-    <message>
-      <source>Delete</source>
-      <translation>Smazat</translation>
-    </message>
-  </context>
-  <context>
-    <name>form/fill</name>
-    <message>
-      <source>Return</source>
-      <translation>Návrat</translation>
-    </message>
-    <message>
-      <source>Submit</source>
-      <translation>Odeslat</translation>
-    </message>
-    <message>
-      <source>Information collected</source>
-      <translation>Informace uchovány</translation>
-    </message>
-    <message>
-      <source>is required</source>
-      <translation>je vyžadováno</translation>
-    </message>
-    <message>
-      <source>invalid date format</source>
-      <translation>neplatný formát data</translation>
-    </message>
-  </context>
-  <context>
-    <name>form/index</name>
-    <message>
-      <source>Form</source>
-      <translation>Formulář</translation>
-    </message>
-    <message>
-      <source>List of forms</source>
-      <translation>Seznam formulářů</translation>
-    </message>
-    <message>
-      <source>Page embed code</source>
-      <translation>Vložený kód na stránku</translation>
-    </message>
-    <message>
-      <source>Date</source>
-      <translation>Datum</translation>
-    </message>
-  </context>
-  <context>
-    <name>form/viewcollected</name>
-    <message>
-      <source>collected information</source>
-      <translation>uchovaná informace</translation>
-    </message>
-    <message>
-      <source>Download</source>
-      <translation>Stáhnout</translation>
-    </message>
-    <message>
-      <source>Collected information</source>
-      <translation>Uchované informace</translation>
     </message>
   </context>
 </TS>

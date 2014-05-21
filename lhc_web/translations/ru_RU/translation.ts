@@ -683,6 +683,10 @@
       <translation>Пусто...</translation>
     </message>
     <message>
+      <source>Please enter an IP to block</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User was blocked!</source>
       <translation>Пользователь заблокирован!</translation>
     </message>
@@ -860,8 +864,8 @@
       <translation>Например, до 17</translation>
     </message>
     <message>
-      <source>Notifications about new chats</source>
-      <translation>Уведомления о новых чаты</translation>
+      <source>Notifications</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>XMPP recipients</source>
@@ -901,6 +905,10 @@
     </message>
     <message>
       <source>Please enter value in seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inform then chat is accepted by one of the staff members using</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2052,6 +2060,14 @@
     <message>
       <source>Misc</source>
       <translation>Разное</translation>
+    </message>
+    <message>
+      <source>Cookie related</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat related</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Workflow</source>
@@ -3670,6 +3686,102 @@
     </message>
   </context>
   <context>
+    <name>form/collected</name>
+    <message>
+      <source>Download XLS</source>
+      <translation>Скачать XLS</translation>
+    </message>
+    <message>
+      <source>URL</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Intro</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>View</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Download</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>form/fill</name>
+    <message>
+      <source>Return</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Submit</source>
+      <translation>Отправить</translation>
+    </message>
+    <message>
+      <source>Information collected</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>is required</source>
+      <translation>обязательно</translation>
+    </message>
+    <message>
+      <source>invalid date format</source>
+      <translation>неправильный формат даты</translation>
+    </message>
+  </context>
+  <context>
+    <name>form/index</name>
+    <message>
+      <source>Form</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List of forms</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>Код для вставки на страницу</translation>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>Дата</translation>
+    </message>
+  </context>
+  <context>
+    <name>form/viewcollected</name>
+    <message>
+      <source>collected information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Download</source>
+      <translation>Скачать</translation>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation>Собранная информация</translation>
+    </message>
+  </context>
+  <context>
     <name>kernel/nopermission</name>
     <message>
       <source>Go back</source>
@@ -4832,6 +4944,10 @@
       <translation>Содержимое сообщения XMP</translation>
     </message>
     <message>
+      <source>XMPP Message about accepted chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>XMPP</source>
       <translation>XMPP</translation>
     </message>
@@ -5064,6 +5180,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Callback content, must be valid json</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Load content in lhc iframe</source>
       <translation type="unfinished"/>
     </message>
@@ -5252,102 +5372,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Пожалуйста, введите правильный тип файла</translation>
-    </message>
-  </context>
-  <context>
-    <name>form/collected</name>
-    <message>
-      <source>Download XLS</source>
-      <translation>Скачать XLS</translation>
-    </message>
-    <message>
-      <source>URL</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Intro</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Time</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>IP</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>View</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Download</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Delete</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>form/fill</name>
-    <message>
-      <source>Return</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Submit</source>
-      <translation>Отправить</translation>
-    </message>
-    <message>
-      <source>Information collected</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>is required</source>
-      <translation>обязательно</translation>
-    </message>
-    <message>
-      <source>invalid date format</source>
-      <translation>неправильный формат даты</translation>
-    </message>
-  </context>
-  <context>
-    <name>form/index</name>
-    <message>
-      <source>Form</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>List of forms</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Page embed code</source>
-      <translation>Код для вставки на страницу</translation>
-    </message>
-    <message>
-      <source>Date</source>
-      <translation>Дата</translation>
-    </message>
-  </context>
-  <context>
-    <name>form/viewcollected</name>
-    <message>
-      <source>collected information</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Download</source>
-      <translation>Скачать</translation>
-    </message>
-    <message>
-      <source>Collected information</source>
-      <translation>Собранная информация</translation>
     </message>
   </context>
 </TS>

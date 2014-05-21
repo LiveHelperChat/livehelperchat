@@ -161,7 +161,7 @@
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Departamento</translation>
     </message>
     <message>
       <source>Matched times</source>
@@ -354,7 +354,7 @@
     </message>
     <message>
       <source>Choose what form you want to embed</source>
-      <translation type="unfinished"/>
+      <translation>Escolha qual formulário deseja incorporar</translation>
     </message>
     <message>
       <source>Help us to grow</source>
@@ -488,15 +488,15 @@
     </message>
     <message>
       <source>List of forms</source>
-      <translation type="unfinished"/>
+      <translation>Lista de formulários</translation>
     </message>
     <message>
       <source>Page embed code</source>
-      <translation type="unfinished"/>
+      <translation>Código de incorporação na página</translation>
     </message>
     <message>
       <source>Form</source>
-      <translation type="unfinished"/>
+      <translation>Formulário</translation>
     </message>
   </context>
   <context>
@@ -683,6 +683,10 @@
       <translation>Vazio...</translation>
     </message>
     <message>
+      <source>Please enter an IP to block</source>
+      <translation>Digite um IP para bloquear</translation>
+    </message>
+    <message>
       <source>User was blocked!</source>
       <translation>Usuário foi bloqueado!</translation>
     </message>
@@ -860,8 +864,8 @@
       <translation>Para, Ex.: 17</translation>
     </message>
     <message>
-      <source>Notifications about new chats</source>
-      <translation>Notificações sobre novos chats</translation>
+      <source>Notifications</source>
+      <translation>Notificações</translation>
     </message>
     <message>
       <source>XMPP recipients</source>
@@ -901,6 +905,10 @@
     </message>
     <message>
       <source>Please enter value in seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inform then chat is accepted by one of the staff members using</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1727,7 +1735,7 @@
     </message>
     <message>
       <source>Additional information</source>
-      <translation type="unfinished"/>
+      <translation>Informação adicional</translation>
     </message>
     <message>
       <source>Last activity</source>
@@ -1835,15 +1843,15 @@
     </message>
     <message>
       <source>Group list by</source>
-      <translation type="unfinished"/>
+      <translation>Agrupar lista por</translation>
     </message>
     <message>
       <source>Group by</source>
-      <translation type="unfinished"/>
+      <translation>Agrupar por</translation>
     </message>
     <message>
       <source>User country</source>
-      <translation type="unfinished"/>
+      <translation>País do usuário</translation>
     </message>
     <message>
       <source>Page</source>
@@ -1851,7 +1859,7 @@
     </message>
     <message>
       <source>Page title</source>
-      <translation type="unfinished"/>
+      <translation>Título da página</translation>
     </message>
     <message>
       <source>Referrer</source>
@@ -1859,7 +1867,7 @@
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Departamento</translation>
     </message>
     <message>
       <source>Refresh list every</source>
@@ -1879,11 +1887,11 @@
     </message>
     <message>
       <source>minute</source>
-      <translation type="unfinished"/>
+      <translation>minuto</translation>
     </message>
     <message>
       <source>minutes</source>
-      <translation type="unfinished"/>
+      <translation>minutos</translation>
     </message>
     <message>
       <source>hour</source>
@@ -2053,6 +2061,14 @@
       <translation>Diversos</translation>
     </message>
     <message>
+      <source>Cookie related</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat related</source>
+      <translation>Relacionado ao chat</translation>
+    </message>
+    <message>
       <source>Workflow</source>
       <translation>Fluxo de Trabalho</translation>
     </message>
@@ -2177,7 +2193,7 @@
     </message>
     <message>
       <source>Form module</source>
-      <translation type="unfinished"/>
+      <translation>Módulo do formulário</translation>
     </message>
     <message>
       <source>Statistic</source>
@@ -2377,7 +2393,7 @@
     </message>
     <message>
       <source>Print</source>
-      <translation type="unfinished"/>
+      <translation>Imprimir</translation>
     </message>
     <message>
       <source>Select department</source>
@@ -2389,7 +2405,7 @@
     </message>
     <message>
       <source>Type to search</source>
-      <translation type="unfinished"/>
+      <translation>Digite para pesquisar</translation>
     </message>
   </context>
   <context>
@@ -2534,11 +2550,11 @@
     </message>
     <message>
       <source>Requires e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Requer email</translation>
     </message>
     <message>
       <source>Requires name</source>
-      <translation type="unfinished"/>
+      <translation>Requer nome</translation>
     </message>
     <message>
       <source>Send the message</source>
@@ -3666,6 +3682,102 @@
     <message>
       <source>File uploaded</source>
       <translation>Arquivo enviado</translation>
+    </message>
+  </context>
+  <context>
+    <name>form/collected</name>
+    <message>
+      <source>Download XLS</source>
+      <translation>Baixar XLS</translation>
+    </message>
+    <message>
+      <source>URL</source>
+      <translation>URL</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Nome</translation>
+    </message>
+    <message>
+      <source>Intro</source>
+      <translation>Introdução</translation>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation>Tempo</translation>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation>IP</translation>
+    </message>
+    <message>
+      <source>View</source>
+      <translation>Ver</translation>
+    </message>
+    <message>
+      <source>Download</source>
+      <translation>Baixar</translation>
+    </message>
+    <message>
+      <source>Delete</source>
+      <translation>Apagar</translation>
+    </message>
+  </context>
+  <context>
+    <name>form/fill</name>
+    <message>
+      <source>Return</source>
+      <translation>Retornar</translation>
+    </message>
+    <message>
+      <source>Submit</source>
+      <translation>Enviar</translation>
+    </message>
+    <message>
+      <source>Information collected</source>
+      <translation>Informação coletada</translation>
+    </message>
+    <message>
+      <source>is required</source>
+      <translation>é necessário</translation>
+    </message>
+    <message>
+      <source>invalid date format</source>
+      <translation>formato de data inválido</translation>
+    </message>
+  </context>
+  <context>
+    <name>form/index</name>
+    <message>
+      <source>Form</source>
+      <translation>Formulário</translation>
+    </message>
+    <message>
+      <source>List of forms</source>
+      <translation>Lista de formulários</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>Data</translation>
+    </message>
+  </context>
+  <context>
+    <name>form/viewcollected</name>
+    <message>
+      <source>collected information</source>
+      <translation>informação coletada</translation>
+    </message>
+    <message>
+      <source>Download</source>
+      <translation>Baixar</translation>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation>Informação coletada</translation>
     </message>
   </context>
   <context>
@@ -4831,6 +4943,10 @@
       <translation>Conteúdo da mensagem XMPP</translation>
     </message>
     <message>
+      <source>XMPP Message about accepted chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>XMPP</source>
       <translation>XMPP</translation>
     </message>
@@ -5001,7 +5117,7 @@
     </message>
     <message>
       <source>Minimum 5 seconds</source>
-      <translation type="unfinished"/>
+      <translation>Mínimo de 5 segundos</translation>
     </message>
     <message>
       <source>Transfer department has to be different one than self</source>
@@ -5036,15 +5152,15 @@
     </message>
     <message>
       <source>Popup width</source>
-      <translation type="unfinished"/>
+      <translation>Largura do popup</translation>
     </message>
     <message>
       <source>Popup height</source>
-      <translation type="unfinished"/>
+      <translation>Altura do popup</translation>
     </message>
     <message>
       <source>Measure units, px or percents</source>
-      <translation type="unfinished"/>
+      <translation>Unidades de medida, pixel ou porcentagem</translation>
     </message>
     <message>
       <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
@@ -5052,23 +5168,27 @@
     </message>
     <message>
       <source>URL, enter * at the end for the wildcard</source>
-      <translation type="unfinished"/>
+      <translation>URL, digite * ao final para um wildcard</translation>
     </message>
     <message>
       <source>Custom iframe URL, takes priority over default content</source>
-      <translation type="unfinished"/>
+      <translation>URL padrão do iframe, toma prioridade sobre o conteúdo padrão</translation>
     </message>
     <message>
       <source>Default popup content</source>
+      <translation>Conteúdo padrão do popup</translation>
+    </message>
+    <message>
+      <source>Callback content, must be valid json</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Load content in lhc iframe</source>
-      <translation type="unfinished"/>
+      <translation>Carregar conteúdo no iframe do LHC</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>Ativo</translation>
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
@@ -5084,19 +5204,19 @@
     </message>
     <message>
       <source>Content</source>
-      <translation type="unfinished"/>
+      <translation>Conteúdo</translation>
     </message>
     <message>
       <source>Name attributes</source>
-      <translation type="unfinished"/>
+      <translation>Atributos do nome</translation>
     </message>
     <message>
       <source>Introduction attributes</source>
-      <translation type="unfinished"/>
+      <translation>Atributos da introdução</translation>
     </message>
     <message>
       <source>XLS Columns</source>
-      <translation type="unfinished"/>
+      <translation>Colunas do XLS</translation>
     </message>
     <message>
       <source>Recipient</source>
@@ -5112,7 +5232,7 @@
     </message>
     <message>
       <source>Forms list</source>
-      <translation type="unfinished"/>
+      <translation>Lista de formulários</translation>
     </message>
   </context>
   <context>
@@ -5251,102 +5371,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Por favor insira um tipo de arquivo válido!</translation>
-    </message>
-  </context>
-  <context>
-    <name>form/collected</name>
-    <message>
-      <source>Download XLS</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>URL</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Intro</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Time</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>IP</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>View</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Download</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Delete</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>form/fill</name>
-    <message>
-      <source>Return</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Submit</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Information collected</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>is required</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>invalid date format</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>form/index</name>
-    <message>
-      <source>Form</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>List of forms</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Page embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Date</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>form/viewcollected</name>
-    <message>
-      <source>collected information</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Download</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Collected information</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

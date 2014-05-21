@@ -683,6 +683,10 @@
       <translation>Gol...</translation>
     </message>
     <message>
+      <source>Please enter an IP to block</source>
+      <translation>Te rog sa introduci un IP pentru blocare</translation>
+    </message>
+    <message>
       <source>User was blocked!</source>
       <translation>Utilizatorul a fost blocat!</translation>
     </message>
@@ -860,8 +864,8 @@
       <translation>Pana la, ex 17</translation>
     </message>
     <message>
-      <source>Notifications about new chats</source>
-      <translation>Notificari pentru conversatii no</translation>
+      <source>Notifications</source>
+      <translation>Notificar</translation>
     </message>
     <message>
       <source>XMPP recipients</source>
@@ -902,6 +906,10 @@
     <message>
       <source>Please enter value in seconds</source>
       <translation>Te rog sa introduci o valoare in secunde</translation>
+    </message>
+    <message>
+      <source>Inform then chat is accepted by one of the staff members using</source>
+      <translation>Informeaza cand discutia este acceptata de un angajat folosind</translation>
     </message>
     <message>
       <source>Other</source>
@@ -2051,6 +2059,14 @@
     <message>
       <source>Misc</source>
       <translation>Diverse</translation>
+    </message>
+    <message>
+      <source>Cookie related</source>
+      <translation>Legat de cookie-uri</translation>
+    </message>
+    <message>
+      <source>Chat related</source>
+      <translation>Legat de conversatii</translation>
     </message>
     <message>
       <source>Workflow</source>
@@ -3669,6 +3685,102 @@
     </message>
   </context>
   <context>
+    <name>form/collected</name>
+    <message>
+      <source>Download XLS</source>
+      <translation>Downloadeaza XLS</translation>
+    </message>
+    <message>
+      <source>URL</source>
+      <translation>URL</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Nume</translation>
+    </message>
+    <message>
+      <source>Intro</source>
+      <translation>Intro</translation>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation>Ora</translation>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation>IP</translation>
+    </message>
+    <message>
+      <source>View</source>
+      <translation>Vizualizeaza</translation>
+    </message>
+    <message>
+      <source>Download</source>
+      <translation>Descarca</translation>
+    </message>
+    <message>
+      <source>Delete</source>
+      <translation>Sterge</translation>
+    </message>
+  </context>
+  <context>
+    <name>form/fill</name>
+    <message>
+      <source>Return</source>
+      <translation>Inapoi</translation>
+    </message>
+    <message>
+      <source>Submit</source>
+      <translation>Trimite</translation>
+    </message>
+    <message>
+      <source>Information collected</source>
+      <translation>Informatii colectate</translation>
+    </message>
+    <message>
+      <source>is required</source>
+      <translation>este obligatori</translation>
+    </message>
+    <message>
+      <source>invalid date format</source>
+      <translation>format data incorect</translation>
+    </message>
+  </context>
+  <context>
+    <name>form/index</name>
+    <message>
+      <source>Form</source>
+      <translation>Formular</translation>
+    </message>
+    <message>
+      <source>List of forms</source>
+      <translation>Lista formulare</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>Cod embed pagina</translation>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>Data</translation>
+    </message>
+  </context>
+  <context>
+    <name>form/viewcollected</name>
+    <message>
+      <source>collected information</source>
+      <translation>informatii colectate</translation>
+    </message>
+    <message>
+      <source>Download</source>
+      <translation>Descarca</translation>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation>Informatii colectate</translation>
+    </message>
+  </context>
+  <context>
     <name>kernel/nopermission</name>
     <message>
       <source>Go back</source>
@@ -4831,6 +4943,10 @@
       <translation>Continut mesaj XMPP</translation>
     </message>
     <message>
+      <source>XMPP Message about accepted chat</source>
+      <translation>Mesaj XMPP despre discutie acceptata</translation>
+    </message>
+    <message>
       <source>XMPP</source>
       <translation>XMPP</translation>
     </message>
@@ -5063,6 +5179,10 @@
       <translation>Continut popup standard</translation>
     </message>
     <message>
+      <source>Callback content, must be valid json</source>
+      <translation>Continut callback, trebuie sa fie json valid</translation>
+    </message>
+    <message>
       <source>Load content in lhc iframe</source>
       <translation>Incarca continut in iframe lhc</translation>
     </message>
@@ -5251,102 +5371,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Te rog sa introduci un tip de fisier valid!</translation>
-    </message>
-  </context>
-  <context>
-    <name>form/collected</name>
-    <message>
-      <source>Download XLS</source>
-      <translation>Downloadeaza XLS</translation>
-    </message>
-    <message>
-      <source>URL</source>
-      <translation>URL</translation>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>Nume</translation>
-    </message>
-    <message>
-      <source>Intro</source>
-      <translation>Intro</translation>
-    </message>
-    <message>
-      <source>Time</source>
-      <translation>Ora</translation>
-    </message>
-    <message>
-      <source>IP</source>
-      <translation>IP</translation>
-    </message>
-    <message>
-      <source>View</source>
-      <translation>Vizualizeaza</translation>
-    </message>
-    <message>
-      <source>Download</source>
-      <translation>Descarca</translation>
-    </message>
-    <message>
-      <source>Delete</source>
-      <translation>Sterge</translation>
-    </message>
-  </context>
-  <context>
-    <name>form/fill</name>
-    <message>
-      <source>Return</source>
-      <translation>Inapoi</translation>
-    </message>
-    <message>
-      <source>Submit</source>
-      <translation>Trimite</translation>
-    </message>
-    <message>
-      <source>Information collected</source>
-      <translation>Informatii colectate</translation>
-    </message>
-    <message>
-      <source>is required</source>
-      <translation>este obligatori</translation>
-    </message>
-    <message>
-      <source>invalid date format</source>
-      <translation>format data incorect</translation>
-    </message>
-  </context>
-  <context>
-    <name>form/index</name>
-    <message>
-      <source>Form</source>
-      <translation>Formular</translation>
-    </message>
-    <message>
-      <source>List of forms</source>
-      <translation>Lista formulare</translation>
-    </message>
-    <message>
-      <source>Page embed code</source>
-      <translation>Cod embed pagina</translation>
-    </message>
-    <message>
-      <source>Date</source>
-      <translation>Data</translation>
-    </message>
-  </context>
-  <context>
-    <name>form/viewcollected</name>
-    <message>
-      <source>collected information</source>
-      <translation>informatii colectate</translation>
-    </message>
-    <message>
-      <source>Download</source>
-      <translation>Descarca</translation>
-    </message>
-    <message>
-      <source>Collected information</source>
-      <translation>Informatii colectate</translation>
     </message>
   </context>
 </TS>

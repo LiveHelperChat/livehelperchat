@@ -683,6 +683,10 @@
       <translation>Tuščia...</translation>
     </message>
     <message>
+      <source>Please enter an IP to block</source>
+      <translation>Prašome įvesti IP</translation>
+    </message>
+    <message>
       <source>User was blocked!</source>
       <translation>Vartotojas buvo užblokuotas!</translation>
     </message>
@@ -860,8 +864,8 @@
       <translation>Iki, Pvz. 17</translation>
     </message>
     <message>
-      <source>Notifications about new chats</source>
-      <translation>Pranešimai apie naujus pokalbius</translation>
+      <source>Notifications</source>
+      <translation>Pranešimai</translation>
     </message>
     <message>
       <source>XMPP recipients</source>
@@ -902,6 +906,10 @@
     <message>
       <source>Please enter value in seconds</source>
       <translation>Prašome įvesti reikšmę sekundėmis</translation>
+    </message>
+    <message>
+      <source>Inform then chat is accepted by one of the staff members using</source>
+      <translation>Informuoti, kai pokalbis būma priimtas vieno iš operatorių</translation>
     </message>
     <message>
       <source>Other</source>
@@ -2051,6 +2059,14 @@
     <message>
       <source>Misc</source>
       <translation>Įvairus</translation>
+    </message>
+    <message>
+      <source>Cookie related</source>
+      <translation>Susiję su sausainėliais</translation>
+    </message>
+    <message>
+      <source>Chat related</source>
+      <translation>Susiję su pokalbiais</translation>
     </message>
     <message>
       <source>Workflow</source>
@@ -3669,6 +3685,102 @@
     </message>
   </context>
   <context>
+    <name>form/collected</name>
+    <message>
+      <source>Download XLS</source>
+      <translation>Parsisiųsti XLS</translation>
+    </message>
+    <message>
+      <source>URL</source>
+      <translation>URL</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Pavadinimas</translation>
+    </message>
+    <message>
+      <source>Intro</source>
+      <translation>Įžanga</translation>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation>Laikas</translation>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation>IP</translation>
+    </message>
+    <message>
+      <source>View</source>
+      <translation>Peržiūrėti</translation>
+    </message>
+    <message>
+      <source>Download</source>
+      <translation>Parsisiųsti</translation>
+    </message>
+    <message>
+      <source>Delete</source>
+      <translation>Trinti</translation>
+    </message>
+  </context>
+  <context>
+    <name>form/fill</name>
+    <message>
+      <source>Return</source>
+      <translation>Grįžti</translation>
+    </message>
+    <message>
+      <source>Submit</source>
+      <translation>Siūsti</translation>
+    </message>
+    <message>
+      <source>Information collected</source>
+      <translation>Informacija užfiksuota</translation>
+    </message>
+    <message>
+      <source>is required</source>
+      <translation>yra privalomas</translation>
+    </message>
+    <message>
+      <source>invalid date format</source>
+      <translation>nekorektiškas datos formatas</translation>
+    </message>
+  </context>
+  <context>
+    <name>form/index</name>
+    <message>
+      <source>Form</source>
+      <translation>Forma</translation>
+    </message>
+    <message>
+      <source>List of forms</source>
+      <translation>Formų sąrašas</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>Įterpimo kodas</translation>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>Data</translation>
+    </message>
+  </context>
+  <context>
+    <name>form/viewcollected</name>
+    <message>
+      <source>collected information</source>
+      <translation>surinkta informacija</translation>
+    </message>
+    <message>
+      <source>Download</source>
+      <translation>Parsisiųsti</translation>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation>Surinkta informacija</translation>
+    </message>
+  </context>
+  <context>
     <name>kernel/nopermission</name>
     <message>
       <source>Go back</source>
@@ -4831,6 +4943,10 @@
       <translation>XMPP žinutės turinys</translation>
     </message>
     <message>
+      <source>XMPP Message about accepted chat</source>
+      <translation>XMPP pranešimas apie priimtą pokalbį</translation>
+    </message>
+    <message>
       <source>XMPP</source>
       <translation>XMPP</translation>
     </message>
@@ -5063,6 +5179,10 @@
       <translation>Standartinis iššokančio lango turinys</translation>
     </message>
     <message>
+      <source>Callback content, must be valid json</source>
+      <translation>Callback turinys, turi būti json formatas</translation>
+    </message>
+    <message>
       <source>Load content in lhc iframe</source>
       <translation>Krauti turinį LHC iframe</translation>
     </message>
@@ -5251,102 +5371,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Prašome pasirinkti korektišką failo tipą!</translation>
-    </message>
-  </context>
-  <context>
-    <name>form/collected</name>
-    <message>
-      <source>Download XLS</source>
-      <translation>Parsisiųsti XLS</translation>
-    </message>
-    <message>
-      <source>URL</source>
-      <translation>URL</translation>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>Pavadinimas</translation>
-    </message>
-    <message>
-      <source>Intro</source>
-      <translation>Įžanga</translation>
-    </message>
-    <message>
-      <source>Time</source>
-      <translation>Laikas</translation>
-    </message>
-    <message>
-      <source>IP</source>
-      <translation>IP</translation>
-    </message>
-    <message>
-      <source>View</source>
-      <translation>Peržiūrėti</translation>
-    </message>
-    <message>
-      <source>Download</source>
-      <translation>Parsisiųsti</translation>
-    </message>
-    <message>
-      <source>Delete</source>
-      <translation>Trinti</translation>
-    </message>
-  </context>
-  <context>
-    <name>form/fill</name>
-    <message>
-      <source>Return</source>
-      <translation>Grįžti</translation>
-    </message>
-    <message>
-      <source>Submit</source>
-      <translation>Siūsti</translation>
-    </message>
-    <message>
-      <source>Information collected</source>
-      <translation>Informacija užfiksuota</translation>
-    </message>
-    <message>
-      <source>is required</source>
-      <translation>yra privalomas</translation>
-    </message>
-    <message>
-      <source>invalid date format</source>
-      <translation>nekorektiškas datos formatas</translation>
-    </message>
-  </context>
-  <context>
-    <name>form/index</name>
-    <message>
-      <source>Form</source>
-      <translation>Forma</translation>
-    </message>
-    <message>
-      <source>List of forms</source>
-      <translation>Formų sąrašas</translation>
-    </message>
-    <message>
-      <source>Page embed code</source>
-      <translation>Įterpimo kodas</translation>
-    </message>
-    <message>
-      <source>Date</source>
-      <translation>Data</translation>
-    </message>
-  </context>
-  <context>
-    <name>form/viewcollected</name>
-    <message>
-      <source>collected information</source>
-      <translation>surinkta informacija</translation>
-    </message>
-    <message>
-      <source>Download</source>
-      <translation>Parsisiųsti</translation>
-    </message>
-    <message>
-      <source>Collected information</source>
-      <translation>Surinkta informacija</translation>
     </message>
   </context>
 </TS>

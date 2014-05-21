@@ -683,6 +683,10 @@
       <translation>ცარიელი</translation>
     </message>
     <message>
+      <source>Please enter an IP to block</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User was blocked!</source>
       <translation>მომხმარებლები დაბლოკილია</translation>
     </message>
@@ -860,8 +864,8 @@
       <translation>მაგალითისთვის 17</translation>
     </message>
     <message>
-      <source>Notifications about new chats</source>
-      <translation>შეტყობინებები ახალი ჩეთების შესახებ</translation>
+      <source>Notifications</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>XMPP recipients</source>
@@ -902,6 +906,10 @@
     <message>
       <source>Please enter value in seconds</source>
       <translation>გთხოვთ შეიტანთ მნიშვნელობა წამებში</translation>
+    </message>
+    <message>
+      <source>Inform then chat is accepted by one of the staff members using</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Other</source>
@@ -2051,6 +2059,14 @@
     <message>
       <source>Misc</source>
       <translation>სხვადასხვა</translation>
+    </message>
+    <message>
+      <source>Cookie related</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat related</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Workflow</source>
@@ -3669,6 +3685,102 @@
     </message>
   </context>
   <context>
+    <name>form/collected</name>
+    <message>
+      <source>Download XLS</source>
+      <translation>XLS-ის ჩამოტვირთვა</translation>
+    </message>
+    <message>
+      <source>URL</source>
+      <translation>URL</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>სახელი</translation>
+    </message>
+    <message>
+      <source>Intro</source>
+      <translation>შესავალი</translation>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation>დრო</translation>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation>IP</translation>
+    </message>
+    <message>
+      <source>View</source>
+      <translation>ხედი</translation>
+    </message>
+    <message>
+      <source>Download</source>
+      <translation>ჩამოტვირთვა</translation>
+    </message>
+    <message>
+      <source>Delete</source>
+      <translation>წაშლა</translation>
+    </message>
+  </context>
+  <context>
+    <name>form/fill</name>
+    <message>
+      <source>Return</source>
+      <translation>დაბრუნება</translation>
+    </message>
+    <message>
+      <source>Submit</source>
+      <translation>გაგზავნა</translation>
+    </message>
+    <message>
+      <source>Information collected</source>
+      <translation>შეგროვებული ინფორმაცია</translation>
+    </message>
+    <message>
+      <source>is required</source>
+      <translation>აუცილებელია</translation>
+    </message>
+    <message>
+      <source>invalid date format</source>
+      <translation>თარიღის არასწორი ფორმატი</translation>
+    </message>
+  </context>
+  <context>
+    <name>form/index</name>
+    <message>
+      <source>Form</source>
+      <translation>ფორმა</translation>
+    </message>
+    <message>
+      <source>List of forms</source>
+      <translation>ფორმების სია</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>გვერდის ჩასაშენებელი კოდი</translation>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>თარიღი</translation>
+    </message>
+  </context>
+  <context>
+    <name>form/viewcollected</name>
+    <message>
+      <source>collected information</source>
+      <translation>შეგროვებული ინფორმაცია</translation>
+    </message>
+    <message>
+      <source>Download</source>
+      <translation>ჩამოტვირთვა</translation>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation>შეგროვებული ინფორმაცია</translation>
+    </message>
+  </context>
+  <context>
     <name>kernel/nopermission</name>
     <message>
       <source>Go back</source>
@@ -4831,6 +4943,10 @@
       <translation>XMPP შეტყობინების კონტენტი</translation>
     </message>
     <message>
+      <source>XMPP Message about accepted chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>XMPP</source>
       <translation>XMPP</translation>
     </message>
@@ -5063,6 +5179,10 @@
       <translation>ნაგულისხმევი, ჩამოშლადი კონტენტი</translation>
     </message>
     <message>
+      <source>Callback content, must be valid json</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Load content in lhc iframe</source>
       <translation>კონტენტის ჩამოტვირთვა lhc iframe-ში</translation>
     </message>
@@ -5251,102 +5371,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>გთხოვთ, შეიტანეთ ვალიდური ტიპის ფაილი!</translation>
-    </message>
-  </context>
-  <context>
-    <name>form/collected</name>
-    <message>
-      <source>Download XLS</source>
-      <translation>XLS-ის ჩამოტვირთვა</translation>
-    </message>
-    <message>
-      <source>URL</source>
-      <translation>URL</translation>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>სახელი</translation>
-    </message>
-    <message>
-      <source>Intro</source>
-      <translation>შესავალი</translation>
-    </message>
-    <message>
-      <source>Time</source>
-      <translation>დრო</translation>
-    </message>
-    <message>
-      <source>IP</source>
-      <translation>IP</translation>
-    </message>
-    <message>
-      <source>View</source>
-      <translation>ხედი</translation>
-    </message>
-    <message>
-      <source>Download</source>
-      <translation>ჩამოტვირთვა</translation>
-    </message>
-    <message>
-      <source>Delete</source>
-      <translation>წაშლა</translation>
-    </message>
-  </context>
-  <context>
-    <name>form/fill</name>
-    <message>
-      <source>Return</source>
-      <translation>დაბრუნება</translation>
-    </message>
-    <message>
-      <source>Submit</source>
-      <translation>გაგზავნა</translation>
-    </message>
-    <message>
-      <source>Information collected</source>
-      <translation>შეგროვებული ინფორმაცია</translation>
-    </message>
-    <message>
-      <source>is required</source>
-      <translation>აუცილებელია</translation>
-    </message>
-    <message>
-      <source>invalid date format</source>
-      <translation>თარიღის არასწორი ფორმატი</translation>
-    </message>
-  </context>
-  <context>
-    <name>form/index</name>
-    <message>
-      <source>Form</source>
-      <translation>ფორმა</translation>
-    </message>
-    <message>
-      <source>List of forms</source>
-      <translation>ფორმების სია</translation>
-    </message>
-    <message>
-      <source>Page embed code</source>
-      <translation>გვერდის ჩასაშენებელი კოდი</translation>
-    </message>
-    <message>
-      <source>Date</source>
-      <translation>თარიღი</translation>
-    </message>
-  </context>
-  <context>
-    <name>form/viewcollected</name>
-    <message>
-      <source>collected information</source>
-      <translation>შეგროვებული ინფორმაცია</translation>
-    </message>
-    <message>
-      <source>Download</source>
-      <translation>ჩამოტვირთვა</translation>
-    </message>
-    <message>
-      <source>Collected information</source>
-      <translation>შეგროვებული ინფორმაცია</translation>
     </message>
   </context>
 </TS>

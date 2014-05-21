@@ -683,6 +683,10 @@
       <translation>Άδειο...</translation>
     </message>
     <message>
+      <source>Please enter an IP to block</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User was blocked!</source>
       <translation>Ο χρήστης έχει αποκλειστεί!</translation>
     </message>
@@ -860,8 +864,8 @@
       <translation>Να, π.χ. 17</translation>
     </message>
     <message>
-      <source>Notifications about new chats</source>
-      <translation>Ειδοποιήσεις για νέες συνομιλίες</translation>
+      <source>Notifications</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>XMPP recipients</source>
@@ -902,6 +906,10 @@
     <message>
       <source>Please enter value in seconds</source>
       <translation>Παρακαλούμε εισάγετε την τιμή σε δευτερόλεπτα</translation>
+    </message>
+    <message>
+      <source>Inform then chat is accepted by one of the staff members using</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Other</source>
@@ -2051,6 +2059,14 @@
     <message>
       <source>Misc</source>
       <translation>Misc</translation>
+    </message>
+    <message>
+      <source>Cookie related</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat related</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Workflow</source>
@@ -3669,6 +3685,102 @@
     </message>
   </context>
   <context>
+    <name>form/collected</name>
+    <message>
+      <source>Download XLS</source>
+      <translation>Κατεβάστε XLS</translation>
+    </message>
+    <message>
+      <source>URL</source>
+      <translation>URL</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Όνομα</translation>
+    </message>
+    <message>
+      <source>Intro</source>
+      <translation>Εισαγωγή</translation>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation>Χρόνος</translation>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation>IP</translation>
+    </message>
+    <message>
+      <source>View</source>
+      <translation>Θέα</translation>
+    </message>
+    <message>
+      <source>Download</source>
+      <translation>Κατεβάσετε</translation>
+    </message>
+    <message>
+      <source>Delete</source>
+      <translation>Διαγραφή</translation>
+    </message>
+  </context>
+  <context>
+    <name>form/fill</name>
+    <message>
+      <source>Return</source>
+      <translation>Επιστροφή</translation>
+    </message>
+    <message>
+      <source>Submit</source>
+      <translation>Υποβάλουν</translation>
+    </message>
+    <message>
+      <source>Information collected</source>
+      <translation>Πληροφορίες που συλλέγονται</translation>
+    </message>
+    <message>
+      <source>is required</source>
+      <translation>απαιτείται</translation>
+    </message>
+    <message>
+      <source>invalid date format</source>
+      <translation>μη έγκυρη μορφή ημερομηνίας</translation>
+    </message>
+  </context>
+  <context>
+    <name>form/index</name>
+    <message>
+      <source>Form</source>
+      <translation>Μορφή</translation>
+    </message>
+    <message>
+      <source>List of forms</source>
+      <translation>Λίστα των μορφών</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>Σελίδα ενσωματώνει τον κώδικα</translation>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>Ημερομηνία</translation>
+    </message>
+  </context>
+  <context>
+    <name>form/viewcollected</name>
+    <message>
+      <source>collected information</source>
+      <translation>πληροφορίες που συλλέγονται</translation>
+    </message>
+    <message>
+      <source>Download</source>
+      <translation>Κατεβάσετε</translation>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation>Πληροφορίες που συλλέγονται</translation>
+    </message>
+  </context>
+  <context>
     <name>kernel/nopermission</name>
     <message>
       <source>Go back</source>
@@ -4831,6 +4943,10 @@
       <translation>Περιεχόμενο του μηνύματος XMPP</translation>
     </message>
     <message>
+      <source>XMPP Message about accepted chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>XMPP</source>
       <translation>XMPP</translation>
     </message>
@@ -5063,6 +5179,10 @@
       <translation>Προεπιλογή αναδυόμενο παράθυρο περιεχόμενο</translation>
     </message>
     <message>
+      <source>Callback content, must be valid json</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Load content in lhc iframe</source>
       <translation>Περιεχόμενο φορτίο σε lhc iframe</translation>
     </message>
@@ -5251,102 +5371,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Παρακαλούμε, εισάγετε έγκυρο αρχείο τύπου!</translation>
-    </message>
-  </context>
-  <context>
-    <name>form/collected</name>
-    <message>
-      <source>Download XLS</source>
-      <translation>Κατεβάστε XLS</translation>
-    </message>
-    <message>
-      <source>URL</source>
-      <translation>URL</translation>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>Όνομα</translation>
-    </message>
-    <message>
-      <source>Intro</source>
-      <translation>Εισαγωγή</translation>
-    </message>
-    <message>
-      <source>Time</source>
-      <translation>Χρόνος</translation>
-    </message>
-    <message>
-      <source>IP</source>
-      <translation>IP</translation>
-    </message>
-    <message>
-      <source>View</source>
-      <translation>Θέα</translation>
-    </message>
-    <message>
-      <source>Download</source>
-      <translation>Κατεβάσετε</translation>
-    </message>
-    <message>
-      <source>Delete</source>
-      <translation>Διαγραφή</translation>
-    </message>
-  </context>
-  <context>
-    <name>form/fill</name>
-    <message>
-      <source>Return</source>
-      <translation>Επιστροφή</translation>
-    </message>
-    <message>
-      <source>Submit</source>
-      <translation>Υποβάλουν</translation>
-    </message>
-    <message>
-      <source>Information collected</source>
-      <translation>Πληροφορίες που συλλέγονται</translation>
-    </message>
-    <message>
-      <source>is required</source>
-      <translation>απαιτείται</translation>
-    </message>
-    <message>
-      <source>invalid date format</source>
-      <translation>μη έγκυρη μορφή ημερομηνίας</translation>
-    </message>
-  </context>
-  <context>
-    <name>form/index</name>
-    <message>
-      <source>Form</source>
-      <translation>Μορφή</translation>
-    </message>
-    <message>
-      <source>List of forms</source>
-      <translation>Λίστα των μορφών</translation>
-    </message>
-    <message>
-      <source>Page embed code</source>
-      <translation>Σελίδα ενσωματώνει τον κώδικα</translation>
-    </message>
-    <message>
-      <source>Date</source>
-      <translation>Ημερομηνία</translation>
-    </message>
-  </context>
-  <context>
-    <name>form/viewcollected</name>
-    <message>
-      <source>collected information</source>
-      <translation>πληροφορίες που συλλέγονται</translation>
-    </message>
-    <message>
-      <source>Download</source>
-      <translation>Κατεβάσετε</translation>
-    </message>
-    <message>
-      <source>Collected information</source>
-      <translation>Πληροφορίες που συλλέγονται</translation>
     </message>
   </context>
 </TS>
