@@ -850,6 +850,19 @@ class erLhcoreClassChat {
        return $rows;
    }
 
+   /**
+    * Get first user mesasge for prefilling chat
+    * */
+   public static function getFirstUserMessage($chat_id)
+   {
+	   	$db = ezcDbInstance::get();
+	   	$stmt = $db->prepare('SELECT lh_msg.msg FROM lh_msg INNER JOIN ( SELECT id FROM lh_msg WHERE chat_id = :chat_id AND user_id = 0 ORDER BY id ASC LIMIT 1) AS items ON lh_msg.id = items.id');
+	   	$stmt->bindValue( ':chat_id',$chat_id,PDO::PARAM_INT);
+	   	$stmt->setFetchMode(PDO::FETCH_ASSOC);
+	   	$stmt->execute();  
+	   	return $stmt->fetchColumn();
+   }
+   
    public static function hasAccessToRead($chat)
    {
        $currentUser = erLhcoreClassUser::instance();
