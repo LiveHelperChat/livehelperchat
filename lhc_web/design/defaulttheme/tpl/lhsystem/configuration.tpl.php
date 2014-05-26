@@ -116,7 +116,6 @@
 	</div>
 </div>
 
-
 <?php if ($currentUser->hasAccessTo('lhform','manage_fm')) : ?>	
 	<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Form module');?></h4>
 	<ul class="circle small-list">
@@ -125,6 +124,15 @@
 	    <?php if ($currentUser->hasAccessTo('lhform','generate_js')) : ?>	
 	    <li><a href="<?php echo erLhcoreClassDesign::baseurl('form/embedcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('browseoffer/index','Page embed code');?></a></li>
 	    <?php endif;?>	    
+	</ul>
+	<hr>
+<?php endif; ?>
+
+<?php if ($currentUser->hasAccessTo('lhdocshare','manage_dc')) : ?>	
+	<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Documents module');?></h4>
+	<ul class="circle small-list">
+	    <li><a href="<?php echo erLhcoreClassDesign::baseurl('docshare/index')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('browseoffer/index','Index');?></a></li>
+	    
 	</ul>
 	<hr>
 <?php endif; ?>

@@ -35,6 +35,11 @@ $ViewList['view'] = array(
 		'functions' => array( )
 );
 
+$ViewList['configuration'] = array(
+		'params' => array(),
+		'functions' => array( 'manage_dc' )
+);
+
 $ViewList['previewimages'] = array(
 		'params' => array('id'),
 		'functions' => array( 'manage_dc' )
