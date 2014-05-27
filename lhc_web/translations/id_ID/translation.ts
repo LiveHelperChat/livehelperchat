@@ -793,7 +793,7 @@
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>Nonaktifkan</translation>
     </message>
     <message>
       <source>Will not be visible to visitor</source>
@@ -917,7 +917,7 @@
     </message>
     <message>
       <source>Inform then chat is closed by operator, only mail notification is send.</source>
-      <translation type="unfinished"/>
+      <translation>Menginformasikan ketika percakapan ditutup oleh operator, hanya email pemberitahuan yang dikirim.</translation>
     </message>
     <message>
       <source>Chat transfer worklow</source>
@@ -1458,11 +1458,11 @@
     </message>
     <message>
       <source>Could not determine a default department!</source>
-      <translation type="unfinished"/>
+      <translation>Tidak dapat menentukan departemen default!</translation>
     </message>
     <message>
       <source>is required</source>
-      <translation>apa digutuhkan</translation>
+      <translation>diperlukan</translation>
     </message>
     <message>
       <source>Live Support</source>
@@ -1899,7 +1899,7 @@
     </message>
     <message>
       <source>day</source>
-      <translation>ari</translation>
+      <translation>hari</translation>
     </message>
     <message>
       <source>days</source>
@@ -2015,7 +2015,7 @@
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!</source>
-      <translation type="unfinished"/>
+      <translation>Pengaturan penyedia layanan gagal, pastikan penyedia layanan Anda mengizinkan Anda untuk membuat permintaan ke halaman dan kunci API Anda benar!</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that you have installed php-GeoIP module and GeoIPCity.dat file is available!</source>
@@ -2034,7 +2034,7 @@
     <name>chat/listchatconfig</name>
     <message>
       <source>Chat configuration</source>
-      <translation type="unfinished"/>
+      <translation>Konfigurasi percakapan</translation>
     </message>
     <message>
       <source>Notifications about new chats</source>
@@ -2054,11 +2054,11 @@
     </message>
     <message>
       <source>Online tracking</source>
-      <translation type="unfinished"/>
+      <translation>Pelacakan online</translation>
     </message>
     <message>
       <source>Misc</source>
-      <translation type="unfinished"/>
+      <translation>Lain-lain</translation>
     </message>
     <message>
       <source>Cookie related</source>
@@ -2585,7 +2585,7 @@
     </message>
     <message>
       <source>Enable leave a message functionality automatically if there are no online operators</source>
-      <translation type="unfinished"/>
+      <translation>Aktifkan fungsi meninggalkan pesan secara otomatis jika tidak ada operator secara online</translation>
     </message>
     <message>
       <source>Online form settings</source>
@@ -2641,7 +2641,7 @@
     </message>
     <message>
       <source>E-mail is always required</source>
-      <translation>E-mail selalu dibutuhkan</translation>
+      <translation>E-mail selalu diperlukan</translation>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>
@@ -2740,7 +2740,7 @@
     </message>
     <message>
       <source>How many times play sound notification</source>
-      <translation type="unfinished"/>
+      <translation>Berapa kali memainkan notifikasi suara</translation>
     </message>
     <message>
       <source>Number</source>
@@ -4988,15 +4988,15 @@
     </message>
     <message>
       <source>Test recipients</source>
-      <translation type="unfinished"/>
+      <translation>Penerima tes</translation>
     </message>
     <message>
       <source>Individual recipients</source>
-      <translation type="unfinished"/>
+      <translation>Penerima individu</translation>
     </message>
     <message>
       <source>Test group recipients</source>
-      <translation type="unfinished"/>
+      <translation>Penerima grup tes</translation>
     </message>
     <message>
       <source>Test message will be send to your account e-mail</source>

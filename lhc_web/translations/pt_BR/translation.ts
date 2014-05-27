@@ -145,7 +145,7 @@
     </message>
     <message>
       <source>Requires name</source>
-      <translation type="unfinished"/>
+      <translation>Nome requerido</translation>
     </message>
     <message>
       <source>Show random operator profile</source>
@@ -766,7 +766,7 @@
     </message>
     <message>
       <source>Please choose a department</source>
-      <translation type="unfinished"/>
+      <translation>Por favor escolha um departamento</translation>
     </message>
     <message>
       <source>Please enter a canned message</source>
@@ -901,15 +901,15 @@
     </message>
     <message>
       <source>Inform about unread messages if from last unread user message have passed (seconds)</source>
-      <translation type="unfinished"/>
+      <translation>Informar sobre mensagens não lidas se desde a última mensagem tiver passado (segundos)</translation>
     </message>
     <message>
       <source>Please enter value in seconds</source>
-      <translation type="unfinished"/>
+      <translation>por favor informe o valor em segundos</translation>
     </message>
     <message>
       <source>Inform then chat is accepted by one of the staff members using</source>
-      <translation type="unfinished"/>
+      <translation>Informar quando o chat foi aceito por um membro da equipe usando</translation>
     </message>
     <message>
       <source>Other</source>
@@ -933,11 +933,11 @@
     </message>
     <message>
       <source>Execute new chat logic again for recipient department?</source>
-      <translation type="unfinished"/>
+      <translation>Executar a nova lógica do chat para o destinatário do departamento?</translation>
     </message>
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
-      <translation type="unfinished"/>
+      <translation>Executar lógica de chats não respondidos para o destinatário do departamento?</translation>
     </message>
     <message>
       <source>Miscellaneous</source>
@@ -1863,7 +1863,7 @@
     </message>
     <message>
       <source>Referrer</source>
-      <translation type="unfinished"/>
+      <translation>Encaminhador</translation>
     </message>
     <message>
       <source>Department</source>
@@ -2062,11 +2062,11 @@
     </message>
     <message>
       <source>Cookie related</source>
-      <translation type="unfinished"/>
+      <translation>Cookie relacionado</translation>
     </message>
     <message>
       <source>Chat related</source>
-      <translation>Relacionado ao chat</translation>
+      <translation>Chat relacionado</translation>
     </message>
     <message>
       <source>Workflow</source>
@@ -2550,11 +2550,11 @@
     </message>
     <message>
       <source>Requires e-mail</source>
-      <translation>Requer email</translation>
+      <translation>E-mail requerido</translation>
     </message>
     <message>
       <source>Requires name</source>
-      <translation>Requer nome</translation>
+      <translation>Nome requerido</translation>
     </message>
     <message>
       <source>Send the message</source>
@@ -3739,7 +3739,7 @@
     </message>
     <message>
       <source>is required</source>
-      <translation>é necessário</translation>
+      <translation>é exigido</translation>
     </message>
     <message>
       <source>invalid date format</source>
@@ -3758,7 +3758,7 @@
     </message>
     <message>
       <source>Page embed code</source>
-      <translation type="unfinished"/>
+      <translation>Código de incorporação da página</translation>
     </message>
     <message>
       <source>Date</source>
@@ -4944,7 +4944,7 @@
     </message>
     <message>
       <source>XMPP Message about accepted chat</source>
-      <translation type="unfinished"/>
+      <translation>Mensagem XMPP sobre chats aceitos</translation>
     </message>
     <message>
       <source>XMPP</source>
@@ -5164,11 +5164,11 @@
     </message>
     <message>
       <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
-      <translation type="unfinished"/>
+      <translation>Informe o domínio sem o www, Ex.: a palavra chave google irá corresponder a qualquer domínio do google.</translation>
     </message>
     <message>
       <source>URL, enter * at the end for the wildcard</source>
-      <translation>URL, digite * ao final para um wildcard</translation>
+      <translation>URL, digite * ao final para um caractere curinga</translation>
     </message>
     <message>
       <source>Custom iframe URL, takes priority over default content</source>
@@ -5180,7 +5180,7 @@
     </message>
     <message>
       <source>Callback content, must be valid json</source>
-      <translation type="unfinished"/>
+      <translation>Conteúdo Callback, deve ser json válido</translation>
     </message>
     <message>
       <source>Load content in lhc iframe</source>
@@ -5192,15 +5192,15 @@
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation type="unfinished"/>
+      <translation>Identificador, para qual identificador essa mensagem será exibida, deixar em branco para todos</translation>
     </message>
     <message>
       <source>Matched times</source>
-      <translation type="unfinished"/>
+      <translation>Vezes correspondidas</translation>
     </message>
     <message>
       <source>Browser offer invitations</source>
-      <translation type="unfinished"/>
+      <translation>Navegador ofertar convites</translation>
     </message>
     <message>
       <source>Content</source>
@@ -5220,15 +5220,15 @@
     </message>
     <message>
       <source>Recipient</source>
-      <translation type="unfinished"/>
+      <translation>Destinatário</translation>
     </message>
     <message>
       <source>Post content after form is submitted</source>
-      <translation type="unfinished"/>
+      <translation>Postar conteúdo depois do formulário ser enviado</translation>
     </message>
     <message>
       <source>Custom pagelayout</source>
-      <translation type="unfinished"/>
+      <translation>Layout customizado</translation>
     </message>
     <message>
       <source>Forms list</source>
