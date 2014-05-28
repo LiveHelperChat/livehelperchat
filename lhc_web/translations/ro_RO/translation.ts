@@ -262,7 +262,7 @@
     </message>
     <message>
       <source>Page embed code</source>
-      <translation>Codul ce trebueiinclus in pagina</translation>
+      <translation>Codul ce trebuie inclus in pagina</translation>
     </message>
     <message>
       <source>Chatbox messages content height</source>
