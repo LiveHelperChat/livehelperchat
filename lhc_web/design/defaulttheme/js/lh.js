@@ -1428,7 +1428,7 @@ function lh(){
 		if (sessionStorage) {
    		   sessionStorage.setItem('lhc_ttxt','');
     	};
-    	var inst = this;
+    	
         $.postJSON(this.wwwDir + this.addmsgurluser + this.chat_id + '/' + this.hash + modeWindow, pdata , function(data) {
         	
         	if (data.error == 'f'){
