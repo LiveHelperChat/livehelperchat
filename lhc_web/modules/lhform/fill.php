@@ -24,5 +24,5 @@ $tpl->set('form',$form);
 
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(array('title' => (string)$form));
-$Result['pagelayout'] = $form->pagelayout != '' ? $form->pagelayout : 'userchat';
+$Result['pagelayout'] = $form->pagelayout != '' ? $form->pagelayout : 'form';
 $Result['hide_close_window'] = true;

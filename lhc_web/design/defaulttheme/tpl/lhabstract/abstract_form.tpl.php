@@ -5,7 +5,7 @@
 <?php if (isset($updated) && $updated == true) : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/abstract_form','Updated!'); ?>
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
-
+<div ng-non-bindable>
 <?php foreach ($object->getFields() as $fieldName => $attr) : ?>
 	<?php if (!isset($attr['hide_edit'])) : ?>
 		<?php if ($attr['type'] == 'checkbox') : ?>
@@ -16,7 +16,7 @@
 		<?php endif;?>
 	<?php endif;?>
 <?php endforeach;?>
-
+</div>
 <br />
 
 <ul class="button-group radius">

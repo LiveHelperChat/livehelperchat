@@ -16,7 +16,7 @@ class erLhcoreClassFormRenderer {
     	$contentForm = $form->content;
 
     	$inputFields = array();
-    	preg_match_all('/\[\[[input|textarea|combobox](.*?)\]\]/i', $contentForm, $inputFields);
+    	preg_match_all('/\[\[[input|textarea|combobox|range](.*?)\]\]/i', $contentForm, $inputFields);
     	foreach ($inputFields[0] as $inputDefinition) {
     		$content = self::processInput($inputDefinition);    		
     		$contentForm = str_replace($inputDefinition,$content,$contentForm);    		
@@ -63,6 +63,87 @@ class erLhcoreClassFormRenderer {
     	
     	return call_user_func('erLhcoreClassFormRenderer::renderInputType'.ucfirst($paramsParsed['type']),$paramsParsed);
     }
+    
+    public static function renderInputTypeRange($params) {
+    	$additionalAttributes = self::renderAdditionalAtrributes($params);
+    	 
+    	$value = '';
+    	if (ezcInputForm::hasPostData()) {
+    
+    		$validationFields = array();
+    		$validationFields[$params['name'].'From'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
+    		$validationFields[$params['name'].'Till'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
+    
+    		$form = new ezcInputForm( INPUT_POST, $validationFields );
+    		$Errors = array();
+    
+    		if ( !$form->hasValidData( $params['name'].'From' ) || (isset($params['required']) && $params['required'] == 'required' && $form->{$params['name'].'From'} == '')) {
+    			self::$errors[] = (isset($params['name_literal']) ? $params['name_literal'] : $params['name'].'From').' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
+    		} elseif ($form->hasValidData( $params['name'].'From' )) {
+    			$valueFrom = $form->{$params['name'].'From'};
+    			self::$collectedInfo[$params['name'].'From'] = array('definition' => $params,'value' => $form->{$params['name'].'From'});
+    		}
+    
+    		if ( !$form->hasValidData( $params['name'].'Till' ) || (isset($params['required']) && $params['required'] == 'required' && $form->{$params['name'].'Till'} == '')) {
+    			self::$errors[] = (isset($params['name_literal']) ? $params['name_literal'] : $params['name'].'Till').' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
+    		} elseif ($form->hasValidData( $params['name'].'Till' )) {
+    			$valueTill = $form->{$params['name'].'Till'};
+    			self::$collectedInfo[$params['name'].'Till'] = array('definition' => $params,'value' => $form->{$params['name'].'Till'});
+    		}
+    
+    	} else {
+    		if (isset(self::$collectedInfo[$params['name'].'From']['value'])) {
+    			$valueFrom = self::$collectedInfo[$params['name'].'From']['value'];
+    		} else {
+    			$valueFrom = (isset($params['StartValue']) ? $params['StartValue'] : '');
+    		}
+    
+    		if (isset(self::$collectedInfo[$params['name'].'Till']['value'])) {
+    			$valueTill = self::$collectedInfo[$params['name'].'Till']['value'];
+    		} else {
+    			$valueTill = (isset($params['EndValue']) ? $params['EndValue'] : '');
+    		}
+    	}
+    	$return = '';
+    	 
+    	$placeholder = isset($params['placeholder']) ? ' placeholder="'.htmlspecialchars($params['placeholder']).'" ' : '';
+    	 
+    	$valueFromDefault = $valueFrom;
+    	if ($valueFromDefault == '') {
+    		$valueFromDefault = $params['min'];
+    	}
+    	 
+    	$valueTillDefault = $valueTill;
+    	if ($valueTillDefault == '') {
+    		$valueTillDefault = $params['max'];
+    	}
+    	 
+    	$return .= "<div ng-init=\"ng{$params['name']}From=".htmlspecialchars($valueFromDefault,ENT_QUOTES).";ng{$params['name']}Till=".htmlspecialchars($valueTillDefault,ENT_QUOTES)."\"><input type=\"text\" id=\"id_{$params['name']}From\" ng-model=\"ng{$params['name']}From\" name=\"{$params['name']}From\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($valueFrom)."\" />";
+    	$return .= "<input type=\"text\" id=\"id_{$params['name']}Till\" ng-model=\"ng{$params['name']}Till\" name=\"{$params['name']}Till\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($valueTill)."\" /></div>";
+    	 
+    	if ($params['usejquislider'] && $params['usejquislider'] == 'true') {
+    
+    		$step = isset($params['step']) ? 'step:'.$params['step'].',' : '';
+    
+    		$return = '<div class="hide">'.$return.'</div><script>
+			$(function() {
+					$( "#'.$params['name'].'Slider" ).slider({
+						range: true,
+						values: [ '.htmlspecialchars($valueFromDefault).', '.htmlspecialchars($valueTillDefault).' ],
+						min:'.$params['min'].',
+						max:'.$params['max'].',
+						'.$step.'
+				        slide: function (event, ui) {
+				            $(\'#id_'.$params['name'].'From\').val(ui.values[0]).trigger(\'input\');
+				            $(\'#id_'.$params['name'].'Till\').val(ui.values[1]).trigger(\'input\');
+				        }
+					});
+			});
+			</script>';
+    	}
+    	 
+    	return $return;
+    }
         
     public static function renderInputTypeText($params) {    	
     	$additionalAttributes = self::renderAdditionalAtrributes($params);
@@ -79,7 +160,7 @@ class erLhcoreClassFormRenderer {
     		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && $form->{$params['name']} == '')) {    		
     			self::$errors[] = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
     		} elseif ($form->hasValidData( $params['name'] )) {    		
-    			$value = htmlspecialchars($form->{$params['name']});
+    			$value = $form->{$params['name']};
     			self::$collectedInfo[$params['name']] = array('definition' => $params,'value' => $form->{$params['name']});
     		}
     		
@@ -87,12 +168,12 @@ class erLhcoreClassFormRenderer {
     		if (isset(self::$collectedInfo[$params['name']]['value'])) {
     			$value = self::$collectedInfo[$params['name']]['value'];
     		} else {
-    			$value = (isset($params['value']) ? htmlspecialchars($params['value']) : '');
+    			$value = (isset($params['value']) ? $params['value'] : '');
     		}
     	}
     	    	
     	$placeholder = isset($params['placeholder']) ? ' placeholder="'.htmlspecialchars($params['placeholder']).'" ' : '';    
-    	return "<input type=\"text\" name=\"{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".$value."\" />";    	
+    	return "<input type=\"text\" name=\"{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($value)."\" />";    	
     }
         
     public static function renderInputTypeEmail($params) {    	
@@ -110,7 +191,7 @@ class erLhcoreClassFormRenderer {
     		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && $form->{$params['name']} == '')) {    		
     			self::$errors[] = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
     		} elseif ($form->hasValidData( $params['name'] )) {    		
-    			$value = htmlspecialchars($form->{$params['name']});
+    			$value = $form->{$params['name']};
     			self::$collectedInfo[$params['name']] = array('definition' => $params,'value' => $form->{$params['name']});
     		}
     		
@@ -118,12 +199,12 @@ class erLhcoreClassFormRenderer {
     		if (isset(self::$collectedInfo[$params['name']]['value'])) {
     			$value = self::$collectedInfo[$params['name']]['value'];
     		} else {
-    			$value = (isset($params['value']) ? htmlspecialchars($params['value']) : '');
+    			$value = (isset($params['value']) ? $params['value'] : '');
     		}
     	}
     	    	
     	$placeholder = isset($params['placeholder']) ? ' placeholder="'.htmlspecialchars($params['placeholder']).'" ' : '';    
-    	return "<input type=\"text\" name=\"{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".$value."\" />";    	
+    	return "<input type=\"text\" name=\"{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($value)."\" />";    	
     }
     
     
@@ -143,7 +224,7 @@ class erLhcoreClassFormRenderer {
     		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && $form->{$params['name']} == '')) {    		
     			self::$errors[] = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
     		} elseif ($form->hasValidData( $params['name'] )) {    		
-    			$value = htmlspecialchars($form->{$params['name']});
+    			$value = $form->{$params['name']};
     			self::$collectedInfo[$params['name']] = array('definition' => $params,'value' => $form->{$params['name']});
     		}
     		
@@ -151,12 +232,12 @@ class erLhcoreClassFormRenderer {
     		if (isset(self::$collectedInfo[$params['name']]['value'])) {
     			$value = self::$collectedInfo[$params['name']]['value'];
     		} else {
-    			$value = (isset($params['value']) ? htmlspecialchars($params['value']) : '');
+    			$value = (isset($params['value']) ? $params['value'] : '');
     		}
     	}
     	    	
     	$placeholder = isset($params['placeholder']) ? ' placeholder="'.htmlspecialchars($params['placeholder']).'" ' : '';    
-    	return "<input type=\"text\" name=\"{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".$value."\" />";    	
+    	return "<input type=\"text\" name=\"{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($value)."\" />";    	
     }
     
     
@@ -182,7 +263,7 @@ class erLhcoreClassFormRenderer {
     			$pos = explode(',', $params['pos']);
     			
     			if (count($parts) == 3 && checkdate($parts[$pos[1]], $parts[$pos[2]], $parts[$pos[0]])){    			
-	    			$value = htmlspecialchars($form->{$params['name']});
+	    			$value = $form->{$params['name']};
 	    			self::$collectedInfo[$params['name']] = array('definition' => $params,'value' => $form->{$params['name']});
     			} else {
     				$value = htmlspecialchars($form->{$params['name']});
@@ -195,12 +276,12 @@ class erLhcoreClassFormRenderer {
     		if (isset(self::$collectedInfo[$params['name']]['value'])) {
     			$value = self::$collectedInfo[$params['name']]['value'];
     		} else {
-    			$value = (isset($params['value']) ? htmlspecialchars($params['value']) : '');
+    			$value = (isset($params['value']) ? $params['value'] : '');
     		}
     	}
     	    	
     	$placeholder = isset($params['placeholder']) ? ' placeholder="'.htmlspecialchars($params['placeholder']).'" ' : '';    
-    	return "<input type=\"text\" name=\"{$params['name']}\" id=\"id_{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".$value."\" /><script>$(function() {\$('#id_{$params['name']}').fdatepicker({format: '{$params['format']}'});});</script>";    	
+    	return "<input type=\"text\" name=\"{$params['name']}\" id=\"id_{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($value)."\" /><script>$(function() {\$('#id_{$params['name']}').fdatepicker({format: '{$params['format']}'});});</script>";    	
     }
     
     
@@ -228,7 +309,7 @@ class erLhcoreClassFormRenderer {
     		if (isset(self::$collectedInfo[$params['name']]['value'])){
     			$value = self::$collectedInfo[$params['name']]['value'];
     		} else {
-    			$value = (isset($params['default']) ? htmlspecialchars($params['default']) : '');
+    			$value = (isset($params['default']) ? $params['default'] : '');
     		}
     	}
     	
@@ -303,7 +384,7 @@ class erLhcoreClassFormRenderer {
     		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && ($form->{$params['name']} == '' || (isset($params['default']) && $params['default'] == $form->{$params['name']})))) {
     			self::$errors[] = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
     		} elseif ($form->hasValidData( $params['name'] )) {
-    			$value = htmlspecialchars($form->{$params['name']});
+    			$value = $form->{$params['name']};
     			self::$collectedInfo[$params['name']] = array('definition' => $params,'value' => $form->{$params['name']});
     		}
     		    		 
@@ -311,7 +392,7 @@ class erLhcoreClassFormRenderer {
     		if (isset(self::$collectedInfo[$params['name']]['value'])){
     			$value = self::$collectedInfo[$params['name']]['value'];
     		} else {
-    			$value = (isset($params['default']) ? htmlspecialchars($params['default']) : '');
+    			$value = (isset($params['default']) ? $params['default'] : '');
     		}
     	}
     	
@@ -374,7 +455,7 @@ class erLhcoreClassFormRenderer {
     		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && $form->{$params['name']} == '')) {
     			self::$errors[] = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
     		} elseif ($form->hasValidData( $params['name'] )) {
-    			$value = htmlspecialchars($form->{$params['name']});
+    			$value = $form->{$params['name']};
     			self::$collectedInfo[$params['name']] = array('definition' => $params,'value' => $form->{$params['name']});
     		}
     	
@@ -382,11 +463,11 @@ class erLhcoreClassFormRenderer {
     		if (isset(self::$collectedInfo[$params['name']]['value'])){
     			$value = self::$collectedInfo[$params['name']]['value'];
     		} else {
-    			$value = (isset($params['value']) ? htmlspecialchars($params['value']) : '');
+    			$value = (isset($params['value']) ? $params['value'] : '');
     		}
     	}    	
     	
-    	return "<textarea name=\"{$params['name']}\">" . $value . "</textarea>";
+    	return "<textarea name=\"{$params['name']}\">" . htmlspecialchars($value) . "</textarea>";
     }
     
     public static function renderAdditionalAtrributes($params) {
