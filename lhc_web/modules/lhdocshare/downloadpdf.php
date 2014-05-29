@@ -8,9 +8,9 @@ try {
 		exit;
 	}
 	
-	header('Content-type: '.$file->type);
-	header('Content-Disposition: attachment; filename="'.$file->file_name_upload.'"');
-	echo file_get_contents($file->file_path_server);
+	header('Content-type: application/pdf');
+	header('Content-Disposition: attachment; filename="'.$file->file_name_upload_pdf.'"');
+	echo file_get_contents($file->pdf_file_path_server);
 	
 } catch (Exception $e) {
 	header('Location: /');

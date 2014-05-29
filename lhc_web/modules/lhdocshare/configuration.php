@@ -106,6 +106,6 @@ $tpl->set('docsharer_data',$data);
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(
 array('url' => erLhcoreClassDesign::baseurl('docshare/index'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('docshare/index','Documents sharer')),
-array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Documents sharer configuration')));
+array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('docshare/configuration','Documents sharer configuration')));
 
 ?>

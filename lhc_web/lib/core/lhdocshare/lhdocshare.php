@@ -21,6 +21,9 @@ class erLhcoreClassDocShare {
 	   			),
 	   			'desc' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+	   			),
+	   			'Active' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	   			)
 	   			
 	   	);
@@ -39,6 +42,12 @@ class erLhcoreClassDocShare {
 	   		$docshare->desc = $form->desc;	   		
 	   	} else {
 	   		$docshare->desc = '';
+	   	}
+	   	
+	   	if ( $form->hasValidData( 'Active' ) && $form->Active == true )	{
+	   		$docshare->active = 1;
+	   	} else {
+	   		$docshare->active = 0;
 	   	}
 	   	
 	   	if (empty($Errors)) {

@@ -32,7 +32,12 @@ $ViewList['embedcode'] = array(
 
 $ViewList['download'] = array(
 		'params' => array('id'),
-		'functions' => array( )
+		'functions' => array()	
+);
+
+$ViewList['downloadpdf'] = array(
+		'params' => array('id'),
+		'functions' => array()	
 );
 
 $ViewList['view'] = array(
@@ -42,7 +47,7 @@ $ViewList['view'] = array(
 
 $ViewList['configuration'] = array(
 		'params' => array(),
-		'functions' => array( 'manage_dc' )
+		'functions' => array( 'change_configuration' )
 );
 
 $ViewList['previewimages'] = array(
@@ -68,8 +73,9 @@ $ViewList['embed'] = array(
 );
 
 $FunctionList = array();
-$FunctionList['manage_dc'] = array('explain' => 'Allow user to manage documents sharer');
+$FunctionList['manage_dc'] = array('explain' => 'Allow user to manage documents sharer module');
 $FunctionList['deletedoc'] = array('explain' => 'Allow user to delete his own documents');
 $FunctionList['deleteglobaldoc'] = array('explain' => 'Allow user to delete all documents');
+$FunctionList['change_configuration'] = array('explain' => 'Allow user to change documents sharer configuration');
 
 ?>
