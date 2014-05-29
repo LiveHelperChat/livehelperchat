@@ -41,12 +41,17 @@ class erLhcoreClassDocShare {
 	   		$docshare->desc = '';
 	   	}
 	   	
-	   	if ( isset($_FILES["qqfile"]) && is_uploaded_file($_FILES["qqfile"]["tmp_name"]) && $_FILES["qqfile"]["error"] == 0 ) {
-	   		if (empty($Errors)) {
-		   		$allowedExtensions = array('ppt','pptx','doc','odp','epub','mobi','docx','xlsx','txt','xls','xlsx','png','pdf','rtf','odt');
+	   	if (empty($Errors)) {
+	   		
+	   		if ( isset($_FILES["qqfile"]) && is_uploaded_file($_FILES["qqfile"]["tmp_name"]) && $_FILES["qqfile"]["error"] == 0 ) {
+	   			   			
+	   			$objectData = erLhcoreClassModelChatConfig::fetch('doc_sharer');
+	   			$dataDocSharer = (array)$objectData->data;
+	   				   			
+		   		$allowedExtensions = explode(',',$dataDocSharer['supported_extension']);
 		   		
 		   		// max file size in bytes
-		   		$sizeLimit = 20 * 1024 * 1024;
+		   		$sizeLimit = $dataDocSharer['max_file_size'] * 1024 * 1024;
 		   		
 		   		$uploader = new qqFileUploader($allowedExtensions, $sizeLimit);
 		   		$result = $uploader->handleUpload('var/tmpfiles/');
@@ -56,6 +61,10 @@ class erLhcoreClassDocShare {
 		   			$result['filename'] = $uploader->getFileName();
 		   			$result['filename_user'] = $uploader->getUserFileName();
 		   			$docshare->type = $uploader->getMimeType();
+		   			
+		   			if ($docshare->id == null) {
+		   				$docshare->saveThis();
+		   			}
 		   			
 		   			$docshare->removeFile();
 		   			
@@ -72,34 +81,67 @@ class erLhcoreClassDocShare {
 		   			$docshare->file_name_upload = $result['filename_user'];	   			
 		   			$docshare->file_size = $uploader->getFileSize();	   
 		   			$docshare->converted = 0; 
+		   			$docshare->pdf_to_img_converted = 0; 
+		   			$docshare->pages_pdf_count = 0; 
 		   			$docshare->ext = $uploader->getFileExtension(); 
 		   			$docshare->saveThis();
+		   		} elseif ($docshare->id == null) {
+		   			$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('faq/view',$result['error']);
 		   		}
-	   		}	   		
+	   		} elseif ($docshare->id == null) {
+		   			$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('faq/view','Please choose a file');
+		   	}   		
 	   	}
 	   	
 	   	return $Errors;
    }
 
-   public static function covertToPDF($docShare){
+   public static function makeConversion($docShare, $conjobInterface = false) {
+   		
+   		$docSharer = erLhcoreClassModelChatConfig::fetch('doc_sharer');
+   		$data = (array)$docSharer->data;
+   	
+   		if ($conjobInterface == true || $data['background_process'] == 0) {
+   		
+	   		if ($docShare->converted == 0) {
+	   			erLhcoreClassDocShare::covertToPDF($docShare);   			
+	   		}
+	   		
+	   		if ($docShare->pdf_to_img_converted == 0) {
+	   			erLhcoreClassDocShare::convertPDFToPNG($docShare);
+	   		}
+   		}
+   }
+   
+   public static function covertToPDF($docShare) {
    		
 	   	try {	   	
 	   		$config = erConfigClassLhConfig::getInstance();
 	   
+	   		// If pdf we do not need to convert anything
+	   		if ($docShare->ext == 'pdf') {
+	   			$docShare->pdf_file = $docShare->file_name;
+	   			$docShare->converted = 1;
+	   			$docShare->saveThis();
+	   			return ;
+	   		}
+	   		
 	   		$pdfFileCopy = $docShare->file_path_server.'.'.$docShare->ext;
 	   		
 	   		if (!file_exists("/tmp/ooohomedir"))
 	   		{
-	   			mkdir("/tmp/ooohomedir");
-	   			chmod("/tmp/ooohomedir", 0777);
+	   			@mkdir("/tmp/ooohomedir");
+	   			@chmod("/tmp/ooohomedir", 0777);
 	   		}
 	   		
-	   		putenv("HOME=/tmp/ooohomedir");
+	   		@putenv("HOME=/tmp/ooohomedir");
 	  
-	   		
+	   		$objectData = erLhcoreClassModelChatConfig::fetch('doc_sharer');
+	   		$dataDocSharer = (array)$objectData->data;
+	   			   		
 	   		if (copy($docShare->file_path_server, $pdfFileCopy)) {
-		   		$command = erLhcoreClassModelChatConfig::fetch('soffice_path')->current_value.' --nologo --invisible --headless -convert-to pdf:writer_pdf_Export '.escapeshellarg( $pdfFileCopy ) . ' --outdir '.$docShare->file_path_dir;
-		   		
+		   		$command = $dataDocSharer['libre_office_path'].' --nologo --invisible --headless -convert-to pdf:writer_pdf_Export '.escapeshellarg( $pdfFileCopy ) . ' --outdir '.$docShare->file_path_dir;
+		   				   		
 		   		self::processCommand($command);
 		   	
 		   		$pdfFile = $docShare->file_path_dir.$docShare->file_name.'.pdf';
@@ -108,12 +150,22 @@ class erLhcoreClassDocShare {
 		   					   			
 		   			$docShare->pdf_file = sha1(sha1($docShare->file_name.'doctopdf').time()).'pdf';
 		   			rename($pdfFile, $docShare->file_path_dir.$docShare->pdf_file);
-		   					   			
+
+		   			chown($docShare->file_path_dir.$docShare->pdf_file,$dataDocSharer['http_user_name']);
+		   			chgrp($docShare->file_path_dir.$docShare->pdf_file,$dataDocSharer['http_user_group_name']);
+		   			chmod($docShare->file_path_dir.$docShare->pdf_file,0664);
+		   			
 		   			$docShare->converted = 1;		   			
 		   			$docShare->saveThis();		   	
+		   		} else {
+		   			$docShare->converted = 1;
+		   			$docShare->saveThis();
 		   		}
 		   		
 		   		unlink($pdfFileCopy);
+	   		} else {
+	   			$docShare->converted = 1;
+	   			$docShare->saveThis();
 	   		}
 	   		
 	   	} catch (Exception $e) {
@@ -175,8 +227,11 @@ class erLhcoreClassDocShare {
 	   		try {
 	   
 	   			$config = erConfigClassLhConfig::getInstance();
-	   
-	   			erLhcoreClassFileUpload::mkdirRecursive($fileObject->pdftoimg_path,true);
+	   			
+	   			$objectData = erLhcoreClassModelChatConfig::fetch('doc_sharer');
+	   			$dataDocSharer = (array)$objectData->data;
+	   				   			
+	   			erLhcoreClassFileUpload::mkdirRecursive($fileObject->pdftoimg_path,true,$dataDocSharer['http_user_name'],$dataDocSharer['http_user_group_name']);
 	   
 	   			$ocrParsed = true;
 	   
@@ -188,18 +243,12 @@ class erLhcoreClassDocShare {
 	   			);
 	   
 	   			$appendCommand = '';
-	   
-	   			/* if ($fileObject->spages > 0) {
-	   				$appendCommand .= ' -f ' . ($fileObject->spages+1);
+	   			
+	   			if ($dataDocSharer['pdftoppm_limit'] > 0) {
+	   				$appendCommand .= ' -l ' . $dataDocSharer['pdftoppm_limit'];
 	   			}
-	   
-	   			if ($fileObject->lpages > 0) {
-	   				$appendCommand .= ' -l ' . ($fileObject->lpages+$fileObject->spages);
-	   			} */
-	   				   				   		
-	   			// Process OCR
-	   			//$command = $config->conf->getSetting( 'lingjob', 'pdftoppm' ).$appendCommand.' -png -r 200 ' . escapeshellarg( $pdfFile ) . ' '.$fileObject->pdftoimg_path.$fileObject->id;
-	   			$command = '/usr/bin/pdftoppm -png -r 200 ' . escapeshellarg( $pdfFile ) . ' '.$fileObject->pdftoimg_path.$fileObject->id;
+	   				   				   			
+	   			$command = $dataDocSharer['pdftoppm_path'].$appendCommand.' -png -r 200 ' . escapeshellarg( $pdfFile ) . ' '.$fileObject->pdftoimg_path.$fileObject->id;
 	   
 
 	   			// Open color_indexer process
@@ -235,10 +284,7 @@ class erLhcoreClassDocShare {
 	   	   				   
 	   			$contentPages = array();
 	   			$pagesCount = 0;
-	   
-	   			/* $wwwUser = $config->conf->getSetting( 'site', 'default_www_user' );
-	   			$wwwUserGroup = $config->conf->getSetting( 'site', 'default_www_group' ); */
-	   	  	   				
+	   	   		   			
 	   			foreach ($data as $key => $file) {
 	   					   				
 	   				$pagesCount++;
@@ -250,19 +296,15 @@ class erLhcoreClassDocShare {
 	   				rename($file, $newName);
 	   				$file = $newName;
 		   			
-		   			/* chown($file,$wwwUser);
-		   			chgrp($file,$wwwUserGroup);
-		   			chmod($file,$config->conf->getSetting( 'site', 'StorageFilePermissions' )); */
+		   			chown($file,$dataDocSharer['http_user_name']);
+		   			chgrp($file,$dataDocSharer['http_user_group_name']);
+		   			chmod($file,0664);
 		   		}
-	   		   		
-	  
 	   
 	   		$fileObject->pdf_to_img_converted = 1;
 	   		$fileObject->pages_pdf_count = $pagesCount;
 	   			
 	   		$fileObject->saveThis();
-	   
-	  
 	   
 	   	} catch (Exception $e) {
 	   		throw $e;

@@ -1,3 +1,17 @@
+2.00v
+
+Features/Changes/Bugfixes
+1. https://github.com/LiveHelperChat/livehelperchat/issues/396
+2. https://github.com/LiveHelperChat/livehelperchat/issues/393
+3. https://github.com/LiveHelperChat/livehelperchat/issues/383
+4. Fixed bug then closing tab, tab was closed but user could not reopen it. Tricky part.
+5. Updated chrome extension as stated in previous article
+6. New module for documents sharing.
+7. Updated NodeJs extension. It was used by one of the clients who had now over 3700 chats. So it's quite stable i ques now and can be used in production.
+
+execute doc/update_db/update_79.sql for update and create a directory 
+var/storagedocshare - and chmod it
+
 1.99v
 
 Features/Changes/Bugfixes

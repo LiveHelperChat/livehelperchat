@@ -159,6 +159,7 @@ class erLhcoreClassModelDocShare {
 			}
 		}
 		
+		erLhcoreClassFileUpload::removeRecursiveIfEmpty('var/', $this->file_path . 'img');
 	}
 	
 	public static function getList($paramsSearch = array())
@@ -231,6 +232,7 @@ class erLhcoreClassModelDocShare {
 	}
 
 	public function removeThis() {
+		$this->removeFile();
 		erLhcoreClassDocShare::getSession()->delete( $this );
 	}
 

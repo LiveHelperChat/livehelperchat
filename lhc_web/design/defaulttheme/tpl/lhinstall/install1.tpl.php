@@ -44,6 +44,10 @@
         <td><?php echo is_writable("var/storageform") ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'?></td>
     </tr>
     <tr>
+        <td>I can write to &quot;var/storagedocshare&quot; directory</td>
+        <td><?php echo is_writable("var/storagedocshare") ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'?></td>
+    </tr>
+    <tr>
         <td>Is the php_curl extension installed</td>
         <td><?php echo extension_loaded ('curl' ) ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'; ?></td>
     </tr>

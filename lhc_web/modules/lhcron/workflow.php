@@ -1,7 +1,7 @@
 <?php
 
 /**
- * php cron.php -s site_admin -c chat/workflow
+ * php cron.php -s site_admin -c cron/workflow
  *
  * Run every 10 minits or so. On this cron depends automatic chat transfer and unaswered chats callback.
  *

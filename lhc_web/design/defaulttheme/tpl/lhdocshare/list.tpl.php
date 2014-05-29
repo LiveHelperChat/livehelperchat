@@ -1,4 +1,4 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('docshare/list','Documents sharer');?></h1>
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('docshare/list','Documents list');?></h1>
 
 <?php if ($pages->items_total > 0) : ?>
 	<table class="twelve" cellpadding="0" cellspacing="0">

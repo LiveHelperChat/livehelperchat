@@ -17,6 +17,8 @@ $tpl->set('items',$items);
 $tpl->set('pages',$pages);
 
 $Result['content'] = $tpl->fetch();
-$Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('docshare/list'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('faq/list','Documents sharer')));
+$Result['path'] = array(
+		array('url' => erLhcoreClassDesign::baseurl('docshare/index'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('docshare/index','Documents sharer')),
+		array('url' => erLhcoreClassDesign::baseurl('docshare/list'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('faq/list','Documents list')));
 
 ?>

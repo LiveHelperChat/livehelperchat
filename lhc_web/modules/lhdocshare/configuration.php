@@ -14,11 +14,23 @@ if ( isset($_POST['StoreConfiguration']) ) {
         'SupportedExtensions' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
         ),
+        'PdftoppmPath' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+        ),
+        'HttpUserName' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+        ),
+        'HttpGroupName' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+        ),
         'BackgroundProcess' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
         'MaxFileSize' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 2)
+        ),       
+        'PdftoppmLimit' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
         )       
     );
 
@@ -38,10 +50,34 @@ if ( isset($_POST['StoreConfiguration']) ) {
     	$data['libre_office_path'] = '/usr/bin/libreoffice';
     }
 
+    if ( $form->hasValidData( 'PdftoppmPath' ) ) {
+    	$data['pdftoppm_path'] = $form->PdftoppmPath;
+    } else {
+    	$data['pdftoppm_path'] = '/usr/bin/pdftoppm';
+    }
+
+    if ( $form->hasValidData( 'PdftoppmLimit' ) ) {
+    	$data['pdftoppm_limit'] = $form->PdftoppmLimit;
+    } else {
+    	$data['pdftoppm_limit'] = '0';
+    }
+
+    if ( $form->hasValidData( 'HttpUserName' ) ) {
+    	$data['http_user_name'] = $form->HttpUserName;
+    } else {
+    	$data['http_user_name'] = 'apache';
+    }
+
+    if ( $form->hasValidData( 'HttpGroupName' ) ) {
+    	$data['http_user_group_name'] = $form->HttpGroupName;
+    } else {
+    	$data['http_user_group_name'] = 'apache';
+    }
+
     if ( $form->hasValidData( 'SupportedExtensions' ) ) {
     	$data['supported_extension'] = $form->SupportedExtensions;
     } else {
-    	$data['supported_extension'] = 'ppt,pptx,doc,odp,epub,mobi,docx,xlsx,txt,xls,xlsx,pdf,rtf,odt';
+    	$data['supported_extension'] = 'ppt,pptx,doc,odp,docx,xlsx,txt,xls,xlsx,pdf,rtf,odt';
     }
 
     if ( $form->hasValidData( 'BackgroundProcess' ) &&  $form->BackgroundProcess == true) {

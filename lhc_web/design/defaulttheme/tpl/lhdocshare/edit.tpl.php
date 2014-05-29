@@ -3,7 +3,15 @@
 <div id="myModal" class="reveal-modal"></div>
 
 <div class="row">
-	<div class="columns large-6"><a href="<?php echo erLhcoreClassDesign::baseurl('docshare/embedcode')?>/<?php echo $docshare->id?>" class="button small radius"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('docshare/edit','Get embed code');?></a></div>
+	<div class="columns large-6">	
+	<ul class="button-group radius">	
+		<li><a href="<?php echo erLhcoreClassDesign::baseurl('docshare/embedcode')?>/<?php echo $docshare->id?>" data-reveal-id="myModal" data-reveal-ajax="true" class="button tiny"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('docshare/edit','Embed');?></a></li>
+	<?php if ($docshare->pdf_to_img_converted) : ?>
+		<li><a href="<?php echo erLhcoreClassDesign::baseurl('docshare/previewimages')?>/<?php echo $docshare->id?>" data-reveal-id="myModal" data-reveal-ajax="true" class="button tiny"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('docshare/new','Preview images');?></a></li>
+		<li><a href="<?php echo erLhcoreClassDesign::baseurl('docshare/view')?>/<?php echo $docshare->id?>" target="_blank" class="button tiny"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('docshare/new','Open in a viewer');?></a></li>
+	<?php endif;?>
+	</ul>	
+	</div>	
 	<div class="columns large-6">
 		<div class="row collapse">        
 	        <div class="small-2 columns">

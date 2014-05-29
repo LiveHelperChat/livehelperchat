@@ -25,6 +25,11 @@ $ViewList['edit'] = array(
 		'functions' => array( 'manage_dc' )
 );
 
+$ViewList['embedcode'] = array(
+		'params' => array('id'),
+		'functions' => array( 'manage_dc' )
+);
+
 $ViewList['download'] = array(
 		'params' => array('id'),
 		'functions' => array( )
@@ -45,7 +50,26 @@ $ViewList['previewimages'] = array(
 		'functions' => array( 'manage_dc' )
 );
 
+$ViewList['delete'] = array(
+		'params' => array('id'),
+		'uparams' => array('csfr'),
+		'functions' => array( 'deletedoc' )
+);
+
+$ViewList['docwidget'] = array(
+		'params' => array('doc_id'),
+		'functions' => array()
+);
+
+$ViewList['embed'] = array(
+		'params' => array('doc_id'),
+		'uparams' => array('height'),
+		'functions' => array()
+);
+
 $FunctionList = array();
 $FunctionList['manage_dc'] = array('explain' => 'Allow user to manage documents sharer');
+$FunctionList['deletedoc'] = array('explain' => 'Allow user to delete his own documents');
+$FunctionList['deleteglobaldoc'] = array('explain' => 'Allow user to delete all documents');
 
 ?>
