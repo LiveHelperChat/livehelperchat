@@ -497,6 +497,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Index</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Form</source>
       <translation type="unfinished"/>
     </message>
@@ -2195,6 +2199,10 @@
     </message>
     <message>
       <source>Form module</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Documents module</source>
       <translation type="unfinished"/>
     </message>
     <message>
