@@ -12,6 +12,7 @@ Features/Changes/Bugfixes
 9. Chrome extension also was updated as mentioned in one of the previous articles.
 10. Changed even them message is send. Previously it was onkeyup which coused new line if enter was pressed in the middle of the message. Now it won't.
 11. Changed close/resume/minimize icons.
+12. Install will enable online visitors tracking and pro active installations by default now.
 
 execute doc/update_db/update_79.sql for update and create a directory 
 var/storagedocshare - and chmod it
