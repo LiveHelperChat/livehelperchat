@@ -7,10 +7,15 @@ Features/Changes/Bugfixes
 4. Fixed bug then closing tab, tab was closed but user could not reopen it. Tricky part.
 5. Updated chrome extension as stated in previous article
 6. New module for documents sharing.
-7. Updated NodeJs extension. It was used by one of the clients who had now over 3700 chats. So it's quite stable i ques now and can be used in production.
+7. Updated NodeJs extension. It was used by one of the clients who had now over 3700 chats. So it's quite stable and can be used in production.
+8. Forms module now has different layout, which features angularJS support. So your forms can support angular syntax.
+9. Chrome extension also was updated as mentioned in one of the previous articles.
+10. Changed even them message is send. Previously it was onkeyup which coused new line if enter was pressed in the middle of the message. Now it won't.
+11. Changed close/resume/minimize icons.
 
 execute doc/update_db/update_79.sql for update and create a directory 
 var/storagedocshare - and chmod it
+var/tmpfiles - and chmod it
 
 1.99v
 
