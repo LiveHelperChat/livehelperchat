@@ -1,6 +1,6 @@
 html,
 body {
-	background: url(../images/general/cream_dust.png);
+
 }
 
 ::-webkit-scrollbar{width:0.7em;height:0.8em;background-color:#fff;}
@@ -375,7 +375,7 @@ textarea[name=ChatMessage]{
 }
 
 div.response {
-	background-color:#F5F5F5;
+	
 }
 
 div.system-response {
