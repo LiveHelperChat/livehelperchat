@@ -1417,6 +1417,10 @@ function lh(){
 
     this.addmsguser = function ()
     {
+    	if (LHCCallbacks.addmsguserbefore) {
+    		LHCCallbacks.addmsguserbefore(this);
+    	};
+    	
         var pdata = {
 				msg	: $("#CSChatMessage").val()
 		};
