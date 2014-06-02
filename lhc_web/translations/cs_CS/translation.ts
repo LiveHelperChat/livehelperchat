@@ -495,6 +495,10 @@
       <translation>Vložený kód na stránku</translation>
     </message>
     <message>
+      <source>Index</source>
+      <translation>Index</translation>
+    </message>
+    <message>
       <source>Form</source>
       <translation>Formulář</translation>
     </message>
@@ -909,7 +913,7 @@
     </message>
     <message>
       <source>Inform then chat is accepted by one of the staff members using</source>
-      <translation type="unfinished"/>
+      <translation>Informovat v případě, že je rozhovor přijat někým z týmu</translation>
     </message>
     <message>
       <source>Other</source>
@@ -2062,11 +2066,11 @@
     </message>
     <message>
       <source>Cookie related</source>
-      <translation type="unfinished"/>
+      <translation>Vztahující se ke cookie</translation>
     </message>
     <message>
       <source>Chat related</source>
-      <translation type="unfinished"/>
+      <translation>Vztahující se k rozhovoru</translation>
     </message>
     <message>
       <source>Workflow</source>
@@ -2194,6 +2198,10 @@
     <message>
       <source>Form module</source>
       <translation>Modul formuláře</translation>
+    </message>
+    <message>
+      <source>Documents module</source>
+      <translation>Modul dokumentů</translation>
     </message>
     <message>
       <source>Statistic</source>
@@ -4944,7 +4952,7 @@
     </message>
     <message>
       <source>XMPP Message about accepted chat</source>
-      <translation type="unfinished"/>
+      <translation>Zpráva XMPP o přijmutí rozhovoru</translation>
     </message>
     <message>
       <source>XMPP</source>

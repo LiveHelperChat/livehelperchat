@@ -495,6 +495,10 @@
       <translation>Cod de embed pe pagina</translation>
     </message>
     <message>
+      <source>Index</source>
+      <translation>Index</translation>
+    </message>
+    <message>
       <source>Form</source>
       <translation>Formular</translation>
     </message>
@@ -2194,6 +2198,10 @@
     <message>
       <source>Form module</source>
       <translation>Modul formular</translation>
+    </message>
+    <message>
+      <source>Documents module</source>
+      <translation>Modul documente</translation>
     </message>
     <message>
       <source>Statistic</source>

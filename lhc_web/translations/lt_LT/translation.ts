@@ -495,6 +495,10 @@
       <translation>Įterpimo į puslapį kodas</translation>
     </message>
     <message>
+      <source>Index</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Form</source>
       <translation>Forma</translation>
     </message>
@@ -2194,6 +2198,10 @@
     <message>
       <source>Form module</source>
       <translation>Formų modulis</translation>
+    </message>
+    <message>
+      <source>Documents module</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Statistic</source>

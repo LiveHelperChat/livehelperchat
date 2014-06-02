@@ -495,6 +495,10 @@
       <translation>გვერდის ჩასაშენებელი კოდი</translation>
     </message>
     <message>
+      <source>Index</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Form</source>
       <translation>ფორმა</translation>
     </message>
@@ -2194,6 +2198,10 @@
     <message>
       <source>Form module</source>
       <translation>ფორმის მოდული</translation>
+    </message>
+    <message>
+      <source>Documents module</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Statistic</source>

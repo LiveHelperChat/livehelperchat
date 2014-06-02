@@ -497,6 +497,10 @@
       <translation>Código de inserción para la página</translation>
     </message>
     <message>
+      <source>Index</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Form</source>
       <translation>Formulario</translation>
     </message>
@@ -2198,6 +2202,10 @@
     <message>
       <source>Form module</source>
       <translation>Módulo de formulario</translation>
+    </message>
+    <message>
+      <source>Documents module</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Statistic</source>

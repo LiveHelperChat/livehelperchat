@@ -495,6 +495,10 @@
       <translation>Código de incorporação na página</translation>
     </message>
     <message>
+      <source>Index</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Form</source>
       <translation>Formulário</translation>
     </message>
@@ -2194,6 +2198,10 @@
     <message>
       <source>Form module</source>
       <translation>Módulo do formulário</translation>
+    </message>
+    <message>
+      <source>Documents module</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Statistic</source>

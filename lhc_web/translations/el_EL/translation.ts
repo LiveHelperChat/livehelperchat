@@ -495,6 +495,10 @@
       <translation>Σελίδα ενσωματώνει τον κώδικα</translation>
     </message>
     <message>
+      <source>Index</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Form</source>
       <translation>Μορφή</translation>
     </message>
@@ -684,7 +688,7 @@
     </message>
     <message>
       <source>Please enter an IP to block</source>
-      <translation type="unfinished"/>
+      <translation>Παρακαλούμε εισάγετε μια διεύθυνση IP για να εμποδίσει</translation>
     </message>
     <message>
       <source>User was blocked!</source>
@@ -865,7 +869,7 @@
     </message>
     <message>
       <source>Notifications</source>
-      <translation type="unfinished"/>
+      <translation>Κοινοποιήσεις</translation>
     </message>
     <message>
       <source>XMPP recipients</source>
@@ -909,7 +913,7 @@
     </message>
     <message>
       <source>Inform then chat is accepted by one of the staff members using</source>
-      <translation type="unfinished"/>
+      <translation>Ενημερώνει τότε συνομιλίας είναι αποδεκτή από ένα από τα μέλη του προσωπικού με</translation>
     </message>
     <message>
       <source>Other</source>
@@ -933,11 +937,11 @@
     </message>
     <message>
       <source>Execute new chat logic again for recipient department?</source>
-      <translation type="unfinished"/>
+      <translation>Εκτέλεση νέα συνομιλία λογικής και πάλι για το λαμβάνον τμήμα;</translation>
     </message>
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
-      <translation type="unfinished"/>
+      <translation>Εκτέλεση αναπάντητα chat λογικής και πάλι για το λαμβάνον τμήμα;</translation>
     </message>
     <message>
       <source>Miscellaneous</source>
@@ -2062,11 +2066,11 @@
     </message>
     <message>
       <source>Cookie related</source>
-      <translation type="unfinished"/>
+      <translation>Cookie που σχετίζονται</translation>
     </message>
     <message>
       <source>Chat related</source>
-      <translation type="unfinished"/>
+      <translation>Συνομιλία σχετικές</translation>
     </message>
     <message>
       <source>Workflow</source>
@@ -2194,6 +2198,10 @@
     <message>
       <source>Form module</source>
       <translation>Λειτουργική μονάδα φόρμας</translation>
+    </message>
+    <message>
+      <source>Documents module</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Statistic</source>
@@ -4944,7 +4952,7 @@
     </message>
     <message>
       <source>XMPP Message about accepted chat</source>
-      <translation type="unfinished"/>
+      <translation>XMPP μήνυμα σχετικά με τη συνομιλία αποδεκτές</translation>
     </message>
     <message>
       <source>XMPP</source>
@@ -5180,7 +5188,7 @@
     </message>
     <message>
       <source>Callback content, must be valid json</source>
-      <translation type="unfinished"/>
+      <translation>Επανάκλησης περιεχόμενο, πρέπει να είναι έγκυρη json</translation>
     </message>
     <message>
       <source>Load content in lhc iframe</source>
