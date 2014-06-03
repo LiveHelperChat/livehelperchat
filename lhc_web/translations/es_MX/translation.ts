@@ -498,7 +498,7 @@
     </message>
     <message>
       <source>Index</source>
-      <translation type="unfinished"/>
+      <translation>Indice</translation>
     </message>
     <message>
       <source>Form</source>
@@ -2205,7 +2205,7 @@
     </message>
     <message>
       <source>Documents module</source>
-      <translation type="unfinished"/>
+      <translation>Modulo para documentos</translation>
     </message>
     <message>
       <source>Statistic</source>

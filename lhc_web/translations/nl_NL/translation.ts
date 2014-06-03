@@ -496,7 +496,7 @@
     </message>
     <message>
       <source>Index</source>
-      <translation type="unfinished"/>
+      <translation>Index</translation>
     </message>
     <message>
       <source>Form</source>
@@ -869,7 +869,7 @@
     </message>
     <message>
       <source>Notifications</source>
-      <translation type="unfinished"/>
+      <translation>Notifications</translation>
     </message>
     <message>
       <source>XMPP recipients</source>
@@ -2066,11 +2066,11 @@
     </message>
     <message>
       <source>Cookie related</source>
-      <translation type="unfinished"/>
+      <translation>Cookie gerelateerd</translation>
     </message>
     <message>
       <source>Chat related</source>
-      <translation type="unfinished"/>
+      <translation>Chat gerelateerd</translation>
     </message>
     <message>
       <source>Workflow</source>
@@ -2201,7 +2201,7 @@
     </message>
     <message>
       <source>Documents module</source>
-      <translation type="unfinished"/>
+      <translation>Formulier module</translation>
     </message>
     <message>
       <source>Statistic</source>
