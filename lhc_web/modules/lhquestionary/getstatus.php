@@ -17,6 +17,7 @@ $tpl->set('top_pos',(!is_null($Params['user_parameters_unordered']['top']) && (i
 $tpl->set('units',key_exists((string)$Params['user_parameters_unordered']['units'], $validUnits) ? $validUnits[(string)$Params['user_parameters_unordered']['units']] : 'px');
 $tpl->set('widthwidget',(!is_null($Params['user_parameters_unordered']['width']) && (int)$Params['user_parameters_unordered']['width'] > 0) ? (int)$Params['user_parameters_unordered']['width'] : 300);
 $tpl->set('heightwidget',(!is_null($Params['user_parameters_unordered']['height']) && (int)$Params['user_parameters_unordered']['height'] > 0) ? (int)$Params['user_parameters_unordered']['height'] : 300);
+$tpl->set('noresponse',(string)$Params['user_parameters_unordered']['noresponse'] == 'true');
 
 echo $tpl->fetch();
 exit;

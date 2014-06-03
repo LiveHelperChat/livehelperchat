@@ -20,6 +20,7 @@ $tpl->set('heightchatcontent',(!is_null($Params['user_parameters_unordered']['ch
 $tpl->set('show_content',(!is_null($Params['user_parameters_unordered']['sc']) && (int)$Params['user_parameters_unordered']['sc'] == 'true') ? true : false);
 $tpl->set('show_content_min',(!is_null($Params['user_parameters_unordered']['scm']) && (int)$Params['user_parameters_unordered']['scm']  == 'true') ? true : false);
 $tpl->set('disable_min',(!is_null($Params['user_parameters_unordered']['dmn']) && (int)$Params['user_parameters_unordered']['dmn']  == 'true') ? true : false);
+$tpl->set('noresponse',(string)$Params['user_parameters_unordered']['noresponse'] == 'true');
 
 echo $tpl->fetch();
 exit;

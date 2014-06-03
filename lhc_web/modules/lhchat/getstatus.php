@@ -44,6 +44,7 @@ $tpl->set('click',$Params['user_parameters_unordered']['click']);
 $tpl->set('position',$Params['user_parameters_unordered']['position']);
 $tpl->set('identifier',(!is_null($Params['user_parameters_unordered']['identifier']) && !empty($Params['user_parameters_unordered']['identifier'])) ? (string)$Params['user_parameters_unordered']['identifier'] : false);
 $tpl->set('leaveamessage',(string)$Params['user_parameters_unordered']['leaveamessage'] == 'true');
+$tpl->set('noresponse',(string)$Params['user_parameters_unordered']['noresponse'] == 'true');
 $tpl->set('hide_offline',$Params['user_parameters_unordered']['hide_offline']);
 $tpl->set('department',(int)$Params['user_parameters_unordered']['department'] > 0 ? (int)$Params['user_parameters_unordered']['department'] : false);
 $tpl->set('check_operator_messages',$Params['user_parameters_unordered']['check_operator_messages']);

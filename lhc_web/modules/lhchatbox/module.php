@@ -50,7 +50,7 @@ $ViewList['getstatus'] = array(
 		'script' => 'getstatus.php',
 		'params' => array(),
 		'functions' => array(),
-		'uparams' => array('position','top','units','width','height','chat_height','sc','scm','dmn')
+		'uparams' => array('noresponse','position','top','units','width','height','chat_height','sc','scm','dmn')
 );
 
 $ViewList['embed'] = array(

@@ -33,7 +33,7 @@ $ViewList['faqwidget'] = array(
 $ViewList['getstatus'] = array(
 		'params' => array(),
 		'functions' => array( ),
-		'uparams' => array('position','top','units')
+		'uparams' => array('noresponse','position','top','units')
 );
 
 $ViewList['embed'] = array(

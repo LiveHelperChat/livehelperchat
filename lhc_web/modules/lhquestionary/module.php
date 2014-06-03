@@ -47,7 +47,7 @@ $ViewList['getstatus'] = array(
 		'script' => 'getstatus.php',
 		'params' => array(),
 		'functions' => array( ),
-		'uparams' => array('position','expand','top','units','width','height')
+		'uparams' => array('noresponse','position','expand','top','units','width','height')
 );
 
 $ViewList['votingwidget'] = array(
