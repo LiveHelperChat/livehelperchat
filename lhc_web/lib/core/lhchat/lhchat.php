@@ -831,8 +831,9 @@ class erLhcoreClassChat {
        $stmt->setFetchMode(PDO::FETCH_ASSOC);
        $stmt->execute();
        $rows = $stmt->fetchAll(PDO::FETCH_COLUMN);
-        
-       return implode("\n", array_reverse($rows));
+       $text = mb_substr(implode("\n", array_reverse($rows)),-200);
+       
+       return $text;
    }
 
 
