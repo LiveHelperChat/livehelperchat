@@ -6,3 +6,4 @@
 <!--[if lt IE 9]>
 	<link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::designCSS('css/ie8-and-down.css');?>" />
 <![endif]-->
+<?php echo isset($Result['additional_header_css']) ? $Result['additional_header_css'] : ''?>

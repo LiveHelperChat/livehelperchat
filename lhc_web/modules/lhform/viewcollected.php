@@ -20,4 +20,7 @@ $Result['path'][] = array('url' => erLhcoreClassDesign::baseurl('abstract/list')
 $Result['path'][] = array('url' => erLhcoreClassDesign::baseurl('form/collected').'/'.$collected->form->id,'title' => $collected->form);
 $Result['path'][] = array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('form/viewcollected','Collected information'));
 
+$Result['additional_header_css'] = '<link rel="stylesheet" type="text/css" href="'.erLhcoreClassDesign::designCSS('css/jquery-ui-1.10.4.custom.css').'" />';
+$Result['additional_header_js'] = '<script type="text/javascript" language="javascript" src="'.erLhcoreClassDesign::designJS('js/jquery-ui-1.10.4.custom.min.js').'"></script>';
+
 ?>
