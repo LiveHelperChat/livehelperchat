@@ -2098,6 +2098,30 @@
   <context>
     <name>system/configuration</name>
     <message>
+      <source>Chat related</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Form module</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Documents module</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users and their permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Files uploads configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Request notification permission</source>
       <translation type="unfinished"/>
     </message>
@@ -2110,7 +2134,67 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Chat related</source>
+      <source>System</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time zone settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>SMTP settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail templates</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List of groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List of roles</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live help embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Browse offers embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live help configuration</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2142,10 +2226,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>E-mail templates</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Pro active chat invitations</source>
       <translation type="unfinished"/>
     </message>
@@ -2154,15 +2234,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>SMTP settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>XMPP settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Languages configuration</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2174,63 +2246,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Time zone settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Update information</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live help embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>FAQ embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Browse offers embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Form module</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Documents module</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Statistic</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Users and their permissions</source>
+      <source>Maintenance</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Users</source>
+      <source>Forms</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>List of groups</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>List of roles</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Files uploads configuration</source>
+      <source>Files</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2242,7 +2270,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Other</source>
+      <source>Documents</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2381,6 +2409,10 @@
   </context>
   <context>
     <name>chat/lists/search_panel</name>
+    <message>
+      <source>Delete selected</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Nick</source>
       <translation type="unfinished"/>
@@ -5107,6 +5139,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat was automatically closed by cron</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Support staff member has closed this chat</source>
       <translation type="unfinished"/>
     </message>
@@ -5385,6 +5421,29 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation type="unfinished"></translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/maintenance</name>
+    <message>
+      <source>Maintenance</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatic chats close, click to close old chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatic chats purge, click to purge old chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Purged chats</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

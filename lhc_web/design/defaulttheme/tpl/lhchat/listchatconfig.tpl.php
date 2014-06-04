@@ -88,6 +88,8 @@
 		    			    		
 		    <?php $attribute = 'pro_active_limitation'?>
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+		    			    		
+		    
 		</div>
 	</section>
 	
@@ -110,7 +112,6 @@
 		    
 		    <?php $attribute = 'session_captcha';$boolValue = true;?>
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
-		    
 		    
 		    <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Chat related');?></h4>
 		    <?php $attribute = 'list_online_operators';$boolValue = true;?>
@@ -154,6 +155,12 @@
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 		     
 		    <?php $attribute = 'faq_email_required';$boolValue = true;?>
+		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+		    
+		    <?php $attribute = 'autoclose_timeout'?>
+		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+		    
+		    <?php $attribute = 'autopurge_timeout'?>
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 		    	    
 		</div>

@@ -9,7 +9,6 @@
 
 echo "Starting chat/workflow\n";
 
-
 if ( erLhcoreClassModelChatConfig::fetch('run_departments_workflow')->current_value == 1 ) {
 	echo "Starting departments workflow\n";
 
@@ -37,6 +36,10 @@ if ( erLhcoreClassModelChatConfig::fetch('run_departments_workflow')->current_va
 
 // Unanswered chats callback
 echo erLhcoreClassChatWorkflow::mainUnansweredChatWorkflow();
+
+echo "Closed chats - ",erLhcoreClassChatWorkflow::automaticChatClosing(),"\n";
+
+echo "Purged chats - ",erLhcoreClassChatWorkflow::automaticChatPurge(),"\n";
 
 echo "Ended chat/workflow\n";
 

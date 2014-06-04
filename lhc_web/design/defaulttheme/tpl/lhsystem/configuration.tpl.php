@@ -163,6 +163,10 @@
 			<?php if ($currentUser->hasAccessTo('lhchat','viewstatistic')) : ?>
 				    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/statistic')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Statistic');?></a></li>
 			<?php endif; ?>
+		    
+			<?php if ($currentUser->hasAccessTo('lhchat','maintenance')) : ?>
+				    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/maintenance')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Maintenance');?></a></li>
+			<?php endif; ?>
 
 		    
 		</ul>

@@ -168,8 +168,53 @@ class erLhcoreClassChatWorkflow {
     		if (file_exists($callbackFile)) {
     			include $callbackFile;
     		}
+    	}
+    }
+    
+    public static function automaticChatClosing() {
+    	
+    	$closedChatsNumber = 0;
+    	$timeout = (int)erLhcoreClassModelChatConfig::fetch('autoclose_timeout')->current_value;    	
+    	if ($timeout > 0) {
+    		$delay = time()-($timeout*60);
+    		foreach (erLhcoreClassChat::getList(array('limit' => 500,'filtergt' => array('last_user_msg_time' => 0), 'filterlt' => array('last_user_msg_time' => $delay), 'filter' => array('status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT))) as $chat) {
+    			$chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
+    			
+    			$msg = new erLhcoreClassModelmsg();
+    			$msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Chat was automatically closed by cron');
+    			$msg->chat_id = $chat->id;
+    			$msg->user_id = -1;
+    			
+    			$chat->last_user_msg_time = $msg->time = time();
+    			
+    			erLhcoreClassChat::getSession()->save($msg);
+    			
+    			if ($chat->last_msg_id < $msg->id) {
+    				$chat->last_msg_id = $msg->id;
+    			}
+    			
+    			$chat->updateThis();  
+    			$closedChatsNumber++;
+	    	}	    	
+    	}
+
+    	return $closedChatsNumber;
+    }
+    
+    public static function automaticChatPurge() {
+    	
+    	$purgedChatsNumber = 0;
+    	
+    	$timeout = (int)erLhcoreClassModelChatConfig::fetch('autopurge_timeout')->current_value;    	
+    	if ($timeout > 0) {
+    		$delay = time()-($timeout*60);
+    		foreach (erLhcoreClassChat::getList(array('limit' => 500,'filtergt' => array('last_user_msg_time' => 0), 'filterlt' => array('last_user_msg_time' => $delay), 'filter' => array('status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT))) as $chat) {
+    			$chat->removeThis();  
+    			$purgedChatsNumber++;
+	    	}	
     	}    	
     	
+    	return $purgedChatsNumber;
     }
 }
 

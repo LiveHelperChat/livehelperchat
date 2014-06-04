@@ -366,6 +366,12 @@ $ViewList['cannedmsg'] = array(
     'functions' => array( 'administratecannedmsg' )
 );
 
+$ViewList['maintenance'] = array(
+    'params' => array(),
+    'uparams' => array('csfr','action'),
+    'functions' => array( 'maintenance' )
+);
+
 $ViewList['newcannedmsg'] = array(
     'params' => array(),
     'functions' => array( 'administratecannedmsg' )
@@ -409,6 +415,7 @@ $FunctionList['chattabschrome'] = array('explain' =>'Allow user to user chrome e
 $FunctionList['canchangechatstatus'] = array('explain' =>'Allow user to change chat status');
 $FunctionList['administrateinvitations'] = array('explain' =>'Allow user to change pro active invitations');
 $FunctionList['administrateresponder'] = array('explain' =>'Allow user to change auto responder');
+$FunctionList['maintenance'] = array('explain' =>'Allow user to run maintenance');
 
 
 ?>
