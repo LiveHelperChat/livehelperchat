@@ -6,7 +6,6 @@
 	</head>
 <body ng-controller="LiveHelperChatCtrl as lhc">
 
-<div class="content-row">
 
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/top_menu.tpl.php'));?>
 
@@ -87,7 +86,7 @@
 
 </div>
 </div>
-</div>
+
 
 <?php if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true) {
 		$debug = ezcDebug::getInstance();
