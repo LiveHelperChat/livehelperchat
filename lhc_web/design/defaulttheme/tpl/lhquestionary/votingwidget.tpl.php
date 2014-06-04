@@ -30,7 +30,7 @@
 		<?php else : ?>
 		<textarea name="feedBack"><?php echo htmlspecialchars($answer->answer)?></textarea>
 
-		<input type="submit" class="tiny round button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/votingwidget','Send');?>" name="VoteActionButton">
+		<input type="submit" class="tiny radius secondary button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/votingwidget','Send');?>" name="VoteActionButton">
 		<input type="hidden" value="1" name="FeedBackAction"/>
 		<?php endif;?>
 
