@@ -73,7 +73,7 @@
       <div class="row">
       
       	<?php if ($currentUser->hasAccessTo('lhsystem','generatejs')) : ?>
-      	<div class="columns small-6">
+      	<div class="columns small-6 end">
 			<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Live help embed code');?></h4>
 			<ul class="circle small-list">
 			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('system/htmlcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Widget embed code');?></a></li>
@@ -83,7 +83,7 @@
 		<?php endif; ?>
 	
 		<?php if ($currentUser->hasAccessTo('lhfaq','manage_faq')) : ?>
-		<div class="columns small-6">
+		<div class="columns small-6 end">
 			<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','FAQ embed code');?></h4>
 			<ul class="circle small-list">
 			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('faq/htmlcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Widget embed code');?></a></li>
@@ -93,7 +93,7 @@
 		<?php endif; ?>
 	
 		<?php if ($currentUser->hasAccessTo('lhquestionary','manage_questionary')) : ?>
-		<div class="columns small-6">
+		<div class="columns small-6 end">
 			<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Questionary embed code');?></h4>
 			<ul class="circle small-list">
 			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('questionary/htmlcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Widget embed code');?></a></li>
@@ -103,7 +103,7 @@
 		<?php endif; ?>
 	
 		<?php if ($currentUser->hasAccessTo('lhchatbox','manage_chatbox')) : ?>
-		<div class="columns small-6">
+		<div class="columns small-6 end">
 			<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Chatbox embed code');?></h4>
 			<ul class="circle small-list">
 			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chatbox/htmlcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Widget embed code');?></a></li>
@@ -113,7 +113,7 @@
 		<?php endif; ?>
 	
 		<?php if ($currentUser->hasAccessTo('lhbrowseoffer','manage_bo')) : ?>
-		<div class="columns small-6">
+		<div class="columns small-6 end">
 			<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Browse offers embed code');?></h4>
 			<ul class="circle small-list">
 			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('browseoffer/htmlcode')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Embed code');?></a></li>
