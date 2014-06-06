@@ -535,7 +535,8 @@ class erLhcoreClassModelChatOnlineUser {
 	                   }
 
 	                   $item->identifier = (isset($paramsHandle['identifier']) && !empty($paramsHandle['identifier'])) ? $paramsHandle['identifier'] : $item->identifier;
-
+	                   $item->dep_id =  (isset($paramsHandle['department'])) ? (int)$paramsHandle['department'] : $item->dep_id;
+	                   
 	               } else {
 	                   $item = new erLhcoreClassModelChatOnlineUser();
 	                   $item->ip = erLhcoreClassIPDetect::getIP();
