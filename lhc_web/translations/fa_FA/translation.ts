@@ -321,6 +321,10 @@
       <translation>میانه چپ صفحه</translation>
     </message>
     <message>
+      <source>Disable responsive layout for status widget.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disable minimize icon</source>
       <translation>غیرفعال کردن آیکون کوچک کردن</translation>
     </message>

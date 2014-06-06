@@ -321,6 +321,10 @@
       <translation>屏幕左侧中东</translation>
     </message>
     <message>
+      <source>Disable responsive layout for status widget.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disable minimize icon</source>
       <translation>禁用最小化图标</translation>
     </message>

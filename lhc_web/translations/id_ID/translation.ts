@@ -321,6 +321,10 @@
       <translation>Bagian tengah kiri dari layar</translation>
     </message>
     <message>
+      <source>Disable responsive layout for status widget.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disable minimize icon</source>
       <translation type="unfinished"/>
     </message>
@@ -1651,7 +1655,7 @@
     </message>
     <message>
       <source>Use MaxMind, does not depend on any third party remote service</source>
-      <translation type="unfinished"/>
+      <translation>Gunakan MaxMind, tidak tergantung pada setiap pengendali layanan pihak ketiga</translation>
     </message>
     <message>
       <source>You can download city/country database from.</source>

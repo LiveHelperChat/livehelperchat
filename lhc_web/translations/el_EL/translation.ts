@@ -321,6 +321,10 @@
       <translation>Μεσαία αριστερή πλευρά της οθόνης</translation>
     </message>
     <message>
+      <source>Disable responsive layout for status widget.</source>
+      <translation>Απενεργοποιήσετε ανταποκρίνεται διάταξη για το γραφικό στοιχείο κατάσταση.</translation>
+    </message>
+    <message>
       <source>Disable minimize icon</source>
       <translation>Απενεργοποίηση Ελαχιστοποίηση εικονίδιο</translation>
     </message>
@@ -496,7 +500,7 @@
     </message>
     <message>
       <source>Index</source>
-      <translation type="unfinished"/>
+      <translation>Δείκτης</translation>
     </message>
     <message>
       <source>Form</source>
@@ -2201,7 +2205,7 @@
     </message>
     <message>
       <source>Documents module</source>
-      <translation type="unfinished"/>
+      <translation>Ενότητα έγγραφα</translation>
     </message>
     <message>
       <source>Statistic</source>

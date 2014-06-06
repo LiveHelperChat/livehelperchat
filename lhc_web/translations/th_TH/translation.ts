@@ -321,6 +321,10 @@
       <translation>กลางซ้ายของหน้าจอ</translation>
     </message>
     <message>
+      <source>Disable responsive layout for status widget.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disable minimize icon</source>
       <translation type="unfinished"/>
     </message>

@@ -321,6 +321,10 @@
       <translation>Linke Seite auf mittlerer Hoehe</translation>
     </message>
     <message>
+      <source>Disable responsive layout for status widget.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disable minimize icon</source>
       <translation>Deaktivierung Minimieren-Icon</translation>
     </message>

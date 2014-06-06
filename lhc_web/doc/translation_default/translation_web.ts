@@ -477,6 +477,18 @@
   <context>
     <name>browseoffer/index</name>
     <message>
+      <source>List of forms</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Index</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Browse offers</source>
       <translation type="unfinished"/>
     </message>
@@ -493,15 +505,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>List of forms</source>
+      <source>Forms</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Page embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Index</source>
+      <source>Documents</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -947,6 +955,10 @@
     </message>
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto assignment</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2122,6 +2134,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Forms</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Documents</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Request notification permission</source>
       <translation type="unfinished"/>
     </message>
@@ -2238,6 +2258,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Automatic chats assigment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chats list</source>
       <translation type="unfinished"/>
     </message>
@@ -2254,10 +2278,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Forms</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Files</source>
       <translation type="unfinished"/>
     </message>
@@ -2267,10 +2287,6 @@
     </message>
     <message>
       <source>List of files</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Documents</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2373,6 +2389,10 @@
     </message>
     <message>
       <source>Online visitors</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Extra modules</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3442,11 +3462,23 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>I can see all pending chats, not only assigned to me</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Account updated</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Delete</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User can see all pending chats, not only assigned to him</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4656,11 +4688,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Departments</source>
+      <source>Save</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Save</source>
+      <source>Departments</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5443,6 +5475,21 @@
     </message>
     <message>
       <source>Purged chats</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/operatorsbalancing</name>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Maximum number of active chats user can have at a time, 0 - unlimited</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled</source>
       <translation type="unfinished"/>
     </message>
   </context>

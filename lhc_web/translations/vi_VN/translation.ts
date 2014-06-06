@@ -321,6 +321,10 @@
       <translation>Bên giữa bên trái của màn hình</translation>
     </message>
     <message>
+      <source>Disable responsive layout for status widget.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disable minimize icon</source>
       <translation type="unfinished"/>
     </message>

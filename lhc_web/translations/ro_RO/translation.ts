@@ -321,6 +321,10 @@
       <translation>Mijloc-stanga</translation>
     </message>
     <message>
+      <source>Disable responsive layout for status widget.</source>
+      <translation>Dezactiveaza layout-ul responsive pentru widget-ul de status.</translation>
+    </message>
+    <message>
       <source>Disable minimize icon</source>
       <translation>Dezactiveaza icon-ul de micsorare</translation>
     </message>

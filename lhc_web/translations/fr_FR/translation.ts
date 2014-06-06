@@ -321,6 +321,10 @@
       <translation>Partie gauche du milieu de l&apos;écran</translation>
     </message>
     <message>
+      <source>Disable responsive layout for status widget.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disable minimize icon</source>
       <translation type="unfinished"/>
     </message>

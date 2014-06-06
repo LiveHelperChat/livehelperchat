@@ -321,6 +321,10 @@
       <translation>Canto centro-esquerdo da página</translation>
     </message>
     <message>
+      <source>Disable responsive layout for status widget.</source>
+      <translation>Desativar layout responsivo para widget de status.</translation>
+    </message>
+    <message>
       <source>Disable minimize icon</source>
       <translation>Desativar ícone minimizar</translation>
     </message>

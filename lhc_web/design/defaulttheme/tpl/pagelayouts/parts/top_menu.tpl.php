@@ -9,7 +9,7 @@
 	<section class="top-bar-section">
 		<ul class="right">
 			 <?php if ($currentUser->hasAccessTo('lhchat','use')) : ?>
-			<li><a href="javascript:void(0)" onclick="javascript:lhinst.chatTabsOpen()"><i class="icon-chat"></i></a></li>
+			<li class="li-icon"><a href="javascript:void(0)" onclick="javascript:lhinst.chatTabsOpen()"><i class="icon-chat"></i></a></li>
 			<li class="divider"></li>
 			<li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/lists')?>" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Chats list');?></a></li>
 			<?php if ($currentUser->hasAccessTo('lhchat','use_onlineusers')) : ?>
@@ -18,21 +18,33 @@
 			<li class="divider"></li>
 			<?php endif;?>
 						
-			<?php if ($currentUser->hasAccessTo('lhquestionary','manage_questionary')) : ?>
-			<li><a href="<?php echo erLhcoreClassDesign::baseurl('questionary/list')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Questionary');?></a></li>
-			<?php endif;?>
-			<?php if ($currentUser->hasAccessTo('lhfaq','manage_faq')) : ?>
-			<li><a href="<?php echo erLhcoreClassDesign::baseurl('faq/list')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','FAQ');?></a></li>
-			<?php endif;?>
-			<?php if ($currentUser->hasAccessTo('lhchatbox','manage_chatbox')) : ?>
-			<li><a href="<?php echo erLhcoreClassDesign::baseurl('chatbox/configuration')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Chatbox');?></a></li>
-			<?php endif; ?>			
-			<?php if ($currentUser->hasAccessTo('lhbrowseoffer','manage_bo')) : ?>
-			<li><a href="<?php echo erLhcoreClassDesign::baseurl('browseoffer/index')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Browse offers');?></a></li>
-			<?php endif; ?>			
+			<li class="has-dropdown">
+                <a href="#"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Extra modules')?></a>
+                <ul class="dropdown">
+                  <?php if ($currentUser->hasAccessTo('lhquestionary','manage_questionary')) : ?>
+				  <li><a href="<?php echo erLhcoreClassDesign::baseurl('questionary/list')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Questionary');?></a></li>
+				  <?php endif;?>
+                  <?php if ($currentUser->hasAccessTo('lhfaq','manage_faq')) : ?>
+				  <li><a href="<?php echo erLhcoreClassDesign::baseurl('faq/list')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','FAQ');?></a></li>
+				  <?php endif;?>
+                  <?php if ($currentUser->hasAccessTo('lhchatbox','manage_chatbox')) : ?>
+				  <li><a href="<?php echo erLhcoreClassDesign::baseurl('chatbox/configuration')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Chatbox');?></a></li>
+				  <?php endif; ?>		
+                  <?php if ($currentUser->hasAccessTo('lhbrowseoffer','manage_bo')) : ?>
+				  <li><a href="<?php echo erLhcoreClassDesign::baseurl('browseoffer/index')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Browse offers');?></a></li>
+				  <?php endif; ?>				  				  
+				  <?php if ($currentUser->hasAccessTo('lhform','manage_fm')) : ?>
+				  <li><a href="<?php echo erLhcoreClassDesign::baseurl('form/index')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('browseoffer/index','Forms');?></a></li>
+				  <?php endif;?>
+                  <?php if ($currentUser->hasAccessTo('lhdocshare','manage_dc')) : ?>
+				  <li><a href="<?php echo erLhcoreClassDesign::baseurl('docshare/index')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('browseoffer/index','Documents');?></a></li>
+				  <?php endif; ?>
+                </ul>
+            </li>
+				
 			<li class="divider"></li>
 			<?php if ($currentUser->hasAccessTo('lhsystem','use')) : ?>
-			<li><a href="<?php echo erLhcoreClassDesign::baseurl('system/configuration')?>"><i class="icon-tools"></i></a></li>
+			<li class="li-icon"><a href="<?php echo erLhcoreClassDesign::baseurl('system/configuration')?>"><i class="icon-tools"></i></a></li>
 			<?php endif; ?>
 			<?php $hideULSetting = true;?>
 			<?php include(erLhcoreClassDesign::designtpl('lhchat/user_settings.tpl.php'));?>

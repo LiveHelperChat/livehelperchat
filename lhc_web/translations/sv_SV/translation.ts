@@ -321,6 +321,10 @@
       <translation>Mitt på till vänster på skärmen</translation>
     </message>
     <message>
+      <source>Disable responsive layout for status widget.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disable minimize icon</source>
       <translation>Inaktivera minimerad ikon</translation>
     </message>

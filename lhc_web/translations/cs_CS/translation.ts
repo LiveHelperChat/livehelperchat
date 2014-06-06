@@ -321,6 +321,10 @@
       <translation>Střední levá část obrazovky</translation>
     </message>
     <message>
+      <source>Disable responsive layout for status widget.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disable minimize icon</source>
       <translation>Vypnout zobrazení ikony minimalizování</translation>
     </message>

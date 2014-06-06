@@ -323,6 +323,10 @@
       <translation>Parte central izquierda de la pantalla</translation>
     </message>
     <message>
+      <source>Disable responsive layout for status widget.</source>
+      <translation>Desactivar el diseño responsivo para el widget de estado.</translation>
+    </message>
+    <message>
       <source>Disable minimize icon</source>
       <translation>Deshabilitar botón minimizar</translation>
     </message>

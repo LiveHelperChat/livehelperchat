@@ -163,12 +163,12 @@ form {
 	color: #696969;
 }
 
-.top-bar-section li a:not(.button){
+.top-bar-section li.li-icon a{
 	padding: 0 12px;
 }
 
 
-.top-bar-section li a:not(.button):hover {
+.top-bar-section > ul > li > a:not(.button):hover {
 	background-color:transparent;
 	color: #333;
 }

@@ -117,13 +117,13 @@
 </section>
 
 <section <?php if ($tab == 'tab_pending') : ?>class="active"<?php endif;?>>
-    <p class="title" data-section-title><a href="#pending"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Visible pending chats mode');?></a></p>
+    <p class="title" data-section-title><a href="#pending"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Pending chats');?></a></p>
     <div class="content" data-section-content data-slug="pending">
 	   <form action="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $user->id?>#pending" method="post">
 
 	  	<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
-		<label><input type="checkbox" name="showAllPendingEnabled" value="1" <?php erLhcoreClassModelUserSetting::getSetting('show_all_pending',1,$user->id) == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Show all pending chats, not only assigned to user');?></label>
+		<label><input type="checkbox" name="showAllPendingEnabled" value="1" <?php erLhcoreClassModelUserSetting::getSetting('show_all_pending',1,$user->id) == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','User can see all pending chats, not only assigned to him');?></label>
 		
 		<input type="submit" class="small button" name="UpdatePending_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>"/>
 	   </form>

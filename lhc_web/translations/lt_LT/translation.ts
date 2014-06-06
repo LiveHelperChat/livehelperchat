@@ -321,6 +321,10 @@
       <translation>Rodyti ekrano kairėje pusėje per vidurį</translation>
     </message>
     <message>
+      <source>Disable responsive layout for status widget.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disable minimize icon</source>
       <translation>Išjungti mažinimo ikoną</translation>
     </message>

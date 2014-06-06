@@ -321,6 +321,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Disable responsive layout for status widget.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disable minimize icon</source>
       <translation>Изключване на иконата за минимизиране</translation>
     </message>
