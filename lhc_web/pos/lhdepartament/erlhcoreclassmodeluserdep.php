@@ -29,6 +29,16 @@ $def->properties['hide_online']->columnName   = 'hide_online';
 $def->properties['hide_online']->propertyName = 'hide_online';
 $def->properties['hide_online']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT; 
 
+$def->properties['last_accepted'] = new ezcPersistentObjectProperty();
+$def->properties['last_accepted']->columnName   = 'last_accepted';
+$def->properties['last_accepted']->propertyName = 'last_accepted';
+$def->properties['last_accepted']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT; 
+
+$def->properties['active_chats'] = new ezcPersistentObjectProperty();
+$def->properties['active_chats']->columnName   = 'active_chats';
+$def->properties['active_chats']->propertyName = 'active_chats';
+$def->properties['active_chats']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT; 
+
 return $def; 
 
 ?>

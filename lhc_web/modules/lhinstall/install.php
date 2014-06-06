@@ -296,6 +296,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  `wait_timeout` int(11) NOT NULL,
         	   	  `wait_timeout_send` int(11) NOT NULL,
   				  `chat_duration` int(11) NOT NULL,
+  				  `tslasign` int(11) NOT NULL,
         	   	  `priority` int(11) NOT NULL,
         	   	  `chat_initiator` int(11) NOT NULL,
         	   	  `transfer_timeout_ts` int(11) NOT NULL,
@@ -304,7 +305,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  `na_cb_executed` int(11) NOT NULL,
         	   	  `nc_cb_executed` tinyint(1) NOT NULL,
 				  PRIMARY KEY (`id`),
-				  KEY `status` (`status`),
+				  KEY `status_user_id` (`status`,`user_id`),
 				  KEY `user_id` (`user_id`),
 				  KEY `online_user_id` (`online_user_id`),
 				  KEY `dep_id` (`dep_id`),
@@ -733,6 +734,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `disabled` int(11) NOT NULL,
 				  `hidden` int(11) NOT NULL,
 				  `delay_lm` int(11) NOT NULL,
+				  `max_active_chats` int(11) NOT NULL,
+				  `max_timeout_seconds` int(11) NOT NULL,
 				  `identifier` varchar(50) NOT NULL,
 				  `mod` tinyint(1) NOT NULL,
 				  `tud` tinyint(1) NOT NULL,
@@ -744,6 +747,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `nc_cb_execute` tinyint(1) NOT NULL,
 				  `na_cb_execute` tinyint(1) NOT NULL,
 				  `inform_unread` tinyint(1) NOT NULL,
+				  `active_balancing` tinyint(1) NOT NULL,
 				  `start_hour` int(2) NOT NULL,
 				  `end_hour` int(2) NOT NULL,
 				  `inform_close` int(11) NOT NULL,
@@ -854,16 +858,18 @@ switch ((int)$Params['user_parameters']['step_id']) {
 
                 // User departaments
                 $db->query("CREATE TABLE IF NOT EXISTS `lh_userdep` (
-                  `id` int(11) NOT NULL AUTO_INCREMENT,
-                  `user_id` int(11) NOT NULL,
-                  `dep_id` int(11) NOT NULL,
-                  `last_activity` int(11) NOT NULL,
-                  `hide_online` int(11) NOT NULL,
-                  PRIMARY KEY (`id`),
-                  KEY `user_id` (`user_id`),
-                  KEY `last_activity_hide_online_dep_id` (`last_activity`,`hide_online`,`dep_id`),
-                  KEY `dep_id` (`dep_id`)
-                ) DEFAULT CHARSET=utf8;");
+				  `id` int(11) NOT NULL AUTO_INCREMENT,
+				  `user_id` int(11) NOT NULL,
+				  `dep_id` int(11) NOT NULL,
+				  `last_activity` int(11) NOT NULL,
+				  `hide_online` int(11) NOT NULL,
+				  `last_accepted` int(11) NOT NULL,
+				  `active_chats` int(11) NOT NULL,
+				  PRIMARY KEY (`id`),
+				  KEY `user_id` (`user_id`),
+				  KEY `last_activity_hide_online_dep_id` (`last_activity`,`hide_online`,`dep_id`),
+				  KEY `dep_id` (`dep_id`)
+				) DEFAULT CHARSET=utf8;");
 
                 // Insert record to departament instantly
                 $db->query("INSERT INTO `lh_userdep` (`user_id`,`dep_id`,`last_activity`,`hide_online`) VALUES ({$UserData->id},0,0,0)");

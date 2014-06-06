@@ -275,12 +275,17 @@ $def->properties['fbst']->columnName   = 'fbst';
 $def->properties['fbst']->propertyName = 'fbst';
 $def->properties['fbst']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
-
 // Was callback for new chat executed? 0 - no, 1 - yes
 $def->properties['nc_cb_executed'] = new ezcPersistentObjectProperty();
 $def->properties['nc_cb_executed']->columnName   = 'nc_cb_executed';
 $def->properties['nc_cb_executed']->propertyName = 'nc_cb_executed';
 $def->properties['nc_cb_executed']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+// Time since last assignment
+$def->properties['tslasign'] = new ezcPersistentObjectProperty();
+$def->properties['tslasign']->columnName   = 'tslasign';
+$def->properties['tslasign']->propertyName = 'tslasign';
+$def->properties['tslasign']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 
 return $def;

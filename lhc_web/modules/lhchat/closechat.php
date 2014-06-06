@@ -32,7 +32,9 @@ if ($chat->user_id == $currentUser->getUserID() || $currentUser->hasAccessTo('lh
 	    erLhcoreClassChat::getSession()->save($msg);
 
 	    $chat->updateThis();
-
+	    
+	    erLhcoreClassChat::updateActiveChats($chat->user_id);
+	    
 	    // Execute callback for close chat
 	    erLhcoreClassChat::closeChatCallback($chat,$userData);
 	}

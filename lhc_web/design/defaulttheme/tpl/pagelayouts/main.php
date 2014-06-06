@@ -48,33 +48,41 @@
 			</div>
 
     		<?php if ($pendingTabEnabled == true) : ?>
+    		<div ng-show="pending_chats.list.length > 0">
 			<h5><a href="<?php echo erLhcoreClassDesign::baseurl('chat/pendingchats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Pending chats');?></a></h5>
     		<div id="right-pending-chats">
 				<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_pending_list.tpl.php'));?>
             </div>
-        	<hr>
+            <hr>
+            </div>        	
         	<?php endif;?>
 
         	<?php if ($activeTabEnabled == true) : ?>
+        	<div ng-show="active_chats.list.length > 0">
 			<h5><a href="<?php echo erLhcoreClassDesign::baseurl('chat/activechats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Active chats');?></a></h5>
     		<div id="right-active-chats">
     			<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_active_list.tpl.php'));?>
             </div>
         	<hr>
+        	</div>
         	<?php endif;?>
 
 			<?php if ($unreadTabEnabled == true) : ?>
+			<div ng-show="unread_chats.list.length > 0">
 	        <h5><a href="<?php echo erLhcoreClassDesign::baseurl('chat/unreadchats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Unread messages');?></a></h5>
     		<div id="right-unread-chats">
     			<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_unread_list.tpl.php'));?>           		
             </div>
             <hr>
+            </div>
 			<?php endif;?>
 
         	<?php if ($closedTabEnabled == true) : ?>
+        	<div ng-show="closed_chats.list.length > 0">
 	        <h5><a href="<?php echo erLhcoreClassDesign::baseurl('chat/closedchats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Closed chats');?></a></h5>
     		<div id="right-closed-chats">        		
         		<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_closed_list.tpl.php'));?>        		
+            </div>
             </div>
         	<?php endif;?>
     </div>

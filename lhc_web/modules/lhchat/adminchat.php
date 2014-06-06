@@ -16,20 +16,21 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 	}
 	
 	if ($userData->invisible_mode == 0) {	
+		
+		$operatorAccepted = false;
+		    
+	    if ($chat->user_id == 0) {
+	        $currentUser = erLhcoreClassUser::instance();
+	        $chat->user_id = $currentUser->getUserID();	        
+	    }
+	    
 	    // If status is pending change status to active
 	    if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
 	    	$chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
 	    	$chat->wait_time = time() - $chat->time;
+	    	$operatorAccepted = true;
 	    }
-	
-	    $operatorAccepted = false;
-	    if ($chat->user_id == 0)
-	    {
-	        $currentUser = erLhcoreClassUser::instance();
-	        $chat->user_id = $currentUser->getUserID();
-	        $operatorAccepted = true;
-	    }
-	
+	    
 	    $chat->support_informed = 1;
 	    $chat->has_unread_messages = 0;
 	    $chat->unread_messages_informed = 0;
@@ -44,6 +45,9 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 	    };
 	    
 	    if ($operatorAccepted == true) {
+	    		    
+	    	erLhcoreClassChat::updateActiveChats($chat->user_id);
+	    	
 	    	$options = $chat->department->inform_options_array;
 	    	erLhcoreClassChatWorkflow::chatAcceptedWorkflow(array('department' => $chat->department,'options' => $options),$chat);
 	    };

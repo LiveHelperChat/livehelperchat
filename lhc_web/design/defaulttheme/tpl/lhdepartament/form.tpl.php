@@ -122,6 +122,22 @@
   </section>
   <?php endif; ?>
   
+   
+  <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartament','actautoassignment')) : ?>
+  <section>
+		<p class="title" data-section-title><a href="#autoassignment"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Auto assignment');?></a></p>	    
+		<div class="content" data-section-content data-slug="autoassignment">	
+		    	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Active');?> <input type="checkbox" name="AutoAssignActive" value="on" <?php if ($departament->active_balancing == 1) : ?>checked="checked"<?php endif;?> /></label>
+
+				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Maximum number of active chats user can have at a time, 0 - unlimited');?></label>
+				<input type="text" name="MaxNumberActiveChats" value="<?php echo htmlspecialchars($departament->max_active_chats);?>" />
+				
+				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled');?></label>
+				<input type="text" name="MaxWaitTimeoutSeconds" value="<?php echo htmlspecialchars($departament->max_timeout_seconds);?>" /> 						    	
+  		</div>
+  </section>
+  <?php endif; ?>
+  
   <section>
 		    <p class="title" data-section-title><a href="#miscellaneous"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Miscellaneous');?></a></p>	    
 		    <div class="content" data-section-content data-slug="miscellaneous">	

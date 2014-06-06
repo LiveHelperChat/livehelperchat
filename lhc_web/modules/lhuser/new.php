@@ -4,6 +4,7 @@ $tpl = erLhcoreClassTemplate::getInstance( 'lhuser/new.tpl.php');
 
 $UserData = new erLhcoreClassModelUser();
 $UserDepartaments = isset($_POST['UserDepartament']) ? $_POST['UserDepartament'] : array();
+$show_all_pending = 0;
 
 if (isset($_POST['Update_account']))
 {
@@ -33,6 +34,9 @@ if (isset($_POST['Update_account']))
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 		), 
 		'UserInvisible' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+		), 
+		'showAllPendingEnabled' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 		), 
    		'JobTitle' => new ezcInputFormDefinitionElement(
@@ -135,6 +139,13 @@ if (isset($_POST['Update_account']))
     	$UserData->disabled = 0;
     }
 
+    if ( $form->hasValidData( 'showAllPendingEnabled' ) && $form->showAllPendingEnabled == true )
+    {
+    	$show_all_pending = 1;
+    } else {
+    	$show_all_pending = 0;
+    }
+
     if ( $form->hasValidData( 'HideMyStatus' ) && $form->HideMyStatus == true )
     {
     	$UserData->hide_online = 1;
@@ -148,20 +159,21 @@ if (isset($_POST['Update_account']))
     	$UserData->invisible_mode = 0;
     }
     
+    $globalDepartament = array();
+    
+    if (isset($_POST['all_departments']) && $_POST['all_departments'] == 'on') {
+    	$UserData->all_departments = 1;
+    	$globalDepartament[] = 0;
+    } else {
+    	$UserData->all_departments = 0;
+    }
+    
     if (count($Errors) == 0)
     {
         $UserData->setPassword($form->Password);
         $UserData->email   = $form->Email;
         $UserData->name    = $form->Name;
         $UserData->username = $form->Username;
-
-        $globalDepartament = array();
-        if (isset($_POST['all_departments']) && $_POST['all_departments'] == 'on') {
-           $UserData->all_departments = 1;
-           $globalDepartament[] = 0;
-        } else {
-           $UserData->all_departments = 0;
-        }
 
         erLhcoreClassUser::getSession()->save($UserData);
 
@@ -201,6 +213,8 @@ if (isset($_POST['Update_account']))
         	}
         }
 
+        erLhcoreClassModelUserSetting::setSetting('show_all_pending',$show_all_pending,$UserData->id);
+              
         erLhcoreClassModule::redirect('user/userlist');
         exit;
 
@@ -222,6 +236,7 @@ if (isset($_POST['Update_account']))
 
 $tpl->set('user',$UserData);
 $tpl->set('userdepartaments',$UserDepartaments);
+$tpl->set('show_all_pending',$show_all_pending);
 
 $Result['content'] = $tpl->fetch();
 

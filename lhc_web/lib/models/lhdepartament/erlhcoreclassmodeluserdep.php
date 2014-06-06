@@ -9,7 +9,9 @@ class erLhcoreClassModelUserDep {
                'user_id'        => $this->user_id,
                'dep_id'         => $this->dep_id,
                'last_activity'  => $this->last_activity,
-               'hide_online'    => $this->hide_online
+               'hide_online'    => $this->hide_online,
+               'last_accepted'  => $this->last_accepted,
+               'active_chats'   => $this->active_chats
        );
    }
 
@@ -142,6 +144,8 @@ class erLhcoreClassModelUserDep {
    public $dep_id = 0;
    public $hide_online = 0;
    public $last_activity = 0;
+   public $last_accepted = 0;
+   public $active_chats = 0;
 }
 
 ?>

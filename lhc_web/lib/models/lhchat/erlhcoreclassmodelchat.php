@@ -69,6 +69,8 @@ class erLhcoreClassModelChat {
        		
        		   // Screenshot ID? maps to file
                'screenshot_id'    		=> $this->screenshot_id,
+       		
+               'tslasign'    			=> $this->tslasign,
        );
    }
 
@@ -102,6 +104,8 @@ class erLhcoreClassModelChat {
 	   	erLhcoreClassModelChatFile::deleteByChatId($this->id);
 
 	   	erLhcoreClassChat::getSession()->delete($this);
+	   	
+	   	erLhcoreClassChat::updateActiveChats($this->user_id);
    }
 
    public static function fetch($chat_id) {
@@ -399,6 +403,9 @@ class erLhcoreClassModelChat {
    
    public $unread_messages_informed = 0;
    public $reinform_timeout = 0;
+   
+   // Time since last assignment
+   public $tslasign = 0;
    
    public $updateIgnoreColumns = array();
 }

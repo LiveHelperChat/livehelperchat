@@ -1063,6 +1063,17 @@ class erLhcoreClassChat {
    			$object = (object)array_filter((array)$object);   		
    }
    
+   
+   public static function updateActiveChats($user_id)
+   {
+	   	$db = ezcDbInstance::get();
+	   	$stmt = $db->prepare('UPDATE lh_userdep SET active_chats = :active_chats WHERE user_id = :user_id');
+	   	$stmt->bindValue(':active_chats',erLhcoreClassChat::getCount(array('filter' => array('user_id' => $user_id, 'status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT))),PDO::PARAM_INT);
+	   	$stmt->bindValue(':user_id',$user_id,PDO::PARAM_INT);
+	   	$stmt->execute();
+   }
+   
+   
    private static $persistentSession;
 }
 

@@ -19,6 +19,8 @@ $pendingTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_pending_l
 $activeTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_active_list',1);
 $closedTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_close_list',0);
 $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_list',1);
+$showAllPending = erLhcoreClassModelUserSetting::getSetting('show_all_pending',1);
+
 
 if ($activeTabEnabled == true) {
 	/**
@@ -39,10 +41,16 @@ if ($closedTabEnabled == true) {
 }
 
 if ($pendingTabEnabled == true) {
+	
+	$additionalFilter = array('ignore_fields' => erLhcoreClassChat::$chatListIgnoreField);
+	
+	if ($showAllPending == 0) {
+		$additionalFilter['filter']['user_id'] = $currentUser->getUserID();
+	}
 	/**
 	 * Pending chats
 	 * */
-	$pendingChats = erLhcoreClassChat::getPendingChats(10,0,array('ignore_fields' => erLhcoreClassChat::$chatListIgnoreField));
+	$pendingChats = erLhcoreClassChat::getPendingChats(10,0,$additionalFilter);
 
 
 	/**

@@ -41,6 +41,10 @@ echo "Closed chats - ",erLhcoreClassChatWorkflow::automaticChatClosing(),"\n";
 
 echo "Purged chats - ",erLhcoreClassChatWorkflow::automaticChatPurge(),"\n";
 
+foreach (erLhcoreClassChat::getList(array('limit' => 500, 'filter' => array('status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT))) as $chat){
+	erLhcoreClassChatWorkflow::autoAssign($chat,$chat->department);
+}
+
 echo "Ended chat/workflow\n";
 
 ?>

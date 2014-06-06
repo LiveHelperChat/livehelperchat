@@ -194,6 +194,7 @@ class erLhcoreClassChatWorkflow {
     			}
     			
     			$chat->updateThis();  
+    			erLhcoreClassChat::updateActiveChats($chat->user_id);
     			$closedChatsNumber++;
 	    	}	    	
     	}
@@ -209,12 +210,52 @@ class erLhcoreClassChatWorkflow {
     	if ($timeout > 0) {
     		$delay = time()-($timeout*60);
     		foreach (erLhcoreClassChat::getList(array('limit' => 500,'filtergt' => array('last_user_msg_time' => 0), 'filterlt' => array('last_user_msg_time' => $delay), 'filter' => array('status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT))) as $chat) {
-    			$chat->removeThis();  
+    			$chat->removeThis(); 
+    			erLhcoreClassChat::updateActiveChats($chat->user_id);
     			$purgedChatsNumber++;
 	    	}	
     	}    	
     	
     	return $purgedChatsNumber;
+    }
+    
+    public static function autoAssign(& $chat, $department) {    	
+    	if ( $department->active_balancing == 1 && ($chat->user_id == 0 || ($department->max_timeout_seconds > 0 && $chat->tslasign < time()-$department->max_timeout_seconds)) ){
+	    	$isOnlineUser = (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'];
+	
+	    	$appendSQL = '';
+	    	if ($department->max_active_chats > 0){
+	    		$appendSQL = ' AND active_chats < :max_active_chats';
+	    	}
+	    	
+	    	$sql = "SELECT user_id FROM lh_userdep WHERE hide_online = 0 AND dep_id = :dep_id AND last_activity > :last_activity AND user_id != :user_id {$appendSQL} ORDER BY last_accepted ASC LIMIT 1";
+	    	    	
+	    	$db = ezcDbInstance::get();
+	    	$stmt = $db->prepare($sql);
+	    	$stmt->bindValue(':dep_id',$department->id,PDO::PARAM_INT);
+	    	$stmt->bindValue(':last_activity',$isOnlineUser,PDO::PARAM_INT);
+	    	$stmt->bindValue(':user_id',$chat->user_id,PDO::PARAM_INT);
+	    	
+	    	if ($department->max_active_chats > 0) {
+	    		$stmt->bindValue(':max_active_chats',$department->max_active_chats,PDO::PARAM_INT);
+	    	}
+	    	
+	    	$stmt->execute();
+	
+	    	$user_id = $stmt->fetchColumn();
+	
+	    	if ($user_id > 0) {
+	    		erLhcoreClassChat::updateActiveChats($chat->user_id);    		
+	    		$chat->tslasign = time();
+	    		$chat->user_id = $user_id;
+	    		$chat->updateThis();
+	    		
+	    		$stmt = $db->prepare('UPDATE lh_userdep SET last_accepted = :last_accepted WHERE user_id = :user_id');
+	    		$stmt->bindValue(':last_accepted',time(),PDO::PARAM_INT);
+	    		$stmt->bindValue(':user_id',$user_id,PDO::PARAM_INT);
+	    		$stmt->execute();
+	    	}
+    	}
     }
 }
 

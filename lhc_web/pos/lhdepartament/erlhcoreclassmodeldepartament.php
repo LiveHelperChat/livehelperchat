@@ -159,6 +159,21 @@ $def->properties['delay_lm']->columnName   = 'delay_lm';
 $def->properties['delay_lm']->propertyName = 'delay_lm';
 $def->properties['delay_lm']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['active_balancing'] = new ezcPersistentObjectProperty();
+$def->properties['active_balancing']->columnName   = 'active_balancing';
+$def->properties['active_balancing']->propertyName = 'active_balancing';
+$def->properties['active_balancing']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['max_active_chats'] = new ezcPersistentObjectProperty();
+$def->properties['max_active_chats']->columnName   = 'max_active_chats';
+$def->properties['max_active_chats']->propertyName = 'max_active_chats';
+$def->properties['max_active_chats']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['max_timeout_seconds'] = new ezcPersistentObjectProperty();
+$def->properties['max_timeout_seconds']->columnName   = 'max_timeout_seconds';
+$def->properties['max_timeout_seconds']->propertyName = 'max_timeout_seconds';
+$def->properties['max_timeout_seconds']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

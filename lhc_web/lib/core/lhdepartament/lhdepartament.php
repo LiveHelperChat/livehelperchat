@@ -106,6 +106,15 @@ class erLhcoreClassDepartament{
 	   			'na_cb_execute' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	   			),
+	   			'AutoAssignActive' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	   			),
+	   			'MaxNumberActiveChats' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'int'
+	   			),
+	   			'MaxWaitTimeoutSeconds' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'int'
+	   			),
 	   			'StartHour' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0, 'mx_range' => 24)
 	   			),
@@ -132,6 +141,28 @@ class erLhcoreClassDepartament{
 	   		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Please enter a department name');
 	   	} else {
 	   		$department->name = $form->Name;
+	   	}
+	   	
+	   	if ( erLhcoreClassUser::instance()->hasAccessTo('lhdepartament','actautoassignment') ) {
+		   	if ( $form->hasValidData( 'AutoAssignActive' ) && $form->AutoAssignActive == true )	{
+		   		$department->active_balancing = 1;
+		   	} else {
+		   		$department->active_balancing = 0;
+		   	}
+		   	
+		   	if ( $form->hasValidData( 'MaxNumberActiveChats' ) )
+		   	{
+		   		$department->max_active_chats = $form->MaxNumberActiveChats;
+		   	} else {
+		   		$department->max_active_chats = 0;
+		   	}
+		   	
+		   	if ( $form->hasValidData( 'MaxWaitTimeoutSeconds' ) )
+		   	{
+		   		$department->max_timeout_seconds = $form->MaxWaitTimeoutSeconds;
+		   	} else {
+		   		$department->max_timeout_seconds = 0;
+		   	}
 	   	}
 	   	
 	   	if ( erLhcoreClassUser::instance()->hasAccessTo('lhdepartament','actworkflow') ) {

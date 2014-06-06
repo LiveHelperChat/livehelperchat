@@ -154,6 +154,10 @@
 		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('xmp/configuration')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','XMPP settings');?></a></li>
 		    <?php endif; ?>
 
+		    <?php if ($currentUser->hasAccessTo('lhchat','operatorsbalancing')) : ?>
+		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/operatorsbalancing')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Automatic chats assigment');?></a></li>
+		    <?php endif; ?>
+
 		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/lists')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Chats list');?></a></li>
 
 		    <?php if ($currentUser->hasAccessTo('lhchatarchive','archive')) : ?>
