@@ -1,3 +1,13 @@
+2.01v
+
+1. Restyles back office a little bit. Top menu will take less space.
+2. https://github.com/LiveHelperChat/livehelperchat/issues/397
+3. https://github.com/LiveHelperChat/livehelperchat/issues/367
+4. https://github.com/LiveHelperChat/livehelperchat/issues/401
+5. https://github.com/LiveHelperChat/livehelperchat/issues/398
+
+execute doc/update_db/update_80.sql for update
+
 2.00v
 
 Features/Changes/Bugfixes
