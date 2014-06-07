@@ -28,6 +28,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 	    if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
 	    	$chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
 	    	$chat->wait_time = time() - $chat->time;
+	    	$chat->user_id = $currentUser->getUserID();
 	    	$operatorAccepted = true;
 	    }
 	    
