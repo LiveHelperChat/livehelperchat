@@ -8,6 +8,8 @@
 	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Message');?></label>
     <textarea name="Message"><?php echo htmlspecialchars($msg->msg);?></textarea>
 
+    <label><input type="checkbox" name="AutoSend" value="on" <?php $msg->auto_send == 1 ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Automatically send this message to user then chat is accepted');?></label>
+    
 	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delay in seconds');?></label>
     <input type="text" name="Delay" value="<?php echo $msg->delay?>" />
 

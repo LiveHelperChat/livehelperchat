@@ -34,6 +34,11 @@ $def->properties['user_id']->columnName   = 'user_id';
 $def->properties['user_id']->propertyName = 'user_id';
 $def->properties['user_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['auto_send'] = new ezcPersistentObjectProperty();
+$def->properties['auto_send']->columnName   = 'auto_send';
+$def->properties['auto_send']->propertyName = 'auto_send';
+$def->properties['auto_send']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

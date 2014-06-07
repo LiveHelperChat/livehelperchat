@@ -27,6 +27,9 @@ if (isset($_POST['Save_action']))
          ),
         'DepartmentID' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1)
+        ),
+        'AutoSend' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         )
     );
 
@@ -37,7 +40,14 @@ if (isset($_POST['Save_action']))
     {
         $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please enter a canned message');
     }
-
+    
+    if ( $form->hasValidData( 'AutoSend' ) && $form->AutoSend == true )
+    {
+    	$Departament->auto_send = 1;
+    } else {
+    	$Departament->auto_send = 0;
+    }
+    
     if ( $form->hasValidData( 'Position' )  )
     {
     	$Departament->position = $form->Position;

@@ -5,6 +5,7 @@
 3. https://github.com/LiveHelperChat/livehelperchat/issues/367
 4. https://github.com/LiveHelperChat/livehelperchat/issues/401
 5. https://github.com/LiveHelperChat/livehelperchat/issues/398
+6. https://github.com/LiveHelperChat/livehelperchat/issues/402
 
 execute doc/update_db/update_80.sql for update
 

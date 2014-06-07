@@ -233,9 +233,9 @@ class erLhcoreClassChatWorkflow {
 	    	$db = ezcDbInstance::get();
 	    	$stmt = $db->prepare($sql);
 	    	$stmt->bindValue(':dep_id',$department->id,PDO::PARAM_INT);
-	    	$stmt->bindValue(':last_activity',$isOnlineUser,PDO::PARAM_INT);
+	    	$stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
 	    	$stmt->bindValue(':user_id',$chat->user_id,PDO::PARAM_INT);
-	    	
+	    		    	
 	    	if ($department->max_active_chats > 0) {
 	    		$stmt->bindValue(':max_active_chats',$department->max_active_chats,PDO::PARAM_INT);
 	    	}
@@ -257,6 +257,44 @@ class erLhcoreClassChatWorkflow {
 	    	}
     	}
     }
+    
+    public static function presendCannedMsg($chat) {
+     	  
+     	$session = erLhcoreClassChat::getSession();
+     	$q = $session->createFindQuery( 'erLhcoreClassModelCannedMsg' );
+     	$q->where(
+     			$q->expr->lOr(
+     					$q->expr->eq( 'department_id', $q->bindValue($chat->dep_id) ),
+     					$q->expr->lAnd($q->expr->eq( 'department_id', $q->bindValue( 0 ) ),$q->expr->eq( 'user_id', $q->bindValue( 0 ) )),
+     					$q->expr->eq( 'user_id', $q->bindValue($chat->user_id) )
+     			),
+     			$q->expr->eq( 'auto_send', $q->bindValue(1) )
+     	);
+     		
+     	$q->limit(1, 0);
+     	$q->orderBy('user_id DESC, position ASC, id ASC' ); // Questions with matched URL has higher priority
+     	$items = $session->find( $q );
+     	
+     	if (!empty($items)){
+     		$cannedMsg = array_shift($items);
+     		
+     		$msg = new erLhcoreClassModelmsg();
+     		$msg->msg = $cannedMsg->msg;
+     		$msg->chat_id = $chat->id;
+     		$msg->user_id = $chat->user_id;
+     		$msg->name_support = $chat->user->name_support;
+     		     		
+     		$chat->last_user_msg_time = $msg->time = time();
+     		 
+     		erLhcoreClassChat::getSession()->save($msg);
+     		 
+     		if ($chat->last_msg_id < $msg->id) {
+     			$chat->last_msg_id = $msg->id;
+     		}
+     		 
+     		$chat->updateThis();     		     		
+     	}     	
+     }
 }
 
 ?>

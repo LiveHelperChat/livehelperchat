@@ -537,6 +537,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  `department_id` int(11) NOT NULL,
         	   	  `user_id` int(11) NOT NULL,
   				  `delay` int(11) NOT NULL,
+        	   	  `auto_send` tinyint(1) NOT NULL,
                   PRIMARY KEY (`id`),
         	   	  KEY `department_id` (`department_id`),
         	   	  KEY `user_id` (`user_id`)

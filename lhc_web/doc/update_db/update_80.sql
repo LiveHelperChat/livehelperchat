@@ -22,3 +22,7 @@ COMMENT='';
 ALTER TABLE `lh_chat`
 ADD INDEX `status_user_id` (`status`, `user_id`),
 DROP INDEX `status`;
+
+ALTER TABLE `lh_canned_msg`
+ADD `auto_send` tinyint(1) NOT NULL,
+COMMENT='';

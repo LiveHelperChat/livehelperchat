@@ -335,7 +335,10 @@ if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','personalcannedmsg') ) 
 				),
 				'Delay' => new ezcInputFormDefinitionElement(
 						ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0)
-				)
+				),
+		        'AutoSend' => new ezcInputFormDefinitionElement(
+		            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+		        )
 		);
 		
 		$form = new ezcInputForm( INPUT_POST, $definition );
@@ -354,6 +357,13 @@ if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','personalcannedmsg') ) 
 		if ( $form->hasValidData( 'Delay' )  )
 		{
 			$cannedMessage->delay = $form->Delay;
+		}
+		
+		if ( $form->hasValidData( 'AutoSend' ) && $form->AutoSend == true )
+		{
+			$cannedMessage->auto_send = 1;
+		} else {
+			$cannedMessage->auto_send = 0;
 		}
 		
 		if (count($Errors) == 0) {

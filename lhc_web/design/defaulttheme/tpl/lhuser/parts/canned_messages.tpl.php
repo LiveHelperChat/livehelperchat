@@ -58,6 +58,8 @@ if ($pages->items_total > 0) {
 	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Message');?></label>
     <textarea name="Message"><?php echo htmlspecialchars($canned_msg->msg);?></textarea>
 
+    <label><input type="checkbox" name="AutoSend" value="on" <?php $canned_msg->auto_send == 1 ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Automatically send this message to user then chat is accepted');?></label>
+    
 	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delay in seconds');?></label>
     <input type="text" name="Delay" value="<?php echo $canned_msg->delay?>" />
 

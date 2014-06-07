@@ -44,10 +44,9 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 	    	fastcgi_finish_request();
 	    };
 	    
-	    if ($operatorAccepted == true) {
-	    		    
-	    	erLhcoreClassChat::updateActiveChats($chat->user_id);
-	    	
+	    if ($operatorAccepted == true) {	    		    
+	    	erLhcoreClassChat::updateActiveChats($chat->user_id);	    	
+	    	erLhcoreClassChatWorkflow::presendCannedMsg($chat);
 	    	$options = $chat->department->inform_options_array;
 	    	erLhcoreClassChatWorkflow::chatAcceptedWorkflow(array('department' => $chat->department,'options' => $options),$chat);
 	    };
