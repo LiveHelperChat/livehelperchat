@@ -199,6 +199,9 @@ if (isset($_POST['Update_account']))
         // Store photo
         if ( isset($_FILES["UserPhoto"]) && is_uploaded_file($_FILES["UserPhoto"]["tmp_name"]) && $_FILES["UserPhoto"]["error"] == 0 && erLhcoreClassImageConverter::isPhoto('UserPhoto') ) {
         	$dir = 'var/userphoto/' . date('Y') . 'y/' . date('m') . '/' . date('d') .'/' . $UserData->id . '/';
+        	
+        	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.edit.photo_path',array('dir' => & $dir));
+        	
         	erLhcoreClassFileUpload::mkdirRecursive( $dir );
         	$file = qqFileUploader::upload($_FILES,'UserPhoto',$dir);
 

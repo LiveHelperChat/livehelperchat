@@ -217,6 +217,9 @@ if (isset($_POST['Update']))
     	$UserData->removeFile();
 
     	$dir = 'var/userphoto/' . date('Y') . 'y/' . date('m') . '/' . date('d') .'/' . $UserData->id . '/';
+    	
+    	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.edit.photo_path',array('dir' => & $dir));
+    	
     	erLhcoreClassFileUpload::mkdirRecursive( $dir );
 
     	$file = qqFileUploader::upload($_FILES,'UserPhoto',$dir);

@@ -101,6 +101,9 @@ return array_merge(array (
 
 		 // Siteaccess generator
 		'erLhcoreClassSiteaccessGenerator'	=> 'lib/core/lhcore/lhsiteaccessgenerator.php',
+		
+		// Event dispatcher
+		'erLhcoreClassChatEventDispatcher'	=> 'lib/core/lhchat/lhchateventdispatcher.php',
 
 		 // Statistic
 		'erLhcoreClassChatStatistic'		=> 'lib/core/lhchat/lhchatstatistic.php',
