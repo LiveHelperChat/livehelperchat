@@ -41,6 +41,8 @@
 				  <?php endif; ?>
                 </ul>
             </li>
+			
+			<?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/top_menu_extension_multiinclude.tpl.php.tpl.php'));?>
 				
 			<li class="divider"></li>
 			<?php if ($currentUser->hasAccessTo('lhsystem','use')) : ?>

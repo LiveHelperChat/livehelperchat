@@ -513,6 +513,9 @@ class erLhcoreClassFormRenderer {
     		if ($params['definition']['type'] == 'file') {    
     						
     			$dir = 'var/storageform/'.date('Y').'y/'.date('m').'/'.date('d').'/'.$formCollected->id.'/';
+    			
+    			erLhcoreClassChatEventDispatcher::getInstance()->dispatch('form.fill.file_path',array('path' => & $dir, 'storage_id' => $formCollected->id));
+    			
     			erLhcoreClassFileUpload::mkdirRecursive( $dir );
     			    			
     			$file = erLhcoreClassSearchHandler::moveUploadedFile($params['definition']['name'],$dir);

@@ -9,7 +9,11 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) && $currentUser->hasAccessTo('lhf
 
 	$userData = $currentUser->getUserData();
 
-	$upload_handler = new erLhcoreClassFileUpload(array('name_support' => $userData->name_support, 'user_id' => $currentUser->getUserID(), 'max_file_size' => $data['fs_max']*1024, 'accept_file_types_lhc' => '/\.('.$data['ft_op'].')$/i','chat' => $chat, 'download_via_php' => true, 'upload_dir' => 'var/storage/'.date('Y').'y/'.date('m').'/'.date('d').'/'.$chat->id.'/'));
+	$path = 'var/storage/'.date('Y').'y/'.date('m').'/'.date('d').'/'.$chat->id.'/';
+	
+	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.uploadfileadmin.file_path',array('path' => & $path, 'storage_id' => $chat->id));
+	
+	$upload_handler = new erLhcoreClassFileUpload(array('name_support' => $userData->name_support, 'user_id' => $currentUser->getUserID(), 'max_file_size' => $data['fs_max']*1024, 'accept_file_types_lhc' => '/\.('.$data['ft_op'].')$/i','chat' => $chat, 'download_via_php' => true, 'upload_dir' => $path));
 
 	echo json_encode(array('error' => 'false'));
 }

@@ -36,6 +36,8 @@ if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value
 	$tpl->set('vid', $str);
 }
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.getstatus',array('tpl' => & $tpl));
+
 $validUnits = array('pixels' => 'px','percents' => '%');
 
 $tpl->set('referrer',isset($_GET['r']) ? rawurldecode($_GET['r']) : '');
