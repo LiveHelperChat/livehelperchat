@@ -412,8 +412,7 @@ class erLhcoreClassModule{
     {
         header('Location: '. erLhcoreClassDesign::baseurl($url).$appendURL );
     }
-
-    static private $defaultTimeZone = NULL;
+    
     static private $currentModule = NULL;
     static private $currentModuleName = NULL;
     static private $currentView = NULL;
@@ -421,6 +420,7 @@ class erLhcoreClassModule{
     static private $cacheInstance = NULL;
     static private $cacheVersionSite = NULL;
     
+    public static $defaultTimeZone = NULL;
     public static $dateFormat = NULL;
     public static $dateHourFormat = NULL;
     public static $dateDateHourFormat = NULL;
