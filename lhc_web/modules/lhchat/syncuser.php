@@ -116,6 +116,11 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		    	$saveChat = true;
 		    }
 		    
+		    if ($chat->user_status != 0) {
+		    	$chat->user_status = 0;
+		    	$saveChat = true;
+		    }
+		    
 		    
 		    if ($saveChat === true) {
 		    	$chat->updateThis();
