@@ -475,6 +475,18 @@
   <context>
     <name>browseoffer/index</name>
     <message>
+      <source>List of forms</source>
+      <translation>窗体的列表</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>页面嵌入代码</translation>
+    </message>
+    <message>
+      <source>Index</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Browse offers</source>
       <translation>浏览提供</translation>
     </message>
@@ -491,15 +503,11 @@
       <translation>HTML 代码</translation>
     </message>
     <message>
-      <source>List of forms</source>
-      <translation>窗体的列表</translation>
+      <source>Forms</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Page embed code</source>
-      <translation>页面嵌入代码</translation>
-    </message>
-    <message>
-      <source>Index</source>
+      <source>Documents</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -946,6 +954,10 @@
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
       <translation>执行再次为收件人部门未答复的聊天逻辑吗？</translation>
+    </message>
+    <message>
+      <source>Auto assignment</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Miscellaneous</source>
@@ -2096,6 +2108,38 @@
   <context>
     <name>system/configuration</name>
     <message>
+      <source>Chat related</source>
+      <translation>交谈相关</translation>
+    </message>
+    <message>
+      <source>Form module</source>
+      <translation>窗体模块</translation>
+    </message>
+    <message>
+      <source>Documents module</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users and their permissions</source>
+      <translation>用户及其权限</translation>
+    </message>
+    <message>
+      <source>Files uploads configuration</source>
+      <translation>文件上传配置</translation>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation>其他</translation>
+    </message>
+    <message>
+      <source>Forms</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Documents</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Request notification permission</source>
       <translation>请求通知权限</translation>
     </message>
@@ -2108,8 +2152,68 @@
       <translation>系统配置</translation>
     </message>
     <message>
-      <source>Chat related</source>
-      <translation>交谈相关</translation>
+      <source>System</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time zone settings</source>
+      <translation>时区设置</translation>
+    </message>
+    <message>
+      <source>Update information</source>
+      <translation>更新信息</translation>
+    </message>
+    <message>
+      <source>SMTP settings</source>
+      <translation>SMTP设置</translation>
+    </message>
+    <message>
+      <source>E-mail templates</source>
+      <translation>电子邮件模板</translation>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation>语言配置</translation>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation>用户</translation>
+    </message>
+    <message>
+      <source>List of groups</source>
+      <translation>组列表</translation>
+    </message>
+    <message>
+      <source>List of roles</source>
+      <translation>角色一览</translation>
+    </message>
+    <message>
+      <source>Embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live help embed code</source>
+      <translation>在線幫助嵌入代碼</translation>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation>常見問題嵌入代碼</translation>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation>問卷嵌入代碼</translation>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation>客艙嵌入代碼</translation>
+    </message>
+    <message>
+      <source>Browse offers embed code</source>
+      <translation>浏览提供嵌入代码</translation>
+    </message>
+    <message>
+      <source>Live help configuration</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Departments</source>
@@ -2140,10 +2244,6 @@
       <translation>罐头消息</translation>
     </message>
     <message>
-      <source>E-mail templates</source>
-      <translation>电子邮件模板</translation>
-    </message>
-    <message>
       <source>Pro active chat invitations</source>
       <translation>临主动聊天邀请</translation>
     </message>
@@ -2152,16 +2252,12 @@
       <translation>自動應答</translation>
     </message>
     <message>
-      <source>SMTP settings</source>
-      <translation>SMTP设置</translation>
-    </message>
-    <message>
       <source>XMPP settings</source>
       <translation>XMPP 设置</translation>
     </message>
     <message>
-      <source>Languages configuration</source>
-      <translation>语言配置</translation>
+      <source>Automatic chats assigment</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats list</source>
@@ -2172,64 +2268,16 @@
       <translation>聊天記錄存檔</translation>
     </message>
     <message>
-      <source>Time zone settings</source>
-      <translation>时区设置</translation>
-    </message>
-    <message>
-      <source>Update information</source>
-      <translation>更新信息</translation>
-    </message>
-    <message>
-      <source>Live help embed code</source>
-      <translation>在線幫助嵌入代碼</translation>
-    </message>
-    <message>
-      <source>FAQ embed code</source>
-      <translation>常見問題嵌入代碼</translation>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation>問卷嵌入代碼</translation>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation>客艙嵌入代碼</translation>
-    </message>
-    <message>
-      <source>Browse offers embed code</source>
-      <translation>浏览提供嵌入代码</translation>
-    </message>
-    <message>
-      <source>Form module</source>
-      <translation>窗体模块</translation>
-    </message>
-    <message>
-      <source>Documents module</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Statistic</source>
       <translation>统计</translation>
     </message>
     <message>
-      <source>Users and their permissions</source>
-      <translation>用户及其权限</translation>
+      <source>Maintenance</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Users</source>
-      <translation>用户</translation>
-    </message>
-    <message>
-      <source>List of groups</source>
-      <translation>组列表</translation>
-    </message>
-    <message>
-      <source>List of roles</source>
-      <translation>角色一览</translation>
-    </message>
-    <message>
-      <source>Files uploads configuration</source>
-      <translation>文件上传配置</translation>
+      <source>Files</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Files upload configuration</source>
@@ -2238,10 +2286,6 @@
     <message>
       <source>List of files</source>
       <translation>文件列表</translation>
-    </message>
-    <message>
-      <source>Other</source>
-      <translation>其他</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -2346,6 +2390,10 @@
       <translation>在线访客</translation>
     </message>
     <message>
+      <source>Extra modules</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Questionary</source>
       <translation>问卷</translation>
     </message>
@@ -2379,6 +2427,10 @@
   </context>
   <context>
     <name>chat/lists/search_panel</name>
+    <message>
+      <source>Delete selected</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Nick</source>
       <translation>暱稱</translation>
@@ -3408,12 +3460,24 @@
       <translation>个人罐装的消息</translation>
     </message>
     <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>I can see all pending chats, not only assigned to me</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Account updated</source>
       <translation>帐户更新</translation>
     </message>
     <message>
       <source>Delete</source>
       <translation>删除</translation>
+    </message>
+    <message>
+      <source>User can see all pending chats, not only assigned to him</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -4622,12 +4686,12 @@
       <translation>照片</translation>
     </message>
     <message>
-      <source>Departments</source>
-      <translation>部门</translation>
-    </message>
-    <message>
       <source>Save</source>
       <translation>节省</translation>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation>部门</translation>
     </message>
     <message>
       <source>Please choose a default user group</source>
@@ -5105,6 +5169,10 @@
       <translation>從</translation>
     </message>
     <message>
+      <source>Chat was automatically closed by cron</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Support staff member has closed this chat</source>
       <translation>支持工作人员已经关闭了这个聊天</translation>
     </message>
@@ -5383,6 +5451,44 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>请输入有效的文件类型 ！</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/maintenance</name>
+    <message>
+      <source>Maintenance</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatic chats close, click to close old chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatic chats purge, click to purge old chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Purged chats</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/operatorsbalancing</name>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Maximum number of active chats user can have at a time, 0 - unlimited</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

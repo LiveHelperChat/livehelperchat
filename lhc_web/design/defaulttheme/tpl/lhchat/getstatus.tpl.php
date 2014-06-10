@@ -293,8 +293,8 @@ var lh_inst  = {
     },
     
     parseStorageArguments : function() {
-    	if (sessionStorage && sessionStorage.getItem('lhc_ref') && sessionStorage.getItem('lhc_ref') != '') {
-    		return '&r='+encodeURIComponent(sessionStorage.getItem('lhc_ref'));
+    	if (localStorage && localStorage.getItem('lhc_ref') && localStorage.getItem('lhc_ref') != '') {
+    		return '&r='+encodeURIComponent(localStorage.getItem('lhc_ref'));
     	}
     	return '';
     },
@@ -474,8 +474,8 @@ var lh_inst  = {
 
     storeSesCookie : function(){
     	<?php if ($trackDomain == '' && $disableHTML5Storage == 0) : ?>
-    	if (sessionStorage) {
-    		sessionStorage.setItem('lhc_ses',this.JSON.stringify(this.cookieData));
+    	if (localStorage) {
+    		localStorage.setItem('lhc_ses',this.JSON.stringify(this.cookieData));
     	} else {
     	<?php endif;?>
 	    	lhc_Cookies('lhc_ses',this.JSON.stringify(this.cookieData),{<?php $trackDomain != '' || $disableHTML5Storage == 1 ? ($trackDomain != '' ? print "domain:'.{$trackDomain}'" : print "domain:this.getCookieDomain()") : ''?>});
@@ -484,8 +484,8 @@ var lh_inst  = {
 
     initSessionStorage : function(){
     	<?php if ($trackDomain == '' && $disableHTML5Storage == 0) : ?>
-    	if (sessionStorage && sessionStorage.getItem('lhc_ses')) {
-    		this.cookieData = this.JSON.parse(sessionStorage.getItem('lhc_ses'));
+    	if (localStorage && localStorage.getItem('lhc_ses')) {
+    		this.cookieData = this.JSON.parse(localStorage.getItem('lhc_ses'));
     	} else {
     	<?php endif;?>
 	    	var cookieData = lhc_Cookies('lhc_ses');
@@ -496,8 +496,8 @@ var lh_inst  = {
     },
 
     storeReferrer : function(ref){
-    	if (sessionStorage && !sessionStorage.getItem('lhc_ref')) {
-    		sessionStorage.setItem('lhc_ref',ref);
+    	if (localStorage && !localStorage.getItem('lhc_ref')) {
+    		localStorage.setItem('lhc_ref',ref);
     	}
     },
 

@@ -322,7 +322,7 @@
     </message>
     <message>
       <source>Disable responsive layout for status widget.</source>
-      <translation type="unfinished"/>
+      <translation>Vypnout responzivní design pro widget stavu.</translation>
     </message>
     <message>
       <source>Disable minimize icon</source>
@@ -475,6 +475,18 @@
   <context>
     <name>browseoffer/index</name>
     <message>
+      <source>List of forms</source>
+      <translation>Seznam formulářů</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>Vložený kód na stránku</translation>
+    </message>
+    <message>
+      <source>Index</source>
+      <translation>Index</translation>
+    </message>
+    <message>
       <source>Browse offers</source>
       <translation>Nabídky procházení</translation>
     </message>
@@ -491,16 +503,12 @@
       <translation>HTML kód</translation>
     </message>
     <message>
-      <source>List of forms</source>
-      <translation>Seznam formulářů</translation>
+      <source>Forms</source>
+      <translation>Formuláře</translation>
     </message>
     <message>
-      <source>Page embed code</source>
-      <translation>Vložený kód na stránku</translation>
-    </message>
-    <message>
-      <source>Index</source>
-      <translation>Index</translation>
+      <source>Documents</source>
+      <translation>Dokumenty</translation>
     </message>
     <message>
       <source>Form</source>
@@ -692,7 +700,7 @@
     </message>
     <message>
       <source>Please enter an IP to block</source>
-      <translation>Prosím, zadejte IP, kterou hcete blokovat</translation>
+      <translation>Zadejte, prosím, IP adresu k zablokování</translation>
     </message>
     <message>
       <source>User was blocked!</source>
@@ -917,7 +925,7 @@
     </message>
     <message>
       <source>Inform then chat is accepted by one of the staff members using</source>
-      <translation>Informovat v případě, že je rozhovor přijat někým z týmu</translation>
+      <translation>Informovat, že byl rozhovor přijat někým z týmu, pomocí</translation>
     </message>
     <message>
       <source>Other</source>
@@ -941,11 +949,15 @@
     </message>
     <message>
       <source>Execute new chat logic again for recipient department?</source>
-      <translation>Znovu spustit logiku nových rozhovorů v oddělení příjemce?</translation>
+      <translation>Spustit znovu logiku pro oddělení příjemce?</translation>
     </message>
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
-      <translation>Znovu spustit logiku nevyřízených rozhovorů v oddělení příjemce?</translation>
+      <translation>Spustit znovu logiku nezodpovězených rozhovorů pro oddělení příjemce?</translation>
+    </message>
+    <message>
+      <source>Auto assignment</source>
+      <translation>Automatické přiřazení</translation>
     </message>
     <message>
       <source>Miscellaneous</source>
@@ -1237,7 +1249,7 @@
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation>Jste si jistý/á?</translation>
+      <translation>Jste si jistí?</translation>
     </message>
     <message>
       <source>Accept chat</source>
@@ -1851,11 +1863,11 @@
     </message>
     <message>
       <source>Group list by</source>
-      <translation>Seřadit seznam podle</translation>
+      <translation>Seskupit list podle</translation>
     </message>
     <message>
       <source>Group by</source>
-      <translation>Seřadit podle</translation>
+      <translation>Seskupit podle</translation>
     </message>
     <message>
       <source>User country</source>
@@ -2096,6 +2108,38 @@
   <context>
     <name>system/configuration</name>
     <message>
+      <source>Chat related</source>
+      <translation>Vztaženo k rozhovoru</translation>
+    </message>
+    <message>
+      <source>Form module</source>
+      <translation>Modul formuláře</translation>
+    </message>
+    <message>
+      <source>Documents module</source>
+      <translation>Modul dokumentů</translation>
+    </message>
+    <message>
+      <source>Users and their permissions</source>
+      <translation>Uživatelé a jejich práva</translation>
+    </message>
+    <message>
+      <source>Files uploads configuration</source>
+      <translation>Nastavení pro nahrávání souborů</translation>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation>Ostatní</translation>
+    </message>
+    <message>
+      <source>Forms</source>
+      <translation>Formuláře</translation>
+    </message>
+    <message>
+      <source>Documents</source>
+      <translation>Dokumenty</translation>
+    </message>
+    <message>
       <source>Request notification permission</source>
       <translation>Právo na vyžadování upozornění</translation>
     </message>
@@ -2108,8 +2152,68 @@
       <translation>Nastavení systému</translation>
     </message>
     <message>
-      <source>Chat related</source>
-      <translation>Vztaženo k rozhovoru</translation>
+      <source>System</source>
+      <translation>Systém</translation>
+    </message>
+    <message>
+      <source>Time zone settings</source>
+      <translation>Nastavení časové zóny</translation>
+    </message>
+    <message>
+      <source>Update information</source>
+      <translation>Informace o aktualizaci</translation>
+    </message>
+    <message>
+      <source>SMTP settings</source>
+      <translation>Nastavení SMTP</translation>
+    </message>
+    <message>
+      <source>E-mail templates</source>
+      <translation>Šablona E-mailu</translation>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation>Nastavení jazyků</translation>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation>Uživatelé</translation>
+    </message>
+    <message>
+      <source>List of groups</source>
+      <translation>Seznam skupin</translation>
+    </message>
+    <message>
+      <source>List of roles</source>
+      <translation>Seznam rolí</translation>
+    </message>
+    <message>
+      <source>Embed code</source>
+      <translation>Vložený kód</translation>
+    </message>
+    <message>
+      <source>Live help embed code</source>
+      <translation>Vložený kód online pomoci</translation>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation>Vložený kód FAQ</translation>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation>Vložený kód dotazníku</translation>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation>Vložený kód Chatboxu</translation>
+    </message>
+    <message>
+      <source>Browse offers embed code</source>
+      <translation>Vložený kód nabídek prohlížení</translation>
+    </message>
+    <message>
+      <source>Live help configuration</source>
+      <translation>Nastavení Live help</translation>
     </message>
     <message>
       <source>Departments</source>
@@ -2140,10 +2244,6 @@
       <translation>Předpřipravené zprávy</translation>
     </message>
     <message>
-      <source>E-mail templates</source>
-      <translation>Šablona E-mailu</translation>
-    </message>
-    <message>
       <source>Pro active chat invitations</source>
       <translation>Proaktivní pozvánky k rozhovoru</translation>
     </message>
@@ -2152,16 +2252,12 @@
       <translation>Automatický odpovídač</translation>
     </message>
     <message>
-      <source>SMTP settings</source>
-      <translation>Nastavení SMTP</translation>
-    </message>
-    <message>
       <source>XMPP settings</source>
       <translation>Nastavení XMPP</translation>
     </message>
     <message>
-      <source>Languages configuration</source>
-      <translation>Nastavení jazyků</translation>
+      <source>Automatic chats assigment</source>
+      <translation>Automatické přiřazení rozhovorů</translation>
     </message>
     <message>
       <source>Chats list</source>
@@ -2172,64 +2268,16 @@
       <translation>Archiv rozhovorů</translation>
     </message>
     <message>
-      <source>Time zone settings</source>
-      <translation>Nastavení časové zóny</translation>
-    </message>
-    <message>
-      <source>Update information</source>
-      <translation>Informace o aktualizaci</translation>
-    </message>
-    <message>
-      <source>Live help embed code</source>
-      <translation>Vložený kód online pomoci</translation>
-    </message>
-    <message>
-      <source>FAQ embed code</source>
-      <translation>Vložený kód FAQ</translation>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation>Vložený kód dotazníku</translation>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation>Vložený kód Chatboxu</translation>
-    </message>
-    <message>
-      <source>Browse offers embed code</source>
-      <translation>Vložený kód nabídek prohlížení</translation>
-    </message>
-    <message>
-      <source>Form module</source>
-      <translation>Modul formuláře</translation>
-    </message>
-    <message>
-      <source>Documents module</source>
-      <translation>Modul dokumentů</translation>
-    </message>
-    <message>
       <source>Statistic</source>
       <translation>Statistika</translation>
     </message>
     <message>
-      <source>Users and their permissions</source>
-      <translation>Uživatelé a jejich práva</translation>
+      <source>Maintenance</source>
+      <translation>Údržba</translation>
     </message>
     <message>
-      <source>Users</source>
-      <translation>Uživatelé</translation>
-    </message>
-    <message>
-      <source>List of groups</source>
-      <translation>Seznam skupin</translation>
-    </message>
-    <message>
-      <source>List of roles</source>
-      <translation>Seznam rolí</translation>
-    </message>
-    <message>
-      <source>Files uploads configuration</source>
-      <translation>Nastavení pro nahrávání souborů</translation>
+      <source>Files</source>
+      <translation>Soubory</translation>
     </message>
     <message>
       <source>Files upload configuration</source>
@@ -2238,10 +2286,6 @@
     <message>
       <source>List of files</source>
       <translation>Seznam souborů</translation>
-    </message>
-    <message>
-      <source>Other</source>
-      <translation>Ostatní</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -2346,6 +2390,10 @@
       <translation>Online návštěvníci</translation>
     </message>
     <message>
+      <source>Extra modules</source>
+      <translation>Extra moduly</translation>
+    </message>
+    <message>
       <source>Questionary</source>
       <translation>Dotazník</translation>
     </message>
@@ -2379,6 +2427,10 @@
   </context>
   <context>
     <name>chat/lists/search_panel</name>
+    <message>
+      <source>Delete selected</source>
+      <translation>Smazat označené</translation>
+    </message>
     <message>
       <source>Nick</source>
       <translation>Přezdívka</translation>
@@ -3408,12 +3460,24 @@
       <translation>Osobní předpřipravé zprávy</translation>
     </message>
     <message>
+      <source>Pending chats</source>
+      <translation>Čekající rozhovory</translation>
+    </message>
+    <message>
+      <source>I can see all pending chats, not only assigned to me</source>
+      <translation>Mohu vidět všechny čekající rozhovory, ne pouze ty přiřazené mně</translation>
+    </message>
+    <message>
       <source>Account updated</source>
       <translation>Účet aktualizován</translation>
     </message>
     <message>
       <source>Delete</source>
       <translation>Smazat</translation>
+    </message>
+    <message>
+      <source>User can see all pending chats, not only assigned to him</source>
+      <translation>Uživatel může vidět všechny čekající rozhovory, ne pouze ty přiřazené jemu</translation>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -4622,12 +4686,12 @@
       <translation>Fotografie</translation>
     </message>
     <message>
-      <source>Departments</source>
-      <translation>Oddělení</translation>
-    </message>
-    <message>
       <source>Save</source>
       <translation>Uložit</translation>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation>Oddělení</translation>
     </message>
     <message>
       <source>Please choose a default user group</source>
@@ -4956,7 +5020,7 @@
     </message>
     <message>
       <source>XMPP Message about accepted chat</source>
-      <translation>Zpráva XMPP o přijmutí rozhovoru</translation>
+      <translation>XMPP zpráva o přijetí rozhovoru</translation>
     </message>
     <message>
       <source>XMPP</source>
@@ -5105,6 +5169,10 @@
       <translation>od</translation>
     </message>
     <message>
+      <source>Chat was automatically closed by cron</source>
+      <translation>Rozhovor byl automaticky ukončen CRONem</translation>
+    </message>
+    <message>
       <source>Support staff member has closed this chat</source>
       <translation>Člen týmu podpory tento rozhovor ukončil</translation>
     </message>
@@ -5148,7 +5216,7 @@
     <name>abstract/browserofferinvitation</name>
     <message>
       <source>Name for personal purposes</source>
-      <translation>Jméno pro osobní účely</translation>
+      <translation>Název pro osobní potřebu</translation>
     </message>
     <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
@@ -5192,7 +5260,7 @@
     </message>
     <message>
       <source>Callback content, must be valid json</source>
-      <translation type="unfinished"/>
+      <translation>Obsah zpětného volání, musí být validní JSON</translation>
     </message>
     <message>
       <source>Load content in lhc iframe</source>
@@ -5383,6 +5451,44 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Prosím vyberte platný typ souboru!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/maintenance</name>
+    <message>
+      <source>Maintenance</source>
+      <translation>Údržba</translation>
+    </message>
+    <message>
+      <source>Automatic chats close, click to close old chats</source>
+      <translation>Automaticky ukončené rozhovory, kliknutím uzavřete staré rozhovory</translation>
+    </message>
+    <message>
+      <source>Automatic chats purge, click to purge old chats</source>
+      <translation>Automatické čištění rozhovorů, kliknutím vyčisti staré rozhovory</translation>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation>Ukončené rozhovory</translation>
+    </message>
+    <message>
+      <source>Purged chats</source>
+      <translation>Vyčištěné rozhovory</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/operatorsbalancing</name>
+    <message>
+      <source>Active</source>
+      <translation>Aktivní</translation>
+    </message>
+    <message>
+      <source>Maximum number of active chats user can have at a time, 0 - unlimited</source>
+      <translation>Maximální počet aktivních uživatelů, který může mít uživatel najednou, 0 - neomezeně</translation>
+    </message>
+    <message>
+      <source>Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled</source>
+      <translation>Automaticky přiřadit rozhovor jinému operátorovi, pokud operátor neakceptuje rozhovor v uvedených vteřinách, 0 - vypnuto</translation>
     </message>
   </context>
 </TS>

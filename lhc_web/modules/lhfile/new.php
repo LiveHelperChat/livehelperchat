@@ -8,7 +8,12 @@ if (isset($_POST['UploadFileAction'])) {
 	$data = (array)$fileData->data;
 	
 	try {
-		$upload_handler = new erLhcoreClassFileUploadAdmin(array('user_id' => $currentUser->getUserID(), 'file_name_manual' => $_POST['Name'],'upload_dir' => 'var/storage/'.date('Y').'y/'.date('m').'/'.date('d').'/au/','download_via_php' => true,'max_file_size' => $data['fs_max']*1024, 'accept_file_types_lhc' => '/\.('.$data['ft_op'].')$/i'));
+		
+		$path = 'var/storage/'.date('Y').'y/'.date('m').'/'.date('d').'/au/';
+		
+		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.new.file_path',array('path' => & $path));
+		
+		$upload_handler = new erLhcoreClassFileUploadAdmin(array('user_id' => $currentUser->getUserID(), 'file_name_manual' => $_POST['Name'], 'upload_dir' => $path, 'download_via_php' => true,'max_file_size' => $data['fs_max']*1024, 'accept_file_types_lhc' => '/\.('.$data['ft_op'].')$/i'));
 		$tpl->set('file_uploaded',true);
 	} catch (Exception $e) {		
 		$tpl->set('errors',array($e->getMessage()));		

@@ -475,6 +475,18 @@
   <context>
     <name>browseoffer/index</name>
     <message>
+      <source>List of forms</source>
+      <translation>فهرست فرم ها</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>کد داخلی صفحه</translation>
+    </message>
+    <message>
+      <source>Index</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Browse offers</source>
       <translation>مرور پیشنهادات</translation>
     </message>
@@ -491,15 +503,11 @@
       <translation>کد HTML</translation>
     </message>
     <message>
-      <source>List of forms</source>
-      <translation>فهرست فرم ها</translation>
+      <source>Forms</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Page embed code</source>
-      <translation>کد داخلی صفحه</translation>
-    </message>
-    <message>
-      <source>Index</source>
+      <source>Documents</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -946,6 +954,10 @@
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
       <translation>اجرای چت پاسخ داده نشده برای دپارتمان پذیرنده</translation>
+    </message>
+    <message>
+      <source>Auto assignment</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Miscellaneous</source>
@@ -2096,6 +2108,38 @@
   <context>
     <name>system/configuration</name>
     <message>
+      <source>Chat related</source>
+      <translation>چت مرتبط</translation>
+    </message>
+    <message>
+      <source>Form module</source>
+      <translation>ماژول فرم</translation>
+    </message>
+    <message>
+      <source>Documents module</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users and their permissions</source>
+      <translation>کاربران و مجوزهایشان</translation>
+    </message>
+    <message>
+      <source>Files uploads configuration</source>
+      <translation>تنظیمات بارگذاری فایل</translation>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation>دیگران</translation>
+    </message>
+    <message>
+      <source>Forms</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Documents</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Request notification permission</source>
       <translation>درخواست مجوز اطلاع رسانی</translation>
     </message>
@@ -2108,8 +2152,68 @@
       <translation>تنظیمات سیستم</translation>
     </message>
     <message>
-      <source>Chat related</source>
-      <translation>چت مرتبط</translation>
+      <source>System</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time zone settings</source>
+      <translation>تنظیمات منطقه زمانی</translation>
+    </message>
+    <message>
+      <source>Update information</source>
+      <translation>به روزرسانی اطلاعات</translation>
+    </message>
+    <message>
+      <source>SMTP settings</source>
+      <translation>تنظیمات SMTP</translation>
+    </message>
+    <message>
+      <source>E-mail templates</source>
+      <translation>قالب های ایمیل</translation>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation>تنظیمات زبان</translation>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation>کاربران</translation>
+    </message>
+    <message>
+      <source>List of groups</source>
+      <translation>فهرست گروه ها</translation>
+    </message>
+    <message>
+      <source>List of roles</source>
+      <translation>فهرست نقش ها</translation>
+    </message>
+    <message>
+      <source>Embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live help embed code</source>
+      <translation>کد داخلی پشتیبانی آنلاین</translation>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation>کد داخلی س/ج</translation>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation>کد داخلی پرسشی</translation>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation>کد داخلی جعبه چت</translation>
+    </message>
+    <message>
+      <source>Browse offers embed code</source>
+      <translation>مرور پیشنهاد های کدها درونی</translation>
+    </message>
+    <message>
+      <source>Live help configuration</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Departments</source>
@@ -2140,10 +2244,6 @@
       <translation>پیام های مسدود شده</translation>
     </message>
     <message>
-      <source>E-mail templates</source>
-      <translation>قالب های ایمیل</translation>
-    </message>
-    <message>
       <source>Pro active chat invitations</source>
       <translation>دعوت به چت</translation>
     </message>
@@ -2152,16 +2252,12 @@
       <translation>پاسخگوی خودکار</translation>
     </message>
     <message>
-      <source>SMTP settings</source>
-      <translation>تنظیمات SMTP</translation>
-    </message>
-    <message>
       <source>XMPP settings</source>
       <translation>تنظیمات XMPP</translation>
     </message>
     <message>
-      <source>Languages configuration</source>
-      <translation>تنظیمات زبان</translation>
+      <source>Automatic chats assigment</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats list</source>
@@ -2172,64 +2268,16 @@
       <translation>بایگانی چت</translation>
     </message>
     <message>
-      <source>Time zone settings</source>
-      <translation>تنظیمات منطقه زمانی</translation>
-    </message>
-    <message>
-      <source>Update information</source>
-      <translation>به روزرسانی اطلاعات</translation>
-    </message>
-    <message>
-      <source>Live help embed code</source>
-      <translation>کد داخلی پشتیبانی آنلاین</translation>
-    </message>
-    <message>
-      <source>FAQ embed code</source>
-      <translation>کد داخلی س/ج</translation>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation>کد داخلی پرسشی</translation>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation>کد داخلی جعبه چت</translation>
-    </message>
-    <message>
-      <source>Browse offers embed code</source>
-      <translation>مرور پیشنهاد های کدها درونی</translation>
-    </message>
-    <message>
-      <source>Form module</source>
-      <translation>ماژول فرم</translation>
-    </message>
-    <message>
-      <source>Documents module</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Statistic</source>
       <translation>آمار</translation>
     </message>
     <message>
-      <source>Users and their permissions</source>
-      <translation>کاربران و مجوزهایشان</translation>
+      <source>Maintenance</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Users</source>
-      <translation>کاربران</translation>
-    </message>
-    <message>
-      <source>List of groups</source>
-      <translation>فهرست گروه ها</translation>
-    </message>
-    <message>
-      <source>List of roles</source>
-      <translation>فهرست نقش ها</translation>
-    </message>
-    <message>
-      <source>Files uploads configuration</source>
-      <translation>تنظیمات بارگذاری فایل</translation>
+      <source>Files</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Files upload configuration</source>
@@ -2238,10 +2286,6 @@
     <message>
       <source>List of files</source>
       <translation>فهرست فایل ها</translation>
-    </message>
-    <message>
-      <source>Other</source>
-      <translation>دیگران</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -2346,6 +2390,10 @@
       <translation>بازدیدکنندگان آنلاین</translation>
     </message>
     <message>
+      <source>Extra modules</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Questionary</source>
       <translation>پرسشی</translation>
     </message>
@@ -2379,6 +2427,10 @@
   </context>
   <context>
     <name>chat/lists/search_panel</name>
+    <message>
+      <source>Delete selected</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Nick</source>
       <translation>نام مستعار</translation>
@@ -3408,12 +3460,24 @@
       <translation>پیام شخصی</translation>
     </message>
     <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>I can see all pending chats, not only assigned to me</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Account updated</source>
       <translation>حساب به روز شده</translation>
     </message>
     <message>
       <source>Delete</source>
       <translation>حذف</translation>
+    </message>
+    <message>
+      <source>User can see all pending chats, not only assigned to him</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -4622,12 +4686,12 @@
       <translation>تصویر</translation>
     </message>
     <message>
-      <source>Departments</source>
-      <translation>دپارتمان ها</translation>
-    </message>
-    <message>
       <source>Save</source>
       <translation>ذخیره</translation>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation>دپارتمان ها</translation>
     </message>
     <message>
       <source>Please choose a default user group</source>
@@ -5105,6 +5169,10 @@
       <translation>از</translation>
     </message>
     <message>
+      <source>Chat was automatically closed by cron</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Support staff member has closed this chat</source>
       <translation>پشتیبان چت را بسته است</translation>
     </message>
@@ -5383,6 +5451,44 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>لطفا نوع فایل معتبر وارد کنید!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/maintenance</name>
+    <message>
+      <source>Maintenance</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatic chats close, click to close old chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatic chats purge, click to purge old chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Purged chats</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/operatorsbalancing</name>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Maximum number of active chats user can have at a time, 0 - unlimited</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

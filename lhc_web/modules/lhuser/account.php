@@ -218,7 +218,7 @@ if (isset($_POST['Update']))
 
     	$dir = 'var/userphoto/' . date('Y') . 'y/' . date('m') . '/' . date('d') .'/' . $UserData->id . '/';
     	
-    	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.edit.photo_path',array('dir' => & $dir));
+    	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.edit.photo_path',array('dir' => & $dir,'storage_id' => $UserData->id));
     	
     	erLhcoreClassFileUpload::mkdirRecursive( $dir );
 
