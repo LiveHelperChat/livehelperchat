@@ -27,7 +27,7 @@ $def->properties['offl_bcolor']->propertyType = ezcPersistentObjectProperty::PHP
 $def->properties['text_color'] = new ezcPersistentObjectProperty();
 $def->properties['text_color']->columnName   = 'text_color';
 $def->properties['text_color']->propertyName = 'text_color';
-$def->properties['text_color']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+$def->properties['text_color']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 $def->properties['online_image'] = new ezcPersistentObjectProperty();
 $def->properties['online_image']->columnName   = 'online_image';
@@ -37,17 +37,22 @@ $def->properties['online_image']->propertyType = ezcPersistentObjectProperty::PH
 $def->properties['offline_image'] = new ezcPersistentObjectProperty();
 $def->properties['offline_image']->columnName   = 'offline_image';
 $def->properties['offline_image']->propertyName = 'offline_image';
-$def->properties['offline_image']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+$def->properties['offline_image']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 $def->properties['need_help_bck'] = new ezcPersistentObjectProperty();
 $def->properties['need_help_bck']->columnName   = 'need_help_bck';
 $def->properties['need_help_bck']->propertyName = 'need_help_bck';
 $def->properties['need_help_bck']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
-
+ 
 $def->properties['need_help_image'] = new ezcPersistentObjectProperty();
 $def->properties['need_help_image']->columnName   = 'need_help_image';
 $def->properties['need_help_image']->propertyName = 'need_help_image';
 $def->properties['need_help_image']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+ 
+$def->properties['header_background'] = new ezcPersistentObjectProperty();
+$def->properties['header_background']->columnName   = 'header_background';
+$def->properties['header_background']->propertyName = 'header_background';
+$def->properties['header_background']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 return $def;
 

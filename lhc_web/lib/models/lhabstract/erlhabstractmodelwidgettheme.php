@@ -13,6 +13,7 @@ class erLhAbstractModelWidgetTheme {
 			'online_image'		=> $this->online_image,
 			'offline_image'		=> $this->offline_image,
 			'need_help_bck'		=> $this->need_help_bck,
+			'header_background'		=> $this->header_background,
 			'need_help_image'	=> $this->need_help_image
 		);
 
@@ -29,7 +30,7 @@ class erLhAbstractModelWidgetTheme {
 
 	public function __toString()
 	{
-		return $this->siteaccess;
+		return $this->name;
 	}
 
    	public function getFields()
@@ -44,7 +45,7 @@ class erLhAbstractModelWidgetTheme {
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
    				'onl_bcolor' => array(
-   						'type' => 'text',
+   						'type' => 'colorpicker',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Online background color'),
    						'required' => true,
    						'hidden' => true,
@@ -52,7 +53,7 @@ class erLhAbstractModelWidgetTheme {
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
    				'offl_bcolor' => array(
-   						'type' => 'text',
+   						'type' => 'colorpicker',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Offline background color'),
    						'required' => false,
    						'hidden' => false,
@@ -60,7 +61,7 @@ class erLhAbstractModelWidgetTheme {
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
    				'text_color' => array(
-   						'type' => 'text',
+   						'type' => 'colorpicker',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Text color'),
    						'required' => false,
    						'validation_definition' => new ezcInputFormDefinitionElement(
@@ -82,8 +83,16 @@ class erLhAbstractModelWidgetTheme {
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
+   				'header_background' => array(
+   						'type' => 'colorpicker',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Header background.'),
+   						'required' => false,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
    				'need_help_bck' => array(
-   						'type' => 'text',
+   						'type' => 'colorpicker',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Need help background color'),
    						'required' => false,
    						'hidden' => true,
@@ -95,7 +104,7 @@ class erLhAbstractModelWidgetTheme {
 
 	public function getModuleTranslations()
 	{
-		return array('permission_delete' => array('module' => 'lhchat','function' => 'administratethemes'),'permission' => array('module' => 'lhchat','function' => 'administrateresponder'),'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Auto responder'));
+		return array('permission_delete' => array('module' => 'lhchat','function' => 'administratethemes'),'permission' => array('module' => 'lhchat','function' => 'administrateresponder'),'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Widget themes'));
 	}
 
 	public static function getCount($params = array())
@@ -216,14 +225,27 @@ class erLhAbstractModelWidgetTheme {
 		erLhcoreClassAbstract::getSession()->update($this);
 	}
 
+	public function dependCss(){
+		return '<link rel="stylesheet" type="text/css" href="'.erLhcoreClassDesign::design('css/colorpicker.css').'" />';
+	}
+
+	public function dependJs(){
+		return '<script type="text/javascript" src="'.erLhcoreClassDesign::design('js/colorpicker.js').'"></script>';
+	}
+	
+	public function customForm(){
+		return 'widget_theme.tpl.php';
+	}
+	
    	public $id = null;
 	public $name = '';
-	public $onl_bcolor = 0;
+	public $onl_bcolor = 'f6f6f6';
 	public $offl_bcolor = '';
-	public $text_color = 0;
+	public $text_color = '';
 	public $online_image = '';
 	public $need_help_bck = '';
 	public $need_help_image = '';
+	public $header_background = '';
 	
 	public $hide_add = false;
 	public $hide_delete = false;

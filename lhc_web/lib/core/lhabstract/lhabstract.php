@@ -19,6 +19,10 @@ class erLhcoreClassAbstract {
         	       }
         		break;
 
+        	case 'colorpicker':        	      
+        		      return '<div class="row collapse"><div class="small-1 columns"><span class="prefix" style="background-color:#{{bactract_bg_color_'.$name.'}}">#</span></div><div class="small-11 columns"><input class="abstract_input" class="abstract_input" ng-model="bactract_bg_color_'.$name.'" id="id_AbstractInput_'.$name.'" name="AbstractInput_'.$name.'" type="text" value="'.htmlspecialchars($object->$name).'" /></div></div><script>$(\'#id_AbstractInput_'.$name.'\').ColorPicker({	onSubmit: function(hsb, hex, rgb, el) {		$(el).val(hex);	$(el).trigger(\'input\');	$(el).ColorPickerHide();	},	onBeforeShow: function () {		$(this).ColorPickerSetColor(this.value);	}});</script>';
+        		break;
+
         	case 'textarea':
 
         		$height = isset($attr['height']) ? $attr['height'] : '300px';
@@ -27,12 +31,12 @@ class erLhcoreClassAbstract {
         			$returnString = '';
 
         			foreach (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'available_locales' ) as $locale){
-        				$returnString .= '<textarea style="height:'.$height.';"  class="abstract_input" name="AbstractInput_'.$name.'_'.$locale.'">'.htmlspecialchars($object->{$name.'_'.strtolower($locale)}).'</textarea>'.$locale.'<br/>';
+        				$returnString .= '<textarea ng-non-bindable style="height:'.$height.';"  class="abstract_input" name="AbstractInput_'.$name.'_'.$locale.'">'.htmlspecialchars($object->{$name.'_'.strtolower($locale)}).'</textarea>'.$locale.'<br/>';
         			}
 
         			return $returnString;
         		} else {
-        		      return '<textarea style="height:'.$height.';"  class="abstract_input" name="AbstractInput_'.$name.'">'.htmlspecialchars($object->$name).'</textarea>';
+        		      return '<textarea ng-non-bindable style="height:'.$height.';"  class="abstract_input" name="AbstractInput_'.$name.'">'.htmlspecialchars($object->$name).'</textarea>';
         		}
         		break;
 

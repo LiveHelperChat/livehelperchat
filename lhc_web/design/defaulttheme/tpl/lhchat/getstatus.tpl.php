@@ -345,11 +345,11 @@ var lh_inst  = {
           var widgetWidth = (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.widget_width != 'undefined') ? parseInt(LHCChatOptions.opt.widget_width) : 300;
 		  var widgetHeight = (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.widget_height != 'undefined') ? parseInt(LHCChatOptions.opt.widget_height) : 340;
 
-          this.iframe_html = '<iframe id="lhc_iframe" allowTransparency="true" scrolling="no" class="lhc-loading" frameborder="0" ' +
+          this.iframe_html = '<div id="lhc_iframe_container"><iframe id="lhc_iframe" allowTransparency="true" scrolling="no" class="lhc-loading" frameborder="0" ' +
                        ( this.initial_iframe_url != '' ? ' src="'    + this.initial_iframe_url + '"' : '' ) +
                        ' width="'+widgetWidth+'"' +
                        ' height="'+widgetHeight+'"' +
-                       ' style="width: '+widgetWidth+'px; height: '+widgetHeight+'px;"></iframe>';
+                       ' style="width: '+widgetWidth+'px; height: '+widgetHeight+'px;"></iframe></div>';
 
           <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/container.tpl.php')); ?>
          
