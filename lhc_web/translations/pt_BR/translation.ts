@@ -475,6 +475,18 @@
   <context>
     <name>browseoffer/index</name>
     <message>
+      <source>List of forms</source>
+      <translation>Lista de formulários</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>Código de incorporação na página</translation>
+    </message>
+    <message>
+      <source>Index</source>
+      <translation>Principal</translation>
+    </message>
+    <message>
       <source>Browse offers</source>
       <translation>Procurar opções</translation>
     </message>
@@ -491,16 +503,12 @@
       <translation>Código HTML</translation>
     </message>
     <message>
-      <source>List of forms</source>
-      <translation>Lista de formulários</translation>
+      <source>Forms</source>
+      <translation>Formulários</translation>
     </message>
     <message>
-      <source>Page embed code</source>
-      <translation>Código de incorporação na página</translation>
-    </message>
-    <message>
-      <source>Index</source>
-      <translation>Principal</translation>
+      <source>Documents</source>
+      <translation>Documentos</translation>
     </message>
     <message>
       <source>Form</source>
@@ -946,6 +954,10 @@
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
       <translation>Executar lógica de chats não respondidos para o destinatário do departamento?</translation>
+    </message>
+    <message>
+      <source>Auto assignment</source>
+      <translation>Auto encaminhar</translation>
     </message>
     <message>
       <source>Miscellaneous</source>
@@ -2096,6 +2108,38 @@
   <context>
     <name>system/configuration</name>
     <message>
+      <source>Chat related</source>
+      <translation>Chat relacionado</translation>
+    </message>
+    <message>
+      <source>Form module</source>
+      <translation>Módulo do formulário</translation>
+    </message>
+    <message>
+      <source>Documents module</source>
+      <translation>Módulo de documentos</translation>
+    </message>
+    <message>
+      <source>Users and their permissions</source>
+      <translation>Usuários e suas permissões</translation>
+    </message>
+    <message>
+      <source>Files uploads configuration</source>
+      <translation>Configurações de envio de arquivos</translation>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation>Outro</translation>
+    </message>
+    <message>
+      <source>Forms</source>
+      <translation>Formulários</translation>
+    </message>
+    <message>
+      <source>Documents</source>
+      <translation>Documentos</translation>
+    </message>
+    <message>
       <source>Request notification permission</source>
       <translation>Requisitar permissão de notificação</translation>
     </message>
@@ -2108,8 +2152,68 @@
       <translation>Configuração do sistema</translation>
     </message>
     <message>
-      <source>Chat related</source>
-      <translation>Chat relacionado</translation>
+      <source>System</source>
+      <translation>Sistema</translation>
+    </message>
+    <message>
+      <source>Time zone settings</source>
+      <translation>Definições de fuso horário</translation>
+    </message>
+    <message>
+      <source>Update information</source>
+      <translation>Informações de atualização</translation>
+    </message>
+    <message>
+      <source>SMTP settings</source>
+      <translation>Configurações de SMTP</translation>
+    </message>
+    <message>
+      <source>E-mail templates</source>
+      <translation>Modelos de e-mail</translation>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation>Configuração de idiomas</translation>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation>Usuários</translation>
+    </message>
+    <message>
+      <source>List of groups</source>
+      <translation>Lista de grupos</translation>
+    </message>
+    <message>
+      <source>List of roles</source>
+      <translation>Lista de regras</translation>
+    </message>
+    <message>
+      <source>Embed code</source>
+      <translation>Código de incorporação</translation>
+    </message>
+    <message>
+      <source>Live help embed code</source>
+      <translation>Código de incorporação do suporte online</translation>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation>Código de incorporação da FAQ</translation>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation>Código de incorporação do questionário</translation>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation>Código de incorporação do chatbox</translation>
+    </message>
+    <message>
+      <source>Browse offers embed code</source>
+      <translation>Procurar opções de código de incorporação</translation>
+    </message>
+    <message>
+      <source>Live help configuration</source>
+      <translation>Configuração do Live help</translation>
     </message>
     <message>
       <source>Departments</source>
@@ -2140,10 +2244,6 @@
       <translation>Mensagens predefinidas</translation>
     </message>
     <message>
-      <source>E-mail templates</source>
-      <translation>Modelos de e-mail</translation>
-    </message>
-    <message>
       <source>Pro active chat invitations</source>
       <translation>Convites de chat pró ativos</translation>
     </message>
@@ -2152,16 +2252,12 @@
       <translation>Atendedor automático</translation>
     </message>
     <message>
-      <source>SMTP settings</source>
-      <translation>Configurações de SMTP</translation>
-    </message>
-    <message>
       <source>XMPP settings</source>
       <translation>Configurações XMPP</translation>
     </message>
     <message>
-      <source>Languages configuration</source>
-      <translation>Configuração de idiomas</translation>
+      <source>Automatic chats assigment</source>
+      <translation>Encaminhamento automático de chats</translation>
     </message>
     <message>
       <source>Chats list</source>
@@ -2172,64 +2268,16 @@
       <translation>Arquivo de chat</translation>
     </message>
     <message>
-      <source>Time zone settings</source>
-      <translation>Definições de fuso horário</translation>
-    </message>
-    <message>
-      <source>Update information</source>
-      <translation>Informações de atualização</translation>
-    </message>
-    <message>
-      <source>Live help embed code</source>
-      <translation>Código de incorporação do suporte online</translation>
-    </message>
-    <message>
-      <source>FAQ embed code</source>
-      <translation>Código de incorporação da FAQ</translation>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation>Código de incorporação do questionário</translation>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation>Código de incorporação do chatbox</translation>
-    </message>
-    <message>
-      <source>Browse offers embed code</source>
-      <translation>Procurar opções de código de incorporação</translation>
-    </message>
-    <message>
-      <source>Form module</source>
-      <translation>Módulo do formulário</translation>
-    </message>
-    <message>
-      <source>Documents module</source>
-      <translation>Módulo de documentos</translation>
-    </message>
-    <message>
       <source>Statistic</source>
       <translation>Estatística</translation>
     </message>
     <message>
-      <source>Users and their permissions</source>
-      <translation>Usuários e suas permissões</translation>
+      <source>Maintenance</source>
+      <translation>Manutenção</translation>
     </message>
     <message>
-      <source>Users</source>
-      <translation>Usuários</translation>
-    </message>
-    <message>
-      <source>List of groups</source>
-      <translation>Lista de grupos</translation>
-    </message>
-    <message>
-      <source>List of roles</source>
-      <translation>Lista de regras</translation>
-    </message>
-    <message>
-      <source>Files uploads configuration</source>
-      <translation>Configurações de envio de arquivos</translation>
+      <source>Files</source>
+      <translation>Arquivos</translation>
     </message>
     <message>
       <source>Files upload configuration</source>
@@ -2238,10 +2286,6 @@
     <message>
       <source>List of files</source>
       <translation>Lista de arquivos</translation>
-    </message>
-    <message>
-      <source>Other</source>
-      <translation>Outro</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -2346,6 +2390,10 @@
       <translation>Visitantes online</translation>
     </message>
     <message>
+      <source>Extra modules</source>
+      <translation>Módulos extras</translation>
+    </message>
+    <message>
       <source>Questionary</source>
       <translation>Questionário</translation>
     </message>
@@ -2379,6 +2427,10 @@
   </context>
   <context>
     <name>chat/lists/search_panel</name>
+    <message>
+      <source>Delete selected</source>
+      <translation>Excluir selecionado</translation>
+    </message>
     <message>
       <source>Nick</source>
       <translation>Apelido</translation>
@@ -3408,12 +3460,24 @@
       <translation>Mensagens predefinidas pessoais</translation>
     </message>
     <message>
+      <source>Pending chats</source>
+      <translation>Chats pendentes</translation>
+    </message>
+    <message>
+      <source>I can see all pending chats, not only assigned to me</source>
+      <translation>Eu posso ver todos os chats pendentes, não apenas os encaminhados para mim</translation>
+    </message>
+    <message>
       <source>Account updated</source>
       <translation>Cadastro atualizado</translation>
     </message>
     <message>
       <source>Delete</source>
       <translation>Apagar</translation>
+    </message>
+    <message>
+      <source>User can see all pending chats, not only assigned to him</source>
+      <translation>O usuário pode ver todos os chates pendentes, não apenas os encaminhados para ele</translation>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -4622,12 +4686,12 @@
       <translation>Foto</translation>
     </message>
     <message>
-      <source>Departments</source>
-      <translation>Departamentos</translation>
-    </message>
-    <message>
       <source>Save</source>
       <translation>Salvar</translation>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation>Departamentos</translation>
     </message>
     <message>
       <source>Please choose a default user group</source>
@@ -5105,6 +5169,10 @@
       <translation>para</translation>
     </message>
     <message>
+      <source>Chat was automatically closed by cron</source>
+      <translation>O chat foi fechado automaticamente pelo agendamento</translation>
+    </message>
+    <message>
       <source>Support staff member has closed this chat</source>
       <translation>O Membro da equipe fechou este chat</translation>
     </message>
@@ -5383,6 +5451,44 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Por favor insira um tipo de arquivo válido!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/maintenance</name>
+    <message>
+      <source>Maintenance</source>
+      <translation>Manutenção</translation>
+    </message>
+    <message>
+      <source>Automatic chats close, click to close old chats</source>
+      <translation>Fechamento automático de chats, clique para fechar chats antigos</translation>
+    </message>
+    <message>
+      <source>Automatic chats purge, click to purge old chats</source>
+      <translation>Exclusão automática de chats, clique para excluir chats antigos</translation>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation>Chats fechados</translation>
+    </message>
+    <message>
+      <source>Purged chats</source>
+      <translation>Chats excluídos</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/operatorsbalancing</name>
+    <message>
+      <source>Active</source>
+      <translation>Ativo</translation>
+    </message>
+    <message>
+      <source>Maximum number of active chats user can have at a time, 0 - unlimited</source>
+      <translation>Número máximo de chats que um operador possa ter, 0 - ilimitado</translation>
+    </message>
+    <message>
+      <source>Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled</source>
+      <translation>Automaticamente encaminhar o chat para outro operador se nenhum operador responder em segundos, 0 - desativado</translation>
     </message>
   </context>
 </TS>

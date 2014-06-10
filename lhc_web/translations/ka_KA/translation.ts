@@ -475,6 +475,18 @@
   <context>
     <name>browseoffer/index</name>
     <message>
+      <source>List of forms</source>
+      <translation>ფორმების სია</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>გვერდის ჩასაშენებელი კოდი</translation>
+    </message>
+    <message>
+      <source>Index</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Browse offers</source>
       <translation>შეთავაზებების დათვალიერება</translation>
     </message>
@@ -491,15 +503,11 @@
       <translation>HTML კოდი</translation>
     </message>
     <message>
-      <source>List of forms</source>
-      <translation>ფორმების სია</translation>
+      <source>Forms</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Page embed code</source>
-      <translation>გვერდის ჩასაშენებელი კოდი</translation>
-    </message>
-    <message>
-      <source>Index</source>
+      <source>Documents</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -945,6 +953,10 @@
     </message>
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto assignment</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2096,6 +2108,38 @@
   <context>
     <name>system/configuration</name>
     <message>
+      <source>Chat related</source>
+      <translation>ჩეთის კავშირები</translation>
+    </message>
+    <message>
+      <source>Form module</source>
+      <translation>ფორმის მოდული</translation>
+    </message>
+    <message>
+      <source>Documents module</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users and their permissions</source>
+      <translation>მომხმარებლები და მათი ნებართვები</translation>
+    </message>
+    <message>
+      <source>Files uploads configuration</source>
+      <translation>ფაილების ატვირთვის კონფიგურაცია</translation>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation>სხვა</translation>
+    </message>
+    <message>
+      <source>Forms</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Documents</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Request notification permission</source>
       <translation>მოთხოვნის შეტყობინების ნებართვა</translation>
     </message>
@@ -2108,8 +2152,68 @@
       <translation>სისტემის კონფიგურაცია</translation>
     </message>
     <message>
-      <source>Chat related</source>
-      <translation>ჩეთის კავშირები</translation>
+      <source>System</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time zone settings</source>
+      <translation>დროის სარტყელის პარამეტრები</translation>
+    </message>
+    <message>
+      <source>Update information</source>
+      <translation>განახლების ინფორმაცია</translation>
+    </message>
+    <message>
+      <source>SMTP settings</source>
+      <translation>SMTP  პარამეტრები</translation>
+    </message>
+    <message>
+      <source>E-mail templates</source>
+      <translation>ელ. ფოსტის შაბლონები</translation>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation>ენების კონფიგურაცია</translation>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation>მომხმარებელები</translation>
+    </message>
+    <message>
+      <source>List of groups</source>
+      <translation>ჯგუფების სია</translation>
+    </message>
+    <message>
+      <source>List of roles</source>
+      <translation>როლების სია</translation>
+    </message>
+    <message>
+      <source>Embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live help embed code</source>
+      <translation>ონალინ დახმარება ჩასაშენებელი კოდი</translation>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation>ხშირად დასმული კითხვების ჩასაშენებელი კოდი</translation>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation>კითხვარის ჩასაშენებელი კოდი</translation>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation>ჩეთის სარკმლის ჩასაშენებელი კოდი</translation>
+    </message>
+    <message>
+      <source>Browse offers embed code</source>
+      <translation>შემოთავაზებული ჩასაშენებელი კოდის დათვალიერება</translation>
+    </message>
+    <message>
+      <source>Live help configuration</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Departments</source>
@@ -2140,10 +2244,6 @@
       <translation>კონსერვირებული შეტყობინებები</translation>
     </message>
     <message>
-      <source>E-mail templates</source>
-      <translation>ელ. ფოსტის შაბლონები</translation>
-    </message>
-    <message>
       <source>Pro active chat invitations</source>
       <translation>პრო აქტიური ჩეთების მოწვევები</translation>
     </message>
@@ -2152,16 +2252,12 @@
       <translation>ავტომოპასუხე</translation>
     </message>
     <message>
-      <source>SMTP settings</source>
-      <translation>SMTP  პარამეტრები</translation>
-    </message>
-    <message>
       <source>XMPP settings</source>
       <translation>XMPP პარამეტრები</translation>
     </message>
     <message>
-      <source>Languages configuration</source>
-      <translation>ენების კონფიგურაცია</translation>
+      <source>Automatic chats assigment</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats list</source>
@@ -2172,64 +2268,16 @@
       <translation>ჩეთის არქივი</translation>
     </message>
     <message>
-      <source>Time zone settings</source>
-      <translation>დროის სარტყელის პარამეტრები</translation>
-    </message>
-    <message>
-      <source>Update information</source>
-      <translation>განახლების ინფორმაცია</translation>
-    </message>
-    <message>
-      <source>Live help embed code</source>
-      <translation>ონალინ დახმარება ჩასაშენებელი კოდი</translation>
-    </message>
-    <message>
-      <source>FAQ embed code</source>
-      <translation>ხშირად დასმული კითხვების ჩასაშენებელი კოდი</translation>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation>კითხვარის ჩასაშენებელი კოდი</translation>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation>ჩეთის სარკმლის ჩასაშენებელი კოდი</translation>
-    </message>
-    <message>
-      <source>Browse offers embed code</source>
-      <translation>შემოთავაზებული ჩასაშენებელი კოდის დათვალიერება</translation>
-    </message>
-    <message>
-      <source>Form module</source>
-      <translation>ფორმის მოდული</translation>
-    </message>
-    <message>
-      <source>Documents module</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Statistic</source>
       <translation>სტატისტიკა</translation>
     </message>
     <message>
-      <source>Users and their permissions</source>
-      <translation>მომხმარებლები და მათი ნებართვები</translation>
+      <source>Maintenance</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Users</source>
-      <translation>მომხმარებელები</translation>
-    </message>
-    <message>
-      <source>List of groups</source>
-      <translation>ჯგუფების სია</translation>
-    </message>
-    <message>
-      <source>List of roles</source>
-      <translation>როლების სია</translation>
-    </message>
-    <message>
-      <source>Files uploads configuration</source>
-      <translation>ფაილების ატვირთვის კონფიგურაცია</translation>
+      <source>Files</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Files upload configuration</source>
@@ -2238,10 +2286,6 @@
     <message>
       <source>List of files</source>
       <translation>ფაილების სია</translation>
-    </message>
-    <message>
-      <source>Other</source>
-      <translation>სხვა</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -2346,6 +2390,10 @@
       <translation>ონლაინ ვიზიტორები</translation>
     </message>
     <message>
+      <source>Extra modules</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Questionary</source>
       <translation>ანკეტა</translation>
     </message>
@@ -2379,6 +2427,10 @@
   </context>
   <context>
     <name>chat/lists/search_panel</name>
+    <message>
+      <source>Delete selected</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Nick</source>
       <translation>მეტსხელი</translation>
@@ -3408,12 +3460,24 @@
       <translation>პირადი კონსერვირებული შეტყობინებები</translation>
     </message>
     <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>I can see all pending chats, not only assigned to me</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Account updated</source>
       <translation>ანგარიში განახლდა</translation>
     </message>
     <message>
       <source>Delete</source>
       <translation>წაშლა</translation>
+    </message>
+    <message>
+      <source>User can see all pending chats, not only assigned to him</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -4622,12 +4686,12 @@
       <translation>ფოტო</translation>
     </message>
     <message>
-      <source>Departments</source>
-      <translation>დეპარტამეტები</translation>
-    </message>
-    <message>
       <source>Save</source>
       <translation>შენახვა</translation>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation>დეპარტამეტები</translation>
     </message>
     <message>
       <source>Please choose a default user group</source>
@@ -5105,6 +5169,10 @@
       <translation>გან</translation>
     </message>
     <message>
+      <source>Chat was automatically closed by cron</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Support staff member has closed this chat</source>
       <translation>მხარდაჭერის თანამშრომელმა დახურა თავისი ჩეთი</translation>
     </message>
@@ -5383,6 +5451,44 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>გთხოვთ, შეიტანეთ ვალიდური ტიპის ფაილი!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/maintenance</name>
+    <message>
+      <source>Maintenance</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatic chats close, click to close old chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatic chats purge, click to purge old chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Purged chats</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/operatorsbalancing</name>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Maximum number of active chats user can have at a time, 0 - unlimited</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

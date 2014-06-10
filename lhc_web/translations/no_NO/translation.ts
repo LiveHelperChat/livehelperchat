@@ -475,6 +475,18 @@
   <context>
     <name>browseoffer/index</name>
     <message>
+      <source>List of forms</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Index</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Browse offers</source>
       <translation type="unfinished"/>
     </message>
@@ -491,15 +503,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>List of forms</source>
+      <source>Forms</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Page embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Index</source>
+      <source>Documents</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -945,6 +953,10 @@
     </message>
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto assignment</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2096,6 +2108,38 @@
   <context>
     <name>system/configuration</name>
     <message>
+      <source>Chat related</source>
+      <translation>Samtalesammenhengende</translation>
+    </message>
+    <message>
+      <source>Form module</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Documents module</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users and their permissions</source>
+      <translation>Brukere og deres rettigheter</translation>
+    </message>
+    <message>
+      <source>Files uploads configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation>Andre</translation>
+    </message>
+    <message>
+      <source>Forms</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Documents</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Request notification permission</source>
       <translation>Be om meldingstillatelse</translation>
     </message>
@@ -2108,8 +2152,68 @@
       <translation>Systemkonfigurasjon</translation>
     </message>
     <message>
-      <source>Chat related</source>
-      <translation>Samtalesammenhengende</translation>
+      <source>System</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time zone settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>SMTP settings</source>
+      <translation>SMTP instillinger</translation>
+    </message>
+    <message>
+      <source>E-mail templates</source>
+      <translation>E-post maler</translation>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation>Språkkonfigurasjon</translation>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation>Brukere</translation>
+    </message>
+    <message>
+      <source>List of groups</source>
+      <translation>Liste over grupper</translation>
+    </message>
+    <message>
+      <source>List of roles</source>
+      <translation>Liste over roller</translation>
+    </message>
+    <message>
+      <source>Embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live help embed code</source>
+      <translation>Live hjelpe innebygd kode</translation>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation>FAQ innebygget kode</translation>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation>Spørreskjema innebygd kode</translation>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation>Samtalevindu innebygd kode</translation>
+    </message>
+    <message>
+      <source>Browse offers embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live help configuration</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Departments</source>
@@ -2140,10 +2244,6 @@
       <translation>Forhåndsmeldinger</translation>
     </message>
     <message>
-      <source>E-mail templates</source>
-      <translation>E-post maler</translation>
-    </message>
-    <message>
       <source>Pro active chat invitations</source>
       <translation>Pro active chat invitasjoner</translation>
     </message>
@@ -2152,16 +2252,12 @@
       <translation>Autosvar</translation>
     </message>
     <message>
-      <source>SMTP settings</source>
-      <translation>SMTP instillinger</translation>
-    </message>
-    <message>
       <source>XMPP settings</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Languages configuration</source>
-      <translation>Språkkonfigurasjon</translation>
+      <source>Automatic chats assigment</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats list</source>
@@ -2172,63 +2268,15 @@
       <translation>Chat arkiv</translation>
     </message>
     <message>
-      <source>Time zone settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Update information</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live help embed code</source>
-      <translation>Live hjelpe innebygd kode</translation>
-    </message>
-    <message>
-      <source>FAQ embed code</source>
-      <translation>FAQ innebygget kode</translation>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation>Spørreskjema innebygd kode</translation>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation>Samtalevindu innebygd kode</translation>
-    </message>
-    <message>
-      <source>Browse offers embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Form module</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Documents module</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Statistic</source>
       <translation>Statistikk</translation>
     </message>
     <message>
-      <source>Users and their permissions</source>
-      <translation>Brukere og deres rettigheter</translation>
+      <source>Maintenance</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Users</source>
-      <translation>Brukere</translation>
-    </message>
-    <message>
-      <source>List of groups</source>
-      <translation>Liste over grupper</translation>
-    </message>
-    <message>
-      <source>List of roles</source>
-      <translation>Liste over roller</translation>
-    </message>
-    <message>
-      <source>Files uploads configuration</source>
+      <source>Files</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2238,10 +2286,6 @@
     <message>
       <source>List of files</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Other</source>
-      <translation>Andre</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -2346,6 +2390,10 @@
       <translation>Påloggede besøkende</translation>
     </message>
     <message>
+      <source>Extra modules</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Questionary</source>
       <translation>Spørreskjema</translation>
     </message>
@@ -2379,6 +2427,10 @@
   </context>
   <context>
     <name>chat/lists/search_panel</name>
+    <message>
+      <source>Delete selected</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Nick</source>
       <translation type="unfinished"/>
@@ -3408,11 +3460,23 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>I can see all pending chats, not only assigned to me</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Account updated</source>
       <translation>Konto oppdatert</translation>
     </message>
     <message>
       <source>Delete</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User can see all pending chats, not only assigned to him</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4622,12 +4686,12 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Departments</source>
-      <translation>Avdelinger</translation>
-    </message>
-    <message>
       <source>Save</source>
       <translation>Lagre</translation>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation>Avdelinger</translation>
     </message>
     <message>
       <source>Please choose a default user group</source>
@@ -5105,6 +5169,10 @@
       <translation>fra</translation>
     </message>
     <message>
+      <source>Chat was automatically closed by cron</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Support staff member has closed this chat</source>
       <translation>Support har lukket samtalen</translation>
     </message>
@@ -5382,6 +5450,44 @@
     <name>file/configurations</name>
     <message>
       <source>Please enter valid file type!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/maintenance</name>
+    <message>
+      <source>Maintenance</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatic chats close, click to close old chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatic chats purge, click to purge old chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Purged chats</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/operatorsbalancing</name>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Maximum number of active chats user can have at a time, 0 - unlimited</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled</source>
       <translation type="unfinished"/>
     </message>
   </context>

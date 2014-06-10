@@ -475,6 +475,18 @@
   <context>
     <name>browseoffer/index</name>
     <message>
+      <source>List of forms</source>
+      <translation>Formų sąrašas</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>Įterpimo į puslapį kodas</translation>
+    </message>
+    <message>
+      <source>Index</source>
+      <translation>Titulinis</translation>
+    </message>
+    <message>
       <source>Browse offers</source>
       <translation>Naršymo pasiūlymai</translation>
     </message>
@@ -491,15 +503,11 @@
       <translation>HTML Kodas</translation>
     </message>
     <message>
-      <source>List of forms</source>
-      <translation>Formų sąrašas</translation>
+      <source>Forms</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Page embed code</source>
-      <translation>Įterpimo į puslapį kodas</translation>
-    </message>
-    <message>
-      <source>Index</source>
+      <source>Documents</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -946,6 +954,10 @@
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
       <translation>Vykdyti neatsakyto pokalbio scenarijų perleistam departamentui?</translation>
+    </message>
+    <message>
+      <source>Auto assignment</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Miscellaneous</source>
@@ -2096,6 +2108,38 @@
   <context>
     <name>system/configuration</name>
     <message>
+      <source>Chat related</source>
+      <translation>Susiję su pokalbiais</translation>
+    </message>
+    <message>
+      <source>Form module</source>
+      <translation>Formų modulis</translation>
+    </message>
+    <message>
+      <source>Documents module</source>
+      <translation>Dokumentų modulis</translation>
+    </message>
+    <message>
+      <source>Users and their permissions</source>
+      <translation>Vartotojai ir jų teisės</translation>
+    </message>
+    <message>
+      <source>Files uploads configuration</source>
+      <translation>Failųsiuntimų konfiguracija</translation>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation>Kita</translation>
+    </message>
+    <message>
+      <source>Forms</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Documents</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Request notification permission</source>
       <translation>Suteikti leidimą rodyti pranešimus</translation>
     </message>
@@ -2108,8 +2152,68 @@
       <translation>Sistemos konfigūracija</translation>
     </message>
     <message>
-      <source>Chat related</source>
-      <translation>Susiję su pokalbiais</translation>
+      <source>System</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time zone settings</source>
+      <translation>Laiko zonos nustatymai</translation>
+    </message>
+    <message>
+      <source>Update information</source>
+      <translation>Atnaujinti informaciją</translation>
+    </message>
+    <message>
+      <source>SMTP settings</source>
+      <translation>SMTP nustatymai</translation>
+    </message>
+    <message>
+      <source>E-mail templates</source>
+      <translation>El. pašto šablonai</translation>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation>Kalbų nustatymai</translation>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation>Vartotojai</translation>
+    </message>
+    <message>
+      <source>List of groups</source>
+      <translation>Grupių sąrašas</translation>
+    </message>
+    <message>
+      <source>List of roles</source>
+      <translation>Rolių sąrašas</translation>
+    </message>
+    <message>
+      <source>Embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live help embed code</source>
+      <translation>Live Help įterpimo kodas</translation>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation>DUK įterpimo kodas</translation>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation>Klausimyno įterpimo kodas</translation>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation>Chatbox įterpimo kodas</translation>
+    </message>
+    <message>
+      <source>Browse offers embed code</source>
+      <translation>Naršymo pasiūlymų įterpimo kodas</translation>
+    </message>
+    <message>
+      <source>Live help configuration</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Departments</source>
@@ -2140,10 +2244,6 @@
       <translation>Paruoštos žinutės</translation>
     </message>
     <message>
-      <source>E-mail templates</source>
-      <translation>El. pašto šablonai</translation>
-    </message>
-    <message>
       <source>Pro active chat invitations</source>
       <translation>Vartotojo veiksmais paremtos žinutės lankytojams</translation>
     </message>
@@ -2152,16 +2252,12 @@
       <translation>Auto atsakiklis</translation>
     </message>
     <message>
-      <source>SMTP settings</source>
-      <translation>SMTP nustatymai</translation>
-    </message>
-    <message>
       <source>XMPP settings</source>
       <translation>XMPP nustatymai</translation>
     </message>
     <message>
-      <source>Languages configuration</source>
-      <translation>Kalbų nustatymai</translation>
+      <source>Automatic chats assigment</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats list</source>
@@ -2172,64 +2268,16 @@
       <translation>Pokalbių archyvas</translation>
     </message>
     <message>
-      <source>Time zone settings</source>
-      <translation>Laiko zonos nustatymai</translation>
-    </message>
-    <message>
-      <source>Update information</source>
-      <translation>Atnaujinti informaciją</translation>
-    </message>
-    <message>
-      <source>Live help embed code</source>
-      <translation>Live Help įterpimo kodas</translation>
-    </message>
-    <message>
-      <source>FAQ embed code</source>
-      <translation>DUK įterpimo kodas</translation>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation>Klausimyno įterpimo kodas</translation>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation>Chatbox įterpimo kodas</translation>
-    </message>
-    <message>
-      <source>Browse offers embed code</source>
-      <translation>Naršymo pasiūlymų įterpimo kodas</translation>
-    </message>
-    <message>
-      <source>Form module</source>
-      <translation>Formų modulis</translation>
-    </message>
-    <message>
-      <source>Documents module</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Statistic</source>
       <translation>Statistika</translation>
     </message>
     <message>
-      <source>Users and their permissions</source>
-      <translation>Vartotojai ir jų teisės</translation>
+      <source>Maintenance</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Users</source>
-      <translation>Vartotojai</translation>
-    </message>
-    <message>
-      <source>List of groups</source>
-      <translation>Grupių sąrašas</translation>
-    </message>
-    <message>
-      <source>List of roles</source>
-      <translation>Rolių sąrašas</translation>
-    </message>
-    <message>
-      <source>Files uploads configuration</source>
-      <translation>Failųsiuntimų konfiguracija</translation>
+      <source>Files</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Files upload configuration</source>
@@ -2238,10 +2286,6 @@
     <message>
       <source>List of files</source>
       <translation>Failų sąrašas</translation>
-    </message>
-    <message>
-      <source>Other</source>
-      <translation>Kita</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -2346,6 +2390,10 @@
       <translation>Prisijungę vartotojai</translation>
     </message>
     <message>
+      <source>Extra modules</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Questionary</source>
       <translation>Klausimynas</translation>
     </message>
@@ -2379,6 +2427,10 @@
   </context>
   <context>
     <name>chat/lists/search_panel</name>
+    <message>
+      <source>Delete selected</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Nick</source>
       <translation>Nikas</translation>
@@ -3408,12 +3460,24 @@
       <translation>Asmeninės numatytosios žinutės</translation>
     </message>
     <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>I can see all pending chats, not only assigned to me</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Account updated</source>
       <translation>Paskyros duomenys buvo atnaujinti</translation>
     </message>
     <message>
       <source>Delete</source>
       <translation>Trinti</translation>
+    </message>
+    <message>
+      <source>User can see all pending chats, not only assigned to him</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -4622,12 +4686,12 @@
       <translation>Nuotrauka</translation>
     </message>
     <message>
-      <source>Departments</source>
-      <translation>Departamentai</translation>
-    </message>
-    <message>
       <source>Save</source>
       <translation>Saugoti</translation>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation>Departamentai</translation>
     </message>
     <message>
       <source>Please choose a default user group</source>
@@ -5105,6 +5169,10 @@
       <translation>iš</translation>
     </message>
     <message>
+      <source>Chat was automatically closed by cron</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Support staff member has closed this chat</source>
       <translation>Atsakingas asmuo uždarė šį pokalbį</translation>
     </message>
@@ -5383,6 +5451,44 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Prašome pasirinkti korektišką failo tipą!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/maintenance</name>
+    <message>
+      <source>Maintenance</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatic chats close, click to close old chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatic chats purge, click to purge old chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Purged chats</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/operatorsbalancing</name>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Maximum number of active chats user can have at a time, 0 - unlimited</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

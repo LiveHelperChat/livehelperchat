@@ -475,6 +475,18 @@
   <context>
     <name>browseoffer/index</name>
     <message>
+      <source>List of forms</source>
+      <translation>Lista med formulär</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>Sida med inbäddningskod</translation>
+    </message>
+    <message>
+      <source>Index</source>
+      <translation>Index</translation>
+    </message>
+    <message>
       <source>Browse offers</source>
       <translation>Bläddra bland erbjudanden</translation>
     </message>
@@ -491,16 +503,12 @@
       <translation>HTML kod</translation>
     </message>
     <message>
-      <source>List of forms</source>
-      <translation>Lista med formulär</translation>
+      <source>Forms</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Page embed code</source>
-      <translation>Sida med inbäddningskod</translation>
-    </message>
-    <message>
-      <source>Index</source>
-      <translation>Index</translation>
+      <source>Documents</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Form</source>
@@ -946,6 +954,10 @@
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
       <translation>Kör obesvarad chattlogik för mottagrens avdelning?</translation>
+    </message>
+    <message>
+      <source>Auto assignment</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Miscellaneous</source>
@@ -2096,6 +2108,38 @@
   <context>
     <name>system/configuration</name>
     <message>
+      <source>Chat related</source>
+      <translation>Chatt relaterad</translation>
+    </message>
+    <message>
+      <source>Form module</source>
+      <translation>Formulärmodul</translation>
+    </message>
+    <message>
+      <source>Documents module</source>
+      <translation>Dokumentmodul</translation>
+    </message>
+    <message>
+      <source>Users and their permissions</source>
+      <translation>Användare och rättigheter</translation>
+    </message>
+    <message>
+      <source>Files uploads configuration</source>
+      <translation>Inställningar för filuppladdning</translation>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation>Andra</translation>
+    </message>
+    <message>
+      <source>Forms</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Documents</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Request notification permission</source>
       <translation>Begär notifieringsrättighet</translation>
     </message>
@@ -2108,8 +2152,68 @@
       <translation>System inställningar</translation>
     </message>
     <message>
-      <source>Chat related</source>
-      <translation>Chatt relaterad</translation>
+      <source>System</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time zone settings</source>
+      <translation>Inställningar för tidszon</translation>
+    </message>
+    <message>
+      <source>Update information</source>
+      <translation>Uppdatera information</translation>
+    </message>
+    <message>
+      <source>SMTP settings</source>
+      <translation>SMTP inställningar</translation>
+    </message>
+    <message>
+      <source>E-mail templates</source>
+      <translation>E-post mallar</translation>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation>Språk inställningar</translation>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation>Användare</translation>
+    </message>
+    <message>
+      <source>List of groups</source>
+      <translation>Grupplista</translation>
+    </message>
+    <message>
+      <source>List of roles</source>
+      <translation>Roll lista</translation>
+    </message>
+    <message>
+      <source>Embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live help embed code</source>
+      <translation>Live hjälp inbäddad kod</translation>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation>FAQ inbäddad kod</translation>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation>Frågeformulär inbäddad kod</translation>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation>Chattbox inbäddad kod</translation>
+    </message>
+    <message>
+      <source>Browse offers embed code</source>
+      <translation>Bläddra bland erbjudanden inbäddad kod</translation>
+    </message>
+    <message>
+      <source>Live help configuration</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Departments</source>
@@ -2140,10 +2244,6 @@
       <translation>Snabbmeddelanden</translation>
     </message>
     <message>
-      <source>E-mail templates</source>
-      <translation>E-post mallar</translation>
-    </message>
-    <message>
       <source>Pro active chat invitations</source>
       <translation>Proaktiva chatt inbjudningar</translation>
     </message>
@@ -2152,16 +2252,12 @@
       <translation>Autosvar</translation>
     </message>
     <message>
-      <source>SMTP settings</source>
-      <translation>SMTP inställningar</translation>
-    </message>
-    <message>
       <source>XMPP settings</source>
       <translation>XMPP inställningar</translation>
     </message>
     <message>
-      <source>Languages configuration</source>
-      <translation>Språk inställningar</translation>
+      <source>Automatic chats assigment</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats list</source>
@@ -2172,64 +2268,16 @@
       <translation>Chatt arkiv</translation>
     </message>
     <message>
-      <source>Time zone settings</source>
-      <translation>Inställningar för tidszon</translation>
-    </message>
-    <message>
-      <source>Update information</source>
-      <translation>Uppdatera information</translation>
-    </message>
-    <message>
-      <source>Live help embed code</source>
-      <translation>Live hjälp inbäddad kod</translation>
-    </message>
-    <message>
-      <source>FAQ embed code</source>
-      <translation>FAQ inbäddad kod</translation>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation>Frågeformulär inbäddad kod</translation>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation>Chattbox inbäddad kod</translation>
-    </message>
-    <message>
-      <source>Browse offers embed code</source>
-      <translation>Bläddra bland erbjudanden inbäddad kod</translation>
-    </message>
-    <message>
-      <source>Form module</source>
-      <translation>Formulärmodul</translation>
-    </message>
-    <message>
-      <source>Documents module</source>
-      <translation>Dokumentmodul</translation>
-    </message>
-    <message>
       <source>Statistic</source>
       <translation>Statistik</translation>
     </message>
     <message>
-      <source>Users and their permissions</source>
-      <translation>Användare och rättigheter</translation>
+      <source>Maintenance</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Users</source>
-      <translation>Användare</translation>
-    </message>
-    <message>
-      <source>List of groups</source>
-      <translation>Grupplista</translation>
-    </message>
-    <message>
-      <source>List of roles</source>
-      <translation>Roll lista</translation>
-    </message>
-    <message>
-      <source>Files uploads configuration</source>
-      <translation>Inställningar för filuppladdning</translation>
+      <source>Files</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Files upload configuration</source>
@@ -2238,10 +2286,6 @@
     <message>
       <source>List of files</source>
       <translation>Fil lista</translation>
-    </message>
-    <message>
-      <source>Other</source>
-      <translation>Andra</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -2346,6 +2390,10 @@
       <translation>Besökare online</translation>
     </message>
     <message>
+      <source>Extra modules</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Questionary</source>
       <translation>Frågeformulär</translation>
     </message>
@@ -2379,6 +2427,10 @@
   </context>
   <context>
     <name>chat/lists/search_panel</name>
+    <message>
+      <source>Delete selected</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Nick</source>
       <translation>Smeknamn</translation>
@@ -3408,12 +3460,24 @@
       <translation>Personligt förifyllda meddelanden</translation>
     </message>
     <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>I can see all pending chats, not only assigned to me</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Account updated</source>
       <translation>Konto uppdaterat</translation>
     </message>
     <message>
       <source>Delete</source>
       <translation>Ta bort</translation>
+    </message>
+    <message>
+      <source>User can see all pending chats, not only assigned to him</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -4622,12 +4686,12 @@
       <translation>Foto</translation>
     </message>
     <message>
-      <source>Departments</source>
-      <translation>Avdelningar</translation>
-    </message>
-    <message>
       <source>Save</source>
       <translation>Spara</translation>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation>Avdelningar</translation>
     </message>
     <message>
       <source>Please choose a default user group</source>
@@ -5105,6 +5169,10 @@
       <translation>från</translation>
     </message>
     <message>
+      <source>Chat was automatically closed by cron</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Support staff member has closed this chat</source>
       <translation>Supportmedarbetaren har stängt chatten</translation>
     </message>
@@ -5383,6 +5451,44 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Vänligen ange en giltig filtyp!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/maintenance</name>
+    <message>
+      <source>Maintenance</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatic chats close, click to close old chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatic chats purge, click to purge old chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Purged chats</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/operatorsbalancing</name>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Maximum number of active chats user can have at a time, 0 - unlimited</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

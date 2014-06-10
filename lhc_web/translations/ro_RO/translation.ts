@@ -475,6 +475,18 @@
   <context>
     <name>browseoffer/index</name>
     <message>
+      <source>List of forms</source>
+      <translation>Lista formularelor</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>Cod de embed pe pagina</translation>
+    </message>
+    <message>
+      <source>Index</source>
+      <translation>Index</translation>
+    </message>
+    <message>
       <source>Browse offers</source>
       <translation>Vizualizeaza oferte</translation>
     </message>
@@ -491,16 +503,12 @@
       <translation>Cod HTML</translation>
     </message>
     <message>
-      <source>List of forms</source>
-      <translation>Lista formularelor</translation>
+      <source>Forms</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Page embed code</source>
-      <translation>Cod de embed pe pagina</translation>
-    </message>
-    <message>
-      <source>Index</source>
-      <translation>Index</translation>
+      <source>Documents</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Form</source>
@@ -946,6 +954,10 @@
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
       <translation>Executa logica pentru conversatie necitita din nou pentru departamentul care primeste?</translation>
+    </message>
+    <message>
+      <source>Auto assignment</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Miscellaneous</source>
@@ -2096,6 +2108,38 @@
   <context>
     <name>system/configuration</name>
     <message>
+      <source>Chat related</source>
+      <translation>Configurari legate de conversatii</translation>
+    </message>
+    <message>
+      <source>Form module</source>
+      <translation>Modul formular</translation>
+    </message>
+    <message>
+      <source>Documents module</source>
+      <translation>Modul documente</translation>
+    </message>
+    <message>
+      <source>Users and their permissions</source>
+      <translation>Utilizatori si permisiile lor</translation>
+    </message>
+    <message>
+      <source>Files uploads configuration</source>
+      <translation>Setari upload fisiere</translation>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation>Altele</translation>
+    </message>
+    <message>
+      <source>Forms</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Documents</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Request notification permission</source>
       <translation>Cere permisii pentru notificare</translation>
     </message>
@@ -2108,8 +2152,68 @@
       <translation>Configurarea sistemului</translation>
     </message>
     <message>
-      <source>Chat related</source>
-      <translation>Configurari legate de conversatii</translation>
+      <source>System</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time zone settings</source>
+      <translation>Setari fus orar</translation>
+    </message>
+    <message>
+      <source>Update information</source>
+      <translation>Informatii actualizate</translation>
+    </message>
+    <message>
+      <source>SMTP settings</source>
+      <translation>Setari SMTP</translation>
+    </message>
+    <message>
+      <source>E-mail templates</source>
+      <translation>Template-uri pentru e-mail</translation>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation>Configurarea limbei</translation>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation>Utilizatori</translation>
+    </message>
+    <message>
+      <source>List of groups</source>
+      <translation>Lista grupurilor</translation>
+    </message>
+    <message>
+      <source>List of roles</source>
+      <translation>Lista rolurilor</translation>
+    </message>
+    <message>
+      <source>Embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live help embed code</source>
+      <translation>Cod pentru embed sistem conversatii</translation>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation>Cod petnru embed FAQ - Intrebari frecvente</translation>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation>Cod pentru embed chestionar</translation>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation>Cod pentru embed fereastra de conversatii</translation>
+    </message>
+    <message>
+      <source>Browse offers embed code</source>
+      <translation>Cod de embed pentru vizualizare oferte</translation>
+    </message>
+    <message>
+      <source>Live help configuration</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Departments</source>
@@ -2140,10 +2244,6 @@
       <translation>Mesaje predefinite</translation>
     </message>
     <message>
-      <source>E-mail templates</source>
-      <translation>Template-uri pentru e-mail</translation>
-    </message>
-    <message>
       <source>Pro active chat invitations</source>
       <translation>Invitatii pro-active pentru conversatii</translation>
     </message>
@@ -2152,16 +2252,12 @@
       <translation>Raspuns automat</translation>
     </message>
     <message>
-      <source>SMTP settings</source>
-      <translation>Setari SMTP</translation>
-    </message>
-    <message>
       <source>XMPP settings</source>
       <translation>Setari XMPP</translation>
     </message>
     <message>
-      <source>Languages configuration</source>
-      <translation>Configurarea limbei</translation>
+      <source>Automatic chats assigment</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats list</source>
@@ -2172,64 +2268,16 @@
       <translation>Arhiva conversatii</translation>
     </message>
     <message>
-      <source>Time zone settings</source>
-      <translation>Setari fus orar</translation>
-    </message>
-    <message>
-      <source>Update information</source>
-      <translation>Informatii actualizate</translation>
-    </message>
-    <message>
-      <source>Live help embed code</source>
-      <translation>Cod pentru embed sistem conversatii</translation>
-    </message>
-    <message>
-      <source>FAQ embed code</source>
-      <translation>Cod petnru embed FAQ - Intrebari frecvente</translation>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation>Cod pentru embed chestionar</translation>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation>Cod pentru embed fereastra de conversatii</translation>
-    </message>
-    <message>
-      <source>Browse offers embed code</source>
-      <translation>Cod de embed pentru vizualizare oferte</translation>
-    </message>
-    <message>
-      <source>Form module</source>
-      <translation>Modul formular</translation>
-    </message>
-    <message>
-      <source>Documents module</source>
-      <translation>Modul documente</translation>
-    </message>
-    <message>
       <source>Statistic</source>
       <translation>Statistici</translation>
     </message>
     <message>
-      <source>Users and their permissions</source>
-      <translation>Utilizatori si permisiile lor</translation>
+      <source>Maintenance</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Users</source>
-      <translation>Utilizatori</translation>
-    </message>
-    <message>
-      <source>List of groups</source>
-      <translation>Lista grupurilor</translation>
-    </message>
-    <message>
-      <source>List of roles</source>
-      <translation>Lista rolurilor</translation>
-    </message>
-    <message>
-      <source>Files uploads configuration</source>
-      <translation>Setari upload fisiere</translation>
+      <source>Files</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Files upload configuration</source>
@@ -2238,10 +2286,6 @@
     <message>
       <source>List of files</source>
       <translation>Lista fisierelor</translation>
-    </message>
-    <message>
-      <source>Other</source>
-      <translation>Altele</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -2346,6 +2390,10 @@
       <translation>Vizitatoritori online</translation>
     </message>
     <message>
+      <source>Extra modules</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Questionary</source>
       <translation>Chestionar</translation>
     </message>
@@ -2379,6 +2427,10 @@
   </context>
   <context>
     <name>chat/lists/search_panel</name>
+    <message>
+      <source>Delete selected</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Nick</source>
       <translation>Porecla</translation>
@@ -3408,12 +3460,24 @@
       <translation>Mesaje predefinite personale</translation>
     </message>
     <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>I can see all pending chats, not only assigned to me</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Account updated</source>
       <translation>Cont actualizat</translation>
     </message>
     <message>
       <source>Delete</source>
       <translation>Sterge</translation>
+    </message>
+    <message>
+      <source>User can see all pending chats, not only assigned to him</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -4622,12 +4686,12 @@
       <translation>Poza</translation>
     </message>
     <message>
-      <source>Departments</source>
-      <translation>Departamente</translation>
-    </message>
-    <message>
       <source>Save</source>
       <translation>Salveaza</translation>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation>Departamente</translation>
     </message>
     <message>
       <source>Please choose a default user group</source>
@@ -5105,6 +5169,10 @@
       <translation>de la</translation>
     </message>
     <message>
+      <source>Chat was automatically closed by cron</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Support staff member has closed this chat</source>
       <translation>Un operator a inchis aceasta conversatie</translation>
     </message>
@@ -5383,6 +5451,44 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Te rog sa introduci un tip de fisier valid!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/maintenance</name>
+    <message>
+      <source>Maintenance</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatic chats close, click to close old chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatic chats purge, click to purge old chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Purged chats</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/operatorsbalancing</name>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Maximum number of active chats user can have at a time, 0 - unlimited</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

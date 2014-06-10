@@ -475,6 +475,18 @@
   <context>
     <name>browseoffer/index</name>
     <message>
+      <source>List of forms</source>
+      <translation>Λίστα των μορφών</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>Σελίδα ενσωματώνει τον κώδικα</translation>
+    </message>
+    <message>
+      <source>Index</source>
+      <translation>Δείκτης</translation>
+    </message>
+    <message>
       <source>Browse offers</source>
       <translation>Αναζήτηση προσφέρει</translation>
     </message>
@@ -491,16 +503,12 @@
       <translation>Κώδικα HTML</translation>
     </message>
     <message>
-      <source>List of forms</source>
-      <translation>Λίστα των μορφών</translation>
+      <source>Forms</source>
+      <translation>Μορφές</translation>
     </message>
     <message>
-      <source>Page embed code</source>
-      <translation>Σελίδα ενσωματώνει τον κώδικα</translation>
-    </message>
-    <message>
-      <source>Index</source>
-      <translation>Δείκτης</translation>
+      <source>Documents</source>
+      <translation>Έγγραφα</translation>
     </message>
     <message>
       <source>Form</source>
@@ -946,6 +954,10 @@
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
       <translation>Εκτέλεση αναπάντητα chat λογικής και πάλι για το λαμβάνον τμήμα;</translation>
+    </message>
+    <message>
+      <source>Auto assignment</source>
+      <translation>Αυτόματη εκχώρηση</translation>
     </message>
     <message>
       <source>Miscellaneous</source>
@@ -2096,6 +2108,38 @@
   <context>
     <name>system/configuration</name>
     <message>
+      <source>Chat related</source>
+      <translation>Συνομιλία σχετικές</translation>
+    </message>
+    <message>
+      <source>Form module</source>
+      <translation>Λειτουργική μονάδα φόρμας</translation>
+    </message>
+    <message>
+      <source>Documents module</source>
+      <translation>Ενότητα έγγραφα</translation>
+    </message>
+    <message>
+      <source>Users and their permissions</source>
+      <translation>Χρήστες και δικαιώματα τους</translation>
+    </message>
+    <message>
+      <source>Files uploads configuration</source>
+      <translation>Αρχεία διαμόρφωσης προσθήκες</translation>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation>Άλλο</translation>
+    </message>
+    <message>
+      <source>Forms</source>
+      <translation>Μορφές</translation>
+    </message>
+    <message>
+      <source>Documents</source>
+      <translation>Έγγραφα</translation>
+    </message>
+    <message>
       <source>Request notification permission</source>
       <translation>Ζητήσει άδεια κοινοποίησης</translation>
     </message>
@@ -2108,8 +2152,68 @@
       <translation>Παραμετροποίηση συστήματος</translation>
     </message>
     <message>
-      <source>Chat related</source>
-      <translation>Συνομιλία σχετικές</translation>
+      <source>System</source>
+      <translation>Σύστημα</translation>
+    </message>
+    <message>
+      <source>Time zone settings</source>
+      <translation>Οι ρυθμίσεις ζώνης ώρας</translation>
+    </message>
+    <message>
+      <source>Update information</source>
+      <translation>Ενημέρωση πληροφοριών</translation>
+    </message>
+    <message>
+      <source>SMTP settings</source>
+      <translation>Ρυθμίσεις SMTP</translation>
+    </message>
+    <message>
+      <source>E-mail templates</source>
+      <translation>Πρότυπα ηλεκτρονικού ταχυδρομείου</translation>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation>Διαμόρφωση γλώσσες</translation>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation>Χρήστες</translation>
+    </message>
+    <message>
+      <source>List of groups</source>
+      <translation>Λίστα ομάδων</translation>
+    </message>
+    <message>
+      <source>List of roles</source>
+      <translation>Λίστα ρόλων</translation>
+    </message>
+    <message>
+      <source>Embed code</source>
+      <translation>Ενσωματώστε τον κώδικα</translation>
+    </message>
+    <message>
+      <source>Live help embed code</source>
+      <translation>ΖΩΝΤΑΝΗ ΒΟΗΘΕΙΑ ενσωματώνει τον κώδικα</translation>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation>FAQ ενσωματώνει τον κώδικα</translation>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation>Ενσωματώστε τον κώδικα Questionary</translation>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation>Chatbox ενσωματώνει τον κώδικα</translation>
+    </message>
+    <message>
+      <source>Browse offers embed code</source>
+      <translation>Αναζήτηση προσφορές ενσωματώνει τον κώδικα</translation>
+    </message>
+    <message>
+      <source>Live help configuration</source>
+      <translation>Ζωντανή βοήθεια διαμόρφωση</translation>
     </message>
     <message>
       <source>Departments</source>
@@ -2140,10 +2244,6 @@
       <translation>Κονσερβοποιημένα μηνύματα</translation>
     </message>
     <message>
-      <source>E-mail templates</source>
-      <translation>Πρότυπα ηλεκτρονικού ταχυδρομείου</translation>
-    </message>
-    <message>
       <source>Pro active chat invitations</source>
       <translation>Προσκλήσεις προορατικού συνομιλίας</translation>
     </message>
@@ -2152,16 +2252,12 @@
       <translation>Αυτόματη απάντηση</translation>
     </message>
     <message>
-      <source>SMTP settings</source>
-      <translation>Ρυθμίσεις SMTP</translation>
-    </message>
-    <message>
       <source>XMPP settings</source>
       <translation>Ρυθμίσεις XMPP</translation>
     </message>
     <message>
-      <source>Languages configuration</source>
-      <translation>Διαμόρφωση γλώσσες</translation>
+      <source>Automatic chats assigment</source>
+      <translation>Αυτόματη συνομιλίες ανάθεσης</translation>
     </message>
     <message>
       <source>Chats list</source>
@@ -2172,64 +2268,16 @@
       <translation>Αρχείο συνομιλίας</translation>
     </message>
     <message>
-      <source>Time zone settings</source>
-      <translation>Οι ρυθμίσεις ζώνης ώρας</translation>
-    </message>
-    <message>
-      <source>Update information</source>
-      <translation>Ενημέρωση πληροφοριών</translation>
-    </message>
-    <message>
-      <source>Live help embed code</source>
-      <translation>ΖΩΝΤΑΝΗ ΒΟΗΘΕΙΑ ενσωματώνει τον κώδικα</translation>
-    </message>
-    <message>
-      <source>FAQ embed code</source>
-      <translation>FAQ ενσωματώνει τον κώδικα</translation>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation>Ενσωματώστε τον κώδικα Questionary</translation>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation>Chatbox ενσωματώνει τον κώδικα</translation>
-    </message>
-    <message>
-      <source>Browse offers embed code</source>
-      <translation>Αναζήτηση προσφορές ενσωματώνει τον κώδικα</translation>
-    </message>
-    <message>
-      <source>Form module</source>
-      <translation>Λειτουργική μονάδα φόρμας</translation>
-    </message>
-    <message>
-      <source>Documents module</source>
-      <translation>Ενότητα έγγραφα</translation>
-    </message>
-    <message>
       <source>Statistic</source>
       <translation>Στατιστική</translation>
     </message>
     <message>
-      <source>Users and their permissions</source>
-      <translation>Χρήστες και δικαιώματα τους</translation>
+      <source>Maintenance</source>
+      <translation>Συντήρηση</translation>
     </message>
     <message>
-      <source>Users</source>
-      <translation>Χρήστες</translation>
-    </message>
-    <message>
-      <source>List of groups</source>
-      <translation>Λίστα ομάδων</translation>
-    </message>
-    <message>
-      <source>List of roles</source>
-      <translation>Λίστα ρόλων</translation>
-    </message>
-    <message>
-      <source>Files uploads configuration</source>
-      <translation>Αρχεία διαμόρφωσης προσθήκες</translation>
+      <source>Files</source>
+      <translation>Αρχεία</translation>
     </message>
     <message>
       <source>Files upload configuration</source>
@@ -2238,10 +2286,6 @@
     <message>
       <source>List of files</source>
       <translation>Λίστα των αρχείων</translation>
-    </message>
-    <message>
-      <source>Other</source>
-      <translation>Άλλο</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -2346,6 +2390,10 @@
       <translation>Συνδεδεμένοι χρήστες</translation>
     </message>
     <message>
+      <source>Extra modules</source>
+      <translation>Επιπλέον ενότητες</translation>
+    </message>
+    <message>
       <source>Questionary</source>
       <translation>Ερωτηματολόγιο</translation>
     </message>
@@ -2379,6 +2427,10 @@
   </context>
   <context>
     <name>chat/lists/search_panel</name>
+    <message>
+      <source>Delete selected</source>
+      <translation>Διαγραφή επιλεγεί</translation>
+    </message>
     <message>
       <source>Nick</source>
       <translation>Nick</translation>
@@ -3408,12 +3460,24 @@
       <translation>Προσωπικά τα κονσερβοποιημένα μηνύματα</translation>
     </message>
     <message>
+      <source>Pending chats</source>
+      <translation>Σε εκκρεμότητα συνομιλίες</translation>
+    </message>
+    <message>
+      <source>I can see all pending chats, not only assigned to me</source>
+      <translation>Μπορώ να δω όλα σε εκκρεμότητα συνομιλίες, όχι μόνο που μου έχουν ανατεθεί</translation>
+    </message>
+    <message>
       <source>Account updated</source>
       <translation>Ο λογαριασμός ενημερώθηκε</translation>
     </message>
     <message>
       <source>Delete</source>
       <translation>Διαγραφή</translation>
+    </message>
+    <message>
+      <source>User can see all pending chats, not only assigned to him</source>
+      <translation>Χρήστης μπορεί να δει όλα σε εκκρεμότητα συνομιλίες, όχι μόνο που του ανατίθενται</translation>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -4622,12 +4686,12 @@
       <translation>Φωτογραφία</translation>
     </message>
     <message>
-      <source>Departments</source>
-      <translation>Τμήματα</translation>
-    </message>
-    <message>
       <source>Save</source>
       <translation>Αποθήκευση</translation>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation>Τμήματα</translation>
     </message>
     <message>
       <source>Please choose a default user group</source>
@@ -5105,6 +5169,10 @@
       <translation>από</translation>
     </message>
     <message>
+      <source>Chat was automatically closed by cron</source>
+      <translation>Chat αυτομάτως είχε κλείσει από το cron</translation>
+    </message>
+    <message>
       <source>Support staff member has closed this chat</source>
       <translation>Υποστήριξη υπάλληλος έχει κλείσει αυτήν τη συζήτηση</translation>
     </message>
@@ -5383,6 +5451,44 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Παρακαλούμε, εισάγετε έγκυρο αρχείο τύπου!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/maintenance</name>
+    <message>
+      <source>Maintenance</source>
+      <translation>Συντήρηση</translation>
+    </message>
+    <message>
+      <source>Automatic chats close, click to close old chats</source>
+      <translation>Αυτόματη chats κλείσετε, κάντε κλικ για να κλείσετε παλιές συζητήσεις</translation>
+    </message>
+    <message>
+      <source>Automatic chats purge, click to purge old chats</source>
+      <translation>Συνομιλίες αυτόματη εκκαθάριση, κάντε κλικ για να εξαγνίσει παλιά συνομιλίες</translation>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation>Κλειστό συνομιλίες</translation>
+    </message>
+    <message>
+      <source>Purged chats</source>
+      <translation>Εξαγνισμένοι συνομιλίες</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/operatorsbalancing</name>
+    <message>
+      <source>Active</source>
+      <translation>Ενεργό</translation>
+    </message>
+    <message>
+      <source>Maximum number of active chats user can have at a time, 0 - unlimited</source>
+      <translation>Μέγιστος αριθμός ενεργό συζητήσεις χρήστη μπορεί να έχουν σε έναν χρόνο, 0 - απεριόριστη</translation>
+    </message>
+    <message>
+      <source>Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled</source>
+      <translation>Αναθέσετε αυτόματα chat σε άλλο παροχέα αν χειριστή έκανε δεν γίνουν δεκτές chat σε δευτερόλεπτα, 0 - άτομα με ειδικές ανάγκες</translation>
     </message>
   </context>
 </TS>
