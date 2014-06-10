@@ -90,6 +90,7 @@ return array_merge(array (
 		'erLhAbstractModelBrowseOfferInvitation'  	=> 'lib/models/lhabstract/erlhabstractmodelbrowseofferinvitation.php',
 		'erLhAbstractModelForm'  					=> 'lib/models/lhabstract/erlhabstractmodelform.php',
 		'erLhAbstractModelFormCollected'  			=> 'lib/models/lhabstract/erlhabstractmodelformcollected.php',
+		'erLhAbstractModelWidgetTheme'  			=> 'lib/models/lhabstract/erlhabstractmodelwidgettheme.php',
 		
 		'erLhcoreClassFormRenderer'  		=> 'lib/core/lhform/lhformrenderer.php',
 		'erLhcoreClassAbstract' 			=> 'lib/core/lhabstract/lhabstract.php',

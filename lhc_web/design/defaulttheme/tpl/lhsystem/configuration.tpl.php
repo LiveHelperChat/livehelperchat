@@ -198,7 +198,17 @@
 					    <li><a href="<?php echo erLhcoreClassDesign::baseurl('file/list')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','List of files');?></a></li>
 					    <?php endif; ?>   
 				</ul>
-			   <?php endif; ?>     
+			    <?php endif; ?>
+			   
+			       
+				<?php if ($currentUser->hasAccessTo('lhchat','administratethemes')) : ?>
+			    <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Widget themes');?></h5>   
+				<ul class="circle small-list">					
+					 <li><a href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/WidgetTheme"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Widget themes');?></a></li>
+				</ul>
+				<?php endif; ?>
+		 			   
+			    
 			</div>
 		
 		</div>
