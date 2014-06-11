@@ -2,7 +2,7 @@
 	<div class="columns small-6">
 		<?php include(erLhcoreClassDesign::designtpl('lhabstract/abstract_form.tpl.php'));?>
 	</div>
-	<div class="columns small-6" style="background-color:#CCC;">
+	<div class="columns small-6">
 	<br/>
 		<style type="text/css">
 		#lhc_status_container * {direction:ltr;text-align:left;;font-family:arial;font-size:12px;box-sizing: content-box;zoom:1;margin:0;padding:0}
@@ -33,8 +33,19 @@
 		
 		<div id="lhc_container" class="" style="height: 207px;" draggable="false"><div id="lhc_header"><span id="lhc_title"><a title="Powered by Live Helper Chat" href="http://livehelperchat.com" target="_blank"><img src="//demo.livehelperchat.com/design/defaulttheme/images/general/logo_grey.png" alt="Live Helper Chat"></a></span><a href="#" title="Close" id="lhc_close"><img src="//demo.livehelperchat.com/design/defaulttheme/images/icons/cancel.png" title="Close" alt="Close"></a>&nbsp;<a href="#" title="Open in a new window" id="lhc_remote_window"><img src="//demo.livehelperchat.com/design/defaulttheme/images/icons/application_double.png" alt="Open in a new window" title="Open in a new window"></a><a href="#" id="lhc_min" title="Minimize/Restore"><img src="//demo.livehelperchat.com/design/defaulttheme/images/icons/min.png"></a></div><div id="lhc_iframe_container"><iframe id="lhc_iframe" allowtransparency="true" scrolling="no" class="lhc-loading" frameborder="0" src="//demo.livehelperchat.com/chat/chatwidget/(vid)/ji6q8mbo61hekxgy68qn?URLReferer=%2F%2Flivehelperchat.com%2F&amp;r=%2F%2Flivehelperchat.com%2F&amp;dt=Live%20helper%20chat%2C%20open%20source%20live%20support." width="300" height="181" style="width: 99.9%; height: 181px;"></iframe></div></div>
 		
+		
 		<br/>
 		<br/>
+<style type="text/css">
+#lhc_need_help_container{width:235px;border-radius:20px;background:#{{bactract_bg_color_offl_bcolor}};color:#Fff;padding:10px;border:1px solid #dbe257;}#lhc_need_help_container:hover{background-color:#84A52E}#lhc_need_help_container:hover #lhc_need_help_triangle{border-top-color:#84A52E}
+#lhc_need_help_triangle{width: 0;height: 0;border-left: 20px solid transparent;border-right: 10px solid transparent;border-top: 15px solid #{{bactract_bg_color_offl_bcolor}};position:absolute;bottom:-14px;}
+#lhc_need_help_close{float:right;border-radius:10px;background:#435A05;padding:0px 6px;color:#FFF;right:10px;font-size:16px;font-weight:bold;text-decoration:none;margin-top:0px;line-height:20px}#lhc_need_help_close:hover{background-color:#74990F;}
+#lhc_need_help_image{padding-right:10px;float:left;cursor:pointer;}#lhc_need_help_image img{border-radius:30px;border:1px solid #d0d0d0}#lhc_need_help_main_title{font-size:16px;font-weight:bold;cursor:pointer;line-height:1.5}#lhc_need_help_sub_title{cursor:pointer;line-height:1.5}
+</style>
+		
+		<div id="lhc_need_help_container"><a id="lhc_need_help_close" title="Close" onclick="return lh_inst.lhc_need_help_hide();" href="#">×</a><div onclick="return lh_inst.lhc_need_help_click();" id="lhc_need_help_image"><img width="60" height="60" src="//demo.livehelperchat.com/design/defaulttheme/images/general/operator.png"></div><div onclick="return lh_inst.lhc_need_help_click();" id="lhc_need_help_main_title">Need help?</div><span onclick="return lh_inst.lhc_need_help_click();" id="lhc_need_help_sub_title">Our staff is always ready to help</span></div>
+		
+		
 		
 		
 		

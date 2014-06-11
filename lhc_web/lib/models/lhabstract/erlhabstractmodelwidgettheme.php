@@ -46,20 +46,13 @@ class erLhAbstractModelWidgetTheme {
    						)),
    				'onl_bcolor' => array(
    						'type' => 'colorpicker',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Online background color'),
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Background color'),
    						'required' => true,
    						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
-   				'offl_bcolor' => array(
-   						'type' => 'colorpicker',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Offline background color'),
-   						'required' => false,
-   						'hidden' => false,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),
+   				
    				'text_color' => array(
    						'type' => 'colorpicker',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Text color'),
