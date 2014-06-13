@@ -37,7 +37,8 @@ class erLhcoreClassAbstract {
 
         			return $returnString;
         		} else {
-        		      return '<textarea ng-non-bindable style="height:'.$height.';"  class="abstract_input" name="AbstractInput_'.$name.'">'.htmlspecialchars($object->$name).'</textarea>';
+        			  $placeholder = isset($attr['placeholder']) ? 'placeholder="'.htmlspecialchars($attr['placeholder']).'"' :'';
+        		      return '<textarea ng-non-bindable style="height:'.$height.';" '.$placeholder.' class="abstract_input" name="AbstractInput_'.$name.'">'.htmlspecialchars($object->$name).'</textarea>';
         		}
         		break;
 

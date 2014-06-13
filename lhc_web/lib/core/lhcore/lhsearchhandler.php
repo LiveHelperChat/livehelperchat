@@ -386,12 +386,8 @@ class erLhcoreClassSearchHandler {
         return $return;
    }
    
-   public static function isFile($fileName)
-   {
-	   	$supportedExtensions = array (
-	   			'zip','doc','docx','pdf','xls','xlsx','jpg','jpeg','png','bmp','rar','7z'
-	   	);
-	   	 
+   public static function isFile($fileName, $supportedExtensions = array ('zip','doc','docx','pdf','xls','xlsx','jpg','jpeg','png','bmp','rar','7z'))
+   { 
 	   	if (isset($_FILES[$fileName]) &&  is_uploaded_file($_FILES[$fileName]["tmp_name"]) && $_FILES[$fileName]["error"] == 0 )
 	   	{
 	   		$fileNameAray = explode('.',$_FILES[$fileName]['name']);
@@ -435,6 +431,20 @@ class erLhcoreClassSearchHandler {
 	   		 
 	   		return $fileNamePhysic;
 	   	}
+   }
+   
+   public static function moveLocalFile($fileName, $destination_dir, $extensionSeparator = '')
+   {
+   		$fileNameAray = explode('.',$fileName);
+   		end($fileNameAray);
+   		$extension = current($fileNameAray);
+   		 
+   		$fileNamePhysic = md5($fileName.time().rand(0, 1000)).$extensionSeparator.strtolower($extension);
+   
+   		rename($fileName, $destination_dir . $fileNamePhysic);
+   		chmod($destination_dir . $fileNamePhysic, 0644);
+   		 
+   		return $fileNamePhysic;	   	
    }
    
 }

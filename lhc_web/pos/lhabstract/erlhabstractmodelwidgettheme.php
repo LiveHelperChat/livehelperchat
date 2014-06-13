@@ -44,6 +44,11 @@ $def->properties['online_image_path']->columnName   = 'online_image_path';
 $def->properties['online_image_path']->propertyName = 'online_image_path';
 $def->properties['online_image_path']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['need_help_close_hover_bg'] = new ezcPersistentObjectProperty();
+$def->properties['need_help_close_hover_bg']->columnName   = 'need_help_close_hover_bg';
+$def->properties['need_help_close_hover_bg']->propertyName = 'need_help_close_hover_bg';
+$def->properties['need_help_close_hover_bg']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $def->properties['offline_image_path'] = new ezcPersistentObjectProperty();
 $def->properties['offline_image_path']->columnName   = 'offline_image_path';
 $def->properties['offline_image_path']->propertyName = 'offline_image_path';
@@ -78,6 +83,11 @@ $def->properties['need_help_close_bg'] = new ezcPersistentObjectProperty();
 $def->properties['need_help_close_bg']->columnName   = 'need_help_close_bg';
 $def->properties['need_help_close_bg']->propertyName = 'need_help_close_bg';
 $def->properties['need_help_close_bg']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['need_help_hover_bg'] = new ezcPersistentObjectProperty();
+$def->properties['need_help_hover_bg']->columnName   = 'need_help_hover_bg';
+$def->properties['need_help_hover_bg']->propertyName = 'need_help_hover_bg';
+$def->properties['need_help_hover_bg']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
  
 $def->properties['need_help_image'] = new ezcPersistentObjectProperty();
 $def->properties['need_help_image']->columnName   = 'need_help_image';

@@ -212,26 +212,29 @@ class erLhAbstractModelWidgetTheme {
    						'type' => 'textarea',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Status widget additional CSS, takes effect after save'),
    						'required' => true,
+   						'placeholder' => '#lhc_status_container:hover{}',
    						'hidden' => true,
    						'height' => '150px',
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
    				'custom_container_css' => array(
-   						'type' => 'textarea',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget container additional CSS, takes effect after save'),
-   						'required' => true,
-   						'hidden' => true,
+   						'type' 			=> 'textarea',
+   						'trans' 		=> erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget container additional CSS, takes effect after save'),
+   						'required' 		=> true,
+   						'hidden' 		=> true,
+   						'placeholder'	=>'#lhc_container #lhc_iframe_container{border:0};',
    						'height' => '150px',
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
    				'custom_widget_css' => array(
-   						'type' => 'textarea',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget body additional CSS, takes effect after save'),
-   						'required' => true,
-   						'hidden' => true,
-   						'height' => '150px',
+   						'type' 			=> 'textarea',
+   						'trans' 		=> erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget body additional CSS, takes effect after save'),
+   						'required' 		=> true,
+   						'placeholder' 	=> 'body {background-color:#84A52E;}',
+   						'hidden' 		=> true,
+   						'height' 		=> '150px',
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
@@ -268,19 +271,34 @@ class erLhAbstractModelWidgetTheme {
 	{
 		$this->movePhoto('logo_image');				
 	}
+	
+	public function deleteOperatorPhoto()
+	{
+		$this->deletePhoto('need_help_image');
+	}
+	
+	public function moveOperatorPhoto()
+	{
+		$this->movePhoto('need_help_image');
+	}
 								
-	public function movePhoto($attr)
+	public function movePhoto($attr, $isLocal = false, $localFile = false)
 	{
 		$this->deletePhoto($attr);
 	
 		if ($this->id != null){
 			$dir = 'var/storagetheme/' . date('Y') . 'y/' . date('m') . '/' . date('d') .'/' . $this->id . '/';
 	
-			erLhcoreClassChatEventDispatcher::getInstance()->dispatch('theme.edit.'.$attr,'_path',array('dir' => & $dir, 'storage_id' => $this->id));
+			erLhcoreClassChatEventDispatcher::getInstance()->dispatch('theme.edit.'.$attr.'_path',array('dir' => & $dir, 'storage_id' => $this->id));
 	
 			erLhcoreClassFileUpload::mkdirRecursive( $dir );
 	
-			$this->$attr = erLhcoreClassSearchHandler::moveUploadedFile('AbstractInput_'.$attr, $dir . '/','.' );
+			if ($isLocal == false) {
+				$this->$attr = erLhcoreClassSearchHandler::moveUploadedFile('AbstractInput_'.$attr, $dir . '/','.' );
+			} else {
+				$this->$attr = erLhcoreClassSearchHandler::moveLocalFile($localFile, $dir . '/','.' );
+			}
+			
 			$this->{$attr.'_path'} = $dir;
 		} else {
 			$this->{$attr.'_pending'} = true;
@@ -300,20 +318,10 @@ class erLhAbstractModelWidgetTheme {
 			$this->{$attr.'_path'} = '';			
 		}		
 	}
-		
-	public function deleteOperatorPhoto()
-	{
-		$this->deletePhoto('need_help_image');				
-	}
-
-	public function moveOperatorPhoto()
-	{				
-		$this->movePhoto('need_help_image');		
-	}
 	
 	public function getModuleTranslations()
 	{
-		return array('permission_delete' => array('module' => 'lhchat','function' => 'administratethemes'),'permission' => array('module' => 'lhchat','function' => 'administratethemes'),'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Widget themes'));
+		return array('path' => array('url' => erLhcoreClassDesign::baseurl('theme/index'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('theme/index','Themes')), 'permission_delete' => array('module' => 'lhchat','function' => 'administratethemes'),'permission' => array('module' => 'lhchat','function' => 'administratethemes'),'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget themes'));
 	}
 	
 	public function saveThis() {
@@ -380,7 +388,7 @@ class erLhAbstractModelWidgetTheme {
 	   			$this->logo_image_url = false;
 	   			
 	   			if ($this->logo_image != ''){
-	   				$this->logo_image_url =  erLhcoreClassSystem::instance()->wwwDir().'/'.$this->logo_image_path.'/'.$this->logo_image;
+	   				$this->logo_image_url =  erLhcoreClassSystem::instance()->wwwDir().'/'.$this->logo_image_path . $this->logo_image;
 	   			}
 	   			
 	   			return $this->logo_image_url;
@@ -391,7 +399,7 @@ class erLhAbstractModelWidgetTheme {
 	   			$this->need_help_image_url = false;
 	   			
 	   			if ($this->need_help_image != ''){
-	   				$this->need_help_image_url = erLhcoreClassSystem::instance()->wwwDir().'/'.$this->need_help_image_path.'/'.$this->need_help_image;
+	   				$this->need_help_image_url = erLhcoreClassSystem::instance()->wwwDir().'/'.$this->need_help_image_path . $this->need_help_image;
 	   			}
 	   			
 	   			return $this->need_help_image_url;
@@ -401,7 +409,7 @@ class erLhAbstractModelWidgetTheme {
 	   			$this->online_image_url = false;
 	   			
 	   			if ($this->online_image != ''){
-	   				$this->online_image_url = erLhcoreClassSystem::instance()->wwwDir().'/'.$this->online_image_path.'/'.$this->online_image;
+	   				$this->online_image_url = erLhcoreClassSystem::instance()->wwwDir().'/'.$this->online_image_path . $this->online_image;
 	   			}
 	   			
 	   			return $this->online_image_url;
@@ -411,7 +419,7 @@ class erLhAbstractModelWidgetTheme {
 	   			$this->offline_image_url = false;
 	   			
 	   			if ($this->offline_image != ''){
-	   				$this->offline_image_url = erLhcoreClassSystem::instance()->wwwDir().'/'.$this->offline_image_path.'/'.$this->offline_image;
+	   				$this->offline_image_url = erLhcoreClassSystem::instance()->wwwDir().'/'.$this->offline_image_path . $this->offline_image;
 	   			}
 	   			
 	   			return $this->offline_image_url;
@@ -423,7 +431,7 @@ class erLhAbstractModelWidgetTheme {
 	   			$this->url_operator_photo = false;
 	   		
 	   			if($this->need_help_image != ''){
-	   				$this->url_operator_photo = '<img src="'.erLhcoreClassSystem::instance()->wwwDir().'/'.$this->need_help_image_path.'/'.$this->need_help_image.'"/>';
+	   				$this->url_operator_photo = '<img src="'.erLhcoreClassSystem::instance()->wwwDir().'/'.$this->need_help_image_path . $this->need_help_image.'"/>';
 	   			}
 	   			return $this->url_operator_photo;
 	   		break;
@@ -433,7 +441,7 @@ class erLhAbstractModelWidgetTheme {
 	   			$this->online_image_url_img = false;
 	   		
 	   			if($this->online_image != ''){
-	   				$this->online_image_url_img = '<img src="'.erLhcoreClassSystem::instance()->wwwDir().'/'.$this->online_image_path.'/'.$this->online_image.'"/>';
+	   				$this->online_image_url_img = '<img src="'.erLhcoreClassSystem::instance()->wwwDir().'/'.$this->online_image_path . $this->online_image.'"/>';
 	   			}
 	   			return $this->online_image_url_img;
 	   		break;
@@ -443,7 +451,7 @@ class erLhAbstractModelWidgetTheme {
 	   			$this->offline_image_url_img = false;
 	   		
 	   			if($this->offline_image != ''){
-	   				$this->offline_image_url_img = '<img src="'.erLhcoreClassSystem::instance()->wwwDir().'/'.$this->offline_image_path.'/'.$this->offline_image.'"/>';
+	   				$this->offline_image_url_img = '<img src="'.erLhcoreClassSystem::instance()->wwwDir().'/'.$this->offline_image_path . $this->offline_image.'"/>';
 	   			}
 	   			return $this->offline_image_url_img;
 	   		break;
@@ -453,7 +461,7 @@ class erLhAbstractModelWidgetTheme {
 	   			$this->logo_image_url_img = false;
 	   		
 	   			if ($this->logo_image != '') {
-	   				$this->logo_image_url_img = '<img src="'.erLhcoreClassSystem::instance()->wwwDir().'/'.$this->logo_image_path.'/'.$this->logo_image.'"/>';
+	   				$this->logo_image_url_img = '<img src="'.erLhcoreClassSystem::instance()->wwwDir().'/'.$this->logo_image_path . $this->logo_image.'"/>';
 	   			}
 	   			
 	   			return $this->logo_image_url_img;
@@ -479,6 +487,11 @@ class erLhAbstractModelWidgetTheme {
 
 	public function removeThis()
 	{
+		$this->deletePhoto('online_image');
+		$this->deletePhoto('offline_image');
+		$this->deletePhoto('logo_image');
+		$this->deletePhoto('need_help_image');
+		
 		erLhcoreClassAbstract::getSession()->delete($this);
 	}
 
@@ -583,8 +596,6 @@ class erLhAbstractModelWidgetTheme {
 	public $logo_image = '';
 	public $logo_image_path = '';
 	
-	// Logical attributes
-	public $pending_operator_store = false;
 	
 	public $hide_add = false;
 	public $hide_delete = false;

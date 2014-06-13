@@ -48,6 +48,10 @@
         <td><?php echo is_writable("var/storagedocshare") ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'?></td>
     </tr>
     <tr>
+        <td>I can write to &quot;var/storagetheme&quot; directory</td>
+        <td><?php echo is_writable("var/storagetheme") ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'?></td>
+    </tr>
+    <tr>
         <td>I can write to &quot;var/tmpfiles&quot; directory</td>
         <td><?php echo is_writable("var/tmpfiles") ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'?></td>
     </tr>

@@ -23,6 +23,15 @@ $tpl->set('playsound',(string)$Params['user_parameters_unordered']['playsound'] 
 
 $chat = new erLhcoreClassModelChat();
 
+if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
+	try {
+		$theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
+		$Result['theme'] = $theme;
+	} catch (Exception $e) {
+
+	}
+}
+
 if (isset($_POST['askQuestion']))
 {
     $validationFields = array();

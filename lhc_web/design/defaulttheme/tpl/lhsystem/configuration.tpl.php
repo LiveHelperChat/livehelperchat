@@ -163,7 +163,7 @@
 				    <?php if ($currentUser->hasAccessTo('lhchat','administrateresponder')) : ?>
 				    <li><a href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/AutoResponder"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Auto responder');?></a></li>
 				    <?php endif;?>
-				    		    
+				    				    		    
 			    <?php endif; ?>
 	
 			    <?php if ($currentUser->hasAccessTo('lhxmp','configurexmp')) : ?>
@@ -199,15 +199,14 @@
 					    <?php endif; ?>   
 				</ul>
 			    <?php endif; ?>
-			   
 			       
-				<?php if ($currentUser->hasAccessTo('lhchat','administratethemes')) : ?>
-			    <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Widget themes');?></h5>   
+				<?php if ($currentUser->hasAccessTo('lhabstract','use') && $currentUser->hasAccessTo('lhtheme','administratethemes')) : ?>
+			    <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Theming');?></h5>   
 				<ul class="circle small-list">					
 					 <li><a href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/WidgetTheme"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Widget themes');?></a></li>
+					 <li><a href="<?php echo erLhcoreClassDesign::baseurl('theme/import')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Import new themes');?></a></li>
 				</ul>
 				<?php endif; ?>
-		 			   
 			    
 			</div>
 		

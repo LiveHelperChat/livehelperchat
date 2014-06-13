@@ -1,3 +1,7 @@
+<?php if ($object->id != null) : ?>
+<a href="<?php echo erLhcoreClassDesign::baseurl('theme/export')?>/<?php echo $object->id?>" class="button success small radius right"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Download theme')?></a>
+<?php endif;?>
+
 <div class="row">
 	<div class="columns large-8">
 		<?php if (isset($errors)) : ?>

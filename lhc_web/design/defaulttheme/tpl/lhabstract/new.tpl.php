@@ -1,6 +1,6 @@
 <h1><?php echo htmlspecialchars($object_trans['name'])?></h1>
 
-<form method="post" enctype="multipart/form-data" action="<?php echo erLhcoreClassDesign::baseurl('abstract/new')?>/<?php echo $identifier?>">
+<form method="post" enctype="multipart/form-data" action="">
 	
 	<?php if (!isset($custom_form)) : ?>
 		<?php include(erLhcoreClassDesign::designtpl('lhabstract/abstract_form.tpl.php'));?>
