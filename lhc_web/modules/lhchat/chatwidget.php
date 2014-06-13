@@ -336,6 +336,14 @@ if (isset($_POST['r']))
     $tpl->set('referer_site',$_POST['r']);
 }
 
+if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
+	try {
+		$theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
+		$Result['theme'] = $theme;
+	} catch (Exception $e) {
+
+	}
+}
 
 
 $Result['content'] = $tpl->fetch();

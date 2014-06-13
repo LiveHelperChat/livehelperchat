@@ -403,7 +403,24 @@ class erLhcoreClassSearchHandler {
 	   	return false;
    }
    
-   public static function moveUploadedFile($fileName,$destination_dir)
+   public static function isImageFile($fileName)
+   {
+	   	$supportedExtensions = array (
+	   			'jpg','jpeg','png'
+	   	);
+	   	 
+	   	if (isset($_FILES[$fileName]) &&  is_uploaded_file($_FILES[$fileName]["tmp_name"]) && $_FILES[$fileName]["error"] == 0 && erLhcoreClassImageConverter::isPhoto($fileName))
+	   	{
+	   		$fileNameAray = explode('.',$_FILES[$fileName]['name']);
+	   		end($fileNameAray);
+	   		$extension = strtolower(current($fileNameAray));
+	   		return in_array($extension,$supportedExtensions);
+	   	}
+	   	 
+	   	return false;
+   }
+   
+   public static function moveUploadedFile($fileName,$destination_dir, $extensionSeparator = '')
    {
 	   	if (isset($_FILES[$fileName]) &&  is_uploaded_file($_FILES[$fileName]["tmp_name"]) && $_FILES[$fileName]["error"] == 0 )
 	   	{
@@ -411,7 +428,7 @@ class erLhcoreClassSearchHandler {
 	   		end($fileNameAray);
 	   		$extension = current($fileNameAray);
 	   		 
-	   		$fileNamePhysic = md5($_FILES[$fileName]['tmp_name'].time()).strtolower($extension);
+	   		$fileNamePhysic = md5($_FILES[$fileName]['tmp_name'].time()).$extensionSeparator.strtolower($extension);
 	   
 	   		move_uploaded_file($_FILES[$fileName]["tmp_name"],$destination_dir . $fileNamePhysic);
 	   		chmod($destination_dir . $fileNamePhysic, 0644);

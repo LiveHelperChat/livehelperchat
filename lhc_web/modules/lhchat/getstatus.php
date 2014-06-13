@@ -40,6 +40,15 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.getstatus',array
 
 $validUnits = array('pixels' => 'px','percents' => '%');
 
+$theme = false;
+if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
+	try {
+		$theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);	
+	} catch (Exception $e) {
+		$theme = false;
+	}
+}
+
 $tpl->set('referrer',isset($_GET['r']) ? rawurldecode($_GET['r']) : '');
 $tpl->set('track_online_users',erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1);
 $tpl->set('click',$Params['user_parameters_unordered']['click']);
@@ -54,6 +63,7 @@ $tpl->set('top_pos',(!is_null($Params['user_parameters_unordered']['top']) && (i
 $tpl->set('units',key_exists((string)$Params['user_parameters_unordered']['units'], $validUnits) ? $validUnits[(string)$Params['user_parameters_unordered']['units']] : 'px');
 $tpl->set('disable_pro_active',(string)$Params['user_parameters_unordered']['disable_pro_active'] == 'true');
 $tpl->set('priority',is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : false);
+$tpl->set('theme',$theme);
 
 echo $tpl->fetch();
 exit;

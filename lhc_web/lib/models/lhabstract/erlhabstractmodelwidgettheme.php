@@ -5,16 +5,32 @@ class erLhAbstractModelWidgetTheme {
 	public function getState()
 	{
 		$stateArray = array (
-			'id'         		=> $this->id,
-			'name'  			=> $this->name,
-			'onl_bcolor'		=> $this->onl_bcolor,
-			'offl_bcolor'		=> $this->offl_bcolor,
-			'text_color'		=> $this->text_color,
-			'online_image'		=> $this->online_image,
-			'offline_image'		=> $this->offline_image,
-			'need_help_bck'		=> $this->need_help_bck,
-			'header_background'		=> $this->header_background,
-			'need_help_image'	=> $this->need_help_image
+			'id'         				=> $this->id,
+			'name'  					=> $this->name,
+			'onl_bcolor'				=> $this->onl_bcolor,			
+			'text_color'				=> $this->text_color,				
+			'online_image'				=> $this->online_image,
+			'online_image_path'			=> $this->online_image_path,
+			'offline_image'				=> $this->offline_image,
+			'offline_image_path'		=> $this->offline_image_path,							
+			'header_background'			=> $this->header_background,
+			'need_help_image'			=> $this->need_help_image,
+			'need_help_bcolor'			=> $this->need_help_bcolor,
+			'need_help_hover_bg'		=> $this->need_help_hover_bg,
+			'need_help_tcolor'			=> $this->need_help_tcolor,
+			'need_help_border'			=> $this->need_help_border,
+			'need_help_close_bg'		=> $this->need_help_close_bg,
+			'need_help_close_hover_bg'	=> $this->need_help_close_hover_bg,
+			'need_help_image_path'		=> $this->need_help_image_path,
+			'custom_status_css'			=> $this->custom_status_css,
+			'custom_container_css'		=> $this->custom_container_css,
+			'custom_widget_css'			=> $this->custom_widget_css,
+			'need_help_header'			=> $this->need_help_header,
+			'need_help_text'			=> $this->need_help_text,
+			'online_text'				=> $this->online_text,
+			'offline_text'				=> $this->offline_text,
+			'logo_image'				=> $this->logo_image,
+			'logo_image_path'			=> $this->logo_image_path,
 		);
 
 		return $stateArray;
@@ -32,21 +48,52 @@ class erLhAbstractModelWidgetTheme {
 	{
 		return $this->name;
 	}
-
+		
    	public function getFields()
    	{
    		return array(
    				'name' => array(
    						'type' => 'text',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Name'),
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Name'),
+   						'required' => true,   						
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
+   				'need_help_header' => array(
+   						'type' => 'text',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help header text'),
+   						'required' => false,   
+   						'nginit' => true,						
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
+   				'need_help_text' => array(
+   						'type' => 'text',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help standard text'),
    						'required' => false,
-   						'hidden' => true,
+   						'nginit' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
+   				'online_text' => array(
+   						'type' => 'text',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Online status text'),
+   						'required' => false,
+   						'nginit' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
+   				'offline_text' => array(
+   						'type' => 'text',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Offline status text'),
+   						'required' => false,
+   						'nginit' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
    				'onl_bcolor' => array(
    						'type' => 'colorpicker',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Background color'),
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Background color'),
    						'required' => true,
    						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
@@ -55,51 +102,246 @@ class erLhAbstractModelWidgetTheme {
    				
    				'text_color' => array(
    						'type' => 'colorpicker',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Text color'),
-   						'required' => false,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),
-   				'online_image' => array(
-   						'type' => 'text',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Show visitor this message then wait timeout passes.'),
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text color'),
    						'required' => false,
    						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
+   				'logo_image' => array(
+   						'type' => 'file',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Logo image, visible in popup'),
+   						'required' => false,
+   						'hidden' => true,
+   						'frontend' => 'logo_image_url_img',
+   						'backend_call' => 'moveLogoPhoto',
+   						'delete_call' => 'deleteLogoPhoto',
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'callback','erLhcoreClassSearchHandler::isImageFile()'
+   						)),   				
+   				'online_image' => array(
+   						'type' => 'file',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Online image'),
+   						'required' => false,
+   						'hidden' => true,
+   						'frontend' => 'online_image_url_img',
+   						'backend_call' => 'moveOnlinePhoto',
+   						'delete_call' => 'deleteOnlinePhoto',
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'callback','erLhcoreClassSearchHandler::isImageFile()'
    						)),
    				'offline_image' => array(
-   						'type' => 'text',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Show visitor this message then wait timeout passes.'),
+   						'type' => 'file',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Offline image'),
    						'required' => false,
    						'hidden' => true,
+   						'frontend' => 'offline_image_url_img',
+   						'backend_call' => 'moveOfflinePhoto',
+   						'delete_call' => 'deleteOfflinePhoto',
    						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),
+   								ezcInputFormDefinitionElement::OPTIONAL, 'callback','erLhcoreClassSearchHandler::isImageFile()'
+   						)),   			
    				'header_background' => array(
    						'type' => 'colorpicker',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Header background.'),
-   						'required' => false,
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget header background color'),
+   						'required' => true,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),   				
+   				'need_help_bcolor' => array(
+   						'type' => 'colorpicker',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help background color'),
+   						'required' => true,
    						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
-   				'need_help_bck' => array(
+   				'need_help_hover_bg' => array(
    						'type' => 'colorpicker',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Need help background color'),
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help hover background color'),
+   						'required' => true,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
+   				'need_help_tcolor' => array(
+   						'type' => 'colorpicker',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help text color'),
+   						'required' => true,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
+   				'need_help_border' => array(
+   						'type' => 'colorpicker',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help border color'),
+   						'required' => true,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
+   				'need_help_close_bg' => array(
+   						'type' => 'colorpicker',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help close background color'),
+   						'required' => true,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
+   				'need_help_close_hover_bg' => array(
+   						'type' => 'colorpicker',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help close hover background color'),
+   						'required' => true,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
+   				'need_help_image' => array(
+   						'type' => 'file',
+   						'frontend' => 'url_operator_photo',
+   						'backend_call' => 'moveOperatorPhoto',
+   						'delete_call' => 'deleteOperatorPhoto',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help operator image'),
    						'required' => false,
    						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								 ezcInputFormDefinitionElement::OPTIONAL, 'callback','erLhcoreClassSearchHandler::isImageFile()'
+   						)),
+   				'custom_status_css' => array(
+   						'type' => 'textarea',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Status widget additional CSS, takes effect after save'),
+   						'required' => true,
+   						'hidden' => true,
+   						'height' => '150px',
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
+   				'custom_container_css' => array(
+   						'type' => 'textarea',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget container additional CSS, takes effect after save'),
+   						'required' => true,
+   						'hidden' => true,
+   						'height' => '150px',
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
+   				'custom_widget_css' => array(
+   						'type' => 'textarea',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget body additional CSS, takes effect after save'),
+   						'required' => true,
+   						'hidden' => true,
+   						'height' => '150px',
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
    		);
 	}
-
-	public function getModuleTranslations()
+		
+			
+	public function deleteOnlinePhoto()
 	{
-		return array('permission_delete' => array('module' => 'lhchat','function' => 'administratethemes'),'permission' => array('module' => 'lhchat','function' => 'administrateresponder'),'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Widget themes'));
+		$this->deletePhoto('online_image');				
+	}
+	
+	public function moveOnlinePhoto()
+	{
+		$this->movePhoto('online_image');				
+	}
+			
+	public function deleteOfflinePhoto()
+	{
+		$this->deletePhoto('offline_image');				
+	}
+	
+	public function moveOfflinePhoto()
+	{
+		$this->movePhoto('offline_image');				
+	}
+	
+	public function deleteLogoPhoto()
+	{
+		$this->deletePhoto('logo_image');				
+	}
+	
+	public function moveLogoPhoto()
+	{
+		$this->movePhoto('logo_image');				
+	}
+								
+	public function movePhoto($attr)
+	{
+		$this->deletePhoto($attr);
+	
+		if ($this->id != null){
+			$dir = 'var/storagetheme/' . date('Y') . 'y/' . date('m') . '/' . date('d') .'/' . $this->id . '/';
+	
+			erLhcoreClassChatEventDispatcher::getInstance()->dispatch('theme.edit.'.$attr,'_path',array('dir' => & $dir, 'storage_id' => $this->id));
+	
+			erLhcoreClassFileUpload::mkdirRecursive( $dir );
+	
+			$this->$attr = erLhcoreClassSearchHandler::moveUploadedFile('AbstractInput_'.$attr, $dir . '/','.' );
+			$this->{$attr.'_path'} = $dir;
+		} else {
+			$this->{$attr.'_pending'} = true;
+		}
+	}	
+		
+	public function deletePhoto($attr)
+	{
+		if ($this->$attr != '') {
+			if ( file_exists($this->{$attr.'_path'} . $this->$attr) ) {
+				unlink($this->{$attr.'_path'} . $this->$attr);
+			}
+		
+			erLhcoreClassFileUpload::removeRecursiveIfEmpty('var/storagetheme/',str_replace('var/storagetheme/','',$this->{$attr.'_path'}));
+		
+			$this->$attr = '';
+			$this->{$attr.'_path'} = '';			
+		}		
+	}
+		
+	public function deleteOperatorPhoto()
+	{
+		$this->deletePhoto('need_help_image');				
 	}
 
+	public function moveOperatorPhoto()
+	{				
+		$this->movePhoto('need_help_image');		
+	}
+	
+	public function getModuleTranslations()
+	{
+		return array('permission_delete' => array('module' => 'lhchat','function' => 'administratethemes'),'permission' => array('module' => 'lhchat','function' => 'administratethemes'),'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Widget themes'));
+	}
+	
+	public function saveThis() {
+				
+		erLhcoreClassAbstract::getSession()->save($this);
+		
+		if ($this->need_help_image_pending == true) {
+			$this->moveOperatorPhoto();
+			$this->updateThis();
+		}
+		
+		if ($this->online_image_pending == true) {
+			$this->moveOnlinePhoto();
+			$this->updateThis();
+		}
+		
+		if ($this->offline_image_pending == true) {
+			$this->moveOfflinePhoto();
+			$this->updateThis();
+		}
+		
+		if ($this->logo_image_pending == true) {
+			$this->moveLogoPhoto();
+			$this->updateThis();
+		}
+	}
+	
+	
 	public static function getCount($params = array())
 	{
 		$session = erLhcoreClassAbstract::getSession();
@@ -128,11 +370,95 @@ class erLhAbstractModelWidgetTheme {
 	public function __get($var)
 	{
 	   switch ($var) {
+	   	
 	   	case 'left_menu':
 	   	       $this->left_menu = '';
 	   		   return $this->left_menu;
 	   		break;
-
+	   		
+	   	case 'logo_image_url':
+	   			$this->logo_image_url = false;
+	   			
+	   			if ($this->logo_image != ''){
+	   				$this->logo_image_url =  erLhcoreClassSystem::instance()->wwwDir().'/'.$this->logo_image_path.'/'.$this->logo_image;
+	   			}
+	   			
+	   			return $this->logo_image_url;
+	   		break;	
+	   		
+	   		
+	   	case 'need_help_image_url':
+	   			$this->need_help_image_url = false;
+	   			
+	   			if ($this->need_help_image != ''){
+	   				$this->need_help_image_url = erLhcoreClassSystem::instance()->wwwDir().'/'.$this->need_help_image_path.'/'.$this->need_help_image;
+	   			}
+	   			
+	   			return $this->need_help_image_url;
+	   		break;	
+	   		
+	   	case 'online_image_url':
+	   			$this->online_image_url = false;
+	   			
+	   			if ($this->online_image != ''){
+	   				$this->online_image_url = erLhcoreClassSystem::instance()->wwwDir().'/'.$this->online_image_path.'/'.$this->online_image;
+	   			}
+	   			
+	   			return $this->online_image_url;
+	   		break;	
+	   		
+	   	case 'offline_image_url':
+	   			$this->offline_image_url = false;
+	   			
+	   			if ($this->offline_image != ''){
+	   				$this->offline_image_url = erLhcoreClassSystem::instance()->wwwDir().'/'.$this->offline_image_path.'/'.$this->offline_image;
+	   			}
+	   			
+	   			return $this->offline_image_url;
+	   		break;	
+	   		
+	   		
+	   	case 'url_operator_photo':
+	   			 
+	   			$this->url_operator_photo = false;
+	   		
+	   			if($this->need_help_image != ''){
+	   				$this->url_operator_photo = '<img src="'.erLhcoreClassSystem::instance()->wwwDir().'/'.$this->need_help_image_path.'/'.$this->need_help_image.'"/>';
+	   			}
+	   			return $this->url_operator_photo;
+	   		break;
+	   		
+	   	case 'online_image_url_img':
+	   			 
+	   			$this->online_image_url_img = false;
+	   		
+	   			if($this->online_image != ''){
+	   				$this->online_image_url_img = '<img src="'.erLhcoreClassSystem::instance()->wwwDir().'/'.$this->online_image_path.'/'.$this->online_image.'"/>';
+	   			}
+	   			return $this->online_image_url_img;
+	   		break;
+	   		
+	   	case 'offline_image_url_img':
+	   			 
+	   			$this->offline_image_url_img = false;
+	   		
+	   			if($this->offline_image != ''){
+	   				$this->offline_image_url_img = '<img src="'.erLhcoreClassSystem::instance()->wwwDir().'/'.$this->offline_image_path.'/'.$this->offline_image.'"/>';
+	   			}
+	   			return $this->offline_image_url_img;
+	   		break;
+	   		
+	   	case 'logo_image_url_img':
+	   			 
+	   			$this->logo_image_url_img = false;
+	   		
+	   			if ($this->logo_image != '') {
+	   				$this->logo_image_url_img = '<img src="'.erLhcoreClassSystem::instance()->wwwDir().'/'.$this->logo_image_path.'/'.$this->logo_image.'"/>';
+	   			}
+	   			
+	   			return $this->logo_image_url_img;
+	   		break;
+	   		
 	   	default:
 	   		break;
 	   }
@@ -233,12 +559,32 @@ class erLhAbstractModelWidgetTheme {
    	public $id = null;
 	public $name = '';
 	public $onl_bcolor = 'f6f6f6';
-	public $offl_bcolor = '';
-	public $text_color = '';
+	public $text_color = '000000';
 	public $online_image = '';
-	public $need_help_bck = '';
-	public $need_help_image = '';
-	public $header_background = '';
+	public $offline_image = '';
+	public $online_image_path = '';
+	public $offline_image_path = '';
+	public $header_background = '525252';
+	public $need_help_bcolor = '92B830';
+	public $need_help_hover_bg = '84A52E';
+	public $need_help_image = '';	
+	public $need_help_tcolor = 'ffffff';
+	public $need_help_border = 'dbe257';
+	public $need_help_close_bg = '435A05';
+	public $need_help_close_hover_bg = '74990F';
+	public $need_help_image_path = '';
+	public $custom_status_css = '';
+	public $custom_container_css = '';
+	public $custom_widget_css = '';
+	public $need_help_header = '';
+	public $need_help_text = '';
+	public $online_text = '';
+	public $offline_text = '';	
+	public $logo_image = '';
+	public $logo_image_path = '';
+	
+	// Logical attributes
+	public $pending_operator_store = false;
 	
 	public $hide_add = false;
 	public $hide_delete = false;

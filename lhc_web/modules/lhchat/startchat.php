@@ -91,6 +91,15 @@ if ((string)$Params['user_parameters_unordered']['vid'] != '') {
 
 $chat = new erLhcoreClassModelChat();
 
+if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
+	try {
+		$theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
+		$Result['theme'] = $theme;
+	} catch (Exception $e) {
+		
+	}
+}
+
 // Assign department instantly
 if ($inputData->departament_id > 0) {
 	$chat->dep_id = $inputData->departament_id;

@@ -15,12 +15,13 @@ class erLhcoreClassAbstract {
 
         	           return $returnString;
         	       } else {
-        		      return '<input class="abstract_input" class="abstract_input" name="AbstractInput_'.$name.'" type="text" value="'.htmlspecialchars($object->$name).'" />';
+        	       	  $ngModel = isset($attr['nginit']) ? ' ng-init="ngModelAbstractInput_'.$name.'=\''.htmlspecialchars($object->$name,ENT_QUOTES).'\'" ng-model="ngModelAbstractInput_'.$name.'" ' : '';
+        		      return '<input class="abstract_input" class="abstract_input" '.$ngModel.' name="AbstractInput_'.$name.'" type="text" value="'.htmlspecialchars($object->$name).'" />';
         	       }
         		break;
 
         	case 'colorpicker':        	      
-        		      return '<div class="row collapse"><div class="small-1 columns"><span class="prefix" style="background-color:#{{bactract_bg_color_'.$name.'}}">#</span></div><div class="small-11 columns"><input class="abstract_input" class="abstract_input" ng-model="bactract_bg_color_'.$name.'" id="id_AbstractInput_'.$name.'" name="AbstractInput_'.$name.'" type="text" value="'.htmlspecialchars($object->$name).'" /></div></div><script>$(\'#id_AbstractInput_'.$name.'\').ColorPicker({	onSubmit: function(hsb, hex, rgb, el) {		$(el).val(hex);	$(el).trigger(\'input\');	$(el).ColorPickerHide();	},	onBeforeShow: function () {		$(this).ColorPickerSetColor(this.value);	}});</script>';
+        		      return '<div class="row collapse" ng-init="bactract_bg_color_'.$name.'=\''.htmlspecialchars($object->$name,ENT_QUOTES).'\'"><div class="small-1 columns"><span class="prefix" style="background-color:#{{bactract_bg_color_'.$name.'}}">#</span></div><div class="small-11 columns"><input class="abstract_input" class="abstract_input" ng-model="bactract_bg_color_'.$name.'" id="id_AbstractInput_'.$name.'" name="AbstractInput_'.$name.'" type="text" value="'.htmlspecialchars($object->$name).'" /></div></div><script>$(\'#id_AbstractInput_'.$name.'\').ColorPicker({	onSubmit: function(hsb, hex, rgb, el) {		$(el).val(hex);	$(el).trigger(\'input\');	$(el).ColorPickerHide();	},	onBeforeShow: function () {		$(this).ColorPickerSetColor(this.value);	}});</script>';
         		break;
 
         	case 'textarea':
@@ -107,6 +108,10 @@ class erLhcoreClassAbstract {
             	    return $return;
         	    break;
 
+        	    case 'title':            	    
+            	    return '<h3>'.$attr['trans'].'</h3>';
+        	    break;
+
 
         	default:
         		break;
@@ -123,7 +128,8 @@ class erLhcoreClassAbstract {
                 foreach (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'available_locales' ) as $locale) {
                     $definition['AbstractInput_'.$key.'_'.$locale] = $field['validation_definition'];
                 }
-            } else {
+            } elseif (isset($field['validation_definition'])) {
+            	
                 $definition['AbstractInput_'.$key] = $field['validation_definition'];
             }
         }
@@ -183,12 +189,15 @@ class erLhcoreClassAbstract {
             		}
             	}
 
-
             } elseif ($field['type'] == 'text' && isset($field['multilanguage']) && $field['multilanguage'] == true) {
 
                 foreach (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'available_locales' ) as $locale) {
                     $object->{$key.'_'.strtolower($locale)}  = $form->{'AbstractInput_'.$key.'_'.$locale};
                 }
+                
+            } elseif ($field['type'] == 'colorpicker' ) {
+
+            	$object->$key = $form->{'AbstractInput_'.$key};
 
             } elseif ($form->hasValidData( 'AbstractInput_'.$key ) && (($field['required'] == false) || ($field['type'] == 'combobox') ||($field['required'] == true && $field['type'] == 'text' && $form->{'AbstractInput_'.$key} != '') )) {
 
@@ -205,7 +214,7 @@ class erLhcoreClassAbstract {
                     $object->$key = $form->{'AbstractInput_'.$key};
                 }
 
-            } elseif ($field['required'] == true) {
+            } elseif (isset($field['required']) && $field['required'] == true) {
                 $Errors[$key] = $field['trans'].' is required';
             }
         }

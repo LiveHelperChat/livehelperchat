@@ -248,7 +248,7 @@ $ViewList['blockedusers'] = array(
 
 $ViewList['getstatus'] = array(
     'params' => array(),
-    'uparams' => array('noresponse','priority','disable_pro_active','click','position','hide_offline','check_operator_messages','top','units','leaveamessage','department','identifier'),
+    'uparams' => array('theme','noresponse','priority','disable_pro_active','click','position','hide_offline','check_operator_messages','top','units','leaveamessage','department','identifier'),
     );
 
 $ViewList['getstatusembed'] = array(
@@ -258,12 +258,12 @@ $ViewList['getstatusembed'] = array(
 
 $ViewList['startchat'] = array (
     'params' => array(),
-    'uparams' => array('vid','hash_resume','sound','hash','offline','leaveamessage','department','priority','chatprefill')
+    'uparams' => array('theme','vid','hash_resume','sound','hash','offline','leaveamessage','department','priority','chatprefill')
 );
 
 $ViewList['chatwidget'] = array(
     'params' => array(),
-    'uparams' => array('vid','sound','hash','hash_resume','mode','offline','leaveamessage','department','priority','chatprefill'),
+    'uparams' => array('theme','vid','sound','hash','hash_resume','mode','offline','leaveamessage','department','priority','chatprefill'),
 );
 
 $ViewList['reopen'] = array(

@@ -4,6 +4,13 @@
 <head>
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_user.tpl.php'));?>
 <link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::designCSS('css/widget.css;css/widget_override.css');?>" />
+
+<?php if (isset($Result['theme']) && $Result['theme']->custom_widget_css != '') : ?>
+<style type="text/css">
+<?php echo $Result['theme']->custom_widget_css?>
+</style>
+<?php endif;?>
+
 </head>
 <body<?php isset($Result['pagelayout_css_append']) ? print ' class="'.$Result['pagelayout_css_append'].'" ' : ''?>>
 
