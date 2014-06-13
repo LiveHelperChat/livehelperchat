@@ -530,9 +530,12 @@ var lh_inst  = {
     
     lhc_need_help_hide :function() {
     	this.removeById('lhc_need_help_container');
-    	<?php if (erLhcoreClassModelChatConfig::fetch('need_help_tip_timeout')->current_value > 0) : ?>
+    	<?php if (erLhcoreClassModelChatConfig::fetch('need_help_tip_timeout')->current_value > 0) : ?>    	
     	this.addCookieAttributePersistent('lhc_hnh','<?php echo ((erLhcoreClassModelChatConfig::fetch('need_help_tip_timeout')->current_value * 3600) + time())?>');
-    	<?php else : ?>
+    	<?php else : ?>    	
+    	if (localStorage) {    	
+	    	localStorage.removeItem('lhc_hnh');
+    	};
     	this.addCookieAttribute('lhc_hnh','<?php echo ((24 * 3600) + time())?>');    	
     	<?php endif; ?>
     	
