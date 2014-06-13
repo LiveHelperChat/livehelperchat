@@ -504,11 +504,11 @@
     </message>
     <message>
       <source>Forms</source>
-      <translation type="unfinished"/>
+      <translation>Formulär</translation>
     </message>
     <message>
       <source>Documents</source>
-      <translation type="unfinished"/>
+      <translation>Dokument</translation>
     </message>
     <message>
       <source>Form</source>
@@ -957,7 +957,7 @@
     </message>
     <message>
       <source>Auto assignment</source>
-      <translation type="unfinished"/>
+      <translation>Automatisk tilldelning</translation>
     </message>
     <message>
       <source>Miscellaneous</source>
@@ -2133,11 +2133,11 @@
     </message>
     <message>
       <source>Forms</source>
-      <translation type="unfinished"/>
+      <translation>Formulär</translation>
     </message>
     <message>
       <source>Documents</source>
-      <translation type="unfinished"/>
+      <translation>Dokument</translation>
     </message>
     <message>
       <source>Request notification permission</source>
@@ -2153,7 +2153,7 @@
     </message>
     <message>
       <source>System</source>
-      <translation type="unfinished"/>
+      <translation>System</translation>
     </message>
     <message>
       <source>Time zone settings</source>
@@ -2161,7 +2161,7 @@
     </message>
     <message>
       <source>Update information</source>
-      <translation>Uppdatera information</translation>
+      <translation>Uppdateringsinformation om Live Helper Chat</translation>
     </message>
     <message>
       <source>SMTP settings</source>
@@ -2189,7 +2189,7 @@
     </message>
     <message>
       <source>Embed code</source>
-      <translation type="unfinished"/>
+      <translation>Inbäddningskod</translation>
     </message>
     <message>
       <source>Live help embed code</source>
@@ -2213,7 +2213,7 @@
     </message>
     <message>
       <source>Live help configuration</source>
-      <translation type="unfinished"/>
+      <translation>Live hjälp inställningar</translation>
     </message>
     <message>
       <source>Departments</source>
@@ -2257,7 +2257,7 @@
     </message>
     <message>
       <source>Automatic chats assigment</source>
-      <translation type="unfinished"/>
+      <translation>Automatisk chattilldelning</translation>
     </message>
     <message>
       <source>Chats list</source>
@@ -2273,11 +2273,11 @@
     </message>
     <message>
       <source>Maintenance</source>
-      <translation type="unfinished"/>
+      <translation>Underhåll</translation>
     </message>
     <message>
       <source>Files</source>
-      <translation type="unfinished"/>
+      <translation>Filer</translation>
     </message>
     <message>
       <source>Files upload configuration</source>
@@ -2391,7 +2391,7 @@
     </message>
     <message>
       <source>Extra modules</source>
-      <translation type="unfinished"/>
+      <translation>Extra inställningar</translation>
     </message>
     <message>
       <source>Questionary</source>
@@ -2429,7 +2429,7 @@
     <name>chat/lists/search_panel</name>
     <message>
       <source>Delete selected</source>
-      <translation type="unfinished"/>
+      <translation>Radera valda</translation>
     </message>
     <message>
       <source>Nick</source>
@@ -3461,11 +3461,11 @@
     </message>
     <message>
       <source>Pending chats</source>
-      <translation type="unfinished"/>
+      <translation>Väntande chattar</translation>
     </message>
     <message>
       <source>I can see all pending chats, not only assigned to me</source>
-      <translation type="unfinished"/>
+      <translation>Jag kan se alla väntande chattar, inte endast dem som är tilldelade mig</translation>
     </message>
     <message>
       <source>Account updated</source>
@@ -3477,7 +3477,7 @@
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
-      <translation type="unfinished"/>
+      <translation>Användare kan se alla väntande chattar, inte endast dem som är tilldelade användaren</translation>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -5170,7 +5170,7 @@
     </message>
     <message>
       <source>Chat was automatically closed by cron</source>
-      <translation type="unfinished"/>
+      <translation>Chatten stängdes automatiskt av cron-inställningarna</translation>
     </message>
     <message>
       <source>Support staff member has closed this chat</source>
@@ -5457,38 +5457,38 @@
     <name>chat/maintenance</name>
     <message>
       <source>Maintenance</source>
-      <translation type="unfinished"/>
+      <translation>Underhåll</translation>
     </message>
     <message>
       <source>Automatic chats close, click to close old chats</source>
-      <translation type="unfinished"/>
+      <translation>Automatisk stängning av chatt, klicka för att stänga gamla chattar</translation>
     </message>
     <message>
       <source>Automatic chats purge, click to purge old chats</source>
-      <translation type="unfinished"/>
+      <translation>Automatisk rensning av chatt, klicka för att rensa gamla chattar</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation type="unfinished"/>
+      <translation>Stängda chattar</translation>
     </message>
     <message>
       <source>Purged chats</source>
-      <translation type="unfinished"/>
+      <translation>Rensade chattar</translation>
     </message>
   </context>
   <context>
     <name>chat/operatorsbalancing</name>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>Aktiv</translation>
     </message>
     <message>
       <source>Maximum number of active chats user can have at a time, 0 - unlimited</source>
-      <translation type="unfinished"/>
+      <translation>Maximalt antal chattar som användare kan ha samtidigt, 0 för obegränsat</translation>
     </message>
     <message>
       <source>Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled</source>
-      <translation type="unfinished"/>
+      <translation>Automatiskt tilldela en chatt till en annan operatör om operatören inte accepterar chatten inom ett visst antal sekunder, 0 för att inaktivera</translation>
     </message>
   </context>
 </TS>

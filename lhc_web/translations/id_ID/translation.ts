@@ -1398,11 +1398,11 @@
     </message>
     <message>
       <source>I accept my personal data will be handled according to</source>
-      <translation type="unfinished"/>
+      <translation>Saya menerima data pribadi saya akan ditangani sesuai dengan</translation>
     </message>
     <message>
       <source>our terms and to the Law</source>
-      <translation type="unfinished"/>
+      <translation>syarat dan ketentuan hukum kami</translation>
     </message>
     <message>
       <source>Department</source>
@@ -1671,11 +1671,11 @@
     </message>
     <message>
       <source>You can download city/country database from.</source>
-      <translation type="unfinished"/>
+      <translation>Anda dapat mengunduh kota / negara dari database</translation>
     </message>
     <message>
       <source>bcmath php extension detected</source>
-      <translation type="unfinished"/>
+      <translation>ekstensi bcmath php terdeteksi</translation>
     </message>
     <message>
       <source>Location of city database</source>
@@ -1683,7 +1683,7 @@
     </message>
     <message>
       <source>User country based detection, faster</source>
-      <translation type="unfinished"/>
+      <translation>Deteksi berdasarkan negara pengguna, lebih cepat</translation>
     </message>
     <message>
       <source>File exists</source>
@@ -1695,7 +1695,7 @@
     </message>
     <message>
       <source>User city based detection, slower</source>
-      <translation type="unfinished"/>
+      <translation>Deteksi berdasarkan kota pengguna, sangat lambat</translation>
     </message>
     <message>
       <source>Use PHP-GeoIP module</source>
@@ -2007,15 +2007,15 @@
     </message>
     <message>
       <source>MaxMind city file does not exists!</source>
-      <translation type="unfinished"/>
+      <translation>File kota MaxMind tidak ada!</translation>
     </message>
     <message>
       <source>MaxMind country file does not exists!</source>
-      <translation type="unfinished"/>
+      <translation>File negara MaxMind tidak ada!</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that MaxMind database files exists!</source>
-      <translation type="unfinished"/>
+      <translation>Pengaturan penyedia layanan gagal, pastikan file database MaxMind ada!</translation>
     </message>
     <message>
       <source>Please enter the API key!</source>
@@ -2697,7 +2697,7 @@
     </message>
     <message>
       <source>Terms of service acceptance checkbox</source>
-      <translation type="unfinished"/>
+      <translation>Centang kotak menerima syarat dan ketentuan</translation>
     </message>
     <message>
       <source>Offline form settings</source>
@@ -2776,11 +2776,11 @@
     </message>
     <message>
       <source>Enable long polling</source>
-      <translation type="unfinished"/>
+      <translation>Aktifkan polling panjang</translation>
     </message>
     <message>
       <source>How many seconds keep connection to server?</source>
-      <translation type="unfinished"/>
+      <translation>Berapa detik agar koneksi ke server tetap terjaga?</translation>
     </message>
     <message>
       <source>New chat request notification settings</source>
@@ -2828,7 +2828,7 @@
     </message>
     <message>
       <source>Please enter a valid server connection timeout value!</source>
-      <translation type="unfinished"/>
+      <translation>Masukkan nilai koneksi server timeout yang valid!</translation>
     </message>
     <message>
       <source>Please enter a valid operator message timeout value!</source>

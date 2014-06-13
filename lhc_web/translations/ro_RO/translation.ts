@@ -504,11 +504,11 @@
     </message>
     <message>
       <source>Forms</source>
-      <translation type="unfinished"/>
+      <translation>Formulare</translation>
     </message>
     <message>
       <source>Documents</source>
-      <translation type="unfinished"/>
+      <translation>Documente</translation>
     </message>
     <message>
       <source>Form</source>
@@ -957,7 +957,7 @@
     </message>
     <message>
       <source>Auto assignment</source>
-      <translation type="unfinished"/>
+      <translation>Alocare automata</translation>
     </message>
     <message>
       <source>Miscellaneous</source>
@@ -2133,11 +2133,11 @@
     </message>
     <message>
       <source>Forms</source>
-      <translation type="unfinished"/>
+      <translation>Formulare</translation>
     </message>
     <message>
       <source>Documents</source>
-      <translation type="unfinished"/>
+      <translation>Documente</translation>
     </message>
     <message>
       <source>Request notification permission</source>
@@ -2153,7 +2153,7 @@
     </message>
     <message>
       <source>System</source>
-      <translation type="unfinished"/>
+      <translation>Sistem</translation>
     </message>
     <message>
       <source>Time zone settings</source>
@@ -2189,7 +2189,7 @@
     </message>
     <message>
       <source>Embed code</source>
-      <translation type="unfinished"/>
+      <translation>Cod de embed</translation>
     </message>
     <message>
       <source>Live help embed code</source>
@@ -2213,7 +2213,7 @@
     </message>
     <message>
       <source>Live help configuration</source>
-      <translation type="unfinished"/>
+      <translation>Configurare sistem suport live</translation>
     </message>
     <message>
       <source>Departments</source>
@@ -2257,7 +2257,7 @@
     </message>
     <message>
       <source>Automatic chats assigment</source>
-      <translation type="unfinished"/>
+      <translation>Alocare automata conversatii</translation>
     </message>
     <message>
       <source>Chats list</source>
@@ -2273,11 +2273,11 @@
     </message>
     <message>
       <source>Maintenance</source>
-      <translation type="unfinished"/>
+      <translation>Mentenanta</translation>
     </message>
     <message>
       <source>Files</source>
-      <translation type="unfinished"/>
+      <translation>Fisiere</translation>
     </message>
     <message>
       <source>Files upload configuration</source>
@@ -2391,7 +2391,7 @@
     </message>
     <message>
       <source>Extra modules</source>
-      <translation type="unfinished"/>
+      <translation>Module extra</translation>
     </message>
     <message>
       <source>Questionary</source>
@@ -2429,7 +2429,7 @@
     <name>chat/lists/search_panel</name>
     <message>
       <source>Delete selected</source>
-      <translation type="unfinished"/>
+      <translation>Sterge elementele selectate</translation>
     </message>
     <message>
       <source>Nick</source>
@@ -3461,11 +3461,11 @@
     </message>
     <message>
       <source>Pending chats</source>
-      <translation type="unfinished"/>
+      <translation>Conversatii in asteptare</translation>
     </message>
     <message>
       <source>I can see all pending chats, not only assigned to me</source>
-      <translation type="unfinished"/>
+      <translation>Pot vedea toate conversatiile in asteptare, nu doar cele alocate mie</translation>
     </message>
     <message>
       <source>Account updated</source>
@@ -3477,7 +3477,7 @@
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
-      <translation type="unfinished"/>
+      <translation>Utilizatorul poate vedea toate conversatiile in asteptare, nu doar cele alocate lui</translation>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -5170,7 +5170,7 @@
     </message>
     <message>
       <source>Chat was automatically closed by cron</source>
-      <translation type="unfinished"/>
+      <translation>Conversatie inchisa automat de cron</translation>
     </message>
     <message>
       <source>Support staff member has closed this chat</source>
@@ -5457,38 +5457,38 @@
     <name>chat/maintenance</name>
     <message>
       <source>Maintenance</source>
-      <translation type="unfinished"/>
+      <translation>Mentenanta</translation>
     </message>
     <message>
       <source>Automatic chats close, click to close old chats</source>
-      <translation type="unfinished"/>
+      <translation>Inchide automat conversatiile, apasa pentru a inchide conversatiile vechi</translation>
     </message>
     <message>
       <source>Automatic chats purge, click to purge old chats</source>
-      <translation type="unfinished"/>
+      <translation>Eliminarea automata a conversatiilor, apasa pentru a elimina conversatiile vechi</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation type="unfinished"/>
+      <translation>Conversatii inchise</translation>
     </message>
     <message>
       <source>Purged chats</source>
-      <translation type="unfinished"/>
+      <translation>Conversatii eliminate</translation>
     </message>
   </context>
   <context>
     <name>chat/operatorsbalancing</name>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>Activ</translation>
     </message>
     <message>
       <source>Maximum number of active chats user can have at a time, 0 - unlimited</source>
-      <translation type="unfinished"/>
+      <translation>Numar maxim de conversatii active pe care le poate avea un utilizator, 0 - nelimitat</translation>
     </message>
     <message>
       <source>Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled</source>
-      <translation type="unfinished"/>
+      <translation>Aloca automat conversatia unui alt operator daca operatorul nu accepta conversatia in atatea secunde, 0 - dezactivat</translation>
     </message>
   </context>
 </TS>
