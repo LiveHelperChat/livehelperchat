@@ -198,8 +198,7 @@ var lhc_Questionary = {
     		var iframeContainer = document.getElementById('lhc_container_questionary');
     		elementObject.height = height;
     		elementObject.style.height = height+'px';
-    		iframeContainer.className = iframeContainer.className;
-    		iframeContainer.style.height = (parseInt(height)+26)+'px';
+    		iframeContainer.className = iframeContainer.className;    		
     	};
    },
 
