@@ -585,8 +585,7 @@ var lh_inst  = {
     			elementObject.style.height = height+'px';
     		}
     		
-    		iframeContainer.className = iframeContainer.className;
-    		//iframeContainer.style.height = (parseInt(height)+27)+'px';
+    		iframeContainer.className = iframeContainer.className;    		
     	} else if (action == 'lhc_ch') {
     		var parts = e.data.split(':');
     		if (parts[1] != '' && parts[2] != '') {
