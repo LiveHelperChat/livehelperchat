@@ -22,13 +22,21 @@ services.factory('OnlineUsersFactory', ['$http','$q',function ($http, $q) {
 lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootScope', '$log','$interval','OnlineUsersFactory', function($scope, $http, $location, $rootScope, $log, $interval, OnlineUsersFactory) {
 	  	  		
 		var timeoutId;		
-		this.onlineusers = [];
+		this.onlineusers = [];	
+		this.onlineusersPreviousID = [];
 		$scope.onlineusersGrouped = [];
 		this.updateTimeout = 10;
 		this.userTimeout = 3600;	
 		this.department = 0;	
 		this.predicate = 'last_visit';
 		this.reverse = true;
+		this.wasInitiated = false;
+		
+		
+		this.soundEnabled = false;
+		this.notificationEnabled = false;
+		
+		
 		$scope.groupByField = 'none';
 		
 		var that = this;
@@ -83,13 +91,82 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
         
 		this.updateList = function(){
 			OnlineUsersFactory.loadOnlineUsers({timeout: that.userTimeout,department : that.department}).then(function(data){
+							
 				that.onlineusers = data;
 				if ($scope.groupByField != 'none') {
 					$scope.groupBy($scope.groupByField);
 				} else {
 					$scope.onlineusersGrouped = [];
 					$scope.onlineusersGrouped.push({label:'',id:0,ou:that.onlineusers});
-				}				
+				};	
+					
+				if (that.notificationEnabled || that.soundEnabled) {
+					var hasNewVisitors = false;
+					var newVisitors = [];				
+					angular.forEach(that.onlineusers, function(value, key) {
+								
+						var hasValue = true;
+						if (that.onlineusersPreviousID.indexOf(value.id) == -1){
+							hasValue = false;
+							that.onlineusersPreviousID.push(value.id);
+						}
+						
+						if (that.wasInitiated == true && hasValue == false) {
+							hasNewVisitors = true;	 
+							newVisitors.push(value);						
+						}
+					});
+					
+					if (hasNewVisitors == true ) {
+							if (that.soundEnabled && Modernizr.audio){
+					    	    var audio = new Audio();
+					            audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + '/new_visitor.ogg' :
+					                        Modernizr.audio.mp3 ? WWW_DIR_JAVASCRIPT_FILES + '/new_visitor.mp3' : WWW_DIR_JAVASCRIPT_FILES + '/new_visitor.wav';
+					            audio.load();
+					            setTimeout(function(){
+					            	audio.play();
+					            },500); 
+					        };
+					        
+					        if (that.notificationEnabled && (window.webkitNotifications || window.Notification)) {
+					        	
+					        	angular.forEach(newVisitors, function(value, key) {
+					        		if (window.webkitNotifications) {
+								    	  var havePermission = window.webkitNotifications.checkPermission();
+								    	  if (havePermission == 0) {
+								    	    // 0 is PERMISSION_ALLOWED
+								    	    var notification = window.webkitNotifications.createNotification(
+								    	      WWW_DIR_JAVASCRIPT_FILES_NOTIFICATION + '/notification.png',
+								    	      value.ip+(value.user_country_name != '' ? ', '+value.user_country_name : ''),
+								    	      (value.page_title != '' ? value.page_title+"\n-----\n" : '')+(value.referrer != '' ? value.referrer+"\n-----\n" : '')
+								    	    );
+								    	    notification.onclick = function () {							    	    	
+								    	        notification.cancel();
+								    	    };
+								    	    notification.show();
+								    	    
+								    	    setTimeout(function(){
+								    	    	 notification.cancel();
+								    	    },15000);							    	    
+								    	  }
+							    	  } else if(window.Notification) {
+							    		  if (window.Notification.permission == 'granted') {
+								  				var notification = new Notification(value.ip+(value.user_country_name != '' ? ', '+value.user_country_name : ''), { icon: WWW_DIR_JAVASCRIPT_FILES_NOTIFICATION + '/notification.png', body: (value.page_title != '' ? value.page_title+"\n-----\n" : '')+(value.referrer != '' ? value.referrer+"\n-----\n" : '') });
+								  				notification.onclick = function () {								    	    	
+									    	        notification.close();
+									    	    };
+									    	    setTimeout(function(){
+									    	    	 notification.close();
+									    	    },15000);								    	    
+								    	   }
+							    	  }
+					        	});
+					        	
+							};
+					};				
+									
+					that.wasInitiated = true;	
+				};
 			});
 		};
 								
@@ -130,6 +207,16 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 					that.onlineusers.splice(that.onlineusers.indexOf(user),1);	
 				 });								 
 			};
+		};
+		
+		this.disableNewUserBNotif = function() {		
+			that.notificationEnabled = !that.notificationEnabled;		
+			lhinst.changeUserSettings('new_user_bn',that.notificationEnabled == true ? 1 : 0);
+		};
+		
+		this.disableNewUserSound = function() {
+			that.soundEnabled = !that.soundEnabled;
+			lhinst.changeUserSettings('new_user_sound',that.soundEnabled == true ? 1 : 0);
 		};
 		
 		$scope.$on('$destroy', function disableController() {

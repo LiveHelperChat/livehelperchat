@@ -610,6 +610,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   ('enable_pending_list', '', ''),
         	   ('enable_active_list', '', ''),
         	   ('enable_close_list', '', ''),
+        	   ('new_user_bn', '', ''),
+        	   ('new_user_sound', '', ''),
         	   ('enable_unread_list', '', '')");
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_config` (

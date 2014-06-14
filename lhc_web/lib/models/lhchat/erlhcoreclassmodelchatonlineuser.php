@@ -171,7 +171,11 @@ class erLhcoreClassModelChatOnlineUser {
 
 	       		return $this->tt_time_on_site_front;
        		break;
-
+       		
+       	case 'last_visit_seconds_ago':
+       			$this->last_visit_seconds_ago = time()-$this->last_visit;
+       		break;
+       		
        	case 'lastactivity_ago':
        		   $this->lastactivity_ago = '';
 

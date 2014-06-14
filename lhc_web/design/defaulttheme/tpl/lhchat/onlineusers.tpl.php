@@ -1,6 +1,7 @@
 <?php $currentUser = erLhcoreClassUser::instance(); ?>
 
 <ul class="button-group radius geo-settings">
+
       <?php if ($currentUser->hasAccessTo('lhchat','administrateconfig')) : ?>
       <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/geoconfiguration')?>" class="button secondary tiny"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','GEO detection configuration');?></a></li>
       <?php endif; ?>
@@ -13,11 +14,23 @@
 
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Online visitors');?></h1>
 
-<?php if($tracking_enabled == false) : ?>
+<?php if ($tracking_enabled == false) : ?>
 <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User tracking is disabled, enable it at');?>&nbsp;-&nbsp;<a href="<?php echo erLhcoreClassDesign::baseurl('chat/editchatconfig')?>/track_online_visitors"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Chat configuration');?></a></p>
 <?php endif; ?>
 
-<div class="section-container auto" data-section="auto" ng-controller="OnlineCtrl as online">
+<?php 
+	$browserNotification = erLhcoreClassModelUserSetting::getSetting('new_user_bn',(int)(0));
+	$soundUserNotification = erLhcoreClassModelUserSetting::getSetting('new_user_sound',(int)(0));
+?>
+
+<div ng-controller="OnlineCtrl as online" ng-init="online.soundEnabled=<?php echo $soundUserNotification == 1 ? 'true' : 'false'?>;online.notificationEnabled=<?php echo $browserNotification == 1 ? 'true' : 'false'?>">
+
+<ul class="no-bullet inline-list user-settings-list online-settings">
+	<li class="li-icon"><a href="#" ng-click="online.disableNewUserSound()"><i ng-class="{'icon-mute disabled-icon':!online.soundEnabled}" class="icon-sound"  title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Enable/Disable sound about new visitor');?>"></i></a></li>
+	<li class="li-icon"><a href="#" ng-click="online.disableNewUserBNotif()"><i ng-class="{'disabled-icon':!online.notificationEnabled}" class="icon-eye"  title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Enable/Disable browser notifications about new visitor');?>"></i></a></li>
+</ul>
+
+<div class="section-container auto" data-section="auto" >
 	  <section>
 	    <p class="title" data-section-title><a href="#panel1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','List');?></a></p>
 	    <div class="content" data-section-content>
@@ -91,7 +104,7 @@
 	<tr ng-show="group.label != ''">
 		<td colspan="6"><h5>{{group.label}} ({{group.ou.length}})</h5></td>
 	</tr>		
-	<tr ng-repeat="ou in group.ou | orderBy:online.predicate:online.reverse | filter:query track by ou.id">
+	<tr ng-repeat="ou in group.ou | orderBy:online.predicate:online.reverse | filter:query track by ou.id" ng-class="{recent_visit:(ou.last_visit_seconds_ago < 15)}">
     	<td nowrap>{{ou.lastactivity_ago}} <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','ago');?></td>
     	<td>{{ou.time_on_site_front}}</td>    	
     	<td><div class="page-url"><span><a target="_blank" href="{{ou.current_page}}" title="{{ou.current_page}}">{{ou.page_title || ou.current_page}}</a></span></div></td>
@@ -163,4 +176,5 @@
 	  </section>
 </div>
 
+</div>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/secure_links.tpl.php')); ?>

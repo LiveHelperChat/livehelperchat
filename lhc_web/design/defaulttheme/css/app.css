@@ -525,6 +525,10 @@ div.message-row-in {
 	color: #ffb3b8;
 }
 
+.online-settings i{
+	color:#a3ff60;
+}
+
 .top-bar-section .icon-user,
 .top-bar-section .icon-cloud,
 .user-settings-list .icon-cloud,
@@ -533,8 +537,9 @@ div.message-row-in {
 }
 
 .top-bar-section .user-online-disabled,
+.disabled-icon,
 .user-settings-list .user-online-disabled {
-	color: #ffb3b8;
+	color: #ffb3b8 !important;
 }
 
 
@@ -840,6 +845,12 @@ border-top-right-radius: 6px;
 		margin-left:2px;
 		margin-bottom:2px;
 }
+
+.recent_visit{
+	background-color:#E0F3FF !important;
+	transition: background-color 1000ms linear;	
+}
+
 
 .bb-list a{
 	padding:2px;

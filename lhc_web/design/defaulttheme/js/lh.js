@@ -1487,6 +1487,10 @@ function lh(){
     	return false;
     };
     
+    this.changeUserSettings = function(attr,value){
+    	$.get(this.wwwDir+  'user/setsettingajax/'+attr+'/'+value);
+    };
+    
     this.disableUserAsOnline = function(inst)
     {
     	if (inst.hasClass('user-online-disabled')){
