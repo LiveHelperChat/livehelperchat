@@ -586,7 +586,7 @@ var lh_inst  = {
     		}
     		
     		iframeContainer.className = iframeContainer.className;
-    		iframeContainer.style.height = (parseInt(height)+26)+'px';
+    		//iframeContainer.style.height = (parseInt(height)+27)+'px';
     	} else if (action == 'lhc_ch') {
     		var parts = e.data.split(':');
     		if (parts[1] != '' && parts[2] != '') {
