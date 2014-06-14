@@ -47,13 +47,13 @@ $ViewList['getstatus'] = array(
 		'script' => 'getstatus.php',
 		'params' => array(),
 		'functions' => array( ),
-		'uparams' => array('noresponse','position','expand','top','units','width','height')
+		'uparams' => array('theme','noresponse','position','expand','top','units','width','height')
 );
 
 $ViewList['votingwidget'] = array(
 		'script' => 'votingwidget.php',
 		'params' => array(),
-		'uparams' => array('mode'),
+		'uparams' => array('theme','mode'),
 		'functions' => array()
 );
 
@@ -79,6 +79,7 @@ $ViewList['edit'] = array(
 $ViewList['embed'] = array(
 		'script' => 'embed.php',
 		'params' => array(),
+		'uparams' => array('theme'),
 		'functions' => array()
 );
 

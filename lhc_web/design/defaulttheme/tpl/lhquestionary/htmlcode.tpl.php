@@ -36,6 +36,15 @@
 	      </div>
 	    </div>
 	</div>	
+	<div class="columns large-6 end">
+    	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Theme')?></label>
+        <select id="ThemeID">
+        	<option value="0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Default');?></option>
+			<?php foreach (erLhAbstractModelWidgetTheme::getList(array('limit' => 1000)) as $theme) : ?>
+			   <option value="<?php echo $theme->id?>"><?php echo htmlspecialchars($theme->name)?></option>
+			<?php endforeach; ?>
+		</select>
+	</div>
 </div>
 
 
@@ -86,17 +95,18 @@ function generateEmbedCode(){
 	var widthwidget = '/(width)/'+($('#id_width_text').val() == '' ? 300 : $('#id_width_text').val());
 	var heightwidget = '/(height)/'+($('#id_height_text').val() == '' ? 300 : $('#id_height_text').val());
 	var id_disable_responsive = $('#id_disable_responsive').is(':checked') ? '/(noresponse)/true' : '';
+	var id_theme = $('#ThemeID').val() > 0 ? '/(theme)/'+$('#ThemeID').val() : '';
 	
     var script = '<script type="text/javascript">'+"\nvar LHCVotingOptions = {status_text:'"+textStatus+"'};\n"+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
-        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'questionary/getstatus'+id_position+id_disable_responsive+id_show_widget_on_open+top+topposition+widthwidget+heightwidget+"';\n"+
+        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'questionary/getstatus'+id_position+id_disable_responsive+id_show_widget_on_open+top+topposition+widthwidget+id_theme+heightwidget+"';\n"+
         'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);'+"\n"+
       '})();'+"\n"+
     '</scr'+'ipt>';
     $('#HMLTContent').text(script);
 };
-$('#LocaleID,#PositionID,#id_show_widget_on_open,#id_disable_responsive,#id_status_text,#UnitsTop,#id_top_text,#id_width_text,#id_height_text,#HttpMode').change(function(){
+$('#LocaleID,#PositionID,#id_show_widget_on_open,#id_disable_responsive,#id_status_text,#UnitsTop,#id_top_text,#id_width_text,#id_height_text,#HttpMode,#ThemeID').change(function(){
     generateEmbedCode();
 });
 generateEmbedCode();

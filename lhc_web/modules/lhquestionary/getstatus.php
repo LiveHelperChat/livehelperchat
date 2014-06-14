@@ -10,6 +10,15 @@ header('Pragma: no-cache' );
 
 $validUnits = array('pixels' => 'px','percents' => '%');
 
+$theme = false;
+if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
+	try {
+		$theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
+	} catch (Exception $e) {
+		$theme = false;
+	}
+}
+
 $tpl = erLhcoreClassTemplate::getInstance('lhquestionary/getstatus.tpl.php');
 $tpl->set('position',$Params['user_parameters_unordered']['position']);
 $tpl->set('expand',$Params['user_parameters_unordered']['expand']);
@@ -18,6 +27,7 @@ $tpl->set('units',key_exists((string)$Params['user_parameters_unordered']['units
 $tpl->set('widthwidget',(!is_null($Params['user_parameters_unordered']['width']) && (int)$Params['user_parameters_unordered']['width'] > 0) ? (int)$Params['user_parameters_unordered']['width'] : 300);
 $tpl->set('heightwidget',(!is_null($Params['user_parameters_unordered']['height']) && (int)$Params['user_parameters_unordered']['height'] > 0) ? (int)$Params['user_parameters_unordered']['height'] : 300);
 $tpl->set('noresponse',(string)$Params['user_parameters_unordered']['noresponse'] == 'true');
+$tpl->set('theme',$theme);
 
 echo $tpl->fetch();
 exit;
