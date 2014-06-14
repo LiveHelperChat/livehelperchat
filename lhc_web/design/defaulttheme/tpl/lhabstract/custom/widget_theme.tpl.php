@@ -49,7 +49,10 @@
 			    <p class="title" data-section-title><a href="#widgetcontainer"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget container');?></a></p>
 			    <div class="content" data-section-content data-slug="widgetcontainer">			    
 						<label><?php echo $fields['header_background']['trans'];?></label>
-						<?php echo erLhcoreClassAbstract::renderInput('header_background', $fields['header_background'], $object)?>												
+						<?php echo erLhcoreClassAbstract::renderInput('header_background', $fields['header_background'], $object)?>		
+																
+						<label><?php echo $fields['widget_border_color']['trans'];?></label>
+						<?php echo erLhcoreClassAbstract::renderInput('widget_border_color', $fields['widget_border_color'], $object)?>												
 			    </div>
 			  </section>
 			  	
@@ -146,7 +149,7 @@
 		#lhc_close:hover,#lhc_min:hover,#lhc_remote_window:hover{opacity:0.4;}
 		#lhc_container {background-color:#FFF;-moz-user-select:none; -khtml-user-drag:element;cursor: move;cursor: -moz-grab;cursor: -webkit-grab;overflow: hidden;transition-property: height;transition-duration: 0.4s;-webkit-transition: height 0.4s ease-in-out;transition: height 0.4s;z-index:9990;-webkit-box-shadow: -1px -1px 5px rgba(50, 50, 50, 0.17);-moz-box-shadow: -1px -1px 5px rgba(50, 50, 50, 0.17);box-shadow: -1px -1px 5px rgba(50, 50, 50, 0.17);-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px; }
 		#lhc_container iframe{transition-property: height;transition-duration: 0.4s;-webkit-transition: height 0.4s ease-in-out;transition: height 0.4s;}
-		#lhc_container #lhc_iframe_container{border: 1px solid #ccc;border-top: 0;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;overflow: hidden;}
+		#lhc_container #lhc_iframe_container{border: 1px solid #{{bactract_bg_color_widget_border_color}};border-top: 0;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;overflow: hidden;}
 		#lhc_container iframe.lhc-loading{background: #FFF url(<?php echo erLhcoreClassDesign::design('images/general/loading.gif');?>) no-repeat center center; }
 		@media only screen and (max-width : 640px) {#lhc_container{margin-bottom:5px;position:relative;right:0 !important;bottom:0 !important;top:0 !important}#lhc_container iframe{width:100% !important}}
 		</style>

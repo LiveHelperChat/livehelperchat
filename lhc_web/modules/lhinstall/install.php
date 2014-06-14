@@ -378,6 +378,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `logo_image_path` varchar(250) NOT NULL,
 				  `need_help_image` varchar(250) NOT NULL,
 				  `header_background` varchar(10) NOT NULL,
+        	   	  `widget_border_color` varchar(10) NOT NULL,
 				  `need_help_tcolor` varchar(10) NOT NULL,
 				  `need_help_bcolor` varchar(10) NOT NULL,
 				  `need_help_border` varchar(10) NOT NULL,

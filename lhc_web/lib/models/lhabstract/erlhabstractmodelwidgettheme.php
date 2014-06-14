@@ -14,6 +14,7 @@ class erLhAbstractModelWidgetTheme {
 			'offline_image'				=> $this->offline_image,
 			'offline_image_path'		=> $this->offline_image_path,							
 			'header_background'			=> $this->header_background,
+			'widget_border_color'		=> $this->widget_border_color,
 			'need_help_image'			=> $this->need_help_image,
 			'need_help_bcolor'			=> $this->need_help_bcolor,
 			'need_help_hover_bg'		=> $this->need_help_hover_bg,
@@ -144,6 +145,14 @@ class erLhAbstractModelWidgetTheme {
    				'header_background' => array(
    						'type' => 'colorpicker',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget header background color'),
+   						'required' => true,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),   				
+   				'widget_border_color' => array(
+   						'type' => 'colorpicker',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget border color'),
    						'required' => true,
    						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
@@ -595,6 +604,7 @@ class erLhAbstractModelWidgetTheme {
 	public $offline_text = '';	
 	public $logo_image = '';
 	public $logo_image_path = '';
+	public $widget_border_color = 'cccccc';
 	
 	
 	public $hide_add = false;
