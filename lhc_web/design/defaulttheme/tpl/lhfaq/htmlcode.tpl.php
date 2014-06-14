@@ -18,16 +18,7 @@
 	        </select>
 	      </div>
 	    </div>
-	</div>
-	<div class="columns large-6 end">
-    	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Theme')?></label>
-        <select id="ThemeID">
-        	<option value="0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Default');?></option>
-			<?php foreach (erLhAbstractModelWidgetTheme::getList(array('limit' => 1000)) as $theme) : ?>
-			   <option value="<?php echo $theme->id?>"><?php echo htmlspecialchars($theme->name)?></option>
-			<?php endforeach; ?>
-		</select>
-	</div>
+	</div>	
 </div>
 
 <div class="row">
@@ -51,7 +42,7 @@
     <div class="columns large-6">
 	   <label><input type="checkbox" id="id_disable_responsive" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Disable responsive layout for status widget.');?></label> 	    
     </div>
-    <div class="columns large-6 end">
+    <div class="columns large-6">
 	   <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Choose prefered http mode');?></label>
 		    <select id="HttpMode">         
 		            <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Based on site (default)');?></option>
@@ -59,6 +50,15 @@
 		            <option value="https:">https:</option>      
 		    </select>    	    
     </div>
+    <div class="columns large-6 end">
+    	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Theme')?></label>
+        <select id="ThemeID">
+        	<option value="0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Default');?></option>
+			<?php foreach (erLhAbstractModelWidgetTheme::getList(array('limit' => 1000)) as $theme) : ?>
+			   <option value="<?php echo $theme->id?>"><?php echo htmlspecialchars($theme->name)?></option>
+			<?php endforeach; ?>
+		</select>
+	</div>
 </div>
 
 <p class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/htmlcode','Copy the code from the text area to the page header or footer');?></p>

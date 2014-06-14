@@ -3,11 +3,11 @@
 <?php $currentUser = erLhcoreClassUser::instance(); ?>
 
 
-<div class="section-container auto" data-section="auto" id="tabs">
+<div class="section-container auto" data-section="auto" id="tabs" data-options="deep_linking: true">
 
   <section>
-    <p class="title" data-section-title><a href="#panel1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','System');?></a></p>
-    <div class="content" data-section-content>
+    <p class="title" data-section-title><a href="#system"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','System');?></a></p>
+    <div class="content" data-section-content data-slug="system">
       <div>
       
       <div class="row">
@@ -67,8 +67,8 @@
    </section>
    
    <section>
-    <p class="title" data-section-title><a href="#panel4"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Embed code');?></a></p>
-    <div class="content" data-section-content>
+    <p class="title" data-section-title><a href="#embed"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Embed code');?></a></p>
+    <div class="content" data-section-content data-slug="embed">
       <div>
       <div class="row">
       
@@ -127,8 +127,8 @@
       
   <?php if ($currentUser->hasAccessTo('lhchat','use')) : ?>
   <section>
-    <p class="title" data-section-title><a href="#panel3"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Live help configuration');?></a></p>
-    <div class="content" data-section-content>
+    <p class="title" data-section-title><a href="#chatconfiguration"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Live help configuration');?></a></p>
+    <div class="content" data-section-content data-slug="chatconfiguration">
       <div>
       
       <div class="row">      

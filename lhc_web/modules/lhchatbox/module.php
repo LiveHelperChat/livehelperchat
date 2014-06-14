@@ -43,20 +43,20 @@ $ViewList['new'] = array(
 $ViewList['chatwidget'] = array(
 		'script' => 'chatwidget.php',
 		'params' => array(),
-		'uparams' => array('sound','mode','identifier','chat_height','hashchatbox'),
+		'uparams' => array('theme','sound','mode','identifier','chat_height','hashchatbox'),
 );
 
 $ViewList['getstatus'] = array(
 		'script' => 'getstatus.php',
 		'params' => array(),
 		'functions' => array(),
-		'uparams' => array('noresponse','position','top','units','width','height','chat_height','sc','scm','dmn')
+		'uparams' => array('theme','noresponse','position','top','units','width','height','chat_height','sc','scm','dmn')
 );
 
 $ViewList['embed'] = array(
 		'script' => 'embed.php',
 		'params' => array(),
-		'uparams' => array('chat_height'),
+		'uparams' => array('theme','chat_height'),
 		'functions' => array()
 );
 

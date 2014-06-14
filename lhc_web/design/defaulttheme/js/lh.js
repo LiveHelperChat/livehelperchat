@@ -125,7 +125,7 @@ function lh(){
 
     this.addTab = function(tabs, url, name, chat_id) {
     	tabs.find('> section.active').removeClass("active").attr('style','');    
-    	tabs.append('<section class="active" id="chat-tab-'+chat_id+'"><p class="title"><a class="chat-tab-item" id="chat-id-'+chat_id+'" href="#">'+ '<i id="user-chat-status-'+chat_id+'" class="icon-user-status icon-user icon-user-online"></i>' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</a><a href="#" onclick="return lhinst.removeDialogTab('+chat_id+',$(\'#tabs\'),true)" class="icon-cancel icon-close-chat"></a></p><div class="content" id="simple'+chat_id+'Tab">...</div></section>');
+    	tabs.append('<section class="active" id="chat-tab-'+chat_id+'"><p class="title"><a class="chat-tab-item" id="chat-id-'+chat_id+'" href="#chat'+chat_id+'">'+ '<i id="user-chat-status-'+chat_id+'" class="icon-user-status icon-user icon-user-online"></i>' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</a><a href="#" onclick="return lhinst.removeDialogTab('+chat_id+',$(\'#tabs\'),true)" class="icon-cancel icon-close-chat"></a></p><div class="content" data-slug="chat'+chat_id+'" id="simple'+chat_id+'Tab">...</div></section>');
 
     	$('#chat-id-'+chat_id).click(function() {
     		var inst = $(this);
@@ -139,7 +139,7 @@ function lh(){
 
     	$.get(url, function(data) {
     		  $('#simple'+chat_id+'Tab').html(data);    		
-    		  $(document).foundation('section', 'resize');    		  
+    		  $(document).foundation('section', 'resize');    		
     	});
     };
 

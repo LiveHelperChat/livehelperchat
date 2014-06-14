@@ -5,8 +5,8 @@
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/htmlcode','Status text');?></label>
 		<input type="text" id="id_status_text" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Help us to grow');?>" />
 	</div>
-	<div class="columns large-6"><label for="id_show_widget_on_open"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/htmlcode','Expand the widget automatically for new users');?></label>
-	<input type="checkbox" id="id_show_widget_on_open" value="on">
+	<div class="columns large-6"><label for="id_show_widget_on_open"><input type="checkbox" id="id_show_widget_on_open" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/htmlcode','Expand the widget automatically for new users');?></label>
+	
 	</div>
 </div>
 

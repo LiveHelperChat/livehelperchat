@@ -61,7 +61,7 @@
     <div class="columns large-6">
 	   <label><input type="checkbox" id="id_disable_responsive" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Disable responsive layout for status widget.');?></label> 	    
     </div>
-    <div class="columns large-6 end">
+    <div class="columns large-6">
 	   		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Choose prefered http mode');?></label>
 		    <select id="HttpMode">         
 		            <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Based on site (default)');?></option>
@@ -69,6 +69,15 @@
 		            <option value="https:">https:</option>      
 		    </select>    	    
     </div>
+    <div class="columns large-6 end">
+    	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Theme')?></label>
+        <select id="ThemeID">
+        	<option value="0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Default');?></option>
+			<?php foreach (erLhAbstractModelWidgetTheme::getList(array('limit' => 1000)) as $theme) : ?>
+			   <option value="<?php echo $theme->id?>"><?php echo htmlspecialchars($theme->name)?></option>
+			<?php endforeach; ?>
+		</select>
+	</div>
 </div>
 <label><input type="checkbox" id="DisableMiminize" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Disable minimize icon');?></label>   
 <label><input type="checkbox" id="ShowContent" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Show chatbox content instead of widget, users will be able only minimize, not close it.');?></label>       
@@ -94,17 +103,18 @@ function generateEmbedCode(){
 	var show_min = ($('#ShowContentMinimized').is(':checked')? '/(scm)/true' : '');
 	var dis_min = ($('#DisableMiminize').is(':checked')? '/(dmn)/true' : '');
 	var id_disable_responsive = $('#id_disable_responsive').is(':checked') ? '/(noresponse)/true' : '';
+	var id_theme = $('#ThemeID').val() > 0 ? '/(theme)/'+$('#ThemeID').val() : '';
 	
     var script = '<script type="text/javascript">'+"\nvar LHCChatboxOptions = {hashchatbox:'empty',identifier:'default',status_text:'"+textStatus+"'};\n"+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
-        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chatbox/getstatus'+id_position+top+id_disable_responsive+topposition+widthwidget+heightwidget+chat_height+show_content+show_min+dis_min+"';\n"+
+        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chatbox/getstatus'+id_position+top+id_disable_responsive+topposition+widthwidget+id_theme+heightwidget+chat_height+show_content+show_min+dis_min+"';\n"+
         'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);'+"\n"+
       '})();'+"\n"+
     '</scr'+'ipt>';
     $('#HMLTContent').text(script);
 };
-$('#LocaleID,#PositionID,#HttpMode,#id_status_text,#UnitsTop,#id_top_text,#id_width_text,#id_height_text,#id_disable_responsive,#id_chat_height,#ShowContent,#ShowContentMinimized,#DisableMiminize').change(function(){
+$('#LocaleID,#PositionID,#HttpMode,#id_status_text,#UnitsTop,#id_top_text,#id_width_text,#id_height_text,#ThemeID,#id_disable_responsive,#id_chat_height,#ShowContent,#ShowContentMinimized,#DisableMiminize').change(function(){
     generateEmbedCode();
 });
 generateEmbedCode();

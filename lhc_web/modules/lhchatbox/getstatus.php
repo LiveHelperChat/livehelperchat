@@ -9,6 +9,15 @@ header('Cache-Control: post-check=0, pre-check=0', false );
 header('Pragma: no-cache' );
 
 $validUnits = array('pixels' => 'px','percents' => '%');
+$theme = false;
+
+if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
+	try {
+		$theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
+	} catch (Exception $e) {
+		$theme = false;
+	}
+}
 
 $tpl = erLhcoreClassTemplate::getInstance('lhchatbox/getstatus.tpl.php');
 $tpl->set('position',$Params['user_parameters_unordered']['position']);
@@ -21,6 +30,7 @@ $tpl->set('show_content',(!is_null($Params['user_parameters_unordered']['sc']) &
 $tpl->set('show_content_min',(!is_null($Params['user_parameters_unordered']['scm']) && (int)$Params['user_parameters_unordered']['scm']  == 'true') ? true : false);
 $tpl->set('disable_min',(!is_null($Params['user_parameters_unordered']['dmn']) && (int)$Params['user_parameters_unordered']['dmn']  == 'true') ? true : false);
 $tpl->set('noresponse',(string)$Params['user_parameters_unordered']['noresponse'] == 'true');
+$tpl->set('theme',$theme);
 
 echo $tpl->fetch();
 exit;
