@@ -166,6 +166,12 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 					};				
 									
 					that.wasInitiated = true;	
+					
+					if (that.onlineusersPreviousID.length > 100) {
+						that.wasInitiated = false;
+						that.onlineusersPreviousID = [];
+					};
+					
 				};
 			});
 		};
