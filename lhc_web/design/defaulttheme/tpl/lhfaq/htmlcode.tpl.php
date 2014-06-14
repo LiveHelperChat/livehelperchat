@@ -19,6 +19,15 @@
 	      </div>
 	    </div>
 	</div>
+	<div class="columns large-6 end">
+    	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Theme')?></label>
+        <select id="ThemeID">
+        	<option value="0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Default');?></option>
+			<?php foreach (erLhAbstractModelWidgetTheme::getList(array('limit' => 1000)) as $theme) : ?>
+			   <option value="<?php echo $theme->id?>"><?php echo htmlspecialchars($theme->name)?></option>
+			<?php endforeach; ?>
+		</select>
+	</div>
 </div>
 
 <div class="row">
@@ -65,17 +74,18 @@ function generateEmbedCode(){
 	var top = '/(top)/'+($('#id_top_text').val() == '' ? 400 : $('#id_top_text').val());
 	var topposition = '/(units)/'+$('#UnitsTop').val();
 	var id_disable_responsive = $('#id_disable_responsive').is(':checked') ? '/(noresponse)/true' : '';
-	 
+	var id_theme = $('#ThemeID').val() > 0 ? '/(theme)/'+$('#ThemeID').val() : '';
+	  
     var script = '<script type="text/javascript">'+"\nvar LHCFAQOptions = {status_text:'"+textStatus+"',url:'replace_me_with_dynamic_url',identifier:''};\n"+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
-        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'faq/getstatus'+id_position+top+topposition+id_disable_responsive+"';\n"+
+        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'faq/getstatus'+id_position+top+topposition+id_theme+id_disable_responsive+"';\n"+
         'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);'+"\n"+
       '})();'+"\n"+
     '</scr'+'ipt>';
     $('#HMLTContent').text(script);
 };
-$('#LocaleID,#PositionID,#id_status_text,#UnitsTop,#id_top_text,#HttpMode,#id_disable_responsive').change(function(){
+$('#LocaleID,#PositionID,#id_status_text,#UnitsTop,#id_top_text,#HttpMode,#id_disable_responsive,#ThemeID').change(function(){
     generateEmbedCode();
 });
 generateEmbedCode();

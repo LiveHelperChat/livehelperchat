@@ -66,12 +66,20 @@ if ($identifier != ''){
 	$dynamic_url_append .= '/(identifier)/'.rawurlencode($identifier);
 }
 
-
-
 $embedMode = false;
 if ((string)$Params['user_parameters_unordered']['mode'] == 'embed') {
 	$dynamic_url_append .= '/(mode)/embed';
 	$embedMode = true;
+}
+
+if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
+	try {
+		$theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
+		$Result['theme'] = $theme;
+		$dynamic_url_append .= '/(theme)/'.$theme->id;
+	} catch (Exception $e) {
+
+	}
 }
 
 if (!empty($dynamic_url_append)) {

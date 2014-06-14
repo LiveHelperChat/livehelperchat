@@ -27,17 +27,18 @@ $ViewList['new'] = array(
 
 $ViewList['faqwidget'] = array(
 		'params' => array(),
-		'uparams' => array('url','mode','identifier'),
+		'uparams' => array('theme','url','mode','identifier'),
 );
 
 $ViewList['getstatus'] = array(
 		'params' => array(),
 		'functions' => array( ),
-		'uparams' => array('noresponse','position','top','units')
+		'uparams' => array('theme','noresponse','position','top','units')
 );
 
 $ViewList['embed'] = array(
 		'params' => array(),
+		'uparams' => array('theme'),
 		'functions' => array()
 );
 

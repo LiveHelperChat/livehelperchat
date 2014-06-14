@@ -10,6 +10,18 @@ if ((string)$Params['user_parameters_unordered']['mode'] == 'embed') {
 	$modeAppend = '/(mode)/embed';
 }
 
+
+if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
+	try {
+		$theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
+		$Result['theme'] = $theme;
+		$modeAppend .= '/(theme)/'.$theme->id;
+	} catch (Exception $e) {
+
+	}
+}
+
+
 // Perhaps it's direct argument
 if ((string)$Params['user_parameters_unordered']['hash'] != '') {
 	list($chatID,$hash) = explode('_',$Params['user_parameters_unordered']['hash']);
@@ -336,14 +348,7 @@ if (isset($_POST['r']))
     $tpl->set('referer_site',$_POST['r']);
 }
 
-if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
-	try {
-		$theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
-		$Result['theme'] = $theme;		
-	} catch (Exception $e) {
 
-	}
-}
 
 
 $Result['content'] = $tpl->fetch();

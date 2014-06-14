@@ -12,6 +12,16 @@ if ((string)$Params['user_parameters_unordered']['mode'] == 'embed') {
 	$modeAppend = '/(mode)/embed';
 }
 
+if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
+	try {
+		$theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
+		$Result['theme'] = $theme;
+		$modeAppend .= '/(theme)/'.$theme->id;
+	} catch (Exception $e) {
+
+	}
+}
+
 if ($Params['user_parameters_unordered']['sound'] !== null && is_numeric($Params['user_parameters_unordered']['sound'])) {
 	erLhcoreClassModelUserSetting::setSetting('chat_message',(int)$Params['user_parameters_unordered']['sound'] == 1 ? 1 : 0);
 }

@@ -1,5 +1,6 @@
 body {
 	margin:5px;
+	margin-bottom:0;
 }
 
 html{
@@ -16,6 +17,7 @@ body.embed-widget {
 .widget-chat #widget-layout > .columns{
 padding:5px;
 padding-top:0;
+padding-bottom:0;
 }
 
 .widget-chat{
