@@ -271,6 +271,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>
       <translation type="unfinished"/>
     </message>
@@ -384,14 +392,6 @@
     </message>
     <message>
       <source>Any</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Theme</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Default</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5585,6 +5585,10 @@
     </message>
     <message>
       <source>Widget header background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget border color</source>
       <translation type="unfinished"/>
     </message>
     <message>
