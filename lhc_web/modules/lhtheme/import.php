@@ -9,6 +9,8 @@ if (ezcInputForm::hasPostData()) {
 		$dir = 'var/tmpfiles/';
 		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('theme.temppath',array('dir' => & $dir));
 		
+		erLhcoreClassFileUpload::mkdirRecursive( $dir );
+		
 		$filename = erLhcoreClassSearchHandler::moveUploadedFile('themefile',$dir);
 		$content = file_get_contents($dir . $filename);
 		unlink($dir . $filename);	
@@ -52,6 +54,8 @@ if (ezcInputForm::hasPostData()) {
 												
 						erLhcoreClassChatEventDispatcher::getInstance()->dispatch('theme.temppath',array('dir' => & $dir));
 
+						erLhcoreClassFileUpload::mkdirRecursive( $dir );
+						
 						$imgPath = $dir . $fileName;
 						file_put_contents($imgPath, $imgDataItem);
 						
