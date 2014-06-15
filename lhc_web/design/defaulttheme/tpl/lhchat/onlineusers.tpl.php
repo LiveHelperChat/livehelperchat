@@ -30,7 +30,7 @@
 	<li class="li-icon"><a href="#" ng-click="online.disableNewUserBNotif()"><i ng-class="{'disabled-icon':!online.notificationEnabled}" class="icon-eye"  title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Enable/Disable browser notifications about new visitor');?>"></i></a></li>
 </ul>
 
-<div class="section-container auto" data-section="auto" >
+<div class="section-container auto" data-section="auto" id="tabs">
 	  <section>
 	    <p class="title" data-section-title><a href="#panel1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','List');?></a></p>
 	    <div class="content" data-section-content>
@@ -178,3 +178,10 @@
 
 </div>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/secure_links.tpl.php')); ?>
+<script>
+$( document ).ready(function() {
+	lhinst.attachTabNavigator();
+	$('#right-column-page').removeAttr('id');
+});
+<?php include(erLhcoreClassDesign::designtpl('lhchat/part/opened_chats_js.tpl.php')); ?>
+</script>
