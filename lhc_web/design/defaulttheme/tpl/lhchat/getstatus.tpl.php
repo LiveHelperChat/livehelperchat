@@ -293,8 +293,8 @@ var lh_inst  = {
     },
     
     parseStorageArguments : function() {
-    	if (localStorage && localStorage.getItem('lhc_ref') && localStorage.getItem('lhc_ref') != '') {
-    		return '&r='+encodeURIComponent(localStorage.getItem('lhc_ref'));
+    	if (sessionStorage && sessionStorage.getItem('lhc_ref') && sessionStorage.getItem('lhc_ref') != '') {
+    		return '&r='+encodeURIComponent(sessionStorage.getItem('lhc_ref'));
     	}
     	return '';
     },
@@ -496,8 +496,8 @@ var lh_inst  = {
     },
 
     storeReferrer : function(ref){
-    	if (localStorage && !localStorage.getItem('lhc_ref')) {
-    		localStorage.setItem('lhc_ref',ref);
+    	if (sessionStorage && !sessionStorage.getItem('lhc_ref')) {
+    		sessionStorage.setItem('lhc_ref',ref);
     	}
     },
 
@@ -627,7 +627,7 @@ if ( typeof cookieData === "string" && cookieData ) {
 lh_inst.initSessionStorage();
 
 <?php if ($referrer != '') : ?>
-lh_inst.storeReferrer('<?php echo htmlspecialchars($referrer,ENT_QUOTES)?>');
+lh_inst.storeReferrer(<?php echo json_encode($referrer)?>);
 <?php endif; ?>
 
 <?php if ($position == 'original' || $position == '') :
