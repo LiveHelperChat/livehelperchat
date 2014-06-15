@@ -194,14 +194,6 @@
       <translation>Inchide</translation>
     </message>
     <message>
-      <source>Live help is online...</source>
-      <translation>Suport live online...</translation>
-    </message>
-    <message>
-      <source>Live help is offline...</source>
-      <translation>Suport live offline...</translation>
-    </message>
-    <message>
       <source>Open in a new window</source>
       <translation>Deschide in fereastra noua</translation>
     </message>
@@ -210,12 +202,20 @@
       <translation>Micsoreaza/Restaureaza</translation>
     </message>
     <message>
+      <source>Live help is online...</source>
+      <translation>Suport live online...</translation>
+    </message>
+    <message>
       <source>Need help?</source>
       <translation>Aveti intrebari?</translation>
     </message>
     <message>
       <source>Our staff is always ready to help</source>
       <translation>Suntem aici pentru a va ajuta!</translation>
+    </message>
+    <message>
+      <source>Live help is offline...</source>
+      <translation>Suport live offline...</translation>
     </message>
   </context>
   <context>
@@ -267,6 +267,14 @@
     <message>
       <source>Chatbox messages content height</source>
       <translation>Inaltimea casetei de conversatie afisate</translation>
+    </message>
+    <message>
+      <source>Theme</source>
+      <translation>Tema</translation>
+    </message>
+    <message>
+      <source>Default</source>
+      <translation>Standard</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>
@@ -741,6 +749,10 @@
       <translation>Pozitie</translation>
     </message>
     <message>
+      <source>Auto send</source>
+      <translation>Trimitere automata</translation>
+    </message>
+    <message>
       <source>Edit message</source>
       <translation>Editeaza mesaj</translation>
     </message>
@@ -755,6 +767,10 @@
     <message>
       <source>Edit canned message</source>
       <translation>Editeaza mesajul conservat</translation>
+    </message>
+    <message>
+      <source>Automatically send this message to user then chat is accepted</source>
+      <translation>Trimite automat acest mesaj utilizatorului cand discutia este acceptata</translation>
     </message>
     <message>
       <source>Delay in seconds</source>
@@ -1854,6 +1870,14 @@
       <translation>Configurarea conversatiilor</translation>
     </message>
     <message>
+      <source>Enable/Disable sound about new visitor</source>
+      <translation>Activeaza/dezactiveaza sunet pentru vizitator nou</translation>
+    </message>
+    <message>
+      <source>Enable/Disable browser notifications about new visitor</source>
+      <translation>Activeaza/dezactiveaza notificari browser pentru vizitatori noi</translation>
+    </message>
+    <message>
       <source>List</source>
       <translation>Lista</translation>
     </message>
@@ -2140,6 +2164,10 @@
       <translation>Documente</translation>
     </message>
     <message>
+      <source>Automatic chats assigment</source>
+      <translation>Alocare automata conversatii</translation>
+    </message>
+    <message>
       <source>Request notification permission</source>
       <translation>Cere permisii pentru notificare</translation>
     </message>
@@ -2256,10 +2284,6 @@
       <translation>Setari XMPP</translation>
     </message>
     <message>
-      <source>Automatic chats assigment</source>
-      <translation>Alocare automata conversatii</translation>
-    </message>
-    <message>
       <source>Chats list</source>
       <translation>Lista de conversatii</translation>
     </message>
@@ -2286,6 +2310,18 @@
     <message>
       <source>List of files</source>
       <translation>Lista fisierelor</translation>
+    </message>
+    <message>
+      <source>Theming</source>
+      <translation>Teme</translation>
+    </message>
+    <message>
+      <source>Widget themes</source>
+      <translation>Teme widgeturi</translation>
+    </message>
+    <message>
+      <source>Import new themes</source>
+      <translation>Importa teme</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -5489,6 +5525,171 @@
     <message>
       <source>Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled</source>
       <translation>Aloca automat conversatia unui alt operator daca operatorul nu accepta conversatia in atatea secunde, 0 - dezactivat</translation>
+    </message>
+  </context>
+  <context>
+    <name>abstract/widgettheme</name>
+    <message>
+      <source>Download theme</source>
+      <translation>Downloadeaza teme</translation>
+    </message>
+    <message>
+      <source>Status widget style</source>
+      <translation>Stilul widgetului pentru status</translation>
+    </message>
+    <message>
+      <source>Widget container</source>
+      <translation>Container widget</translation>
+    </message>
+    <message>
+      <source>Need help widget</source>
+      <translation>Widget pentru suport</translation>
+    </message>
+    <message>
+      <source>Custom CSS</source>
+      <translation>CSS personalizat</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Nume</translation>
+    </message>
+    <message>
+      <source>Need help header text</source>
+      <translation>Text header suport</translation>
+    </message>
+    <message>
+      <source>Need help standard text</source>
+      <translation>Text standard suport</translation>
+    </message>
+    <message>
+      <source>Online status text</source>
+      <translation>Text status online</translation>
+    </message>
+    <message>
+      <source>Offline status text</source>
+      <translation>Text status offline</translation>
+    </message>
+    <message>
+      <source>Background color</source>
+      <translation>Culoare de fundal</translation>
+    </message>
+    <message>
+      <source>Text color</source>
+      <translation>Culoare text</translation>
+    </message>
+    <message>
+      <source>Logo image, visible in popup</source>
+      <translation>Imagine logo, vizibila in popup</translation>
+    </message>
+    <message>
+      <source>Online image</source>
+      <translation>Imagine online</translation>
+    </message>
+    <message>
+      <source>Offline image</source>
+      <translation>Imagine offline</translation>
+    </message>
+    <message>
+      <source>Widget header background color</source>
+      <translation>Culoare fundal header widget</translation>
+    </message>
+    <message>
+      <source>Widget border color</source>
+      <translation>Culoare margine widget</translation>
+    </message>
+    <message>
+      <source>Need help background color</source>
+      <translation>Culoare fundal suport</translation>
+    </message>
+    <message>
+      <source>Need help hover background color</source>
+      <translation>Culoare fundal hover suport</translation>
+    </message>
+    <message>
+      <source>Need help text color</source>
+      <translation>Culoare text suport</translation>
+    </message>
+    <message>
+      <source>Need help border color</source>
+      <translation>Culoare margine suport</translation>
+    </message>
+    <message>
+      <source>Need help close background color</source>
+      <translation>Culoare fundat inchidere suport</translation>
+    </message>
+    <message>
+      <source>Need help close hover background color</source>
+      <translation>Culoare fundal hover inchidere suport</translation>
+    </message>
+    <message>
+      <source>Need help operator image</source>
+      <translation>Imagine operator suport</translation>
+    </message>
+    <message>
+      <source>Status widget additional CSS, takes effect after save</source>
+      <translation>CSS aditional pentru widget status, ia efect dupa salvare</translation>
+    </message>
+    <message>
+      <source>Widget container additional CSS, takes effect after save</source>
+      <translation>CSS aditionat pentru container widget, ia efect dupa salvare</translation>
+    </message>
+    <message>
+      <source>Widget body additional CSS, takes effect after save</source>
+      <translation>CSS aditional corp widget, ia efect dupa salvare</translation>
+    </message>
+    <message>
+      <source>Widget themes</source>
+      <translation>Teme widget</translation>
+    </message>
+  </context>
+  <context>
+    <name>theme/import</name>
+    <message>
+      <source>Import theme</source>
+      <translation>Importa tema</translation>
+    </message>
+    <message>
+      <source>File</source>
+      <translation>Fisier</translation>
+    </message>
+    <message>
+      <source>Import</source>
+      <translation>orta</translation>
+    </message>
+    <message>
+      <source>Theme imported</source>
+      <translation>Tema importata</translation>
+    </message>
+    <message>
+      <source>Could not import a new theme!</source>
+      <translation>Nu s-a putut importa o tema noua!</translation>
+    </message>
+    <message>
+      <source>Invalid file!</source>
+      <translation>Fisier invalid!</translation>
+    </message>
+  </context>
+  <context>
+    <name>theme/index</name>
+    <message>
+      <source>Theme</source>
+      <translation>Tema</translation>
+    </message>
+    <message>
+      <source>Widget themes</source>
+      <translation>Teme widgeturi</translation>
+    </message>
+    <message>
+      <source>Import a new theme</source>
+      <translation>Importa o tema noua</translation>
+    </message>
+    <message>
+      <source>Themes</source>
+      <translation>Teme</translation>
+    </message>
+    <message>
+      <source>Import theme</source>
+      <translation>Importa tema</translation>
     </message>
   </context>
 </TS>

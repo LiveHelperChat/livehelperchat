@@ -194,14 +194,6 @@
       <translation>بستن</translation>
     </message>
     <message>
-      <source>Live help is online...</source>
-      <translation>پشتیبان برخط آنلاین است ...</translation>
-    </message>
-    <message>
-      <source>Live help is offline...</source>
-      <translation>پشتیبان برخط آفلاین است...</translation>
-    </message>
-    <message>
       <source>Open in a new window</source>
       <translation>در یک پنجره جدید باز کن</translation>
     </message>
@@ -210,12 +202,20 @@
       <translation>بازنشانی/کاهش</translation>
     </message>
     <message>
+      <source>Live help is online...</source>
+      <translation>پشتیبان برخط آنلاین است ...</translation>
+    </message>
+    <message>
       <source>Need help?</source>
       <translation>راهنمایی میخواهید؟</translation>
     </message>
     <message>
       <source>Our staff is always ready to help</source>
       <translation>پشتیبان ما همیشه برای کمک آماده است</translation>
+    </message>
+    <message>
+      <source>Live help is offline...</source>
+      <translation>پشتیبان برخط آفلاین است...</translation>
     </message>
   </context>
   <context>
@@ -267,6 +267,14 @@
     <message>
       <source>Chatbox messages content height</source>
       <translation>طول جعبه محتوای پیام</translation>
+    </message>
+    <message>
+      <source>Theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>
@@ -741,6 +749,10 @@
       <translation>جایگاه</translation>
     </message>
     <message>
+      <source>Auto send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Edit message</source>
       <translation>ویرایش پیام</translation>
     </message>
@@ -755,6 +767,10 @@
     <message>
       <source>Edit canned message</source>
       <translation>ویرایش پیام مسدود شده</translation>
+    </message>
+    <message>
+      <source>Automatically send this message to user then chat is accepted</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Delay in seconds</source>
@@ -1854,6 +1870,14 @@
       <translation>تنظیمات چت</translation>
     </message>
     <message>
+      <source>Enable/Disable sound about new visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable/Disable browser notifications about new visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>List</source>
       <translation>فهرست</translation>
     </message>
@@ -2140,6 +2164,10 @@
       <translation>اسناد</translation>
     </message>
     <message>
+      <source>Automatic chats assigment</source>
+      <translation>تخصیص خودکار چت ها</translation>
+    </message>
+    <message>
       <source>Request notification permission</source>
       <translation>درخواست مجوز اطلاع رسانی</translation>
     </message>
@@ -2256,10 +2284,6 @@
       <translation>تنظیمات XMPP</translation>
     </message>
     <message>
-      <source>Automatic chats assigment</source>
-      <translation>تخصیص خودکار چت ها</translation>
-    </message>
-    <message>
       <source>Chats list</source>
       <translation>فهرست چت ها</translation>
     </message>
@@ -2286,6 +2310,18 @@
     <message>
       <source>List of files</source>
       <translation>فهرست فایل ها</translation>
+    </message>
+    <message>
+      <source>Theming</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget themes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import new themes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>File configuration</source>
@@ -5489,6 +5525,171 @@
     <message>
       <source>Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled</source>
       <translation>اختصاص خودکار چت به اپراتور دیگر. اگر اپراتور چت را در زمان تعیین شده پاسخ ندهد. 0 برای غیرفعال سازی</translation>
+    </message>
+  </context>
+  <context>
+    <name>abstract/widgettheme</name>
+    <message>
+      <source>Download theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Status widget style</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget container</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom CSS</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help header text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help standard text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online status text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline status text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Logo image, visible in popup</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget header background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget border color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help hover background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help text color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help border color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help close background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help close hover background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help operator image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Status widget additional CSS, takes effect after save</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget container additional CSS, takes effect after save</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget body additional CSS, takes effect after save</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget themes</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>theme/import</name>
+    <message>
+      <source>Import theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Theme imported</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not import a new theme!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid file!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>theme/index</name>
+    <message>
+      <source>Theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget themes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import a new theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Themes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import theme</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

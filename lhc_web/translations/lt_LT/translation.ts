@@ -194,14 +194,6 @@
       <translation>Uždaryti</translation>
     </message>
     <message>
-      <source>Live help is online...</source>
-      <translation>Pagalba aktyvi...</translation>
-    </message>
-    <message>
-      <source>Live help is offline...</source>
-      <translation>Pagalba neaktyvi...</translation>
-    </message>
-    <message>
       <source>Open in a new window</source>
       <translation>Atidaryti naujame lange</translation>
     </message>
@@ -210,12 +202,20 @@
       <translation>Sumažinti/Atstatyti</translation>
     </message>
     <message>
+      <source>Live help is online...</source>
+      <translation>Pagalba aktyvi...</translation>
+    </message>
+    <message>
       <source>Need help?</source>
       <translation>Reikia pagalbos?</translation>
     </message>
     <message>
       <source>Our staff is always ready to help</source>
       <translation>Mūsų kolektyvas visada pasirengęs padėti</translation>
+    </message>
+    <message>
+      <source>Live help is offline...</source>
+      <translation>Pagalba neaktyvi...</translation>
     </message>
   </context>
   <context>
@@ -267,6 +267,14 @@
     <message>
       <source>Chatbox messages content height</source>
       <translation>Chatbox žunučių turinio aukštis</translation>
+    </message>
+    <message>
+      <source>Theme</source>
+      <translation>Teme</translation>
+    </message>
+    <message>
+      <source>Default</source>
+      <translation>Numatytoji</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>
@@ -741,6 +749,10 @@
       <translation>Pozicija</translation>
     </message>
     <message>
+      <source>Auto send</source>
+      <translation>Automatinis išsiuntimas</translation>
+    </message>
+    <message>
       <source>Edit message</source>
       <translation>Redaguoti žinutę</translation>
     </message>
@@ -755,6 +767,10 @@
     <message>
       <source>Edit canned message</source>
       <translation>Redaguoti paruoštą žinutę</translation>
+    </message>
+    <message>
+      <source>Automatically send this message to user then chat is accepted</source>
+      <translation>Automatiškai išsiųsti šią žinutę vartotojui, kai pokalbis buna priimtas adminitratoriaus.</translation>
     </message>
     <message>
       <source>Delay in seconds</source>
@@ -1854,6 +1870,14 @@
       <translation>Pokalbių nustatymai</translation>
     </message>
     <message>
+      <source>Enable/Disable sound about new visitor</source>
+      <translation>Įjungti/išjungti garso pranešimą apie naujus lankytojus</translation>
+    </message>
+    <message>
+      <source>Enable/Disable browser notifications about new visitor</source>
+      <translation>Įjungti/Išjungti naršyklės pranešimus apie naujus lankytojus</translation>
+    </message>
+    <message>
       <source>List</source>
       <translation>Sąrašas</translation>
     </message>
@@ -2140,6 +2164,10 @@
       <translation>Dokumentai</translation>
     </message>
     <message>
+      <source>Automatic chats assigment</source>
+      <translation>Automatinis pokalbių priskyrimas</translation>
+    </message>
+    <message>
       <source>Request notification permission</source>
       <translation>Suteikti leidimą rodyti pranešimus</translation>
     </message>
@@ -2256,10 +2284,6 @@
       <translation>XMPP nustatymai</translation>
     </message>
     <message>
-      <source>Automatic chats assigment</source>
-      <translation>Automatinis pokalbių priskyrimas</translation>
-    </message>
-    <message>
       <source>Chats list</source>
       <translation>Pokalbių sąrašai</translation>
     </message>
@@ -2286,6 +2310,18 @@
     <message>
       <source>List of files</source>
       <translation>Failų sąrašas</translation>
+    </message>
+    <message>
+      <source>Theming</source>
+      <translation>Temos</translation>
+    </message>
+    <message>
+      <source>Widget themes</source>
+      <translation>Widget temos</translation>
+    </message>
+    <message>
+      <source>Import new themes</source>
+      <translation>Importuoti naujas temas</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -5489,6 +5525,171 @@
     <message>
       <source>Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled</source>
       <translation>Automatiškai perskirti pokalbi kitam operatoriui, jei operatorius nepatvirtino pokalbio per nurodytą laiką sekundėmis, 0 - išjungtas funkcionalumas</translation>
+    </message>
+  </context>
+  <context>
+    <name>abstract/widgettheme</name>
+    <message>
+      <source>Download theme</source>
+      <translation>Parsisiųsti temą</translation>
+    </message>
+    <message>
+      <source>Status widget style</source>
+      <translation>Statuso widgeto stilius</translation>
+    </message>
+    <message>
+      <source>Widget container</source>
+      <translation>Widgeto konteineris</translation>
+    </message>
+    <message>
+      <source>Need help widget</source>
+      <translation>Reikia pagalbos widgetas</translation>
+    </message>
+    <message>
+      <source>Custom CSS</source>
+      <translation>Tinkintas CSS</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Pavadinimas</translation>
+    </message>
+    <message>
+      <source>Need help header text</source>
+      <translation>Reikia pagalbos antraštės tekstas</translation>
+    </message>
+    <message>
+      <source>Need help standard text</source>
+      <translation>Reikia pagalbos tekstas</translation>
+    </message>
+    <message>
+      <source>Online status text</source>
+      <translation>Prisijungusios būsenos tekstas</translation>
+    </message>
+    <message>
+      <source>Offline status text</source>
+      <translation>Atsijungusios būsenos tekstas</translation>
+    </message>
+    <message>
+      <source>Background color</source>
+      <translation>Fono spalva</translation>
+    </message>
+    <message>
+      <source>Text color</source>
+      <translation>Teksto spalva</translation>
+    </message>
+    <message>
+      <source>Logo image, visible in popup</source>
+      <translation>Logo paveiksliukas, matomas popupe</translation>
+    </message>
+    <message>
+      <source>Online image</source>
+      <translation>Prisijungusios būsenos paveiksliuko ikona</translation>
+    </message>
+    <message>
+      <source>Offline image</source>
+      <translation>Atsijungusios būsenos paveiksliuko ikona</translation>
+    </message>
+    <message>
+      <source>Widget header background color</source>
+      <translation>Widgeto antarštės fono spalva</translation>
+    </message>
+    <message>
+      <source>Widget border color</source>
+      <translation>Widgeto rėmelio spalva</translation>
+    </message>
+    <message>
+      <source>Need help background color</source>
+      <translation>Reikia pagalbos fono spalva</translation>
+    </message>
+    <message>
+      <source>Need help hover background color</source>
+      <translation>Reikia pagalbos užvedus fono spalva</translation>
+    </message>
+    <message>
+      <source>Need help text color</source>
+      <translation>Reikia pagalbos teksto spalva</translation>
+    </message>
+    <message>
+      <source>Need help border color</source>
+      <translation>Reikia pagalbos rėmelio spalva</translation>
+    </message>
+    <message>
+      <source>Need help close background color</source>
+      <translation>Reikia pagalbos uždarymo ikonos fono spalva</translation>
+    </message>
+    <message>
+      <source>Need help close hover background color</source>
+      <translation>Reikia pagalbos uždarymo užvedus fono spalva</translation>
+    </message>
+    <message>
+      <source>Need help operator image</source>
+      <translation>Reikia pagalbos operatoriaus paveikslėlis</translation>
+    </message>
+    <message>
+      <source>Status widget additional CSS, takes effect after save</source>
+      <translation>Statuso widgeto papildomas CSS, matomas po išsaugojimo</translation>
+    </message>
+    <message>
+      <source>Widget container additional CSS, takes effect after save</source>
+      <translation>Widgeto konteinerio papildomas CSS, matomas po išsaugojimo</translation>
+    </message>
+    <message>
+      <source>Widget body additional CSS, takes effect after save</source>
+      <translation>Widgeto turinio papildomas CSS, matomas po išsaugojimo</translation>
+    </message>
+    <message>
+      <source>Widget themes</source>
+      <translation>Widgeto temos</translation>
+    </message>
+  </context>
+  <context>
+    <name>theme/import</name>
+    <message>
+      <source>Import theme</source>
+      <translation>Importuoti temą</translation>
+    </message>
+    <message>
+      <source>File</source>
+      <translation>Failas</translation>
+    </message>
+    <message>
+      <source>Import</source>
+      <translation>Importuoti</translation>
+    </message>
+    <message>
+      <source>Theme imported</source>
+      <translation>Tema buvo importuota</translation>
+    </message>
+    <message>
+      <source>Could not import a new theme!</source>
+      <translation>Negalėjome importuoti naujos temos!</translation>
+    </message>
+    <message>
+      <source>Invalid file!</source>
+      <translation>Nekorektiškas failas</translation>
+    </message>
+  </context>
+  <context>
+    <name>theme/index</name>
+    <message>
+      <source>Theme</source>
+      <translation>Temas</translation>
+    </message>
+    <message>
+      <source>Widget themes</source>
+      <translation>Widget temos</translation>
+    </message>
+    <message>
+      <source>Import a new theme</source>
+      <translation>Importuoti naują temą</translation>
+    </message>
+    <message>
+      <source>Themes</source>
+      <translation>Temos</translation>
+    </message>
+    <message>
+      <source>Import theme</source>
+      <translation>Importuoti temą</translation>
     </message>
   </context>
 </TS>
