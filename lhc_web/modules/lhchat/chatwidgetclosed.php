@@ -12,7 +12,7 @@ header('Pragma: no-cache' );
 // Check is there online user instance and user has messsages from operator in that case he have seen message from operator
 if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 ) {
 
-    $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('vid' => $Params['user_parameters_unordered']['vid']));
+    $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'vid' => $Params['user_parameters_unordered']['vid']));
 
     if ($userInstance !== false && $userInstance->has_message_from_operator == true) {
         $userInstance->message_seen = 1;

@@ -29,7 +29,7 @@ if ((string)$Params['user_parameters_unordered']['hash'] != '') {
 	$sound = is_numeric($Params['user_parameters_unordered']['sound']) ? '/(sound)/'.$Params['user_parameters_unordered']['sound'] : '';
 
 	if ((string)$Params['user_parameters_unordered']['vid'] != '') {
-		$userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('pages_count' => true, 'vid' => (string)$Params['user_parameters_unordered']['vid'], 'check_message_operator' => false));
+		$userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'pages_count' => true, 'vid' => (string)$Params['user_parameters_unordered']['vid'], 'check_message_operator' => false));
 
 		if (erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1 && isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])) {
 			erLhcoreClassModelChatOnlineUserFootprint::addPageView($userInstance);
@@ -189,7 +189,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 	       // Assign chat to user
 	       if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 ) {
 	            // To track online users
-	            $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('vid' => $Params['user_parameters_unordered']['vid']));
+	            $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'vid' => $Params['user_parameters_unordered']['vid']));
 
 	            if ($userInstance !== false) {
 	                $userInstance->chat_id = $chat->id;

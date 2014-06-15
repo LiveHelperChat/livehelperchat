@@ -36,8 +36,6 @@ if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value
 	$tpl->set('vid', $str);
 }
 
-erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.getstatus',array('tpl' => & $tpl));
-
 $validUnits = array('pixels' => 'px','percents' => '%');
 
 $theme = false;
@@ -64,6 +62,8 @@ $tpl->set('units',key_exists((string)$Params['user_parameters_unordered']['units
 $tpl->set('disable_pro_active',(string)$Params['user_parameters_unordered']['disable_pro_active'] == 'true');
 $tpl->set('priority',is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : false);
 $tpl->set('theme',$theme);
+
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.getstatus',array('tpl' => & $tpl));
 
 echo $tpl->fetch();
 exit;

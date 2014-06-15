@@ -531,7 +531,7 @@ class erLhcoreClassModelChatOnlineUser {
 	                   		$item->pages_count = 0;
 	                   		$item->chat_id = 0; // Reset chat id to no chat
 
-	                   		if ($item->message_seen == 1 && $item->message_seen_ts < (time() - (erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value*3600))) {
+	                   		if ($item->message_seen == 1 && $item->message_seen_ts < (time() - ((int)$paramsHandle['message_seen_timeout']*3600))) {
 	                   			$item->message_seen = 0;
 	                   			$item->message_seen_ts = 0;
 	                   			$item->operator_message = '';
