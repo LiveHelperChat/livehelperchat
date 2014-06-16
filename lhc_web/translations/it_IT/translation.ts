@@ -1458,7 +1458,7 @@
     </message>
     <message>
       <source>Please enter your name</source>
-      <translation>Perfavore inserisci il tuo nome</translation>
+      <translation>Per favore inserisci il tuo nome</translation>
     </message>
     <message>
       <source>Maximum 50 characters</source>
@@ -1871,11 +1871,11 @@
     </message>
     <message>
       <source>Enable/Disable sound about new visitor</source>
-      <translation type="unfinished"/>
+      <translation>Attiva/Disattiva suono avviso nuovo visitatore</translation>
     </message>
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
-      <translation type="unfinished"/>
+      <translation>Attiva/Disattiva notifica browser nuovi visitatori</translation>
     </message>
     <message>
       <source>List</source>
@@ -2165,7 +2165,7 @@
     </message>
     <message>
       <source>Automatic chats assigment</source>
-      <translation type="unfinished"/>
+      <translation>Assegnazione automatica chat</translation>
     </message>
     <message>
       <source>Request notification permission</source>
@@ -2313,15 +2313,15 @@
     </message>
     <message>
       <source>Theming</source>
-      <translation type="unfinished"/>
+      <translation>Temi</translation>
     </message>
     <message>
       <source>Widget themes</source>
-      <translation type="unfinished"/>
+      <translation>Temi Widget</translation>
     </message>
     <message>
       <source>Import new themes</source>
-      <translation type="unfinished"/>
+      <translation>Importa nuovi temi</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -4250,11 +4250,11 @@
     </message>
     <message>
       <source>Please enter a question!</source>
-      <translation>Perfavore inserisci una domanda!</translation>
+      <translation>Per favore inserisci una domanda!</translation>
     </message>
     <message>
       <source>Please enter an option!</source>
-      <translation>Perfavore inserisci una opzione!</translation>
+      <translation>Per favore inserisci una opzione!</translation>
     </message>
     <message>
       <source>Edit a question</source>
@@ -5531,7 +5531,7 @@
     <name>abstract/widgettheme</name>
     <message>
       <source>Download theme</source>
-      <translation type="unfinished"/>
+      <translation>Scarica tema</translation>
     </message>
     <message>
       <source>Status widget style</source>
@@ -5543,7 +5543,7 @@
     </message>
     <message>
       <source>Need help widget</source>
-      <translation type="unfinished"/>
+      <translation>&quot;Serve aiuto?&quot; widget</translation>
     </message>
     <message>
       <source>Custom CSS</source>
@@ -5555,19 +5555,19 @@
     </message>
     <message>
       <source>Need help header text</source>
-      <translation type="unfinished"/>
+      <translation>&quot;Serve AIuto?&quot; titolo</translation>
     </message>
     <message>
       <source>Need help standard text</source>
-      <translation type="unfinished"/>
+      <translation>&quot;Serve Aiuto?&quot; testo standard</translation>
     </message>
     <message>
       <source>Online status text</source>
-      <translation type="unfinished"/>
+      <translation>Testo mostrato online</translation>
     </message>
     <message>
       <source>Offline status text</source>
-      <translation type="unfinished"/>
+      <translation>Testo mostrato offline</translation>
     </message>
     <message>
       <source>Background color</source>
@@ -5639,7 +5639,7 @@
     </message>
     <message>
       <source>Widget themes</source>
-      <translation type="unfinished"/>
+      <translation>Temi Widget</translation>
     </message>
   </context>
   <context>
@@ -5677,7 +5677,7 @@
     </message>
     <message>
       <source>Widget themes</source>
-      <translation type="unfinished"/>
+      <translation>Temi Widget</translation>
     </message>
     <message>
       <source>Import a new theme</source>

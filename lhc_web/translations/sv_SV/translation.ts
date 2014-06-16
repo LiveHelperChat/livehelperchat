@@ -93,7 +93,7 @@
     </message>
     <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation>Språk, t ex lit, rus, ger osv... lämna blankt för alla</translation>
+      <translation>Språk, t ex. lit, rus, ger osv... lämna blankt för alla</translation>
     </message>
     <message>
       <source>Position</source>
@@ -270,11 +270,11 @@
     </message>
     <message>
       <source>Theme</source>
-      <translation type="unfinished"/>
+      <translation>Stilar</translation>
     </message>
     <message>
       <source>Default</source>
-      <translation type="unfinished"/>
+      <translation>Standard</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>
@@ -750,7 +750,7 @@
     </message>
     <message>
       <source>Auto send</source>
-      <translation type="unfinished"/>
+      <translation>Autoskicka</translation>
     </message>
     <message>
       <source>Edit message</source>
@@ -770,7 +770,7 @@
     </message>
     <message>
       <source>Automatically send this message to user then chat is accepted</source>
-      <translation type="unfinished"/>
+      <translation>Skicka automatiskt detta meddelande till användaren när chatten accepteras</translation>
     </message>
     <message>
       <source>Delay in seconds</source>
@@ -1386,7 +1386,7 @@
     </message>
     <message>
       <source>Phone</source>
-      <translation>Telefonnr</translation>
+      <translation>Telefon</translation>
     </message>
     <message>
       <source>Enter your message</source>
@@ -1871,11 +1871,11 @@
     </message>
     <message>
       <source>Enable/Disable sound about new visitor</source>
-      <translation type="unfinished"/>
+      <translation>Aktivera/inaktivera ljudnotifikation om ny besökare</translation>
     </message>
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
-      <translation type="unfinished"/>
+      <translation>Aktivera/inaktivera webbläsarnotifikation om ny besökare</translation>
     </message>
     <message>
       <source>List</source>
@@ -2106,11 +2106,11 @@
     </message>
     <message>
       <source>Cookie related</source>
-      <translation>Cookie relaterat</translation>
+      <translation>Cookierelaterat</translation>
     </message>
     <message>
       <source>Chat related</source>
-      <translation>Chatt relaterat</translation>
+      <translation>Chattrelaterat</translation>
     </message>
     <message>
       <source>Workflow</source>
@@ -2277,7 +2277,7 @@
     </message>
     <message>
       <source>Auto responder</source>
-      <translation>Autosvar</translation>
+      <translation>Automatiskt svar</translation>
     </message>
     <message>
       <source>XMPP settings</source>
@@ -2313,15 +2313,15 @@
     </message>
     <message>
       <source>Theming</source>
-      <translation type="unfinished"/>
+      <translation>Stilar</translation>
     </message>
     <message>
       <source>Widget themes</source>
-      <translation type="unfinished"/>
+      <translation>Widget stilar</translation>
     </message>
     <message>
       <source>Import new themes</source>
-      <translation type="unfinished"/>
+      <translation>Importera nya stilar</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -2435,7 +2435,7 @@
     </message>
     <message>
       <source>FAQ</source>
-      <translation>FAQ</translation>
+      <translation>FAQ - Vanliga frågor och svar</translation>
     </message>
     <message>
       <source>Chatbox</source>
@@ -4656,11 +4656,11 @@
     </message>
     <message>
       <source>Update instructions</source>
-      <translation>Uppdateringsinstruktioner.</translation>
+      <translation>Instruktioner för uppdatering</translation>
     </message>
     <message>
       <source>You are running current version. No updates required</source>
-      <translation>Du har den senaste versionen. Inga uppdatering behövs.</translation>
+      <translation>Du har den senaste versionen av Live Helper Chat. Inga uppdateringar behövs.</translation>
     </message>
     <message>
       <source>Live Helper Chat update information</source>
@@ -5531,165 +5531,165 @@
     <name>abstract/widgettheme</name>
     <message>
       <source>Download theme</source>
-      <translation type="unfinished"/>
+      <translation>Ladda ned stil</translation>
     </message>
     <message>
       <source>Status widget style</source>
-      <translation type="unfinished"/>
+      <translation>Status widgetstil</translation>
     </message>
     <message>
       <source>Widget container</source>
-      <translation type="unfinished"/>
+      <translation>Widget box</translation>
     </message>
     <message>
       <source>Need help widget</source>
-      <translation type="unfinished"/>
+      <translation>Hjälpwidget</translation>
     </message>
     <message>
       <source>Custom CSS</source>
-      <translation type="unfinished"/>
+      <translation>Egen CSS</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Namn</translation>
     </message>
     <message>
       <source>Need help header text</source>
-      <translation type="unfinished"/>
+      <translation>Hjälpwidget titeltext</translation>
     </message>
     <message>
       <source>Need help standard text</source>
-      <translation type="unfinished"/>
+      <translation>Hjälpwidget standard text</translation>
     </message>
     <message>
       <source>Online status text</source>
-      <translation type="unfinished"/>
+      <translation>Onlinestatus text</translation>
     </message>
     <message>
       <source>Offline status text</source>
-      <translation type="unfinished"/>
+      <translation>Offlinestatus text</translation>
     </message>
     <message>
       <source>Background color</source>
-      <translation type="unfinished"/>
+      <translation>Bakgrundsfärg</translation>
     </message>
     <message>
       <source>Text color</source>
-      <translation type="unfinished"/>
+      <translation>Textfärg</translation>
     </message>
     <message>
       <source>Logo image, visible in popup</source>
-      <translation type="unfinished"/>
+      <translation>Logobild, synlig i popupen</translation>
     </message>
     <message>
       <source>Online image</source>
-      <translation type="unfinished"/>
+      <translation>Onlinebild</translation>
     </message>
     <message>
       <source>Offline image</source>
-      <translation type="unfinished"/>
+      <translation>Offlinebilde</translation>
     </message>
     <message>
       <source>Widget header background color</source>
-      <translation type="unfinished"/>
+      <translation>Widget rubrik bakgrundsfärg</translation>
     </message>
     <message>
       <source>Widget border color</source>
-      <translation type="unfinished"/>
+      <translation>Widget borderfärg</translation>
     </message>
     <message>
       <source>Need help background color</source>
-      <translation type="unfinished"/>
+      <translation>Hjälpwidget backgrundsfärg</translation>
     </message>
     <message>
       <source>Need help hover background color</source>
-      <translation type="unfinished"/>
+      <translation>Hjälpwidget bakgrundsfärg hover</translation>
     </message>
     <message>
       <source>Need help text color</source>
-      <translation type="unfinished"/>
+      <translation>Hjälpwidget textfärg</translation>
     </message>
     <message>
       <source>Need help border color</source>
-      <translation type="unfinished"/>
+      <translation>Hjälpwidget borderfärg</translation>
     </message>
     <message>
       <source>Need help close background color</source>
-      <translation type="unfinished"/>
+      <translation>Hjälpwidget backgrundsfärg för stäng</translation>
     </message>
     <message>
       <source>Need help close hover background color</source>
-      <translation type="unfinished"/>
+      <translation>Hjälpwidget bakgrundsfärg för stäng hover</translation>
     </message>
     <message>
       <source>Need help operator image</source>
-      <translation type="unfinished"/>
+      <translation>Hjälpwidget operatörsbild</translation>
     </message>
     <message>
       <source>Status widget additional CSS, takes effect after save</source>
-      <translation type="unfinished"/>
+      <translation>Status widget ytterligare CSS, får effekt efter att det har sparats</translation>
     </message>
     <message>
       <source>Widget container additional CSS, takes effect after save</source>
-      <translation type="unfinished"/>
+      <translation>Widget box ytterligare CSS, får effekt efter att det har sparats</translation>
     </message>
     <message>
       <source>Widget body additional CSS, takes effect after save</source>
-      <translation type="unfinished"/>
+      <translation>Widget body ytterligare CSS, får effekt efter att det har sparats</translation>
     </message>
     <message>
       <source>Widget themes</source>
-      <translation type="unfinished"/>
+      <translation>Widget stilar</translation>
     </message>
   </context>
   <context>
     <name>theme/import</name>
     <message>
       <source>Import theme</source>
-      <translation type="unfinished"/>
+      <translation>Importera stil</translation>
     </message>
     <message>
       <source>File</source>
-      <translation type="unfinished"/>
+      <translation>Fil</translation>
     </message>
     <message>
       <source>Import</source>
-      <translation type="unfinished"/>
+      <translation>Importera</translation>
     </message>
     <message>
       <source>Theme imported</source>
-      <translation type="unfinished"/>
+      <translation>Stil importerad</translation>
     </message>
     <message>
       <source>Could not import a new theme!</source>
-      <translation type="unfinished"/>
+      <translation>Kunde inte importera en ny stil!</translation>
     </message>
     <message>
       <source>Invalid file!</source>
-      <translation type="unfinished"/>
+      <translation>Ogiltig fil!</translation>
     </message>
   </context>
   <context>
     <name>theme/index</name>
     <message>
       <source>Theme</source>
-      <translation type="unfinished"/>
+      <translation>Stil</translation>
     </message>
     <message>
       <source>Widget themes</source>
-      <translation type="unfinished"/>
+      <translation>Widget stilar</translation>
     </message>
     <message>
       <source>Import a new theme</source>
-      <translation type="unfinished"/>
+      <translation>Importera en ny stil</translation>
     </message>
     <message>
       <source>Themes</source>
-      <translation type="unfinished"/>
+      <translation>Stilar</translation>
     </message>
     <message>
       <source>Import theme</source>
-      <translation type="unfinished"/>
+      <translation>Importera stil</translation>
     </message>
   </context>
 </TS>
