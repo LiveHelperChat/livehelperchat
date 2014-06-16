@@ -992,6 +992,8 @@ class erLhcoreClassChat {
 	   		}
 	   	}
 	   	
+	   	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.close',array('chat' => & $chat, 'user_data' => $operator));
+	   	
 	   	if ( ($dep = $chat->department) !== false && $dep->inform_close == 1) {
 	   		erLhcoreClassChatMail::informChatClosed($chat, $operator);
 	   	}

@@ -45,7 +45,8 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 	    	fastcgi_finish_request();
 	    };
 	    
-	    if ($operatorAccepted == true) {	    		    
+	    if ($operatorAccepted == true) {	 	    	
+	    	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.accept',array('chat' => & $chat,'user' => $currentUser));	    	
 	    	erLhcoreClassChat::updateActiveChats($chat->user_id);	    	
 	    	erLhcoreClassChatWorkflow::presendCannedMsg($chat);
 	    	$options = $chat->department->inform_options_array;

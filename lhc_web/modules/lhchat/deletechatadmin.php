@@ -13,6 +13,7 @@ CSCacheAPC::getMem()->removeFromArray('lhc_open_chats', $chat->id);
 
 if ($currentUser->hasAccessTo('lhchat','deleteglobalchat') || ($currentUser->hasAccessTo('lhchat','deletechat') && $chat->user_id == $currentUser->getUserID()))
 {
+	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.delete',array('chat' => & $chat,'user' => $currentUser));
 	$chat->removeThis();
     echo json_encode(array('error' => 'false', 'result' => 'ok' ));
 } else {
