@@ -1,0 +1,25 @@
+/*
+ * Custom overrides for touch and small-screen devices.
+ */
+
+/* Hide some navigation buttons */
+#BRtoolbar .play, .embed, .print {
+    display: none;
+}
+
+/* Disable hover */
+/* $$$ better would be to display the hover momentarily
+ *     to show that the button was pressed */
+.BRicon.info:hover {background-position:-40px 0;}
+.BRicon.share:hover {background-position:-120px 0;}
+.BRicon.read:hover {background-position:-200px 0;}
+.BRicon.unread:hover {background-position:-280px 0;}
+.BRicon.full:hover {background-position:-360px 0;}
+.BRicon.book_left:hover {background-position:-440px 0;}
+.BRicon.book_right:hover {background-position:-520px 0;}
+.BRicon.zoom_out:hover {background-position:-606px 0;}
+.BRicon.zoom_in:hover {background-position:-686px 0;}
+
+div#BRzoomer button:hover {
+    background-color: #e2dcc5; /* $$$ as declared in BookReader.css - find way to avoid this */
+}

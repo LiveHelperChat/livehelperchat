@@ -24,9 +24,17 @@
 
 <label><input type="checkbox" name="use_xmp" value="1" <?php isset($xmp_data['use_xmp']) && ($xmp_data['use_xmp'] == '1') ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','XMPP active'); ?></label>
 
-<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','XMPP Message content');?></label>
-<textarea name="XMPMessage" style="height:100px;"><?php echo htmlspecialchars($xmp_data['xmp_message'])?></textarea>
-				
+<div class="row">
+	<div class="columns small-6">
+		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','XMPP Message content');?></label>
+		<textarea name="XMPMessage" style="height:100px;"><?php echo htmlspecialchars($xmp_data['xmp_message'])?></textarea>
+	</div>
+	<div class="columns small-6">
+		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','XMPP Message about accepted chat');?></label>
+		<textarea name="XMPAcceptedMessage" style="height:100px;"><?php echo htmlspecialchars($xmp_data['xmp_accepted_message'])?></textarea>
+	</div>
+</div>
+
 <div class="section-container auto" data-section>
   <section <?php if ( (isset($xmp_data['use_standard_xmp']) && $xmp_data['use_standard_xmp'] == '0') || !isset($xmp_data['use_standard_xmp']) ) : ?>class="active"<?php endif;?> >
     <p class="title" data-section-title><a href="#"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','XMPP');?></a></p>

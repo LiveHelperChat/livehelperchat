@@ -5,8 +5,8 @@
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/htmlcode','Status text');?></label>
 		<input type="text" id="id_status_text" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Help us to grow');?>" />
 	</div>
-	<div class="columns large-6"><label for="id_show_widget_on_open"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/htmlcode','Expand the widget automatically for new users');?></label>
-	<input type="checkbox" id="id_show_widget_on_open" value="on">
+	<div class="columns large-6"><label for="id_show_widget_on_open"><input type="checkbox" id="id_show_widget_on_open" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/htmlcode','Expand the widget automatically for new users');?></label>
+	
 	</div>
 </div>
 
@@ -35,9 +35,8 @@
 	      	<input type="text" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Height')?>" id="id_height_text" value="300" />
 	      </div>
 	    </div>
-	</div>	
+	</div>		
 </div>
-
 
 <div class="row">
     <div class="columns large-6">
@@ -57,7 +56,10 @@
                <option value="middle_left"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Middle left side of the screen');?></option>
         </select>
     </div>
-    <div class="columns large-6 end">
+    <div class="columns large-6">
+	   <label><input type="checkbox" id="id_disable_responsive" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Disable responsive layout for status widget.');?></label> 	    
+    </div>
+    <div class="columns large-6">
 	   		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Choose prefered http mode');?></label>
 		    <select id="HttpMode">         
 		            <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Based on site (default)');?></option>
@@ -65,6 +67,15 @@
 		            <option value="https:">https:</option>      
 		    </select>    	    
     </div>
+    <div class="columns large-6 end">
+    	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Theme')?></label>
+        <select id="ThemeID">
+        	<option value="0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Default');?></option>
+			<?php foreach (erLhAbstractModelWidgetTheme::getList(array('limit' => 1000)) as $theme) : ?>
+			   <option value="<?php echo $theme->id?>"><?php echo htmlspecialchars($theme->name)?></option>
+			<?php endforeach; ?>
+		</select>
+	</div>
 </div>
 
 <p class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/htmlcode','Copy the code from the text area to the footer, before the closing &lt;/body&gt; tag');?></p>
@@ -82,17 +93,19 @@ function generateEmbedCode(){
 	var topposition = '/(units)/'+$('#UnitsTop').val();
 	var widthwidget = '/(width)/'+($('#id_width_text').val() == '' ? 300 : $('#id_width_text').val());
 	var heightwidget = '/(height)/'+($('#id_height_text').val() == '' ? 300 : $('#id_height_text').val());
-
+	var id_disable_responsive = $('#id_disable_responsive').is(':checked') ? '/(noresponse)/true' : '';
+	var id_theme = $('#ThemeID').val() > 0 ? '/(theme)/'+$('#ThemeID').val() : '';
+	
     var script = '<script type="text/javascript">'+"\nvar LHCVotingOptions = {status_text:'"+textStatus+"'};\n"+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
-        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'questionary/getstatus'+id_position+id_show_widget_on_open+top+topposition+widthwidget+heightwidget+"';\n"+
+        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'questionary/getstatus'+id_position+id_disable_responsive+id_show_widget_on_open+top+topposition+widthwidget+id_theme+heightwidget+"';\n"+
         'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);'+"\n"+
       '})();'+"\n"+
     '</scr'+'ipt>';
     $('#HMLTContent').text(script);
 };
-$('#LocaleID,#PositionID,#id_show_widget_on_open,#id_status_text,#UnitsTop,#id_top_text,#id_width_text,#id_height_text,#HttpMode').change(function(){
+$('#LocaleID,#PositionID,#id_show_widget_on_open,#id_disable_responsive,#id_status_text,#UnitsTop,#id_top_text,#id_width_text,#id_height_text,#HttpMode,#ThemeID').change(function(){
     generateEmbedCode();
 });
 generateEmbedCode();

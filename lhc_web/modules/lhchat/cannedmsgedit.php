@@ -4,6 +4,18 @@ $tpl = erLhcoreClassTemplate::getInstance('lhchat/cannedmsgedit.tpl.php');
 
 $Msg = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelCannedMsg', (int)$Params['user_parameters']['id'] );
 
+/**
+ * Append user departments filter
+ * */
+$userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
+if ($userDepartments !== true) {
+	if (!in_array($Msg->department_id, $userDepartments)) {
+		erLhcoreClassModule::redirect('chat/cannedmsg');
+		exit;
+	}
+}
+
+
 if ( isset($_POST['Cancel_action']) ) {
     erLhcoreClassModule::redirect('chat/cannedmsg');
     exit;
@@ -23,6 +35,9 @@ if (isset($_POST['Update_action']) || isset($_POST['Save_action'])  )
         ),
         'DepartmentID' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1)
+        ),
+        'AutoSend' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         )
     );
 
@@ -34,15 +49,32 @@ if (isset($_POST['Update_action']) || isset($_POST['Save_action'])  )
         $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please enter canned message');
     }
 
+    if ( $form->hasValidData( 'AutoSend' ) && $form->AutoSend == true )
+    {
+        $Msg->auto_send = 1;
+    } else {
+    	$Msg->auto_send = 0;
+    }
+    
     if ( $form->hasValidData( 'Position' )  )
     {
         $Msg->position = $form->Position;
     }
 
     if ( $form->hasValidData( 'DepartmentID' )  ) {
-        $Msg->department_id = $form->DepartmentID;
+        $Msg->department_id = $form->DepartmentID;        
+        if ($userDepartments !== true) {
+        	if (!in_array($Msg->department_id, $userDepartments)) {
+        		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please choose a department');
+        	}
+        }
     } else {
-    	$Msg->department_id = 0;
+    	// User has to choose a department
+    	if ($userDepartments !== true) {    	
+    		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please choose a department');    		
+    	} else {
+    		$Msg->department_id = 0;
+    	}
     }
 
     if ( $form->hasValidData( 'Delay' )  )
@@ -69,6 +101,7 @@ if (isset($_POST['Update_action']) || isset($_POST['Save_action'])  )
 }
 
 $tpl->set('canned_message',$Msg);
+$tpl->set('limitDepartments',$userDepartments !== true ? array('filterin' => array('id' => $userDepartments)) : array());
 
 $Result['content'] = $tpl->fetch();
 

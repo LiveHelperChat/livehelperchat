@@ -248,22 +248,22 @@ $ViewList['blockedusers'] = array(
 
 $ViewList['getstatus'] = array(
     'params' => array(),
-    'uparams' => array('priority','disable_pro_active','click','position','hide_offline','check_operator_messages','top','units','leaveamessage','department','identifier'),
+    'uparams' => array('theme','noresponse','priority','disable_pro_active','click','position','hide_offline','check_operator_messages','top','units','leaveamessage','department','identifier'),
     );
 
 $ViewList['getstatusembed'] = array(
     'params' => array(),
-    'uparams' => array('hide_offline','leaveamessage','department','priority'),
+    'uparams' => array('theme','hide_offline','leaveamessage','department','priority'),
 );
 
 $ViewList['startchat'] = array (
     'params' => array(),
-    'uparams' => array('vid','hash_resume','sound','hash','offline','leaveamessage','department','priority','chatprefill')
+    'uparams' => array('theme','vid','hash_resume','sound','hash','offline','leaveamessage','department','priority','chatprefill')
 );
 
 $ViewList['chatwidget'] = array(
     'params' => array(),
-    'uparams' => array('vid','sound','hash','hash_resume','mode','offline','leaveamessage','department','priority','chatprefill'),
+    'uparams' => array('theme','vid','sound','hash','hash_resume','mode','offline','leaveamessage','department','priority','chatprefill'),
 );
 
 $ViewList['reopen'] = array(
@@ -273,12 +273,12 @@ $ViewList['reopen'] = array(
 
 $ViewList['readoperatormessage'] = array(
     'params' => array(),
-    'uparams' => array('priority','vid','department','playsound')
+    'uparams' => array('theme','priority','vid','department','playsound')
 );
 
 $ViewList['chatcheckoperatormessage'] = array(
     'params' => array(),
-    'uparams' => array('priority','vid','count_page','identifier','department')
+    'uparams' => array('theme','priority','vid','count_page','identifier','department')
 );
 
 $ViewList['chatwidgetclosed'] = array(
@@ -304,7 +304,7 @@ $ViewList['bbcodeinsert'] = array(
 
 $ViewList['chatwidgetchat'] = array(
     'params' => array('chat_id','hash'),
-	'uparams' => array('sound','mode')
+	'uparams' => array('sound','mode','theme')
 );
 
 $ViewList['userclosechat'] = array(
@@ -366,6 +366,12 @@ $ViewList['cannedmsg'] = array(
     'functions' => array( 'administratecannedmsg' )
 );
 
+$ViewList['maintenance'] = array(
+    'params' => array(),
+    'uparams' => array('csfr','action'),
+    'functions' => array( 'maintenance' )
+);
+
 $ViewList['newcannedmsg'] = array(
     'params' => array(),
     'functions' => array( 'administratecannedmsg' )
@@ -409,6 +415,7 @@ $FunctionList['chattabschrome'] = array('explain' =>'Allow user to user chrome e
 $FunctionList['canchangechatstatus'] = array('explain' =>'Allow user to change chat status');
 $FunctionList['administrateinvitations'] = array('explain' =>'Allow user to change pro active invitations');
 $FunctionList['administrateresponder'] = array('explain' =>'Allow user to change auto responder');
+$FunctionList['maintenance'] = array('explain' =>'Allow user to run maintenance');
 
 
 ?>

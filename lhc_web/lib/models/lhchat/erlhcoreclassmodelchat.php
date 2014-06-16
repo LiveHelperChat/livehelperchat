@@ -69,6 +69,8 @@ class erLhcoreClassModelChat {
        		
        		   // Screenshot ID? maps to file
                'screenshot_id'    		=> $this->screenshot_id,
+       		
+               'tslasign'    			=> $this->tslasign,
        );
    }
 
@@ -102,6 +104,8 @@ class erLhcoreClassModelChat {
 	   	erLhcoreClassModelChatFile::deleteByChatId($this->id);
 
 	   	erLhcoreClassChat::getSession()->delete($this);
+	   	
+	   	erLhcoreClassChat::updateActiveChats($this->user_id);
    }
 
    public static function fetch($chat_id) {
@@ -114,7 +118,7 @@ class erLhcoreClassModelChat {
    }
 
    public function updateThis() {
-       	 erLhcoreClassChat::getSession()->update($this);
+       	 erLhcoreClassChat::getSession()->update($this,$this->updateIgnoreColumns);
    }
 
    public function setIP()
@@ -161,11 +165,15 @@ class erLhcoreClassModelChat {
        		   return $this->chat_duration_front;
        		break;
 
+       	case 'user_name':
+       			return $this->user_name = (string)$this->user;
+       		break;	
+       		
        	case 'user':
        		   $this->user = false;
        		   if ($this->user_id > 0) {
        		   		try {
-       		   			$this->user = erLhcoreClassModelUser::fetch($this->user_id);
+       		   			$this->user = erLhcoreClassModelUser::fetch($this->user_id,true);
        		   		} catch (Exception $e) {
        		   			$this->user = false;
        		   		}
@@ -242,6 +250,16 @@ class erLhcoreClassModelChat {
        			 
        			return $this->unread_time;
        		break;
+       		
+       	case 'additional_data_array':
+       			$jsonData = json_decode($this->additional_data);
+       			if ($jsonData !== null) {
+       				$this->additional_data_array = $jsonData;
+       			} else {
+       				$this->additional_data_array = $this->additional_data;
+       			}
+       			return $this->additional_data_array;
+       		break;
        			
        	default:
        		break;
@@ -314,6 +332,8 @@ class erLhcoreClassModelChat {
    const USER_STATUS_CLOSED_CHAT = 1;
    const USER_STATUS_PENDING_REOPEN = 2;
    
+   
+   
    public $id = null;
    public $nick = '';
    public $status = self::STATUS_PENDING_CHAT;
@@ -383,6 +403,11 @@ class erLhcoreClassModelChat {
    
    public $unread_messages_informed = 0;
    public $reinform_timeout = 0;
+   
+   // Time since last assignment
+   public $tslasign = 0;
+   
+   public $updateIgnoreColumns = array();
 }
 
 ?>

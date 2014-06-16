@@ -73,7 +73,7 @@ class erLhcoreClassUserDep{
    		return array_shift(self::getUserDepartaments($userID = false));
    }
 
-   public static function addUserDepartaments($Departaments, $userID = false,$UserData = false)
+   public static function addUserDepartaments($Departaments, $userID = false, $UserData = false)
    {
        $db = ezcDbInstance::get();
        if ($userID === false)
@@ -88,10 +88,13 @@ class erLhcoreClassUserDep{
 
        foreach ($Departaments as $DepartamentID)
        {
-            $stmt = $db->prepare('INSERT INTO lh_userdep (user_id,dep_id,hide_online,last_activity) VALUES (:user_id,:dep_id,:hide_online,0)');
+
+            $stmt = $db->prepare('INSERT INTO lh_userdep (user_id,dep_id,hide_online,last_activity) VALUES (:user_id,:dep_id,:hide_online,0,0,:active_chats)');
             $stmt->bindValue( ':user_id',$userID,PDO::PARAM_INT);
             $stmt->bindValue( ':dep_id',$DepartamentID,PDO::PARAM_INT);
             $stmt->bindValue( ':hide_online',$UserData->hide_online,PDO::PARAM_INT);
+            $stmt->bindValue( ':active_chats',erLhcoreClassChat::getCount(array('filter' => array('user_id' => $UserData->id, 'status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT))),PDO::PARAM_INT);
+            
             $stmt->execute();
        }
 

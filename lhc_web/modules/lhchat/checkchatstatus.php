@@ -41,6 +41,8 @@ try {
     			if ($department->delay_lm > 0 && $chat->time < $delay) {
     				$baseURL = (isset($Params['user_parameters_unordered']['mode']) && $Params['user_parameters_unordered']['mode'] == 'widget') ? erLhcoreClassDesign::baseurl('chat/chatwidget') : erLhcoreClassDesign::baseurl('chat/startchat');
     				$ru = $baseURL.'/(department)/'.$department->id.'/(offline)/true/(leaveamessage)/true/(chatprefill)/'.$chat->id.'_'.$chat->hash;
+    			} else {
+    				erLhcoreClassChatWorkflow::autoAssign($chat,$department);
     			}
     		}   		
     	}    	

@@ -12,8 +12,8 @@
 
 <table>
     <tr>
-        <td>I can write to &quot;cache/cacheconfig/settings.ini.php&quot; file</td>
-        <td><?php echo is_writable("cache/cacheconfig/settings.ini.php") ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'?></td>
+        <td>I can write to &quot;cache/cacheconfig&quot; directory</td>
+        <td><?php echo is_writable("cache/cacheconfig") ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'?></td>
     </tr>
     <tr>
         <td>I can write to &quot;cache/translations&quot; directory</td>
@@ -28,8 +28,8 @@
         <td><?php echo is_writable("cache/compiledtemplates") ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'?></td>
     </tr>
     <tr>
-        <td>I can write to &quot;settings/settings.ini.php&quot; directory</td>
-        <td><?php echo is_writable("settings/settings.ini.php") ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'?></td>
+        <td>I can write to &quot;settings/&quot; directory</td>
+        <td><?php echo is_writable("settings/") ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'?></td>
     </tr>
     <tr>
         <td>I can write to &quot;var/storage&quot; directory</td>
@@ -38,6 +38,22 @@
     <tr>
         <td>I can write to &quot;var/userphoto&quot; directory</td>
         <td><?php echo is_writable("var/userphoto") ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'?></td>
+    </tr>
+    <tr>
+        <td>I can write to &quot;var/storageform&quot; directory</td>
+        <td><?php echo is_writable("var/storageform") ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'?></td>
+    </tr>
+    <tr>
+        <td>I can write to &quot;var/storagedocshare&quot; directory</td>
+        <td><?php echo is_writable("var/storagedocshare") ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'?></td>
+    </tr>
+    <tr>
+        <td>I can write to &quot;var/storagetheme&quot; directory</td>
+        <td><?php echo is_writable("var/storagetheme") ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'?></td>
+    </tr>
+    <tr>
+        <td>I can write to &quot;var/tmpfiles&quot; directory</td>
+        <td><?php echo is_writable("var/tmpfiles") ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'?></td>
     </tr>
     <tr>
         <td>Is the php_curl extension installed</td>

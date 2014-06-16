@@ -57,10 +57,22 @@ if (isset($_POST['SaveClient']) || isset($_POST['UpdateClient']))
 $tpl->set('object',$ObjectData);
 $tpl->set('identifier',$Params['user_parameters']['identifier']);
 
+if (method_exists($ObjectData,'customForm')) {
+	$tpl->set('custom_form',$ObjectData->customForm());
+}
 
 $tpl->set('object_trans',$object_trans);
 
 $Result['content'] = $tpl->fetch();
+
+
+if (method_exists($ObjectData,'dependCss')) {
+	$Result['additional_header_css'] = $ObjectData->dependCss();
+}
+
+if (method_exists($ObjectData,'dependJs')) {
+	$Result['additional_header_js'] = $ObjectData->dependJs();
+}
 
 if (isset($object_trans['path'])){
 	$Result['path'][] = $object_trans['path'];

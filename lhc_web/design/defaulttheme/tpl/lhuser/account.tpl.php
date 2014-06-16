@@ -86,13 +86,15 @@
 
     </div>
   </section>
+  
+  <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','see_assigned_departments')) : ?>
   <section <?php if ($tab == 'tab_departments') : ?>class="active"<?php endif;?>>
     <p class="title" data-section-title><a href="#departments"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Assigned departments');?></a></p>
     <div class="content" data-section-content data-slug="departments">
 
 	<?php $userDepartaments = erLhcoreClassUserDep::getUserDepartaments(); ?>
 	<?php if ($editdepartaments === true) { ?>
-	<form action="<?php echo erLhcoreClassDesign::baseurl('user/account')?>" method="post">
+	<form action="<?php echo erLhcoreClassDesign::baseurl('user/account')?>#departments" method="post">
 
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
@@ -110,6 +112,10 @@
 	<?php } ?>
     </div>
   </section>
+  <?php endif; ?>
+   
+   
+  <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','change_visibility_list')) : ?>
   <section <?php if ($tab == 'tab_settings') : ?>class="active"<?php endif;?>>
     <p class="title" data-section-title ><a href="#lists"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Visible lists');?></a></p>
     <div class="content" data-section-content data-slug="lists">
@@ -127,6 +133,7 @@
 
     </div>
   </section>
+  <?php endif; ?>
   
   <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','personalcannedmsg')) : ?>
   <section <?php if ($tab == 'tab_canned') : ?>class="active"<?php endif;?>>
@@ -135,6 +142,26 @@
 	  <?php include(erLhcoreClassDesign::designtpl('lhuser/parts/canned_messages.tpl.php'));?>
     </div>
   </section>
-   <?php endif; ?>
+  <?php endif; ?>
+  
+  <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','allowtochoosependingmode')) : ?>
+  <section <?php if ($tab == 'tab_pending') : ?>class="active"<?php endif;?>>
+    <p class="title" data-section-title><a href="#pending"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Pending chats');?></a></p>
+    <div class="content" data-section-content data-slug="pending">
+	   <form action="<?php echo erLhcoreClassDesign::baseurl('user/account')?>" method="post">
+
+	  	<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
+		<label><input type="checkbox" name="showAllPendingEnabled" value="1" <?php erLhcoreClassModelUserSetting::getSetting('show_all_pending',1) == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','I can see all pending chats, not only assigned to me');?></label>
+		
+		<input type="submit" class="small button" name="UpdatePending_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>"/>
+	   </form>
+	  
+    </div>
+  </section>
+  <?php endif; ?>
+  
+  
+  
   
 </div>

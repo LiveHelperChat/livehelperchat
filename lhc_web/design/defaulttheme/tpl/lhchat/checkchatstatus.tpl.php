@@ -1,6 +1,6 @@
 <?php if ($is_activated == true || $is_proactive_based == true) : ?>
 
-<?php if (($user = $chat->user) !== false) : ?>
+<?php if ($chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT && ($user = $chat->user) !== false) : ?>
 	<?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile.tpl.php'));?>
 <?php elseif ($is_proactive_based == true) : ?>
 	<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','A support staff member has joined this chat'); ?></h4>

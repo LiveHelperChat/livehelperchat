@@ -808,8 +808,9 @@ class erLhcoreClassChat {
        $stmt->setFetchMode(PDO::FETCH_ASSOC);
        $stmt->execute();
        $rows = $stmt->fetchAll(PDO::FETCH_COLUMN);
-        
-       return implode("\n", array_reverse($rows));
+       $text = mb_substr(implode("\n", array_reverse($rows)),-200);
+       
+       return $text;
    }
 
 
@@ -827,6 +828,19 @@ class erLhcoreClassChat {
        return $rows;
    }
 
+   /**
+    * Get first user mesasge for prefilling chat
+    * */
+   public static function getFirstUserMessage($chat_id)
+   {
+	   	$db = ezcDbInstance::get();
+	   	$stmt = $db->prepare('SELECT lh_msg.msg FROM lh_msg INNER JOIN ( SELECT id FROM lh_msg WHERE chat_id = :chat_id AND user_id = 0 ORDER BY id ASC LIMIT 1) AS items ON lh_msg.id = items.id');
+	   	$stmt->bindValue( ':chat_id',$chat_id,PDO::PARAM_INT);
+	   	$stmt->setFetchMode(PDO::FETCH_ASSOC);
+	   	$stmt->execute();  
+	   	return $stmt->fetchColumn();
+   }
+   
    public static function hasAccessToRead($chat)
    {
        $currentUser = erLhcoreClassUser::instance();
@@ -955,6 +969,8 @@ class erLhcoreClassChat {
 	   		}
 	   	}
 	   	
+	   	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.close',array('chat' => & $chat, 'user_data' => $operator));
+	   	
 	   	if ( ($dep = $chat->department) !== false && $dep->inform_close == 1) {
 	   		erLhcoreClassChatMail::informChatClosed($chat, $operator);
 	   	}
@@ -1025,6 +1041,17 @@ class erLhcoreClassChat {
    			if (!isset($params['do_not_clean']))
    			$object = (object)array_filter((array)$object);   		
    }
+   
+   
+   public static function updateActiveChats($user_id)
+   {
+	   	$db = ezcDbInstance::get();
+	   	$stmt = $db->prepare('UPDATE lh_userdep SET active_chats = :active_chats WHERE user_id = :user_id');
+	   	$stmt->bindValue(':active_chats',erLhcoreClassChat::getCount(array('filter' => array('user_id' => $user_id, 'status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT))),PDO::PARAM_INT);
+	   	$stmt->bindValue(':user_id',$user_id,PDO::PARAM_INT);
+	   	$stmt->execute();
+   }
+   
    
    private static $persistentSession;
 }

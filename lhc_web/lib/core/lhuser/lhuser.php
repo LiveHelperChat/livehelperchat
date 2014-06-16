@@ -236,10 +236,13 @@ class erLhcoreClassUser{
 
    function updateLastVisit()
    {
-       $db = ezcDbInstance::get();
-       $db->query('UPDATE lh_userdep SET last_activity = '.time().' WHERE user_id = '.$this->userid);
+       $db = ezcDbInstance::get();       
+       $stmt = $db->prepare('UPDATE lh_userdep SET last_activity = :last_activity WHERE user_id = :user_id');
+       $stmt->bindValue(':last_activity',time(),PDO::PARAM_INT);
+       $stmt->bindValue(':user_id',$this->userid,PDO::PARAM_INT);
+       $stmt->execute();       
    }
-
+   
    function getUserList()
    {
      $db = ezcDbInstance::get();

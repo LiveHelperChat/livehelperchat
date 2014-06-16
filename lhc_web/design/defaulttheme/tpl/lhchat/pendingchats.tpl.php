@@ -4,15 +4,21 @@
 
 <?php if ($pages->items_total > 0) { ?>
 
+<form action="<?php echo $input->form_action,$inputAppend?>" method="post">
+
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
 <table class="lentele" cellpadding="0" cellspacing="0" width="100%">
     <thead>
         <tr>
+        	<th width="1%"><input class="mb0" type="checkbox" ng-model="check_all_items" /></th>
             <th width="1%">ID</th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Information');?></th>
         </tr>
     </thead>
     <?php foreach ($items as $chat) : ?>
     <tr>
+    	<td><input ng-checked="check_all_items" class="mb0" type="checkbox" name="ChatID[]" value="<?php echo $chat->id?>" /></td>
         <td><?php echo $chat->id?></td>
         <td>
           <?php if ( !empty($chat->country_code) ) : ?><img src="<?php echo erLhcoreClassDesign::design('images/flags');?>/<?php echo $chat->country_code?>.png" alt="<?php echo htmlspecialchars($chat->country_name)?>" title="<?php echo htmlspecialchars($chat->country_name)?>" />&nbsp;<?php endif; ?>
@@ -29,6 +35,10 @@
 <?php if (isset($pages)) : ?>
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/paginator.tpl.php')); ?>
 <?php endif;?>
+
+<input type="submit" name="doDelete" class="button small radius" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Delete selected');?>" />
+
+</form>
 
 <?php } else { ?>
 <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Empty...');?></p>

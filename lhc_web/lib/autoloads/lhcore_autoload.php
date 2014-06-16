@@ -88,8 +88,13 @@ return array_merge(array (
 		'erLhAbstractModelProactiveChatInvitation'  => 'lib/models/lhabstract/erlhabstractmodeleproactivechatinvitation.php',
 		'erLhAbstractModelAutoResponder'  			=> 'lib/models/lhabstract/erlhabstractmodelautoresponder.php',
 		'erLhAbstractModelBrowseOfferInvitation'  	=> 'lib/models/lhabstract/erlhabstractmodelbrowseofferinvitation.php',
-		'erLhcoreClassAbstract' 		 => 'lib/core/lhabstract/lhabstract.php',
-		'erLhcoreClassChatMail' 		 => 'lib/core/lhchat/lhchatmail.php',
+		'erLhAbstractModelForm'  					=> 'lib/models/lhabstract/erlhabstractmodelform.php',
+		'erLhAbstractModelFormCollected'  			=> 'lib/models/lhabstract/erlhabstractmodelformcollected.php',
+		'erLhAbstractModelWidgetTheme'  			=> 'lib/models/lhabstract/erlhabstractmodelwidgettheme.php',
+		
+		'erLhcoreClassFormRenderer'  		=> 'lib/core/lhform/lhformrenderer.php',
+		'erLhcoreClassAbstract' 			=> 'lib/core/lhabstract/lhabstract.php',
+		'erLhcoreClassChatMail' 		 	=> 'lib/core/lhchat/lhchatmail.php',
 
 		// Chatbox
 		'erLhcoreClassChatbox'				=> 'lib/core/lhchatbox/lhchatbox.php',
@@ -97,6 +102,9 @@ return array_merge(array (
 
 		 // Siteaccess generator
 		'erLhcoreClassSiteaccessGenerator'	=> 'lib/core/lhcore/lhsiteaccessgenerator.php',
+		
+		// Event dispatcher
+		'erLhcoreClassChatEventDispatcher'	=> 'lib/core/lhchat/lhchateventdispatcher.php',
 
 		 // Statistic
 		'erLhcoreClassChatStatistic'		=> 'lib/core/lhchat/lhchatstatistic.php',
@@ -155,7 +163,11 @@ return array_merge(array (
 		'MaxMind\Db\Reader'							=> 'lib/core/lhexternal/MaxMind/Db/Reader.php',		
 		'MaxMind\Db\Reader\Decoder'					=> 'lib/core/lhexternal/MaxMind/Db/Reader/Decoder.php',		
 		'MaxMind\Db\Reader\Metadata'				=> 'lib/core/lhexternal/MaxMind/Db/Reader/Metadata.php',		
-		'JsonSerializable'							=> 'lib/core/lhexternal/GeoIp2/Record/JsonSerializable.php',		
+		'JsonSerializable'							=> 'lib/core/lhexternal/GeoIp2/Record/JsonSerializable.php',	
+		
+		// Doc Share
+		'erLhcoreClassDocShare' 					=> 'lib/core/lhdocshare/lhdocshare.php',
+		'erLhcoreClassModelDocShare' 				=> 'lib/models/lhdocshare/erlhcoreclassmodeldocshare.php',
 		
 ),
 include('var/autoloads/lhextension_autoload.php')

@@ -26,6 +26,16 @@
 		</select>
 	</div>
 	
+	<div class="columns large-6">
+		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Theme')?></label>
+	        <select id="ThemeID">
+	        	<option value="0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Default');?></option>
+				<?php foreach (erLhAbstractModelWidgetTheme::getList(array('limit' => 1000)) as $theme) : ?>
+				   <option value="<?php echo $theme->id?>"><?php echo htmlspecialchars($theme->name)?></option>
+				<?php endforeach; ?>
+	    </select>
+    </div>	
+   
    <div class="columns large-6 end">
 	   <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Choose prefered http mode');?></label>
 		    <select id="HttpMode">         
@@ -48,7 +58,8 @@ function generateEmbedCode() {
     var id_hide_then_offline = $('#id_hide_then_offline').is(':checked') ? '/(hide_offline)/true' : '';
     var id_show_leave_form = $('#id_show_leave_form').is(':checked') ? '/(leaveamessage)/true' : '';
     var id_department = $('#DepartmentID').val() > 0 ? '/(department)/'+$('#DepartmentID').val() : '';
-
+    var id_theme = $('#ThemeID').val() > 0 ? '/(theme)/'+$('#ThemeID').val() : '';
+    
     var id_tag = '<!-- Place this tag where you want the Live Helper Plugin to render. -->'+"\n"+
         '<div id="lhc_status_container_page" ></div>'+"\n\n<!-- Place this tag after the Live Helper Plugin tag. -->\n";
 
@@ -56,7 +67,7 @@ function generateEmbedCode() {
       'LHCChatOptionsPage.opt = {};\n'+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
-        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chat/getstatusembed'+id_hide_then_offline+id_show_leave_form+id_department+'\';'+"\n"+
+        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chat/getstatusembed'+id_hide_then_offline+id_theme+id_show_leave_form+id_department+'\';'+"\n"+
         'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);'+"\n"+
       '})();'+"\n"+
     '</scr'+'ipt>';
@@ -64,7 +75,7 @@ function generateEmbedCode() {
     $('#HMLTContent').text(id_tag+script);
 };
 
-$('#LocaleID,#id_show_leave_form,#DepartmentID,#HttpMode').change(function(){
+$('#LocaleID,#id_show_leave_form,#DepartmentID,#HttpMode,#ThemeID').change(function(){
     generateEmbedCode();
 });
 

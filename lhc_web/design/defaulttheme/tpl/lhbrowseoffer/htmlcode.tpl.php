@@ -78,8 +78,8 @@ function generateEmbedCode(){
     var script = '<script type="text/javascript">'+"\nvar LHCBROWSEOFFEROptions = {};\n"+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
-        'var refferer = (document.referrer) ? encodeURIComponent(document.referrer) : \'\';'+"\n"+
-        'var location  = (document.location) ? encodeURIComponent(document.location) : \'\';'+"\n"+
+        'var refferer = (document.referrer) ? encodeURIComponent(document.referrer.substr(document.referrer.indexOf(\'://\')+1)) : \'\';'+"\n"+
+        'var location  = (document.location) ? encodeURIComponent(window.location.href.substring(window.location.protocol.length)) : \'\';'+"\n"+
         'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'browseoffer/getstatus'+size+id_size_height+topposition+id_timeout+id_show_overlay+id_identifier+id_canreopen+'?r=\'+refferer+\'&l=\'+location;'+"\n"+
         'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);'+"\n"+
       '})();'+"\n"+

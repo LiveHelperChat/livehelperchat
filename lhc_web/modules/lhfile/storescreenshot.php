@@ -45,11 +45,16 @@ if ($Params['user_parameters_unordered']['hash'] != '' || $Params['user_paramete
 									
 			if (strlen($imgData) < $data['fs_max']*1024 && $imgData != '') {
 			
+				$storageID = false;
 				if ($chat !== false) {
 					$path = 'var/storage/'.date('Y').'y/'.date('m').'/'.date('d').'/'.$chat->id.'/';
+					$storageID = $chat->id;
 				} else {
 					$path = 'var/storage/'.date('Y').'y/'.date('m').'/'.date('d').'/'.$vid->id.'/';
+					$storageID = $vid->id;
 				}
+				
+				erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.storescreenshot.screenshot_path',array('path' => & $path, 'storage_id' => $storageID));
 				
 				erLhcoreClassFileUpload::mkdirRecursive($path);
 				$fileNameHash = sha1($imgData . time());

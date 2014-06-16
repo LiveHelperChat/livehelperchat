@@ -31,7 +31,12 @@ class erLhcoreClassModelDepartament {
                'hidden'    				=> $this->hidden,
                'delay_lm' 				=> $this->delay_lm,
                'inform_unread' 			=> $this->inform_unread,
-               'inform_unread_delay' 	=> $this->inform_unread_delay
+               'inform_unread_delay' 	=> $this->inform_unread_delay,
+               'na_cb_execute' 			=> $this->na_cb_execute,
+               'nc_cb_execute' 			=> $this->nc_cb_execute,
+               'active_balancing' 		=> $this->active_balancing,
+               'max_active_chats' 		=> $this->max_active_chats,
+               'max_timeout_seconds' 	=> $this->max_timeout_seconds
        );
    }
 
@@ -222,8 +227,12 @@ class erLhcoreClassModelDepartament {
     public $hidden = 0;
     public $inform_unread = 0;
     public $inform_unread_delay = 0;
-
-
+    public $na_cb_execute = 0;
+    public $nc_cb_execute = 0;
+    public $active_balancing = 0;
+    public $max_active_chats = 0;
+    public $max_timeout_seconds = 0;
+    
     // 0 - disabled
     // > 0 - delay in seconds
     public $delay_lm = 0;

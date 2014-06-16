@@ -1,0 +1,29 @@
+/*
+ * Custom overrides for embedded bookreader.
+ */
+
+/* Hide some navigation buttons */
+#BRtoolbar .label,.pageform,.play,.embed,
+    .two_page_mode,.one_page_mode,.thumbnail_mode,
+    .book_leftmost,.book_rightmost,.book_top,.book_bottom,.print {
+    display: none;
+}
+
+#BRtoolbar .title {
+    font-size: 0.9em;
+}
+
+#BRembedreturn {
+    /* Center text */
+    font-size: 14px;
+    line-height: 40px;
+    height: 40px;
+    
+    font-family: "Lucida Grande","Arial",sans-serif;
+}
+
+#BRembedreturn a {
+    font-size: 14px;
+    color: #036daa;
+}
+

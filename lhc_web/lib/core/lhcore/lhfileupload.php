@@ -95,13 +95,10 @@ class erLhcoreClassFileUpload extends UploadHandler {
         return false;
     }
 
-    public static function mkdirRecursive($path, $chown = false) {
+    public static function mkdirRecursive($path, $chown = false, $wwwUser = 'apache', $wwwUserGroup = 'apache') {
     	$partsPath = explode('/',$path);
     	$pathCurrent = '';
-
-    	$wwwUser = 'apache';
-    	$wwwUserGroup = 'apache';
-
+    
     	foreach ($partsPath as $key => $path)
     	{
     		$pathCurrent .= $path . '/';

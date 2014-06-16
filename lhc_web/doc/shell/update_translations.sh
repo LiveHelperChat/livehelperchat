@@ -81,3 +81,6 @@ curl -L --user $1:$2 -X GET https://www.transifex.com/api/2/project/live-helper-
 
 echo "Updating ro_RO translations"
 curl -L --user $1:$2 -X GET https://www.transifex.com/api/2/project/live-helper-chat/resource/translation_webts/translation/ro_RO?file=1 > translations/ro_RO/translation.ts
+
+echo "Updating ka_KA translations"
+curl -L --user $1:$2 -X GET https://www.transifex.com/api/2/project/live-helper-chat/resource/translation_webts/translation/ka?file=1 > translations/ka_KA/translation.ts

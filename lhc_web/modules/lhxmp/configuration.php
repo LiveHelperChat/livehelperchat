@@ -72,6 +72,9 @@ if ( isset($_POST['StoreXMPGTalkSettings']) || isset($_POST['StoreXMPGTalkSettin
 			'XMPMessage' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
 			),
+			'XMPAcceptedMessage' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+			),
 			'use_standard_xmp' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'int'
 			),			
@@ -118,6 +121,12 @@ if ( isset($_POST['StoreXMPGTalkSettings']) || isset($_POST['StoreXMPGTalkSettin
 		$data['xmp_message'] = $form->XMPMessage;
 	} else {
 		$data['xmp_message'] = '';
+	}
+	
+	if ( $form->hasValidData( 'XMPAcceptedMessage' ) ) {
+		$data['xmp_accepted_message'] = $form->XMPAcceptedMessage;
+	} else {
+		$data['xmp_accepted_message'] = '';
 	}
 	
 	$xmpData->value = serialize($data);
@@ -178,6 +187,9 @@ if ( isset($_POST['StoreXMPSettings']) || isset($_POST['StoreXMPSettingsTest']) 
 					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
 			),
 			'XMPMessage' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+			),
+			'XMPAcceptedMessage' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
 			),
 			'test_recipients' => new ezcInputFormDefinitionElement(
@@ -251,6 +263,12 @@ if ( isset($_POST['StoreXMPSettings']) || isset($_POST['StoreXMPSettingsTest']) 
 		$data['xmp_message'] = $form->XMPMessage;
 	} else {
 		$data['xmp_message'] = '';
+	}
+	
+	if ( $form->hasValidData( 'XMPAcceptedMessage' ) ) {
+		$data['xmp_accepted_message'] = $form->XMPAcceptedMessage;
+	} else {
+		$data['xmp_accepted_message'] = '';
 	}
 	
 	if ( $form->hasValidData( 'use_standard_xmp' )) {

@@ -10,5 +10,13 @@ header('Pragma: no-cache' );
 
 $tpl = erLhcoreClassTemplate::getInstance('lhquestionary/embed.tpl.php');
 
+$theme = false;
+
+if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
+	$theme = (int)$Params['user_parameters_unordered']['theme'];
+}
+
+$tpl->set('theme',$theme);
+
 echo $tpl->fetch();
 exit;

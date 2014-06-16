@@ -100,6 +100,21 @@ class erLhcoreClassDepartament{
 	   			'inform_unread' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	   			),
+	   			'nc_cb_execute' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	   			),
+	   			'na_cb_execute' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	   			),
+	   			'AutoAssignActive' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	   			),
+	   			'MaxNumberActiveChats' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'int'
+	   			),
+	   			'MaxWaitTimeoutSeconds' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'int'
+	   			),
 	   			'StartHour' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0, 'mx_range' => 24)
 	   			),
@@ -128,11 +143,56 @@ class erLhcoreClassDepartament{
 	   		$department->name = $form->Name;
 	   	}
 	   	
-	   	if ( $form->hasValidData( 'TansferDepartmentID' ) )
-	   	{
-	   		$department->department_transfer_id = $form->TansferDepartmentID;
-	   	} else {
-	   		$department->department_transfer_id = 0;
+	   	if ( erLhcoreClassUser::instance()->hasAccessTo('lhdepartament','actautoassignment') ) {
+		   	if ( $form->hasValidData( 'AutoAssignActive' ) && $form->AutoAssignActive == true )	{
+		   		$department->active_balancing = 1;
+		   	} else {
+		   		$department->active_balancing = 0;
+		   	}
+		   	
+		   	if ( $form->hasValidData( 'MaxNumberActiveChats' ) )
+		   	{
+		   		$department->max_active_chats = $form->MaxNumberActiveChats;
+		   	} else {
+		   		$department->max_active_chats = 0;
+		   	}
+		   	
+		   	if ( $form->hasValidData( 'MaxWaitTimeoutSeconds' ) )
+		   	{
+		   		$department->max_timeout_seconds = $form->MaxWaitTimeoutSeconds;
+		   	} else {
+		   		$department->max_timeout_seconds = 0;
+		   	}
+	   	}
+	   	
+	   	if ( erLhcoreClassUser::instance()->hasAccessTo('lhdepartament','actworkflow') ) {
+		   	if ( $form->hasValidData( 'TansferDepartmentID' ) )
+		   	{
+		   		$department->department_transfer_id = $form->TansferDepartmentID;
+		   	} else {
+		   		$department->department_transfer_id = 0;
+		   	}
+		   	
+		   	if ( $form->hasValidData( 'TransferTimeout' ) )
+		   	{
+		   		$department->transfer_timeout = $form->TransferTimeout;
+		   	} else {
+		   		$department->transfer_timeout = 0;
+		   	}
+		   			   	
+		   	if ( $form->hasValidData( 'nc_cb_execute' ) && $form->nc_cb_execute == true )
+		   	{
+		   		$department->nc_cb_execute = 1;
+		   	} else {
+		   		$department->nc_cb_execute = 0;
+		   	}
+		   	
+		   	if ( $form->hasValidData( 'na_cb_execute' ) && $form->na_cb_execute == true )
+		   	{
+		   		$department->na_cb_execute = 1;
+		   	} else {
+		   		$department->na_cb_execute = 0;
+		   	}
 	   	}
 	   	
 	   	if ( $form->hasValidData( 'Identifier' ) )
@@ -145,13 +205,6 @@ class erLhcoreClassDepartament{
 	   		$department->delay_lm = $form->delay_lm;
 	   	} else {
 	   		$department->delay_lm = 0;
-	   	}
-	   	
-	   	if ( $form->hasValidData( 'TransferTimeout' ) )
-	   	{
-	   		$department->transfer_timeout = $form->TransferTimeout;
-	   	} else {
-	   		$department->transfer_timeout = 0;
 	   	}
 	   	
 	   	if ( $form->hasValidData( 'Email' ) ) {	   	

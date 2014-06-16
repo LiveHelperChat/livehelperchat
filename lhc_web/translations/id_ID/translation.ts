@@ -188,6 +188,342 @@
     </message>
   </context>
   <context>
+    <name>chat/getstatus</name>
+    <message>
+      <source>Close</source>
+      <translation>Tutup</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Buka di jendela baru</translation>
+    </message>
+    <message>
+      <source>Minimize/Restore</source>
+      <translation>Kecilkan/Pulihkan</translation>
+    </message>
+    <message>
+      <source>Live help is online...</source>
+      <translation>Bantuan langsung sedang online...</translation>
+    </message>
+    <message>
+      <source>Need help?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Our staff is always ready to help</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live help is offline...</source>
+      <translation>Bantuan langsung sedang offline...</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/htmlcode</name>
+    <message>
+      <source>HTML code</source>
+      <translation>Kode HTML</translation>
+    </message>
+    <message>
+      <source>Popup width</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Popup height, used only if iframe is used</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
+      <translation>Pengenal, dapat digunakan sebagai filter untuk undangan percakapan pro aktif dan berguna memiliki pesan yang berbeda untuk domain yang berbeda. Hanya deret tanpa spasi atau karakter spesial.</translation>
+    </message>
+    <message>
+      <source>Leave empty if it is not important to you</source>
+      <translation>Biarkan kosong jika tidak penting bagi Anda</translation>
+    </message>
+    <message>
+      <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a language</source>
+      <translation>Pilih bahasa</translation>
+    </message>
+    <message>
+      <source>Choose prefered http mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Based on site (default)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget embed code</source>
+      <translation>Kode pencantuman widget</translation>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation>Kode pencantuman halaman</translation>
+    </message>
+    <message>
+      <source>Chatbox messages content height</source>
+      <translation>Tinggi muatan pesan kotak percakapan </translation>
+    </message>
+    <message>
+      <source>Theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the page where you want it to be rendered</source>
+      <translation>Salin kode dari area teks ke halaman yang Anda inginkan untuk dirender</translation>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation>Kotak percakapan</translation>
+    </message>
+    <message>
+      <source>Position from the top, is only used if the Middle left or the Middle right side is chosen</source>
+      <translation>Posisi dari atas, hanya digunakan jika bagian kiri samping atau bagian kanan samping di pilih</translation>
+    </message>
+    <message>
+      <source>Pixels</source>
+      <translation>Piksel</translation>
+    </message>
+    <message>
+      <source>Percents</source>
+      <translation>Persen</translation>
+    </message>
+    <message>
+      <source>Size</source>
+      <translation>Ukuran</translation>
+    </message>
+    <message>
+      <source>Width</source>
+      <translation>Lebar</translation>
+    </message>
+    <message>
+      <source>Height</source>
+      <translation>Tinggi</translation>
+    </message>
+    <message>
+      <source>Position</source>
+      <translation>Posisi</translation>
+    </message>
+    <message>
+      <source>Bottom right corner of the screen</source>
+      <translation>Pojok kanan bawah layar</translation>
+    </message>
+    <message>
+      <source>Bottom left corner of the screen</source>
+      <translation>Pojok kiri bawah layar</translation>
+    </message>
+    <message>
+      <source>Middle right side of the screen</source>
+      <translation>Bagian tengah kanan dari layar</translation>
+    </message>
+    <message>
+      <source>Middle left side of the screen</source>
+      <translation>Bagian tengah kiri dari layar</translation>
+    </message>
+    <message>
+      <source>Disable responsive layout for status widget.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disable minimize icon</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show chatbox content minimized first time if content is shown.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
+      <translation>Salin kode dari textarea ke footer, sebelum tanda penutup &lt;/body&gt;</translation>
+    </message>
+    <message>
+      <source>Copy the code from the textarea to page where you want it to be rendered</source>
+      <translation>Salin kode dari area teks ke halaman dimana Anda inginkan untuk diterjemahkan</translation>
+    </message>
+    <message>
+      <source>Status text</source>
+      <translation>Teks status</translation>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation>pertanyaan yang sering diajukan</translation>
+    </message>
+    <message>
+      <source>Position from the top, only used if the Middle left or the Middle right side is chosen</source>
+      <translation>Posisi dari atas, hanya digunakan jika bagian tengah kiri atau bagian tengah kanan di pilih</translation>
+    </message>
+    <message>
+      <source>Choose what form you want to embed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Help us to grow</source>
+      <translation>Bantu kami untuk berkembang</translation>
+    </message>
+    <message>
+      <source>Embed code</source>
+      <translation>Kode pencantuman</translation>
+    </message>
+    <message>
+      <source>Hide status when offline</source>
+      <translation>Sembunyikan status ketika offline</translation>
+    </message>
+    <message>
+      <source>Show a leave a message form when there are no online operators</source>
+      <translation>Tunjukkan formulir tinggalkan pesan ketika tidak ada operator yang sedang online</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Departemen</translation>
+    </message>
+    <message>
+      <source>Any</source>
+      <translation>Apapun</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the page where you want your status to appear</source>
+      <translation>Salin kode dari area teks ke halaman dimana anda ingin status anda muncul</translation>
+    </message>
+    <message>
+      <source>On a mouse click show the page widget</source>
+      <translation>Pada klik mouse tampilkan widget halaman</translation>
+    </message>
+    <message>
+      <source>Automatically check for messages from the operator/invitation messages</source>
+      <translation>Periksa pesan dari operator/pesan undangan secara otomatis</translation>
+    </message>
+    <message>
+      <source>It increases server load, because every 15 seconds is checked for operator message or invitation message.</source>
+      <translation>Hal ini meningkatkan beban server, karena pesan operator tau pesan undangan diperiksa setiap 15 detik.</translation>
+    </message>
+    <message>
+      <source>Disable pro active invitations, usefull if you want disable them from site part.</source>
+      <translation>Nonaktifkan undangan pro aktif, berguna jika Anda ingin menonaktifkan mereka dari bagian situs.</translation>
+    </message>
+    <message>
+      <source>Popup window size</source>
+      <translation>Ukuran jendela popup</translation>
+    </message>
+    <message>
+      <source>Popup window width in pixels</source>
+      <translation>Lebar jendela popup dalam piksel</translation>
+    </message>
+    <message>
+      <source>Popup window height in pixels</source>
+      <translation>Tinggi jendela popup dalam piksel</translation>
+    </message>
+    <message>
+      <source>Widget width</source>
+      <translation>Lebar widget</translation>
+    </message>
+    <message>
+      <source>Widget width in pixels</source>
+      <translation>Lebar widget dalam piksel</translation>
+    </message>
+    <message>
+      <source>height</source>
+      <translation>tinggi</translation>
+    </message>
+    <message>
+      <source>Widget height in pixels</source>
+      <translation>Tinggi widget dalam piksel</translation>
+    </message>
+    <message>
+      <source>Native placement - it will be shown where the html is embedded</source>
+      <translation>Penempatan asli - akan ditampilkan di mana html tercantum</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Konfigurasi sistem</translation>
+    </message>
+  </context>
+  <context>
+    <name>questionary/htmlcode</name>
+    <message>
+      <source>Show overlay</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show different offers for the same user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the page header or footer</source>
+      <translation>Salin kode dari area teks ke header atau footer halaman</translation>
+    </message>
+    <message>
+      <source>Status text</source>
+      <translation>Teks status</translation>
+    </message>
+    <message>
+      <source>Expand the widget automatically for new users</source>
+      <translation>Besarkan widget secara otomatis untuk pengguna baru</translation>
+    </message>
+    <message>
+      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
+      <translation>Salin kode dari textarea ke footer, sebelum tanda penutup &lt;/body&gt;</translation>
+    </message>
+    <message>
+      <source>HTML code</source>
+      <translation>Kode HTML</translation>
+    </message>
+  </context>
+  <context>
+    <name>browseoffer/index</name>
+    <message>
+      <source>List of forms</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Index</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Browse offers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>General</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Browse your offers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>HTML Code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Forms</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Documents</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Form</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/activechats</name>
     <message>
       <source>Active chats list</source>
@@ -371,6 +707,10 @@
       <translation>Kosong...</translation>
     </message>
     <message>
+      <source>Please enter an IP to block</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User was blocked!</source>
       <translation>Pengguna telah diblokir!</translation>
     </message>
@@ -409,6 +749,10 @@
       <translation>Posisi</translation>
     </message>
     <message>
+      <source>Auto send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Edit message</source>
       <translation>Ubah pesan</translation>
     </message>
@@ -423,6 +767,10 @@
     <message>
       <source>Edit canned message</source>
       <translation>Ubah pesan kaleng</translation>
+    </message>
+    <message>
+      <source>Automatically send this message to user then chat is accepted</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Delay in seconds</source>
@@ -449,6 +797,10 @@
       <translation>Silakan masukkan pesan kaleng</translation>
     </message>
     <message>
+      <source>Please choose a department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a canned message</source>
       <translation>Silakan masukkan pesan kaleng</translation>
     </message>
@@ -473,7 +825,7 @@
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>Nonaktifkan</translation>
     </message>
     <message>
       <source>Will not be visible to visitor</source>
@@ -544,8 +896,8 @@
       <translation>Hingga, cth: 17</translation>
     </message>
     <message>
-      <source>Notifications about new chats</source>
-      <translation>Pemberitahuan tentang chat baru</translation>
+      <source>Notifications</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>XMPP recipients</source>
@@ -588,12 +940,16 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Inform then chat is accepted by one of the staff members using</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Other</source>
       <translation>Lainnya</translation>
     </message>
     <message>
       <source>Inform then chat is closed by operator, only mail notification is send.</source>
-      <translation type="unfinished"/>
+      <translation>Menginformasikan ketika percakapan ditutup oleh operator, hanya email pemberitahuan yang dikirim.</translation>
     </message>
     <message>
       <source>Chat transfer worklow</source>
@@ -606,6 +962,18 @@
     <message>
       <source>Timeout in seconds before chat is transfered to another department. Minimum 5 seconds.</source>
       <translation>Batas waktu dalam detik sebelum percakapan ditransfer ke departemen lain. Minimal 5 detik.</translation>
+    </message>
+    <message>
+      <source>Execute new chat logic again for recipient department?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Execute unanswered chat logic again for recipient department?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto assignment</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Miscellaneous</source>
@@ -880,10 +1248,6 @@
       <translation>Tambahkan percakapan</translation>
     </message>
     <message>
-      <source>Empty...</source>
-      <translation>Kosong...</translation>
-    </message>
-    <message>
       <source>Start chat</source>
       <translation>Mulai percakapan</translation>
     </message>
@@ -918,6 +1282,10 @@
     <message>
       <source>s.</source>
       <translation>detik.</translation>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Kosong...</translation>
     </message>
   </context>
   <context>
@@ -1046,11 +1414,11 @@
     </message>
     <message>
       <source>I accept my personal data will be handled according to</source>
-      <translation type="unfinished"/>
+      <translation>Saya menerima data pribadi saya akan ditangani sesuai dengan</translation>
     </message>
     <message>
       <source>our terms and to the Law</source>
-      <translation type="unfinished"/>
+      <translation>syarat dan ketentuan hukum kami</translation>
     </message>
     <message>
       <source>Department</source>
@@ -1126,11 +1494,11 @@
     </message>
     <message>
       <source>Could not determine a default department!</source>
-      <translation type="unfinished"/>
+      <translation>Tidak dapat menentukan departemen default!</translation>
     </message>
     <message>
       <source>is required</source>
-      <translation>apa digutuhkan</translation>
+      <translation>diperlukan</translation>
     </message>
     <message>
       <source>Live Support</source>
@@ -1315,15 +1683,15 @@
     </message>
     <message>
       <source>Use MaxMind, does not depend on any third party remote service</source>
-      <translation type="unfinished"/>
+      <translation>Gunakan MaxMind, tidak tergantung pada setiap pengendali layanan pihak ketiga</translation>
     </message>
     <message>
       <source>You can download city/country database from.</source>
-      <translation type="unfinished"/>
+      <translation>Anda dapat mengunduh kota / negara dari database</translation>
     </message>
     <message>
       <source>bcmath php extension detected</source>
-      <translation type="unfinished"/>
+      <translation>ekstensi bcmath php terdeteksi</translation>
     </message>
     <message>
       <source>Location of city database</source>
@@ -1331,7 +1699,7 @@
     </message>
     <message>
       <source>User country based detection, faster</source>
-      <translation type="unfinished"/>
+      <translation>Deteksi berdasarkan negara pengguna, lebih cepat</translation>
     </message>
     <message>
       <source>File exists</source>
@@ -1343,7 +1711,7 @@
     </message>
     <message>
       <source>User city based detection, slower</source>
-      <translation type="unfinished"/>
+      <translation>Deteksi berdasarkan kota pengguna, sangat lambat</translation>
     </message>
     <message>
       <source>Use PHP-GeoIP module</source>
@@ -1502,12 +1870,48 @@
       <translation>Konfigurasi percakapan</translation>
     </message>
     <message>
+      <source>Enable/Disable sound about new visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable/Disable browser notifications about new visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>List</source>
       <translation>Daftar</translation>
     </message>
     <message>
       <source>online users</source>
       <translation>pengguna online</translation>
+    </message>
+    <message>
+      <source>Group list by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation>Halaman</translation>
+    </message>
+    <message>
+      <source>Page title</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Referrer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Refresh list every</source>
@@ -1526,12 +1930,12 @@
       <translation>Menunjukkan pengunjung yang mengunjungi situs di masa lalu</translation>
     </message>
     <message>
-      <source>minit</source>
-      <translation>menit</translation>
+      <source>minute</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>minits</source>
-      <translation>menit</translation>
+      <source>minutes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>hour</source>
@@ -1539,15 +1943,11 @@
     </message>
     <message>
       <source>day</source>
-      <translation>ari</translation>
+      <translation>hari</translation>
     </message>
     <message>
       <source>days</source>
       <translation>hari</translation>
-    </message>
-    <message>
-      <source>Page</source>
-      <translation>Halaman</translation>
     </message>
     <message>
       <source>Status</source>
@@ -1556,18 +1956,6 @@
     <message>
       <source>Action</source>
       <translation>Tindakan</translation>
-    </message>
-    <message>
-      <source>User does not have any messages from the operator</source>
-      <translation>Pengguna tidak memiliki pesan apapun dari operator</translation>
-    </message>
-    <message>
-      <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation>Pengguna belum melihat pesan dari operator, atau jendela pesan masih terbuka.</translation>
-    </message>
-    <message>
-      <source>User has seen the message from the operator.</source>
-      <translation>Pengguna telah melihat pesan dari operator.</translation>
     </message>
     <message>
       <source>has sent a message to the user</source>
@@ -1586,10 +1974,6 @@
       <translation>kunjungan terakhir</translation>
     </message>
     <message>
-      <source>Empty...</source>
-      <translation>Kosong...</translation>
-    </message>
-    <message>
       <source>Map</source>
       <translation>Peta</translation>
     </message>
@@ -1600,6 +1984,18 @@
     <message>
       <source>Marker timeout before it dissapears from map</source>
       <translation>Batas waktu penanda sebelum menghilang dari peta</translation>
+    </message>
+    <message>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <translation>Pengguna belum melihat pesan dari operator, atau jendela pesan masih terbuka.</translation>
+    </message>
+    <message>
+      <source>User has seen the message from the operator.</source>
+      <translation>Pengguna telah melihat pesan dari operator.</translation>
+    </message>
+    <message>
+      <source>User does not have any messages from the operator</source>
+      <translation>Pengguna tidak memiliki pesan apapun dari operator</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -1635,15 +2031,15 @@
     </message>
     <message>
       <source>MaxMind city file does not exists!</source>
-      <translation type="unfinished"/>
+      <translation>File kota MaxMind tidak ada!</translation>
     </message>
     <message>
       <source>MaxMind country file does not exists!</source>
-      <translation type="unfinished"/>
+      <translation>File negara MaxMind tidak ada!</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that MaxMind database files exists!</source>
-      <translation type="unfinished"/>
+      <translation>Pengaturan penyedia layanan gagal, pastikan file database MaxMind ada!</translation>
     </message>
     <message>
       <source>Please enter the API key!</source>
@@ -1663,7 +2059,7 @@
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!</source>
-      <translation type="unfinished"/>
+      <translation>Pengaturan penyedia layanan gagal, pastikan penyedia layanan Anda mengizinkan Anda untuk membuat permintaan ke halaman dan kunci API Anda benar!</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that you have installed php-GeoIP module and GeoIPCity.dat file is available!</source>
@@ -1679,41 +2075,10 @@
     </message>
   </context>
   <context>
-    <name>chat/getstatus</name>
-    <message>
-      <source>Close</source>
-      <translation>Tutup</translation>
-    </message>
-    <message>
-      <source>Live help is online...</source>
-      <translation>Bantuan langsung sedang online...</translation>
-    </message>
-    <message>
-      <source>Live help is offline...</source>
-      <translation>Bantuan langsung sedang offline...</translation>
-    </message>
-    <message>
-      <source>Open in a new window</source>
-      <translation>Buka di jendela baru</translation>
-    </message>
-    <message>
-      <source>Minimize/Restore</source>
-      <translation>Kecilkan/Pulihkan</translation>
-    </message>
-    <message>
-      <source>Need help?</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Our staff is always ready to help</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
     <name>chat/listchatconfig</name>
     <message>
       <source>Chat configuration</source>
-      <translation type="unfinished"/>
+      <translation>Konfigurasi percakapan</translation>
     </message>
     <message>
       <source>Notifications about new chats</source>
@@ -1733,10 +2098,18 @@
     </message>
     <message>
       <source>Online tracking</source>
-      <translation type="unfinished"/>
+      <translation>Pelacakan online</translation>
     </message>
     <message>
       <source>Misc</source>
+      <translation>Lain-lain</translation>
+    </message>
+    <message>
+      <source>Cookie related</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat related</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1759,6 +2132,42 @@
   <context>
     <name>system/configuration</name>
     <message>
+      <source>Chat related</source>
+      <translation>Percakapan yang berhubungan</translation>
+    </message>
+    <message>
+      <source>Form module</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Documents module</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users and their permissions</source>
+      <translation>Pengguna dan izin mereka</translation>
+    </message>
+    <message>
+      <source>Files uploads configuration</source>
+      <translation>Konfigurasi unggah berkas</translation>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation>Lainnya</translation>
+    </message>
+    <message>
+      <source>Forms</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Documents</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatic chats assigment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Request notification permission</source>
       <translation>Meminta izin notifikasi</translation>
     </message>
@@ -1771,8 +2180,68 @@
       <translation>Konfigurasi sistem</translation>
     </message>
     <message>
-      <source>Chat related</source>
-      <translation>Percakapan yang berhubungan</translation>
+      <source>System</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time zone settings</source>
+      <translation>Pengaturan zona waktu</translation>
+    </message>
+    <message>
+      <source>Update information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>SMTP settings</source>
+      <translation>Pengaturan SMTP</translation>
+    </message>
+    <message>
+      <source>E-mail templates</source>
+      <translation>Template e-mail</translation>
+    </message>
+    <message>
+      <source>Languages configuration</source>
+      <translation>Konfigurasi bahasa</translation>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation>Pengguna</translation>
+    </message>
+    <message>
+      <source>List of groups</source>
+      <translation>Daftar grup</translation>
+    </message>
+    <message>
+      <source>List of roles</source>
+      <translation>Daftar peran</translation>
+    </message>
+    <message>
+      <source>Embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live help embed code</source>
+      <translation>Kode pencantuman bantuan langsung</translation>
+    </message>
+    <message>
+      <source>FAQ embed code</source>
+      <translation>Kode pencantuman pertanyaan yang sering diajukan </translation>
+    </message>
+    <message>
+      <source>Questionary embed code</source>
+      <translation>Kode pencantuman kuisioner</translation>
+    </message>
+    <message>
+      <source>Chatbox embed code</source>
+      <translation>Kode pencantuman kotak percakapan</translation>
+    </message>
+    <message>
+      <source>Browse offers embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live help configuration</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Departments</source>
@@ -1803,10 +2272,6 @@
       <translation>Pesan kaleng</translation>
     </message>
     <message>
-      <source>E-mail templates</source>
-      <translation>Template e-mail</translation>
-    </message>
-    <message>
       <source>Pro active chat invitations</source>
       <translation>Undangan percakapan pro aktif</translation>
     </message>
@@ -1815,16 +2280,8 @@
       <translation>Balasan secara otomatis</translation>
     </message>
     <message>
-      <source>SMTP settings</source>
-      <translation>Pengaturan SMTP</translation>
-    </message>
-    <message>
       <source>XMPP settings</source>
       <translation>Pengaturan XMPP</translation>
-    </message>
-    <message>
-      <source>Languages configuration</source>
-      <translation>Konfigurasi bahasa</translation>
     </message>
     <message>
       <source>Chats list</source>
@@ -1835,56 +2292,16 @@
       <translation>Arsip percakapan</translation>
     </message>
     <message>
-      <source>Time zone settings</source>
-      <translation>Pengaturan zona waktu</translation>
-    </message>
-    <message>
-      <source>Update information</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live help embed code</source>
-      <translation>Kode pencantuman bantuan langsung</translation>
-    </message>
-    <message>
-      <source>FAQ embed code</source>
-      <translation>Kode pencantuman pertanyaan yang sering diajukan </translation>
-    </message>
-    <message>
-      <source>Questionary embed code</source>
-      <translation>Kode pencantuman kuisioner</translation>
-    </message>
-    <message>
-      <source>Chatbox embed code</source>
-      <translation>Kode pencantuman kotak percakapan</translation>
-    </message>
-    <message>
-      <source>Browse offers embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Statistic</source>
       <translation>Statistik</translation>
     </message>
     <message>
-      <source>Users and their permissions</source>
-      <translation>Pengguna dan izin mereka</translation>
+      <source>Maintenance</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Users</source>
-      <translation>Pengguna</translation>
-    </message>
-    <message>
-      <source>List of groups</source>
-      <translation>Daftar grup</translation>
-    </message>
-    <message>
-      <source>List of roles</source>
-      <translation>Daftar peran</translation>
-    </message>
-    <message>
-      <source>Files uploads configuration</source>
-      <translation>Konfigurasi unggah berkas</translation>
+      <source>Files</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Files upload configuration</source>
@@ -1895,8 +2312,16 @@
       <translation>Daftar berkas</translation>
     </message>
     <message>
-      <source>Other</source>
-      <translation>Lainnya</translation>
+      <source>Theming</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget themes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import new themes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>File configuration</source>
@@ -1905,221 +2330,6 @@
     <message>
       <source>New file</source>
       <translation>File baru</translation>
-    </message>
-  </context>
-  <context>
-    <name>system/htmlcode</name>
-    <message>
-      <source>HTML code</source>
-      <translation>Kode HTML</translation>
-    </message>
-    <message>
-      <source>Popup width</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Popup height, used only if iframe is used</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
-      <translation>Pengenal, dapat digunakan sebagai filter untuk undangan percakapan pro aktif dan berguna memiliki pesan yang berbeda untuk domain yang berbeda. Hanya deret tanpa spasi atau karakter spesial.</translation>
-    </message>
-    <message>
-      <source>Leave empty if it is not important to you</source>
-      <translation>Biarkan kosong jika tidak penting bagi Anda</translation>
-    </message>
-    <message>
-      <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose a language</source>
-      <translation>Pilih bahasa</translation>
-    </message>
-    <message>
-      <source>Choose prefered http mode</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Based on site (default)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Widget embed code</source>
-      <translation>Kode pencantuman widget</translation>
-    </message>
-    <message>
-      <source>Page embed code</source>
-      <translation>Kode pencantuman halaman</translation>
-    </message>
-    <message>
-      <source>Chatbox messages content height</source>
-      <translation>Tinggi muatan pesan kotak percakapan </translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the page where you want it to be rendered</source>
-      <translation>Salin kode dari area teks ke halaman yang Anda inginkan untuk dirender</translation>
-    </message>
-    <message>
-      <source>Chatbox</source>
-      <translation>Kotak percakapan</translation>
-    </message>
-    <message>
-      <source>Position from the top, is only used if the Middle left or the Middle right side is chosen</source>
-      <translation>Posisi dari atas, hanya digunakan jika bagian kiri samping atau bagian kanan samping di pilih</translation>
-    </message>
-    <message>
-      <source>Pixels</source>
-      <translation>Piksel</translation>
-    </message>
-    <message>
-      <source>Percents</source>
-      <translation>Persen</translation>
-    </message>
-    <message>
-      <source>Size</source>
-      <translation>Ukuran</translation>
-    </message>
-    <message>
-      <source>Width</source>
-      <translation>Lebar</translation>
-    </message>
-    <message>
-      <source>Height</source>
-      <translation>Tinggi</translation>
-    </message>
-    <message>
-      <source>Position</source>
-      <translation>Posisi</translation>
-    </message>
-    <message>
-      <source>Bottom right corner of the screen</source>
-      <translation>Pojok kanan bawah layar</translation>
-    </message>
-    <message>
-      <source>Bottom left corner of the screen</source>
-      <translation>Pojok kiri bawah layar</translation>
-    </message>
-    <message>
-      <source>Middle right side of the screen</source>
-      <translation>Bagian tengah kanan dari layar</translation>
-    </message>
-    <message>
-      <source>Middle left side of the screen</source>
-      <translation>Bagian tengah kiri dari layar</translation>
-    </message>
-    <message>
-      <source>Disable minimize icon</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Show chatbox content minimized first time if content is shown.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation>Salin kode dari textarea ke footer, sebelum tanda penutup &lt;/body&gt;</translation>
-    </message>
-    <message>
-      <source>Copy the code from the textarea to page where you want it to be rendered</source>
-      <translation>Salin kode dari area teks ke halaman dimana Anda inginkan untuk diterjemahkan</translation>
-    </message>
-    <message>
-      <source>Status text</source>
-      <translation>Teks status</translation>
-    </message>
-    <message>
-      <source>FAQ</source>
-      <translation>pertanyaan yang sering diajukan</translation>
-    </message>
-    <message>
-      <source>Position from the top, only used if the Middle left or the Middle right side is chosen</source>
-      <translation>Posisi dari atas, hanya digunakan jika bagian tengah kiri atau bagian tengah kanan di pilih</translation>
-    </message>
-    <message>
-      <source>Help us to grow</source>
-      <translation>Bantu kami untuk berkembang</translation>
-    </message>
-    <message>
-      <source>Embed code</source>
-      <translation>Kode pencantuman</translation>
-    </message>
-    <message>
-      <source>Hide status when offline</source>
-      <translation>Sembunyikan status ketika offline</translation>
-    </message>
-    <message>
-      <source>Show a leave a message form when there are no online operators</source>
-      <translation>Tunjukkan formulir tinggalkan pesan ketika tidak ada operator yang sedang online</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Departemen</translation>
-    </message>
-    <message>
-      <source>Any</source>
-      <translation>Apapun</translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the page where you want your status to appear</source>
-      <translation>Salin kode dari area teks ke halaman dimana anda ingin status anda muncul</translation>
-    </message>
-    <message>
-      <source>On a mouse click show the page widget</source>
-      <translation>Pada klik mouse tampilkan widget halaman</translation>
-    </message>
-    <message>
-      <source>Automatically check for messages from the operator/invitation messages</source>
-      <translation>Periksa pesan dari operator/pesan undangan secara otomatis</translation>
-    </message>
-    <message>
-      <source>It increases server load, because every 15 seconds is checked for operator message or invitation message.</source>
-      <translation>Hal ini meningkatkan beban server, karena pesan operator tau pesan undangan diperiksa setiap 15 detik.</translation>
-    </message>
-    <message>
-      <source>Disable pro active invitations, usefull if you want disable them from site part.</source>
-      <translation>Nonaktifkan undangan pro aktif, berguna jika Anda ingin menonaktifkan mereka dari bagian situs.</translation>
-    </message>
-    <message>
-      <source>Popup window size</source>
-      <translation>Ukuran jendela popup</translation>
-    </message>
-    <message>
-      <source>Popup window width in pixels</source>
-      <translation>Lebar jendela popup dalam piksel</translation>
-    </message>
-    <message>
-      <source>Popup window height in pixels</source>
-      <translation>Tinggi jendela popup dalam piksel</translation>
-    </message>
-    <message>
-      <source>Widget width</source>
-      <translation>Lebar widget</translation>
-    </message>
-    <message>
-      <source>Widget width in pixels</source>
-      <translation>Lebar widget dalam piksel</translation>
-    </message>
-    <message>
-      <source>height</source>
-      <translation>tinggi</translation>
-    </message>
-    <message>
-      <source>Widget height in pixels</source>
-      <translation>Tinggi widget dalam piksel</translation>
-    </message>
-    <message>
-      <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>Penempatan asli - akan ditampilkan di mana html tercantum</translation>
-    </message>
-    <message>
-      <source>System configuration</source>
-      <translation>Konfigurasi sistem</translation>
     </message>
   </context>
   <context>
@@ -2154,6 +2364,97 @@
     </message>
   </context>
   <context>
+    <name>pagelayout/pagelayout</name>
+    <message>
+      <source>Empty...</source>
+      <translation>Kosong...</translation>
+    </message>
+    <message>
+      <source>Clean cache</source>
+      <translation>Bersihkan cache</translation>
+    </message>
+    <message>
+      <source>Home</source>
+      <translation>Home</translation>
+    </message>
+    <message>
+      <source>Chats transferred to you directly</source>
+      <translation>Percakapan dipindahkan ke anda secara langsung</translation>
+    </message>
+    <message>
+      <source>Transferred to your department</source>
+      <translation>Dipindahkan ke departemen anda</translation>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation>Percakapan tertunda</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Percakapan aktif</translation>
+    </message>
+    <message>
+      <source>Unread messages</source>
+      <translation>Pesan belum terbaca</translation>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation>Percakapan yang sudah tertutup</translation>
+    </message>
+    <message>
+      <source>Configuration</source>
+      <translation>Konfigurasi</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Daftar percakapan</translation>
+    </message>
+    <message>
+      <source>Chat rooms</source>
+      <translation>Ruang percakapan</translation>
+    </message>
+    <message>
+      <source>New chat request</source>
+      <translation>Permintaan percakapan baru</translation>
+    </message>
+    <message>
+      <source>Menu</source>
+      <translation>Menu</translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Pengunjung online</translation>
+    </message>
+    <message>
+      <source>Extra modules</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Questionary</source>
+      <translation>Kuisioner</translation>
+    </message>
+    <message>
+      <source>FAQ</source>
+      <translation>Pertanyaan yang sering diajukan</translation>
+    </message>
+    <message>
+      <source>Chatbox</source>
+      <translation>Kotak percakapan</translation>
+    </message>
+    <message>
+      <source>Browse offers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Account</source>
+      <translation>Akun</translation>
+    </message>
+    <message>
+      <source>Logout</source>
+      <translation>Logout</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/syncadmin</name>
     <message>
       <source>System assistant</source>
@@ -2162,6 +2463,10 @@
   </context>
   <context>
     <name>chat/lists/search_panel</name>
+    <message>
+      <source>Delete selected</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Nick</source>
       <translation>Panggilan</translation>
@@ -2197,6 +2502,10 @@
     <message>
       <source>Select user</source>
       <translation>Pilih pengguna</translation>
+    </message>
+    <message>
+      <source>Type to search</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -2376,7 +2685,7 @@
     </message>
     <message>
       <source>Enable leave a message functionality automatically if there are no online operators</source>
-      <translation type="unfinished"/>
+      <translation>Aktifkan fungsi meninggalkan pesan secara otomatis jika tidak ada operator secara online</translation>
     </message>
     <message>
       <source>Online form settings</source>
@@ -2424,7 +2733,7 @@
     </message>
     <message>
       <source>Terms of service acceptance checkbox</source>
-      <translation type="unfinished"/>
+      <translation>Centang kotak menerima syarat dan ketentuan</translation>
     </message>
     <message>
       <source>Offline form settings</source>
@@ -2432,7 +2741,7 @@
     </message>
     <message>
       <source>E-mail is always required</source>
-      <translation>E-mail selalu dibutuhkan</translation>
+      <translation>E-mail selalu diperlukan</translation>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>
@@ -2503,11 +2812,11 @@
     </message>
     <message>
       <source>Enable long polling</source>
-      <translation type="unfinished"/>
+      <translation>Aktifkan polling panjang</translation>
     </message>
     <message>
       <source>How many seconds keep connection to server?</source>
-      <translation type="unfinished"/>
+      <translation>Berapa detik agar koneksi ke server tetap terjaga?</translation>
     </message>
     <message>
       <source>New chat request notification settings</source>
@@ -2531,7 +2840,7 @@
     </message>
     <message>
       <source>How many times play sound notification</source>
-      <translation type="unfinished"/>
+      <translation>Berapa kali memainkan notifikasi suara</translation>
     </message>
     <message>
       <source>Number</source>
@@ -2555,7 +2864,7 @@
     </message>
     <message>
       <source>Please enter a valid server connection timeout value!</source>
-      <translation type="unfinished"/>
+      <translation>Masukkan nilai koneksi server timeout yang valid!</translation>
     </message>
     <message>
       <source>Please enter a valid operator message timeout value!</source>
@@ -2970,37 +3279,6 @@
     </message>
   </context>
   <context>
-    <name>questionary/htmlcode</name>
-    <message>
-      <source>Show overlay</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Show different offers for the same user</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the page header or footer</source>
-      <translation>Salin kode dari area teks ke header atau footer halaman</translation>
-    </message>
-    <message>
-      <source>Status text</source>
-      <translation>Teks status</translation>
-    </message>
-    <message>
-      <source>Expand the widget automatically for new users</source>
-      <translation>Besarkan widget secara otomatis untuk pengguna baru</translation>
-    </message>
-    <message>
-      <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation>Salin kode dari textarea ke footer, sebelum tanda penutup &lt;/body&gt;</translation>
-    </message>
-    <message>
-      <source>HTML code</source>
-      <translation>Kode HTML</translation>
-    </message>
-  </context>
-  <context>
     <name>chatbox/list</name>
     <message>
       <source>Chatbox list</source>
@@ -3218,12 +3496,24 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>I can see all pending chats, not only assigned to me</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Account updated</source>
       <translation>Akun diperbarui</translation>
     </message>
     <message>
       <source>Delete</source>
       <translation>Hapus</translation>
+    </message>
+    <message>
+      <source>User can see all pending chats, not only assigned to him</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -3504,6 +3794,102 @@
     <message>
       <source>File uploaded</source>
       <translation>File terunggah</translation>
+    </message>
+  </context>
+  <context>
+    <name>form/collected</name>
+    <message>
+      <source>Download XLS</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>URL</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Intro</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>View</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Download</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>form/fill</name>
+    <message>
+      <source>Return</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Submit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Information collected</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>is required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>invalid date format</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>form/index</name>
+    <message>
+      <source>Form</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List of forms</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>form/viewcollected</name>
+    <message>
+      <source>collected information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Download</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Collected information</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -4031,93 +4417,6 @@
     </message>
   </context>
   <context>
-    <name>pagelayout/pagelayout</name>
-    <message>
-      <source>Clean cache</source>
-      <translation>Bersihkan cache</translation>
-    </message>
-    <message>
-      <source>Home</source>
-      <translation>Home</translation>
-    </message>
-    <message>
-      <source>Chats transferred to you directly</source>
-      <translation>Percakapan dipindahkan ke anda secara langsung</translation>
-    </message>
-    <message>
-      <source>Empty...</source>
-      <translation>Kosong...</translation>
-    </message>
-    <message>
-      <source>Transferred to your department</source>
-      <translation>Dipindahkan ke departemen anda</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Percakapan tertunda</translation>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation>Percakapan aktif</translation>
-    </message>
-    <message>
-      <source>Unread messages</source>
-      <translation>Pesan belum terbaca</translation>
-    </message>
-    <message>
-      <source>Closed chats</source>
-      <translation>Percakapan yang sudah tertutup</translation>
-    </message>
-    <message>
-      <source>Configuration</source>
-      <translation>Konfigurasi</translation>
-    </message>
-    <message>
-      <source>Chats list</source>
-      <translation>Daftar percakapan</translation>
-    </message>
-    <message>
-      <source>Chat rooms</source>
-      <translation>Ruang percakapan</translation>
-    </message>
-    <message>
-      <source>New chat request</source>
-      <translation>Permintaan percakapan baru</translation>
-    </message>
-    <message>
-      <source>Menu</source>
-      <translation>Menu</translation>
-    </message>
-    <message>
-      <source>Online visitors</source>
-      <translation>Pengunjung online</translation>
-    </message>
-    <message>
-      <source>Questionary</source>
-      <translation>Kuisioner</translation>
-    </message>
-    <message>
-      <source>FAQ</source>
-      <translation>Pertanyaan yang sering diajukan</translation>
-    </message>
-    <message>
-      <source>Chatbox</source>
-      <translation>Kotak percakapan</translation>
-    </message>
-    <message>
-      <source>Browse offers</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Account</source>
-      <translation>Akun</translation>
-    </message>
-    <message>
-      <source>Logout</source>
-      <translation>Logout</translation>
-    </message>
-  </context>
-  <context>
     <name>system/languages</name>
     <message>
       <source>Languages configuration</source>
@@ -4423,12 +4722,12 @@
       <translation>Foto</translation>
     </message>
     <message>
-      <source>Departments</source>
-      <translation>Departemen</translation>
-    </message>
-    <message>
       <source>Save</source>
       <translation>Simpan</translation>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation>Departemen</translation>
     </message>
     <message>
       <source>Please choose a default user group</source>
@@ -4756,6 +5055,10 @@
       <translation>Isi pesan XMPP</translation>
     </message>
     <message>
+      <source>XMPP Message about accepted chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>XMPP</source>
       <translation>XMPP</translation>
     </message>
@@ -4797,15 +5100,15 @@
     </message>
     <message>
       <source>Test recipients</source>
-      <translation type="unfinished"/>
+      <translation>Penerima tes</translation>
     </message>
     <message>
       <source>Individual recipients</source>
-      <translation type="unfinished"/>
+      <translation>Penerima individu</translation>
     </message>
     <message>
       <source>Test group recipients</source>
-      <translation type="unfinished"/>
+      <translation>Penerima grup tes</translation>
     </message>
     <message>
       <source>Test message will be send to your account e-mail</source>
@@ -4902,6 +5205,10 @@
       <translation>dari</translation>
     </message>
     <message>
+      <source>Chat was automatically closed by cron</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Support staff member has closed this chat</source>
       <translation>Anggota staf pendukung telah menutup percakapan ini</translation>
     </message>
@@ -4939,6 +5246,109 @@
     <message>
       <source>Please enter a valid to date range!</source>
       <translation>Silakan masukkan susunan tanggal akhir yang sah!</translation>
+    </message>
+  </context>
+  <context>
+    <name>abstract/browserofferinvitation</name>
+    <message>
+      <source>Name for personal purposes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time on site on single page in seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority, the lower the higher</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Popup width</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Popup height</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Measure units, px or percents</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>URL, enter * at the end for the wildcard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom iframe URL, takes priority over default content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default popup content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Callback content, must be valid json</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Load content in lhc iframe</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Matched times</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Browser offer invitations</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Introduction attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XLS Columns</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Recipient</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Post content after form is submitted</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom pagelayout</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Forms list</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -5080,88 +5490,205 @@
     </message>
   </context>
   <context>
-    <name>browseoffer/index</name>
+    <name>chat/maintenance</name>
     <message>
-      <source>Browse offers</source>
+      <source>Maintenance</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>General</source>
+      <source>Automatic chats close, click to close old chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Browse your offers</source>
+      <source>Automatic chats purge, click to purge old chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>HTML Code</source>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Purged chats</source>
       <translation type="unfinished"/>
     </message>
   </context>
   <context>
-    <name>abstract/browserofferinvitation</name>
-    <message>
-      <source>Name for personal purposes</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Time on site on single page in seconds</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Priority, the lower the higher</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Popup width</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Popup height</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Measure units, px or percents</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>URL, enter * at the end for the wildcard</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Custom iframe URL, takes priority over default content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Default popup content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Load content in lhc iframe</source>
-      <translation type="unfinished"/>
-    </message>
+    <name>chat/operatorsbalancing</name>
     <message>
       <source>Active</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
+      <source>Maximum number of active chats user can have at a time, 0 - unlimited</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Matched times</source>
+      <source>Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>abstract/widgettheme</name>
+    <message>
+      <source>Download theme</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Browser offer invitations</source>
+      <source>Status widget style</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget container</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom CSS</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help header text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help standard text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online status text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline status text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Logo image, visible in popup</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget header background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget border color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help hover background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help text color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help border color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help close background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help close hover background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help operator image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Status widget additional CSS, takes effect after save</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget container additional CSS, takes effect after save</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget body additional CSS, takes effect after save</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget themes</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>theme/import</name>
+    <message>
+      <source>Import theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Theme imported</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not import a new theme!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid file!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>theme/index</name>
+    <message>
+      <source>Theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget themes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import a new theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Themes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import theme</source>
       <translation type="unfinished"/>
     </message>
   </context>

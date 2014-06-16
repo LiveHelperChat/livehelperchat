@@ -38,12 +38,22 @@ if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value
 
 $validUnits = array('pixels' => 'px','percents' => '%');
 
+$theme = false;
+if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
+	try {
+		$theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);	
+	} catch (Exception $e) {
+		$theme = false;
+	}
+}
+
 $tpl->set('referrer',isset($_GET['r']) ? rawurldecode($_GET['r']) : '');
 $tpl->set('track_online_users',erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1);
 $tpl->set('click',$Params['user_parameters_unordered']['click']);
 $tpl->set('position',$Params['user_parameters_unordered']['position']);
 $tpl->set('identifier',(!is_null($Params['user_parameters_unordered']['identifier']) && !empty($Params['user_parameters_unordered']['identifier'])) ? (string)$Params['user_parameters_unordered']['identifier'] : false);
 $tpl->set('leaveamessage',(string)$Params['user_parameters_unordered']['leaveamessage'] == 'true');
+$tpl->set('noresponse',(string)$Params['user_parameters_unordered']['noresponse'] == 'true');
 $tpl->set('hide_offline',$Params['user_parameters_unordered']['hide_offline']);
 $tpl->set('department',(int)$Params['user_parameters_unordered']['department'] > 0 ? (int)$Params['user_parameters_unordered']['department'] : false);
 $tpl->set('check_operator_messages',$Params['user_parameters_unordered']['check_operator_messages']);
@@ -51,6 +61,9 @@ $tpl->set('top_pos',(!is_null($Params['user_parameters_unordered']['top']) && (i
 $tpl->set('units',key_exists((string)$Params['user_parameters_unordered']['units'], $validUnits) ? $validUnits[(string)$Params['user_parameters_unordered']['units']] : 'px');
 $tpl->set('disable_pro_active',(string)$Params['user_parameters_unordered']['disable_pro_active'] == 'true');
 $tpl->set('priority',is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : false);
+$tpl->set('theme',$theme);
+
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.getstatus',array('tpl' => & $tpl));
 
 echo $tpl->fetch();
 exit;

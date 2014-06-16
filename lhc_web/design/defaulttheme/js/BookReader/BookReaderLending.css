@@ -1,0 +1,17 @@
+/*
+Copyright(c)2011 Internet Archive. Software license AGPL version 3.
+
+This file is part of BookReader <http://github.com/openlibrary/bookreader
+*/
+
+.BRpagediv1up, .BRpageimage, .BRpagedivthumb {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+@media print {
+    .BRpagediv1up, .BRpageimage, .BRpagedivthumb {
+        display: none;
+    }
+    
+}

@@ -87,7 +87,9 @@ class erLhcoreClassModule{
             	} elseif (self::$defaultTimeZone != '') {            	
             		date_default_timezone_set(self::$defaultTimeZone);
             	}
-            	            	
+
+            	self::attatchExtensionListeners();
+            	
             	$includeStatus = include(self::getModuleFile(self::$currentModuleName,self::$currentView));
 
             	// Inclusion failed
@@ -139,6 +141,22 @@ class erLhcoreClassModule{
         }
     }
 
+    public static function attatchExtensionListeners(){
+    	$cfg = erConfigClassLhConfig::getInstance();
+    	$extensions = $cfg->getSetting('site','extensions');
+    	
+    	// Is it extension module
+    	foreach ($extensions as $extension)
+    	{
+    		if (file_exists('extension/'.$extension.'/bootstrap/bootstrap.php')){
+    			include('extension/'.$extension.'/bootstrap/bootstrap.php');
+    			$className = 'erLhcoreClassExtension'.ucfirst($extension);
+    			$class = new $className();
+    			$class->run();
+    		}
+    	}    	
+    }
+    
     public static function getModuleDefaultView($module)
     {
         $cfg = erConfigClassLhConfig::getInstance();
@@ -394,8 +412,7 @@ class erLhcoreClassModule{
     {
         header('Location: '. erLhcoreClassDesign::baseurl($url).$appendURL );
     }
-
-    static private $defaultTimeZone = NULL;
+    
     static private $currentModule = NULL;
     static private $currentModuleName = NULL;
     static private $currentView = NULL;
@@ -403,6 +420,7 @@ class erLhcoreClassModule{
     static private $cacheInstance = NULL;
     static private $cacheVersionSite = NULL;
     
+    public static $defaultTimeZone = NULL;
     public static $dateFormat = NULL;
     public static $dateHourFormat = NULL;
     public static $dateDateHourFormat = NULL;

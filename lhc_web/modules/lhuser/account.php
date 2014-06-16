@@ -7,7 +7,35 @@ $UserData = $currentUser->getUserData();
 
 $tpl->set('tab',$Params['user_parameters_unordered']['tab'] == 'canned' ? 'tab_canned' : '');
 
-if (isset($_POST['UpdateTabsSettings_account']))
+if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','allowtochoosependingmode') && isset($_POST['UpdatePending_account']))
+{	
+	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+		erLhcoreClassModule::redirect('user/account');
+		exit;
+	}
+	
+	$definition = array(
+			'showAllPendingEnabled' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+			)
+	);
+	
+	$form = new ezcInputForm( INPUT_POST, $definition );
+	$Errors = array();
+
+	if ( $form->hasValidData( 'showAllPendingEnabled' ) && $form->showAllPendingEnabled == true )
+	{
+		erLhcoreClassModelUserSetting::setSetting('show_all_pending',1);
+	} else {
+		erLhcoreClassModelUserSetting::setSetting('show_all_pending',0);
+	}
+	
+	$tpl->set('account_updated','done');
+	$tpl->set('tab','tab_pending');
+}
+
+
+if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','change_visibility_list') && isset($_POST['UpdateTabsSettings_account']))
 {
 	$definition = array(
 			'pendingTabEnabled' => new ezcInputFormDefinitionElement(
@@ -189,6 +217,9 @@ if (isset($_POST['Update']))
     	$UserData->removeFile();
 
     	$dir = 'var/userphoto/' . date('Y') . 'y/' . date('m') . '/' . date('d') .'/' . $UserData->id . '/';
+    	
+    	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.edit.photo_path',array('dir' => & $dir,'storage_id' => $UserData->id));
+    	
     	erLhcoreClassFileUpload::mkdirRecursive( $dir );
 
     	$file = qqFileUploader::upload($_FILES,'UserPhoto',$dir);
@@ -307,7 +338,10 @@ if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','personalcannedmsg') ) 
 				),
 				'Delay' => new ezcInputFormDefinitionElement(
 						ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0)
-				)
+				),
+		        'AutoSend' => new ezcInputFormDefinitionElement(
+		            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+		        )
 		);
 		
 		$form = new ezcInputForm( INPUT_POST, $definition );
@@ -326,6 +360,13 @@ if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','personalcannedmsg') ) 
 		if ( $form->hasValidData( 'Delay' )  )
 		{
 			$cannedMessage->delay = $form->Delay;
+		}
+		
+		if ( $form->hasValidData( 'AutoSend' ) && $form->AutoSend == true )
+		{
+			$cannedMessage->auto_send = 1;
+		} else {
+			$cannedMessage->auto_send = 0;
 		}
 		
 		if (count($Errors) == 0) {

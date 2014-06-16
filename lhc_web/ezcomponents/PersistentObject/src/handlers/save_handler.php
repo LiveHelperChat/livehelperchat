@@ -67,9 +67,9 @@ class ezcPersistentSaveHandler extends ezcPersistentSessionHandler
      *
      * @param object $object
      */
-    public function update( $object )
+    public function update( $object, $updateIgnoreColumns = array()  )
     {
-        $this->updateInternal( $object );
+        $this->updateInternal( $object, true, $updateIgnoreColumns );
     }
 
     /**
@@ -90,7 +90,7 @@ class ezcPersistentSaveHandler extends ezcPersistentSessionHandler
      * @param object $object
      * @return void
      */
-    public function saveOrUpdate( $object )
+    public function saveOrUpdate( $object, $updateIgnoreColumns = array() )
     {
         $class = get_class( $object );
         $def   = $this->definitionManager->fetchDefinition( $class );
@@ -353,7 +353,7 @@ class ezcPersistentSaveHandler extends ezcPersistentSessionHandler
      * @param object $object
      * @param bool $doPersistenceCheck
      */
-    private function updateInternal( $object, $doPersistenceCheck = true )
+    private function updateInternal( $object, $doPersistenceCheck = true, $updateIgnoreColumns = array() )
     {
         $class = get_class( $object );
         $def   = $this->definitionManager->fetchDefinition( $class );
@@ -372,6 +372,13 @@ class ezcPersistentSaveHandler extends ezcPersistentSessionHandler
             throw new ezcPersistentObjectNotPersistentException( $class );
         }
 
+        //print_r($updateIgnoreColumns);
+       // print_r($state);
+       
+        foreach ($updateIgnoreColumns as $column) {
+        	unset($state[$column]);
+        }        
+        
         // Set up and execute the query
         $q = $this->buildUpdateQuery($def, $state);
 

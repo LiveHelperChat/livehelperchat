@@ -42,7 +42,7 @@
 	<?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/department.tpl.php'));?>
 <?php endif;?>
 
-<input type="submit" name="askQuestionAction" id="idaskQuestionAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Send');?>" class="tiny button round"/>
+<input type="submit" name="askQuestionAction" id="idaskQuestionAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Send');?>" class="tiny button radius secondary"/>
 <input type="hidden" name="askQuestion" value="1" />
 
 </form>

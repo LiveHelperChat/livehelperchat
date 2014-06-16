@@ -12,6 +12,16 @@ if ((string)$Params['user_parameters_unordered']['mode'] == 'embed') {
 	$modeAppend = '/(mode)/embed';
 }
 
+if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
+	try {
+		$theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
+		$Result['theme'] = $theme;
+		$modeAppend .= '/(theme)/'.$theme->id;
+	} catch (Exception $e) {
+
+	}
+}
+
 if ($Params['user_parameters_unordered']['sound'] !== null && is_numeric($Params['user_parameters_unordered']['sound'])) {
 	erLhcoreClassModelUserSetting::setSetting('chat_message',(int)$Params['user_parameters_unordered']['sound'] == 1 ? 1 : 0);
 }
@@ -39,8 +49,12 @@ try {
 	        	$chat->support_informed = 1;
 	        	$chat->user_typing = time()-5;// Show for shorter period these status messages
 	        	$chat->is_user_typing = 1;
-	        	$chat->user_typing_txt = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userjoined','User has joined the chat!'),ENT_QUOTES);
-
+	        	if (isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] != ''){
+	        		$chat->user_typing_txt = $_SERVER['HTTP_REFERER'];
+	        	} else {
+	        		$chat->user_typing_txt = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userjoined','User has joined the chat!'),ENT_QUOTES);
+	        	}
+	        	
 	        	if ($chat->user_status == erLhcoreClassModelChat::USER_STATUS_PENDING_REOPEN && ($onlineuser = $chat->online_user) !== false) {
 	        		$onlineuser->reopen_chat = 0;
 	        		$onlineuser->saveThis();

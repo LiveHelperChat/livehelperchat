@@ -2,6 +2,33 @@
 
 $tpl = erLhcoreClassTemplate::getInstance('lhchat/activechats.tpl.php');
 
+if ( isset($_POST['doDelete']) ) {
+	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+		erLhcoreClassModule::redirect('chat/activechats');
+		exit;
+	}
+
+	$definition = array(
+			'ChatID' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'int', null, FILTER_REQUIRE_ARRAY
+			),
+	);
+
+	$form = new ezcInputForm( INPUT_POST, $definition );
+	$Errors = array();
+
+	if ( $form->hasValidData( 'ChatID' ) ) {
+		$chats = erLhcoreClassChat::getList(array('filterin' => array('id' => $form->ChatID)));
+		foreach ($chats as $chatToDelete){
+			CSCacheAPC::getMem()->removeFromArray('lhc_open_chats', $chatToDelete->id);
+			if ($currentUser->hasAccessTo('lhchat','deleteglobalchat') || ($currentUser->hasAccessTo('lhchat','deletechat') && $chatToDelete->user_id == $currentUser->getUserID()))
+			{
+				$chatToDelete->removeThis();
+			}
+		}
+	}
+}
+
 if (isset($_GET['doSearch'])) {
 	$filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'chat_search','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
 	$filterParams['is_search'] = true;
@@ -34,6 +61,7 @@ if ($pages->items_total > 0) {
 }
 $filterParams['input_form']->form_action = erLhcoreClassDesign::baseurl('chat/activechats');
 $tpl->set('input',$filterParams['input_form']);
+$tpl->set('inputAppend',$append);
 
 $Result['content'] = $tpl->fetch();
 

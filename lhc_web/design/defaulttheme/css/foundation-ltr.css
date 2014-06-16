@@ -2730,8 +2730,9 @@ form.custom {
       .top-bar-section ul li > a.button.alert.hover {
         background: #970b0e; }
   .top-bar-section ul li.hover > a {
-    background: #090909;
-    color: white; }
+    background: #f6f6f6;
+    color:#000;
+     }
   .top-bar-section ul li.active > a {
     background: #090909;
     color: white; }
@@ -2847,7 +2848,7 @@ form.custom {
         width: 0;
         height: 0;
         border: inset 5px;
-        border-color: rgba(255, 255, 255, 0.5) transparent transparent transparent;
+        border-color: rgba(0, 0, 0, 0.5) transparent transparent transparent;
         border-top-style: solid;
         margin-top: -2.5px;
         top: 22.5px; }

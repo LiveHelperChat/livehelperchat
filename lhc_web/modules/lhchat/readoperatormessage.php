@@ -6,7 +6,7 @@ $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/readoperatormessage.tpl.php')
 $tpl->set('referer','');
 $tpl->set('referer_site','');
 
-$userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('vid' => (string)$Params['user_parameters_unordered']['vid']));
+$userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'check_message_operator' => true, 'vid' => (string)$Params['user_parameters_unordered']['vid']));
 $tpl->set('visitor',$userInstance);
 
 $department = (int)$Params['user_parameters_unordered']['department'] > 0 ? (int)$Params['user_parameters_unordered']['department'] : false;
@@ -22,6 +22,15 @@ $tpl->set('department',$department);
 $tpl->set('playsound',(string)$Params['user_parameters_unordered']['playsound'] == 'true' && !isset($_POST['askQuestion']) && erLhcoreClassModelChatConfig::fetch('sound_invitation')->current_value == 1);
 
 $chat = new erLhcoreClassModelChat();
+
+if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
+	try {
+		$theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
+		$Result['theme'] = $theme;
+	} catch (Exception $e) {
+
+	}
+}
 
 if (isset($_POST['askQuestion']))
 {

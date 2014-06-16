@@ -153,6 +153,9 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
     	$UserData->removeFile();
 
     	$dir = 'var/userphoto/' . date('Y') . 'y/' . date('m') . '/' . date('d') .'/' . $UserData->id . '/';
+    	
+    	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.edit.photo_path', array('dir' => & $dir, 'storage_id' => $UserData->id));
+    	
     	erLhcoreClassFileUpload::mkdirRecursive( $dir );
 
     	$file = qqFileUploader::upload($_FILES,'UserPhoto',$dir);
@@ -211,6 +214,35 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account']))
         $tpl->set('errors',$Errors);
     }
 }
+
+
+if (isset($_POST['UpdatePending_account']))
+{
+	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+		erLhcoreClassModule::redirect('user/account');
+		exit;
+	}
+
+	$definition = array(
+			'showAllPendingEnabled' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+			)
+	);
+
+	$form = new ezcInputForm( INPUT_POST, $definition );
+	$Errors = array();
+
+	if ( $form->hasValidData( 'showAllPendingEnabled' ) && $form->showAllPendingEnabled == true )
+	{
+		erLhcoreClassModelUserSetting::setSetting('show_all_pending',1,$UserData->id);
+	} else {
+		erLhcoreClassModelUserSetting::setSetting('show_all_pending',0,$UserData->id);
+	}
+
+	$tpl->set('account_updated','done');
+	$tpl->set('tab','tab_pending');
+}
+
 
 if (isset($_POST['UpdateDepartaments_account']))
 {

@@ -35,8 +35,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) ) {
 		 		$chat->updateThis();
 		 		
 		 	 } elseif ($changeStatus == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {	
-		 	 	
-		 	 	$chat->user_id = 0;
+		 	 			 	 	
 		 	 	$chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;		 	 	
 		 	 	$chat->support_informed = 0;
 		 	 	$chat->has_unread_messages = 1;	
@@ -74,6 +73,8 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) ) {
 		 	 	erLhcoreClassChat::getSession()->update($chat);
 		 	 }		 	 	
 		 	
+		 	 erLhcoreClassChat::updateActiveChats($chat->user_id);
+		 	 
 			 echo json_encode(array('error' => 'false'));
 			 exit;
 		 } else {

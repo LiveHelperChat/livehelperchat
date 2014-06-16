@@ -116,7 +116,7 @@ class erLhcoreClassModelChatOnlineUser {
 				if ($this->operator_user_id == $currentUser->getUserID()){
 					$this->can_view_chat = true; // Faster way
 				} else if ($this->chat instanceof erLhcoreClassModelChat) {
-       				$this->can_view_chat = erLhcoreClassChat::hasAccessToRead($chat);
+       				$this->can_view_chat = erLhcoreClassChat::hasAccessToRead($this->chat);
        			}
 
        			return $this->can_view_chat;
@@ -171,7 +171,11 @@ class erLhcoreClassModelChatOnlineUser {
 
 	       		return $this->tt_time_on_site_front;
        		break;
-
+       		
+       	case 'last_visit_seconds_ago':
+       			$this->last_visit_seconds_ago = time()-$this->last_visit;
+       		break;
+       		
        	case 'lastactivity_ago':
        		   $this->lastactivity_ago = '';
 
@@ -527,7 +531,7 @@ class erLhcoreClassModelChatOnlineUser {
 	                   		$item->pages_count = 0;
 	                   		$item->chat_id = 0; // Reset chat id to no chat
 
-	                   		if ($item->message_seen == 1 && $item->message_seen_ts < (time() - (erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value*3600))) {
+	                   		if ($item->message_seen == 1 && $item->message_seen_ts < (time() - ((int)$paramsHandle['message_seen_timeout']*3600))) {
 	                   			$item->message_seen = 0;
 	                   			$item->message_seen_ts = 0;
 	                   			$item->operator_message = '';
@@ -535,7 +539,8 @@ class erLhcoreClassModelChatOnlineUser {
 	                   }
 
 	                   $item->identifier = (isset($paramsHandle['identifier']) && !empty($paramsHandle['identifier'])) ? $paramsHandle['identifier'] : $item->identifier;
-
+	                   $item->dep_id =  (isset($paramsHandle['department'])) ? (int)$paramsHandle['department'] : $item->dep_id;
+	                   
 	               } else {
 	                   $item = new erLhcoreClassModelChatOnlineUser();
 	                   $item->ip = erLhcoreClassIPDetect::getIP();

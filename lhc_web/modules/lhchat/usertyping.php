@@ -7,10 +7,14 @@ try {
 }
 
 if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
-{
+{	
+		// Rewritten in a more efficient way
+		$db = ezcDbInstance::get();
+		$stmt = $db->prepare('UPDATE lh_chat SET user_typing = :user_typing, user_typing_txt = :user_typing_txt WHERE id = :id');
+		$stmt->bindValue(':id',$chat->id,PDO::PARAM_INT);
+		
         if ( $Params['user_parameters']['status'] == 'true' ) {
-            $chat->user_typing = time();
-
+        
             $msg = isset($_POST['msg']) ? strip_tags($_POST['msg']) : '';
 
             if ($msg != '' && strlen($msg) > 50){
@@ -20,17 +24,14 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
             		$msg = substr($msg, -50);
             	}
             }
-
-            $chat->user_typing_txt = $msg;
-
+            $stmt->bindValue(':user_typing',time(),PDO::PARAM_INT);
+            $stmt->bindValue(':user_typing_txt',$msg);
         } else {
-            $chat->user_typing = 0;
+        	$stmt->bindValue(':user_typing',0,PDO::PARAM_INT);
+        	$stmt->bindValue(':user_typing_txt',$chat->user_typing_txt);
         }
 
-
-
-
-        erLhcoreClassChat::getSession()->update($chat);
+        $stmt->execute();
 }
 
 echo json_encode(array());

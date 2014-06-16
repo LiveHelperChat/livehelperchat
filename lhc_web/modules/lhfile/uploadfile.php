@@ -8,7 +8,11 @@ if (isset($fileData['active_user_upload']) && $fileData['active_user_upload'] ==
 	{
 		$fileData = erLhcoreClassModelChatConfig::fetch('file_configuration');
 		$data = (array)$fileData->data;
-		$upload_handler = new erLhcoreClassFileUpload(array('user_id' => 0, 'max_file_size' => $data['fs_max']*1024, 'accept_file_types_lhc' => '/\.('.$data['ft_us'].')$/i','chat' => $chat, 'download_via_php' => true, 'upload_dir' => 'var/storage/'.date('Y').'y/'.date('m').'/'.date('d').'/'.$chat->id.'/'));
+		$path = 'var/storage/'.date('Y').'y/'.date('m').'/'.date('d').'/'.$chat->id.'/';
+		
+		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.uploadfile.file_path',array('path' => & $path, 'storage_id' => $chat->id));
+		
+		$upload_handler = new erLhcoreClassFileUpload(array('user_id' => 0, 'max_file_size' => $data['fs_max']*1024, 'accept_file_types_lhc' => '/\.('.$data['ft_us'].')$/i','chat' => $chat, 'download_via_php' => true, 'upload_dir' => $path));
 
 		$chat->user_typing = time();
 		$chat->user_typing_txt = '100%';

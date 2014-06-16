@@ -181,7 +181,7 @@ class erLhcoreClassChatValidator {
         // Validate phone
         if (isset($validationFields['Phone'])) {
 
-            if ( !$form->hasValidData( 'Phone' ) || ($form->Phone == '' && ( ($start_data_fields['phone_require_option'] == 'required' && !isset($additionalParams['offline'])) || (isset($additionalParams['offline']) && isset($start_data_fields['offline_phone_require_option']) && $start_data_fields['offline_phone_require_option'] == 'required')  ))) {
+            if ( !$form->hasValidData( 'Phone' ) || (($form->Phone == '' || mb_strlen($form->Phone) < 8) && ( ($start_data_fields['phone_require_option'] == 'required' && !isset($additionalParams['offline'])) || (isset($additionalParams['offline']) && isset($start_data_fields['offline_phone_require_option']) && $start_data_fields['offline_phone_require_option'] == 'required')  ))) {
                 $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your phone');
             } elseif ($form->hasValidData( 'Phone' )) {
                 $chat->phone = $inputForm->phone = $form->Phone;
@@ -261,11 +261,11 @@ class erLhcoreClassChatValidator {
         	foreach ($form->name_items as $key => $name_item) {    
         		if (isset($inputForm->values_req[$key]) && $inputForm->values_req[$key] == 't' && ($inputForm->value_show[$key] == 'b' || $inputForm->value_show[$key] == (isset($additionalParams['offline']) ? 'off' : 'on')) && (!isset($valuesArray[$key]) || trim($valuesArray[$key]) == '')) {
         			$Errors[] = trim($name_item).' : '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','is required');
-        		}      		
-        		$stringParts[] = trim($name_item).' - '.(isset($valuesArray[$key]) ? trim($valuesArray[$key]) : '-');
+        		}
+        		$stringParts[] = array('key' => $name_item,'value' => (isset($valuesArray[$key]) ? trim($valuesArray[$key]) : ''));
         	}
 
-        	$chat->additional_data = implode(', ', $stringParts);
+        	$chat->additional_data = json_encode($stringParts);
         }
 
         return $Errors;

@@ -7,12 +7,14 @@
 <?php endif; ?>
 
 <?php foreach ($object->getFields() as $fieldName => $attr) : ?>
-	<?php if (!isset($attr['hide_edit'])) : ?>
-		<?php if ($attr['type'] == 'checkbox') : ?>
-		<label><?php echo erLhcoreClassAbstract::renderInput($fieldName, $attr, $object)?> <?php echo $attr['trans'];?><?php echo $attr['required'] == true ? ' *' : ''?><br/><br/></label>
+	<?php if (!isset($attr['hide_edit'])) : ?>	
+		<?php if ($attr['type'] == 'title') : ?>
+			<?php echo erLhcoreClassAbstract::renderInput($fieldName, $attr, $object)?>
+		<?php elseif ($attr['type'] == 'checkbox') : ?>
+			<label><?php echo erLhcoreClassAbstract::renderInput($fieldName, $attr, $object)?> <?php echo $attr['trans'];?><?php echo $attr['required'] == true ? ' *' : ''?><br/><br/></label>
 		<?php else : ?>
-		<label><?php echo $attr['trans'];?><?php echo $attr['required'] == true ? ' *' : ''?></label>
-		<?php echo erLhcoreClassAbstract::renderInput($fieldName, $attr, $object)?>
+			<label><?php echo $attr['trans'];?><?php echo $attr['required'] == true ? ' *' : ''?></label>
+			<?php echo erLhcoreClassAbstract::renderInput($fieldName, $attr, $object)?>
 		<?php endif;?>
 	<?php endif;?>
 <?php endforeach;?>

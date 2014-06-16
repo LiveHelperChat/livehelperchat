@@ -3,20 +3,24 @@
 <?php if ($currentUser->hasAccessTo('lhchat','chattabschrome')) : ?>
 	<?php include(erLhcoreClassDesign::designtpl('lhchat/chattabs.tpl.php'));?>
 	
+	<input type="hidden" id="pending-counter-chrome" value="{{pending_chats.list.length != false && pending_chats.list.length > 0 ? pending_chats.list.length : 0}}" />
+	
 	<?php if ($is_popup === false) : ?>
 	<script>
 	if (!!window.postMessage) {
-		var currentPendingInitial = $('.pn-cnt').text();
+		var currentPendingInitial = $('#pending-counter-chrome').val();
 		setInterval(function(){
-			var currentPending = $('.pn-cnt').text();
-			if (currentPendingInitial != currentPending){
+			var currentPending = $('#pending-counter-chrome').val();
+			
+			if (currentPendingInitial != currentPending) {
 				currentPendingInitial = currentPending;
-				try {
-					parent.postMessage('lhc_chrome:'+currentPendingInitial.replace(/\(|\)/gi, ""), '*');					
-				} catch(e) {};
+				if (parseInt(currentPendingInitial) >= 0) {
+					try {
+						parent.postMessage('lhc_chrome:'+(parseInt(currentPendingInitial) == 0 ? '' : parseInt(currentPendingInitial)), '*');					
+					} catch(e) {};
+				}				
 			};
-		},5000);
-		parent.postMessage('lhc_chrome:'+currentPendingInitial.replace(/\(|\)/gi, ""), '*');
+		},5000);		
 	};
 	</script>
 	<?php endif;?>

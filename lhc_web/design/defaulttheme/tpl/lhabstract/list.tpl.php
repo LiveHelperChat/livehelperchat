@@ -37,12 +37,18 @@
 
 	        	<?php if (!isset($field['hidden'])) : ?>
 	        	<td>
+	        	
+	        	<?php if (isset($field['link'])) : ?><a href="<?php echo $field['link']?>/<?php echo $item->id?>"><?php endif;?>
 	        	<?php if (isset($field['frontend']))
 		            echo htmlspecialchars($item->{$field['frontend']});
 		        else
 		            echo htmlspecialchars($item->$key);
-		        ?></td>
+		        ?>
+		        <?php if (isset($field['link'])) : ?></a><?php endif;?>
+		        </td>
 	       		<?php endif;?>
+	       		
+	       		
 
 	        <?php endforeach;?>
 	        <td><a class="small button round" href="<?php echo erLhcoreClassDesign::baseurl('abstract/edit')?>/<?php echo $identifier.'/'.$item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Edit');?></a></td>

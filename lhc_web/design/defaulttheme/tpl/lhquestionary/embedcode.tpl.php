@@ -17,6 +17,15 @@
 		            <option value="https:">https:</option>      
 		    </select>    	    
     </div>
+    <div class="columns large-6 end">
+    	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Theme')?></label>
+        <select id="ThemeID">
+        	<option value="0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Default');?></option>
+			<?php foreach (erLhAbstractModelWidgetTheme::getList(array('limit' => 1000)) as $theme) : ?>
+			   <option value="<?php echo $theme->id?>"><?php echo htmlspecialchars($theme->name)?></option>
+			<?php endforeach; ?>
+		</select>
+	</div>
 </div>
 
 <p class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Copy the code from the text area to the page where you want it to be rendered');?></p>
@@ -28,19 +37,20 @@ var default_site_access = '<?php echo erConfigClassLhConfig::getInstance()->getS
 
 function generateEmbedCode(){
     var siteAccess = $('#LocaleID').val() == default_site_access ? '' : $('#LocaleID').val();
-
+    var id_theme = $('#ThemeID').val() > 0 ? '/(theme)/'+$('#ThemeID').val() : '';
+    
     var id_tag = '<!-- Place this tag where you want the Live Helper Questionary module to render. -->'+"\n"+'<div id="lhc_questionary_embed_container" ></div>'+"\n\n<!-- Place this tag after the Live Helper Questionary module tag. -->\n";
-
+	
     var script = '<script type="text/javascript">'+"\n"+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
-        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'questionary/embed\';'+"\n"+
+        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'questionary/embed'+id_theme+'\';'+"\n"+
         'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);'+"\n"+
       '})();'+"\n"+
     '</scr'+'ipt>';
     $('#HMLTContent').text(id_tag+script);
 };
-$('#LocaleID,#HttpMode').change(function(){
+$('#LocaleID,#HttpMode,#ThemeID').change(function(){
     generateEmbedCode();
 });
 generateEmbedCode();

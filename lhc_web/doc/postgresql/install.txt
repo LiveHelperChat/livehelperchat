@@ -6,7 +6,7 @@ Instruction
 //***************************************//
 
 //***************************************//
-2. Change these settings in settings/settings.ini.php file
+2. Copy settings.ini.default.php to settings.ini.php and change these settings in file
 
 Change secret hash value to
 'secrethash' => '7702888d11',

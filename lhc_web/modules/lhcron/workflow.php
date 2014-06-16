@@ -1,14 +1,13 @@
 <?php
 
 /**
- * php cron.php -s site_admin -c chat/workflow
+ * php cron.php -s site_admin -c cron/workflow
  *
  * Run every 10 minits or so. On this cron depends automatic chat transfer and unaswered chats callback.
  *
  * */
 
 echo "Starting chat/workflow\n";
-
 
 if ( erLhcoreClassModelChatConfig::fetch('run_departments_workflow')->current_value == 1 ) {
 	echo "Starting departments workflow\n";
@@ -37,6 +36,14 @@ if ( erLhcoreClassModelChatConfig::fetch('run_departments_workflow')->current_va
 
 // Unanswered chats callback
 echo erLhcoreClassChatWorkflow::mainUnansweredChatWorkflow();
+
+echo "Closed chats - ",erLhcoreClassChatWorkflow::automaticChatClosing(),"\n";
+
+echo "Purged chats - ",erLhcoreClassChatWorkflow::automaticChatPurge(),"\n";
+
+foreach (erLhcoreClassChat::getList(array('limit' => 500, 'filter' => array('status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT))) as $chat){
+	erLhcoreClassChatWorkflow::autoAssign($chat,$chat->department);
+}
 
 echo "Ended chat/workflow\n";
 

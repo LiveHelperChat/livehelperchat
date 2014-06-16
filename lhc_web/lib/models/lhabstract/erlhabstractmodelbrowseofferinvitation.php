@@ -25,6 +25,7 @@ class erLhAbstractModelBrowseOfferInvitation {
 			'width'					=> $this->width,
 			'height'				=> $this->height,
 			'unit'					=> $this->unit,
+			'callback_content'		=> $this->callback_content
 		);
 
 		return $stateArray;
@@ -152,6 +153,14 @@ class erLhAbstractModelBrowseOfferInvitation {
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
+   				'callback_content' => array(
+   						'type' => 'textarea',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/browserofferinvitation','Callback content, must be valid json'),
+   						'required' => false,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
    				'lhc_iframe_content' => array (
    						'type' => 'checkbox',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/browserofferinvitation','Load content in lhc iframe'),
@@ -189,7 +198,7 @@ class erLhAbstractModelBrowseOfferInvitation {
 
 	public function getModuleTranslations()
 	{
-		return array('path' => array('url' => erLhcoreClassDesign::baseurl('browseoffer/index'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('browseoffer/index','Browse offers')),'permission' => array('module' => 'lhbrowseoffer','function' => 'manage_bo'),'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/browserofferinvitation','Browser offer invitations'));
+		return array('path' => array('url' => erLhcoreClassDesign::baseurl('browseoffer/index'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('browseoffer/index','Browse offers')),'permission_delete' => array('module' => 'lhbrowseoffer','function' => 'manage_bo'),'permission' => array('module' => 'lhbrowseoffer','function' => 'manage_bo'),'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/browserofferinvitation','Browser offer invitations'));
 	}
 
 	public static function getCount($params = array())
@@ -413,6 +422,7 @@ class erLhAbstractModelBrowseOfferInvitation {
 	public $width = 0;
 	public $height = 0;
 	public $unit = '';
+	public $callback_content = '';
 
 	
 	public $hide_add = false;

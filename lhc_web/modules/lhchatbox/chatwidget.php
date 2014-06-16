@@ -5,7 +5,9 @@ header('P3P: CP="NOI ADM DEV COM NAV OUR STP"');
 
 $visitorName = erLhcoreClassChatbox::getVisitorName();
 $cache = CSCacheAPC::getMem();
-$cacheKey = md5('chatbox_version_'.$cache->getCacheVersion('chatbox_'.(string)$Params['user_parameters_unordered']['identifier']).'_identifier_'.(string)$Params['user_parameters_unordered']['identifier'].'_hash_'.(string)$Params['user_parameters_unordered']['hashchatbox'].$visitorName.'_height_'.(int)$Params['user_parameters_unordered']['chat_height'].'_sound_'.(int)$Params['user_parameters_unordered']['sound'].'_mode_'.(string)$Params['user_parameters_unordered']['mode'].'_siteaccess_'.erLhcoreClassSystem::instance()->SiteAccess);
+$themeID = isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0 ? (int)$Params['user_parameters_unordered']['theme'] : 0;
+
+$cacheKey = md5('chatbox_version_'.$cache->getCacheVersion('chatbox_'.(string)$Params['user_parameters_unordered']['identifier']).'_theme_'.$themeID.'_identifier_'.(string)$Params['user_parameters_unordered']['identifier'].'_hash_'.(string)$Params['user_parameters_unordered']['hashchatbox'].$visitorName.'_height_'.(int)$Params['user_parameters_unordered']['chat_height'].'_sound_'.(int)$Params['user_parameters_unordered']['sound'].'_mode_'.(string)$Params['user_parameters_unordered']['mode'].'_siteaccess_'.erLhcoreClassSystem::instance()->SiteAccess);
 
 if (($Result = $cache->restore($cacheKey)) === false)
 {
@@ -38,6 +40,16 @@ if (($Result = $cache->restore($cacheKey)) === false)
 	if ((string)$Params['user_parameters_unordered']['mode'] == 'embed') {
 		$embedMode = true;
 		$modeAppend = '/(mode)/embed';
+	}
+		
+	if ($themeID > 0){
+		try {
+			$theme = erLhAbstractModelWidgetTheme::fetch($themeID);
+			$Result['theme'] = $theme;
+			$modeAppend .= '/(theme)/'.$theme->id;
+		} catch (Exception $e) {
+	
+		}
 	}
 	
 	$tpl->set('append_mode',$modeAppend);
