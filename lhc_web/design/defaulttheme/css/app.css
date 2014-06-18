@@ -551,7 +551,7 @@ ul.user-settings-list {
 ul.user-settings-list li{
 	margin-left:0px;
 	position:relative;
-	z-index:999;
+	z-index:98;
 }
 
 .float-break{height:1%}

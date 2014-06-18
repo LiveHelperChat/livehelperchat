@@ -17,7 +17,7 @@
 
 <div class="row">
 
-    <div class="columns large-<?php $canUseChat == true ? print '8' : print '12'; ?>">
+    <div class="columns large-<?php $canUseChat == true ? print '9' : print '12'; ?>">
     	<?php echo $Result['content']; ?>
     </div>
 
@@ -27,7 +27,7 @@
     $closedTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_close_list',0);
     $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_list',1);
     ?>
-    <div class="columns large-4" id="right-column-page">
+    <div class="columns large-3" id="right-column-page">
 			<div class="section-container auto" data-section="auto">
 			  <section>
 			    <p class="title" data-section-title><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Chats transferred to you directly');?>" href="#panel1"><i class="icon-user"></i><span class="tru-cnt"></span></a></p>
