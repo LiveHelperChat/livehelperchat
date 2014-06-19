@@ -10,7 +10,6 @@
 		<h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Current version')?> - <span class="success-color" id="recent-version">...</span></h3>
 		<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Last database update')?> - update_<?php echo erLhcoreClassUpdate::DB_VERSION?>.sql</h4>		
 		<a class="button radius radius small" href="http://livehelperchat.com/news-5c.html" target="_blank"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','News')?></a>
-		
 	</div>
 	<div class="columns small-6">
 		<div id="database-status"></div>
