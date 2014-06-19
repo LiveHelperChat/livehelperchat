@@ -1,3 +1,9 @@
+2.04v
+
+1. https://github.com/LiveHelperChat/livehelperchat/issues/412
+
+execute doc/update_db/update_83.sql for update
+
 2.03v
 
 1. Option to get browser/sound notification about new visitor in online visitors list.

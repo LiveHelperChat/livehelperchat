@@ -36,13 +36,25 @@ if ((string)$Params['user_parameters_unordered']['hash'] != '') {
 		}
 	}
 
+
+	try {
+		$chat = erLhcoreClassModelChat::fetch($chatID);
+		if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {			
+			// Reopen chat automatically if possible
+			if ( erLhcoreClassModelChatConfig::fetch('automatically_reopen_chat')->current_value == 1 && erLhcoreClassModelChatConfig::fetch('reopen_chat_enabled')->current_value == 1 && erLhcoreClassModelChatConfig::fetch('allow_reopen_closed')->current_value == 1 && erLhcoreClassChat::canReopen($chat) !== false ) {
+				
+				$sound = is_numeric($Params['user_parameters_unordered']['sound']) ? '/(sound)/'.$Params['user_parameters_unordered']['sound'] : '';
+				erLhcoreClassModule::redirect('chat/reopen','/' .$chatID . '/' . $hash . '/(mode)/widget' . $modeAppend . $sound );
+				exit;
+			}
+		}
+	} catch (Exception $e) {
+		
+	}
 	// Redirect user
 	erLhcoreClassModule::redirect('chat/chatwidgetchat','/' . $chatID . '/' . $hash . $modeAppend . $sound );
 	exit;
 }
-
-
-
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/chatwidget.tpl.php');
 $tpl->set('referer','');
@@ -126,7 +138,7 @@ if ((string)$Params['user_parameters_unordered']['vid'] != '') {
 }
 
 // Reopen chat automatically if possible
-if ( erLhcoreClassModelChatConfig::fetch('automatically_reopen_chat')->current_value == 1 && erLhcoreClassModelChatConfig::fetch('reopen_chat_enabled')->current_value == 1 && ($reopenData = erLhcoreClassChat::canReopenDirectly()) !== false ) {
+if ( erLhcoreClassModelChatConfig::fetch('automatically_reopen_chat')->current_value == 1 && erLhcoreClassModelChatConfig::fetch('reopen_chat_enabled')->current_value == 1 && ($reopenData = erLhcoreClassChat::canReopenDirectly(array('reopen_closed' => erLhcoreClassModelChatConfig::fetch('allow_reopen_closed')->current_value))) !== false ) {
 	$sound = is_numeric($Params['user_parameters_unordered']['sound']) ? '/(sound)/'.$Params['user_parameters_unordered']['sound'] : '';
 	erLhcoreClassModule::redirect('chat/reopen','/' . $reopenData['id'] . '/' . $reopenData['hash'] . '/(mode)/widget' . $modeAppend . $sound );
 	exit;

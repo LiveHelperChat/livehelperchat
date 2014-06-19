@@ -593,6 +593,8 @@ var lh_inst  = {
     		}
     	} else if (action == 'lhc_screenshot') {
     		lh_inst.makeScreenshot();
+    	} else if (action == 'lhc_close') {
+    		lh_inst.hide();
     	}
     }
 };

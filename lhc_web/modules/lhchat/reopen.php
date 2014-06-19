@@ -17,11 +17,15 @@ try {
 	{		
 		if ($chat->status != erLhcoreClassModelChat::STATUS_ACTIVE_CHAT && $chat->status != erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
 			
-			// Reset to fresh state to workflow triggers to work			
-			$chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
-			$chat->nc_cb_executed = 0;
-			$chat->na_cb_executed = 0;
-			$chat->time = time(); // Set time to new		
+			if (erLhcoreClassModelChatConfig::fetch('reopen_as_new')->current_value == 1 || $chat->user_id == 0) {
+				// Reset to fresh state to workflow triggers to work			
+				$chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
+				$chat->nc_cb_executed = 0;
+				$chat->na_cb_executed = 0;
+				$chat->time = time(); // Set time to new		
+			} else {
+				$chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
+			}
 			
 			$chat->updateThis();
 		}

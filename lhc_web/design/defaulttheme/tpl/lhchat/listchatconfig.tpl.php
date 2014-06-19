@@ -128,6 +128,12 @@
 		    		    
 		    <?php $attribute = 'automatically_reopen_chat';$boolValue = true;?>
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+		    		    
+		    <?php $attribute = 'allow_reopen_closed';$boolValue = true;?>
+		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+		    		    
+		    <?php $attribute = 'reopen_as_new';$boolValue = true;?>
+		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 		    
 		    <?php $attribute = 'export_hash'?>
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
