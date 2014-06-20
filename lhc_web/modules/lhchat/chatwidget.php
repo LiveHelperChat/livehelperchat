@@ -10,14 +10,25 @@ if ((string)$Params['user_parameters_unordered']['mode'] == 'embed') {
 	$modeAppend = '/(mode)/embed';
 }
 
-
+$modeAppendTheme = '';
 if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
 	try {
 		$theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
 		$Result['theme'] = $theme;
-		$modeAppend .= '/(theme)/'.$theme->id;
+		$modeAppendTheme = '/(theme)/'.$theme->id;
 	} catch (Exception $e) {
 
+	}
+} else {
+	$defaultTheme = erLhcoreClassModelChatConfig::fetch('default_theme_id')->current_value;
+	if ($defaultTheme > 0) {
+		try {
+			$theme = erLhAbstractModelWidgetTheme::fetch($defaultTheme);
+			$Result['theme'] = $theme;
+			$modeAppendTheme = '/(theme)/'.$theme->id;
+		} catch (Exception $e) {
+		
+		}
 	}
 }
 
@@ -44,7 +55,7 @@ if ((string)$Params['user_parameters_unordered']['hash'] != '') {
 			if ( erLhcoreClassModelChatConfig::fetch('automatically_reopen_chat')->current_value == 1 && erLhcoreClassModelChatConfig::fetch('reopen_chat_enabled')->current_value == 1 && erLhcoreClassModelChatConfig::fetch('allow_reopen_closed')->current_value == 1 && erLhcoreClassChat::canReopen($chat) !== false ) {
 				
 				$sound = is_numeric($Params['user_parameters_unordered']['sound']) ? '/(sound)/'.$Params['user_parameters_unordered']['sound'] : '';
-				erLhcoreClassModule::redirect('chat/reopen','/' .$chatID . '/' . $hash . '/(mode)/widget' . $modeAppend . $sound );
+				erLhcoreClassModule::redirect('chat/reopen','/' .$chatID . '/' . $hash . '/(mode)/widget' . $modeAppend . $modeAppendTheme . $sound );
 				exit;
 			}
 		}
@@ -52,7 +63,7 @@ if ((string)$Params['user_parameters_unordered']['hash'] != '') {
 		
 	}
 	// Redirect user
-	erLhcoreClassModule::redirect('chat/chatwidgetchat','/' . $chatID . '/' . $hash . $modeAppend . $sound );
+	erLhcoreClassModule::redirect('chat/chatwidgetchat','/' . $chatID . '/' . $hash . $modeAppend . $modeAppendTheme . $sound );
 	exit;
 }
 
@@ -75,6 +86,7 @@ if ((int)$Params['user_parameters_unordered']['department'] > 0 && erLhcoreClass
 
 $tpl->set('disabled_department',$disabled_department);
 $tpl->set('append_mode',$modeAppend);
+$tpl->set('append_mode_theme',$modeAppendTheme);
 
 // Start chat field options
 $startData = erLhcoreClassModelChatConfig::fetch('start_chat_data');

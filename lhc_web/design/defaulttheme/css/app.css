@@ -3,6 +3,10 @@ body {
 
 }
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
 ::-webkit-scrollbar{width:0.7em;height:0.8em;background-color:#fff;}
 ::-webkit-scrollbar:hover{background-color:#ddd}
 ::-webkit-scrollbar-thumb{min-height:0.8em;min-width:1em;background-color:#ddd; border-radius: 10px;    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);}

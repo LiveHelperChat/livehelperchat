@@ -2,6 +2,25 @@
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/chat.tpl.php');
 
+if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0) {
+	try {
+		$theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
+		$Result['theme'] = $theme;	
+	} catch (Exception $e) {
+
+	}
+} else {
+	$defaultTheme = erLhcoreClassModelChatConfig::fetch('default_theme_id')->current_value;
+	if ($defaultTheme > 0) {
+		try {
+			$theme = erLhAbstractModelWidgetTheme::fetch($defaultTheme);
+			$Result['theme'] = $theme;			
+		} catch (Exception $e) {
+				
+		}
+	}
+}
+
 try {
 
     $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);

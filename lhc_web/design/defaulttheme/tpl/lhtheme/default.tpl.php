@@ -1,0 +1,22 @@
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('theme/index','Default theme');?></h1>
+
+<?php if (isset($updated)) : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('theme/import','Default theme was set'); ?>
+	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
+<?php endif; ?>
+
+<form action="" method="post" autocomplete="off" enctype="multipart/form-data">
+
+	<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
+	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Theme')?></label>
+    <select name="ThemeID">
+        <option value="0">--<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Default');?>--</option>
+		<?php foreach (erLhAbstractModelWidgetTheme::getList(array('limit' => 1000)) as $theme) : ?>
+		   <option value="<?php echo $theme->id?>" <?php $default_theme_id == $theme->id ? print 'selected="selected"' : '';?>><?php echo htmlspecialchars($theme->name)?></option>
+		<?php endforeach; ?>
+	</select>
+	
+	<input type="submit" name="ImportTheme" class="button small radius" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('theme/default','Set as default theme')?>" />
+	
+</form>
+	

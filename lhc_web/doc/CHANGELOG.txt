@@ -1,6 +1,7 @@
 2.04v
 
 1. https://github.com/LiveHelperChat/livehelperchat/issues/412
+2. Option to set default theme from back office
 
 execute doc/update_db/update_83.sql for update
 
