@@ -45,6 +45,15 @@ if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_p
 	} catch (Exception $e) {
 		$theme = false;
 	}
+} else {
+	$defaultTheme = erLhcoreClassModelChatConfig::fetch('default_theme_id')->current_value;
+	if ($defaultTheme > 0) {
+		try {
+			$theme = erLhAbstractModelWidgetTheme::fetch($defaultTheme);
+		} catch (Exception $e) {
+			$theme = false;
+		}
+	}
 }
 
 $tpl->set('referrer',isset($_GET['r']) ? rawurldecode($_GET['r']) : '');

@@ -14,7 +14,13 @@ $theme = false;
 
 if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
 	$theme = (int)$Params['user_parameters_unordered']['theme'];
+} else {
+	$defaultTheme = erLhcoreClassModelChatConfig::fetch('default_theme_id')->current_value;
+	if ($defaultTheme > 0) {
+		$theme = (int)$defaultTheme;
+	}
 }
+
 
 $tpl->set('theme',$theme);
 

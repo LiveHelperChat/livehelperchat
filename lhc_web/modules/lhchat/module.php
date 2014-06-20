@@ -268,7 +268,7 @@ $ViewList['chatwidget'] = array(
 
 $ViewList['reopen'] = array(
     'params' => array('chat_id','hash'),
-    'uparams' => array('mode','embedmode'),
+    'uparams' => array('mode','embedmode','theme'),
 );
 
 $ViewList['readoperatormessage'] = array(
@@ -287,7 +287,7 @@ $ViewList['chatwidgetclosed'] = array(
 );
 
 $ViewList['chat'] = array(
-    'params' => array('chat_id','hash')
+    'params' => array('chat_id','hash','theme')
 );
 
 $ViewList['printchat'] = array(
