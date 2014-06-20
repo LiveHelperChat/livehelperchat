@@ -144,7 +144,6 @@ if ( erLhcoreClassModelChatConfig::fetch('automatically_reopen_chat')->current_v
 	exit;
 }
 
-
 $chat = new erLhcoreClassModelChat();
 
 // Assign department instantly
