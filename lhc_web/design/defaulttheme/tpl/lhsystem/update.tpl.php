@@ -29,7 +29,8 @@ function updateDatabase() {
     }); 
 };
 
-(function() {	      
+(function() {
+	
   $.ajax({
       url: 'http://livehelperchat.com/update/version',   
       dataType: 'jsonp',      

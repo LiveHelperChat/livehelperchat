@@ -3394,6 +3394,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Updating...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Logged user</source>
       <translation type="unfinished"/>
     </message>
@@ -4543,6 +4547,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Comparing current database structure, please wait...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time zone</source>
       <translation type="unfinished"/>
     </message>
@@ -4641,6 +4649,10 @@
   <context>
     <name>system/update</name>
     <message>
+      <source>Last database update</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Your version</source>
       <translation type="unfinished"/>
     </message>
@@ -4649,19 +4661,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Last database update</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>News</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Missing updates from new versions.</source>
+      <source>Update instructions</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Update instructions</source>
+      <source>Missing updates from new versions.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5710,6 +5718,25 @@
     <name>theme/default</name>
     <message>
       <source>Set as default theme</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>update/statusdb</name>
+    <message>
+      <source>Database structure check</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Your database does not require any updates</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update database</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Queries which will be executed on update</source>
       <translation type="unfinished"/>
     </message>
   </context>
