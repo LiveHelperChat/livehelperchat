@@ -3385,7 +3385,7 @@
             },
             {
                 "identifier": "smtp_data",
-                "value": "a:5:{s:4:\"host\";s:13:\"mail.coral.lt\";s:4:\"port\";s:2:\"25\";s:8:\"use_smtp\";i:0;s:8:\"username\";s:19:\"remigijusk@coral.lt\";s:8:\"password\";s:7:\"remis21\";}",
+                "value": "",
                 "type": "0",
                 "explain": "SMTP configuration",
                 "hidden": "1"
