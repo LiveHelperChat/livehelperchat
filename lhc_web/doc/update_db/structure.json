@@ -3459,7 +3459,7 @@
                 "type": "0",
                 "explain": "Video Calls settings",
                 "hidden": "1"
-            },
+            }, 
             {
                 "identifier": "xmp_data",
                 "value": "",

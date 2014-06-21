@@ -20,6 +20,11 @@ $ViewList['index'] = array(
     'functions' => array( 'administratethemes' )
 );
 
+$ViewList['default'] = array(
+    'params' => array(),
+    'functions' => array( 'administratethemes' )
+);
+
 $FunctionList['administratethemes'] = array('explain' =>'Allow users to maintain themes');
 
 ?>

@@ -4,6 +4,11 @@ $tpl = erLhcoreClassTemplate::getInstance( 'lhtheme/import.tpl.php' );
 
 if (ezcInputForm::hasPostData()) {
 		
+	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+		erLhcoreClassModule::redirect('theme/import');
+		exit;
+	}
+	
 	if (erLhcoreClassSearchHandler::isFile('themefile',array('json'))) {
 
 		$dir = 'var/tmpfiles/';

@@ -95,7 +95,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 			
 		    // Closed
 		    if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
-		    	$status = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Support staff member has closed this chat');
+		    	$status = '<h4>'.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Support staff member has closed this chat').'</h4>';
 		    	$blocked = 'true';
 		    	$breakSync = true;
 		    }
@@ -144,7 +144,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 
 } else {
     $content = 'false';
-    $status = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','You do not have permission to view this chat, or chat was deleted');
+    $status = '<h4>'.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','You do not have permission to view this chat, or chat was deleted').'</h4>';
     $blocked = 'true';
 }
 

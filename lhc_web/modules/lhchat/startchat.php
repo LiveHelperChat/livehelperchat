@@ -4,12 +4,36 @@ if ($Params['user_parameters_unordered']['sound'] !== null && is_numeric($Params
 	erLhcoreClassModelUserSetting::setSetting('chat_message',(int)$Params['user_parameters_unordered']['sound'] == 1 ? 1 : 0);
 }
 
+$themeAppend = '';
+
+if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
+	try {
+		$theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
+		$Result['theme'] = $theme;
+		$themeAppend = '/(theme)/'.$theme->id;
+	} catch (Exception $e) {
+
+	}
+} else {
+	$defaultTheme = erLhcoreClassModelChatConfig::fetch('default_theme_id')->current_value;
+	if ($defaultTheme > 0) {
+		try {
+			$theme = erLhAbstractModelWidgetTheme::fetch($defaultTheme);
+			$Result['theme'] = $theme;
+			$themeAppend = '/(theme)/'.$theme->id;
+		} catch (Exception $e) {
+			
+		}
+	}
+}
+
+
 // Perhaps it's direct argument
 if ((string)$Params['user_parameters_unordered']['hash'] != '') {
 	list($chatID,$hash) = explode('_',$Params['user_parameters_unordered']['hash']);
 
 	// Redirect user
-	erLhcoreClassModule::redirect('chat/chat/' . $chatID . '/' . $hash);
+	erLhcoreClassModule::redirect('chat/chat/' . $chatID . '/' . $hash . $themeAppend);
 	exit;
 }
 
@@ -91,14 +115,7 @@ if ((string)$Params['user_parameters_unordered']['vid'] != '') {
 
 $chat = new erLhcoreClassModelChat();
 
-if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
-	try {
-		$theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
-		$Result['theme'] = $theme;
-	} catch (Exception $e) {
-		
-	}
-}
+
 
 // Assign department instantly
 if ($inputData->departament_id > 0) {
@@ -209,7 +226,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
 
 
 	       // Redirect user
-	       erLhcoreClassModule::redirect('chat/chat/' . $chat->id . '/' . $chat->hash);
+	       erLhcoreClassModule::redirect('chat/chat/' . $chat->id . '/' . $chat->hash . $themeAppend);
 	       exit;
 	   	}
     } else {
