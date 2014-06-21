@@ -1,6 +1,6 @@
 <div class="row">
-	<div class="columns small-6">
-		<h3>Database structure check</h3>
+	<div class="columns small-12">
+		<h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('update/statusdb','Database structure check')?></h3>
 		<ul class="circle fs12">
 		<?php 
 		$hasError = false;
@@ -13,20 +13,21 @@
 		<?php endif; endforeach;?>
 		</ul>
 		<?php if ($hasError == false) : ?>
-			<label class="success label">Your database does not require any updates</label>
+			<label class="success label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('update/statusdb','Your database does not require any updates')?></label>
 		<?php endif; ?>
 	</div>
-	<div class="columns small-6">
-		<h3>Queries to execute</h3>
+	<?php if ( !empty($queries) ) : ?>
+	<div class="columns small-12">
+		<h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('update/statusdb','Queries which will be executed on update')?></h3>
 		<ul class="fs11 circle">
 			<?php foreach ($queries as $query) : ?>
 				<li class="fs11"><?php echo $query;?></li>
 			<?php endforeach; ?>
 		</ul>
 	</div>
+	<?php endif; ?>
 </div>
 
-<?php 
-if ($hasError) : ?>
-<a class="button radius small" onclick="updateDatabase()">Update database</a>
+<?php if ($hasError) : ?>
+<a class="button radius small" onclick="updateDatabase()"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('update/statusdb','Update database')?></a>
 <?php endif;?>
