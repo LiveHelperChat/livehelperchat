@@ -22,6 +22,8 @@
 
 var updateData = '';
 function updateDatabase() {
+	$('#db-status-checked').hide();
+	$('#db-status-updating').show();		
 	$.postJSON('<?php echo erLhcoreClassDesign::baseurl('system/update')?>/(action)/statusdbdoupdate',{data:updateData},function(data){
         $('#status-db').html(data.result);            
     }); 
@@ -43,7 +45,8 @@ function updateDatabase() {
       dataType: 'jsonp',      
       jsonp: 'callback',
       jsonpCallback: 'jsonpCallbackGIT',
-      success: function(data){    	  
+      success: function(data){   
+    	  updateData = data.data.content;  
     	  $.postJSON('<?php echo erLhcoreClassDesign::baseurl('system/update')?>/(action)/statusdb',{'data': data.data.content},function(data){
     	        $('#status-db').html(data.result);            
     	  });

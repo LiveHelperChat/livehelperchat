@@ -67,7 +67,7 @@ class erLhcoreClassUpdate
 								
 			} catch (Exception $e) {
 				$tablesStatus[$table]['error'] = true;
-				$tablesStatus[$table]['status'] = "table {$table} - does not exists";
+				$tablesStatus[$table]['status'] = "table does not exists";
 				$tablesStatus[$table]['queries'][] = $definition['tables_create'][$table];
 			}			
 		}

@@ -1,4 +1,9 @@
-<div class="row">
+<div class="hide" id="db-status-updating">
+<?php $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Updating...'); ?>
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
+</div>
+
+<div class="row" id="db-status-checked">
 	<div class="columns small-12">
 		<h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('update/statusdb','Database structure check')?></h3>
 		<ul class="circle fs12">
@@ -15,6 +20,11 @@
 		<?php if ($hasError == false) : ?>
 			<label class="success label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('update/statusdb','Your database does not require any updates')?></label>
 		<?php endif; ?>
+		
+		<?php if ($hasError) : ?>
+		<a class="button radius small" onclick="updateDatabase()"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('update/statusdb','Update database')?></a>
+		<?php endif;?>
+
 	</div>
 	<?php if ( !empty($queries) ) : ?>
 	<div class="columns small-12">
@@ -28,6 +38,3 @@
 	<?php endif; ?>
 </div>
 
-<?php if ($hasError) : ?>
-<a class="button radius small" onclick="updateDatabase()"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('update/statusdb','Update database')?></a>
-<?php endif;?>
