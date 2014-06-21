@@ -3455,14 +3455,14 @@
             },
             {
                 "identifier": "webrtc_data",
-                "value": "a:7:{i:0;b:0;s:4:\"host\";s:12:\"94.23.200.91\";s:6:\"server\";s:0:\"\";s:7:\"api_key\";s:0:\"\";s:4:\"port\";s:4:\"9595\";s:10:\"use_webrtc\";i:1;s:8:\"username\";s:0:\"\";}",
+                "value": "",
                 "type": "0",
                 "explain": "Video Calls settings",
                 "hidden": "1"
             },
             {
                 "identifier": "xmp_data",
-                "value": "a:19:{i:0;b:0;s:4:\"host\";s:12:\"94.23.200.91\";s:6:\"server\";s:0:\"\";s:8:\"resource\";s:5:\"xmppp\";s:4:\"port\";s:4:\"5222\";s:7:\"use_xmp\";i:1;s:8:\"username\";s:9:\"remdexlhc\";s:8:\"password\";s:9:\"remdexlhc\";s:11:\"xmp_message\";s:78:\"New chat request [{chat_id}]\r\n{messages}\r\nClick to accept a chat\r\n{url_accept}\";s:10:\"recipients\";s:16:\"remdex@gmail.com\";s:15:\"gtalk_client_id\";s:72:\"922840928617-raa4ailfnl31jscti2fmuch7n4v11h34.apps.googleusercontent.com\";s:19:\"gtalk_client_secret\";s:24:\"nP7u-03S6dPQv0fUwOR0czQs\";s:11:\"email_gtalk\";s:16:\"remdex@gmail.com\";s:16:\"use_standard_xmp\";i:1;s:15:\"chat_group_name\";s:8:\"LiveChat\";s:15:\"test_recipients\";s:27:\"remdextest@ns302736.ovh.net\";s:21:\"test_group_recipients\";s:88:\"remdex@conference.ns302736.ovh.net\/LiveHelp,remdex2@conference.ns302736.ovh.net\/LiveHelp\";s:18:\"gtalk_client_token\";s:1169:\"{\"access_token\":\"ya29.LgC8xdkGerDu5hwAAAAcOTh2Hfbf_a6jK8RjpResqrgpWdV42sXcLMlC157VHw\",\"token_type\":\"Bearer\",\"expires_in\":3600,\"id_token\":\"eyJhbGciOiJSUzI1NiIsImtpZCI6IjYxOTdlNTNmY2EzZjg1ZGM5YjY0NTU1YzY4YjUxOTIwN2FlMjBjMDIifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiZW1haWwiOiJyZW1kZXhAZ21haWwuY29tIiwidG9rZW5faGFzaCI6IlpRNGxXR3pLU0JxalpMYTVCR2ZqZmciLCJhdF9oYXNoIjoiWlE0bFdHektTQnFqWkxhNUJHZmpmZyIsImF1ZCI6IjkyMjg0MDkyODYxNy1yYWE0YWlsZm5sMzFqc2N0aTJmbXVjaDduNHYxMWgzNC5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsInZlcmlmaWVkX2VtYWlsIjoidHJ1ZSIsImVtYWlsX3ZlcmlmaWVkIjoidHJ1ZSIsImNpZCI6IjkyMjg0MDkyODYxNy1yYWE0YWlsZm5sMzFqc2N0aTJmbXVjaDduNHYxMWgzNC5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsImF6cCI6IjkyMjg0MDkyODYxNy1yYWE0YWlsZm5sMzFqc2N0aTJmbXVjaDduNHYxMWgzNC5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsImlkIjoiMTA4NTI5NTA2MDExNTY0MDk3NTkyIiwic3ViIjoiMTA4NTI5NTA2MDExNTY0MDk3NTkyIiwiaWF0IjoxMzkyNTY1NzU5LCJleHAiOjEzOTI1Njk2NTl9.F9oyX6ynoWMnYMdRAlMe1IfuS236N8hDddosokT2wJ03GUrijQfROSc6w6_Zdanp21KiCE73WUwLQdDxiOcRp9MubC6JyR4-SYLM9dy1N8zbThNw-P5-BMlczGH5i3CzRCQ-YSRIEDsHtVWCrtb3V6EBXus2l4PBXLfEGPwX2U8\",\"refresh_token\":\"1\\\/T6HPnoILwLNW0O-OcVNc9mxpSCF513YA29BERwVf7pI\",\"created\":1403286564}\";s:20:\"xmp_accepted_message\";s:69:\"{user_name} has accepted a chat [{chat_id}]\r\n{messages}\r\n{url_accept}\";}",
+                "value": "",
                 "type": "0",
                 "explain": "XMP data",
                 "hidden": "1"
