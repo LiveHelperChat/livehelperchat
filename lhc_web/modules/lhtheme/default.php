@@ -26,6 +26,11 @@ if (ezcInputForm::hasPostData()) {
 	}
 
 	$themeData->saveThis();
+	
+	// Cleanup cache to recompile templates etc.
+	$CacheManager = erConfigClassLhCacheConfig::getInstance();
+	$CacheManager->expireCache();
+	
 	$tpl->set('updated',true);	
 }
 
