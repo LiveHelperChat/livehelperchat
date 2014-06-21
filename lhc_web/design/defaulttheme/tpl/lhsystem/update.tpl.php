@@ -15,10 +15,19 @@
 		<div id="database-status"></div>
 	</div>
 </div>
+<hr>
+<div id="status-db"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/timezone','Comparing current database structure...')?></div>
 
 <script>
+function updateDatabase() {
+	$.postJSON('<?php echo erLhcoreClassDesign::baseurl('system/update')?>/(action)/statusdbdoupdate',{data:''},function(data){
+        $('#status-db').html(data.result);            
+    }); 
+};
+
 (function() {
-  $.ajax({
+	
+  /*$.ajax({
       url: 'https://api.github.com/repos/LiveHelperChat/livehelperchat/contents/lhc_web/doc/update_db',   
       dataType: 'jsonp',      
       jsonp: 'callback',
@@ -28,9 +37,9 @@
               $('#database-status').html(data.result);            
           });
       }
-  }); 
+  }); */
     
-  $.ajax({
+  /*$.ajax({
       url: 'http://livehelperchat.com/update/version',   
       dataType: 'jsonp',      
       jsonp: 'callback',
@@ -38,6 +47,10 @@
       success: function(data){        
               $('#recent-version').text(data.version/100); 
       }
-  });    
+  });  */
+	$.postJSON('<?php echo erLhcoreClassDesign::baseurl('system/update')?>/(action)/statusdb',{data:''},function(data){
+        $('#status-db').html(data.result);            
+    }); 
+    
 })();
 </script>
