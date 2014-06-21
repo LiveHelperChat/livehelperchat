@@ -165,7 +165,7 @@
     </message>
     <message>
       <source>Matched times</source>
-      <translation>Tempo risultante</translation>
+      <translation>Visualizzato</translation>
     </message>
     <message>
       <source>Message to user</source>
@@ -849,7 +849,7 @@
     </message>
     <message>
       <source>Work hours/work days logic is active</source>
-      <translation type="unfinished"/>
+      <translation>La chat sarà online secondo le ore/ i giorni lavorativi indicati</translation>
     </message>
     <message>
       <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
@@ -949,7 +949,7 @@
     </message>
     <message>
       <source>Inform then chat is closed by operator, only mail notification is send.</source>
-      <translation type="unfinished"/>
+      <translation>Informare quando la chat è chiusa dall&apos;operatore, vieje inviata solo notifica di posta.</translation>
     </message>
     <message>
       <source>Chat transfer worklow</source>
@@ -1430,7 +1430,7 @@
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
-      <translation>Scrivi qui la tua richiesta e premi il tasto invia...</translation>
+      <translation>Scrivi qui la tua richiesta e premi il tasto invio...</translation>
     </message>
     <message>
       <source>Send</source>
@@ -5052,7 +5052,7 @@
     </message>
     <message>
       <source>XMPP Message content</source>
-      <translation type="unfinished"/>
+      <translation>Contenuto del messaggio XMPP</translation>
     </message>
     <message>
       <source>XMPP Message about accepted chat</source>
@@ -5060,7 +5060,7 @@
     </message>
     <message>
       <source>XMPP</source>
-      <translation type="unfinished"/>
+      <translation>XMPP</translation>
     </message>
     <message>
       <source>Use standard XMPP service</source>
@@ -5092,11 +5092,11 @@
     </message>
     <message>
       <source>Recipients</source>
-      <translation type="unfinished"/>
+      <translation>Destinatari</translation>
     </message>
     <message>
       <source>Default recipients</source>
-      <translation type="unfinished"/>
+      <translation>Destinatari predefiniti</translation>
     </message>
     <message>
       <source>Test recipients</source>
@@ -5116,23 +5116,23 @@
     </message>
     <message>
       <source>GTalk</source>
-      <translation type="unfinished"/>
+      <translation>GTalk</translation>
     </message>
     <message>
       <source>Use GTalk for messaging</source>
-      <translation type="unfinished"/>
+      <translation>Utilizzare GTalk per messaggistica</translation>
     </message>
     <message>
       <source>Information for your google app</source>
-      <translation type="unfinished"/>
+      <translation>Informazioni per la tua app di google</translation>
     </message>
     <message>
       <source>Redirect URL, this url you will have to enter in your google app configuration</source>
-      <translation type="unfinished"/>
+      <translation>URL Reindirizzamento, questo url devi inserirlo nella configurazione app di google</translation>
     </message>
     <message>
       <source>Enter your app information bellow</source>
-      <translation type="unfinished"/>
+      <translation>Inserisci le informazioni app qui sotto</translation>
     </message>
     <message>
       <source>OAuth 2.0 Client ID</source>
@@ -5140,7 +5140,7 @@
     </message>
     <message>
       <source>Please enter your Client ID</source>
-      <translation type="unfinished"/>
+      <translation>Per favore inserisci il tuo ID Client</translation>
     </message>
     <message>
       <source>Client secret</source>

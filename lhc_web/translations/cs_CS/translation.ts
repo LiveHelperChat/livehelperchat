@@ -207,7 +207,7 @@
     </message>
     <message>
       <source>Need help?</source>
-      <translation>Potřebujete pomoc?</translation>
+      <translation>Potřebujete radu?</translation>
     </message>
     <message>
       <source>Our staff is always ready to help</source>
@@ -750,7 +750,7 @@
     </message>
     <message>
       <source>Auto send</source>
-      <translation type="unfinished"/>
+      <translation>Automaticky odeslat</translation>
     </message>
     <message>
       <source>Edit message</source>
@@ -770,7 +770,7 @@
     </message>
     <message>
       <source>Automatically send this message to user then chat is accepted</source>
-      <translation type="unfinished"/>
+      <translation>Automaticky odeslat uživatelům tuto zprávu, jakmile je rozhovor přijat</translation>
     </message>
     <message>
       <source>Delay in seconds</source>
@@ -1871,11 +1871,11 @@
     </message>
     <message>
       <source>Enable/Disable sound about new visitor</source>
-      <translation type="unfinished"/>
+      <translation>Zapnout/vypnout zvukovou signalizaci nových návštěvníků</translation>
     </message>
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
-      <translation type="unfinished"/>
+      <translation>Povolit/Zakázat signalizaci prohlížeče o nových návštěvnících</translation>
     </message>
     <message>
       <source>List</source>
@@ -2313,15 +2313,15 @@
     </message>
     <message>
       <source>Theming</source>
-      <translation type="unfinished"/>
+      <translation>Šablonování</translation>
     </message>
     <message>
       <source>Widget themes</source>
-      <translation type="unfinished"/>
+      <translation>Šablony widgetu</translation>
     </message>
     <message>
       <source>Import new themes</source>
-      <translation type="unfinished"/>
+      <translation>Importovat nové šablony</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -5535,15 +5535,15 @@
     </message>
     <message>
       <source>Status widget style</source>
-      <translation type="unfinished"/>
+      <translation>Styl widgetu stavu</translation>
     </message>
     <message>
       <source>Widget container</source>
-      <translation type="unfinished"/>
+      <translation>Kontejnér widgetu</translation>
     </message>
     <message>
       <source>Need help widget</source>
-      <translation type="unfinished"/>
+      <translation>Widget Potřebujete radu?</translation>
     </message>
     <message>
       <source>Custom CSS</source>
@@ -5555,19 +5555,19 @@
     </message>
     <message>
       <source>Need help header text</source>
-      <translation type="unfinished"/>
+      <translation>Text hlavičky Potřebujete radu?</translation>
     </message>
     <message>
       <source>Need help standard text</source>
-      <translation type="unfinished"/>
+      <translation>Běžný text Potřebujete radu?</translation>
     </message>
     <message>
       <source>Online status text</source>
-      <translation type="unfinished"/>
+      <translation>Text on-line stavu</translation>
     </message>
     <message>
       <source>Offline status text</source>
-      <translation type="unfinished"/>
+      <translation>Text off-line stavu</translation>
     </message>
     <message>
       <source>Background color</source>
@@ -5583,63 +5583,63 @@
     </message>
     <message>
       <source>Online image</source>
-      <translation type="unfinished"/>
+      <translation>On-line obrázek</translation>
     </message>
     <message>
       <source>Offline image</source>
-      <translation type="unfinished"/>
+      <translation>Off-line obrázek</translation>
     </message>
     <message>
       <source>Widget header background color</source>
-      <translation type="unfinished"/>
+      <translation>Barva pozadí hlavičky widgetu</translation>
     </message>
     <message>
       <source>Widget border color</source>
-      <translation type="unfinished"/>
+      <translation>Barva okraje widgetu</translation>
     </message>
     <message>
       <source>Need help background color</source>
-      <translation type="unfinished"/>
+      <translation>Barva pozadí Potřebujete radu?</translation>
     </message>
     <message>
       <source>Need help hover background color</source>
-      <translation type="unfinished"/>
+      <translation>Barva Potřebujete radu? při najetí myší</translation>
     </message>
     <message>
       <source>Need help text color</source>
-      <translation type="unfinished"/>
+      <translation>Barva textu Potřebujete radu?</translation>
     </message>
     <message>
       <source>Need help border color</source>
-      <translation type="unfinished"/>
+      <translation>Barva okraje Potřebujete radu?</translation>
     </message>
     <message>
       <source>Need help close background color</source>
-      <translation type="unfinished"/>
+      <translation>Barva pozadí zavírání Potřebujete radu?</translation>
     </message>
     <message>
       <source>Need help close hover background color</source>
-      <translation type="unfinished"/>
+      <translation>Barva pozadí Potřebujete radu? při najetí myší</translation>
     </message>
     <message>
       <source>Need help operator image</source>
-      <translation type="unfinished"/>
+      <translation>Obrázek operátora Potřebujete radu?</translation>
     </message>
     <message>
       <source>Status widget additional CSS, takes effect after save</source>
-      <translation type="unfinished"/>
+      <translation>Dodatečný CSS widgetu stavu, projeví se po uložení</translation>
     </message>
     <message>
       <source>Widget container additional CSS, takes effect after save</source>
-      <translation type="unfinished"/>
+      <translation>Dodatečný CSS kontejnéru widgetu, projeví se po uložení</translation>
     </message>
     <message>
       <source>Widget body additional CSS, takes effect after save</source>
-      <translation type="unfinished"/>
+      <translation>Dodatečný CSS těla widgetu, projeví se po uložení</translation>
     </message>
     <message>
       <source>Widget themes</source>
-      <translation type="unfinished"/>
+      <translation>Šablony widgetů</translation>
     </message>
   </context>
   <context>
@@ -5677,11 +5677,11 @@
     </message>
     <message>
       <source>Widget themes</source>
-      <translation type="unfinished"/>
+      <translation>Šablony widgetů</translation>
     </message>
     <message>
       <source>Import a new theme</source>
-      <translation type="unfinished"/>
+      <translation>Importovat novou šablonu</translation>
     </message>
     <message>
       <source>Themes</source>

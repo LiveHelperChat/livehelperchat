@@ -334,15 +334,15 @@
     </message>
     <message>
       <source>Disable minimize icon</source>
-      <translation type="unfinished"/>
+      <translation>Nonaktifkan ikon meminimalkan</translation>
     </message>
     <message>
       <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
-      <translation type="unfinished"/>
+      <translation>Tampilkan isi chatbox bukannya widget, pengguna akan dapat hanya meminimalkan, bukan menutupnya.</translation>
     </message>
     <message>
       <source>Show chatbox content minimized first time if content is shown.</source>
-      <translation type="unfinished"/>
+      <translation>Tampilkan isi chatbox diminimalkan pertama kali jika konten ditampilkan.</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
@@ -2872,7 +2872,7 @@
     </message>
     <message>
       <source>Please enter a valid new messages polling sync interval!</source>
-      <translation type="unfinished"/>
+      <translation>Masukkan pesan baru yang valid  setelah sinkronisasi polling</translation>
     </message>
     <message>
       <source>Please enter a valid back office sync interval!</source>
