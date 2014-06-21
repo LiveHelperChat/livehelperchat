@@ -71,6 +71,14 @@ foreach ($dataTables as $table => $identifier) {
 	$structuresTablesData['tables_data_identifier'][$table] = $identifier;
 }
 
+foreach ($structureTables as $table) {
+	$sql = 'SHOW CREATE TABLE `'.$table.'`';			
+	$stmt = $db->prepare($sql);
+	$stmt->execute();
+	$recordsData = $stmt->fetch(PDO::FETCH_ASSOC);	
+	$structuresTablesData['tables_create'][$table] = $recordsData['create table'];
+}
+
 echo json_encode($structuresTablesData,JSON_PRETTY_PRINT);
 
 ?>

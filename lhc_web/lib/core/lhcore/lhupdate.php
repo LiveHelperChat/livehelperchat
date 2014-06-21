@@ -34,7 +34,7 @@ class erLhcoreClassUpdate
 				$stmt->execute();
 				$columnsData = $stmt->fetchAll(PDO::FETCH_ASSOC);				
 				$columnsDesired = (array)$tableDefinition;
-								
+				
 				$status = array();
 				
 				foreach ($columnsDesired as $columnDesired) {
@@ -67,7 +67,8 @@ class erLhcoreClassUpdate
 								
 			} catch (Exception $e) {
 				$tablesStatus[$table]['error'] = true;
-				$tablesStatus[$table]['status'] = 'Does not exists';
+				$tablesStatus[$table]['status'] = "table {$table} - does not exists";
+				$tablesStatus[$table]['queries'][] = $definition['tables_create'][$table];
 			}			
 		}
 		
