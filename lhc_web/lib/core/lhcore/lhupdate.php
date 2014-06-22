@@ -77,13 +77,27 @@ class erLhcoreClassUpdate
 			
 			$status = array();
 			// Check that table has all required records
-			foreach ($dataTable as $record) {				
-				$sql = "SELECT COUNT(*) as total_records FROM `{$table}` WHERE `{$tableIdentifier}` = :identifier_value";				
-				$stmt = $db->prepare($sql);
-				$stmt->bindValue(':identifier_value',$record[$tableIdentifier]);
-				$stmt->execute();
-				$columnsData = $stmt->fetchColumn();
-				if ($columnsData == 0){
+			foreach ($dataTable as $record) {	
+
+				try {
+					$sql = "SELECT COUNT(*) as total_records FROM `{$table}` WHERE `{$tableIdentifier}` = :identifier_value";				
+					$stmt = $db->prepare($sql);
+					$stmt->bindValue(':identifier_value',$record[$tableIdentifier]);
+					$stmt->execute();
+					$columnsData = $stmt->fetchColumn();
+					if ($columnsData == 0){
+						$status[] = "Record with identifier {$tableIdentifier} = {$record[$tableIdentifier]} was not found";
+						
+						$columns = array();
+						$values = array();
+						foreach ($record as $column => $value) {
+							$columns[] = '`' . $column . '`';
+							$values[] = $db->quote($value);
+						}					
+						$tablesStatus[$table]['queries'][] = "INSERT INTO `{$table}` (".implode(',', $columns).") VALUES (".implode(',', $values).")";					
+					}
+				} catch (Exception $e) {
+					
 					$status[] = "Record with identifier {$tableIdentifier} = {$record[$tableIdentifier]} was not found";
 					
 					$columns = array();
@@ -91,8 +105,9 @@ class erLhcoreClassUpdate
 					foreach ($record as $column => $value) {
 						$columns[] = '`' . $column . '`';
 						$values[] = $db->quote($value);
-					}					
-					$tablesStatus[$table]['queries'][] = "INSERT INTO `{$table}` (".implode(',', $columns).") VALUES (".implode(',', $values).")";					
+					}
+					$tablesStatus[$table]['queries'][] = "INSERT INTO `{$table}` (".implode(',', $columns).") VALUES (".implode(',', $values).")";										
+					// Perhaps table does not exists
 				}			
 			}
 
