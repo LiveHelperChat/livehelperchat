@@ -2324,6 +2324,10 @@
       <translation>Importa teme</translation>
     </message>
     <message>
+      <source>Default theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>File configuration</source>
       <translation>Configurare fisiere</translation>
     </message>
@@ -3386,6 +3390,10 @@
     <message>
       <source>Updated</source>
       <translation>Actualizat</translation>
+    </message>
+    <message>
+      <source>Updating...</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Logged user</source>
@@ -4537,6 +4545,10 @@
       <translation>Actualizare Live Helper Chat</translation>
     </message>
     <message>
+      <source>Comparing current database structure, please wait...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time zone</source>
       <translation>Fus orar</translation>
     </message>
@@ -4635,6 +4647,10 @@
   <context>
     <name>system/update</name>
     <message>
+      <source>Last database update</source>
+      <translation>Ultima actualizare a bazei de date</translation>
+    </message>
+    <message>
       <source>Your version</source>
       <translation>Versiunea ta</translation>
     </message>
@@ -4643,20 +4659,16 @@
       <translation>Versiunea curenta</translation>
     </message>
     <message>
-      <source>Last database update</source>
-      <translation>Ultima actualizare a bazei de date</translation>
-    </message>
-    <message>
       <source>News</source>
       <translation>Stiri</translation>
     </message>
     <message>
-      <source>Missing updates from new versions.</source>
-      <translation>Lipsesc actualizari pentru versiunile noi.</translation>
-    </message>
-    <message>
       <source>Update instructions</source>
       <translation>Instructiuni de actualizare</translation>
+    </message>
+    <message>
+      <source>Missing updates from new versions.</source>
+      <translation>Lipsesc actualizari pentru versiunile noi.</translation>
     </message>
     <message>
       <source>You are running current version. No updates required</source>
@@ -5645,6 +5657,10 @@
   <context>
     <name>theme/import</name>
     <message>
+      <source>Default theme was set</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Import theme</source>
       <translation>Importa tema</translation>
     </message>
@@ -5672,6 +5688,10 @@
   <context>
     <name>theme/index</name>
     <message>
+      <source>Default theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Theme</source>
       <translation>Tema</translation>
     </message>
@@ -5690,6 +5710,32 @@
     <message>
       <source>Import theme</source>
       <translation>Importa tema</translation>
+    </message>
+  </context>
+  <context>
+    <name>theme/default</name>
+    <message>
+      <source>Set as default theme</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>update/statusdb</name>
+    <message>
+      <source>Database structure check</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Your database does not require any updates</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update database</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Queries which will be executed on update</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

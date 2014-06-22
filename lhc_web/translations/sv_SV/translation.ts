@@ -2324,6 +2324,10 @@
       <translation>Importera nya stilar</translation>
     </message>
     <message>
+      <source>Default theme</source>
+      <translation>Standardstil</translation>
+    </message>
+    <message>
       <source>File configuration</source>
       <translation>Fil inställningar</translation>
     </message>
@@ -3386,6 +3390,10 @@
     <message>
       <source>Updated</source>
       <translation>Uppdaterad</translation>
+    </message>
+    <message>
+      <source>Updating...</source>
+      <translation>Uppdaterar...</translation>
     </message>
     <message>
       <source>Logged user</source>
@@ -4537,6 +4545,10 @@
       <translation>Live Helper Chat uppdatering</translation>
     </message>
     <message>
+      <source>Comparing current database structure, please wait...</source>
+      <translation>Jämför med nuvarande databasstruktur, var vänlig vänta...</translation>
+    </message>
+    <message>
       <source>Time zone</source>
       <translation>Tidszon</translation>
     </message>
@@ -4635,6 +4647,10 @@
   <context>
     <name>system/update</name>
     <message>
+      <source>Last database update</source>
+      <translation>Senaste databasuppdatering</translation>
+    </message>
+    <message>
       <source>Your version</source>
       <translation>Din version</translation>
     </message>
@@ -4643,20 +4659,16 @@
       <translation>Nuvarande version</translation>
     </message>
     <message>
-      <source>Last database update</source>
-      <translation>Senaste databasuppdatering</translation>
-    </message>
-    <message>
       <source>News</source>
       <translation>Nyheter</translation>
     </message>
     <message>
-      <source>Missing updates from new versions.</source>
-      <translation>Saknade uppdateringar från nya versioner.</translation>
-    </message>
-    <message>
       <source>Update instructions</source>
       <translation>Instruktioner för uppdatering</translation>
+    </message>
+    <message>
+      <source>Missing updates from new versions.</source>
+      <translation>Saknade uppdateringar från nya versioner.</translation>
     </message>
     <message>
       <source>You are running current version. No updates required</source>
@@ -5645,6 +5657,10 @@
   <context>
     <name>theme/import</name>
     <message>
+      <source>Default theme was set</source>
+      <translation>Standardstilen var vald</translation>
+    </message>
+    <message>
       <source>Import theme</source>
       <translation>Importera stil</translation>
     </message>
@@ -5672,6 +5688,10 @@
   <context>
     <name>theme/index</name>
     <message>
+      <source>Default theme</source>
+      <translation>Standardstil</translation>
+    </message>
+    <message>
       <source>Theme</source>
       <translation>Stil</translation>
     </message>
@@ -5690,6 +5710,32 @@
     <message>
       <source>Import theme</source>
       <translation>Importera stil</translation>
+    </message>
+  </context>
+  <context>
+    <name>theme/default</name>
+    <message>
+      <source>Set as default theme</source>
+      <translation>Välj som standardstil</translation>
+    </message>
+  </context>
+  <context>
+    <name>update/statusdb</name>
+    <message>
+      <source>Database structure check</source>
+      <translation>Kontrollera databasstrukturen</translation>
+    </message>
+    <message>
+      <source>Your database does not require any updates</source>
+      <translation>Din databas kräver inga uppdateringar</translation>
+    </message>
+    <message>
+      <source>Update database</source>
+      <translation>Uppdatera databas</translation>
+    </message>
+    <message>
+      <source>Queries which will be executed on update</source>
+      <translation>Frågor i databasen som kommer att köras vid uppdateringen</translation>
     </message>
   </context>
 </TS>

@@ -2324,6 +2324,10 @@
       <translation>Neue Themes importieren</translation>
     </message>
     <message>
+      <source>Default theme</source>
+      <translation>Standard - Theme</translation>
+    </message>
+    <message>
       <source>File configuration</source>
       <translation>Datei Einstellungen</translation>
     </message>
@@ -3386,6 +3390,10 @@
     <message>
       <source>Updated</source>
       <translation>Aktualisiert</translation>
+    </message>
+    <message>
+      <source>Updating...</source>
+      <translation>Aktualisiere...</translation>
     </message>
     <message>
       <source>Logged user</source>
@@ -4537,6 +4545,10 @@
       <translation>Live Helper Chat Update</translation>
     </message>
     <message>
+      <source>Comparing current database structure, please wait...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time zone</source>
       <translation>Zeitzone</translation>
     </message>
@@ -4635,6 +4647,10 @@
   <context>
     <name>system/update</name>
     <message>
+      <source>Last database update</source>
+      <translation>Letztes Datenbank Update</translation>
+    </message>
+    <message>
       <source>Your version</source>
       <translation>Installierte Version</translation>
     </message>
@@ -4643,20 +4659,16 @@
       <translation>Aktuelle Version</translation>
     </message>
     <message>
-      <source>Last database update</source>
-      <translation>Letztes Datenbank Update</translation>
-    </message>
-    <message>
       <source>News</source>
       <translation>Neuigkeiten</translation>
     </message>
     <message>
-      <source>Missing updates from new versions.</source>
-      <translation>Fehlende Updates von neuer Versionen.</translation>
-    </message>
-    <message>
       <source>Update instructions</source>
       <translation>Update Anleitung</translation>
+    </message>
+    <message>
+      <source>Missing updates from new versions.</source>
+      <translation>Fehlende Updates von neuer Versionen.</translation>
     </message>
     <message>
       <source>You are running current version. No updates required</source>
@@ -5535,15 +5547,15 @@
     </message>
     <message>
       <source>Status widget style</source>
-      <translation type="unfinished"/>
+      <translation>Status Widget Stil</translation>
     </message>
     <message>
       <source>Widget container</source>
-      <translation type="unfinished"/>
+      <translation>Widget container</translation>
     </message>
     <message>
       <source>Need help widget</source>
-      <translation type="unfinished"/>
+      <translation>Hilfe benötigt? Widget</translation>
     </message>
     <message>
       <source>Custom CSS</source>
@@ -5551,15 +5563,15 @@
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Name</translation>
     </message>
     <message>
       <source>Need help header text</source>
-      <translation type="unfinished"/>
+      <translation>Hilfe benötigt? Überschrift</translation>
     </message>
     <message>
       <source>Need help standard text</source>
-      <translation type="unfinished"/>
+      <translation>Hilfe benötigt? Standardtext</translation>
     </message>
     <message>
       <source>Online status text</source>
@@ -5599,19 +5611,19 @@
     </message>
     <message>
       <source>Need help background color</source>
-      <translation type="unfinished"/>
+      <translation>Hilfe benötigt? Hintergrundfarbe</translation>
     </message>
     <message>
       <source>Need help hover background color</source>
-      <translation type="unfinished"/>
+      <translation>Hilfe benötigt? Hover Hintergrundfarbe</translation>
     </message>
     <message>
       <source>Need help text color</source>
-      <translation type="unfinished"/>
+      <translation>Hilfe benötigt? Textfarbe</translation>
     </message>
     <message>
       <source>Need help border color</source>
-      <translation type="unfinished"/>
+      <translation>Hilfe benötigt? Rahmenfarbe</translation>
     </message>
     <message>
       <source>Need help close background color</source>
@@ -5623,7 +5635,7 @@
     </message>
     <message>
       <source>Need help operator image</source>
-      <translation type="unfinished"/>
+      <translation>Hilfe benötigt? Operatorbild</translation>
     </message>
     <message>
       <source>Status widget additional CSS, takes effect after save</source>
@@ -5644,6 +5656,10 @@
   </context>
   <context>
     <name>theme/import</name>
+    <message>
+      <source>Default theme was set</source>
+      <translation>Standardtheme ausgewählt</translation>
+    </message>
     <message>
       <source>Import theme</source>
       <translation>Theme importieren</translation>
@@ -5672,6 +5688,10 @@
   <context>
     <name>theme/index</name>
     <message>
+      <source>Default theme</source>
+      <translation>Standard - Theme</translation>
+    </message>
+    <message>
       <source>Theme</source>
       <translation>Theme</translation>
     </message>
@@ -5690,6 +5710,32 @@
     <message>
       <source>Import theme</source>
       <translation>Neue Themes importieren</translation>
+    </message>
+  </context>
+  <context>
+    <name>theme/default</name>
+    <message>
+      <source>Set as default theme</source>
+      <translation>Als Standard Theme festlegen</translation>
+    </message>
+  </context>
+  <context>
+    <name>update/statusdb</name>
+    <message>
+      <source>Database structure check</source>
+      <translation>Datenbankstruktur Check</translation>
+    </message>
+    <message>
+      <source>Your database does not require any updates</source>
+      <translation>Ihre Datenbank benötigt kein Update</translation>
+    </message>
+    <message>
+      <source>Update database</source>
+      <translation>Datenbank aktualisieren</translation>
+    </message>
+    <message>
+      <source>Queries which will be executed on update</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

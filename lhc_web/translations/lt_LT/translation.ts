@@ -2324,6 +2324,10 @@
       <translation>Importuoti naujas temas</translation>
     </message>
     <message>
+      <source>Default theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>File configuration</source>
       <translation>Failų konfiguracija</translation>
     </message>
@@ -3386,6 +3390,10 @@
     <message>
       <source>Updated</source>
       <translation>Atnaujinta</translation>
+    </message>
+    <message>
+      <source>Updating...</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Logged user</source>
@@ -4537,6 +4545,10 @@
       <translation>Live Helpe Chat atnaujinimai</translation>
     </message>
     <message>
+      <source>Comparing current database structure, please wait...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time zone</source>
       <translation>Laiko zona</translation>
     </message>
@@ -4635,6 +4647,10 @@
   <context>
     <name>system/update</name>
     <message>
+      <source>Last database update</source>
+      <translation>Paskutinis duomenų bazės atnaujinimas</translation>
+    </message>
+    <message>
       <source>Your version</source>
       <translation>Jūsų versija</translation>
     </message>
@@ -4643,20 +4659,16 @@
       <translation>Dabartinė versija</translation>
     </message>
     <message>
-      <source>Last database update</source>
-      <translation>Paskutinis duomenų bazės atnaujinimas</translation>
-    </message>
-    <message>
       <source>News</source>
       <translation>Naujienos</translation>
     </message>
     <message>
-      <source>Missing updates from new versions.</source>
-      <translation>Trūkstami atnaujinimai iš naujos versijos</translation>
-    </message>
-    <message>
       <source>Update instructions</source>
       <translation>Atnaujinimo instrukcijos</translation>
+    </message>
+    <message>
+      <source>Missing updates from new versions.</source>
+      <translation>Trūkstami atnaujinimai iš naujos versijos</translation>
     </message>
     <message>
       <source>You are running current version. No updates required</source>
@@ -5645,6 +5657,10 @@
   <context>
     <name>theme/import</name>
     <message>
+      <source>Default theme was set</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Import theme</source>
       <translation>Importuoti temą</translation>
     </message>
@@ -5672,6 +5688,10 @@
   <context>
     <name>theme/index</name>
     <message>
+      <source>Default theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Theme</source>
       <translation>Temas</translation>
     </message>
@@ -5690,6 +5710,32 @@
     <message>
       <source>Import theme</source>
       <translation>Importuoti temą</translation>
+    </message>
+  </context>
+  <context>
+    <name>theme/default</name>
+    <message>
+      <source>Set as default theme</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>update/statusdb</name>
+    <message>
+      <source>Database structure check</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Your database does not require any updates</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update database</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Queries which will be executed on update</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

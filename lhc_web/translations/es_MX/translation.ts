@@ -272,11 +272,11 @@
     </message>
     <message>
       <source>Theme</source>
-      <translation type="unfinished"/>
+      <translation>Tema</translation>
     </message>
     <message>
       <source>Default</source>
-      <translation type="unfinished"/>
+      <translation>Predefinido</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>
@@ -752,7 +752,7 @@
     </message>
     <message>
       <source>Auto send</source>
-      <translation type="unfinished"/>
+      <translation>Auto envío</translation>
     </message>
     <message>
       <source>Edit message</source>
@@ -772,7 +772,7 @@
     </message>
     <message>
       <source>Automatically send this message to user then chat is accepted</source>
-      <translation type="unfinished"/>
+      <translation>Enviar automáticamente este mensaje al usuario, entonces el chat es aceptado</translation>
     </message>
     <message>
       <source>Delay in seconds</source>
@@ -1875,11 +1875,11 @@
     </message>
     <message>
       <source>Enable/Disable sound about new visitor</source>
-      <translation type="unfinished"/>
+      <translation>Habilitar/deshabilitar el sonido cuando hay una nueva visita</translation>
     </message>
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
-      <translation type="unfinished"/>
+      <translation>Habilitar/deshabilitar notificación del navegador cuando hay una nueva visita</translation>
     </message>
     <message>
       <source>List</source>
@@ -2317,15 +2317,19 @@
     </message>
     <message>
       <source>Theming</source>
-      <translation type="unfinished"/>
+      <translation>Aplicando tema</translation>
     </message>
     <message>
       <source>Widget themes</source>
-      <translation type="unfinished"/>
+      <translation>Tema del widget</translation>
     </message>
     <message>
       <source>Import new themes</source>
-      <translation type="unfinished"/>
+      <translation>Importar temas nuevos</translation>
+    </message>
+    <message>
+      <source>Default theme</source>
+      <translation>Tema predefinido</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -3390,6 +3394,10 @@
     <message>
       <source>Updated</source>
       <translation>Actualizado</translation>
+    </message>
+    <message>
+      <source>Updating...</source>
+      <translation>Actualizando...</translation>
     </message>
     <message>
       <source>Logged user</source>
@@ -4542,6 +4550,10 @@
       <translation>Actualización de Live Helper Chat</translation>
     </message>
     <message>
+      <source>Comparing current database structure, please wait...</source>
+      <translation>Comparando la estructura actual de la base de datos, por favor espere...</translation>
+    </message>
+    <message>
       <source>Time zone</source>
       <translation>Zona horaria</translation>
     </message>
@@ -4640,6 +4652,10 @@
   <context>
     <name>system/update</name>
     <message>
+      <source>Last database update</source>
+      <translation>Última actualización de la base de datos</translation>
+    </message>
+    <message>
       <source>Your version</source>
       <translation>Su versión</translation>
     </message>
@@ -4648,20 +4664,16 @@
       <translation>Versión actual</translation>
     </message>
     <message>
-      <source>Last database update</source>
-      <translation>Última actualización de la base de datos</translation>
-    </message>
-    <message>
       <source>News</source>
       <translation>Noticias</translation>
     </message>
     <message>
-      <source>Missing updates from new versions.</source>
-      <translation>Faltan actualizaciones de nuevas versiones.</translation>
-    </message>
-    <message>
       <source>Update instructions</source>
       <translation>Instrucciones para actualizar</translation>
+    </message>
+    <message>
+      <source>Missing updates from new versions.</source>
+      <translation>Faltan actualizaciones de nuevas versiones.</translation>
     </message>
     <message>
       <source>You are running current version. No updates required</source>
@@ -5536,165 +5548,199 @@
     <name>abstract/widgettheme</name>
     <message>
       <source>Download theme</source>
-      <translation type="unfinished"/>
+      <translation>Descargar tema</translation>
     </message>
     <message>
       <source>Status widget style</source>
-      <translation type="unfinished"/>
+      <translation>Estilo del widget de estado</translation>
     </message>
     <message>
       <source>Widget container</source>
-      <translation type="unfinished"/>
+      <translation>Contenedor del widget</translation>
     </message>
     <message>
       <source>Need help widget</source>
-      <translation type="unfinished"/>
+      <translation>Widget de necesita ayuda</translation>
     </message>
     <message>
       <source>Custom CSS</source>
-      <translation type="unfinished"/>
+      <translation>CSS personalizado</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Nombre</translation>
     </message>
     <message>
       <source>Need help header text</source>
-      <translation type="unfinished"/>
+      <translation>Texto del encabezado de necesita ayuda</translation>
     </message>
     <message>
       <source>Need help standard text</source>
-      <translation type="unfinished"/>
+      <translation>Texto estándar de necesita ayuda</translation>
     </message>
     <message>
       <source>Online status text</source>
-      <translation type="unfinished"/>
+      <translation>Texto del estado en línea</translation>
     </message>
     <message>
       <source>Offline status text</source>
-      <translation type="unfinished"/>
+      <translation>Texto del estado fuera de línea</translation>
     </message>
     <message>
       <source>Background color</source>
-      <translation type="unfinished"/>
+      <translation>Color del fondo</translation>
     </message>
     <message>
       <source>Text color</source>
-      <translation type="unfinished"/>
+      <translation>Color del texto</translation>
     </message>
     <message>
       <source>Logo image, visible in popup</source>
-      <translation type="unfinished"/>
+      <translation>Logo visible en el popup</translation>
     </message>
     <message>
       <source>Online image</source>
-      <translation type="unfinished"/>
+      <translation>Imagen de en línea</translation>
     </message>
     <message>
       <source>Offline image</source>
-      <translation type="unfinished"/>
+      <translation>Imagen de fuera de línea</translation>
     </message>
     <message>
       <source>Widget header background color</source>
-      <translation type="unfinished"/>
+      <translation>Color de fondo del encabezado del widget</translation>
     </message>
     <message>
       <source>Widget border color</source>
-      <translation type="unfinished"/>
+      <translation>Color del borde del widget</translation>
     </message>
     <message>
       <source>Need help background color</source>
-      <translation type="unfinished"/>
+      <translation>Color de fondo de necesita ayuda</translation>
     </message>
     <message>
       <source>Need help hover background color</source>
-      <translation type="unfinished"/>
+      <translation>Color de fondo cuando el mouse se encuentra sobre necesita ayuda</translation>
     </message>
     <message>
       <source>Need help text color</source>
-      <translation type="unfinished"/>
+      <translation>Color del texto de necesita ayuda</translation>
     </message>
     <message>
       <source>Need help border color</source>
-      <translation type="unfinished"/>
+      <translation>Color del borde de necesita ayuda</translation>
     </message>
     <message>
       <source>Need help close background color</source>
-      <translation type="unfinished"/>
+      <translation>Color de fondo de cerrar en necesita ayuda</translation>
     </message>
     <message>
       <source>Need help close hover background color</source>
-      <translation type="unfinished"/>
+      <translation>Color de fondo cuando el mouse se encuentra sobre cerrar en necesita ayuda</translation>
     </message>
     <message>
       <source>Need help operator image</source>
-      <translation type="unfinished"/>
+      <translation>Imagen de operador de necesita ayuda</translation>
     </message>
     <message>
       <source>Status widget additional CSS, takes effect after save</source>
-      <translation type="unfinished"/>
+      <translation>CSS adicional del widget de estado, toma efecto al guardar</translation>
     </message>
     <message>
       <source>Widget container additional CSS, takes effect after save</source>
-      <translation type="unfinished"/>
+      <translation>CSS adicional del contenedor del widget, toma efecto al guardar</translation>
     </message>
     <message>
       <source>Widget body additional CSS, takes effect after save</source>
-      <translation type="unfinished"/>
+      <translation>CSS adicional del cuerpo del widget, toma efecto al guardar</translation>
     </message>
     <message>
       <source>Widget themes</source>
-      <translation type="unfinished"/>
+      <translation>Temas del widget</translation>
     </message>
   </context>
   <context>
     <name>theme/import</name>
     <message>
+      <source>Default theme was set</source>
+      <translation>Se ha establecido el tema predefinido</translation>
+    </message>
+    <message>
       <source>Import theme</source>
-      <translation type="unfinished"/>
+      <translation>Importar tema</translation>
     </message>
     <message>
       <source>File</source>
-      <translation type="unfinished"/>
+      <translation>Archivo</translation>
     </message>
     <message>
       <source>Import</source>
-      <translation type="unfinished"/>
+      <translation>Importar</translation>
     </message>
     <message>
       <source>Theme imported</source>
-      <translation type="unfinished"/>
+      <translation>Tema importado</translation>
     </message>
     <message>
       <source>Could not import a new theme!</source>
-      <translation type="unfinished"/>
+      <translation>No pudo importar el tema nuevo!</translation>
     </message>
     <message>
       <source>Invalid file!</source>
-      <translation type="unfinished"/>
+      <translation>Archivo inválido!</translation>
     </message>
   </context>
   <context>
     <name>theme/index</name>
     <message>
+      <source>Default theme</source>
+      <translation>Tema predefinido</translation>
+    </message>
+    <message>
       <source>Theme</source>
-      <translation type="unfinished"/>
+      <translation>Tema</translation>
     </message>
     <message>
       <source>Widget themes</source>
-      <translation type="unfinished"/>
+      <translation>Temas del widget</translation>
     </message>
     <message>
       <source>Import a new theme</source>
-      <translation type="unfinished"/>
+      <translation>Importar un nuevo tema</translation>
     </message>
     <message>
       <source>Themes</source>
-      <translation type="unfinished"/>
+      <translation>Tema</translation>
     </message>
     <message>
       <source>Import theme</source>
-      <translation type="unfinished"/>
+      <translation>Importar tema</translation>
+    </message>
+  </context>
+  <context>
+    <name>theme/default</name>
+    <message>
+      <source>Set as default theme</source>
+      <translation>Establecer como tema predefinido</translation>
+    </message>
+  </context>
+  <context>
+    <name>update/statusdb</name>
+    <message>
+      <source>Database structure check</source>
+      <translation>Comprobación de estructura de la base de datos</translation>
+    </message>
+    <message>
+      <source>Your database does not require any updates</source>
+      <translation>Su base de datos no requiere actualización</translation>
+    </message>
+    <message>
+      <source>Update database</source>
+      <translation>Actualizar base de datos</translation>
+    </message>
+    <message>
+      <source>Queries which will be executed on update</source>
+      <translation>Consultas que se ejecutarán al actualizar</translation>
     </message>
   </context>
 </TS>

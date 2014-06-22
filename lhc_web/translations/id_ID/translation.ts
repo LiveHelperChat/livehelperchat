@@ -2324,6 +2324,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Default theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>File configuration</source>
       <translation>Konfigurasi berkas</translation>
     </message>
@@ -3386,6 +3390,10 @@
     <message>
       <source>Updated</source>
       <translation>Telah diperbarui</translation>
+    </message>
+    <message>
+      <source>Updating...</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Logged user</source>
@@ -4537,6 +4545,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Comparing current database structure, please wait...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time zone</source>
       <translation>Zona waktu</translation>
     </message>
@@ -4635,6 +4647,10 @@
   <context>
     <name>system/update</name>
     <message>
+      <source>Last database update</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Your version</source>
       <translation type="unfinished"/>
     </message>
@@ -4643,19 +4659,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Last database update</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>News</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Missing updates from new versions.</source>
+      <source>Update instructions</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Update instructions</source>
+      <source>Missing updates from new versions.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5645,6 +5657,10 @@
   <context>
     <name>theme/import</name>
     <message>
+      <source>Default theme was set</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Import theme</source>
       <translation type="unfinished"/>
     </message>
@@ -5672,6 +5688,10 @@
   <context>
     <name>theme/index</name>
     <message>
+      <source>Default theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Theme</source>
       <translation type="unfinished"/>
     </message>
@@ -5689,6 +5709,32 @@
     </message>
     <message>
       <source>Import theme</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>theme/default</name>
+    <message>
+      <source>Set as default theme</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>update/statusdb</name>
+    <message>
+      <source>Database structure check</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Your database does not require any updates</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update database</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Queries which will be executed on update</source>
       <translation type="unfinished"/>
     </message>
   </context>
