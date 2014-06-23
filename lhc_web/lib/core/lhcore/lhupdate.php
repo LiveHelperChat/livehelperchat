@@ -9,17 +9,21 @@ class erLhcoreClassUpdate
 		$updateInformation = self::getTablesStatus($definition);
 		$db = ezcDbInstance::get();
 		
+		$errorMessages = array();
+		
 		foreach ($updateInformation as $table => $tableData) {
 			if ($tableData['error'] == true) {
 				foreach ($tableData['queries'] as $query) {
 					try {
 						$db->query($query);
 					} catch (Exception $e) {
-						
+						$errorMessages[] = $e->getMessage();
 					}
 				}
 			}
 		}
+		
+		return $errorMessages;		
 	}
 	
 	public static function getTablesStatus($definition){
