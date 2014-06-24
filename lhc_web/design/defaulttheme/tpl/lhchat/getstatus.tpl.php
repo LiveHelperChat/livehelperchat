@@ -672,7 +672,7 @@ lh_inst.storeReferrer(<?php echo json_encode($referrer)?>);
 		lh_inst.startNewMessageCheckSingle();
 	}
 	<?php endif;?>
-<?php else : ?>
+<?php elseif ($track_online_users == true) : ?>
 	lh_inst.logPageView();
 <?php endif;?>
 
