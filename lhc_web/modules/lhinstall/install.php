@@ -677,6 +677,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('automatically_reopen_chat','1',0,'Automatically reopen chat on widget open', '0'),
                 ('autoclose_timeout','0', 0, 'Automatic chats closing. 0 - disabled, n > 0 time in minutes before chat is automatically closed', '0'),
                 ('autopurge_timeout','0', 0, 'Automatic chats purging. 0 - disabled, n > 0 time in minutes before chat is automatically deleted', '0'),
+                ('update_ip',	'127.0.0.1',	0,	'Which ip should be allowed to update DB by executing http request, separate by comma?',0),
                 ('geo_data', '', '0', '', '1')");
 
         	   
