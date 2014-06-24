@@ -32,21 +32,11 @@ if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_p
 	}
 }
 
-
 // Perhaps it's direct argument
 if ((string)$Params['user_parameters_unordered']['hash'] != '') {
 	list($chatID,$hash) = explode('_',$Params['user_parameters_unordered']['hash']);
 
 	$sound = is_numeric($Params['user_parameters_unordered']['sound']) ? '/(sound)/'.$Params['user_parameters_unordered']['sound'] : '';
-
-	if ((string)$Params['user_parameters_unordered']['vid'] != '') {
-		$userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'pages_count' => true, 'vid' => (string)$Params['user_parameters_unordered']['vid'], 'check_message_operator' => false));
-
-		if (erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1 && isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])) {
-			erLhcoreClassModelChatOnlineUserFootprint::addPageView($userInstance);
-		}
-	}
-
 
 	try {
 		$chat = erLhcoreClassModelChat::fetch($chatID);

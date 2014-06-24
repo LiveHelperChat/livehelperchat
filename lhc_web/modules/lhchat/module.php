@@ -281,6 +281,11 @@ $ViewList['chatcheckoperatormessage'] = array(
     'uparams' => array('theme','priority','vid','count_page','identifier','department')
 );
 
+$ViewList['logpageview'] = array(
+    'params' => array(),
+    'uparams' => array('vid','identifier','department')
+);
+
 $ViewList['chatwidgetclosed'] = array(
     'params' => array(),
     'uparams' => array('vid','hash'),

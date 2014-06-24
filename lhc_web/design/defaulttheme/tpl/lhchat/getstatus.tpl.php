@@ -79,6 +79,7 @@ if (key_exists($position, $positionArgument)){
 
 $trackDomain = erLhcoreClassModelChatConfig::fetch('track_domain')->current_value;
 $disableHTML5Storage = (int)erLhcoreClassModelChatConfig::fetch('disable_html5_storage')->current_value;
+$trackOnline = (int)erLhcoreClassModelChatConfig::fetch('track_if_offline')->current_value;
 
 ?>
 
@@ -90,7 +91,7 @@ if ($isOnlineHelp == false && erLhcoreClassModelChatConfig::fetch('pro_active_sh
 };
 
 // Perhaps user do not want to show live help when it's offline
-if ( !($isOnlineHelp == false && $hide_offline == 'true') ) : ?>
+if ( !($isOnlineHelp == false && $hide_offline == 'true') || $trackOnline == 1 ) : ?>
 
 /*! Cookies.js - 0.3.1; Copyright (c) 2013, Scott Hamper; http://www.opensource.org/licenses/MIT */
 (function(e){"use strict";var a=function(b,d,c){return 1===arguments.length?a.get(b):a.set(b,d,c)};a._document=document;a._navigator=navigator;a.defaults={path:"/"};a.get=function(b){a._cachedDocumentCookie!==a._document.cookie&&a._renewCache();return a._cache[b]};a.set=function(b,d,c){c=a._getExtendedOptions(c);c.expires=a._getExpiresDate(d===e?-1:c.expires);a._document.cookie=a._generateCookieString(b,d,c);return a};a.expire=function(b,d){return a.set(b,e,d)};a._getExtendedOptions=function(b){return{path:b&&
@@ -454,6 +455,17 @@ var lh_inst  = {
         th.appendChild(s);
     },
 
+    logPageView : function() {
+    	var vid = this.cookieDataPers.vid;       
+        var th = document.getElementsByTagName('head')[0];
+        var s = document.createElement('script');
+        var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));        
+        s.setAttribute('id','lhc_log_pageview');
+        s.setAttribute('type','text/javascript');
+        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/logpageview')?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?>/(vid)/'+vid+'?l='+locationCurrent+this.parseStorageArguments()+this.parseOptionsOnline()+'&dt='+encodeURIComponent(document.title));
+        th.appendChild(s);
+    },
+
     removeCookieAttr : function(attr){
     	if (this.cookieData[attr]) {
     		delete this.cookieData[attr];
@@ -632,31 +644,38 @@ lh_inst.initSessionStorage();
 lh_inst.storeReferrer(<?php echo json_encode($referrer)?>);
 <?php endif; ?>
 
-<?php if ($position == 'original' || $position == '') :
-// You can style bottom HTML whatever you want. ?>
-<?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/native_placement.tpl.php')); ?>
 
-<?php elseif (in_array($position, array('bottom_right','bottom_left','middle_right','middle_left'))) : ?>
-lh_inst.showStatusWidget();
-<?php endif; ?>
+<?php if (!($isOnlineHelp == false && $hide_offline == 'true')) : ?>
 
-if (lh_inst.cookieData.hash) {
-	lh_inst.stopCheckNewMessage();
-	lh_inst.substatus = '_reopen';
-    lh_inst.showStartWindow();
-}
-
-<?php if ($check_operator_messages == 'true' && $disable_pro_active == false) : ?>
-if (!lh_inst.cookieData.hash) {
-	lh_inst.startNewMessageCheck();
-}
-<?php endif; ?>
-
-<?php if ($disable_pro_active == false && $track_online_users == true) : ?>
-if (!lh_inst.cookieData.hash) {
-	lh_inst.startNewMessageCheckSingle();
-}
+	<?php if ($position == 'original' || $position == '') :
+	// You can style bottom HTML whatever you want. ?>
+	<?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/native_placement.tpl.php')); ?>
+	
+	<?php elseif (in_array($position, array('bottom_right','bottom_left','middle_right','middle_left'))) : ?>
+	lh_inst.showStatusWidget();
+	<?php endif; ?>
+	
+	if (lh_inst.cookieData.hash) {
+		lh_inst.stopCheckNewMessage();
+		lh_inst.substatus = '_reopen';
+	    lh_inst.showStartWindow();
+	}
+	
+	<?php if ($check_operator_messages == 'true' && $disable_pro_active == false) : ?>
+	if (!lh_inst.cookieData.hash) {
+		lh_inst.startNewMessageCheck();
+	}
+	<?php endif; ?>
+	
+	<?php if ($disable_pro_active == false && $track_online_users == true) : ?>
+	if (!lh_inst.cookieData.hash) {
+		lh_inst.startNewMessageCheckSingle();
+	}
+	<?php endif;?>
+<?php else : ?>
+	lh_inst.logPageView();
 <?php endif;?>
+
 
 <?php
 endif; // hide if offline

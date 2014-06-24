@@ -3286,6 +3286,13 @@
                 "hidden": "0"
             },
             {
+                "identifier": "track_if_offline",
+                "value": "0",
+                "type": "0",
+                "explain": "Track online visitors even if there is no online operators",
+                "hidden": "0"
+            },
+            {
                 "identifier": "ignore_user_status",
                 "value": "0",
                 "type": "0",
