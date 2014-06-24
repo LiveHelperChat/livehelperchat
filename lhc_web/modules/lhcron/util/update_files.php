@@ -4,13 +4,7 @@
 
 echo "Downloading most recent version\n";
 
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://github.com/LiveHelperChat/livehelperchat/archive/master.zip');
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
-$content = curl_exec($ch);
+$content = erLhcoreClassModelChatOnlineUser::executeRequest('https://github.com/LiveHelperChat/livehelperchat/archive/master.zip');
 
 echo "Download completed\n";
 echo "Storing a file\n";
