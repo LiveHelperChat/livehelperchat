@@ -8,6 +8,8 @@ $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, 'https://github.com/LiveHelperChat/livehelperchat/archive/master.zip');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 $content = curl_exec($ch);
 
 echo "Download completed\n";
