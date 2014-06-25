@@ -2591,7 +2591,7 @@
     </message>
     <message>
       <source>Subject</source>
-      <translation>Soggetto</translation>
+      <translation>Oggetto</translation>
     </message>
     <message>
       <source>From name</source>
@@ -2635,7 +2635,7 @@
     </message>
     <message>
       <source>Subject is missing!</source>
-      <translation>Soggetto non inserito!</translation>
+      <translation>Oggetto non inserito!</translation>
     </message>
   </context>
   <context>
@@ -5371,11 +5371,11 @@
     </message>
     <message>
       <source>Subject</source>
-      <translation>Soggetto</translation>
+      <translation>Oggetto</translation>
     </message>
     <message>
       <source>Allow user to change subject</source>
-      <translation>Consenti all&apos;utente di cambiare argomento</translation>
+      <translation>Consenti all&apos;utente di cambiare l&apos;oggetto</translation>
     </message>
     <message>
       <source>From name</source>
@@ -5383,15 +5383,15 @@
     </message>
     <message>
       <source>Allow to change from name</source>
-      <translation>Lasciar passare da nome</translation>
+      <translation>Consenti di cambiare &quot;Da Nome&quot;</translation>
     </message>
     <message>
       <source>From e-mail, if mail was not sent for some reason, this mail will get a failed delivery message</source>
-      <translation>Da e-mail, se mail non è stata inviata per qualche ragione, questa mail otterrà un messaggio di mancato recapito</translation>
+      <translation>Da e-mail, se la posta non è stata inviata per qualche motivo, a questa mail verrà visualizzato un messaggio di mancato recapito</translation>
     </message>
     <message>
       <source>Allow to change from e-mail</source>
-      <translation>Lasciar passare dalla posta elettronica</translation>
+      <translation>Permette di cambiare da e-mail</translation>
     </message>
     <message>
       <source>Reply to</source>
@@ -5399,7 +5399,7 @@
     </message>
     <message>
       <source>Allow to change reply e-mail</source>
-      <translation>Consenti di cambiare risposta via e-mail</translation>
+      <translation>Permette di cambiare l&apos;e-mail di risposta</translation>
     </message>
     <message>
       <source>Recipient email, this is used if the application could not determine who should receive an email.</source>

@@ -270,11 +270,11 @@
     </message>
     <message>
       <source>Theme</source>
-      <translation type="unfinished"/>
+      <translation>Thema</translation>
     </message>
     <message>
       <source>Default</source>
-      <translation type="unfinished"/>
+      <translation>Standaard</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>
@@ -330,7 +330,7 @@
     </message>
     <message>
       <source>Disable responsive layout for status widget.</source>
-      <translation type="unfinished"/>
+      <translation>Responsive layout uitzetten voor status widget.</translation>
     </message>
     <message>
       <source>Disable minimize icon</source>
@@ -477,7 +477,7 @@
     </message>
     <message>
       <source>HTML code</source>
-      <translation>HTML kodas</translation>
+      <translation>HTML code</translation>
     </message>
   </context>
   <context>
@@ -512,11 +512,11 @@
     </message>
     <message>
       <source>Forms</source>
-      <translation type="unfinished"/>
+      <translation>Formulieren</translation>
     </message>
     <message>
       <source>Documents</source>
-      <translation type="unfinished"/>
+      <translation>Documenten</translation>
     </message>
     <message>
       <source>Form</source>
@@ -708,7 +708,7 @@
     </message>
     <message>
       <source>Please enter an IP to block</source>
-      <translation type="unfinished"/>
+      <translation>Voer een IP adres in om te blokkeren</translation>
     </message>
     <message>
       <source>User was blocked!</source>
@@ -750,7 +750,7 @@
     </message>
     <message>
       <source>Auto send</source>
-      <translation type="unfinished"/>
+      <translation>Automatisch verzenden</translation>
     </message>
     <message>
       <source>Edit message</source>
@@ -770,7 +770,7 @@
     </message>
     <message>
       <source>Automatically send this message to user then chat is accepted</source>
-      <translation type="unfinished"/>
+      <translation>Automatisch dit bericht aan gebruiker verzenden als chat is geaccepteerd</translation>
     </message>
     <message>
       <source>Delay in seconds</source>
@@ -933,7 +933,7 @@
     </message>
     <message>
       <source>Inform about unread messages if from last unread user message have passed (seconds)</source>
-      <translation type="unfinished"/>
+      <translation>Informeer over ongelezen berichten als laatste ongelezen gebruikers bericht is verstreken (seconden)</translation>
     </message>
     <message>
       <source>Please enter value in seconds</source>
@@ -941,7 +941,7 @@
     </message>
     <message>
       <source>Inform then chat is accepted by one of the staff members using</source>
-      <translation type="unfinished"/>
+      <translation>Informeer als chat is geaccepteerd door een van de beheerders met</translation>
     </message>
     <message>
       <source>Other</source>
@@ -965,15 +965,15 @@
     </message>
     <message>
       <source>Execute new chat logic again for recipient department?</source>
-      <translation type="unfinished"/>
+      <translation>Nieuwe chat logica uitvoeren voor ontvanger&apos;s afdeling?</translation>
     </message>
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
-      <translation type="unfinished"/>
+      <translation>Onbeantwoorde chat logica opnieuw uitvoeren voor ontvanger&apos;s afdeling?</translation>
     </message>
     <message>
       <source>Auto assignment</source>
-      <translation type="unfinished"/>
+      <translation>Automatisch toewijzen</translation>
     </message>
     <message>
       <source>Miscellaneous</source>
@@ -1871,11 +1871,11 @@
     </message>
     <message>
       <source>Enable/Disable sound about new visitor</source>
-      <translation type="unfinished"/>
+      <translation>Geluid, nieuwe bezoeker, aan/uit</translation>
     </message>
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
-      <translation type="unfinished"/>
+      <translation>Browser notificatie, nieuwe bezoeker, aan/uit</translation>
     </message>
     <message>
       <source>List</source>
@@ -2157,15 +2157,15 @@
     </message>
     <message>
       <source>Forms</source>
-      <translation type="unfinished"/>
+      <translation>Formulieren</translation>
     </message>
     <message>
       <source>Documents</source>
-      <translation type="unfinished"/>
+      <translation>Documenten</translation>
     </message>
     <message>
       <source>Automatic chats assigment</source>
-      <translation type="unfinished"/>
+      <translation>Chats automatisch toewijzen</translation>
     </message>
     <message>
       <source>Request notification permission</source>
@@ -2181,7 +2181,7 @@
     </message>
     <message>
       <source>System</source>
-      <translation type="unfinished"/>
+      <translation>Systeem</translation>
     </message>
     <message>
       <source>Time zone settings</source>
@@ -2217,7 +2217,7 @@
     </message>
     <message>
       <source>Embed code</source>
-      <translation type="unfinished"/>
+      <translation>Code insluiten</translation>
     </message>
     <message>
       <source>Live help embed code</source>
@@ -2241,7 +2241,7 @@
     </message>
     <message>
       <source>Live help configuration</source>
-      <translation type="unfinished"/>
+      <translation>Live help configuratie</translation>
     </message>
     <message>
       <source>Departments</source>
@@ -2297,11 +2297,11 @@
     </message>
     <message>
       <source>Maintenance</source>
-      <translation type="unfinished"/>
+      <translation>Onderhoud</translation>
     </message>
     <message>
       <source>Files</source>
-      <translation type="unfinished"/>
+      <translation>Bestanden</translation>
     </message>
     <message>
       <source>Files upload configuration</source>
@@ -2313,19 +2313,19 @@
     </message>
     <message>
       <source>Theming</source>
-      <translation type="unfinished"/>
+      <translation>Thema&apos;s</translation>
     </message>
     <message>
       <source>Widget themes</source>
-      <translation type="unfinished"/>
+      <translation>Widget thema&apos;s</translation>
     </message>
     <message>
       <source>Import new themes</source>
-      <translation type="unfinished"/>
+      <translation>Importeer nieuwe thema&apos;s</translation>
     </message>
     <message>
       <source>Default theme</source>
-      <translation type="unfinished"/>
+      <translation>Standaard thema</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -2431,7 +2431,7 @@
     </message>
     <message>
       <source>Extra modules</source>
-      <translation type="unfinished"/>
+      <translation>Extra modules</translation>
     </message>
     <message>
       <source>Questionary</source>
@@ -2469,7 +2469,7 @@
     <name>chat/lists/search_panel</name>
     <message>
       <source>Delete selected</source>
-      <translation type="unfinished"/>
+      <translation>Verwijder geselecteerde</translation>
     </message>
     <message>
       <source>Nick</source>
@@ -3393,7 +3393,7 @@
     </message>
     <message>
       <source>Updating...</source>
-      <translation type="unfinished"/>
+      <translation>Updaten...</translation>
     </message>
     <message>
       <source>Logged user</source>
@@ -3505,11 +3505,11 @@
     </message>
     <message>
       <source>Pending chats</source>
-      <translation type="unfinished"/>
+      <translation>Openstaande chats</translation>
     </message>
     <message>
       <source>I can see all pending chats, not only assigned to me</source>
-      <translation type="unfinished"/>
+      <translation>Alle openstaande chats bekijken, niet alleen aan mij toegewezen</translation>
     </message>
     <message>
       <source>Account updated</source>
@@ -3521,7 +3521,7 @@
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
-      <translation type="unfinished"/>
+      <translation>Gebruiker kan alle openstaande chats bekijken, niet alleen de aan hem toegewezen chats</translation>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -4546,7 +4546,7 @@
     </message>
     <message>
       <source>Comparing current database structure, please wait...</source>
-      <translation type="unfinished"/>
+      <translation>Huidige database structuur aan het vergelijken, een ogenblik a.u.b....</translation>
     </message>
     <message>
       <source>Time zone</source>
@@ -4940,7 +4940,7 @@
     <name>user/login</name>
     <message>
       <source>Please login</source>
-      <translation>Login</translation>
+      <translation>Inloggen a.u.b.</translation>
     </message>
     <message>
       <source>Username</source>
@@ -5068,7 +5068,7 @@
     </message>
     <message>
       <source>XMPP Message about accepted chat</source>
-      <translation type="unfinished"/>
+      <translation>XMPP Bericht over geaccepteerde chat</translation>
     </message>
     <message>
       <source>XMPP</source>
@@ -5218,7 +5218,7 @@
     </message>
     <message>
       <source>Chat was automatically closed by cron</source>
-      <translation type="unfinished"/>
+      <translation>Chat is automatisch gesloten door cron</translation>
     </message>
     <message>
       <source>Support staff member has closed this chat</source>
@@ -5308,7 +5308,7 @@
     </message>
     <message>
       <source>Callback content, must be valid json</source>
-      <translation type="unfinished"/>
+      <translation>Callback content, moet geldige json bevatten</translation>
     </message>
     <message>
       <source>Load content in lhc iframe</source>
@@ -5505,237 +5505,237 @@
     <name>chat/maintenance</name>
     <message>
       <source>Maintenance</source>
-      <translation type="unfinished"/>
+      <translation>Onderhoud</translation>
     </message>
     <message>
       <source>Automatic chats close, click to close old chats</source>
-      <translation type="unfinished"/>
+      <translation>Automatisch chats sluiten, click om oude chats te sluiten</translation>
     </message>
     <message>
       <source>Automatic chats purge, click to purge old chats</source>
-      <translation type="unfinished"/>
+      <translation>Automatisch chats opschonen, klik om oude chats op te schonen</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation type="unfinished"/>
+      <translation>Gesloten chats</translation>
     </message>
     <message>
       <source>Purged chats</source>
-      <translation type="unfinished"/>
+      <translation>Opgeschoonde chats</translation>
     </message>
   </context>
   <context>
     <name>chat/operatorsbalancing</name>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>Actief</translation>
     </message>
     <message>
       <source>Maximum number of active chats user can have at a time, 0 - unlimited</source>
-      <translation type="unfinished"/>
+      <translation>Maximaal aantal actieve chats een gebruiker tegelijk kan hebben, 0 - ongelimiteerd</translation>
     </message>
     <message>
       <source>Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled</source>
-      <translation type="unfinished"/>
+      <translation>Automatisch chat toewijzen aan een andere operator als deze de chat niet heeft geaccepteerd in seconden, 0 - uitgeschakeld</translation>
     </message>
   </context>
   <context>
     <name>abstract/widgettheme</name>
     <message>
       <source>Download theme</source>
-      <translation type="unfinished"/>
+      <translation>Download thema</translation>
     </message>
     <message>
       <source>Status widget style</source>
-      <translation type="unfinished"/>
+      <translation>Status widget stijl</translation>
     </message>
     <message>
       <source>Widget container</source>
-      <translation type="unfinished"/>
+      <translation>Widget container</translation>
     </message>
     <message>
       <source>Need help widget</source>
-      <translation type="unfinished"/>
+      <translation>Hulp nodig widget</translation>
     </message>
     <message>
       <source>Custom CSS</source>
-      <translation type="unfinished"/>
+      <translation>Eigen CSS</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Naam</translation>
     </message>
     <message>
       <source>Need help header text</source>
-      <translation type="unfinished"/>
+      <translation>Hulp nodig, header text</translation>
     </message>
     <message>
       <source>Need help standard text</source>
-      <translation type="unfinished"/>
+      <translation>Hulp nodig, standaard tekst</translation>
     </message>
     <message>
       <source>Online status text</source>
-      <translation type="unfinished"/>
+      <translation>Online status tekst</translation>
     </message>
     <message>
       <source>Offline status text</source>
-      <translation type="unfinished"/>
+      <translation>Offline status text</translation>
     </message>
     <message>
       <source>Background color</source>
-      <translation type="unfinished"/>
+      <translation>Achtergrond kleur</translation>
     </message>
     <message>
       <source>Text color</source>
-      <translation type="unfinished"/>
+      <translation>Tekst kleur</translation>
     </message>
     <message>
       <source>Logo image, visible in popup</source>
-      <translation type="unfinished"/>
+      <translation>Logo afbeelding, zichtbaar in popup</translation>
     </message>
     <message>
       <source>Online image</source>
-      <translation type="unfinished"/>
+      <translation>Online afbeelding</translation>
     </message>
     <message>
       <source>Offline image</source>
-      <translation type="unfinished"/>
+      <translation>Offline afbeelding</translation>
     </message>
     <message>
       <source>Widget header background color</source>
-      <translation type="unfinished"/>
+      <translation>Widget header achtergrond kleur</translation>
     </message>
     <message>
       <source>Widget border color</source>
-      <translation type="unfinished"/>
+      <translation>Widget border kleur</translation>
     </message>
     <message>
       <source>Need help background color</source>
-      <translation type="unfinished"/>
+      <translation>Hulp nodig achtergrond kleur</translation>
     </message>
     <message>
       <source>Need help hover background color</source>
-      <translation type="unfinished"/>
+      <translation>Hulp nodig, hover, achtergrondkleur</translation>
     </message>
     <message>
       <source>Need help text color</source>
-      <translation type="unfinished"/>
+      <translation>Hulp nodig, tekstkleur</translation>
     </message>
     <message>
       <source>Need help border color</source>
-      <translation type="unfinished"/>
+      <translation>Hulp nodig, randkleur</translation>
     </message>
     <message>
       <source>Need help close background color</source>
-      <translation type="unfinished"/>
+      <translation>Hulp nodig, sluiten, achtergrondkleur</translation>
     </message>
     <message>
       <source>Need help close hover background color</source>
-      <translation type="unfinished"/>
+      <translation>Hulp nodig, sluiten, hover achtergrondkleur</translation>
     </message>
     <message>
       <source>Need help operator image</source>
-      <translation type="unfinished"/>
+      <translation>Hulp nodig operator afbeelding</translation>
     </message>
     <message>
       <source>Status widget additional CSS, takes effect after save</source>
-      <translation type="unfinished"/>
+      <translation>Status widget extra CSS, toegepast na opslaan</translation>
     </message>
     <message>
       <source>Widget container additional CSS, takes effect after save</source>
-      <translation type="unfinished"/>
+      <translation>Widget container extra CSS, actief na opslaan</translation>
     </message>
     <message>
       <source>Widget body additional CSS, takes effect after save</source>
-      <translation type="unfinished"/>
+      <translation>Widget body extra CSS, actief na opslaan</translation>
     </message>
     <message>
       <source>Widget themes</source>
-      <translation type="unfinished"/>
+      <translation>Widget thema&apos;s</translation>
     </message>
   </context>
   <context>
     <name>theme/import</name>
     <message>
       <source>Default theme was set</source>
-      <translation type="unfinished"/>
+      <translation>Standaard thema ingesteld</translation>
     </message>
     <message>
       <source>Import theme</source>
-      <translation type="unfinished"/>
+      <translation>Thema importeren</translation>
     </message>
     <message>
       <source>File</source>
-      <translation type="unfinished"/>
+      <translation>Bestand</translation>
     </message>
     <message>
       <source>Import</source>
-      <translation type="unfinished"/>
+      <translation>Importeren</translation>
     </message>
     <message>
       <source>Theme imported</source>
-      <translation type="unfinished"/>
+      <translation>Thema geïmporteerd</translation>
     </message>
     <message>
       <source>Could not import a new theme!</source>
-      <translation type="unfinished"/>
+      <translation>Kon nieuwe thema niet importeren!</translation>
     </message>
     <message>
       <source>Invalid file!</source>
-      <translation type="unfinished"/>
+      <translation>Ongeldig bestand!</translation>
     </message>
   </context>
   <context>
     <name>theme/index</name>
     <message>
       <source>Default theme</source>
-      <translation type="unfinished"/>
+      <translation>Standaard thema</translation>
     </message>
     <message>
       <source>Theme</source>
-      <translation type="unfinished"/>
+      <translation>Thema</translation>
     </message>
     <message>
       <source>Widget themes</source>
-      <translation type="unfinished"/>
+      <translation>Widget thema&apos;s</translation>
     </message>
     <message>
       <source>Import a new theme</source>
-      <translation type="unfinished"/>
+      <translation>Import een nieuw thema</translation>
     </message>
     <message>
       <source>Themes</source>
-      <translation type="unfinished"/>
+      <translation>Thema&apos;s</translation>
     </message>
     <message>
       <source>Import theme</source>
-      <translation type="unfinished"/>
+      <translation>Import thema</translation>
     </message>
   </context>
   <context>
     <name>theme/default</name>
     <message>
       <source>Set as default theme</source>
-      <translation type="unfinished"/>
+      <translation>Instellen als standaard thema</translation>
     </message>
   </context>
   <context>
     <name>update/statusdb</name>
     <message>
       <source>Database structure check</source>
-      <translation type="unfinished"/>
+      <translation>Database structuur check</translation>
     </message>
     <message>
       <source>Your database does not require any updates</source>
-      <translation type="unfinished"/>
+      <translation>Je database behoeft geen updates</translation>
     </message>
     <message>
       <source>Update database</source>
-      <translation type="unfinished"/>
+      <translation>Update database</translation>
     </message>
     <message>
       <source>Queries which will be executed on update</source>
-      <translation type="unfinished"/>
+      <translation>Regels welke worden uitgevoerd bij update</translation>
     </message>
   </context>
 </TS>
