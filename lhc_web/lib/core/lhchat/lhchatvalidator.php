@@ -268,6 +268,8 @@ class erLhcoreClassChatValidator {
         	$chat->additional_data = json_encode($stringParts);
         }
 
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validate_start_chat',array('errors' => & $Errors, 'input_form' => & $inputForm, 'start_data_fields' => & $start_data_fields, 'chat' => & $chat,'additional_params' => & $additionalParams));
+        
         return $Errors;
     }
 
