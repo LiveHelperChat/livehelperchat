@@ -257,6 +257,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Widget copyright</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Widget container</source>
       <translation type="unfinished"/>
     </message>
@@ -298,6 +302,18 @@
     </message>
     <message>
       <source>Logo image, visible in popup</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Logo image, visible in widget left corner, 16x16</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show copyright widget logo in left corner</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget copyright link</source>
       <translation type="unfinished"/>
     </message>
     <message>

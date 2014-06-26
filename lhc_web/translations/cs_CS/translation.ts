@@ -2325,7 +2325,7 @@
     </message>
     <message>
       <source>Default theme</source>
-      <translation type="unfinished"/>
+      <translation>Výchozí šablona</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -3393,7 +3393,7 @@
     </message>
     <message>
       <source>Updating...</source>
-      <translation type="unfinished"/>
+      <translation>Aktualizuji...</translation>
     </message>
     <message>
       <source>Logged user</source>
@@ -4546,7 +4546,7 @@
     </message>
     <message>
       <source>Comparing current database structure, please wait...</source>
-      <translation type="unfinished"/>
+      <translation>Porovnávám aktuální databázovou strukturu, čekejte, prosím...</translation>
     </message>
     <message>
       <source>Time zone</source>
@@ -5658,7 +5658,7 @@
     <name>theme/import</name>
     <message>
       <source>Default theme was set</source>
-      <translation type="unfinished"/>
+      <translation>Výchozí šablona byla nastavena</translation>
     </message>
     <message>
       <source>Import theme</source>
@@ -5689,7 +5689,7 @@
     <name>theme/index</name>
     <message>
       <source>Default theme</source>
-      <translation type="unfinished"/>
+      <translation>Výchozí šablona</translation>
     </message>
     <message>
       <source>Theme</source>
@@ -5716,26 +5716,26 @@
     <name>theme/default</name>
     <message>
       <source>Set as default theme</source>
-      <translation type="unfinished"/>
+      <translation>Nastavit jako výchozí šablonu</translation>
     </message>
   </context>
   <context>
     <name>update/statusdb</name>
     <message>
       <source>Database structure check</source>
-      <translation type="unfinished"/>
+      <translation>Kontrola struktury databáze</translation>
     </message>
     <message>
       <source>Your database does not require any updates</source>
-      <translation type="unfinished"/>
+      <translation>Vaše databáze nevyžaduje žádnou aktualizaci</translation>
     </message>
     <message>
       <source>Update database</source>
-      <translation type="unfinished"/>
+      <translation>Aktualizovat databázi</translation>
     </message>
     <message>
       <source>Queries which will be executed on update</source>
-      <translation type="unfinished"/>
+      <translation>Příkazy, které budou vykonány během aktualizace</translation>
     </message>
   </context>
 </TS>

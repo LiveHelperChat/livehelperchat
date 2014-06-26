@@ -484,11 +484,11 @@
     <name>browseoffer/index</name>
     <message>
       <source>List of forms</source>
-      <translation type="unfinished"/>
+      <translation>Auflistung der Formulare</translation>
     </message>
     <message>
       <source>Page embed code</source>
-      <translation type="unfinished"/>
+      <translation>Einbettungscode für Seiten</translation>
     </message>
     <message>
       <source>Index</source>
@@ -4546,7 +4546,7 @@
     </message>
     <message>
       <source>Comparing current database structure, please wait...</source>
-      <translation type="unfinished"/>
+      <translation>Vergleiche aktuelle Datenbankstruktur, bitte warten...</translation>
     </message>
     <message>
       <source>Time zone</source>
@@ -5068,7 +5068,7 @@
     </message>
     <message>
       <source>XMPP Message about accepted chat</source>
-      <translation type="unfinished"/>
+      <translation>XMPP Nachricht über akzeptieren Chat</translation>
     </message>
     <message>
       <source>XMPP</source>
@@ -5292,15 +5292,15 @@
     </message>
     <message>
       <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
-      <translation type="unfinished"/>
+      <translation>Referrer Domain ohne www. z.B. Google Suchbegriffe werden von jeder Google-Domain erkannt</translation>
     </message>
     <message>
       <source>URL, enter * at the end for the wildcard</source>
-      <translation type="unfinished"/>
+      <translation>URL, verwende für eine Wildcard ein * am Ende</translation>
     </message>
     <message>
       <source>Custom iframe URL, takes priority over default content</source>
-      <translation type="unfinished"/>
+      <translation>Benutzerdefinierte iframe Url, Vorrang vor Standardinhalt</translation>
     </message>
     <message>
       <source>Default popup content</source>
@@ -5308,7 +5308,7 @@
     </message>
     <message>
       <source>Callback content, must be valid json</source>
-      <translation type="unfinished"/>
+      <translation>Callback Inhalt muss gültiges json sein</translation>
     </message>
     <message>
       <source>Load content in lhc iframe</source>
@@ -5320,11 +5320,11 @@
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation type="unfinished"/>
+      <translation>Merkmal, für welches Merkmal diese Nachticht angezeigt werden soll, für alle leer lassen</translation>
     </message>
     <message>
       <source>Matched times</source>
-      <translation type="unfinished"/>
+      <translation>Anzahl der Ausführungen</translation>
     </message>
     <message>
       <source>Browser offer invitations</source>
@@ -5344,7 +5344,7 @@
     </message>
     <message>
       <source>XLS Columns</source>
-      <translation type="unfinished"/>
+      <translation>XLS Spalten</translation>
     </message>
     <message>
       <source>Recipient</source>
@@ -5509,11 +5509,11 @@
     </message>
     <message>
       <source>Automatic chats close, click to close old chats</source>
-      <translation type="unfinished"/>
+      <translation>Chats automatisch schließen, klicken um alte Chats zu schließen</translation>
     </message>
     <message>
       <source>Automatic chats purge, click to purge old chats</source>
-      <translation type="unfinished"/>
+      <translation>Chats automatisch reinigen, klicken um alte Chats zu bereinigen</translation>
     </message>
     <message>
       <source>Closed chats</source>
@@ -5536,7 +5536,7 @@
     </message>
     <message>
       <source>Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled</source>
-      <translation type="unfinished"/>
+      <translation>Chat automatisch einem anderen Operator zuweisen, wenn Operator nicht in X Sekunden akzeptiert. 0=deaktiviert</translation>
     </message>
   </context>
   <context>
@@ -5735,7 +5735,7 @@
     </message>
     <message>
       <source>Queries which will be executed on update</source>
-      <translation type="unfinished"/>
+      <translation>Abfragen die beim Update ausgeführt werden</translation>
     </message>
   </context>
 </TS>
