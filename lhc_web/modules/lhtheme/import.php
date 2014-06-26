@@ -46,6 +46,11 @@ if (ezcInputForm::hasPostData()) {
 				unset($data['offline_image_data']);
 			}
 			
+			if (isset($data['copyright_image_data'])){
+				$imgData['copyright_image'] = $data['copyright_image_data'];
+				unset($data['copyright_image_data']);
+			}
+			
 			try {
 				$widgetTheme->setState($data);
 				$widgetTheme->saveThis();

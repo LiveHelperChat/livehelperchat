@@ -1,3 +1,12 @@
+2.05v
+
+1. Option to hide/show widget copyright small logo. 16x16
+2. Option to upload your own logo for small copyright logo in widget left corner.
+3. Option to track online visitors then widget is not visible because operators are offline.
+4. Roles permission editing window will contain checkboxes instead of combobox.
+5. Disabled ssl check for curl request, window update compatibility. Thanks to softaculous
+6. Translations now also are generated for chat configuration window. User requested this.
+
 2.04v
 
 1. https://github.com/LiveHelperChat/livehelperchat/issues/412

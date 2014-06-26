@@ -68,7 +68,8 @@ class erLhAbstractModelWidgetTheme {
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help header text'),
    						'required' => false,   
-   						'nginit' => true,						
+   						'nginit' => true,	
+   						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),   			
@@ -77,6 +78,7 @@ class erLhAbstractModelWidgetTheme {
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help standard text'),
    						'required' => false,
    						'nginit' => true,
+   						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
@@ -103,8 +105,7 @@ class erLhAbstractModelWidgetTheme {
    						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),
-   				
+   						)),   				
    				'text_color' => array(
    						'type' => 'colorpicker',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text color'),
@@ -126,7 +127,7 @@ class erLhAbstractModelWidgetTheme {
    						)),   				
    				'copyright_image' => array(
    						'type' => 'file',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Logo image, visible in widget left corner'),
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Logo image, visible in widget left corner, 16x16'),
    						'required' => false,
    						'hidden' => true,
    						'frontend' => 'copyright_image_url_img',
@@ -146,7 +147,8 @@ class erLhAbstractModelWidgetTheme {
    				'widget_copyright_url' => array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget copyright link'),
-   						'required' => false,   
+   						'required' => false,  
+   						'hidden' => true,
    						'nginit' => true,						
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'

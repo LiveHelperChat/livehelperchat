@@ -366,7 +366,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				) DEFAULT CHARSET=utf8;");
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_widget_theme` (
-				  `id` int(11) NOT NULL AUTO_INCREMENT,
+				 `id` int(11) NOT NULL AUTO_INCREMENT,
 				  `name` varchar(250) NOT NULL,
 				  `onl_bcolor` varchar(10) NOT NULL,
 				  `text_color` varchar(10) NOT NULL,
@@ -378,7 +378,6 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `logo_image_path` varchar(250) NOT NULL,
 				  `need_help_image` varchar(250) NOT NULL,
 				  `header_background` varchar(10) NOT NULL,
-        	   	  `widget_border_color` varchar(10) NOT NULL,
 				  `need_help_tcolor` varchar(10) NOT NULL,
 				  `need_help_bcolor` varchar(10) NOT NULL,
 				  `need_help_border` varchar(10) NOT NULL,
@@ -393,6 +392,11 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `need_help_text` varchar(250) NOT NULL,
 				  `online_text` varchar(250) NOT NULL,
 				  `offline_text` varchar(250) NOT NULL,
+				  `widget_border_color` varchar(10) NOT NULL,
+				  `copyright_image` varchar(250) NOT NULL,
+				  `copyright_image_path` varchar(250) NOT NULL,
+				  `widget_copyright_url` varchar(250) NOT NULL,
+				  `show_copyright` int(11) NOT NULL DEFAULT '1',
 				  PRIMARY KEY (`id`)
 				) DEFAULT CHARSET=utf8;");
 

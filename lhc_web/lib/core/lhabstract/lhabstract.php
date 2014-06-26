@@ -44,7 +44,7 @@ class erLhcoreClassAbstract {
 
         	case 'checkbox':
         	          $selected = $object->$name == 1 ? ' checked="checked" ' : '';
-        		      return '<input type="checkbox" name="AbstractInput_'.$name.'" value="1" '.$selected.' />';
+        		      return '<input ng-init="abstract_checked_'.$name.'='. ($object->$name == 1 ? 'true' : 'false') .'" ng-model="abstract_checked_'.$name.'" type="checkbox" name="AbstractInput_'.$name.'" value="1" '.$selected.' />';
         		break;
 
 			case 'imgfile':

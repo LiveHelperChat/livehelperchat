@@ -19,12 +19,10 @@
 
 
 <script>
-
-var updateData = '';
 function updateDatabase() {
 	$('#db-status-checked').hide();
 	$('#db-status-updating').show();		
-	$.postJSON('<?php echo erLhcoreClassDesign::baseurl('system/update')?>/(action)/statusdbdoupdate',{data:updateData},function(data){
+	$.postJSON('<?php echo erLhcoreClassDesign::baseurl('system/update')?>/(action)/statusdbdoupdate',function(data){
         $('#status-db').html(data.result);            
     }); 
 };
@@ -40,19 +38,10 @@ function updateDatabase() {
               $('#recent-version').text(data.version/100); 
       }
   });
-
-  $.ajax({
-      url: 'https://api.github.com/repos/LiveHelperChat/livehelperchat/contents/lhc_web/doc/update_db/structure.json',   
-      dataType: 'jsonp',      
-      jsonp: 'callback',
-      jsonpCallback: 'jsonpCallbackGIT',
-      success: function(data){   
-    	  updateData = data.data.content;  
-    	  $.postJSON('<?php echo erLhcoreClassDesign::baseurl('system/update')?>/(action)/statusdb',{'data': data.data.content},function(data){
-    	        $('#status-db').html(data.result);            
-    	  });
-      }
-  });   
+	 
+  $.postJSON('<?php echo erLhcoreClassDesign::baseurl('system/update')?>/(action)/statusdb',function(data){
+      $('#status-db').html(data.result);            
+  });
     
 })();
 </script>
