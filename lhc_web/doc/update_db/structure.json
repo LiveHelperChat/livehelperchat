@@ -686,6 +686,38 @@
                 "extra": ""
             },
             {
+                "field": "copyright_image",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "copyright_image_path",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "widget_copyright_url",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "show_copyright",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": 1,
+                "extra": ""
+            },
+            {
                 "field": "need_help_image",
                 "type": "varchar(250)",
                 "null": "NO",

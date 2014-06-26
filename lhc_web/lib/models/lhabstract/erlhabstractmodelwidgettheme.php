@@ -32,6 +32,10 @@ class erLhAbstractModelWidgetTheme {
 			'offline_text'				=> $this->offline_text,
 			'logo_image'				=> $this->logo_image,
 			'logo_image_path'			=> $this->logo_image_path,
+			'copyright_image'			=> $this->copyright_image,
+			'copyright_image_path'		=> $this->copyright_image_path,
+			'show_copyright'			=> $this->show_copyright,
+			'widget_copyright_url'		=> $this->widget_copyright_url,
 		);
 
 		return $stateArray;
@@ -67,7 +71,7 @@ class erLhAbstractModelWidgetTheme {
    						'nginit' => true,						
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),
+   						)),   			
    				'need_help_text' => array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help standard text'),
@@ -120,6 +124,33 @@ class erLhAbstractModelWidgetTheme {
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'callback','erLhcoreClassSearchHandler::isImageFile()'
    						)),   				
+   				'copyright_image' => array(
+   						'type' => 'file',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Logo image, visible in widget left corner'),
+   						'required' => false,
+   						'hidden' => true,
+   						'frontend' => 'copyright_image_url_img',
+   						'backend_call' => 'moveCopyrightPhoto',
+   						'delete_call' => 'deleteCopyrightPhoto',
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'callback','erLhcoreClassSearchHandler::isImageFile()'
+   						)),   				
+   				'show_copyright' => array(
+   						'type' => 'checkbox',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Show copyright widget logo in left corner'),
+   						'required' => false,
+   						'hidden' => true,   						
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+   						)), 	
+   				'widget_copyright_url' => array(
+   						'type' => 'text',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget copyright link'),
+   						'required' => false,   
+   						'nginit' => true,						
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),  				
    				'online_image' => array(
    						'type' => 'file',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Online image'),
@@ -286,9 +317,19 @@ class erLhAbstractModelWidgetTheme {
 		$this->deletePhoto('need_help_image');
 	}
 	
+	public function deleteCopyrightPhoto()
+	{
+		$this->deletePhoto('copyright_image');
+	}
+	
 	public function moveOperatorPhoto()
 	{
 		$this->movePhoto('need_help_image');
+	}
+	
+	public function moveCopyrightPhoto()
+	{
+		$this->movePhoto('copyright_image');
 	}
 								
 	public function movePhoto($attr, $isLocal = false, $localFile = false)
@@ -356,6 +397,11 @@ class erLhAbstractModelWidgetTheme {
 			$this->moveLogoPhoto();
 			$this->updateThis();
 		}
+		
+		if ($this->copyright_image_pending == true) {
+			$this->moveCopyrightPhoto();
+			$this->updateThis();
+		}
 	}
 	
 	
@@ -401,6 +447,16 @@ class erLhAbstractModelWidgetTheme {
 	   			}
 	   			
 	   			return $this->logo_image_url;
+	   		break;	
+	   		
+	   	case 'copyright_image_url':
+	   			$this->copyright_image_url = false;
+	   			
+	   			if ($this->copyright_image != ''){
+	   				$this->copyright_image_url =  erLhcoreClassSystem::instance()->wwwDir().'/'.$this->copyright_image_path . $this->copyright_image;
+	   			}
+	   			
+	   			return $this->copyright_image_url;
 	   		break;	
 	   		
 	   		
@@ -476,6 +532,17 @@ class erLhAbstractModelWidgetTheme {
 	   			return $this->logo_image_url_img;
 	   		break;
 	   		
+	   	case 'copyright_image_url_img':
+	   			 
+	   			$this->copyright_image_url_img = false;
+	   		
+	   			if ($this->copyright_image != '') {
+	   				$this->copyright_image_url_img = '<img src="'.erLhcoreClassSystem::instance()->wwwDir().'/'.$this->copyright_image_path . $this->copyright_image.'"/>';
+	   			}
+	   			
+	   			return $this->copyright_image_url_img;
+	   		break;
+	   		
 	   	default:
 	   		break;
 	   }
@@ -500,6 +567,7 @@ class erLhAbstractModelWidgetTheme {
 		$this->deletePhoto('offline_image');
 		$this->deletePhoto('logo_image');
 		$this->deletePhoto('need_help_image');
+		$this->deletePhoto('copyright_image');
 		
 		erLhcoreClassAbstract::getSession()->delete($this);
 	}
@@ -604,8 +672,11 @@ class erLhAbstractModelWidgetTheme {
 	public $offline_text = '';	
 	public $logo_image = '';
 	public $logo_image_path = '';
+	public $copyright_image = '';
+	public $copyright_image_path = '';
+	public $show_copyright = '1';
+	public $widget_copyright_url = '';
 	public $widget_border_color = 'cccccc';
-	
 	
 	public $hide_add = false;
 	public $hide_delete = false;

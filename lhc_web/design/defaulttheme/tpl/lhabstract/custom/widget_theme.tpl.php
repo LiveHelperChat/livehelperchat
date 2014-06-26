@@ -29,6 +29,14 @@
 						
 						<label><?php echo $fields['logo_image']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('logo_image', $fields['logo_image'], $object)?>
+						
+						<label><?php echo $fields['copyright_image']['trans'];?></label>
+						<?php echo erLhcoreClassAbstract::renderInput('copyright_image', $fields['copyright_image'], $object)?>
+						
+						<label><?php echo $fields['widget_copyright_url']['trans'];?></label>
+						<?php echo erLhcoreClassAbstract::renderInput('widget_copyright_url', $fields['widget_copyright_url'], $object)?>
+						
+						<label><?php echo erLhcoreClassAbstract::renderInput('show_copyright', $fields['show_copyright'], $object)?> <?php echo $fields['show_copyright']['trans'];?></label>
 												
 						<label><?php echo $fields['onl_bcolor']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('onl_bcolor', $fields['onl_bcolor'], $object)?>

@@ -103,7 +103,27 @@ $def->properties['need_help_image_path'] = new ezcPersistentObjectProperty();
 $def->properties['need_help_image_path']->columnName   = 'need_help_image_path';
 $def->properties['need_help_image_path']->propertyName = 'need_help_image_path';
 $def->properties['need_help_image_path']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['copyright_image'] = new ezcPersistentObjectProperty();
+$def->properties['copyright_image']->columnName   = 'copyright_image';
+$def->properties['copyright_image']->propertyName = 'copyright_image';
+$def->properties['copyright_image']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
  
+$def->properties['copyright_image_path'] = new ezcPersistentObjectProperty();
+$def->properties['copyright_image_path']->columnName   = 'copyright_image_path';
+$def->properties['copyright_image_path']->propertyName = 'copyright_image_path';
+$def->properties['copyright_image_path']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+ 
+$def->properties['widget_copyright_url'] = new ezcPersistentObjectProperty();
+$def->properties['widget_copyright_url']->columnName   = 'widget_copyright_url';
+$def->properties['widget_copyright_url']->propertyName = 'widget_copyright_url';
+$def->properties['widget_copyright_url']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+ 
+$def->properties['show_copyright'] = new ezcPersistentObjectProperty();
+$def->properties['show_copyright']->columnName   = 'show_copyright';
+$def->properties['show_copyright']->propertyName = 'show_copyright';
+$def->properties['show_copyright']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $def->properties['custom_status_css'] = new ezcPersistentObjectProperty();
 $def->properties['custom_status_css']->columnName   = 'custom_status_css';
 $def->properties['custom_status_css']->propertyName = 'custom_status_css';
