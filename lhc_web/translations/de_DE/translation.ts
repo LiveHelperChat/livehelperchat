@@ -1,5 +1,176 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="de">
   <context>
+    <name>listchatconfig</name>
+    <message>
+      <source>How many days voting widget should not be expanded after last show</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use secure cookie, check this if you want to force SSL all the time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable online site visitors tracking</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Track online visitors even if there is no online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Track users footprint. For this also online visitors tracking should be enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set your domain to enable user tracking across different domain subdomains.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How many days keep records of online users.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Play sound on invitation to chat.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Should cronjob run unanswered chats workflow and execute unaswered chats callback, 0 - no, any other number bigger than 0 is a minits how long chat have to be not accepted before executing callback.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Should cronjob run departments transfer workflow, even if user leaves a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reopen chat functionality enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reopen closed chat as new? Otherwise it will be reopened as active.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Should invitation logic be executed if there is no online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pro active chats invitations limitation based on pending chats, (-1) do not limit, (0,1,n+1) number of pending chats can be for invitation to be shown.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Is pro active chat invitation active. Online users tracking also has to be enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show need help tooltip?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Maximum message length in characters</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List online operators.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Ignore users online statuses and use departments online hours</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Which ip should be ignored in online users list, separate by comma</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide disabled department widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Is visitor e-mail required for FAQ</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats export secret hash</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter explicit http mode. Either http: or https:, do not forget : at the end.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disable chat transcript send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disable chat print</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disable option in widget to open new window. Restore icon will be hidden</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Your site URL address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Your company name - visible in bottom left corner</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show BB Code button</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatically reopen chat on widget open</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatic chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Support application name, visible in browser title.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Allow user to reopen closed chats?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Change to your site Terms of Service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How many seconds chat accept link is valid. Set 0 to force login all the time manually.</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>system/buttons</name>
     <message>
       <source>Save</source>
@@ -71,6 +242,168 @@
     <message>
       <source>Updated!</source>
       <translation>Aktualisiert!</translation>
+    </message>
+  </context>
+  <context>
+    <name>abstract/widgettheme</name>
+    <message>
+      <source>Download theme</source>
+      <translation>Download theme</translation>
+    </message>
+    <message>
+      <source>Status widget style</source>
+      <translation>Status Widget Stil</translation>
+    </message>
+    <message>
+      <source>Widget copyright</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget container</source>
+      <translation>Widget container</translation>
+    </message>
+    <message>
+      <source>Need help widget</source>
+      <translation>Hilfe benötigt? Widget</translation>
+    </message>
+    <message>
+      <source>Custom CSS</source>
+      <translation>Benutzerdefinierte CSS</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Name</translation>
+    </message>
+    <message>
+      <source>Need help header text</source>
+      <translation>Hilfe benötigt? Überschrift</translation>
+    </message>
+    <message>
+      <source>Need help standard text</source>
+      <translation>Hilfe benötigt? Standardtext</translation>
+    </message>
+    <message>
+      <source>Online status text</source>
+      <translation>Online Statustext</translation>
+    </message>
+    <message>
+      <source>Offline status text</source>
+      <translation>Offline Statustext</translation>
+    </message>
+    <message>
+      <source>Background color</source>
+      <translation>Hintergrundfarbe</translation>
+    </message>
+    <message>
+      <source>Text color</source>
+      <translation>Textfarbe</translation>
+    </message>
+    <message>
+      <source>Logo image, visible in popup</source>
+      <translation>Logo, im Popup sichtbar</translation>
+    </message>
+    <message>
+      <source>Logo image, visible in widget left corner, 16x16</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show copyright widget logo in left corner</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget copyright link</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online image</source>
+      <translation>Online Bild</translation>
+    </message>
+    <message>
+      <source>Offline image</source>
+      <translation>Offline Bild</translation>
+    </message>
+    <message>
+      <source>Widget header background color</source>
+      <translation>Widget Header Hintergrundfarbe</translation>
+    </message>
+    <message>
+      <source>Widget border color</source>
+      <translation>Widget Rahmenfarbe</translation>
+    </message>
+    <message>
+      <source>Need help background color</source>
+      <translation>Hilfe benötigt? Hintergrundfarbe</translation>
+    </message>
+    <message>
+      <source>Need help hover background color</source>
+      <translation>Hilfe benötigt? Hover Hintergrundfarbe</translation>
+    </message>
+    <message>
+      <source>Need help text color</source>
+      <translation>Hilfe benötigt? Textfarbe</translation>
+    </message>
+    <message>
+      <source>Need help border color</source>
+      <translation>Hilfe benötigt? Rahmenfarbe</translation>
+    </message>
+    <message>
+      <source>Need help close background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help close hover background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help operator image</source>
+      <translation>Hilfe benötigt? Operatorbild</translation>
+    </message>
+    <message>
+      <source>Status widget additional CSS, takes effect after save</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget container additional CSS, takes effect after save</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget body additional CSS, takes effect after save</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget themes</source>
+      <translation>Widget themes</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/getstatus</name>
+    <message>
+      <source>Close</source>
+      <translation>Schließen</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>In neuem Fenster öffnen</translation>
+    </message>
+    <message>
+      <source>Minimize/Restore</source>
+      <translation>Minimieren/Wiederherstellen</translation>
+    </message>
+    <message>
+      <source>Live help is online...</source>
+      <translation>Live-Hilfe ist online...</translation>
+    </message>
+    <message>
+      <source>Need help?</source>
+      <translation>Hilfe benötigt?</translation>
+    </message>
+    <message>
+      <source>Our staff is always ready to help</source>
+      <translation>Das Support-Team ist bereit</translation>
+    </message>
+    <message>
+      <source>Live help is offline...</source>
+      <translation>Live-Hilfe ist offline...</translation>
     </message>
   </context>
   <context>
@@ -185,37 +518,6 @@
     <message>
       <source>Are you sure?</source>
       <translation>Sind Sie sicher?</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/getstatus</name>
-    <message>
-      <source>Close</source>
-      <translation>Schließen</translation>
-    </message>
-    <message>
-      <source>Open in a new window</source>
-      <translation>In neuem Fenster öffnen</translation>
-    </message>
-    <message>
-      <source>Minimize/Restore</source>
-      <translation>Minimieren/Wiederherstellen</translation>
-    </message>
-    <message>
-      <source>Live help is online...</source>
-      <translation>Live-Hilfe ist online...</translation>
-    </message>
-    <message>
-      <source>Need help?</source>
-      <translation>Hilfe benötigt?</translation>
-    </message>
-    <message>
-      <source>Our staff is always ready to help</source>
-      <translation>Das Support-Team ist bereit</translation>
-    </message>
-    <message>
-      <source>Live help is offline...</source>
-      <translation>Live-Hilfe ist offline...</translation>
     </message>
   </context>
   <context>
@@ -483,18 +785,6 @@
   <context>
     <name>browseoffer/index</name>
     <message>
-      <source>List of forms</source>
-      <translation>Auflistung der Formulare</translation>
-    </message>
-    <message>
-      <source>Page embed code</source>
-      <translation>Einbettungscode für Seiten</translation>
-    </message>
-    <message>
-      <source>Index</source>
-      <translation>Index</translation>
-    </message>
-    <message>
       <source>Browse offers</source>
       <translation>Angebote durchsuchen</translation>
     </message>
@@ -556,6 +846,53 @@
     <message>
       <source>Active chats</source>
       <translation>Aktive Chats</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/lists/search_panel</name>
+    <message>
+      <source>Delete selected</source>
+      <translation>Auswahl löschen</translation>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation>Spitzname</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-Mail</translation>
+    </message>
+    <message>
+      <source>Date range from to</source>
+      <translation>Datumsbereich von bis</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Abteilung</translation>
+    </message>
+    <message>
+      <source>User</source>
+      <translation>Benutzer</translation>
+    </message>
+    <message>
+      <source>Search</source>
+      <translation>Suche</translation>
+    </message>
+    <message>
+      <source>Print</source>
+      <translation>Drucken</translation>
+    </message>
+    <message>
+      <source>Select department</source>
+      <translation>Abteilung auswählen</translation>
+    </message>
+    <message>
+      <source>Select user</source>
+      <translation>Benutzer auswählen</translation>
+    </message>
+    <message>
+      <source>Type to search</source>
+      <translation>Suchbegriff eingeben</translation>
     </message>
   </context>
   <context>
@@ -2132,42 +2469,6 @@
   <context>
     <name>system/configuration</name>
     <message>
-      <source>Chat related</source>
-      <translation>Chat bezogen</translation>
-    </message>
-    <message>
-      <source>Form module</source>
-      <translation>Formular-Modul</translation>
-    </message>
-    <message>
-      <source>Documents module</source>
-      <translation>Dokument-Modul</translation>
-    </message>
-    <message>
-      <source>Users and their permissions</source>
-      <translation>Benutzer und Berechtigungen</translation>
-    </message>
-    <message>
-      <source>Files uploads configuration</source>
-      <translation>Dateiuploads Einstellungen</translation>
-    </message>
-    <message>
-      <source>Other</source>
-      <translation>Andere</translation>
-    </message>
-    <message>
-      <source>Forms</source>
-      <translation>Formulare</translation>
-    </message>
-    <message>
-      <source>Documents</source>
-      <translation>Dokumente</translation>
-    </message>
-    <message>
-      <source>Automatic chats assigment</source>
-      <translation>Automatischen Chatzuordnung</translation>
-    </message>
-    <message>
       <source>Request notification permission</source>
       <translation>Erlaubnis fuer Benachrichtigung anfordern</translation>
     </message>
@@ -2466,50 +2767,26 @@
     </message>
   </context>
   <context>
-    <name>chat/lists/search_panel</name>
+    <name>chat/maintenance</name>
     <message>
-      <source>Delete selected</source>
-      <translation>Auswahl löschen</translation>
+      <source>Maintenance</source>
+      <translation>Wartung</translation>
     </message>
     <message>
-      <source>Nick</source>
-      <translation>Spitzname</translation>
+      <source>Automatic chats close, click to close old chats</source>
+      <translation>Chats automatisch schließen, klicken um alte Chats zu schließen</translation>
     </message>
     <message>
-      <source>E-mail</source>
-      <translation>E-Mail</translation>
+      <source>Automatic chats purge, click to purge old chats</source>
+      <translation>Chats automatisch reinigen, klicken um alte Chats zu bereinigen</translation>
     </message>
     <message>
-      <source>Date range from to</source>
-      <translation>Datumsbereich von bis</translation>
+      <source>Closed chats</source>
+      <translation>Geschlossene Chats</translation>
     </message>
     <message>
-      <source>Department</source>
-      <translation>Abteilung</translation>
-    </message>
-    <message>
-      <source>User</source>
-      <translation>Benutzer</translation>
-    </message>
-    <message>
-      <source>Search</source>
-      <translation>Suche</translation>
-    </message>
-    <message>
-      <source>Print</source>
-      <translation>Drucken</translation>
-    </message>
-    <message>
-      <source>Select department</source>
-      <translation>Abteilung auswählen</translation>
-    </message>
-    <message>
-      <source>Select user</source>
-      <translation>Benutzer auswählen</translation>
-    </message>
-    <message>
-      <source>Type to search</source>
-      <translation>Suchbegriff eingeben</translation>
+      <source>Purged chats</source>
+      <translation>Wartende Chat</translation>
     </message>
   </context>
   <context>
@@ -3545,6 +3822,21 @@
     </message>
   </context>
   <context>
+    <name>chat/operatorsbalancing</name>
+    <message>
+      <source>Active</source>
+      <translation>Aktiv</translation>
+    </message>
+    <message>
+      <source>Maximum number of active chats user can have at a time, 0 - unlimited</source>
+      <translation>Maximale Anzahl an Chats die ein User gleichzeitig haben kann, 0=unbeschränkt</translation>
+    </message>
+    <message>
+      <source>Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled</source>
+      <translation>Chat automatisch einem anderen Operator zuweisen, wenn Operator nicht in X Sekunden akzeptiert. 0=deaktiviert</translation>
+    </message>
+  </context>
+  <context>
     <name>department/new</name>
     <message>
       <source>New department</source>
@@ -4046,10 +4338,6 @@
       <translation>Neue Regel</translation>
     </message>
     <message>
-      <source>Assigned functions</source>
-      <translation>Zugewiesene Funktionen</translation>
-    </message>
-    <message>
       <source>Choose a module</source>
       <translation>Modul auswählen</translation>
     </message>
@@ -4062,16 +4350,16 @@
       <translation>Modul-Funktion wählen</translation>
     </message>
     <message>
-      <source>All functions</source>
-      <translation>Alle Funktionen</translation>
-    </message>
-    <message>
       <source>Save</source>
       <translation>Speichern</translation>
     </message>
     <message>
       <source>Cancel</source>
       <translation>Abbrechen</translation>
+    </message>
+    <message>
+      <source>All functions</source>
+      <translation>Alle Funktionen</translation>
     </message>
   </context>
   <context>
@@ -4647,10 +4935,6 @@
   <context>
     <name>system/update</name>
     <message>
-      <source>Last database update</source>
-      <translation>Letztes Datenbank Update</translation>
-    </message>
-    <message>
       <source>Your version</source>
       <translation>Installierte Version</translation>
     </message>
@@ -4677,6 +4961,90 @@
     <message>
       <source>Live Helper Chat update information</source>
       <translation>Live Helper Chat Update Informationen</translation>
+    </message>
+  </context>
+  <context>
+    <name>update/statusdb</name>
+    <message>
+      <source>Database structure check</source>
+      <translation>Datenbankstruktur Check</translation>
+    </message>
+    <message>
+      <source>Your database does not require any updates</source>
+      <translation>Ihre Datenbank benötigt kein Update</translation>
+    </message>
+    <message>
+      <source>Update database</source>
+      <translation>Datenbank aktualisieren</translation>
+    </message>
+    <message>
+      <source>Queries which will be executed on update</source>
+      <translation>Abfragen die beim Update ausgeführt werden</translation>
+    </message>
+  </context>
+  <context>
+    <name>theme/index</name>
+    <message>
+      <source>Default theme</source>
+      <translation>Standard - Theme</translation>
+    </message>
+    <message>
+      <source>Theme</source>
+      <translation>Theme</translation>
+    </message>
+    <message>
+      <source>Widget themes</source>
+      <translation>Widget themes</translation>
+    </message>
+    <message>
+      <source>Import a new theme</source>
+      <translation>Neue Themes importieren</translation>
+    </message>
+    <message>
+      <source>Themes</source>
+      <translation>Themes</translation>
+    </message>
+    <message>
+      <source>Import theme</source>
+      <translation>Neue Themes importieren</translation>
+    </message>
+  </context>
+  <context>
+    <name>theme/default</name>
+    <message>
+      <source>Set as default theme</source>
+      <translation>Als Standard Theme festlegen</translation>
+    </message>
+  </context>
+  <context>
+    <name>theme/import</name>
+    <message>
+      <source>Default theme was set</source>
+      <translation>Standardtheme ausgewählt</translation>
+    </message>
+    <message>
+      <source>Import theme</source>
+      <translation>Theme importieren</translation>
+    </message>
+    <message>
+      <source>File</source>
+      <translation>Datei</translation>
+    </message>
+    <message>
+      <source>Import</source>
+      <translation>Importieren</translation>
+    </message>
+    <message>
+      <source>Theme imported</source>
+      <translation>Theme importiert</translation>
+    </message>
+    <message>
+      <source>Could not import a new theme!</source>
+      <translation>Neues Theme konnte nicht importiert werden</translation>
+    </message>
+    <message>
+      <source>Invalid file!</source>
+      <translation>Ungültige Datei!</translation>
     </message>
   </context>
   <context>
@@ -5499,243 +5867,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Bitte unterstütze Dateitypen verwenden!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/maintenance</name>
-    <message>
-      <source>Maintenance</source>
-      <translation>Wartung</translation>
-    </message>
-    <message>
-      <source>Automatic chats close, click to close old chats</source>
-      <translation>Chats automatisch schließen, klicken um alte Chats zu schließen</translation>
-    </message>
-    <message>
-      <source>Automatic chats purge, click to purge old chats</source>
-      <translation>Chats automatisch reinigen, klicken um alte Chats zu bereinigen</translation>
-    </message>
-    <message>
-      <source>Closed chats</source>
-      <translation>Geschlossene Chats</translation>
-    </message>
-    <message>
-      <source>Purged chats</source>
-      <translation>Wartende Chat</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/operatorsbalancing</name>
-    <message>
-      <source>Active</source>
-      <translation>Aktiv</translation>
-    </message>
-    <message>
-      <source>Maximum number of active chats user can have at a time, 0 - unlimited</source>
-      <translation>Maximale Anzahl an Chats die ein User gleichzeitig haben kann, 0=unbeschränkt</translation>
-    </message>
-    <message>
-      <source>Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled</source>
-      <translation>Chat automatisch einem anderen Operator zuweisen, wenn Operator nicht in X Sekunden akzeptiert. 0=deaktiviert</translation>
-    </message>
-  </context>
-  <context>
-    <name>abstract/widgettheme</name>
-    <message>
-      <source>Download theme</source>
-      <translation>Download theme</translation>
-    </message>
-    <message>
-      <source>Status widget style</source>
-      <translation>Status Widget Stil</translation>
-    </message>
-    <message>
-      <source>Widget container</source>
-      <translation>Widget container</translation>
-    </message>
-    <message>
-      <source>Need help widget</source>
-      <translation>Hilfe benötigt? Widget</translation>
-    </message>
-    <message>
-      <source>Custom CSS</source>
-      <translation>Benutzerdefinierte CSS</translation>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>Name</translation>
-    </message>
-    <message>
-      <source>Need help header text</source>
-      <translation>Hilfe benötigt? Überschrift</translation>
-    </message>
-    <message>
-      <source>Need help standard text</source>
-      <translation>Hilfe benötigt? Standardtext</translation>
-    </message>
-    <message>
-      <source>Online status text</source>
-      <translation>Online Statustext</translation>
-    </message>
-    <message>
-      <source>Offline status text</source>
-      <translation>Offline Statustext</translation>
-    </message>
-    <message>
-      <source>Background color</source>
-      <translation>Hintergrundfarbe</translation>
-    </message>
-    <message>
-      <source>Text color</source>
-      <translation>Textfarbe</translation>
-    </message>
-    <message>
-      <source>Logo image, visible in popup</source>
-      <translation>Logo, im Popup sichtbar</translation>
-    </message>
-    <message>
-      <source>Online image</source>
-      <translation>Online Bild</translation>
-    </message>
-    <message>
-      <source>Offline image</source>
-      <translation>Offline Bild</translation>
-    </message>
-    <message>
-      <source>Widget header background color</source>
-      <translation>Widget Header Hintergrundfarbe</translation>
-    </message>
-    <message>
-      <source>Widget border color</source>
-      <translation>Widget Rahmenfarbe</translation>
-    </message>
-    <message>
-      <source>Need help background color</source>
-      <translation>Hilfe benötigt? Hintergrundfarbe</translation>
-    </message>
-    <message>
-      <source>Need help hover background color</source>
-      <translation>Hilfe benötigt? Hover Hintergrundfarbe</translation>
-    </message>
-    <message>
-      <source>Need help text color</source>
-      <translation>Hilfe benötigt? Textfarbe</translation>
-    </message>
-    <message>
-      <source>Need help border color</source>
-      <translation>Hilfe benötigt? Rahmenfarbe</translation>
-    </message>
-    <message>
-      <source>Need help close background color</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help close hover background color</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help operator image</source>
-      <translation>Hilfe benötigt? Operatorbild</translation>
-    </message>
-    <message>
-      <source>Status widget additional CSS, takes effect after save</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Widget container additional CSS, takes effect after save</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Widget body additional CSS, takes effect after save</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Widget themes</source>
-      <translation>Widget themes</translation>
-    </message>
-  </context>
-  <context>
-    <name>theme/import</name>
-    <message>
-      <source>Default theme was set</source>
-      <translation>Standardtheme ausgewählt</translation>
-    </message>
-    <message>
-      <source>Import theme</source>
-      <translation>Theme importieren</translation>
-    </message>
-    <message>
-      <source>File</source>
-      <translation>Datei</translation>
-    </message>
-    <message>
-      <source>Import</source>
-      <translation>Importieren</translation>
-    </message>
-    <message>
-      <source>Theme imported</source>
-      <translation>Theme importiert</translation>
-    </message>
-    <message>
-      <source>Could not import a new theme!</source>
-      <translation>Neues Theme konnte nicht importiert werden</translation>
-    </message>
-    <message>
-      <source>Invalid file!</source>
-      <translation>Ungültige Datei!</translation>
-    </message>
-  </context>
-  <context>
-    <name>theme/index</name>
-    <message>
-      <source>Default theme</source>
-      <translation>Standard - Theme</translation>
-    </message>
-    <message>
-      <source>Theme</source>
-      <translation>Theme</translation>
-    </message>
-    <message>
-      <source>Widget themes</source>
-      <translation>Widget themes</translation>
-    </message>
-    <message>
-      <source>Import a new theme</source>
-      <translation>Neue Themes importieren</translation>
-    </message>
-    <message>
-      <source>Themes</source>
-      <translation>Themes</translation>
-    </message>
-    <message>
-      <source>Import theme</source>
-      <translation>Neue Themes importieren</translation>
-    </message>
-  </context>
-  <context>
-    <name>theme/default</name>
-    <message>
-      <source>Set as default theme</source>
-      <translation>Als Standard Theme festlegen</translation>
-    </message>
-  </context>
-  <context>
-    <name>update/statusdb</name>
-    <message>
-      <source>Database structure check</source>
-      <translation>Datenbankstruktur Check</translation>
-    </message>
-    <message>
-      <source>Your database does not require any updates</source>
-      <translation>Ihre Datenbank benötigt kein Update</translation>
-    </message>
-    <message>
-      <source>Update database</source>
-      <translation>Datenbank aktualisieren</translation>
-    </message>
-    <message>
-      <source>Queries which will be executed on update</source>
-      <translation>Abfragen die beim Update ausgeführt werden</translation>
     </message>
   </context>
 </TS>
