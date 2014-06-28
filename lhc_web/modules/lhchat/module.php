@@ -239,7 +239,8 @@ $ViewList['getmessage'] = array(
 
 $ViewList['getmessageadmin'] = array(
     'params' => array('chat_id','msgid'),
-    'uparams' => array()
+    'uparams' => array(),
+	'functions' => array( 'use' )
 );
 
 $ViewList['voteaction'] = array(
