@@ -819,6 +819,26 @@ class erLhcoreClassChat {
        return $row;
    }
    
+   
+   /**
+    * Get last message for chat editing admin last message
+    *
+    * */
+   public static function getGetLastChatMessageEdit($chat_id, $user_id)
+   {
+       $db = ezcDbInstance::get();
+       $stmt = $db->prepare('SELECT lh_msg.* FROM lh_msg INNER JOIN ( SELECT id FROM lh_msg WHERE chat_id = :chat_id AND user_id = :user_id ORDER BY id DESC LIMIT 1 OFFSET 0) AS items ON lh_msg.id = items.id');
+       $stmt->bindValue( ':chat_id',$chat_id,PDO::PARAM_INT);
+       $stmt->bindValue( ':user_id',$user_id,PDO::PARAM_INT);
+       $stmt->setFetchMode(PDO::FETCH_ASSOC);
+       $stmt->execute();
+       $row = $stmt->fetch();
+
+       return $row;
+   }
+   
+   
+   
    /**
     * Get last message for browser notification
     *

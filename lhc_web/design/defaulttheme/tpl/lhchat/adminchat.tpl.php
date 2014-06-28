@@ -31,6 +31,9 @@
 		    lhinst.addmsgadmin('<?php echo $chat->id?>');
 		    return false;
 		});
+		jQuery('#CSChatMessage-<?php echo $chat->id?>').bind('keyup', 'up', function (evt){
+			lhinst.editPrevious('<?php echo $chat->id?>');		   
+		});
 		lhinst.initTypingMonitoringAdmin('<?php echo $chat->id?>');
 		</script>
 

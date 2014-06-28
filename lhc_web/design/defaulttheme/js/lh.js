@@ -493,8 +493,10 @@ function lh(){
         			
         			// Execute pending operations
         			if (data.op != '') {
-	   	    			 $.each(data.op,function(i,item) {
-	   	    				 	 if (inst.isWidgetMode) {
+	   	    			 $.each(data.op,function(i,item) {	   	    				 	   	    				 		
+	   	    				 	 if (item.indexOf('lhinst.') != -1) { // Internal operation
+	   	    				 		eval(item);	
+	   	    				 	 } else if (inst.isWidgetMode) {
 	   	    				 		 parent.postMessage(item, '*');
 	   	    					 } else if (window.opener) {
 	   	    						 window.opener.postMessage(item, '*');	  
@@ -554,7 +556,8 @@ function lh(){
 	    });
 
 	    if ($('#CSChatMessage-'+chat_id).length != 0){
-	       $('#CSChatMessage-'+chat_id).unbind('keydown', 'enter', function(){});
+	    	$('#CSChatMessage-'+chat_id).unbind('keydown', 'enter', function(){});
+	       $('#CSChatMessage-'+chat_id).unbind('keyup', 'up', function(){});
 	    };
 
 	    if (hidetab == true) {
@@ -607,7 +610,8 @@ function lh(){
 	this.removeDialogTab = function(chat_id, tabs, hidetab)
 	{
 	    if ($('#CSChatMessage-'+chat_id).length != 0){
-	       $('#CSChatMessage-'+chat_id).unbind('keydown', 'enter', function(){});
+	    	$('#CSChatMessage-'+chat_id).unbind('keydown', 'enter', function(){});
+	       $('#CSChatMessage-'+chat_id).unbind('keyup', 'up', function(){});
 	    }
 	    
 	    this.removeSynchroChat(chat_id);
@@ -654,7 +658,8 @@ function lh(){
 	this.deleteChat = function(chat_id, tabs, hidetab)
 	{
 	    if ($('#CSChatMessage-'+chat_id).length != 0){
-	       $('#CSChatMessage-'+chat_id).unbind('keydown', 'enter', function(){});
+	    	$('#CSChatMessage-'+chat_id).unbind('keydown', 'enter', function(){});
+	       $('#CSChatMessage-'+chat_id).unbind('keyup', 'up', function(){});
 	    }
 	    	    
 	    $.ajax({
@@ -1366,23 +1371,64 @@ function lh(){
 
 	this.addmsgadmin = function (chat_id)
 	{
+		var textArea = $("#CSChatMessage-"+chat_id);
+		
 		var pdata = {
-				msg	: $("#CSChatMessage-"+chat_id).val()
+				msg	: textArea.val()
 		};
-
-		$('#CSChatMessage-'+chat_id).val('');
-		$.postJSON(this.wwwDir + this.addmsgurl + chat_id, pdata , function(data){
+		
+		textArea.val('');
+		
+		if (textArea.hasClass('edit-mode')) {
 			
-			if (LHCCallbacks.addmsgadmin) {
-        		LHCCallbacks.addmsgadmin(chat_id);
-        	};
-        	
-			lhinst.syncadmincall();
+			pdata.msgid = textArea.attr('data-msgid');
 			
-			return true;
-		});
+			$.postJSON(this.wwwDir + 'chat/updatemsg/' + chat_id, pdata , function(data){
+				if (data.error == 'f') {
+					textArea.removeClass('edit-mode');	
+					textArea.removeAttr('data-msgid');
+					$('#msg-'+pdata.msgid).replaceWith(data.msg);
+					return true;
+				}
+			});
+			
+		} else {
+			$.postJSON(this.wwwDir + this.addmsgurl + chat_id, pdata , function(data){
+				
+				if (LHCCallbacks.addmsgadmin) {
+	        		LHCCallbacks.addmsgadmin(chat_id);
+	        	};
+	        	
+				lhinst.syncadmincall();				
+				return true;
+			});
+		}
 	};
-
+	
+	this.editPrevious = function(chat_id) {	
+		var textArea = $('#CSChatMessage-'+chat_id);
+		if (textArea.val() == '') {				
+			$.getJSON(this.wwwDir + 'chat/editprevious/'+chat_id, function(data){
+				textArea.val(data.msg);
+				textArea.attr('data-msgid',data.id);
+				textArea.addClass('edit-mode');
+				$('#msg-'+data.id).addClass('edit-mode');
+			});			
+		}
+	};
+	
+	this.editPreviousUser = function() {	
+		var textArea = $('#CSChatMessage');
+		if (textArea.val() == '') {				
+			$.getJSON(this.wwwDir + 'chat/editprevioususer/'+this.chat_id + '/' + this.hash, function(data){
+				textArea.val(data.msg);
+				textArea.attr('data-msgid',data.id);
+				textArea.addClass('edit-mode');
+				$('#msg-'+data.id).addClass('edit-mode');
+			});			
+    	}
+	};
+	
     this.addmsguserchatbox = function (chat_id)
     {
     	var nickCurrent = false;
@@ -1414,40 +1460,82 @@ function lh(){
 			nickCurrent = $("#CSChatNick").val();
         }
     };
-
+    
+    this.updateMessageRow = function(msgid){    	
+    	var modeWindow = this.isWidgetMode == true ? '/(mode)/widget' : '';    	
+    	$.getJSON(this.wwwDir + 'chat/getmessage/' + this.chat_id + '/' + this.hash + '/'+ msgid + modeWindow, function(data) {  
+    		if (data.error == 'f') {
+    			$('#msg-'+msgid).replaceWith(data.msg);
+    			$('#msg-'+msgid).addClass('edit-mode-done');
+    			setTimeout(function(){
+    				$('#msg-'+msgid).removeClass('edit-mode-done');
+    			},2000);
+    		}
+    	});
+    };
+    
+    this.updateMessageRowAdmin = function(chat_id, msgid){ 
+    	$.getJSON(this.wwwDir + 'chat/getmessageadmin/' + chat_id + '/' + msgid, function(data) {    	
+    		if (data.error == 'f') {
+    			$('#msg-'+msgid).replaceWith(data.msg);
+    			$('#msg-'+msgid).addClass('edit-mode-done');
+    			setTimeout(function(){
+    				$('#msg-'+msgid).removeClass('edit-mode-done');
+    			},2000);
+    		}
+		});
+    };
+    
     this.addmsguser = function ()
     {
     	if (LHCCallbacks.addmsguserbefore) {
     		LHCCallbacks.addmsguserbefore(this);
     	};
     	
+    	var textArea = $("#CSChatMessage");
+    	
         var pdata = {
-				msg	: $("#CSChatMessage").val()
+				msg	: textArea.val()
 		};
 
         var modeWindow = this.isWidgetMode == true ? '/(mode)/widget' : '';
-		$('#CSChatMessage').val('');
+        textArea.val('');
 		var inst = this;
 		
 		if (sessionStorage) {
    		   sessionStorage.setItem('lhc_ttxt','');
     	};
-    	
-        $.postJSON(this.wwwDir + this.addmsgurluser + this.chat_id + '/' + this.hash + modeWindow, pdata , function(data) {
-        	
-        	if (data.error == 'f'){
-	        	if (LHCCallbacks.addmsguser) {
-	        		LHCCallbacks.addmsguser(inst,data);
-	        	};
+    	    			
+		if (textArea.hasClass('edit-mode')) {
+			
+			pdata.msgid = textArea.attr('data-msgid');
+			
+			$.postJSON(this.wwwDir + 'chat/updatemsguser/' + this.chat_id + '/' + this.hash + modeWindow, pdata , function(data){
+				if (data.error == 'f') {
+					textArea.removeClass('edit-mode');	
+					textArea.removeAttr('data-msgid');
+					$('#msg-'+pdata.msgid).replaceWith(data.msg);
+					return true;
+				}
+			});			
+						
+		} else { 
+	        $.postJSON(this.wwwDir + this.addmsgurluser + this.chat_id + '/' + this.hash + modeWindow, pdata , function(data) {
 	        	
-	        	inst.syncusercall();
-        	} else {
-        		$('#CSChatMessage').val(pdata.msg);
-        		var instStatus = $('#id-operator-typing');
-				instStatus.find('i').html(data.r);
-				instStatus.fadeIn();				
-        	}
-		});
+	        	if (data.error == 'f') {
+		        	if (LHCCallbacks.addmsguser) {
+		        		LHCCallbacks.addmsguser(inst,data);
+		        	};
+		        	
+		        	inst.syncusercall();
+	        	} else {
+	        		$('#CSChatMessage').val(pdata.msg);
+	        		var instStatus = $('#id-operator-typing');
+					instStatus.find('i').html(data.r);
+					instStatus.fadeIn();				
+	        	}
+			});
+        }
     };
 
     this.startSyncAdmin = function()

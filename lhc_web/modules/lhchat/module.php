@@ -23,6 +23,18 @@ $ViewList['changestatus'] = array(
     'functions' => array( 'canchangechatstatus' )
 );
 
+$ViewList['editprevious'] = array(
+    'params' => array('chat_id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
+$ViewList['updatemsg'] = array(
+    'params' => array('chat_id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['printchatadmin'] = array(
     'params' => array('chat_id'),
     'uparams' => array(),
@@ -208,6 +220,26 @@ $ViewList['saveremarks'] = array(
 $ViewList['addmsguser'] = array(
     'params' => array('chat_id','hash'),
     'uparams' => array('mode'),
+);
+
+$ViewList['editprevioususer'] = array(
+    'params' => array('chat_id','hash'),
+    'uparams' => array(),
+);
+
+$ViewList['updatemsguser'] = array(
+    'params' => array('chat_id','hash'),
+    'uparams' => array('mode'),
+);
+
+$ViewList['getmessage'] = array(
+    'params' => array('chat_id','hash','msgid'),
+    'uparams' => array('mode'),
+);
+
+$ViewList['getmessageadmin'] = array(
+    'params' => array('chat_id','msgid'),
+    'uparams' => array()
 );
 
 $ViewList['voteaction'] = array(

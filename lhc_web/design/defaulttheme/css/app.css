@@ -389,6 +389,7 @@ div.system-response {
 div.message-row {
 	padding:2px 2px;
 	line-height:130%;
+	transition: background-color 2000ms linear;	
 }
 
 div.message-row-in {
@@ -850,9 +851,14 @@ border-top-right-radius: 6px;
 		margin-bottom:2px;
 }
 
-.recent_visit{
+.edit-mode,
+.recent_visit {
 	background-color:#E0F3FF !important;
 	transition: background-color 1000ms linear;	
+}
+
+.edit-mode-done {
+	background-color:#E0F3FF !important;
 }
 
 
