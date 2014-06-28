@@ -30,7 +30,7 @@ if (trim($form->msg) != '' && $form->hasValidData('msgid'))
 	        
 	        $msg = erLhcoreClassModelmsg::fetch($form->msgid);
 	        	        
-	        if ($msg->chat_id == $Chat->id) {
+	        if ($msg->chat_id == $Chat->id && $msg->user_id == $currentUser->getUserID()) {
 		        $msg->msg = trim($form->msg);
 		        erLhcoreClassChat::getSession()->update($msg);
 		        
