@@ -5,7 +5,7 @@ try {
 	
 	if ( erLhcoreClassChat::hasAccessToRead($chat) )
 	{
-		$lastMessage = erLhcoreClassChat::getGetLastChatMessageEdit($chat->id,$chat->user_id);
+		$lastMessage = erLhcoreClassChat::getGetLastChatMessageEdit($chat->id,$currentUser->getUserID());
 		
 		if (isset($lastMessage['msg'])) {
 			
