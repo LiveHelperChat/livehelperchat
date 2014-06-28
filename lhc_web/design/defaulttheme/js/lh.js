@@ -1388,6 +1388,11 @@ function lh(){
 					textArea.removeClass('edit-mode');	
 					textArea.removeAttr('data-msgid');
 					$('#msg-'+pdata.msgid).replaceWith(data.msg);
+					
+					if (LHCCallbacks.addmsgadmin) {
+		        		LHCCallbacks.addmsgadmin(chat_id);
+		        	};
+		        	
 					return true;
 				}
 			});
@@ -1409,10 +1414,12 @@ function lh(){
 		var textArea = $('#CSChatMessage-'+chat_id);
 		if (textArea.val() == '') {				
 			$.getJSON(this.wwwDir + 'chat/editprevious/'+chat_id, function(data){
-				textArea.val(data.msg);
-				textArea.attr('data-msgid',data.id);
-				textArea.addClass('edit-mode');
-				$('#msg-'+data.id).addClass('edit-mode');
+				if (data.error == 'f') {
+					textArea.val(data.msg);
+					textArea.attr('data-msgid',data.id);
+					textArea.addClass('edit-mode');
+					$('#msg-'+data.id).addClass('edit-mode');
+				}
 			});			
 		}
 	};
@@ -1421,10 +1428,12 @@ function lh(){
 		var textArea = $('#CSChatMessage');
 		if (textArea.val() == '') {				
 			$.getJSON(this.wwwDir + 'chat/editprevioususer/'+this.chat_id + '/' + this.hash, function(data){
-				textArea.val(data.msg);
-				textArea.attr('data-msgid',data.id);
-				textArea.addClass('edit-mode');
-				$('#msg-'+data.id).addClass('edit-mode');
+				if (data.error == 'f'){
+					textArea.val(data.msg);
+					textArea.attr('data-msgid',data.id);
+					textArea.addClass('edit-mode');
+					$('#msg-'+data.id).addClass('edit-mode');
+				}
 			});			
     	}
 	};
