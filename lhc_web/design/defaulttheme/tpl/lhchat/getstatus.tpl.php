@@ -109,6 +109,7 @@ var lh_inst  = {
     },
 	offset_data : '',
 	is_dragging : false,
+	online_tracked : false,
     urlopen : "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/startchat')?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?>",
 
     windowname : "startchatwindow",
@@ -664,14 +665,24 @@ lh_inst.storeReferrer(<?php echo json_encode($referrer)?>);
 	<?php if ($check_operator_messages == 'true' && $disable_pro_active == false) : ?>
 	if (!lh_inst.cookieData.hash) {
 		lh_inst.startNewMessageCheck();
+		lh_inst.online_tracked = true;
 	}
 	<?php endif; ?>
 	
 	<?php if ($disable_pro_active == false && $track_online_users == true) : ?>
 	if (!lh_inst.cookieData.hash) {
 		lh_inst.startNewMessageCheckSingle();
+		lh_inst.online_tracked = true;
 	}
 	<?php endif;?>
+	
+	<?php if ($trackOnline == true) : ?>
+	if (lh_inst.online_tracked == false) {
+		lh_inst.logPageView();
+	};
+	<?php endif;?>
+		
+	
 <?php elseif ($track_online_users == true) : ?>
 	lh_inst.logPageView();
 <?php endif;?>
