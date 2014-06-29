@@ -3,171 +3,171 @@
     <name>listchatconfig</name>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
-      <translation type="unfinished"/>
+      <translation>Por cuantos días el widget de votación no será expandido después de la última vez</translation>
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
-      <translation type="unfinished"/>
+      <translation>Usar cookie segura, seleccione esto si desea forzar el uso permanente de SSL</translation>
     </message>
     <message>
       <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
-      <translation type="unfinished"/>
+      <translation>A que IP debe permitirse actualizar la base de datos ejecutando la solicitud http? Separarlas por comas</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
-      <translation type="unfinished"/>
+      <translation>Habilitar el rastreo de visitantes</translation>
     </message>
     <message>
       <source>Track online visitors even if there is no online operators</source>
-      <translation type="unfinished"/>
+      <translation>Rastrear visitantes aunque no haya operadores en linea</translation>
     </message>
     <message>
       <source>Track users footprint. For this also online visitors tracking should be enabled</source>
-      <translation type="unfinished"/>
+      <translation>Rastrear huellas de los usuarios. Rastreo de de visitantes deberá estar habilitado</translation>
     </message>
     <message>
       <source>Set your domain to enable user tracking across different domain subdomains.</source>
-      <translation type="unfinished"/>
+      <translation>Establecer que su dominio esté habilitado para rastrear usuarios a través de diferentes subdominios.</translation>
     </message>
     <message>
       <source>How many days keep records of online users.</source>
-      <translation type="unfinished"/>
+      <translation>Cuantos días deberán mantenerse los datos de los visitantes.</translation>
     </message>
     <message>
       <source>Play sound on invitation to chat.</source>
-      <translation type="unfinished"/>
+      <translation>Reproducir sonido al invitar al chat.</translation>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
-      <translation type="unfinished"/>
+      <translation>Usar captcha de sesión. LCH deberá estar instalado en el mismo dominio o subdominio.</translation>
     </message>
     <message>
       <source>Should cronjob run unanswered chats workflow and execute unaswered chats callback, 0 - no, any other number bigger than 0 is a minits how long chat have to be not accepted before executing callback.</source>
-      <translation type="unfinished"/>
+      <translation>Deberá el cronjob ejecutar el flujo de trabajo de los chats no contestados y ejecutar las llamadas de chat no contestados, 0 - no, otro número mayor que 0 es después de que tantos minutos el chat no ha sido aceptado para ejecutar la llamada.</translation>
     </message>
     <message>
       <source>Should cronjob run departments transfer workflow, even if user leaves a chat</source>
-      <translation type="unfinished"/>
+      <translation>Debe el cronjob ejecutar el flujo de trabajo de transferencia en los departamentos, incluso si el usuario deja el chat</translation>
     </message>
     <message>
       <source>Reopen chat functionality enabled</source>
-      <translation type="unfinished"/>
+      <translation>Funcionalidad para reabrir un chat habilitada</translation>
     </message>
     <message>
       <source>Reopen closed chat as new? Otherwise it will be reopened as active.</source>
-      <translation type="unfinished"/>
+      <translation>Reabrir el chat cerrado como nuevo? De otra forma será reabierto como activo.</translation>
     </message>
     <message>
       <source>Should invitation logic be executed if there is no online operators</source>
-      <translation type="unfinished"/>
+      <translation>Deberá ejecutarse la lógica de invitaciones si no hay operadores en línea.</translation>
     </message>
     <message>
       <source>Pro active chats invitations limitation based on pending chats, (-1) do not limit, (0,1,n+1) number of pending chats can be for invitation to be shown.</source>
-      <translation type="unfinished"/>
+      <translation>Limitación de invitaciones de chat proactivo basada en chat pendientes, (-1) no limitar, (0,1,n+1) número de chats pendientes para que pueda mostrarse la invitación.</translation>
     </message>
     <message>
       <source>Is pro active chat invitation active. Online users tracking also has to be enabled</source>
-      <translation type="unfinished"/>
+      <translation>Se encuentra activa la invitación de chat proactiva. El rastreo de visitantes también debe estar activo.</translation>
     </message>
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
-      <translation type="unfinished"/>
+      <translation>Límite de tiempo del mensaje de necesita ayuda, después de cuantas horas deberá mostrarse de nuevo?</translation>
     </message>
     <message>
       <source>Show need help tooltip?</source>
-      <translation type="unfinished"/>
+      <translation>Mostrar el mensaje de necesita ayuda?</translation>
     </message>
     <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
-      <translation type="unfinished"/>
+      <translation>Límite de tiempo en horas del mensaje proactivo. Después de cuantas horas el mensaje de chat proactivo deberá mostrarse nuevamente.</translation>
     </message>
     <message>
       <source>Maximum message length in characters</source>
-      <translation type="unfinished"/>
+      <translation>Tamaño máximo de caracteres del mensaje</translation>
     </message>
     <message>
       <source>List online operators.</source>
-      <translation type="unfinished"/>
+      <translation>Listar operadores en línea.</translation>
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
-      <translation type="unfinished"/>
+      <translation>Ignorar el estado en línea de los usuario y utilizar los horarios de los departamentos</translation>
     </message>
     <message>
       <source>Which ip should be ignored in online users list, separate by comma</source>
-      <translation type="unfinished"/>
+      <translation>Que ips deben ignorarse en la lista de usuarios en línea, separar por comas</translation>
     </message>
     <message>
       <source>Hide disabled department widget</source>
-      <translation type="unfinished"/>
+      <translation>Ocultar el widget de departamentos deshabilitados</translation>
     </message>
     <message>
       <source>Is visitor e-mail required for FAQ</source>
-      <translation type="unfinished"/>
+      <translation>El correo del visitante es requerido para las Preguntas Frecuentes</translation>
     </message>
     <message>
       <source>Chats export secret hash</source>
-      <translation type="unfinished"/>
+      <translation>Exportar el hash secreto de los chats</translation>
     </message>
     <message>
       <source>Please enter explicit http mode. Either http: or https:, do not forget : at the end.</source>
-      <translation type="unfinished"/>
+      <translation>Por favor introduzca el modo http explícito, ya sea http: o https: no olvide los : al final.</translation>
     </message>
     <message>
       <source>Disable chat transcript send</source>
-      <translation type="unfinished"/>
+      <translation>Deshabilitar el envío de la transcripción del chat</translation>
     </message>
     <message>
       <source>Disable chat print</source>
-      <translation type="unfinished"/>
+      <translation>Deshabilitar la impresión del chat</translation>
     </message>
     <message>
       <source>Disable option in widget to open new window. Restore icon will be hidden</source>
-      <translation type="unfinished"/>
+      <translation>Deshabilitar la opción en el widget de abrir en una ventana nueva. El icono de restauración estará oculto</translation>
     </message>
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
-      <translation type="unfinished"/>
+      <translation>Deshabilitar el almacenamiento HTML5, selecciónelo si el sitio cambia entre http y https</translation>
     </message>
     <message>
       <source>Your site URL address</source>
-      <translation type="unfinished"/>
+      <translation>URL de su sitio</translation>
     </message>
     <message>
       <source>Your company name - visible in bottom left corner</source>
-      <translation type="unfinished"/>
+      <translation>Nombre de su compañía - visible en la esquina inferior izquierda</translation>
     </message>
     <message>
       <source>Show BB Code button</source>
-      <translation type="unfinished"/>
+      <translation>Mostrar el botón del código BB</translation>
     </message>
     <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
-      <translation type="unfinished"/>
+      <translation>Purgado automático de chats. 0 - deshabilitado, n &gt; 0 tiempo en minutos antes de que el chat se borre automáticamente</translation>
     </message>
     <message>
       <source>Automatically reopen chat on widget open</source>
-      <translation type="unfinished"/>
+      <translation>Abrir el chat automáticamente al abrir el widget</translation>
     </message>
     <message>
       <source>Automatic chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
-      <translation type="unfinished"/>
+      <translation>Cerrado automático de chat. 0 - deshabilitado, n &gt; 0 tiempo en minutos antes de que el chat se cierre automáticamente</translation>
     </message>
     <message>
       <source>Support application name, visible in browser title.</source>
-      <translation type="unfinished"/>
+      <translation>Nombre de la aplicación de soporte, visible en el título del navegador.</translation>
     </message>
     <message>
       <source>Allow user to reopen closed chats?</source>
-      <translation type="unfinished"/>
+      <translation>Permitir al usuario reabrir chat cerrados?</translation>
     </message>
     <message>
       <source>Change to your site Terms of Service</source>
-      <translation type="unfinished"/>
+      <translation>Cambiar a los Términos de Servicio de su sitio</translation>
     </message>
     <message>
       <source>How many seconds chat accept link is valid. Set 0 to force login all the time manually.</source>
-      <translation type="unfinished"/>
+      <translation>Cuantos segundos el enlace de aceptación del chat será válido. Ponga en 0 para forzar de forma manual el login permanentemente.</translation>
     </message>
   </context>
   <context>
@@ -258,7 +258,7 @@
     </message>
     <message>
       <source>Widget copyright</source>
-      <translation type="unfinished"/>
+      <translation>Widget de derechos de autor</translation>
     </message>
     <message>
       <source>Widget container</source>
@@ -306,15 +306,15 @@
     </message>
     <message>
       <source>Logo image, visible in widget left corner, 16x16</source>
-      <translation type="unfinished"/>
+      <translation>Logotipo, visible en la esquina izquierda del widget, 16 x 16</translation>
     </message>
     <message>
       <source>Show copyright widget logo in left corner</source>
-      <translation type="unfinished"/>
+      <translation>Mostrar el widget de logo de los derechos de autor en la esquina izquierda</translation>
     </message>
     <message>
       <source>Widget copyright link</source>
-      <translation type="unfinished"/>
+      <translation>Enlace para el widget de los derechos de autor</translation>
     </message>
     <message>
       <source>Online image</source>

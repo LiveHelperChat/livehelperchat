@@ -3,171 +3,171 @@
     <name>listchatconfig</name>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
-      <translation type="unfinished"/>
+      <translation>Hur många dagar som röstwidgeten inte ska expanderas efter senaste visningen</translation>
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
-      <translation type="unfinished"/>
+      <translation>Använd säker cookie, kryssa för detta alternativ om du vill använda SSL hela tiden</translation>
     </message>
     <message>
       <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
-      <translation type="unfinished"/>
+      <translation>Vilka IP ska vara tillåtna att uppdatera databasen genom att köra http request, separerade med komma?</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
-      <translation type="unfinished"/>
+      <translation>Aktivera statistik för onlinebesökare</translation>
     </message>
     <message>
       <source>Track online visitors even if there is no online operators</source>
-      <translation type="unfinished"/>
+      <translation>Samla statistik om onlinebesökare även om det inte finns några operatörer online</translation>
     </message>
     <message>
       <source>Track users footprint. For this also online visitors tracking should be enabled</source>
-      <translation type="unfinished"/>
+      <translation>Avancerad statistik över besökare. För att detta ska fungera så måste även statistiken över onlinebesökare vara aktiverad.</translation>
     </message>
     <message>
       <source>Set your domain to enable user tracking across different domain subdomains.</source>
-      <translation type="unfinished"/>
+      <translation>Ange domän för att aktivera användarstatistik över flera av domänens subdomäner.</translation>
     </message>
     <message>
       <source>How many days keep records of online users.</source>
-      <translation type="unfinished"/>
+      <translation>Hur många dagar att spara statistik över onlinebesökare.</translation>
     </message>
     <message>
       <source>Play sound on invitation to chat.</source>
-      <translation type="unfinished"/>
+      <translation>Spela upp ljud vid inbjudan till chatt.</translation>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
-      <translation type="unfinished"/>
+      <translation>Använd sessioncaptcha. LHC måste vara installerat på samma domän eller subdomän.</translation>
     </message>
     <message>
       <source>Should cronjob run unanswered chats workflow and execute unaswered chats callback, 0 - no, any other number bigger than 0 is a minits how long chat have to be not accepted before executing callback.</source>
-      <translation type="unfinished"/>
+      <translation>Ska cronjob köra obesvarade chattars arbetsflöde och köra obesvarade chattars callback, 0 - nej, andra siffror större än 0 är en minut för hur länge en chatt inte besvaras innan callback körs.</translation>
     </message>
     <message>
       <source>Should cronjob run departments transfer workflow, even if user leaves a chat</source>
-      <translation type="unfinished"/>
+      <translation>Ska cronjob köra avdelningarnas överförings arbetsflöde, även om en användare lämnar en chatt</translation>
     </message>
     <message>
       <source>Reopen chat functionality enabled</source>
-      <translation type="unfinished"/>
+      <translation>Funktionen för att återöppna en chatt är aktiverad</translation>
     </message>
     <message>
       <source>Reopen closed chat as new? Otherwise it will be reopened as active.</source>
-      <translation type="unfinished"/>
+      <translation>Återöppna stängd chatt som ny? Annars kommer den att återöppnas som aktiv.</translation>
     </message>
     <message>
       <source>Should invitation logic be executed if there is no online operators</source>
-      <translation type="unfinished"/>
+      <translation>Om inbjudansfunktionen ska köras om det inte finns några operatörer online</translation>
     </message>
     <message>
       <source>Pro active chats invitations limitation based on pending chats, (-1) do not limit, (0,1,n+1) number of pending chats can be for invitation to be shown.</source>
-      <translation type="unfinished"/>
+      <translation>Pro active chattinbjudningars begränsning baserad på väntande chattar, (-1) begränsa ej, (0,1,n+1) antal väntande chattar som kan göra så att inbjudan visas.</translation>
     </message>
     <message>
       <source>Is pro active chat invitation active. Online users tracking also has to be enabled</source>
-      <translation type="unfinished"/>
+      <translation>Är pro active chattinbjudan aktiv. Statistik för onlinebesökare måste också vara aktiverad.</translation>
     </message>
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
-      <translation type="unfinished"/>
+      <translation>Hjälptooltip timeout, efter hur många timmar att visa tooltop igen?</translation>
     </message>
     <message>
       <source>Show need help tooltip?</source>
-      <translation type="unfinished"/>
+      <translation>Visa hjälptooltip?</translation>
     </message>
     <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
-      <translation type="unfinished"/>
+      <translation>Proactive meddelande timeout i timmar. Efter hur många timmar som proactive chattmeddelande ska visas igen.</translation>
     </message>
     <message>
       <source>Maximum message length in characters</source>
-      <translation type="unfinished"/>
+      <translation>Maximum meddelandelängd i tecken</translation>
     </message>
     <message>
       <source>List online operators.</source>
-      <translation type="unfinished"/>
+      <translation>Lista onlineoperatörer.</translation>
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
-      <translation type="unfinished"/>
+      <translation>Ignorera användarnas onlinestatus och använd istället avdelningarnas onlinetimmer</translation>
     </message>
     <message>
       <source>Which ip should be ignored in online users list, separate by comma</source>
-      <translation type="unfinished"/>
+      <translation>Vilka IP ska ignoreras i listan för onlineanvändare, separera med komma</translation>
     </message>
     <message>
       <source>Hide disabled department widget</source>
-      <translation type="unfinished"/>
+      <translation>Dölj inaktiverad avdelningswidget</translation>
     </message>
     <message>
       <source>Is visitor e-mail required for FAQ</source>
-      <translation type="unfinished"/>
+      <translation>Är besökar-e-post obligatorisk för FAQ</translation>
     </message>
     <message>
       <source>Chats export secret hash</source>
-      <translation type="unfinished"/>
+      <translation>Chattexport hemlig hash/nyckel</translation>
     </message>
     <message>
       <source>Please enter explicit http mode. Either http: or https:, do not forget : at the end.</source>
-      <translation type="unfinished"/>
+      <translation>Var vänlig skriv in exakt http läge. Antingen http: eller https:, glöm inte : i slutet.</translation>
     </message>
     <message>
       <source>Disable chat transcript send</source>
-      <translation type="unfinished"/>
+      <translation>Inaktivera utskick av chattkopia</translation>
     </message>
     <message>
       <source>Disable chat print</source>
-      <translation type="unfinished"/>
+      <translation>Inaktivera utskrift av chatt</translation>
     </message>
     <message>
       <source>Disable option in widget to open new window. Restore icon will be hidden</source>
-      <translation type="unfinished"/>
+      <translation>Inaktivera alternativ i widget för att öppna ett nytt fönster. Återställningsikonen kommer att vara dold</translation>
     </message>
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
-      <translation type="unfinished"/>
+      <translation>Inaktivera HTML5 lagring, kryssa för detta om din sida skiftar mellan http och https</translation>
     </message>
     <message>
       <source>Your site URL address</source>
-      <translation type="unfinished"/>
+      <translation>Din URL adress för sidan</translation>
     </message>
     <message>
       <source>Your company name - visible in bottom left corner</source>
-      <translation type="unfinished"/>
+      <translation>Ditt företagsnamn - synligt i nedre vänstra hörnet</translation>
     </message>
     <message>
       <source>Show BB Code button</source>
-      <translation type="unfinished"/>
+      <translation>Visa knapp för BB kod</translation>
     </message>
     <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
-      <translation type="unfinished"/>
+      <translation>Automatisk rensning av chattar. 0 - inaktiverad, n &gt; 0 tid i minuter före chatten automatiskt tas bort</translation>
     </message>
     <message>
       <source>Automatically reopen chat on widget open</source>
-      <translation type="unfinished"/>
+      <translation>Återöppna chatten automatiskt när widgeten öppnas</translation>
     </message>
     <message>
       <source>Automatic chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
-      <translation type="unfinished"/>
+      <translation>Automatisk stängning av chattar. 0 - inaktiverad, n &gt; 0 tid i minuter före chatten automatiskt stängs ned</translation>
     </message>
     <message>
       <source>Support application name, visible in browser title.</source>
-      <translation type="unfinished"/>
+      <translation>Support applikationsnamn, synligt i webbläsartiteln.</translation>
     </message>
     <message>
       <source>Allow user to reopen closed chats?</source>
-      <translation type="unfinished"/>
+      <translation>Tillåt användare att återöppna stängda chattar?</translation>
     </message>
     <message>
       <source>Change to your site Terms of Service</source>
-      <translation type="unfinished"/>
+      <translation>Ändra till din sidas användarvillkor</translation>
     </message>
     <message>
       <source>How many seconds chat accept link is valid. Set 0 to force login all the time manually.</source>
-      <translation type="unfinished"/>
+      <translation>Hur många sekunder en accepteringslänk för en chatt är giltig. Välj 0 för att tvinga logga in manuellt varje gång.</translation>
     </message>
   </context>
   <context>
@@ -256,7 +256,7 @@
     </message>
     <message>
       <source>Widget copyright</source>
-      <translation type="unfinished"/>
+      <translation>Widget copyright</translation>
     </message>
     <message>
       <source>Widget container</source>
@@ -304,15 +304,15 @@
     </message>
     <message>
       <source>Logo image, visible in widget left corner, 16x16</source>
-      <translation type="unfinished"/>
+      <translation>Logobild, synlig i widgetens vänstra hörn, 16x16 px</translation>
     </message>
     <message>
       <source>Show copyright widget logo in left corner</source>
-      <translation type="unfinished"/>
+      <translation>Visa copyrightlogo i widgetens vänstra hörn</translation>
     </message>
     <message>
       <source>Widget copyright link</source>
-      <translation type="unfinished"/>
+      <translation>Widget copyrightlänk</translation>
     </message>
     <message>
       <source>Online image</source>

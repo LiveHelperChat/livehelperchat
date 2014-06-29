@@ -3,171 +3,171 @@
     <name>listchatconfig</name>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
-      <translation type="unfinished"/>
+      <translation>Po kolik dní by se neměl hlasovací widget zvětšovat od posledního zobrazení</translation>
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
-      <translation type="unfinished"/>
+      <translation>Používat bezpečenou cookie, zaškrtněte pro vynucení SSL</translation>
     </message>
     <message>
       <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
-      <translation type="unfinished"/>
+      <translation>Jaká IP adresa by měla být povolena k aktualizaci databáze spuštěním HTTP žádosti? Oddělujte čárkou.</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
-      <translation type="unfinished"/>
+      <translation>Povolit sledování online návštěvníků</translation>
     </message>
     <message>
       <source>Track online visitors even if there is no online operators</source>
-      <translation type="unfinished"/>
+      <translation>Sledování online návštěvníků, přestože není žádný online operátor</translation>
     </message>
     <message>
       <source>Track users footprint. For this also online visitors tracking should be enabled</source>
-      <translation type="unfinished"/>
+      <translation>Sledovat otisk uživatelů. Pro využívání by mělo být zapnuto sledování online uživatelů</translation>
     </message>
     <message>
       <source>Set your domain to enable user tracking across different domain subdomains.</source>
-      <translation type="unfinished"/>
+      <translation>Nastavte svou doménu pro povolení sledování uživatelů mezi různými subdoménami.</translation>
     </message>
     <message>
       <source>How many days keep records of online users.</source>
-      <translation type="unfinished"/>
+      <translation>Po kolik dní uchovávat záznamy o online uživatelích.</translation>
     </message>
     <message>
       <source>Play sound on invitation to chat.</source>
-      <translation type="unfinished"/>
+      <translation>Přehrát zvukové upozornění na pozvání k rozhovoru.</translation>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
-      <translation type="unfinished"/>
+      <translation>Používat CAPTCHA sezení. LHC by měl být nainstalován na stejné doméně nebo subdoméně.</translation>
     </message>
     <message>
       <source>Should cronjob run unanswered chats workflow and execute unaswered chats callback, 0 - no, any other number bigger than 0 is a minits how long chat have to be not accepted before executing callback.</source>
-      <translation type="unfinished"/>
+      <translation>Měl by CRON úkol spustit workflow nezodpovězených rozhovorů a spustit zpětné volání nezodpovězených rozhovorů, 0 - ne, jakékoliv jiné číslo vyšší než 0 jsou minuty, jak dlouho musí být rozhovor nezodpovězen před spuštěním zpětného volání.</translation>
     </message>
     <message>
       <source>Should cronjob run departments transfer workflow, even if user leaves a chat</source>
-      <translation type="unfinished"/>
+      <translation>Měl by CRON úkol spustit workflow převodu oddělení, přestože uživatel opustil rozhovor</translation>
     </message>
     <message>
       <source>Reopen chat functionality enabled</source>
-      <translation type="unfinished"/>
+      <translation>Funkce obnovení rozhovoru povolena</translation>
     </message>
     <message>
       <source>Reopen closed chat as new? Otherwise it will be reopened as active.</source>
-      <translation type="unfinished"/>
+      <translation>Znovu otevřít uzavřené rozhovory jako nové? V opačném případě budou obnoveny jako aktivní.</translation>
     </message>
     <message>
       <source>Should invitation logic be executed if there is no online operators</source>
-      <translation type="unfinished"/>
+      <translation>Má být logika pozvánek spuštěna, přestože nejsou žádní online operátoři</translation>
     </message>
     <message>
       <source>Pro active chats invitations limitation based on pending chats, (-1) do not limit, (0,1,n+1) number of pending chats can be for invitation to be shown.</source>
-      <translation type="unfinished"/>
+      <translation>Omezení proaktivních pozvánek k rozhovoru založených na čekajících rozhovorech, (-1) neomezovat, (0, 1, n+1) číslo možných čekajících rozhovorů, aby byla pozvánka zobrazena.</translation>
     </message>
     <message>
       <source>Is pro active chat invitation active. Online users tracking also has to be enabled</source>
-      <translation type="unfinished"/>
+      <translation>Proaktivní pozvánky k rozhovoru jsou aktivní. Online sledování uživatelů musí být také povoleno</translation>
     </message>
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
-      <translation type="unfinished"/>
+      <translation>Časový limit tooltipu Potřebujete radu?, po kolika hodinách opět zobrazit tooltip?</translation>
     </message>
     <message>
       <source>Show need help tooltip?</source>
-      <translation type="unfinished"/>
+      <translation>Zobrazit tooltip Potřebujete radu?</translation>
     </message>
     <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
-      <translation type="unfinished"/>
+      <translation>Časový limit proaktivní zprávy v hodinách. Po kolika hodinách by měly být zprávy proaktivních rozhovorů opět zobrazeny.</translation>
     </message>
     <message>
       <source>Maximum message length in characters</source>
-      <translation type="unfinished"/>
+      <translation>Maximální délka zprávy ve znacích</translation>
     </message>
     <message>
       <source>List online operators.</source>
-      <translation type="unfinished"/>
+      <translation>Seznam online operátorů</translation>
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
-      <translation type="unfinished"/>
+      <translation>Ignorovat online stav uživatelů a používat otevírací hodiny oddělení</translation>
     </message>
     <message>
       <source>Which ip should be ignored in online users list, separate by comma</source>
-      <translation type="unfinished"/>
+      <translation>Jaké IP adresy by měl být ignorovány v seznamu online uživatelů, oddělujte čárkou</translation>
     </message>
     <message>
       <source>Hide disabled department widget</source>
-      <translation type="unfinished"/>
+      <translation>Skrýt widget vypnutého oddělení</translation>
     </message>
     <message>
       <source>Is visitor e-mail required for FAQ</source>
-      <translation type="unfinished"/>
+      <translation>Je pro FAQ vyžadován e-mail návštěvníka</translation>
     </message>
     <message>
       <source>Chats export secret hash</source>
-      <translation type="unfinished"/>
+      <translation>Tajný hash kód exportu rozhovorů</translation>
     </message>
     <message>
       <source>Please enter explicit http mode. Either http: or https:, do not forget : at the end.</source>
-      <translation type="unfinished"/>
+      <translation>Zadejte, prosím, explicitní HTTP režim. Buď http: nebo https:, nezapomeňte : na konci.</translation>
     </message>
     <message>
       <source>Disable chat transcript send</source>
-      <translation type="unfinished"/>
+      <translation>Vypnout přeposílání přepisu rozhovoru</translation>
     </message>
     <message>
       <source>Disable chat print</source>
-      <translation type="unfinished"/>
+      <translation>Vypnout tisk rozhovoru</translation>
     </message>
     <message>
       <source>Disable option in widget to open new window. Restore icon will be hidden</source>
-      <translation type="unfinished"/>
+      <translation>Vypnout možnost widgetu otevřít nové okno. Ikona obnovení bude skryta</translation>
     </message>
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
-      <translation type="unfinished"/>
+      <translation>Vypnout uložiště HTML5, zaškrtněte, pokud se Vaše stránka přepíná mezi HTTP a HTTPS</translation>
     </message>
     <message>
       <source>Your site URL address</source>
-      <translation type="unfinished"/>
+      <translation>URL adresa Vaší stránky</translation>
     </message>
     <message>
       <source>Your company name - visible in bottom left corner</source>
-      <translation type="unfinished"/>
+      <translation>Název Vaší společnosti - viditelné v levém dolním rohu</translation>
     </message>
     <message>
       <source>Show BB Code button</source>
-      <translation type="unfinished"/>
+      <translation>Zobrazit tlačítko BB kódu</translation>
     </message>
     <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
-      <translation type="unfinished"/>
+      <translation>Automatické čištění rozhovorů. 0 - vypnuto, n &gt; 0 je časem v minutách, než je rozhovor automaticky smazán</translation>
     </message>
     <message>
       <source>Automatically reopen chat on widget open</source>
-      <translation type="unfinished"/>
+      <translation>Automaticky znovu otevřít rozhovor po otevření widgetu</translation>
     </message>
     <message>
       <source>Automatic chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
-      <translation type="unfinished"/>
+      <translation>Automatické ukončení rozhovoru. 0 - vypnuto, n &gt; 0 je časem v minutách, než je rozhovor automaticky ukončen</translation>
     </message>
     <message>
       <source>Support application name, visible in browser title.</source>
-      <translation type="unfinished"/>
+      <translation>Název aplikace podpory, viditelné v titulku prohlížeče.</translation>
     </message>
     <message>
       <source>Allow user to reopen closed chats?</source>
-      <translation type="unfinished"/>
+      <translation>Povolit uživateli znovu otevřít uzavřené rozhovory?</translation>
     </message>
     <message>
       <source>Change to your site Terms of Service</source>
-      <translation type="unfinished"/>
+      <translation>Změnit na Vaši stránku &quot;Podmínky služby&quot;</translation>
     </message>
     <message>
       <source>How many seconds chat accept link is valid. Set 0 to force login all the time manually.</source>
-      <translation type="unfinished"/>
+      <translation>Kolik sekund rozhovor akceptuje odkaz jako validní. Nastavte 0 k trvalému vynucení manuálního přihlášení.</translation>
     </message>
   </context>
   <context>
@@ -256,7 +256,7 @@
     </message>
     <message>
       <source>Widget copyright</source>
-      <translation type="unfinished"/>
+      <translation>Copyright widgetu</translation>
     </message>
     <message>
       <source>Widget container</source>
@@ -304,15 +304,15 @@
     </message>
     <message>
       <source>Logo image, visible in widget left corner, 16x16</source>
-      <translation type="unfinished"/>
+      <translation>Obrázek loga, viditelné v levém rohu widgetu, 16 x 16</translation>
     </message>
     <message>
       <source>Show copyright widget logo in left corner</source>
-      <translation type="unfinished"/>
+      <translation>Zobrazit logo copyrightu widgetu v levém rohu</translation>
     </message>
     <message>
       <source>Widget copyright link</source>
-      <translation type="unfinished"/>
+      <translation>Odkaz copyrightu widgetu</translation>
     </message>
     <message>
       <source>Online image</source>

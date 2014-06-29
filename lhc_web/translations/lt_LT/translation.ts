@@ -3,171 +3,171 @@
     <name>listchatconfig</name>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
-      <translation type="unfinished"/>
+      <translation>Kiek dienų balsavimo widgetas neturėtų būti išskleistas po paskutinio parodymo</translation>
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
-      <translation type="unfinished"/>
+      <translation>Naudoti saugius sausainėlius, pažymėkite jei naudosite SSL visą laiką.</translation>
     </message>
     <message>
       <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
-      <translation type="unfinished"/>
+      <translation>Iš kurių IP turėtų būti leidžiama atnaujinti DB įvykdant HTTP užklausa, gali būti atskirta kableliais?</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
-      <translation type="unfinished"/>
+      <translation>Įgalinti naršančių vartotojų sekimą</translation>
     </message>
     <message>
       <source>Track online visitors even if there is no online operators</source>
-      <translation type="unfinished"/>
+      <translation>Sekti naršanšius lankytojus netgi jei nėra prisijungusių operatorių</translation>
     </message>
     <message>
       <source>Track users footprint. For this also online visitors tracking should be enabled</source>
-      <translation type="unfinished"/>
+      <translation>Fiksuoti vartotojų naršymo kelią, šiai funkcijai reikalingas naršančių vartotojų fiksavimo įgalinimas taip pat.</translation>
     </message>
     <message>
       <source>Set your domain to enable user tracking across different domain subdomains.</source>
-      <translation type="unfinished"/>
+      <translation>Nustatykite savo domeną, norėdami sekti vartotojus tarp skirtingų domeno subdomenų.</translation>
     </message>
     <message>
       <source>How many days keep records of online users.</source>
-      <translation type="unfinished"/>
+      <translation>Kiek dienų saugoti prisijungusių vartotojų įrašus.</translation>
     </message>
     <message>
       <source>Play sound on invitation to chat.</source>
-      <translation type="unfinished"/>
+      <translation>Paleisti garso signama, kai suveikia pakvietimas pokalbiui.</translation>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
-      <translation type="unfinished"/>
+      <translation>Naudoti sesiją apsaugai. LHC turi būti instaliuotas tam pačiam domene arba subdomene.</translation>
     </message>
     <message>
       <source>Should cronjob run unanswered chats workflow and execute unaswered chats callback, 0 - no, any other number bigger than 0 is a minits how long chat have to be not accepted before executing callback.</source>
-      <translation type="unfinished"/>
+      <translation>Ar turėtų cronjobas vykdyti neatsakytų pokalbių darbo eigą ir vykdyti neatsakytų pokalbių signalo fukciją, 0 - ne, bet kuris kitas skaičius didenis negu 0 yra laikas minutėmis kiek ilgai pokalbis turi būti nepatvirtintas prieš išsiunčiant signamą apie neatsakytą pokalbį.</translation>
     </message>
     <message>
       <source>Should cronjob run departments transfer workflow, even if user leaves a chat</source>
-      <translation type="unfinished"/>
+      <translation>Ar turėtų cronjobas vykdyti departamentų perskyrimo logiką, netgi kai vartotojas palieka pokalbį?</translation>
     </message>
     <message>
       <source>Reopen chat functionality enabled</source>
-      <translation type="unfinished"/>
+      <translation>Leisti iš naujo atidaryti pokalbį vartotojui</translation>
     </message>
     <message>
       <source>Reopen closed chat as new? Otherwise it will be reopened as active.</source>
-      <translation type="unfinished"/>
+      <translation>Atidaryti uždarytą pokalbį kaip naują? priešingu atveju jis bus atidarytas kaip aktyvys.</translation>
     </message>
     <message>
       <source>Should invitation logic be executed if there is no online operators</source>
-      <translation type="unfinished"/>
+      <translation>Ar turėtų veikti pakvietimas pokalbiui, kai nėra prisijungusių operatorių?</translation>
     </message>
     <message>
       <source>Pro active chats invitations limitation based on pending chats, (-1) do not limit, (0,1,n+1) number of pending chats can be for invitation to be shown.</source>
-      <translation type="unfinished"/>
+      <translation>Pakvietimų pokalbiui limitavimas remiantis laukiančių patvirtinimo pokalbių skaičiumi, (-1) nelimituoti, (0,1,n+1) skaičius kuomet dar gali būti vykdomi pakvietimai pokalbiui.</translation>
     </message>
     <message>
       <source>Is pro active chat invitation active. Online users tracking also has to be enabled</source>
-      <translation type="unfinished"/>
+      <translation>Ar kviesti vartotojus pokalbiui? naršančių vartotojų sekimas turi būti įjungtas irgi.</translation>
     </message>
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
-      <translation type="unfinished"/>
+      <translation>Reikia pagalbos tooltipo pakartotinis rodymas, po kiek valandų rodyti tooltipą vėl?</translation>
     </message>
     <message>
       <source>Show need help tooltip?</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti reikia pagalbos tooltipą?</translation>
     </message>
     <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
-      <translation type="unfinished"/>
+      <translation>Pakvietimo pokalbiui pakartotonis rodymas po tam tikro laiko. Po kiek valandų turėtų pakvietimas būti parodytas tam pačiam vartotojui</translation>
     </message>
     <message>
       <source>Maximum message length in characters</source>
-      <translation type="unfinished"/>
+      <translation>Maksimalus žinutės ilgi ženklais</translation>
     </message>
     <message>
       <source>List online operators.</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti prisijungusius operatorius</translation>
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
-      <translation type="unfinished"/>
+      <translation>Ignoruoti operatorių prisijungimo būsenas ir naudoti departamentų darbo valandas</translation>
     </message>
     <message>
       <source>Which ip should be ignored in online users list, separate by comma</source>
-      <translation type="unfinished"/>
+      <translation>Kurie IP turėtų būti ignoruojami naršančių vartotojų sąraše, gali būti atskirti kableliais.</translation>
     </message>
     <message>
       <source>Hide disabled department widget</source>
-      <translation type="unfinished"/>
+      <translation>Slėpti išjungti departamento widgetą</translation>
     </message>
     <message>
       <source>Is visitor e-mail required for FAQ</source>
-      <translation type="unfinished"/>
+      <translation>Ar reikalaujama e-pašto adreso vartotojui pildant FAQ klausimą</translation>
     </message>
     <message>
       <source>Chats export secret hash</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių eksporto slaptas maišos kodas</translation>
     </message>
     <message>
       <source>Please enter explicit http mode. Either http: or https:, do not forget : at the end.</source>
-      <translation type="unfinished"/>
+      <translation>Griežtas http režimas. Įveskite http: arba https:, nepamirškite : gale</translation>
     </message>
     <message>
       <source>Disable chat transcript send</source>
-      <translation type="unfinished"/>
+      <translation>Išjungti pokablių atsisiuntimo funkciją vartotojui</translation>
     </message>
     <message>
       <source>Disable chat print</source>
-      <translation type="unfinished"/>
+      <translation>Išjungti pokalbių spausdinimo funkciją vartotojui</translation>
     </message>
     <message>
       <source>Disable option in widget to open new window. Restore icon will be hidden</source>
-      <translation type="unfinished"/>
+      <translation>Paslėpti galimybę vartotojui atidaryti widgetą naujam lange. Atidarymo naujam lange ikona bus paslėpta.</translation>
     </message>
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
-      <translation type="unfinished"/>
+      <translation>Išjungti HTML5 storage funkciją, pažymėkite jei jūsų puslapis keičia režimus tarp http ir https</translation>
     </message>
     <message>
       <source>Your site URL address</source>
-      <translation type="unfinished"/>
+      <translation>Jūsų puslapio URL adresas</translation>
     </message>
     <message>
       <source>Your company name - visible in bottom left corner</source>
-      <translation type="unfinished"/>
+      <translation>Jūsų įmonės pavadinimas, matomas apatiniame kairiame kampe</translation>
     </message>
     <message>
       <source>Show BB Code button</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti BB kodo mygtyką</translation>
     </message>
     <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
-      <translation type="unfinished"/>
+      <translation>Automatinis pokalbių trynimas. 0 - išjungtas, n &gt; 0 laikas minutėmis prieš tai, kol pokalbis būna ištrinamas.</translation>
     </message>
     <message>
       <source>Automatically reopen chat on widget open</source>
-      <translation type="unfinished"/>
+      <translation>Automatiškai pratęs pokalbį kai vartotojas atidaro widgetą.</translation>
     </message>
     <message>
       <source>Automatic chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
-      <translation type="unfinished"/>
+      <translation>Automatinis pokalbių uždarymas. 0 - išjungtas, n &gt; 0 laikas minutėmis prieštai, kol pokalbis būna automatiškai uždarytas.</translation>
     </message>
     <message>
       <source>Support application name, visible in browser title.</source>
-      <translation type="unfinished"/>
+      <translation>Palaikymo programos pavadinimas, matomas naršyklės title žymoje.</translation>
     </message>
     <message>
       <source>Allow user to reopen closed chats?</source>
-      <translation type="unfinished"/>
+      <translation>Leisti vartotojams atidaryti uždarytus pokalbius.</translation>
     </message>
     <message>
       <source>Change to your site Terms of Service</source>
-      <translation type="unfinished"/>
+      <translation>Pakeiskite į savo puslapio salygų ir taisyklių puslapį</translation>
     </message>
     <message>
       <source>How many seconds chat accept link is valid. Set 0 to force login all the time manually.</source>
-      <translation type="unfinished"/>
+      <translation>Kiek laiko sekundėmis pokalbių automatinio priėmimo nuorda yra validi. Nustatykite 0 norėdami priversti prisijungti visą laiką.</translation>
     </message>
   </context>
   <context>
@@ -256,7 +256,7 @@
     </message>
     <message>
       <source>Widget copyright</source>
-      <translation type="unfinished"/>
+      <translation>Widget autorystė</translation>
     </message>
     <message>
       <source>Widget container</source>
@@ -304,15 +304,15 @@
     </message>
     <message>
       <source>Logo image, visible in widget left corner, 16x16</source>
-      <translation type="unfinished"/>
+      <translation>Logo paveiksliukas, matomas widgeto kairiame kampe, 16x16</translation>
     </message>
     <message>
       <source>Show copyright widget logo in left corner</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti autorystės widgeto logo kairiame kampe</translation>
     </message>
     <message>
       <source>Widget copyright link</source>
-      <translation type="unfinished"/>
+      <translation>Widgeto autorystės nuoroda</translation>
     </message>
     <message>
       <source>Online image</source>
@@ -2626,7 +2626,7 @@
     </message>
     <message>
       <source>Default theme</source>
-      <translation type="unfinished"/>
+      <translation>Standartinė tema</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -3670,7 +3670,7 @@
     </message>
     <message>
       <source>Updating...</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinama...</translation>
     </message>
     <message>
       <source>Logged user</source>
@@ -4834,7 +4834,7 @@
     </message>
     <message>
       <source>Comparing current database structure, please wait...</source>
-      <translation type="unfinished"/>
+      <translation>Lyginama dabartinė duomenų bazės struktūra, prašome palaukti...</translation>
     </message>
     <message>
       <source>Time zone</source>
@@ -4967,26 +4967,26 @@
     <name>update/statusdb</name>
     <message>
       <source>Database structure check</source>
-      <translation type="unfinished"/>
+      <translation>Duomenų bazės struktūros patikrinimas</translation>
     </message>
     <message>
       <source>Your database does not require any updates</source>
-      <translation type="unfinished"/>
+      <translation>Jūsų duomenų bazė nereikalauja jokių atnaujinimų</translation>
     </message>
     <message>
       <source>Update database</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinti duomenų bazę</translation>
     </message>
     <message>
       <source>Queries which will be executed on update</source>
-      <translation type="unfinished"/>
+      <translation>Užklausos kurios bus įvykdytos atnaujinant duomenų bazę</translation>
     </message>
   </context>
   <context>
     <name>theme/index</name>
     <message>
       <source>Default theme</source>
-      <translation type="unfinished"/>
+      <translation>Standartinė teima</translation>
     </message>
     <message>
       <source>Theme</source>
@@ -5013,14 +5013,14 @@
     <name>theme/default</name>
     <message>
       <source>Set as default theme</source>
-      <translation type="unfinished"/>
+      <translation>Nustatyti kaip standartinę temą</translation>
     </message>
   </context>
   <context>
     <name>theme/import</name>
     <message>
       <source>Default theme was set</source>
-      <translation type="unfinished"/>
+      <translation>Standartinė tema buvo nustatyta</translation>
     </message>
     <message>
       <source>Import theme</source>

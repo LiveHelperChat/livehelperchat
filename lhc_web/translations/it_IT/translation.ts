@@ -63,7 +63,7 @@
     </message>
     <message>
       <source>Pro active chats invitations limitation based on pending chats, (-1) do not limit, (0,1,n+1) number of pending chats can be for invitation to be shown.</source>
-      <translation type="unfinished"/>
+      <translation>Limite all&apos;invito automatico Pro active chats basato sul numero di chat attive. (-1) nessun limite (0,1,n+1)numero di chat attive che possono essere invitate </translation>
     </message>
     <message>
       <source>Is pro active chat invitation active. Online users tracking also has to be enabled</source>
@@ -387,7 +387,7 @@
     </message>
     <message>
       <source>Minimize/Restore</source>
-      <translation type="unfinished"/>
+      <translation>Minimizza/ripristina</translation>
     </message>
     <message>
       <source>Live help is online...</source>
@@ -868,7 +868,7 @@
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Dipartimento</translation>
     </message>
     <message>
       <source>User</source>
@@ -884,11 +884,11 @@
     </message>
     <message>
       <source>Select department</source>
-      <translation type="unfinished"/>
+      <translation>Seleziona dipartimento</translation>
     </message>
     <message>
       <source>Select user</source>
-      <translation type="unfinished"/>
+      <translation>Seleziona User</translation>
     </message>
     <message>
       <source>Type to search</source>
@@ -1119,11 +1119,11 @@
     </message>
     <message>
       <source>Personal canned message</source>
-      <translation type="unfinished"/>
+      <translation>Messaggio predefinito</translation>
     </message>
     <message>
       <source>Canned message was saved</source>
-      <translation type="unfinished"/>
+      <translation>Messaggio predefinito salvato</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -1250,7 +1250,7 @@
     </message>
     <message>
       <source>These messages will be send as group messages</source>
-      <translation type="unfinished"/>
+      <translation>Questi messaggi saranno inviati come gruppo</translation>
     </message>
     <message>
       <source>Inform about new chats using</source>
@@ -1396,7 +1396,7 @@
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Dipartimenti</translation>
     </message>
     <message>
       <source>Country</source>
@@ -1696,7 +1696,7 @@
     </message>
     <message>
       <source>Please</source>
-      <translation type="unfinished"/>
+      <translation>prego</translation>
     </message>
     <message>
       <source>login first.</source>
@@ -1835,7 +1835,7 @@
     </message>
     <message>
       <source>is required</source>
-      <translation type="unfinished"/>
+      <translation>obbligatorio</translation>
     </message>
     <message>
       <source>Live Support</source>
@@ -2220,7 +2220,7 @@
     </message>
     <message>
       <source>online users</source>
-      <translation type="unfinished"/>
+      <translation>utenti online</translation>
     </message>
     <message>
       <source>Group list by</source>
@@ -2280,11 +2280,11 @@
     </message>
     <message>
       <source>day</source>
-      <translation type="unfinished"/>
+      <translation>giorno</translation>
     </message>
     <message>
       <source>days</source>
-      <translation type="unfinished"/>
+      <translation>giorni</translation>
     </message>
     <message>
       <source>Status</source>
@@ -2415,11 +2415,11 @@
     <name>chat/listchatconfig</name>
     <message>
       <source>Chat configuration</source>
-      <translation type="unfinished"/>
+      <translation>Configurazione chat</translation>
     </message>
     <message>
       <source>Notifications about new chats</source>
-      <translation type="unfinished"/>
+      <translation>Notifiche nuove chat</translation>
     </message>
     <message>
       <source>Copyright settings</source>
@@ -2732,7 +2732,7 @@
     </message>
     <message>
       <source>Extra modules</source>
-      <translation type="unfinished"/>
+      <translation>Moduli extra</translation>
     </message>
     <message>
       <source>Questionary</source>
@@ -2966,7 +2966,7 @@
     </message>
     <message>
       <source>Enable leave a message functionality automatically if there are no online operators</source>
-      <translation type="unfinished"/>
+      <translation>Abilita la funzionalità lascia un messaggio se non ci sono operatori online</translation>
     </message>
     <message>
       <source>Online form settings</source>
@@ -3022,7 +3022,7 @@
     </message>
     <message>
       <source>E-mail is always required</source>
-      <translation type="unfinished"/>
+      <translation>Email è sempre richiesta</translation>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>
@@ -3117,15 +3117,15 @@
     </message>
     <message>
       <source>Show alert message on a new chat request</source>
-      <translation type="unfinished"/>
+      <translation>Visualizza un messaggio di alert per una nuova richiesta di chat</translation>
     </message>
     <message>
       <source>How many times play sound notification</source>
-      <translation type="unfinished"/>
+      <translation>Quante volte ascoltare il suono delle notifiche</translation>
     </message>
     <message>
       <source>Number</source>
-      <translation type="unfinished"/>
+      <translation>Numero</translation>
     </message>
     <message>
       <source>Delay between sound notifications in seconds</source>
@@ -3133,11 +3133,11 @@
     </message>
     <message>
       <source>delay in seconds</source>
-      <translation type="unfinished"/>
+      <translation>Attesa in secondi</translation>
     </message>
     <message>
       <source>Seconds</source>
-      <translation type="unfinished"/>
+      <translation>Secondi</translation>
     </message>
     <message>
       <source>Please enter a valid online timeout value!</source>
@@ -3778,15 +3778,15 @@
     </message>
     <message>
       <source>Personal canned messages</source>
-      <translation type="unfinished"/>
+      <translation>Messaggi predefiniti</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation type="unfinished"/>
+      <translation>Chat in attesa </translation>
     </message>
     <message>
       <source>I can see all pending chats, not only assigned to me</source>
-      <translation type="unfinished"/>
+      <translation>Puoi vedere tutte le chat in attesa non solo quelle  a te assegnate </translation>
     </message>
     <message>
       <source>Account updated</source>
@@ -5528,11 +5528,11 @@
     </message>
     <message>
       <source>This message will be send to your e-mail</source>
-      <translation type="unfinished"/>
+      <translation>il messaggio verrà inviato alla tua email</translation>
     </message>
     <message>
       <source>Send test message</source>
-      <translation type="unfinished"/>
+      <translation>Invia messaggio di test</translation>
     </message>
     <message>
       <source>Revoke access token</source>

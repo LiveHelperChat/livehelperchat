@@ -3,171 +3,171 @@
     <name>listchatconfig</name>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
-      <translation type="unfinished"/>
+      <translation>多少天投票窗口小部件不应扩大后最后的展示</translation>
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
-      <translation type="unfinished"/>
+      <translation>使用安全Cookie，检查如果你想使用SSL所有时间</translation>
     </message>
     <message>
       <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
-      <translation type="unfinished"/>
+      <translation>允许通过执行HTTP请求更新数据库的IP，用逗号分隔.</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
-      <translation type="unfinished"/>
+      <translation>启用网站访问者跟踪</translation>
     </message>
     <message>
       <source>Track online visitors even if there is no online operators</source>
-      <translation type="unfinished"/>
+      <translation>跟踪在线访客即使如果没有客服在线的情况下</translation>
     </message>
     <message>
       <source>Track users footprint. For this also online visitors tracking should be enabled</source>
-      <translation type="unfinished"/>
+      <translation>跟踪用户的足迹。要求启用在线访客追踪</translation>
     </message>
     <message>
       <source>Set your domain to enable user tracking across different domain subdomains.</source>
-      <translation type="unfinished"/>
+      <translation>设置您的域名以启用跟踪用户在不同的域名的子域名</translation>
     </message>
     <message>
       <source>How many days keep records of online users.</source>
-      <translation type="unfinished"/>
+      <translation>保持在线用户记录的天数</translation>
     </message>
     <message>
       <source>Play sound on invitation to chat.</source>
-      <translation type="unfinished"/>
+      <translation>播放声音以邀请访客聊天</translation>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
-      <translation type="unfinished"/>
+      <translation>使用会话验证码。LHC必须安装在同一个域名或子域名</translation>
     </message>
     <message>
       <source>Should cronjob run unanswered chats workflow and execute unaswered chats callback, 0 - no, any other number bigger than 0 is a minits how long chat have to be not accepted before executing callback.</source>
-      <translation type="unfinished"/>
+      <translation>运行无回应工作流计划并执行无回应回访，0 - 否，任何大于0分钟是指多长时间聊天未被接受就执行回访。</translation>
     </message>
     <message>
       <source>Should cronjob run departments transfer workflow, even if user leaves a chat</source>
-      <translation type="unfinished"/>
+      <translation>运行客服部门迁移工作流计划，即使用户离开聊天</translation>
     </message>
     <message>
       <source>Reopen chat functionality enabled</source>
-      <translation type="unfinished"/>
+      <translation>启用重新打开聊天功能</translation>
     </message>
     <message>
       <source>Reopen closed chat as new? Otherwise it will be reopened as active.</source>
-      <translation type="unfinished"/>
+      <translation>重新打开关闭的聊天作为新对话？否则会重新激活关闭的对话。</translation>
     </message>
     <message>
       <source>Should invitation logic be executed if there is no online operators</source>
-      <translation type="unfinished"/>
+      <translation>如果没有在线客服将执行邀请脚本</translation>
     </message>
     <message>
       <source>Pro active chats invitations limitation based on pending chats, (-1) do not limit, (0,1,n+1) number of pending chats can be for invitation to be shown.</source>
-      <translation type="unfinished"/>
+      <translation>主动聊天邀请限制基于待定的聊天记录，1不限，(0、1、n+1)数量的待聊天可以邀请被显示。</translation>
     </message>
     <message>
       <source>Is pro active chat invitation active. Online users tracking also has to be enabled</source>
-      <translation type="unfinished"/>
+      <translation>激话聊天邀请。在线用户跟踪也必须被启用</translation>
     </message>
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
-      <translation type="unfinished"/>
+      <translation>需要帮助的工具提示超时后多少小时再次显示？</translation>
     </message>
     <message>
       <source>Show need help tooltip?</source>
-      <translation type="unfinished"/>
+      <translation>显示需要帮助工具提示吗？</translation>
     </message>
     <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
-      <translation type="unfinished"/>
+      <translation>在多少小时内主动消息超时。多少小时后主动聊天应该再次显示</translation>
     </message>
     <message>
       <source>Maximum message length in characters</source>
-      <translation type="unfinished"/>
+      <translation>最大消息长度，以字符计数，一个汉字占2字节</translation>
     </message>
     <message>
       <source>List online operators.</source>
-      <translation type="unfinished"/>
+      <translation>列出在线客服</translation>
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
-      <translation type="unfinished"/>
+      <translation>忽略用户在线状态，并使用客服部门在线时间 </translation>
     </message>
     <message>
       <source>Which ip should be ignored in online users list, separate by comma</source>
-      <translation type="unfinished"/>
+      <translation>需要在在线用户列表中忽略的IP地址，用逗号分开</translation>
     </message>
     <message>
       <source>Hide disabled department widget</source>
-      <translation type="unfinished"/>
+      <translation>隐藏禁用部门控件</translation>
     </message>
     <message>
       <source>Is visitor e-mail required for FAQ</source>
-      <translation type="unfinished"/>
+      <translation>FAQ请求需要访客提供电子邮箱</translation>
     </message>
     <message>
       <source>Chats export secret hash</source>
-      <translation type="unfinished"/>
+      <translation>聊天记录导出加密hash</translation>
     </message>
     <message>
       <source>Please enter explicit http mode. Either http: or https:, do not forget : at the end.</source>
-      <translation type="unfinished"/>
+      <translation>请明确输入 http 模式。任一 http： 或 https：，不要忘记在结尾输入&quot; : &quot; </translation>
     </message>
     <message>
       <source>Disable chat transcript send</source>
-      <translation type="unfinished"/>
+      <translation>禁用聊天内容发送功能</translation>
     </message>
     <message>
       <source>Disable chat print</source>
-      <translation type="unfinished"/>
+      <translation>禁用聊天内容打印功能</translation>
     </message>
     <message>
       <source>Disable option in widget to open new window. Restore icon will be hidden</source>
-      <translation type="unfinished"/>
+      <translation>禁用选项可以在新窗口中打开。恢复图标将会隐藏</translation>
     </message>
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
-      <translation type="unfinished"/>
+      <translation>禁用hmtl5存储，如果你的网站是HTTP和HTTPS之间切换请检查它</translation>
     </message>
     <message>
       <source>Your site URL address</source>
-      <translation type="unfinished"/>
+      <translation>你的站点的 URL 地址</translation>
     </message>
     <message>
       <source>Your company name - visible in bottom left corner</source>
-      <translation type="unfinished"/>
+      <translation>您的公司名称-在左下角可见</translation>
     </message>
     <message>
       <source>Show BB Code button</source>
-      <translation type="unfinished"/>
+      <translation>显示 BB 代码按钮</translation>
     </message>
     <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
-      <translation type="unfinished"/>
+      <translation>自动清除聊天记录。0-禁用，n &gt; 0 分钟前自动删除</translation>
     </message>
     <message>
       <source>Automatically reopen chat on widget open</source>
-      <translation type="unfinished"/>
+      <translation>当部件打开自动重新打开聊天窗口</translation>
     </message>
     <message>
       <source>Automatic chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
-      <translation type="unfinished"/>
+      <translation>关闭自动聊天。0 - 关闭，n &gt; 0 分钟后聊天自动关闭</translation>
     </message>
     <message>
       <source>Support application name, visible in browser title.</source>
-      <translation type="unfinished"/>
+      <translation>支持应用程序的名称，在浏览器标题可见。</translation>
     </message>
     <message>
       <source>Allow user to reopen closed chats?</source>
-      <translation type="unfinished"/>
+      <translation>允许用户重新打开关闭的聊天？</translation>
     </message>
     <message>
       <source>Change to your site Terms of Service</source>
-      <translation type="unfinished"/>
+      <translation>改变你的网站的服务条款</translation>
     </message>
     <message>
       <source>How many seconds chat accept link is valid. Set 0 to force login all the time manually.</source>
-      <translation type="unfinished"/>
+      <translation>多少秒聊天接受链接是有效的。设置0 为强制所有时间为手动登录。</translation>
     </message>
   </context>
   <context>
@@ -248,131 +248,131 @@
     <name>abstract/widgettheme</name>
     <message>
       <source>Download theme</source>
-      <translation type="unfinished"/>
+      <translation>下载主题</translation>
     </message>
     <message>
       <source>Status widget style</source>
-      <translation type="unfinished"/>
+      <translation>状态窗口风格</translation>
     </message>
     <message>
       <source>Widget copyright</source>
-      <translation type="unfinished"/>
+      <translation>版权的小部件</translation>
     </message>
     <message>
       <source>Widget container</source>
-      <translation type="unfinished"/>
+      <translation>部件容器</translation>
     </message>
     <message>
       <source>Need help widget</source>
-      <translation type="unfinished"/>
+      <translation>需要帮助的小部件</translation>
     </message>
     <message>
       <source>Custom CSS</source>
-      <translation type="unfinished"/>
+      <translation>自定义CSS</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>名字</translation>
     </message>
     <message>
       <source>Need help header text</source>
-      <translation type="unfinished"/>
+      <translation>需要帮助的标题文本</translation>
     </message>
     <message>
       <source>Need help standard text</source>
-      <translation type="unfinished"/>
+      <translation>需要帮助的标准文本</translation>
     </message>
     <message>
       <source>Online status text</source>
-      <translation type="unfinished"/>
+      <translation>在线状态文本</translation>
     </message>
     <message>
       <source>Offline status text</source>
-      <translation type="unfinished"/>
+      <translation>离线状态文本</translation>
     </message>
     <message>
       <source>Background color</source>
-      <translation type="unfinished"/>
+      <translation>背景颜色</translation>
     </message>
     <message>
       <source>Text color</source>
-      <translation type="unfinished"/>
+      <translation>文字颜色</translation>
     </message>
     <message>
       <source>Logo image, visible in popup</source>
-      <translation type="unfinished"/>
+      <translation>LOGO图片，弹出窗口可见</translation>
     </message>
     <message>
       <source>Logo image, visible in widget left corner, 16x16</source>
-      <translation type="unfinished"/>
+      <translation>LOGO图像，在小部件左上角显示，16 x 16</translation>
     </message>
     <message>
       <source>Show copyright widget logo in left corner</source>
-      <translation type="unfinished"/>
+      <translation>在左上角显示版权徽标小部件</translation>
     </message>
     <message>
       <source>Widget copyright link</source>
-      <translation type="unfinished"/>
+      <translation>版权小部件的链接</translation>
     </message>
     <message>
       <source>Online image</source>
-      <translation type="unfinished"/>
+      <translation>在线图片</translation>
     </message>
     <message>
       <source>Offline image</source>
-      <translation type="unfinished"/>
+      <translation>离线图片</translation>
     </message>
     <message>
       <source>Widget header background color</source>
-      <translation type="unfinished"/>
+      <translation>控件标题的背景颜色</translation>
     </message>
     <message>
       <source>Widget border color</source>
-      <translation type="unfinished"/>
+      <translation>控件的边框颜色</translation>
     </message>
     <message>
       <source>Need help background color</source>
-      <translation type="unfinished"/>
+      <translation>需要帮助背景颜色</translation>
     </message>
     <message>
       <source>Need help hover background color</source>
-      <translation type="unfinished"/>
+      <translation>需要帮助的悬停背景颜色</translation>
     </message>
     <message>
       <source>Need help text color</source>
-      <translation type="unfinished"/>
+      <translation>需要帮助的文字颜色</translation>
     </message>
     <message>
       <source>Need help border color</source>
-      <translation type="unfinished"/>
+      <translation>需要帮助的背景颜色</translation>
     </message>
     <message>
       <source>Need help close background color</source>
-      <translation type="unfinished"/>
+      <translation>需要帮助关闭背景颜色</translation>
     </message>
     <message>
       <source>Need help close hover background color</source>
-      <translation type="unfinished"/>
+      <translation>需要帮助关闭悬停背景颜色</translation>
     </message>
     <message>
       <source>Need help operator image</source>
-      <translation type="unfinished"/>
+      <translation>需要帮助运营商形象图片</translation>
     </message>
     <message>
       <source>Status widget additional CSS, takes effect after save</source>
-      <translation type="unfinished"/>
+      <translation>状态部件附加CSS，保存后生效</translation>
     </message>
     <message>
       <source>Widget container additional CSS, takes effect after save</source>
-      <translation type="unfinished"/>
+      <translation>部件容器附加CSS，保存后生效</translation>
     </message>
     <message>
       <source>Widget body additional CSS, takes effect after save</source>
-      <translation type="unfinished"/>
+      <translation>部件主体附加CSS，保存后生效</translation>
     </message>
     <message>
       <source>Widget themes</source>
-      <translation type="unfinished"/>
+      <translation>控件主题</translation>
     </message>
   </context>
   <context>
@@ -572,11 +572,11 @@
     </message>
     <message>
       <source>Theme</source>
-      <translation type="unfinished"/>
+      <translation>主题</translation>
     </message>
     <message>
       <source>Default</source>
-      <translation type="unfinished"/>
+      <translation>默认</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>
@@ -632,7 +632,7 @@
     </message>
     <message>
       <source>Disable responsive layout for status widget.</source>
-      <translation type="unfinished"/>
+      <translation>禁用响应布局状态小部件。</translation>
     </message>
     <message>
       <source>Disable minimize icon</source>
@@ -802,11 +802,11 @@
     </message>
     <message>
       <source>Forms</source>
-      <translation type="unfinished"/>
+      <translation>表单</translation>
     </message>
     <message>
       <source>Documents</source>
-      <translation type="unfinished"/>
+      <translation>文档</translation>
     </message>
     <message>
       <source>Form</source>
@@ -852,7 +852,7 @@
     <name>chat/lists/search_panel</name>
     <message>
       <source>Delete selected</source>
-      <translation type="unfinished"/>
+      <translation>删除所选</translation>
     </message>
     <message>
       <source>Nick</source>
@@ -1087,7 +1087,7 @@
     </message>
     <message>
       <source>Auto send</source>
-      <translation type="unfinished"/>
+      <translation>自动发送</translation>
     </message>
     <message>
       <source>Edit message</source>
@@ -1107,7 +1107,7 @@
     </message>
     <message>
       <source>Automatically send this message to user then chat is accepted</source>
-      <translation type="unfinished"/>
+      <translation>接受了聊天后自动向用户发送此消息</translation>
     </message>
     <message>
       <source>Delay in seconds</source>
@@ -1310,7 +1310,7 @@
     </message>
     <message>
       <source>Auto assignment</source>
-      <translation type="unfinished"/>
+      <translation>自动分配</translation>
     </message>
     <message>
       <source>Miscellaneous</source>
@@ -2208,11 +2208,11 @@
     </message>
     <message>
       <source>Enable/Disable sound about new visitor</source>
-      <translation type="unfinished"/>
+      <translation>启用/禁用新访客的声音提醒</translation>
     </message>
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
-      <translation type="unfinished"/>
+      <translation>启用/禁用浏览器通知关于新访客</translation>
     </message>
     <message>
       <source>List</source>
@@ -2482,7 +2482,7 @@
     </message>
     <message>
       <source>System</source>
-      <translation type="unfinished"/>
+      <translation>系统</translation>
     </message>
     <message>
       <source>Time zone settings</source>
@@ -2518,7 +2518,7 @@
     </message>
     <message>
       <source>Embed code</source>
-      <translation type="unfinished"/>
+      <translation>嵌入代码</translation>
     </message>
     <message>
       <source>Live help embed code</source>
@@ -2542,7 +2542,7 @@
     </message>
     <message>
       <source>Live help configuration</source>
-      <translation type="unfinished"/>
+      <translation>配置Live Help</translation>
     </message>
     <message>
       <source>Departments</source>
@@ -2598,11 +2598,11 @@
     </message>
     <message>
       <source>Maintenance</source>
-      <translation type="unfinished"/>
+      <translation>维护</translation>
     </message>
     <message>
       <source>Files</source>
-      <translation type="unfinished"/>
+      <translation>文件</translation>
     </message>
     <message>
       <source>Files upload configuration</source>
@@ -2614,19 +2614,19 @@
     </message>
     <message>
       <source>Theming</source>
-      <translation type="unfinished"/>
+      <translation>主题化</translation>
     </message>
     <message>
       <source>Widget themes</source>
-      <translation type="unfinished"/>
+      <translation>小部件主题</translation>
     </message>
     <message>
       <source>Import new themes</source>
-      <translation type="unfinished"/>
+      <translation>导入新主题</translation>
     </message>
     <message>
       <source>Default theme</source>
-      <translation type="unfinished"/>
+      <translation>默认主题</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -2732,7 +2732,7 @@
     </message>
     <message>
       <source>Extra modules</source>
-      <translation type="unfinished"/>
+      <translation>扩展模块</translation>
     </message>
     <message>
       <source>Questionary</source>
@@ -2770,23 +2770,23 @@
     <name>chat/maintenance</name>
     <message>
       <source>Maintenance</source>
-      <translation type="unfinished"/>
+      <translation>维护</translation>
     </message>
     <message>
       <source>Automatic chats close, click to close old chats</source>
-      <translation type="unfinished"/>
+      <translation>自动关闭聊天，单击关闭旧聊天</translation>
     </message>
     <message>
       <source>Automatic chats purge, click to purge old chats</source>
-      <translation type="unfinished"/>
+      <translation>自动聊天记录清除，请单击以清除旧的聊天记录</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation type="unfinished"/>
+      <translation>已关闭的聊天</translation>
     </message>
     <message>
       <source>Purged chats</source>
-      <translation type="unfinished"/>
+      <translation>清除聊天记录</translation>
     </message>
   </context>
   <context>
@@ -3670,7 +3670,7 @@
     </message>
     <message>
       <source>Updating...</source>
-      <translation type="unfinished"/>
+      <translation>正在更新...</translation>
     </message>
     <message>
       <source>Logged user</source>
@@ -3782,11 +3782,11 @@
     </message>
     <message>
       <source>Pending chats</source>
-      <translation type="unfinished"/>
+      <translation>等待中的聊天</translation>
     </message>
     <message>
       <source>I can see all pending chats, not only assigned to me</source>
-      <translation type="unfinished"/>
+      <translation>我可以看到所有待定的聊天，不只是分配给我的</translation>
     </message>
     <message>
       <source>Account updated</source>
@@ -3798,7 +3798,7 @@
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
-      <translation type="unfinished"/>
+      <translation>用户可以看到所有待定的聊天，不只分配给他的</translation>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -3825,15 +3825,15 @@
     <name>chat/operatorsbalancing</name>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>活动</translation>
     </message>
     <message>
       <source>Maximum number of active chats user can have at a time, 0 - unlimited</source>
-      <translation type="unfinished"/>
+      <translation>同时进行的最大活跃聊天用户数，0-无限</translation>
     </message>
     <message>
       <source>Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled</source>
-      <translation type="unfinished"/>
+      <translation>如果操作员没有回应聊天请求在几秒钟内将自动指派给另一个操作员，0-禁用</translation>
     </message>
   </context>
   <context>
@@ -4834,7 +4834,7 @@
     </message>
     <message>
       <source>Comparing current database structure, please wait...</source>
-      <translation type="unfinished"/>
+      <translation>比较当前数据库的结构，请稍候...</translation>
     </message>
     <message>
       <source>Time zone</source>
@@ -4967,84 +4967,84 @@
     <name>update/statusdb</name>
     <message>
       <source>Database structure check</source>
-      <translation type="unfinished"/>
+      <translation>数据库结构检查</translation>
     </message>
     <message>
       <source>Your database does not require any updates</source>
-      <translation type="unfinished"/>
+      <translation>您的数据库不需要任何更新</translation>
     </message>
     <message>
       <source>Update database</source>
-      <translation type="unfinished"/>
+      <translation>更新数据库</translation>
     </message>
     <message>
       <source>Queries which will be executed on update</source>
-      <translation type="unfinished"/>
+      <translation>查询将被执行的更新</translation>
     </message>
   </context>
   <context>
     <name>theme/index</name>
     <message>
       <source>Default theme</source>
-      <translation type="unfinished"/>
+      <translation>默认主题</translation>
     </message>
     <message>
       <source>Theme</source>
-      <translation type="unfinished"/>
+      <translation>主题</translation>
     </message>
     <message>
       <source>Widget themes</source>
-      <translation type="unfinished"/>
+      <translation>小部件主题</translation>
     </message>
     <message>
       <source>Import a new theme</source>
-      <translation type="unfinished"/>
+      <translation>导入一个新主题</translation>
     </message>
     <message>
       <source>Themes</source>
-      <translation type="unfinished"/>
+      <translation>主题</translation>
     </message>
     <message>
       <source>Import theme</source>
-      <translation type="unfinished"/>
+      <translation>导入主题</translation>
     </message>
   </context>
   <context>
     <name>theme/default</name>
     <message>
       <source>Set as default theme</source>
-      <translation type="unfinished"/>
+      <translation>设置为默认主题</translation>
     </message>
   </context>
   <context>
     <name>theme/import</name>
     <message>
       <source>Default theme was set</source>
-      <translation type="unfinished"/>
+      <translation>默认主题已设置</translation>
     </message>
     <message>
       <source>Import theme</source>
-      <translation type="unfinished"/>
+      <translation>导入主题</translation>
     </message>
     <message>
       <source>File</source>
-      <translation type="unfinished"/>
+      <translation>文件</translation>
     </message>
     <message>
       <source>Import</source>
-      <translation type="unfinished"/>
+      <translation>导入</translation>
     </message>
     <message>
       <source>Theme imported</source>
-      <translation type="unfinished"/>
+      <translation>主题已导入</translation>
     </message>
     <message>
       <source>Could not import a new theme!</source>
-      <translation type="unfinished"/>
+      <translation>无法导入一个新的主题！</translation>
     </message>
     <message>
       <source>Invalid file!</source>
-      <translation type="unfinished"/>
+      <translation>无效文件！</translation>
     </message>
   </context>
   <context>
@@ -5586,7 +5586,7 @@
     </message>
     <message>
       <source>Chat was automatically closed by cron</source>
-      <translation type="unfinished"/>
+      <translation>通过计划任务 corn 自动关闭聊天</translation>
     </message>
     <message>
       <source>Support staff member has closed this chat</source>

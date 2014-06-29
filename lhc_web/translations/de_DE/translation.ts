@@ -139,7 +139,7 @@
     </message>
     <message>
       <source>Show BB Code button</source>
-      <translation type="unfinished"/>
+      <translation>Zeige BBCode Button</translation>
     </message>
     <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
@@ -256,7 +256,7 @@
     </message>
     <message>
       <source>Widget copyright</source>
-      <translation type="unfinished"/>
+      <translation>Widget copyright</translation>
     </message>
     <message>
       <source>Widget container</source>
@@ -312,7 +312,7 @@
     </message>
     <message>
       <source>Widget copyright link</source>
-      <translation type="unfinished"/>
+      <translation>Widget copyright link</translation>
     </message>
     <message>
       <source>Online image</source>
