@@ -47,8 +47,13 @@ if ($department !== false){
 $departmentParams = array();
 $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
 if ($userDepartments !== true){
-	$departmentParams['filterin']['id'] = $filter['filterin']['dep_id'] = $userDepartments;
+	$departmentParams['filterin']['id'] = $userDepartments;	
+	if (!$currentUser->hasAccessTo('lhchat','sees_all_online_visitors')) {
+		$filter['filterin']['dep_id'] = $userDepartments;
+	}
 }
+
+
 
 if ($is_ajax == true) {
 	$items = erLhcoreClassModelChatOnlineUser::getList($filter);

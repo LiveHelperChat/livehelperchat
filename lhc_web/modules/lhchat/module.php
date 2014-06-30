@@ -454,6 +454,7 @@ $FunctionList['canchangechatstatus'] = array('explain' =>'Allow user to change c
 $FunctionList['administrateinvitations'] = array('explain' =>'Allow user to change pro active invitations');
 $FunctionList['administrateresponder'] = array('explain' =>'Allow user to change auto responder');
 $FunctionList['maintenance'] = array('explain' =>'Allow user to run maintenance');
+$FunctionList['sees_all_online_visitors'] = array('explain' =>'Operator can see all online visitors, not only his department');
 
 
 ?>
