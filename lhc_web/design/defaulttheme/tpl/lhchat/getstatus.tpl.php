@@ -326,7 +326,12 @@ var lh_inst  = {
 	})(),
 
     showStartWindow : function(url_to_open) {
-
+		  <?php if ($isOnlineHelp == false) : ?>
+		  if (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.offline_redirect != 'undefined'){
+				document.location = LHCChatOptions.opt.offline_redirect;
+				return;
+		  }
+		  <?php endif;?>
     	  this.lhc_need_help_hide();
 
 	      // Do not check for new messages
