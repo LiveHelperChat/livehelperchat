@@ -1006,11 +1006,11 @@
     </message>
     <message>
       <source>Please enter link to an image</source>
-      <translation type="unfinished"/>
+      <translation>Inserisci il link a un&apos;immagine</translation>
     </message>
     <message>
       <source>Please enter a link</source>
-      <translation type="unfinished"/>
+      <translation>Per favore inserisci un link</translation>
     </message>
     <message>
       <source>Here is a link</source>
