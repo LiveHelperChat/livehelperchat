@@ -140,7 +140,7 @@
 			
 		<a target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('chat/printchatadmin')?>/<?php echo $chat->id?>" class="icon-print" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Print')?>"></a>
 		
-		<a class="icon-attach" onclick="lhinst.attatchLinkToFile('<?php echo $chat->id?>')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Attatch uploaded file')?>"></a>
+		<a class="icon-attach" onclick="lhinst.attatchLinkToFile('<?php echo $chat->id?>')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Attach uploaded file')?>"></a>
 		
 	</p>
 	<?php else : ?>
