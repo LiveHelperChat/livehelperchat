@@ -466,11 +466,11 @@
     </message>
     <message>
       <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
-      <translation type="unfinished"/>
+      <translation>Il dominio referente senza www, ad esempio la parola google corrisponderà ad ogni dominio google</translation>
     </message>
     <message>
       <source>How many times user show invitation, 0 - untill users closes it, &gt; 0 limits.</source>
-      <translation type="unfinished"/>
+      <translation>Quante volte l&apos;utente visualizza l&apos;invito, 0 - fino a quando gli utenti lo chiudono, oppure limite &gt; 0.</translation>
     </message>
     <message>
       <source>Requires e-mail</source>
@@ -486,7 +486,7 @@
     </message>
     <message>
       <source>Enter operators IDs from whom random operator should be shown, separated by comma</source>
-      <translation type="unfinished"/>
+      <translation>Immettere ID operatori da quale operatore casuale deve essere visualizzato, separati da virgola</translation>
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
@@ -528,11 +528,11 @@
     </message>
     <message>
       <source>Popup width</source>
-      <translation type="unfinished"/>
+      <translation>Larghezza popup</translation>
     </message>
     <message>
       <source>Popup height, used only if iframe is used</source>
-      <translation type="unfinished"/>
+      <translation>Altezza di popup, utilizzato solo se viene utilizzato l&apos;iframe</translation>
     </message>
     <message>
       <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
@@ -544,7 +544,7 @@
     </message>
     <message>
       <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
-      <translation type="unfinished"/>
+      <translation>Timeout Offerte in giorni, dopo quanti giorni mostrare nuovamente, lasciare vuoto per sessione</translation>
     </message>
     <message>
       <source>Choose a language</source>
@@ -552,11 +552,11 @@
     </message>
     <message>
       <source>Choose prefered http mode</source>
-      <translation type="unfinished"/>
+      <translation>Scegliere modalità http preferita</translation>
     </message>
     <message>
       <source>Based on site (default)</source>
-      <translation type="unfinished"/>
+      <translation>Basato sul sito (predefinito)</translation>
     </message>
     <message>
       <source>Widget embed code</source>
@@ -636,15 +636,15 @@
     </message>
     <message>
       <source>Disable minimize icon</source>
-      <translation type="unfinished"/>
+      <translation>Disabilita icona minimizza chat</translation>
     </message>
     <message>
       <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
-      <translation type="unfinished"/>
+      <translation>Visualizza contenuto chatbox invece di widget, gli utenti potranno solo ridurre la finestra al minimo, non chiuderla.</translation>
     </message>
     <message>
       <source>Show chatbox content minimized first time if content is shown.</source>
-      <translation type="unfinished"/>
+      <translation>Visualizza contenuto chatbox minimizzato, la prima volta se il contenuto viene visualizzato.</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
@@ -755,11 +755,11 @@
     <name>questionary/htmlcode</name>
     <message>
       <source>Show overlay</source>
-      <translation type="unfinished"/>
+      <translation>Show overlay</translation>
     </message>
     <message>
       <source>Show different offers for the same user</source>
-      <translation type="unfinished"/>
+      <translation>Visualizza diverse offerte per lo stesso utente</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page header or footer</source>
@@ -872,7 +872,7 @@
     </message>
     <message>
       <source>User</source>
-      <translation type="unfinished"/>
+      <translation>Utente</translation>
     </message>
     <message>
       <source>Search</source>
@@ -923,7 +923,7 @@
     </message>
     <message>
       <source>Chatbox chat</source>
-      <translation type="unfinished"/>
+      <translation>Box della chat</translation>
     </message>
     <message>
       <source>Operators chat</source>
@@ -931,7 +931,7 @@
     </message>
     <message>
       <source>Cancel</source>
-      <translation type="unfinished"/>
+      <translation>Annulla</translation>
     </message>
     <message>
       <source>This chat is closed.</source>
@@ -955,7 +955,7 @@
     </message>
     <message>
       <source>BB Code</source>
-      <translation type="unfinished"/>
+      <translation>Codice BB</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -986,23 +986,23 @@
     <name>chat/bbcodeinsert</name>
     <message>
       <source>Image</source>
-      <translation type="unfinished"/>
+      <translation>Immagine</translation>
     </message>
     <message>
       <source>Link</source>
-      <translation type="unfinished"/>
+      <translation>Link</translation>
     </message>
     <message>
       <source>Link title</source>
-      <translation type="unfinished"/>
+      <translation>Titolo del Link</translation>
     </message>
     <message>
       <source>Bold</source>
-      <translation type="unfinished"/>
+      <translation>Bold</translation>
     </message>
     <message>
       <source>Italic</source>
-      <translation type="unfinished"/>
+      <translation>Italic</translation>
     </message>
     <message>
       <source>Please enter link to an image</source>
@@ -1014,7 +1014,7 @@
     </message>
     <message>
       <source>Here is a link</source>
-      <translation type="unfinished"/>
+      <translation>Ecco il link</translation>
     </message>
   </context>
   <context>
@@ -1075,7 +1075,7 @@
     </message>
     <message>
       <source>User</source>
-      <translation type="unfinished"/>
+      <translation>Utente</translation>
     </message>
     <message>
       <source>Delay</source>
@@ -1115,7 +1115,7 @@
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Reparto</translation>
     </message>
     <message>
       <source>Personal canned message</source>
@@ -1146,7 +1146,7 @@
     <name>department/edit</name>
     <message>
       <source>Any</source>
-      <translation type="unfinished"/>
+      <translation>Qualsiasi</translation>
     </message>
     <message>
       <source>Edit department</source>
@@ -1162,19 +1162,19 @@
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>Disabilitato</translation>
     </message>
     <message>
       <source>Will not be visible to visitor</source>
-      <translation type="unfinished"/>
+      <translation>Non sarà visibile al visitatore</translation>
     </message>
     <message>
       <source>Hidden</source>
-      <translation type="unfinished"/>
+      <translation>Nascosto</translation>
     </message>
     <message>
       <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
-      <translation type="unfinished"/>
+      <translation>Ritardo in secondi prima di lasciare che il modulo contatti viene visualizzato. 0 significa che la funzionalità è disattivata, </translation>
     </message>
     <message>
       <source>Priority</source>
@@ -1182,7 +1182,7 @@
     </message>
     <message>
       <source>Automate online hours</source>
-      <translation type="unfinished"/>
+      <translation>Automatizzare ore online</translation>
     </message>
     <message>
       <source>Work hours/work days logic is active</source>
@@ -1230,7 +1230,7 @@
     </message>
     <message>
       <source>To, E.g. 17</source>
-      <translation type="unfinished"/>
+      <translation>A, per esempio 17</translation>
     </message>
     <message>
       <source>Notifications</source>
@@ -1238,15 +1238,15 @@
     </message>
     <message>
       <source>XMPP recipients</source>
-      <translation type="unfinished"/>
+      <translation>Destinatari XMPP</translation>
     </message>
     <message>
       <source>XMPP group recipients</source>
-      <translation type="unfinished"/>
+      <translation>Destinatari del gruppo XMPP</translation>
     </message>
     <message>
       <source>E.g somechat@conference.server.org/LiveChat</source>
-      <translation type="unfinished"/>
+      <translation>Es. somechat@conference.server.org/LiveChat</translation>
     </message>
     <message>
       <source>These messages will be send as group messages</source>
@@ -1282,7 +1282,7 @@
     </message>
     <message>
       <source>Other</source>
-      <translation type="unfinished"/>
+      <translation>Altri</translation>
     </message>
     <message>
       <source>Inform then chat is closed by operator, only mail notification is send.</source>
@@ -1314,7 +1314,7 @@
     </message>
     <message>
       <source>Miscellaneous</source>
-      <translation type="unfinished"/>
+      <translation>Varie</translation>
     </message>
     <message>
       <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
@@ -1468,7 +1468,7 @@
     </message>
     <message>
       <source>Mail was send</source>
-      <translation type="unfinished"/>
+      <translation>E-mail inviata</translation>
     </message>
     <message>
       <source>Send mail</source>
@@ -1476,7 +1476,7 @@
     </message>
     <message>
       <source>Redirect user to contact form.</source>
-      <translation type="unfinished"/>
+      <translation>Reindirizzare l&apos;utente al modulo di contatto.</translation>
     </message>
     <message>
       <source>Print</source>
@@ -1484,7 +1484,7 @@
     </message>
     <message>
       <source>Attatch uploaded file</source>
-      <translation type="unfinished"/>
+      <translation>Allega file caricato</translation>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
@@ -1512,7 +1512,7 @@
     </message>
     <message>
       <source>Remarks</source>
-      <translation type="unfinished"/>
+      <translation>Note</translation>
     </message>
     <message>
       <source>Chats</source>
@@ -1540,7 +1540,7 @@
     </message>
     <message>
       <source>Messages</source>
-      <translation type="unfinished"/>
+      <translation>Messaggi</translation>
     </message>
     <message>
       <source>Invalid chat status</source>
@@ -1598,11 +1598,11 @@
     </message>
     <message>
       <source>Redirect user to contact form.</source>
-      <translation type="unfinished"/>
+      <translation>Reindirizzare l&apos;utente al modulo di contatto.</translation>
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation type="unfinished"/>
+      <translation>Siete sicuri?</translation>
     </message>
     <message>
       <source>Accept chat</source>
@@ -1629,31 +1629,31 @@
     <name>chat/screenshot</name>
     <message>
       <source>Screenshot</source>
-      <translation type="unfinished"/>
+      <translation>Screenshot</translation>
     </message>
     <message>
       <source>Take user screenshot</source>
-      <translation type="unfinished"/>
+      <translation>Prendere screenshot utente</translation>
     </message>
     <message>
       <source>Refresh</source>
-      <translation type="unfinished"/>
+      <translation>Aggiorna</translation>
     </message>
     <message>
       <source>Taken</source>
-      <translation type="unfinished"/>
+      <translation>Preso</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation type="unfinished"/>
+      <translation>Vuoto...</translation>
     </message>
     <message>
       <source>Perhaps screenshot is under way or screenshot is not supported on client browser, click refresh to check for a screenshot</source>
-      <translation type="unfinished"/>
+      <translation>Lo screenshot è in corso o lo screenshot non è supportato nel browser del visitatore, fare clic su Aggiorna per controllare di nuovo</translation>
     </message>
     <message>
       <source>Screenshot ready...</source>
-      <translation type="unfinished"/>
+      <translation>Screenshot pronto...</translation>
     </message>
   </context>
   <context>
@@ -1692,7 +1692,7 @@
     </message>
     <message>
       <source>You do not have permission to use chattabschrome function</source>
-      <translation type="unfinished"/>
+      <translation>Non hai il permesso di utilizzare la funzione chattabschrome</translation>
     </message>
     <message>
       <source>Please</source>
@@ -1700,7 +1700,7 @@
     </message>
     <message>
       <source>login first.</source>
-      <translation type="unfinished"/>
+      <translation>Eseguire il login, prima.</translation>
     </message>
     <message>
       <source>Online operators</source>
@@ -1755,7 +1755,7 @@
     </message>
     <message>
       <source>our terms and to the Law</source>
-      <translation type="unfinished"/>
+      <translation>I nostri termini di servizio e la legge</translation>
     </message>
     <message>
       <source>Department</source>
@@ -1811,15 +1811,15 @@
     </message>
     <message>
       <source>Maximum</source>
-      <translation type="unfinished"/>
+      <translation>Massimo</translation>
     </message>
     <message>
       <source>characters for a message</source>
-      <translation type="unfinished"/>
+      <translation>caratteri di un messaggio</translation>
     </message>
     <message>
       <source>You have to accept our Terms Of Service</source>
-      <translation type="unfinished"/>
+      <translation>Devi accettare i nostri termini di servizio</translation>
     </message>
     <message>
       <source>Please enter your phone</source>
@@ -1831,7 +1831,7 @@
     </message>
     <message>
       <source>Could not determine a default department!</source>
-      <translation type="unfinished"/>
+      <translation>Impossibile determinare un reparto di default!</translation>
     </message>
     <message>
       <source>is required</source>
@@ -1843,7 +1843,7 @@
     </message>
     <message>
       <source>Please enter a message, max characters</source>
-      <translation type="unfinished"/>
+      <translation>Inserisci il numero massimo di caratteri consentito in un messaggio</translation>
     </message>
     <message>
       <source>Visitor</source>
@@ -2008,7 +2008,7 @@
     </message>
     <message>
       <source>Region name server variable</source>
-      <translation type="unfinished"/>
+      <translation>Città del nome server variabile</translation>
     </message>
     <message>
       <source>Latitude variable</source>
@@ -2020,43 +2020,43 @@
     </message>
     <message>
       <source>Use MaxMind, does not depend on any third party remote service</source>
-      <translation type="unfinished"/>
+      <translation>Utilizzare MaxMind, non dipende da alcun servizio remoto di terze parti</translation>
     </message>
     <message>
       <source>You can download city/country database from.</source>
-      <translation type="unfinished"/>
+      <translation>È possibile scaricare i database di città/paese da.</translation>
     </message>
     <message>
       <source>bcmath php extension detected</source>
-      <translation type="unfinished"/>
+      <translation>estensione php BCMath rilevata</translation>
     </message>
     <message>
       <source>Location of city database</source>
-      <translation type="unfinished"/>
+      <translation>Percorso del database di città</translation>
     </message>
     <message>
       <source>User country based detection, faster</source>
-      <translation type="unfinished"/>
+      <translation>Rilevazione basata su paese utente, più veloce</translation>
     </message>
     <message>
       <source>File exists</source>
-      <translation type="unfinished"/>
+      <translation>Il file esiste già</translation>
     </message>
     <message>
       <source>File does not exists</source>
-      <translation type="unfinished"/>
+      <translation>Il file non esiste</translation>
     </message>
     <message>
       <source>User city based detection, slower</source>
-      <translation type="unfinished"/>
+      <translation>Rilevazione basata sulla città utente, più lenta</translation>
     </message>
     <message>
       <source>Use PHP-GeoIP module</source>
-      <translation type="unfinished"/>
+      <translation>Usa il modulo PHP-GeoIP</translation>
     </message>
     <message>
       <source>Support for PHP-GeoIP detected</source>
-      <translation type="unfinished"/>
+      <translation>Supporto per PHP-GeoIP rilevato</translation>
     </message>
     <message>
       <source>Requests will be comming from</source>
@@ -2252,11 +2252,11 @@
     </message>
     <message>
       <source>Refresh list every</source>
-      <translation type="unfinished"/>
+      <translation>Aggiornare la lista ogni</translation>
     </message>
     <message>
       <source>second</source>
-      <translation type="unfinished"/>
+      <translation>secondi</translation>
     </message>
     <message>
       <source>seconds</source>
@@ -2368,15 +2368,15 @@
     </message>
     <message>
       <source>MaxMind city file does not exists!</source>
-      <translation type="unfinished"/>
+      <translation>MaxMind città file non esiste!</translation>
     </message>
     <message>
       <source>MaxMind country file does not exists!</source>
-      <translation type="unfinished"/>
+      <translation>MaxMind paese file non esiste!</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that MaxMind database files exists!</source>
-      <translation type="unfinished"/>
+      <translation>L&apos;impostazione di provider del servizio non riuscito, si prega di controllare che i file di database di MaxMind esiste!</translation>
     </message>
     <message>
       <source>Please enter the API key!</source>
@@ -2396,11 +2396,11 @@
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!</source>
-      <translation type="unfinished"/>
+      <translation>L&apos;impostazione di provider del servizio non è riuscito, si prega di controllare che il provider di servizi permette di effettuare richieste a pagine remote e che la chiave API sia corretta!</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that you have installed php-GeoIP module and GeoIPCity.dat file is available!</source>
-      <translation type="unfinished"/>
+      <translation>L&apos;impostazione di provider del servizio non riuscito, si prega di controllare che sia installato il modulo php-GeoIP e file GeoIPCity.dat sia disponibile!</translation>
     </message>
     <message>
       <source>Please choose a service provider!</source>
@@ -2423,23 +2423,23 @@
     </message>
     <message>
       <source>Copyright settings</source>
-      <translation type="unfinished"/>
+      <translation>Impostazioni di copyright</translation>
     </message>
     <message>
       <source>Application name</source>
-      <translation type="unfinished"/>
+      <translation>Nome applicazione</translation>
     </message>
     <message>
       <source>Site settings</source>
-      <translation type="unfinished"/>
+      <translation>Impostazioni sito</translation>
     </message>
     <message>
       <source>Online tracking</source>
-      <translation type="unfinished"/>
+      <translation>Tracking online</translation>
     </message>
     <message>
       <source>Misc</source>
-      <translation type="unfinished"/>
+      <translation>Misc</translation>
     </message>
     <message>
       <source>Cookie related</source>
@@ -2451,15 +2451,15 @@
     </message>
     <message>
       <source>Workflow</source>
-      <translation type="unfinished"/>
+      <translation>Flusso di lavoro</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation type="unfinished"/>
+      <translation>Aggiornamento</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Impostazioni aggiornate</translation>
     </message>
     <message>
       <source>List chat configuration</source>
@@ -2486,11 +2486,11 @@
     </message>
     <message>
       <source>Time zone settings</source>
-      <translation type="unfinished"/>
+      <translation>Impostazioni di fuso orario</translation>
     </message>
     <message>
       <source>Update information</source>
-      <translation type="unfinished"/>
+      <translation>Informazioni sugli aggiornamenti</translation>
     </message>
     <message>
       <source>SMTP settings</source>
@@ -2538,7 +2538,7 @@
     </message>
     <message>
       <source>Browse offers embed code</source>
-      <translation type="unfinished"/>
+      <translation>Browse offers embed code</translation>
     </message>
     <message>
       <source>Live help configuration</source>
@@ -2634,7 +2634,7 @@
     </message>
     <message>
       <source>New file</source>
-      <translation type="unfinished"/>
+      <translation>Nuovo file</translation>
     </message>
   </context>
   <context>
@@ -2804,7 +2804,7 @@
     <name>chat/part/operator_profile</name>
     <message>
       <source>Skype call</source>
-      <translation type="unfinished"/>
+      <translation>Chiamata Skype</translation>
     </message>
   </context>
   <context>
@@ -2892,7 +2892,7 @@
     </message>
     <message>
       <source>Embed link to file</source>
-      <translation type="unfinished"/>
+      <translation>Incorporare il collegamento al file.</translation>
     </message>
     <message>
       <source>Mail was sent to the user</source>
@@ -2970,7 +2970,7 @@
     </message>
     <message>
       <source>Online form settings</source>
-      <translation type="unfinished"/>
+      <translation>Impostazioni modulo online</translation>
     </message>
     <message>
       <source>Name</source>
@@ -2986,7 +2986,7 @@
     </message>
     <message>
       <source>This field is invisible but prefilled data is collected</source>
-      <translation type="unfinished"/>
+      <translation>Questo campo è invisibile, ma sono raccolti i dati preriempiti</translation>
     </message>
     <message>
       <source>This field is</source>
@@ -3014,11 +3014,11 @@
     </message>
     <message>
       <source>Terms of service acceptance checkbox</source>
-      <translation type="unfinished"/>
+      <translation>Termini del servizio accettazione checkbox</translation>
     </message>
     <message>
       <source>Offline form settings</source>
-      <translation type="unfinished"/>
+      <translation>Impostazioni modulo offline</translation>
     </message>
     <message>
       <source>E-mail is always required</source>
@@ -3077,7 +3077,7 @@
     </message>
     <message>
       <source>Messages settings</source>
-      <translation type="unfinished"/>
+      <translation>Impostazioni messaggi</translation>
     </message>
     <message>
       <source>Sync for a new user message, interval in seconds</source>
@@ -3089,19 +3089,19 @@
     </message>
     <message>
       <source>Long polling (experimental)</source>
-      <translation type="unfinished"/>
+      <translation>Polling lungo (sperimentale)</translation>
     </message>
     <message>
       <source>Enable long polling</source>
-      <translation type="unfinished"/>
+      <translation>Abilitare il polling lungo</translation>
     </message>
     <message>
       <source>How many seconds keep connection to server?</source>
-      <translation type="unfinished"/>
+      <translation>Quanti secondi tenere la connessione al server?</translation>
     </message>
     <message>
       <source>New chat request notification settings</source>
-      <translation type="unfinished"/>
+      <translation>Impostazioni di notifica nuove richieste di chat</translation>
     </message>
     <message>
       <source>Play a new pending chat sound on a new chat request</source>
@@ -3129,7 +3129,7 @@
     </message>
     <message>
       <source>Delay between sound notifications in seconds</source>
-      <translation type="unfinished"/>
+      <translation>Ritardo tra le notifiche audio in secondi</translation>
     </message>
     <message>
       <source>delay in seconds</source>
@@ -3145,7 +3145,7 @@
     </message>
     <message>
       <source>Please enter a valid server connection timeout value!</source>
-      <translation type="unfinished"/>
+      <translation>Immettere un valore di timeout di connessione server valido!</translation>
     </message>
     <message>
       <source>Please enter a valid operator message timeout value!</source>
@@ -3153,7 +3153,7 @@
     </message>
     <message>
       <source>Please enter a valid new messages polling sync interval!</source>
-      <translation type="unfinished"/>
+      <translation>Per favore inserisci un valore valido per nuovi messaggi di polling intervallo di sincronizzazione!</translation>
     </message>
     <message>
       <source>Please enter a valid back office sync interval!</source>
@@ -3690,7 +3690,7 @@
     </message>
     <message>
       <source>Your username</source>
-      <translation type="unfinished"/>
+      <translation>Il tuo nome utente</translation>
     </message>
     <message>
       <source>Password</source>
@@ -3722,19 +3722,19 @@
     </message>
     <message>
       <source>Job title</source>
-      <translation type="unfinished"/>
+      <translation>Titolo lavoro</translation>
     </message>
     <message>
       <source>Chat status will not change upon pending chat opening</source>
-      <translation type="unfinished"/>
+      <translation>Lo stato della chat non cambierà fino a quando la chat in attesa sarà aperta</translation>
     </message>
     <message>
       <source>Skype</source>
-      <translation type="unfinished"/>
+      <translation>Skype</translation>
     </message>
     <message>
       <source>XMPP username</source>
-      <translation type="unfinished"/>
+      <translation>Nome utente XMPP</translation>
     </message>
     <message>
       <source>Photo</source>
@@ -3754,7 +3754,7 @@
     </message>
     <message>
       <source>All departments</source>
-      <translation type="unfinished"/>
+      <translation>Tutti i reparti</translation>
     </message>
     <message>
       <source>Visible lists</source>
@@ -3867,7 +3867,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Question</source>
@@ -3887,7 +3887,7 @@
     </message>
     <message>
       <source>Please enter your email address!</source>
-      <translation type="unfinished"/>
+      <translation>Per favore inserisci il tuo indirizzo e-mail!</translation>
     </message>
   </context>
   <context>
@@ -3910,11 +3910,11 @@
     </message>
     <message>
       <source>Submitter e-mail</source>
-      <translation type="unfinished"/>
+      <translation>E-mail mittente</translation>
     </message>
     <message>
       <source>Identifier, can be used to filter questions by identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identificatore, può essere utilizzato per filtrare le domande in base all&apos;identificatore</translation>
     </message>
     <message>
       <source>Question is active</source>
@@ -3937,7 +3937,7 @@
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identificatore</translation>
     </message>
     <message>
       <source>Active</source>
@@ -3988,7 +3988,7 @@
     </message>
     <message>
       <source>Identifier has to be shorter than 10 characters!</source>
-      <translation type="unfinished"/>
+      <translation>Identificatore deve essere più breve di 10 caratteri!</translation>
     </message>
     <message>
       <source>Please enter question!</source>
@@ -4011,7 +4011,7 @@
     </message>
     <message>
       <source>Upload a file</source>
-      <translation type="unfinished"/>
+      <translation>Caricare un file</translation>
     </message>
     <message>
       <source>Upload name</source>
@@ -4023,7 +4023,7 @@
     </message>
     <message>
       <source>Embed BB code</source>
-      <translation type="unfinished"/>
+      <translation>Attivare codice BB</translation>
     </message>
     <message>
       <source>User</source>
@@ -4081,19 +4081,19 @@
     <name>file/new</name>
     <message>
       <source>New file</source>
-      <translation type="unfinished"/>
+      <translation>Nuovo file</translation>
     </message>
     <message>
       <source>File name</source>
-      <translation type="unfinished"/>
+      <translation>Nome del file</translation>
     </message>
     <message>
       <source>Upload</source>
-      <translation type="unfinished"/>
+      <translation>Carica</translation>
     </message>
     <message>
       <source>File uploaded</source>
-      <translation type="unfinished"/>
+      <translation>File caricato</translation>
     </message>
   </context>
   <context>
@@ -4581,7 +4581,7 @@
     </message>
     <message>
       <source>Revote</source>
-      <translation type="unfinished"/>
+      <translation>Rivota</translation>
     </message>
     <message>
       <source>Y</source>
@@ -4609,7 +4609,7 @@
     </message>
     <message>
       <source>Off</source>
-      <translation type="unfinished"/>
+      <translation>Off</translation>
     </message>
     <message>
       <source>Questionary</source>
@@ -4662,7 +4662,7 @@
     </message>
     <message>
       <source>Revote time (hours), before can revote. Default 0 - never. Higher value allow revote after seconds expire since last vote</source>
-      <translation type="unfinished"/>
+      <translation>Rivota tempo (ore), prima che sia possibile rivotare. Default 0 - mai. Valore superiore consente di rivotare dopo che i secondi scadono dall&apos;ultima votazione</translation>
     </message>
     <message>
       <source>Active</source>
@@ -4810,27 +4810,27 @@
     <name>system/timezone</name>
     <message>
       <source>Time zone settings</source>
-      <translation type="unfinished"/>
+      <translation>Impostazioni di fuso orario</translation>
     </message>
     <message>
       <source>Set application specific time zone</source>
-      <translation type="unfinished"/>
+      <translation>Imposta fuso orario specifico applicazione</translation>
     </message>
     <message>
       <source>Date format E.g (Y-m-d)</source>
-      <translation type="unfinished"/>
+      <translation>Formato di data es (A-m-gg)</translation>
     </message>
     <message>
       <source>Full date format E.g (Y-m-d H:i:s)</source>
-      <translation type="unfinished"/>
+      <translation>Formato data piena. g (A-m-g ore:minuti:secondi)</translation>
     </message>
     <message>
       <source>Hour format E.g (H:i:s)</source>
-      <translation type="unfinished"/>
+      <translation>Formato ora. g (ore:minuti:secondi)</translation>
     </message>
     <message>
       <source>Live Helper Chat update</source>
-      <translation type="unfinished"/>
+      <translation>Aggiornamenti Live Helper Chat</translation>
     </message>
     <message>
       <source>Comparing current database structure, please wait...</source>
@@ -4838,14 +4838,14 @@
     </message>
     <message>
       <source>Time zone</source>
-      <translation type="unfinished"/>
+      <translation>Fuso orario</translation>
     </message>
   </context>
   <context>
     <name>user/edit</name>
     <message>
       <source>Server default time zone</source>
-      <translation type="unfinished"/>
+      <translation>Fuso orario predefinito del server</translation>
     </message>
     <message>
       <source>User edit</source>
@@ -4901,11 +4901,11 @@
     </message>
     <message>
       <source>User time zone</source>
-      <translation type="unfinished"/>
+      <translation>Fuso orario dell&apos;utente</translation>
     </message>
     <message>
       <source>Application default time zone</source>
-      <translation type="unfinished"/>
+      <translation>Fuso orario predefinito di applicazione</translation>
     </message>
     <message>
       <source>Wrong email address</source>
@@ -4936,31 +4936,31 @@
     <name>system/update</name>
     <message>
       <source>Your version</source>
-      <translation type="unfinished"/>
+      <translation>La vostra versione</translation>
     </message>
     <message>
       <source>Current version</source>
-      <translation type="unfinished"/>
+      <translation>Versione corrente</translation>
     </message>
     <message>
       <source>News</source>
-      <translation type="unfinished"/>
+      <translation>News</translation>
     </message>
     <message>
       <source>Update instructions</source>
-      <translation type="unfinished"/>
+      <translation>Istruzioni Aggiornamento</translation>
     </message>
     <message>
       <source>Missing updates from new versions.</source>
-      <translation type="unfinished"/>
+      <translation>Aggiornamenti mancanti dalle nuove versioni.</translation>
     </message>
     <message>
       <source>You are running current version. No updates required</source>
-      <translation type="unfinished"/>
+      <translation>Si sta eseguendo la versione più recente. Nessun aggiornamento richiesto</translation>
     </message>
     <message>
       <source>Live Helper Chat update information</source>
-      <translation type="unfinished"/>
+      <translation>Informazioni di aggiornamento Live Helper Chat</translation>
     </message>
   </context>
   <context>
@@ -5051,7 +5051,7 @@
     <name>user/new</name>
     <message>
       <source>Invisible mode</source>
-      <translation type="unfinished"/>
+      <translation>Modalità invisibile</translation>
     </message>
     <message>
       <source>User group</source>
@@ -5444,7 +5444,7 @@
     </message>
     <message>
       <source>Use standard XMPP service</source>
-      <translation type="unfinished"/>
+      <translation>Utilizzare il servizio standard XMPP</translation>
     </message>
     <message>
       <source>Host</source>
@@ -5480,15 +5480,15 @@
     </message>
     <message>
       <source>Test recipients</source>
-      <translation type="unfinished"/>
+      <translation>Destinatari di prova</translation>
     </message>
     <message>
       <source>Individual recipients</source>
-      <translation type="unfinished"/>
+      <translation>Singoli destinatari</translation>
     </message>
     <message>
       <source>Test group recipients</source>
-      <translation type="unfinished"/>
+      <translation>Destinatari del gruppo test</translation>
     </message>
     <message>
       <source>Test message will be send to your account e-mail</source>
@@ -5516,7 +5516,7 @@
     </message>
     <message>
       <source>OAuth 2.0 Client ID</source>
-      <translation type="unfinished"/>
+      <translation>OAuth 2.0 Client ID</translation>
     </message>
     <message>
       <source>Please enter your Client ID</source>
@@ -5524,7 +5524,7 @@
     </message>
     <message>
       <source>Client secret</source>
-      <translation type="unfinished"/>
+      <translation>Segreto del cliente</translation>
     </message>
     <message>
       <source>This message will be send to your e-mail</source>
@@ -5536,19 +5536,19 @@
     </message>
     <message>
       <source>Revoke access token</source>
-      <translation type="unfinished"/>
+      <translation>Revocare il token di accesso</translation>
     </message>
     <message>
       <source>Revoke permission to send a message</source>
-      <translation type="unfinished"/>
+      <translation>Revocare il permesso di inviare un messaggio</translation>
     </message>
     <message>
       <source>Authentificate and grant permission to send a message</source>
-      <translation type="unfinished"/>
+      <translation>Autenticazione e concessione dell&apos;autorizzazione per inviare un messaggio</translation>
     </message>
     <message>
       <source>Grant permission to send a message</source>
-      <translation type="unfinished"/>
+      <translation>Concedere l&apos;autorizzazione a inviare un messaggio</translation>
     </message>
     <message>
       <source>Settings updated</source>
@@ -5556,11 +5556,11 @@
     </message>
     <message>
       <source>Succesfully authorised, now you can try to send a message</source>
-      <translation type="unfinished"/>
+      <translation>Autorizzato con successo, ora si può provare a inviare un messaggio</translation>
     </message>
     <message>
       <source>Token was revoked</source>
-      <translation type="unfinished"/>
+      <translation>Il Token è stato revocato</translation>
     </message>
     <message>
       <source>XMPP message was sent succesfuly</source>
@@ -5617,7 +5617,7 @@
     </message>
     <message>
       <source>Transfer department has to be different one than self</source>
-      <translation type="unfinished"/>
+      <translation>Il Dipartimento di trasferimento deve essere differente rispetto a quello attuale</translation>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>
@@ -5775,7 +5775,7 @@
     </message>
     <message>
       <source>BCC recipients, can be separated by comma.</source>
-      <translation type="unfinished"/>
+      <translation>I destinatari Ccn, possono essere separati da virgola.</translation>
     </message>
     <message>
       <source>Content</source>
@@ -5790,7 +5790,7 @@
     <name>chat/accepttrasnfer</name>
     <message>
       <source>has joined the chat!</source>
-      <translation type="unfinished"/>
+      <translation>L&apos;utente ha aderito alla chat!</translation>
     </message>
   </context>
   <context>
@@ -5801,7 +5801,7 @@
     </message>
     <message>
       <source>has redirected user to contact form!</source>
-      <translation type="unfinished"/>
+      <translation>ha reindirizzato l&apos;utente al modulo di contatto!</translation>
     </message>
   </context>
   <context>
