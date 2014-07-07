@@ -54,6 +54,8 @@
 
 <?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/user_variables.tpl.php'));?>
 
+<?php include(erLhcoreClassDesign::designtpl('lhchat/part/user_timezone.tpl.php'));?>
+
 <?php if ($department === false) : ?>
 <?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/department.tpl.php'));?>
 <?php endif;?>

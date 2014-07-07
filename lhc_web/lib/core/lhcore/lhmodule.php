@@ -4,12 +4,8 @@ class erLhcoreClassModule{
 
     static function runModule()
     {
-
-
         if (isset(self::$currentModule[self::$currentView]))
         {
-        	
-
             $Params = array();
             $Params['module'] = self::$currentModule[self::$currentView];
             $Params['module']['name'] = self::$currentModule;

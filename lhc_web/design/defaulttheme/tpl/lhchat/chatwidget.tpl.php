@@ -63,6 +63,8 @@
 	<?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/department.tpl.php'));?>
 <?php endif;?>
 
+<?php include(erLhcoreClassDesign::designtpl('lhchat/part/user_timezone.tpl.php'));?>
+
 <?php $tosVariable = 'tos_visible_in_page_widget'?>
 <?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/accept_tos.tpl.php'));?>
 <ul class="button-group radius">

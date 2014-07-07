@@ -142,6 +142,11 @@ $def->properties['has_unread_messages']->columnName   = 'has_unread_messages';
 $def->properties['has_unread_messages']->propertyName = 'has_unread_messages';
 $def->properties['has_unread_messages']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['user_tz_identifier'] = new ezcPersistentObjectProperty();
+$def->properties['user_tz_identifier']->columnName   = 'user_tz_identifier';
+$def->properties['user_tz_identifier']->propertyName = 'user_tz_identifier';
+$def->properties['user_tz_identifier']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 /**
  * Repeatable chat inform
  * */

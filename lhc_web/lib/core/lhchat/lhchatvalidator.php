@@ -61,7 +61,12 @@ class erLhcoreClassChatValidator {
 
         $validationFields['DepartamentID'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1));
         $validationFields['operator'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1));
-
+        $validationFields['user_timezone'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int');
+        
+      
+        
+        
+        
         $validationFields['name_items'] = new ezcInputFormDefinitionElement(
         		ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
         		null,
@@ -196,6 +201,13 @@ class erLhcoreClassChatValidator {
         
         if ($form->hasValidData( 'operator' ) && erLhcoreClassModelUser::getUserCount(array('filter' => array('id' => $form->operator, 'disabled' => 0))) > 0) {
         	$inputForm->operator = $chat->user_id = $form->operator;
+        }
+        
+        if ($form->hasValidData( 'user_timezone' )) {        	
+        	$timezone_name = timezone_name_from_abbr(null, $form->user_timezone*3600, true);        	
+        	if ($timezone_name !== false){// @todo finish
+        		$inputForm->operator = $chat->user_id = $form->operator;
+        	}
         }
         
         if ($form->hasValidData( 'DepartamentID' ) && erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $form->DepartamentID,'disabled' => 0))) > 0) {
