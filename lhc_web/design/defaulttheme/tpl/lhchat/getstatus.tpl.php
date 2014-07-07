@@ -180,22 +180,31 @@ var lh_inst  = {
 		    this.addCookieAttribute('pos',cookiePos);	
     },
     
-	min : function() {
-		var dm = document.getElementById('lhc_container');	
+	min : function(initial) {
+		var dm = document.getElementById('lhc_container');					
 		if (!dm.attrIsMin || dm.attrIsMin == false) {
 			dm.attrHeight = dm.style.height;
-			dm.attrIsMin = true;
+			dm.attrIsMin = true;			
 			this.addClass(dm,'lhc-no-transition');
-			this.addClass(dm,'lhc-min');			
+			this.addClass(dm,'lhc-min');									
 			<?php if ($currentPosition['posv'] == 'b') : ?>			
-			if(dm.style.bottom!='' && dm.attrHeight!='')dm.style.bottom = (parseInt(dm.style.bottom)+parseInt(dm.attrHeight)-35)+'px';
+			if(dm.style.bottom!='' && dm.attrHeight!=''){
+				dm.style.bottom = (parseInt(dm.style.bottom)+parseInt(dm.attrHeight)-35)+'px';							
+			} else {
+				if (initial == undefined) {
+					dm.style.bottom = (parseInt(dm.style.bottom) + parseInt(document.getElementById('lhc_iframe_container').offsetHeight)-10)+'px';
+				}			
+			}
 			<?php endif; ?>			
 			this.addCookieAttribute('m',1);
 			this.storePos(dm);
+			
 		} else {	
 			dm.attrIsMin = false;
 			<?php if ($currentPosition['posv'] == 'b') : ?>
-			if(dm.style.bottom!='')dm.style.bottom = (parseInt(dm.style.bottom)-parseInt(document.getElementById('lhc_iframe').style.height)+9)+'px';	
+			if(dm.style.bottom!=''){
+				dm.style.bottom = (parseInt(dm.style.bottom)-parseInt(document.getElementById('lhc_iframe').style.height)+9)+'px';				
+			}	
 			<?php endif;?>		
 			this.removeCookieAttr('m');
 			this.removeClass(dm,'lhc-min');
@@ -381,7 +390,7 @@ var lh_inst  = {
 		  var domContainerId = 'lhc_container';
 		  <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/drag_drop_logic.tpl.php')); ?>		  
 		      
-		  if (this.cookieData.m) {this.min();};		  
+		  if (this.cookieData.m) {this.min(true);};		  
 		 	  
     },
 
