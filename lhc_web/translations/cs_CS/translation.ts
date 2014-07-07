@@ -955,7 +955,7 @@
     </message>
     <message>
       <source>BB Code</source>
-      <translation>BB koód</translation>
+      <translation>BB kód / Smajlíci</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -1270,7 +1270,7 @@
     </message>
     <message>
       <source>Inform about unread messages if from last unread user message have passed (seconds)</source>
-      <translation>Informovat o nepřečtených zprávách, pokud od poslední nepřečtené zprávy uživatele uplynulo (sekundy)</translation>
+      <translation>Informovat o nepřečtených zprávách, pokud od poslední nepřečtené zprávy uživatele uplynulo (sekund)</translation>
     </message>
     <message>
       <source>Please enter value in seconds</source>
@@ -1483,8 +1483,8 @@
       <translation>Tisk</translation>
     </message>
     <message>
-      <source>Attatch uploaded file</source>
-      <translation>Přiložit nahrávaný soubor</translation>
+      <source>Attach uploaded file</source>
+      <translation>Přiložit nahraný soubor</translation>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
@@ -2542,7 +2542,7 @@
     </message>
     <message>
       <source>Live help configuration</source>
-      <translation>Nastavení Live help</translation>
+      <translation>Nastavení online pomoci</translation>
     </message>
     <message>
       <source>Departments</source>
@@ -4238,7 +4238,7 @@
     <name>permission/editrole</name>
     <message>
       <source>Role edit</source>
-      <translation>Rolės redagavimas</translation>
+      <translation>Editovat roli</translation>
     </message>
     <message>
       <source>Title</source>
@@ -4258,11 +4258,11 @@
     </message>
     <message>
       <source>Module</source>
-      <translation>Modulis</translation>
+      <translation>Modul</translation>
     </message>
     <message>
       <source>Function</source>
-      <translation>Funkcija</translation>
+      <translation>Funkce</translation>
     </message>
     <message>
       <source>Remove selected policy</source>
@@ -4274,7 +4274,7 @@
     </message>
     <message>
       <source>Role assigned groups</source>
-      <translation>Rolei priskirtos Skupiny</translation>
+      <translation>Skupiny přiřazené roli</translation>
     </message>
     <message>
       <source>Remove selected role</source>
@@ -4286,15 +4286,15 @@
     </message>
     <message>
       <source>All modules</source>
-      <translation>Visi moduliai</translation>
+      <translation>Všechny moduly</translation>
     </message>
     <message>
       <source>All functions</source>
-      <translation>Visos funkcijos</translation>
+      <translation>Všechny funkce</translation>
     </message>
     <message>
       <source>Please enter role name</source>
-      <translation>Prašome įvesti rolės pavadinimą</translation>
+      <translation>Zadejte, prosím, název role</translation>
     </message>
     <message>
       <source>Please choose module</source>
@@ -4328,7 +4328,7 @@
     <name>permission/modulefunctions</name>
     <message>
       <source>All functions</source>
-      <translation>Visos funkcijos</translation>
+      <translation>Všechny funkce</translation>
     </message>
   </context>
   <context>
@@ -4343,7 +4343,7 @@
     </message>
     <message>
       <source>All modules</source>
-      <translation>Visi moduliai</translation>
+      <translation>Všechny moduly</translation>
     </message>
     <message>
       <source>Choose a module function</source>
@@ -4378,11 +4378,11 @@
     </message>
     <message>
       <source>Module</source>
-      <translation>Modulis</translation>
+      <translation>Modul</translation>
     </message>
     <message>
       <source>Function</source>
-      <translation>Funkcija</translation>
+      <translation>Funkce</translation>
     </message>
     <message>
       <source>New policy</source>
@@ -4398,7 +4398,7 @@
     </message>
     <message>
       <source>Please enter role name</source>
-      <translation>Prašome įvesti rolės pavadinimą</translation>
+      <translation>Zadejte, prosím, název role</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -4417,7 +4417,7 @@
     </message>
     <message>
       <source>Assign</source>
-      <translation>Priskirti</translation>
+      <translation>Přiřadit</translation>
     </message>
   </context>
   <context>
@@ -5162,7 +5162,7 @@
     </message>
     <message>
       <source>Assigned users</source>
-      <translation>Priskirti vartotojai</translation>
+      <translation>Přiřazení uživatelé</translation>
     </message>
     <message>
       <source>Username</source>
@@ -5174,7 +5174,7 @@
     </message>
     <message>
       <source>Assign user</source>
-      <translation>PPřiřadit uživatele</translation>
+      <translation>Přiřadit uživatele</translation>
     </message>
     <message>
       <source>Assigned roles</source>

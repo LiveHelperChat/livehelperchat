@@ -1483,8 +1483,8 @@
       <translation>چاپ</translation>
     </message>
     <message>
-      <source>Attatch uploaded file</source>
-      <translation>پیوست فایل بارگذاری شده</translation>
+      <source>Attach uploaded file</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>

@@ -1483,8 +1483,8 @@
       <translation>打印</translation>
     </message>
     <message>
-      <source>Attatch uploaded file</source>
-      <translation>Attatch 上载文件</translation>
+      <source>Attach uploaded file</source>
+      <translation>上传的附件</translation>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>

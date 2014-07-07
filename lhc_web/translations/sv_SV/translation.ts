@@ -644,7 +644,7 @@
     </message>
     <message>
       <source>Show chatbox content minimized first time if content is shown.</source>
-      <translation>Visa chattboxens innehåll minimerat första gången om innehållet visas.</translation>
+      <translation>Visa chattboxens innehåll som minimerat första gången om innehållet visas.</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
@@ -1483,7 +1483,7 @@
       <translation>Skriv ut</translation>
     </message>
     <message>
-      <source>Attatch uploaded file</source>
+      <source>Attach uploaded file</source>
       <translation>Bifoga uppladdad fil</translation>
     </message>
     <message>
@@ -3726,7 +3726,7 @@
     </message>
     <message>
       <source>Chat status will not change upon pending chat opening</source>
-      <translation>Chattens status kommer inte ändras vid vänteläge chatt öppning</translation>
+      <translation>Chattens status kommer inte ändras vid öppning av chatt i vänteläge</translation>
     </message>
     <message>
       <source>Skype</source>
