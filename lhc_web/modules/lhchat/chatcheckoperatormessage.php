@@ -29,6 +29,8 @@ if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDet
 		
 		$tpl->set('priority',is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : false);
 		$tpl->set('department',is_numeric($Params['user_parameters_unordered']['department']) ? (int)$Params['user_parameters_unordered']['department'] : false);
+		$tpl->set('operator',is_numeric($Params['user_parameters_unordered']['operator']) ? (int)$Params['user_parameters_unordered']['operator'] : false);
+		$tpl->set('theme',is_numeric($Params['user_parameters_unordered']['theme']) && $Params['user_parameters_unordered']['theme'] > 0 ? (int)$Params['user_parameters_unordered']['theme'] : false);
 		$tpl->set('visitor',$userInstance);
 		$tpl->set('vid',(string)$Params['user_parameters_unordered']['vid']);
 		
@@ -41,15 +43,7 @@ if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDet
 			$userInstance->operation = '';
 			$userInstance->saveThis();
 		}
-		
-		$theme = false;
-		
-		if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
-			$theme = (int)$Params['user_parameters_unordered']['theme'];
-		}
-		
-		$tpl->set('theme',$theme);
-		
+			
 	    echo $tpl->fetch();
 	}
 }

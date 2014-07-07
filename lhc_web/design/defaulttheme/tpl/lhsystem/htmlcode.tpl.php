@@ -42,6 +42,9 @@
 			   <option value="<?php echo $departament->id?>"><?php echo htmlspecialchars($departament->name)?></option>
 			<?php endforeach; ?>
 		</select>
+
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Operator ID')?></label>
+        <input type="text" id="id_operator" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','To what operator chat should be assigned automatically?')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','To what operator chat should be assigned automatically?')?>" value="" />
 		
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Theme')?></label>
         <select id="ThemeID">
@@ -127,7 +130,7 @@ function generateEmbedCode(){
     var id_department = $('#DepartmentID').val() > 0 ? '/(department)/'+$('#DepartmentID').val() : '';
     var id_theme = $('#ThemeID').val() > 0 ? '/(theme)/'+$('#ThemeID').val() : '';
     var id_identifier = $('#id_site_identifier').val() != '' ? '/(identifier)/'+$('#id_site_identifier').val() : '';
-
+    var id_operator = $('#id_operator').val() > 0 ? '/(operator)/'+$('#id_operator').val() : '';
 
     var id_position =  '/(position)/'+$('#PositionID').val();
    
@@ -146,7 +149,7 @@ function generateEmbedCode(){
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
         'var refferer = (document.referrer) ? encodeURIComponent(document.referrer.substr(document.referrer.indexOf(\'://\')+1)) : \'\';'+"\n"+
         'var location  = (document.location) ? encodeURIComponent(window.location.href.substring(window.location.protocol.length)) : \'\';'+"\n"+
-        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chat/getstatus'+id_internal_popup+id_position+id_hide_then_offline+id_check_operator_message+top+topposition+id_show_leave_form+id_department+id_identifier+id_disable_pro_active_invitations+id_theme+id_disable_responsive+'?r=\'+refferer+\'&l=\'+location;'+"\n"+
+        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chat/getstatus'+id_internal_popup+id_position+id_hide_then_offline+id_check_operator_message+top+topposition+id_show_leave_form+id_department+id_operator+id_identifier+id_disable_pro_active_invitations+id_theme+id_disable_responsive+'?r=\'+refferer+\'&l=\'+location;'+"\n"+
         'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);'+"\n"+
       '})();'+"\n"+
     '</scr'+'ipt>';
@@ -154,7 +157,7 @@ function generateEmbedCode(){
     $('#HMLTContent').text(id_tag+script);
 };
 
-$('#LocaleID,#DepartmentID,#HttpMode,#ThemeID,#id_disable_pro_active_invitations,#id_site_identifier,#id_internal_popup,#id_disable_responsive,#id_position_bottom,#PositionID,#id_show_leave_form,#id_hide_then_offline,#id_check_operator_message,#UnitsTop,#id_top_text,#id_popup_width,#id_popup_height,#id_widget_width,#id_widget_height').change(function(){
+$('#LocaleID,#id_operator,#DepartmentID,#HttpMode,#ThemeID,#id_disable_pro_active_invitations,#id_site_identifier,#id_internal_popup,#id_disable_responsive,#id_position_bottom,#PositionID,#id_show_leave_form,#id_hide_then_offline,#id_check_operator_message,#UnitsTop,#id_top_text,#id_popup_width,#id_popup_height,#id_widget_width,#id_widget_height').change(function(){
     generateEmbedCode();
 });
 

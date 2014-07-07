@@ -1,0 +1,1 @@
+<div class="message-row response"><div class="msg-date"><?php echo date(erLhcoreClassModule::$dateHourFormat,time()-5); ?></div><span class="usr-tit"><img src="<?php echo erLhcoreClassDesign::design('images/icons/user_suit.png');?>" title="" alt="" />&nbsp;</span><?php echo erLhcoreClassBBCode::make_clickable(htmlspecialchars($visitor->operator_message)); ?></div>

@@ -66,7 +66,7 @@ if ($pendingTabEnabled == true) {
 		$lastMessage = erLhcoreClassChat::getGetLastChatMessagePending($chatRecent->id);
 	}
 	
-	erLhcoreClassChat::prefillGetAttributes($pendingChats,array('time_created_front','department_name'),array('department','time','status','dep_id','user_id'));
+	erLhcoreClassChat::prefillGetAttributes($pendingChats,array('time_created_front','department_name','user_name'), array('department','time','status','dep_id','user_id','user'));
 	$ReturnMessages['pending_chats'] = array('list' => array_values($pendingChats),'nick' => $lastChatNick,'msg' => $lastMessage, 'last_id_identifier' => 'pending_chat', 'last_id' => $lastPendingChatID);
 }
 

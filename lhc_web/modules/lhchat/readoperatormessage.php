@@ -17,6 +17,7 @@ $inputData->question = '';
 $inputData->email = '';
 $inputData->departament_id = $department;
 $inputData->validate_start_chat = false;
+$inputData->operator = (int)$Params['user_parameters_unordered']['operator'];
 
 $tpl->set('department',$department);
 $tpl->set('playsound',(string)$Params['user_parameters_unordered']['playsound'] == 'true' && !isset($_POST['askQuestion']) && erLhcoreClassModelChatConfig::fetch('sound_invitation')->current_value == 1);
@@ -37,6 +38,7 @@ if (isset($_POST['askQuestion']))
     $validationFields = array();
     $validationFields['Question'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
     $validationFields['DepartamentID'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1) );
+    $validationFields['operator'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1) );
     $validationFields['Email'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'validate_email' );
     $validationFields['Username'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
     
@@ -92,6 +94,10 @@ if (isset($_POST['askQuestion']))
     	{
     		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid captcha code, please enable Javascript!');
     	}
+    }
+    
+    if ($form->hasValidData( 'operator' ) && erLhcoreClassModelUser::getUserCount(array('filter' => array('id' => $form->operator, 'disabled' => 0))) > 0) {
+    	$inputData->operator = $chat->user_id = $form->operator;
     }
     
     $chat->dep_id = $inputData->departament_id;

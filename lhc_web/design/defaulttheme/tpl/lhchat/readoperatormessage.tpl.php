@@ -3,9 +3,9 @@
 <?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile.tpl.php'));?>
 <?php endif;?>
 
-<div id="messages" class="mb10">
+<div id="messages" class="mb10 read-operator-message">
      <div class="msgBlock" id="messagesBlock">
-       	<div class="message-row response"><div class="msg-date"><?php echo date(erLhcoreClassModule::$dateHourFormat,time()-5); ?></div><span class="usr-tit"><img src="<?php echo erLhcoreClassDesign::design('images/icons/user_suit.png');?>" title="" alt="" />&nbsp;</span><?php echo erLhcoreClassBBCode::make_clickable(htmlspecialchars($visitor->operator_message)); ?></div>
+     	<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/operator_message_row.tpl.php'));?>
      </div>
 </div>
 
@@ -44,6 +44,7 @@
 
 <input type="submit" name="askQuestionAction" id="idaskQuestionAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Send');?>" class="tiny button radius secondary"/>
 <input type="hidden" name="askQuestion" value="1" />
+<input type="hidden" value="<?php echo htmlspecialchars($input_data->operator);?>" name="operator" />
 
 </form>
 

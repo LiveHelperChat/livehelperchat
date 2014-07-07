@@ -34,6 +34,7 @@ body {
 	box-shadow:none;
 }
 
+.icon-user-assigned,
 a.icon-chat,
 a.icon-info,
 a.icon-popup,
@@ -49,6 +50,7 @@ a.icon-print {
 	color:#86B5CC;
 }
 
+.icon-user-assigned:hover,
 a.icon-chat:hover,
 a.icon-info:hover,
 a.icon-popup:hover,

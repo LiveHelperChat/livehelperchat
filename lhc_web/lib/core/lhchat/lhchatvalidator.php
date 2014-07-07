@@ -60,6 +60,7 @@ class erLhcoreClassChatValidator {
         }
 
         $validationFields['DepartamentID'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1));
+        $validationFields['operator'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1));
 
         $validationFields['name_items'] = new ezcInputFormDefinitionElement(
         		ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
@@ -192,7 +193,11 @@ class erLhcoreClassChatValidator {
                 $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum 100 characters for phone');
             }
         }
-
+        
+        if ($form->hasValidData( 'operator' ) && erLhcoreClassModelUser::getUserCount(array('filter' => array('id' => $form->operator, 'disabled' => 0))) > 0) {
+        	$inputForm->operator = $chat->user_id = $form->operator;
+        }
+        
         if ($form->hasValidData( 'DepartamentID' ) && erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $form->DepartamentID,'disabled' => 0))) > 0) {
         	$chat->dep_id = $form->DepartamentID;
         } elseif ($chat->dep_id == 0 || erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $chat->dep_id,'disabled' => 0))) == 0) {

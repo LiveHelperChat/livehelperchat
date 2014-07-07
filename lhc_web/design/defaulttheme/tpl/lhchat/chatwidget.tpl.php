@@ -74,6 +74,7 @@
 
 <input type="hidden" value="<?php echo htmlspecialchars($referer);?>" name="URLRefer" />
 <input type="hidden" value="<?php echo htmlspecialchars($referer_site);?>" name="r" />
+<input type="hidden" value="<?php echo htmlspecialchars($input_data->operator);?>" name="operator" />
 <input type="hidden" value="1" name="StartChat"/>
 
 </form>

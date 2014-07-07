@@ -92,6 +92,7 @@ $inputData->phone = '';
 $inputData->departament_id = (int)$Params['user_parameters_unordered']['department'];
 $inputData->accept_tos = false;
 $inputData->question = '';
+$inputData->operator = (int)$Params['user_parameters_unordered']['operator'];
 
 // Perhaps user was redirected to leave a message form because chat was not acceptend in some time interval
 if ((string)$Params['user_parameters_unordered']['chatprefill'] != '') {

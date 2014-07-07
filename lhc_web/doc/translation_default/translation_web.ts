@@ -697,6 +697,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Operator ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To what operator chat should be assigned automatically?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Copy the code from the text area to the page where you want your status to appear</source>
       <translation type="unfinished"/>
     </message>
@@ -2674,6 +2682,10 @@
     <name>pagelayout/pagelayout</name>
     <message>
       <source>Empty...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assigned operator</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5869,6 +5881,13 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation type="unfinished"></translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/updatemsguser</name>
+    <message>
+      <source>User has edited his last message</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

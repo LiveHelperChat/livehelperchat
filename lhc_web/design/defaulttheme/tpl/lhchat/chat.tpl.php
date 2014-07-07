@@ -57,7 +57,7 @@
         </script>
     </div>
 	<div id="bbcodeReveal" class="reveal-modal"></div>
-    <div class="pt5" id="ChatSendButtonContainer">
+    <div class="pt5 user-chatwidget-buttons" id="ChatSendButtonContainer">
     	<input type="button" class="tiny radius secondary button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Send')?>" onclick="lhinst.addmsguser()" />
     	
     	<ul class="button-group radius right">
