@@ -94,7 +94,7 @@
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Minimize action, applies only if status widget is at the bottom');?></label>
         <select id="MinimizeID">
                <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Keep where it was');?></option>
-               <option value="br" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Minimize to bottom of the screen');?></option>                       
+               <option value="br" selected="selected"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Minimize to bottom of the screen');?></option>                       
         </select>
 
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Position from the top, only used if the Middle left or the Middle right side is chosen');?></label>
