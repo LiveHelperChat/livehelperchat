@@ -41,6 +41,7 @@ if (isset($_POST['askQuestion']))
     $validationFields['operator'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1) );
     $validationFields['Email'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'validate_email' );
     $validationFields['Username'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
+    $validationFields['user_timezone'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int');
     
     if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
     	// Start session if required only
@@ -100,6 +101,15 @@ if (isset($_POST['askQuestion']))
     	$inputData->operator = $chat->user_id = $form->operator;
     }
     
+    if ($form->hasValidData( 'user_timezone' )) {
+    	$timezone_name = timezone_name_from_abbr(null, $form->user_timezone*3600, true);
+    	if ($timezone_name !== false){
+    		$chat->user_tz_identifier = $timezone_name;
+    	} else {
+    		$chat->user_tz_identifier = '';
+    	}
+    }
+        
     $chat->dep_id = $inputData->departament_id;
     
     // Assign default department

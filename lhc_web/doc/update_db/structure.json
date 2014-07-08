@@ -630,6 +630,14 @@
                 "extra": ""
             },
             {
+                "field": "bor_bcolor",
+                "type": "varchar(10)",
+                "null": "NO",
+                "key": "",
+                "default": "e3e3e3",
+                "extra": ""
+            },
+            {
                 "field": "text_color",
                 "type": "varchar(10)",
                 "null": "NO",
@@ -1004,6 +1012,14 @@
             {
                 "field": "ip",
                 "type": "varchar(100)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "user_tz_identifier",
+                "type": "varchar(50)",
                 "null": "NO",
                 "key": "",
                 "default": null,
@@ -1567,6 +1583,14 @@
             },
             {
                 "field": "ip",
+                "type": "varchar(50)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "visitor_tz",
                 "type": "varchar(50)",
                 "null": "NO",
                 "key": "",

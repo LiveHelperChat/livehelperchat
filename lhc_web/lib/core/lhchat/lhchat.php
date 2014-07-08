@@ -304,8 +304,6 @@ class erLhcoreClassChat {
 	      return $objects;
     }
 
-
-
     public static function getCount($params = array(), $table = 'lh_chat', $operation = 'COUNT(id)')
     {
     	$session = erLhcoreClassChat::getSession();
@@ -979,7 +977,15 @@ class erLhcoreClassChat {
    {
        return sha1(mt_rand().time());
    }
-
+   
+   public static function setTimeZoneByChat($chat)
+   {
+   		if ($chat->user_tz_identifier != '') {
+   			erLhcoreClassModule::$defaultTimeZone = $chat->user_tz_identifier;
+   			date_default_timezone_set(erLhcoreClassModule::$defaultTimeZone);   			
+   		} 
+   }
+   
    public static function getSession()
    {
         if ( !isset( self::$persistentSession ) )

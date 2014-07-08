@@ -196,6 +196,10 @@ $def->properties['online_attr']->columnName   = 'online_attr';
 $def->properties['online_attr']->propertyName = 'online_attr';
 $def->properties['online_attr']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['visitor_tz'] = new ezcPersistentObjectProperty();
+$def->properties['visitor_tz']->columnName   = 'visitor_tz';
+$def->properties['visitor_tz']->propertyName = 'visitor_tz';
+$def->properties['visitor_tz']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 return $def;
 

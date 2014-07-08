@@ -92,8 +92,8 @@
 <table ng-cloak class="twelve online-users-table" cellpadding="0" cellspacing="0" ng-init='trans = <?php echo json_encode(array('third' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User has not seen a message from the operator, or the message window is still open.'), 'second' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User has seen the message from the operator.'),'first' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User does not have any messages from the operator')))?>'>
 <thead>
 <tr>
-    <th width="5%" nowrap><a href="" ng-click="online.predicate = 'last_visit'; online.reverse=!online.reverse"><img  src="<?php echo erLhcoreClassDesign::design('images/icons/clock.png');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Last activity');?>" /></a></th>
-    <th width="5%" nowrap><a href="" ng-click="online.predicate = 'time_on_site'; online.reverse=!online.reverse"><img  src="<?php echo erLhcoreClassDesign::design('images/icons/clock.png');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Time on site');?>" /></a></th>
+    <th width="5%" nowrap><a class="icon-clock" ng-click="online.predicate = 'last_visit'; online.reverse=!online.reverse" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Last activity');?>" ></a><a class="icon-clock" ng-click="online.predicate = 'time_on_site'; online.reverse=!online.reverse" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Time on site');?>"></a><a class="icon-clock" ng-click="online.predicate = 'visitor_tz_time'; online.reverse=!online.reverse" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Visitor local time');?>"></a></th>
+
     <th width="40%"><a href="" ng-click="online.predicate = 'current_page'; online.reverse=!online.reverse" /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Page');?></a></th>
     <th width="40%"><a href="" ng-click="online.predicate = 'referrer'; online.reverse=!online.reverse" /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Came from');?></a></th>
     <th width="1%" nowrap><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Status');?></th>
@@ -105,8 +105,11 @@
 		<td colspan="6"><h5>{{group.label}} ({{group.ou.length}})</h5></td>
 	</tr>		
 	<tr ng-repeat="ou in group.ou | orderBy:online.predicate:online.reverse | filter:query track by ou.id" ng-class="{recent_visit:(ou.last_visit_seconds_ago < 15)}">
-    	<td nowrap>{{ou.lastactivity_ago}} <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','ago');?></td>
-    	<td>{{ou.time_on_site_front}}</td>    	
+    	<td nowrap>    	
+    	{{ou.lastactivity_ago}} <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','ago');?><br/>
+    	<span class="fs-11">{{ou.time_on_site_front}}</span><br/>
+    	<span class="fs-11" title="{{ou.visitor_tz}}">{{ou.visitor_tz_time}}</span>   
+    	</td>       	
     	<td><div class="page-url"><span><a target="_blank" href="{{ou.current_page}}" title="{{ou.current_page}}">{{ou.page_title || ou.current_page}}</a></span></div></td>
         <td><div class="page-url"><span><a target="_blank" href="{{ou.referrer}}">{{ou.referrer}}</a></span></div></td>
         <td>       

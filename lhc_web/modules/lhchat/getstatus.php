@@ -60,6 +60,7 @@ $tpl->set('referrer',isset($_GET['r']) ? rawurldecode($_GET['r']) : '');
 $tpl->set('track_online_users',erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1);
 $tpl->set('click',$Params['user_parameters_unordered']['click']);
 $tpl->set('position',$Params['user_parameters_unordered']['position']);
+$tpl->set('minimize_action',$Params['user_parameters_unordered']['ma']);
 $tpl->set('identifier',(!is_null($Params['user_parameters_unordered']['identifier']) && !empty($Params['user_parameters_unordered']['identifier'])) ? (string)$Params['user_parameters_unordered']['identifier'] : false);
 $tpl->set('leaveamessage',(string)$Params['user_parameters_unordered']['leaveamessage'] == 'true');
 $tpl->set('noresponse',(string)$Params['user_parameters_unordered']['noresponse'] == 'true');

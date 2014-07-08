@@ -281,7 +281,7 @@ $ViewList['blockedusers'] = array(
 
 $ViewList['getstatus'] = array(
     'params' => array(),
-    'uparams' => array('operator','theme','noresponse','priority','disable_pro_active','click','position','hide_offline','check_operator_messages','top','units','leaveamessage','department','identifier'),
+    'uparams' => array('ma','operator','theme','noresponse','priority','disable_pro_active','click','position','hide_offline','check_operator_messages','top','units','leaveamessage','department','identifier'),
     );
 
 $ViewList['getstatusembed'] = array(
@@ -311,12 +311,12 @@ $ViewList['readoperatormessage'] = array(
 
 $ViewList['chatcheckoperatormessage'] = array(
     'params' => array(),
-    'uparams' => array('operator','theme','priority','vid','count_page','identifier','department')
+    'uparams' => array('tz','operator','theme','priority','vid','count_page','identifier','department')
 );
 
 $ViewList['logpageview'] = array(
     'params' => array(),
-    'uparams' => array('vid','identifier','department')
+    'uparams' => array('tz','vid','identifier','department')
 );
 
 $ViewList['chatwidgetclosed'] = array(

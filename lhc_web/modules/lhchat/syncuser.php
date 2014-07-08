@@ -8,6 +8,7 @@ $pollingMessageTimeout = (float)erLhcoreClassModelChatConfig::fetch('sync_sound_
 try {
     $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
     $chat->updateIgnoreColumns = array('last_msg_id');
+    erLhcoreClassChat::setTimeZoneByChat($chat);
 } catch (Exception $e) {
     $chat = false;
 }

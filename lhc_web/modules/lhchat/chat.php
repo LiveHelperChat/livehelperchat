@@ -31,6 +31,8 @@ try {
         $tpl->set('hash',$Params['user_parameters']['hash']);
         $tpl->set('chat',$chat);
 
+        erLhcoreClassChat::setTimeZoneByChat($chat);
+        
         $Result['chat'] = $chat;
 
         // User online

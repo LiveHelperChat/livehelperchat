@@ -36,6 +36,9 @@
 						<label><?php echo $fields['text_color']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('text_color', $fields['text_color'], $object)?>
 						
+						<label><?php echo $fields['bor_bcolor']['trans'];?></label>
+						<?php echo erLhcoreClassAbstract::renderInput('bor_bcolor', $fields['bor_bcolor'], $object)?>
+						
 						<label><?php echo $fields['online_image']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('online_image', $fields['online_image'], $object)?>
 						
@@ -145,7 +148,7 @@
 		#lhc_status_container .status-icon{text-decoration:none;font-size:12px;font-weight:bold;color:#{{bactract_bg_color_text_color}};display:block;padding:10px 10px 10px 35px;background:url('<?php if ($object->online_image_url != '') : ?><?php echo $object->online_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/user_green_chat.png');?><?php endif?>') no-repeat left center}
 		#lhc_status_container:hover{}
 		#lhc_status_container #offline-icon{background-image:url('<?php if ($object->offline_image_url != '') : ?><?php echo $object->offline_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/user_gray_chat.png');?><?php endif;?>')}
-		#lhc_status_container{box-sizing: content-box;-webkit-border-top-left-radius: 20px;-moz-border-radius-topleft: 20px;border-top-left-radius: 20px;-webkit-box-shadow: -1px -1px 5px rgba(50, 50, 50, 0.17);border:1px solid #e3e3e3;border-right:0;border-bottom:0;;-moz-box-shadow:-1px -1px 5px rgba(50, 50, 50, 0.17);box-shadow: -1px -1px 5px rgba(50, 50, 50, 0.17);padding:5px 0px 0px 5px;width:190px;font-family:arial;font-size:12px;transition: 1s;background-color:#{{bactract_bg_color_onl_bcolor}};z-index:9989;}
+		#lhc_status_container{box-sizing: content-box;-webkit-border-top-left-radius: 20px;-moz-border-radius-topleft: 20px;border-top-left-radius: 20px;-webkit-box-shadow: -1px -1px 5px rgba(50, 50, 50, 0.17);border:1px solid #{{bactract_bg_color_bor_bcolor}};border-right:0;border-bottom:0;-moz-box-shadow:-1px -1px 5px rgba(50, 50, 50, 0.17);box-shadow: -1px -1px 5px rgba(50, 50, 50, 0.17);padding:5px 0px 0px 5px;width:190px;font-family:arial;font-size:12px;transition: 1s;background-color:#{{bactract_bg_color_onl_bcolor}};z-index:9989;}
 		@media only screen and (max-width : 640px) {#lhc_status_container{position:relative;top:0;right:0;bottom:0;left:0;width:auto;border-radius:2px;box-shadow:none;border:1px solid #e3e3e3;margin-bottom:5px;}}
 		</style>
 						

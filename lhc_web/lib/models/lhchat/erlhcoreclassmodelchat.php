@@ -252,6 +252,12 @@ class erLhcoreClassModelChat {
        			return $this->unread_time;
        		break;
        		
+       	case 'user_tz_identifier_time':
+       			$date = new DateTime(null, new DateTimeZone($this->user_tz_identifier));
+       			$this->user_tz_identifier_time = $date->format(erLhcoreClassModule::$dateHourFormat);       			
+       			return $this->user_tz_identifier_time;
+       		break;
+       		
        	case 'additional_data_array':
        			$jsonData = json_decode($this->additional_data);
        			if ($jsonData !== null) {

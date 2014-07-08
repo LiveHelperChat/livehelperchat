@@ -12,7 +12,7 @@ $positionArgument = array (
 				'widget_hover' => '',
 				'padding_text' => '10px 10px 10px 35px',
 				'chrome_radius' => 'top-right',
-				'border_widget' => 'border:1px solid #e3e3e3;border-left:0;border-bottom:0;',
+				'border_widget' => 'border:1px solid #'.($theme !== false ? $theme->bor_bcolor : 'e3e3e3').';border-left:0;border-bottom:0;',
 				'background_position' => '0',
 				'widget_radius' => '-webkit-border-top-right-radius: 20px;-moz-border-radius-topright: 20px;border-top-right-radius: 20px;',
 				'nh_hor_pos' => 'margin-left:10px;',
@@ -30,7 +30,7 @@ $positionArgument = array (
 				'padding_text' => '10px 10px 10px 35px',
 				'background_position' => 'left',
 				'chrome_radius' => 'top-left',
-				'border_widget' => 'border:1px solid #e3e3e3;border-right:0;border-bottom:0;',
+				'border_widget' => 'border:1px solid #'.($theme !== false ? $theme->bor_bcolor : 'e3e3e3').';border-right:0;border-bottom:0;',
 				'widget_radius' => '-webkit-border-top-left-radius: 20px;-moz-border-radius-topleft: 20px;border-top-left-radius: 20px;',
 				'nh_hor_pos' => 'margin-left:-80px;',
 				'nh_tr_pos' => 'right:15px;'
@@ -42,7 +42,7 @@ $positionArgument = array (
 				'position' => "top:{$top_pos}{$units};right:-155px;",
 				'position_body' => "top:{$top_pos}{$units};right:0px;",
 				'shadow' => '1px -1px 5px',
-				'border_widget' => 'border:1px solid #e3e3e3;border-right:0;',
+				'border_widget' => 'border:1px solid #'.($theme !== false ? $theme->bor_bcolor : 'e3e3e3').';border-right:0;',
 				'widget_hover' => 'right:0;transition: 1s;',
 				'moz_radius' => 'topleft',
 				'padding_text' => '10px 10px 10px 35px',
@@ -57,7 +57,7 @@ $positionArgument = array (
 				'position' => "top:{$top_pos}{$units};left:-155px;",
 				'position_body' => "top:{$top_pos}{$units};left:0px;",
 				'shadow' => '1px -1px 5px',
-				'border_widget' => 'border:1px solid #e3e3e3;border-left:0;',
+				'border_widget' => 'border:1px solid #'.($theme !== false ? $theme->bor_bcolor : 'e3e3e3').';border-left:0;',
 				'padding_text' => '10px 35px 10px 9px',
 				'widget_hover' => 'left:0;transition: 1s;',
 				'moz_radius' => 'topright',
@@ -185,7 +185,7 @@ var lh_inst  = {
 		if (!dm.attrIsMin || dm.attrIsMin == false) {
 			dm.attrHeight = dm.style.height;
 			dm.attrIsMin = true;			
-			this.addClass(dm,'lhc-no-transition');
+			//this.addClass(dm,'lhc-no-transition');
 			this.addClass(dm,'lhc-min');									
 			<?php if ($currentPosition['posv'] == 'b') : ?>			
 			if(dm.style.bottom!='' && dm.attrHeight!=''){
@@ -198,20 +198,37 @@ var lh_inst  = {
 			<?php endif; ?>			
 			this.addCookieAttribute('m',1);
 			this.storePos(dm);
-			
+			<?php if ($currentPosition['posv'] == 'b' && $minimize_action == 'br') : ?>
+					dm.attrBottomOrigin = dm.style.bottom;
+					dm.style.bottom = '';										
+					<?php if ($currentPosition['pos'] == 'r') : ?>
+					dm.attrRightOrigin = dm.style.right;
+					dm.style.right = '0px';	
+					<?php else : ?>
+					dm.attrLeftOrigin = dm.style.left;
+					dm.style.left = '0px';	
+					<?php endif;?>													
+			<?php endif;?>
 		} else {	
 			dm.attrIsMin = false;
 			<?php if ($currentPosition['posv'] == 'b') : ?>
-			if(dm.style.bottom!=''){
-				dm.style.bottom = (parseInt(dm.style.bottom)-parseInt(document.getElementById('lhc_iframe').style.height)+9)+'px';				
-			}	
+			if (dm.attrBottomOrigin)	{
+				dm.style.bottom = (parseInt(dm.attrBottomOrigin)-parseInt(document.getElementById('lhc_iframe').style.height)+9)+'px';
+				<?php if ($currentPosition['pos'] == 'r') : ?>
+				dm.style.right = dm.attrRightOrigin;	
+				<?php else : ?>
+				dm.style.left = dm.attrLeftOrigin;	
+				<?php endif;?>
+			} else if (dm.style.bottom!=''){		
+				dm.style.bottom = (parseInt(dm.style.bottom)-parseInt(document.getElementById('lhc_iframe').style.height)+9)+'px';
+			}
 			<?php endif;?>		
 			this.removeCookieAttr('m');
 			this.removeClass(dm,'lhc-min');
 			var inst = this;
-			setTimeout(function(){
-				inst.removeClass(dm,'lhc-no-transition');
-			},500);
+			//setTimeout(function(){				
+			//	inst.removeClass(dm,'lhc-no-transition');
+			//},500);
 			this.storePos(dm);
 		};
 	},
@@ -222,6 +239,7 @@ var lh_inst  = {
         s.setAttribute('type','text/javascript');
         s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatwidgetclosed')?>'+this.getAppendCookieArguments());
         th.appendChild(s);
+        this.toggleStatusWidget(false);
         this.removeById('lhc_container');
         this.removeCookieAttr('hash');
         this.removeCookieAttr('pos');
@@ -390,10 +408,18 @@ var lh_inst  = {
 		  var domContainerId = 'lhc_container';
 		  <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/drag_drop_logic.tpl.php')); ?>		  
 		      
-		  if (this.cookieData.m) {this.min(true);};		  
-		 	  
+		  if (this.cookieData.m) {this.min(true);};
+		  this.toggleStatusWidget(true);
     },
 
+    toggleStatusWidget : function(hide){
+    	if (hide == true){    		
+    		this.addClass(document.getElementById('lhc_status_container'),'hide-status');
+    	} else {
+    		this.removeClass(document.getElementById('lhc_status_container'),'hide-status');    		
+    	}
+    },
+    
     lh_openchatWindow : function() {    	
         <?php if ($click == 'internal') : ?>
         this.showStartWindow();
@@ -420,7 +446,7 @@ var lh_inst  = {
 
         var statusTEXT = '<a id="<?php ($isOnlineHelp == true) ? print 'online-icon' : print 'offline-icon' ?>" class="status-icon" href="#" onclick="return lh_inst.lh_openchatWindow()" ><?php if ($isOnlineHelp == true) : ?><?php if ($theme !== false && $theme->online_text !== '') : print htmlspecialchars_decode($theme->online_text,ENT_QUOTES); else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Live help is online...')?><?php endif; else : ?><?php if ($theme !== false && $theme->offline_text != '') : print htmlspecialchars_decode($theme->offline_text,ENT_QUOTES); else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Live help is offline...')?><?php endif;endif;?></a>';
 
-        var raw_css = "#lhc_status_container * {direction:<?php (erConfigClassLhConfig::getInstance()->getOverrideValue('site','dir_language') == 'ltr' || erConfigClassLhConfig::getInstance()->getOverrideValue('site','dir_language') == '') ? print 'ltr;text-align:left;' : print 'rtl;text-align:right;'; ?>;font-family:arial;font-size:12px;box-sizing: content-box;zoom:1;margin:0;padding:0}\n#lhc_status_container .status-icon{text-decoration:none;font-size:12px;font-weight:bold;color:<?php $theme !== false ? print '#'.$theme->text_color : print '#000' ?>;display:block;padding:<?php echo $currentPosition['padding_text']?>;background:url('<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php if ($theme !== false && $theme->online_image_url !== false) : print $theme->online_image_url; else : ?><?php echo erLhcoreClassDesign::design('images/icons/user_green_chat.png');?><?php endif;?>') no-repeat <?php echo $currentPosition['background_position']?> center}\n#lhc_status_container:hover{<?php echo $currentPosition['widget_hover']?>}\n#lhc_status_container #offline-icon{background-image:url('<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php if ($theme !== false && $theme->offline_image_url !== false) : print $theme->offline_image_url; else : ?><?php echo erLhcoreClassDesign::design('images/icons/user_gray_chat.png');?><?php endif;?>')}\n#lhc_status_container{box-sizing: content-box;<?php echo $currentPosition['widget_radius']?>-webkit-box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);<?php echo $currentPosition['border_widget']?>;-moz-box-shadow:<?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);padding:5px 0px 0px 5px;width:190px;font-family:arial;font-size:12px;transition: 1s;position:fixed;<?php echo $currentPosition['position']?>;background-color:#<?php $theme !== false ? print $theme->onl_bcolor : print 'f6f6f6' ?>;z-index:9989;}<?php if ($noresponse == false) : ?>@media only screen and (max-width : 640px) {#lhc_need_help_container{display:none;}#lhc_status_container{position:relative;top:0;right:0;bottom:0;left:0;width:auto;border-radius:2px;box-shadow:none;border:1px solid #e3e3e3;margin-bottom:5px;}}\n<?php endif;?>";
+        var raw_css = "#lhc_status_container.hide-status{display:none!important;}#lhc_status_container * {direction:<?php (erConfigClassLhConfig::getInstance()->getOverrideValue('site','dir_language') == 'ltr' || erConfigClassLhConfig::getInstance()->getOverrideValue('site','dir_language') == '') ? print 'ltr;text-align:left;' : print 'rtl;text-align:right;'; ?>;font-family:arial;font-size:12px;box-sizing: content-box;zoom:1;margin:0;padding:0}\n#lhc_status_container .status-icon{text-decoration:none;font-size:12px;font-weight:bold;color:<?php $theme !== false ? print '#'.$theme->text_color : print '#000' ?>;display:block;padding:<?php echo $currentPosition['padding_text']?>;background:url('<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php if ($theme !== false && $theme->online_image_url !== false) : print $theme->online_image_url; else : ?><?php echo erLhcoreClassDesign::design('images/icons/user_green_chat.png');?><?php endif;?>') no-repeat <?php echo $currentPosition['background_position']?> center}\n#lhc_status_container:hover{<?php echo $currentPosition['widget_hover']?>}\n#lhc_status_container #offline-icon{background-image:url('<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php if ($theme !== false && $theme->offline_image_url !== false) : print $theme->offline_image_url; else : ?><?php echo erLhcoreClassDesign::design('images/icons/user_gray_chat.png');?><?php endif;?>')}\n#lhc_status_container{box-sizing: content-box;<?php echo $currentPosition['widget_radius']?>-webkit-box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);<?php echo $currentPosition['border_widget']?>;-moz-box-shadow:<?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);box-shadow: <?php echo $currentPosition['shadow']?> rgba(50, 50, 50, 0.17);padding:5px 0px 0px 5px;width:190px;font-family:arial;font-size:12px;transition: 1s;position:fixed;<?php echo $currentPosition['position']?>;background-color:#<?php $theme !== false ? print $theme->onl_bcolor : print 'f6f6f6' ?>;z-index:9989;}<?php if ($noresponse == false) : ?>@media only screen and (max-width : 640px) {#lhc_need_help_container{display:none;}#lhc_status_container{position:relative;top:0;right:0;bottom:0;left:0;width:auto;border-radius:2px;box-shadow:none;border:1px solid #<?php $theme !== false ? print $theme->bor_bcolor : print 'e3e3e3' ?>;margin-bottom:5px;}}\n<?php endif;?>";
         this.addCss(raw_css<?php ($theme !== false && $theme->custom_status_css !== '') ? print '+\''.str_replace(array("\n","\r"), '', $theme->custom_status_css).'\'' : '' ?>);
 	
 		<?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/we_here.tpl.php')); ?>	
@@ -463,10 +489,11 @@ var lh_inst  = {
         var th = document.getElementsByTagName('head')[0];
         var s = document.createElement('script');
         var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
+        var tzOffset = ((new Date().getTimezoneOffset())/60) * -1;
         
         s.setAttribute('id','lhc_operator_message');
         s.setAttribute('type','text/javascript');
-        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatcheckoperatormessage')?><?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?>/(count_page)/1/(vid)/'+vid+'?l='+locationCurrent+this.parseStorageArguments()+this.parseOptionsOnline()+'&dt='+encodeURIComponent(document.title));
+        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatcheckoperatormessage')?><?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?>/(tz)/'+tzOffset+'/(count_page)/1/(vid)/'+vid+'?l='+locationCurrent+this.parseStorageArguments()+this.parseOptionsOnline()+'&dt='+encodeURIComponent(document.title));
         th.appendChild(s);
     },
 
@@ -475,9 +502,10 @@ var lh_inst  = {
         var th = document.getElementsByTagName('head')[0];
         var s = document.createElement('script');
         var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));        
+        var tzOffset = ((new Date().getTimezoneOffset())/60) * -1; 
         s.setAttribute('id','lhc_log_pageview');
         s.setAttribute('type','text/javascript');
-        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/logpageview')?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?>/(vid)/'+vid+'?l='+locationCurrent+this.parseStorageArguments()+this.parseOptionsOnline()+'&dt='+encodeURIComponent(document.title));
+        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/logpageview')?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?>/(tz)/'+tzOffset+'/(vid)/'+vid+'?l='+locationCurrent+this.parseStorageArguments()+this.parseOptionsOnline()+'&dt='+encodeURIComponent(document.title));
         th.appendChild(s);
     },
 

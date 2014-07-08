@@ -40,7 +40,8 @@ class erLhcoreClassModelChatOnlineUser {
                'reopen_chat'   		=> $this->reopen_chat,
 	       	   'operation'   		=> $this->operation,
 	       	   'screenshot_id'   	=> $this->screenshot_id,
-	       	   'online_attr'   		=> $this->online_attr
+	       	   'online_attr'   		=> $this->online_attr,
+	       	   'visitor_tz'   		=> $this->visitor_tz
        );
    }
 
@@ -174,6 +175,16 @@ class erLhcoreClassModelChatOnlineUser {
        		
        	case 'last_visit_seconds_ago':
        			$this->last_visit_seconds_ago = time()-$this->last_visit;
+       			return $this->last_visit_seconds_ago;
+       		break;
+       		
+       	case 'visitor_tz_time':
+       			$this->visitor_tz_time = '-';
+       			if ($this->visitor_tz != ''){
+       				$date = new DateTime(null, new DateTimeZone($this->visitor_tz));
+       				$this->visitor_tz_time = $date->format(erLhcoreClassModule::$dateHourFormat);
+       			}       			
+       			return $this->visitor_tz_time;
        		break;
        		
        	case 'lastactivity_ago':
@@ -289,7 +300,7 @@ class erLhcoreClassModelChatOnlineUser {
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT , 5);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); // Some hostings produces wargning...
         $content = curl_exec($ch);
 
         return $content;
@@ -553,6 +564,13 @@ class erLhcoreClassModelChatOnlineUser {
 	                   $item->total_visits = 1;
 	                   $item->dep_id =  (isset($paramsHandle['department'])) ? (int)$paramsHandle['department'] : 0;
 
+	                   if (isset($paramsHandle['tz']) && is_numeric($paramsHandle['tz'])) {
+		                   	$timezone_name = timezone_name_from_abbr(null, (int)$paramsHandle['tz']*3600, true);
+		                   	if ($timezone_name !== false) {
+		                   		$item->visitor_tz = $timezone_name;
+		                   	}
+	                   }
+	                   
 	                   self::detectLocation($item);
 
 	                   // Cleanup database then new user comes
@@ -581,7 +599,14 @@ class erLhcoreClassModelChatOnlineUser {
 	           		if ($item->has_message_from_operator == true) {
 	           			$item->invitation_seen_count++;
 	           		}
-	           		
+	           			           		
+	           		if (isset($paramsHandle['tz']) && is_numeric($paramsHandle['tz']) && $item->visitor_tz == ''){
+	           			$timezone_name = timezone_name_from_abbr(null, (int)$paramsHandle['tz']*3600, true);
+	           			if ($timezone_name !== false){
+	           				$item->visitor_tz = $timezone_name;
+	           			}
+	           		}
+	           			           		
 	           		// Hide invitation message after n times if required
 	           		if ($item->has_message_from_operator == true && $item->invitation !== false && $item->invitation->hide_after_ntimes > 0 && $item->invitation_seen_count > $item->invitation->hide_after_ntimes ) {	           			
 	           			$item->message_seen = 1;
@@ -664,6 +689,7 @@ class erLhcoreClassModelChatOnlineUser {
    public $screenshot_id = 0;
    public $operation = '';
    public $online_attr = '';
+   public $visitor_tz = '';
       
    
    // 0 - do not reopen

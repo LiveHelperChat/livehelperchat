@@ -8,6 +8,7 @@ class erLhAbstractModelWidgetTheme {
 			'id'         				=> $this->id,
 			'name'  					=> $this->name,
 			'onl_bcolor'				=> $this->onl_bcolor,			
+			'bor_bcolor'				=> $this->bor_bcolor,			
 			'text_color'				=> $this->text_color,				
 			'online_image'				=> $this->online_image,
 			'online_image_path'			=> $this->online_image_path,
@@ -101,6 +102,14 @@ class erLhAbstractModelWidgetTheme {
    				'onl_bcolor' => array(
    						'type' => 'colorpicker',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Background color'),
+   						'required' => true,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),   				
+   				'bor_bcolor' => array(
+   						'type' => 'colorpicker',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Status widget border color'),
    						'required' => true,
    						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
@@ -652,6 +661,7 @@ class erLhAbstractModelWidgetTheme {
 	public $name = '';
 	public $onl_bcolor = 'f6f6f6';
 	public $text_color = '000000';
+	public $bor_bcolor = 'e3e3e3';
 	public $online_image = '';
 	public $offline_image = '';
 	public $online_image_path = '';

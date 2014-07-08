@@ -19,6 +19,11 @@ $def->properties['onl_bcolor']->columnName   = 'onl_bcolor';
 $def->properties['onl_bcolor']->propertyName = 'onl_bcolor';
 $def->properties['onl_bcolor']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['bor_bcolor'] = new ezcPersistentObjectProperty();
+$def->properties['bor_bcolor']->columnName   = 'bor_bcolor';
+$def->properties['bor_bcolor']->propertyName = 'bor_bcolor';
+$def->properties['bor_bcolor']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $def->properties['text_color'] = new ezcPersistentObjectProperty();
 $def->properties['text_color']->columnName   = 'text_color';
 $def->properties['text_color']->propertyName = 'text_color';

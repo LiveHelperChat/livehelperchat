@@ -46,6 +46,8 @@
 <input type="hidden" name="askQuestion" value="1" />
 <input type="hidden" value="<?php echo htmlspecialchars($input_data->operator);?>" name="operator" />
 
+<?php include(erLhcoreClassDesign::designtpl('lhchat/part/user_timezone.tpl.php'));?>
+
 </form>
 
 <script>

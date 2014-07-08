@@ -297,6 +297,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Status widget border color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Text color</source>
       <translation type="unfinished"/>
     </message>
@@ -754,6 +758,18 @@
     </message>
     <message>
       <source>Native placement - it will be shown where the html is embedded</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimize action, applies only if status widget is at the bottom</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Keep where it was</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimize to bottom of the screen</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1410,6 +1426,10 @@
     </message>
     <message>
       <source>Country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time zone</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2113,6 +2133,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Identifier</source>
       <translation type="unfinished"/>
     </message>
@@ -2294,6 +2318,10 @@
     </message>
     <message>
       <source>days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor local time</source>
       <translation type="unfinished"/>
     </message>
     <message>

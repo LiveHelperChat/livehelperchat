@@ -40,6 +40,15 @@
 		<td><img src="<?php echo erLhcoreClassDesign::design('images/flags')?>/<?php echo $chat->country_code?>.png" alt="<?php echo htmlspecialchars($chat->country_name)?>" title="<?php echo htmlspecialchars($chat->country_name)?>" /></td>
 	</tr>
 	<?php endif;?>
+	
+	<?php if ( !empty($chat->user_tz_identifier) ) : ?>
+	<tr>
+		<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Time zone')?></td>
+		<td><?php echo htmlspecialchars($chat->user_tz_identifier)?>, <?php echo htmlspecialchars($chat->user_tz_identifier_time)?></td>
+	</tr>
+	<?php endif;?>
+	
+	
 	<?php if ( !empty($chat->city) ) : ?>
 	<tr>
 		<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','City')?></td>
