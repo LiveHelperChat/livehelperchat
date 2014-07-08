@@ -1,3 +1,19 @@
+2.06v
+
+1. Option to minize widget directly to bottom corner.
+2. Status widget will be hidden automatically then user opens live help widget
+3. Option to change border color of status widget
+4. Operator will see user local time zone. Also visitor will see messages time in their local time.
+5. Because of 4 feature online visitors list was a little bit restyled.
+6. Minimize and restore icons will be different now to avoid confusion
+7. On minimization header will stay at the same place
+8. Option to pass operator ID to chat. Usefull for integrating with third party applications. Where let say each customer has assigned operator.
+9. Separated template for user message. Easier to override
+10. Finnish language
+11. Option to edit previous visitor/operator message by pressing Up arrow, just like skype
+
+execute doc/update_db/update_85.sql for update
+
 2.05v
 
 1. Option to hide/show widget copyright small logo. 16x16
@@ -6,6 +22,8 @@
 4. Roles permission editing window will contain checkboxes instead of combobox.
 5. Disabled ssl check for curl request, window update compatibility. Thanks to softaculous
 6. Translations now also are generated for chat configuration window. User requested this.
+
+execute doc/update_db/update_84.sql for update
 
 2.04v
 
