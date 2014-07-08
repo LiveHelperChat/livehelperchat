@@ -697,6 +697,14 @@
       <translation>Cualquier</translation>
     </message>
     <message>
+      <source>Operator ID</source>
+      <translation>ID del operador</translation>
+    </message>
+    <message>
+      <source>To what operator chat should be assigned automatically?</source>
+      <translation>A que operador debe ser asignado automáticamente el chat?</translation>
+    </message>
+    <message>
       <source>Copy the code from the text area to the page where you want your status to appear</source>
       <translation>Copie el código de la área de texto a la página donde desea que aparezca su estado</translation>
     </message>
@@ -1486,7 +1494,7 @@
     </message>
     <message>
       <source>Attach uploaded file</source>
-      <translation type="unfinished"/>
+      <translation>Adjuntar archivo subido</translation>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
@@ -2677,6 +2685,10 @@
     <message>
       <source>Empty...</source>
       <translation>Vacío...</translation>
+    </message>
+    <message>
+      <source>Assigned operator</source>
+      <translation>Operador asignado</translation>
     </message>
     <message>
       <source>Clean cache</source>
@@ -5872,6 +5884,13 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Por favor, introduzca un tipo de archivo válido</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/updatemsguser</name>
+    <message>
+      <source>User has edited his last message</source>
+      <translation>El usuario ha editado su último mensaje</translation>
     </message>
   </context>
 </TS>

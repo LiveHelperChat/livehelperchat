@@ -695,6 +695,14 @@
       <translation>libovolné</translation>
     </message>
     <message>
+      <source>Operator ID</source>
+      <translation>ID operátora</translation>
+    </message>
+    <message>
+      <source>To what operator chat should be assigned automatically?</source>
+      <translation>Kterému operátorovi by měl být rozhovor automaticky přidělen?</translation>
+    </message>
+    <message>
       <source>Copy the code from the text area to the page where you want your status to appear</source>
       <translation>Zkopírujte kód z textového okna do místa v kódu stránky, kde chcete zobrazovat stav</translation>
     </message>
@@ -2673,6 +2681,10 @@
     <message>
       <source>Empty...</source>
       <translation>Prázdné...</translation>
+    </message>
+    <message>
+      <source>Assigned operator</source>
+      <translation>Přiřazený operátor</translation>
     </message>
     <message>
       <source>Clean cache</source>
@@ -5867,6 +5879,13 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Prosím vyberte platný typ souboru!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/updatemsguser</name>
+    <message>
+      <source>User has edited his last message</source>
+      <translation>Uživatel upravil svou poslední zprávu</translation>
     </message>
   </context>
 </TS>

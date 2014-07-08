@@ -695,6 +695,14 @@
       <translation>Valfri</translation>
     </message>
     <message>
+      <source>Operator ID</source>
+      <translation>Operatörs-ID</translation>
+    </message>
+    <message>
+      <source>To what operator chat should be assigned automatically?</source>
+      <translation>Till vilken operatör ska chatten bli tilldelad automatiskt?</translation>
+    </message>
+    <message>
       <source>Copy the code from the text area to the page where you want your status to appear</source>
       <translation>Kopiera koden från textrutan till sidan där du vill att din status ska synas</translation>
     </message>
@@ -2673,6 +2681,10 @@
     <message>
       <source>Empty...</source>
       <translation>Tom...</translation>
+    </message>
+    <message>
+      <source>Assigned operator</source>
+      <translation>Tilldelad operatör</translation>
     </message>
     <message>
       <source>Clean cache</source>
@@ -5867,6 +5879,13 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Vänligen ange en giltig filtyp!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/updatemsguser</name>
+    <message>
+      <source>User has edited his last message</source>
+      <translation>Användaren har redigerat det senaste meddelandet</translation>
     </message>
   </context>
 </TS>

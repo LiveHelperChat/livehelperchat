@@ -371,7 +371,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `name` varchar(250) NOT NULL,
 				  `onl_bcolor` varchar(10) NOT NULL,
 				  `text_color` varchar(10) NOT NULL,
-				  `bor_bcolor` varchar(10) NOT NULL,
+				  `bor_bcolor` varchar(10) NOT NULL DEFAULT 'e3e3e3',
 				  `online_image` varchar(250) NOT NULL,
 				  `online_image_path` varchar(250) NOT NULL,
 				  `offline_image` varchar(250) NOT NULL,

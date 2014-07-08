@@ -10,7 +10,7 @@ $positionArgument = array (
 				'widget_hover' => '',
 				'padding_text' => '10px 10px 10px 35px',
 				'chrome_radius' => 'top-right',
-				'border_widget' => 'border:1px solid #e3e3e3;border-left:0;border-bottom:0;',
+				'border_widget' => 'border:1px solid #'.($theme !== false ? $theme->bor_bcolor : 'e3e3e3').';border-left:0;border-bottom:0;',
 				'background_position' => '0',
 				'widget_radius' => '-webkit-border-top-right-radius: 20px;-moz-border-radius-topright: 20px;border-top-right-radius: 20px;',
 				'posv' => 'b',
@@ -26,7 +26,7 @@ $positionArgument = array (
 				'moz_radius' => 'topleft',
 				'widget_hover' => '',
 				'padding_text' => '10px 10px 10px 35px',
-				'border_widget' => 'border:1px solid #e3e3e3;border-right:0;border-bottom:0;',
+				'border_widget' => 'border:1px solid #'.($theme !== false ? $theme->bor_bcolor : 'e3e3e3').';border-right:0;border-bottom:0;',
 				'background_position' => 'left',
 				'chrome_radius' => 'top-left',
 				'widget_radius' => '-webkit-border-top-left-radius: 20px;-moz-border-radius-topleft: 20px;border-top-left-radius: 20px;'
@@ -41,7 +41,7 @@ $positionArgument = array (
 				'widget_hover' => 'right:0;transition: 1s;',
 				'moz_radius' => 'topleft',
 				'padding_text' => '10px 10px 10px 35px',
-				'border_widget' => 'border:1px solid #e3e3e3;border-right:0;',
+				'border_widget' => 'border:1px solid #'.($theme !== false ? $theme->bor_bcolor : 'e3e3e3').';border-right:0;',
 				'background_position' => '0',
 				'chrome_radius' => 'top-left',
 				'widget_radius' => '-webkit-border-top-left-radius: 20px;-moz-border-radius-topleft: 20px;border-top-left-radius: 20px;      -webkit-border-bottom-left-radius: 20px;-moz-border-radius-bottomleft: 20px;border-bottom-left-radius: 20px;'
@@ -56,7 +56,7 @@ $positionArgument = array (
 				'padding_text' => '10px 35px 10px 9px',
 				'widget_hover' => 'left:0;transition: 1s;',
 				'moz_radius' => 'topright',
-				'border_widget' => 'border:1px solid #e3e3e3;border-left:0;',
+				'border_widget' => 'border:1px solid #'.($theme !== false ? $theme->bor_bcolor : 'e3e3e3').';border-left:0;',
 				'background_position' => '95%',
 				'chrome_radius' => 'top-right',
 				'widget_radius' => '-webkit-border-top-right-radius: 20px;-moz-border-radius-topright: 20px;border-top-right-radius: 20px;      -webkit-border-bottom-right-radius: 20px;-moz-border-radius-bottomright: 20px;border-bottom-right-radius: 20px;'
