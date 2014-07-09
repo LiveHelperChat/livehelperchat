@@ -432,6 +432,15 @@ div.message-row-in {
 	font-size: 0.75em;
 }
 
+#messagesBlock .message-row .msg-date{
+	display:none;
+}
+
+#messagesBlock .message-row:hover .msg-date{
+	display:inherit;
+}
+
+
 #messages {
 	font-size: 0.75em;
 }
