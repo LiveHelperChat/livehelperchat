@@ -295,6 +295,10 @@
       <translation>Bakgrundsfärg</translation>
     </message>
     <message>
+      <source>Status widget border color</source>
+      <translation>Borderfärg för statuswidgeten</translation>
+    </message>
+    <message>
       <source>Text color</source>
       <translation>Textfärg</translation>
     </message>
@@ -753,6 +757,18 @@
     <message>
       <source>Native placement - it will be shown where the html is embedded</source>
       <translation>Direkt placering - den visas där html koden läggs in</translation>
+    </message>
+    <message>
+      <source>Minimize action, applies only if status widget is at the bottom</source>
+      <translation>Minimera handling, tillämpas endast om statuswidgeten är i botten</translation>
+    </message>
+    <message>
+      <source>Keep where it was</source>
+      <translation>Behåll där den var</translation>
+    </message>
+    <message>
+      <source>Minimize to bottom of the screen</source>
+      <translation>Minimera till botten av skärmen</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -1409,6 +1425,10 @@
     <message>
       <source>Country</source>
       <translation>Land</translation>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation>Tidzon</translation>
     </message>
     <message>
       <source>City</source>
@@ -2111,6 +2131,10 @@
       <translation>Lon.</translation>
     </message>
     <message>
+      <source>Time zone</source>
+      <translation>Tidzon</translation>
+    </message>
+    <message>
       <source>Identifier</source>
       <translation>Identifierare</translation>
     </message>
@@ -2293,6 +2317,10 @@
     <message>
       <source>days</source>
       <translation>dagars</translation>
+    </message>
+    <message>
+      <source>Visitor local time</source>
+      <translation>Lokal tid för besökare</translation>
     </message>
     <message>
       <source>Status</source>

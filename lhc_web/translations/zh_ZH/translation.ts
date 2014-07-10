@@ -295,6 +295,10 @@
       <translation>背景颜色</translation>
     </message>
     <message>
+      <source>Status widget border color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Text color</source>
       <translation>文字颜色</translation>
     </message>
@@ -753,6 +757,18 @@
     <message>
       <source>Native placement - it will be shown where the html is embedded</source>
       <translation>母语的位置 - 它会显示HTML嵌入</translation>
+    </message>
+    <message>
+      <source>Minimize action, applies only if status widget is at the bottom</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Keep where it was</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimize to bottom of the screen</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>System configuration</source>
@@ -1409,6 +1425,10 @@
     <message>
       <source>Country</source>
       <translation>國家</translation>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>City</source>
@@ -2111,6 +2131,10 @@
       <translation>經度</translation>
     </message>
     <message>
+      <source>Time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Identifier</source>
       <translation>识别码</translation>
     </message>
@@ -2293,6 +2317,10 @@
     <message>
       <source>days</source>
       <translation>天</translation>
+    </message>
+    <message>
+      <source>Visitor local time</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Status</source>

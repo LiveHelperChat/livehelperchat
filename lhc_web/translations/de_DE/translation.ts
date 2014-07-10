@@ -295,6 +295,10 @@
       <translation>Hintergrundfarbe</translation>
     </message>
     <message>
+      <source>Status widget border color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Text color</source>
       <translation>Textfarbe</translation>
     </message>
@@ -696,7 +700,7 @@
     </message>
     <message>
       <source>Operator ID</source>
-      <translation type="unfinished"/>
+      <translation>Operator ID</translation>
     </message>
     <message>
       <source>To what operator chat should be assigned automatically?</source>
@@ -753,6 +757,18 @@
     <message>
       <source>Native placement - it will be shown where the html is embedded</source>
       <translation>Ursprüngliche Platzierung - wird dort angezeigt, wo das html eingebettet ist</translation>
+    </message>
+    <message>
+      <source>Minimize action, applies only if status widget is at the bottom</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Keep where it was</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimize to bottom of the screen</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>System configuration</source>
@@ -1409,6 +1425,10 @@
     <message>
       <source>Country</source>
       <translation>Land</translation>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation>Zeitzone</translation>
     </message>
     <message>
       <source>City</source>
@@ -2111,6 +2131,10 @@
       <translation>Lon.</translation>
     </message>
     <message>
+      <source>Time zone</source>
+      <translation>Zeitzone</translation>
+    </message>
+    <message>
       <source>Identifier</source>
       <translation>Kennzeichnung</translation>
     </message>
@@ -2293,6 +2317,10 @@
     <message>
       <source>days</source>
       <translation>Tage</translation>
+    </message>
+    <message>
+      <source>Visitor local time</source>
+      <translation>Lokalzeit des Besuchers</translation>
     </message>
     <message>
       <source>Status</source>

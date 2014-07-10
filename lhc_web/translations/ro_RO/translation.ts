@@ -295,6 +295,10 @@
       <translation>Culoare de fundal</translation>
     </message>
     <message>
+      <source>Status widget border color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Text color</source>
       <translation>Culoare text</translation>
     </message>
@@ -753,6 +757,18 @@
     <message>
       <source>Native placement - it will be shown where the html is embedded</source>
       <translation>Pozitie implicita - se afiseaza acolo unde este introdus codul</translation>
+    </message>
+    <message>
+      <source>Minimize action, applies only if status widget is at the bottom</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Keep where it was</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimize to bottom of the screen</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>System configuration</source>
@@ -1409,6 +1425,10 @@
     <message>
       <source>Country</source>
       <translation>Tara</translation>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>City</source>
@@ -2111,6 +2131,10 @@
       <translation>Long.</translation>
     </message>
     <message>
+      <source>Time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Identifier</source>
       <translation>Identificator</translation>
     </message>
@@ -2293,6 +2317,10 @@
     <message>
       <source>days</source>
       <translation>zile</translation>
+    </message>
+    <message>
+      <source>Visitor local time</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Status</source>

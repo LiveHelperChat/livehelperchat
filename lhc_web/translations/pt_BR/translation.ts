@@ -3,23 +3,23 @@
     <name>listchatconfig</name>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
-      <translation type="unfinished"/>
+      <translation>Por quantos dias o widget de votação não deve ser exibido após última exibição</translation>
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
-      <translation type="unfinished"/>
+      <translation>Usar cookie de segurança, marque isso se você quiser forçar SSL o tempo todo</translation>
     </message>
     <message>
       <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
-      <translation type="unfinished"/>
+      <translation>Qual ip deve ter permissão para atualizar o DB através de http request, separado por virgulas?</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
-      <translation type="unfinished"/>
+      <translation>Ativar monitoramento de visitantes online</translation>
     </message>
     <message>
       <source>Track online visitors even if there is no online operators</source>
-      <translation type="unfinished"/>
+      <translation>Acompanhar os visitantes on-line, mesmo se não há operadores on-line</translation>
     </message>
     <message>
       <source>Track users footprint. For this also online visitors tracking should be enabled</source>
@@ -293,6 +293,10 @@
     <message>
       <source>Background color</source>
       <translation>Cor do fundo</translation>
+    </message>
+    <message>
+      <source>Status widget border color</source>
+      <translation>Cor da borda do widget de status</translation>
     </message>
     <message>
       <source>Text color</source>
@@ -753,6 +757,18 @@
     <message>
       <source>Native placement - it will be shown where the html is embedded</source>
       <translation>Localização nativa - será mostrado onde o html é incorporado</translation>
+    </message>
+    <message>
+      <source>Minimize action, applies only if status widget is at the bottom</source>
+      <translation>Ação minimizar, só se aplica se o widget está na parte inferior</translation>
+    </message>
+    <message>
+      <source>Keep where it was</source>
+      <translation>Manter onde estava</translation>
+    </message>
+    <message>
+      <source>Minimize to bottom of the screen</source>
+      <translation>Minimizar para a parte inferior da tela</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -1409,6 +1425,10 @@
     <message>
       <source>Country</source>
       <translation>País</translation>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation>Fuso horário</translation>
     </message>
     <message>
       <source>City</source>
@@ -2111,6 +2131,10 @@
       <translation>Lon.</translation>
     </message>
     <message>
+      <source>Time zone</source>
+      <translation>Fuso horário</translation>
+    </message>
+    <message>
       <source>Identifier</source>
       <translation>Identificador</translation>
     </message>
@@ -2293,6 +2317,10 @@
     <message>
       <source>days</source>
       <translation>dias</translation>
+    </message>
+    <message>
+      <source>Visitor local time</source>
+      <translation>Horário local do visitante</translation>
     </message>
     <message>
       <source>Status</source>
