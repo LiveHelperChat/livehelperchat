@@ -298,7 +298,7 @@
     </message>
     <message>
       <source>Status widget border color</source>
-      <translation type="unfinished"/>
+      <translation>Color del borde para el widget</translation>
     </message>
     <message>
       <source>Text color</source>
@@ -762,15 +762,15 @@
     </message>
     <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
-      <translation type="unfinished"/>
+      <translation>Minimizar, Aplica solo si el Widget esta en pie de pagina</translation>
     </message>
     <message>
       <source>Keep where it was</source>
-      <translation type="unfinished"/>
+      <translation>Mantenga donde estaba</translation>
     </message>
     <message>
       <source>Minimize to bottom of the screen</source>
-      <translation type="unfinished"/>
+      <translation>Minimizar a la parte inferior de la pantalla</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -1430,7 +1430,7 @@
     </message>
     <message>
       <source>Time zone</source>
-      <translation type="unfinished"/>
+      <translation>Zona horaria</translation>
     </message>
     <message>
       <source>City</source>
@@ -2135,7 +2135,7 @@
     </message>
     <message>
       <source>Time zone</source>
-      <translation type="unfinished"/>
+      <translation>Zona horaria</translation>
     </message>
     <message>
       <source>Identifier</source>
@@ -2324,7 +2324,7 @@
     </message>
     <message>
       <source>Visitor local time</source>
-      <translation type="unfinished"/>
+      <translation>Hora local del visitante</translation>
     </message>
     <message>
       <source>Status</source>

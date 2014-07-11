@@ -470,11 +470,11 @@
     </message>
     <message>
       <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
-      <translation type="unfinished"/>
+      <translation>Domain pengarah tanpa www, Cth. kata kunci google yang akan ditemukan dari domain google</translation>
     </message>
     <message>
       <source>How many times user show invitation, 0 - untill users closes it, &gt; 0 limits.</source>
-      <translation type="unfinished"/>
+      <translation>Berapa kali pengguna menampilkan undangan, 0 - sampai pengguna menutupnya, &gt; 0 batas.</translation>
     </message>
     <message>
       <source>Requires e-mail</source>
@@ -556,11 +556,11 @@
     </message>
     <message>
       <source>Choose prefered http mode</source>
-      <translation type="unfinished"/>
+      <translation>Pilih model http prefered</translation>
     </message>
     <message>
       <source>Based on site (default)</source>
-      <translation type="unfinished"/>
+      <translation>Berdasarkan situs (default)</translation>
     </message>
     <message>
       <source>Widget embed code</source>
@@ -979,7 +979,7 @@
     </message>
     <message>
       <source>BB Code</source>
-      <translation type="unfinished"/>
+      <translation>Kode BB</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -1010,27 +1010,27 @@
     <name>chat/bbcodeinsert</name>
     <message>
       <source>Image</source>
-      <translation type="unfinished"/>
+      <translation>Gambar</translation>
     </message>
     <message>
       <source>Link</source>
-      <translation type="unfinished"/>
+      <translation>Tautan</translation>
     </message>
     <message>
       <source>Link title</source>
-      <translation type="unfinished"/>
+      <translation>Judul tautan</translation>
     </message>
     <message>
       <source>Bold</source>
-      <translation type="unfinished"/>
+      <translation>Tebal</translation>
     </message>
     <message>
       <source>Italic</source>
-      <translation type="unfinished"/>
+      <translation>Miring</translation>
     </message>
     <message>
       <source>Please enter link to an image</source>
-      <translation type="unfinished"/>
+      <translation>Masukkan tautan ke gambar</translation>
     </message>
     <message>
       <source>Please enter a link</source>
@@ -1099,7 +1099,7 @@
     </message>
     <message>
       <source>User</source>
-      <translation type="unfinished"/>
+      <translation>Pengguna</translation>
     </message>
     <message>
       <source>Delay</source>
@@ -1139,15 +1139,15 @@
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Departemen</translation>
     </message>
     <message>
       <source>Personal canned message</source>
-      <translation type="unfinished"/>
+      <translation>Pesan kaleng pribadi</translation>
     </message>
     <message>
       <source>Canned message was saved</source>
-      <translation type="unfinished"/>
+      <translation>Pesan kaleng telah disimpan</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -1170,7 +1170,7 @@
     <name>department/edit</name>
     <message>
       <source>Any</source>
-      <translation type="unfinished"/>
+      <translation>Apa saja</translation>
     </message>
     <message>
       <source>Edit department</source>
@@ -1198,7 +1198,7 @@
     </message>
     <message>
       <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
-      <translation type="unfinished"/>
+      <translation>Keterlambatan dalam detik sebelum meninggalkan formulir pesan ditampilkan. 0 Sarana fungsi dinonaktifkan,</translation>
     </message>
     <message>
       <source>Priority</source>
@@ -1338,7 +1338,7 @@
     </message>
     <message>
       <source>Miscellaneous</source>
-      <translation type="unfinished"/>
+      <translation>Bermacam-macam</translation>
     </message>
     <message>
       <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
@@ -1657,31 +1657,31 @@
     <name>chat/screenshot</name>
     <message>
       <source>Screenshot</source>
-      <translation type="unfinished"/>
+      <translation>Screenshot</translation>
     </message>
     <message>
       <source>Take user screenshot</source>
-      <translation type="unfinished"/>
+      <translation>Ambil screenshot pengguna</translation>
     </message>
     <message>
       <source>Refresh</source>
-      <translation type="unfinished"/>
+      <translation>Segarkan</translation>
     </message>
     <message>
       <source>Taken</source>
-      <translation type="unfinished"/>
+      <translation>Diambil</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation type="unfinished"/>
+      <translation>Kosong...</translation>
     </message>
     <message>
       <source>Perhaps screenshot is under way or screenshot is not supported on client browser, click refresh to check for a screenshot</source>
-      <translation type="unfinished"/>
+      <translation>Mungkin screenshot sedang berlangsung atau screenshot tidak didukung pada browser klien, klik segarkan untuk memeriksa screenshot</translation>
     </message>
     <message>
       <source>Screenshot ready...</source>
-      <translation type="unfinished"/>
+      <translation>Screenshot siap...</translation>
     </message>
   </context>
   <context>
@@ -2036,7 +2036,7 @@
     </message>
     <message>
       <source>Region name server variable</source>
-      <translation type="unfinished"/>
+      <translation>Variabel nama daerah server</translation>
     </message>
     <message>
       <source>Latitude variable</source>
@@ -2060,7 +2060,7 @@
     </message>
     <message>
       <source>Location of city database</source>
-      <translation type="unfinished"/>
+      <translation>Kota lokasi database</translation>
     </message>
     <message>
       <source>User country based detection, faster</source>
@@ -2080,11 +2080,11 @@
     </message>
     <message>
       <source>Use PHP-GeoIP module</source>
-      <translation type="unfinished"/>
+      <translation>Gunakan modul PHP-GeoIP</translation>
     </message>
     <message>
       <source>Support for PHP-GeoIP detected</source>
-      <translation type="unfinished"/>
+      <translation>Dukungan untuk PHP-GeoIP terdeteksi</translation>
     </message>
     <message>
       <source>Requests will be comming from</source>
@@ -2436,7 +2436,7 @@
     </message>
     <message>
       <source>Setting service provider failed, please check that you have installed php-GeoIP module and GeoIPCity.dat file is available!</source>
-      <translation type="unfinished"/>
+      <translation>Pengaturan penyedia layanan gagal, pastikan Anda telah menginstal modul php-GeoIP dan GeoIPCity.dat file yang tersedia!</translation>
     </message>
     <message>
       <source>Please choose a service provider!</source>
@@ -2526,7 +2526,7 @@
     </message>
     <message>
       <source>Update information</source>
-      <translation type="unfinished"/>
+      <translation>Perbarui informasi</translation>
     </message>
     <message>
       <source>SMTP settings</source>
@@ -3026,7 +3026,7 @@
     </message>
     <message>
       <source>This field is invisible but prefilled data is collected</source>
-      <translation type="unfinished"/>
+      <translation>Bidang ini tidak terlihat tapi pra data yang diisi dikumpulkan</translation>
     </message>
     <message>
       <source>This field is</source>
@@ -3730,7 +3730,7 @@
     </message>
     <message>
       <source>Your username</source>
-      <translation type="unfinished"/>
+      <translation>Nama pengguna Anda</translation>
     </message>
     <message>
       <source>Password</source>
@@ -3818,7 +3818,7 @@
     </message>
     <message>
       <source>Personal canned messages</source>
-      <translation type="unfinished"/>
+      <translation>Pesan kaleng pribadi</translation>
     </message>
     <message>
       <source>Pending chats</source>
@@ -3907,7 +3907,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Question</source>
@@ -3950,11 +3950,11 @@
     </message>
     <message>
       <source>Submitter e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Pengirim e-mail</translation>
     </message>
     <message>
       <source>Identifier, can be used to filter questions by identifier</source>
-      <translation type="unfinished"/>
+      <translation>Pengenal, dapat digunakan untuk menyaring pertanyaan dengan pengenal</translation>
     </message>
     <message>
       <source>Question is active</source>
@@ -3977,7 +3977,7 @@
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Pengenal</translation>
     </message>
     <message>
       <source>Active</source>
@@ -4028,7 +4028,7 @@
     </message>
     <message>
       <source>Identifier has to be shorter than 10 characters!</source>
-      <translation type="unfinished"/>
+      <translation>Pengenal harus lebih pendek dari 10 karakter!</translation>
     </message>
     <message>
       <source>Please enter question!</source>
@@ -4621,7 +4621,7 @@
     </message>
     <message>
       <source>Revote</source>
-      <translation type="unfinished"/>
+      <translation>Vote ulang</translation>
     </message>
     <message>
       <source>Y</source>
@@ -4649,7 +4649,7 @@
     </message>
     <message>
       <source>Off</source>
-      <translation type="unfinished"/>
+      <translation>Mati</translation>
     </message>
     <message>
       <source>Questionary</source>
@@ -4702,7 +4702,7 @@
     </message>
     <message>
       <source>Revote time (hours), before can revote. Default 0 - never. Higher value allow revote after seconds expire since last vote</source>
-      <translation type="unfinished"/>
+      <translation>Waktu Vote Ulang (jam), sebelum dapat vote ulang. Default 0 - tidak pernah. Nilai yang lebih tinggi memungkinkan vote ulang setelah detik berakhir sejak vote terakhir</translation>
     </message>
     <message>
       <source>Active</source>
@@ -4854,23 +4854,23 @@
     </message>
     <message>
       <source>Set application specific time zone</source>
-      <translation type="unfinished"/>
+      <translation>Atur aplikasi zona waktu tertentu</translation>
     </message>
     <message>
       <source>Date format E.g (Y-m-d)</source>
-      <translation type="unfinished"/>
+      <translation>Format tanggal Cth. (Y-m-d)</translation>
     </message>
     <message>
       <source>Full date format E.g (Y-m-d H:i:s)</source>
-      <translation type="unfinished"/>
+      <translation>Format tanggal lengkap Cth. (Y-m-d H:i:s)</translation>
     </message>
     <message>
       <source>Hour format E.g (H:i:s)</source>
-      <translation type="unfinished"/>
+      <translation>Format jam Cth. (H:i:s)</translation>
     </message>
     <message>
       <source>Live Helper Chat update</source>
-      <translation type="unfinished"/>
+      <translation>Live Helper Chat diperbarui</translation>
     </message>
     <message>
       <source>Comparing current database structure, please wait...</source>
@@ -4885,7 +4885,7 @@
     <name>user/edit</name>
     <message>
       <source>Server default time zone</source>
-      <translation type="unfinished"/>
+      <translation>Zona waktu default server</translation>
     </message>
     <message>
       <source>User edit</source>
@@ -4945,7 +4945,7 @@
     </message>
     <message>
       <source>Application default time zone</source>
-      <translation type="unfinished"/>
+      <translation>Zona waktu default aplikasi</translation>
     </message>
     <message>
       <source>Wrong email address</source>
@@ -4976,31 +4976,31 @@
     <name>system/update</name>
     <message>
       <source>Your version</source>
-      <translation type="unfinished"/>
+      <translation>Versi Anda</translation>
     </message>
     <message>
       <source>Current version</source>
-      <translation type="unfinished"/>
+      <translation>Versi sekarang</translation>
     </message>
     <message>
       <source>News</source>
-      <translation type="unfinished"/>
+      <translation>Berita</translation>
     </message>
     <message>
       <source>Update instructions</source>
-      <translation type="unfinished"/>
+      <translation>Instruksi pembaharuan</translation>
     </message>
     <message>
       <source>Missing updates from new versions.</source>
-      <translation type="unfinished"/>
+      <translation>Pembaruan hilang dari versi terbaru.</translation>
     </message>
     <message>
       <source>You are running current version. No updates required</source>
-      <translation type="unfinished"/>
+      <translation>Anda menjalankan versi terbaru. Tidak ada pembaharuan yang diperlukan</translation>
     </message>
     <message>
       <source>Live Helper Chat update information</source>
-      <translation type="unfinished"/>
+      <translation>Live Helper Chat informasi pembaharuan</translation>
     </message>
   </context>
   <context>
@@ -5815,7 +5815,7 @@
     </message>
     <message>
       <source>BCC recipients, can be separated by comma.</source>
-      <translation type="unfinished"/>
+      <translation>Penerima BCC, dapat dipisahkan dengan koma.</translation>
     </message>
     <message>
       <source>Content</source>
