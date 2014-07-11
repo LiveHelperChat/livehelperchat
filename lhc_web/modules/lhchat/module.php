@@ -351,13 +351,13 @@ $ViewList['userclosechat'] = array(
 
 $ViewList['onlineusers'] = array(
     'params' => array(),
-    'uparams' => array('clear_list','method','deletevisitor','timeout','csfr','department'),
+    'uparams' => array('clear_list','method','deletevisitor','timeout','csfr','department','maxrows'),
     'functions' => array( 'use_onlineusers' )
 );
 
 $ViewList['jsononlineusers'] = array(
     'params' => array(),
-    'uparams' => array('department'),
+    'uparams' => array('department','maxrows'),
     'functions' => array( 'use_onlineusers' )
 );
 

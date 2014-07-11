@@ -30,19 +30,19 @@
 	<li class="li-icon"><a href="#" ng-click="online.disableNewUserBNotif()"><i ng-class="{'disabled-icon':!online.notificationEnabled}" class="icon-eye"  title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Enable/Disable browser notifications about new visitor');?>"></i></a></li>
 </ul>
 
-<div class="section-container auto" data-section="auto" id="tabs">
+<div class="section-container auto" data-section="auto" id="tabs" data-options="deep_linking: true">
 	  <section>
-	    <p class="title" data-section-title><a href="#panel1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','List');?></a></p>
-	    <div class="content" data-section-content>
+	    <p class="title" data-section-title><a href="#onlineusers"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','List');?></a></p>
+	    <div class="content" data-section-content data-slug="onlineusers">
 
 <div class="row">
-	<div class="columns small-1">
+	<div class="columns small-1 pr5">
 		<label class="inline" id="online-users-count" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','online users');?>">{{online.onlineusers.length}}</label>
 	</div>
-	<div class="columns small-3">
+	<div class="columns small-2 pl5 pr5">
 		<input ng-model="query" type="text" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Type to search')?>">
 	</div>
-	<div class="columns small-2">
+	<div class="columns small-2 pl5 pr5">
 		<select ng-model="groupByField" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Group list by');?>">
 		    	<option value="none"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Group by');?></option>
 		    	<option value="user_country_name"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User country');?></option>
@@ -53,7 +53,7 @@
 		    	<option value="dep_id"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Department');?></option>
 		</select>
 	</div>	
-	<div class="columns small-2">
+	<div class="columns small-2 pl5 pr5">
 		<?php 		
 		echo erLhcoreClassRenderHelper::renderCombobox( array (
 	                    'input_name'     => 'department_id',
@@ -64,7 +64,7 @@
 						'list_function_params' => $departmentParams
 	    )); ?>
 	</div>	
-	<div class="columns small-2">
+	<div class="columns small-2 pl5 pr5">
 		<select id="updateTimeout" ng-model="online.updateTimeout" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Refresh list every');?>">
 		    	<option value="1">1 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','second');?></option>		    	
 		    	<option value="3">3 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','seconds');?></option>		    	
@@ -72,7 +72,7 @@
 		    	<option value="10">10 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','seconds');?></option>		    	
 		</select>
 	</div>
-	<div class="columns small-2">
+	<div class="columns small-2 pl5 pr5">
 		<select id="userTimeout" ng-model="online.userTimeout" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Show visitors who visited site in the past');?>">
 		    	<option value="30">30 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','seconds');?></option>
 		    	<option value="60">1 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','minute');?></option>
@@ -85,6 +85,18 @@
 		    	<option value="86400">1 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','day');?></option>
 		    	<option value="604800">7 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','days');?></option>
 		    	<option value="2678400">31 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','day');?></option>
+		</select>
+	</div>
+	<div class="columns small-1 pl5">
+		<select id="maxRows" ng-model="online.maxRows" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Max records to return');?>">
+		    	<option value="50">50</option>
+		    	<option value="100">100</option>
+		    	<option value="150">150</option>		   
+		    	<option value="200">200</option>		   
+		    	<option value="250">250</option>
+		    	<option value="300">300</option>		  
+		    	<option value="500">500</option>
+		    	<option value="1000">1000</option>
 		</select>
 	</div>
 </div>
@@ -141,8 +153,8 @@
 </div>
 	  </section>
 	  <section>
-	    <p class="title" data-section-title><a id="map-activator" href="#panel2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Map');?></a></p>
-	    <div class="content" data-section-content>
+	    <p class="title" data-section-title><a id="map-activator" href="#map"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Map');?></a></p>
+	    <div class="content" data-section-content data-slug="map">
 
 				<div class="row">
 					<div class="columns large-6">

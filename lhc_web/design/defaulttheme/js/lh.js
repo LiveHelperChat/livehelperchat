@@ -1823,49 +1823,49 @@ function gMapsCallback(){
     });
 
 	var locationSet = false;
-
-	$('#map-activator').click(function(){
-		setTimeout(function(){
-			google.maps.event.trigger(map, 'resize');
-			if (locationSet == false) {
-				locationSet = true;
-				map.setCenter(new google.maps.LatLng(GeoLocationData.lat, GeoLocationData.lng));
-			}
-		},500);
-	});
-
-	google.maps.event.addListener(map, 'idle', showMarkers);
-
+	
 	var processing = false;
 	var pendingProcess = false;
 	var pendingProcessTimeout = false;
+		
 
+	google.maps.event.addListener(map, 'idle', showMarkers);
+	
+	var mapTabSection = $('#map-activator').parent().parent();
+	
+	
 	function showMarkers() {
-	    if ( processing == false) {
-	        processing = true;
-    		$.ajax({
-    			url : WWW_DIR_JAVASCRIPT + 'chat/jsononlineusers'+( parseInt($('#id_department_map_id').val()) > 0 ? '/(department)/'+parseInt($('#id_department_map_id').val()) : '' ),
-    			dataType: "json",
-    			error:function(){
-    				clearTimeout(pendingProcessTimeout);
-    				pendingProcessTimeout = setTimeout(function(){
-						showMarkers();
-					},10000);
-    			},
-    			success : function(response) {
-    				bindMarkers(response);
-    				processing = false;
-    				clearTimeout(pendingProcessTimeout);
-    				if (pendingProcess == true) {
-    				    pendingProcess = false;
-    				    showMarkers();
-    				} else {
-    					pendingProcessTimeout = setTimeout(function(){
-    						showMarkers();
-    					},10000);
-    				}
-    			}
-    		});
+	    if ( processing == false) {	    		
+	    	if (mapTabSection.hasClass('active')) {
+		        processing = true;
+	    		$.ajax({
+	    			url : WWW_DIR_JAVASCRIPT + 'chat/jsononlineusers'+(parseInt($('#id_department_map_id').val()) > 0 ? '/(department)/'+parseInt($('#id_department_map_id').val()) : '' )+(parseInt($('#maxRows').val()) > 0 ? '/(maxrows)/'+parseInt($('#maxRows').val()) : '' ),
+	    			dataType: "json",
+	    			error:function(){
+	    				clearTimeout(pendingProcessTimeout);
+	    				pendingProcessTimeout = setTimeout(function(){
+							showMarkers();
+						},10000);
+	    			},
+	    			success : function(response) {
+	    				bindMarkers(response);
+	    				processing = false;
+	    				clearTimeout(pendingProcessTimeout);
+	    				if (pendingProcess == true) {
+	    				    pendingProcess = false;
+	    				    showMarkers();
+	    				} else {
+	    					pendingProcessTimeout = setTimeout(function(){
+	    						showMarkers();
+	    					},10000);
+	    				}
+	    			}
+	    		});
+    		} else {
+    			pendingProcessTimeout = setTimeout(function(){
+					showMarkers();
+				},10000);
+    		}    		
 	    } else {
 	       pendingProcess = true;
 	    }
@@ -1923,6 +1923,20 @@ function gMapsCallback(){
             }
 		});
 	};
+	
+	
+	$('#map-activator').click(function(){
+		setTimeout(function(){
+			google.maps.event.trigger(map, 'resize');
+			if (locationSet == false) {
+				locationSet = true;
+				map.setCenter(new google.maps.LatLng(GeoLocationData.lat, GeoLocationData.lng));
+			}
+		},500);
+		showMarkers();
+	});
+	
+	
 
 };
 

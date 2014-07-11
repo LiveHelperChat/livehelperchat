@@ -2,7 +2,7 @@ services.factory('OnlineUsersFactory', ['$http','$q',function ($http, $q) {
 	
 	this.loadOnlineUsers = function(params){
 		var deferred = $q.defer();		
-		$http.get(WWW_DIR_JAVASCRIPT + 'chat/onlineusers/(method)/ajax/(timeout)/'+params.timeout + (params.department > 0 ? '/(department)/' + params.department : '' )).success(function(data) {
+		$http.get(WWW_DIR_JAVASCRIPT + 'chat/onlineusers/(method)/ajax/(timeout)/'+params.timeout + (params.department > 0 ? '/(department)/' + params.department : '' ) + (params.max_rows > 0 ? '/(maxrows)/' + params.max_rows : '' )).success(function(data) {
 			 deferred.resolve(data);		
 		});		
 		return deferred.promise;
@@ -27,6 +27,7 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 		$scope.onlineusersGrouped = [];
 		this.updateTimeout = 10;
 		this.userTimeout = 3600;	
+		this.maxRows = 50;	
 		this.department = 0;	
 		this.predicate = 'last_visit';
 		this.reverse = true;
@@ -90,7 +91,7 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
         };
         
 		this.updateList = function(){
-			OnlineUsersFactory.loadOnlineUsers({timeout: that.userTimeout,department : that.department}).then(function(data){
+			OnlineUsersFactory.loadOnlineUsers({timeout: that.userTimeout,department : that.department, max_rows : that.maxRows}).then(function(data){
 							
 				that.onlineusers = data;
 				if ($scope.groupByField != 'none') {
@@ -189,7 +190,7 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 			}
 		});
 		
-		$scope.$watch('online.userTimeout + online.department + groupByField', function(newVal,oldVal) { 
+		$scope.$watch('online.userTimeout + online.department + online.maxRows + groupByField', function(newVal,oldVal) { 
 				that.updateList();			
 		});
 		
