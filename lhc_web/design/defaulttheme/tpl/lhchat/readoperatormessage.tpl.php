@@ -15,23 +15,31 @@
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
-<?php if ($visitor->requires_username == 1 || $visitor->requires_email == 1) : ?><div class="row"><?php endif;?>
+
+<?php if ($visitor->requires_username == 1 || $visitor->requires_email == 1 || $visitor->requires_phone == 1) : ?><div class="row"><?php endif;?>
 
 <?php if ($visitor->requires_username == 1) : ?>
-<div class="columns small-6">
+<div class="columns small-6 end">
 	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Name');?>*</label>
 	<input type="text" name="Username" value="<?php echo htmlspecialchars($input_data->username);?>" />
 </div>
 <?php endif; ?>
 
+<?php if ($visitor->requires_phone == 1) : ?>
+<div class="columns small-6 end">
+	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Phone');?>*</label>
+	<input type="text" name="Phone" value="<?php echo htmlspecialchars($input_data->phone);?>" placeholder="Min <?php echo erLhcoreClassModelChatConfig::fetch('min_phone_length')->current_value?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','characters');?>" />
+</div>
+<?php endif; ?>
+
 <?php if ($visitor->requires_email == 1) : ?>
-<div class="columns small-6">
+<div class="columns small-6 end">
 	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','E-mail');?>*</label>
 	<input type="text" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
 </div>
 <?php endif; ?>
 
-<?php if ($visitor->requires_username == 1 || $visitor->requires_email == 1) : ?></div><?php endif;?>
+<?php if ($visitor->requires_username == 1 || $visitor->requires_email == 1 || $visitor->requires_phone == 1) : ?></div><?php endif;?>
 
 <textarea placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Type your message here and hit enter to send...');?>" id="id_Question" name="Question"><?php echo htmlspecialchars($input_data->question);?></textarea>
 

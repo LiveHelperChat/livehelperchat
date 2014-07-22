@@ -685,6 +685,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('autopurge_timeout','0', 0, 'Automatic chats purging. 0 - disabled, n > 0 time in minutes before chat is automatically deleted', '0'),
                 ('update_ip',	'127.0.0.1',	0,	'Which ip should be allowed to update DB by executing http request, separate by comma?',0),
                 ('track_if_offline',	'0',	0,	'Track online visitors even if there is no online operators',0),
+                ('min_phone_length','8',0,'Minimum phone number length',0),
                 ('geo_data', '', '0', '', '1')");
 
         	   
@@ -723,6 +724,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
   				  `tt_time_on_site` int(11) NOT NULL,
         	   	  `requires_email` int(11) NOT NULL,
         	   	  `requires_username` int(11) NOT NULL,
+        	   	  `requires_phone` int(11) NOT NULL,
         	   	  `screenshot_id` int(11) NOT NULL,
         	   	  `identifier` varchar(50) NOT NULL,
         	   	  `operation` varchar(200) NOT NULL,
@@ -754,6 +756,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  `identifier` varchar(50) NOT NULL,
         	   	  `requires_email` int(11) NOT NULL,
         	   	  `requires_username` int(11) NOT NULL,
+        	   	  `requires_phone` int(11) NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `time_on_site_pageviews_siteaccess_position` (`time_on_site`,`pageviews`,`siteaccess`,`identifier`,`position`),
         	      KEY `identifier` (`identifier`),

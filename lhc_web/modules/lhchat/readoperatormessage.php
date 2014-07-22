@@ -41,6 +41,7 @@ if (isset($_POST['askQuestion']))
     $validationFields['operator'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1) );
     $validationFields['Email'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'validate_email' );
     $validationFields['Username'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
+    $validationFields['Phone'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
     $validationFields['user_timezone'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int');
     
     if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
@@ -63,7 +64,6 @@ if (isset($_POST['askQuestion']))
     } elseif ($form->hasValidData( 'Question' )) {
         $inputData->question = $form->Question;
     }
-
     
     if ( (!$form->hasValidData( 'Username' ) || trim($form->Username) == '') && $userInstance->requires_username == 1) {
         $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your name');
@@ -71,6 +71,11 @@ if (isset($_POST['askQuestion']))
         $inputData->username = $chat->nick = $form->Username;
     }
 
+    if ( (!$form->hasValidData( 'Phone' ) || ($form->Phone == '' || mb_strlen($form->Phone) < erLhcoreClassModelChatConfig::fetch('min_phone_length')->current_value)) && ($userInstance->requires_phone == 1)) {
+    	$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your phone');
+    } elseif ($form->hasValidData( 'Phone' )) {
+    	$chat->phone = $inputData->phone = $form->Phone;
+    }
     
     if ($form->hasValidData( 'Question' ) && $form->Question != '' && mb_strlen($form->Question) > (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value)
     {

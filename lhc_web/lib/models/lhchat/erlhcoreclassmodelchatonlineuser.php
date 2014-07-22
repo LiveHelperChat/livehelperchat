@@ -36,6 +36,7 @@ class erLhcoreClassModelChatOnlineUser {
                'invitation_count'   => $this->invitation_count,
                'requires_email'   	=> $this->requires_email,
                'requires_username'  => $this->requires_username,
+               'requires_phone'  	=> $this->requires_phone,
                'dep_id'   			=> $this->dep_id,
                'reopen_chat'   		=> $this->reopen_chat,
 	       	   'operation'   		=> $this->operation,
@@ -690,6 +691,7 @@ class erLhcoreClassModelChatOnlineUser {
    public $operation = '';
    public $online_attr = '';
    public $visitor_tz = '';
+   public $requires_phone = 0;
       
    
    // 0 - do not reopen

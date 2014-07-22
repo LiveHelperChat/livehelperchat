@@ -602,6 +602,14 @@
                 "key": "",
                 "default": null,
                 "extra": ""
+            },
+            {
+                "field": "requires_phone",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
             }
         ],
         "lh_abstract_widget_theme": [
@@ -1823,6 +1831,14 @@
             },
             {
                 "field": "requires_username",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "requires_phone",
                 "type": "int(11)",
                 "null": "NO",
                 "key": "",
@@ -3171,6 +3187,13 @@
                 "value": "#",
                 "type": "0",
                 "explain": "Change to your site Terms of Service",
+                "hidden": "0"
+            }, 
+            {
+                "identifier": "min_phone_length",
+                "value": "8",
+                "type": "0",
+                "explain": "Minimum phone number length",
                 "hidden": "0"
             },
             {
