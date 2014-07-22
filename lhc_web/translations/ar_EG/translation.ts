@@ -1766,6 +1766,10 @@
       <translation>ابدأ المحادثة</translation>
     </message>
     <message>
+      <source>Live Support</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>There are no online operators at the moment, please leave a message</source>
       <translation type="unfinished"/>
     </message>
@@ -1863,10 +1867,6 @@
     </message>
     <message>
       <source>is required</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live Support</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2316,6 +2316,10 @@
     </message>
     <message>
       <source>days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max records to return</source>
       <translation type="unfinished"/>
     </message>
     <message>

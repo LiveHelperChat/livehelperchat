@@ -7,7 +7,7 @@
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
-      <translation type="unfinished"/>
+      <translation>Sichere Cookies nutzen, wählen Sie dies wenn Sie die ganze Zeit SSL erzwingen wollen</translation>
     </message>
     <message>
       <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
@@ -15,11 +15,11 @@
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
-      <translation type="unfinished"/>
+      <translation>Aktivieren Sie das Online Besucher Tracking</translation>
     </message>
     <message>
       <source>Track online visitors even if there is no online operators</source>
-      <translation type="unfinished"/>
+      <translation>Online-Besucher auch tracken wenn kein Operator online ist</translation>
     </message>
     <message>
       <source>Track users footprint. For this also online visitors tracking should be enabled</source>
@@ -31,7 +31,7 @@
     </message>
     <message>
       <source>How many days keep records of online users.</source>
-      <translation type="unfinished"/>
+      <translation>Wie viele Tage sollen die Trackingdaten gespeichert werden</translation>
     </message>
     <message>
       <source>Play sound on invitation to chat.</source>
@@ -75,7 +75,7 @@
     </message>
     <message>
       <source>Show need help tooltip?</source>
-      <translation type="unfinished"/>
+      <translation>&quot;Hilfe benötigt&quot; Tooltip anzeigen?</translation>
     </message>
     <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
@@ -83,11 +83,11 @@
     </message>
     <message>
       <source>Maximum message length in characters</source>
-      <translation type="unfinished"/>
+      <translation>Maximale Nachrichtenlänge in Zeichen</translation>
     </message>
     <message>
       <source>List online operators.</source>
-      <translation type="unfinished"/>
+      <translation>Online Operator auflisten</translation>
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
@@ -111,7 +111,7 @@
     </message>
     <message>
       <source>Please enter explicit http mode. Either http: or https:, do not forget : at the end.</source>
-      <translation type="unfinished"/>
+      <translation>Bitte geben Sie einen expliziten http-Modus an. http: oder https:, vergessen sie nicht den : am Ende.</translation>
     </message>
     <message>
       <source>Disable chat transcript send</source>
@@ -119,7 +119,7 @@
     </message>
     <message>
       <source>Disable chat print</source>
-      <translation type="unfinished"/>
+      <translation>Chat-Ausdruck deaktivieren</translation>
     </message>
     <message>
       <source>Disable option in widget to open new window. Restore icon will be hidden</source>
@@ -131,11 +131,11 @@
     </message>
     <message>
       <source>Your site URL address</source>
-      <translation type="unfinished"/>
+      <translation>Ihre Seiten-URL</translation>
     </message>
     <message>
       <source>Your company name - visible in bottom left corner</source>
-      <translation type="unfinished"/>
+      <translation>Ihr Firmenname - wird unten links angezeigt</translation>
     </message>
     <message>
       <source>Show BB Code button</source>
@@ -159,7 +159,7 @@
     </message>
     <message>
       <source>Allow user to reopen closed chats?</source>
-      <translation type="unfinished"/>
+      <translation>Sollen Nutzer geschlossene Chats wieder öffnen können?</translation>
     </message>
     <message>
       <source>Change to your site Terms of Service</source>
@@ -296,7 +296,7 @@
     </message>
     <message>
       <source>Status widget border color</source>
-      <translation type="unfinished"/>
+      <translation>Status Widget Rahmenfarbe</translation>
     </message>
     <message>
       <source>Text color</source>
@@ -308,11 +308,11 @@
     </message>
     <message>
       <source>Logo image, visible in widget left corner, 16x16</source>
-      <translation type="unfinished"/>
+      <translation>Logo, wird im Widget in der linken Ecke angezeigt, 16x16</translation>
     </message>
     <message>
       <source>Show copyright widget logo in left corner</source>
-      <translation type="unfinished"/>
+      <translation>Copyright Widget Logo in der linken Ecke anzeigen</translation>
     </message>
     <message>
       <source>Widget copyright link</source>
@@ -672,7 +672,7 @@
     </message>
     <message>
       <source>Choose what form you want to embed</source>
-      <translation type="unfinished"/>
+      <translation>Wählen Sie, welches Formular Sie einbetten möchten</translation>
     </message>
     <message>
       <source>Help us to grow</source>
@@ -1512,7 +1512,7 @@
     </message>
     <message>
       <source>Attach uploaded file</source>
-      <translation type="unfinished"/>
+      <translation>Hochgeladene Datei anhängen</translation>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
@@ -1766,6 +1766,10 @@
       <translation>Chat starten</translation>
     </message>
     <message>
+      <source>Live Support</source>
+      <translation>Live Support</translation>
+    </message>
+    <message>
       <source>There are no online operators at the moment, please leave a message</source>
       <translation>Derzeit ist die Live Hilfe leider nicht besetzt. Bitte hinterlassen Sie eine Nachricht.</translation>
     </message>
@@ -1864,10 +1868,6 @@
     <message>
       <source>is required</source>
       <translation>wird benötigt</translation>
-    </message>
-    <message>
-      <source>Live Support</source>
-      <translation>Live Support</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -2319,6 +2319,10 @@
       <translation>Tage</translation>
     </message>
     <message>
+      <source>Max records to return</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor local time</source>
       <translation>Lokalzeit des Besuchers</translation>
     </message>
@@ -2712,7 +2716,7 @@
     </message>
     <message>
       <source>Assigned operator</source>
-      <translation type="unfinished"/>
+      <translation>Zugewiesenen Operator</translation>
     </message>
     <message>
       <source>Clean cache</source>
@@ -5913,7 +5917,7 @@
     <name>chat/updatemsguser</name>
     <message>
       <source>User has edited his last message</source>
-      <translation type="unfinished"/>
+      <translation>Der Besucher hat seine letzte Nachricht editiert</translation>
     </message>
   </context>
 </TS>

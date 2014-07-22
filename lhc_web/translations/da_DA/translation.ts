@@ -1766,6 +1766,10 @@
       <translation>Start chat</translation>
     </message>
     <message>
+      <source>Live Support</source>
+      <translation>Live Support</translation>
+    </message>
+    <message>
       <source>There are no online operators at the moment, please leave a message</source>
       <translation>Der er ingen online operatører i øjeblikket, efterlad en besked</translation>
     </message>
@@ -1864,10 +1868,6 @@
     <message>
       <source>is required</source>
       <translation>er påkrævet</translation>
-    </message>
-    <message>
-      <source>Live Support</source>
-      <translation>Live Support</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -2317,6 +2317,10 @@
     <message>
       <source>days</source>
       <translation>dage</translation>
+    </message>
+    <message>
+      <source>Max records to return</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitor local time</source>

@@ -1766,6 +1766,10 @@
       <translation>开始聊天</translation>
     </message>
     <message>
+      <source>Live Support</source>
+      <translation>現場支持</translation>
+    </message>
+    <message>
       <source>There are no online operators at the moment, please leave a message</source>
       <translation>此刻有没有在线运营商，请留言</translation>
     </message>
@@ -1864,10 +1868,6 @@
     <message>
       <source>is required</source>
       <translation>需要</translation>
-    </message>
-    <message>
-      <source>Live Support</source>
-      <translation>現場支持</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -2317,6 +2317,10 @@
     <message>
       <source>days</source>
       <translation>天</translation>
+    </message>
+    <message>
+      <source>Max records to return</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitor local time</source>

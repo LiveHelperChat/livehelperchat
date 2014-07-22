@@ -182,7 +182,7 @@
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Abandon</translation>
+      <translation>Renunta</translation>
     </message>
     <message>
       <source>Edit</source>
@@ -426,7 +426,7 @@
     </message>
     <message>
       <source>enabled</source>
-      <translation>activat</translation>
+      <translation>Activat</translation>
     </message>
     <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
@@ -442,7 +442,7 @@
     </message>
     <message>
       <source>Wait timeout. Time in seconds before timeout message is shown.</source>
-      <translation>Perioada de asteptare in secunde paan cand mesajul de expirare este afisat.</translation>
+      <translation>Perioada de asteptare in secunde pana cand mesajul de expirare este afisat.</translation>
     </message>
     <message>
       <source>Show visitor this message then wait timeout passes.</source>
@@ -544,7 +544,7 @@
     </message>
     <message>
       <source>Leave empty if it is not important to you</source>
-      <translation>Lasa liber daca este neimportant pentru tine</translation>
+      <translation>Lasa liber daca nu este important pentru tine</translation>
     </message>
     <message>
       <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
@@ -999,7 +999,7 @@
     </message>
     <message>
       <source>is typing now...</source>
-      <translation>scrie acum...</translation>
+      <translation>scrie mesaj...</translation>
     </message>
     <message>
       <source>Operator is typing now...</source>
@@ -1614,7 +1614,7 @@
     </message>
     <message>
       <source>Start chat</source>
-      <translation>Icepe conversatia</translation>
+      <translation>Incepe conversatia</translation>
     </message>
     <message>
       <source>Last activity</source>
@@ -1763,7 +1763,11 @@
     </message>
     <message>
       <source>Start chat</source>
-      <translation>Icepe conversatia</translation>
+      <translation>Incepe conversatia</translation>
+    </message>
+    <message>
+      <source>Live Support</source>
+      <translation>Suport live</translation>
     </message>
     <message>
       <source>There are no online operators at the moment, please leave a message</source>
@@ -1866,10 +1870,6 @@
       <translation>este obligatoriu</translation>
     </message>
     <message>
-      <source>Live Support</source>
-      <translation>Suport live</translation>
-    </message>
-    <message>
       <source>Please enter a message, max characters</source>
       <translation>Te rog sa introduci un mesaj - numar maxim de caractere</translation>
     </message>
@@ -1894,7 +1894,7 @@
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
-      <translation>Este in astptare confirmarea unui oprator de suport. Scrieti mesajul si imediat ce un operator va confirma conversatia veti primi raspunsul</translation>
+      <translation>Este in astptare confirmarea unui operator de suport. Scrieti mesajul si imediat ce un operator va confirma conversatia veti primi raspunsul</translation>
     </message>
     <message>
       <source>At this moment there are no logged in support staff members, but you can leave your messages</source>
@@ -2319,6 +2319,10 @@
       <translation>zile</translation>
     </message>
     <message>
+      <source>Max records to return</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor local time</source>
       <translation type="unfinished"/>
     </message>
@@ -2420,7 +2424,7 @@
     </message>
     <message>
       <source>Please enter the API username!</source>
-      <translation>Va rog sa introduceti parola API!</translation>
+      <translation>Va rog sa introduceti numele de utilizator API!</translation>
     </message>
     <message>
       <source>Please enter IP!</source>
@@ -2662,7 +2666,7 @@
     </message>
     <message>
       <source>Default theme</source>
-      <translation type="unfinished"/>
+      <translation>Tema default</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -2979,7 +2983,7 @@
     </message>
     <message>
       <source>Send the message</source>
-      <translation>transmite mesajul</translation>
+      <translation>Transmite mesajul</translation>
     </message>
     <message>
       <source>Message was sent to the user</source>
@@ -3212,7 +3216,7 @@
     <name>chat/statistic</name>
     <message>
       <source>Statistic</source>
-      <translation>Statistic</translation>
+      <translation>Statistici</translation>
     </message>
     <message>
       <source>Total statistic</source>
@@ -3264,7 +3268,7 @@
     </message>
     <message>
       <source>Last 24h statistic</source>
-      <translation>Statisca pentru ultimile 24 de ore</translation>
+      <translation>Statistica pentru ultimile 24 de ore</translation>
     </message>
     <message>
       <source>Operators last 24h statistic, top 100 by chats number</source>
@@ -3458,7 +3462,7 @@
     </message>
     <message>
       <source>Information</source>
-      <translation>Infromatii</translation>
+      <translation>Informatii</translation>
     </message>
   </context>
   <context>
@@ -3626,7 +3630,7 @@
     </message>
     <message>
       <source>Users</source>
-      <translation>tilizatori</translation>
+      <translation>Utilizatori</translation>
     </message>
     <message>
       <source>Username</source>
@@ -3710,7 +3714,7 @@
     </message>
     <message>
       <source>Updating...</source>
-      <translation type="unfinished"/>
+      <translation>Actualizare</translation>
     </message>
     <message>
       <source>Logged user</source>
@@ -4503,7 +4507,7 @@
     </message>
     <message>
       <source>View</source>
-      <translation>Vedere</translation>
+      <translation>Vizualizare</translation>
     </message>
     <message>
       <source>Delete the answer</source>
@@ -4542,7 +4546,7 @@
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Abandon</translation>
+      <translation>Renunta</translation>
     </message>
     <message>
       <source>Voting options</source>
@@ -4668,7 +4672,7 @@
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Abandon</translation>
+      <translation>Renunta</translation>
     </message>
     <message>
       <source>New question</source>
@@ -4717,7 +4721,7 @@
     </message>
     <message>
       <source>Thank you!</source>
-      <translation>Multumim!</translation>
+      <translation>Va multumim!</translation>
     </message>
     <message>
       <source>You have already voted, thank you!</source>
@@ -4737,7 +4741,7 @@
     </message>
     <message>
       <source>Please choose one of the options!</source>
-      <translation>va rugam sa alegeti una din optiuni!</translation>
+      <translation>Va rugam sa alegeti una din optiuni!</translation>
     </message>
     <message>
       <source>No question was detected</source>
@@ -5072,7 +5076,7 @@
     </message>
     <message>
       <source>Import</source>
-      <translation>orta</translation>
+      <translation>Importa</translation>
     </message>
     <message>
       <source>Theme imported</source>
@@ -5249,7 +5253,7 @@
     <name>user/forgotpassword</name>
     <message>
       <source>Password reminder</source>
-      <translation>reamintire parola</translation>
+      <translation>Reamintire parola</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -5257,7 +5261,7 @@
     </message>
     <message>
       <source>Restore password</source>
-      <translation>restaureaza parola</translation>
+      <translation>Restaureaza parola</translation>
     </message>
     <message>
       <source>Invalid e-mail address!</source>
@@ -5348,7 +5352,7 @@
     <name>user/login</name>
     <message>
       <source>Please login</source>
-      <translation>Te rog sa te autorizezi</translation>
+      <translation>Te rog sa te loghezi</translation>
     </message>
     <message>
       <source>Username</source>
@@ -5364,7 +5368,7 @@
     </message>
     <message>
       <source>Login</source>
-      <translation>Autorizare</translation>
+      <translation>Logare</translation>
     </message>
     <message>
       <source>Password reminder</source>
@@ -5372,7 +5376,7 @@
     </message>
     <message>
       <source>Incorrect username or password</source>
-      <translation>Nume utilizator sau parola incorecte</translation>
+      <translation>Nume utilizator sau parola incorecta</translation>
     </message>
   </context>
   <context>
@@ -5410,7 +5414,7 @@
     </message>
     <message>
       <source>Hash was not found or was used already</source>
-      <translation>Ciolectia nu este de gasit sau a fost folosita deja</translation>
+      <translation>Colectia nu este de gasit sau a fost folosita deja</translation>
     </message>
     <message>
       <source>Password remind - new password</source>
@@ -5638,7 +5642,7 @@
     </message>
     <message>
       <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-      <translation>Echipa de suport a incis conversatia. Puteti lasa un mesaj ce va fi citit mai tarziu de catre administrator.</translation>
+      <translation>Echipa de suport a inchis conversatia. Puteti lasa un mesaj ce va fi citit mai tarziu de catre administrator.</translation>
     </message>
     <message>
       <source>You do not have permission to view this chat, or the chat was deleted</source>

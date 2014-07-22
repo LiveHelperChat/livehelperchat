@@ -1766,6 +1766,10 @@
       <translation>Bắt đầu trò chuyện</translation>
     </message>
     <message>
+      <source>Live Support</source>
+      <translation>Hỗ trợ trực tuyến</translation>
+    </message>
+    <message>
       <source>There are no online operators at the moment, please leave a message</source>
       <translation>Chúng tôi hiện đang ngoại tuyến tại thời điểm này, xin vui lòng để lại tin nhắn. Trân trọng cảm ơn!</translation>
     </message>
@@ -1864,10 +1868,6 @@
     <message>
       <source>is required</source>
       <translation>được yêu cầu</translation>
-    </message>
-    <message>
-      <source>Live Support</source>
-      <translation>Hỗ trợ trực tuyến</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -2317,6 +2317,10 @@
     <message>
       <source>days</source>
       <translation>ngày</translation>
+    </message>
+    <message>
+      <source>Max records to return</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitor local time</source>

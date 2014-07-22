@@ -1766,6 +1766,10 @@
       <translation>Mulai percakapan</translation>
     </message>
     <message>
+      <source>Live Support</source>
+      <translation>Dukungan langsung</translation>
+    </message>
+    <message>
       <source>There are no online operators at the moment, please leave a message</source>
       <translation>Saat ini tidak ada operator yang online, silakan tinggalkan pesan</translation>
     </message>
@@ -1864,10 +1868,6 @@
     <message>
       <source>is required</source>
       <translation>diperlukan</translation>
-    </message>
-    <message>
-      <source>Live Support</source>
-      <translation>Dukungan langsung</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -2317,6 +2317,10 @@
     <message>
       <source>days</source>
       <translation>hari</translation>
+    </message>
+    <message>
+      <source>Max records to return</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitor local time</source>

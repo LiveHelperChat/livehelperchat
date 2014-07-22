@@ -1768,6 +1768,10 @@
       <translation>Iniciar chat</translation>
     </message>
     <message>
+      <source>Live Support</source>
+      <translation>Soporte en Línea</translation>
+    </message>
+    <message>
       <source>There are no online operators at the moment, please leave a message</source>
       <translation>No hay operadores en línea en este momento, por favor deje un mensaje</translation>
     </message>
@@ -1866,10 +1870,6 @@
     <message>
       <source>is required</source>
       <translation>es obligatorio</translation>
-    </message>
-    <message>
-      <source>Live Support</source>
-      <translation>Soporte en Línea</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -2321,6 +2321,10 @@
     <message>
       <source>days</source>
       <translation>días</translation>
+    </message>
+    <message>
+      <source>Max records to return</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitor local time</source>

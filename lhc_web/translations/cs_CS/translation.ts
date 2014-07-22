@@ -1766,6 +1766,10 @@
       <translation>Zahájit rozhovor</translation>
     </message>
     <message>
+      <source>Live Support</source>
+      <translation>On-line podpora</translation>
+    </message>
+    <message>
       <source>There are no online operators at the moment, please leave a message</source>
       <translation>V současnou chvíli není dostupný žádný z našich operátorů. Zanechte nám prosím zprávu.</translation>
     </message>
@@ -1864,10 +1868,6 @@
     <message>
       <source>is required</source>
       <translation>je vyžadován</translation>
-    </message>
-    <message>
-      <source>Live Support</source>
-      <translation>On-line podpora</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -2317,6 +2317,10 @@
     <message>
       <source>days</source>
       <translation>dní</translation>
+    </message>
+    <message>
+      <source>Max records to return</source>
+      <translation>Maximální počet vracených záznamů</translation>
     </message>
     <message>
       <source>Visitor local time</source>

@@ -1766,6 +1766,10 @@
       <translation>Begin chat</translation>
     </message>
     <message>
+      <source>Live Support</source>
+      <translation>Live support</translation>
+    </message>
+    <message>
       <source>There are no online operators at the moment, please leave a message</source>
       <translation>Er zijn op dit moment geen ondersteuningsmedewerkers online, Laat een bericht achter.</translation>
     </message>
@@ -1864,10 +1868,6 @@
     <message>
       <source>is required</source>
       <translation>is verplicht</translation>
-    </message>
-    <message>
-      <source>Live Support</source>
-      <translation>Live support</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -2317,6 +2317,10 @@
     <message>
       <source>days</source>
       <translation>dagen</translation>
+    </message>
+    <message>
+      <source>Max records to return</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitor local time</source>

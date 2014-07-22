@@ -1766,6 +1766,10 @@
       <translation>شروع چت</translation>
     </message>
     <message>
+      <source>Live Support</source>
+      <translation>پشتیبان آنلاین</translation>
+    </message>
+    <message>
       <source>There are no online operators at the moment, please leave a message</source>
       <translation>در حال حاظر اپراتوری آنلاین نیست، لطفا پیام بگذارید.</translation>
     </message>
@@ -1864,10 +1868,6 @@
     <message>
       <source>is required</source>
       <translation>مورد نیاز</translation>
-    </message>
-    <message>
-      <source>Live Support</source>
-      <translation>پشتیبان آنلاین</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -2317,6 +2317,10 @@
     <message>
       <source>days</source>
       <translation>روزها</translation>
+    </message>
+    <message>
+      <source>Max records to return</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitor local time</source>

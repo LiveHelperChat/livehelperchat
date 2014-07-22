@@ -1766,6 +1766,10 @@
       <translation>เริ่มต้นสนทนา</translation>
     </message>
     <message>
+      <source>Live Support</source>
+      <translation>สนับสนุนถ่ายทอดสด</translation>
+    </message>
+    <message>
       <source>There are no online operators at the moment, please leave a message</source>
       <translation>มีผู้ประกอบการไม่ออนไลน์อยู่ในขณะนี้ กรุณาฝากข้อความไว้</translation>
     </message>
@@ -1864,10 +1868,6 @@
     <message>
       <source>is required</source>
       <translation>จำเป็นต้องมี</translation>
-    </message>
-    <message>
-      <source>Live Support</source>
-      <translation>สนับสนุนถ่ายทอดสด</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -2317,6 +2317,10 @@
     <message>
       <source>days</source>
       <translation>วัน</translation>
+    </message>
+    <message>
+      <source>Max records to return</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitor local time</source>

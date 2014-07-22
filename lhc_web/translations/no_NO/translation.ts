@@ -1766,6 +1766,10 @@
       <translation>Start samtale</translation>
     </message>
     <message>
+      <source>Live Support</source>
+      <translation>Live support</translation>
+    </message>
+    <message>
       <source>There are no online operators at the moment, please leave a message</source>
       <translation>Det er ingen online for øyeblikket, vennligst legg igjen en beskjed :)</translation>
     </message>
@@ -1864,10 +1868,6 @@
     <message>
       <source>is required</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live Support</source>
-      <translation>Live support</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -2316,6 +2316,10 @@
     </message>
     <message>
       <source>days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max records to return</source>
       <translation type="unfinished"/>
     </message>
     <message>

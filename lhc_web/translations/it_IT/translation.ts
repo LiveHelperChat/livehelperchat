@@ -1766,6 +1766,10 @@
       <translation>Avvia Chat</translation>
     </message>
     <message>
+      <source>Live Support</source>
+      <translation>Supporto live</translation>
+    </message>
+    <message>
       <source>There are no online operators at the moment, please leave a message</source>
       <translation>Non ci sono operatori online in questo momento, si prega di lasciare un messaggio</translation>
     </message>
@@ -1864,10 +1868,6 @@
     <message>
       <source>is required</source>
       <translation>obbligatorio</translation>
-    </message>
-    <message>
-      <source>Live Support</source>
-      <translation>Supporto live</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -2317,6 +2317,10 @@
     <message>
       <source>days</source>
       <translation>giorni</translation>
+    </message>
+    <message>
+      <source>Max records to return</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitor local time</source>
