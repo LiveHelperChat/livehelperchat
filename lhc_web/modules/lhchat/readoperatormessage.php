@@ -9,17 +9,33 @@ $tpl->set('referer_site','');
 $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'check_message_operator' => true, 'vid' => (string)$Params['user_parameters_unordered']['vid']));
 $tpl->set('visitor',$userInstance);
 
-$department = (int)$Params['user_parameters_unordered']['department'] > 0 ? (int)$Params['user_parameters_unordered']['department'] : false;
-
 $inputData = new stdClass();
 $inputData->username = '';
 $inputData->question = '';
 $inputData->email = '';
-$inputData->departament_id = $department;
+
+if (is_array($Params['user_parameters_unordered']['department']) && count($Params['user_parameters_unordered']['department']) == 1){
+	erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
+	$inputData->departament_id = array_shift($Params['user_parameters_unordered']['department']);
+} else {
+	$inputData->departament_id = 0;
+}
+
+if (is_array($Params['user_parameters_unordered']['department'])){
+	erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
+	$inputData->departament_id_array = $Params['user_parameters_unordered']['department'];
+}
+
 $inputData->validate_start_chat = false;
 $inputData->operator = (int)$Params['user_parameters_unordered']['operator'];
 
-$tpl->set('department',$department);
+// Assign department instantly
+if ($inputData->departament_id > 0) {
+	$tpl->set('department',$inputData->departament_id);
+} else {
+	$tpl->set('department',false);
+}
+
 $tpl->set('playsound',(string)$Params['user_parameters_unordered']['playsound'] == 'true' && !isset($_POST['askQuestion']) && erLhcoreClassModelChatConfig::fetch('sound_invitation')->current_value == 1);
 
 $chat = new erLhcoreClassModelChat();
@@ -38,6 +54,7 @@ if (isset($_POST['askQuestion']))
     $validationFields = array();
     $validationFields['Question'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
     $validationFields['DepartamentID'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1) );
+    $validationFields['DepartmentIDDefined'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1), FILTER_REQUIRE_ARRAY);
     $validationFields['operator'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1) );
     $validationFields['Email'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'validate_email' );
     $validationFields['Username'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
@@ -58,7 +75,11 @@ if (isset($_POST['askQuestion']))
         
     $form = new ezcInputForm( INPUT_POST, $validationFields );
     $Errors = array();
-
+    
+    if ($form->hasValidData( 'DepartmentIDDefined' )) {
+    	$inputData->departament_id_array = $form->DepartmentIDDefined;
+    }
+    
     if ( !$form->hasValidData( 'Question' ) || trim($form->Question) == '' ) {
         $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your message');
     } elseif ($form->hasValidData( 'Question' )) {
@@ -119,7 +140,7 @@ if (isset($_POST['askQuestion']))
     
     // Assign default department
     if ($form->hasValidData( 'DepartamentID' ) && erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $form->DepartamentID,'disabled' => 0))) > 0) {
-    	$chat->dep_id = $form->DepartamentID;
+    	$inputData->departament_id = $chat->dep_id = $form->DepartamentID;
     } elseif ($chat->dep_id == 0 || erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $chat->dep_id,'disabled' => 0))) == 0) {
     	$departments = erLhcoreClassModelDepartament::getList(array('limit' => 1,'filter' => array('disabled' => 0)));
     	if (!empty($departments) ) {

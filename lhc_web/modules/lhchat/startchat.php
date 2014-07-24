@@ -42,12 +42,24 @@ $tpl->set('referer','');
 $tpl->set('referer_site','');
 $disabled_department = false;
 
-if ((int)$Params['user_parameters_unordered']['department'] > 0 && erLhcoreClassModelChatConfig::fetch('hide_disabled_department')->current_value == 1){
+if (is_array($Params['user_parameters_unordered']['department']) && erLhcoreClassModelChatConfig::fetch('hide_disabled_department')->current_value == 1){
 	try {
-		$department = erLhcoreClassModelDepartament::fetch((int)$Params['user_parameters_unordered']['department']);
-		if ($department->disabled == 1) {
+		
+		erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);				
+		$departments = erLhcoreClassModelDepartament::getList(array('filterin' => array('id' => $Params['user_parameters_unordered']['department'])));
+		
+		$disabledAll = true;
+		foreach ($departments as $department){
+			if ($department->disabled == 0) {
+				$disabledAll = false;
+			}
+		}
+		
+		// Disable only if all provided departments are disabled
+		if ($disabledAll == true){
 			$disabled_department = true;
 		}
+		
 	} catch (Exception $e) {
 		exit;
 	}
@@ -65,7 +77,19 @@ $inputData->chatprefill = '';
 $inputData->email = '';
 $inputData->username = '';
 $inputData->phone = '';
-$inputData->departament_id = (int)$Params['user_parameters_unordered']['department'];
+
+if (is_array($Params['user_parameters_unordered']['department']) && count($Params['user_parameters_unordered']['department']) == 1){
+	erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
+	$inputData->departament_id = array_shift($Params['user_parameters_unordered']['department']);
+} else {
+	$inputData->departament_id = 0;
+}
+
+if (is_array($Params['user_parameters_unordered']['department'])){
+	erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
+	$inputData->departament_id_array = $Params['user_parameters_unordered']['department'];
+}
+
 $inputData->accept_tos = false;
 $inputData->operator = (int)$Params['user_parameters_unordered']['operator'];
 
@@ -116,11 +140,12 @@ if ((string)$Params['user_parameters_unordered']['vid'] != '') {
 
 $chat = new erLhcoreClassModelChat();
 
-
-
 // Assign department instantly
 if ($inputData->departament_id > 0) {
 	$chat->dep_id = $inputData->departament_id;
+	$tpl->set('department',$chat->dep_id);
+} else {
+	$tpl->set('department',false);
 }
 
 $leaveamessage = ((string)$Params['user_parameters_unordered']['leaveamessage'] == 'true' || (isset($startDataFields['force_leave_a_message']) && $startDataFields['force_leave_a_message'] == true)) ? true : false;
@@ -133,10 +158,6 @@ if ((string)$Params['user_parameters_unordered']['offline'] == 'true' && $leavea
 }
 
 $tpl->set('leaveamessage',$leaveamessage);
-
-// Department functionality
-$department = (int)$Params['user_parameters_unordered']['department'] > 0 ? (int)$Params['user_parameters_unordered']['department'] : false;
-$tpl->set('department',$department);
 
 if (isset($_POST['StartChat']) && $disabled_department === false) {
    // Validate post data

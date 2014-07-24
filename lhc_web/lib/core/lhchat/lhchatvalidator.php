@@ -60,10 +60,9 @@ class erLhcoreClassChatValidator {
         }
 
         $validationFields['DepartamentID'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1));
+        $validationFields['DepartmentIDDefined'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1),FILTER_REQUIRE_ARRAY);
         $validationFields['operator'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1));
         $validationFields['user_timezone'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int');
-        
-      
         
         
         
@@ -210,6 +209,10 @@ class erLhcoreClassChatValidator {
         	} else {
         		$chat->user_tz_identifier = '';
         	}
+        }
+        
+        if ($form->hasValidData( 'DepartmentIDDefined' )) {        	
+        	$inputForm->departament_id_array = $form->DepartmentIDDefined;
         }
         
         if ($form->hasValidData( 'DepartamentID' ) && erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $form->DepartamentID,'disabled' => 0))) > 0) {

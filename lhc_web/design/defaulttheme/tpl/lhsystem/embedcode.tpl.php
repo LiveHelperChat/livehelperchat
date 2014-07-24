@@ -18,7 +18,7 @@
 
     <div class="columns large-6">
 	    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Department')?></label>
-	    <select id="DepartmentID">
+	    <select id="DepartmentID" multiple="multiple" size="5">
 	        	<option value="0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Any');?></option>
 			<?php foreach (erLhcoreClassModelDepartament::getList($departmentParams) as $departament) : ?>
 			    <option value="<?php echo $departament->id?>"><?php echo htmlspecialchars($departament->name)?></option>
@@ -62,7 +62,7 @@ function generateEmbedCode() {
     var siteAccess = $('#LocaleID').val() == default_site_access ? '' : $('#LocaleID').val();
     var id_hide_then_offline = $('#id_hide_then_offline').is(':checked') ? '/(hide_offline)/true' : '';
     var id_show_leave_form = $('#id_show_leave_form').is(':checked') ? '/(leaveamessage)/true' : '';
-    var id_department = $('#DepartmentID').val() > 0 ? '/(department)/'+$('#DepartmentID').val() : '';
+    var id_department = $('#DepartmentID').val() && $('#DepartmentID').val().length > 0 && $('#DepartmentID').val().join('/') != '0' ? '/(department)/'+$('#DepartmentID').val().join('/') : '';
     var id_theme = $('#ThemeID').val() > 0 ? '/(theme)/'+$('#ThemeID').val() : '';
     var id_operator = $('#id_operator').val() > 0 ? '/(operator)/'+$('#id_operator').val() : '';
     

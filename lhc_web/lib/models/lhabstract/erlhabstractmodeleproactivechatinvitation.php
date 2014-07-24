@@ -383,7 +383,7 @@ class erLhAbstractModelProactiveChatInvitation {
 		$referrer = self::getHost($item->referrer);
 				
 		$session = erLhcoreClassAbstract::getSession();			
-		
+				
 		$q = $session->createFindQuery( 'erLhAbstractModelProactiveChatInvitation' );
 		$q->where( $q->expr->lte( 'time_on_site', $q->bindValue( $item->time_on_site ) ).' AND '.$q->expr->lte( 'pageviews', $q->bindValue( $item->pages_count ) ).'
 				AND ('.$q->expr->eq( 'siteaccess', $q->bindValue( erLhcoreClassSystem::instance()->SiteAccess ) ).' OR siteaccess = \'\')

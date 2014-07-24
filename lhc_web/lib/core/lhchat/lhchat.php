@@ -114,8 +114,10 @@ class erLhcoreClassChat {
     	$filter = array();
     	$filter['filter'] = array('status' => 0);
 
-    	if ($department !== false) {
+    	if ($department !== false && is_numeric($department)) {
     		$filter['filter']['dep_id'] = $department;
+    	} elseif ($department !== false && is_array($department)) {
+    		$filter['filterin']['dep_id'] = $department;
     	}
 
     	return self::getCount($filter);
@@ -1091,6 +1093,11 @@ class erLhcoreClassChat {
    			$object = (object)array_filter((array)$object);   		
    }
    
+   public static function validateFilterIn(& $params) {
+   		foreach ($params as & $param) {
+   			$param = (int)$param;
+   		}
+   }
    
    public static function updateActiveChats($user_id)
    {

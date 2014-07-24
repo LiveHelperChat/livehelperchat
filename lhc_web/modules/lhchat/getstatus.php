@@ -8,19 +8,23 @@ header('Cache-Control: no-store, no-cache, must-revalidate' );
 header('Cache-Control: post-check=0, pre-check=0', false );
 header('Pragma: no-cache' );
 
-
-if ((int)$Params['user_parameters_unordered']['department'] > 0 && erLhcoreClassModelChatConfig::fetch('hide_disabled_department')->current_value == 1){
+if (erLhcoreClassModelChatConfig::fetch('hide_disabled_department')->current_value == 1 && is_array($Params['user_parameters_unordered']['department'])){
 	try {
-		$department = erLhcoreClassModelDepartament::fetch((int)$Params['user_parameters_unordered']['department']);
-		if ($department->disabled == 1) {
-			// Hide disabled department
-			exit;
-		}		
+		erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
+				
+		$departments = erLhcoreClassModelDepartament::getList(array('filterin' => array('id' => $Params['user_parameters_unordered']['department'])));
+		
+		foreach ($departments as $department){
+			if ($department->disabled == 1) {
+				// Hide disabled department
+				exit;
+			}	
+		}
+		
 	} catch (Exception $e) {
 		exit;
 	}
 }
-
 
 $tpl = erLhcoreClassTemplate::getInstance('lhchat/getstatus.tpl.php');
 
@@ -65,7 +69,16 @@ $tpl->set('identifier',(!is_null($Params['user_parameters_unordered']['identifie
 $tpl->set('leaveamessage',(string)$Params['user_parameters_unordered']['leaveamessage'] == 'true');
 $tpl->set('noresponse',(string)$Params['user_parameters_unordered']['noresponse'] == 'true');
 $tpl->set('hide_offline',$Params['user_parameters_unordered']['hide_offline']);
-$tpl->set('department',(int)$Params['user_parameters_unordered']['department'] > 0 ? (int)$Params['user_parameters_unordered']['department'] : false);
+
+if (is_array($Params['user_parameters_unordered']['department'])){
+	erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
+	$tpl->set('department',implode('/', $Params['user_parameters_unordered']['department']));
+	$tpl->set('department_array',$Params['user_parameters_unordered']['department']);	
+} else {
+	$tpl->set('department',false);
+	$tpl->set('department_array',false);
+}
+
 $tpl->set('check_operator_messages',$Params['user_parameters_unordered']['check_operator_messages']);
 $tpl->set('top_pos',(!is_null($Params['user_parameters_unordered']['top']) && (int)$Params['user_parameters_unordered']['top'] >= 0) ? (int)$Params['user_parameters_unordered']['top'] : 350);
 $tpl->set('units',key_exists((string)$Params['user_parameters_unordered']['units'], $validUnits) ? $validUnits[(string)$Params['user_parameters_unordered']['units']] : 'px');

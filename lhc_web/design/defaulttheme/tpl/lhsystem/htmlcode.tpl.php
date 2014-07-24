@@ -36,7 +36,7 @@
         </select>
 
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Department')?></label>
-        <select id="DepartmentID">
+        <select id="DepartmentID" multiple="multiple" size="5">
         	<option value="0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Any');?></option>
 			<?php foreach (erLhcoreClassModelDepartament::getList($departmentParams) as $departament) : ?>
 			   <option value="<?php echo $departament->id?>"><?php echo htmlspecialchars($departament->name)?></option>
@@ -133,7 +133,9 @@ function generateEmbedCode(){
     var id_disable_responsive = $('#id_disable_responsive').is(':checked') ? '/(noresponse)/true' : '';
     var id_check_operator_message = $('#id_check_operator_message').is(':checked') ? '/(check_operator_messages)/true' : '';
     var id_disable_pro_active_invitations = $('#id_disable_pro_active_invitations').is(':checked') ? '/(disable_pro_active)/true' : '';
-    var id_department = $('#DepartmentID').val() > 0 ? '/(department)/'+$('#DepartmentID').val() : '';
+    var id_department = $('#DepartmentID').val() && $('#DepartmentID').val().length > 0 && $('#DepartmentID').val().join('/') != '0' ? '/(department)/'+$('#DepartmentID').val().join('/') : '';
+
+    
     var id_theme = $('#ThemeID').val() > 0 ? '/(theme)/'+$('#ThemeID').val() : '';
     var id_identifier = $('#id_site_identifier').val() != '' ? '/(identifier)/'+$('#id_site_identifier').val() : '';
     var id_ma = $('#MinimizeID').val() != '' ? '/(ma)/'+$('#MinimizeID').val() : '';
