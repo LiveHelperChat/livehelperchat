@@ -1,3 +1,12 @@
+2.07v
+
+1. Now you can generate embed code who represents few departments at once. https://github.com/LiveHelperChat/livehelperchat/issues/427
+2. https://github.com/LiveHelperChat/livehelperchat/issues/440
+3. https://github.com/LiveHelperChat/livehelperchat/issues/437
+4. https://github.com/LiveHelperChat/livehelperchat/issues/433
+5. Now you can set required phone in proactive chat invitation
+6. Option to set required phone length in back office.
+
 2.06v
 
 1. Option to minize widget directly to bottom corner.

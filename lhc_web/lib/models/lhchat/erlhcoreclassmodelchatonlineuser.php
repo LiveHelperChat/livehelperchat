@@ -371,7 +371,11 @@ class erLhcoreClassModelChatOnlineUser {
 	       			$normalizedObject->country_name = $countryData->raw['country']['names']['en'];
 	       			$normalizedObject->lat = isset($countryData->raw['location']['latitude']) ? $countryData->raw['location']['latitude'] : '0';
 	       			$normalizedObject->lon = isset($countryData->raw['location']['longitude']) ? $countryData->raw['location']['longitude'] : '0';
-	       			$normalizedObject->city = isset($countryData->raw['location']['time_zone']) ? $countryData->raw['location']['time_zone'] : '';
+	       			$normalizedObject->city = $countryData->city->name != '' ? $countryData->city->name : (isset($countryData->raw['location']['time_zone']) ? $countryData->raw['location']['time_zone'] : '');	       			
+	       			$regionName = isset($countryData->raw['mostSpecificSubdivision']['name']) ? ', '.$countryData->raw['mostSpecificSubdivision']['name'] : '';	       			
+	       			$normalizedObject->city .= isset($countryData->mostSpecificSubdivision->isoCode) ? ', '.$countryData->mostSpecificSubdivision->isoCode : '';	
+	       			$normalizedObject->city .= $regionName;	
+	       			       			
 	       			return $normalizedObject;     
        			} catch (Exception $e) {
        				return false;
