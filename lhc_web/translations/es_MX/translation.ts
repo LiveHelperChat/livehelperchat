@@ -2324,7 +2324,7 @@
     </message>
     <message>
       <source>Max records to return</source>
-      <translation type="unfinished"/>
+      <translation>Cantidad máxima de datos a mostrar</translation>
     </message>
     <message>
       <source>Visitor local time</source>

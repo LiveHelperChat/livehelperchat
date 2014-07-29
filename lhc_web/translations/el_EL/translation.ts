@@ -296,7 +296,7 @@
     </message>
     <message>
       <source>Status widget border color</source>
-      <translation type="unfinished"/>
+      <translation>Κατάσταση widget χρώμα περιγράμματος</translation>
     </message>
     <message>
       <source>Text color</source>
@@ -700,11 +700,11 @@
     </message>
     <message>
       <source>Operator ID</source>
-      <translation type="unfinished"/>
+      <translation>Τελεστής αναγνωριστικό</translation>
     </message>
     <message>
       <source>To what operator chat should be assigned automatically?</source>
-      <translation type="unfinished"/>
+      <translation>Τι χειριστή πρέπει να εκχωρούνται αυτόματα με chat;</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want your status to appear</source>
@@ -760,15 +760,15 @@
     </message>
     <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
-      <translation type="unfinished"/>
+      <translation>Ελαχιστοποίηση της δράσης, να ισχύει μόνο αν το γραφικό στοιχείο κατάσταση είναι στο κάτω μέρος</translation>
     </message>
     <message>
       <source>Keep where it was</source>
-      <translation type="unfinished"/>
+      <translation>Κρατήσει όπου ήταν</translation>
     </message>
     <message>
       <source>Minimize to bottom of the screen</source>
-      <translation type="unfinished"/>
+      <translation>Ελαχιστοποίηση κάτω μέρος της οθόνης</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -1428,7 +1428,7 @@
     </message>
     <message>
       <source>Time zone</source>
-      <translation type="unfinished"/>
+      <translation>Ζώνη ώρας</translation>
     </message>
     <message>
       <source>City</source>
@@ -1512,7 +1512,7 @@
     </message>
     <message>
       <source>Attach uploaded file</source>
-      <translation type="unfinished"/>
+      <translation>Επισυνάψετε το αρχείο</translation>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
@@ -2132,7 +2132,7 @@
     </message>
     <message>
       <source>Time zone</source>
-      <translation type="unfinished"/>
+      <translation>Ζώνη ώρας</translation>
     </message>
     <message>
       <source>Identifier</source>
@@ -2320,11 +2320,11 @@
     </message>
     <message>
       <source>Max records to return</source>
-      <translation type="unfinished"/>
+      <translation>Μέγιστο πλήθος εγγραφών για να επιστρέψετε</translation>
     </message>
     <message>
       <source>Visitor local time</source>
-      <translation type="unfinished"/>
+      <translation>Επισκέπτης τοπική ώρα</translation>
     </message>
     <message>
       <source>Status</source>
@@ -2716,7 +2716,7 @@
     </message>
     <message>
       <source>Assigned operator</source>
-      <translation type="unfinished"/>
+      <translation>Ειδικό φορέα</translation>
     </message>
     <message>
       <source>Clean cache</source>
@@ -5917,7 +5917,7 @@
     <name>chat/updatemsguser</name>
     <message>
       <source>User has edited his last message</source>
-      <translation type="unfinished"/>
+      <translation>Χρήστης έχει επιμεληθεί το τελευταίο μήνυμα</translation>
     </message>
   </context>
 </TS>
