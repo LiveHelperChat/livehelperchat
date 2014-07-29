@@ -148,8 +148,6 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
     	    	
         $tpl->set('updated',true);
         
-       
-        
         // Cleanup cache to recompile templates etc.
     	$CacheManager = erConfigClassLhCacheConfig::getInstance();
         $CacheManager->expireCache();

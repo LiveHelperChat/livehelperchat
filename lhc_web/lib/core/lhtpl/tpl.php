@@ -445,6 +445,16 @@ class erLhcoreClassTemplate {
 	                $valueReplace = '\''.str_replace("'","\'",$valueConfig).'\'';
 	                $contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
 	            }
+            	            
+				// Compile config settings in php scripts
+	            $Matches = array();
+	            preg_match_all('/erLhcoreClassModelChatConfig::fetch\((\s?)\'([a-zA-Z0-9-\.-\/\_]+)\'(\s?)\)->data_value/i',$contentFile,$Matches);
+	            foreach ($Matches[1] as $key => $UrlAddress)
+	            {
+	                $valueConfig = erLhcoreClassModelChatConfig::fetch($Matches[2][$key])->data_value;
+	                $valueReplace = var_export($valueConfig,true);
+	                $contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
+	            }            
 	            
 				// Compile config settings array
 	            $Matches = array();

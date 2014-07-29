@@ -52,6 +52,11 @@ class erLhcoreClassModelChatConfig {
    					$this->data = unserialize($this->value);
    					return $this->data;
    				break;
+   				
+   			case 'data_value':
+   					$this->data_value = $this->data;
+   					return $this->data_value;
+   				break;
 
    			case 'current_value':
    					switch ($this->type) {

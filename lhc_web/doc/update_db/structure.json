@@ -3545,6 +3545,13 @@
                 "type": "0",
                 "explain": "XMP data",
                 "hidden": "1"
+            },
+            {
+                "identifier": "geoadjustment_data",
+                "value": "a:8:{i:0;b:0;s:18:\"use_geo_adjustment\";b:0;s:13:\"available_for\";s:0:\"\";s:15:\"other_countries\";s:6:\"custom\";s:8:\"hide_for\";s:0:\"\";s:12:\"other_status\";s:7:\"offline\";s:11:\"rest_status\";s:6:\"hidden\";s:12:\"apply_widget\";i:0;}",
+                "type": "0",
+                "explain": "Geo adjustment settings",
+                "hidden": "1"
             }
         ],
         "lh_abstract_email_template": [

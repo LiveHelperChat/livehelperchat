@@ -252,28 +252,42 @@ class erLhcoreClassModule{
 				$contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
 			}
 
-			// Compile config settings
-            $Matches = array();
-            preg_match_all('/erLhcoreClassModelChatConfig::fetch\((\s?)\'([a-zA-Z0-9-\.-\/\_]+)\'(\s?)\)->current_value/i',$contentFile,$Matches);
-            foreach ($Matches[1] as $key => $UrlAddress)
-            {
-                $valueConfig = erLhcoreClassModelChatConfig::fetch($Matches[2][$key])->current_value;
-                $valueReplace = '';
-                $valueReplace = '\''.str_replace("'","\'",$valueConfig).'\'';
-                $contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
-            }
-
+			if (self::$cacheDbVariables === true) {
+			
+				// Compile config settings
+	            $Matches = array();
+	            preg_match_all('/erLhcoreClassModelChatConfig::fetch\((\s?)\'([a-zA-Z0-9-\.-\/\_]+)\'(\s?)\)->current_value/i',$contentFile,$Matches);
+	            foreach ($Matches[1] as $key => $UrlAddress)
+	            {
+	                $valueConfig = erLhcoreClassModelChatConfig::fetch($Matches[2][$key])->current_value;
+	                $valueReplace = '';
+	                $valueReplace = '\''.str_replace("'","\'",$valueConfig).'\'';
+	                $contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
+	            }
+		            
+	            // Compile config settings in php scripts
+	            $Matches = array();
+	            preg_match_all('/erLhcoreClassModelChatConfig::fetch\((\s?)\'([a-zA-Z0-9-\.-\/\_]+)\'(\s?)\)->data_value/i',$contentFile,$Matches);
+	            foreach ($Matches[1] as $key => $UrlAddress)
+	            {
+	            	$valueConfig = erLhcoreClassModelChatConfig::fetch($Matches[2][$key])->data_value;
+	            	$valueReplace = var_export($valueConfig,true);
+	            	$contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
+	            }
+	            	            
+	            // Compile config settings array
+	            $Matches = array();
+	            preg_match_all('/erLhcoreClassModelChatConfig::fetch\((\s?)\'([a-zA-Z0-9-\.-\/\_]+)\'(\s?)\)->data\[\'([a-zA-Z0-9-\.-\/\_]+)\'\]/i',$contentFile,$Matches);
+	            foreach ($Matches[1] as $key => $UrlAddress)
+	            {
+	            	$valueConfig = erLhcoreClassModelChatConfig::fetch($Matches[2][$key])->data[$Matches[4][$key]];
+	            	$valueReplace = '';
+	            	$valueReplace = '\''.str_replace("'","\'",$valueConfig).'\'';
+	            	$contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
+	            }
+			}
             
-            // Compile config settings array
-            $Matches = array();
-            preg_match_all('/erLhcoreClassModelChatConfig::fetch\((\s?)\'([a-zA-Z0-9-\.-\/\_]+)\'(\s?)\)->data\[\'([a-zA-Z0-9-\.-\/\_]+)\'\]/i',$contentFile,$Matches);
-            foreach ($Matches[1] as $key => $UrlAddress)
-            {
-            	$valueConfig = erLhcoreClassModelChatConfig::fetch($Matches[2][$key])->data[$Matches[4][$key]];
-            	$valueReplace = '';
-            	$valueReplace = '\''.str_replace("'","\'",$valueConfig).'\'';
-            	$contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
-            }
+            
             
             $fileCompiled = 'cache/compiledtemplates/'.md5($file.$instance->WWWDirLang.'_'.$instance->Language).'.php';
 
@@ -415,6 +429,10 @@ class erLhcoreClassModule{
     static private $moduleCacheEnabled = NULL;
     static private $cacheInstance = NULL;
     static private $cacheVersionSite = NULL;
+    
+    // Should we cache cache config variables
+    // Instance version of chat should not cache, because each customer can have a different one
+    public static $cacheDbVariables = true;    
     
     public static $defaultTimeZone = NULL;
     public static $dateFormat = NULL;

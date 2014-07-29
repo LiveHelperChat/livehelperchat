@@ -200,7 +200,13 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
    		$chat->setIP();
    		erLhcoreClassModelChat::detectLocation($chat);
    		
-   		if (isset($additionalParams['offline']) && $additionalParams['offline'] == true) {
+   		$statusGeoAdjustment = erLhcoreClassChat::getAdjustment(erLhcoreClassModelChatConfig::fetch('geoadjustment_data')->data_value, $inputData->vid);
+
+   		if ($statusGeoAdjustment['status'] == 'hidden') { // This should never happen
+   			exit('Chat not available in your country');
+   		}
+   		
+   		if ((isset($additionalParams['offline']) && $additionalParams['offline'] == true) || $statusGeoAdjustment['status'] == 'offline') {
    			erLhcoreClassChatMail::sendMailRequest($inputData,$chat,array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false));
    			$tpl->set('request_send',true);
    		} else {

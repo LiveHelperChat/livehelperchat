@@ -85,7 +85,10 @@ $trackOnline = (int)erLhcoreClassModelChatConfig::fetch('track_if_offline')->cur
 
 <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/is_online_help.tpl.php')); ?>
 
+<?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/geo_adjustment.tpl.php')); ?>
+
 <?php
+
 if ($isOnlineHelp == false && erLhcoreClassModelChatConfig::fetch('pro_active_show_if_offline')->current_value == 0) {
 	$disable_pro_active = true;
 };
