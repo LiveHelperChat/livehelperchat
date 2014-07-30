@@ -4,8 +4,9 @@
 2. https://github.com/LiveHelperChat/livehelperchat/issues/440
 3. https://github.com/LiveHelperChat/livehelperchat/issues/437
 4. https://github.com/LiveHelperChat/livehelperchat/issues/433
-5. Now you can set required phone in proactive chat invitation
-6. Option to set required phone length in back office.
+5. https://github.com/LiveHelperChat/livehelperchat/issues/421
+6. Now you can set required phone in proactive chat invitation
+7. Option to set required phone length in back office.
 
 2.06v
 
