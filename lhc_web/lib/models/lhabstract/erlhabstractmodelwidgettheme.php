@@ -566,7 +566,7 @@ class erLhAbstractModelWidgetTheme {
 		try {
 			$GLOBALS['erLhAbstractModelWidgetTheme_'.$id] = erLhcoreClassAbstract::getSession()->load( 'erLhAbstractModelWidgetTheme', (int)$id );
 		} catch (Exception $e) {
-			$GLOBALS['erLhAbstractModelWidgetTheme_'.$id] = '-';
+			$GLOBALS['erLhAbstractModelWidgetTheme_'.$id] = false;
 		}
 
 		return $GLOBALS['erLhAbstractModelWidgetTheme_'.$id];
