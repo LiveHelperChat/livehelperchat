@@ -16,6 +16,10 @@ foreach ($input_data->name_items as $item) : ?>
 	<input type="hidden" name="value_show[]" value="<?php echo htmlspecialchars($item)?>" />
 <?php endforeach;?>
 
+<?php foreach ($input_data->hattr as $item) : ?>
+	<input type="hidden" name="hattr[]" value="<?php echo htmlspecialchars($item)?>" />
+<?php endforeach;?>
+
 <?php
 $hasVisibleField = false;
 foreach ($input_data->value_types as $key => $item) : 

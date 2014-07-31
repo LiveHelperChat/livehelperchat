@@ -149,6 +149,7 @@ $inputData->name_items = array();
 $inputData->value_items = array();
 $inputData->value_sizes = array();
 $inputData->value_types = array();
+$inputData->hattr = array();
 $inputData->priority = is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : false;
 
 // Perhaps it's direct argument
@@ -329,6 +330,11 @@ $definition = array(
 				ezcInputFormDefinitionElement::OPTIONAL, 'string',
 				null,
 				FILTER_REQUIRE_ARRAY
+		),
+		'hattr' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'string',
+				null,
+				FILTER_REQUIRE_ARRAY
 		)
 );
 
@@ -342,6 +348,11 @@ if ( $form->hasValidData( 'name' ) && !empty($form->name))
 if ( $form->hasValidData( 'value' ) && !empty($form->value))
 {
 	$inputData->value_items = $form->value;
+}
+
+if ( $form->hasValidData( 'hattr' ) && !empty($form->hattr))
+{
+	$inputData->hattr = $form->hattr;
 }
 
 if ( $form->hasValidData( 'sh' ) && !empty($form->sh))

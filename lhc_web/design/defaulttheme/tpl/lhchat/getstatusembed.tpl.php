@@ -43,6 +43,9 @@ var lh_inst_page  = {
 	    		if (LHCChatOptionsPage.attr_prefill.length > 0){
 					for (var index in LHCChatOptionsPage.attr_prefill) {
 						argumentsQuery.push('prefill['+LHCChatOptionsPage.attr_prefill[index].name+']='+encodeURIComponent(LHCChatOptionsPage.attr_prefill[index].value));
+						if (typeof LHCChatOptionsPage.attr_prefill[index].hidden != 'undefined'){
+							argumentsQuery.push('hattr[]='+encodeURIComponent(LHCChatOptionsPage.attr_prefill[index].name));
+						};
 					};
 	    		};
 	    	};

@@ -102,6 +102,12 @@ class erLhcoreClassChatValidator {
         		FILTER_REQUIRE_ARRAY
         );
 
+        $validationFields['hattr'] = new ezcInputFormDefinitionElement(
+        		ezcInputFormDefinitionElement::OPTIONAL, 'string',
+        		null,
+        		FILTER_REQUIRE_ARRAY
+        );
+
         // Captcha stuff        
         if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
         	// Start session if required only
@@ -275,6 +281,11 @@ class erLhcoreClassChatValidator {
         	if ( $form->hasValidData( 'value_show' ) && !empty($form->value_show))
         	{
         		$inputForm->value_show = $form->value_show;
+        	}
+
+        	if ( $form->hasValidData( 'hattr' ) && !empty($form->hattr))
+        	{
+        		$inputForm->hattr = $form->hattr;
         	}
 
         	$inputForm->name_items = $form->name_items;

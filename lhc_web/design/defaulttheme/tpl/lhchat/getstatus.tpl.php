@@ -289,6 +289,9 @@ var lh_inst  = {
 					for (var index in LHCChatOptions.attr_prefill) {
 						if (typeof LHCChatOptions.attr_prefill[index] != 'undefined' && typeof LHCChatOptions.attr_prefill[index].name != 'undefined') {
 							argumentsQuery.push('prefill['+LHCChatOptions.attr_prefill[index].name+']='+encodeURIComponent(LHCChatOptions.attr_prefill[index].value));
+							if (typeof LHCChatOptions.attr_prefill[index].hidden != 'undefined'){
+								argumentsQuery.push('hattr[]='+encodeURIComponent(LHCChatOptions.attr_prefill[index].name));
+							};
 						};
 					};
 	    		};
