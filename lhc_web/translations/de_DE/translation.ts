@@ -78,6 +78,10 @@
       <translation>&quot;Hilfe benötigt&quot; Tooltip anzeigen?</translation>
     </message>
     <message>
+      <source>Minimum phone number length</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
       <translation type="unfinished"/>
     </message>
@@ -483,6 +487,10 @@
     <message>
       <source>Requires name</source>
       <translation>Name erforderlich</translation>
+    </message>
+    <message>
+      <source>Requires phone</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Show random operator profile</source>
@@ -1766,6 +1774,10 @@
       <translation>Chat starten</translation>
     </message>
     <message>
+      <source>Live support is not available in your country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Live Support</source>
       <translation>Live Support</translation>
     </message>
@@ -1796,6 +1808,10 @@
     <message>
       <source>Offline</source>
       <translation>Offline</translation>
+    </message>
+    <message>
+      <source>characters</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
@@ -2607,6 +2623,10 @@
     <message>
       <source>Start chat form settings</source>
       <translation>Chat Einstellungen</translation>
+    </message>
+    <message>
+      <source>Geo adjustment</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Canned messages</source>
@@ -5467,6 +5487,14 @@
   <context>
     <name>system/xmpp</name>
     <message>
+      <source>Geo adjustments active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Einstellungen aktualisiert</translation>
+    </message>
+    <message>
       <source>XMPP settings</source>
       <translation>XMPP Einstellungen</translation>
     </message>
@@ -5593,10 +5621,6 @@
     <message>
       <source>Grant permission to send a message</source>
       <translation>Volle Berechtigung um Nachrichten zu senden</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Einstellungen aktualisiert</translation>
     </message>
     <message>
       <source>Succesfully authorised, now you can try to send a message</source>
@@ -5918,6 +5942,57 @@
     <message>
       <source>User has edited his last message</source>
       <translation>Der Besucher hat seine letzte Nachricht editiert</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/geoadjustment</name>
+    <message>
+      <source>GEO adjustment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>custom</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E.g. ar,pl</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Other countries, put widget/chat status to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>offline status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>hidden/disabled, widget will not be shown</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For unmatched countries put chat status to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>normal status</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

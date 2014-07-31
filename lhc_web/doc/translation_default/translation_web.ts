@@ -1918,6 +1918,10 @@
       <source>At this moment there are no logged in support staff members, but you can leave your messages</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Visitor has been redirected to contact form</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/closedchats</name>
@@ -2527,6 +2531,10 @@
   <context>
     <name>system/configuration</name>
     <message>
+      <source>Geo adjustment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Request notification permission</source>
       <translation type="unfinished"/>
     </message>
@@ -2619,15 +2627,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>GEO adjustment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Synchronization and sound settings</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Start chat form settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Geo adjustment</source>
       <translation type="unfinished"/>
     </message>
     <message>

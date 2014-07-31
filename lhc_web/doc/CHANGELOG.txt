@@ -8,6 +8,8 @@
 6. Now you can set required phone in proactive chat invitation
 7. Option to set required phone length in back office.
 
+execute doc/update_db/update_85.sql for update
+
 2.06v
 
 1. Option to minize widget directly to bottom corner.

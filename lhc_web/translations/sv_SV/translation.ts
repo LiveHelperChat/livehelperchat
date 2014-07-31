@@ -78,6 +78,10 @@
       <translation>Visa hjälptooltip?</translation>
     </message>
     <message>
+      <source>Minimum phone number length</source>
+      <translation>Minimum antal siffror hos telefonnummer</translation>
+    </message>
+    <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
       <translation>Proactive meddelande timeout i timmar. Efter hur många timmar som proactive chattmeddelande ska visas igen.</translation>
     </message>
@@ -483,6 +487,10 @@
     <message>
       <source>Requires name</source>
       <translation>Namn är obligatoriskt</translation>
+    </message>
+    <message>
+      <source>Requires phone</source>
+      <translation>Telefonnummer obligatoriskt</translation>
     </message>
     <message>
       <source>Show random operator profile</source>
@@ -1766,6 +1774,10 @@
       <translation>Starta chatt</translation>
     </message>
     <message>
+      <source>Live support is not available in your country</source>
+      <translation>Live Supporten är inte tillgänglig i ditt land</translation>
+    </message>
+    <message>
       <source>Live Support</source>
       <translation>Live support</translation>
     </message>
@@ -1796,6 +1808,10 @@
     <message>
       <source>Offline</source>
       <translation>Otillgänglig</translation>
+    </message>
+    <message>
+      <source>characters</source>
+      <translation>tecken</translation>
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
@@ -2320,7 +2336,7 @@
     </message>
     <message>
       <source>Max records to return</source>
-      <translation type="unfinished"/>
+      <translation>Max antal historik att återge</translation>
     </message>
     <message>
       <source>Visitor local time</source>
@@ -2607,6 +2623,10 @@
     <message>
       <source>Start chat form settings</source>
       <translation>Starta chatt , formulär inställningar</translation>
+    </message>
+    <message>
+      <source>Geo adjustment</source>
+      <translation>Geo justering</translation>
     </message>
     <message>
       <source>Canned messages</source>
@@ -5467,6 +5487,14 @@
   <context>
     <name>system/xmpp</name>
     <message>
+      <source>Geo adjustments active</source>
+      <translation>Geo justering aktiv</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Inställningar uppdaterade</translation>
+    </message>
+    <message>
       <source>XMPP settings</source>
       <translation>XMPP inställningar</translation>
     </message>
@@ -5593,10 +5621,6 @@
     <message>
       <source>Grant permission to send a message</source>
       <translation>Ge tillåtelse att skicka ett meddelande</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Inställningar uppdaterade</translation>
     </message>
     <message>
       <source>Succesfully authorised, now you can try to send a message</source>
@@ -5918,6 +5942,57 @@
     <message>
       <source>User has edited his last message</source>
       <translation>Användaren har redigerat det senaste meddelandet</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/geoadjustment</name>
+    <message>
+      <source>GEO adjustment</source>
+      <translation>Geo justering</translation>
+    </message>
+    <message>
+      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
+      <translation>Lägg till dessa regler till chattwidgetens statusindikator också? Prestandanedsättning kommer eventuellt att förekomma</translation>
+    </message>
+    <message>
+      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
+      <translation>Gör chattstatusen normal för dessa länder, länder kan separeras med kommatecken &quot;se,gb,de,us,fr&quot; vilket betyder att chatten bara visas som den ska för dessa länder.</translation>
+    </message>
+    <message>
+      <source>For</source>
+      <translation>För</translation>
+    </message>
+    <message>
+      <source>all</source>
+      <translation>alla</translation>
+    </message>
+    <message>
+      <source>custom</source>
+      <translation>modifierad</translation>
+    </message>
+    <message>
+      <source>E.g. ar,pl</source>
+      <translation>Till exempel se,gb</translation>
+    </message>
+    <message>
+      <source>Other countries, put widget/chat status to</source>
+      <translation>Andra länder, lägg till widget/chattstatus till</translation>
+    </message>
+    <message>
+      <source>offline status</source>
+      <translation>offlinestatus</translation>
+    </message>
+    <message>
+      <source>hidden/disabled, widget will not be shown</source>
+      <translation>gömd/inaktiverad, widgeten kommer inte att visas</translation>
+    </message>
+    <message>
+      <source>For unmatched countries put chat status to</source>
+      <translation>För ej matchade länder, lägg till chattstatusen till</translation>
+    </message>
+    <message>
+      <source>normal status</source>
+      <translation>normal status</translation>
     </message>
   </context>
 </TS>

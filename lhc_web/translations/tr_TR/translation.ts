@@ -78,6 +78,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Minimum phone number length</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
       <translation type="unfinished"/>
     </message>
@@ -482,6 +486,10 @@
     </message>
     <message>
       <source>Requires name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Requires phone</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1766,6 +1774,10 @@
       <translation>Konuşma başlat</translation>
     </message>
     <message>
+      <source>Live support is not available in your country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Live Support</source>
       <translation>Canlı Destek</translation>
     </message>
@@ -1796,6 +1808,10 @@
     <message>
       <source>Offline</source>
       <translation>Çevrimdışı</translation>
+    </message>
+    <message>
+      <source>characters</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
@@ -2609,6 +2625,10 @@
     <message>
       <source>Start chat form settings</source>
       <translation>Konuşma formu ayarları başlat</translation>
+    </message>
+    <message>
+      <source>Geo adjustment</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Canned messages</source>
@@ -5469,6 +5489,14 @@
   <context>
     <name>system/xmpp</name>
     <message>
+      <source>Geo adjustments active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>XMPP settings</source>
       <translation type="unfinished"/>
     </message>
@@ -5594,10 +5622,6 @@
     </message>
     <message>
       <source>Grant permission to send a message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Settings updated</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5919,6 +5943,57 @@
     <name>chat/updatemsguser</name>
     <message>
       <source>User has edited his last message</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/geoadjustment</name>
+    <message>
+      <source>GEO adjustment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>custom</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E.g. ar,pl</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Other countries, put widget/chat status to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>offline status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>hidden/disabled, widget will not be shown</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For unmatched countries put chat status to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>normal status</source>
       <translation type="unfinished"/>
     </message>
   </context>

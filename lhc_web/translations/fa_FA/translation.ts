@@ -78,6 +78,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Minimum phone number length</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
       <translation type="unfinished"/>
     </message>
@@ -87,7 +91,7 @@
     </message>
     <message>
       <source>List online operators.</source>
-      <translation type="unfinished"/>
+      <translation>اپراتورهای حاضر را لیست کن</translation>
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
@@ -248,7 +252,7 @@
     <name>abstract/widgettheme</name>
     <message>
       <source>Download theme</source>
-      <translation type="unfinished"/>
+      <translation>دانلود تم</translation>
     </message>
     <message>
       <source>Status widget style</source>
@@ -268,31 +272,31 @@
     </message>
     <message>
       <source>Custom CSS</source>
-      <translation type="unfinished"/>
+      <translation>CSS سفارشی</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>نام</translation>
     </message>
     <message>
       <source>Need help header text</source>
-      <translation type="unfinished"/>
+      <translation>رنگ هدر نیاز به کمک</translation>
     </message>
     <message>
       <source>Need help standard text</source>
-      <translation type="unfinished"/>
+      <translation>رنگ استاندارد نیاز به کمک</translation>
     </message>
     <message>
       <source>Online status text</source>
-      <translation type="unfinished"/>
+      <translation>وضعیت آنلاین متن</translation>
     </message>
     <message>
       <source>Offline status text</source>
-      <translation type="unfinished"/>
+      <translation>متن وضعیت آفلاین</translation>
     </message>
     <message>
       <source>Background color</source>
-      <translation type="unfinished"/>
+      <translation>رنگ پس زمینه</translation>
     </message>
     <message>
       <source>Status widget border color</source>
@@ -300,7 +304,7 @@
     </message>
     <message>
       <source>Text color</source>
-      <translation type="unfinished"/>
+      <translation>رنگ متن</translation>
     </message>
     <message>
       <source>Logo image, visible in popup</source>
@@ -316,23 +320,23 @@
     </message>
     <message>
       <source>Widget copyright link</source>
-      <translation type="unfinished"/>
+      <translation>پیوند حق نسخه برداری ابزارک</translation>
     </message>
     <message>
       <source>Online image</source>
-      <translation type="unfinished"/>
+      <translation>تصویر حضور</translation>
     </message>
     <message>
       <source>Offline image</source>
-      <translation type="unfinished"/>
+      <translation>تصویر عدم حضور</translation>
     </message>
     <message>
       <source>Widget header background color</source>
-      <translation type="unfinished"/>
+      <translation>رنگ پس زمینه هدر ابزارک</translation>
     </message>
     <message>
       <source>Widget border color</source>
-      <translation type="unfinished"/>
+      <translation>رنگ کادر ابزارک</translation>
     </message>
     <message>
       <source>Need help background color</source>
@@ -376,7 +380,7 @@
     </message>
     <message>
       <source>Widget themes</source>
-      <translation type="unfinished"/>
+      <translation>تم ابزارک</translation>
     </message>
   </context>
   <context>
@@ -485,6 +489,10 @@
       <translation>نام درخواستی</translation>
     </message>
     <message>
+      <source>Requires phone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show random operator profile</source>
       <translation>نمایش تصادفی پروفایل اپراتور</translation>
     </message>
@@ -576,11 +584,11 @@
     </message>
     <message>
       <source>Theme</source>
-      <translation type="unfinished"/>
+      <translation>تم</translation>
     </message>
     <message>
       <source>Default</source>
-      <translation type="unfinished"/>
+      <translation>پیشفرض</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>
@@ -700,11 +708,11 @@
     </message>
     <message>
       <source>Operator ID</source>
-      <translation type="unfinished"/>
+      <translation>شماره شناسایی اپراتور</translation>
     </message>
     <message>
       <source>To what operator chat should be assigned automatically?</source>
-      <translation type="unfinished"/>
+      <translation>چت به صورت خودکار به چه اپراتوری اختصاص داده شود؟</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want your status to appear</source>
@@ -760,15 +768,15 @@
     </message>
     <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
-      <translation type="unfinished"/>
+      <translation>اقدام کمینه، وقتی اعمال میشود که ابزارک در پایین صفحه است</translation>
     </message>
     <message>
       <source>Keep where it was</source>
-      <translation type="unfinished"/>
+      <translation>جایی که بود نگه داشته شود *</translation>
     </message>
     <message>
       <source>Minimize to bottom of the screen</source>
-      <translation type="unfinished"/>
+      <translation>کمینه شدن به پایین صفحه</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -1111,7 +1119,7 @@
     </message>
     <message>
       <source>Auto send</source>
-      <translation type="unfinished"/>
+      <translation>ارسال خودکار</translation>
     </message>
     <message>
       <source>Edit message</source>
@@ -1131,7 +1139,7 @@
     </message>
     <message>
       <source>Automatically send this message to user then chat is accepted</source>
-      <translation type="unfinished"/>
+      <translation>وقتی ارتباط بر قرار شد این پیام به صورت خودکار برای کاربر ارسال شود</translation>
     </message>
     <message>
       <source>Delay in seconds</source>
@@ -1428,7 +1436,7 @@
     </message>
     <message>
       <source>Time zone</source>
-      <translation type="unfinished"/>
+      <translation>زمان محلی</translation>
     </message>
     <message>
       <source>City</source>
@@ -1512,7 +1520,7 @@
     </message>
     <message>
       <source>Attach uploaded file</source>
-      <translation type="unfinished"/>
+      <translation>ضمیمه کردن فایل آپلود شده</translation>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
@@ -1766,6 +1774,10 @@
       <translation>شروع چت</translation>
     </message>
     <message>
+      <source>Live support is not available in your country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Live Support</source>
       <translation>پشتیبان آنلاین</translation>
     </message>
@@ -1796,6 +1808,10 @@
     <message>
       <source>Offline</source>
       <translation>آفلاین</translation>
+    </message>
+    <message>
+      <source>characters</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
@@ -2132,7 +2148,7 @@
     </message>
     <message>
       <source>Time zone</source>
-      <translation type="unfinished"/>
+      <translation>زمان محلی</translation>
     </message>
     <message>
       <source>Identifier</source>
@@ -2240,11 +2256,11 @@
     </message>
     <message>
       <source>Enable/Disable sound about new visitor</source>
-      <translation type="unfinished"/>
+      <translation>پخش/عدم پخش صدا وقتی بازدیدکننده تازه وارد شد</translation>
     </message>
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
-      <translation type="unfinished"/>
+      <translation>فعال/غیر فعال سازی اعلان‌های مرورگر وقتی کاربر تازه وارد شد</translation>
     </message>
     <message>
       <source>List</source>
@@ -2320,11 +2336,11 @@
     </message>
     <message>
       <source>Max records to return</source>
-      <translation type="unfinished"/>
+      <translation>بیشترین مقدار بازگشتی رکوردها</translation>
     </message>
     <message>
       <source>Visitor local time</source>
-      <translation type="unfinished"/>
+      <translation>زمان محلی بازدید کننده</translation>
     </message>
     <message>
       <source>Status</source>
@@ -2609,6 +2625,10 @@
       <translation>تنظیمات فرم شروع چت</translation>
     </message>
     <message>
+      <source>Geo adjustment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Canned messages</source>
       <translation>پیام های مسدود شده</translation>
     </message>
@@ -2658,15 +2678,15 @@
     </message>
     <message>
       <source>Widget themes</source>
-      <translation type="unfinished"/>
+      <translation>تم‌های ابزارک</translation>
     </message>
     <message>
       <source>Import new themes</source>
-      <translation type="unfinished"/>
+      <translation>ایمپورت تم جدید</translation>
     </message>
     <message>
       <source>Default theme</source>
-      <translation type="unfinished"/>
+      <translation>تم پیشفرض</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -2716,7 +2736,7 @@
     </message>
     <message>
       <source>Assigned operator</source>
-      <translation type="unfinished"/>
+      <translation>اپراتور اختصاص داده شده</translation>
     </message>
     <message>
       <source>Clean cache</source>
@@ -3714,7 +3734,7 @@
     </message>
     <message>
       <source>Updating...</source>
-      <translation type="unfinished"/>
+      <translation>در حال به روز رسانی...</translation>
     </message>
     <message>
       <source>Logged user</source>
@@ -4878,7 +4898,7 @@
     </message>
     <message>
       <source>Comparing current database structure, please wait...</source>
-      <translation type="unfinished"/>
+      <translation>در حال مقایسه ساختار  پایگاه داده حاضر، لطفاً منتظر بمانید</translation>
     </message>
     <message>
       <source>Time zone</source>
@@ -5011,84 +5031,84 @@
     <name>update/statusdb</name>
     <message>
       <source>Database structure check</source>
-      <translation type="unfinished"/>
+      <translation>بررسی ساختار پایگاه داده</translation>
     </message>
     <message>
       <source>Your database does not require any updates</source>
-      <translation type="unfinished"/>
+      <translation>پایگاه داده شما نیازی به به روز رسانی ندارد</translation>
     </message>
     <message>
       <source>Update database</source>
-      <translation type="unfinished"/>
+      <translation>به روز رسانی پایگاه داده</translation>
     </message>
     <message>
       <source>Queries which will be executed on update</source>
-      <translation type="unfinished"/>
+      <translation>کوئری‌هایی که هنگام به روز رسانی اجرا خواهند شد</translation>
     </message>
   </context>
   <context>
     <name>theme/index</name>
     <message>
       <source>Default theme</source>
-      <translation type="unfinished"/>
+      <translation>تم پیشفرض</translation>
     </message>
     <message>
       <source>Theme</source>
-      <translation type="unfinished"/>
+      <translation>تم</translation>
     </message>
     <message>
       <source>Widget themes</source>
-      <translation type="unfinished"/>
+      <translation>تم‌های ابزارک</translation>
     </message>
     <message>
       <source>Import a new theme</source>
-      <translation type="unfinished"/>
+      <translation>ایمپورت تم جدید</translation>
     </message>
     <message>
       <source>Themes</source>
-      <translation type="unfinished"/>
+      <translation>تم‌ها</translation>
     </message>
     <message>
       <source>Import theme</source>
-      <translation type="unfinished"/>
+      <translation>ایمپورت تم</translation>
     </message>
   </context>
   <context>
     <name>theme/default</name>
     <message>
       <source>Set as default theme</source>
-      <translation type="unfinished"/>
+      <translation>انتخاب به عنوان تم پیشفرض</translation>
     </message>
   </context>
   <context>
     <name>theme/import</name>
     <message>
       <source>Default theme was set</source>
-      <translation type="unfinished"/>
+      <translation>یم پیشفرض تنظیم شد</translation>
     </message>
     <message>
       <source>Import theme</source>
-      <translation type="unfinished"/>
+      <translation>ایمپورت تم</translation>
     </message>
     <message>
       <source>File</source>
-      <translation type="unfinished"/>
+      <translation>فایل</translation>
     </message>
     <message>
       <source>Import</source>
-      <translation type="unfinished"/>
+      <translation>ایمپورت</translation>
     </message>
     <message>
       <source>Theme imported</source>
-      <translation type="unfinished"/>
+      <translation>نم ایمپورت شد</translation>
     </message>
     <message>
       <source>Could not import a new theme!</source>
-      <translation type="unfinished"/>
+      <translation>نمی‌توان تم جدید را ایمپورت کرد</translation>
     </message>
     <message>
       <source>Invalid file!</source>
-      <translation type="unfinished"/>
+      <translation>فایل نامعتبر</translation>
     </message>
   </context>
   <context>
@@ -5467,6 +5487,14 @@
   <context>
     <name>system/xmpp</name>
     <message>
+      <source>Geo adjustments active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>تنظیمات به روز شد</translation>
+    </message>
+    <message>
       <source>XMPP settings</source>
       <translation>تنظیمات XMPP</translation>
     </message>
@@ -5593,10 +5621,6 @@
     <message>
       <source>Grant permission to send a message</source>
       <translation>سطوح دسترسی برای ارسال پیام</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>تنظیمات به روز شد</translation>
     </message>
     <message>
       <source>Succesfully authorised, now you can try to send a message</source>
@@ -5917,6 +5941,57 @@
     <name>chat/updatemsguser</name>
     <message>
       <source>User has edited his last message</source>
+      <translation>کاربر آخرین پیام خود را ویرایش کرد</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/geoadjustment</name>
+    <message>
+      <source>GEO adjustment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>custom</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E.g. ar,pl</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Other countries, put widget/chat status to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>offline status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>hidden/disabled, widget will not be shown</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For unmatched countries put chat status to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>normal status</source>
       <translation type="unfinished"/>
     </message>
   </context>
