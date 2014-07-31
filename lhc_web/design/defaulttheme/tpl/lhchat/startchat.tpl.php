@@ -21,8 +21,12 @@
 	<?php if (isset($start_data_fields['name_hidden']) && $start_data_fields['name_hidden'] == true) : ?>
 	<input type="hidden" name="Username" value="<?php echo htmlspecialchars($input_data->username);?>" />
 	<?php else : ?>
-	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Name');?><?php if (isset($start_data_fields['name_require_option']) && $start_data_fields['name_require_option'] == 'required') : ?>*<?php endif;?></label>
-	<input type="text" name="Username" value="<?php echo htmlspecialchars($input_data->username);?>" />
+		<?php if (in_array('username', $input_data->hattr)) : ?>
+			<input type="hidden" name="Username" value="<?php echo htmlspecialchars($input_data->username);?>" />
+		<?php else : ?>
+			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Name');?><?php if (isset($start_data_fields['name_require_option']) && $start_data_fields['name_require_option'] == 'required') : ?>*<?php endif;?></label>
+			<input type="text" name="Username" value="<?php echo htmlspecialchars($input_data->username);?>" />
+		<?php endif; ?>
 	<?php endif; ?>
 <?php endif; ?>
 
@@ -30,8 +34,12 @@
 	<?php if (isset($start_data_fields['email_hidden']) && $start_data_fields['email_hidden'] == true) : ?>
 	<input type="hidden" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
 	<?php else : ?>
-	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','E-mail');?><?php if (isset($start_data_fields['email_require_option']) && $start_data_fields['email_require_option'] == 'required') : ?>*<?php endif;?></label>
-	<input type="text" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
+		<?php if (in_array('email', $input_data->hattr)) : ?>
+			<input type="hidden" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
+		<?php else : ?>
+			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','E-mail');?><?php if (isset($start_data_fields['email_require_option']) && $start_data_fields['email_require_option'] == 'required') : ?>*<?php endif;?></label>
+			<input type="text" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
+		<?php endif; ?>
 	<?php endif; ?>
 <?php endif; ?>
 
@@ -40,8 +48,12 @@
 <?php if (isset($start_data_fields['phone_hidden']) && $start_data_fields['phone_hidden'] == true) : ?>
 <input type="hidden" name="Phone" value="<?php echo htmlspecialchars($input_data->phone);?>" />
 <?php else : ?>
-<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Phone');?><?php if (isset($start_data_fields['phone_require_option']) && $start_data_fields['phone_require_option'] == 'required') : ?>*<?php endif;?></label>
-<input type="text" name="Phone" value="<?php echo htmlspecialchars($input_data->phone);?>" />
+		<?php if (in_array('phone', $input_data->hattr)) : ?>
+			<input type="hidden" name="Phone" value="<?php echo htmlspecialchars($input_data->phone);?>" />
+		<?php else : ?>
+			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Phone');?><?php if (isset($start_data_fields['phone_require_option']) && $start_data_fields['phone_require_option'] == 'required') : ?>*<?php endif;?></label>
+			<input type="text" name="Phone" value="<?php echo htmlspecialchars($input_data->phone);?>" />
+		<?php endif; ?>
 <?php endif; ?>
 
 <?php endif; ?>
