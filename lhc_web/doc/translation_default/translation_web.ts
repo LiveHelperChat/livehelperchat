@@ -148,6 +148,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Interval between chat status checks in seconds, 0 disabled.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show BB Code button</source>
       <translation type="unfinished"/>
     </message>
@@ -326,6 +330,10 @@
     </message>
     <message>
       <source>Widget copyright link</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text above start chat form fields</source>
       <translation type="unfinished"/>
     </message>
     <message>
