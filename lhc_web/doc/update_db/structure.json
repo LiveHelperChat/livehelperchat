@@ -3519,6 +3519,13 @@
                 "hidden": "0"
             },
             {
+                "identifier": "mheight",
+                "value": "",
+                "type": "0",
+                "explain": "Messages box height",
+                "hidden": "0"
+            },
+            {
                 "identifier": "track_online_visitors",
                 "value": "1",
                 "type": "0",
