@@ -53,6 +53,9 @@
 						<label><?php echo $fields['widget_copyright_url']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('widget_copyright_url', $fields['widget_copyright_url'], $object)?>
 						
+						<label><?php echo $fields['explain_text']['trans'];?></label>
+						<?php echo erLhcoreClassAbstract::renderInput('explain_text', $fields['explain_text'], $object)?>
+						
 						<label><?php echo erLhcoreClassAbstract::renderInput('show_copyright', $fields['show_copyright'], $object)?> <?php echo $fields['show_copyright']['trans'];?></label>
 						
 						

@@ -37,6 +37,7 @@ class erLhAbstractModelWidgetTheme {
 			'copyright_image_path'		=> $this->copyright_image_path,
 			'show_copyright'			=> $this->show_copyright,
 			'widget_copyright_url'		=> $this->widget_copyright_url,
+			'explain_text'				=> $this->explain_text,
 		);
 
 		return $stateArray;
@@ -156,6 +157,16 @@ class erLhAbstractModelWidgetTheme {
    				'widget_copyright_url' => array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget copyright link'),
+   						'required' => false,  
+   						'hidden' => true,
+   						'nginit' => true,						
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),  				
+   				'explain_text' => array(
+   						'type' => 'textarea',
+   						'height' => '50px',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text above start chat form fields'),
    						'required' => false,  
    						'hidden' => true,
    						'nginit' => true,						
@@ -688,6 +699,7 @@ class erLhAbstractModelWidgetTheme {
 	public $copyright_image_path = '';
 	public $show_copyright = '1';
 	public $widget_copyright_url = '';
+	public $explain_text = '';
 	public $widget_border_color = 'cccccc';
 	
 	public $hide_add = false;

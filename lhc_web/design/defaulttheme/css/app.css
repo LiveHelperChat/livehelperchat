@@ -453,6 +453,11 @@ div.message-row-in {
 	font-size: 0.75em;
 }
 
+.start-chat-intro{
+	font-weight:bold;
+	margin-bottom:10px;
+	font-size:15px;
+}
 
 .user-is-typing,
 #id-operator-typing {

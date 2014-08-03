@@ -163,6 +163,11 @@ $def->properties['offline_text'] = new ezcPersistentObjectProperty();
 $def->properties['offline_text']->columnName   = 'offline_text';
 $def->properties['offline_text']->propertyName = 'offline_text';
 $def->properties['offline_text']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+ 
+$def->properties['explain_text'] = new ezcPersistentObjectProperty();
+$def->properties['explain_text']->columnName   = 'explain_text';
+$def->properties['explain_text']->propertyName = 'explain_text';
+$def->properties['explain_text']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 return $def;
 

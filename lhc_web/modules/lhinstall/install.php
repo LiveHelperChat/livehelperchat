@@ -398,6 +398,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `copyright_image` varchar(250) NOT NULL,
 				  `copyright_image_path` varchar(250) NOT NULL,
 				  `widget_copyright_url` varchar(250) NOT NULL,
+				  `explain_text` text NOT NULL,
 				  `show_copyright` int(11) NOT NULL DEFAULT '1',
 				  PRIMARY KEY (`id`)
 				) DEFAULT CHARSET=utf8;");

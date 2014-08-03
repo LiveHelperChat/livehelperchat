@@ -868,6 +868,14 @@
                 "key": "",
                 "default": null,
                 "extra": ""
+            },
+            {
+                "field": "explain_text",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
             }
         ],
         "lh_canned_msg": [
