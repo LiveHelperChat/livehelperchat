@@ -3534,6 +3534,13 @@
                 "hidden": "0"
             },
             {
+                "identifier": "checkstatus_timeout",
+                "value": "0",
+                "type": "0",
+                "explain": "Interval between chat status checks in seconds, 0 disabled.",
+                "hidden": "0"
+            },
+            {
                 "identifier": "track_online_visitors",
                 "value": "1",
                 "type": "0",

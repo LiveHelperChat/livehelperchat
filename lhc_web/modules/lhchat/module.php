@@ -285,6 +285,12 @@ $ViewList['getstatus'] = array(
 	'multiple_arguments' => array ( 'department' )
 );
 
+$ViewList['chatcheckstatus'] = array(
+    'params' => array(),
+    'uparams' => array('status','department'),
+	'multiple_arguments' => array ( 'department' )
+);
+
 $ViewList['getstatusembed'] = array(
     'params' => array(),
     'uparams' => array('operator','theme','hide_offline','leaveamessage','department','priority'),
