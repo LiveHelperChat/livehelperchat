@@ -1916,6 +1916,10 @@
       <source>At this moment there are no logged in support staff members, but you can leave your messages</source>
       <translation>För närvarande finns ingen support medarbetare tillgänglig, men du kan lämnna ett meddelande</translation>
     </message>
+    <message>
+      <source>Visitor has been redirected to contact form</source>
+      <translation>Besökare har vidarebefordrats till kontaktformuläret</translation>
+    </message>
   </context>
   <context>
     <name>chat/closedchats</name>
@@ -2525,6 +2529,10 @@
   <context>
     <name>system/configuration</name>
     <message>
+      <source>Geo adjustment</source>
+      <translation>Geo justering</translation>
+    </message>
+    <message>
       <source>Request notification permission</source>
       <translation>Begär notifieringsrättighet</translation>
     </message>
@@ -2617,16 +2625,16 @@
       <translation>Geografisk plats inställningar</translation>
     </message>
     <message>
+      <source>GEO adjustment</source>
+      <translation>Geo justering</translation>
+    </message>
+    <message>
       <source>Synchronization and sound settings</source>
       <translation>Synkronisering och ljudinställningar</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
       <translation>Starta chatt , formulär inställningar</translation>
-    </message>
-    <message>
-      <source>Geo adjustment</source>
-      <translation>Geo justering</translation>
     </message>
     <message>
       <source>Canned messages</source>

@@ -1916,6 +1916,10 @@
       <source>At this moment there are no logged in support staff members, but you can leave your messages</source>
       <translation>Tại thời điểm này chúng tôi đang ngoại tuyến, Nhưng bạn có thể để lại tin nhắn của bạn.</translation>
     </message>
+    <message>
+      <source>Visitor has been redirected to contact form</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/closedchats</name>
@@ -2525,6 +2529,10 @@
   <context>
     <name>system/configuration</name>
     <message>
+      <source>Geo adjustment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Request notification permission</source>
       <translation>Yêu cầu sự cho phép thông báo</translation>
     </message>
@@ -2617,16 +2625,16 @@
       <translation>Cấu hình phát hiện GEO</translation>
     </message>
     <message>
+      <source>GEO adjustment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Synchronization and sound settings</source>
       <translation>Đồng bộ hóa âm thanh và thiết lập</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
       <translation>Bắt đầu trò chuyện thiết lập hình thức</translation>
-    </message>
-    <message>
-      <source>Geo adjustment</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Canned messages</source>

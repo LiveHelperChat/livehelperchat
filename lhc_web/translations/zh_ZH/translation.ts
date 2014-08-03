@@ -79,7 +79,7 @@
     </message>
     <message>
       <source>Minimum phone number length</source>
-      <translation type="unfinished"/>
+      <translation>电话号码最小长度</translation>
     </message>
     <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
@@ -300,7 +300,7 @@
     </message>
     <message>
       <source>Status widget border color</source>
-      <translation type="unfinished"/>
+      <translation>状态插件的边框颜色</translation>
     </message>
     <message>
       <source>Text color</source>
@@ -490,7 +490,7 @@
     </message>
     <message>
       <source>Requires phone</source>
-      <translation type="unfinished"/>
+      <translation>必须的电话号码</translation>
     </message>
     <message>
       <source>Show random operator profile</source>
@@ -708,11 +708,11 @@
     </message>
     <message>
       <source>Operator ID</source>
-      <translation type="unfinished"/>
+      <translation>操作员ID</translation>
     </message>
     <message>
       <source>To what operator chat should be assigned automatically?</source>
-      <translation type="unfinished"/>
+      <translation>在线聊天自动分配给后台操作员？</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want your status to appear</source>
@@ -768,15 +768,15 @@
     </message>
     <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
-      <translation type="unfinished"/>
+      <translation>最小化操作，仅当状态插件位于页面底部时启用</translation>
     </message>
     <message>
       <source>Keep where it was</source>
-      <translation type="unfinished"/>
+      <translation>保持当前位置</translation>
     </message>
     <message>
       <source>Minimize to bottom of the screen</source>
-      <translation type="unfinished"/>
+      <translation>最小化到屏幕底部</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -1436,7 +1436,7 @@
     </message>
     <message>
       <source>Time zone</source>
-      <translation type="unfinished"/>
+      <translation>时区</translation>
     </message>
     <message>
       <source>City</source>
@@ -1775,7 +1775,7 @@
     </message>
     <message>
       <source>Live support is not available in your country</source>
-      <translation type="unfinished"/>
+      <translation>在线支持目前在您的国家不可用</translation>
     </message>
     <message>
       <source>Live Support</source>
@@ -1811,7 +1811,7 @@
     </message>
     <message>
       <source>characters</source>
-      <translation type="unfinished"/>
+      <translation>字符</translation>
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
@@ -1915,6 +1915,10 @@
     <message>
       <source>At this moment there are no logged in support staff members, but you can leave your messages</source>
       <translation>此时，有没有记录的工作人员支持，但您可以留下您的讯息</translation>
+    </message>
+    <message>
+      <source>Visitor has been redirected to contact form</source>
+      <translation>访客已经被重定向到联系表单页面</translation>
     </message>
   </context>
   <context>
@@ -2148,7 +2152,7 @@
     </message>
     <message>
       <source>Time zone</source>
-      <translation type="unfinished"/>
+      <translation>时区</translation>
     </message>
     <message>
       <source>Identifier</source>
@@ -2336,11 +2340,11 @@
     </message>
     <message>
       <source>Max records to return</source>
-      <translation type="unfinished"/>
+      <translation>返回的最大记录</translation>
     </message>
     <message>
       <source>Visitor local time</source>
-      <translation type="unfinished"/>
+      <translation>访客本当地时间</translation>
     </message>
     <message>
       <source>Status</source>
@@ -2525,6 +2529,10 @@
   <context>
     <name>system/configuration</name>
     <message>
+      <source>Geo adjustment</source>
+      <translation>地理位置调整</translation>
+    </message>
+    <message>
       <source>Request notification permission</source>
       <translation>请求通知权限</translation>
     </message>
@@ -2617,16 +2625,16 @@
       <translation>GEO检测配置</translation>
     </message>
     <message>
+      <source>GEO adjustment</source>
+      <translation>地理位置调整</translation>
+    </message>
+    <message>
       <source>Synchronization and sound settings</source>
       <translation>同步和声音设置</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
       <translation>开始聊天的形式设置</translation>
-    </message>
-    <message>
-      <source>Geo adjustment</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Canned messages</source>
@@ -2736,7 +2744,7 @@
     </message>
     <message>
       <source>Assigned operator</source>
-      <translation type="unfinished"/>
+      <translation>指定的操作员</translation>
     </message>
     <message>
       <source>Clean cache</source>
@@ -5488,7 +5496,7 @@
     <name>system/xmpp</name>
     <message>
       <source>Geo adjustments active</source>
-      <translation type="unfinished"/>
+      <translation>激活地理位置调整</translation>
     </message>
     <message>
       <source>Settings updated</source>
@@ -5941,58 +5949,58 @@
     <name>chat/updatemsguser</name>
     <message>
       <source>User has edited his last message</source>
-      <translation type="unfinished"/>
+      <translation>用户已编辑他最后的聊天信息</translation>
     </message>
   </context>
   <context>
     <name>chat/geoadjustment</name>
     <message>
       <source>GEO adjustment</source>
-      <translation type="unfinished"/>
+      <translation>地理位置调整</translation>
     </message>
     <message>
       <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
-      <translation type="unfinished"/>
+      <translation>也让聊天状态监测插件使用这些规则？系统性能减低一般与开启此选项有关</translation>
     </message>
     <message>
       <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
-      <translation type="unfinished"/>
+      <translation>让聊天状态对于这些能用逗号列出国家代码的国家标准化，通常聊天只在以上这些国家展现</translation>
     </message>
     <message>
       <source>For</source>
-      <translation type="unfinished"/>
+      <translation>对于</translation>
     </message>
     <message>
       <source>all</source>
-      <translation type="unfinished"/>
+      <translation>全部</translation>
     </message>
     <message>
       <source>custom</source>
-      <translation type="unfinished"/>
+      <translation>自定义</translation>
     </message>
     <message>
       <source>E.g. ar,pl</source>
-      <translation type="unfinished"/>
+      <translation>例如阿根廷，波兰</translation>
     </message>
     <message>
       <source>Other countries, put widget/chat status to</source>
-      <translation type="unfinished"/>
+      <translation>使用插件/聊天状态的其他国家地区</translation>
     </message>
     <message>
       <source>offline status</source>
-      <translation type="unfinished"/>
+      <translation>离线状态</translation>
     </message>
     <message>
       <source>hidden/disabled, widget will not be shown</source>
-      <translation type="unfinished"/>
+      <translation>隐藏/禁用，插件将不会展示</translation>
     </message>
     <message>
       <source>For unmatched countries put chat status to</source>
-      <translation type="unfinished"/>
+      <translation>将聊天记录分配到不匹配的国家地区</translation>
     </message>
     <message>
       <source>normal status</source>
-      <translation type="unfinished"/>
+      <translation>正常状态</translation>
     </message>
   </context>
 </TS>

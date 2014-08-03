@@ -1916,6 +1916,10 @@
       <source>At this moment there are no logged in support staff members, but you can leave your messages</source>
       <translation>U ovom trenutku nitko od osoblja nije prijavljen na razgovor, ali možete ostaviti svoje poruke</translation>
     </message>
+    <message>
+      <source>Visitor has been redirected to contact form</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/closedchats</name>
@@ -2525,6 +2529,10 @@
   <context>
     <name>system/configuration</name>
     <message>
+      <source>Geo adjustment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Request notification permission</source>
       <translation>Zatraži dozvolu za obavijesti</translation>
     </message>
@@ -2617,16 +2625,16 @@
       <translation>Postavke GEO detekcije</translation>
     </message>
     <message>
+      <source>GEO adjustment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Synchronization and sound settings</source>
       <translation>Postavke za sinkronizaciju i zvuk</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
       <translation>Postavke obrasca za početak razgovora</translation>
-    </message>
-    <message>
-      <source>Geo adjustment</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Canned messages</source>

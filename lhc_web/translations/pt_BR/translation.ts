@@ -63,7 +63,7 @@
     </message>
     <message>
       <source>Pro active chats invitations limitation based on pending chats, (-1) do not limit, (0,1,n+1) number of pending chats can be for invitation to be shown.</source>
-      <translation type="unfinished"/>
+      <translation>Chats pró ativos possuem limitação de convites baseados em chats pendentes, (-1) não limita, (0,1, n+1) número de chats pendentes que podem ser mostrados para convidar</translation>
     </message>
     <message>
       <source>Is pro active chat invitation active. Online users tracking also has to be enabled</source>
@@ -79,11 +79,11 @@
     </message>
     <message>
       <source>Minimum phone number length</source>
-      <translation type="unfinished"/>
+      <translation>Número mínimo do tamanho de caracteres do telefone</translation>
     </message>
     <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
-      <translation type="unfinished"/>
+      <translation>Tempo limite de mensagem pró-ativa em horas. Após quantas horas mensagens do bate-papo deve ser mostrado novamente.</translation>
     </message>
     <message>
       <source>Maximum message length in characters</source>
@@ -115,7 +115,7 @@
     </message>
     <message>
       <source>Please enter explicit http mode. Either http: or https:, do not forget : at the end.</source>
-      <translation type="unfinished"/>
+      <translation>Por favor digite explícitamente modo http. Use http: ou https:, não se esqueça do : no final.</translation>
     </message>
     <message>
       <source>Disable chat transcript send</source>
@@ -127,11 +127,11 @@
     </message>
     <message>
       <source>Disable option in widget to open new window. Restore icon will be hidden</source>
-      <translation type="unfinished"/>
+      <translation>Disabilite opção no widget abrir em nova janela. Ícone de restaurar ficará invisível.</translation>
     </message>
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
-      <translation type="unfinished"/>
+      <translation>Disabilite armazenamento de HTML5 , verifique se seu site está mudando de http e https</translation>
     </message>
     <message>
       <source>Your site URL address</source>
@@ -147,7 +147,7 @@
     </message>
     <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
-      <translation type="unfinished"/>
+      <translation>Chats automaticamente removidos. 0 - desabilitado, n &gt; 0 tempo em minutos antes do chat ser automaticamente deletado</translation>
     </message>
     <message>
       <source>Automatically reopen chat on widget open</source>
@@ -155,7 +155,7 @@
     </message>
     <message>
       <source>Automatic chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
-      <translation type="unfinished"/>
+      <translation>Chats fechar automaticamente. 0 - desabilitado, n &gt; 0  tempo em minutos antes do chat ser fechado automaticamente</translation>
     </message>
     <message>
       <source>Support application name, visible in browser title.</source>
@@ -490,7 +490,7 @@
     </message>
     <message>
       <source>Requires phone</source>
-      <translation type="unfinished"/>
+      <translation>Requer Telefone</translation>
     </message>
     <message>
       <source>Show random operator profile</source>
@@ -1775,7 +1775,7 @@
     </message>
     <message>
       <source>Live support is not available in your country</source>
-      <translation type="unfinished"/>
+      <translation>Live Support não está em seu país</translation>
     </message>
     <message>
       <source>Live Support</source>
@@ -1811,7 +1811,7 @@
     </message>
     <message>
       <source>characters</source>
-      <translation type="unfinished"/>
+      <translation>caractéres</translation>
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
@@ -1915,6 +1915,10 @@
     <message>
       <source>At this moment there are no logged in support staff members, but you can leave your messages</source>
       <translation>Neste momento não existe logado membros da equipe, mas você pode deixar suas mensagens</translation>
+    </message>
+    <message>
+      <source>Visitor has been redirected to contact form</source>
+      <translation>Visitante será redirecionado ao formulário de contato</translation>
     </message>
   </context>
   <context>
@@ -2525,6 +2529,10 @@
   <context>
     <name>system/configuration</name>
     <message>
+      <source>Geo adjustment</source>
+      <translation>Geo ajustamento</translation>
+    </message>
+    <message>
       <source>Request notification permission</source>
       <translation>Requisitar permissão de notificação</translation>
     </message>
@@ -2617,16 +2625,16 @@
       <translation>Configuração de Geolocalização</translation>
     </message>
     <message>
+      <source>GEO adjustment</source>
+      <translation>GEO ajustamento</translation>
+    </message>
+    <message>
       <source>Synchronization and sound settings</source>
       <translation>Sincronização e configurações de som</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
       <translation>Configurações de formulário inicial de chat</translation>
-    </message>
-    <message>
-      <source>Geo adjustment</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Canned messages</source>
@@ -5488,7 +5496,7 @@
     <name>system/xmpp</name>
     <message>
       <source>Geo adjustments active</source>
-      <translation type="unfinished"/>
+      <translation>Geo ajustes ativos</translation>
     </message>
     <message>
       <source>Settings updated</source>
@@ -5948,51 +5956,51 @@
     <name>chat/geoadjustment</name>
     <message>
       <source>GEO adjustment</source>
-      <translation type="unfinished"/>
+      <translation>GEO ajustamento</translation>
     </message>
     <message>
       <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
-      <translation type="unfinished"/>
+      <translation>Aplicará para o chat indicador de status com estas regras também? Diminuirá o desempenho está associado a esta opção</translation>
     </message>
     <message>
       <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
-      <translation type="unfinished"/>
+      <translation>Faça estado de chat normal para esses países, os países podem ser separados por vírgula &quot;de,gb,us,fr&quot; significa bate-papo seria mostrado como de costume apenas para estes países.</translation>
     </message>
     <message>
       <source>For</source>
-      <translation type="unfinished"/>
+      <translation>Para</translation>
     </message>
     <message>
       <source>all</source>
-      <translation type="unfinished"/>
+      <translation>Todos</translation>
     </message>
     <message>
       <source>custom</source>
-      <translation type="unfinished"/>
+      <translation>personalizado</translation>
     </message>
     <message>
       <source>E.g. ar,pl</source>
-      <translation type="unfinished"/>
+      <translation>Exemplo: ar, pl</translation>
     </message>
     <message>
       <source>Other countries, put widget/chat status to</source>
-      <translation type="unfinished"/>
+      <translation>Outros países, coloque o status do chat para</translation>
     </message>
     <message>
       <source>offline status</source>
-      <translation type="unfinished"/>
+      <translation>status indisponível</translation>
     </message>
     <message>
       <source>hidden/disabled, widget will not be shown</source>
-      <translation type="unfinished"/>
+      <translation>invisível/desabilitado, widget não será mostrado</translation>
     </message>
     <message>
       <source>For unmatched countries put chat status to</source>
-      <translation type="unfinished"/>
+      <translation>Para os países incomparáveis ​​colocar o status do chat para</translation>
     </message>
     <message>
       <source>normal status</source>
-      <translation type="unfinished"/>
+      <translation>status normal</translation>
     </message>
   </context>
 </TS>

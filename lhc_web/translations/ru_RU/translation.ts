@@ -1917,6 +1917,10 @@
       <source>At this moment there are no logged in support staff members, but you can leave your messages</source>
       <translation>Операторов нет на месте. Вы можете отправить ваше сообщение, ответ придет вам на e-mail.</translation>
     </message>
+    <message>
+      <source>Visitor has been redirected to contact form</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/closedchats</name>
@@ -2526,6 +2530,10 @@
   <context>
     <name>system/configuration</name>
     <message>
+      <source>Geo adjustment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Request notification permission</source>
       <translation>Разрешить уведомления</translation>
     </message>
@@ -2618,16 +2626,16 @@
       <translation>Настройки GEO-обнаружения</translation>
     </message>
     <message>
+      <source>GEO adjustment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Synchronization and sound settings</source>
       <translation>Настройки синхронизации и звука</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
       <translation>Настройки формы начала чата</translation>
-    </message>
-    <message>
-      <source>Geo adjustment</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Canned messages</source>

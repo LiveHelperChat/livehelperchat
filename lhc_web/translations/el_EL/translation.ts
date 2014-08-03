@@ -1916,6 +1916,10 @@
       <source>At this moment there are no logged in support staff members, but you can leave your messages</source>
       <translation>Αυτή τη στιγμή δεν υπάρχουν καμία συνδεδεμένος υποστήριξη μέλη του προσωπικού, αλλά μπορείτε να αφήσετε τα μηνύματα σας</translation>
     </message>
+    <message>
+      <source>Visitor has been redirected to contact form</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/closedchats</name>
@@ -2525,6 +2529,10 @@
   <context>
     <name>system/configuration</name>
     <message>
+      <source>Geo adjustment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Request notification permission</source>
       <translation>Ζητήσει άδεια κοινοποίησης</translation>
     </message>
@@ -2617,16 +2625,16 @@
       <translation>Ρύθμιση παραμέτρων ανίχνευσης GEO</translation>
     </message>
     <message>
+      <source>GEO adjustment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Synchronization and sound settings</source>
       <translation>Ρυθμίσεις συγχρονισμού και ήχο</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
       <translation>Έναρξη συνομιλίας μορφή ρυθμίσεις</translation>
-    </message>
-    <message>
-      <source>Geo adjustment</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Canned messages</source>
