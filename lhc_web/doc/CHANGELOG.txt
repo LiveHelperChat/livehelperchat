@@ -1,3 +1,11 @@
+2.08v
+
+1. https://github.com/LiveHelperChat/livehelperchat/issues/422
+2. https://github.com/LiveHelperChat/livehelperchat/issues/454
+3. https://github.com/LiveHelperChat/livehelperchat/issues/456
+
+execute doc/update_db/update_87.sql for update
+
 2.07v
 
 1. Now you can generate embed code who represents few departments at once. https://github.com/LiveHelperChat/livehelperchat/issues/427
@@ -8,7 +16,7 @@
 6. Now you can set required phone in proactive chat invitation
 7. Option to set required phone length in back office.
 
-execute doc/update_db/update_85.sql for update
+execute doc/update_db/update_86.sql for update
 
 2.06v
 
