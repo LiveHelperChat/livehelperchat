@@ -82,6 +82,10 @@
       <translation>电话号码最小长度</translation>
     </message>
     <message>
+      <source>Messages box height</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
       <translation>在多少小时内主动消息超时。多少小时后主动聊天应该再次显示</translation>
     </message>
@@ -140,6 +144,10 @@
     <message>
       <source>Your company name - visible in bottom left corner</source>
       <translation>您的公司名称-在左下角可见</translation>
+    </message>
+    <message>
+      <source>Interval between chat status checks in seconds, 0 disabled.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Show BB Code button</source>
@@ -321,6 +329,10 @@
     <message>
       <source>Widget copyright link</source>
       <translation>版权小部件的链接</translation>
+    </message>
+    <message>
+      <source>Text above start chat form fields</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Online image</source>

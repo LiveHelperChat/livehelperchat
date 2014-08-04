@@ -82,6 +82,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Messages box height</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
       <translation type="unfinished"/>
     </message>
@@ -139,6 +143,10 @@
     </message>
     <message>
       <source>Your company name - visible in bottom left corner</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Interval between chat status checks in seconds, 0 disabled.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -321,6 +329,10 @@
     <message>
       <source>Widget copyright link</source>
       <translation>پیوند حق نسخه برداری ابزارک</translation>
+    </message>
+    <message>
+      <source>Text above start chat form fields</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Online image</source>

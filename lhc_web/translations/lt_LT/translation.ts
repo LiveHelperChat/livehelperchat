@@ -79,7 +79,11 @@
     </message>
     <message>
       <source>Minimum phone number length</source>
-      <translation type="unfinished"/>
+      <translation>Minimalus telefono numerio ilgis</translation>
+    </message>
+    <message>
+      <source>Messages box height</source>
+      <translation>Susirašinėjimo laukelio aukštis</translation>
     </message>
     <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
@@ -140,6 +144,10 @@
     <message>
       <source>Your company name - visible in bottom left corner</source>
       <translation>Jūsų įmonės pavadinimas, matomas apatiniame kairiame kampe</translation>
+    </message>
+    <message>
+      <source>Interval between chat status checks in seconds, 0 disabled.</source>
+      <translation>Intervalas tarp operatorių būsenos patikrinimų, 0 išjungtas</translation>
     </message>
     <message>
       <source>Show BB Code button</source>
@@ -300,7 +308,7 @@
     </message>
     <message>
       <source>Status widget border color</source>
-      <translation type="unfinished"/>
+      <translation>Statuso widgeto rėmelio spalva</translation>
     </message>
     <message>
       <source>Text color</source>
@@ -321,6 +329,10 @@
     <message>
       <source>Widget copyright link</source>
       <translation>Widgeto autorystės nuoroda</translation>
+    </message>
+    <message>
+      <source>Text above start chat form fields</source>
+      <translation>Tekstas virš pokalbių pradžios formos</translation>
     </message>
     <message>
       <source>Online image</source>
@@ -490,7 +502,7 @@
     </message>
     <message>
       <source>Requires phone</source>
-      <translation type="unfinished"/>
+      <translation>Reikalingas telefonas</translation>
     </message>
     <message>
       <source>Show random operator profile</source>
@@ -708,11 +720,11 @@
     </message>
     <message>
       <source>Operator ID</source>
-      <translation type="unfinished"/>
+      <translation>Operatoriaus ID</translation>
     </message>
     <message>
       <source>To what operator chat should be assigned automatically?</source>
-      <translation type="unfinished"/>
+      <translation>Kokiam operatoriui pokalbis turėtų būti priskirtas automatiškai</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want your status to appear</source>
@@ -768,15 +780,15 @@
     </message>
     <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
-      <translation type="unfinished"/>
+      <translation>Sumažinimo veiksmas, taikoma jeigu widgetas rodomas apačioje.</translation>
     </message>
     <message>
       <source>Keep where it was</source>
-      <translation type="unfinished"/>
+      <translation>Palikti kur buvo</translation>
     </message>
     <message>
       <source>Minimize to bottom of the screen</source>
-      <translation type="unfinished"/>
+      <translation>Sumažinti prie apačios ekrano</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -1436,7 +1448,7 @@
     </message>
     <message>
       <source>Time zone</source>
-      <translation type="unfinished"/>
+      <translation>Laiko zona</translation>
     </message>
     <message>
       <source>City</source>
@@ -1520,7 +1532,7 @@
     </message>
     <message>
       <source>Attach uploaded file</source>
-      <translation type="unfinished"/>
+      <translation>Prisegti nusiųstą failą</translation>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
@@ -1775,7 +1787,7 @@
     </message>
     <message>
       <source>Live support is not available in your country</source>
-      <translation type="unfinished"/>
+      <translation>Pagalba negalima jūsų šalyje</translation>
     </message>
     <message>
       <source>Live Support</source>
@@ -1811,7 +1823,7 @@
     </message>
     <message>
       <source>characters</source>
-      <translation type="unfinished"/>
+      <translation>ženklai</translation>
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
@@ -1918,7 +1930,7 @@
     </message>
     <message>
       <source>Visitor has been redirected to contact form</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojas buvo nukreiptas į kontaktų formą</translation>
     </message>
   </context>
   <context>
@@ -2152,7 +2164,7 @@
     </message>
     <message>
       <source>Time zone</source>
-      <translation type="unfinished"/>
+      <translation>Laiko zona</translation>
     </message>
     <message>
       <source>Identifier</source>
@@ -2340,11 +2352,11 @@
     </message>
     <message>
       <source>Max records to return</source>
-      <translation type="unfinished"/>
+      <translation>Įrašų skaičius gražinimui</translation>
     </message>
     <message>
       <source>Visitor local time</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojo lokalus laikas</translation>
     </message>
     <message>
       <source>Status</source>
@@ -2530,7 +2542,7 @@
     <name>system/configuration</name>
     <message>
       <source>Geo adjustment</source>
-      <translation type="unfinished"/>
+      <translation>Geo tinkinimas</translation>
     </message>
     <message>
       <source>Request notification permission</source>
@@ -2626,7 +2638,7 @@
     </message>
     <message>
       <source>GEO adjustment</source>
-      <translation type="unfinished"/>
+      <translation>GEO tinkinimas</translation>
     </message>
     <message>
       <source>Synchronization and sound settings</source>
@@ -2744,7 +2756,7 @@
     </message>
     <message>
       <source>Assigned operator</source>
-      <translation type="unfinished"/>
+      <translation>Priskirtas operatorius</translation>
     </message>
     <message>
       <source>Clean cache</source>
@@ -5496,7 +5508,7 @@
     <name>system/xmpp</name>
     <message>
       <source>Geo adjustments active</source>
-      <translation type="unfinished"/>
+      <translation>Geo tinkinimas aktyvus</translation>
     </message>
     <message>
       <source>Settings updated</source>
@@ -5949,58 +5961,58 @@
     <name>chat/updatemsguser</name>
     <message>
       <source>User has edited his last message</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojas pakoregavo savo paskutinę žinutę</translation>
     </message>
   </context>
   <context>
     <name>chat/geoadjustment</name>
     <message>
       <source>GEO adjustment</source>
-      <translation type="unfinished"/>
+      <translation>GEO tinkinimas</translation>
     </message>
     <message>
       <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
-      <translation type="unfinished"/>
+      <translation>Taikyti šias taisykles widgetui taip pat? sumažėja sistemos našumas pažymėjus.</translation>
     </message>
     <message>
       <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
-      <translation type="unfinished"/>
+      <translation>Palikti pokalbių būseną normalią šioms šalims, šalys gali būti atskirtos kableliu &quot;de,gb,us,fr&quot; reiškia, kad pokalbių būsena bus rodoma normali šioms šalims.</translation>
     </message>
     <message>
       <source>For</source>
-      <translation type="unfinished"/>
+      <translation>Šioms</translation>
     </message>
     <message>
       <source>all</source>
-      <translation type="unfinished"/>
+      <translation>visoms</translation>
     </message>
     <message>
       <source>custom</source>
-      <translation type="unfinished"/>
+      <translation>įvestom</translation>
     </message>
     <message>
       <source>E.g. ar,pl</source>
-      <translation type="unfinished"/>
+      <translation>Pvz. ar,pl</translation>
     </message>
     <message>
       <source>Other countries, put widget/chat status to</source>
-      <translation type="unfinished"/>
+      <translation>Kitoms šalims, pakeisti widgeto būseną į</translation>
     </message>
     <message>
       <source>offline status</source>
-      <translation type="unfinished"/>
+      <translation>neprisijungęs</translation>
     </message>
     <message>
       <source>hidden/disabled, widget will not be shown</source>
-      <translation type="unfinished"/>
+      <translation>paslėptas/išjungtas, widgetas gali būti neparodytas</translation>
     </message>
     <message>
       <source>For unmatched countries put chat status to</source>
-      <translation type="unfinished"/>
+      <translation>Neatitikusioms jokio filtro šalims pakeisti chato būseną į</translation>
     </message>
     <message>
       <source>normal status</source>
-      <translation type="unfinished"/>
+      <translation>standartinę</translation>
     </message>
   </context>
 </TS>

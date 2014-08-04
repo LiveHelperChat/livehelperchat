@@ -82,6 +82,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Messages box height</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
       <translation>Proaktiivisen viestin odotusaika tunneissa. Kuinka monta tuntia menee, ennen kuin viesti näytetään uudelleen.</translation>
     </message>
@@ -140,6 +144,10 @@
     <message>
       <source>Your company name - visible in bottom left corner</source>
       <translation>Yrityksesi nimi - näkyy vasemmassa alareunassa</translation>
+    </message>
+    <message>
+      <source>Interval between chat status checks in seconds, 0 disabled.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Show BB Code button</source>
@@ -321,6 +329,10 @@
     <message>
       <source>Widget copyright link</source>
       <translation>Widgetin copyright -linkki</translation>
+    </message>
+    <message>
+      <source>Text above start chat form fields</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Online image</source>
