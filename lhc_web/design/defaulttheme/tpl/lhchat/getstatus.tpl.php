@@ -541,13 +541,19 @@ var lh_inst  = {
     },
 
     storePersistenCookie : function(){
-	    lhc_Cookies('lhc_per',this.JSON.stringify(this.cookieDataPers),{expires:16070400<?php $trackDomain != '' || $disableHTML5Storage == 1 ? ($trackDomain != '' ? print ",domain:'.{$trackDomain}'" : print ",domain:this.getCookieDomain()") : ''?>});
+    	try {
+	    	lhc_Cookies('lhc_per',this.JSON.stringify(this.cookieDataPers),{expires:16070400<?php $trackDomain != '' || $disableHTML5Storage == 1 ? ($trackDomain != '' ? print ",domain:'.{$trackDomain}'" : print ",domain:this.getCookieDomain()") : ''?>});
+	    } catch(err) { };
     },
 
     storeSesCookie : function(){
     	<?php if ($trackDomain == '' && $disableHTML5Storage == 0) : ?>
     	if (localStorage) {
-    		localStorage.setItem('lhc_ses',this.JSON.stringify(this.cookieData));
+    		try {
+    			localStorage.setItem('lhc_ses',this.JSON.stringify(this.cookieData));
+    		} catch(err) { // Fallback to cookie
+    			lhc_Cookies('lhc_ses',this.JSON.stringify(this.cookieData),{<?php $trackDomain != '' || $disableHTML5Storage == 1 ? ($trackDomain != '' ? print "domain:'.{$trackDomain}'" : print "domain:this.getCookieDomain()") : ''?>});
+    		};
     	} else {
     	<?php endif;?>
 	    	lhc_Cookies('lhc_ses',this.JSON.stringify(this.cookieData),{<?php $trackDomain != '' || $disableHTML5Storage == 1 ? ($trackDomain != '' ? print "domain:'.{$trackDomain}'" : print "domain:this.getCookieDomain()") : ''?>});
@@ -569,7 +575,9 @@ var lh_inst  = {
 
     storeReferrer : function(ref){
     	if (sessionStorage && !sessionStorage.getItem('lhc_ref')) {
-    		sessionStorage.setItem('lhc_ref',ref);
+    		try {
+    			sessionStorage.setItem('lhc_ref',ref);
+    		} catch(err) {};
     	}
     },
 
@@ -630,7 +638,14 @@ var lh_inst  = {
     addCookieAttributePersistent : function(attr, value){
     	<?php if ($trackDomain == '' && $disableHTML5Storage == 0) : ?>
     	if (localStorage) {
-    		localStorage.setItem(attr,value);
+    		try {
+    			localStorage.setItem(attr,value);
+    		} catch(err) {
+    			if (!this.cookieDataPers[attr] || this.cookieDataPers[attr] != value){
+			    	this.cookieDataPers[attr] = value;
+			    	this.storePersistenCookie();	    	
+		    	};    		
+    		};
     	} else {
     	<?php endif;?>
     	if (!this.cookieDataPers[attr] || this.cookieDataPers[attr] != value){
