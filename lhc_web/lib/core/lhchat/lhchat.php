@@ -382,6 +382,7 @@ class erLhcoreClassChat {
 	    	$q->where( $conditions );
     	}
 
+    	
     	if (isset($params['use_index'])) {
     		$q->useIndex( $params['use_index'] );
     	}
@@ -1175,6 +1176,16 @@ class erLhcoreClassChat {
 	   	}
 
 	   	return $responseStatus;
+   }
+   
+   public static function getChatDurationToUpdateChatID($chatID){
+	   	$sql = 'SELECT ((SELECT MAX(lh_msg.time) FROM lh_msg WHERE lh_msg.chat_id = lh_chat.id AND lh_msg.user_id = 0)-(lh_chat.time+lh_chat.wait_time)) AS chat_duration_counted FROM lh_chat WHERE lh_chat.id = :chat_id';
+	   	$db = ezcDbInstance::get();
+	   	$stmt = $db->prepare($sql);
+	   	$stmt->bindValue(':chat_id',$chatID);
+	   	$stmt->execute();
+	   	$time = $stmt->fetchColumn();
+   	   	return $time > 0 ? $time : 0;   		
    }
    
    private static $persistentSession;

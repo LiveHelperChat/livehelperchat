@@ -3,7 +3,7 @@
     <name>listchatconfig</name>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
-      <translation type="unfinished"/>
+      <translation>Ton bei einer Chat-Einladung wiedergeben</translation>
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
@@ -11,7 +11,7 @@
     </message>
     <message>
       <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
-      <translation type="unfinished"/>
+      <translation>Welche IP&apos;s dürfen DB Updates per http Request ausführen, mit Komma trennen?</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
@@ -35,7 +35,7 @@
     </message>
     <message>
       <source>Play sound on invitation to chat.</source>
-      <translation type="unfinished"/>
+      <translation>Bei Chat Einladung Sound abspielen.</translation>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
@@ -51,11 +51,11 @@
     </message>
     <message>
       <source>Reopen chat functionality enabled</source>
-      <translation type="unfinished"/>
+      <translation>Funktion zum Chat wiedereröffnen aktiviert</translation>
     </message>
     <message>
       <source>Reopen closed chat as new? Otherwise it will be reopened as active.</source>
-      <translation type="unfinished"/>
+      <translation>Geschlossene Chats als Neu wiedereröffnen? Andernfalls wird er als Aktiv wiedereröffnet.</translation>
     </message>
     <message>
       <source>Should invitation logic be executed if there is no online operators</source>
@@ -79,11 +79,11 @@
     </message>
     <message>
       <source>Minimum phone number length</source>
-      <translation type="unfinished"/>
+      <translation>Minimum Länge der Telefonnummer</translation>
     </message>
     <message>
       <source>Messages box height</source>
-      <translation type="unfinished"/>
+      <translation>Höhe der Chat-Box</translation>
     </message>
     <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
@@ -103,15 +103,15 @@
     </message>
     <message>
       <source>Which ip should be ignored in online users list, separate by comma</source>
-      <translation type="unfinished"/>
+      <translation>IP&apos;s die bei den Online Usern ignoriert werden sollen, mit Komma trennen</translation>
     </message>
     <message>
       <source>Hide disabled department widget</source>
-      <translation type="unfinished"/>
+      <translation>Verstecke deaktivierte Abteilungen</translation>
     </message>
     <message>
       <source>Is visitor e-mail required for FAQ</source>
-      <translation type="unfinished"/>
+      <translation>Ist die E-Mail Adresse des Besuchers für FAQ erforderlich</translation>
     </message>
     <message>
       <source>Chats export secret hash</source>
@@ -159,7 +159,7 @@
     </message>
     <message>
       <source>Automatically reopen chat on widget open</source>
-      <translation type="unfinished"/>
+      <translation>Chat beim öffnen des Widgets automatisch wieder eröffnen</translation>
     </message>
     <message>
       <source>Automatic chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
@@ -167,7 +167,7 @@
     </message>
     <message>
       <source>Support application name, visible in browser title.</source>
-      <translation type="unfinished"/>
+      <translation>Name der Support-Anwendung, in Browser-Titel sichtbar.</translation>
     </message>
     <message>
       <source>Allow user to reopen closed chats?</source>
@@ -175,7 +175,7 @@
     </message>
     <message>
       <source>Change to your site Terms of Service</source>
-      <translation type="unfinished"/>
+      <translation>Zur Seite mit AGB wechseln</translation>
     </message>
     <message>
       <source>How many seconds chat accept link is valid. Set 0 to force login all the time manually.</source>
@@ -332,7 +332,7 @@
     </message>
     <message>
       <source>Text above start chat form fields</source>
-      <translation type="unfinished"/>
+      <translation>Text oberhalb des Chat-Formulars</translation>
     </message>
     <message>
       <source>Online image</source>
@@ -502,7 +502,7 @@
     </message>
     <message>
       <source>Requires phone</source>
-      <translation type="unfinished"/>
+      <translation>Telefonnummer benötigt</translation>
     </message>
     <message>
       <source>Show random operator profile</source>
@@ -724,7 +724,7 @@
     </message>
     <message>
       <source>To what operator chat should be assigned automatically?</source>
-      <translation type="unfinished"/>
+      <translation>Zu welchem Operator soll automatisch zugewiesen werden?</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want your status to appear</source>
@@ -788,7 +788,7 @@
     </message>
     <message>
       <source>Minimize to bottom of the screen</source>
-      <translation type="unfinished"/>
+      <translation>Nach unten minimieren</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -1787,7 +1787,7 @@
     </message>
     <message>
       <source>Live support is not available in your country</source>
-      <translation type="unfinished"/>
+      <translation>Der Live Support ist in Ihrem Land nicht verfügbar</translation>
     </message>
     <message>
       <source>Live Support</source>
@@ -1823,7 +1823,7 @@
     </message>
     <message>
       <source>characters</source>
-      <translation type="unfinished"/>
+      <translation>Zeichen</translation>
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
@@ -1930,7 +1930,7 @@
     </message>
     <message>
       <source>Visitor has been redirected to contact form</source>
-      <translation type="unfinished"/>
+      <translation>Besucher wurde auf Kontaktformular weitergeleitet</translation>
     </message>
   </context>
   <context>
@@ -2288,7 +2288,7 @@
     </message>
     <message>
       <source>Group list by</source>
-      <translation type="unfinished"/>
+      <translation>Sortieren nach</translation>
     </message>
     <message>
       <source>Group by</source>
@@ -2542,7 +2542,7 @@
     <name>system/configuration</name>
     <message>
       <source>Geo adjustment</source>
-      <translation type="unfinished"/>
+      <translation>GEO Anpassung</translation>
     </message>
     <message>
       <source>Request notification permission</source>
@@ -2602,7 +2602,7 @@
     </message>
     <message>
       <source>FAQ embed code</source>
-      <translation>FAQ für eingebetteten Code</translation>
+      <translation>FAQ Einbettungscode</translation>
     </message>
     <message>
       <source>Questionary embed code</source>
@@ -2638,7 +2638,7 @@
     </message>
     <message>
       <source>GEO adjustment</source>
-      <translation type="unfinished"/>
+      <translation>GEO Anpassung</translation>
     </message>
     <message>
       <source>Synchronization and sound settings</source>
@@ -2694,7 +2694,7 @@
     </message>
     <message>
       <source>Theming</source>
-      <translation type="unfinished"/>
+      <translation>Gestaltung</translation>
     </message>
     <message>
       <source>Widget themes</source>
@@ -5508,7 +5508,7 @@
     <name>system/xmpp</name>
     <message>
       <source>Geo adjustments active</source>
-      <translation type="unfinished"/>
+      <translation>GEO Anpassungen aktiv</translation>
     </message>
     <message>
       <source>Settings updated</source>
@@ -5968,7 +5968,7 @@
     <name>chat/geoadjustment</name>
     <message>
       <source>GEO adjustment</source>
-      <translation type="unfinished"/>
+      <translation>GEO Anpassung</translation>
     </message>
     <message>
       <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
@@ -5984,11 +5984,11 @@
     </message>
     <message>
       <source>all</source>
-      <translation type="unfinished"/>
+      <translation>Alle</translation>
     </message>
     <message>
       <source>custom</source>
-      <translation type="unfinished"/>
+      <translation>Benutzerdefiniert</translation>
     </message>
     <message>
       <source>E.g. ar,pl</source>
@@ -6000,19 +6000,19 @@
     </message>
     <message>
       <source>offline status</source>
-      <translation type="unfinished"/>
+      <translation>Offline Status</translation>
     </message>
     <message>
       <source>hidden/disabled, widget will not be shown</source>
-      <translation type="unfinished"/>
+      <translation>Versteckt/Deaktiviert, Widget bleibt unsichtbar</translation>
     </message>
     <message>
       <source>For unmatched countries put chat status to</source>
-      <translation type="unfinished"/>
+      <translation>Bei undefinierten Ländern den Chat Status ändern auf</translation>
     </message>
     <message>
       <source>normal status</source>
-      <translation type="unfinished"/>
+      <translation>Status normal</translation>
     </message>
   </context>
 </TS>
