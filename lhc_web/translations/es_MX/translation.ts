@@ -79,7 +79,11 @@
     </message>
     <message>
       <source>Minimum phone number length</source>
-      <translation type="unfinished"/>
+      <translation>Cantidad mínima de dígitos del número de teléfono</translation>
+    </message>
+    <message>
+      <source>Messages box height</source>
+      <translation>Altura de la caja de mensajes</translation>
     </message>
     <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
@@ -140,6 +144,10 @@
     <message>
       <source>Your company name - visible in bottom left corner</source>
       <translation>Nombre de su compañía - visible en la esquina inferior izquierda</translation>
+    </message>
+    <message>
+      <source>Interval between chat status checks in seconds, 0 disabled.</source>
+      <translation>Intervalo entre la revisión del estado del chat en segundos, 0 deshabilitado.</translation>
     </message>
     <message>
       <source>Show BB Code button</source>
@@ -325,6 +333,10 @@
       <translation>Enlace para el widget de los derechos de autor</translation>
     </message>
     <message>
+      <source>Text above start chat form fields</source>
+      <translation>Texto sobre los campos de iniciar chat</translation>
+    </message>
+    <message>
       <source>Online image</source>
       <translation>Imagen de en línea</translation>
     </message>
@@ -492,7 +504,7 @@
     </message>
     <message>
       <source>Requires phone</source>
-      <translation type="unfinished"/>
+      <translation>Teléfono es requerido</translation>
     </message>
     <message>
       <source>Show random operator profile</source>
@@ -1777,7 +1789,7 @@
     </message>
     <message>
       <source>Live support is not available in your country</source>
-      <translation type="unfinished"/>
+      <translation>El soporte en línea no está disponible en su país</translation>
     </message>
     <message>
       <source>Live Support</source>
@@ -1813,7 +1825,7 @@
     </message>
     <message>
       <source>characters</source>
-      <translation type="unfinished"/>
+      <translation>Caracteres</translation>
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
@@ -1920,7 +1932,7 @@
     </message>
     <message>
       <source>Visitor has been redirected to contact form</source>
-      <translation type="unfinished"/>
+      <translation>El visitante se ha redirigido al formulario de contacto</translation>
     </message>
   </context>
   <context>
@@ -2534,7 +2546,7 @@
     <name>system/configuration</name>
     <message>
       <source>Geo adjustment</source>
-      <translation type="unfinished"/>
+      <translation>Ajuste Geo</translation>
     </message>
     <message>
       <source>Request notification permission</source>
@@ -2630,7 +2642,7 @@
     </message>
     <message>
       <source>GEO adjustment</source>
-      <translation type="unfinished"/>
+      <translation>Ajuste Geo</translation>
     </message>
     <message>
       <source>Synchronization and sound settings</source>
@@ -5501,7 +5513,7 @@
     <name>system/xmpp</name>
     <message>
       <source>Geo adjustments active</source>
-      <translation type="unfinished"/>
+      <translation>Ajustes Geo activados</translation>
     </message>
     <message>
       <source>Settings updated</source>
@@ -5961,51 +5973,51 @@
     <name>chat/geoadjustment</name>
     <message>
       <source>GEO adjustment</source>
-      <translation type="unfinished"/>
+      <translation>Ajuste Geo</translation>
     </message>
     <message>
       <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
-      <translation type="unfinished"/>
+      <translation>Aplicar estas reglas también al indicador de estado del widget de chat</translation>
     </message>
     <message>
       <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
-      <translation type="unfinished"/>
+      <translation>Hacer el estado del chat normal para estos paises, los paises pueden estar separados por comas &quot;de,gb,us,fr&quot; lo que significa que el chat se mostrará de forma usual solo para estos paises.</translation>
     </message>
     <message>
       <source>For</source>
-      <translation type="unfinished"/>
+      <translation>Para</translation>
     </message>
     <message>
       <source>all</source>
-      <translation type="unfinished"/>
+      <translation>todos</translation>
     </message>
     <message>
       <source>custom</source>
-      <translation type="unfinished"/>
+      <translation>personalizado</translation>
     </message>
     <message>
       <source>E.g. ar,pl</source>
-      <translation type="unfinished"/>
+      <translation>Ej. ar,pl</translation>
     </message>
     <message>
       <source>Other countries, put widget/chat status to</source>
-      <translation type="unfinished"/>
+      <translation>Otros paises, mostrar el estado del widget/chat como</translation>
     </message>
     <message>
       <source>offline status</source>
-      <translation type="unfinished"/>
+      <translation>estado fuera de línea</translation>
     </message>
     <message>
       <source>hidden/disabled, widget will not be shown</source>
-      <translation type="unfinished"/>
+      <translation>oculto/deshabilitado, el widget no se mostrará</translation>
     </message>
     <message>
       <source>For unmatched countries put chat status to</source>
-      <translation type="unfinished"/>
+      <translation>Para países no encontrados mostrar el estado de chat como</translation>
     </message>
     <message>
       <source>normal status</source>
-      <translation type="unfinished"/>
+      <translation>estado normal</translation>
     </message>
   </context>
 </TS>

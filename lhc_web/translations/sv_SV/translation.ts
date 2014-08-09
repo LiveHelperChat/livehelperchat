@@ -82,6 +82,10 @@
       <translation>Minimum antal siffror hos telefonnummer</translation>
     </message>
     <message>
+      <source>Messages box height</source>
+      <translation>Höjd på meddelanderuta</translation>
+    </message>
+    <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
       <translation>Proactive meddelande timeout i timmar. Efter hur många timmar som proactive chattmeddelande ska visas igen.</translation>
     </message>
@@ -140,6 +144,10 @@
     <message>
       <source>Your company name - visible in bottom left corner</source>
       <translation>Ditt företagsnamn - synligt i nedre vänstra hörnet</translation>
+    </message>
+    <message>
+      <source>Interval between chat status checks in seconds, 0 disabled.</source>
+      <translation>Intervall i sekunder mellan kontrollering av chattstatus, 0 för inaktiverat.</translation>
     </message>
     <message>
       <source>Show BB Code button</source>
@@ -321,6 +329,10 @@
     <message>
       <source>Widget copyright link</source>
       <translation>Widget copyrightlänk</translation>
+    </message>
+    <message>
+      <source>Text above start chat form fields</source>
+      <translation>Text ovanför starta-chatt formulärfält</translation>
     </message>
     <message>
       <source>Online image</source>

@@ -3,7 +3,7 @@
     <name>listchatconfig</name>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
-      <translation>Przez ile dni od czasu ostatniego wyświetlenia okenko głosowania ma się nie rozwijać</translation>
+      <translation>Przez ile dni od czasu ostatniego wyświetlenia widżetu głosowania ma się nie rozwijać</translation>
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
@@ -82,6 +82,10 @@
       <translation>Minimalna długość numeru telefonu</translation>
     </message>
     <message>
+      <source>Messages box height</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
       <translation>Czas do wznowienia proaktywnych zaproszeń do rozmowy, w godzinach. Liczba pokazuje po ilu godzinach proaktywne zaproszenie powinno być ponownie wyświetlone.</translation>
     </message>
@@ -103,7 +107,7 @@
     </message>
     <message>
       <source>Hide disabled department widget</source>
-      <translation>Ukryj widget dla nieaktywnego wydziału</translation>
+      <translation>Ukryj widżet dla nieaktywnego wydziału</translation>
     </message>
     <message>
       <source>Is visitor e-mail required for FAQ</source>
@@ -127,7 +131,7 @@
     </message>
     <message>
       <source>Disable option in widget to open new window. Restore icon will be hidden</source>
-      <translation>Wyłącz opcje otwierania nowego okna w widgecie. Ikonka &quot;przywróć&quot; będzie ukryta.</translation>
+      <translation>Wyłącz opcje otwierania nowego okna w widżecie. Ikonka &quot;przywróć&quot; będzie ukryta.</translation>
     </message>
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
@@ -142,8 +146,12 @@
       <translation>Nazwa twojej firmy - widoczna w lewym dolnym rogu</translation>
     </message>
     <message>
+      <source>Interval between chat status checks in seconds, 0 disabled.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show BB Code button</source>
-      <translation>Pokazuj ikonki znaków specjalnych i formatowania</translation>
+      <translation>Pokazuj przycisk emotikonek</translation>
     </message>
     <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
@@ -151,7 +159,7 @@
     </message>
     <message>
       <source>Automatically reopen chat on widget open</source>
-      <translation>Automatycznie wznawiaj rozmowy przy otwarciu widgetu</translation>
+      <translation>Automatycznie wznawiaj rozmowy przy otwarciu widżetu</translation>
     </message>
     <message>
       <source>Automatic chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
@@ -256,19 +264,19 @@
     </message>
     <message>
       <source>Status widget style</source>
-      <translation>Styl widgetu statusu</translation>
+      <translation>Styl widżetu statusu</translation>
     </message>
     <message>
       <source>Widget copyright</source>
-      <translation>Widget praw autorskich</translation>
+      <translation>Widżet praw autorskich</translation>
     </message>
     <message>
       <source>Widget container</source>
-      <translation>Pojemnik widgetu</translation>
+      <translation>Pojemnik widżetu</translation>
     </message>
     <message>
       <source>Need help widget</source>
-      <translation>Widget &quot;potrzebna pomoc?&quot;</translation>
+      <translation>Widżet &quot;potrzebna pomoc?&quot;</translation>
     </message>
     <message>
       <source>Custom CSS</source>
@@ -300,7 +308,7 @@
     </message>
     <message>
       <source>Status widget border color</source>
-      <translation>Kolor obramowania widgetu statusu</translation>
+      <translation>Kolor obramowania widżetu statusu</translation>
     </message>
     <message>
       <source>Text color</source>
@@ -308,19 +316,23 @@
     </message>
     <message>
       <source>Logo image, visible in popup</source>
-      <translation>Obraz logo, widoczny w popupie</translation>
+      <translation>Obraz logo, widoczny w pop-upie</translation>
     </message>
     <message>
       <source>Logo image, visible in widget left corner, 16x16</source>
-      <translation>Obraz logo, widoczny w lewym rogu widgetu, 16x16</translation>
+      <translation>Obraz logo, widoczny w lewym rogu widżetu, 16x16</translation>
     </message>
     <message>
       <source>Show copyright widget logo in left corner</source>
-      <translation>Pokazuj widget logo praw autorskich w lewym rogu</translation>
+      <translation>Pokazuj widżet logo praw autorskich w lewym rogu</translation>
     </message>
     <message>
       <source>Widget copyright link</source>
-      <translation>Link widgetu praw autorskich</translation>
+      <translation>Link widżetu praw autorskich</translation>
+    </message>
+    <message>
+      <source>Text above start chat form fields</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Online image</source>
@@ -332,11 +344,11 @@
     </message>
     <message>
       <source>Widget header background color</source>
-      <translation>Kolor tła nagłówka widgetu</translation>
+      <translation>Kolor tła nagłówka widżetu</translation>
     </message>
     <message>
       <source>Widget border color</source>
-      <translation>Kolor obramowania widgetu</translation>
+      <translation>Kolor obramowania widżetu</translation>
     </message>
     <message>
       <source>Need help background color</source>
@@ -368,19 +380,19 @@
     </message>
     <message>
       <source>Status widget additional CSS, takes effect after save</source>
-      <translation>Dodatkowy CSS widgetu statusu, działa po zapisaniu</translation>
+      <translation>Dodatkowy CSS widżetu statusu, działa po zapisaniu</translation>
     </message>
     <message>
       <source>Widget container additional CSS, takes effect after save</source>
-      <translation>Dodatkowy CSS kontenera widgetu, działa po zapisaniu</translation>
+      <translation>Dodatkowy CSS kontenera widżetu, działa po zapisaniu</translation>
     </message>
     <message>
       <source>Widget body additional CSS, takes effect after save</source>
-      <translation>Dodatkowy CSS korpusu widgetu, działa po zapisaniu</translation>
+      <translation>Dodatkowy CSS korpusu widżetu, działa po zapisaniu</translation>
     </message>
     <message>
       <source>Widget themes</source>
-      <translation>Motywy widgetu</translation>
+      <translation>Motywy widżetu</translation>
     </message>
   </context>
   <context>
@@ -573,7 +585,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Widget embed code</source>
-      <translation>Kod do osadzenia widgeta</translation>
+      <translation>Kod do osadzenia widżeta</translation>
     </message>
     <message>
       <source>Page embed code</source>
@@ -593,7 +605,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>
-      <translation>Skopiuj kod z pola tekstowego do strony, na której chcesz aby się wyświetlał</translation>
+      <translation>Skopiuj kod z pola tekstowego i wklej do kodu strony, na której chcesz, aby wyświetlał się widżet</translation>
     </message>
     <message>
       <source>Chatbox</source>
@@ -645,7 +657,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Disable responsive layout for status widget.</source>
-      <translation>Wyłącz elastyczne dopasowanie wyglądu widgeta statusu do rozdzielczości przeglądarki.</translation>
+      <translation>Wyłącz elastyczne dopasowanie wyglądu widżeta statusu do rozdzielczości przeglądarki.</translation>
     </message>
     <message>
       <source>Disable minimize icon</source>
@@ -653,7 +665,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
-      <translation>Pokaż zawartość oienka rozmów zamiast widgeta, użytkownicy będą mogli tylko zminimalizować je, a nie zamknąć.</translation>
+      <translation>Pokaż zawartość oienka rozmów zamiast widżeta, użytkownicy będą mogli tylko zminimalizować je, a nie zamknąć.</translation>
     </message>
     <message>
       <source>Show chatbox content minimized first time if content is shown.</source>
@@ -665,7 +677,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Copy the code from the textarea to page where you want it to be rendered</source>
-      <translation>Skopiuj kod z pola tekstowego na stronę na której ma być wyświetlony</translation>
+      <translation>Skopiuj kod z pola tekstowego i wklej do kodu strony, na której chcesz, aby wyświetlał się widżet.</translation>
     </message>
     <message>
       <source>Status text</source>
@@ -717,11 +729,11 @@ pokazywany</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want your status to appear</source>
-      <translation>Skopiuj kod z pola tekstowego i wklej do kodu strony, na której chcesz, aby twój status się pojawił</translation>
+      <translation>Skopiuj kod z pola tekstowego i wklej do kodu strony, na której chcesz, aby wyświetlał się widżet</translation>
     </message>
     <message>
       <source>On a mouse click show the page widget</source>
-      <translation>Pokaż widget strony, po kliknięciu myszką</translation>
+      <translation>Pokaż widżet strony, po kliknięciu myszką</translation>
     </message>
     <message>
       <source>Automatically check for messages from the operator/invitation messages</source>
@@ -737,23 +749,23 @@ pokazywany</translation>
     </message>
     <message>
       <source>Popup window size</source>
-      <translation>Rozmiar okna popup</translation>
+      <translation>Rozmiar okna pop-up</translation>
     </message>
     <message>
       <source>Popup window width in pixels</source>
-      <translation>Szerokość okna popup w pikselach</translation>
+      <translation>Szerokość okna pop-up w pikselach</translation>
     </message>
     <message>
       <source>Popup window height in pixels</source>
-      <translation>Wysokość okna popup w pikselach</translation>
+      <translation>Wysokość okna pop-up w pikselach</translation>
     </message>
     <message>
       <source>Widget width</source>
-      <translation>szerokość widgeta</translation>
+      <translation>szerokość widżeta</translation>
     </message>
     <message>
       <source>Widget width in pixels</source>
-      <translation>szerokość widgeta w pikselach</translation>
+      <translation>szerokość widżeta w pikselach</translation>
     </message>
     <message>
       <source>height</source>
@@ -761,11 +773,11 @@ pokazywany</translation>
     </message>
     <message>
       <source>Widget height in pixels</source>
-      <translation>wyskość widgeta w pikselach</translation>
+      <translation>Wyskość widżeta w pikselach</translation>
     </message>
     <message>
       <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>Naturalnalokalizacja - zostanie pokazany tam, gdzie jest osadzony html</translation>
+      <translation>Naturalna lokalizacja - zostanie pokazany tam, gdzie jest osadzony html</translation>
     </message>
     <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
@@ -804,7 +816,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Expand the widget automatically for new users</source>
-      <translation>Rozwiń widget automatycznie dla nowych użytkowników</translation>
+      <translation>Rozwiń widżet automatycznie dla nowych użytkowników</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
@@ -1319,7 +1331,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Inform then chat is closed by operator, only mail notification is send.</source>
-      <translation>Informuj kiedy rozmowa jest zamknięta przez operatora, tylko powiadomienia mailowe jest wysyłane.</translation>
+      <translation>Informuj kiedy rozmowa jest zamknięta przez operatora, tylko powiadomienie mailowe jest wysyłane.</translation>
     </message>
     <message>
       <source>Chat transfer worklow</source>
@@ -1339,7 +1351,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
-      <translation>Ponowne wykonanie logiki dla niezaakceptowanych rozmów w departamencie, po przeiesieniu?</translation>
+      <translation>Ponowne wykonanie logiki dla rozmów bez odpowiedzi w departamencie?</translation>
     </message>
     <message>
       <source>Auto assignment</source>
@@ -1465,7 +1477,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Created</source>
-      <translation>Stworzył</translation>
+      <translation>Utworzony</translation>
     </message>
     <message>
       <source>Waited</source>
@@ -2555,15 +2567,15 @@ pokazywany</translation>
     </message>
     <message>
       <source>Update information</source>
-      <translation>Aktualizacja informacji</translation>
+      <translation>Informacje o aktualizacjach</translation>
     </message>
     <message>
       <source>SMTP settings</source>
-      <translation>SMTP ustawienia</translation>
+      <translation>Ustawienia SMTP</translation>
     </message>
     <message>
       <source>E-mail templates</source>
-      <translation>SzablonyE-mail</translation>
+      <translation>Szablony E-mail</translation>
     </message>
     <message>
       <source>Languages configuration</source>
@@ -3035,7 +3047,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>At least one field has to be visible and required in the popup and page widget</source>
-      <translation>Co najmniej jedno pole musi być widoczne i wymagane w oknie popup i w stronie widgetu</translation>
+      <translation>Co najmniej jedno pole musi być widoczne i wymagane w oknie pop-up i w widżecie strony</translation>
     </message>
     <message>
       <source>Enable leave a message functionality automatically if there are no online operators</source>
@@ -3051,11 +3063,11 @@ pokazywany</translation>
     </message>
     <message>
       <source>This field is visible in the popup</source>
-      <translation>To pole jest widoczne w okienku</translation>
+      <translation>To pole jest widoczne w pop-up</translation>
     </message>
     <message>
       <source>This field is visible in the page widget</source>
-      <translation>To pole jest widoczne na stronie widgetu</translation>
+      <translation>To pole jest widoczne w widżecie strony</translation>
     </message>
     <message>
       <source>This field is invisible but prefilled data is collected</source>
@@ -3099,11 +3111,11 @@ pokazywany</translation>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>
-      <translation>Proszę wybrać przynajmniej jedno pole w okienku</translation>
+      <translation>Proszę wybrać przynajmniej jedno pole w pop-up</translation>
     </message>
     <message>
       <source>Please choose at least one field for a page widget</source>
-      <translation>Proszę wybrać co najmniej jedno pole na stronie widgetu</translation>
+      <translation>Proszę wybrać co najmniej jedno pole dla widżetu strony</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
@@ -3336,7 +3348,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Transfer a chat to one of your departments users</source>
-      <translation>Przenieś rozmowe do jednego z wydziałów użytkowników</translation>
+      <translation>Przenieś rozmowę do jednego z wydziałów użytkowników</translation>
     </message>
     <message>
       <source>Transfer</source>
@@ -3720,11 +3732,11 @@ pokazywany</translation>
     </message>
     <message>
       <source>Edit department</source>
-      <translation>Edytuj wyddział</translation>
+      <translation>Edytuj wydział</translation>
     </message>
     <message>
       <source>New department</source>
-      <translation>Nowy oddział</translation>
+      <translation>Nowy wydział</translation>
     </message>
     <message>
       <source>Are you sure?</source>
@@ -3871,7 +3883,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
-      <translation>Użytkownik może wyświetlić wszystkie oczekujące rozmowy, nie tylko powierzone mu</translation>
+      <translation>Użytkownik może wyświetlić wszystkie oczekujące rozmowy, nie tylko przypisane do niego</translation>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -4096,7 +4108,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Embed BB code</source>
-      <translation>Osadź kod emotikonek</translation>
+      <translation>Osadź emotikonkę</translation>
     </message>
     <message>
       <source>User</source>
@@ -5067,7 +5079,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Widget themes</source>
-      <translation>Motyw widżetu</translation>
+      <translation>Motywy widżetu</translation>
     </message>
     <message>
       <source>Import a new theme</source>
@@ -5686,7 +5698,7 @@ pokazywany</translation>
     <name>departament/edit</name>
     <message>
       <source>Please enter a department name</source>
-      <translation>Proszę wpisać nazwę wyddziału</translation>
+      <translation>Proszę wpisać nazwę wydziału</translation>
     </message>
     <message>
       <source>Minimum 5 seconds</source>

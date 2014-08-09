@@ -82,6 +82,10 @@
       <translation>Minimální délka telefonního čísla</translation>
     </message>
     <message>
+      <source>Messages box height</source>
+      <translation>Výška pole zprávy</translation>
+    </message>
+    <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
       <translation>Časový limit proaktivní zprávy v hodinách. Po kolika hodinách by měly být zprávy proaktivních rozhovorů opět zobrazeny.</translation>
     </message>
@@ -140,6 +144,10 @@
     <message>
       <source>Your company name - visible in bottom left corner</source>
       <translation>Název Vaší společnosti - viditelné v levém dolním rohu</translation>
+    </message>
+    <message>
+      <source>Interval between chat status checks in seconds, 0 disabled.</source>
+      <translation>Interval mezi kontrolou stavu rozhovoru, 0 vypnuto.</translation>
     </message>
     <message>
       <source>Show BB Code button</source>
@@ -321,6 +329,10 @@
     <message>
       <source>Widget copyright link</source>
       <translation>Odkaz copyrightu widgetu</translation>
+    </message>
+    <message>
+      <source>Text above start chat form fields</source>
+      <translation>Text nad poli zahájení rozhovoru</translation>
     </message>
     <message>
       <source>Online image</source>
@@ -1373,7 +1385,7 @@
     <name>chat/chatnotexists</name>
     <message>
       <source>Resume chat</source>
-      <translation>Obnovit rozhovor</translation>
+      <translation>Pokračovat v rozhovoru</translation>
     </message>
     <message>
       <source>Chat was deleted</source>
@@ -1918,7 +1930,7 @@
     </message>
     <message>
       <source>Visitor has been redirected to contact form</source>
-      <translation type="unfinished"/>
+      <translation>Návštěvník již byl přesměrován na kontaktní formulář</translation>
     </message>
   </context>
   <context>
@@ -2530,7 +2542,7 @@
     <name>system/configuration</name>
     <message>
       <source>Geo adjustment</source>
-      <translation type="unfinished"/>
+      <translation>GEO přizpůsobení</translation>
     </message>
     <message>
       <source>Request notification permission</source>
@@ -2626,7 +2638,7 @@
     </message>
     <message>
       <source>GEO adjustment</source>
-      <translation type="unfinished"/>
+      <translation>GEO přizpůsobení</translation>
     </message>
     <message>
       <source>Synchronization and sound settings</source>
@@ -5496,7 +5508,7 @@
     <name>system/xmpp</name>
     <message>
       <source>Geo adjustments active</source>
-      <translation type="unfinished"/>
+      <translation>GEO přizpůsobení aktivní</translation>
     </message>
     <message>
       <source>Settings updated</source>
@@ -5956,23 +5968,23 @@
     <name>chat/geoadjustment</name>
     <message>
       <source>GEO adjustment</source>
-      <translation type="unfinished"/>
+      <translation>GEO přizpůsobení</translation>
     </message>
     <message>
       <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
-      <translation type="unfinished"/>
+      <translation>Použít tato pravidla také na indikátor stavu widgetu? s tím je spojen pokles výkonnosti</translation>
     </message>
     <message>
       <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
-      <translation type="unfinished"/>
+      <translation>Pro tyto země použít normální stav, země mohou být odděleny čárkou. Např. &quot;cz,en,de,gb&quot; znamená, že status bude zobrazen jako obvykle pouze v těchto zemích.</translation>
     </message>
     <message>
       <source>For</source>
-      <translation type="unfinished"/>
+      <translation>Pro</translation>
     </message>
     <message>
       <source>all</source>
-      <translation type="unfinished"/>
+      <translation>všechny</translation>
     </message>
     <message>
       <source>custom</source>
@@ -5984,7 +5996,7 @@
     </message>
     <message>
       <source>Other countries, put widget/chat status to</source>
-      <translation type="unfinished"/>
+      <translation>Pro ostatní země použít stav</translation>
     </message>
     <message>
       <source>offline status</source>
@@ -5996,7 +6008,7 @@
     </message>
     <message>
       <source>For unmatched countries put chat status to</source>
-      <translation type="unfinished"/>
+      <translation>Pro nevyhovující země použít status</translation>
     </message>
     <message>
       <source>normal status</source>

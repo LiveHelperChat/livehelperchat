@@ -82,6 +82,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Messages box height</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
       <translation>Προληπτική μήνυμα timeout σε ώρες. Μετά από πόσες ώρες chat ενεργό mesasge θα πρέπει να εμφανιστεί και πάλι.</translation>
     </message>
@@ -140,6 +144,10 @@
     <message>
       <source>Your company name - visible in bottom left corner</source>
       <translation>Όνομα της εταιρείας σας - ορατή στην κάτω αριστερή γωνία</translation>
+    </message>
+    <message>
+      <source>Interval between chat status checks in seconds, 0 disabled.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Show BB Code button</source>
@@ -321,6 +329,10 @@
     <message>
       <source>Widget copyright link</source>
       <translation>Widget, πνευματικής ιδιοκτησίας σύνδεση</translation>
+    </message>
+    <message>
+      <source>Text above start chat form fields</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Online image</source>
