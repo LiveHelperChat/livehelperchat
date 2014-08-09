@@ -2,6 +2,8 @@
 
 1. https://github.com/LiveHelperChat/livehelperchat/issues/428
 2. Albanian language
+3. Chats duration algorithm was changes it now will calculate chat duration by this algorithm
+last user message time - (chat start time + chat wait time). You can update all your chats duration by visiting chat Maintenence page.
 
 execute doc/update_db/update_88.sql for update
 
