@@ -134,7 +134,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
+      <source>Disable HMTL5 secure storage, check it if your site is switching between http and https</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2033,6 +2033,208 @@
     </message>
   </context>
   <context>
+    <name>chat/geoadjustment</name>
+    <message>
+      <source>GEO adjustment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>custom</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E.g. ar,pl</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Other countries, put widget/chat status to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>offline status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>hidden/disabled, widget will not be shown</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For unmatched countries put chat status to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>normal status</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>system/xmpp</name>
+    <message>
+      <source>Geo adjustments active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Setari actualizate</translation>
+    </message>
+    <message>
+      <source>XMPP settings</source>
+      <translation>Setari XMPP</translation>
+    </message>
+    <message>
+      <source>XMPP active</source>
+      <translation>XMPP activ</translation>
+    </message>
+    <message>
+      <source>XMPP Message content</source>
+      <translation>Continut mesaj XMPP</translation>
+    </message>
+    <message>
+      <source>XMPP Message about accepted chat</source>
+      <translation>Mesaj XMPP despre discutie acceptata</translation>
+    </message>
+    <message>
+      <source>XMPP</source>
+      <translation>XMPP</translation>
+    </message>
+    <message>
+      <source>Use standard XMPP service</source>
+      <translation>Foloseste serviciu XMPP standard</translation>
+    </message>
+    <message>
+      <source>Host</source>
+      <translation>Gazda</translation>
+    </message>
+    <message>
+      <source>Port</source>
+      <translation>Port</translation>
+    </message>
+    <message>
+      <source>Login</source>
+      <translation>Cont de autentificare</translation>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation>Parola</translation>
+    </message>
+    <message>
+      <source>Resource</source>
+      <translation>Resursa</translation>
+    </message>
+    <message>
+      <source>Server</source>
+      <translation>Server</translation>
+    </message>
+    <message>
+      <source>Recipients</source>
+      <translation>Destinatari</translation>
+    </message>
+    <message>
+      <source>Default recipients</source>
+      <translation>Destinatari standard</translation>
+    </message>
+    <message>
+      <source>Test recipients</source>
+      <translation>Destinatari de test</translation>
+    </message>
+    <message>
+      <source>Individual recipients</source>
+      <translation>Destinatari individuali</translation>
+    </message>
+    <message>
+      <source>Test group recipients</source>
+      <translation>Grup de destinatari de test</translation>
+    </message>
+    <message>
+      <source>Test message will be send to your account e-mail</source>
+      <translation>Mesajul de test va fi trimis catre contul tau de e-mail</translation>
+    </message>
+    <message>
+      <source>GTalk</source>
+      <translation>Google Talk</translation>
+    </message>
+    <message>
+      <source>Use GTalk for messaging</source>
+      <translation>Foloseste Google Talk pentru mesaje</translation>
+    </message>
+    <message>
+      <source>Information for your google app</source>
+      <translation>Informatii despre aplicatia ta Google</translation>
+    </message>
+    <message>
+      <source>Redirect URL, this url you will have to enter in your google app configuration</source>
+      <translation>Adresa URL de redirectionare, acest URL trebuie introdus in setariile aplicatiei Google</translation>
+    </message>
+    <message>
+      <source>Enter your app information bellow</source>
+      <translation>Te rog sa introduci informatiile despre aplicatie mai jos</translation>
+    </message>
+    <message>
+      <source>OAuth 2.0 Client ID</source>
+      <translation>ID client OAuth 2.0</translation>
+    </message>
+    <message>
+      <source>Please enter your Client ID</source>
+      <translation>Te rog sa introduci Client Id</translation>
+    </message>
+    <message>
+      <source>Client secret</source>
+      <translation>Cheie client (client secret)</translation>
+    </message>
+    <message>
+      <source>This message will be send to your e-mail</source>
+      <translation>Acest mesaj va fi trimis la adresa ta de e-mai</translation>
+    </message>
+    <message>
+      <source>Send test message</source>
+      <translation>Trimite mesaj de test</translation>
+    </message>
+    <message>
+      <source>Revoke access token</source>
+      <translation>Sterge token-ul de acces</translation>
+    </message>
+    <message>
+      <source>Revoke permission to send a message</source>
+      <translation>Sterge permisiile de trimitere a unui mesa</translation>
+    </message>
+    <message>
+      <source>Authentificate and grant permission to send a message</source>
+      <translation>Autentificare si alocare permisii pentru trimiterea unui mesaj</translation>
+    </message>
+    <message>
+      <source>Grant permission to send a message</source>
+      <translation>Aloca permisii pentru trimiterea unui mesaj</translation>
+    </message>
+    <message>
+      <source>Succesfully authorised, now you can try to send a message</source>
+      <translation>Autorizatie obtinuta, acum poti incerca sa trimiti un mesaj</translation>
+    </message>
+    <message>
+      <source>Token was revoked</source>
+      <translation>Token-ul a fost sters</translation>
+    </message>
+    <message>
+      <source>XMPP message was sent succesfuly</source>
+      <translation>Mesaj XMPP trimis</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/onlineusers</name>
     <message>
       <source>GEO detection configuration</source>
@@ -2541,10 +2743,6 @@
   <context>
     <name>system/configuration</name>
     <message>
-      <source>Geo adjustment</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Request notification permission</source>
       <translation>Cere permisii pentru notificare</translation>
     </message>
@@ -2865,12 +3063,20 @@
       <translation>Eliminarea automata a conversatiilor, apasa pentru a elimina conversatiile vechi</translation>
     </message>
     <message>
+      <source>Update chats duration by using new algorithm</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Closed chats</source>
       <translation>Conversatii inchise</translation>
     </message>
     <message>
       <source>Purged chats</source>
       <translation>Conversatii eliminate</translation>
+    </message>
+    <message>
+      <source>Chats duration was updated</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -3259,6 +3465,114 @@
       <translation>Statistici</translation>
     </message>
     <message>
+      <source>User</source>
+      <translation>Utilizator</translation>
+    </message>
+    <message>
+      <source>Thumbs up</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of Thumbs Up</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Thumbs down</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of Thumbs Down</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of chats by country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Month</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats number by statuses</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitors initiated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Proactive</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Proactive chats number vs visitors initiated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitors</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>System</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages types</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of chats per hour, average chat duration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hourly statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users statisic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Total statistic</source>
       <translation>Statistici totale</translation>
     </message>
@@ -3313,10 +3627,6 @@
     <message>
       <source>Operators last 24h statistic, top 100 by chats number</source>
       <translation>Statistica activitatii operatorilor, top 100 operatori functie de numarul de conversatii</translation>
-    </message>
-    <message>
-      <source>User</source>
-      <translation>Utilizator</translation>
     </message>
     <message>
       <source>Total messages</source>
@@ -5505,157 +5815,6 @@
     </message>
   </context>
   <context>
-    <name>system/xmpp</name>
-    <message>
-      <source>Geo adjustments active</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Setari actualizate</translation>
-    </message>
-    <message>
-      <source>XMPP settings</source>
-      <translation>Setari XMPP</translation>
-    </message>
-    <message>
-      <source>XMPP active</source>
-      <translation>XMPP activ</translation>
-    </message>
-    <message>
-      <source>XMPP Message content</source>
-      <translation>Continut mesaj XMPP</translation>
-    </message>
-    <message>
-      <source>XMPP Message about accepted chat</source>
-      <translation>Mesaj XMPP despre discutie acceptata</translation>
-    </message>
-    <message>
-      <source>XMPP</source>
-      <translation>XMPP</translation>
-    </message>
-    <message>
-      <source>Use standard XMPP service</source>
-      <translation>Foloseste serviciu XMPP standard</translation>
-    </message>
-    <message>
-      <source>Host</source>
-      <translation>Gazda</translation>
-    </message>
-    <message>
-      <source>Port</source>
-      <translation>Port</translation>
-    </message>
-    <message>
-      <source>Login</source>
-      <translation>Cont de autentificare</translation>
-    </message>
-    <message>
-      <source>Password</source>
-      <translation>Parola</translation>
-    </message>
-    <message>
-      <source>Resource</source>
-      <translation>Resursa</translation>
-    </message>
-    <message>
-      <source>Server</source>
-      <translation>Server</translation>
-    </message>
-    <message>
-      <source>Recipients</source>
-      <translation>Destinatari</translation>
-    </message>
-    <message>
-      <source>Default recipients</source>
-      <translation>Destinatari standard</translation>
-    </message>
-    <message>
-      <source>Test recipients</source>
-      <translation>Destinatari de test</translation>
-    </message>
-    <message>
-      <source>Individual recipients</source>
-      <translation>Destinatari individuali</translation>
-    </message>
-    <message>
-      <source>Test group recipients</source>
-      <translation>Grup de destinatari de test</translation>
-    </message>
-    <message>
-      <source>Test message will be send to your account e-mail</source>
-      <translation>Mesajul de test va fi trimis catre contul tau de e-mail</translation>
-    </message>
-    <message>
-      <source>GTalk</source>
-      <translation>Google Talk</translation>
-    </message>
-    <message>
-      <source>Use GTalk for messaging</source>
-      <translation>Foloseste Google Talk pentru mesaje</translation>
-    </message>
-    <message>
-      <source>Information for your google app</source>
-      <translation>Informatii despre aplicatia ta Google</translation>
-    </message>
-    <message>
-      <source>Redirect URL, this url you will have to enter in your google app configuration</source>
-      <translation>Adresa URL de redirectionare, acest URL trebuie introdus in setariile aplicatiei Google</translation>
-    </message>
-    <message>
-      <source>Enter your app information bellow</source>
-      <translation>Te rog sa introduci informatiile despre aplicatie mai jos</translation>
-    </message>
-    <message>
-      <source>OAuth 2.0 Client ID</source>
-      <translation>ID client OAuth 2.0</translation>
-    </message>
-    <message>
-      <source>Please enter your Client ID</source>
-      <translation>Te rog sa introduci Client Id</translation>
-    </message>
-    <message>
-      <source>Client secret</source>
-      <translation>Cheie client (client secret)</translation>
-    </message>
-    <message>
-      <source>This message will be send to your e-mail</source>
-      <translation>Acest mesaj va fi trimis la adresa ta de e-mai</translation>
-    </message>
-    <message>
-      <source>Send test message</source>
-      <translation>Trimite mesaj de test</translation>
-    </message>
-    <message>
-      <source>Revoke access token</source>
-      <translation>Sterge token-ul de acces</translation>
-    </message>
-    <message>
-      <source>Revoke permission to send a message</source>
-      <translation>Sterge permisiile de trimitere a unui mesa</translation>
-    </message>
-    <message>
-      <source>Authentificate and grant permission to send a message</source>
-      <translation>Autentificare si alocare permisii pentru trimiterea unui mesaj</translation>
-    </message>
-    <message>
-      <source>Grant permission to send a message</source>
-      <translation>Aloca permisii pentru trimiterea unui mesaj</translation>
-    </message>
-    <message>
-      <source>Succesfully authorised, now you can try to send a message</source>
-      <translation>Autorizatie obtinuta, acum poti incerca sa trimiti un mesaj</translation>
-    </message>
-    <message>
-      <source>Token was revoked</source>
-      <translation>Token-ul a fost sters</translation>
-    </message>
-    <message>
-      <source>XMPP message was sent succesfuly</source>
-      <translation>Mesaj XMPP trimis</translation>
-    </message>
-  </context>
-  <context>
     <name>file/file</name>
     <message>
       <source>Download file</source>
@@ -5929,6 +6088,13 @@
     </message>
   </context>
   <context>
+    <name>chat/updatemsguser</name>
+    <message>
+      <source>User has edited his last message</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/voteaction</name>
     <message>
       <source>Thumbs up</source>
@@ -5955,64 +6121,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Te rog sa introduci un tip de fisier valid!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/updatemsguser</name>
-    <message>
-      <source>User has edited his last message</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/geoadjustment</name>
-    <message>
-      <source>GEO adjustment</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>For</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>all</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>custom</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>E.g. ar,pl</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Other countries, put widget/chat status to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>offline status</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>hidden/disabled, widget will not be shown</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>For unmatched countries put chat status to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>normal status</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

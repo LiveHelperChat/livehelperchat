@@ -134,7 +134,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
+      <source>Disable HMTL5 secure storage, check it if your site is switching between http and https</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1800,7 +1800,7 @@
     </message>
     <message>
       <source>Leave a message</source>
-      <translation type="unfinished"/>
+      <translation>Lini nje mesazh</translation>
     </message>
     <message>
       <source>Your request was sent!</source>
@@ -2031,6 +2031,208 @@
     <message>
       <source>Please enter text!</source>
       <translation>Ju lutem vendosni tekstin!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/geoadjustment</name>
+    <message>
+      <source>GEO adjustment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>custom</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E.g. ar,pl</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Other countries, put widget/chat status to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>offline status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>hidden/disabled, widget will not be shown</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For unmatched countries put chat status to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>normal status</source>
+      <translation>gjendje normale</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/xmpp</name>
+    <message>
+      <source>Geo adjustments active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP Message content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP Message about accepted chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use standard XMPP service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Host</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Port</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Login</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Resource</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Server</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Individual recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test group recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test message will be send to your account e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>GTalk</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use GTalk for messaging</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Information for your google app</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Redirect URL, this url you will have to enter in your google app configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter your app information bellow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>OAuth 2.0 Client ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter your Client ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Client secret</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This message will be send to your e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send test message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Revoke access token</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Revoke permission to send a message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Authentificate and grant permission to send a message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Grant permission to send a message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Succesfully authorised, now you can try to send a message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Token was revoked</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP message was sent succesfuly</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -2542,10 +2744,6 @@
   <context>
     <name>system/configuration</name>
     <message>
-      <source>Geo adjustment</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Request notification permission</source>
       <translation type="unfinished"/>
     </message>
@@ -2866,12 +3064,20 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Update chats duration by using new algorithm</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Closed chats</source>
       <translation>Bisedat e mbyllura</translation>
     </message>
     <message>
       <source>Purged chats</source>
       <translation>Bisedat e spastruara</translation>
+    </message>
+    <message>
+      <source>Chats duration was updated</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -3260,6 +3466,114 @@
       <translation>Statistikat</translation>
     </message>
     <message>
+      <source>User</source>
+      <translation>Perdorues</translation>
+    </message>
+    <message>
+      <source>Thumbs up</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of Thumbs Up</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Thumbs down</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of Thumbs Down</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of chats by country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Month</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats number by statuses</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitors initiated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Proactive</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Proactive chats number vs visitors initiated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitors</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>System</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages types</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of chats per hour, average chat duration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hourly statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users statisic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Total statistic</source>
       <translation>Statistikat totale</translation>
     </message>
@@ -3314,10 +3628,6 @@
     <message>
       <source>Operators last 24h statistic, top 100 by chats number</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User</source>
-      <translation>Perdorues</translation>
     </message>
     <message>
       <source>Total messages</source>
@@ -5192,7 +5502,7 @@
     </message>
     <message>
       <source>Departments</source>
-      <translation type="unfinished"/>
+      <translation>Departamentet</translation>
     </message>
     <message>
       <source>Please choose a default user group</source>
@@ -5200,35 +5510,35 @@
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation type="unfinished"/>
+      <translation>Adresa e email-it eshte e gabuar</translation>
     </message>
     <message>
       <source>Please enter a name</source>
-      <translation type="unfinished"/>
+      <translation>Ju lutem vendosni nje emer</translation>
     </message>
     <message>
       <source>Please enter a username</source>
-      <translation type="unfinished"/>
+      <translation>Ju lutem vendosni nje emer</translation>
     </message>
     <message>
       <source>User exists</source>
-      <translation type="unfinished"/>
+      <translation>Perdoruesi ekziston </translation>
     </message>
     <message>
       <source>Passwords mismatch</source>
-      <translation type="unfinished"/>
+      <translation>Fjalekalimi nuk perputhet</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation type="unfinished"/>
+      <translation>Konfigurimi i sistemit</translation>
     </message>
     <message>
       <source>Users</source>
-      <translation type="unfinished"/>
+      <translation>Perdoruesit</translation>
     </message>
     <message>
       <source>Please enter a group name</source>
-      <translation type="unfinished"/>
+      <translation>Ju lutem vendosni nje emer grupit</translation>
     </message>
   </context>
   <context>
@@ -5239,11 +5549,11 @@
     </message>
     <message>
       <source>Title</source>
-      <translation type="unfinished"/>
+      <translation>Titulli</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation type="unfinished"/>
+      <translation>Rifreskim</translation>
     </message>
     <message>
       <source>Assigned users</source>
@@ -5251,7 +5561,7 @@
     </message>
     <message>
       <source>Username</source>
-      <translation type="unfinished"/>
+      <translation>Emeri</translation>
     </message>
     <message>
       <source>Remove user from the group</source>
@@ -5287,7 +5597,7 @@
     </message>
     <message>
       <source>Groups</source>
-      <translation type="unfinished"/>
+      <translation>Grupet</translation>
     </message>
   </context>
   <context>
@@ -5298,7 +5608,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>E-Mail</translation>
     </message>
     <message>
       <source>Restore password</source>
@@ -5332,7 +5642,7 @@
     <name>user/groupassignuser</name>
     <message>
       <source>Username</source>
-      <translation type="unfinished"/>
+      <translation>Emri</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -5340,7 +5650,7 @@
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Emer</translation>
     </message>
     <message>
       <source>Surname</source>
@@ -5502,157 +5812,6 @@
     </message>
     <message>
       <source>Message seen</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>system/xmpp</name>
-    <message>
-      <source>Geo adjustments active</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMPP settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMPP active</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMPP Message content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMPP Message about accepted chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMPP</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Use standard XMPP service</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Host</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Port</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Login</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Password</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Resource</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Server</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Recipients</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Default recipients</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Test recipients</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Individual recipients</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Test group recipients</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Test message will be send to your account e-mail</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>GTalk</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Use GTalk for messaging</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Information for your google app</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Redirect URL, this url you will have to enter in your google app configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Enter your app information bellow</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>OAuth 2.0 Client ID</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter your Client ID</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Client secret</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>This message will be send to your e-mail</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Send test message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Revoke access token</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Revoke permission to send a message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Authentificate and grant permission to send a message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Grant permission to send a message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Succesfully authorised, now you can try to send a message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Token was revoked</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMPP message was sent succesfuly</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -5930,6 +6089,13 @@
     </message>
   </context>
   <context>
+    <name>chat/updatemsguser</name>
+    <message>
+      <source>User has edited his last message</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/voteaction</name>
     <message>
       <source>Thumbs up</source>
@@ -5956,64 +6122,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/updatemsguser</name>
-    <message>
-      <source>User has edited his last message</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/geoadjustment</name>
-    <message>
-      <source>GEO adjustment</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>For</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>all</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>custom</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>E.g. ar,pl</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Other countries, put widget/chat status to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>offline status</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>hidden/disabled, widget will not be shown</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>For unmatched countries put chat status to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>normal status</source>
-      <translation>gjendje normale</translation>
     </message>
   </context>
 </TS>

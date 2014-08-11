@@ -134,7 +134,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
+      <source>Disable HMTL5 secure storage, check it if your site is switching between http and https</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2033,6 +2033,208 @@
     </message>
   </context>
   <context>
+    <name>chat/geoadjustment</name>
+    <message>
+      <source>GEO adjustment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>custom</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E.g. ar,pl</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Other countries, put widget/chat status to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>offline status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>hidden/disabled, widget will not be shown</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For unmatched countries put chat status to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>normal status</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>system/xmpp</name>
+    <message>
+      <source>Geo adjustments active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>تنظیمات به روز شد</translation>
+    </message>
+    <message>
+      <source>XMPP settings</source>
+      <translation>تنظیمات XMPP</translation>
+    </message>
+    <message>
+      <source>XMPP active</source>
+      <translation>XMPP فعال</translation>
+    </message>
+    <message>
+      <source>XMPP Message content</source>
+      <translation>محتوا پیام XMPP</translation>
+    </message>
+    <message>
+      <source>XMPP Message about accepted chat</source>
+      <translation>پیام XMPP درباره چت پذیرفته شده</translation>
+    </message>
+    <message>
+      <source>XMPP</source>
+      <translation>XMPP</translation>
+    </message>
+    <message>
+      <source>Use standard XMPP service</source>
+      <translation>استفاده از سرویس XMPP استاندارد</translation>
+    </message>
+    <message>
+      <source>Host</source>
+      <translation>هاست</translation>
+    </message>
+    <message>
+      <source>Port</source>
+      <translation>پورت</translation>
+    </message>
+    <message>
+      <source>Login</source>
+      <translation>ورود</translation>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation>کلمه عبور</translation>
+    </message>
+    <message>
+      <source>Resource</source>
+      <translation>منبع</translation>
+    </message>
+    <message>
+      <source>Server</source>
+      <translation>سرور</translation>
+    </message>
+    <message>
+      <source>Recipients</source>
+      <translation>گیرندگان</translation>
+    </message>
+    <message>
+      <source>Default recipients</source>
+      <translation>گیرندگان پیش فرض</translation>
+    </message>
+    <message>
+      <source>Test recipients</source>
+      <translation>گیرندگان آزمایشی</translation>
+    </message>
+    <message>
+      <source>Individual recipients</source>
+      <translation>گیرندگان فردی</translation>
+    </message>
+    <message>
+      <source>Test group recipients</source>
+      <translation>گروه گیرندگان آزمایشی</translation>
+    </message>
+    <message>
+      <source>Test message will be send to your account e-mail</source>
+      <translation>پیام آزمایشی به ایمیل شما ارسال خواهد شد</translation>
+    </message>
+    <message>
+      <source>GTalk</source>
+      <translation>GTalk</translation>
+    </message>
+    <message>
+      <source>Use GTalk for messaging</source>
+      <translation>استفاده از چت گوگل برای پیام</translation>
+    </message>
+    <message>
+      <source>Information for your google app</source>
+      <translation>اطلاعات در مورد برنامه گوگل شما</translation>
+    </message>
+    <message>
+      <source>Redirect URL, this url you will have to enter in your google app configuration</source>
+      <translation>آدرس مستقیم، این آدرس در تنظیمات برنامه گوگل شما وارد میشود.</translation>
+    </message>
+    <message>
+      <source>Enter your app information bellow</source>
+      <translation>اطلاعات برنامه خود را در زیر وارد کنید</translation>
+    </message>
+    <message>
+      <source>OAuth 2.0 Client ID</source>
+      <translation>OAuth 2.0 Client ID</translation>
+    </message>
+    <message>
+      <source>Please enter your Client ID</source>
+      <translation>لطفا شناسه کلاینت خود را وارد کنید</translation>
+    </message>
+    <message>
+      <source>Client secret</source>
+      <translation>کلید امنیتی کلاینت</translation>
+    </message>
+    <message>
+      <source>This message will be send to your e-mail</source>
+      <translation>این پیام به ایمیل شما فرستاده میشود.</translation>
+    </message>
+    <message>
+      <source>Send test message</source>
+      <translation>ارسال پیام تستی</translation>
+    </message>
+    <message>
+      <source>Revoke access token</source>
+      <translation>لغو نشانه دسترسی</translation>
+    </message>
+    <message>
+      <source>Revoke permission to send a message</source>
+      <translation>لغو مجوز برای  ارسال پیام</translation>
+    </message>
+    <message>
+      <source>Authentificate and grant permission to send a message</source>
+      <translation>سطوح دسترسی برای ارسال پیام</translation>
+    </message>
+    <message>
+      <source>Grant permission to send a message</source>
+      <translation>سطوح دسترسی برای ارسال پیام</translation>
+    </message>
+    <message>
+      <source>Succesfully authorised, now you can try to send a message</source>
+      <translation>تصدیق هویت، شما میتوانید پیام ارسال کنید</translation>
+    </message>
+    <message>
+      <source>Token was revoked</source>
+      <translation>نشانه لغو شد</translation>
+    </message>
+    <message>
+      <source>XMPP message was sent succesfuly</source>
+      <translation>پیام XMPP با موفقیت ارسال شد</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/onlineusers</name>
     <message>
       <source>GEO detection configuration</source>
@@ -2541,10 +2743,6 @@
   <context>
     <name>system/configuration</name>
     <message>
-      <source>Geo adjustment</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Request notification permission</source>
       <translation>درخواست مجوز اطلاع رسانی</translation>
     </message>
@@ -2865,12 +3063,20 @@
       <translation>حذف خودکار چت ها، برای حذف چت های قبلی کلیک کنید</translation>
     </message>
     <message>
+      <source>Update chats duration by using new algorithm</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Closed chats</source>
       <translation>چت های بسته شده</translation>
     </message>
     <message>
       <source>Purged chats</source>
       <translation>چت های حذف شده</translation>
+    </message>
+    <message>
+      <source>Chats duration was updated</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -3259,6 +3465,114 @@
       <translation>آمار</translation>
     </message>
     <message>
+      <source>User</source>
+      <translation>کاربر</translation>
+    </message>
+    <message>
+      <source>Thumbs up</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of Thumbs Up</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Thumbs down</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of Thumbs Down</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of chats by country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Month</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats number by statuses</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitors initiated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Proactive</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Proactive chats number vs visitors initiated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitors</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>System</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages types</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of chats per hour, average chat duration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hourly statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users statisic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Total statistic</source>
       <translation>آمار کلی</translation>
     </message>
@@ -3313,10 +3627,6 @@
     <message>
       <source>Operators last 24h statistic, top 100 by chats number</source>
       <translation>آمار 24 ساعت اخیر اپراتورها، با بیشتر از 100 چت</translation>
-    </message>
-    <message>
-      <source>User</source>
-      <translation>کاربر</translation>
     </message>
     <message>
       <source>Total messages</source>
@@ -5505,157 +5815,6 @@
     </message>
   </context>
   <context>
-    <name>system/xmpp</name>
-    <message>
-      <source>Geo adjustments active</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>تنظیمات به روز شد</translation>
-    </message>
-    <message>
-      <source>XMPP settings</source>
-      <translation>تنظیمات XMPP</translation>
-    </message>
-    <message>
-      <source>XMPP active</source>
-      <translation>XMPP فعال</translation>
-    </message>
-    <message>
-      <source>XMPP Message content</source>
-      <translation>محتوا پیام XMPP</translation>
-    </message>
-    <message>
-      <source>XMPP Message about accepted chat</source>
-      <translation>پیام XMPP درباره چت پذیرفته شده</translation>
-    </message>
-    <message>
-      <source>XMPP</source>
-      <translation>XMPP</translation>
-    </message>
-    <message>
-      <source>Use standard XMPP service</source>
-      <translation>استفاده از سرویس XMPP استاندارد</translation>
-    </message>
-    <message>
-      <source>Host</source>
-      <translation>هاست</translation>
-    </message>
-    <message>
-      <source>Port</source>
-      <translation>پورت</translation>
-    </message>
-    <message>
-      <source>Login</source>
-      <translation>ورود</translation>
-    </message>
-    <message>
-      <source>Password</source>
-      <translation>کلمه عبور</translation>
-    </message>
-    <message>
-      <source>Resource</source>
-      <translation>منبع</translation>
-    </message>
-    <message>
-      <source>Server</source>
-      <translation>سرور</translation>
-    </message>
-    <message>
-      <source>Recipients</source>
-      <translation>گیرندگان</translation>
-    </message>
-    <message>
-      <source>Default recipients</source>
-      <translation>گیرندگان پیش فرض</translation>
-    </message>
-    <message>
-      <source>Test recipients</source>
-      <translation>گیرندگان آزمایشی</translation>
-    </message>
-    <message>
-      <source>Individual recipients</source>
-      <translation>گیرندگان فردی</translation>
-    </message>
-    <message>
-      <source>Test group recipients</source>
-      <translation>گروه گیرندگان آزمایشی</translation>
-    </message>
-    <message>
-      <source>Test message will be send to your account e-mail</source>
-      <translation>پیام آزمایشی به ایمیل شما ارسال خواهد شد</translation>
-    </message>
-    <message>
-      <source>GTalk</source>
-      <translation>GTalk</translation>
-    </message>
-    <message>
-      <source>Use GTalk for messaging</source>
-      <translation>استفاده از چت گوگل برای پیام</translation>
-    </message>
-    <message>
-      <source>Information for your google app</source>
-      <translation>اطلاعات در مورد برنامه گوگل شما</translation>
-    </message>
-    <message>
-      <source>Redirect URL, this url you will have to enter in your google app configuration</source>
-      <translation>آدرس مستقیم، این آدرس در تنظیمات برنامه گوگل شما وارد میشود.</translation>
-    </message>
-    <message>
-      <source>Enter your app information bellow</source>
-      <translation>اطلاعات برنامه خود را در زیر وارد کنید</translation>
-    </message>
-    <message>
-      <source>OAuth 2.0 Client ID</source>
-      <translation>OAuth 2.0 Client ID</translation>
-    </message>
-    <message>
-      <source>Please enter your Client ID</source>
-      <translation>لطفا شناسه کلاینت خود را وارد کنید</translation>
-    </message>
-    <message>
-      <source>Client secret</source>
-      <translation>کلید امنیتی کلاینت</translation>
-    </message>
-    <message>
-      <source>This message will be send to your e-mail</source>
-      <translation>این پیام به ایمیل شما فرستاده میشود.</translation>
-    </message>
-    <message>
-      <source>Send test message</source>
-      <translation>ارسال پیام تستی</translation>
-    </message>
-    <message>
-      <source>Revoke access token</source>
-      <translation>لغو نشانه دسترسی</translation>
-    </message>
-    <message>
-      <source>Revoke permission to send a message</source>
-      <translation>لغو مجوز برای  ارسال پیام</translation>
-    </message>
-    <message>
-      <source>Authentificate and grant permission to send a message</source>
-      <translation>سطوح دسترسی برای ارسال پیام</translation>
-    </message>
-    <message>
-      <source>Grant permission to send a message</source>
-      <translation>سطوح دسترسی برای ارسال پیام</translation>
-    </message>
-    <message>
-      <source>Succesfully authorised, now you can try to send a message</source>
-      <translation>تصدیق هویت، شما میتوانید پیام ارسال کنید</translation>
-    </message>
-    <message>
-      <source>Token was revoked</source>
-      <translation>نشانه لغو شد</translation>
-    </message>
-    <message>
-      <source>XMPP message was sent succesfuly</source>
-      <translation>پیام XMPP با موفقیت ارسال شد</translation>
-    </message>
-  </context>
-  <context>
     <name>file/file</name>
     <message>
       <source>Download file</source>
@@ -5929,6 +6088,13 @@
     </message>
   </context>
   <context>
+    <name>chat/updatemsguser</name>
+    <message>
+      <source>User has edited his last message</source>
+      <translation>کاربر آخرین پیام خود را ویرایش کرد</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/voteaction</name>
     <message>
       <source>Thumbs up</source>
@@ -5955,64 +6121,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>لطفا نوع فایل معتبر وارد کنید!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/updatemsguser</name>
-    <message>
-      <source>User has edited his last message</source>
-      <translation>کاربر آخرین پیام خود را ویرایش کرد</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/geoadjustment</name>
-    <message>
-      <source>GEO adjustment</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>For</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>all</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>custom</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>E.g. ar,pl</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Other countries, put widget/chat status to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>offline status</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>hidden/disabled, widget will not be shown</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>For unmatched countries put chat status to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>normal status</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

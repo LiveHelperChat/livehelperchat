@@ -363,7 +363,7 @@ var lh_inst  = {
 	})(),
 
     showStartWindow : function(url_to_open) {
-	
+		  
 		  if (this.isOnline == false && typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.offline_redirect != 'undefined'){
 				document.location = LHCChatOptions.opt.offline_redirect;
 				return;
@@ -385,6 +385,11 @@ var lh_inst  = {
                 this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?>"+this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.parseOptions()+this.parseStorageArguments()+'&dt='+encodeURIComponent(document.title);
           };
 
+          if (window.innerWidth < 1024) {
+          	window.open(this.initial_iframe_url,"_blank");
+          	return;
+          };
+          
           var widgetWidth = (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.widget_width != 'undefined') ? parseInt(LHCChatOptions.opt.widget_width) : 300;
 		  var widgetHeight = (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.widget_height != 'undefined') ? parseInt(LHCChatOptions.opt.widget_height) : 340;
 
@@ -541,13 +546,19 @@ var lh_inst  = {
     },
 
     storePersistenCookie : function(){
-	    lhc_Cookies('lhc_per',this.JSON.stringify(this.cookieDataPers),{expires:16070400<?php $trackDomain != '' || $disableHTML5Storage == 1 ? ($trackDomain != '' ? print ",domain:'.{$trackDomain}'" : print ",domain:this.getCookieDomain()") : ''?>});
+    	try {
+	    	lhc_Cookies('lhc_per',this.JSON.stringify(this.cookieDataPers),{expires:16070400<?php $trackDomain != '' || $disableHTML5Storage == 1 ? ($trackDomain != '' ? print ",domain:'.{$trackDomain}'" : print ",domain:this.getCookieDomain()") : ''?>});
+	    } catch(err) { };
     },
 
     storeSesCookie : function(){
     	<?php if ($trackDomain == '' && $disableHTML5Storage == 0) : ?>
     	if (localStorage) {
-    		localStorage.setItem('lhc_ses',this.JSON.stringify(this.cookieData));
+    		try {
+    			localStorage.setItem('lhc_ses',this.JSON.stringify(this.cookieData));
+    		} catch(err) { // Fallback to cookie
+    			lhc_Cookies('lhc_ses',this.JSON.stringify(this.cookieData),{<?php $trackDomain != '' || $disableHTML5Storage == 1 ? ($trackDomain != '' ? print "domain:'.{$trackDomain}'" : print "domain:this.getCookieDomain()") : ''?>});
+    		};
     	} else {
     	<?php endif;?>
 	    	lhc_Cookies('lhc_ses',this.JSON.stringify(this.cookieData),{<?php $trackDomain != '' || $disableHTML5Storage == 1 ? ($trackDomain != '' ? print "domain:'.{$trackDomain}'" : print "domain:this.getCookieDomain()") : ''?>});
@@ -569,7 +580,9 @@ var lh_inst  = {
 
     storeReferrer : function(ref){
     	if (sessionStorage && !sessionStorage.getItem('lhc_ref')) {
-    		sessionStorage.setItem('lhc_ref',ref);
+    		try {
+    			sessionStorage.setItem('lhc_ref',ref);
+    		} catch(err) {};
     	}
     },
 
@@ -630,7 +643,14 @@ var lh_inst  = {
     addCookieAttributePersistent : function(attr, value){
     	<?php if ($trackDomain == '' && $disableHTML5Storage == 0) : ?>
     	if (localStorage) {
-    		localStorage.setItem(attr,value);
+    		try {
+    			localStorage.setItem(attr,value);
+    		} catch(err) {
+    			if (!this.cookieDataPers[attr] || this.cookieDataPers[attr] != value){
+			    	this.cookieDataPers[attr] = value;
+			    	this.storePersistenCookie();	    	
+		    	};    		
+    		};
     	} else {
     	<?php endif;?>
     	if (!this.cookieDataPers[attr] || this.cookieDataPers[attr] != value){

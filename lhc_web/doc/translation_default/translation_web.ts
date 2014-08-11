@@ -4,10 +4,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source>Disable HMTL5 secure storage, check it if your site is switching between http and https</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -2055,6 +2051,208 @@
     </message>
   </context>
   <context>
+    <name>chat/geoadjustment</name>
+    <message>
+      <source>GEO adjustment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Make chat status normal for these countries, countries can be separated by comma "de,gb,us,fr" means chat would be shown as usual only for these countries.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>custom</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E.g. ar,pl</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Other countries, put widget/chat status to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>offline status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>hidden/disabled, widget will not be shown</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For unmatched countries put chat status to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>normal status</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>system/xmpp</name>
+    <message>
+      <source>Geo adjustments active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP Message content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP Message about accepted chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use standard XMPP service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Host</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Port</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Login</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Resource</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Server</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Individual recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test group recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test message will be send to your account e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>GTalk</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use GTalk for messaging</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Information for your google app</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Redirect URL, this url you will have to enter in your google app configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter your app information bellow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>OAuth 2.0 Client ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter your Client ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Client secret</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This message will be send to your e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send test message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Revoke access token</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Revoke permission to send a message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Authentificate and grant permission to send a message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Grant permission to send a message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Succesfully authorised, now you can try to send a message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Token was revoked</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XMPP message was sent succesfuly</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/onlineusers</name>
     <message>
       <source>GEO detection configuration</source>
@@ -2562,10 +2760,6 @@
   </context>
   <context>
     <name>system/configuration</name>
-    <message>
-      <source>Geo adjustment</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>Request notification permission</source>
       <translation type="unfinished"/>
@@ -3297,7 +3491,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>umber of Thumbs Up</source>
+      <source>Number of Thumbs Up</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5639,157 +5833,6 @@
     </message>
   </context>
   <context>
-    <name>system/xmpp</name>
-    <message>
-      <source>Geo adjustments active</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMPP settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMPP active</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMPP Message content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMPP Message about accepted chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMPP</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Use standard XMPP service</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Host</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Port</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Login</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Password</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Resource</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Server</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Recipients</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Default recipients</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Test recipients</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Individual recipients</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Test group recipients</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Test message will be send to your account e-mail</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>GTalk</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Use GTalk for messaging</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Information for your google app</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Redirect URL, this url you will have to enter in your google app configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Enter your app information bellow</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>OAuth 2.0 Client ID</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter your Client ID</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Client secret</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>This message will be send to your e-mail</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Send test message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Revoke access token</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Revoke permission to send a message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Authentificate and grant permission to send a message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Grant permission to send a message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Succesfully authorised, now you can try to send a message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Token was revoked</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XMPP message was sent succesfuly</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
     <name>file/file</name>
     <message>
       <source>Download file</source>
@@ -6063,6 +6106,13 @@
     </message>
   </context>
   <context>
+    <name>chat/updatemsguser</name>
+    <message>
+      <source>User has edited his last message</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/voteaction</name>
     <message>
       <source>Thumbs up</source>
@@ -6089,64 +6139,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation type="unfinished"></translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/updatemsguser</name>
-    <message>
-      <source>User has edited his last message</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/geoadjustment</name>
-    <message>
-      <source>GEO adjustment</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Make chat status normal for these countries, countries can be separated by comma "de,gb,us,fr" means chat would be shown as usual only for these countries.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>For</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>all</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>custom</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>E.g. ar,pl</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Other countries, put widget/chat status to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>offline status</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>hidden/disabled, widget will not be shown</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>For unmatched countries put chat status to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>normal status</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

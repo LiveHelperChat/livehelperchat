@@ -144,6 +144,11 @@ var lhc_FAQ = {
    		  var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
    		  this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('faq/faqwidget')?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?>"+'?URLReferer='+locationCurrent+'&URLModule='+encodeURIComponent(LHCFAQOptions.url)+'&identifier='+encodeURIComponent(LHCFAQOptions.identifier);
 
+   		  if (window.innerWidth < 1024) {
+          		window.open(this.initial_iframe_url,"_blank");
+          		return;
+          };
+          
    		  this.iframe_html = '<iframe id="lhcfaq_iframe" allowTransparency="true" scrolling="no" class="lhc-loading" frameborder="0" ' +
                        ( this.initial_iframe_url != '' ? ' src="'    + this.initial_iframe_url + '"' : '' ) +
                        ' width="520"' +

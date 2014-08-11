@@ -134,8 +134,8 @@
       <translation>Paslėpti galimybę vartotojui atidaryti widgetą naujam lange. Atidarymo naujam lange ikona bus paslėpta.</translation>
     </message>
     <message>
-      <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
-      <translation>Išjungti HTML5 storage funkciją, pažymėkite jei jūsų puslapis keičia režimus tarp http ir https</translation>
+      <source>Disable HMTL5 secure storage, check it if your site is switching between http and https</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Your site URL address</source>
@@ -2033,6 +2033,208 @@
     </message>
   </context>
   <context>
+    <name>chat/geoadjustment</name>
+    <message>
+      <source>GEO adjustment</source>
+      <translation>GEO tinkinimas</translation>
+    </message>
+    <message>
+      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
+      <translation>Taikyti šias taisykles widgetui taip pat? sumažėja sistemos našumas pažymėjus.</translation>
+    </message>
+    <message>
+      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
+      <translation>Palikti pokalbių būseną normalią šioms šalims, šalys gali būti atskirtos kableliu &quot;de,gb,us,fr&quot; reiškia, kad pokalbių būsena bus rodoma normali šioms šalims.</translation>
+    </message>
+    <message>
+      <source>For</source>
+      <translation>Šioms</translation>
+    </message>
+    <message>
+      <source>all</source>
+      <translation>visoms</translation>
+    </message>
+    <message>
+      <source>custom</source>
+      <translation>įvestom</translation>
+    </message>
+    <message>
+      <source>E.g. ar,pl</source>
+      <translation>Pvz. ar,pl</translation>
+    </message>
+    <message>
+      <source>Other countries, put widget/chat status to</source>
+      <translation>Kitoms šalims, pakeisti widgeto būseną į</translation>
+    </message>
+    <message>
+      <source>offline status</source>
+      <translation>neprisijungęs</translation>
+    </message>
+    <message>
+      <source>hidden/disabled, widget will not be shown</source>
+      <translation>paslėptas/išjungtas, widgetas gali būti neparodytas</translation>
+    </message>
+    <message>
+      <source>For unmatched countries put chat status to</source>
+      <translation>Neatitikusioms jokio filtro šalims pakeisti chato būseną į</translation>
+    </message>
+    <message>
+      <source>normal status</source>
+      <translation>standartinę</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/xmpp</name>
+    <message>
+      <source>Geo adjustments active</source>
+      <translation>Geo tinkinimas aktyvus</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Nustatymai atnaujinti</translation>
+    </message>
+    <message>
+      <source>XMPP settings</source>
+      <translation>XMPP nustatymai</translation>
+    </message>
+    <message>
+      <source>XMPP active</source>
+      <translation>XMPP aktyvus</translation>
+    </message>
+    <message>
+      <source>XMPP Message content</source>
+      <translation>XMPP žinutės turinys</translation>
+    </message>
+    <message>
+      <source>XMPP Message about accepted chat</source>
+      <translation>XMPP pranešimas apie priimtą pokalbį</translation>
+    </message>
+    <message>
+      <source>XMPP</source>
+      <translation>XMPP</translation>
+    </message>
+    <message>
+      <source>Use standard XMPP service</source>
+      <translation>Naudoti standartinį XMPP servisą</translation>
+    </message>
+    <message>
+      <source>Host</source>
+      <translation>Hostas</translation>
+    </message>
+    <message>
+      <source>Port</source>
+      <translation>Portas</translation>
+    </message>
+    <message>
+      <source>Login</source>
+      <translation>Prisijungimas</translation>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation>Slaptažodi</translation>
+    </message>
+    <message>
+      <source>Resource</source>
+      <translation>Resursas</translation>
+    </message>
+    <message>
+      <source>Server</source>
+      <translation>Serveris</translation>
+    </message>
+    <message>
+      <source>Recipients</source>
+      <translation>Gavėjai</translation>
+    </message>
+    <message>
+      <source>Default recipients</source>
+      <translation>Numatytieji gavėjai</translation>
+    </message>
+    <message>
+      <source>Test recipients</source>
+      <translation>Bandomieji gavėjai</translation>
+    </message>
+    <message>
+      <source>Individual recipients</source>
+      <translation>Individualūs gavėjai</translation>
+    </message>
+    <message>
+      <source>Test group recipients</source>
+      <translation>Testiniai grupės gavėjai</translation>
+    </message>
+    <message>
+      <source>Test message will be send to your account e-mail</source>
+      <translation>Bandomoji žinutė bus išsiųsta į Jūsų paskyros el. pašto adresą</translation>
+    </message>
+    <message>
+      <source>GTalk</source>
+      <translation>GTalk</translation>
+    </message>
+    <message>
+      <source>Use GTalk for messaging</source>
+      <translation>Naudoti GTalk žinučių siuntimui</translation>
+    </message>
+    <message>
+      <source>Information for your google app</source>
+      <translation>Informacija Jūsų Google aplikacijai</translation>
+    </message>
+    <message>
+      <source>Redirect URL, this url you will have to enter in your google app configuration</source>
+      <translation>Nukreipimo URL, šį url Jūs turite įvesti prie savo google aplikacijos konfiguracijos</translation>
+    </message>
+    <message>
+      <source>Enter your app information bellow</source>
+      <translation>Įveskite savo aplikacijos informacija</translation>
+    </message>
+    <message>
+      <source>OAuth 2.0 Client ID</source>
+      <translation>OAuth 2.0 Client ID</translation>
+    </message>
+    <message>
+      <source>Please enter your Client ID</source>
+      <translation>Prašome įvesti savo Client ID</translation>
+    </message>
+    <message>
+      <source>Client secret</source>
+      <translation>Client secret</translation>
+    </message>
+    <message>
+      <source>This message will be send to your e-mail</source>
+      <translation>Ši žinutė bus išsiųsta į Jūsų el. pašto adresą</translation>
+    </message>
+    <message>
+      <source>Send test message</source>
+      <translation>Siųsti bandomają žinutę</translation>
+    </message>
+    <message>
+      <source>Revoke access token</source>
+      <translation>Pašalinti prieigos raktą</translation>
+    </message>
+    <message>
+      <source>Revoke permission to send a message</source>
+      <translation>Pašalinti leidimą siųsti žinutę</translation>
+    </message>
+    <message>
+      <source>Authentificate and grant permission to send a message</source>
+      <translation>Suteikti prieigą siųsti žinutę</translation>
+    </message>
+    <message>
+      <source>Grant permission to send a message</source>
+      <translation>Suteikti leidimą siųsti žinutę</translation>
+    </message>
+    <message>
+      <source>Succesfully authorised, now you can try to send a message</source>
+      <translation>Prieiga sėkmingai suteikta, dabar Jūs galite bandyti siųsti žinutę</translation>
+    </message>
+    <message>
+      <source>Token was revoked</source>
+      <translation>Raktas buvo pašalintas</translation>
+    </message>
+    <message>
+      <source>XMPP message was sent succesfuly</source>
+      <translation>XMPP žinutė buvo sėkminga išsiųsta</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/onlineusers</name>
     <message>
       <source>GEO detection configuration</source>
@@ -2541,10 +2743,6 @@
   <context>
     <name>system/configuration</name>
     <message>
-      <source>Geo adjustment</source>
-      <translation>Geo tinkinimas</translation>
-    </message>
-    <message>
       <source>Request notification permission</source>
       <translation>Suteikti leidimą rodyti pranešimus</translation>
     </message>
@@ -2865,12 +3063,20 @@
       <translation>Automatinis pokalbių ištrynimas, paspauskite ištrinti visus pokalbius</translation>
     </message>
     <message>
+      <source>Update chats duration by using new algorithm</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Closed chats</source>
       <translation>Uždaryti pokalbiai</translation>
     </message>
     <message>
       <source>Purged chats</source>
       <translation>Ištrinti pokalbiai</translation>
+    </message>
+    <message>
+      <source>Chats duration was updated</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -3259,6 +3465,114 @@
       <translation>Statistika</translation>
     </message>
     <message>
+      <source>User</source>
+      <translation>Vartotojas</translation>
+    </message>
+    <message>
+      <source>Thumbs up</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of Thumbs Up</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Thumbs down</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of Thumbs Down</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of chats by country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Month</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats number by statuses</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitors initiated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Proactive</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Proactive chats number vs visitors initiated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitors</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>System</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages types</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of chats per hour, average chat duration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hourly statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users statisic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Total statistic</source>
       <translation>Bendra statistika</translation>
     </message>
@@ -3313,10 +3627,6 @@
     <message>
       <source>Operators last 24h statistic, top 100 by chats number</source>
       <translation>Operatorių paskutinių 24 val. statistika, top 100 pagal pokalbių skaičių</translation>
-    </message>
-    <message>
-      <source>User</source>
-      <translation>Vartotojas</translation>
     </message>
     <message>
       <source>Total messages</source>
@@ -5505,157 +5815,6 @@
     </message>
   </context>
   <context>
-    <name>system/xmpp</name>
-    <message>
-      <source>Geo adjustments active</source>
-      <translation>Geo tinkinimas aktyvus</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Nustatymai atnaujinti</translation>
-    </message>
-    <message>
-      <source>XMPP settings</source>
-      <translation>XMPP nustatymai</translation>
-    </message>
-    <message>
-      <source>XMPP active</source>
-      <translation>XMPP aktyvus</translation>
-    </message>
-    <message>
-      <source>XMPP Message content</source>
-      <translation>XMPP žinutės turinys</translation>
-    </message>
-    <message>
-      <source>XMPP Message about accepted chat</source>
-      <translation>XMPP pranešimas apie priimtą pokalbį</translation>
-    </message>
-    <message>
-      <source>XMPP</source>
-      <translation>XMPP</translation>
-    </message>
-    <message>
-      <source>Use standard XMPP service</source>
-      <translation>Naudoti standartinį XMPP servisą</translation>
-    </message>
-    <message>
-      <source>Host</source>
-      <translation>Hostas</translation>
-    </message>
-    <message>
-      <source>Port</source>
-      <translation>Portas</translation>
-    </message>
-    <message>
-      <source>Login</source>
-      <translation>Prisijungimas</translation>
-    </message>
-    <message>
-      <source>Password</source>
-      <translation>Slaptažodi</translation>
-    </message>
-    <message>
-      <source>Resource</source>
-      <translation>Resursas</translation>
-    </message>
-    <message>
-      <source>Server</source>
-      <translation>Serveris</translation>
-    </message>
-    <message>
-      <source>Recipients</source>
-      <translation>Gavėjai</translation>
-    </message>
-    <message>
-      <source>Default recipients</source>
-      <translation>Numatytieji gavėjai</translation>
-    </message>
-    <message>
-      <source>Test recipients</source>
-      <translation>Bandomieji gavėjai</translation>
-    </message>
-    <message>
-      <source>Individual recipients</source>
-      <translation>Individualūs gavėjai</translation>
-    </message>
-    <message>
-      <source>Test group recipients</source>
-      <translation>Testiniai grupės gavėjai</translation>
-    </message>
-    <message>
-      <source>Test message will be send to your account e-mail</source>
-      <translation>Bandomoji žinutė bus išsiųsta į Jūsų paskyros el. pašto adresą</translation>
-    </message>
-    <message>
-      <source>GTalk</source>
-      <translation>GTalk</translation>
-    </message>
-    <message>
-      <source>Use GTalk for messaging</source>
-      <translation>Naudoti GTalk žinučių siuntimui</translation>
-    </message>
-    <message>
-      <source>Information for your google app</source>
-      <translation>Informacija Jūsų Google aplikacijai</translation>
-    </message>
-    <message>
-      <source>Redirect URL, this url you will have to enter in your google app configuration</source>
-      <translation>Nukreipimo URL, šį url Jūs turite įvesti prie savo google aplikacijos konfiguracijos</translation>
-    </message>
-    <message>
-      <source>Enter your app information bellow</source>
-      <translation>Įveskite savo aplikacijos informacija</translation>
-    </message>
-    <message>
-      <source>OAuth 2.0 Client ID</source>
-      <translation>OAuth 2.0 Client ID</translation>
-    </message>
-    <message>
-      <source>Please enter your Client ID</source>
-      <translation>Prašome įvesti savo Client ID</translation>
-    </message>
-    <message>
-      <source>Client secret</source>
-      <translation>Client secret</translation>
-    </message>
-    <message>
-      <source>This message will be send to your e-mail</source>
-      <translation>Ši žinutė bus išsiųsta į Jūsų el. pašto adresą</translation>
-    </message>
-    <message>
-      <source>Send test message</source>
-      <translation>Siųsti bandomają žinutę</translation>
-    </message>
-    <message>
-      <source>Revoke access token</source>
-      <translation>Pašalinti prieigos raktą</translation>
-    </message>
-    <message>
-      <source>Revoke permission to send a message</source>
-      <translation>Pašalinti leidimą siųsti žinutę</translation>
-    </message>
-    <message>
-      <source>Authentificate and grant permission to send a message</source>
-      <translation>Suteikti prieigą siųsti žinutę</translation>
-    </message>
-    <message>
-      <source>Grant permission to send a message</source>
-      <translation>Suteikti leidimą siųsti žinutę</translation>
-    </message>
-    <message>
-      <source>Succesfully authorised, now you can try to send a message</source>
-      <translation>Prieiga sėkmingai suteikta, dabar Jūs galite bandyti siųsti žinutę</translation>
-    </message>
-    <message>
-      <source>Token was revoked</source>
-      <translation>Raktas buvo pašalintas</translation>
-    </message>
-    <message>
-      <source>XMPP message was sent succesfuly</source>
-      <translation>XMPP žinutė buvo sėkminga išsiųsta</translation>
-    </message>
-  </context>
-  <context>
     <name>file/file</name>
     <message>
       <source>Download file</source>
@@ -5929,6 +6088,13 @@
     </message>
   </context>
   <context>
+    <name>chat/updatemsguser</name>
+    <message>
+      <source>User has edited his last message</source>
+      <translation>Vartotojas pakoregavo savo paskutinę žinutę</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/voteaction</name>
     <message>
       <source>Thumbs up</source>
@@ -5955,64 +6121,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Prašome pasirinkti korektišką failo tipą!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/updatemsguser</name>
-    <message>
-      <source>User has edited his last message</source>
-      <translation>Vartotojas pakoregavo savo paskutinę žinutę</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/geoadjustment</name>
-    <message>
-      <source>GEO adjustment</source>
-      <translation>GEO tinkinimas</translation>
-    </message>
-    <message>
-      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
-      <translation>Taikyti šias taisykles widgetui taip pat? sumažėja sistemos našumas pažymėjus.</translation>
-    </message>
-    <message>
-      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
-      <translation>Palikti pokalbių būseną normalią šioms šalims, šalys gali būti atskirtos kableliu &quot;de,gb,us,fr&quot; reiškia, kad pokalbių būsena bus rodoma normali šioms šalims.</translation>
-    </message>
-    <message>
-      <source>For</source>
-      <translation>Šioms</translation>
-    </message>
-    <message>
-      <source>all</source>
-      <translation>visoms</translation>
-    </message>
-    <message>
-      <source>custom</source>
-      <translation>įvestom</translation>
-    </message>
-    <message>
-      <source>E.g. ar,pl</source>
-      <translation>Pvz. ar,pl</translation>
-    </message>
-    <message>
-      <source>Other countries, put widget/chat status to</source>
-      <translation>Kitoms šalims, pakeisti widgeto būseną į</translation>
-    </message>
-    <message>
-      <source>offline status</source>
-      <translation>neprisijungęs</translation>
-    </message>
-    <message>
-      <source>hidden/disabled, widget will not be shown</source>
-      <translation>paslėptas/išjungtas, widgetas gali būti neparodytas</translation>
-    </message>
-    <message>
-      <source>For unmatched countries put chat status to</source>
-      <translation>Neatitikusioms jokio filtro šalims pakeisti chato būseną į</translation>
-    </message>
-    <message>
-      <source>normal status</source>
-      <translation>standartinę</translation>
     </message>
   </context>
 </TS>

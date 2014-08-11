@@ -35,7 +35,7 @@
 			  var view = new google.visualization.DataView(data);
 		      view.setColumns([0,1]);              
 			  var options = {
-			    title: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','umber of Thumbs Up');?>',
+			    title: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of Thumbs Up');?>',
 			    hAxis: {titleTextStyle: {color: 'red'}},
 		        width: '100%',
 		        height: '100%'		      

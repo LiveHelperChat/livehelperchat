@@ -134,8 +134,8 @@
       <translation>禁用选项可以在新窗口中打开。恢复图标将会隐藏</translation>
     </message>
     <message>
-      <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
-      <translation>禁用hmtl5存储，如果你的网站是HTTP和HTTPS之间切换请检查它</translation>
+      <source>Disable HMTL5 secure storage, check it if your site is switching between http and https</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Your site URL address</source>
@@ -2033,6 +2033,208 @@
     </message>
   </context>
   <context>
+    <name>chat/geoadjustment</name>
+    <message>
+      <source>GEO adjustment</source>
+      <translation>地理位置调整</translation>
+    </message>
+    <message>
+      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
+      <translation>也让聊天状态监测插件使用这些规则？系统性能减低一般与开启此选项有关</translation>
+    </message>
+    <message>
+      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
+      <translation>让聊天状态对于这些能用逗号列出国家代码的国家标准化，通常聊天只在以上这些国家展现</translation>
+    </message>
+    <message>
+      <source>For</source>
+      <translation>对于</translation>
+    </message>
+    <message>
+      <source>all</source>
+      <translation>全部</translation>
+    </message>
+    <message>
+      <source>custom</source>
+      <translation>自定义</translation>
+    </message>
+    <message>
+      <source>E.g. ar,pl</source>
+      <translation>例如阿根廷，波兰</translation>
+    </message>
+    <message>
+      <source>Other countries, put widget/chat status to</source>
+      <translation>使用插件/聊天状态的其他国家地区</translation>
+    </message>
+    <message>
+      <source>offline status</source>
+      <translation>离线状态</translation>
+    </message>
+    <message>
+      <source>hidden/disabled, widget will not be shown</source>
+      <translation>隐藏/禁用，插件将不会展示</translation>
+    </message>
+    <message>
+      <source>For unmatched countries put chat status to</source>
+      <translation>将聊天记录分配到不匹配的国家地区</translation>
+    </message>
+    <message>
+      <source>normal status</source>
+      <translation>正常状态</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/xmpp</name>
+    <message>
+      <source>Geo adjustments active</source>
+      <translation>激活地理位置调整</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>更新设置</translation>
+    </message>
+    <message>
+      <source>XMPP settings</source>
+      <translation>XMPP 设置</translation>
+    </message>
+    <message>
+      <source>XMPP active</source>
+      <translation>XMPP 活跃</translation>
+    </message>
+    <message>
+      <source>XMPP Message content</source>
+      <translation>XMPP 邮件内容</translation>
+    </message>
+    <message>
+      <source>XMPP Message about accepted chat</source>
+      <translation>关于接受聊天 XMPP 消息</translation>
+    </message>
+    <message>
+      <source>XMPP</source>
+      <translation>XMPP</translation>
+    </message>
+    <message>
+      <source>Use standard XMPP service</source>
+      <translation>使用标准 XMPP 服务</translation>
+    </message>
+    <message>
+      <source>Host</source>
+      <translation>主持人</translation>
+    </message>
+    <message>
+      <source>Port</source>
+      <translation>端口</translation>
+    </message>
+    <message>
+      <source>Login</source>
+      <translation>注册</translation>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation>密码</translation>
+    </message>
+    <message>
+      <source>Resource</source>
+      <translation>资源</translation>
+    </message>
+    <message>
+      <source>Server</source>
+      <translation>服务器</translation>
+    </message>
+    <message>
+      <source>Recipients</source>
+      <translation>收件人</translation>
+    </message>
+    <message>
+      <source>Default recipients</source>
+      <translation>默认的收件人</translation>
+    </message>
+    <message>
+      <source>Test recipients</source>
+      <translation>测试的收件人</translation>
+    </message>
+    <message>
+      <source>Individual recipients</source>
+      <translation>单个收件人</translation>
+    </message>
+    <message>
+      <source>Test group recipients</source>
+      <translation>测试组收件人</translation>
+    </message>
+    <message>
+      <source>Test message will be send to your account e-mail</source>
+      <translation>测试消息将会发送到您的帐户的电子邮件</translation>
+    </message>
+    <message>
+      <source>GTalk</source>
+      <translation>GTalk</translation>
+    </message>
+    <message>
+      <source>Use GTalk for messaging</source>
+      <translation>使用 GTalk 的消息</translation>
+    </message>
+    <message>
+      <source>Information for your google app</source>
+      <translation>你的 google 应用程序的信息</translation>
+    </message>
+    <message>
+      <source>Redirect URL, this url you will have to enter in your google app configuration</source>
+      <translation>重定向的 URL，您必须在您的谷歌应用程序配置中输入此 url</translation>
+    </message>
+    <message>
+      <source>Enter your app information bellow</source>
+      <translation>请输入您的应用程序信息 · 贝娄</translation>
+    </message>
+    <message>
+      <source>OAuth 2.0 Client ID</source>
+      <translation>OAuth 2.0 客户端 ID</translation>
+    </message>
+    <message>
+      <source>Please enter your Client ID</source>
+      <translation>请输入您的客户端 ID</translation>
+    </message>
+    <message>
+      <source>Client secret</source>
+      <translation>客户端的秘密</translation>
+    </message>
+    <message>
+      <source>This message will be send to your e-mail</source>
+      <translation>此消息将会发送到您的电子邮件</translation>
+    </message>
+    <message>
+      <source>Send test message</source>
+      <translation>发送测试消息</translation>
+    </message>
+    <message>
+      <source>Revoke access token</source>
+      <translation>撤消访问令牌</translation>
+    </message>
+    <message>
+      <source>Revoke permission to send a message</source>
+      <translation>撤消权限发送一条消息</translation>
+    </message>
+    <message>
+      <source>Authentificate and grant permission to send a message</source>
+      <translation>Authentificate 和授予的权限，将发送一条消息</translation>
+    </message>
+    <message>
+      <source>Grant permission to send a message</source>
+      <translation>授予权限发送一条消息</translation>
+    </message>
+    <message>
+      <source>Succesfully authorised, now you can try to send a message</source>
+      <translation>授权成功，现在您可以尝试发送一条消息</translation>
+    </message>
+    <message>
+      <source>Token was revoked</source>
+      <translation>令牌已被吊销</translation>
+    </message>
+    <message>
+      <source>XMPP message was sent succesfuly</source>
+      <translation>XMPP 消息被发送 succesfuly</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/onlineusers</name>
     <message>
       <source>GEO detection configuration</source>
@@ -2541,10 +2743,6 @@
   <context>
     <name>system/configuration</name>
     <message>
-      <source>Geo adjustment</source>
-      <translation>地理位置调整</translation>
-    </message>
-    <message>
       <source>Request notification permission</source>
       <translation>请求通知权限</translation>
     </message>
@@ -2865,12 +3063,20 @@
       <translation>自动聊天记录清除，请单击以清除旧的聊天记录</translation>
     </message>
     <message>
+      <source>Update chats duration by using new algorithm</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Closed chats</source>
       <translation>已关闭的聊天</translation>
     </message>
     <message>
       <source>Purged chats</source>
       <translation>清除聊天记录</translation>
+    </message>
+    <message>
+      <source>Chats duration was updated</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -3259,6 +3465,114 @@
       <translation>统计</translation>
     </message>
     <message>
+      <source>User</source>
+      <translation>用户</translation>
+    </message>
+    <message>
+      <source>Thumbs up</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of Thumbs Up</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Thumbs down</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of Thumbs Down</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of chats by country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Month</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats number by statuses</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitors initiated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Proactive</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Proactive chats number vs visitors initiated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitors</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>System</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages types</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of chats per hour, average chat duration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hourly statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users statisic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Total statistic</source>
       <translation>总统计</translation>
     </message>
@@ -3313,10 +3627,6 @@
     <message>
       <source>Operators last 24h statistic, top 100 by chats number</source>
       <translation>运营商过去24小时的统计，前100名聊天号码</translation>
-    </message>
-    <message>
-      <source>User</source>
-      <translation>用户</translation>
     </message>
     <message>
       <source>Total messages</source>
@@ -5505,157 +5815,6 @@
     </message>
   </context>
   <context>
-    <name>system/xmpp</name>
-    <message>
-      <source>Geo adjustments active</source>
-      <translation>激活地理位置调整</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>更新设置</translation>
-    </message>
-    <message>
-      <source>XMPP settings</source>
-      <translation>XMPP 设置</translation>
-    </message>
-    <message>
-      <source>XMPP active</source>
-      <translation>XMPP 活跃</translation>
-    </message>
-    <message>
-      <source>XMPP Message content</source>
-      <translation>XMPP 邮件内容</translation>
-    </message>
-    <message>
-      <source>XMPP Message about accepted chat</source>
-      <translation>关于接受聊天 XMPP 消息</translation>
-    </message>
-    <message>
-      <source>XMPP</source>
-      <translation>XMPP</translation>
-    </message>
-    <message>
-      <source>Use standard XMPP service</source>
-      <translation>使用标准 XMPP 服务</translation>
-    </message>
-    <message>
-      <source>Host</source>
-      <translation>主持人</translation>
-    </message>
-    <message>
-      <source>Port</source>
-      <translation>端口</translation>
-    </message>
-    <message>
-      <source>Login</source>
-      <translation>注册</translation>
-    </message>
-    <message>
-      <source>Password</source>
-      <translation>密码</translation>
-    </message>
-    <message>
-      <source>Resource</source>
-      <translation>资源</translation>
-    </message>
-    <message>
-      <source>Server</source>
-      <translation>服务器</translation>
-    </message>
-    <message>
-      <source>Recipients</source>
-      <translation>收件人</translation>
-    </message>
-    <message>
-      <source>Default recipients</source>
-      <translation>默认的收件人</translation>
-    </message>
-    <message>
-      <source>Test recipients</source>
-      <translation>测试的收件人</translation>
-    </message>
-    <message>
-      <source>Individual recipients</source>
-      <translation>单个收件人</translation>
-    </message>
-    <message>
-      <source>Test group recipients</source>
-      <translation>测试组收件人</translation>
-    </message>
-    <message>
-      <source>Test message will be send to your account e-mail</source>
-      <translation>测试消息将会发送到您的帐户的电子邮件</translation>
-    </message>
-    <message>
-      <source>GTalk</source>
-      <translation>GTalk</translation>
-    </message>
-    <message>
-      <source>Use GTalk for messaging</source>
-      <translation>使用 GTalk 的消息</translation>
-    </message>
-    <message>
-      <source>Information for your google app</source>
-      <translation>你的 google 应用程序的信息</translation>
-    </message>
-    <message>
-      <source>Redirect URL, this url you will have to enter in your google app configuration</source>
-      <translation>重定向的 URL，您必须在您的谷歌应用程序配置中输入此 url</translation>
-    </message>
-    <message>
-      <source>Enter your app information bellow</source>
-      <translation>请输入您的应用程序信息 · 贝娄</translation>
-    </message>
-    <message>
-      <source>OAuth 2.0 Client ID</source>
-      <translation>OAuth 2.0 客户端 ID</translation>
-    </message>
-    <message>
-      <source>Please enter your Client ID</source>
-      <translation>请输入您的客户端 ID</translation>
-    </message>
-    <message>
-      <source>Client secret</source>
-      <translation>客户端的秘密</translation>
-    </message>
-    <message>
-      <source>This message will be send to your e-mail</source>
-      <translation>此消息将会发送到您的电子邮件</translation>
-    </message>
-    <message>
-      <source>Send test message</source>
-      <translation>发送测试消息</translation>
-    </message>
-    <message>
-      <source>Revoke access token</source>
-      <translation>撤消访问令牌</translation>
-    </message>
-    <message>
-      <source>Revoke permission to send a message</source>
-      <translation>撤消权限发送一条消息</translation>
-    </message>
-    <message>
-      <source>Authentificate and grant permission to send a message</source>
-      <translation>Authentificate 和授予的权限，将发送一条消息</translation>
-    </message>
-    <message>
-      <source>Grant permission to send a message</source>
-      <translation>授予权限发送一条消息</translation>
-    </message>
-    <message>
-      <source>Succesfully authorised, now you can try to send a message</source>
-      <translation>授权成功，现在您可以尝试发送一条消息</translation>
-    </message>
-    <message>
-      <source>Token was revoked</source>
-      <translation>令牌已被吊销</translation>
-    </message>
-    <message>
-      <source>XMPP message was sent succesfuly</source>
-      <translation>XMPP 消息被发送 succesfuly</translation>
-    </message>
-  </context>
-  <context>
     <name>file/file</name>
     <message>
       <source>Download file</source>
@@ -5929,6 +6088,13 @@
     </message>
   </context>
   <context>
+    <name>chat/updatemsguser</name>
+    <message>
+      <source>User has edited his last message</source>
+      <translation>用户已编辑他最后的聊天信息</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/voteaction</name>
     <message>
       <source>Thumbs up</source>
@@ -5955,64 +6121,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>请输入有效的文件类型 ！</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/updatemsguser</name>
-    <message>
-      <source>User has edited his last message</source>
-      <translation>用户已编辑他最后的聊天信息</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/geoadjustment</name>
-    <message>
-      <source>GEO adjustment</source>
-      <translation>地理位置调整</translation>
-    </message>
-    <message>
-      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
-      <translation>也让聊天状态监测插件使用这些规则？系统性能减低一般与开启此选项有关</translation>
-    </message>
-    <message>
-      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
-      <translation>让聊天状态对于这些能用逗号列出国家代码的国家标准化，通常聊天只在以上这些国家展现</translation>
-    </message>
-    <message>
-      <source>For</source>
-      <translation>对于</translation>
-    </message>
-    <message>
-      <source>all</source>
-      <translation>全部</translation>
-    </message>
-    <message>
-      <source>custom</source>
-      <translation>自定义</translation>
-    </message>
-    <message>
-      <source>E.g. ar,pl</source>
-      <translation>例如阿根廷，波兰</translation>
-    </message>
-    <message>
-      <source>Other countries, put widget/chat status to</source>
-      <translation>使用插件/聊天状态的其他国家地区</translation>
-    </message>
-    <message>
-      <source>offline status</source>
-      <translation>离线状态</translation>
-    </message>
-    <message>
-      <source>hidden/disabled, widget will not be shown</source>
-      <translation>隐藏/禁用，插件将不会展示</translation>
-    </message>
-    <message>
-      <source>For unmatched countries put chat status to</source>
-      <translation>将聊天记录分配到不匹配的国家地区</translation>
-    </message>
-    <message>
-      <source>normal status</source>
-      <translation>正常状态</translation>
     </message>
   </context>
 </TS>
