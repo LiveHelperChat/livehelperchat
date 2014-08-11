@@ -83,7 +83,7 @@
     </message>
     <message>
       <source>Messages box height</source>
-      <translation type="unfinished"/>
+      <translation>Altura do tamanho da caixa de mensagens</translation>
     </message>
     <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
@@ -134,8 +134,8 @@
       <translation>Disabilite opção no widget abrir em nova janela. Ícone de restaurar ficará invisível.</translation>
     </message>
     <message>
-      <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
-      <translation>Disabilite armazenamento de HTML5 , verifique se seu site está mudando de http e https</translation>
+      <source>Disable HMTL5 secure storage, check it if your site is switching between http and https</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Your site URL address</source>
@@ -147,7 +147,7 @@
     </message>
     <message>
       <source>Interval between chat status checks in seconds, 0 disabled.</source>
-      <translation type="unfinished"/>
+      <translation>Intervalo entre verificação da situação do chat em segundos, 0 desativado.</translation>
     </message>
     <message>
       <source>Show BB Code button</source>
@@ -332,7 +332,7 @@
     </message>
     <message>
       <source>Text above start chat form fields</source>
-      <translation type="unfinished"/>
+      <translation>Texto acima dos campos de formulário no início do chat</translation>
     </message>
     <message>
       <source>Online image</source>
@@ -2033,6 +2033,208 @@
     </message>
   </context>
   <context>
+    <name>chat/geoadjustment</name>
+    <message>
+      <source>GEO adjustment</source>
+      <translation>GEO ajustamento</translation>
+    </message>
+    <message>
+      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
+      <translation>Aplicará para o chat indicador de status com estas regras também? Diminuirá o desempenho está associado a esta opção</translation>
+    </message>
+    <message>
+      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
+      <translation>Faça estado de chat normal para esses países, os países podem ser separados por vírgula &quot;de,gb,us,fr&quot; significa bate-papo seria mostrado como de costume apenas para estes países.</translation>
+    </message>
+    <message>
+      <source>For</source>
+      <translation>Para</translation>
+    </message>
+    <message>
+      <source>all</source>
+      <translation>Todos</translation>
+    </message>
+    <message>
+      <source>custom</source>
+      <translation>personalizado</translation>
+    </message>
+    <message>
+      <source>E.g. ar,pl</source>
+      <translation>Exemplo: ar, pl</translation>
+    </message>
+    <message>
+      <source>Other countries, put widget/chat status to</source>
+      <translation>Outros países, coloque o status do chat para</translation>
+    </message>
+    <message>
+      <source>offline status</source>
+      <translation>status indisponível</translation>
+    </message>
+    <message>
+      <source>hidden/disabled, widget will not be shown</source>
+      <translation>invisível/desabilitado, widget não será mostrado</translation>
+    </message>
+    <message>
+      <source>For unmatched countries put chat status to</source>
+      <translation>Para os países incomparáveis ​​colocar o status do chat para</translation>
+    </message>
+    <message>
+      <source>normal status</source>
+      <translation>status normal</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/xmpp</name>
+    <message>
+      <source>Geo adjustments active</source>
+      <translation>Geo ajustes ativos</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Configurações atualizadas</translation>
+    </message>
+    <message>
+      <source>XMPP settings</source>
+      <translation>Configurações XMPP</translation>
+    </message>
+    <message>
+      <source>XMPP active</source>
+      <translation>XMPP ativo</translation>
+    </message>
+    <message>
+      <source>XMPP Message content</source>
+      <translation>Conteúdo da mensagem XMPP</translation>
+    </message>
+    <message>
+      <source>XMPP Message about accepted chat</source>
+      <translation>Mensagem XMPP sobre chats aceitos</translation>
+    </message>
+    <message>
+      <source>XMPP</source>
+      <translation>XMPP</translation>
+    </message>
+    <message>
+      <source>Use standard XMPP service</source>
+      <translation>Usar serviço XMPP padrão</translation>
+    </message>
+    <message>
+      <source>Host</source>
+      <translation>Host</translation>
+    </message>
+    <message>
+      <source>Port</source>
+      <translation>Porta</translation>
+    </message>
+    <message>
+      <source>Login</source>
+      <translation>Login</translation>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation>Senha</translation>
+    </message>
+    <message>
+      <source>Resource</source>
+      <translation>Recurso</translation>
+    </message>
+    <message>
+      <source>Server</source>
+      <translation>Servidor</translation>
+    </message>
+    <message>
+      <source>Recipients</source>
+      <translation>Destinatários</translation>
+    </message>
+    <message>
+      <source>Default recipients</source>
+      <translation>Destinatários padrões</translation>
+    </message>
+    <message>
+      <source>Test recipients</source>
+      <translation>Destinatários de teste</translation>
+    </message>
+    <message>
+      <source>Individual recipients</source>
+      <translation>Destinatário individual</translation>
+    </message>
+    <message>
+      <source>Test group recipients</source>
+      <translation>Grupo de destinatários de teste</translation>
+    </message>
+    <message>
+      <source>Test message will be send to your account e-mail</source>
+      <translation>Mensagem de teste que será enviada para seu e-mail</translation>
+    </message>
+    <message>
+      <source>GTalk</source>
+      <translation>GTalk</translation>
+    </message>
+    <message>
+      <source>Use GTalk for messaging</source>
+      <translation>Use GTalk para mensagens</translation>
+    </message>
+    <message>
+      <source>Information for your google app</source>
+      <translation>Informações para o seu aplicativo google</translation>
+    </message>
+    <message>
+      <source>Redirect URL, this url you will have to enter in your google app configuration</source>
+      <translation>URL de redirecionamento, este url você terá que inserir na configuração do seu aplicativo google</translation>
+    </message>
+    <message>
+      <source>Enter your app information bellow</source>
+      <translation>Insira suas informações de aplicativo abaixo</translation>
+    </message>
+    <message>
+      <source>OAuth 2.0 Client ID</source>
+      <translation>OAuth 2.0 Client ID</translation>
+    </message>
+    <message>
+      <source>Please enter your Client ID</source>
+      <translation>Digite seu ID do cliente</translation>
+    </message>
+    <message>
+      <source>Client secret</source>
+      <translation>Segredo do cliente</translation>
+    </message>
+    <message>
+      <source>This message will be send to your e-mail</source>
+      <translation>Esta mensagem será enviada para o seu e-mail</translation>
+    </message>
+    <message>
+      <source>Send test message</source>
+      <translation>Enviar mensagem de teste</translation>
+    </message>
+    <message>
+      <source>Revoke access token</source>
+      <translation>Revogar token de acesso</translation>
+    </message>
+    <message>
+      <source>Revoke permission to send a message</source>
+      <translation>Revogar permissão para enviar uma mensagem</translation>
+    </message>
+    <message>
+      <source>Authentificate and grant permission to send a message</source>
+      <translation>Autenticar e conceder permissão para enviar uma mensagem</translation>
+    </message>
+    <message>
+      <source>Grant permission to send a message</source>
+      <translation>Conceder permissão para enviar uma mensagem</translation>
+    </message>
+    <message>
+      <source>Succesfully authorised, now you can try to send a message</source>
+      <translation>Autorizado com sucesso, agora você pode tentar enviar uma mensagem</translation>
+    </message>
+    <message>
+      <source>Token was revoked</source>
+      <translation>Token foi revogado</translation>
+    </message>
+    <message>
+      <source>XMPP message was sent succesfuly</source>
+      <translation>Mensagem XMPP enviada com sucesso </translation>
+    </message>
+  </context>
+  <context>
     <name>chat/onlineusers</name>
     <message>
       <source>GEO detection configuration</source>
@@ -2541,10 +2743,6 @@
   <context>
     <name>system/configuration</name>
     <message>
-      <source>Geo adjustment</source>
-      <translation>Geo ajustamento</translation>
-    </message>
-    <message>
       <source>Request notification permission</source>
       <translation>Requisitar permissão de notificação</translation>
     </message>
@@ -2865,12 +3063,20 @@
       <translation>Exclusão automática de chats, clique para excluir chats antigos</translation>
     </message>
     <message>
+      <source>Update chats duration by using new algorithm</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Closed chats</source>
       <translation>Chats fechados</translation>
     </message>
     <message>
       <source>Purged chats</source>
       <translation>Chats excluídos</translation>
+    </message>
+    <message>
+      <source>Chats duration was updated</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -3259,6 +3465,114 @@
       <translation>Estatística</translation>
     </message>
     <message>
+      <source>User</source>
+      <translation>Usuário</translation>
+    </message>
+    <message>
+      <source>Thumbs up</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of Thumbs Up</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Thumbs down</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of Thumbs Down</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of chats by country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Month</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats number by statuses</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitors initiated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Proactive</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Proactive chats number vs visitors initiated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitors</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>System</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages types</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of chats per hour, average chat duration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hourly statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users statisic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Total statistic</source>
       <translation>Estatística completa</translation>
     </message>
@@ -3313,10 +3627,6 @@
     <message>
       <source>Operators last 24h statistic, top 100 by chats number</source>
       <translation>Últimas 24h de estatística de operadores, Top 100 por chats</translation>
-    </message>
-    <message>
-      <source>User</source>
-      <translation>Usuário</translation>
     </message>
     <message>
       <source>Total messages</source>
@@ -5505,157 +5815,6 @@
     </message>
   </context>
   <context>
-    <name>system/xmpp</name>
-    <message>
-      <source>Geo adjustments active</source>
-      <translation>Geo ajustes ativos</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Configurações atualizadas</translation>
-    </message>
-    <message>
-      <source>XMPP settings</source>
-      <translation>Configurações XMPP</translation>
-    </message>
-    <message>
-      <source>XMPP active</source>
-      <translation>XMPP ativo</translation>
-    </message>
-    <message>
-      <source>XMPP Message content</source>
-      <translation>Conteúdo da mensagem XMPP</translation>
-    </message>
-    <message>
-      <source>XMPP Message about accepted chat</source>
-      <translation>Mensagem XMPP sobre chats aceitos</translation>
-    </message>
-    <message>
-      <source>XMPP</source>
-      <translation>XMPP</translation>
-    </message>
-    <message>
-      <source>Use standard XMPP service</source>
-      <translation>Usar serviço XMPP padrão</translation>
-    </message>
-    <message>
-      <source>Host</source>
-      <translation>Host</translation>
-    </message>
-    <message>
-      <source>Port</source>
-      <translation>Porta</translation>
-    </message>
-    <message>
-      <source>Login</source>
-      <translation>Login</translation>
-    </message>
-    <message>
-      <source>Password</source>
-      <translation>Senha</translation>
-    </message>
-    <message>
-      <source>Resource</source>
-      <translation>Recurso</translation>
-    </message>
-    <message>
-      <source>Server</source>
-      <translation>Servidor</translation>
-    </message>
-    <message>
-      <source>Recipients</source>
-      <translation>Destinatários</translation>
-    </message>
-    <message>
-      <source>Default recipients</source>
-      <translation>Destinatários padrões</translation>
-    </message>
-    <message>
-      <source>Test recipients</source>
-      <translation>Destinatários de teste</translation>
-    </message>
-    <message>
-      <source>Individual recipients</source>
-      <translation>Destinatário individual</translation>
-    </message>
-    <message>
-      <source>Test group recipients</source>
-      <translation>Grupo de destinatários de teste</translation>
-    </message>
-    <message>
-      <source>Test message will be send to your account e-mail</source>
-      <translation>Mensagem de teste que será enviada para seu e-mail</translation>
-    </message>
-    <message>
-      <source>GTalk</source>
-      <translation>GTalk</translation>
-    </message>
-    <message>
-      <source>Use GTalk for messaging</source>
-      <translation>Use GTalk para mensagens</translation>
-    </message>
-    <message>
-      <source>Information for your google app</source>
-      <translation>Informações para o seu aplicativo google</translation>
-    </message>
-    <message>
-      <source>Redirect URL, this url you will have to enter in your google app configuration</source>
-      <translation>URL de redirecionamento, este url você terá que inserir na configuração do seu aplicativo google</translation>
-    </message>
-    <message>
-      <source>Enter your app information bellow</source>
-      <translation>Insira suas informações de aplicativo abaixo</translation>
-    </message>
-    <message>
-      <source>OAuth 2.0 Client ID</source>
-      <translation>OAuth 2.0 Client ID</translation>
-    </message>
-    <message>
-      <source>Please enter your Client ID</source>
-      <translation>Digite seu ID do cliente</translation>
-    </message>
-    <message>
-      <source>Client secret</source>
-      <translation>Segredo do cliente</translation>
-    </message>
-    <message>
-      <source>This message will be send to your e-mail</source>
-      <translation>Esta mensagem será enviada para o seu e-mail</translation>
-    </message>
-    <message>
-      <source>Send test message</source>
-      <translation>Enviar mensagem de teste</translation>
-    </message>
-    <message>
-      <source>Revoke access token</source>
-      <translation>Revogar token de acesso</translation>
-    </message>
-    <message>
-      <source>Revoke permission to send a message</source>
-      <translation>Revogar permissão para enviar uma mensagem</translation>
-    </message>
-    <message>
-      <source>Authentificate and grant permission to send a message</source>
-      <translation>Autenticar e conceder permissão para enviar uma mensagem</translation>
-    </message>
-    <message>
-      <source>Grant permission to send a message</source>
-      <translation>Conceder permissão para enviar uma mensagem</translation>
-    </message>
-    <message>
-      <source>Succesfully authorised, now you can try to send a message</source>
-      <translation>Autorizado com sucesso, agora você pode tentar enviar uma mensagem</translation>
-    </message>
-    <message>
-      <source>Token was revoked</source>
-      <translation>Token foi revogado</translation>
-    </message>
-    <message>
-      <source>XMPP message was sent succesfuly</source>
-      <translation>Mensagem XMPP enviada com sucesso </translation>
-    </message>
-  </context>
-  <context>
     <name>file/file</name>
     <message>
       <source>Download file</source>
@@ -5929,6 +6088,13 @@
     </message>
   </context>
   <context>
+    <name>chat/updatemsguser</name>
+    <message>
+      <source>User has edited his last message</source>
+      <translation>Usuário editou sua última mensagem</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/voteaction</name>
     <message>
       <source>Thumbs up</source>
@@ -5955,64 +6121,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Por favor insira um tipo de arquivo válido!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/updatemsguser</name>
-    <message>
-      <source>User has edited his last message</source>
-      <translation>Usuário editou sua última mensagem</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/geoadjustment</name>
-    <message>
-      <source>GEO adjustment</source>
-      <translation>GEO ajustamento</translation>
-    </message>
-    <message>
-      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
-      <translation>Aplicará para o chat indicador de status com estas regras também? Diminuirá o desempenho está associado a esta opção</translation>
-    </message>
-    <message>
-      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
-      <translation>Faça estado de chat normal para esses países, os países podem ser separados por vírgula &quot;de,gb,us,fr&quot; significa bate-papo seria mostrado como de costume apenas para estes países.</translation>
-    </message>
-    <message>
-      <source>For</source>
-      <translation>Para</translation>
-    </message>
-    <message>
-      <source>all</source>
-      <translation>Todos</translation>
-    </message>
-    <message>
-      <source>custom</source>
-      <translation>personalizado</translation>
-    </message>
-    <message>
-      <source>E.g. ar,pl</source>
-      <translation>Exemplo: ar, pl</translation>
-    </message>
-    <message>
-      <source>Other countries, put widget/chat status to</source>
-      <translation>Outros países, coloque o status do chat para</translation>
-    </message>
-    <message>
-      <source>offline status</source>
-      <translation>status indisponível</translation>
-    </message>
-    <message>
-      <source>hidden/disabled, widget will not be shown</source>
-      <translation>invisível/desabilitado, widget não será mostrado</translation>
-    </message>
-    <message>
-      <source>For unmatched countries put chat status to</source>
-      <translation>Para os países incomparáveis ​​colocar o status do chat para</translation>
-    </message>
-    <message>
-      <source>normal status</source>
-      <translation>status normal</translation>
     </message>
   </context>
 </TS>

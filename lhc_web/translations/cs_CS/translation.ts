@@ -134,8 +134,8 @@
       <translation>Vypnout možnost widgetu otevřít nové okno. Ikona obnovení bude skryta</translation>
     </message>
     <message>
-      <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
-      <translation>Vypnout uložiště HTML5, zaškrtněte, pokud se Vaše stránka přepíná mezi HTTP a HTTPS</translation>
+      <source>Disable HMTL5 secure storage, check it if your site is switching between http and https</source>
+      <translation>Vypnout bezpečné úložiště HTML5, zaškrtněte, pokud se Vaše stránka přepíná mezi HTTP a HTTPS </translation>
     </message>
     <message>
       <source>Your site URL address</source>
@@ -2033,6 +2033,208 @@
     </message>
   </context>
   <context>
+    <name>chat/geoadjustment</name>
+    <message>
+      <source>GEO adjustment</source>
+      <translation>GEO přizpůsobení</translation>
+    </message>
+    <message>
+      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
+      <translation>Použít tato pravidla také na indikátor stavu widgetu? s tím je spojen pokles výkonnosti</translation>
+    </message>
+    <message>
+      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
+      <translation>Pro tyto země použít normální stav, země mohou být odděleny čárkou. Např. &quot;cz,en,de,gb&quot; znamená, že status bude zobrazen jako obvykle pouze v těchto zemích.</translation>
+    </message>
+    <message>
+      <source>For</source>
+      <translation>Pro</translation>
+    </message>
+    <message>
+      <source>all</source>
+      <translation>všechny</translation>
+    </message>
+    <message>
+      <source>custom</source>
+      <translation>vlastní</translation>
+    </message>
+    <message>
+      <source>E.g. ar,pl</source>
+      <translation>Např. cz,en</translation>
+    </message>
+    <message>
+      <source>Other countries, put widget/chat status to</source>
+      <translation>Pro ostatní země použít stav</translation>
+    </message>
+    <message>
+      <source>offline status</source>
+      <translation>stav offline</translation>
+    </message>
+    <message>
+      <source>hidden/disabled, widget will not be shown</source>
+      <translation>skrytý/vypnutý, widget nebude zobrazen</translation>
+    </message>
+    <message>
+      <source>For unmatched countries put chat status to</source>
+      <translation>Pro nevyhovující země použít status</translation>
+    </message>
+    <message>
+      <source>normal status</source>
+      <translation>běžný stav</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/xmpp</name>
+    <message>
+      <source>Geo adjustments active</source>
+      <translation>GEO přizpůsobení aktivní</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Nastavení aktualizována</translation>
+    </message>
+    <message>
+      <source>XMPP settings</source>
+      <translation>Nastavení XMPP</translation>
+    </message>
+    <message>
+      <source>XMPP active</source>
+      <translation>XMPP je aktivní</translation>
+    </message>
+    <message>
+      <source>XMPP Message content</source>
+      <translation>Obsah XMPP zprávy</translation>
+    </message>
+    <message>
+      <source>XMPP Message about accepted chat</source>
+      <translation>XMPP zpráva o přijetí rozhovoru</translation>
+    </message>
+    <message>
+      <source>XMPP</source>
+      <translation>XMPP</translation>
+    </message>
+    <message>
+      <source>Use standard XMPP service</source>
+      <translation>Použít standardní službu XMPP</translation>
+    </message>
+    <message>
+      <source>Host</source>
+      <translation>Host</translation>
+    </message>
+    <message>
+      <source>Port</source>
+      <translation>Port</translation>
+    </message>
+    <message>
+      <source>Login</source>
+      <translation>Přihlašovací jméno</translation>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation>Heslo</translation>
+    </message>
+    <message>
+      <source>Resource</source>
+      <translation>Zdroje</translation>
+    </message>
+    <message>
+      <source>Server</source>
+      <translation>Server</translation>
+    </message>
+    <message>
+      <source>Recipients</source>
+      <translation>Příjemci</translation>
+    </message>
+    <message>
+      <source>Default recipients</source>
+      <translation>Vychozí příjemci</translation>
+    </message>
+    <message>
+      <source>Test recipients</source>
+      <translation>Zkušební příjemci</translation>
+    </message>
+    <message>
+      <source>Individual recipients</source>
+      <translation>Individuální příjemci</translation>
+    </message>
+    <message>
+      <source>Test group recipients</source>
+      <translation>Testovací skupina příjemců</translation>
+    </message>
+    <message>
+      <source>Test message will be send to your account e-mail</source>
+      <translation>Testovací zpráva bude odeslána na email Vašeho účtu</translation>
+    </message>
+    <message>
+      <source>GTalk</source>
+      <translation>GTalk</translation>
+    </message>
+    <message>
+      <source>Use GTalk for messaging</source>
+      <translation>Použít pro komunikaci GTalk</translation>
+    </message>
+    <message>
+      <source>Information for your google app</source>
+      <translation>Informace pro Vaši Google aplikaci</translation>
+    </message>
+    <message>
+      <source>Redirect URL, this url you will have to enter in your google app configuration</source>
+      <translation>URL přesměrování, tuto adresu musíte vložit do konfigurace Vaší Google aplikace</translation>
+    </message>
+    <message>
+      <source>Enter your app information bellow</source>
+      <translation>Níže vložte informace o Vaší aplikaci</translation>
+    </message>
+    <message>
+      <source>OAuth 2.0 Client ID</source>
+      <translation>OAuth 2.0 klient ID</translation>
+    </message>
+    <message>
+      <source>Please enter your Client ID</source>
+      <translation>Zadejte, prosím, Vaše ID klienta</translation>
+    </message>
+    <message>
+      <source>Client secret</source>
+      <translation>&quot;Tajná formule&quot;  klienta</translation>
+    </message>
+    <message>
+      <source>This message will be send to your e-mail</source>
+      <translation>Tato zpráva bude zaslána va váš e-mail</translation>
+    </message>
+    <message>
+      <source>Send test message</source>
+      <translation>Odeslat testovací zprávu</translation>
+    </message>
+    <message>
+      <source>Revoke access token</source>
+      <translation>Odstranit přístupový token</translation>
+    </message>
+    <message>
+      <source>Revoke permission to send a message</source>
+      <translation>Odvolat oprávnění odeslat zprávu</translation>
+    </message>
+    <message>
+      <source>Authentificate and grant permission to send a message</source>
+      <translation>Ověření a poskytnutí oprávnění odeslat zprávu</translation>
+    </message>
+    <message>
+      <source>Grant permission to send a message</source>
+      <translation>Udělit oprávnění odeslat zprávu</translation>
+    </message>
+    <message>
+      <source>Succesfully authorised, now you can try to send a message</source>
+      <translation>Úspěšně autorizováno, nyní můžete zkusit odeslat zprávu</translation>
+    </message>
+    <message>
+      <source>Token was revoked</source>
+      <translation>Token byl zneplatněn</translation>
+    </message>
+    <message>
+      <source>XMPP message was sent succesfuly</source>
+      <translation>XMPP zpráva byla úspěšně odeslána</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/onlineusers</name>
     <message>
       <source>GEO detection configuration</source>
@@ -2541,10 +2743,6 @@
   <context>
     <name>system/configuration</name>
     <message>
-      <source>Geo adjustment</source>
-      <translation>GEO přizpůsobení</translation>
-    </message>
-    <message>
       <source>Request notification permission</source>
       <translation>Právo na vyžadování upozornění</translation>
     </message>
@@ -2865,12 +3063,20 @@
       <translation>Automatické čištění rozhovorů, kliknutím vyčisti staré rozhovory</translation>
     </message>
     <message>
+      <source>Update chats duration by using new algorithm</source>
+      <translation>Používat nový algoritmus pro aktualizaci délky rozhovoru</translation>
+    </message>
+    <message>
       <source>Closed chats</source>
       <translation>Ukončené rozhovory</translation>
     </message>
     <message>
       <source>Purged chats</source>
       <translation>Vyčištěné rozhovory</translation>
+    </message>
+    <message>
+      <source>Chats duration was updated</source>
+      <translation>Délka rozhovoru byla aktualizována</translation>
     </message>
   </context>
   <context>
@@ -3259,6 +3465,114 @@
       <translation>Statistika</translation>
     </message>
     <message>
+      <source>User</source>
+      <translation>Uživatel</translation>
+    </message>
+    <message>
+      <source>Thumbs up</source>
+      <translation>Palec nahoru</translation>
+    </message>
+    <message>
+      <source>Number of Thumbs Up</source>
+      <translation>Počet palců nahoru</translation>
+    </message>
+    <message>
+      <source>Thumbs down</source>
+      <translation>Palec dolů</translation>
+    </message>
+    <message>
+      <source>Number of Thumbs Down</source>
+      <translation>Počet palců dolů</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>Země</translation>
+    </message>
+    <message>
+      <source>Chats</source>
+      <translation>Rozhovory</translation>
+    </message>
+    <message>
+      <source>Number of chats by country</source>
+      <translation>Počet rozhovorů podle země</translation>
+    </message>
+    <message>
+      <source>Messages</source>
+      <translation>Zprávy</translation>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation>Počet zpráv podle uživatele</translation>
+    </message>
+    <message>
+      <source>Month</source>
+      <translation>Měsíc</translation>
+    </message>
+    <message>
+      <source>Closed</source>
+      <translation>Uzavřené</translation>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation>Aktivní</translation>
+    </message>
+    <message>
+      <source>Operators</source>
+      <translation>Operátoři</translation>
+    </message>
+    <message>
+      <source>Pending</source>
+      <translation>Čekající</translation>
+    </message>
+    <message>
+      <source>Chats number by statuses</source>
+      <translation>Počty rozhovorů podle stavu</translation>
+    </message>
+    <message>
+      <source>Visitors initiated</source>
+      <translation>Vyvolaný uživateli</translation>
+    </message>
+    <message>
+      <source>Proactive</source>
+      <translation>Proaktivní</translation>
+    </message>
+    <message>
+      <source>Proactive chats number vs visitors initiated</source>
+      <translation>Proaktivní rozhovory vs. vyvolané uživateli</translation>
+    </message>
+    <message>
+      <source>Visitors</source>
+      <translation>Návštěvníci</translation>
+    </message>
+    <message>
+      <source>System</source>
+      <translation>Systém</translation>
+    </message>
+    <message>
+      <source>Messages types</source>
+      <translation>Typy zpráv</translation>
+    </message>
+    <message>
+      <source>Number of chats per hour, average chat duration</source>
+      <translation>Počet rozhovorů za hodinu, průměrná délka rozhovoru</translation>
+    </message>
+    <message>
+      <source>Chats statistic</source>
+      <translation>Statistiky rozhovorů</translation>
+    </message>
+    <message>
+      <source>Hourly statistic</source>
+      <translation>Hodinová statistika</translation>
+    </message>
+    <message>
+      <source>Country statistic</source>
+      <translation>Statistika zemí</translation>
+    </message>
+    <message>
+      <source>Users statisic</source>
+      <translation>Statistika uživatelů</translation>
+    </message>
+    <message>
       <source>Total statistic</source>
       <translation>Celková statistika</translation>
     </message>
@@ -3313,10 +3627,6 @@
     <message>
       <source>Operators last 24h statistic, top 100 by chats number</source>
       <translation>Statistika operátorů posledních 24 hodin, TOP 100 podle počtu rozhovorů</translation>
-    </message>
-    <message>
-      <source>User</source>
-      <translation>Uživatel</translation>
     </message>
     <message>
       <source>Total messages</source>
@@ -5505,157 +5815,6 @@
     </message>
   </context>
   <context>
-    <name>system/xmpp</name>
-    <message>
-      <source>Geo adjustments active</source>
-      <translation>GEO přizpůsobení aktivní</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Nastavení aktualizována</translation>
-    </message>
-    <message>
-      <source>XMPP settings</source>
-      <translation>Nastavení XMPP</translation>
-    </message>
-    <message>
-      <source>XMPP active</source>
-      <translation>XMPP je aktivní</translation>
-    </message>
-    <message>
-      <source>XMPP Message content</source>
-      <translation>Obsah XMPP zprávy</translation>
-    </message>
-    <message>
-      <source>XMPP Message about accepted chat</source>
-      <translation>XMPP zpráva o přijetí rozhovoru</translation>
-    </message>
-    <message>
-      <source>XMPP</source>
-      <translation>XMPP</translation>
-    </message>
-    <message>
-      <source>Use standard XMPP service</source>
-      <translation>Použít standardní službu XMPP</translation>
-    </message>
-    <message>
-      <source>Host</source>
-      <translation>Host</translation>
-    </message>
-    <message>
-      <source>Port</source>
-      <translation>Port</translation>
-    </message>
-    <message>
-      <source>Login</source>
-      <translation>Přihlašovací jméno</translation>
-    </message>
-    <message>
-      <source>Password</source>
-      <translation>Heslo</translation>
-    </message>
-    <message>
-      <source>Resource</source>
-      <translation>Zdroje</translation>
-    </message>
-    <message>
-      <source>Server</source>
-      <translation>Server</translation>
-    </message>
-    <message>
-      <source>Recipients</source>
-      <translation>Příjemci</translation>
-    </message>
-    <message>
-      <source>Default recipients</source>
-      <translation>Vychozí příjemci</translation>
-    </message>
-    <message>
-      <source>Test recipients</source>
-      <translation>Zkušební příjemci</translation>
-    </message>
-    <message>
-      <source>Individual recipients</source>
-      <translation>Individuální příjemci</translation>
-    </message>
-    <message>
-      <source>Test group recipients</source>
-      <translation>Testovací skupina příjemců</translation>
-    </message>
-    <message>
-      <source>Test message will be send to your account e-mail</source>
-      <translation>Testovací zpráva bude odeslána na email Vašeho účtu</translation>
-    </message>
-    <message>
-      <source>GTalk</source>
-      <translation>GTalk</translation>
-    </message>
-    <message>
-      <source>Use GTalk for messaging</source>
-      <translation>Použít pro komunikaci GTalk</translation>
-    </message>
-    <message>
-      <source>Information for your google app</source>
-      <translation>Informace pro Vaši Google aplikaci</translation>
-    </message>
-    <message>
-      <source>Redirect URL, this url you will have to enter in your google app configuration</source>
-      <translation>URL přesměrování, tuto adresu musíte vložit do konfigurace Vaší Google aplikace</translation>
-    </message>
-    <message>
-      <source>Enter your app information bellow</source>
-      <translation>Níže vložte informace o Vaší aplikaci</translation>
-    </message>
-    <message>
-      <source>OAuth 2.0 Client ID</source>
-      <translation>OAuth 2.0 klient ID</translation>
-    </message>
-    <message>
-      <source>Please enter your Client ID</source>
-      <translation>Zadejte, prosím, Vaše ID klienta</translation>
-    </message>
-    <message>
-      <source>Client secret</source>
-      <translation>&quot;Tajná formule&quot;  klienta</translation>
-    </message>
-    <message>
-      <source>This message will be send to your e-mail</source>
-      <translation>Tato zpráva bude zaslána va váš e-mail</translation>
-    </message>
-    <message>
-      <source>Send test message</source>
-      <translation>Odeslat testovací zprávu</translation>
-    </message>
-    <message>
-      <source>Revoke access token</source>
-      <translation>Odstranit přístupový token</translation>
-    </message>
-    <message>
-      <source>Revoke permission to send a message</source>
-      <translation>Odvolat oprávnění odeslat zprávu</translation>
-    </message>
-    <message>
-      <source>Authentificate and grant permission to send a message</source>
-      <translation>Ověření a poskytnutí oprávnění odeslat zprávu</translation>
-    </message>
-    <message>
-      <source>Grant permission to send a message</source>
-      <translation>Udělit oprávnění odeslat zprávu</translation>
-    </message>
-    <message>
-      <source>Succesfully authorised, now you can try to send a message</source>
-      <translation>Úspěšně autorizováno, nyní můžete zkusit odeslat zprávu</translation>
-    </message>
-    <message>
-      <source>Token was revoked</source>
-      <translation>Token byl zneplatněn</translation>
-    </message>
-    <message>
-      <source>XMPP message was sent succesfuly</source>
-      <translation>XMPP zpráva byla úspěšně odeslána</translation>
-    </message>
-  </context>
-  <context>
     <name>file/file</name>
     <message>
       <source>Download file</source>
@@ -5929,6 +6088,13 @@
     </message>
   </context>
   <context>
+    <name>chat/updatemsguser</name>
+    <message>
+      <source>User has edited his last message</source>
+      <translation>Uživatel upravil svou poslední zprávu</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/voteaction</name>
     <message>
       <source>Thumbs up</source>
@@ -5955,64 +6121,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Prosím vyberte platný typ souboru!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/updatemsguser</name>
-    <message>
-      <source>User has edited his last message</source>
-      <translation>Uživatel upravil svou poslední zprávu</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/geoadjustment</name>
-    <message>
-      <source>GEO adjustment</source>
-      <translation>GEO přizpůsobení</translation>
-    </message>
-    <message>
-      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
-      <translation>Použít tato pravidla také na indikátor stavu widgetu? s tím je spojen pokles výkonnosti</translation>
-    </message>
-    <message>
-      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
-      <translation>Pro tyto země použít normální stav, země mohou být odděleny čárkou. Např. &quot;cz,en,de,gb&quot; znamená, že status bude zobrazen jako obvykle pouze v těchto zemích.</translation>
-    </message>
-    <message>
-      <source>For</source>
-      <translation>Pro</translation>
-    </message>
-    <message>
-      <source>all</source>
-      <translation>všechny</translation>
-    </message>
-    <message>
-      <source>custom</source>
-      <translation>vlastní</translation>
-    </message>
-    <message>
-      <source>E.g. ar,pl</source>
-      <translation>Např. cz,en</translation>
-    </message>
-    <message>
-      <source>Other countries, put widget/chat status to</source>
-      <translation>Pro ostatní země použít stav</translation>
-    </message>
-    <message>
-      <source>offline status</source>
-      <translation>stav offline</translation>
-    </message>
-    <message>
-      <source>hidden/disabled, widget will not be shown</source>
-      <translation>skrytý/vypnutý, widget nebude zobrazen</translation>
-    </message>
-    <message>
-      <source>For unmatched countries put chat status to</source>
-      <translation>Pro nevyhovující země použít status</translation>
-    </message>
-    <message>
-      <source>normal status</source>
-      <translation>běžný stav</translation>
     </message>
   </context>
 </TS>

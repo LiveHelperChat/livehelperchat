@@ -87,7 +87,7 @@
     </message>
     <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
-      <translation>Proactive meddelande timeout i timmar. Efter hur många timmar som proactive chattmeddelande ska visas igen.</translation>
+      <translation>Proaktiva meddelanden, timeout i timmar. Efter hur många timmar som proaktiva chattmeddeland ska visas igen.</translation>
     </message>
     <message>
       <source>Maximum message length in characters</source>
@@ -134,8 +134,8 @@
       <translation>Inaktivera alternativ i widget för att öppna ett nytt fönster. Återställningsikonen kommer att vara dold</translation>
     </message>
     <message>
-      <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
-      <translation>Inaktivera HTML5 lagring, kryssa för detta om din sida skiftar mellan http och https</translation>
+      <source>Disable HMTL5 secure storage, check it if your site is switching between http and https</source>
+      <translation>Inaktivera HTML5 säkerhetsförvaring, kryssa för detta om din sida växlar mellan http och https</translation>
     </message>
     <message>
       <source>Your site URL address</source>
@@ -2033,6 +2033,208 @@
     </message>
   </context>
   <context>
+    <name>chat/geoadjustment</name>
+    <message>
+      <source>GEO adjustment</source>
+      <translation>Geo justering</translation>
+    </message>
+    <message>
+      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
+      <translation>Lägg till dessa regler till chattwidgetens statusindikator också? Prestandanedsättning kommer eventuellt att förekomma</translation>
+    </message>
+    <message>
+      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
+      <translation>Gör chattstatusen normal för dessa länder, länder kan separeras med kommatecken &quot;se,gb,de,us,fr&quot; vilket betyder att chatten bara visas som den ska för dessa länder.</translation>
+    </message>
+    <message>
+      <source>For</source>
+      <translation>För</translation>
+    </message>
+    <message>
+      <source>all</source>
+      <translation>alla</translation>
+    </message>
+    <message>
+      <source>custom</source>
+      <translation>modifierad</translation>
+    </message>
+    <message>
+      <source>E.g. ar,pl</source>
+      <translation>Till exempel se,gb</translation>
+    </message>
+    <message>
+      <source>Other countries, put widget/chat status to</source>
+      <translation>Andra länder, lägg till widget/chattstatus till</translation>
+    </message>
+    <message>
+      <source>offline status</source>
+      <translation>offlinestatus</translation>
+    </message>
+    <message>
+      <source>hidden/disabled, widget will not be shown</source>
+      <translation>gömd/inaktiverad, widgeten kommer inte att visas</translation>
+    </message>
+    <message>
+      <source>For unmatched countries put chat status to</source>
+      <translation>För ej matchade länder, lägg till chattstatusen till</translation>
+    </message>
+    <message>
+      <source>normal status</source>
+      <translation>normal status</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/xmpp</name>
+    <message>
+      <source>Geo adjustments active</source>
+      <translation>Geo justering aktiv</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Inställningar uppdaterade</translation>
+    </message>
+    <message>
+      <source>XMPP settings</source>
+      <translation>XMPP inställningar</translation>
+    </message>
+    <message>
+      <source>XMPP active</source>
+      <translation>XMPP aktiv</translation>
+    </message>
+    <message>
+      <source>XMPP Message content</source>
+      <translation>XMPP Meddelande innehåll</translation>
+    </message>
+    <message>
+      <source>XMPP Message about accepted chat</source>
+      <translation>XMPP Meddelande om accepterad chatt</translation>
+    </message>
+    <message>
+      <source>XMPP</source>
+      <translation>XMPP</translation>
+    </message>
+    <message>
+      <source>Use standard XMPP service</source>
+      <translation>Använd standard XMPP tjänst</translation>
+    </message>
+    <message>
+      <source>Host</source>
+      <translation>Värd</translation>
+    </message>
+    <message>
+      <source>Port</source>
+      <translation>Port</translation>
+    </message>
+    <message>
+      <source>Login</source>
+      <translation>Logga in</translation>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation>Lösenord</translation>
+    </message>
+    <message>
+      <source>Resource</source>
+      <translation>Resurs</translation>
+    </message>
+    <message>
+      <source>Server</source>
+      <translation>Server</translation>
+    </message>
+    <message>
+      <source>Recipients</source>
+      <translation>Mottagare</translation>
+    </message>
+    <message>
+      <source>Default recipients</source>
+      <translation>Standard mottagare</translation>
+    </message>
+    <message>
+      <source>Test recipients</source>
+      <translation>Testmottagare</translation>
+    </message>
+    <message>
+      <source>Individual recipients</source>
+      <translation>Enskilda mottagare</translation>
+    </message>
+    <message>
+      <source>Test group recipients</source>
+      <translation>Mottagare testgrupp</translation>
+    </message>
+    <message>
+      <source>Test message will be send to your account e-mail</source>
+      <translation>Textmeddelandet kommer att skickas till e-postadressen för ditt konto</translation>
+    </message>
+    <message>
+      <source>GTalk</source>
+      <translation>GTalk</translation>
+    </message>
+    <message>
+      <source>Use GTalk for messaging</source>
+      <translation>Använd GTalk för meddelanden</translation>
+    </message>
+    <message>
+      <source>Information for your google app</source>
+      <translation>Information för din google app</translation>
+    </message>
+    <message>
+      <source>Redirect URL, this url you will have to enter in your google app configuration</source>
+      <translation>Vidarebefordra URL, denna url måste du ange i din konfiguration för din google app</translation>
+    </message>
+    <message>
+      <source>Enter your app information bellow</source>
+      <translation>Skriv in din app information nedan</translation>
+    </message>
+    <message>
+      <source>OAuth 2.0 Client ID</source>
+      <translation>OAuth 2.0 Klient ID</translation>
+    </message>
+    <message>
+      <source>Please enter your Client ID</source>
+      <translation>Var vänlig skriv in ditt Klient ID</translation>
+    </message>
+    <message>
+      <source>Client secret</source>
+      <translation>Klient hemlighet</translation>
+    </message>
+    <message>
+      <source>This message will be send to your e-mail</source>
+      <translation>Detta meddelande kommer att skickas till din e-post</translation>
+    </message>
+    <message>
+      <source>Send test message</source>
+      <translation>Skicka testmeddelande</translation>
+    </message>
+    <message>
+      <source>Revoke access token</source>
+      <translation>Upphäv access token</translation>
+    </message>
+    <message>
+      <source>Revoke permission to send a message</source>
+      <translation>Upphäv tillåtelse att skicka ett meddelande</translation>
+    </message>
+    <message>
+      <source>Authentificate and grant permission to send a message</source>
+      <translation>Verifiera och ge tillåtelse att skicka ett meddelande</translation>
+    </message>
+    <message>
+      <source>Grant permission to send a message</source>
+      <translation>Ge tillåtelse att skicka ett meddelande</translation>
+    </message>
+    <message>
+      <source>Succesfully authorised, now you can try to send a message</source>
+      <translation>Verifierad, nu kan du försöka att skicka ett meddelande</translation>
+    </message>
+    <message>
+      <source>Token was revoked</source>
+      <translation>Token blev upphävd</translation>
+    </message>
+    <message>
+      <source>XMPP message was sent succesfuly</source>
+      <translation>XMPP meddelandet skickades</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/onlineusers</name>
     <message>
       <source>GEO detection configuration</source>
@@ -2541,10 +2743,6 @@
   <context>
     <name>system/configuration</name>
     <message>
-      <source>Geo adjustment</source>
-      <translation>Geo justering</translation>
-    </message>
-    <message>
       <source>Request notification permission</source>
       <translation>Begär notifieringsrättighet</translation>
     </message>
@@ -2865,12 +3063,20 @@
       <translation>Automatisk rensning av chatt, klicka för att rensa gamla chattar</translation>
     </message>
     <message>
+      <source>Update chats duration by using new algorithm</source>
+      <translation>Uppdatera chattens varaktighet genom att använda en ny algoritm</translation>
+    </message>
+    <message>
       <source>Closed chats</source>
       <translation>Stängda chattar</translation>
     </message>
     <message>
       <source>Purged chats</source>
       <translation>Rensade chattar</translation>
+    </message>
+    <message>
+      <source>Chats duration was updated</source>
+      <translation>Chattens varaktighet uppdaterades</translation>
     </message>
   </context>
   <context>
@@ -3259,6 +3465,114 @@
       <translation>Statistik</translation>
     </message>
     <message>
+      <source>User</source>
+      <translation>Användare</translation>
+    </message>
+    <message>
+      <source>Thumbs up</source>
+      <translation>Tummen upp</translation>
+    </message>
+    <message>
+      <source>Number of Thumbs Up</source>
+      <translation>Antal tummar upp</translation>
+    </message>
+    <message>
+      <source>Thumbs down</source>
+      <translation>Tummen ner</translation>
+    </message>
+    <message>
+      <source>Number of Thumbs Down</source>
+      <translation>Antal tummar ner</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>Land</translation>
+    </message>
+    <message>
+      <source>Chats</source>
+      <translation>Chattar</translation>
+    </message>
+    <message>
+      <source>Number of chats by country</source>
+      <translation>Antal chattar per land</translation>
+    </message>
+    <message>
+      <source>Messages</source>
+      <translation>Meddelanden</translation>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation>Antal meddelanden per användare</translation>
+    </message>
+    <message>
+      <source>Month</source>
+      <translation>Månad</translation>
+    </message>
+    <message>
+      <source>Closed</source>
+      <translation>Stängd</translation>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation>Aktiv</translation>
+    </message>
+    <message>
+      <source>Operators</source>
+      <translation>Operatörer</translation>
+    </message>
+    <message>
+      <source>Pending</source>
+      <translation>Avvaktar</translation>
+    </message>
+    <message>
+      <source>Chats number by statuses</source>
+      <translation>Chattar per status</translation>
+    </message>
+    <message>
+      <source>Visitors initiated</source>
+      <translation>Besökare som accepterats</translation>
+    </message>
+    <message>
+      <source>Proactive</source>
+      <translation>Proaktiv</translation>
+    </message>
+    <message>
+      <source>Proactive chats number vs visitors initiated</source>
+      <translation>Proaktiva chattar gentemot besökare som accepterats</translation>
+    </message>
+    <message>
+      <source>Visitors</source>
+      <translation>Besökare</translation>
+    </message>
+    <message>
+      <source>System</source>
+      <translation>System</translation>
+    </message>
+    <message>
+      <source>Messages types</source>
+      <translation>Meddelandetyper</translation>
+    </message>
+    <message>
+      <source>Number of chats per hour, average chat duration</source>
+      <translation>Antal chattar per timme, chattlängd i genomsnitt</translation>
+    </message>
+    <message>
+      <source>Chats statistic</source>
+      <translation>Chattstatistik</translation>
+    </message>
+    <message>
+      <source>Hourly statistic</source>
+      <translation>Timvis statistik</translation>
+    </message>
+    <message>
+      <source>Country statistic</source>
+      <translation>Statistik, land</translation>
+    </message>
+    <message>
+      <source>Users statisic</source>
+      <translation>Statistik, användare</translation>
+    </message>
+    <message>
       <source>Total statistic</source>
       <translation>Total statistik</translation>
     </message>
@@ -3313,10 +3627,6 @@
     <message>
       <source>Operators last 24h statistic, top 100 by chats number</source>
       <translation>Operatörsstatistik senaste 24h, top 100 på antal chattar</translation>
-    </message>
-    <message>
-      <source>User</source>
-      <translation>Användare</translation>
     </message>
     <message>
       <source>Total messages</source>
@@ -5505,157 +5815,6 @@
     </message>
   </context>
   <context>
-    <name>system/xmpp</name>
-    <message>
-      <source>Geo adjustments active</source>
-      <translation>Geo justering aktiv</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Inställningar uppdaterade</translation>
-    </message>
-    <message>
-      <source>XMPP settings</source>
-      <translation>XMPP inställningar</translation>
-    </message>
-    <message>
-      <source>XMPP active</source>
-      <translation>XMPP aktiv</translation>
-    </message>
-    <message>
-      <source>XMPP Message content</source>
-      <translation>XMPP Meddelande innehåll</translation>
-    </message>
-    <message>
-      <source>XMPP Message about accepted chat</source>
-      <translation>XMPP Meddelande om accepterad chatt</translation>
-    </message>
-    <message>
-      <source>XMPP</source>
-      <translation>XMPP</translation>
-    </message>
-    <message>
-      <source>Use standard XMPP service</source>
-      <translation>Använd standard XMPP tjänst</translation>
-    </message>
-    <message>
-      <source>Host</source>
-      <translation>Värd</translation>
-    </message>
-    <message>
-      <source>Port</source>
-      <translation>Port</translation>
-    </message>
-    <message>
-      <source>Login</source>
-      <translation>Logga in</translation>
-    </message>
-    <message>
-      <source>Password</source>
-      <translation>Lösenord</translation>
-    </message>
-    <message>
-      <source>Resource</source>
-      <translation>Resurs</translation>
-    </message>
-    <message>
-      <source>Server</source>
-      <translation>Server</translation>
-    </message>
-    <message>
-      <source>Recipients</source>
-      <translation>Mottagare</translation>
-    </message>
-    <message>
-      <source>Default recipients</source>
-      <translation>Standard mottagare</translation>
-    </message>
-    <message>
-      <source>Test recipients</source>
-      <translation>Testmottagare</translation>
-    </message>
-    <message>
-      <source>Individual recipients</source>
-      <translation>Enskilda mottagare</translation>
-    </message>
-    <message>
-      <source>Test group recipients</source>
-      <translation>Mottagare testgrupp</translation>
-    </message>
-    <message>
-      <source>Test message will be send to your account e-mail</source>
-      <translation>Textmeddelandet kommer att skickas till e-postadressen för ditt konto</translation>
-    </message>
-    <message>
-      <source>GTalk</source>
-      <translation>GTalk</translation>
-    </message>
-    <message>
-      <source>Use GTalk for messaging</source>
-      <translation>Använd GTalk för meddelanden</translation>
-    </message>
-    <message>
-      <source>Information for your google app</source>
-      <translation>Information för din google app</translation>
-    </message>
-    <message>
-      <source>Redirect URL, this url you will have to enter in your google app configuration</source>
-      <translation>Vidarebefordra URL, denna url måste du ange i din konfiguration för din google app</translation>
-    </message>
-    <message>
-      <source>Enter your app information bellow</source>
-      <translation>Skriv in din app information nedan</translation>
-    </message>
-    <message>
-      <source>OAuth 2.0 Client ID</source>
-      <translation>OAuth 2.0 Klient ID</translation>
-    </message>
-    <message>
-      <source>Please enter your Client ID</source>
-      <translation>Var vänlig skriv in ditt Klient ID</translation>
-    </message>
-    <message>
-      <source>Client secret</source>
-      <translation>Klient hemlighet</translation>
-    </message>
-    <message>
-      <source>This message will be send to your e-mail</source>
-      <translation>Detta meddelande kommer att skickas till din e-post</translation>
-    </message>
-    <message>
-      <source>Send test message</source>
-      <translation>Skicka testmeddelande</translation>
-    </message>
-    <message>
-      <source>Revoke access token</source>
-      <translation>Upphäv access token</translation>
-    </message>
-    <message>
-      <source>Revoke permission to send a message</source>
-      <translation>Upphäv tillåtelse att skicka ett meddelande</translation>
-    </message>
-    <message>
-      <source>Authentificate and grant permission to send a message</source>
-      <translation>Verifiera och ge tillåtelse att skicka ett meddelande</translation>
-    </message>
-    <message>
-      <source>Grant permission to send a message</source>
-      <translation>Ge tillåtelse att skicka ett meddelande</translation>
-    </message>
-    <message>
-      <source>Succesfully authorised, now you can try to send a message</source>
-      <translation>Verifierad, nu kan du försöka att skicka ett meddelande</translation>
-    </message>
-    <message>
-      <source>Token was revoked</source>
-      <translation>Token blev upphävd</translation>
-    </message>
-    <message>
-      <source>XMPP message was sent succesfuly</source>
-      <translation>XMPP meddelandet skickades</translation>
-    </message>
-  </context>
-  <context>
     <name>file/file</name>
     <message>
       <source>Download file</source>
@@ -5929,6 +6088,13 @@
     </message>
   </context>
   <context>
+    <name>chat/updatemsguser</name>
+    <message>
+      <source>User has edited his last message</source>
+      <translation>Användaren har redigerat det senaste meddelandet</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/voteaction</name>
     <message>
       <source>Thumbs up</source>
@@ -5955,64 +6121,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Vänligen ange en giltig filtyp!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/updatemsguser</name>
-    <message>
-      <source>User has edited his last message</source>
-      <translation>Användaren har redigerat det senaste meddelandet</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/geoadjustment</name>
-    <message>
-      <source>GEO adjustment</source>
-      <translation>Geo justering</translation>
-    </message>
-    <message>
-      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
-      <translation>Lägg till dessa regler till chattwidgetens statusindikator också? Prestandanedsättning kommer eventuellt att förekomma</translation>
-    </message>
-    <message>
-      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
-      <translation>Gör chattstatusen normal för dessa länder, länder kan separeras med kommatecken &quot;se,gb,de,us,fr&quot; vilket betyder att chatten bara visas som den ska för dessa länder.</translation>
-    </message>
-    <message>
-      <source>For</source>
-      <translation>För</translation>
-    </message>
-    <message>
-      <source>all</source>
-      <translation>alla</translation>
-    </message>
-    <message>
-      <source>custom</source>
-      <translation>modifierad</translation>
-    </message>
-    <message>
-      <source>E.g. ar,pl</source>
-      <translation>Till exempel se,gb</translation>
-    </message>
-    <message>
-      <source>Other countries, put widget/chat status to</source>
-      <translation>Andra länder, lägg till widget/chattstatus till</translation>
-    </message>
-    <message>
-      <source>offline status</source>
-      <translation>offlinestatus</translation>
-    </message>
-    <message>
-      <source>hidden/disabled, widget will not be shown</source>
-      <translation>gömd/inaktiverad, widgeten kommer inte att visas</translation>
-    </message>
-    <message>
-      <source>For unmatched countries put chat status to</source>
-      <translation>För ej matchade länder, lägg till chattstatusen till</translation>
-    </message>
-    <message>
-      <source>normal status</source>
-      <translation>normal status</translation>
     </message>
   </context>
 </TS>
