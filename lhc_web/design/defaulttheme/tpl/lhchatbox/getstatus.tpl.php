@@ -219,6 +219,11 @@ var lhc_Chatbox = {
 		  
    		  this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chatbox/chatwidget')?>/(chat_height)/<?php echo $heightchatcontent;?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?>/(identifier)/"+LHCChatboxOptions.identifier+'/(hashchatbox)/'+LHCChatboxOptions.hashchatbox+this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.getAppendRequestArguments();
 
+   		  if (window.innerWidth < 1024) {
+          		window.open(this.initial_iframe_url,"_blank");
+          		return;
+          };
+   		  
    		  this.addCookieAttribute('is_opened',1);
 
    		  this.iframe_html = '<iframe id="lhcchatbox_iframe" allowTransparency="true" scrolling="no" class="lhc-loading" frameborder="0" ' +
