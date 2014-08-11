@@ -1,3 +1,11 @@
+2.10v
+
+1. https://github.com/LiveHelperChat/livehelperchat/issues/477
+2. On devices, with lower screen width than 1024, clicking on widget will open new window.
+3. Default line height was set for widgets to have same appearance on all sites.
+
+execute doc/update_db/update_89.sql for update
+
 2.09v
 
 1. https://github.com/LiveHelperChat/livehelperchat/issues/428

@@ -3534,6 +3534,13 @@
                 "hidden": "0"
             },
             {
+                "identifier": "suggest_leave_msg",
+                "value": "1",
+                "type": "0",
+                "explain": "Suggest user to leave a message then user chooses offline department",
+                "hidden": "0"
+            },
+            {
                 "identifier": "checkstatus_timeout",
                 "value": "0",
                 "type": "0",

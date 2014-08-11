@@ -4,7 +4,7 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
+      <source>Disable HMTL5 secure storage, check it if your site is switching between http and https</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -37,6 +37,10 @@
     </message>
     <message>
       <source>How many days keep records of online users.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Suggest user to leave a message then user chooses offline department</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -140,7 +144,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Disable HMTL5 secure storage, check it if your site is switching between http and https</source>
+      <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1825,6 +1829,18 @@
     </message>
     <message>
       <source>Offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department is offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Go to leave a message form</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cancel and choose another department</source>
       <translation type="unfinished"/>
     </message>
     <message>

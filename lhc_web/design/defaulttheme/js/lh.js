@@ -1602,7 +1602,14 @@ function lh(){
     
     this.closeReveal = function(id){
 		$(id).foundation('reveal', 'close');
-	},
+	};
+	
+	this.switchToOfflineForm = function(){
+		var form = $('#form-start-chat');
+		form.attr('action',$('#form-start-chat').attr('action')+'/(switchform)/true/(offline)/true/(leaveamessage)/true/(department)/'+$('#id_DepartamentID').val());
+		form.submit();
+		return false;
+	};
 	
     this.changeChatStatus = function(chat_id){    	
     	if ($('#myModal').size() == 0){

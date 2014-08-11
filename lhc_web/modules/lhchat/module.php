@@ -299,13 +299,13 @@ $ViewList['getstatusembed'] = array(
 
 $ViewList['startchat'] = array (
     'params' => array(),
-    'uparams' => array('operator','theme','vid','hash_resume','sound','hash','offline','leaveamessage','department','priority','chatprefill'),
+    'uparams' => array('switchform','operator','theme','vid','hash_resume','sound','hash','offline','leaveamessage','department','priority','chatprefill'),
 	'multiple_arguments' => array ( 'department' )
 );
 
 $ViewList['chatwidget'] = array(
     'params' => array(),
-    'uparams' => array('operator','theme','vid','sound','hash','hash_resume','mode','offline','leaveamessage','department','priority','chatprefill'),
+    'uparams' => array('switchform','operator','theme','vid','sound','hash','hash_resume','mode','offline','leaveamessage','department','priority','chatprefill'),
 	'multiple_arguments' => array ( 'department' )
 );
 

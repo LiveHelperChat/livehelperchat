@@ -259,7 +259,10 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
 	       exit;
 	   	}
     } else {
-        $tpl->set('errors',$Errors);
+    	// Show errors only if user is not switching form mode
+    	if ($Params['user_parameters_unordered']['switchform'] != 'true'){
+    		$tpl->set('errors',$Errors);
+    	}        
     }
 }
 
