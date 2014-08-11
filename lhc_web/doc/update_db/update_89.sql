@@ -1,1 +1,2 @@
 INSERT INTO `lh_chat_config` (`identifier`, `value`, `type`, `explain`, `hidden`) VALUES ('suggest_leave_msg','1',0,'Suggest user to leave a message then user chooses offline department',0);
+UPDATE lh_departament SET start_hour  = start_hour * 100, end_hour = end_hour * 100;

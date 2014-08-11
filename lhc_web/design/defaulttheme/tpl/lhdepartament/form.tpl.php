@@ -45,13 +45,19 @@
 							<label><input type="checkbox" name="sud" value="1" <?php if ($departament->sud == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Sunday');?></label>
 						</div>
 					</div>
-					<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Work hours, 24 hours format, 1 - 24');?></h4>
+					<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Work hours, 24 hours format, 1 - 24, minutes format 0 - 60');?></h4>
 					<div class="row">
-						<div class="columns large-6">
-							<input type="text" name="StartHour" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','From, E.g. 8');?>" value="<?php echo htmlspecialchars($departament->start_hour);?>" />
+						<div class="columns large-4">
+							<input type="text" name="StartHour" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hours from, E.g. 8');?>" value="<?php echo htmlspecialchars($departament->start_hour_front);?>" />
 						</div>
-						<div class="columns large-6">
-							<input type="text" name="EndHour" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','To, E.g. 17');?>" value="<?php echo htmlspecialchars($departament->end_hour);?>" />
+						<div class="columns large-2">
+							<input type="text" name="StartHourMinit" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Minutes from, E.g. 30');?>" value="<?php echo htmlspecialchars($departament->start_minutes_front);?>" />
+						</div>
+						<div class="columns large-4">
+							<input type="text" name="EndHour" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hours to, E.g. 17');?>" value="<?php echo htmlspecialchars($departament->end_hour_front);?>" />
+						</div>
+						<div class="columns large-2">
+							<input type="text" name="EndHourMinit" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Minutes to, E.g. 30');?>" value="<?php echo htmlspecialchars($departament->end_minutes_front);?>" />
 						</div>
 					</div>
 				</div>

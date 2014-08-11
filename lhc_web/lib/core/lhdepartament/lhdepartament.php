@@ -118,11 +118,17 @@ class erLhcoreClassDepartament{
 	   			'StartHour' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0, 'mx_range' => 24)
 	   			),
+	   			'StartHourMinit' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0, 'mx_range' => 60)
+	   			),
 	   			'inform_unread_delay' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 5)
 	   			),
 	   			'EndHour' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0, 'mx_range' => 24)
+	   			),
+	   			'EndHourMinit' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0, 'mx_range' => 60)
 	   			),
 	   			'inform_delay' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0)
@@ -325,18 +331,34 @@ class erLhcoreClassDepartament{
 	   	} else {
 	   		$department->inform_options = serialize(array());
 	   	}
-	   		   	
+
+	   	
 	   	if ( $form->hasValidData( 'StartHour' ) ) {
-	   		$department->start_hour = $form->StartHour;
+	   		$startHour = $form->StartHour;
 	   	} else {
-	   		$department->start_hour = 0;
+	   		$startHour = 0;
 	   	}
-	   		   	
+	   	
 	   	if ( $form->hasValidData( 'EndHour' ) ) {
-	   		$department->end_hour = $form->EndHour;
+	   		$endHour = $form->EndHour;
 	   	} else {
-	   		$department->end_hour = 0;
+	   		$endHour = 0;
 	   	}
+	   	
+	   	if ( $form->hasValidData( 'StartHourMinit' ) ) {
+	   		$StartHourMinit =  str_pad($form->StartHourMinit, 2, '0', STR_PAD_LEFT);
+	   	} else {
+	   		$StartHourMinit = '00';
+	   	}
+	   	
+	   	if ( $form->hasValidData( 'EndHourMinit' ) ) {
+	   		$endHourMinit = str_pad($form->EndHourMinit, 2, '0', STR_PAD_LEFT);
+	   	} else {
+	   		$endHourMinit = '00';
+	   	}
+	   	
+	   	$department->start_hour = $startHour.$StartHourMinit;
+	   	$department->end_hour = $endHour.$endHourMinit;
 	   	
 	   	if ( $form->hasValidData( 'inform_delay' )  ) {
 	   		$department->inform_delay = $form->inform_delay;

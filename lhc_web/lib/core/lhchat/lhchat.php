@@ -641,14 +641,14 @@ class erLhcoreClassChat {
 				$columns = date('N')-1;
 				
 				if (is_numeric($dep_id)) {
-					$stmt = $db->prepare("SELECT COUNT(id) AS found FROM lh_departament WHERE online_hours_active = 1 AND start_hour <= :start_hour AND end_hour > :end_hour AND {$daysColumns[$columns]} = 1 AND id = :dep_id");
+					$stmt = $db->prepare("SELECT COUNT(id) AS found FROM lh_departament WHERE online_hours_active = 1 AND start_hour <= :start_hour AND end_hour >= :end_hour AND {$daysColumns[$columns]} = 1 AND id = :dep_id");
 					$stmt->bindValue(':dep_id',$dep_id);
 				} elseif (is_array($dep_id)) {
-					$stmt = $db->prepare("SELECT COUNT(id) AS found FROM lh_departament WHERE online_hours_active = 1 AND start_hour <= :start_hour AND end_hour > :end_hour AND {$daysColumns[$columns]} = 1 AND id IN (". implode(',', $dep_id) .")");
+					$stmt = $db->prepare("SELECT COUNT(id) AS found FROM lh_departament WHERE online_hours_active = 1 AND start_hour <= :start_hour AND end_hour >= :end_hour AND {$daysColumns[$columns]} = 1 AND id IN (". implode(',', $dep_id) .")");
 				}
 				
-				$stmt->bindValue(':start_hour',date('G'),PDO::PARAM_INT);
-				$stmt->bindValue(':end_hour',date('G'),PDO::PARAM_INT);
+				$stmt->bindValue(':start_hour',date('G').date('i'),PDO::PARAM_INT);
+				$stmt->bindValue(':end_hour',date('G').date('i'),PDO::PARAM_INT);
 				$stmt->execute();
 				$rowsNumber = $stmt->fetchColumn();
 			}					
@@ -665,7 +665,7 @@ class erLhcoreClassChat {
            if ($rowsNumber == 0){ // Perhaps auto active is turned on for some of departments
            		$daysColumns = array('`mod`','`tud`','`wed`','`thd`','`frd`','`sad`','`sud`');           		
            		$columns = date('N')-1;           		
-	           	$stmt = $db->prepare("SELECT COUNT(id) AS found FROM lh_departament WHERE online_hours_active = 1 AND start_hour <= :start_hour AND end_hour > :end_hour AND {$daysColumns[$columns]} = 1");
+	           	$stmt = $db->prepare("SELECT COUNT(id) AS found FROM lh_departament WHERE online_hours_active = 1 AND start_hour <= :start_hour AND end_hour >= :end_hour AND {$daysColumns[$columns]} = 1");
 	           	$stmt->bindValue(':start_hour',date('G'),PDO::PARAM_INT);
 	           	$stmt->bindValue(':end_hour',date('G'),PDO::PARAM_INT);
 	           	$stmt->execute();
