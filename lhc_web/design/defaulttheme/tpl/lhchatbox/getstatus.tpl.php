@@ -355,7 +355,7 @@ if ( window.addEventListener ){
 };
 
 if (lhc_Chatbox.cookieData.is_opened) {
-	if (window.innerWidth < 1024) {
+	if (window.innerWidth > 1023) {
 		lhc_Chatbox.showVotingForm();
 	}
 }

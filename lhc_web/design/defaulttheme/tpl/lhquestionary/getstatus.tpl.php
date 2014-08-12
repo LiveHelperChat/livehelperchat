@@ -254,7 +254,7 @@ if ( window.addEventListener ){
 
 <?php if ($expand == 'true') : ?>
 if (!lhc_Questionary.cookieData.was_opened) {
-	if (window.innerWidth < 1024) {
+	if (window.innerWidth > 1023) {
 		lhcQuestionary.showVotingForm();
 	};
 };
