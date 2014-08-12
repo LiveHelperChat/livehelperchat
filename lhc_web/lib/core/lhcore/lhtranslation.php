@@ -107,12 +107,45 @@ class erTranslationClassLhTranslation
 	        $writer = new ezcTranslationCacheBackend( $cacheObj );
 	        $writer->initWriter( $this->languageCode );
 
+	        // Load extensions translations
+	        $extensions = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'extensions' );
+	        $contextDataArray = array();
+	        foreach ($extensions as $ext) {
+	        	$trsDir = $instance->SiteDir . 'extension/' . $ext . '/translations/' . $this->languageCode .  '/translation.ts';
+	        	if (file_exists($trsDir)) {	        		
+        			$readerExtension = new ezcTranslationTsBackend( $sys . '/extension/'.$ext.'/translations/' . $this->languageCode );
+        			$readerExtension->setOptions( array( 'format' => 'translation.ts' ) );
+        			$readerExtension->initReader( $this->languageCode );	        
+        			foreach ( $readerExtension as $contextName => $contextData )
+        			{	  
+        				if (isset($contextDataArray[$contextName])) { // Perhaps few extensions have same content?
+        					$contextDataArray[$contextName] = array_merge($contextDataArray[$contextName],$contextData);
+        				} else {				
+        					$contextDataArray[$contextName] = $contextData;
+        				}
+        			}	        
+        			$readerExtension->deInitReader();	        		
+	        	}
+	        }
+	        
+	     	// Store translations
 	        foreach ( $reader as $contextName => $contextData )
-	        {
+	        {	        	
+	        	if (isset($contextDataArray[$contextName])) {
+	        		$contextData = array_merge($contextData,$contextDataArray[$contextName]);
+	        		unset($contextDataArray[$contextName]);
+	        	};	        	
 	            $writer->storeContext( $contextName, $contextData );
 	        }
-
+	        
+	        // Store unique extension context
+	        foreach ($contextDataArray as $contextName => $contextData){
+	        	$writer->storeContext( $contextName, $contextData );
+	        }
+	        
 	        $reader->deInitReader();
+               
+	        unset($contextDataArray);	       
 	        $writer->deInitWriter();
     	} catch (Exception $e) { // Sometimes write fails, so ignore it
 
