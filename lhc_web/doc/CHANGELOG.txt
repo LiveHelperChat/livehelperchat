@@ -1,10 +1,20 @@
 2.10v
 
-1. https://github.com/LiveHelperChat/livehelperchat/issues/477
+1. Now then you are genrating code for multiple departments, or just standard code without any department. 
+If user chooses offline department for him is suggested go to leave a message form. This can be turned on or off in chat configuration. 
+https://github.com/LiveHelperChat/livehelperchat/issues/477
 2. On devices, with lower screen width than 1024, clicking on widget will open new window.
-3. Default line height was set for widgets to have same appearance on all sites.
-4. Option to set department online hours in hours and minutes format. Previously it was only hours. All users who uses this function is required to update department online hours.
-5. https://github.com/LiveHelperChat/livehelperchat/issues/478
+3. Default line height was set for widgets to have same appearance across all sites.
+4. Option to set department online hours in hours and minutes format. Previously it was only hours. All users who uses this function is required to update department online hours. Just resave.
+https://github.com/LiveHelperChat/livehelperchat/issues/476
+5. Jersey icon was missing
+https://github.com/LiveHelperChat/livehelperchat/issues/478
+6. Now extension can override translations also. Just create a folder translations in your extension and appropriate language file.
+E.g extension/overridetranslation/translations/lt_LT/translation.ts and active extension overridetranslation, and you are ready to go.
+https://github.com/LiveHelperChat/livehelperchat/issues/479
+7. Online visitor pages remmebers user settings, selected department, max records to return etc...
+https://github.com/LiveHelperChat/livehelperchat/issues/474
+8. Core was changed to avoid warning if compiled module file is not found. Actually it's like workraound for OP Cache then file is still returned from OP Cache instead of real one.
 
 execute doc/update_db/update_89.sql for update
 

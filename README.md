@@ -18,8 +18,6 @@ https://www.transifex.com/projects/p/live-helper-chat/
 ## Folders structure
 
  * Directories content:
-  * lhc_dc - Compiled desktop for clients Windows/Mac.
-  * lhc_dc_src - Desktop client source code.
   * lhc_web - WEB application folder.
 
 ## Features
@@ -114,5 +112,5 @@ Few main features
   * Groups
   * Users
 
-Google group:
-https://groups.google.com/forum/#!forum/livehelperchat
+Forum:
+http://forum.livehelperchat.com/
