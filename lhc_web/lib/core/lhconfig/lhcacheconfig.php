@@ -8,6 +8,7 @@ class erConfigClassLhCacheConfig
     private $expireOptions = array('translationfile','accessfile');
     private $sessionExpireOptions = array('access_array','lhCacheUserDepartaments');
 
+    private $expiredInRuntime = false;
 
     public function __construct()
     {
@@ -68,33 +69,36 @@ class erConfigClassLhCacheConfig
 
     public function expireCache()
     {
-        foreach ($this->expireOptions as $option)
-        {
-            $this->setSetting( 'cachetimestamps', $option, 0);
-        }
-
-        foreach ($this->sessionExpireOptions as $option)
-        {
-            if (isset($_SESSION[$option])) unset($_SESSION[$option]);
-        }
-
-        $compiledModules = ezcBaseFile::findRecursive( 'cache/cacheconfig',array( '@\.cache\.php@' ) );
-        foreach ($compiledModules as $compiledClass)
-		{
-		    unlink($compiledClass);
-		}
-
-		$compiledTemplates = ezcBaseFile::findRecursive( 'cache/compiledtemplates',array( '@(\.php|\.js|\.css)@' ) );
-
-		foreach ($compiledTemplates as $compiledTemplate)
-		{
-			unlink($compiledTemplate);
-		}
-
-		$instance = CSCacheAPC::getMem();
-		$instance->increaseImageManipulationCache();
-
-        $this->save();
+    	if ($this->expiredInRuntime == false) {
+    		$this->expiredInRuntime = true;
+	        foreach ($this->expireOptions as $option)
+	        {
+	            $this->setSetting( 'cachetimestamps', $option, 0);
+	        }
+	
+	        foreach ($this->sessionExpireOptions as $option)
+	        {
+	            if (isset($_SESSION[$option])) unset($_SESSION[$option]);
+	        }
+	
+	        $compiledModules = ezcBaseFile::findRecursive( 'cache/cacheconfig',array( '@\.cache\.php@' ) );
+	        foreach ($compiledModules as $compiledClass)
+			{
+			    unlink($compiledClass);
+			}
+	
+			$compiledTemplates = ezcBaseFile::findRecursive( 'cache/compiledtemplates',array( '@(\.php|\.js|\.css)@' ) );
+	
+			foreach ($compiledTemplates as $compiledTemplate)
+			{
+				unlink($compiledTemplate);
+			}
+	
+			$instance = CSCacheAPC::getMem();
+			$instance->increaseImageManipulationCache();
+	
+	        $this->save();
+    	}
     }
 
 

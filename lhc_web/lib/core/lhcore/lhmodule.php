@@ -95,6 +95,10 @@ class erLhcoreClassModule{
 
             		// Just try reinclude
             		@include(self::getModuleFile(self::$currentModuleName,self::$currentView));
+            		if (!isset($Result)) {
+            			self::redirect( self::$currentModuleName . '/' . self::$currentView);
+            			exit;
+            		}
             	}
 
             } catch (Exception $e) {

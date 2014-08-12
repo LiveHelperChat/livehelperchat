@@ -111,7 +111,7 @@ class erTranslationClassLhTranslation
 	        $extensions = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'extensions' );
 	        $contextDataArray = array();
 	        foreach ($extensions as $ext) {
-	        	$trsDir = $instance->SiteDir . 'extension/' . $ext . '/translations/' . $this->languageCode .  '/translation.ts';
+	        	$trsDir = $sys . 'extension/' . $ext . '/translations/' . $this->languageCode .  '/translation.ts';
 	        	if (file_exists($trsDir)) {	        		
         			$readerExtension = new ezcTranslationTsBackend( $sys . '/extension/'.$ext.'/translations/' . $this->languageCode );
         			$readerExtension->setOptions( array( 'format' => 'translation.ts' ) );
