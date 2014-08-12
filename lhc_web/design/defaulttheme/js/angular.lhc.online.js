@@ -186,9 +186,36 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 				$interval.cancel(timeoutId);				
 				timeoutId = $interval(function() {		
 					that.updateList();			
-				},newVal*1000);				
+				},newVal*1000);	
+				
+				lhinst.changeUserSettingsIndifferent('oupdate_timeout',newVal);
+			};
+		});
+		
+		$scope.$watch('online.userTimeout',function(newVal,oldVal){
+			if (newVal != oldVal) {	
+				lhinst.changeUserSettingsIndifferent('ouser_timeout',newVal);
 			}
 		});
+		
+		$scope.$watch('online.department',function(newVal,oldVal){
+			if (newVal != oldVal) {	
+				lhinst.changeUserSettingsIndifferent('o_department',newVal);
+			}
+		});
+		
+		$scope.$watch('online.maxRows',function(newVal,oldVal){
+			if (newVal != oldVal) {	
+				lhinst.changeUserSettingsIndifferent('omax_rows',newVal);
+			}
+		});
+		
+		$scope.$watch('groupByField',function(newVal,oldVal){
+			if (newVal != oldVal) {	
+				lhinst.changeUserSettingsIndifferent('ogroup_by',newVal);
+			}
+		});
+		
 		
 		$scope.$watch('online.userTimeout + online.department + online.maxRows + groupByField', function(newVal,oldVal) { 
 				that.updateList();			

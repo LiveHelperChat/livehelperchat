@@ -4,6 +4,7 @@
 2. On devices, with lower screen width than 1024, clicking on widget will open new window.
 3. Default line height was set for widgets to have same appearance on all sites.
 4. Option to set department online hours in hours and minutes format. Previously it was only hours. All users who uses this function is required to update department online hours.
+5. https://github.com/LiveHelperChat/livehelperchat/issues/478
 
 execute doc/update_db/update_89.sql for update
 

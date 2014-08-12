@@ -1586,6 +1586,10 @@ function lh(){
     
     this.changeUserSettings = function(attr,value){
     	$.get(this.wwwDir+  'user/setsettingajax/'+attr+'/'+value);
+    }; 
+    
+    this.changeUserSettingsIndifferent = function(attr,value){
+    	$.get(this.wwwDir+  'user/setsettingajax/'+attr+'/'+value+'/(indifferent)/true');
     };
     
     this.disableUserAsOnline = function(inst)
@@ -1931,6 +1935,15 @@ function gMapsCallback(){
 		});
 	};
 	
+	$('#id_department_map_id').change(function(){
+		showMarkers();
+		lhinst.changeUserSettingsIndifferent('omap_depid',$(this).val());
+	});
+	
+	$('#markerTimeout').change(function(){
+		showMarkers();
+		lhinst.changeUserSettingsIndifferent('omap_mtimeout',$(this).val());
+	});
 	
 	$('#map-activator').click(function(){
 		setTimeout(function(){

@@ -80,7 +80,8 @@ $ViewList['setsetting'] = array (
 );
 
 $ViewList['setsettingajax'] = array (
-		'params' => array('identifier','value')
+		'params' => array('identifier','value'),
+		'uparams' => array('indifferent')
 );
 
 $ViewList['setoffline'] = array (

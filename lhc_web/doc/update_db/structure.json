@@ -3180,6 +3180,41 @@
                 "identifier": "new_user_sound",
                 "class": "",
                 "attribute": ""
+            },
+            {
+                "identifier": "oupdate_timeout",
+                "class": "",
+                "attribute": ""
+            },
+            {
+                "identifier": "ouser_timeout",
+                "class": "",
+                "attribute": ""
+            },
+            {
+                "identifier": "o_department",
+                "class": "",
+                "attribute": ""
+            },
+            {
+                "identifier": "omax_rows",
+                "class": "",
+                "attribute": ""
+            },
+            {
+                "identifier": "ogroup_by",
+                "class": "",
+                "attribute": ""
+            },
+            {
+                "identifier": "omap_depid",
+                "class": "",
+                "attribute": ""
+            },
+            {
+                "identifier": "omap_mtimeout",
+                "class": "",
+                "attribute": ""
             }
         ],
         "lh_chat_config": [

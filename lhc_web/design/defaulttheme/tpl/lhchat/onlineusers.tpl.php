@@ -1,15 +1,12 @@
 <?php $currentUser = erLhcoreClassUser::instance(); ?>
 
 <ul class="button-group radius geo-settings">
-
       <?php if ($currentUser->hasAccessTo('lhchat','administrateconfig')) : ?>
       <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/geoconfiguration')?>" class="button secondary tiny"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','GEO detection configuration');?></a></li>
       <?php endif; ?>
-
       <?php if ($currentUser->hasAccessTo('lhchat','allowclearonlinelist')) : ?>
       <li><a class="tiny button alert csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('chat/onlineusers')?>/(clear_list)/1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Clear list');?></a></li>
       <?php endif; ?>
-
 </ul>
 
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Online visitors');?></h1>
@@ -21,9 +18,16 @@
 <?php 
 	$browserNotification = erLhcoreClassModelUserSetting::getSetting('new_user_bn',(int)(0));
 	$soundUserNotification = erLhcoreClassModelUserSetting::getSetting('new_user_sound',(int)(0));
+	$onlineDepartment = erLhcoreClassModelUserSetting::getSetting('o_department',(int)(0));
+	$ouserTimeout = erLhcoreClassModelUserSetting::getSetting('ouser_timeout',(int)(3600));
+	$oupdTimeout = erLhcoreClassModelUserSetting::getSetting('oupdate_timeout',(int)(10));
+	$omaxRows = erLhcoreClassModelUserSetting::getSetting('omax_rows',(int)(50));
+	$ogroupBy = erLhcoreClassModelUserSetting::getSetting('ogroup_by','none');
+	$omapDepartment = erLhcoreClassModelUserSetting::getSetting('omap_depid',0);
+	$omapMarkerTimeout = erLhcoreClassModelUserSetting::getSetting('omap_mtimeout',30);
 ?>
 
-<div ng-controller="OnlineCtrl as online" ng-init="online.soundEnabled=<?php echo $soundUserNotification == 1 ? 'true' : 'false'?>;online.notificationEnabled=<?php echo $browserNotification == 1 ? 'true' : 'false'?>">
+<div ng-controller="OnlineCtrl as online" ng-init='groupByField = <?php echo json_encode($ogroupBy)?>;online.maxRows=<?php echo (int)$omaxRows?>;online.updateTimeout=<?php echo (int)$oupdTimeout?>;online.userTimeout = <?php echo (int)$ouserTimeout?>;online.department=<?php echo (int)$onlineDepartment?>;online.soundEnabled=<?php echo $soundUserNotification == 1 ? 'true' : 'false'?>;online.notificationEnabled=<?php echo $browserNotification == 1 ? 'true' : 'false'?>'>
 
 <ul class="no-bullet inline-list user-settings-list online-settings">
 	<li class="li-icon"><a href="#" ng-click="online.disableNewUserSound()"><i ng-class="{'icon-mute disabled-icon':!online.soundEnabled}" class="icon-sound"  title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Enable/Disable sound about new visitor');?>"></i></a></li>
@@ -166,17 +170,17 @@
 					<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
 				                    'input_name'     => 'department_map_id',
 									'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select department'),
-				                    'selected_id'    => 0,
+				                    'selected_id'    => $omapDepartment,
 				                    'list_function'  => 'erLhcoreClassModelDepartament::getList'
 				    )); ?>
 				    </div>
 					<div class="columns large-3">
 						<select id="markerTimeout" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Marker timeout before it dissapears from map');?>">
-			    			<option value="30">30 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','seconds');?></option>
-			    			<option value="60">1 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','minute');?></option>
-			    			<option value="120">2 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','minutes');?></option>
-			    			<option value="300">5 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','minutes');?></option>
-			    			<option value="600">10 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','minutes');?></option>
+			    			<option value="30" <?php echo $omapMarkerTimeout == 30 ? 'selected="selected"' : ''?> >30 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','seconds');?></option>
+			    			<option value="60" <?php echo $omapMarkerTimeout == 60 ? 'selected="selected"' : ''?> >1 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','minute');?></option>
+			    			<option value="120" <?php echo $omapMarkerTimeout == 120 ? 'selected="selected"' : ''?> >2 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','minutes');?></option>
+			    			<option value="300" <?php echo $omapMarkerTimeout == 300 ? 'selected="selected"' : ''?> >5 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','minutes');?></option>
+			    			<option value="600" <?php echo $omapMarkerTimeout == 600 ? 'selected="selected"' : ''?> >10 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','minutes');?></option>
 		    			</select>
 	    			</div>
 				</div>

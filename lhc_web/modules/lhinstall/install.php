@@ -619,8 +619,16 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   ('enable_close_list', '', ''),
         	   ('new_user_bn', '', ''),
         	   ('new_user_sound', '', ''),
+        	   ('oupdate_timeout', '', ''),
+        	   ('ouser_timeout', '', ''),
+        	   ('o_department', '', ''),
+        	   ('omax_rows', '', ''),
+        	   ('ogroup_by', '', ''),
+        	   ('omap_depid', '', ''),
+        	   ('omap_mtimeout', '', ''),
         	   ('enable_unread_list', '', '')");
-
+       	   
+        	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_config` (
                   `identifier` varchar(50) NOT NULL,
                   `value` text NOT NULL,
