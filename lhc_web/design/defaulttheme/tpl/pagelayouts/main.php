@@ -22,10 +22,10 @@
     </div>
 
     <?php if ($canUseChat == true) :    
-    $pendingTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_pending_list',1);
-    $activeTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_active_list',1);
-    $closedTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_close_list',0);
-    $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_list',1);
+    $pendingTabEnabled = (int)erLhcoreClassModelUserSetting::getSetting('enable_pending_list',1);
+    $activeTabEnabled = (int)erLhcoreClassModelUserSetting::getSetting('enable_active_list',1);
+    $closedTabEnabled = (int)erLhcoreClassModelUserSetting::getSetting('enable_close_list',0);
+    $unreadTabEnabled = (int)erLhcoreClassModelUserSetting::getSetting('enable_unread_list',1);
     ?>
     <div class="columns large-3" id="right-column-page" ng-cloak>
 			<div class="section-container auto" data-section="auto">

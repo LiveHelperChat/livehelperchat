@@ -16,15 +16,15 @@
 <?php endif; ?>
 
 <?php 
-	$browserNotification = erLhcoreClassModelUserSetting::getSetting('new_user_bn',(int)(0));
-	$soundUserNotification = erLhcoreClassModelUserSetting::getSetting('new_user_sound',(int)(0));
-	$onlineDepartment = erLhcoreClassModelUserSetting::getSetting('o_department',(int)(0));
-	$ouserTimeout = erLhcoreClassModelUserSetting::getSetting('ouser_timeout',(int)(3600));
-	$oupdTimeout = erLhcoreClassModelUserSetting::getSetting('oupdate_timeout',(int)(10));
-	$omaxRows = erLhcoreClassModelUserSetting::getSetting('omax_rows',(int)(50));
-	$ogroupBy = erLhcoreClassModelUserSetting::getSetting('ogroup_by','none');
-	$omapDepartment = erLhcoreClassModelUserSetting::getSetting('omap_depid',0);
-	$omapMarkerTimeout = erLhcoreClassModelUserSetting::getSetting('omap_mtimeout',30);
+	$browserNotification = (int)erLhcoreClassModelUserSetting::getSetting('new_user_bn',(int)(0));
+	$soundUserNotification = (int)erLhcoreClassModelUserSetting::getSetting('new_user_sound',(int)(0));
+	$onlineDepartment = (int)erLhcoreClassModelUserSetting::getSetting('o_department',(int)(0));
+	$ouserTimeout = (int)erLhcoreClassModelUserSetting::getSetting('ouser_timeout',(int)(3600));
+	$oupdTimeout = (int)erLhcoreClassModelUserSetting::getSetting('oupdate_timeout',(int)(10));
+	$omaxRows = (int)erLhcoreClassModelUserSetting::getSetting('omax_rows',(int)(50));
+	$ogroupBy = (string)erLhcoreClassModelUserSetting::getSetting('ogroup_by','none');
+	$omapDepartment = (int)erLhcoreClassModelUserSetting::getSetting('omap_depid',0);
+	$omapMarkerTimeout = (int)erLhcoreClassModelUserSetting::getSetting('omap_mtimeout',30);
 ?>
 
 <div ng-controller="OnlineCtrl as online" ng-init='groupByField = <?php echo json_encode($ogroupBy)?>;online.maxRows=<?php echo (int)$omaxRows?>;online.updateTimeout=<?php echo (int)$oupdTimeout?>;online.userTimeout = <?php echo (int)$ouserTimeout?>;online.department=<?php echo (int)$onlineDepartment?>;online.soundEnabled=<?php echo $soundUserNotification == 1 ? 'true' : 'false'?>;online.notificationEnabled=<?php echo $browserNotification == 1 ? 'true' : 'false'?>'>
