@@ -86,15 +86,15 @@ class erLhcoreClassModule{
 
             	self::attatchExtensionListeners();
             	
-            	$includeStatus = include(self::getModuleFile(self::$currentModuleName,self::$currentView));
-
+            	$includeStatus = @include(self::getModuleFile());
+            	
             	// Inclusion failed
             	if ($includeStatus === false) {
             		$CacheManager = erConfigClassLhCacheConfig::getInstance();
             		$CacheManager->expireCache();
 
             		// Just try reinclude
-            		@include(self::getModuleFile(self::$currentModuleName,self::$currentView));
+            		@include(self::getModuleFile(true));
             		if (!isset($Result)) {
             			self::redirect( self::$currentModuleName . '/' . self::$currentView);
             			exit;
@@ -180,12 +180,12 @@ class erLhcoreClassModule{
         return false;
     }
 
-    public static function getModuleFile() {
+    public static function getModuleFile($disableCacheManually = false) {
 
         $cfg = erConfigClassLhConfig::getInstance();
         $cacheEnabled = $cfg->getSetting( 'site', 'modulecompile' );
 
-        if ($cacheEnabled === false) {
+        if ($cacheEnabled === false || $disableCacheManually === true) {
             return self::$currentModule[self::$currentView]['script_path'];
         } else {
 
