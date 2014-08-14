@@ -14,7 +14,6 @@
     </div>
     
     <div class="columns small-5 pt20">
-        
     	<ul class="button-group radius right">
     	  <?php if (!isset($Result['hide_close_window'])) : ?>
 		  	<li><a class="secondary tiny button" onclick="lhinst.userclosedchatandbrowser();" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>"><i class="icon-cancel"></i></a></li>
@@ -24,7 +23,6 @@
 		    <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/switch_language.tpl.php'));?>			
 		  </li>
 		  <?php endif; ?>
-		  
 		</ul>
 	
 	
