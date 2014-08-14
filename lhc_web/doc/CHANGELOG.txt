@@ -17,6 +17,7 @@ https://github.com/LiveHelperChat/livehelperchat/issues/474
 8. Core was changed to avoid warning if compiled module file is not found. Actually it's like workraound for OP Cache then file is still returned from OP Cache instead of real one.
 9. Option to enable language switched at chat widget. It applies only for chat widget and start chat windows.
 https://github.com/LiveHelperChat/livehelperchat/issues/469
+10. Install by default will enable Geo detection using MaxMind
 
 execute doc/update_db/update_89.sql for update
 
