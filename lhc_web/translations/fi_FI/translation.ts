@@ -230,7 +230,7 @@
     </message>
     <message>
       <source>Start archiving</source>
-      <translation>Aloita arkisointi</translation>
+      <translation>Aloita arkistointi</translation>
     </message>
     <message>
       <source>Return</source>
@@ -466,7 +466,7 @@
     </message>
     <message>
       <source>Auto responder</source>
-      <translation>Automaativastaaja</translation>
+      <translation>Automaattivastaaja</translation>
     </message>
     <message>
       <source>Name for personal purposes</source>
@@ -1385,7 +1385,7 @@
     <name>chat/chatnotexists</name>
     <message>
       <source>Resume chat</source>
-      <translation>Jatka keskutelua</translation>
+      <translation>Jatka keskustelua</translation>
     </message>
     <message>
       <source>Chat was deleted</source>
@@ -3146,7 +3146,7 @@
     <name>chat/sendmail</name>
     <message>
       <source>Send mail to the user</source>
-      <translation>Lähetä sähköpostia käyttäjälle</translation>
+      <translation>Lähetä sähköpostia asiakkaalle</translation>
     </message>
     <message>
       <source>Recipient</source>
@@ -3166,7 +3166,7 @@
     </message>
     <message>
       <source>Reply e-mail</source>
-      <translation>Vastaanottajan sähköposti</translation>
+      <translation>Lähettäjän sähköposti</translation>
     </message>
     <message>
       <source>From e-mail</source>
@@ -3198,7 +3198,7 @@
     </message>
     <message>
       <source>Reply e-mail is missing!</source>
-      <translation>Vastausosoite puuttuu!</translation>
+      <translation>Lähettäjän sähköpostiosoite puuttuu!</translation>
     </message>
     <message>
       <source>Subject is missing!</source>
@@ -3209,7 +3209,7 @@
     <name>chat/sendnotice</name>
     <message>
       <source>Send a message to the user</source>
-      <translation>Lähetä viesti käyttäjälle</translation>
+      <translation>Lähetä viesti asiakkaalle</translation>
     </message>
     <message>
       <source>If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.</source>
@@ -3233,7 +3233,7 @@
     </message>
     <message>
       <source>Message was sent to the user</source>
-      <translation>Viesti lähetettiin käyttäjälle</translation>
+      <translation>Viesti lähetettiin asiakkalle</translation>
     </message>
     <message>
       <source>Start chat with operator</source>
@@ -3709,7 +3709,7 @@
     </message>
     <message>
       <source>Archives list</source>
-      <translation>Arksitojen lista</translation>
+      <translation>Arkistojen lista</translation>
     </message>
     <message>
       <source>New archive</source>
@@ -4152,7 +4152,7 @@
     </message>
     <message>
       <source>Visible lists</source>
-      <translation>Näkyvein lista</translation>
+      <translation>Näkyvät listat</translation>
     </message>
     <message>
       <source>Pending chats tab enabled</source>
@@ -6014,7 +6014,7 @@
     </message>
     <message>
       <source>Allow to change reply e-mail</source>
-      <translation>Salli vastaus sähköpostilla</translation>
+      <translation>Salli muuttaa vastausosoitetta</translation>
     </message>
     <message>
       <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
@@ -6080,7 +6080,7 @@
     <name>chat/transferuser</name>
     <message>
       <source>Chat was assigned to selected department</source>
-      <translation>Kesksutelu on liitettu valitulle yksikölle</translation>
+      <translation>Keskustelu on liitettu valitulle yksikölle</translation>
     </message>
     <message>
       <source>Chat was assigned to selected user</source>
@@ -6091,7 +6091,7 @@
     <name>chat/updatemsguser</name>
     <message>
       <source>User has edited his last message</source>
-      <translation type="unfinished"/>
+      <translation>Käyttäjä on päivittänyt viimeisintä viestiään</translation>
     </message>
   </context>
   <context>
@@ -6113,7 +6113,7 @@
     <name>chatarchive/viewarchivedchat</name>
     <message>
       <source>View archived chat</source>
-      <translation>Katso arksitoituja keskusteluja</translation>
+      <translation>Katso arkistoituja keskusteluja</translation>
     </message>
   </context>
   <context>
