@@ -890,13 +890,32 @@ border-top-right-radius: 6px;
 }
 
 
-.bb-list a{
+
+.bb-list a {
 	padding:2px;
 	display:inline-block;	
 	border:1px solid #ccc;	 
 	width:32px;
 	height:32px;
 }
-.bb-list a:hover{
+
+.bb-list a:hover {
 	background-color:#CECECE;
 }
+
+.max-width-180{
+	max-width: 180px;
+}
+
+.f-dropdown-lang{
+	font-size:14px;
+}
+
+.f-dropdown-lang li{
+	float:left;
+	width:50%;		
+}
+
+.f-dropdown-lang li a{text-overflow: ellipsis;overflow:hidden;}
+.f-dropdown-lang:before {left:auto;right:10px;}
+.f-dropdown-lang:after {left:auto;right:9px;}

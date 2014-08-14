@@ -95,7 +95,6 @@ class erLhcoreClassModelUserSetting {
    {
        if ($user_id == false) {
            $currentUser = erLhcoreClassUser::instance();
-
            if ($currentUser->isLogged()) {
                $user_id = $currentUser->getUserID();
            }

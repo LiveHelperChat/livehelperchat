@@ -765,6 +765,14 @@ function lh(){
 		}
 	};
 	
+	this.switchLang = function(form,lang){
+		var languageAppend = '<input type="hidden" value="'+lang+'" name="switchLang" />';				
+		form.append(languageAppend);
+		form.submit();
+		
+		return false;
+	},
+	
 	this.sendMail = function(chat_id) {
 		$.colorbox({iframe:true, width:'90%',height:'90%', href:this.wwwDir + 'chat/sendmail/'+chat_id});
 	};

@@ -198,7 +198,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
    // Validate post data
    $Errors = erLhcoreClassChatValidator::validateStartChat($inputData,$startDataFields,$chat,$additionalParams);
 
-   if (count($Errors) == 0)
+   if (count($Errors) == 0 && !isset($_POST['switchLang']))
    {   	
    		$chat->setIP();
    		erLhcoreClassModelChat::detectLocation($chat);
@@ -296,8 +296,8 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 
 
     } else {
-    	// Show errors only if user is not switching form mode
-    	if ($Params['user_parameters_unordered']['switchform'] != 'true'){
+    	// Show errors only if user is not switching form mode and not swithing language
+    	if ($Params['user_parameters_unordered']['switchform'] != 'true' && !isset($_POST['switchLang'])){
         	$tpl->set('errors',$Errors);
     	}
     }

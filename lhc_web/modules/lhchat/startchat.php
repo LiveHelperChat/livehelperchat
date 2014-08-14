@@ -164,7 +164,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
    // Validate post data
    $Errors = erLhcoreClassChatValidator::validateStartChat($inputData,$startDataFields,$chat,$additionalParams);
 
-   if (count($Errors) == 0)
+   if (count($Errors) == 0 && !isset($_POST['switchLang']))
    {
    		$chat->setIP();
    		erLhcoreClassModelChat::detectLocation($chat);
@@ -260,7 +260,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
 	   	}
     } else {
     	// Show errors only if user is not switching form mode
-    	if ($Params['user_parameters_unordered']['switchform'] != 'true'){
+    	if ($Params['user_parameters_unordered']['switchform'] != 'true' && !isset($_POST['switchLang'])){
     		$tpl->set('errors',$Errors);
     	}        
     }
@@ -367,6 +367,7 @@ if (isset($_POST['r']))
 
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'userchat';
+$Result['show_switch_language'] = true;
 
 $Result['path'] = array(array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Fill in the form to start a chat')))
 

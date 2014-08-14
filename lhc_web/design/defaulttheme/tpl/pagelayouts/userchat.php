@@ -9,14 +9,26 @@
 <div class="content-row">
 
 <div class="row">
-    <div class="columns small-10">
+    <div class="columns small-7">
         <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_logo.tpl.php'));?>
     </div>
-    <?php if (!isset($Result['hide_close_window'])) : ?>
-    <div class="columns small-2 pt20">
-		<input type="button" class="secondary tiny button round right" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>" onclick="lhinst.userclosedchatandbrowser();" />
-	</div>
-	<?php endif;?>
+    
+    <div class="columns small-5 pt20">
+        
+    	<ul class="button-group radius right">
+    	  <?php if (!isset($Result['hide_close_window'])) : ?>
+		  	<li><a class="secondary tiny button" onclick="lhinst.userclosedchatandbrowser();" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>"><i class="icon-cancel"></i></a></li>
+		  <?php endif;?>		  
+		  <?php if (isset($Result['show_switch_language'])) : ?>
+		  <li>
+		    <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/switch_language.tpl.php'));?>			
+		  </li>
+		  <?php endif; ?>
+		  
+		</ul>
+	
+	
+	</div>	
 </div>
 
 <div class="row">
