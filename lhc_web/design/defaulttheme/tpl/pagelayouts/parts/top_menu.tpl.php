@@ -17,34 +17,45 @@
 			<?php endif;?>
 			<li class="divider"></li>
 			<?php endif;?>
-						
+				
+			<?php 
+				$useQuestionary = $currentUser->hasAccessTo('lhquestionary','manage_questionary');
+				$useFaq = $currentUser->hasAccessTo('lhfaq','manage_faq');
+				$useChatbox = $currentUser->hasAccessTo('lhchatbox','manage_chatbox');
+				$useBo = $currentUser->hasAccessTo('lhbrowseoffer','manage_bo');
+				$useFm = $currentUser->hasAccessTo('lhform','manage_fm');
+				$useDoc = $currentUser->hasAccessTo('lhdocshare','manage_dc');
+			?>		
+			<?php if ($useDoc || $useFm || $useBo || $useChatbox || $useFaq || $useQuestionary) : ?>
 			<li class="has-dropdown">
                 <a href="#"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Extra modules')?></a>
                 <ul class="dropdown">
-                  <?php if ($currentUser->hasAccessTo('lhquestionary','manage_questionary')) : ?>
+                  <?php if ($useQuestionary) : ?>
 				  <li><a href="<?php echo erLhcoreClassDesign::baseurl('questionary/list')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Questionary');?></a></li>
 				  <?php endif;?>
-                  <?php if ($currentUser->hasAccessTo('lhfaq','manage_faq')) : ?>
+                  <?php if ($useFaq) : ?>
 				  <li><a href="<?php echo erLhcoreClassDesign::baseurl('faq/list')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','FAQ');?></a></li>
 				  <?php endif;?>
-                  <?php if ($currentUser->hasAccessTo('lhchatbox','manage_chatbox')) : ?>
+                  <?php if ($useChatbox) : ?>
 				  <li><a href="<?php echo erLhcoreClassDesign::baseurl('chatbox/configuration')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Chatbox');?></a></li>
 				  <?php endif; ?>		
-                  <?php if ($currentUser->hasAccessTo('lhbrowseoffer','manage_bo')) : ?>
+                  <?php if ($useBo) : ?>
 				  <li><a href="<?php echo erLhcoreClassDesign::baseurl('browseoffer/index')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Browse offers');?></a></li>
 				  <?php endif; ?>				  				  
-				  <?php if ($currentUser->hasAccessTo('lhform','manage_fm')) : ?>
+				  <?php if ($useFm) : ?>
 				  <li><a href="<?php echo erLhcoreClassDesign::baseurl('form/index')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('browseoffer/index','Forms');?></a></li>
 				  <?php endif;?>
-                  <?php if ($currentUser->hasAccessTo('lhdocshare','manage_dc')) : ?>
+                  <?php if ($useDoc) : ?>
 				  <li><a href="<?php echo erLhcoreClassDesign::baseurl('docshare/index')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('browseoffer/index','Documents');?></a></li>
 				  <?php endif; ?>
                 </ul>
             </li>
+			<li class="divider"></li>
+			<?php endif; ?>
 			
 			<?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/top_menu_extension_multiinclude.tpl.php.tpl.php'));?>
 				
-			<li class="divider"></li>
+			
 			<?php if ($currentUser->hasAccessTo('lhsystem','use')) : ?>
 			<li class="li-icon"><a href="<?php echo erLhcoreClassDesign::baseurl('system/configuration')?>"><i class="icon-tools"></i></a></li>
 			<?php endif; ?>
