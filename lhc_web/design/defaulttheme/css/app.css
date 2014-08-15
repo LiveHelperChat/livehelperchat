@@ -916,6 +916,6 @@ border-top-right-radius: 6px;
 	width:50%;		
 }
 
-.f-dropdown-lang li a{text-overflow: ellipsis;overflow:hidden;}
+.f-dropdown-lang li a{text-overflow: ellipsis;overflow:hidden;font-size:11px;}
 .f-dropdown-lang:before {left:auto;right:10px;}
 .f-dropdown-lang:after {left:auto;right:9px;}
