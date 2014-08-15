@@ -605,7 +605,7 @@ var lh_inst  = {
 				  	html2canvas(document.body, {
 						  onrendered: function(canvas) {
 						         var xhr = new XMLHttpRequest();
-						         xhr.open( "POST", '<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/file/storescreenshot'+inst.getAppendCookieArguments(), true);
+						         xhr.open( "POST", '<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+lh_inst.lang+'/file/storescreenshot'+inst.getAppendCookieArguments(), true);
 							     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 							     xhr.send( "data=" + encodeURIComponent( canvas.toDataURL() ) );			         
 						  }
