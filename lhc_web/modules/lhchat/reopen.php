@@ -61,6 +61,9 @@ try {
 			erLhcoreClassModule::redirect('chat/chat','/' . $chat->id . '/' . $chat->hash . $modeAppendTheme );
 			exit;
 		}
+	} else {
+		header('Location: ' . $_SERVER['HTTP_REFERER']);
+		exit;
 	}
 
 } catch(Exception $e) {
