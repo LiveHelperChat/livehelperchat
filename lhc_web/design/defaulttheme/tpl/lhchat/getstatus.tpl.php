@@ -114,9 +114,12 @@ var lh_inst  = {
     disabledGeo : <?php echo (isset($disableByGeoAdjustment) && $disableByGeoAdjustment == true) ? 'true' : 'false' ?>,
     checkOperatorMessage : <?php echo $check_operator_messages == true ? 'true' : 'false'?>,
 	offset_data : '',
+	lang: '<?php echo erLhcoreClassSystem::instance()->WWWDirLang?>',
 	is_dragging : false,
 	online_tracked : false,
-    urlopen : "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/startchat')?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?>",
+    urlopen : function(){
+    	return "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?>"+this.lang+"<?php echo erLhcoreClassDesign::baseurldirect('chat/startchat')?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?>";
+    },
 
     windowname : "startchatwindow",
 	substatus : '',
@@ -243,7 +246,7 @@ var lh_inst  = {
         var th = document.getElementsByTagName('head')[0];
         var s = document.createElement('script');
         s.setAttribute('type','text/javascript');
-        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatwidgetclosed')?>'+this.getAppendCookieArguments());
+        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?>'+this.lang+'<?php echo erLhcoreClassDesign::baseurldirect('chat/chatwidgetclosed')?>'+this.getAppendCookieArguments());
         th.appendChild(s);
         this.toggleStatusWidget(false);
         this.removeById('lhc_container');
@@ -268,7 +271,7 @@ var lh_inst  = {
         var popupHeight = (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.popup_height != 'undefined') ? parseInt(LHCChatOptions.opt.popup_height) : 520;
         var popupWidth = (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.popup_width != 'undefined') ? parseInt(LHCChatOptions.opt.popup_width) : 500;
         var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));        
-        window.open(this.urlopen+this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.parseOptions()+this.parseStorageArguments(),this.windowname,"scrollbars=yes,menubar=1,resizable=1,width="+popupWidth+",height="+popupHeight);
+        window.open(this.urlopen()+this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.parseOptions()+this.parseStorageArguments(),this.windowname,"scrollbars=yes,menubar=1,resizable=1,width="+popupWidth+",height="+popupHeight);
         this.removeCookieAttr('hash');
         this.toggleStatusWidget(false);
     },
@@ -382,7 +385,7 @@ var lh_inst  = {
                 this.initial_iframe_url = url_to_open+this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.parseOptions()+this.parseStorageArguments()+'&dt='+encodeURIComponent(document.title);
           } else {
           		this.chatOpenedCallback(this.isOnline == false ? 'internal_offline' : 'internal');	
-                this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?>"+this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.parseOptions()+this.parseStorageArguments()+'&dt='+encodeURIComponent(document.title);
+                this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?>"+this.lang+"<?php echo erLhcoreClassDesign::baseurldirect('chat/chatwidget')?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?>"+this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.parseOptions()+this.parseStorageArguments()+'&dt='+encodeURIComponent(document.title);
           };
 
           if (window.innerWidth < 1024) {
@@ -443,7 +446,7 @@ var lh_inst  = {
          
         var popupHeight = (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.popup_height != 'undefined') ? parseInt(LHCChatOptions.opt.popup_height) : 520;
         var popupWidth = (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.popup_width != 'undefined') ? parseInt(LHCChatOptions.opt.popup_width) : 500;
-        window.open(this.urlopen+this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.parseOptions()+this.parseStorageArguments(),this.windowname,"scrollbars=yes,menubar=1,resizable=1,width="+popupWidth+",height="+popupHeight);
+        window.open(this.urlopen()+this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.parseOptions()+this.parseStorageArguments(),this.windowname,"scrollbars=yes,menubar=1,resizable=1,width="+popupWidth+",height="+popupHeight);
         this.chatOpenedCallback(this.isOnline == false ? 'external_offline' : 'external');
         <?php endif; ?>
         return false;
@@ -499,7 +502,7 @@ var lh_inst  = {
             var s = document.createElement('script');
             s.setAttribute('id','lhc_operator_message');
             s.setAttribute('type','text/javascript');
-            s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatcheckoperatormessage')?><?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?>/(vid)/'+vid+'?l='+locationCurrent+'&dt='+encodeURIComponent(document.title));
+            s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?>'+this.lang+'<?php echo erLhcoreClassDesign::baseurldirect('chat/chatcheckoperatormessage')?><?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?>/(vid)/'+vid+'?l='+locationCurrent+'&dt='+encodeURIComponent(document.title));
             th.appendChild(s);
             lh_inst.startNewMessageCheck();        
         }, <?php echo (int)(erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['check_for_operator_msg']*1000); ?> );
@@ -515,7 +518,7 @@ var lh_inst  = {
         
         s.setAttribute('id','lhc_operator_message');
         s.setAttribute('type','text/javascript');
-        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatcheckoperatormessage')?><?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?>/(tz)/'+tzOffset+'/(count_page)/1/(vid)/'+vid+'?l='+locationCurrent+this.parseStorageArguments()+this.parseOptionsOnline()+'&dt='+encodeURIComponent(document.title));
+        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?>'+this.lang+'<?php echo erLhcoreClassDesign::baseurldirect('chat/chatcheckoperatormessage')?><?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?>/(tz)/'+tzOffset+'/(count_page)/1/(vid)/'+vid+'?l='+locationCurrent+this.parseStorageArguments()+this.parseOptionsOnline()+'&dt='+encodeURIComponent(document.title));
         th.appendChild(s);
     },
 
@@ -527,7 +530,7 @@ var lh_inst  = {
         var tzOffset = ((new Date().getTimezoneOffset())/60) * -1; 
         s.setAttribute('id','lhc_log_pageview');
         s.setAttribute('type','text/javascript');
-        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/logpageview')?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?>/(tz)/'+tzOffset+'/(vid)/'+vid+'?l='+locationCurrent+this.parseStorageArguments()+this.parseOptionsOnline()+'&dt='+encodeURIComponent(document.title));
+        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?>'+this.lang+'<?php echo erLhcoreClassDesign::baseurldirect('chat/logpageview')?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?>/(tz)/'+tzOffset+'/(vid)/'+vid+'?l='+locationCurrent+this.parseStorageArguments()+this.parseOptionsOnline()+'&dt='+encodeURIComponent(document.title));
         th.appendChild(s);
     },
 
@@ -602,7 +605,7 @@ var lh_inst  = {
 				  	html2canvas(document.body, {
 						  onrendered: function(canvas) {
 						         var xhr = new XMLHttpRequest();
-						         xhr.open( "POST", '<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('file/storescreenshot')?>'+inst.getAppendCookieArguments(), true);
+						         xhr.open( "POST", '<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?>'+this.lang+'<?php echo erLhcoreClassDesign::baseurldirect('file/storescreenshot')?>'+inst.getAppendCookieArguments(), true);
 							     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 							     xhr.send( "data=" + encodeURIComponent( canvas.toDataURL() ) );			         
 						  }
@@ -667,6 +670,11 @@ var lh_inst  = {
     
     timeoutStatuscheck : null,
     
+    initLanguage : function() {
+   		var langUser = this.getPersistentAttribute('lng');
+    	this.lang = (langUser != null && langUser != '' && langUser != undefined) ? langUser : this.lang;   
+    },
+    
     checkStatusChat : function() {
     	<?php if ((int)erLhcoreClassModelChatConfig::fetch('checkstatus_timeout')->current_value > 0) : ?>       
         this.timeoutStatuscheck = setTimeout(function() {
@@ -675,7 +683,7 @@ var lh_inst  = {
             var s = document.createElement('script');
             s.setAttribute('id','lhc_check_status');
             s.setAttribute('type','text/javascript');
-            s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatcheckstatus')?><?php $department !== false ? print '/(department)/'.$department : ''?>/(status)/'+lh_inst.isOnline);
+            s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?>'+this.lang+'<?php echo erLhcoreClassDesign::baseurldirect('chat/chatcheckstatus')?><?php $department !== false ? print '/(department)/'.$department : ''?>/(status)/'+lh_inst.isOnline);
             th.appendChild(s);
             lh_inst.checkStatusChat();        
         },<?php echo (int)(erLhcoreClassModelChatConfig::fetch('checkstatus_timeout')->current_value*1000); ?>);
@@ -702,6 +710,15 @@ var lh_inst  = {
     		}
     	} else if (action == 'lhc_screenshot') {
     		lh_inst.makeScreenshot();
+    	} else if (action == 'lhc_lang') {
+    		var lang = e.data.split(':')[1];
+    		if (lang != undefined) {    				
+    			lh_inst.addCookieAttributePersistent('lng',lang);
+    			lh_inst.lang = lang;
+    		} else {
+    			lh_inst.addCookieAttributePersistent('lng','');
+    			lh_inst.lang = '';
+    		}
     	} else if (action == 'lhc_close') {
     		lh_inst.hide();
     	}
@@ -736,6 +753,7 @@ if ( typeof cookieData === "string" && cookieData ) {
 };
 
 lh_inst.initSessionStorage();
+lh_inst.initLanguage();
 
 <?php if ($referrer != '') : ?>
 lh_inst.storeReferrer(<?php echo json_encode($referrer)?>);

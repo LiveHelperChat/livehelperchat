@@ -299,6 +299,8 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
     	// Show errors only if user is not switching form mode and not swithing language
     	if ($Params['user_parameters_unordered']['switchform'] != 'true' && !isset($_POST['switchLang'])){
         	$tpl->set('errors',$Errors);
+    	} elseif (isset($_POST['switchLang'])) {
+    		$Result['additional_post_message'] = 'lhc_lang:'.erLhcoreClassSystem::instance()->WWWDirLang;
     	}
     }
 }

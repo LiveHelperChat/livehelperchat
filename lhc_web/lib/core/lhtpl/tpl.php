@@ -294,6 +294,13 @@ class erLhcoreClassTemplate {
 				$contentFile = str_replace($Matches[0][$key],'\''.erLhcoreClassDesign::baseurl(trim($UrlAddress,'\'')).'\'',$contentFile);
 			}
 
+			// Compile url addresses in logical operations
+			$Matches = array();
+			preg_match_all('/erLhcoreClassDesign::baseurldirect\((.*?)\)/i',$contentFile,$Matches);
+			foreach ($Matches[1] as $key => $UrlAddress)
+			{
+				$contentFile = str_replace($Matches[0][$key],'\''.erLhcoreClassDesign::baseurldirect(trim($UrlAddress,'\'')).'\'',$contentFile);
+			}
 
 			// Compile config settings, direct output
 			$Matches = array();
