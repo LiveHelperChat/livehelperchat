@@ -29,7 +29,8 @@ if ($Params['user_parameters_unordered']['sound'] !== null && is_numeric($Params
 try {
 
     $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
-
+    erLhcoreClassChat::setTimeZoneByChat($chat);
+    
     if ($chat->hash == $Params['user_parameters']['hash'])
     {
         $tpl->set('chat_id',$Params['user_parameters']['chat_id']);
