@@ -270,6 +270,14 @@ class erLhcoreClassTemplate {
 				$contentFile = str_replace($Matches[0][$key],erLhcoreClassDesign::baseurldirect(trim($UrlAddress,'\'')),$contentFile);
 			}
 
+			// Compile url direct addresses
+			$Matches = array();
+			preg_match_all('/<\?php echo erLhcoreClassDesign::baseurlsite\(\)(.*?)\?\>/i',$contentFile,$Matches);
+			foreach ($Matches[1] as $key => $UrlAddress)
+			{
+				$contentFile = str_replace($Matches[0][$key],erLhcoreClassDesign::baseurlsite(),$contentFile);
+			}
+
 			// Compile css url addresses
 			$Matches = array();
 			preg_match_all('/<\?php echo erLhcoreClassDesign::designCSS\((.*?)\)(.*?)\?\>/i',$contentFile,$Matches);

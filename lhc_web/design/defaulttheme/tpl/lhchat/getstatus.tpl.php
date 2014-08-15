@@ -117,8 +117,8 @@ var lh_inst  = {
 	lang: '<?php echo erLhcoreClassSystem::instance()->WWWDirLang?>',
 	is_dragging : false,
 	online_tracked : false,
-    urlopen : function(){
-    	return "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?>"+this.lang+"<?php echo erLhcoreClassDesign::baseurldirect('chat/startchat')?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?>";
+    urlopen : function(){   
+    	return "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>"+this.lang+"/chat/startchat/<?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?>";
     },
 
     windowname : "startchatwindow",
@@ -246,7 +246,7 @@ var lh_inst  = {
         var th = document.getElementsByTagName('head')[0];
         var s = document.createElement('script');
         s.setAttribute('type','text/javascript');
-        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?>'+this.lang+'<?php echo erLhcoreClassDesign::baseurldirect('chat/chatwidgetclosed')?>'+this.getAppendCookieArguments());
+        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/chatwidgetclosed'+this.getAppendCookieArguments());
         th.appendChild(s);
         this.toggleStatusWidget(false);
         this.removeById('lhc_container');
@@ -385,7 +385,7 @@ var lh_inst  = {
                 this.initial_iframe_url = url_to_open+this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.parseOptions()+this.parseStorageArguments()+'&dt='+encodeURIComponent(document.title);
           } else {
           		this.chatOpenedCallback(this.isOnline == false ? 'internal_offline' : 'internal');	
-                this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?>"+this.lang+"<?php echo erLhcoreClassDesign::baseurldirect('chat/chatwidget')?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?>"+this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.parseOptions()+this.parseStorageArguments()+'&dt='+encodeURIComponent(document.title);
+                this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>"+this.lang+"/chat/chatwidget<?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?>"+this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.parseOptions()+this.parseStorageArguments()+'&dt='+encodeURIComponent(document.title);
           };
 
           if (window.innerWidth < 1024) {
@@ -502,7 +502,7 @@ var lh_inst  = {
             var s = document.createElement('script');
             s.setAttribute('id','lhc_operator_message');
             s.setAttribute('type','text/javascript');
-            s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?>'+this.lang+'<?php echo erLhcoreClassDesign::baseurldirect('chat/chatcheckoperatormessage')?><?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?>/(vid)/'+vid+'?l='+locationCurrent+'&dt='+encodeURIComponent(document.title));
+            s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/chatcheckoperatormessage<?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?>/(vid)/'+vid+'?l='+locationCurrent+'&dt='+encodeURIComponent(document.title));
             th.appendChild(s);
             lh_inst.startNewMessageCheck();        
         }, <?php echo (int)(erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['check_for_operator_msg']*1000); ?> );
@@ -518,7 +518,7 @@ var lh_inst  = {
         
         s.setAttribute('id','lhc_operator_message');
         s.setAttribute('type','text/javascript');
-        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?>'+this.lang+'<?php echo erLhcoreClassDesign::baseurldirect('chat/chatcheckoperatormessage')?><?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?>/(tz)/'+tzOffset+'/(count_page)/1/(vid)/'+vid+'?l='+locationCurrent+this.parseStorageArguments()+this.parseOptionsOnline()+'&dt='+encodeURIComponent(document.title));
+        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/chatcheckoperatormessage<?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?>/(tz)/'+tzOffset+'/(count_page)/1/(vid)/'+vid+'?l='+locationCurrent+this.parseStorageArguments()+this.parseOptionsOnline()+'&dt='+encodeURIComponent(document.title));
         th.appendChild(s);
     },
 
@@ -530,7 +530,7 @@ var lh_inst  = {
         var tzOffset = ((new Date().getTimezoneOffset())/60) * -1; 
         s.setAttribute('id','lhc_log_pageview');
         s.setAttribute('type','text/javascript');
-        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?>'+this.lang+'<?php echo erLhcoreClassDesign::baseurldirect('chat/logpageview')?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?>/(tz)/'+tzOffset+'/(vid)/'+vid+'?l='+locationCurrent+this.parseStorageArguments()+this.parseOptionsOnline()+'&dt='+encodeURIComponent(document.title));
+        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/logpageview<?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?>/(tz)/'+tzOffset+'/(vid)/'+vid+'?l='+locationCurrent+this.parseStorageArguments()+this.parseOptionsOnline()+'&dt='+encodeURIComponent(document.title));
         th.appendChild(s);
     },
 
@@ -605,7 +605,7 @@ var lh_inst  = {
 				  	html2canvas(document.body, {
 						  onrendered: function(canvas) {
 						         var xhr = new XMLHttpRequest();
-						         xhr.open( "POST", '<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?>'+this.lang+'<?php echo erLhcoreClassDesign::baseurldirect('file/storescreenshot')?>'+inst.getAppendCookieArguments(), true);
+						         xhr.open( "POST", '<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/file/storescreenshot'+inst.getAppendCookieArguments(), true);
 							     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 							     xhr.send( "data=" + encodeURIComponent( canvas.toDataURL() ) );			         
 						  }
@@ -683,7 +683,7 @@ var lh_inst  = {
             var s = document.createElement('script');
             s.setAttribute('id','lhc_check_status');
             s.setAttribute('type','text/javascript');
-            s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?>'+this.lang+'<?php echo erLhcoreClassDesign::baseurldirect('chat/chatcheckstatus')?><?php $department !== false ? print '/(department)/'.$department : ''?>/(status)/'+lh_inst.isOnline);
+            s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/chatcheckstatus<?php $department !== false ? print '/(department)/'.$department : ''?>/(status)/'+lh_inst.isOnline);
             th.appendChild(s);
             lh_inst.checkStatusChat();        
         },<?php echo (int)(erLhcoreClassModelChatConfig::fetch('checkstatus_timeout')->current_value*1000); ?>);
