@@ -683,7 +683,7 @@ var lh_inst  = {
             var s = document.createElement('script');
             s.setAttribute('id','lhc_check_status');
             s.setAttribute('type','text/javascript');
-            s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/chatcheckstatus<?php $department !== false ? print '/(department)/'.$department : ''?>/(status)/'+lh_inst.isOnline);
+            s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+lh_inst.lang+'/chat/chatcheckstatus<?php $department !== false ? print '/(department)/'.$department : ''?>/(status)/'+lh_inst.isOnline);
             th.appendChild(s);
             lh_inst.checkStatusChat();        
         },<?php echo (int)(erLhcoreClassModelChatConfig::fetch('checkstatus_timeout')->current_value*1000); ?>);
