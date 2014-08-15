@@ -4,9 +4,11 @@
 
 <?php else : ?>
 
-<div class="right pos-rel small-6 max-width-180">
-<?php $rightLanguage = true;?>
-<?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/switch_language.tpl.php'));?>
+<div class="row">
+	<div class="columns pos-rel small-6 max-width-180 right">
+	<?php $rightLanguage = true;?>
+	<?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/switch_language.tpl.php'));?>
+	</div>
 </div>
 
 <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/widget_geo_adjustment.tpl.php'));?>

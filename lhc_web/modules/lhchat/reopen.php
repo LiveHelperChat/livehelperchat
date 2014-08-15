@@ -64,7 +64,8 @@ try {
 	}
 
 } catch(Exception $e) {
-   //
+   header('Location: ' . $_SERVER['HTTP_REFERER']);
+   exit;
 }
 exit;
 
