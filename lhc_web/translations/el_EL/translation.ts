@@ -34,8 +34,20 @@
       <translation>Πόσες μέρες αρχειοθετούν σε απευθείας σύνδεση χρήστες.</translation>
     </message>
     <message>
+      <source>Suggest user to leave a message then user chooses offline department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Play sound on invitation to chat.</source>
       <translation>Αναπαραγωγή ήχου στην πρόσκληση να συνομιλήσετε.</translation>
+    </message>
+    <message>
+      <source>Show users option to switch language at widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Between what languages user should be able to switch</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
@@ -134,7 +146,7 @@
       <translation>Απενεργοποιήστε την επιλογή στο widget για να ανοίξετε νέο παράθυρο. Αποκατασταθεί η εικόνα θα να είμαι hidden</translation>
     </message>
     <message>
-      <source>Disable HMTL5 secure storage, check it if your site is switching between http and https</source>
+      <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1189,6 +1201,18 @@
   <context>
     <name>department/edit</name>
     <message>
+      <source>Work hours, 24 hours format, 1 - 24</source>
+      <translation>Εργασία ώρες, 24 ώρες μορφή 1-24</translation>
+    </message>
+    <message>
+      <source>From, E.g. 8</source>
+      <translation>Από, π.χ. 8</translation>
+    </message>
+    <message>
+      <source>To, E.g. 17</source>
+      <translation>Να, π.χ. 17</translation>
+    </message>
+    <message>
       <source>Any</source>
       <translation>Κάθε</translation>
     </message>
@@ -1265,16 +1289,24 @@
       <translation>Κυριακή</translation>
     </message>
     <message>
-      <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation>Εργασία ώρες, 24 ώρες μορφή 1-24</translation>
+      <source>Work hours, 24 hours format, 1 - 24, minutes format 0 - 60</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>From, E.g. 8</source>
-      <translation>Από, π.χ. 8</translation>
+      <source>Hours from, E.g. 8</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>To, E.g. 17</source>
-      <translation>Να, π.χ. 17</translation>
+      <source>Minutes from, E.g. 30</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hours to, E.g. 17</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minutes to, E.g. 30</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Notifications</source>
@@ -1822,6 +1854,18 @@
       <translation>Εκτός σύνδεσης</translation>
     </message>
     <message>
+      <source>Department is offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Go to leave a message form</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cancel and choose another department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>characters</source>
       <translation type="unfinished"/>
     </message>
@@ -1844,6 +1888,10 @@
     <message>
       <source>There are no online operators at the moment, please leave your message</source>
       <translation>Δεν σε απευθείας σύνδεση φορείς που υπάρχουν αυτή τη στιγμή, παρακαλώ αφήστε το μήνυμά σας</translation>
+    </message>
+    <message>
+      <source>Choose your language</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You do not have permission to chat! Please contact site owner.</source>

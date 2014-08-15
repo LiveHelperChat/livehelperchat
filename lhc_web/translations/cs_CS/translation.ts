@@ -34,8 +34,20 @@
       <translation>Po kolik dní uchovávat záznamy o online uživatelích.</translation>
     </message>
     <message>
+      <source>Suggest user to leave a message then user chooses offline department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Play sound on invitation to chat.</source>
       <translation>Přehrát zvukové upozornění na pozvání k rozhovoru.</translation>
+    </message>
+    <message>
+      <source>Show users option to switch language at widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Between what languages user should be able to switch</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
@@ -134,8 +146,8 @@
       <translation>Vypnout možnost widgetu otevřít nové okno. Ikona obnovení bude skryta</translation>
     </message>
     <message>
-      <source>Disable HMTL5 secure storage, check it if your site is switching between http and https</source>
-      <translation>Vypnout bezpečné úložiště HTML5, zaškrtněte, pokud se Vaše stránka přepíná mezi HTTP a HTTPS </translation>
+      <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Your site URL address</source>
@@ -1189,6 +1201,18 @@
   <context>
     <name>department/edit</name>
     <message>
+      <source>Work hours, 24 hours format, 1 - 24</source>
+      <translation>Otevírací hodiny, 24 hodonový formát, 1 -  24</translation>
+    </message>
+    <message>
+      <source>From, E.g. 8</source>
+      <translation>Od, např. 8</translation>
+    </message>
+    <message>
+      <source>To, E.g. 17</source>
+      <translation>Do, např. 17</translation>
+    </message>
+    <message>
       <source>Any</source>
       <translation>Libovolný</translation>
     </message>
@@ -1265,16 +1289,24 @@
       <translation>Neděle</translation>
     </message>
     <message>
-      <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation>Otevírací hodiny, 24 hodonový formát, 1 -  24</translation>
+      <source>Work hours, 24 hours format, 1 - 24, minutes format 0 - 60</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>From, E.g. 8</source>
-      <translation>Od, např. 8</translation>
+      <source>Hours from, E.g. 8</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>To, E.g. 17</source>
-      <translation>Do, např. 17</translation>
+      <source>Minutes from, E.g. 30</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hours to, E.g. 17</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minutes to, E.g. 30</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Notifications</source>
@@ -1822,6 +1854,18 @@
       <translation>Offline</translation>
     </message>
     <message>
+      <source>Department is offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Go to leave a message form</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cancel and choose another department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>characters</source>
       <translation>znaků</translation>
     </message>
@@ -1844,6 +1888,10 @@
     <message>
       <source>There are no online operators at the moment, please leave your message</source>
       <translation>V současnou chvíli není dostupný žádný z našich operátorů. Zanechte nám prosím zprávu.</translation>
+    </message>
+    <message>
+      <source>Choose your language</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You do not have permission to chat! Please contact site owner.</source>

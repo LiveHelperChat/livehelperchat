@@ -34,8 +34,20 @@
       <translation>Kuinka monta päivää tallennetaan tietoja online käyttäjistä</translation>
     </message>
     <message>
+      <source>Suggest user to leave a message then user chooses offline department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Play sound on invitation to chat.</source>
       <translation>Soita ääni kutsusta keskusteluun.</translation>
+    </message>
+    <message>
+      <source>Show users option to switch language at widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Between what languages user should be able to switch</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
@@ -134,7 +146,7 @@
       <translation>Passivoi uusi ikkuna vaihtoehto widgetissä. Palauta-ikoni piilotetaan.</translation>
     </message>
     <message>
-      <source>Disable HMTL5 secure storage, check it if your site is switching between http and https</source>
+      <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1151,11 +1163,11 @@
     </message>
     <message>
       <source>Automatically send this message to user then chat is accepted</source>
-      <translation>Automaattisesti lähetä tämä viesti käyttäjälle, kun keskustelu on hyväksytty</translation>
+      <translation>Lähetä tämä viesti käyttäjälle, kun keskustelu on hyväksytty</translation>
     </message>
     <message>
       <source>Delay in seconds</source>
-      <translation>Viive sekuneissa</translation>
+      <translation>Viive sekunneissa</translation>
     </message>
     <message>
       <source>Department</source>
@@ -1189,6 +1201,18 @@
   <context>
     <name>department/edit</name>
     <message>
+      <source>Work hours, 24 hours format, 1 - 24</source>
+      <translation>Työtunnit 24 tunnin muodossa, 1-24</translation>
+    </message>
+    <message>
+      <source>From, E.g. 8</source>
+      <translation>Lähtein, e.g. 8</translation>
+    </message>
+    <message>
+      <source>To, E.g. 17</source>
+      <translation>Saakka, esim. 17</translation>
+    </message>
+    <message>
       <source>Any</source>
       <translation>Mikä tahansa</translation>
     </message>
@@ -1218,7 +1242,7 @@
     </message>
     <message>
       <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
-      <translation>Viive sekuntteina enne kuin viesti näytetään. 0 jos ei ollenkaan.</translation>
+      <translation>Viive sekunneissa ennen kuin viesti näytetään. 0 jos ei ollenkaan.</translation>
     </message>
     <message>
       <source>Priority</source>
@@ -1226,7 +1250,7 @@
     </message>
     <message>
       <source>Automate online hours</source>
-      <translation>Automaattiset aukiolotunnit</translation>
+      <translation>Palvelun aukioloajat</translation>
     </message>
     <message>
       <source>Work hours/work days logic is active</source>
@@ -1265,16 +1289,24 @@
       <translation>sunnuntai</translation>
     </message>
     <message>
-      <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation>Työtunnit 24 tunnin muodossa, 1-24</translation>
+      <source>Work hours, 24 hours format, 1 - 24, minutes format 0 - 60</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>From, E.g. 8</source>
-      <translation>Lähtein, e.g. 8</translation>
+      <source>Hours from, E.g. 8</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>To, E.g. 17</source>
-      <translation>Saakka, esim. 17</translation>
+      <source>Minutes from, E.g. 30</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hours to, E.g. 17</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minutes to, E.g. 30</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Notifications</source>
@@ -1584,7 +1616,7 @@
     </message>
     <message>
       <source>Send delayed canned message instantly</source>
-      <translation>lähetä viivästetty esivalmisteltu viesti heti</translation>
+      <translation>Lähetä viivästetty esivalmisteltu viesti heti</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -1712,7 +1744,7 @@
     </message>
     <message>
       <source>All pending chats</source>
-      <translation>Kaikki hyväksyntä odottavat keskustelut</translation>
+      <translation>Kaikki hyväksyntää odottavat keskustelut</translation>
     </message>
     <message>
       <source>Active chats</source>
@@ -1822,6 +1854,18 @@
       <translation>offline</translation>
     </message>
     <message>
+      <source>Department is offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Go to leave a message form</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cancel and choose another department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>characters</source>
       <translation type="unfinished"/>
     </message>
@@ -1844,6 +1888,10 @@
     <message>
       <source>There are no online operators at the moment, please leave your message</source>
       <translation>Tällä hetkellä ei ole opraattoreita linjoilla, ole hyvä ja jätä viesti</translation>
+    </message>
+    <message>
+      <source>Choose your language</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
@@ -2052,7 +2100,7 @@
     </message>
     <message>
       <source>all</source>
-      <translation type="unfinished"/>
+      <translation>kaikki</translation>
     </message>
     <message>
       <source>custom</source>
@@ -3094,7 +3142,7 @@
     <name>chat/part/operator_profile</name>
     <message>
       <source>Skype call</source>
-      <translation type="unfinished"/>
+      <translation>Skype-puhelu</translation>
     </message>
   </context>
   <context>
@@ -3419,11 +3467,11 @@
     </message>
     <message>
       <source>Delay between sound notifications in seconds</source>
-      <translation>Viive sekuntteina äänien välillä</translation>
+      <translation>Viive sekunneissa äänien välillä</translation>
     </message>
     <message>
       <source>delay in seconds</source>
-      <translation>Viive sekuntteina</translation>
+      <translation>Viive sekunneissa</translation>
     </message>
     <message>
       <source>Seconds</source>
@@ -4598,11 +4646,11 @@
     </message>
     <message>
       <source>and use</source>
-      <translation>ja käytä</translation>
+      <translation>ja käyttää</translation>
     </message>
     <message>
       <source>function</source>
-      <translation>toiminto</translation>
+      <translation>toimintoa</translation>
     </message>
     <message>
       <source>You do not have permission to edit selected object</source>
@@ -5935,7 +5983,7 @@
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation>Tunnsite, jolle viesti näytetään. Jätä tyhjäksi, jos kaikille.</translation>
+      <translation>Tunniste, jolle viesti näytetään. Jätä tyhjäksi, jos kaikille.</translation>
     </message>
     <message>
       <source>Matched times</source>

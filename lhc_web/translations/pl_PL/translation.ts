@@ -34,8 +34,20 @@
       <translation>Przez ile dni przechowywać zapisy o użytkownikach online.</translation>
     </message>
     <message>
+      <source>Suggest user to leave a message then user chooses offline department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Play sound on invitation to chat.</source>
       <translation>Odtwarzaj dźwięk przy zaproszeniu do czata.</translation>
+    </message>
+    <message>
+      <source>Show users option to switch language at widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Between what languages user should be able to switch</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
@@ -134,7 +146,7 @@
       <translation>Wyłącz opcje otwierania nowego okna w widżecie. Ikonka &quot;przywróć&quot; będzie ukryta.</translation>
     </message>
     <message>
-      <source>Disable HMTL5 secure storage, check it if your site is switching between http and https</source>
+      <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1190,6 +1202,18 @@ pokazywany</translation>
   <context>
     <name>department/edit</name>
     <message>
+      <source>Work hours, 24 hours format, 1 - 24</source>
+      <translation>Godziny pracy, format 24 godzinny, 1-24</translation>
+    </message>
+    <message>
+      <source>From, E.g. 8</source>
+      <translation>Od np: 8</translation>
+    </message>
+    <message>
+      <source>To, E.g. 17</source>
+      <translation>Do, np: 17</translation>
+    </message>
+    <message>
       <source>Any</source>
       <translation>Dowolny</translation>
     </message>
@@ -1266,16 +1290,24 @@ pokazywany</translation>
       <translation>Niedziela</translation>
     </message>
     <message>
-      <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation>Godziny pracy, format 24 godzinny, 1-24</translation>
+      <source>Work hours, 24 hours format, 1 - 24, minutes format 0 - 60</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>From, E.g. 8</source>
-      <translation>Od np: 8</translation>
+      <source>Hours from, E.g. 8</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>To, E.g. 17</source>
-      <translation>Do, np: 17</translation>
+      <source>Minutes from, E.g. 30</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hours to, E.g. 17</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minutes to, E.g. 30</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Notifications</source>
@@ -1823,6 +1855,18 @@ pokazywany</translation>
       <translation>Niedostępny</translation>
     </message>
     <message>
+      <source>Department is offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Go to leave a message form</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cancel and choose another department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>characters</source>
       <translation>znaki</translation>
     </message>
@@ -1845,6 +1889,10 @@ pokazywany</translation>
     <message>
       <source>There are no online operators at the moment, please leave your message</source>
       <translation>W tej chwili wszyscy operatorzy są niedostępni, proszę zostawić swoją wiadomość</translation>
+    </message>
+    <message>
+      <source>Choose your language</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
