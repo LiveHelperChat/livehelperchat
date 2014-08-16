@@ -20,6 +20,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Track is user still on site, chat status checks also has to be enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Track online visitors even if there is no online operators</source>
       <translation type="unfinished"/>
     </message>
@@ -2616,6 +2620,10 @@
     </message>
     <message>
       <source>Visitor local time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>By user status on site</source>
       <translation type="unfinished"/>
     </message>
     <message>
