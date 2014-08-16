@@ -666,8 +666,8 @@ class erLhcoreClassChat {
            		$daysColumns = array('`mod`','`tud`','`wed`','`thd`','`frd`','`sad`','`sud`');           		
            		$columns = date('N')-1;           		
 	           	$stmt = $db->prepare("SELECT COUNT(id) AS found FROM lh_departament WHERE online_hours_active = 1 AND start_hour <= :start_hour AND end_hour > :end_hour AND {$daysColumns[$columns]} = 1");
-	           	$stmt->bindValue(':start_hour',date('G'),PDO::PARAM_INT);
-	           	$stmt->bindValue(':end_hour',date('G'),PDO::PARAM_INT);
+	           	$stmt->bindValue(':start_hour',date('G').date('i'),PDO::PARAM_INT);
+	           	$stmt->bindValue(':end_hour',date('G').date('i'),PDO::PARAM_INT);
 	           	$stmt->execute();
 	           	$rowsNumber = $stmt->fetchColumn();	   
            }
