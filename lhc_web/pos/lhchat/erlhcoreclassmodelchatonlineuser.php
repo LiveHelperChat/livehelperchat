@@ -34,6 +34,11 @@ $def->properties['chat_id']->columnName   = 'chat_id';
 $def->properties['chat_id']->propertyName = 'chat_id';
 $def->properties['chat_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['last_check_time'] = new ezcPersistentObjectProperty();
+$def->properties['last_check_time']->columnName   = 'last_check_time';
+$def->properties['last_check_time']->propertyName = 'last_check_time';
+$def->properties['last_check_time']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['last_visit'] = new ezcPersistentObjectProperty();
 $def->properties['last_visit']->columnName   = 'last_visit';
 $def->properties['last_visit']->propertyName = 'last_visit';

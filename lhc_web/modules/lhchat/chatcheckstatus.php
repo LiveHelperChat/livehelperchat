@@ -21,6 +21,18 @@ if (is_array($Params['user_parameters_unordered']['department'])){
 
 $tpl->set('status',$Params['user_parameters_unordered']['status'] == 'true' ? true : false);
 
+$ignorable_ip = erLhcoreClassModelChatConfig::fetch('ignorable_ip')->current_value;
+if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDetect::getIP(),explode(',',$ignorable_ip))) {
+	if ((string)$Params['user_parameters_unordered']['vid'] != '') {
+		$db = ezcDbInstance::get();				
+		$stmt = $db->prepare('UPDATE lh_chat_online_user SET last_check_time = :time WHERE vid = :vid');
+		$stmt->bindValue(':time',time(),PDO::PARAM_INT);
+		$stmt->bindValue(':vid',(string)$Params['user_parameters_unordered']['vid']);
+		$stmt->execute();
+	}
+}
+
+
 echo $tpl->fetch();
 
 exit;

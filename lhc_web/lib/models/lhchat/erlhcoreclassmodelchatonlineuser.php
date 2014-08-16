@@ -42,7 +42,8 @@ class erLhcoreClassModelChatOnlineUser {
 	       	   'operation'   		=> $this->operation,
 	       	   'screenshot_id'   	=> $this->screenshot_id,
 	       	   'online_attr'   		=> $this->online_attr,
-	       	   'visitor_tz'   		=> $this->visitor_tz
+	       	   'visitor_tz'   		=> $this->visitor_tz,
+	       	   'last_check_time'	=> $this->last_check_time
        );
    }
 
@@ -177,6 +178,11 @@ class erLhcoreClassModelChatOnlineUser {
        	case 'last_visit_seconds_ago':
        			$this->last_visit_seconds_ago = time()-$this->last_visit;
        			return $this->last_visit_seconds_ago;
+       		break;
+       		
+       	case 'last_check_time_ago':
+       			$this->last_check_time_ago = time()-$this->last_check_time;
+       			return $this->last_check_time_ago;
        		break;
        		
        	case 'visitor_tz_time':
@@ -650,6 +656,7 @@ class erLhcoreClassModelChatOnlineUser {
 
 	           // Save only then we have to, in general only then page view appears
 	           if ($item->store_chat == true) {
+	           		$item->last_check_time = time();
 	           		$item->saveThis();
 	           }
 
@@ -711,6 +718,7 @@ class erLhcoreClassModelChatOnlineUser {
    public $online_attr = '';
    public $visitor_tz = '';
    public $requires_phone = 0;
+   public $last_check_time = 0;
       
    
    // 0 - do not reopen

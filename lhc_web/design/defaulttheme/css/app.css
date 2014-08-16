@@ -879,11 +879,19 @@ border-top-right-radius: 6px;
 		margin-bottom:2px;
 }
 
+.online_user {
+	background-color:#E4FFE0 !important;
+	transition: background-color 1000ms linear;	
+}
+
 .edit-mode,
 .recent_visit {
 	background-color:#E0F3FF !important;
 	transition: background-color 1000ms linear;	
 }
+
+
+
 
 .edit-mode-done {
 	background-color:#E0F3FF !important;

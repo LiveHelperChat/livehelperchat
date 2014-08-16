@@ -1654,6 +1654,14 @@
                 "extra": ""
             },
             {
+                "field": "last_check_time",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "invitation_id",
                 "type": "int(11)",
                 "null": "NO",

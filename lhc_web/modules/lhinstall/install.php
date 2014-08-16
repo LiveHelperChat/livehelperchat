@@ -721,6 +721,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  `pages_count` int(11) NOT NULL,
         	   	  `tt_pages_count` int(11) NOT NULL,
         	   	  `invitation_count` int(11) NOT NULL,
+        	   	  `last_check_time` int(11) NOT NULL,
         	   	  `dep_id` int(11) NOT NULL,
                   `user_agent` varchar(250) NOT NULL,
                   `user_country_code` varchar(50) NOT NULL,

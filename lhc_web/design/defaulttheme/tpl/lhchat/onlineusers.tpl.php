@@ -25,6 +25,12 @@
 	$ogroupBy = (string)erLhcoreClassModelUserSetting::getSetting('ogroup_by','none');
 	$omapDepartment = (int)erLhcoreClassModelUserSetting::getSetting('omap_depid',0);
 	$omapMarkerTimeout = (int)erLhcoreClassModelUserSetting::getSetting('omap_mtimeout',30);
+		
+	$onlineCheck = (int)erLhcoreClassModelChatConfig::fetch('checkstatus_timeout')->current_value;
+	if ($onlineCheck > 0) {
+		$onlineCheck = ",online_user:(ou.last_check_time_ago < " . ($onlineCheck+3) . ")";
+	}
+	
 ?>
 
 <div ng-controller="OnlineCtrl as online" ng-init='groupByField = <?php echo json_encode($ogroupBy)?>;online.maxRows=<?php echo (int)$omaxRows?>;online.updateTimeout=<?php echo (int)$oupdTimeout?>;online.userTimeout = <?php echo (int)$ouserTimeout?>;online.department=<?php echo (int)$onlineDepartment?>;online.soundEnabled=<?php echo $soundUserNotification == 1 ? 'true' : 'false'?>;online.notificationEnabled=<?php echo $browserNotification == 1 ? 'true' : 'false'?>'>
@@ -120,7 +126,7 @@
 	<tr ng-show="group.label != ''">
 		<td colspan="6"><h5>{{group.label}} ({{group.ou.length}})</h5></td>
 	</tr>		
-	<tr ng-repeat="ou in group.ou | orderBy:online.predicate:online.reverse | filter:query track by ou.id" ng-class="{recent_visit:(ou.last_visit_seconds_ago < 15)}">
+	<tr ng-repeat="ou in group.ou | orderBy:online.predicate:online.reverse | filter:query track by ou.id" ng-class="{recent_visit:(ou.last_visit_seconds_ago < 15)<?php echo $onlineCheck?>}">
     	<td nowrap>    	
     	{{ou.lastactivity_ago}} <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','ago');?><br/>
     	<span class="fs-11">{{ou.time_on_site_front}}</span><br/>
