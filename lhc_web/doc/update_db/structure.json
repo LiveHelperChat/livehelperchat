@@ -3248,6 +3248,13 @@
                 "hidden": "0"
             },
             {
+                "identifier": "track_is_online",
+                "value": "0",
+                "type": "0",
+                "explain": "Track is user still on site, chat status checks also has to be enabled",
+                "hidden": "0"
+            },
+            {
                 "identifier": "allow_reopen_closed",
                 "value": "1",
                 "type": "0",
