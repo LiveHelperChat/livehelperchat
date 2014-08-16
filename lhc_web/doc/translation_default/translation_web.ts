@@ -585,7 +585,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Choose a language</source>
+      <source>For what domain you are generating embed code?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>example.com</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -594,6 +598,10 @@
     </message>
     <message>
       <source>Based on site (default)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a language</source>
       <translation type="unfinished"/>
     </message>
     <message>
