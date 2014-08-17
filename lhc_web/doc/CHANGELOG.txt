@@ -1,3 +1,25 @@
+2.11v
+
+1. Fixed bug then department online hours was not taking effect if department ID was not provided.
+https://github.com/LiveHelperChat/livehelperchat/issues/491
+
+2. Option to setup status indication is site visitor still on site or already left a site.
+https://github.com/LiveHelperChat/livehelperchat/issues/490
+
+3. Option to export chats as XLS
+https://github.com/LiveHelperChat/livehelperchat/issues/435
+
+4. Option to write manually for what domain user is generating embed code. This is neede if you are experiencing some issue like chat is not kept while navigating through other site pages.
+Personally I always recomend to write it while generating embed code.
+https://github.com/LiveHelperChat/livehelperchat/issues/489
+
+5. Extra modules will be hidden if user does not have permission to use atleast one of submodule.
+https://github.com/LiveHelperChat/livehelperchat/issues/487
+
+6. If user refreshed page message time was incorrect because user time zone was not used. It was used only for new user messages.
+
+execute doc/update_db/update_90.sql for update
+
 2.10v
 
 1. Now then you are genrating code for multiple departments, or just standard code without any department. 
