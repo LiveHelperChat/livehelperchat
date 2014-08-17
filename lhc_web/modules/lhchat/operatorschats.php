@@ -19,6 +19,11 @@ if ($Params['user_parameters_unordered']['print'] == 1){
 	return;
 }
 
+if ($Params['user_parameters_unordered']['xls'] == 1){
+	erLhcoreClassChatExport::chatListExportXLS(erLhcoreClassChat::getOperatorsChats(10000,0,$filterParams['filter']));
+	exit;
+}
+
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 
 $pages = new lhPaginator();
