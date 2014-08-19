@@ -18,6 +18,10 @@
       <translation>Επιτρέψετε στους επισκέπτες της σε απευθείας σύνδεση περιοχή εντοπισμού</translation>
     </message>
     <message>
+      <source>Track is user still on site, chat status checks also has to be enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Track online visitors even if there is no online operators</source>
       <translation>Παρακολουθήσετε σε απευθείας σύνδεση επισκέπτες, ακόμη και αν δεν υπάρχει καμία σε απευθείας σύνδεση φορείς</translation>
     </message>
@@ -583,8 +587,12 @@
       <translation>Προσφορά χρονικού ορίου σε ημέρες, μετά δείχνουν πόσες μέρες προσφέρει για τον ίδιο επισκέπτη και πάλι, αφήστε κενό για συνεδρία</translation>
     </message>
     <message>
-      <source>Choose a language</source>
-      <translation>Επιλέξτε μια γλώσσα</translation>
+      <source>For what domain you are generating embed code?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>example.com</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Choose prefered http mode</source>
@@ -593,6 +601,10 @@
     <message>
       <source>Based on site (default)</source>
       <translation>Με βάση την τοποθεσία (προεπιλογή)</translation>
+    </message>
+    <message>
+      <source>Choose a language</source>
+      <translation>Επιλέξτε μια γλώσσα</translation>
     </message>
     <message>
       <source>Widget embed code</source>
@@ -937,6 +949,10 @@
     <message>
       <source>Print</source>
       <translation>Εκτύπωση</translation>
+    </message>
+    <message>
+      <source>XLS</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Select department</source>
@@ -2607,6 +2623,10 @@
     <message>
       <source>Visitor local time</source>
       <translation>Επισκέπτης τοπική ώρα</translation>
+    </message>
+    <message>
+      <source>By user status on site</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Status</source>
@@ -6169,6 +6189,57 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Παρακαλούμε, εισάγετε έγκυρο αρχείο τύπου!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/chatexport</name>
+    <message>
+      <source>Visitor Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>City</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Referrer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Link</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

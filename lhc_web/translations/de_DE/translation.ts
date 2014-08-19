@@ -18,6 +18,10 @@
       <translation>Aktivieren Sie das Online Besucher Tracking</translation>
     </message>
     <message>
+      <source>Track is user still on site, chat status checks also has to be enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Track online visitors even if there is no online operators</source>
       <translation>Online-Besucher auch tracken wenn kein Operator online ist</translation>
     </message>
@@ -43,11 +47,11 @@
     </message>
     <message>
       <source>Show users option to switch language at widget</source>
-      <translation type="unfinished"/>
+      <translation>Usern die Möglichkeit geben die Sprache im Widget zu wechseln</translation>
     </message>
     <message>
       <source>Between what languages user should be able to switch</source>
-      <translation type="unfinished"/>
+      <translation>Zwischen welchen Sprachen sollen User wechseln können</translation>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
@@ -79,11 +83,11 @@
     </message>
     <message>
       <source>Is pro active chat invitation active. Online users tracking also has to be enabled</source>
-      <translation type="unfinished"/>
+      <translation>Aktiviere auch das User-Tracking wenn die proaktive Chat-Einladung aktiv ist.</translation>
     </message>
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
-      <translation type="unfinished"/>
+      <translation>&quot;Hilfe benötigt?&quot; Tooltip Timeout, nach wie vielen Stunden so der Tooltip wieder angezeigt werden?</translation>
     </message>
     <message>
       <source>Show need help tooltip?</source>
@@ -99,7 +103,7 @@
     </message>
     <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
-      <translation type="unfinished"/>
+      <translation>Proaktive Einladung Timeout - nach wie vielen Stunden soll die Proaktive Einladung wieder gezeigt werden.</translation>
     </message>
     <message>
       <source>Maximum message length in characters</source>
@@ -143,7 +147,7 @@
     </message>
     <message>
       <source>Disable option in widget to open new window. Restore icon will be hidden</source>
-      <translation type="unfinished"/>
+      <translation>Die Option, ein neues Fenster zu öffnen im Widget deaktivieren. Wiederherstellen-Icon wird ausgeblendet</translation>
     </message>
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
@@ -583,8 +587,12 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Choose a language</source>
-      <translation>Eine Sprache waehlen</translation>
+      <source>For what domain you are generating embed code?</source>
+      <translation>Für welche Domain möchten Sie den Einbettungscode generieren?</translation>
+    </message>
+    <message>
+      <source>example.com</source>
+      <translation>example.com</translation>
     </message>
     <message>
       <source>Choose prefered http mode</source>
@@ -593,6 +601,10 @@
     <message>
       <source>Based on site (default)</source>
       <translation>Wie Seite (Standard)</translation>
+    </message>
+    <message>
+      <source>Choose a language</source>
+      <translation>Eine Sprache waehlen</translation>
     </message>
     <message>
       <source>Widget embed code</source>
@@ -937,6 +949,10 @@
     <message>
       <source>Print</source>
       <translation>Drucken</translation>
+    </message>
+    <message>
+      <source>XLS</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Select department</source>
@@ -1290,7 +1306,7 @@
     </message>
     <message>
       <source>Work hours, 24 hours format, 1 - 24, minutes format 0 - 60</source>
-      <translation type="unfinished"/>
+      <translation>Arbeitszeiten, Stunden in Format 1 - 24, Minuten im Format 0 - 60</translation>
     </message>
     <message>
       <source>Hours from, E.g. 8</source>
@@ -1855,7 +1871,7 @@
     </message>
     <message>
       <source>Department is offline</source>
-      <translation type="unfinished"/>
+      <translation>Abteilung ist offline</translation>
     </message>
     <message>
       <source>Go to leave a message form</source>
@@ -1863,7 +1879,7 @@
     </message>
     <message>
       <source>Cancel and choose another department</source>
-      <translation type="unfinished"/>
+      <translation>Abbrechen und andere Abteilung wählen</translation>
     </message>
     <message>
       <source>characters</source>
@@ -1891,7 +1907,7 @@
     </message>
     <message>
       <source>Choose your language</source>
-      <translation type="unfinished"/>
+      <translation>Wählen Sie Ihre Sprache</translation>
     </message>
     <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
@@ -2609,6 +2625,10 @@
       <translation>Lokalzeit des Besuchers</translation>
     </message>
     <message>
+      <source>By user status on site</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Status</source>
       <translation>Status</translation>
     </message>
@@ -2765,11 +2785,11 @@
     </message>
     <message>
       <source>Cookie related</source>
-      <translation type="unfinished"/>
+      <translation>Cookie bezogen</translation>
     </message>
     <message>
       <source>Chat related</source>
-      <translation type="unfinished"/>
+      <translation>Chat bezogen</translation>
     </message>
     <message>
       <source>Workflow</source>
@@ -3598,11 +3618,11 @@
     </message>
     <message>
       <source>Messages types</source>
-      <translation type="unfinished"/>
+      <translation>Nachrichten-Typen</translation>
     </message>
     <message>
       <source>Number of chats per hour, average chat duration</source>
-      <translation type="unfinished"/>
+      <translation>Anzahl der Chats pro Stunde, durchschnittliche Chatdauer</translation>
     </message>
     <message>
       <source>Chats statistic</source>
@@ -6169,6 +6189,57 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Bitte unterstütze Dateitypen verwenden!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/chatexport</name>
+    <message>
+      <source>Visitor Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>City</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Referrer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Link</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

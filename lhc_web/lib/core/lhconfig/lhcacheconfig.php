@@ -67,6 +67,11 @@ class erConfigClassLhCacheConfig
     	}
     }
 
+    public function setExpiredInRuntime($expired)
+    {
+    	$this->expiredInRuntime = $expired;
+    }
+    
     public function expireCache()
     {
     	if ($this->expiredInRuntime == false) {

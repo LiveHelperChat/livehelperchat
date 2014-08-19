@@ -18,6 +18,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Track is user still on site, chat status checks also has to be enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Track online visitors even if there is no online operators</source>
       <translation type="unfinished"/>
     </message>
@@ -583,8 +587,12 @@
       <translation>Timp de expirare oferta (dupa cate zile va fi afisata oferta aceluiasi vizitiator - lasa liber pentru ca oferta sa fie afisata dupa redeschiderea browserului)</translation>
     </message>
     <message>
-      <source>Choose a language</source>
-      <translation>Alege o limba</translation>
+      <source>For what domain you are generating embed code?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>example.com</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Choose prefered http mode</source>
@@ -593,6 +601,10 @@
     <message>
       <source>Based on site (default)</source>
       <translation>Bazat pe setarile site-ului (standard)</translation>
+    </message>
+    <message>
+      <source>Choose a language</source>
+      <translation>Alege o limba</translation>
     </message>
     <message>
       <source>Widget embed code</source>
@@ -937,6 +949,10 @@
     <message>
       <source>Print</source>
       <translation>Printeaza</translation>
+    </message>
+    <message>
+      <source>XLS</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Select department</source>
@@ -2606,6 +2622,10 @@
     </message>
     <message>
       <source>Visitor local time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>By user status on site</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6169,6 +6189,57 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Te rog sa introduci un tip de fisier valid!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/chatexport</name>
+    <message>
+      <source>Visitor Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>City</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Referrer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Link</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

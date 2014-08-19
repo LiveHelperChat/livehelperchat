@@ -18,6 +18,10 @@
       <translation>Ativar monitoramento de visitantes online</translation>
     </message>
     <message>
+      <source>Track is user still on site, chat status checks also has to be enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Track online visitors even if there is no online operators</source>
       <translation>Acompanhar os visitantes on-line, mesmo se não há operadores on-line</translation>
     </message>
@@ -583,8 +587,12 @@
       <translation>Opções de tempo limite em dias, depois de quantos dias mostrar opções novamente para o mesmo visitante, deixe em branco para sessão</translation>
     </message>
     <message>
-      <source>Choose a language</source>
-      <translation>Escolha um idioma</translation>
+      <source>For what domain you are generating embed code?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>example.com</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Choose prefered http mode</source>
@@ -593,6 +601,10 @@
     <message>
       <source>Based on site (default)</source>
       <translation>Com base no site (padrão)</translation>
+    </message>
+    <message>
+      <source>Choose a language</source>
+      <translation>Escolha um idioma</translation>
     </message>
     <message>
       <source>Widget embed code</source>
@@ -937,6 +949,10 @@
     <message>
       <source>Print</source>
       <translation>Imprimir</translation>
+    </message>
+    <message>
+      <source>XLS</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Select department</source>
@@ -2607,6 +2623,10 @@
     <message>
       <source>Visitor local time</source>
       <translation>Horário local do visitante</translation>
+    </message>
+    <message>
+      <source>By user status on site</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Status</source>
@@ -6169,6 +6189,57 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Por favor insira um tipo de arquivo válido!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/chatexport</name>
+    <message>
+      <source>Visitor Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>City</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Referrer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Link</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>
