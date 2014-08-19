@@ -3,23 +3,27 @@
     <name>listchatconfig</name>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
-      <translation type="unfinished"/>
+      <translation>Per quanti giorni il widget di voto non deve essere mostrato dopo l&apos;ultima visualizzazione</translation>
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
-      <translation type="unfinished"/>
+      <translation>Utilizzare cookie protetto, spunta qui se si desidera forzare SSL tutto il tempo</translation>
     </message>
     <message>
       <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
-      <translation type="unfinished"/>
+      <translation>Quale ip dovrebbe essere consentito di aggiornare DB eseguendo una richiesta http, separate da virgola?</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
+      <translation>Permettere il rilevamento dei visitatori del sito online </translation>
+    </message>
+    <message>
+      <source>Track is user still on site, chat status checks also has to be enabled</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Track online visitors even if there is no online operators</source>
-      <translation type="unfinished"/>
+      <translation>Traccia i visitatori on-line anche se non non c&apos;è nessun operatore online</translation>
     </message>
     <message>
       <source>Track users footprint. For this also online visitors tracking should be enabled</source>
@@ -415,11 +419,11 @@
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation>Apri in una nuova finestra</translation>
+      <translation>Apri in una nuova finestra | Open in a new window</translation>
     </message>
     <message>
       <source>Minimize/Restore</source>
-      <translation>Minimizza/ripristina</translation>
+      <translation>Minimizza/ripristina | Minimize/Restore</translation>
     </message>
     <message>
       <source>Live help is online...</source>
@@ -583,8 +587,12 @@
       <translation>Timeout Offerte in giorni, dopo quanti giorni mostrare nuovamente, lasciare vuoto per sessione</translation>
     </message>
     <message>
-      <source>Choose a language</source>
-      <translation>Scegli il linguaggio</translation>
+      <source>For what domain you are generating embed code?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>example.com</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Choose prefered http mode</source>
@@ -593,6 +601,10 @@
     <message>
       <source>Based on site (default)</source>
       <translation>Basato sul sito (predefinito)</translation>
+    </message>
+    <message>
+      <source>Choose a language</source>
+      <translation>Scegli il linguaggio</translation>
     </message>
     <message>
       <source>Widget embed code</source>
@@ -881,7 +893,7 @@
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation>Apri in una nuova finestra</translation>
+      <translation>Apri in una nuova finestra | Open in a new window</translation>
     </message>
     <message>
       <source>Close chat</source>
@@ -936,6 +948,10 @@
     </message>
     <message>
       <source>Print</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XLS</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -999,7 +1015,7 @@
     </message>
     <message>
       <source>Close</source>
-      <translation>Chiudi</translation>
+      <translation>Chiudi | Close</translation>
     </message>
     <message>
       <source>Enter your message</source>
@@ -1658,7 +1674,7 @@
     <name>chat/syncadmininterface</name>
     <message>
       <source>Open in a new window</source>
-      <translation>Apri in una nuova finestra</translation>
+      <translation>Apri in una nuova finestra | Open in a new window</translation>
     </message>
     <message>
       <source>Add chat</source>
@@ -1827,7 +1843,7 @@
     </message>
     <message>
       <source>There are no online operators at the moment, please leave a message</source>
-      <translation>Non ci sono operatori online in questo momento, si prega di lasciare un messaggio</translation>
+      <translation>Non ci sono operatori disponibili in questo momento, si prega di lasciare un messaggio.</translation>
     </message>
     <message>
       <source>Leave a message</source>
@@ -1855,7 +1871,7 @@
     </message>
     <message>
       <source>Department is offline</source>
-      <translation type="unfinished"/>
+      <translation>Dipartimento offline</translation>
     </message>
     <message>
       <source>Go to leave a message form</source>
@@ -1887,7 +1903,7 @@
     </message>
     <message>
       <source>There are no online operators at the moment, please leave your message</source>
-      <translation>Non ci sono operatori online in questo momento, si prega di lasciare il vostro messaggio</translation>
+      <translation>Non ci sono operatori disponibili in questo momento, si prega di lasciare il vostro messaggio</translation>
     </message>
     <message>
       <source>Choose your language</source>
@@ -1993,7 +2009,7 @@
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation>Apri in una nuova finestra</translation>
+      <translation>Apri in una nuova finestra | Open in a new window</translation>
     </message>
     <message>
       <source>Delete chat</source>
@@ -2609,6 +2625,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>By user status on site</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Status</source>
       <translation>Status</translation>
     </message>
@@ -3157,7 +3177,7 @@
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation>Apri in una nuova finestra</translation>
+      <translation>Apri in una nuova finestra | Open in a new window</translation>
     </message>
     <message>
       <source>Reject chat</source>
@@ -6169,6 +6189,57 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Inserisci un formato file valido!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/chatexport</name>
+    <message>
+      <source>Visitor Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>City</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Referrer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Link</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

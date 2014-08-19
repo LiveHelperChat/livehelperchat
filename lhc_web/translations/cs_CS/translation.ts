@@ -18,6 +18,10 @@
       <translation>Povolit sledování online návštěvníků</translation>
     </message>
     <message>
+      <source>Track is user still on site, chat status checks also has to be enabled</source>
+      <translation>Zjišťovaat, zda je uživatel stále na stránce, kontrola stavu rozhovoru musí být také povolena</translation>
+    </message>
+    <message>
       <source>Track online visitors even if there is no online operators</source>
       <translation>Sledování online návštěvníků, přestože není žádný online operátor</translation>
     </message>
@@ -35,7 +39,7 @@
     </message>
     <message>
       <source>Suggest user to leave a message then user chooses offline department</source>
-      <translation type="unfinished"/>
+      <translation>Navrhnout uživateli ponechat zprávu, poté si vybere offline oddělení</translation>
     </message>
     <message>
       <source>Play sound on invitation to chat.</source>
@@ -43,11 +47,11 @@
     </message>
     <message>
       <source>Show users option to switch language at widget</source>
-      <translation type="unfinished"/>
+      <translation>Zobrazit uživateli možnost zvolit ve widgetu jazyk</translation>
     </message>
     <message>
       <source>Between what languages user should be able to switch</source>
-      <translation type="unfinished"/>
+      <translation>Mezi kterými jazyky se uživatel může přepínat</translation>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
@@ -147,7 +151,7 @@
     </message>
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
-      <translation type="unfinished"/>
+      <translation>Vypnout uložiště HTML5, zaškrtněte, pokud se Vaše stránka přepíná mezi HTTP a HTTPS</translation>
     </message>
     <message>
       <source>Your site URL address</source>
@@ -583,8 +587,12 @@
       <translation>Časový limit nabídky ve dnech, po kolika dnech zobrazit nabídku stejnému návštěvníkovi, ponechejte prázdné pro jedno sezení</translation>
     </message>
     <message>
-      <source>Choose a language</source>
-      <translation>Zvolte jazyk</translation>
+      <source>For what domain you are generating embed code?</source>
+      <translation>Pro jakou doménu vygenerovat vložený kód?</translation>
+    </message>
+    <message>
+      <source>example.com</source>
+      <translation>priklad.cz</translation>
     </message>
     <message>
       <source>Choose prefered http mode</source>
@@ -593,6 +601,10 @@
     <message>
       <source>Based on site (default)</source>
       <translation>Převzato z webu  (výchozí) </translation>
+    </message>
+    <message>
+      <source>Choose a language</source>
+      <translation>Zvolte jazyk</translation>
     </message>
     <message>
       <source>Widget embed code</source>
@@ -937,6 +949,10 @@
     <message>
       <source>Print</source>
       <translation>Tisk</translation>
+    </message>
+    <message>
+      <source>XLS</source>
+      <translation>XLS</translation>
     </message>
     <message>
       <source>Select department</source>
@@ -1290,23 +1306,23 @@
     </message>
     <message>
       <source>Work hours, 24 hours format, 1 - 24, minutes format 0 - 60</source>
-      <translation type="unfinished"/>
+      <translation>Pracovní doba, 24hodinový formát, 1-24, formát minut 0-60</translation>
     </message>
     <message>
       <source>Hours from, E.g. 8</source>
-      <translation type="unfinished"/>
+      <translation>Hodiny od, např. 8</translation>
     </message>
     <message>
       <source>Minutes from, E.g. 30</source>
-      <translation type="unfinished"/>
+      <translation>Minuty od, např. 30</translation>
     </message>
     <message>
       <source>Hours to, E.g. 17</source>
-      <translation type="unfinished"/>
+      <translation>Hodiny do, např. 17</translation>
     </message>
     <message>
       <source>Minutes to, E.g. 30</source>
-      <translation type="unfinished"/>
+      <translation>Minuty do, např. 30</translation>
     </message>
     <message>
       <source>Notifications</source>
@@ -1855,15 +1871,15 @@
     </message>
     <message>
       <source>Department is offline</source>
-      <translation type="unfinished"/>
+      <translation>Oddělení je offline</translation>
     </message>
     <message>
       <source>Go to leave a message form</source>
-      <translation type="unfinished"/>
+      <translation>Přejít na formulář pro zanechání zprávy</translation>
     </message>
     <message>
       <source>Cancel and choose another department</source>
-      <translation type="unfinished"/>
+      <translation>Zrušit a vybrat jiné oddělení</translation>
     </message>
     <message>
       <source>characters</source>
@@ -1891,7 +1907,7 @@
     </message>
     <message>
       <source>Choose your language</source>
-      <translation type="unfinished"/>
+      <translation>Zvolte váš jazyk</translation>
     </message>
     <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
@@ -2607,6 +2623,10 @@
     <message>
       <source>Visitor local time</source>
       <translation>Lokální čas návštěvníka</translation>
+    </message>
+    <message>
+      <source>By user status on site</source>
+      <translation>Podle stavu uživatele na stránce</translation>
     </message>
     <message>
       <source>Status</source>
@@ -6169,6 +6189,57 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Prosím vyberte platný typ souboru!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/chatexport</name>
+    <message>
+      <source>Visitor Name</source>
+      <translation>Jméno návštěvníka</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Telefon</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>Země</translation>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>Město</translation>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation>IP adresa</translation>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation>Operátor</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Oddělení</translation>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>Datum</translation>
+    </message>
+    <message>
+      <source>Mail send</source>
+      <translation>E-mail odeslán</translation>
+    </message>
+    <message>
+      <source>Referrer</source>
+      <translation>Zdroj</translation>
+    </message>
+    <message>
+      <source>Link</source>
+      <translation>Odkaz</translation>
     </message>
   </context>
 </TS>

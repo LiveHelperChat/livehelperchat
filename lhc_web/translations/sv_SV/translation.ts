@@ -18,6 +18,10 @@
       <translation>Aktivera statistik för onlinebesökare</translation>
     </message>
     <message>
+      <source>Track is user still on site, chat status checks also has to be enabled</source>
+      <translation>Kontrollera om besökare fortfarande är online på sidan, kontroll för chattstatusar måste vara aktiverat</translation>
+    </message>
+    <message>
       <source>Track online visitors even if there is no online operators</source>
       <translation>Samla statistik om onlinebesökare även om det inte finns några operatörer online</translation>
     </message>
@@ -583,8 +587,12 @@
       <translation>Erbjudande tidsbegränsat i dagar, efter hur många dagar att visa erbjudanden för samma besökare igen, lämna tomt för session</translation>
     </message>
     <message>
-      <source>Choose a language</source>
-      <translation>Väl ett språk</translation>
+      <source>For what domain you are generating embed code?</source>
+      <translation>För vilken domän vill du generera inbäddningskoden?</translation>
+    </message>
+    <message>
+      <source>example.com</source>
+      <translation>example.com</translation>
     </message>
     <message>
       <source>Choose prefered http mode</source>
@@ -593,6 +601,10 @@
     <message>
       <source>Based on site (default)</source>
       <translation>Baserad på sida (standard)</translation>
+    </message>
+    <message>
+      <source>Choose a language</source>
+      <translation>Väl ett språk</translation>
     </message>
     <message>
       <source>Widget embed code</source>
@@ -937,6 +949,10 @@
     <message>
       <source>Print</source>
       <translation>Skriv ut</translation>
+    </message>
+    <message>
+      <source>XLS</source>
+      <translation>XLS</translation>
     </message>
     <message>
       <source>Select department</source>
@@ -2607,6 +2623,10 @@
     <message>
       <source>Visitor local time</source>
       <translation>Lokal tid för besökare</translation>
+    </message>
+    <message>
+      <source>By user status on site</source>
+      <translation>Genom användarstatus på sidan</translation>
     </message>
     <message>
       <source>Status</source>
@@ -6169,6 +6189,57 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Vänligen ange en giltig filtyp!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/chatexport</name>
+    <message>
+      <source>Visitor Name</source>
+      <translation>Besökarens namn</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-post</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Telefon</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>Land</translation>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>Stad</translation>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation>IP-nummer</translation>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation>Operatör</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Avdelning</translation>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>Datum</translation>
+    </message>
+    <message>
+      <source>Mail send</source>
+      <translation>Mejl skickat</translation>
+    </message>
+    <message>
+      <source>Referrer</source>
+      <translation>Referens</translation>
+    </message>
+    <message>
+      <source>Link</source>
+      <translation>Länk</translation>
     </message>
   </context>
 </TS>

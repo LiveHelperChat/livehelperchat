@@ -18,6 +18,10 @@
       <translation>Włącz śledzenie gości odwiedzających stronę www</translation>
     </message>
     <message>
+      <source>Track is user still on site, chat status checks also has to be enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Track online visitors even if there is no online operators</source>
       <translation>Śledź gości odwiedzających stronę www, nawet jeśli nie ma dostępnych operatorów</translation>
     </message>
@@ -584,8 +588,12 @@ pokazywany</translation>
       <translation>Czas do ponownego uaktywnienia ofert. Po ilu dniach pokazywać ponownie oferty dla tego samgeo gościa. Pozostaw puste aby ograniczyć czas do ponowienia do czasu trwania sesji.</translation>
     </message>
     <message>
-      <source>Choose a language</source>
-      <translation>Wybierz język</translation>
+      <source>For what domain you are generating embed code?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>example.com</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Choose prefered http mode</source>
@@ -594,6 +602,10 @@ pokazywany</translation>
     <message>
       <source>Based on site (default)</source>
       <translation>Oparty na trybie strony www (wartość domyślna)</translation>
+    </message>
+    <message>
+      <source>Choose a language</source>
+      <translation>Wybierz język</translation>
     </message>
     <message>
       <source>Widget embed code</source>
@@ -938,6 +950,10 @@ pokazywany</translation>
     <message>
       <source>Print</source>
       <translation>Drukuj</translation>
+    </message>
+    <message>
+      <source>XLS</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Select department</source>
@@ -2608,6 +2624,10 @@ pokazywany</translation>
     <message>
       <source>Visitor local time</source>
       <translation>Czas lokalny gościa</translation>
+    </message>
+    <message>
+      <source>By user status on site</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Status</source>
@@ -6170,6 +6190,57 @@ pokazywany</translation>
     <message>
       <source>Please enter valid file type!</source>
       <translation>Podaj poprawny typ pliku!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/chatexport</name>
+    <message>
+      <source>Visitor Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>City</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Referrer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Link</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>
