@@ -641,7 +641,13 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   $randomHash = erLhcoreClassModelForgotPassword::randomPassword(9);
         	   $randomHashLength = strlen($randomHash);
 			   $exportHash = erLhcoreClassModelForgotPassword::randomPassword(9);
-
+			   
+			   if (extension_loaded('bcmath')){
+			   		$geoRow = "('geo_data','a:5:{i:0;b:0;s:21:\"geo_detection_enabled\";i:1;s:22:\"geo_service_identifier\";s:8:\"max_mind\";s:23:\"max_mind_detection_type\";s:7:\"country\";s:22:\"max_mind_city_location\";s:37:\"var/external/geoip/GeoLite2-City.mmdb\";}',0,'',1)";
+			   } else {
+			   		$geoRow = "('geo_data', '', '0', '', '1')";
+			   }
+			   
         	   $db->query("INSERT INTO `lh_chat_config` (`identifier`, `value`, `type`, `explain`, `hidden`) VALUES
                 ('tracked_users_cleanup',	'160',	0,	'How many days keep records of online users.',	0),
         	   	('list_online_operators', '0', '0', 'List online operators.', '0'),
@@ -702,7 +708,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('track_is_online','0',0,'Track is user still on site, chat status checks also has to be enabled',0),
 				('show_languages','eng,lit,hrv,esp,por,nld,ara,ger,pol,rus,ita,fre,chn,cse,nor,tur,vnm,idn,sve,per,ell,dnk,rou,bgr,tha,geo,fin,alb',0,'Between what languages user should be able to switch',0),
                 ('geoadjustment_data',	'a:8:{i:0;b:0;s:18:\"use_geo_adjustment\";b:0;s:13:\"available_for\";s:0:\"\";s:15:\"other_countries\";s:6:\"custom\";s:8:\"hide_for\";s:0:\"\";s:12:\"other_status\";s:7:\"offline\";s:11:\"rest_status\";s:6:\"hidden\";s:12:\"apply_widget\";i:0;}',	0,	'Geo adjustment settings',	1),
-                ('geo_data','a:5:{i:0;b:0;s:21:\"geo_detection_enabled\";i:1;s:22:\"geo_service_identifier\";s:8:\"max_mind\";s:23:\"max_mind_detection_type\";s:7:\"country\";s:22:\"max_mind_city_location\";s:37:\"var/external/geoip/GeoLite2-City.mmdb\";}',0,'',1)");
+                {$geoRow}");
 
         	   
         	   
