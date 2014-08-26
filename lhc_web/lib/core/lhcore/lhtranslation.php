@@ -40,7 +40,28 @@ class erTranslationClassLhTranslation
             $this->manager = new ezcTranslationManager( $this->backend );
         }
     }
-
+    
+    public function initLanguage() {
+    	$sys = erLhcoreClassSystem::instance()->SiteDir;    
+    	$this->languageCode = erLhcoreClassSystem::instance()->Language;
+    	 
+    	$cfg = erConfigClassLhCacheConfig::getInstance();
+    	if ($this->languageCode != 'en_EN')
+    	{
+    		$this->translationFileModifyTime = filemtime($sys . '/translations/' . $this->languageCode . '/translation.xml');
+    
+    		if ($cfg->getSetting( 'cachetimestamps', 'translationfile' ) != $this->translationFileModifyTime)
+    		{
+    			$this->updateCache();
+    			$cfg->setSetting( 'cachetimestamps', 'translationfile', $this->translationFileModifyTime);
+    			$cfg->save();
+    		}
+    
+    		$this->cacheObj = new ezcCacheStorageFileArray( $sys . '/cache/translations' );
+    		$this->backend = new ezcTranslationCacheBackend( $this->cacheObj );
+    		$this->manager = new ezcTranslationManager( $this->backend );
+    	}
+    }
 
     /**
      * Taken from ez4

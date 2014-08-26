@@ -376,7 +376,44 @@ class erLhcoreClassSystem{
         $instance->QueryString = $queryString;
         $instance->WWWDirLang = '';
     }
-
+    
+    public static function setSiteAccess($siteaccess) {
+    	 
+    	$cfgSite = erConfigClassLhConfig::getInstance();
+    	 
+    	$availableSiteaccess = $cfgSite->getSetting( 'site', 'available_site_access' );
+    	$defaultSiteAccess = $cfgSite->getSetting( 'site', 'default_site_access' );
+    		
+    	if ($defaultSiteAccess != $siteaccess && in_array($siteaccess, $availableSiteaccess)) {
+    		$optionsSiteAccess = $cfgSite->getSetting('site_access_options',$siteaccess);
+    		erLhcoreClassSystem::instance()->Language = $optionsSiteAccess['locale'];
+    		erLhcoreClassSystem::instance()->ThemeSite = $optionsSiteAccess['theme'];
+    		erLhcoreClassSystem::instance()->ContentLanguage = $optionsSiteAccess['content_language'];
+    		erLhcoreClassSystem::instance()->WWWDirLang = '/'.$siteaccess;
+    		erLhcoreClassSystem::instance()->SiteAccess = $siteaccess;
+    	} else {
+    		$optionsSiteAccess = $cfgSite->getSetting('site_access_options',$defaultSiteAccess);
+    		erLhcoreClassSystem::instance()->SiteAccess = $defaultSiteAccess;
+    		erLhcoreClassSystem::instance()->Language = $optionsSiteAccess['locale'];
+    		erLhcoreClassSystem::instance()->ThemeSite = $optionsSiteAccess['theme'];
+    		erLhcoreClassSystem::instance()->WWWDirLang = '';
+    		erLhcoreClassSystem::instance()->ContentLanguage = $optionsSiteAccess['content_language'];
+    	}
+    	 
+    	erTranslationClassLhTranslation::getInstance()->initLanguage();
+    }
+    
+    public static function setSiteAccessByLocale($locale) {
+    	$cfgSite = erConfigClassLhConfig::getInstance();
+    	$site_languages = $cfgSite->getSetting( 'site', 'site_languages');
+    	foreach ($site_languages as $siteaccess => $site_language) {
+    		if ($site_language['locale'] == $locale) {
+    			self::setSiteAccess($siteaccess);
+    			break;
+    		}
+    	}
+    }
+    
     function wwwDir()
     {
         return $this->WWWDir;
