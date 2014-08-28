@@ -19,7 +19,7 @@
     </message>
     <message>
       <source>Track is user still on site, chat status checks also has to be enabled</source>
-      <translation>Trajeto do usuário no site, verificações de status do chat também tem que ser ativado</translation>
+      <translation>Verificar se é usuário ainda presente no site, verificações de status do chat também tem que ser ativado</translation>
     </message>
     <message>
       <source>Track online visitors even if there is no online operators</source>
@@ -47,7 +47,7 @@
     </message>
     <message>
       <source>Show users option to switch language at widget</source>
-      <translation>Mostrar opção para usuários alternar entre os idiomas no Widget</translation>
+      <translation>Mostrar opção para usuários alternar o idioma no Widget</translation>
     </message>
     <message>
       <source>Between what languages user should be able to switch</source>
@@ -59,7 +59,7 @@
     </message>
     <message>
       <source>Should cronjob run unanswered chats workflow and execute unaswered chats callback, 0 - no, any other number bigger than 0 is a minits how long chat have to be not accepted before executing callback.</source>
-      <translation>Usar Cronjob (agendador de tarefas) para rodar bate-papos não terminados e executar o retorno de chamada não atendidas? Tempo em minutos para o bate-papo tem que não ser aceito antes de executar o retorno de chamada.</translation>
+      <translation>Deve o Cronjob rodar o fluxo de bate-papos não respondidos e executar o retorno de chats não respondidos? 0 - não, Qualquer outro número maior que 0 será o tempo em minutos para o bate-papo não ser aceito antes de executar o retorno de chamada.</translation>
     </message>
     <message>
       <source>Should cronjob run departments transfer workflow, even if user leaves a chat</source>
@@ -87,7 +87,7 @@
     </message>
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
-      <translation>Depois de quantas horas mostrar novamente o tooltip de ajuda?</translation>
+      <translation>Tempo limite do tooltip de ajuda, depois de quantas horas mostrar novamente o tooltip?</translation>
     </message>
     <message>
       <source>Show need help tooltip?</source>
@@ -99,7 +99,7 @@
     </message>
     <message>
       <source>Messages box height</source>
-      <translation>Altura do tamanho da caixa de mensagens</translation>
+      <translation>Altura da caixa de mensagens</translation>
     </message>
     <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
@@ -123,7 +123,7 @@
     </message>
     <message>
       <source>Hide disabled department widget</source>
-      <translation>Ocultar departamento widget desativado</translation>
+      <translation>Ocultar widgets de departamento desativados</translation>
     </message>
     <message>
       <source>Is visitor e-mail required for FAQ</source>
@@ -171,7 +171,7 @@
     </message>
     <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
-      <translation>Chats automaticamente removidos. 0 - desabilitado, n &gt; 0 tempo em minutos antes do chat ser automaticamente deletado</translation>
+      <translation>Remover chats automaticamente. 0 - desabilitado, n &gt; 0 tempo em minutos antes do chat ser automaticamente deletado</translation>
     </message>
     <message>
       <source>Automatically reopen chat on widget open</source>
@@ -179,7 +179,7 @@
     </message>
     <message>
       <source>Automatic chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
-      <translation>Chats fechar automaticamente. 0 - desabilitado, n &gt; 0  tempo em minutos antes do chat ser fechado automaticamente</translation>
+      <translation>Fechameno automático de chats. 0 - desabilitado, n &gt; 0  tempo em minutos antes do chat ser fechado automaticamente</translation>
     </message>
     <message>
       <source>Support application name, visible in browser title.</source>
@@ -187,15 +187,15 @@
     </message>
     <message>
       <source>Allow user to reopen closed chats?</source>
-      <translation>Permitir que o usuário reabrir conversas fechadas?</translation>
+      <translation>Permitir ao usuário reabrir chats fechados?</translation>
     </message>
     <message>
       <source>Change to your site Terms of Service</source>
-      <translation>Mudar para o seu site de termos de serviço</translation>
+      <translation>Mudar para os termos de serviço do seu site</translation>
     </message>
     <message>
       <source>How many seconds chat accept link is valid. Set 0 to force login all the time manually.</source>
-      <translation>Por quanto tempo em segundos a conexão de bate-papo é válida. Defina 0 para forçar o login sempre manualmente.</translation>
+      <translation>Por quantos segundos o link de aceitar chat é válido. Defina 0 para forçar o login sempre manualmente.</translation>
     </message>
   </context>
   <context>
@@ -340,11 +340,11 @@
     </message>
     <message>
       <source>Show copyright widget logo in left corner</source>
-      <translation>Mostrar o widget de logotipo de copyright no canto esquerdo</translation>
+      <translation>Mostrar o logotipo widget copyright no canto esquerdo</translation>
     </message>
     <message>
       <source>Widget copyright link</source>
-      <translation>Copyright link widget</translation>
+      <translation>Widget link de copyright </translation>
     </message>
     <message>
       <source>Text above start chat form fields</source>
@@ -1306,23 +1306,23 @@
     </message>
     <message>
       <source>Work hours, 24 hours format, 1 - 24, minutes format 0 - 60</source>
-      <translation>Horas de trabalho, formato em horas 1 - 24, formato em minutos 0 - 60</translation>
+      <translation>Horas de trabalho, formato de horas 1 - 24, formato de minutos 0 - 60</translation>
     </message>
     <message>
       <source>Hours from, E.g. 8</source>
-      <translation>Horas de, por exemplo, 8</translation>
+      <translation>Horas de, Ex. 8</translation>
     </message>
     <message>
       <source>Minutes from, E.g. 30</source>
-      <translation>Minutos de, por exemplo, 30</translation>
+      <translation>Minutos de, Ex. 30</translation>
     </message>
     <message>
       <source>Hours to, E.g. 17</source>
-      <translation>Horas para, por exemplo, 17</translation>
+      <translation>Horas para, Ex. 17</translation>
     </message>
     <message>
       <source>Minutes to, E.g. 30</source>
-      <translation>Minutos para, por exemplo, 30</translation>
+      <translation>Minutos para, Ex. 30</translation>
     </message>
     <message>
       <source>Notifications</source>
@@ -1835,7 +1835,7 @@
     </message>
     <message>
       <source>Live support is not available in your country</source>
-      <translation>Live Support não está em seu país</translation>
+      <translation>Live Support não está disponível em seu país</translation>
     </message>
     <message>
       <source>Live Support</source>
@@ -1875,7 +1875,7 @@
     </message>
     <message>
       <source>Go to leave a message form</source>
-      <translation>Ir para deixar uma mensagem através do formulário</translation>
+      <translation>Ir para deixar um formulário de mensagem</translation>
     </message>
     <message>
       <source>Cancel and choose another department</source>
@@ -1883,7 +1883,7 @@
     </message>
     <message>
       <source>characters</source>
-      <translation>caractéres</translation>
+      <translation>caracteres</translation>
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
@@ -2100,15 +2100,15 @@
     <name>chat/geoadjustment</name>
     <message>
       <source>GEO adjustment</source>
-      <translation>GEO ajustamento</translation>
+      <translation>Ajustes GEO</translation>
     </message>
     <message>
       <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
-      <translation>Aplicará para o chat indicador de status com estas regras também? Diminuirá o desempenho está associado a esta opção</translation>
+      <translation>Aplicar também estas regras para o chat indicador de status? Esta opção pode gerar queda de desempenho</translation>
     </message>
     <message>
       <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
-      <translation>Faça estado de chat normal para esses países, os países podem ser separados por vírgula &quot;de,gb,us,fr&quot; significa bate-papo seria mostrado como de costume apenas para estes países.</translation>
+      <translation>Tornar estado de chat normal para esses países, os países podem ser separados por vírgula &quot;de,gb,us,fr&quot; significa que o chat seria mostrado como de costume apenas para estes países.</translation>
     </message>
     <message>
       <source>For</source>
@@ -2116,7 +2116,7 @@
     </message>
     <message>
       <source>all</source>
-      <translation>Todos</translation>
+      <translation>todos</translation>
     </message>
     <message>
       <source>custom</source>
@@ -2124,15 +2124,15 @@
     </message>
     <message>
       <source>E.g. ar,pl</source>
-      <translation>Exemplo: ar, pl</translation>
+      <translation>Ex.: ar, pl</translation>
     </message>
     <message>
       <source>Other countries, put widget/chat status to</source>
-      <translation>Outros países, coloque o status do chat para</translation>
+      <translation>Outros países, coloque o status do chat/widget para</translation>
     </message>
     <message>
       <source>offline status</source>
-      <translation>status indisponível</translation>
+      <translation>estado offline</translation>
     </message>
     <message>
       <source>hidden/disabled, widget will not be shown</source>
@@ -2140,7 +2140,7 @@
     </message>
     <message>
       <source>For unmatched countries put chat status to</source>
-      <translation>Para os países incomparáveis ​​colocar o status do chat para</translation>
+      <translation>Para os países não encontrados ​​colocar o status do chat para</translation>
     </message>
     <message>
       <source>normal status</source>
@@ -2151,7 +2151,7 @@
     <name>system/xmpp</name>
     <message>
       <source>Geo adjustments active</source>
-      <translation>Geo ajustes ativos</translation>
+      <translation>Ajustes GEO ativos</translation>
     </message>
     <message>
       <source>Settings updated</source>
@@ -2626,7 +2626,7 @@
     </message>
     <message>
       <source>By user status on site</source>
-      <translation>Por status do usuário no site</translation>
+      <translation>Status do usuário no site</translation>
     </message>
     <message>
       <source>Status</source>
@@ -2904,7 +2904,7 @@
     </message>
     <message>
       <source>GEO adjustment</source>
-      <translation>GEO ajustamento</translation>
+      <translation>Ajustes GEO</translation>
     </message>
     <message>
       <source>Synchronization and sound settings</source>
