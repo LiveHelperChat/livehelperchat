@@ -60,5 +60,6 @@ $FunctionList['changelanguage'] = array('explain' => 'Allow user to change his l
 $FunctionList['timezone'] = array('explain' => 'Allow user to change global time zone');
 $FunctionList['performupdate'] = array('explain' => 'Allow user to update Live Helper Chat');
 $FunctionList['changetemplates'] = array('explain' => 'Allow user to change e-mail templates');
+$FunctionList['generate_js_tab'] = array('explain' => 'User can see embed code tab');
 
 ?>
