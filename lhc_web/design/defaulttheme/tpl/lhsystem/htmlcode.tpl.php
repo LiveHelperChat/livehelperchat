@@ -89,6 +89,7 @@
                <option value="bottom_left"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Bottom left corner of the screen');?></option>
                <option value="middle_right"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Middle right side of the screen');?></option>
                <option value="middle_left"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Middle left side of the screen');?></option>
+               <option value="api"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Invisible, only JS API will be included');?></option>
         </select>
                 
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Minimize action, applies only if status widget is at the bottom');?></label>
