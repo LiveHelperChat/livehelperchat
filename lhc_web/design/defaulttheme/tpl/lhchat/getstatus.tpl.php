@@ -493,6 +493,9 @@ var lh_inst  = {
         
         document.body.insertBefore(fragment, document.body.childNodes[0]);        
     <?php endif; ?>
+    	if (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.callback != 'undefined' && typeof LHCChatOptions.callback.show_widget_cb != 'undefined') {
+    		LHCChatOptions.callback.show_widget_cb(this);    		
+    	};
     },
     
     timeoutInstance : null,

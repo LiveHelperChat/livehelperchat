@@ -66,6 +66,7 @@
     </div>
    </section>
    
+   <?php if ($currentUser->hasAccessTo('lhsystem','generate_js_tab')) : ?>
    <section>
     <p class="title" data-section-title><a href="#embed"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Embed code');?></a></p>
     <div class="content" data-section-content data-slug="embed">
@@ -124,6 +125,8 @@
     </div>
     </div>
   </section>
+  <?php endif;?> 
+   
       
   <?php if ($currentUser->hasAccessTo('lhchat','use')) : ?>
   <section>

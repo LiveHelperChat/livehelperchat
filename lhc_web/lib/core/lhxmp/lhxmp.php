@@ -3,7 +3,10 @@
 class erLhcoreClassXMP {
 
 	public static function sendTestXMP($userData) {		
-		$data = (array) erLhcoreClassModelChatConfig::fetch('xmp_data')->data;				
+		$data = (array) erLhcoreClassModelChatConfig::fetch('xmp_data')->data;
+		
+		$templateMessage = 'xmp_message';
+								
 		$conn = new XMPPHP_XMPP($data['host'], $data['port'], $data['username'], $data['password'], $data['resource'], $data['server'], $printlog = false, $loglevel = XMPPHP_Log::LEVEL_INFO);
 		try {
 			$conn->connect();
