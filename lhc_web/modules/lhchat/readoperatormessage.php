@@ -249,6 +249,8 @@ if (isset($_POST['askQuestion']))
        $chat->last_user_msg_time = time();
        $chat->saveThis();
 
+       erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat));
+       
        // Redirect user
        erLhcoreClassModule::redirect('chat/chatwidgetchat/' . $chat->id . '/' . $chat->hash);
        exit;
