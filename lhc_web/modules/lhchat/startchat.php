@@ -177,6 +177,9 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
    		
    		if ( (isset($additionalParams['offline']) && $additionalParams['offline'] == true) || $statusGeoAdjustment['status'] == 'offline') {
 	   		erLhcoreClassChatMail::sendMailRequest($inputData,$chat,array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false));
+   			if (isset($chatPrefill) && ($chatPrefill instanceof erLhcoreClassModelChat)) {
+   				erLhcoreClassChatValidator::updateInitialChatAttributes($chatPrefill, $chat);
+   			}
 	   		$tpl->set('request_send',true);
 	   	} else {
 	       $chat->time = time();

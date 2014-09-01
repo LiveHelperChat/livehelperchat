@@ -305,7 +305,29 @@ class erLhcoreClassChatValidator {
         
         return $Errors;
     }
-
+    
+    /**
+     * If user was redirected to contact form and he changed some default attributes we change then in intial chat
+     * */
+    public static function updateInitialChatAttributes(erLhcoreClassModelChat & $prefillChat, erLhcoreClassModelChat $currentChat) {
+    	$attributesPrefill = array(
+    		'nick',
+    		'email',
+    		'phone'
+    	);
+    	
+    	$attrChanged = false;
+    	foreach ($attributesPrefill as $attr) {
+    		if ($prefillChat->$attr == '' && $currentChat->$attr != '') {
+    			$prefillChat->$attr = $currentChat->$attr;
+    			$attrChanged = true;
+    		}
+    	}
+    	
+    	if ($attrChanged) {
+    		$prefillChat->saveThis();
+    	}
+    }
 }
 
 ?>
