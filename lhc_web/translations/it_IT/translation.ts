@@ -804,6 +804,10 @@
       <translation>Posizione nativa - sarà mostrato dove il codice html sarà incorporato</translation>
     </message>
     <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
       <translation>Minimizza l&apos;azione, disponibile solo se il widget status è in basso</translation>
     </message>

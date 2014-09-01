@@ -805,6 +805,10 @@
       <translation>Colocación natural - se mostrará donde el código HTML esté incrustado</translation>
     </message>
     <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
       <translation>Minimizar, Aplica solo si el Widget esta en pie de pagina</translation>
     </message>

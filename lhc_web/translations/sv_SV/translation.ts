@@ -803,6 +803,10 @@
       <translation>Direkt placering - den visas där html koden läggs in</translation>
     </message>
     <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
       <translation>Minimera handling, tillämpas endast om statuswidgeten är i botten</translation>
     </message>

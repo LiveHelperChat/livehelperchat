@@ -3,19 +3,19 @@
     <name>listchatconfig</name>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
-      <translation type="unfinished"/>
+      <translation>Hoeveel dagen mag een Stemmen widget niet worden uitgebreid na de laatste keer tonen</translation>
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
-      <translation type="unfinished"/>
+      <translation>Gebruik een veilige cookie, schakel dit in als u altijd SSL wilt afdwingen</translation>
     </message>
     <message>
       <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
-      <translation type="unfinished"/>
+      <translation>Welk IP mag de DB bijwerken door het uitvoeren van een http-aanvraag, gescheiden door komma?</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
-      <translation type="unfinished"/>
+      <translation>Activeer online bezoeker tracking</translation>
     </message>
     <message>
       <source>Track is user still on site, chat status checks also has to be enabled</source>
@@ -43,15 +43,15 @@
     </message>
     <message>
       <source>Play sound on invitation to chat.</source>
-      <translation type="unfinished"/>
+      <translation>Speel geluid af bij een chat uitnodiging</translation>
     </message>
     <message>
       <source>Show users option to switch language at widget</source>
-      <translation type="unfinished"/>
+      <translation>Toon gebruikers taalwissel optie in widget</translation>
     </message>
     <message>
       <source>Between what languages user should be able to switch</source>
-      <translation type="unfinished"/>
+      <translation>Tussen welke talen mag de gebruiker wisselen</translation>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
@@ -95,11 +95,11 @@
     </message>
     <message>
       <source>Minimum phone number length</source>
-      <translation type="unfinished"/>
+      <translation>Minimale lengte telefoonnummer</translation>
     </message>
     <message>
       <source>Messages box height</source>
-      <translation type="unfinished"/>
+      <translation>Hoogte berichtinhoud Chatbox</translation>
     </message>
     <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
@@ -111,7 +111,7 @@
     </message>
     <message>
       <source>List online operators.</source>
-      <translation type="unfinished"/>
+      <translation>Toon online operators</translation>
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
@@ -127,7 +127,7 @@
     </message>
     <message>
       <source>Is visitor e-mail required for FAQ</source>
-      <translation type="unfinished"/>
+      <translation>Is bezoekers e-mailadres nodig voor FAQ</translation>
     </message>
     <message>
       <source>Chats export secret hash</source>
@@ -744,11 +744,11 @@
     </message>
     <message>
       <source>Operator ID</source>
-      <translation type="unfinished"/>
+      <translation>Operator ID</translation>
     </message>
     <message>
       <source>To what operator chat should be assigned automatically?</source>
-      <translation type="unfinished"/>
+      <translation>Aan welke operator moet automatisch de Chat toegewezen worden</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want your status to appear</source>
@@ -801,6 +801,10 @@
     <message>
       <source>Native placement - it will be shown where the html is embedded</source>
       <translation>Native positionering - het zal getoond worden waar de html geplaatst is</translation>
+    </message>
+    <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
@@ -3022,7 +3026,7 @@
     </message>
     <message>
       <source>Assigned operator</source>
-      <translation type="unfinished"/>
+      <translation>Toegewezen operator</translation>
     </message>
     <message>
       <source>Clean cache</source>
@@ -3586,7 +3590,7 @@
     </message>
     <message>
       <source>Operators</source>
-      <translation type="unfinished"/>
+      <translation>Operators</translation>
     </message>
     <message>
       <source>Pending</source>
@@ -6219,7 +6223,7 @@
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>Operator</translation>
     </message>
     <message>
       <source>Department</source>

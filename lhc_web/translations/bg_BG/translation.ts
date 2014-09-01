@@ -803,6 +803,10 @@
       <translation>Местно позициониране - ще се покаже където html адреса е вграден</translation>
     </message>
     <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
       <translation>Действие при минимизиране, прилага се само ако модула е на дъното на прозореца</translation>
     </message>

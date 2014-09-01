@@ -803,6 +803,10 @@
       <translation>母语的位置 - 它会显示HTML嵌入</translation>
     </message>
     <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
       <translation>最小化操作，仅当状态插件位于页面底部时启用</translation>
     </message>
