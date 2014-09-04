@@ -804,7 +804,7 @@
     </message>
     <message>
       <source>Invisible, only JS API will be included</source>
-      <translation type="unfinished"/>
+      <translation>Osynlig, endast JS API kommer att inkluderas</translation>
     </message>
     <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
