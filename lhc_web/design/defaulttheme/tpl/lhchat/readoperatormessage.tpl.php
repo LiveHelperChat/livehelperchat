@@ -16,7 +16,9 @@
 <?php endif; ?>
 
 
-<?php if ($visitor->requires_username == 1 || $visitor->requires_email == 1 || $visitor->requires_phone == 1) : ?><div class="row"><?php endif;?>
+<?php 
+$hasExtraField = false;
+if ($visitor->requires_username == 1 || $visitor->requires_email == 1 || $visitor->requires_phone == 1) : $hasExtraField = true;?><div class="row"><?php endif;?>
 
 <?php if ($visitor->requires_username == 1) : ?>
 <div class="columns small-6 end">
@@ -50,7 +52,10 @@
 	<?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/department.tpl.php'));?>
 <?php endif;?>
 
+<?php if ($hasExtraField === true) : ?>
 <input type="submit" name="askQuestionAction" id="idaskQuestionAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Send');?>" class="tiny button radius secondary sendbutton"/>
+<?php endif;?>
+
 <input type="hidden" name="askQuestion" value="1" />
 <input type="hidden" value="<?php echo htmlspecialchars($input_data->operator);?>" name="operator" />
 
@@ -59,8 +64,12 @@
 </form>
 
 <script>
+var formSubmitted = false;
 jQuery('#id_Question').bind('keyup', 'return', function (evt){
-	$( "#idaskQuestionAction" ).click();	
+	if (formSubmitted == false) {
+		formSubmitted = true;
+		$( "#ReadOperatorMessage" ).submit();	
+	}
 });
 <?php if ($playsound == true) : ?>
 $(function() {lhinst.playInvitationSound();});

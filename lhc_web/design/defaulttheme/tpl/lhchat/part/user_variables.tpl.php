@@ -1,5 +1,10 @@
 <?php 
 $modeUserVariables = isset($modeUserVariables) ? $modeUserVariables : 'on';
+
+if (!empty($input_data->name_items)) {
+	$hasExtraField = true;
+};
+
 foreach ($input_data->name_items as $item) : ?>
 	<input type="hidden" name="name_items[]" value="<?php echo htmlspecialchars($item)?>" />
 <?php endforeach;?>

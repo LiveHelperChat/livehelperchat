@@ -37,41 +37,43 @@
     </div>
 
     <div class="pt5" id="ChatMessageContainer">
-
-        <textarea rows="4" name="ChatMessage" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Enter your message')?>" id="CSChatMessage" ></textarea>
+    
+		<div class="pt5 user-chatwidget-buttons" id="ChatSendButtonContainer">        	
+	    	<ul class="button-group right button-action-right">    	
+	    	
+	    		<li><a href="#" class="tiny secondary button trigger-button"><i class="icon-pencil"></i></a></li>
+	    	
+	    		<li><input type="button" class="tiny secondary button sendbutton invisible-button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Send')?>" onclick="lhinst.addmsguser()" /></li>
+	    	
+	    		<?php if (erLhcoreClassModelChatConfig::fetch('bbc_button_visible')->current_value == 1) : ?>
+	    		<li><input type="button" class="tiny secondary button invisible-button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','BB Code')?>" data-reveal-id="bbcodeReveal" data-reveal-ajax="<?php echo erLhcoreClassDesign::baseurl('chat/bbcodeinsert')?>" /></li>
+	    		<?php endif; ?>
+	    		
+	    		<?php if ( isset($chat_embed_mode) && $chat_embed_mode == true ) : ?>
+	    		<li><input type="button" class="tiny secondary button invisible-button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>" onclick="lhinst.userclosedchatembed();" /></li>
+	    		<?php endif;?>
+	    	</ul>    	
+	    </div>
+    
+        <textarea rows="4" name="ChatMessage" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Enter your message')?>" id="CSChatMessage" class="live-chat-message"></textarea>
         <div id="id-operator-typing">
 	            <i></i>
 	    </div>
-        <script type="text/javascript">
-        
+	    
+        <script type="text/javascript">        
         jQuery('#CSChatMessage').bind('keydown', 'return', function (evt){
             lhinst.addmsguser();
             return false;
-        });
-        
+        });        
         jQuery('#CSChatMessage').bind('keyup', 'up', function (evt){
 			lhinst.editPreviousUser();		   
-		});
-		
+		});		
         lhinst.initTypingMonitoringUser('<?php echo $chat_id?>');
         </script>
     </div>
 	<div id="bbcodeReveal" class="reveal-modal"></div>
-    <div class="pt5 user-chatwidget-buttons" id="ChatSendButtonContainer">
-    	<input type="button" class="tiny radius secondary button sendbutton" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Send')?>" onclick="lhinst.addmsguser()" />
-    	
-    	<ul class="button-group radius right button-action-right">
-    	
-    		<?php if (erLhcoreClassModelChatConfig::fetch('bbc_button_visible')->current_value == 1) : ?>
-    		<li><input type="button" class="tiny secondary button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','BB Code')?>" data-reveal-id="bbcodeReveal" data-reveal-ajax="<?php echo erLhcoreClassDesign::baseurl('chat/bbcodeinsert')?>" /></li>
-    		<?php endif; ?>
-    		
-    		<?php if ( isset($chat_embed_mode) && $chat_embed_mode == true ) : ?>
-    		<li><input type="button" class="tiny secondary button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>" onclick="lhinst.userclosedchatembed();" /></li>
-    		<?php endif;?>
-    	</ul>
-    	
-    </div>
+	
+    
 
 
 <script type="text/javascript">
