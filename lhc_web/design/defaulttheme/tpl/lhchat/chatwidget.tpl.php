@@ -119,6 +119,7 @@ if ($theme !== false && $theme->explain_text != '') : ?>
 
 <?php if ($hasExtraField === false) : ?>
 <script>
+jQuery('#id_Question').addClass('mb0');
 var formSubmitted = false;
 jQuery('#id_Question').bind('keyup', 'return', function (evt){
 	if (formSubmitted == false) {
