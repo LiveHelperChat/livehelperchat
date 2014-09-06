@@ -12,6 +12,7 @@ if ( isset($_POST['SendMessage']) ) {
     $validationFields['Message'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
     $validationFields['RequiresEmail'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
     $validationFields['RequiresUsername'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
+    $validationFields['RequiresPhone'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
     
     $form = new ezcInputForm( INPUT_POST, $validationFields );    
     $Errors = array();
@@ -36,6 +37,12 @@ if ( isset($_POST['SendMessage']) ) {
         $visitor->requires_username = 1;
     } else {
     	$visitor->requires_username = 0;
+    }
+
+    if ($form->hasValidData( 'RequiresPhone' ) && $form->RequiresPhone == true) {
+        $visitor->requires_phone = 1;
+    } else {
+    	$visitor->requires_phone = 0;
     }
     
     if (count($Errors) == 0) { 

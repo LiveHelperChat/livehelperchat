@@ -803,6 +803,10 @@
       <translation>แม่วาง - จะแสดงที่ html ถูกฝัง</translation>
     </message>
     <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
       <translation type="unfinished"/>
     </message>
@@ -1018,16 +1022,16 @@
       <translation>ปิด</translation>
     </message>
     <message>
-      <source>Enter your message</source>
-      <translation>ป้อนข้อความของคุณ</translation>
-    </message>
-    <message>
       <source>Send</source>
       <translation>ส่ง</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter your message</source>
+      <translation>ป้อนข้อความของคุณ</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -1830,6 +1834,10 @@
       <translation>คำถามของคุณ</translation>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>พิมพ์ข้อความ และป้อนตีส่ง...</translation>
+    </message>
+    <message>
       <source>Start chat</source>
       <translation>เริ่มต้นสนทนา</translation>
     </message>
@@ -1884,10 +1892,6 @@
     <message>
       <source>characters</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>พิมพ์ข้อความ และป้อนตีส่ง...</translation>
     </message>
     <message>
       <source>Send</source>
@@ -3293,6 +3297,10 @@
     </message>
     <message>
       <source>Requires name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Requires phone</source>
       <translation type="unfinished"/>
     </message>
     <message>

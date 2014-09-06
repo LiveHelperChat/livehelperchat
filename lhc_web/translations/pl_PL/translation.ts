@@ -804,6 +804,10 @@ pokazywany</translation>
       <translation>Naturalna lokalizacja - zostanie pokazany tam, gdzie jest osadzony html</translation>
     </message>
     <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
       <translation>Minimalizacja, stosuje się tylko wtedy, gdy widżet stanu jest na dole</translation>
     </message>
@@ -1019,16 +1023,16 @@ pokazywany</translation>
       <translation>Zamknij</translation>
     </message>
     <message>
-      <source>Enter your message</source>
-      <translation>Wpisz swoją wiadomość</translation>
-    </message>
-    <message>
       <source>Send</source>
       <translation>Wyślij</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation>Emotikony</translation>
+    </message>
+    <message>
+      <source>Enter your message</source>
+      <translation>Wpisz swoją wiadomość</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -1831,6 +1835,10 @@ pokazywany</translation>
       <translation>Twoje pytanie</translation>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Wpisz swoją wiadomość i naciśnij enter aby ją wysłać...</translation>
+    </message>
+    <message>
       <source>Start chat</source>
       <translation>Rozpoczęcie rozmowy</translation>
     </message>
@@ -1885,10 +1893,6 @@ pokazywany</translation>
     <message>
       <source>characters</source>
       <translation>znaki</translation>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Wpisz swoją wiadomość i naciśnij enter aby ją wysłać...</translation>
     </message>
     <message>
       <source>Send</source>
@@ -3295,6 +3299,10 @@ pokazywany</translation>
     <message>
       <source>Requires name</source>
       <translation>Pole Imię wymagane</translation>
+    </message>
+    <message>
+      <source>Requires phone</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Send the message</source>

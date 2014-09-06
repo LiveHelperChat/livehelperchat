@@ -803,6 +803,10 @@
       <translation>Natiivi sijoitus - näytetään siinä kohdassa missä html sijaitsee</translation>
     </message>
     <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
       <translation type="unfinished"/>
     </message>
@@ -1018,16 +1022,16 @@
       <translation>Sulje</translation>
     </message>
     <message>
-      <source>Enter your message</source>
-      <translation>Kirjoita viestisi</translation>
-    </message>
-    <message>
       <source>Send</source>
       <translation>Lähetä</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation>Muotoilukoodit</translation>
+    </message>
+    <message>
+      <source>Enter your message</source>
+      <translation>Kirjoita viestisi</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -1830,6 +1834,10 @@
       <translation>Kysymyksesi</translation>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Kirjoita viestisi ja paina enteriä lähettääksesi...</translation>
+    </message>
+    <message>
       <source>Start chat</source>
       <translation>Aloita keskustelu</translation>
     </message>
@@ -1884,10 +1892,6 @@
     <message>
       <source>characters</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Kirjoita viestisi ja paina enteriä lähettääksesi...</translation>
     </message>
     <message>
       <source>Send</source>
@@ -3294,6 +3298,10 @@
     <message>
       <source>Requires name</source>
       <translation>Vaatii nimen</translation>
+    </message>
+    <message>
+      <source>Requires phone</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Send the message</source>

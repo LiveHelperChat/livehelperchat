@@ -803,6 +803,10 @@
       <translation>Původní umístění - zobrazí se v místě, kde se nachází kód v HTML stránky</translation>
     </message>
     <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation>Neviditelný, bude vloženo pouze JS API</translation>
+    </message>
+    <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
       <translation>Minimalizace, použije se pouze pokud je widget stavu dole</translation>
     </message>
@@ -1018,16 +1022,16 @@
       <translation>Zavřít</translation>
     </message>
     <message>
-      <source>Enter your message</source>
-      <translation>Zadejte text vaší zprávy</translation>
-    </message>
-    <message>
       <source>Send</source>
       <translation>Odeslat</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation>BB kód / Smajlíci</translation>
+    </message>
+    <message>
+      <source>Enter your message</source>
+      <translation>Zadejte text vaší zprávy</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -1830,6 +1834,10 @@
       <translation>Vaše otázka</translation>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Zadejte text své zprávy a odešlete ji stisknutím enter...</translation>
+    </message>
+    <message>
       <source>Start chat</source>
       <translation>Zahájit rozhovor</translation>
     </message>
@@ -1884,10 +1892,6 @@
     <message>
       <source>characters</source>
       <translation>znaků</translation>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Zadejte text své zprávy a odešlete ji stisknutím enter...</translation>
     </message>
     <message>
       <source>Send</source>
@@ -3294,6 +3298,10 @@
     <message>
       <source>Requires name</source>
       <translation>Vyžaduje jméno</translation>
+    </message>
+    <message>
+      <source>Requires phone</source>
+      <translation>Telefonní číslo je vyžadováno</translation>
     </message>
     <message>
       <source>Send the message</source>

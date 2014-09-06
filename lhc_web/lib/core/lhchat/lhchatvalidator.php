@@ -168,13 +168,13 @@ class erLhcoreClassChatValidator {
         // Validate question
         if (isset($validationFields['Question'])) {
 
-            if ( !$form->hasValidData( 'Question' ) || ($form->Question == '' && (($start_data_fields['message_require_option'] == 'required' && !isset($additionalParams['offline'])) || (isset($additionalParams['offline']) && isset($start_data_fields['offline_message_require_option']) && $start_data_fields['offline_message_require_option'] == 'required')))) {
+            if ( !$form->hasValidData( 'Question' ) || (trim($form->Question) == '' && (($start_data_fields['message_require_option'] == 'required' && !isset($additionalParams['offline'])) || (isset($additionalParams['offline']) && isset($start_data_fields['offline_message_require_option']) && $start_data_fields['offline_message_require_option'] == 'required')))) {
                 $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your message');
             } elseif ($form->hasValidData( 'Question' )) {
-                $inputForm->question = $form->Question;
+                $inputForm->question = trim($form->Question);
             }
 
-            if ($form->hasValidData( 'Question' ) && $form->Question != '' && strlen($form->Question) > (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value)
+            if ($form->hasValidData( 'Question' ) && trim($form->Question) != '' && strlen($form->Question) > (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value)
             {
                 $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum').' '.(int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','characters for a message');
             }
@@ -305,7 +305,29 @@ class erLhcoreClassChatValidator {
         
         return $Errors;
     }
-
+    
+    /**
+     * If user was redirected to contact form and he changed some default attributes we change then in intial chat
+     * */
+    public static function updateInitialChatAttributes(erLhcoreClassModelChat & $prefillChat, erLhcoreClassModelChat $currentChat) {
+    	$attributesPrefill = array(
+    		'nick',
+    		'email',
+    		'phone'
+    	);
+    	
+    	$attrChanged = false;
+    	foreach ($attributesPrefill as $attr) {
+    		if ($prefillChat->$attr == '' && $currentChat->$attr != '') {
+    			$prefillChat->$attr = $currentChat->$attr;
+    			$attrChanged = true;
+    		}
+    	}
+    	
+    	if ($attrChanged) {
+    		$prefillChat->saveThis();
+    	}
+    }
 }
 
 ?>

@@ -803,6 +803,10 @@
       <translation>Placement d&apos;origine - affiché où le html est intégré</translation>
     </message>
     <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
       <translation type="unfinished"/>
     </message>
@@ -1018,16 +1022,16 @@
       <translation>Fermer</translation>
     </message>
     <message>
-      <source>Enter your message</source>
-      <translation>Entrez votre message</translation>
-    </message>
-    <message>
       <source>Send</source>
       <translation>Envoyer</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter your message</source>
+      <translation>Entrez votre message</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -1830,6 +1834,10 @@
       <translation>Votre question</translation>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Tapez votre message ici et tapez &quot;Entrée&quot; pour envoyer...</translation>
+    </message>
+    <message>
       <source>Start chat</source>
       <translation>Démarrer le chat</translation>
     </message>
@@ -1884,10 +1892,6 @@
     <message>
       <source>characters</source>
       <translation>caractères</translation>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Tapez votre message ici et tapez &quot;Entrée&quot; pour envoyer...</translation>
     </message>
     <message>
       <source>Send</source>
@@ -3294,6 +3298,10 @@
     <message>
       <source>Requires name</source>
       <translation>Nom obligatoire</translation>
+    </message>
+    <message>
+      <source>Requires phone</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Send the message</source>

@@ -803,6 +803,10 @@
       <translation>Localização nativa - será mostrado onde o html é incorporado</translation>
     </message>
     <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation>Invisível, somente JS API será incluída</translation>
+    </message>
+    <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
       <translation>Ação minimizar, só se aplica se o widget está na parte inferior</translation>
     </message>
@@ -1018,16 +1022,16 @@
       <translation>Fechar</translation>
     </message>
     <message>
-      <source>Enter your message</source>
-      <translation>Digite sua mensagem</translation>
-    </message>
-    <message>
       <source>Send</source>
       <translation>Enviar</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation>Código BB</translation>
+    </message>
+    <message>
+      <source>Enter your message</source>
+      <translation>Digite sua mensagem</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -1830,6 +1834,10 @@
       <translation>Sua pergunta</translation>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Digite sua mensagem aqui e clique enter para enviar...</translation>
+    </message>
+    <message>
       <source>Start chat</source>
       <translation>Iniciar chat</translation>
     </message>
@@ -1884,10 +1892,6 @@
     <message>
       <source>characters</source>
       <translation>caracteres</translation>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Digite sua mensagem aqui e clique enter para enviar...</translation>
     </message>
     <message>
       <source>Send</source>
@@ -3132,7 +3136,7 @@
     </message>
     <message>
       <source>Update chats duration by using new algorithm</source>
-      <translation>Atualização da duração dos chats usando novo algoritmo</translation>
+      <translation>Atualizar duração dos chats usando novo algoritmo</translation>
     </message>
     <message>
       <source>Closed chats</source>
@@ -3144,7 +3148,7 @@
     </message>
     <message>
       <source>Chats duration was updated</source>
-      <translation>Duração dos chats foram atualizados</translation>
+      <translation>Duração dos chats foi atualizada</translation>
     </message>
   </context>
   <context>
@@ -3294,6 +3298,10 @@
     <message>
       <source>Requires name</source>
       <translation>Nome requerido</translation>
+    </message>
+    <message>
+      <source>Requires phone</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Send the message</source>
@@ -3606,7 +3614,7 @@
     </message>
     <message>
       <source>Proactive chats number vs visitors initiated</source>
-      <translation>Número de chats Pró-ativos X Visitantes iniciaram</translation>
+      <translation>Número de chats pró-ativos X Visitantes iniciaram</translation>
     </message>
     <message>
       <source>Visitors</source>
@@ -3618,19 +3626,19 @@
     </message>
     <message>
       <source>Messages types</source>
-      <translation>Tipo de mensagens</translation>
+      <translation>Tipos de mensagens</translation>
     </message>
     <message>
       <source>Number of chats per hour, average chat duration</source>
-      <translation>Número de chats por hora, a duração média</translation>
+      <translation>Número de chats por hora, duração média do chat</translation>
     </message>
     <message>
       <source>Chats statistic</source>
-      <translation>Estatísticas chat</translation>
+      <translation>Estatísticas do chat</translation>
     </message>
     <message>
       <source>Hourly statistic</source>
-      <translation>Estatísticas de hora em hora</translation>
+      <translation>Estatísticas por hora</translation>
     </message>
     <message>
       <source>Country statistic</source>
@@ -3638,7 +3646,7 @@
     </message>
     <message>
       <source>Users statisic</source>
-      <translation>Estatísticas por usuário</translation>
+      <translation>Estatísticas de usuários</translation>
     </message>
     <message>
       <source>Total statistic</source>
@@ -6235,7 +6243,7 @@
     </message>
     <message>
       <source>Referrer</source>
-      <translation>Referência</translation>
+      <translation>Referenciador</translation>
     </message>
     <message>
       <source>Link</source>

@@ -16,7 +16,9 @@
 <?php endif; ?>
 
 
-<?php if ($visitor->requires_username == 1 || $visitor->requires_email == 1 || $visitor->requires_phone == 1) : ?><div class="row"><?php endif;?>
+<?php 
+$hasExtraField = false;
+if ($visitor->requires_username == 1 || $visitor->requires_email == 1 || $visitor->requires_phone == 1) : $hasExtraField = true;?><div class="row"><?php endif;?>
 
 <?php if ($visitor->requires_username == 1) : ?>
 <div class="columns small-6 end">
@@ -41,16 +43,19 @@
 
 <?php if ($visitor->requires_username == 1 || $visitor->requires_email == 1 || $visitor->requires_phone == 1) : ?></div><?php endif;?>
 
-<textarea placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Type your message here and hit enter to send...');?>" id="id_Question" name="Question"><?php echo htmlspecialchars($input_data->question);?></textarea>
-
-<input type="hidden" value="<?php echo htmlspecialchars($referer);?>" name="URLRefer"/>
-<input type="hidden" value="<?php echo htmlspecialchars($referer_site);?>" name="r"/>
-
 <?php if ($department === false) : ?>
 	<?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/department.tpl.php'));?>
 <?php endif;?>
 
+<textarea <?php if ($hasExtraField !== true) : ?>class="mb0"<?php endif;?> placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Type your message here and hit enter to send...');?>" id="id_Question" name="Question"><?php echo htmlspecialchars($input_data->question);?></textarea>
+
+<input type="hidden" value="<?php echo htmlspecialchars($referer);?>" name="URLRefer"/>
+<input type="hidden" value="<?php echo htmlspecialchars($referer_site);?>" name="r"/>
+
+<?php if ($hasExtraField === true) : ?>
 <input type="submit" name="askQuestionAction" id="idaskQuestionAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Send');?>" class="tiny button radius secondary sendbutton"/>
+<?php endif;?>
+
 <input type="hidden" name="askQuestion" value="1" />
 <input type="hidden" value="<?php echo htmlspecialchars($input_data->operator);?>" name="operator" />
 
@@ -59,8 +64,13 @@
 </form>
 
 <script>
-jQuery('#id_Question').bind('keyup', 'return', function (evt){
-	$( "#idaskQuestionAction" ).click();	
+var formSubmitted = false;
+jQuery('#id_Question').bind('keydown', 'return', function (evt){
+	if (formSubmitted == false) {
+		formSubmitted = true;
+		$( "#ReadOperatorMessage" ).submit();	
+	};
+	return false;
 });
 <?php if ($playsound == true) : ?>
 $(function() {lhinst.playInvitationSound();});

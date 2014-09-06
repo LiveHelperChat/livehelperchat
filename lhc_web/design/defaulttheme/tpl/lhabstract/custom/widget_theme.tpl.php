@@ -26,7 +26,10 @@
 						
 						<label><?php echo $fields['offline_text']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('offline_text', $fields['offline_text'], $object)?>
-						
+												
+						<label><?php echo $fields['intro_operator_text']['trans'];?></label>
+						<?php echo erLhcoreClassAbstract::renderInput('intro_operator_text', $fields['intro_operator_text'], $object)?>
+												
 						<label><?php echo $fields['logo_image']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('logo_image', $fields['logo_image'], $object)?>
 											
@@ -44,6 +47,9 @@
 						
 						<label><?php echo $fields['offline_image']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('offline_image', $fields['offline_image'], $object)?>
+						
+						<label><?php echo $fields['operator_image']['trans'];?></label>
+						<?php echo erLhcoreClassAbstract::renderInput('operator_image', $fields['operator_image'], $object)?>
 												
 						<h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget copyright')?></h3>
 						

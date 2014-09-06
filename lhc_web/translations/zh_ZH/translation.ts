@@ -803,6 +803,10 @@
       <translation>母语的位置 - 它会显示HTML嵌入</translation>
     </message>
     <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
       <translation>最小化操作，仅当状态插件位于页面底部时启用</translation>
     </message>
@@ -1018,16 +1022,16 @@
       <translation>关闭</translation>
     </message>
     <message>
-      <source>Enter your message</source>
-      <translation>输入您的消息</translation>
-    </message>
-    <message>
       <source>Send</source>
       <translation>发送</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation>BB 代码</translation>
+    </message>
+    <message>
+      <source>Enter your message</source>
+      <translation>输入您的消息</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -1830,6 +1834,10 @@
       <translation>你的问题</translation>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>輸入您的留言，並按下回車鍵發送...</translation>
+    </message>
+    <message>
       <source>Start chat</source>
       <translation>开始聊天</translation>
     </message>
@@ -1884,10 +1892,6 @@
     <message>
       <source>characters</source>
       <translation>字符</translation>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>輸入您的留言，並按下回車鍵發送...</translation>
     </message>
     <message>
       <source>Send</source>
@@ -3294,6 +3298,10 @@
     <message>
       <source>Requires name</source>
       <translation>需要名称</translation>
+    </message>
+    <message>
+      <source>Requires phone</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Send the message</source>

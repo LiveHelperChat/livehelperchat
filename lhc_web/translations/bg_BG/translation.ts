@@ -803,6 +803,10 @@
       <translation>Местно позициониране - ще се покаже където html адреса е вграден</translation>
     </message>
     <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
       <translation>Действие при минимизиране, прилага се само ако модула е на дъното на прозореца</translation>
     </message>
@@ -1018,16 +1022,16 @@
       <translation>Затваряне</translation>
     </message>
     <message>
-      <source>Enter your message</source>
-      <translation>Въведете Вашето съобщение</translation>
-    </message>
-    <message>
       <source>Send</source>
       <translation>Изпращане</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation>BB Код</translation>
+    </message>
+    <message>
+      <source>Enter your message</source>
+      <translation>Въведете Вашето съобщение</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -1830,6 +1834,10 @@
       <translation>Вашият въпрос</translation>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Напишете съобщението си тук и натиснете enter, за да го изпратите...</translation>
+    </message>
+    <message>
       <source>Start chat</source>
       <translation>Започване на чат</translation>
     </message>
@@ -1884,10 +1892,6 @@
     <message>
       <source>characters</source>
       <translation>символи</translation>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Напишете съобщението си тук и натиснете enter, за да го изпратите...</translation>
     </message>
     <message>
       <source>Send</source>
@@ -3294,6 +3298,10 @@
     <message>
       <source>Requires name</source>
       <translation>Нужно име</translation>
+    </message>
+    <message>
+      <source>Requires phone</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Send the message</source>

@@ -209,8 +209,13 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
    			exit('Chat not available in your country');
    		}
    		
-   		if ((isset($additionalParams['offline']) && $additionalParams['offline'] == true) || $statusGeoAdjustment['status'] == 'offline') {
+   		if ((isset($additionalParams['offline']) && $additionalParams['offline'] == true) || $statusGeoAdjustment['status'] == 'offline') {   			
    			erLhcoreClassChatMail::sendMailRequest($inputData,$chat,array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false));
+   			
+   			if (isset($chatPrefill) && ($chatPrefill instanceof erLhcoreClassModelChat)) {
+   				erLhcoreClassChatValidator::updateInitialChatAttributes($chatPrefill, $chat);
+   			}
+   			
    			$tpl->set('request_send',true);
    		} else {
 	       $chat->time = time();
