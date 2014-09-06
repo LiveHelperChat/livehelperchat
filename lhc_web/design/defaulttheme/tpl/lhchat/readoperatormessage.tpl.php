@@ -65,11 +65,12 @@ if ($visitor->requires_username == 1 || $visitor->requires_email == 1 || $visito
 
 <script>
 var formSubmitted = false;
-jQuery('#id_Question').bind('keyup', 'return', function (evt){
+jQuery('#id_Question').bind('keydown', 'return', function (evt){
 	if (formSubmitted == false) {
 		formSubmitted = true;
 		$( "#ReadOperatorMessage" ).submit();	
-	}
+	};
+	return false;
 });
 <?php if ($playsound == true) : ?>
 $(function() {lhinst.playInvitationSound();});

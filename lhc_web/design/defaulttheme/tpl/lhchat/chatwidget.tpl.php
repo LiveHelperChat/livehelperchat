@@ -121,11 +121,12 @@ if ($theme !== false && $theme->explain_text != '') : ?>
 <script>
 jQuery('#id_Question').addClass('mb0');
 var formSubmitted = false;
-jQuery('#id_Question').bind('keyup', 'return', function (evt){
+jQuery('#id_Question').bind('keydown', 'return', function (evt){
 	if (formSubmitted == false) {
 		formSubmitted = true;
 		$( "#form-start-chat" ).submit();	
-	}
+	};
+	return false;
 });
 </script>
 <?php endif;?>
