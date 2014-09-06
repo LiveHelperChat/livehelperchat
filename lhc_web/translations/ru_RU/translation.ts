@@ -1022,16 +1022,16 @@
       <translation>Закрыть</translation>
     </message>
     <message>
-      <source>Enter your message</source>
-      <translation>Введите сообщение</translation>
-    </message>
-    <message>
       <source>Send</source>
       <translation>Отправить</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation>BB код</translation>
+    </message>
+    <message>
+      <source>Enter your message</source>
+      <translation>Введите сообщение</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -1835,6 +1835,10 @@
       <translation>Ваш вопрос</translation>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Введите здесь Ваше сообщение и нажмите Enter для отправки...</translation>
+    </message>
+    <message>
       <source>Start chat</source>
       <translation>Hачать чат</translation>
     </message>
@@ -1889,10 +1893,6 @@
     <message>
       <source>characters</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Введите здесь Ваше сообщение и нажмите Enter для отправки...</translation>
     </message>
     <message>
       <source>Send</source>
@@ -3299,6 +3299,10 @@
     <message>
       <source>Requires name</source>
       <translation>Требуется имя (название)</translation>
+    </message>
+    <message>
+      <source>Requires phone</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Send the message</source>

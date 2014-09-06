@@ -1023,16 +1023,16 @@
       <translation>Chiudi | Close</translation>
     </message>
     <message>
-      <source>Enter your message</source>
-      <translation>Inserisci il tuo messaggio</translation>
-    </message>
-    <message>
       <source>Send</source>
       <translation>Invia</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation>Codice BB</translation>
+    </message>
+    <message>
+      <source>Enter your message</source>
+      <translation>Inserisci il tuo messaggio</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -1835,6 +1835,10 @@
       <translation>La tua domanda</translation>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Scrivi qui la tua richiesta e premi il tasto invio...</translation>
+    </message>
+    <message>
       <source>Start chat</source>
       <translation>Avvia Chat</translation>
     </message>
@@ -1889,10 +1893,6 @@
     <message>
       <source>characters</source>
       <translation>caratteri</translation>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Scrivi qui la tua richiesta e premi il tasto invio...</translation>
     </message>
     <message>
       <source>Send</source>
@@ -3299,6 +3299,10 @@
     <message>
       <source>Requires name</source>
       <translation>Richiede nome</translation>
+    </message>
+    <message>
+      <source>Requires phone</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Send the message</source>

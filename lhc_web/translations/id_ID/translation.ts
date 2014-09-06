@@ -1022,16 +1022,16 @@
       <translation>Tutup</translation>
     </message>
     <message>
-      <source>Enter your message</source>
-      <translation>Masukkan pesan anda</translation>
-    </message>
-    <message>
       <source>Send</source>
       <translation>Kirim</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation>Kode BB</translation>
+    </message>
+    <message>
+      <source>Enter your message</source>
+      <translation>Masukkan pesan anda</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -1834,6 +1834,10 @@
       <translation>Pertanyaan anda</translation>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Ketik pesan Anda di sini dan tekan enter untuk mengirim..</translation>
+    </message>
+    <message>
       <source>Start chat</source>
       <translation>Mulai percakapan</translation>
     </message>
@@ -1888,10 +1892,6 @@
     <message>
       <source>characters</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Ketik pesan Anda di sini dan tekan enter untuk mengirim..</translation>
     </message>
     <message>
       <source>Send</source>
@@ -3297,6 +3297,10 @@
     </message>
     <message>
       <source>Requires name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Requires phone</source>
       <translation type="unfinished"/>
     </message>
     <message>

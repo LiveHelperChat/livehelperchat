@@ -814,6 +814,11 @@ border-top-right-radius: 6px;
 
 }
 
+.round-profile{
+	border:1px solid #D3D3D3;
+	border-radius:6px;
+}
+
 .operator-info img{
 	border:1px solid #e7e7e7;
 	border-radius:6px;
@@ -922,14 +927,9 @@ border-top-right-radius: 6px;
 	transition: background-color 1000ms linear;	
 }
 
-
-
-
 .edit-mode-done {
 	background-color:#E0F3FF !important;
 }
-
-
 
 .bb-list a {
 	padding:2px;

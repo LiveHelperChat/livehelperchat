@@ -1022,16 +1022,16 @@
       <translation>Κλείσιμο</translation>
     </message>
     <message>
-      <source>Enter your message</source>
-      <translation>Εισάγετε το μήνυμά σας</translation>
-    </message>
-    <message>
       <source>Send</source>
       <translation>Αποστολή</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation>BB κώδικα</translation>
+    </message>
+    <message>
+      <source>Enter your message</source>
+      <translation>Εισάγετε το μήνυμά σας</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -1834,6 +1834,10 @@
       <translation>Ερώτησή σας</translation>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Πληκτρολογήστε το μήνυμά σας εδώ και πατήστε enter για να στείλετε...</translation>
+    </message>
+    <message>
       <source>Start chat</source>
       <translation>ΖΩΝΤΑΝΗ ΣΥΝΔΕΣΗ</translation>
     </message>
@@ -1888,10 +1892,6 @@
     <message>
       <source>characters</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Πληκτρολογήστε το μήνυμά σας εδώ και πατήστε enter για να στείλετε...</translation>
     </message>
     <message>
       <source>Send</source>
@@ -3298,6 +3298,10 @@
     <message>
       <source>Requires name</source>
       <translation>Απαιτεί όνομα</translation>
+    </message>
+    <message>
+      <source>Requires phone</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Send the message</source>

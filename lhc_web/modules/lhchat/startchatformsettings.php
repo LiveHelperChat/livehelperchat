@@ -113,6 +113,9 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
         'OfflinePhoneRequireOption' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
         ),
+        'UserMessageHeight' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int'
+        ),
     		
     	// Force leave a message    		
     	'ForceLeaveMessage' => new ezcInputFormDefinitionElement(
@@ -130,6 +133,16 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
         'TOSVisibleInPageWidget' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+    		    		
+        'ShowOperatorProfile' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),   		
+        'RemoveOperatorSpace' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),    		
+        'HideMessageLabel' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         )    		
     );
@@ -265,6 +278,12 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
         $data['email_require_option'] = 'required';
     }
 
+    if ( $form->hasValidData( 'UserMessageHeight' ) ) {
+        $data['user_msg_height'] = $form->UserMessageHeight;
+    } else {
+        $data['user_msg_height'] = '';
+    }
+
     if ($data['email_visible_in_popup'] == true && $data['email_require_option'] == 'required') {
         $hasValidPopupData = true;
     }
@@ -375,6 +394,24 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
         $data['offline_message_visible_in_page_widget'] = false;
     }
 
+    if ( $form->hasValidData( 'ShowOperatorProfile' ) && $form->ShowOperatorProfile == true ) {
+        $data['show_operator_profile'] = true;
+    } else {
+        $data['show_operator_profile'] = false;
+    }
+
+    if ( $form->hasValidData( 'RemoveOperatorSpace' ) && $form->RemoveOperatorSpace == true ) {
+        $data['remove_operator_space'] = true;
+    } else {
+        $data['remove_operator_space'] = false;
+    }
+
+    if ( $form->hasValidData( 'HideMessageLabel' ) && $form->HideMessageLabel == true ) {
+        $data['hide_message_label'] = true;
+    } else {
+        $data['hide_message_label'] = false;
+    }
+    
     if ( $form->hasValidData( 'OfflineMessageRequireOption' ) && $form->OfflineMessageRequireOption != '' ) {
         $data['offline_message_require_option'] = $form->OfflineMessageRequireOption;
     } else {

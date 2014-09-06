@@ -14,7 +14,9 @@ unset($exportData['logo_image_path']);
 unset($exportData['need_help_image_path']);
 unset($exportData['need_help_image']);
 unset($exportData['copyright_image_path']);
+unset($exportData['operator_image_path']);
 unset($exportData['copyright_image']);
+unset($exportData['operator_image']);
  
 if ($theme->logo_image_url != ''){
 	$exportData['logo_image_data'] = base64_encode(file_get_contents($theme->logo_image_path.'/'.$theme->logo_image));	
@@ -44,6 +46,12 @@ if ($theme->offline_image_url != ''){
 	$exportData['offline_image_data'] = base64_encode(file_get_contents($theme->offline_image_path.'/'.$theme->offline_image));
 	$parts = explode('.', $theme->offline_image);
 	$exportData['offline_image_data_ext'] = array_pop($parts);
+}
+
+if ($theme->operator_image_url != ''){
+	$exportData['operator_image_data'] = base64_encode(file_get_contents($theme->operator_image_path.'/'.$theme->operator_image));
+	$parts = explode('.', $theme->operator_image);
+	$exportData['operator_image_data_ext'] = array_pop($parts);
 }
 
 header('Content-Disposition: attachment; filename="lhc-theme-'.$theme->id.'.json"');

@@ -1,3 +1,18 @@
+2.12v
+
+1. Now you can have fully functional and working minimalistic chat start form.
+2. In themes there is option to upload operator image and write your own text for operator intro.
+3. Minimalistic interface settings can be configured at "Start chat form settings"
+4. Fixed bug then JS produced error if no live operator status check was enabled.
+5. Send button is hidden if there is only one field
+6. Pressing shift+enter won't submit form.
+7. If user is redirected to contact form, within chat we will save user email if it's required.
+8. Implemented https://github.com/LiveHelperChat/livehelperchat/issues/499
+9. Option to embed code just to track online visitors. Can be used just as JS API embed solution.
+https://github.com/LiveHelperChat/livehelperchat/issues/496
+
+execute doc/update_db/update_91.sql for update
+
 2.11v
 
 1. Fixed bug then department online hours was not taking effect if department ID was not provided.

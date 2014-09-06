@@ -870,6 +870,30 @@
                 "extra": ""
             },
             {
+                "field": "intro_operator_text",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "operator_image",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "operator_image_path",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "explain_text",
                 "type": "text",
                 "null": "NO",

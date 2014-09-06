@@ -1022,16 +1022,16 @@
       <translation>بستن</translation>
     </message>
     <message>
-      <source>Enter your message</source>
-      <translation>پیام خود را وارد کنید</translation>
-    </message>
-    <message>
       <source>Send</source>
       <translation>ارسال</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation>کد BB</translation>
+    </message>
+    <message>
+      <source>Enter your message</source>
+      <translation>پیام خود را وارد کنید</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -1834,6 +1834,10 @@
       <translation>پرسش شما</translation>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>پیام خود را اینجا وارد کنید و برای ارسال دکمه اینتر را بزنید ...</translation>
+    </message>
+    <message>
       <source>Start chat</source>
       <translation>شروع چت</translation>
     </message>
@@ -1888,10 +1892,6 @@
     <message>
       <source>characters</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>پیام خود را اینجا وارد کنید و برای ارسال دکمه اینتر را بزنید ...</translation>
     </message>
     <message>
       <source>Send</source>
@@ -3298,6 +3298,10 @@
     <message>
       <source>Requires name</source>
       <translation>نام درخواستی</translation>
+    </message>
+    <message>
+      <source>Requires phone</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Send the message</source>

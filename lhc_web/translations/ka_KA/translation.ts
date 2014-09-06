@@ -1022,16 +1022,16 @@
       <translation>დახურვა</translation>
     </message>
     <message>
-      <source>Enter your message</source>
-      <translation>შეიყვანეთ თქვენი შეტყობინება</translation>
-    </message>
-    <message>
       <source>Send</source>
       <translation>გაგზავნა</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation>BB კოდი</translation>
+    </message>
+    <message>
+      <source>Enter your message</source>
+      <translation>შეიყვანეთ თქვენი შეტყობინება</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -1834,6 +1834,10 @@
       <translation>თქვენი შეკითხვა</translation>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>დაბეჭდეთ თქვენი შეტყობინება აქ და დააჭირეთ შეტანის კლავიშს, რომ გააგზავნოთ</translation>
+    </message>
+    <message>
       <source>Start chat</source>
       <translation>ჩეთის დაწყება</translation>
     </message>
@@ -1888,10 +1892,6 @@
     <message>
       <source>characters</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>დაბეჭდეთ თქვენი შეტყობინება აქ და დააჭირეთ შეტანის კლავიშს, რომ გააგზავნოთ</translation>
     </message>
     <message>
       <source>Send</source>
@@ -3298,6 +3298,10 @@
     <message>
       <source>Requires name</source>
       <translation>სავალდებულოა სახელი</translation>
+    </message>
+    <message>
+      <source>Requires phone</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Send the message</source>

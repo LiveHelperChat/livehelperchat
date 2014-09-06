@@ -1022,16 +1022,16 @@
       <translation>Stäng</translation>
     </message>
     <message>
-      <source>Enter your message</source>
-      <translation>Skriv in ditt meddelande</translation>
-    </message>
-    <message>
       <source>Send</source>
       <translation>Skicka</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation>BB kod</translation>
+    </message>
+    <message>
+      <source>Enter your message</source>
+      <translation>Skriv in ditt meddelande</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -1834,6 +1834,10 @@
       <translation>Din fråga</translation>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Skriv in ditt meddelande och tryck enter för att skicka...</translation>
+    </message>
+    <message>
       <source>Start chat</source>
       <translation>Starta chatt</translation>
     </message>
@@ -1888,10 +1892,6 @@
     <message>
       <source>characters</source>
       <translation>tecken</translation>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Skriv in ditt meddelande och tryck enter för att skicka...</translation>
     </message>
     <message>
       <source>Send</source>
@@ -2836,7 +2836,7 @@
     </message>
     <message>
       <source>Update information</source>
-      <translation>Uppdateringsinformation om Live Helper Chat</translation>
+      <translation>Uppdateringsinformation för Live Helper Chat</translation>
     </message>
     <message>
       <source>SMTP settings</source>
@@ -3298,6 +3298,10 @@
     <message>
       <source>Requires name</source>
       <translation>Namn är obligatoriskt</translation>
+    </message>
+    <message>
+      <source>Requires phone</source>
+      <translation>Kräver telefon</translation>
     </message>
     <message>
       <source>Send the message</source>

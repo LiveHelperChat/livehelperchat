@@ -1022,16 +1022,16 @@
       <translation>Kapat</translation>
     </message>
     <message>
-      <source>Enter your message</source>
-      <translation>Mesajınızı girin</translation>
-    </message>
-    <message>
       <source>Send</source>
       <translation>Gönder</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter your message</source>
+      <translation>Mesajınızı girin</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -1834,6 +1834,10 @@
       <translation>Sorunuz</translation>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Mesajınızı buraya girin ve göndermek için enter&apos;a basın...</translation>
+    </message>
+    <message>
       <source>Start chat</source>
       <translation>Konuşma başlat</translation>
     </message>
@@ -1888,10 +1892,6 @@
     <message>
       <source>characters</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Mesajınızı buraya girin ve göndermek için enter&apos;a basın...</translation>
     </message>
     <message>
       <source>Send</source>
@@ -3300,6 +3300,10 @@
     <message>
       <source>Requires name</source>
       <translation>İsim girilmeli</translation>
+    </message>
+    <message>
+      <source>Requires phone</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Send the message</source>

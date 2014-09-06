@@ -1022,16 +1022,16 @@
       <translation>Uždaryti</translation>
     </message>
     <message>
-      <source>Enter your message</source>
-      <translation>Įveskite savo žinutę</translation>
-    </message>
-    <message>
       <source>Send</source>
       <translation>Siųsti</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation>BB Kodas</translation>
+    </message>
+    <message>
+      <source>Enter your message</source>
+      <translation>Įveskite savo žinutę</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -1834,6 +1834,10 @@
       <translation>Jūsų klausimas</translation>
     </message>
     <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Įveskite savo žinutę ir paspauskite enter</translation>
+    </message>
+    <message>
       <source>Start chat</source>
       <translation>Pradėti pokalbį</translation>
     </message>
@@ -1888,10 +1892,6 @@
     <message>
       <source>characters</source>
       <translation>ženklai</translation>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Įveskite savo žinutę ir paspauskite enter</translation>
     </message>
     <message>
       <source>Send</source>
@@ -3298,6 +3298,10 @@
     <message>
       <source>Requires name</source>
       <translation>Reikalaujama vardo</translation>
+    </message>
+    <message>
+      <source>Requires phone</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Send the message</source>

@@ -44,6 +44,11 @@ $def->properties['online_image']->columnName   = 'online_image';
 $def->properties['online_image']->propertyName = 'online_image';
 $def->properties['online_image']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['operator_image'] = new ezcPersistentObjectProperty();
+$def->properties['operator_image']->columnName   = 'operator_image';
+$def->properties['operator_image']->propertyName = 'operator_image';
+$def->properties['operator_image']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $def->properties['offline_image'] = new ezcPersistentObjectProperty();
 $def->properties['offline_image']->columnName   = 'offline_image';
 $def->properties['offline_image']->propertyName = 'offline_image';
@@ -53,6 +58,11 @@ $def->properties['online_image_path'] = new ezcPersistentObjectProperty();
 $def->properties['online_image_path']->columnName   = 'online_image_path';
 $def->properties['online_image_path']->propertyName = 'online_image_path';
 $def->properties['online_image_path']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['operator_image_path'] = new ezcPersistentObjectProperty();
+$def->properties['operator_image_path']->columnName   = 'operator_image_path';
+$def->properties['operator_image_path']->propertyName = 'operator_image_path';
+$def->properties['operator_image_path']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 $def->properties['need_help_close_hover_bg'] = new ezcPersistentObjectProperty();
 $def->properties['need_help_close_hover_bg']->columnName   = 'need_help_close_hover_bg';
@@ -168,6 +178,11 @@ $def->properties['explain_text'] = new ezcPersistentObjectProperty();
 $def->properties['explain_text']->columnName   = 'explain_text';
 $def->properties['explain_text']->propertyName = 'explain_text';
 $def->properties['explain_text']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+ 
+$def->properties['intro_operator_text'] = new ezcPersistentObjectProperty();
+$def->properties['intro_operator_text']->columnName   = 'intro_operator_text';
+$def->properties['intro_operator_text']->propertyName = 'intro_operator_text';
+$def->properties['intro_operator_text']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 return $def;
 
