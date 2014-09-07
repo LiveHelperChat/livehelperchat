@@ -805,7 +805,7 @@
     </message>
     <message>
       <source>Invisible, only JS API will be included</source>
-      <translation type="unfinished"/>
+      <translation>Invisibile, solo gli API JS verranno inclusi</translation>
     </message>
     <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
@@ -1828,7 +1828,7 @@
     </message>
     <message>
       <source>Enter your message</source>
-      <translation>Inserisci la tua richiesta</translation>
+      <translation>Inserisci il tuo messaggio</translation>
     </message>
     <message>
       <source>Your question</source>
@@ -1836,7 +1836,7 @@
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
-      <translation>Scrivi qui la tua richiesta e premi il tasto invio...</translation>
+      <translation>Digita qui il tuo messaggio e premi INVIO per inviare...</translation>
     </message>
     <message>
       <source>Start chat</source>
@@ -3302,7 +3302,7 @@
     </message>
     <message>
       <source>Requires phone</source>
-      <translation type="unfinished"/>
+      <translation>Richiede il telefono</translation>
     </message>
     <message>
       <source>Send the message</source>
