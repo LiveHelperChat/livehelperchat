@@ -1848,7 +1848,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Type your message here and hit enter to send...</source>
+      <source>Please enter a message...</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1909,6 +1909,10 @@
     </message>
     <message>
       <source>characters</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Type your message here and hit enter to send...</source>
       <translation type="unfinished"/>
     </message>
     <message>
