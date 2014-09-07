@@ -22,6 +22,19 @@ class erLhcoreClassBBCode
     	return $matches[1] . "<a href=\"$url\" class=\"link\" target=\"_blank\">$url</a>" . $suffix;
    }
 
+   private static $outArray = null;
+   
+   public static function getOutArray() {
+   	
+   		if (self::$outArray == null) {   			
+   			$tpl = new erLhcoreClassTemplate();
+   			$smileys = explode('||', $tpl->fetch('lhbbcode/smiley.tpl.php'));   			
+   			self::$outArray = $smileys;
+   		}
+   	
+	   	return self::$outArray;
+   }
+   
    public static function BBCode2Html($text) {
     	$text = trim($text);
 
@@ -35,13 +48,8 @@ class erLhcoreClassBBCode
     	);
 
     	// And replace them by...
-    	$out = array(	 '<img alt=":)" src="'.erLhcoreClassDesign::design('images/smileys/emoticon_smile.png').'" />',
-    	                 '<img alt=":D:" src="'.erLhcoreClassDesign::design('images/smileys/emoticon_happy.png').'" />',
-    					 '<img alt=":(" src="'.erLhcoreClassDesign::design('images/smileys/emoticon_unhappy.png').'" />',
-    					 '<img alt=":o:" src="'.erLhcoreClassDesign::design('images/smileys/emoticon_surprised.png').'" />',
-    					 '<img alt=":p:" src="'.erLhcoreClassDesign::design('images/smileys/emoticon_tongue.png').'" />',
-    					 '<img alt=";)" src="'.erLhcoreClassDesign::design('images/smileys/emoticon_wink.png').'" />'
-    	);
+    	$out = self::getOutArray();
+    	
     	$text = str_replace($in, $out, $text);
 
     	// BBCode to find...
