@@ -70,6 +70,11 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	                    	lhinst.trackLastIDS[item.last_id_identifier] = parseInt(item.last_id);
 	                    	lhinst.playSoundNewAction(item.last_id_identifier,parseInt(item.last_id),(item.nick ? item.nick : 'Live Help'),(item.msg ? item.msg : confLH.transLation.new_chat));
 	                    };
+	                    
+	                    if (item.last_id == 0) {
+	                    	lhinst.trackLastIDS[item.last_id_identifier] = 0;
+	                    };
+	                    
 	                    if (parseInt(item.last_id) > 0) {
 	                    	hasPendingItems = true;                        	
 	                    };	                   
