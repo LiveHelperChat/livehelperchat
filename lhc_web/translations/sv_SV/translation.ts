@@ -319,6 +319,14 @@
       <translation>Offlinestatus text</translation>
     </message>
     <message>
+      <source>Operator intro text</source>
+      <translation>Operatör introduktionstext</translation>
+    </message>
+    <message>
+      <source>Have a question? Ask us!</source>
+      <translation>Har du en fråga? Kontakta oss!</translation>
+    </message>
+    <message>
       <source>Background color</source>
       <translation>Bakgrundsfärg</translation>
     </message>
@@ -329,6 +337,10 @@
     <message>
       <source>Text color</source>
       <translation>Textfärg</translation>
+    </message>
+    <message>
+      <source>Operator image in chat widget</source>
+      <translation>Operatörsbild i chattwidget</translation>
     </message>
     <message>
       <source>Logo image, visible in popup</source>
@@ -1834,8 +1846,8 @@
       <translation>Din fråga</translation>
     </message>
     <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Skriv in ditt meddelande och tryck enter för att skicka...</translation>
+      <source>Please enter a message...</source>
+      <translation>Var vänlig skriv ett meddelande...</translation>
     </message>
     <message>
       <source>Start chat</source>
@@ -1878,6 +1890,10 @@
       <translation>Otillgänglig</translation>
     </message>
     <message>
+      <source>Have a question? Ask us!</source>
+      <translation>Har du en fråga? Kontakta oss!</translation>
+    </message>
+    <message>
       <source>Department is offline</source>
       <translation>Avdelningen är offline</translation>
     </message>
@@ -1892,6 +1908,10 @@
     <message>
       <source>characters</source>
       <translation>tecken</translation>
+    </message>
+    <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Skriv in ditt meddelande och tryck enter för att skicka...</translation>
     </message>
     <message>
       <source>Send</source>
@@ -3389,6 +3409,26 @@
     <message>
       <source>E-mail is always required</source>
       <translation>E-post är alltid obligatorisk</translation>
+    </message>
+    <message>
+      <source>Additional form settings</source>
+      <translation>Ytterligare formulärinställningar</translation>
+    </message>
+    <message>
+      <source>Show operator profile above input fields</source>
+      <translation>Visa operatörsprofil ovanför skrivfälten</translation>
+    </message>
+    <message>
+      <source>Remove space after operator profile</source>
+      <translation>Ta bort utrymme efter operatörsprofil</translation>
+    </message>
+    <message>
+      <source>Hide message label</source>
+      <translation>Göm meddelandetext</translation>
+    </message>
+    <message>
+      <source>Initial user message height in pixels</source>
+      <translation>Första användarmeddelande, höjd i pixlar</translation>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>

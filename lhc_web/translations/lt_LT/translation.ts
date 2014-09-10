@@ -319,6 +319,14 @@
       <translation>Atsijungusios būsenos tekstas</translation>
     </message>
     <message>
+      <source>Operator intro text</source>
+      <translation>Operatoriaus prisistatymo tekstas</translation>
+    </message>
+    <message>
+      <source>Have a question? Ask us!</source>
+      <translation>Turime klausimų? Klauskite!</translation>
+    </message>
+    <message>
       <source>Background color</source>
       <translation>Fono spalva</translation>
     </message>
@@ -329,6 +337,10 @@
     <message>
       <source>Text color</source>
       <translation>Teksto spalva</translation>
+    </message>
+    <message>
+      <source>Operator image in chat widget</source>
+      <translation>Operatoriaus nuotrauka widgete</translation>
     </message>
     <message>
       <source>Logo image, visible in popup</source>
@@ -1834,8 +1846,8 @@
       <translation>Jūsų klausimas</translation>
     </message>
     <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Įveskite savo žinutę ir paspauskite enter</translation>
+      <source>Please enter a message...</source>
+      <translation>Prašome įvesti žinutę...</translation>
     </message>
     <message>
       <source>Start chat</source>
@@ -1878,6 +1890,10 @@
       <translation>Neprisijunges</translation>
     </message>
     <message>
+      <source>Have a question? Ask us!</source>
+      <translation>Turime klausimų? Klauskite!</translation>
+    </message>
+    <message>
       <source>Department is offline</source>
       <translation>Departamentas neprisijungęs</translation>
     </message>
@@ -1892,6 +1908,10 @@
     <message>
       <source>characters</source>
       <translation>ženklai</translation>
+    </message>
+    <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Įveskite savo žinutę ir paspauskite enter</translation>
     </message>
     <message>
       <source>Send</source>
@@ -3389,6 +3409,26 @@
     <message>
       <source>E-mail is always required</source>
       <translation>El. paštas yra visada privalomas</translation>
+    </message>
+    <message>
+      <source>Additional form settings</source>
+      <translation>Papildomi formos nustatymai</translation>
+    </message>
+    <message>
+      <source>Show operator profile above input fields</source>
+      <translation>Rodyti operatoriaus profilį virš įvedimo laukų</translation>
+    </message>
+    <message>
+      <source>Remove space after operator profile</source>
+      <translation>Pašalinti tarpą po operatoriaus profiliu</translation>
+    </message>
+    <message>
+      <source>Hide message label</source>
+      <translation>Slėpti žinutės lauko pavadinimą</translation>
+    </message>
+    <message>
+      <source>Initial user message height in pixels</source>
+      <translation>Žinutės įvėdimo aukštis pokalbio pradžios formoje</translation>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>

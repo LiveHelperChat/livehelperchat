@@ -319,6 +319,14 @@
       <translation>Text off-line stavu</translation>
     </message>
     <message>
+      <source>Operator intro text</source>
+      <translation>Úvodní text operátora</translation>
+    </message>
+    <message>
+      <source>Have a question? Ask us!</source>
+      <translation>Máte dotaz? Zeptejte se nás!</translation>
+    </message>
+    <message>
       <source>Background color</source>
       <translation>Barva pozadí</translation>
     </message>
@@ -329,6 +337,10 @@
     <message>
       <source>Text color</source>
       <translation>Barva textu</translation>
+    </message>
+    <message>
+      <source>Operator image in chat widget</source>
+      <translation>Operátorova fotografie ve widgetu rozhovoru</translation>
     </message>
     <message>
       <source>Logo image, visible in popup</source>
@@ -592,7 +604,7 @@
     </message>
     <message>
       <source>example.com</source>
-      <translation>priklad.cz</translation>
+      <translation>example.cz</translation>
     </message>
     <message>
       <source>Choose prefered http mode</source>
@@ -1834,8 +1846,8 @@
       <translation>Vaše otázka</translation>
     </message>
     <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Zadejte text své zprávy a odešlete ji stisknutím enter...</translation>
+      <source>Please enter a message...</source>
+      <translation>Prosím, napište zprávu...</translation>
     </message>
     <message>
       <source>Start chat</source>
@@ -1843,7 +1855,7 @@
     </message>
     <message>
       <source>Live support is not available in your country</source>
-      <translation>On-line podpora není ve vaší zemi dostupná</translation>
+      <translation>On-line podpora není ve Vaší zemi dostupná</translation>
     </message>
     <message>
       <source>Live Support</source>
@@ -1878,6 +1890,10 @@
       <translation>Offline</translation>
     </message>
     <message>
+      <source>Have a question? Ask us!</source>
+      <translation>Máte dotaz? Zeptejte se nás!</translation>
+    </message>
+    <message>
       <source>Department is offline</source>
       <translation>Oddělení je offline</translation>
     </message>
@@ -1892,6 +1908,10 @@
     <message>
       <source>characters</source>
       <translation>znaků</translation>
+    </message>
+    <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Zadejte text své zprávy a odešlete ji stisknutím enter...</translation>
     </message>
     <message>
       <source>Send</source>
@@ -1911,7 +1931,7 @@
     </message>
     <message>
       <source>Choose your language</source>
-      <translation>Zvolte váš jazyk</translation>
+      <translation>Zvolte svůj jazyk</translation>
     </message>
     <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
@@ -2622,7 +2642,7 @@
     </message>
     <message>
       <source>Max records to return</source>
-      <translation>Maximální počet vracených záznamů</translation>
+      <translation>Max záznamů výsledku</translation>
     </message>
     <message>
       <source>Visitor local time</source>
@@ -3389,6 +3409,26 @@
     <message>
       <source>E-mail is always required</source>
       <translation>E-mail je vždy vyžadován</translation>
+    </message>
+    <message>
+      <source>Additional form settings</source>
+      <translation>Dodatečné nastavení formuláře</translation>
+    </message>
+    <message>
+      <source>Show operator profile above input fields</source>
+      <translation>Zobrazit profil operátora nad vstupními poli</translation>
+    </message>
+    <message>
+      <source>Remove space after operator profile</source>
+      <translation>Odstranit mezeru za profilem operátora</translation>
+    </message>
+    <message>
+      <source>Hide message label</source>
+      <translation>Skrýt popisek zprávy</translation>
+    </message>
+    <message>
+      <source>Initial user message height in pixels</source>
+      <translation>Uvodní výška zprávy uživatele v pixelech</translation>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>

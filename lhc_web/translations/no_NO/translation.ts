@@ -319,6 +319,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Operator intro text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Have a question? Ask us!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Background color</source>
       <translation type="unfinished"/>
     </message>
@@ -328,6 +336,10 @@
     </message>
     <message>
       <source>Text color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator image in chat widget</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1834,8 +1846,8 @@
       <translation>Ditt spørsmål</translation>
     </message>
     <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Skriv din melding her og trykk send...</translation>
+      <source>Please enter a message...</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Start chat</source>
@@ -1878,6 +1890,10 @@
       <translation>Avkoblet</translation>
     </message>
     <message>
+      <source>Have a question? Ask us!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department is offline</source>
       <translation type="unfinished"/>
     </message>
@@ -1892,6 +1908,10 @@
     <message>
       <source>characters</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Skriv din melding her og trykk send...</translation>
     </message>
     <message>
       <source>Send</source>
@@ -3388,6 +3408,26 @@
     </message>
     <message>
       <source>E-mail is always required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Additional form settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show operator profile above input fields</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Remove space after operator profile</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide message label</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Initial user message height in pixels</source>
       <translation type="unfinished"/>
     </message>
     <message>

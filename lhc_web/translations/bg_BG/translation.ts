@@ -319,6 +319,14 @@
       <translation>Текст при статус извън линия</translation>
     </message>
     <message>
+      <source>Operator intro text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Have a question? Ask us!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Background color</source>
       <translation>Цвят на фона</translation>
     </message>
@@ -329,6 +337,10 @@
     <message>
       <source>Text color</source>
       <translation>Цвят на текста</translation>
+    </message>
+    <message>
+      <source>Operator image in chat widget</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Logo image, visible in popup</source>
@@ -1834,8 +1846,8 @@
       <translation>Вашият въпрос</translation>
     </message>
     <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Напишете съобщението си тук и натиснете enter, за да го изпратите...</translation>
+      <source>Please enter a message...</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Start chat</source>
@@ -1878,6 +1890,10 @@
       <translation>Извън линия</translation>
     </message>
     <message>
+      <source>Have a question? Ask us!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department is offline</source>
       <translation>Отделът не е на линия</translation>
     </message>
@@ -1892,6 +1908,10 @@
     <message>
       <source>characters</source>
       <translation>символи</translation>
+    </message>
+    <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Напишете съобщението си тук и натиснете enter, за да го изпратите...</translation>
     </message>
     <message>
       <source>Send</source>
@@ -3389,6 +3409,26 @@
     <message>
       <source>E-mail is always required</source>
       <translation>Електронната поща винаги е задължителна</translation>
+    </message>
+    <message>
+      <source>Additional form settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show operator profile above input fields</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Remove space after operator profile</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide message label</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Initial user message height in pixels</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>
