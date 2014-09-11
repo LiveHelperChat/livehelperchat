@@ -1999,6 +1999,10 @@
       <source>Fill in the form to start a chat</source>
       <translation>Llene el formulario para iniciar un chat</translation>
     </message>
+    <message>
+      <source>Unread message</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/checkchatstatus</name>
@@ -3135,6 +3139,10 @@
     <message>
       <source>Logout</source>
       <translation>Cerrar Sesión</translation>
+    </message>
+    <message>
+      <source>New unread message</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

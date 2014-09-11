@@ -1998,6 +1998,10 @@ pokazywany</translation>
       <source>Fill in the form to start a chat</source>
       <translation>Wypełnij formularz, aby rozpocząć rozmowę</translation>
     </message>
+    <message>
+      <source>Unread message</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/checkchatstatus</name>
@@ -3132,6 +3136,10 @@ pokazywany</translation>
     <message>
       <source>Logout</source>
       <translation>Wyloguj</translation>
+    </message>
+    <message>
+      <source>New unread message</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

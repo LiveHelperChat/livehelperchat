@@ -1847,7 +1847,7 @@
     </message>
     <message>
       <source>Please enter a message...</source>
-      <translation type="unfinished"/>
+      <translation>Bitte Nachricht eingeben...</translation>
     </message>
     <message>
       <source>Start chat</source>
@@ -1891,7 +1891,7 @@
     </message>
     <message>
       <source>Have a question? Ask us!</source>
-      <translation type="unfinished"/>
+      <translation>Sie haben eine Frage? Fragen Sie uns!</translation>
     </message>
     <message>
       <source>Department is offline</source>
@@ -1996,6 +1996,10 @@
     <message>
       <source>Fill in the form to start a chat</source>
       <translation>Zum Starten eines Chats das Formular ausfüllen</translation>
+    </message>
+    <message>
+      <source>Unread message</source>
+      <translation>Ungelesene Nachricht</translation>
     </message>
   </context>
   <context>
@@ -3132,6 +3136,10 @@
       <source>Logout</source>
       <translation>Abmelden</translation>
     </message>
+    <message>
+      <source>New unread message</source>
+      <translation>Neue ungelesene Nachricht</translation>
+    </message>
   </context>
   <context>
     <name>chat/syncadmin</name>
@@ -3321,7 +3329,7 @@
     </message>
     <message>
       <source>Requires phone</source>
-      <translation type="unfinished"/>
+      <translation>Telefonnummer benötigt</translation>
     </message>
     <message>
       <source>Send the message</source>
@@ -6243,7 +6251,7 @@
     <name>chat/chatexport</name>
     <message>
       <source>Visitor Name</source>
-      <translation type="unfinished"/>
+      <translation>Name des Besuchers</translation>
     </message>
     <message>
       <source>E-mail</source>

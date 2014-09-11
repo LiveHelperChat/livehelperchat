@@ -1997,6 +1997,10 @@
       <source>Fill in the form to start a chat</source>
       <translation>Điền vào mẫu để bắt đầu một cuộc trò chuyện</translation>
     </message>
+    <message>
+      <source>Unread message</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/checkchatstatus</name>
@@ -3131,6 +3135,10 @@
     <message>
       <source>Logout</source>
       <translation>Thoát</translation>
+    </message>
+    <message>
+      <source>New unread message</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

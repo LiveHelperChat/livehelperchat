@@ -1997,6 +1997,10 @@
       <source>Fill in the form to start a chat</source>
       <translation>Completeaza formularul pentru a porni discutia</translation>
     </message>
+    <message>
+      <source>Unread message</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/checkchatstatus</name>
@@ -3131,6 +3135,10 @@
     <message>
       <source>Logout</source>
       <translation>Iesire</translation>
+    </message>
+    <message>
+      <source>New unread message</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
