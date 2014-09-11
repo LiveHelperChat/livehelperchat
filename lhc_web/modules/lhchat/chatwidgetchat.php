@@ -48,7 +48,7 @@ try {
         	$db->beginTransaction();
 	        	
 	        	$chat->support_informed = 1;
-	        	$chat->user_typing = time()-5;// Show for shorter period these status messages
+	        	$chat->user_typing = time();// Show for shorter period these status messages
 	        	$chat->is_user_typing = 1;
 	        	if (isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] != ''){
 	        		$chat->user_typing_txt = $_SERVER['HTTP_REFERER'];
