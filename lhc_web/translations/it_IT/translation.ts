@@ -320,11 +320,11 @@
     </message>
     <message>
       <source>Operator intro text</source>
-      <translation type="unfinished"/>
+      <translation>Testo intro operatore</translation>
     </message>
     <message>
       <source>Have a question? Ask us!</source>
-      <translation type="unfinished"/>
+      <translation>Hai una domanda? Chiedi a noi!</translation>
     </message>
     <message>
       <source>Background color</source>
@@ -340,7 +340,7 @@
     </message>
     <message>
       <source>Operator image in chat widget</source>
-      <translation type="unfinished"/>
+      <translation>Immagine di operatore nel widget chat</translation>
     </message>
     <message>
       <source>Logo image, visible in popup</source>
@@ -1848,7 +1848,7 @@
     </message>
     <message>
       <source>Please enter a message...</source>
-      <translation type="unfinished"/>
+      <translation>Scrivi un messaggio e premi invio | Enter a message and hit enter</translation>
     </message>
     <message>
       <source>Start chat</source>
@@ -1892,7 +1892,7 @@
     </message>
     <message>
       <source>Have a question? Ask us!</source>
-      <translation type="unfinished"/>
+      <translation>Hai una domanda? Chiedi a noi!</translation>
     </message>
     <message>
       <source>Department is offline</source>
@@ -2000,7 +2000,7 @@
     </message>
     <message>
       <source>Unread message</source>
-      <translation type="unfinished"/>
+      <translation>Messaggio non letto</translation>
     </message>
   </context>
   <context>
@@ -3139,7 +3139,7 @@
     </message>
     <message>
       <source>New unread message</source>
-      <translation type="unfinished"/>
+      <translation>Nuovo messaggio non letto</translation>
     </message>
   </context>
   <context>
@@ -3421,23 +3421,23 @@
     </message>
     <message>
       <source>Additional form settings</source>
-      <translation type="unfinished"/>
+      <translation>Impostazioni moduli aggiuntivi</translation>
     </message>
     <message>
       <source>Show operator profile above input fields</source>
-      <translation type="unfinished"/>
+      <translation>Visualizza il profilo di operatore sopra i campi di input</translation>
     </message>
     <message>
       <source>Remove space after operator profile</source>
-      <translation type="unfinished"/>
+      <translation>Rimuovere lo spazio dopo il profilo operatore</translation>
     </message>
     <message>
       <source>Hide message label</source>
-      <translation type="unfinished"/>
+      <translation>Nascondere l&apos;etichetta del messaggio</translation>
     </message>
     <message>
       <source>Initial user message height in pixels</source>
-      <translation type="unfinished"/>
+      <translation>Altezza del messaggio utente iniziale in pixel</translation>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>

@@ -1999,7 +1999,7 @@
     </message>
     <message>
       <source>Unread message</source>
-      <translation type="unfinished"/>
+      <translation>Oläst meddelande</translation>
     </message>
   </context>
   <context>
@@ -3138,7 +3138,7 @@
     </message>
     <message>
       <source>New unread message</source>
-      <translation type="unfinished"/>
+      <translation>Nytt oläst meddelande</translation>
     </message>
   </context>
   <context>

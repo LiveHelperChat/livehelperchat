@@ -320,11 +320,11 @@
     </message>
     <message>
       <source>Operator intro text</source>
-      <translation type="unfinished"/>
+      <translation>Operador digitando</translation>
     </message>
     <message>
       <source>Have a question? Ask us!</source>
-      <translation type="unfinished"/>
+      <translation>Você tem uma pergunta? Pergunte-nos!</translation>
     </message>
     <message>
       <source>Background color</source>
@@ -340,7 +340,7 @@
     </message>
     <message>
       <source>Operator image in chat widget</source>
-      <translation type="unfinished"/>
+      <translation>Imagem do operador no chat</translation>
     </message>
     <message>
       <source>Logo image, visible in popup</source>
@@ -1847,7 +1847,7 @@
     </message>
     <message>
       <source>Please enter a message...</source>
-      <translation type="unfinished"/>
+      <translation>Por favor insira uma mensagem...</translation>
     </message>
     <message>
       <source>Start chat</source>
@@ -1891,7 +1891,7 @@
     </message>
     <message>
       <source>Have a question? Ask us!</source>
-      <translation type="unfinished"/>
+      <translation>Você tem uma pergunta? Pergunte-nos!</translation>
     </message>
     <message>
       <source>Department is offline</source>
@@ -1999,7 +1999,7 @@
     </message>
     <message>
       <source>Unread message</source>
-      <translation type="unfinished"/>
+      <translation>Mensagens não lidas</translation>
     </message>
   </context>
   <context>
@@ -3138,7 +3138,7 @@
     </message>
     <message>
       <source>New unread message</source>
-      <translation type="unfinished"/>
+      <translation>Nova mensagem</translation>
     </message>
   </context>
   <context>
@@ -3329,7 +3329,7 @@
     </message>
     <message>
       <source>Requires phone</source>
-      <translation type="unfinished"/>
+      <translation>Requer Telefone</translation>
     </message>
     <message>
       <source>Send the message</source>
@@ -3420,23 +3420,23 @@
     </message>
     <message>
       <source>Additional form settings</source>
-      <translation type="unfinished"/>
+      <translation>Configurações adicionais de formulário</translation>
     </message>
     <message>
       <source>Show operator profile above input fields</source>
-      <translation type="unfinished"/>
+      <translation>Mostrar perfil do operador acima dos campos</translation>
     </message>
     <message>
       <source>Remove space after operator profile</source>
-      <translation type="unfinished"/>
+      <translation>Remover espaço depois do perfil do operador</translation>
     </message>
     <message>
       <source>Hide message label</source>
-      <translation type="unfinished"/>
+      <translation>Esconder mensagem de etiqueta</translation>
     </message>
     <message>
       <source>Initial user message height in pixels</source>
-      <translation type="unfinished"/>
+      <translation>Usar inicialmente altura da mensagem em pixels</translation>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>

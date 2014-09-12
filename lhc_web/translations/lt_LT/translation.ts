@@ -1999,7 +1999,7 @@
     </message>
     <message>
       <source>Unread message</source>
-      <translation type="unfinished"/>
+      <translation>Neperskaityta žinutė</translation>
     </message>
   </context>
   <context>
@@ -3138,7 +3138,7 @@
     </message>
     <message>
       <source>New unread message</source>
-      <translation type="unfinished"/>
+      <translation>Nauja neperskaityta žinutė</translation>
     </message>
   </context>
   <context>
