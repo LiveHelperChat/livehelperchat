@@ -1847,7 +1847,7 @@
     </message>
     <message>
       <source>Please enter a message...</source>
-      <translation type="unfinished"/>
+      <translation>Ole hyvä ja kirjoita viestisi tähän</translation>
     </message>
     <message>
       <source>Start chat</source>
@@ -2726,11 +2726,11 @@
     </message>
     <message>
       <source>Please enter latitude variable!</source>
-      <translation>Anna latitude!</translation>
+      <translation>Anna sijaintisi leveyspiiri!</translation>
     </message>
     <message>
       <source>Please enter longitude variable!</source>
-      <translation>Anna longitude!</translation>
+      <translation>Anna sijaintisi pituuspiiri!</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages!</source>
