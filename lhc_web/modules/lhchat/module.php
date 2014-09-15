@@ -355,7 +355,7 @@ $ViewList['bbcodeinsert'] = array(
 
 $ViewList['chatwidgetchat'] = array(
     'params' => array('chat_id','hash'),
-	'uparams' => array('sound','mode','theme')
+	'uparams' => array('sound','mode','theme','cstarted')
 );
 
 $ViewList['userclosechat'] = array(

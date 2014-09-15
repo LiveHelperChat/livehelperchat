@@ -120,8 +120,14 @@ var lh_inst_page  = {
         this.removeCookieAttr('hash');
         this.showStartWindow();
     },
-
-    handleMessage : function(e) {
+    
+	genericCallback : function(name){
+    	if (typeof LHCChatOptionsPage != 'undefined' && typeof LHCChatOptionsPage.callback != 'undefined' && typeof LHCChatOptionsPage.callback[name] != 'undefined') {
+    		LHCChatOptionsPage.callback[name](this);    	
+    	}
+    },
+    
+    handleMessage : function(e) {   	
     	var action = e.data.split(':')[0];
     	if (action == 'lhc_sizing_chat_page') {
     		var height = e.data.split(':')[1];
@@ -133,6 +139,9 @@ var lh_inst_page  = {
     		if (parts[1] != '' && parts[2] != '') {
     			lh_inst_page.addCookieAttribute(parts[1],parts[2]);
     		};
+    	} else if (action == 'lh_callback') {
+    		var functionName = e.data.split(':')[1];
+    		lh_inst_page.genericCallback(functionName);    	
     	} else if (action == 'lhc_close') {
     		lh_inst_page.hide();
     	}
