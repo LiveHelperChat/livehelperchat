@@ -9,7 +9,8 @@
 </div>
 <script>
 function closeRevealForm() {
-	$('#id_DepartamentID').find("[data-attr-online='true']").attr('selected',true);
+	$('#id_DepartamentID').find('option').removeAttr('selected');
+	$('#id_DepartamentID').find("[data-attr-online='true']").attr('selected','selected');
 };
 $('#id_DepartamentID').change(function() {	
 	if ( $(this).find('option:selected').attr('data-attr-online') == 'false' ) {		
