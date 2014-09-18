@@ -215,7 +215,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
    			if (isset($chatPrefill) && ($chatPrefill instanceof erLhcoreClassModelChat)) {
    				erLhcoreClassChatValidator::updateInitialChatAttributes($chatPrefill, $chat);
    			}
-   			
+   			$Result['parent_messages'][] = 'lh_callback:offline_request_cb';
    			$tpl->set('request_send',true);
    		} else {
 	       $chat->time = time();
@@ -235,7 +235,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 	       // Assign chat to user
 	       if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 ) {
 	            // To track online users
-	            $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'vid' => $Params['user_parameters_unordered']['vid']));
+	            $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('check_message_operator' => true, 'message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'vid' => $Params['user_parameters_unordered']['vid']));
 
 	            if ($userInstance !== false) {
 	                $userInstance->chat_id = $chat->id;
@@ -296,7 +296,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 	       erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat));
 
 	       // Redirect user
-	       erLhcoreClassModule::redirect('chat/chatwidgetchat','/' . $chat->id . '/' . $chat->hash . $modeAppend);
+	       erLhcoreClassModule::redirect('chat/chatwidgetchat','/' . $chat->id . '/' . $chat->hash . $modeAppend . '/(cstarted)/online_chat_started_cb');
 	       exit;
    	   }
 

@@ -111,10 +111,20 @@ if ($canListOnlineUsers == true || $canListOnlineUsersAll == true) {
 
 if ($unreadTabEnabled == true) {
 	// Unread chats
-	$unreadChats = erLhcoreClassChat::getUnreadMessagesChats(10,0,array('ignore_fields' => erLhcoreClassChat::$chatListIgnoreField));
-
+	$unreadChats = erLhcoreClassChat::getUnreadMessagesChats(20,0,array('ignore_fields' => erLhcoreClassChat::$chatListIgnoreField));
+	
+	$lastPendingChatID = 0;
+	$lastChatNick = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor');
+	$lastMessage = erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','New unread message');	
+	if (!empty($unreadChats)) {
+		$lastPendingChatID = max(array_keys($unreadChats));
+		$chatRecent = reset($unreadChats);
+		$lastChatNick = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Unread message') . ' | ' .$chatRecent->nick . ' | ' . $chatRecent->department;
+		$lastMessage = erLhcoreClassChat::getGetLastChatMessagePending($chatRecent->id);
+	}
+	
 	erLhcoreClassChat::prefillGetAttributes($unreadChats,array('time_created_front','department_name','unread_time'),array('department','time','status','dep_id','user_id'));
-	$ReturnMessages['unread_chats'] = array('list' => array_values($unreadChats));
+	$ReturnMessages['unread_chats'] = array('msg' => $lastMessage, 'nick' => $lastChatNick, 'last_id' => $lastPendingChatID, 'last_id_identifier' => 'unread_chat', 'list' => array_values($unreadChats));
 }
 
 // Update last visit

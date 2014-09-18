@@ -26,6 +26,10 @@ if ($Params['user_parameters_unordered']['sound'] !== null && is_numeric($Params
 	erLhcoreClassModelUserSetting::setSetting('chat_message',(int)$Params['user_parameters_unordered']['sound'] == 1 ? 1 : 0);
 }
 
+if ($Params['user_parameters_unordered']['cstarted'] !== null && $Params['user_parameters_unordered']['cstarted'] != '') {
+	$Result['parent_messages'][] = 'lh_callback:' . (string)strip_tags($Params['user_parameters_unordered']['cstarted']);
+}
+
 try {
 
     $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
@@ -48,7 +52,7 @@ try {
         	$db->beginTransaction();
 	        	
 	        	$chat->support_informed = 1;
-	        	$chat->user_typing = time()-5;// Show for shorter period these status messages
+	        	$chat->user_typing = time();// Show for shorter period these status messages
 	        	$chat->is_user_typing = 1;
 	        	if (isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] != ''){
 	        		$chat->user_typing_txt = $_SERVER['HTTP_REFERER'];

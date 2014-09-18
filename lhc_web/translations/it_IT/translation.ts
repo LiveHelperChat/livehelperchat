@@ -319,6 +319,14 @@
       <translation>Testo mostrato offline</translation>
     </message>
     <message>
+      <source>Operator intro text</source>
+      <translation>Testo intro operatore</translation>
+    </message>
+    <message>
+      <source>Have a question? Ask us!</source>
+      <translation>Hai una domanda? Chiedi a noi!</translation>
+    </message>
+    <message>
       <source>Background color</source>
       <translation>Colore di sfondo</translation>
     </message>
@@ -329,6 +337,10 @@
     <message>
       <source>Text color</source>
       <translation>Colore del testo</translation>
+    </message>
+    <message>
+      <source>Operator image in chat widget</source>
+      <translation>Immagine di operatore nel widget chat</translation>
     </message>
     <message>
       <source>Logo image, visible in popup</source>
@@ -1835,8 +1847,8 @@
       <translation>La tua domanda</translation>
     </message>
     <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Digita qui il tuo messaggio e premi INVIO per inviare...</translation>
+      <source>Please enter a message...</source>
+      <translation>Scrivi un messaggio e premi invio | Enter a message and hit enter</translation>
     </message>
     <message>
       <source>Start chat</source>
@@ -1879,6 +1891,10 @@
       <translation>Offline</translation>
     </message>
     <message>
+      <source>Have a question? Ask us!</source>
+      <translation>Hai una domanda? Chiedi a noi!</translation>
+    </message>
+    <message>
       <source>Department is offline</source>
       <translation>Dipartimento offline</translation>
     </message>
@@ -1893,6 +1909,10 @@
     <message>
       <source>characters</source>
       <translation>caratteri</translation>
+    </message>
+    <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Digita qui il tuo messaggio e premi INVIO per inviare...</translation>
     </message>
     <message>
       <source>Send</source>
@@ -1977,6 +1997,10 @@
     <message>
       <source>Fill in the form to start a chat</source>
       <translation>Compila questo modulo per avviare una chat</translation>
+    </message>
+    <message>
+      <source>Unread message</source>
+      <translation>Messaggio non letto</translation>
     </message>
   </context>
   <context>
@@ -3113,6 +3137,10 @@
       <source>Logout</source>
       <translation>Logout</translation>
     </message>
+    <message>
+      <source>New unread message</source>
+      <translation>Nuovo messaggio non letto</translation>
+    </message>
   </context>
   <context>
     <name>chat/syncadmin</name>
@@ -3390,6 +3418,26 @@
     <message>
       <source>E-mail is always required</source>
       <translation>Email è sempre richiesta</translation>
+    </message>
+    <message>
+      <source>Additional form settings</source>
+      <translation>Impostazioni moduli aggiuntivi</translation>
+    </message>
+    <message>
+      <source>Show operator profile above input fields</source>
+      <translation>Visualizza il profilo di operatore sopra i campi di input</translation>
+    </message>
+    <message>
+      <source>Remove space after operator profile</source>
+      <translation>Rimuovere lo spazio dopo il profilo operatore</translation>
+    </message>
+    <message>
+      <source>Hide message label</source>
+      <translation>Nascondere l&apos;etichetta del messaggio</translation>
+    </message>
+    <message>
+      <source>Initial user message height in pixels</source>
+      <translation>Altezza del messaggio utente iniziale in pixel</translation>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>

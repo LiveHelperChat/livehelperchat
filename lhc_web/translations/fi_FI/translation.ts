@@ -319,6 +319,14 @@
       <translation>Offline status-teksti</translation>
     </message>
     <message>
+      <source>Operator intro text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Have a question? Ask us!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Background color</source>
       <translation>Taustaväri</translation>
     </message>
@@ -329,6 +337,10 @@
     <message>
       <source>Text color</source>
       <translation>Tekstin väri</translation>
+    </message>
+    <message>
+      <source>Operator image in chat widget</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Logo image, visible in popup</source>
@@ -427,7 +439,7 @@
     </message>
     <message>
       <source>Live help is online...</source>
-      <translation>Avustaja paikalla...</translation>
+      <translation>Hei, voinko auttaa?</translation>
     </message>
     <message>
       <source>Need help?</source>
@@ -1834,8 +1846,8 @@
       <translation>Kysymyksesi</translation>
     </message>
     <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Kirjoita viestisi ja paina enteriä lähettääksesi...</translation>
+      <source>Please enter a message...</source>
+      <translation>Ole hyvä ja kirjoita viestisi tähän</translation>
     </message>
     <message>
       <source>Start chat</source>
@@ -1878,6 +1890,10 @@
       <translation>offline</translation>
     </message>
     <message>
+      <source>Have a question? Ask us!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department is offline</source>
       <translation type="unfinished"/>
     </message>
@@ -1892,6 +1908,10 @@
     <message>
       <source>characters</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Kirjoita viestisi ja paina enteriä lähettääksesi...</translation>
     </message>
     <message>
       <source>Send</source>
@@ -1976,6 +1996,10 @@
     <message>
       <source>Fill in the form to start a chat</source>
       <translation>Täytä lomake aloittaaksesi keskustelun</translation>
+    </message>
+    <message>
+      <source>Unread message</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -2702,11 +2726,11 @@
     </message>
     <message>
       <source>Please enter latitude variable!</source>
-      <translation>Anna latitude!</translation>
+      <translation>Anna sijaintisi leveyspiiri!</translation>
     </message>
     <message>
       <source>Please enter longitude variable!</source>
-      <translation>Anna longitude!</translation>
+      <translation>Anna sijaintisi pituuspiiri!</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages!</source>
@@ -3112,6 +3136,10 @@
       <source>Logout</source>
       <translation>Kirjaudu ulos</translation>
     </message>
+    <message>
+      <source>New unread message</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/syncadmin</name>
@@ -3389,6 +3417,26 @@
     <message>
       <source>E-mail is always required</source>
       <translation>Sähköposti vaaditaan aina</translation>
+    </message>
+    <message>
+      <source>Additional form settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show operator profile above input fields</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Remove space after operator profile</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide message label</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Initial user message height in pixels</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>

@@ -469,6 +469,12 @@ var lh_inst  = {
     	}
     },
     
+    genericCallback : function(name){
+    	if (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.callback != 'undefined' && typeof LHCChatOptions.callback[name] != 'undefined') {
+    		LHCChatOptions.callback[name](this);    	
+    	}
+    },
+    
     showStatusWidget : function() {
     <?php if ($position == 'original' || $position == '') :
 	// You can style bottom HTML whatever you want. ?>
@@ -732,6 +738,9 @@ var lh_inst  = {
     			lh_inst.addCookieAttributePersistent('lng','');
     			lh_inst.lang = '';
     		}
+    	} else if (action == 'lh_callback') {
+    		var functionName = e.data.split(':')[1];
+    		lh_inst.genericCallback(functionName);    	
     	} else if (action == 'lhc_close') {
     		lh_inst.hide();
     	}

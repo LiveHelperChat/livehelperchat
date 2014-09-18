@@ -319,6 +319,14 @@
       <translation>Tekst statusu gdy operator jest niedostępny</translation>
     </message>
     <message>
+      <source>Operator intro text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Have a question? Ask us!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Background color</source>
       <translation>Kolor tła</translation>
     </message>
@@ -329,6 +337,10 @@
     <message>
       <source>Text color</source>
       <translation>Kolor tekstu</translation>
+    </message>
+    <message>
+      <source>Operator image in chat widget</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Logo image, visible in popup</source>
@@ -1835,8 +1847,8 @@ pokazywany</translation>
       <translation>Twoje pytanie</translation>
     </message>
     <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Wpisz swoją wiadomość i naciśnij enter aby ją wysłać...</translation>
+      <source>Please enter a message...</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Start chat</source>
@@ -1879,6 +1891,10 @@ pokazywany</translation>
       <translation>Niedostępny</translation>
     </message>
     <message>
+      <source>Have a question? Ask us!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department is offline</source>
       <translation type="unfinished"/>
     </message>
@@ -1893,6 +1909,10 @@ pokazywany</translation>
     <message>
       <source>characters</source>
       <translation>znaki</translation>
+    </message>
+    <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Wpisz swoją wiadomość i naciśnij enter aby ją wysłać...</translation>
     </message>
     <message>
       <source>Send</source>
@@ -1977,6 +1997,10 @@ pokazywany</translation>
     <message>
       <source>Fill in the form to start a chat</source>
       <translation>Wypełnij formularz, aby rozpocząć rozmowę</translation>
+    </message>
+    <message>
+      <source>Unread message</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -3113,6 +3137,10 @@ pokazywany</translation>
       <source>Logout</source>
       <translation>Wyloguj</translation>
     </message>
+    <message>
+      <source>New unread message</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/syncadmin</name>
@@ -3390,6 +3418,26 @@ pokazywany</translation>
     <message>
       <source>E-mail is always required</source>
       <translation>Pole E-mail jest zawsze wymagane</translation>
+    </message>
+    <message>
+      <source>Additional form settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show operator profile above input fields</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Remove space after operator profile</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide message label</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Initial user message height in pixels</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>

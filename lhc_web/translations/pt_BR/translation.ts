@@ -319,6 +319,14 @@
       <translation>Texto de status offline</translation>
     </message>
     <message>
+      <source>Operator intro text</source>
+      <translation>Operador digitando</translation>
+    </message>
+    <message>
+      <source>Have a question? Ask us!</source>
+      <translation>Você tem uma pergunta? Pergunte-nos!</translation>
+    </message>
+    <message>
       <source>Background color</source>
       <translation>Cor do fundo</translation>
     </message>
@@ -329,6 +337,10 @@
     <message>
       <source>Text color</source>
       <translation>Cor do texto</translation>
+    </message>
+    <message>
+      <source>Operator image in chat widget</source>
+      <translation>Imagem do operador no chat</translation>
     </message>
     <message>
       <source>Logo image, visible in popup</source>
@@ -1834,8 +1846,8 @@
       <translation>Sua pergunta</translation>
     </message>
     <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Digite sua mensagem aqui e clique enter para enviar...</translation>
+      <source>Please enter a message...</source>
+      <translation>Por favor insira uma mensagem...</translation>
     </message>
     <message>
       <source>Start chat</source>
@@ -1878,6 +1890,10 @@
       <translation>Offline</translation>
     </message>
     <message>
+      <source>Have a question? Ask us!</source>
+      <translation>Você tem uma pergunta? Pergunte-nos!</translation>
+    </message>
+    <message>
       <source>Department is offline</source>
       <translation>Departamento está offline</translation>
     </message>
@@ -1892,6 +1908,10 @@
     <message>
       <source>characters</source>
       <translation>caracteres</translation>
+    </message>
+    <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Digite sua mensagem aqui e clique enter para enviar...</translation>
     </message>
     <message>
       <source>Send</source>
@@ -1976,6 +1996,10 @@
     <message>
       <source>Fill in the form to start a chat</source>
       <translation>Preencha no formulário para iniciar um chat</translation>
+    </message>
+    <message>
+      <source>Unread message</source>
+      <translation>Mensagens não lidas</translation>
     </message>
   </context>
   <context>
@@ -3112,6 +3136,10 @@
       <source>Logout</source>
       <translation>Sair</translation>
     </message>
+    <message>
+      <source>New unread message</source>
+      <translation>Nova mensagem</translation>
+    </message>
   </context>
   <context>
     <name>chat/syncadmin</name>
@@ -3301,7 +3329,7 @@
     </message>
     <message>
       <source>Requires phone</source>
-      <translation type="unfinished"/>
+      <translation>Requer Telefone</translation>
     </message>
     <message>
       <source>Send the message</source>
@@ -3389,6 +3417,26 @@
     <message>
       <source>E-mail is always required</source>
       <translation>O e-mail é sempre necessário</translation>
+    </message>
+    <message>
+      <source>Additional form settings</source>
+      <translation>Configurações adicionais de formulário</translation>
+    </message>
+    <message>
+      <source>Show operator profile above input fields</source>
+      <translation>Mostrar perfil do operador acima dos campos</translation>
+    </message>
+    <message>
+      <source>Remove space after operator profile</source>
+      <translation>Remover espaço depois do perfil do operador</translation>
+    </message>
+    <message>
+      <source>Hide message label</source>
+      <translation>Esconder mensagem de etiqueta</translation>
+    </message>
+    <message>
+      <source>Initial user message height in pixels</source>
+      <translation>Usar inicialmente altura da mensagem em pixels</translation>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>

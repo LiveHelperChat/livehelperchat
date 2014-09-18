@@ -28,7 +28,7 @@ class erLhcoreClassBBCode
    	
    		if (self::$outArray == null) {   			
    			$tpl = new erLhcoreClassTemplate();
-   			$smileys = explode('||', $tpl->fetch('lhbbcode/smiley.tpl.php'));   			
+   			$smileys = explode('||', str_replace("\n", '', $tpl->fetch('lhbbcode/smiley.tpl.php')));   			
    			self::$outArray = $smileys;
    		}
    	
