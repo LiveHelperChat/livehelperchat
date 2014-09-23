@@ -42,6 +42,13 @@ if ($currentUser->isLogged() && isset($_POST['chats']))
                         if ($msgID < $msg['id']) $chatsMessages[$msgID][] = $msg;
                     }
                 }
+                
+                if ($Chat->has_unread_messages == 1 || $Chat->unread_messages_informed == 1 ) {
+                	$Chat->has_unread_messages = 0;
+                	$Chat->unread_messages_informed = 0;
+                	$Chat->saveThis();
+                }                
+                
             } else {
             	if ($Chat->is_user_typing) {
             		$chatStatusMessage = $Chat->user_typing_txt;
