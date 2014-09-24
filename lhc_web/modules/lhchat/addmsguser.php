@@ -39,6 +39,10 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && mb_strlen($form->m
 	        }
 
 	        $stmt->execute();
+	        	        
+	        if ($chat->has_unread_messages == 1 && $chat->last_user_msg_time < (time() - 5)) {
+	        	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.unread_chat',array('chat' => & $chat));
+	        }
 	        
 	    }	    
 	    $db->commit();

@@ -18,10 +18,12 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 	if ($userData->invisible_mode == 0) {	
 		
 		$operatorAccepted = false;
-		    
+		$chatDataChanged = false;
+		
 	    if ($chat->user_id == 0) {
 	        $currentUser = erLhcoreClassUser::instance();
-	        $chat->user_id = $currentUser->getUserID();	        
+	        $chat->user_id = $currentUser->getUserID();	     
+	        $chatDataChanged = true;
 	    }
 	    
 	    // If status is pending change status to active
@@ -34,6 +36,11 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 	    	
 	    	$chat->user_id = $currentUser->getUserID();
 	    	$operatorAccepted = true;
+	    	$chatDataChanged = true;
+	    }
+	    
+	    if ($chat->support_informed == 0 || $chat->has_unread_messages == 1 ||  $chat->unread_messages_informed == 1) {
+	    	$chatDataChanged = true;
 	    }
 	    
 	    $chat->support_informed = 1;
@@ -48,6 +55,10 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 	    if ( function_exists('fastcgi_finish_request') ) {
 	    	fastcgi_finish_request();
 	    };
+	    
+	    if ($chatDataChanged == true) {
+	    	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed',array('chat' => & $chat,'user' => $currentUser));
+	    }
 	    
 	    if ($operatorAccepted == true) {	 	    	
 	    	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.accept',array('chat' => & $chat,'user' => $currentUser));	    	

@@ -65,7 +65,9 @@ class erLhcoreClassChatWorkflow {
     		
     		if ($chat->department->na_cb_execute == 1) {
     			$chat->na_cb_executed = 0;
-    		}    		
+    		}   
+
+    		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed_assigned_department',array('chat' => & $chat));
     	}
        	
     	$chat->updateThis();
@@ -257,6 +259,8 @@ class erLhcoreClassChatWorkflow {
 	    		$chat->tslasign = time();
 	    		$chat->user_id = $user_id;
 	    		$chat->updateThis();
+	    		
+	    		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed_auto_assign',array('chat' => & $chat));
 	    		
 	    		$stmt = $db->prepare('UPDATE lh_userdep SET last_accepted = :last_accepted WHERE user_id = :user_id');
 	    		$stmt->bindValue(':last_accepted',time(),PDO::PARAM_INT);
