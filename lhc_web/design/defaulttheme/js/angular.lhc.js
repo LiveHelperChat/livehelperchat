@@ -54,6 +54,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	$scope.transfer_dep_chats = {};
 	$scope.transfer_chats = {};
 	$scope.timeoutControl = null;
+	$scope.setTimeoutEnabled = true;
+	
 	
 	$scope.loadChatList = function() {
 		clearTimeout($scope.timeoutControl);
@@ -99,9 +101,12 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 					$(document).foundation('section', 'resize');
 				},500);	
 				
-				$scope.timeoutControl = setTimeout(function(){
-					$scope.loadChatList();
-				},confLH.back_office_sinterval);
+				if ($scope.setTimeoutEnabled == true) {
+					$scope.timeoutControl = setTimeout(function(){
+						$scope.loadChatList();
+					},confLH.back_office_sinterval);
+				};
+				
 		},function(error){
 				$scope.timeoutControl = setTimeout(function(){
 					$scope.loadChatList();
