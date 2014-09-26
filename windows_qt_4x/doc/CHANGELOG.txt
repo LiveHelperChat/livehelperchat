@@ -1,2 +1,0 @@
-1.0v desktop client.
-1. It's first version of Live helper chat desktop client.
