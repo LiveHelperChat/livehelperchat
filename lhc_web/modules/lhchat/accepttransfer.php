@@ -58,6 +58,8 @@ if ( !erLhcoreClassChat::hasAccessToRead($chat) )
 erLhcoreClassChat::getSession()->update($chat);
 erLhcoreClassTransfer::getSession()->delete($chatTransfer);
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_transfer_accepted',array('chat' => & $chat));
+
 if ($Params['user_parameters_unordered']['postaction'] == 'singlewindow') {
 	erLhcoreClassModule::redirect('chat/single/' . $chat->id);
 	exit;
