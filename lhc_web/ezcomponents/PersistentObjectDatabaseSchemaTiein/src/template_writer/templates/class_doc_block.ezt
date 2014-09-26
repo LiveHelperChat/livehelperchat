@@ -1,0 +1,8 @@
+{use $className, $propertyNames, $propertyTypes}
+/**
+ * {$className}
+ *
+ {foreach $propertyNames as $fieldName => $propertyName}
+ * @property {$propertyTypes[$fieldName]} ${$propertyName}
+ {/foreach}
+ */

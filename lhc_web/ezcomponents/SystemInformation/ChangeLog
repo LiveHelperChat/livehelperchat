@@ -1,0 +1,80 @@
+1.0.8 - Tuesday 01 September 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Reorganized the source code to fall in line with guidelines.
+- Fixed the ezcSystemReaderCantScanOSException class to properly inherit
+  from ezcSystemInfoException and ezcBaseException.
+- Implemented issue #15352: Added support for XCache.
+- Removed support for PHP Accelerator, which is for PHP 4 only.
+
+
+1.0.7 - Monday 10 November 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed Zend platform URL.
+
+
+1.0.6 - Monday 05 May 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed retrieving CPU count, type and speed on Windows Vista.
+
+
+1.0.5 - Monday 25 June 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #11014: ezcSystemInfoMacReader::getCpuCount() returns incorrect
+  type.
+- Documentation updates and fixes.
+
+
+1.0.4 - Thursday 31 May 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #9413: There is no Mac Reader for SystemInformation, although
+  it's referenced in the code.
+
+
+1.0.3 - Monday 07 May 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #9838: ezcSystemInformation doesn't have 
+  proper property documentation. 
+
+
+1.0.2 - Monday 20 November 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #9451: ezcSystemInfo - info_freebsd / info_linux differences.
+
+
+1.0.1 - Monday 28 August 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Refactored to use the new ezcBaseStruct class.
+
+
+1.0 - Monday 12 June 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed small CS issues.
+
+
+1.0rc1 - Monday 29 May 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed bug #8251: Fatal error caused by ezcSystemInfoWindowsReader.
+
+
+1.0beta2 - Tuesday 09 May 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Added the cpuCount property that shows the number of CPUs in a machine.
+- Changed the cpuSpeed property to always return a floating point in MHz.
+- Removed the cpuUnit property which would return 'MHz' or 'GHz'.
+
+
+1.0beta1 - Wednesday 19 April 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Initial release of this package.

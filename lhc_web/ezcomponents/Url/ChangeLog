@@ -1,0 +1,90 @@
+1.2.2 - Monday 04 August 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #13235: ezcUrlTools::getCurrentUrl() no longer duplicates port
+  number.
+
+
+1.2.1 - Monday 05 May 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #12825: No longer throw a notice when an unordered parameter
+  name is empty.
+
+
+1.2 - Monday 17 December 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes
+
+
+1.2beta1 - Wednesday 28 November 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.2alpha2 - Monday 12 November 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #11477: Fixed errors in documentation.
+
+
+1.2alpha1 - Tuesday 18 September 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented feature request #10896: Allow aggregation of unordered parameter
+  values if the parameter names appear more than once.
+- Implemented feature request #10897: Added the getParams() method in ezcUrl
+  which fetches the unordered parameters as a flat array, useful for working
+  with URLs without delimiters for parameter names.
+- Implemented feature request #11000: Added ability to include script name
+  when building an URL through a buildUrl() parameter.
+- Implemented feature request #11296: added the function getCurrentUrl() to
+  ezcUrlTools to build the current URL from the $_SERVER array or another
+  array source.
+- Fixed issue #11277: The dots in the query string parameter names are not
+  converted to underscores.
+
+
+1.1 - Monday 02 July 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Documentation updates and fixes.
+
+
+1.1rc1 - Monday 25 June 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #11012: basedir can be now specified as an absolute path also.
+- Documentation updates and fixes.
+
+
+1.1beta1 - Monday 07 May 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented feature request #10109: Added support for delayed initialization
+  for ezcUrlConfiguration.
+- Implemented feature request #10444: Added removeOrderedParameter() and
+  removeUnorderedParameter() methods to ezcUrlConfiguration. Also exposed the
+  url configuration as a property of ezcUrl objects.
+
+
+1.0 - Monday 18 December 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Removed the defaultConfiguration() method from ezcUrlConfiguration.
+- Added missing docblocks.
+
+
+1.0beta2 - Monday 20 November 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented feature #9240: Added ezcUrlCreator class to allow
+  working with predefined locations (eg. images, design);
+
+
+1.0beta1 - Tuesday 24 October 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Initial release of this package.

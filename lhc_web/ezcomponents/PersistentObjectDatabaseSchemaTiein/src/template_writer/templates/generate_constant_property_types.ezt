@@ -1,0 +1,25 @@
+{use $schema}
+{var $propertyTypes = array()}
+{foreach $schema->fields as $fieldName => $field}
+	{switch $field->type}
+		{case 'integer', 'timestamp'}
+			{$propertyTypes[$fieldName] = 'ezcPersistentObjectProperty::PHP_TYPE_INT'}
+		{/case}
+		{case 'float', 'decimal'}
+			{$propertyTypes[$fieldName] = 'ezcPersistentObjectProperty::PHP_TYPE_FLOAT'}
+		{/case}
+		{case 'text', 'blob', 'clob'}
+			{$propertyTypes[$fieldName] = 'ezcPersistentObjectProperty::PHP_TYPE_STRING'}
+		{/case}
+		{case 'boolean'}
+			{$propertyTypes[$fieldName] = 'ezcPersistentObjectProperty::PHP_TYPE_BOOL'}
+		{/case}
+		{case 'time', 'date'}
+			{$propertyTypes[$fieldName] = 'ezcPersistentObjectProperty::PHP_TYPE_INT'}
+		{/case}
+		{default}
+			{$propertyTypes[$fieldName] = 'ezcPersistentObjectProperty::PHP_TYPE_STRING'}
+		{/default}
+	{/switch}
+{/foreach}
+{return $propertyTypes}

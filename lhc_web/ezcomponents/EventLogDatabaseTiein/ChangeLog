@@ -1,0 +1,17 @@
+1.0.2 - Monday 25 June 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Documentation fixes.
+
+
+1.0.1 - Monday 18 December 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented task #9604: using SQL abstraction instead of hard-coded SQL
+  queries.
+
+
+1.0 - Monday 30 January 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Initial release of this package, split from Translation component.

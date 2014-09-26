@@ -1,0 +1,1 @@
+<div><strong><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat','User has left the chat!')?></strong></div>

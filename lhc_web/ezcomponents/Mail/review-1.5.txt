@@ -1,0 +1,91 @@
+ezcMailComposerOptions
+======================
+
+- Cast to bool is not necessary in Mail/src/options/composer_options.php +75.
+
+# Done.
+
+SMTP Auth methods
+=================
+
+- Why is there only a failure case tested? I don't see (at a first glance)
+  that the sorting is really tested at all. If I'm wrong with that: Please add
+  a comment to the test. Thanks!
+
+# I added a comment to the test.
+
+Testing
+=======
+
+- 1 failure with 5.2.6 on ezctest: ::
+
+	1) testValidateEmailAddressIncorrect(ezcMailToolsTest)
+	Failed asserting that µ@example.com is incorrect.
+	Failed asserting that <boolean:true> matches expected value <boolean:false>.
+	/home/ts/dev/ezc/trunk/Mail/tests/tools_test.php:273
+
+- Some failures and nasty output on my local maschine (maybe these tests can be
+  conditionally skipped?): ::
+
+# I don't know anything about this behaviour in MTA. What system do you have on
+  your PC? Do you have sendmail? The MTA transport uses the mail() function which
+  is not easy to control and which can output text to the console. Not much to do
+  here unless somebody knows something. (Note: is hartes-php.de functional?
+  I cannot connect to it with telnet)
+
+# About the ezcMailToolsTest failure: there was a bug in the getmxrr() PHP
+  function and I think the failure is caused by that. But we could not find which
+  bug was it and in which version it was fixed. With what version of PHP did you test?
+
+	ezcUnitTest uses the PHPUnit @package_version@ framework from Sebastian Bergmann.
+
+	[Preparing tests]:
+	eZ Components:                          
+	  Mail:                                   
+		ezcMailTest:                            ........................
+
+	[snip]
+
+		ezcMailMultipartDigestTest:             ...
+		ezcMailToolsTest:                       ................F..........
+		ezcMailTransportMtaTest:                SSL_connect: Success
+	sendmail: Cannot open hartes-php.de:25
+	FSSL_connect: Success
+	sendmail: Cannot open hartes-php.de:25
+	F..SSL_connect: Success
+	sendmail: Cannot open hartes-php.de:25
+	FSSL_connect: Success
+	sendmail: Cannot open hartes-php.de:25
+	E
+		ezcMailTransportSmtpTest:               ..................................
+	[snip]
+	There was 1 error:
+
+	1) testEncodedHeaders(ezcMailTransportMtaTest)
+	ezcMailTransportException: An error occured while sending or receiving mail. The email could not be sent by sendmail
+	/home/dotxp/dev/PHP/actual/ezcomponents/trunk/Mail/tests/transports/transport_mta_test.php:117
+
+	--
+
+	There were 4 failures:
+
+	1) testValidateEmailAddressCorrectMX(ezcMailToolsTest)
+	Failed asserting that nospam@ez.no is correct with MX.
+	Failed asserting that <boolean:false> matches expected value <boolean:true>.
+	/home/dotxp/dev/PHP/actual/ezcomponents/trunk/Mail/tests/tools_test.php:260
+
+	2) testFullMail(ezcMailTransportMtaTest)
+	An error occured while sending or receiving mail. The email could not be sent by sendmail
+	/home/dotxp/dev/PHP/actual/ezcomponents/trunk/Mail/tests/transports/transport_mta_test.php:44
+
+	3) testFullMailMultiple(ezcMailTransportMtaTest)
+	An error occured while sending or receiving mail. The email could not be sent by sendmail
+	/home/dotxp/dev/PHP/actual/ezcomponents/trunk/Mail/tests/transports/transport_mta_test.php:58
+
+	4) testFullMailReturnPath(ezcMailTransportMtaTest)
+	An error occured while sending or receiving mail. The email could not be sent by sendmail
+	/home/dotxp/dev/PHP/actual/ezcomponents/trunk/Mail/tests/transports/transport_mta_test.php:104
+
+	FAILURES!
+	Tests: 602, Failures: 4, Errors: 1, Skipped: 9.
+

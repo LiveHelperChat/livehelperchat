@@ -1,0 +1,304 @@
+1.4.7 - Monday 22 March 2010
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #16208: Warning in ezcQuery alias function
+
+
+1.4.6 - Monday 27 July 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #11784: Fixed quoting of sub-selects in "IN" expression.
+
+
+1.4.5 - Monday 11 May 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #14855 (IN with subselects generates excessive braces).
+
+
+1.4.4 - Monday 30 March 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #14464: ezcDbFactory::create shouldn't throw a warning on invalid
+  parameter.
+
+
+1.4.3 - Monday 09 February 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed ezcQueryInsert and ezcQueryUpdate examples. (Related to issue #14320).
+
+
+1.4.2 - Monday 05 January 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #14197: ezcQuerySubselect API doc has some typos and words left
+  away.
+
+
+1.4.1 - Monday 01 December 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #14014: Typo in documentation for ezcQueryUpdate.
+
+
+1.4 - Monday 16 June 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #13188: Sub select queries are no more quoted in SQLite IN
+  statements.
+
+
+1.4rc1 - Tuesday 10 June 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes
+
+
+1.4beta1 - Tuesday 27 May 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #12150: Connect to MSSQL database fails due to wrong driver
+  specification.
+
+
+1.4alpha1 - Monday 05 May 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented issue #10753: ezcDbQuery should implement __toString().
+- Implemented issue #12540: subselect support for other query types besides
+  SELECT.
+
+
+1.3.4 - Monday 14 January 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #11266: ezcQueryExpression->in( 'colname', array() ) produces a
+  strange exception message.
+- Fixed issue #11786: quoteIdentifier() incorrectly quotes unambiguous
+  identifiers.
+- Documented issue #10161: Column names are always lowercase.
+
+
+1.3.3 - Wednesday 05 December 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed bug #12152: The SQLite's unixTimestamp() expression function
+  implementation uses the current UTC offset, instead of the UTC offset that
+  belongs to the date for which a Unix timestamp should be generated.
+
+
+1.3.2 - Wednesday 28 November 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed bug #11345: Encoding problem with Database component (No info about
+  it).
+
+
+1.3.1 - Monday 12 November 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #11609: Subselect query documentation is incorrect.
+- Fixed issue #11687: Mssql DSN with port does not work.
+- Fixed issue #11700: Subselects only work when there is a database instance
+  set.
+
+
+1.3 - Monday 02 July 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Documentation updates.
+
+
+1.3rc1 - Monday 25 June 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #10884: Database: Limit in Oracle only works with 1000 elements
+  at maximum.
+- Fixed issue #10937: ezcDbHandler::hasFeature() is not implemented properly
+  anywhere.
+- Fixed issue #10943: Add parameter to specify type of value in bindValue() 
+  and bindParam().
+- Fixed issue #10986: in() expression test for sub selects fails in PHP 5.1.6.
+- Documentation fixes and updates.
+
+
+1.3beta2 - Thursday 31 May 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #10802: MSSql handler misses identifierQuoteChars.
+- Fixed issue #10803: Format of ezcQueryExpressionMssql::now().
+- Fixed issue #10797: Do not quote numbers and subqueries in IN()
+
+
+1.3beta1 - Monday 07 May 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #8240: ezcQueryExpression::in does not work with strings.
+- Fixed issue #8520: The non trivial join methods have incomplete
+  documentation.
+- Fixed issue #9526: Implemented expression now() for each database handler.
+- Fixed issue #10529: Tests for quoting of strings in query expressions.
+- Implemented feature #7772: SQL Server implementation for the Database package.
+  Based on contributions by Joel Arvidsson and Friedel Hill.
+- Implemented feature #8473: Oracle Limit/Offset optimization.
+- Implemented feature #8448: Select Distinct not supported
+- Implemented feature #9960 [Database] sql abstraction.  Based on contributions by
+  Joel Arvidsson and Friedel Hill.
+- Implemented feature #9965: Support for delayed initialization through
+  ezcBaseInit.
+
+
+1.2 - Monday 18 December 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #9219: Added sql HAVING condition. Patch by Christian Michel.
+- Fixed issue #9439: PersistentObject doesn't handle sequence value 
+  generation right for Oracle.
+- Fixed issue #9466: Oracle limit does not return $this.
+- Fixed issue #9567: query->bindValue() sets value in query->boundParameters.
+- Fixed issue #9841: Sqlite file DSN on Windows added an incorrect slash.
+- Fixed ezcQueryExpressionOracle, corrected processing subString() in Oracle.
+
+
+1.2beta2 - Monday 20 November 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Added the ezcDatabase::getIdentifiers() method that returns a list of
+  identifiers of the registered database instances.
+
+
+1.2beta1 - Tuesday 24 October 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Added the ezcDbHandler::quoteIdentifier() method that you can use to quote
+  identifiers (such as table and column names) with.
+- Added support for SQLite in-memory databases through the DSN:
+  "sqlite://:memory" and the dbParams:
+  "array( 'handler' => 'sqlite', 'port' => 'memory' );".
+- Fixed bug #9159: No alias substitution for 'table.column' syntax.
+
+
+1.1.4 - Tuesday 24 October 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed bug #9220: Wrong attribute used in ezcDbHandler::commit().
+- Fixed bug #9221: ezcDbTransactionException::__construct() does not handle
+  message argument correctly.
+
+
+1.1.3 - Monday 09 October 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed handling queries like "SELECT 1+1" in Oracle.
+
+
+1.1.2 - Monday 28 August 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	
+- Fixed bug #8835: Documentation of lOr and lAnd.
+
+	
+1.1.1 - Monday 07 August 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed bug #8360: ezcQueryExpressionOracle::concat() calls non-existing
+  method.
+- Added ezcQuery::resetBinds() which allows you to reset the bound values and
+  parameters associated with a query.
+
+
+1.1 - Monday 12 June 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed bug #8428: LIMIT doesn't work correctly, inverted values.
+
+
+1.1rc1 - Monday 29 May 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Added examples of using multi-join and subselect syntax to the tutorial.
+
+
+1.1beta2 - Tuesday 09 May 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed problem where rollback would not be performed even though it was the
+  innermost call to it.
+
+
+1.1beta1 - Wednesday 19 April 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Improved support for SQLite right join emulation.
+
+ezcQuery
+========
+- Added support for subselects.
+- Added support for multi-join queries.
+- Changed the requirement that select(), from(), where() and the join methods
+  could only be used once for a query object.
+
+
+1.0.1 - Monday 20 February 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed bug #7764: ezcQuerySelect doesn't reset queries correctly	
+
+
+1.0 - Monday 30 January 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Removed ezcDbHandler::begin(). It was a rename of PDO::beginTransaction()
+  because of the strange PDO naming. Unfortunately it caused problems with
+  re-implementations.
+- Removed ezcDbHandler::processLimitOffset. Leftover from old design.
+
+
+1.0rc1 - Monday 16 January 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Added support for aliases of column names.
+- Added SQLite driver.
+- Changed exception behavior. All errors will now throw a different exception
+  class.
+- Changed class names:
+
+  * ezcQueryOracle to ezcQuerySelectOracle
+
+- Removed destructor in ezcDbHandler. We should not throw exceptions that
+  can't be caught.	
+
+ezcDbFactory
+============
+
+- Added the static method getImplementations() which returns a list of all
+  available database implementations.
+- Changed exception usage to reveal more information in case no database type
+  is passed, or when a not-supported database type is used.
+- Fixed bug where we did not check if bound parameters actually existed before
+  binding them.
+
+
+1.0beta2 - Thursday 22 December 2005
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Refactored query design:
+
+  * Changed ezcQuery to an abstract class, which forms the base for the more
+    specific classes.
+  * Added ezcQuerySelect which now contains the functionality ezcQuery had
+    before.
+  * Added ezcQueryUpdate.
+  * Added ezcQueryInsert.
+  * Added ezcQueryDelete.
+  * Added ezcQueryExpression with all the SQL expressions. ezcQuery has a
+    publically available pointer to it through 'expr'.
+  * The various query types can now be retrieved through
+    create(Select/Insert/Update/Delete) query in the handler classes.
+
+	
+1.0beta1 - Friday 25 November 2005
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Initial release of this package.

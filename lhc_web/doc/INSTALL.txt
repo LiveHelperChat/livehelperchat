@@ -1,0 +1,1 @@
+1. Point your browser to http://<install_domain>/<install_path>/index.php/install/install/ or http://<install_domain>/<install_path>/index.php?/install/install/ and follow the installation instructions.

@@ -1,0 +1,570 @@
+1.7.1 - Monday 22 March 2010
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed #16154: Bcc headers are not stripped when using SMTP.
+- Fixed #16347: Inline images in the mail composer are not added other
+  attributes precede the src attribute.
+- Fixed #16348: Adding inline images in the mail composer with whitespace in
+  the path fails.
+- Fixed #16470: Mail test suite causes fatal errors because of transport
+  errors in destructor.
+
+
+1.7 - Monday 21 December 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.7rc1 - Monday 07 December 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.7beta1 - Monday 23 November 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #15837: imap.google.com (google gmail) changed IMAP response.
+
+
+1.7alpha1 - Monday 09 November 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed test cases for PHP 5.3 and later.
+- Implemented feature request #14023: Split ezcMailComposer's addAttachment
+  into a function for adding file attachments and for adding attachments from
+  strings.
+- Implemented feature request #14257: Problem accessing multiple headers with
+  same headername.
+- Implemented feature request #14487: Enable ezcMailComposer to specify
+  encoding for text and html parts.
+- Implemented feature request #14794: Add an option to parse text attachments
+  as file part instead of text part.
+- Fixed issue #15341: ezcMailFileParser class function appendStreamFilters not
+  working properly for quoted-printable.
+- Fixed issue #15456: Problems with parsing emails that have "charset = "
+  instead of "charset=".
+
+
+1.6.3 - Monday 22 June 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #15068: false ezcMail tests. Based on a patch from Thomas Koch.
+
+
+1.6.2 - Monday 11 May 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #14776: ezcMailStorageSet generates bad file names.
+
+
+1.6.1 - Monday 09 February 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #14242: Cannot append email through IMAP.
+- Fixed issue #14360: problems with $imap->top() command in gmail.
+
+
+1.6 - Monday 05 January 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #14220: File attachments mess up emails without body text.
+
+
+1.6rc1 - Monday 15 December 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #14025: Problem with ezcMailComposer::addAttachment when use the
+  fifth param to change the file name.
+
+
+1.6beta1 - Monday 01 December 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #14009: ezcMailTools::validateEmailAddressMx() uses wrong HELO
+  domain name.
+- The function ezcMailTools::validateEmailAddressMx() throws an exception if
+  there is no support for getmxrr() and checkdnsrr().
+- Altered the ezcMailTools::validateEmailAddress() regexp to protect against
+  locale issues.
+
+
+1.6alpha1 - Monday 10 November 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented issue #13383: Add a method to extract/change/replace entities in
+  HTML mail with the CID elements replaced.
+- Implemented feature request #13539: Add new mail parser option fileClass.
+- Fixed issue #13878: Endless loop in ezcMailParser.
+
+
+1.5.2 - Monday 06 October 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed an issue that caused the part boundaries from e-mail messages not
+  being correctly set in the parsed mail structure. Instead an auto-generated
+  one was used.
+- Fixed issue #13553: Documented how to access the raw value of headers.
+- Implemented feature request #13538: Added possibility to set a custom
+  message in mail multiparts for e-mail clients missing MIME support.
+
+
+1.5.1 - Monday 04 August 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #13329: ezcMail fetchParts() no longer generates an error when
+  parsing a mail with an empty body.
+- Fixed a special case in sortFromOffset() where $range was undefined.
+- Fixed an issue with duplicate properties arrays in mail part descendants.
+
+
+1.5 - Monday 16 June 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.5rc1 - Tuesday 10 June 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #13038: Added support for non-ascii and mime-emcoded (non-RFC)
+  filenames for mail attachments.
+
+
+1.5beta1 - Tuesday 27 May 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #13010: The transport connection handles correcly cases where
+  CRLF is split in 2 different blocks read from server.
+
+
+1.5alpha1 - Monday 05 May 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #12844: getTmpDir() not properly set in Windows.
+- Fixed issue #12903: The mail digest size is not calculated twice anymore.
+- Fixed issue #12930: The SMTP authentication methods are used in correct
+  strength order now.
+- Implemented feature request #11937: Switch to turn off automatic inclusion
+  of files with the Mail Composer.
+- Implemented feature request #12203: Replaced hard-coded paths for temporary
+  directory with the PHP 5.2.1 function sys_get_temp_dir().
+- Implemented feature request #12694: Replace reflection test for class type
+  with SPL function.
+
+
+1.4.3 - Monday 03 March 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #12595: Folding is no longer applied twice for To, Cc and Bcc
+  headers.
+
+
+1.4.2 - Thursday 17 January 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #12372: MTA transport does not encode subject.
+
+
+1.4.1 - Monday 14 January 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #12318: Unsafe characters are replaces by underscores in
+  attachment file names during mail parsing.
+
+
+1.4 - Monday 17 December 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes
+
+
+1.4rc1 - Wednesday 05 December 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #12138: Mail's IMAP transport can hang when connection gets
+  dropped.
+
+
+1.4beta1 - Wednesday 28 November 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #11906: Only files inside an image tag are attached to the
+  composed email.
+- Fixed issue #11965: Reading from a transport connection is stopped at CRLF
+  or a problem in the connection, and not after a hard-coded number of loops.
+- Fixed issue #12062: Mails with no space or tabs after the colon in headers
+  are parsed correctly now.
+
+
+1.4alpha2 - Monday 29 October 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #11582: ezcMailImapSet won't be caught in an infinite loop if
+  the mail headers or body contain an IMAP tag.
+- The IMAP, POP3 and SMTP transports and the ezcMailParser class can receive
+  options objects in the constructor. They can still receive options as arrays
+  to keep compatibility.
+
+
+1.4alpha1 - Tuesday 18 September 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented feature request #8436: Added the method validateEmailAddress()
+  in ezcMailTools.
+- Implemented feature request #10459: Added the searchMailbox() method to the
+  IMAP transport. Based on a patch from Sinisa Dukaric.
+- Implemented feature request #10659: Added the getHierarchyDelimiter() method
+  to the IMAP transport.
+- Implemented feature request #10996: Added support for the SMTP authentication
+  methods DIGEST-MD5, CRAM-MD5, NTLM and LOGIN.
+- Implemented feature request #10999: Added the possibility to refer to
+  messages by their unique IDs in IMAP.
+- Implemented feature request #11061: Added missing conditions for SMTP
+  methods.
+- Implemented feature request #11299: Added an optional argument to the
+  setHeader() method in ezcMailPart to assign a charset to a header.
+- Added the fetchSizes() method in IMAP which returns the sizes of the
+  specified messages.
+
+
+1.3.1 - Monday 30 July 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #11175: ezcMailTools::composeEmailAddress quotes the name part
+  if it contains special characters ( , @ < > : ; ' " ).
+- Fixed issue #11174: ezcMailHeaderFolder::foldAny doesn't add a line break in
+  front of the header value if it is exactly 76 characters.
+
+
+1.3 - Monday 02 July 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.3rc1 - Monday 25 June 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Documentation updates and fixes.
+
+
+1.3beta2 - Thursday 31 May 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #10762: Mail file set does not work with php://stdin.
+
+
+1.3beta1 - Monday 07 May 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Added walkParts() to ezcMail and the class ezcMailPartWalkContext which can
+  be used to walk through all the parts in a mail and execute a callback
+  function on each part (for example save mail parts to disk or a database).
+- Added support for multipart/report and message/delivery-status mail parts,
+  connected to issue #8694.
+- Added header folding for the Content-Disposition header.
+- Fixed an issue with ezcMailHeaderFolder::foldAny() where notices were thrown
+  if the header contained a too long string without any white spaces.
+- Fixed issue #10656: Parsing of incomplete multipart/related mails does not
+  trigger a notice anymore.	
+- Fixed ezcMailTransportException to inherit from ezcMailException, and not
+  directly from ezcBaseException.
+- Implemented feature #8303: Added fetchParts() to ezcMail to return the mail
+  parts of a mail.
+- Implemented feature #8419: added the property size to ezcMailPart,
+  which is set when parsing a mail.
+- Implemented feature #8485: added the ezcMailStorageSet which wraps
+  around another set and provides saving of mail sources.
+- Implemented feature #9068: added support for filename language and
+  filename charset support for the Content-Disposition header.
+- Implemented feature #9292: added SSL support for IMAP and POP3.
+  Based on a patch from Mikko Koppanen.
+- Implemented feature #9308: added option classes for transports.
+- Implemented feature #9785: Allow developers to specify their own 
+  character conversion function to UTF-8. Also fixed issue #8369 as developers
+  can ignore the notices thrown by iconv in their own conversion function.
+- Implemented feature #10068: added a list of supported RFCs to the
+  documentation.
+- Implemented feature #10082: added options class ezcMailParserOptions
+  and deprecated second parameter of parseMail() in ezcMailParser.
+- Implemented feature #10091: added SSL/TLS support for the SMTP
+  transport. Based on a patch from Christian Michel. 
+- Implemented feature #10340: More selective encoding of mail headers.
+- Implemented feature #10341: MixedPart mail without attachments - 
+  Documentation enhancement
+- Implemented feature #10682: The IMAP PEEK command is now supported
+  through the top() method. Added PEEK support to sortMessages() also.
+- Fixed a problem with certain IMAP servers which didn't allow the second
+  parameter of top() method from IMAP to be 0.
+
+
+1.2.1 - [RELEASEDATE]
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Added ezcMailTools::guessContentType to resolve a bug in which the images
+  embeded in an html part were treated like application/octet-stream
+  attachments.
+- Fixed bug #010138: Doc of ezcMailMultipartDigest->__construct() incorrect
+  (The documentation was correct, the implementation was wrong.)
+- Fixed issue #10283: ImapSet does not return the trailing parenthesis ')'.
+- Fixed issue #10312: Fixed the value of ezcMail::QUOTED_PRINTABLE constant.
+- Fixed issue #10200 (part 1): Content-Disposition header is no longer created
+  during parsing if it is missing.
+- Fixed issue #10200 (part 2): The value of the generated Content-ID header
+  contains the filename encoded with base64 to avoid problems.
+- Fixed issue #10136: ezcMailImapSet, ezcMailPop3Set and ezcMailMboxSet not
+  marked as private anymore.
+- Fixed issue #10358: correct call to the ezcMailTextParser constructor in
+  case the parsed message contains an unrecognized MIME main type.
+- Fixed issue #10389: tab characters are converted to one space when parsing
+  mails with wrapped headers.
+- Fixed issue #10359: unrecognized mail body parts are parsed using the
+  ezcMailFileParser.
+- Fixed issue #10396: Method convertToUTF8 assumes 'latin1' charset instead of
+  'unknown-8bit' and 'x-user-defined'.
+
+
+1.2 - Monday 18 December 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.2beta2 - Monday 20 November 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Added feature #9079: The ability to add mail attachments using streams.
+- Added feature #9100: The ability to set the character set in the
+  composer for text and HTML parts.
+- Added feature #9331: Added the returnPath property in ezcMail to set the
+  envelope address while sending mail with the SMTP and MTA transports.
+- Added feature #9334: Added the getMessageNumbers() method to the IMAP and
+  POP3 sets to return message numbers. Patch by Mikko Koppanen.
+
+- Fixed an issue in ezcMailPart: When setting the headers property the wrong
+  exception was thrown.
+- Fixed bug #9042: added __isset() method to classes that use properties.
+- Fixed bug #9442: added missing hasData() method to ezcMailVariableSet.
+- Various additions to the IMAP Transport:
+
+  * Added features #9171, #9172, #9206, #9228: Added the fetchByFlag(),
+    countByFlag(), setFlag(), clearFlag() methods. Patches by Mikko Koppanen.
+  * Added feature #9173: Changed the status() method to also return the number
+    of recent and unseen messages.
+  * Added features #9212 and #9228: Added the createMailbox(), renameMailbox(),
+    deleteMailbox() and copyMessages() methods. Patches by Mikko Koppanen.
+  * Added feature #9229: Added a parameter to selectMailbox to select a mail
+    box in readonly mode. Patch by Mikko Koppanen.
+  * Added feature #9333: Added the sortMessages(), sortFromOffset() and
+    fetchFlags() methods. Patches by Mikko Koppanen.
+  * Added feature #9336: Added the expunge() method. Patch by Mikko Koppanen.
+  * Added feature #9423: Added the capability() method.  Patch by Mikko
+    Koppanen.
+  * Added feature #9424: Added the noop() method in IMAP and POP3 transports.
+    Patch by Mikko Koppanen.
+  * Added feature #9425: Added the append() method.
+
+
+1.2beta1 - Tuesday 24 October 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Added IMAP transport.
+- Added fetchFromOffset() method to POP3 and MBOX transports.
+- Implemented suggestion #8988: ezcMailAddress should implement __toString().
+- Implemented suggestion #8989: Extending the ezcMail class.
+  ezcMailParser->parse() can now deal with classes that extend ezcMail.
+  Additionally, added this functionality to ezcMailTool::replyToMail().
+- Implemented read access to property ezcMailPart->headers for extending this
+  class and its derives.
+- Added a new class (ezcMailVirtualFile) to allow attachments from memory.
+- Added an optional parameter to listMessages() method in IMAP, to return
+  messages with a certain Content-Type header.
+
+
+1.1.3 - Monday 09 October 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed bug #8990: ezcMail->messageID should be named ezcMail->messageId.
+- Fixed bug #9048: ezcMailText does not encode properly.
+- Fixed bug #9049: Long headers are not wrapped and could cause MTA warnings.
+- Fixed bug #8850: Support multiline header parameters by
+  implementing RFC2231.
+- Fixed a bug in ezcMailPart: The getHeader() function returns an empty
+  string instead of null in case of an unknown header.
+- Fixed a bug in ezcMailRfc822Parser: The bcc is set correctly now while
+  parsing e-mail.
+- Fixed a bug in ezcMailMultipartRelated: The getRelatedParts() and
+  getRelatedPartByID() functions return now correct values if the main part of
+  the message is missing.
+- Fixed a bug in ezcMailMtaTransport and ezcMailSmtpTransport: Checking for
+  sending a message without recipients.
+- Fixed a bug in ezcMailImapTransport: listUniqueIdentifiers() does not hang
+  anymore when the supplied parameter is an invalid message number.
+- Implemented support for character set and language for
+  ezcContentDispositionHeader.
+- Fixed an issue with mbox files without an mbox header being present.
+
+
+1.1.2 - Monday 28 August 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Added the ezcMailPop3Transport::fetchByMessageNr() method that returns an
+  ezcMailPop3Set containing the message with the specified number.
+- Fixed bug #8736: variable transport non-functional.
+- Fixed bug that caused the contentId property of the ezcMailFile class not to
+  be set even if it was available for the related part while parsing
+  multipart/related messages.
+- PHP 5.2 compatibility.
+	
+
+1.1.1 - Monday 07 August 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Partially fixed bug #8694:
+
+  * Don't crash when generating empty mail.
+  * Don't assume that message/ parts are actually rfc822 messages when parsing
+    mail.
+	
+	
+1.1 - Monday 12 June 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed CS issues and tests.
+
+
+1.1rc1 - Monday 29 May 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	
+- Added the ezcMailTools::replyToMail() method that will create a reply
+  message with the correct headers set (from, to, cc, ,subject, references and
+  in-reply-to) based on an existing mail message.
+- Added workaround for bug #8271: Mail parsing bug in email with PGP signature.
+  We don't support GPG at the moment, however we now recognize it and ignore keys
+  and signatures.
+- Added the ezcMailSmtpTransport::keepConnection() method. This allows keeping
+  the connection open when sending several mails.
+- Added the ezcMail::messageID property which represents the ID of a mail
+  message.
+- Added the ezcMail::timestamp property which is generated from the Date
+  header.
+- Added the ezcMailMboxTransport and changed ezcMailMboxSet to work together
+  with that one.
+- Added $encoding parameter to ezcMailTools::parseMailAddress and
+  ezcMailTools::parseMailAddresses. This allows you to parse not only
+  RFC822 compliant address strings but also address strings in local
+  encoding. This is useful when ezcMailAddress items directly from
+  user inserted address string (e.g from a composer window).
+- Added feature #8266: Property for the Content-Disposition
+  stuff on the ezcMailPart level. Implemented for both parsing and sending.
+- Changed mime string decoding to be more robust by trying to work around
+  common mistakes by MUAs.
+- Changed the way how character sets are handled. From now on all text parts
+  will automatically be converted to UTF-8. The original character set
+  belonging to the e-mail is stored in the originalCharset property, while the
+  charset property will now always return "UTF-8" for text parts.
+- Changed header storage so that headers are now stored case sensitive but
+  retrieved case insensitive. This is useful since headers are case
+  insensitive, but do have a preferred case. When fetching headers it is handy
+  not to have to try all possible permutations.
+- Fixed a bug where parsing would fail because there was no trailing ';' in
+  the Content-Type field.
+- Fixed an issue where mime decoding of headers failed because of a bug in
+  PHP.
+
+	
+1.1beta2 - Tuesday 09 May 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Added the getRelatedPartByID() method to ezcMailMultipartRelated that
+  returns a mail part by looking for it's Content-ID.
+- Added the class ezcMailFileSet that can be used to parse mail messages
+  in a file directly from disk.
+- Added the class ezcMailVariableSet that can be used to parse mail messages
+  directly from a variable.
+- Changed the POP3 classes to leave the mail on the server by default. You
+  need to actively set $deleteFromServer in order to have it removed.
+
+
+1.1beta1 - Wednesday 19 April 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Added the mbox transport for reading mbox files to use with the
+  ezcMailParser.
+- Fixed a bug that caused filenames with spaces to appear mangled.
+- Fixed a bug where the encodings 7bit and 8bit were not handled correctly.
+- Fixed a bug where text attachments missed line breaks when saved to disk.
+
+
+1.1alpha1 - Monday 03 April 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Added functionality for parsing mail messages. The main class is
+  ezcMailParser.
+- Added the POP 3 mail retrieving transport for use with the ezcMailParser.
+- Added method ezcMailPart::setHeaders to set multiple headers at once.
+- Added method ezcMailTools::parseEmailAddress and parseEmailAddresses that
+  parse RFC 2822 email addresses.
+- Added class ezcMailRfc822Digest inheriting ezcMailPart. This part can be
+  used to create mail digest messages.
+- Added class ezcMailMultipartDigest which represents multipart/digest parts.
+- Renamed ezcMailTransportMta and ezcMailTransportSmtp to ezcMailMtaTransport
+  and ezcMailSmtpTransport. The old classes still exist but are deprecated.
+
+
+1.0.1 - Monday 20 February 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed bug #7805: Removed double linebreak in ezcMailTransportMta::send().
+- Fixed bug #7813: MultipartRelated with non-file parts may throw exception 
+  if you did not set a Content-ID.
+- Implemented suggesion #7804:
+
+  * Added getParts() to ezcMailMultipart.
+  * Added getParts() to ezcMailMultipartMixed and MultipartAlternative.
+  * Added getMainPart() and getRelatedParts to ezcMultipartRelated.
+
+
+1.0 - Monday 30 January 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Changed ezcMailException to inherit from ezcBaseException instead of
+  Exception.
+- Fixed bug #7716: ezcMail needs support for Reply-To. We simply don't set it
+  anymore now. Users can set the header themselves if they need to.
+  (ezcMailPart::setHeader())
+- Fixed issue with double To and Subject headers when using the MTA transport.
+
+
+1.0rc1 - Monday 16 January 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Added feature enhancement #7582: Adding multiple parts as an array.
+- Changed ezcMailText::characterSet property to charset.
+- Changed ezcMailSmtpTransport and made all protected methods private. They
+  exposed an interface that most likely never will have to be changed.
+- Changed exception behavior. All errors will now throw a different exception
+  class.
+- Fixed bug #7637: "ezcMailComposer doesn't encode headers".
+
+
+1.0beta2 - Wednesday 21 December 2005
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Completely revised documentation.
+- Replaced the mail_address array with the ezcMailAddress 'struct'.
+- Renamed ezcMailTextPart to ezcMailText
+- Renamed ezcMailFilePart to ezcMailFile
+- Fixed problem with sending mail with cc and bcc recipients.
+
+- Fixed bug #7576: RFC 2606 compliance
+- Fixed bug #7577: unable to run example_general.php
+- Fixed bug #7578: mail example errors
+
+
+1.0beta1 - Thursday 24 November 2005
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Initial release of this package.

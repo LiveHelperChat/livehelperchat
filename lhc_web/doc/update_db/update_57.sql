@@ -1,0 +1,1 @@
+INSERT INTO `lh_chat_config` (`identifier`, `value`, `type`, `explain`, `hidden`) VALUES ('accept_tos_link', '#', 0, 'Change to your site Terms of Service',        0);

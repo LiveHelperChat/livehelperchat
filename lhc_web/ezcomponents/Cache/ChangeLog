@@ -1,0 +1,214 @@
+1.5 - Monday 21 December 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.5rc1 - Monday 07 December 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.5beta1 - Monday 23 November 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.5alpha1 - Tuesday 01 September 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented feature #12433: The new ezcCacheStorageFileObject deprecates
+  ezcCacheStorageFileArray, since it can store objects that implement
+  ezcBaseExportable, arrays and scalar values.
+- Fixed memcache test cases.
+- Fixed issue #15227: Warnings during minor race condition in
+  ezcCacheStorageFile are now silenced.
+
+
+1.4.1 - Monday 11 May 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #14684: Exception on invalid cache location now contains the
+  location it results from it.
+- Fixed issue #14685: Corrected tutorial regarding ezcCacheStackConfigurator.
+
+
+1.4 - Monday 16 June 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.4rc1 - Tuesday 10 June 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #13053: Fixed calculation of remaining life time in all storage
+  classes and with that resolved the strange behavior in the Memcach storage.
+- Fixed issue #13112: Corrected the tutorial text.
+- Fixed issue #13119: Replaced references to /tmp with createTempDir() calls.
+
+
+1.4beta1 - Tuesday 27 May 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #12993: Hierarchical caching does not prune items in the correct
+  situation. Note that the internal structure of the stack meta data changed
+  drastically with this fix. You need to reset() the whole storage after this
+  update.
+
+
+1.4alpha1 - Monday 05 May 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented feature #12587: Hierachic caching for the Cache component. The
+  class ezcCacheStack and related classes provide that feature.
+- Fixed issue #12666: ezcCacheStorageMemcache potentially creates multiple
+  connections to the same memcached server.
+
+
+1.3 - Monday 17 December 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.3beta1 - Wednesday 28 November 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #11888: Small fixes to PHPDoc in memory_backend.php.
+
+
+1.3alpha1 - Monday 29 October 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented issue #10533: ezcCacheManager::getCache does not support delayed
+  initialization.
+- Fixed issue #11064: Marked search() as protected in ezcCacheStorageFile.
+- Implemented feature request #11049: Added APC and Memcache backends for
+  caching. Based on a patch from Grady Kuhnline.
+- Fixed issue #11181: A physical location is not required anymore for pure
+  memory backends.
+- Fixed issue #11413: The search flag is off by default for restore() and
+  delete().
+- Fixed issue #11138: The validateLocation() method is defined as abstract in
+  ezcCacheStorage.
+
+
+1.2 - Monday 02 July 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Documentation fixes.
+
+
+1.2rc1 - Monday 25 June 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Documentation fixes.
+
+
+1.2beta1 - Monday 07 May 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented issue #9383: Ability to set file permissions on created files.
+- Added ezcCacheStorageFileOptions class.
+- Fixed issue #10678: ezcCacheStorageOptions throws incorrect exceptions.
+- Implemented issue #10577: ezcCacheStorageFile::restore searches for files
+  and returns the wrong data. A new parameter to disable searching was invented.
+
+
+1.1.4 - Monday 18 December 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #9493: Convert < and > in exception messages to ' and ' for
+  Cache, ConsoleTools, ImageAnalysis, ImageConversion, PersistentObject,
+  PersistentObjectDatabaseSchemaTiein.
+- Fixed issue #9819: Let all components deal with the ezcBaseAutoloadException
+  properly.
+
+
+1.1.3 - Monday 20 November 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #9443: ezcCacheStorageFile::delete() only removes the first
+  cache file found.
+
+
+1.1.2 - Monday 28 August 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Refactored property handling.
+
+
+1.1.1 - Monday 07 August 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Updated tutorial with a new example.
+
+
+1.1 - Monday 12 June 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed tests for Windows.
+
+
+1.1rc1 - Monday 29 May 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed bug #8301: ezcCacheStorageFile::search and delete do not work with
+  identifiers containing slashes.
+- Fixed bug #8359: Similar IDs lead to invalid data item count. ATTENTION:
+  This invalidates all cache items, which consists only of an ID. Please purge
+  these caches manually.
+- Refactored to use the new ezcBaseOptions class.
+
+
+1.1beta1 - Tuesday 09 May 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented feature request 7841: Added possibility to provide a TTL of
+  false to  make cache items last endlessly.
+
+
+1.0.1 - Monday 27 February 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed bug #7830: ezcCacheStorageFile::generateIdentifier is using HFS
+  directory separator (colon) in filename. It now uses a "=". Attention: This
+  invalidates all cache files when upgrading. You should purge the cache
+  manually.
+
+
+1.0 - Monday 30 January 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed unreported bug: ezcCacheStorageFile::countDataItems() was intended to
+  return int (number of cache items matching certain criteria) but returned
+  bool.
+
+
+1.0rc1 - Monday 16 January 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Added value checks for options provided to ezcCacheStorage classes.
+
+- Changed exception behavior. All errors will now throw a different exception
+  class.
+
+
+1.0beta2 - Friday 23 December 2005
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Changed method names:
+
+  * ezcCacheStorage::hasData() to countDataItems().
+  * ezcCacheStorage::remainingLifeTime() to getRemainingLifeTime().
+
+- Fixed bug #7469: "Missing PHP closing tags in cache file".
+
+
+1.0beta1 - Friday 25 November 2005
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Initial release of this package.

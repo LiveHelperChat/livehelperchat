@@ -1,0 +1,216 @@
+1.3.5 - Monday 09 November 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed bug #15466: Documentation error for ezcConfigurationReader.
+
+
+1.3.4 - Tuesday 01 September 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented issue #13244: ezcConfigurationIniWriter::writeSetting() enforces
+  quoting even thought it is documented differently.
+- Fixed bug #15309: Hash keys with quotes were not escaped properly internally.
+
+
+1.3.3 - Monday 11 May 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed bug #14701: Reader classes were cached too aggresively resulting in
+  calling ->init() for the 2nd time on a manager not re-initializing the
+  correct configuration object.
+
+
+1.3.2 - Monday 15 December 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed bug #14087: ezcConfigurationManager::reset() does not reset the cached
+  configuration objects.
+
+
+1.3.1 - Monday 06 October 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented issue #12523: Offer hasConfigFile() in ezcConfigurationManager.
+- Fixed bug #13458: Problems with fetching out-of-range integers in
+  configuration files.
+
+
+1.3 - Monday 16 June 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.3rc1 - Tuesday 10 June 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes
+
+
+1.3beta1 - Tuesday 27 May 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.3alpha1 - Monday 05 May 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented issue #12694: replace reflection test for class type with spl
+  function.
+- Implemented issue #12911: Added the hasGroup() and getSettingsInGroup()
+  methods to ezcConfigurationManager to allow for fetching of all settings
+  in a group. (Patch by James Pic)
+
+
+1.2.1 - Monday 03 March 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #12477: missing backslash \ in file format part of configuration
+  component tutorial.
+
+
+1.2 - Monday 02 July 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Documentation fixes and updates.
+
+
+1.2beta1 - Monday 07 May 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented issue #9965: Support for delayed initialization through
+  ezcBaseInit.
+- Implemented issue #10457: Unclear what $name in getSetting() of
+  Configuration component means.
+- Added the ezcConfigurationManager::reset() method that returns the 
+  manager to its uninitialized state.
+- Fixed issue #10110: Warnings in configuration tests with the posix extension
+  is not enabled.
+
+
+1.1 - Monday 18 December 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #9819: Let all components deal with the ezcBaseAutoloadException
+  properly.
+
+
+1.1beta1 - Monday 20 November 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Added feature #9169: Ini files can also have comments that start with an ;
+  now - instead of only using # as comment marker.
+
+
+1.0.4 - Monday 09 October 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed a bug where the class name ezcConfigurationUnknownSetting was used
+  instead of the correct name ezcConfigurationUnknownSettingException.
+
+
+1.0.3 - Monday 28 August 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Refactored to use new ezcBaseStruct class to inherit all the structs from.
+
+
+1.0.2 - Monday 12 June 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Added a check to insure that the init method is called before fetching a
+  reader in the manager. If the init method was not called then an
+  ezcConfigurationManagerNotInitializedException will be thrown.
+
+
+1.0.1 - Monday 20 February 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed bug #7855: Ini value not followed by newline sequence is not
+  recognized.
+
+
+1.0 - Monday 30 January 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed documentation regarding when which exception is thrown.
+
+ezcConfigurationManager
+=======================
+
+- Added getSettingsAsList() method to retrieve a group of settings but without
+  their names being used as keys in the returned array. This allows the list()
+  = $manager->getSettingsAsList( $name, $group, $settingsArray() ); syntax.
+
+
+1.0rc1 - Monday 16 January 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Changed exception behavior. All errors will now throw a different exception
+  class.
+
+ezcConfigurationFileWriter
+==========================
+
+- Fixed generation of file names to include a . before appending the suffix.
+- Fixed a spelling error when throwing an exception in case a file could not
+  be written to.
+
+
+1.0beta2 - Wednesday 21 December 2005
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ezcConfiguration
+================
+
+- Added implementation of getGroupNames() that returns all group names from
+  a configuration file.
+- Changed method names:
+
+  * allComments() to getAllComments()
+  * allSettings() to getAllSettings()
+  * arraySetting() to getArraySetting()
+  * boolSetting() to getBoolSetting()
+  * comments() to getComments()
+  * comment() to getComment()
+  * floatSetting() to getFloatSetting()
+  * intSetting() to getIntSetting()
+  * numberSetting() to getNumberSetting()
+  * settingNames() to getSettingNames()
+  * settingsInGroup() to getSettingsInGroup()
+  * settings() to getSettings()
+  * setting() to getSetting()
+  * stringSetting() to getStringSetting()
+
+ezcConfigurationManager
+=======================
+
+- Changed method names:
+
+  * arraySetting() to getArraySetting()
+  * boolSetting() to getBoolSetting()
+  * numberSetting() to getNumberSetting()
+  * settings() to getSettings()
+  * setting() to getSetting()
+  * stringSetting() to getStringSetting()
+
+ezcConfigurationArrayReader
+===========================
+
+- Changed method name:
+
+  * timestamp() to getTimestamp()
+
+ezcConfigurationIniReader
+=========================
+
+- Changed method name:
+
+  * timestamp() to getTimestamp()
+
+
+1.0beta1 - [RELEASEDATE]
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Initial release of this package.

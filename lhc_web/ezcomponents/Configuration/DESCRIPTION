@@ -1,0 +1,2 @@
+A component that allows you to use configuration files in different formats.
+The formats include the standard .ini file, and an array based format.

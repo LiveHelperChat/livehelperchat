@@ -1,0 +1,1 @@
+INSERT INTO `lh_chat_config` (`identifier`, `value`, `type`, `explain`, `hidden`) VALUES ('reopen_chat_enabled',1,	0,	'Reopen chat functionality enabled, 0 - No, 1 - Yes',	0);

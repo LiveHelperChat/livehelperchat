@@ -1,0 +1,4 @@
+{use $className}
+/**
+ * File containing the {$className} class.
+ */

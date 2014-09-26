@@ -1,0 +1,15 @@
+Review 05.08.09 - PO 1.7-alpha1
+===============================
+
+Changes review
+--------------
+
+[X] The exception catchall in handlers/load_handler.php +66 seems strange, and
+    the TODO indicates that the exception catching shouldn't be that generic -
+    why has it been implemented this way?
+
+General review
+--------------
+
+Seems fine.
+

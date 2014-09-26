@@ -1,0 +1,220 @@
+1.4 - Monday 29 June 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes
+
+
+1.4rc1 - Monday 22 June 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.4beta1 - Monday 08 June 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes
+
+
+1.4alpha1 - Tuesday 26 May 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented feature #14104: Stack writer to store log messages in memory.
+  (Based on a patch by Thomas Koch)
+
+
+1.3 - Monday 16 June 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.3rc1 - Tuesday 10 June 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes
+
+
+1.3beta1 - Tuesday 27 May 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.3alpha3 - Tuesday 13 May 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #13008: ezcLogFileWriter::openFile() throws wrong Exception.
+
+
+1.3alpha2 - Monday 05 May 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented feature #12907: Using both trigger_error() and all available
+  error types. (Patch by James Pic)
+- Implemented feature: Trim spaces around source.
+
+
+1.3alpha1 - Monday 07 April 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented feature #12503: Ability to disable log rotation by setting the
+  max log file option to the constructor to false.
+
+
+1.2 - Monday 17 December 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.2beta1 - Wednesday 28 November 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.2alpha1 - Monday 12 November 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented feature #10434: unix syslog writer, also works with the windows
+  event system.
+
+
+1.1 - Monday 02 July 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Updated documentation.
+
+
+1.1rc1 - Monday 25 June 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Updated documentation.
+
+
+1.1beta2 - Thursday 31 May 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed documentation.
+
+
+1.1beta1 - Monday 07 May 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented feature #9965: Support for delayed initialization through
+  ezcBaseInit.
+
+
+1.0.3 - Monday 18 December 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed bug #9603: The exception message in ezcLogWriterException is now
+  passed to the parent exception.
+- Fixed bug #9824: Broken test that caused another test in
+  EventLogDatabaseTiein to fail.
+
+
+1.0.2 - Monday 28 August 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Refactored to use new ezcBaseStruct class and new properties approach.
+
+
+1.0.1 - Monday 12 June 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Updated documentation.
+
+
+1.0 - Monday 30 January 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Renamed classes:
+
+  * ezcLogWriterFile to ezcLogFileWriter
+  * ezcLogWriterUnixFile to ezcLogUnixFileWriter
+  * ezcLogWriterDatabase to ezcLogDatabaseWriter
+
+- Fixed bug #7706: ezcLogFileWriter truncates log files every request.
+- Fixed a problem that automatic attributes weren't appended to the log.
+- Moved ezcLogDatabaseWriter to the EventLogDatabaseTiein component.
+
+ezcLogUnixFileWriter
+====================
+
+- Empty parenthesis are not shown anymore.
+
+
+1.0rc1 - Monday 16 January 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Changed exception behavior. All errors will now throw a different exception
+  class.
+- Added an ezcLogMapper interface.
+- Added the ezcLogFilterRule class.
+
+ezcLog
+======
+
+- Added the methods:
+  * getMapper()
+  * setMapper()
+
+- Removed the methods:
+  * map()
+  * unmap()
+
+ezcMap
+======
+
+- Changed the mapping behavior. The mapping of severity, source, and category
+  to a container (or writer), are done in a filter rule set. 
+- Renamed ezcMap to ezcLogFilterSet.
+
+ezcLogWriterDatabase
+====================
+
+- Renamed the method map() to setTable(). 
+
+ezcLogWriterFile
+================
+
+- Renamed the method map() to setFile(). 
+
+
+1.0beta2 - Thursday 22 December 2005
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Moved ezcLogFilter to the structs directory.
+- Changed access to non-existing properties to throw exceptions.
+- Changed the ezcLogFileException constants.
+
+
+ezcLog
+======
+
+- Changed method names:
+  * attach() to map()
+  * detach() to unmap()
+  * LogHandler() to logHandler()
+
+ezcLogWriterDatabase
+====================
+
+- Changed method names:
+  * logTo() to map()
+  * logNotTo() to unmap()
+
+ezcLogWriterFile
+================
+
+- Changed method names:
+  * logTo() to map()
+  * logNotTo() to unmap()
+
+
+1.0beta1 - Friday 25 November 2005
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Initial release of this package.

@@ -1,0 +1,3 @@
+A set of classes to do different actions with the console (also called shell).
+It can render a progress bar, tables and a status bar and contains a class for
+parsing command line options.

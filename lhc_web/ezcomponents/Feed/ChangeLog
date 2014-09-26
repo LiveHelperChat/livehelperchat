@@ -1,0 +1,152 @@
+1.3 - Monday 21 December 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.3rc1 - Monday 07 December 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.3beta1 - Monday 23 November 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #15625: RSS 0.90 feeds are parsed as RSS 1.0 feeds.
+
+
+1.3alpha1 - Monday 09 November 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented feature request #14076: Language attribute for feed items. Based
+  on a patch from Emanuel Sprung.
+- Implemented feature request #14292: Support atom:link in RSS feeds.
+- Fixed issue #15748: generator tag in atom feed invalid.
+- Fixed rendering of the cloud element in RSS2.
+- Fixed parsing of the atom:link element in RSS2.
+
+
+1.2.1 - Monday 09 February 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #14399: Language attribute missing or not documented.
+
+
+1.2 - Monday 05 January 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.2rc1 - Monday 15 December 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #14055: Parsing an empty string raises a warning.
+
+
+1.2beta1 - Monday 01 December 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #13963: error with setting directly the item property enclosure.
+- Fixed issue #14003: split() is deprecated in PHP 5.3.
+
+
+1.2alpha1 - Monday 10 November 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented feature request #13174: Add tutorial information for parsing
+  feeds which require authentication.
+
+
+1.1.1 - Monday 06 October 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #13570: Use internal libxml error handling.
+
+
+1.1 - Monday 16 June 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.1rc1 - Tuesday 10 June 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ATOM generator considers feed entry links without the rel attribute set as
+  rel="alternate" by default.
+- Fixed issue #13109: Fixed RSS1 (RDF) parsing when the "resource" attribute
+  is specified as "rdf:resource".
+- Fixed iTunes module elements handling if using a different prefix than
+  'itunes'.
+- Fixed issue #13110: Added redirection support for feed URLs returning the
+  301, 302 and 307 HTTP headers.
+
+
+1.1beta1 - Tuesday 27 May 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Removed ezcFeedCanNotParseException class, using ezcFeedParseErrorException
+  instead.
+- Changed protected methods and variables from processor classes to private.
+- Changed get() and set() functions from ezcFeedProcessor into __get() and
+  __set(), and added __isset().
+- Added the registerFeed() and registerModule() functions to ezcFeed.
+- Removed plural properties from ezcFeed (authors, categories, contributors,
+  items, links).
+- Added feed element types (person, category, link, image, etc) to specify
+  different feed and module elements.
+- Removed the method set() from ezcFeed and ezcFeedItem.
+- Removed the class ezcFeedTools.
+- Renamed ezcFeedItem to ezcFeedEntryElement.
+- Added a feed type to the ezcFeed method generate() to specify the output
+  feed type, and made the ezcFeed constructor feed type argument optional.
+- The properties are stored in ezcFeed and are assigned in the same way
+  without being dependent on the feed type.
+
+
+1.1alpha1 - Monday 07 April 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Reorganized internal structure of classes.
+- Added ezcFeedSchema to define different feed types.
+- Added ezcFeedElement instead of ezcFeedItem.
+- Added support for XML attributes for feeds.
+- Added regression tests based on the ones from Template.
+- In RSS2 the title, link and description nodes of item nodes are not all
+  required, but at least one of title or description nodes is required.
+- Added support for RSS2 enclosure and tutorial on how to use it for creating
+  and parsing podcasts.
+- Completed support for creating and parsing RSS2 feeds.
+- Completed support for creating and parsing RSS1 feeds.
+- Completed support for creating and parsing ATOM feeds.
+- Added the getContentType() method in ezcFeed to return its Content-Type.
+- Added support for ATOM xml:lang attribute.
+- The RSS1 about attribute is accessed as id through ezcFeed.
+- Added support for the Content module.
+- Added support for the DublinCore module.
+- Fixed issue #12557: added parse support for version 0.91 and 0.92 RSS feeds,
+  which are considered as RSS2 feeds.
+- Added support for the iTunes module.
+- Added support for the CreativeCommons module.
+- Added the required xmlns attribute when creating RSS1 feeds.
+- Added parse support for version 0.93 and 0.94 RSS feeds.
+- The RSS2 guid item attribute is accessed as id through ezcFeed.
+- Added a feed creator example application.
+- Changed the method ezcFeedTools::prepareDate() to return a DateTime object
+  - PHP 5.2 is required now.
+- Added generator information for ATOM when generating the feed.
+
+
+1.0beta1 - Monday 18 December 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Added the ezcFeed::parseContent() method that parses a feed contained in a
+  variable.
+
+
+1.0alpha1 - Tuesday 24 October 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Initial release of this package.

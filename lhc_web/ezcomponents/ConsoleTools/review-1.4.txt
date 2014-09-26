@@ -1,0 +1,12 @@
+Review Alexandru 2008-05-08
+===========================
+
+[X] Regarding #10765 (new MappingValidator for yes/no dialogs) - It is not
+    documented or mentioned in the tutorial.
+
+[X] Why is $this->properties['map'] = array(); in the constructor? $this-map
+    is assigned on the following line anyway.
+
+[X] The @property tag for ezcConsoleDialogQuestionMappingValidator contain a wrong
+    description for $conversion - TYPE_* instead of CONVERT_* constants. Same for
+    other validator classes.

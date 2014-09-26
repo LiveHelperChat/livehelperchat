@@ -1,0 +1,90 @@
+1.3 - Monday 29 June 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes
+
+
+1.3rc1 - Monday 22 June 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.3beta1 - Monday 08 June 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented enhancement #12943: Class and definition files can now be
+  generated from templates (using the Template component). Templates return
+  the mangled file name.
+
+
+1.2.1 - Wednesday 28 November 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #12022: PersistentObjectDatabaseSchemaTiein not passing it's
+  tests.
+- Fixed issue #12562: PersistentObjectDatabaseSchemaTiein tutorial is 
+  outdated.
+
+
+1.2 - Monday 02 July 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #11059: PersistentObjectDatabaseSchemaTiein: Boolean fields not
+  recognized correctly.
+
+
+1.2beta2 - Thursday 31 May 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #10712: PersistentObjectDatabaseSchemaTiein tests fail.
+- Fixed issue #10768: PersistentObjectDatabaseSchemaTiein: Class prefix not
+  reflected in definition file names.
+- Fixed issue #10769: PersistentObjectDatabaseSchemaTiein: Generated
+  getState() expects parameter.
+
+
+1.2beta1 - Monday 07 May 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented feature #9584: Switch for overwriting files.
+- Implemented feature #8418: Generate class files as well.
+
+
+1.1 - Monday 18 December 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #8499: PersistentObjectDatabaseSchemaTiein rungenerator.php
+  overwrites files without warning.
+- Fixed issue #9489: Check whether the PersistentObject and
+  PersistentObjectDatabaseSchemaTiein tutorials are interlinked.
+- Fixed issue #9515: PersistentObjectDatabaseTiein tests are system dependent.
+- Fixed issue #9623: PersistentObjectDatabaseSchemaTiein's generate should
+  handle database exceptions.
+
+
+1.1beta1 - Monday 20 November 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented feature #9437: Make PersistentObjectDatabaseSchemaTiein work
+  with databases directly.
+- Fixed issue #8401: PersistentObjectDatabaseSchemaTieIn error if
+  environment is not correct.
+
+
+1.0 - Monday 12 June 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed bug #8401: PersistentObjectDatabaseSchemaTieIn error if environment is 
+  not correct.
+
+1.0rc1 - Monday 29 May 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes at all.
+
+
+1.0beta1 - Tuesday 09 May 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Initial release of this package.

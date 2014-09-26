@@ -1,0 +1,45 @@
+.user-settings-list,
+.user-account-list,
+.right-button,
+.found-total,
+.geo-settings,
+.right-footer,
+.msg-date{
+	float:left;
+}
+
+.usr-tit {
+	float:right;
+}
+
+.user-is-typing,
+#id-operator-typing {
+    display:none;
+    font-weight:bold;
+    position:absolute;
+    left:1px;
+    right:auto;
+    background-color: rgba(250, 250, 250, 0.95);
+    margin-top:-21px;
+    height;20px;
+    line-height:20px;
+    padding-right:5px;
+    padding-left:0px;
+    text-align:left;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-radius-topright: 10px;
+    border-top-right-radius: 10px;
+    -webkit-border-top-left-radius: 0px;
+    -moz-border-radius-topleft: 0px;
+    border-top-left-radius: 0px;
+    -webkit-box-shadow: -1px -1px 3px rgba(50, 50, 50, 0.16);
+    -moz-box-shadow:    -1px -1px 3px rgba(50, 50, 50, 0.16);
+    box-shadow:         -1px -1px 3px rgba(50, 50, 50, 0.16);
+}
+
+/* Accordion ---------------------- */
+ul.accordion-lhc > li > div.title-lhc:after { right:auto; left: 15px;}
+
+.chatbox-row .usr-tit {
+	float:none;
+}

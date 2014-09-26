@@ -1,0 +1,3 @@
+The purpose of the Authentication component is to provide support for different
+means of identification and authentication of users using different providers and
+protocols.

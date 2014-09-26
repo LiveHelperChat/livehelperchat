@@ -1,0 +1,3 @@
+A component that assists you to safely user input variables coming into your
+application. It builds on top of PHP's filter extension and extends it by
+providing a more inituitive API.

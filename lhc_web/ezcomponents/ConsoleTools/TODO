@@ -1,0 +1,2 @@
+- Fix issue with Gnome terminal not recognizing position restore sequence.
+- Add generation of help tables.

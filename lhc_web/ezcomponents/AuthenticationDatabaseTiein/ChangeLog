@@ -1,0 +1,42 @@
+1.1 - Monday 17 December 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.1beta1 - Wednesday 28 November 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.1alpha1 - Monday 29 October 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented feature request #10998: Added a Database backend for OpenID
+  authentication.
+- Implemented feature request #10971: Added the possibility to fetch extra
+  data during authentication for Database, LDAP, OpenID and TypeKey filters.
+- Fixed issue #11412: The Database filter does not trigger a PDO General Error
+  2014 with MySQL.
+- Fixed issue #11465: Fetching extra authentication data in Database filter
+  does not trigger a PDO General Error 904 with Oracle.
+
+
+1.0 - Monday 02 July 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Renamed ezcAuthenticationSessionFilter to ezcAuthenticationSession.
+
+
+1.0beta2 - Thursday 31 May 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Refactoring of some code.
+- Updated documentation.
+
+
+1.0beta1 - Monday 07 May 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Initial release of this package.

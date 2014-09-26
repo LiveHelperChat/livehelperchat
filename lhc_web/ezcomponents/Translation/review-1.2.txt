@@ -1,0 +1,14 @@
+General
+=======
+
+- Why does ezcTranslation->parameter_callback_compile() use _ instead of
+  CamelCase?
+
+	- No idea... probably because it was made like parameter_callback which is
+	  old. I changed them now as they are private methods anyway.
+
+- Method name ezcTranslationTsBackend->deinitWriter() sounds strange.
+  closeWriter() or similar would be better.
+
+	- It's analogous to ->initWriter() - I do agree it sounds strange, but we
+	  can not change it as it has been here for quite some releases now.

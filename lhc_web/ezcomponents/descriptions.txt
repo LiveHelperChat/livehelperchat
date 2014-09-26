@@ -1,0 +1,243 @@
+Archive
+-------
+The component allows you to create, modify, and extract archive files of 
+various formats.  The currently supported archives formats are Tar (with 
+the flavours: ustar, v7, pax, and gnu) and Zip. 
+
+Authentication
+--------------
+The purpose of the Authentication component is to provide support for different
+means of identification and authentication of users using different providers and
+protocols.
+
+AuthenticationDatabaseTiein
+---------------------------
+The purpose of the Authentication component is to provide support for different
+means of identification and authentication of users using different providers and
+protocols.
+
+Base
+----
+The Base package provides the basic infrastructure that all packages rely on.
+Therefore every component relies on this package.
+
+Cache
+-----
+A solution for caching, supporting multiple backends allowing you to specify
+the best performing solution for your caching-problem.
+
+Configuration
+-------------
+A component that allows you to use configuration files in different formats.
+The formats include the standard .ini file, and an array based format.
+
+ConsoleTools
+------------
+A set of classes to do different actions with the console (also called shell).
+It can render a progress bar, tables and a status bar and contains a class for
+parsing command line options.
+
+Database
+--------
+A lightweight database layer on top of PHP's PDO that allows you to utilize a
+database without having to take care of differences in SQL dialects.
+
+DatabaseSchema
+--------------
+A set of classes that allow you to extract information from a database schema,
+compare database schemas and apply a set of changes to a database schema.
+
+Debug
+-----
+This component provides a set of classes that help you to debug an
+application. It provides timers and report generators for different formats
+that give a summary of warnings and errors that occurred within your
+application.
+
+Document
+--------
+The Document components provides a general conversion framework for different
+semantic document markup languages like XHTML, Docbook, RST and similar.
+
+EventLog
+--------
+Allows you to log events or audit trails into files or other storage spaces in
+different formats.
+
+EventLogDatabaseTiein
+---------------------
+Contains the database writer backend for the EventLog component.
+
+Execution
+---------
+Provides functionality to give feedback to your application's users when a
+fatal error happened or an uncaught exception was thrown.
+
+Feed
+----
+This component handles parsing and creating RSS1, RSS2 and ATOM feeds, with
+support for different feed modules (dc, content, creativeCommons, geo, iTunes).
+
+File
+----
+Provides support for file operations which are not covered by PHP or are just
+missing.
+
+Graph
+-----
+A component for creating pie charts, line graphs and other kinds of diagrams.
+
+GraphDatabaseTiein
+------------------
+The GraphDatabaseTiein provides functionality to directly use PDO statements
+as basis for ezcGraph Datasets.
+
+ImageAnalysis
+-------------
+This class allows you to analyse image files in different ways. At least the
+MIME type of the file is returned. In some cases (JPEG, TIFF and GIF)
+additional information is gathered as well.
+
+ImageConversion
+---------------
+A set of classes to apply different filters on images, such as colour changes,
+resizing and special effects.
+
+Mail
+----
+The component allows you construct and/or parse Mail messages conforming to 
+the mail standard. It has support for attachments, multipart messages and HTML 
+mail. It also interfaces with SMTP to send mail or IMAP, POP3 or mbox to 
+retrieve e-mail.
+
+MvcTools
+--------
+The MvcTools component provides functionality for request parsing, routing,
+dispatching, views and response writing. With the tools in this component you can very
+easily build an MVC framework.
+
+MvcAuthenticationTiein
+----------------------
+This component provides authentication filters for the MvcTools component.
+
+MvcFeedTiein
+------------
+This component provides a view handler that renders result data as an ATOM or RSS feed.
+
+MvcMailTiein
+------------
+This component provides a request parser that extracts request data from e-mail
+messages.
+
+MvcTemplateTiein
+----------------
+This component provides a view handler that renders result data with the Template
+component.
+
+PersistentObject
+----------------
+This component allows you to store an arbitrary data structures to a fixed
+database table. The component provides all the functionality needed to fetch,
+list, delete etc these datastructures.
+
+PersistentObjectDatabaseSchemaTiein
+-----------------------------------
+This component allows the automatic generation of PersistentObject definition
+files from DatabaseSchema definitions.
+
+PhpGenerator
+------------
+Provides a simple interface for creating PHP files and executing PHP code.
+
+Search
+------
+The Search component provides an interface to index and query documents
+with different search engine backends.
+
+SignalSlot
+----------
+The SignalSlot component implements a mechanism for inter and intra object
+communication through the use of signals and slots.
+
+SystemInformation
+-----------------
+Provides access to common system variables, such as CPU type and speed, and the
+available amount of memory.
+
+Template
+--------
+A fully functional Templating system, supporting template compilation in
+different levels, user defined functions and operators, an optimizer, output
+escaping for different output handlers to prevent XSS and other security
+problems and a plug in system for extra functionality (such as a Translation
+system).
+
+TemplateTranslationTiein
+------------------------
+Provides functionality to use translations inside templates.
+
+Translation
+-----------
+A component that reads XML translation definitions (the Qt Linguist format),
+supports caching of translation contexts and presents you with a class to apply
+translations to strings. A filter system allows you to transform translation
+definitions for special use.
+
+TranslationCacheTiein
+---------------------
+This component adds the TranslationCache backend to the Translation component
+and allows cached translations.
+
+Tree
+----
+The Tree component handles the creating, manipulating and querying of tree
+structures.  The component supports different storage algorithms for optimal
+performance.
+
+TreeDatabaseTiein
+-----------------
+The Tree component handles the creating, manipulating and querying of tree
+structures.  This component implements the database related backends and
+data stores.
+
+TreePersistentObjectTiein
+-------------------------
+The Tree component handles the creating, manipulating and querying of tree
+structures.  This component uses persistent objects as data storage for the
+data elements of the tree nodes.
+
+Url
+---
+The Url package provides basic operations to handle urls (parse, build,
+get/set path, get/set query).
+
+UserInput
+---------
+A component that assists you to safely user input variables coming into your
+application. It builds on top of PHP's filter extension and extends it by
+providing a more inituitive API.
+
+Webdav
+------
+This component allows you to set up and run your own WebDAV (RFC 2518) server,
+to enable online content editing for the users of your system through the
+WebDAV HTTP extension.
+
+Workflow
+--------
+The purpose of the Workflow component is to provide the core functionality of an
+activity-based workflow system including the definition and execution of
+workflow specifications.
+
+WorkflowDatabaseTiein
+---------------------
+Contains the database backend for the Workflow component.
+
+WorkflowEventLogTiein
+---------------------
+Contains the EventLog listener for the Workflow component.
+
+WorkflowSignalSlotTiein
+-----------------------
+Contains the SignalSlot links for the Workflow component.
+

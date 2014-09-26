@@ -1,0 +1,8 @@
+{use $tableName, $fieldName, $propertyName}
+$def->idProperty = new ezcPersistentObjectIdProperty;
+$def->idProperty->columnName = '{$fieldName}';
+$def->idProperty->propertyName = '{$propertyName}';
+$def->idProperty->generator = new ezcPersistentGeneratorDefinition(
+    'ezcPersistentSequenceGenerator',
+    array( 'sequence' => '{$tableName}_{$fieldName}_seq' )
+);

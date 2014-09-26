@@ -1,0 +1,8 @@
+Review
+------
+
+- All operations (addAttribute, createElement, getAttribute) that work on
+  namespaced elements (such as atom:link) should use the namespace-aware
+  variants of this method (addAttributeNs, createElementNS). In
+  generateAtomSelfLink that would also prevent you from having to add the
+  "xmlns:atom" attribute yourself.

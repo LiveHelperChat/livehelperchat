@@ -1,0 +1,23 @@
+Review Alexandru 2009-08-03
+===========================
+
+[x] issue #14916 (extract help) doesn't have any tests
+
+	Inherently tested by ezcConsoleInputTest, since this already has tests for
+	help generation. These also ensure that no regression turns up during the
+	refactoring. Extracting the very same tests into a new test case would not
+	make sense. --ts
+
+[x] ezcConsoleStandardInputHelpGenerator - shouldn't it be named
+    ezcConsoleInputStandardHelpGenerator?
+
+[x] some method signatures don't reflect the doc blocks, eg.
+    generateGroupedOptionHelp()
+
+[x] @return array(int=>array(int=>string)) can be written easier as
+    @return array(array(string)) as we do in other components
+
+[x] for issue #15010 the file testTableWithoutFormatting.dat does not
+    exist in the windows folder. There are actually 15 files or so
+    which are missing from the windows folder and prevent testing
+    on Windows.

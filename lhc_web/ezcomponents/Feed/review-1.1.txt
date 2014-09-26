@@ -1,0 +1,287 @@
+ezcFeed
+=======
+
+- Why is there a module "name" and a "prefix"? Doesn't one of them last? Would
+  make it unembigious.
+
+# Some modules have the same name as RSS/ATOM elements (eg. 'content' module and
+  ATOM 'content' property. If we want to access properties and modules the same,
+  it will be ambiguous ($feed->content refering to ATOM property or content
+  module). So the content module has the 'Content' name and 'content' prefix to
+  differentiate this.
+
+- ezcFeed::addModule() -> todo.
+
+# Removed.
+
+- How to add a custom module to ezcFeed?
+     * A new module can be defined by creating a class which extends the class
+     * {@link ezcFeedModule}, and adding it to the {@link self::$supportedModules}
+     * and {@link self::$supportedModulesPrefixes} arrays.
+  Is it necessary to extend ezcFeed to do this?
+
+# I did not find a better way to do this (I don't know how to see at runtime which
+  modules are defined without hard-coding it in ezcFeed).
+
+  # Use static methods like ezcFeed::registerModule(),
+    ezcFeed::unregisterModule(), which add or remove a module.
+
+    # Added the functions registerFeed, registerModule and unregisterFeed,
+      unregisterModule to ezcFeed.
+
+- Why does ezcFeed have double single/multiple value properties (
+  $author[s],...).
+
+  # I think we should only go for the plural property and if a feed type
+  # supports only 1 element of that type, use the first in the array.
+
+    I changed it so that only the singular is needed (eg. $feed->item will
+    return an array of ezcFeedItem objects).
+
+- ezcFeed::__get() makes use of isset( $this->$property ), this also returns
+  true for real protected/private properties. It should call $this->__isset()
+  directly. This is also more efficient.
+
+# Fixed.
+
+- ezcFeed::__get() should also better throw an ezcBasePropertyNotFoundException.
+
+# In this case, when parsing a feed you will get an exception if trying to fetch
+  $feed->title and the title is missing from the XML document.
+
+  # This exception should be issued in the parser then, not in __get().
+
+    # I don't think it is a good idea to throw an exception if the XML which
+      is parsed is missing a title or any element. All XML feeds should be
+      parseable.
+
+- ezcFeed::__isset() behaviour incorrect. We return true if a property exists
+  but is null.
+
+# Fixed.
+
+- Why does ezcFeed declare protected attributes and mark them as @ignore? No
+  class seems to extend ezcFeed. Declaring this private makes more sense.
+
+# Maybe somebody will want to extend ezcFeed so it would be easier with
+  protected instead of private attributes (see also issue tracker for requests
+  to change private attributes into protected ones).
+
+  # Then we must declar it like this. If we intend people to extend our
+    classes, we mark the properties they might need "protected". If this is
+    not the case, we keep them private. That is the sense of these keywords.
+    But beware, if we mark the protected, they must be API stable and may not
+    change later. Protected and @ignore (even better @access private) should
+    only be used, if we extend the classes internally in the component, but do
+    not want to expose the affected elements as stable API to others.
+
+    # I changed some methods and variables from protected to private.
+
+- Huge docblock at the beginning of the file is annoying. We should think
+  about a way to include docs there.
+
+# I prefer to write longer docblocks to help a bit the people who want to jump
+  in without reading the tutorial first or asking on IRC.
+
+  # We should think about outsourcing such huge examples and use the @example
+    tag for them. This tag receives an external source file name and puts this
+    example in the generated docs. We keep it in the online docs this way and
+    make source code browsing more comfortable.
+
+- Why ezcFeedCanNotParseException and ezcFeedParseErrorException? The name
+  states the same purpose. Even the docs are the same.
+
+# I removed ezcFeedCanNotParseException and used the other one only.
+
+ezcFeedItem
+===========
+
+- Why are similar feed item elements handled so different? Example:
+  - For atom links you have $link->href, $link->rel
+  - Form rss links you have $link->get()
+  I would prefer to access them in an equal manor. For example, the link
+  itself could always be accessed via $link->href and only for atom the other
+  properties could be available.
+
+# I changed all feed types and modules to be used in a more uniform manner.
+  All feed and module elements now have a type (struct) (eg: link, category,
+  person) and the data is stored in these structs. When generating or parsing
+  a feed, the data is fetched from these structs or the structs are filled with
+  data from XML, respectively. The unused data is ignored.
+
+  Example:
+  RSS2 XML: <link>http://ez.no/</link>
+  ATOM XML: <link href="http://ez.no/" title="eZ Systems" type="text/html" />
+
+  Parsed struct:
+  RSS2: ezcFeedLinkElement{ 'href' => 'http://ez.no/',
+                            'title' => null,
+                            'type' => null }
+
+  ATOM: ezcFeedLinkElement{ 'href' => 'http://ez.no/',
+                            'title' => 'eZ Systems',
+                            'type' => 'text/html' }
+
+  parsing a feed:
+  $feed = ezcFeed::parse( /* feed url */ );
+  foreach ( $feed->link as $link )
+  {
+      $href = $link->href;
+      $title = $link->title;
+      $type = $link->type;
+  }
+
+  creating a feed:
+  $feed = new ezcFeed(); // the type of feed is not required anymore
+  $link = $feed->add( 'link' );
+  $link->href = 'http://ez.no/';
+  $link->title = 'eZ Systems';
+  $link->type = 'text/html';
+
+  $xml = $feed->generate( 'rss2' ); // the feed type is specified when calling generate()
+     // results: <link>http://ez.no/</link>
+
+  $xml = $feed->generate( 'atom' );
+     // results: <link href="http://ez.no/" title="eZ Systems" type="text/html" />
+
+- Handling of the $id attribute is not working as noted in the docs. ::
+
+	  $item->id = 'http://example.com/someentry';
+	  $item->id->isPermalink = true;
+
+  Gives: ::
+
+	  Fatal error: Cannot use object of type ezcFeedElement as array in
+	  /usr/share/ezcomponents/trunk/Feed/src/processors/rss2.php on line 509
+
+  Removing the array accesses there fixes the fatal error, however, the
+  isPermalink attribute is not generated anyway and the result is a warining: ::
+
+	Warning: DOMDocument::createElement(): unterminated entity reference
+	Photos in /usr/share/ezcomponents/trunk/Feed/src/interfaces/processor.php on
+	line 122
+
+# This should be fixed now.
+
+  The parse handling of this one looks rather scary in the docs.
+
+# How is it scary? And where exactly?
+
+ezcFeedProcessor
+================
+
+- Why does ezcFeedProcessor use get()/set() instead of
+  __set()/__get()/__isset()?
+
+# Changed get() and set() into __get() and __set(), and added __isset() to
+  ezcFeedProcessor.
+
+ezcFeedRss2
+===========
+
+- The protected static attribute $rss2Schema contains a huge (122 lines)
+  definition for a 3 dimensional array. It looks rather unmaintainable . The
+  documentation "Holds the RSS2 feed schema." does not tell anything about its
+  purpose.
+
+# I removed the schemas.
+
+- The generateItems() method is 130 lines long, pure code and not a single
+  line of inline docs, and looks absolutly unmaintainable and untestable.
+
+# Sometimes the methods cannot be smaller. How is it unmaintainable and
+  untestable? There is only an foreach and a switch.
+
+- I suspect the other parser/processor classes look similar.
+
+# They look similar. Not much to do to make them smaller.
+
+ezcFeedTools
+============
+
+- Should be private. No sense in making such utility classes public if they
+  are not of special interesst for foreigners.
+
+# prepareDate() could be useful for some people. But the other functions are
+  not so important. I will consider making it private. I wanted to add some
+  other functions to this class, related to date formatting for different
+  feed types.
+
+  # See discussion on the ML.
+
+- ezcFeedTools::getAttributes() is a duplication of
+  DOMElement::getAttribute().
+
+# I must have missed that. I will deprecate the function.
+
+- ezcFeedTools::getAttributes() looks pretty much unnesseccary.
+  DOMNode->$attributes can be used instead for iteration,
+  DOMElement->getAttribute() for access by name.
+
+# I must have missed that. I will deprecate the function.
+
+- ezcFeedTools::prepareDate() should not accept DateTime objects. If it
+  receives them, this indicates bad code.
+
+# What if you assign a DateTime object to $feed->published for example? Should
+  the code throw an exception because the date was not a string or timestamp?
+
+  # The exception for assigning DateTime objects should be made in __set().
+    This way it is clear, that this is the intended behaviour and that other
+    data assigned must be parsed. See discussion on the ML.
+
+- ezcFeedTools::normalizeName() should use isset(). Works here and is faster.
+
+# I will update this.
+
+- The Feed component depends on the XML prefix that is used, but should
+  instead rely on the full XML name space instead.
+
+# Done. The getModuleName(), getNamespace() and getNamespacePrefix() functions
+  from ezcFeedModule and children were changed to static to allow this (and
+  it is more logical to have them static).
+
+General
+=======
+
+- A lot of multi-line short descriptions for methods, which do not parse
+  properly. The very first line of the doc bloc is the short description, all
+  following belong to the long description.
+
+# It seems that phpdoc handles this well now.
+
+- The test suite consist only of regression tests and 1 single unit test.
+  Removing the regression tests the overall code coverage is 37.57, which is
+  completly unacceptable. Especially since there are 166 public/protected
+  methods to ensure BC for.
+
+# Why would you remove the regression tests? They don't consume so much memory
+  as the template regression tests, so there is no reason to remove them.
+
+- Test cases are time zone dependent ::
+
+# In 5.3 no tests fail, but in 5.2.* six tests fail because of timezone. I don't
+  know how to fix them yet.
+
+    1) /home/dotxp/dev/PHP/actual/ezcomponents/trunk/Feed/tests/atom/regression/generate/modules/dc/dc_all_lang_multiple.in(ezcFeedAtomRegressionGenerateTest)
+	The dc_all_lang_multiple.out is not the same as the generated feed from dc_all_lang_multiple.in.
+	Failed asserting that two strings are equal.
+	--- Expected
+	+++ Actual
+	@@ -18,8 +18,8 @@
+		 <dc:coverage xml:lang="d">DC coverage 2</dc:coverage>
+		 <dc:creator xml:lang="e">DC creator 1</dc:creator>
+		 <dc:creator xml:lang="f">DC creator 2</dc:creator>
+	-    <dc:date xml:lang="g">2008-02-14T13:34:51+00:00</dc:date>
+	-    <dc:date xml:lang="h">1970-01-01T00:00:00+00:00</dc:date>
+	+    <dc:date xml:lang="g">2008-02-14T13:34:51+01:00</dc:date>
+	+    <dc:date xml:lang="h">1970-01-01T00:00:00+01:00</dc:date>
+		 <dc:description xml:lang="i">DC description 1</dc:description>
+		 <dc:description xml:lang="j">DC description 2</dc:description>
+		 <dc:format xml:lang="k">DC format 1</dc:format>
+
+	/home/dotxp/dev/PHP/actual/ezcomponents/trunk/Feed/tests/atom/atom_regression_generate_test.php:65
+	/home/dotxp/dev/PHP/actual/ezcomponents/trunk/Feed/tests/regression_test.php:269
+
+    + 5 other similar ones
+

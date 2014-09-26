@@ -1,0 +1,1 @@
+INSERT INTO `lh_chat_config` (`identifier`, `value`, `type`, `explain`, `hidden`) VALUES ('export_hash',	MD5(RAND()),	0,	'Chats export secret hash',	0);

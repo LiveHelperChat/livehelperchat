@@ -1,0 +1,32 @@
+CREDITS
+=======
+
+eZ Components team
+------------------
+
+- Sergey Alexeev
+- Sebastian Bergmann
+- Jan Borsodi
+- Raymond Bosman
+- Frederik Holljen
+- Kore Nordmann
+- Derick Rethans
+- Vadym Savchuk
+- Tobias Schlitt
+- Alexandru Stanoi
+
+Contributors
+------------
+
+- Sinisa Dukaric
+
+  * searchMailbox addition for IMAP transport
+
+- Mikko Koppanen
+
+  * various IMAP transport enhancements
+  * SSL support for IMAP and POP3
+
+- Christian Michel
+
+  * SSL/TLS support for SMTP transport

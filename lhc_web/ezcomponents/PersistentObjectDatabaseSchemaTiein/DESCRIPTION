@@ -1,0 +1,2 @@
+This component allows the automatic generation of PersistentObject definition
+files from DatabaseSchema definitions.

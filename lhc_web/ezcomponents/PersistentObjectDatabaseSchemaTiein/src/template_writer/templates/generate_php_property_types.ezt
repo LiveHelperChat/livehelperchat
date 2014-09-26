@@ -1,0 +1,25 @@
+{use $schema}
+{var $propertyTypes = array()}
+{foreach $schema->fields as $fieldName => $field}
+	{switch $field->type}
+		{case 'integer', 'timestamp'}
+			{$propertyTypes[$fieldName] = 'int'}
+		{/case}
+		{case 'float', 'decimal'}
+			{$propertyTypes[$fieldName] = 'float'}
+		{/case}
+		{case 'text', 'blob', 'clob'}
+			{$propertyTypes[$fieldName] = 'string'}
+		{/case}
+		{case 'boolean'}
+			{$propertyTypes[$fieldName] = 'bool'}
+		{/case}
+		{case 'time', 'date'}
+			{$propertyTypes[$fieldName] = 'object'}
+		{/case}
+		{default}
+			{$propertyTypes[$fieldName] = 'scalar'}
+		{/default}
+	{/switch}
+{/foreach}
+{return $propertyTypes}

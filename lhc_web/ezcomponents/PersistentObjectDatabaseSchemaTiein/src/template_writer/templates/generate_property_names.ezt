@@ -1,0 +1,6 @@
+{use $schema}
+{var $propertyNames = array()}
+{foreach $schema->fields as $fieldName => $field}
+	{$propertyNames[$fieldName] = underScoreToCamelCase( $fieldName, true )}
+{/foreach}
+{return $propertyNames}

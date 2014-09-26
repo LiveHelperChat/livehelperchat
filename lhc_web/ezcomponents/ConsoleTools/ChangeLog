@@ -1,0 +1,453 @@
+1.6.1 - Monday 22 March 2010
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #16055: Corrected regression in error message for option
+  dependencies.
+
+
+1.6 - Monday 21 December 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.6rc1 - Monday 07 December 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.6beta1 - Monday 23 November 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.6alpha1 - Tuesday 01 September 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented enhancement #14804: ezcConsoleOptionRule now has a property
+  "ifSet". This one defaults to true, meaning that the rule is validated if
+  the option it is attached to was submitted. If set to false, the rule is
+  validated if the option was not submitted.
+- Implemented enhansement #14916: Extracted help generation and input
+  validation from ezcConsoleInput. The interfaces still need validation and are
+  not public for now.
+- Implemented enhancement #15010: The table does not use output formats
+  anymore, if "useFormats" is set to false in the ezcConsoleOutput instance
+  used.
+
+
+1.5.2 - Monday 22 June 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #15009: Empty tables are now rendered correctly.
+- Fixed issue #14073: ConsoleTools is not binary safe, presuming UTF-8 input.
+  Note that the component now depends on ext/iconv which is bundled with PHP
+  and active by default.
+
+
+1.5.1 - Monday 11 May 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #14803: Exclusions and dependencies between options now also work
+  if no short name is provided for the options.
+
+
+1.5 - Monday 05 January 2009
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.5rc1 - Monday 15 December 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #14078: ezcConsoleDialog implementations now throw an
+  ezcConsoleDialogAbortException, if the user closes STDIN (<CTRL>-D).
+
+
+1.5beta1 - Monday 01 December 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented feature #12567: All help generation methods now support grouping
+  of options.
+- Implemented feature #13240: ezcConsoleProgressbar now allows to specify
+  $minVerbosity and $maxVerbosity options.
+
+
+1.4 - Monday 16 June 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.4rc1 - Tuesday 10 June 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #13118: Class::method() replaced by Class->method() for object
+  method calls and attribute accesses where appropriate.
+
+
+1.4beta1 - Tuesday 27 May 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- No changes.
+
+
+1.4alpha1 - Monday 05 May 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented issue #10765: ezcConsoleQuestionDialog::YesNoQuestion does not
+  accept "Yes" or "yes" / "no", "No" as valid answer. A new validator
+  (ezcConsoleQuestionMappingValidator) was introduced for this, which extends
+  ezcConsoleQuestionCollectionValidator and is now used for the yes-no-question.
+- Implemented issue #10791: ezcConsoleTable should implement __toString.
+- Implemented issue #10838: ezcConsoleOutputFormats should implement Iterator
+  and Countable.
+- Fixed issue #12561: getSynopsis() bugs when at least 2 options don't have
+  short-names.
+- Fixed issue #12623: console menu dialog handles unexisting options wrong.
+- Fixed issue #12624: Wrong text in documentation of eZConsoleDialogViewer.
+- Fixed issue #12625: console tools lacks documentation on targets.
+- Fixed issue #12626: Type "ta" in ezconsoleoutput documentation.
+- Fixed issue #12628: Missing space in ezcConsoleInput::getHelp API doc.
+- Fixed issue #12629: Method name not replaced with link in
+  ezcConsoleMenuDialog::display() API doc.
+- Fixed issue #12630: Add link to ezcDialogNoValidResultException in
+  ezcConsoleDialog::getResult() API doc.
+- Fxied issue #12636: ezcConsoleOutput->outputLine() prints EOL always to
+  STDOUT instead of the defined target.
+
+
+1.3.2 - Monday 14 January 2008
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #11435: ConsoleInput does not reset $option->value;. The newly
+  added reset() method can in addtion be used to manually reset all option and
+  argument values.
+- Fixed issue #12364: /ezc/trunk/ConsoleTools/docs/example_table.php base
+  value exception.
+
+
+1.3.1 - Wednesday 28 November 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #11378: Example code throws Exception.
+
+
+1.3 - Monday 02 July 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Documentation updates.
+
+
+1.3beta2 - Thursday 31 May 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #10766: ezcConsoleQuestionDialogTypeValidator with TYPE_FLOAT
+  does not accept numbers like 4E3.
+- Fixed issue #10767: Class ezcConsoleQuestionDialogRegexValidator described
+  in the design document is missing.
+- Fixed issue #10782: ConsoleTools: Argument mandatoryness applies always. If
+  help option is set, arguments are not checked anymore and old argument
+  checking is used, if arguments are disallowed (to assure this is checked
+  correctly).
+- Fixed issue #10864: ezcConsoleTable calculates wrong column length for
+  content including line breaks.
+- Fixed issue #10873: ezcConsoleArgument default value not working.
+- Fixed issue #10874: ezcConsoleArgument default value not contained in
+  generated help text.
+
+
+1.3beta1 - Monday 07 May 2007
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #9857: Multi-option and default value. Arrays are now allowed in
+  default value, if multiple-option is set to true.
+- Fixed issue #9902: Problems on Windows.
+- Fixed issue #10594: ezcConsole*Options throw incorrect exceptions.
+- Fixed issue #10595: ezcConsole*Options perform improper string checks.
+- Fixed issue #10596: ezcConsoleTable* classes do not perform proper property
+  checks.
+- Fixed issue #10604: ezcConsoleInput exception not thrown on invalid option
+  string.
+- Fixed issue #10608: ezcConsoleInput->registerAlias( ) does not work.
+- Fixed issue #10617: ezcConsoleInput->process() bails out incorrectly on
+  option exclusion.
+- Fixed issue #10619: ezcConsoleOutput __set() broken.
+- Fixed issue #10620: ezcConsoleProgressMonitor->__set() issues warning.
+- Fixed issue #10624: ezcConsoleStatusbar set access to property $options
+  broken.
+- Fixed issue #10625: ezcConsoleStatusbar isset access to property $options
+  broken.
+- Fixed issue #10626: ezcConsoleStatusbar does not trigger warning on invalid
+  status.
+- Fixed issue #10710: ezcConsoleTable reports fatal error on example
+  $table[][0]->content = "foo".
+- Implemented issue #8461: Argument help text. A completely new argument
+  handling was invented.
+- Implemented issue #8471: Disable borders for ezcConsoleTable. Borders can be
+  disabled by setting the line and corner properties to null.
+- Implemented issue #9216: ezcConsoleInput::getOptionValues I want long names.
+  ezcConsoleInput->getOptionsValues() can now be configured to index the
+  returning array with option long names.
+
+
+1.2 - Monday 18 December 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #9493: Convert < and > in exception messages to ' and ' for
+  Cache, ConsoleTools, ImageAnalysis, ImageConversion, PersistentObject,
+  PersistentObjectDatabaseSchemaTiein.
+
+
+1.2beta2 - Monday 20 November 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed issue #8466: Properties are not documented in ezcConsoleTable,
+  ezcConsoleStatusbar, etc.
+- Fixed issue #9241: Progressbar does not work correctly on Mac OS X.
+
+
+1.2beta1 - Tuesday 24 October 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Added the 'target' property to the ezcConsoleOutputFormat struct. This
+  allows you to print to a different output target (e.g. stderr).
+
+
+1.1.3 - Monday 09 October 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed bug #9046: An argument should not be treated as an invalid option
+  value for an option that doesn't take any value.
+- Fixed bug #9052: An exception was thrown because of an invalid property in
+  ezcConsoleOption.
+
+
+1.1.2 - Monday 28 August 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed bug #8738: Unexpected behaviour with options->colPadding.
+- Fixed bug #8478: ezcConsoleOutput format (foreground) color 'black' not
+  available. (The fore-/background colors black and gray are now the same and
+  available for fore- and background).
+- PHP 5.2 compatibility.
+
+
+1.1.1 - Monday 07 August 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed bug #8525: ConsoleInput::getHelpTable() exits with a fatal error.
+- Fixed bug #8645: Default values not set correctly in ezcConsoleInput.
+
+
+1.1 - Monday 12 June 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed bug #8460: ConsoleOption is a class and should have properties instead
+  of public variables.
+- Fixed bug #8472: Update documentation for ezcConsoleTableOptions.
+
+
+1.1rc1 - Monday 29 May 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Implemented feature request #7792: Possibility to omit the short options.
+- Refactored to use the new ezcBaseOptions class.
+
+
+1.1beta2 - Tuesday 09 May 2006 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed bug #8173: ezcConsoleInput::getHelpText() does return empty synopsis.
+
+
+1.1beta1 - Wednesday 19 April 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Added getHelpTable() and getHelpText() methods to ezcConsoleInput for more
+  convenient help output generation.
+- Added ezcConsoleOption::$isHelpOption flag to indicate, that an option is to
+  request help. If this flag is set and the option is submitted by the user,
+  rule checking (dependencies/exclusions/madatoryness) is disabled.
+- Added ezcConsoleInput::helpOptionSet() method which returns if an option
+  that was defined to be a help option was submitted.
+- Added the class ezcConsoleProgressMonitor that is capable of printing status
+  information and percentage progress to the console.
+
+
+1.0.1 - Monday 06 March 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed unreported bug: ezcConsoleOutput::toPos() has a typo in a parameter.
+- Fixed unreported bug: ezcConsoleOption::__construct() still threw old
+  exception style. Now throws correct ezcConsoleInvalidOptionNameException on
+  an invalid option name.
+- Fixed bug #7897: Access to 'step' property does not work through overloading
+  in ezcConsoleProgressbar.
+- Fixed bug #7923: ezcConsoleInput::getSynopsis() does not work when
+  supplying parameters to show.
+
+ezcConsoleProgressbar
+---------------------
+
+- Added support for a non-integer maximum.
+- Added an optional parameter to the advance() method that advances the
+  progress bar with a different step size than 1.
+- Added formatting options for %max% and %act%.
+
+
+
+1.0 - Monday 30 January 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed unreported bug: ezcConsoleTableOptions struct caried deprecated
+  options and missed 2 in its constructor.
+- Fixed unreported bug: Option values not properly checked for ezcConsoleTable,
+  ezcConsoleOutput.
+- Fixed unreported bug: ezcConsoleProgressbarOptions disallowed option
+  read access.
+- Fixed unreported bug: ezcConsoleTable "colWrap" option not recognized
+  correctly.
+- Fixed unreported bug: ezcConsoleTable "defaultFormat" and
+  "defaultBorderFormat" not recognized.
+- Fixed notice in ezcConsoleOptionExclusionViolationException.
+
+
+1.0rc1 - Monday 16 January 2006
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Added redrawFrequency option to ezcConsoleProgressbar to allow less redraws
+  than advance() is called. This allows the progress measuring of huge numbers
+  without redrawing the bar each time advance() is called.
+- Added setOptions() method to ezcConsoleOutput, ezcConsoleTable,
+  ezcConsoleProgressbar and ezcConsoleStatusbar.
+
+- Changed exception behavior. All errors will now throw a different exception
+  class.
+- Changed default progressbar size to 78 characters (standard console width).
+- Changed submission of options to ezcConsoleOutput, ezcConsoleTable,
+  ezcConsoleProgressbar and ezcConsoleStatusbar to be an array.
+- Changed value "step" to be an option in ezcConsoleProgressbar with default
+  value = 1 (was a setting before).
+- Changed "successChar" and "failureChar" to be options in
+  ezcConsoleStatusbar (were properties before).
+- Changed getSuccesses() to getSuccessCount() and getFailures() to
+  getFailureCount() in ezcConsoleStatusbar.
+
+- Fixed unreported bug regarding rounding problems when calculating different
+  measures.
+
+
+1.0beta2 - Friday 23 December 2005
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Added convenience method ezcConsoleOutput::outputLine(). 
+  This one adds a line break after outputting the desired text and works also
+  without any text to print a blank line (similar to Pascals writeln()).
+- Added option filter parameter to ezcConsoleParameter::getHelp().
+  This allows you to filter which parameters the information will return
+  information about.
+- Added a new class ezcConsoleOption. 
+  This represents a single option. Before this was named parameter and an array was
+  used to structure option properties.
+  Therefore changed / removed the following methods in ezcConsoleParameter
+  (now ezcConsoleInput):
+
+  * getParamDef() -> Deprecated & removed, since getOption() now returns the 
+    complete option object, including settings and value.
+  * getDefaults() -> Deprecated & removed, since getOption() now returns the
+    complete option object including the default.
+
+- Added new setting "mandatory" to ezcConsoleOption.
+  This indicates that an option should always have submitted. Normally all
+  options are optional.
+- Added method getSynopsis().
+  This generates a synopsis string for the program autonmatically.
+- Added cell, row and table based format and alignment settings to
+  ezcConsoleTable.  This allows you to let rows and cells inherit their format
+  and alignment settings. Rows inherit the format, align and (new)
+  borderFormat value that were set globally, but only if they have no explicit
+  value set.  Cells inherit their row's format and alignment settings if they
+  are not explicitly set.
+- Added <borderFormat> property to rows.
+  This allows a more flexible way to specify the format that a border of a row
+  should have, instead of just saying: "this is a headline row".
+- Added new alignment constant ALIGN_DEFAULT to ezcConsoleTable.
+  This is the default alignment used in ezcConsoleTable objects (cell, row) to 
+  indicate, that the alignment setting should be inherited from the parent.
+
+- Refactored the whole package to fit into the unified layout and provide a
+  much more convenient API.
+- Renamed the class ezcConsoleParameter to ezcConsoleInput.
+  Reflects it's purpose much better and avoids conflicts with the acronym
+  "option", which is now used in ezcConsoleOption.
+  Renamed the cooperating types and methods:
+
+  * ezcConsoleParameter::registerParam() to ezcConsoleInput::registerOption().
+  * ezcConsoleParameter::unregisterParam() 
+    to ezcConsoleInput::unregisterOption().
+  * ezcConsoleParameter::getParam() to ezcConsoleInput::getOption().
+  * ezcConsoleParameter::getParams() to ezcConsoleInput::getOptions().
+
+- Changed to the use of structs instead of complex array structures: 
+
+  * ezcConsoleOptionRule (replaces old handling of dependencies and exclusions
+    between options - former parameters).
+  * ezcConsoleOutputFormat (to define format options).
+  * ezcConsoleOutputOptions (stores the options for ezcConsoleOutput).
+  * ezcConsoleProgressbarOptions (stores the options for
+    ezcConsoleProgressbar).
+  * ezcConsoleTableOptions (stores the options for ezcConsoleTable).
+
+- Changed to the use of "extended structs" where it made sense to avoid
+  complex arrays:
+
+  * ezcConsoleOutputFormats (iteration and on-the-fly creation of format
+    definitions in ezcConsoleOutput through
+    $out->formats->{formatname}->{formatoption} = ...;)
+
+- Changed handling of parameter names in ezcConsoleInput. 
+  Short and long parameters are now also handled without their prefixes ("-"
+  for short names and "--" for long names) everywhere.
+- Changed to use overloading property access - __get(),__set(),__isset().
+  To unify access to object properties and in different other places, which
+  are explicitly mentioned above (see e.g. ezcConsoleTable) where possible.
+- Changed handling of default values for ezcConsoleOption.
+  Default values are now set if the parameter is not submitted at all. If an
+  option that expects a value is submitted without, this results in an
+  exception.
+- Changed "colAlign" option to "defaultAlign".
+- Changed handling of table structure to classes ezcConsoleTableRow and
+  ezcConsoleTableCell.  These allow a convenient way to create and customize
+  console based tables: 
+  
+  * $table[0][]; // creates a new cell 
+  * $table[2][]->format = 'important'; // creates a new cell and set's it's
+    format to 'important',
+  * $table[2]->align = ezcConsoleTable::ALIGN_CENTER; // sets the default
+    align
+
+- Removed $cols setting from ezcConsoleTable.
+  The table now knows on its own how many columns it has, when it is
+  rendered.
+- Renamed ezcConsoleParameter to ezcConsoleInput.
+- Renamed methods (consistency):
+
+  * ezcConsoleOutput::styleText() to ezcConsoleOutput::formatText().
+  * ezcConsoleInput::fromString() to ezcConsoleInput::registerOptionString().
+  * ezcConsoleInput::getValues() to ezcConsoleInput::getOptionsValues().
+
+- Fixed bug with argument handling and non-value parameters in
+  ezcConsoleInput.  It was not possible to sumit the name of a parameter as an
+  argument after the argument seperator "-- ".
+- Fixed bug with submitting multiple parameters of the same name without
+  value.
+
+
+1.0beta1 - Friday 25 November 2005
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Initial release of this package.
