@@ -10,10 +10,12 @@ $activeChats = erLhcoreClassChat::getActiveChats(10);
 $closedChats = erLhcoreClassChat::getClosedChats(10);
 $pendingChats = erLhcoreClassChat::getPendingChats(10);
 $transferedChats = erLhcoreClassTransfer::getTransferChats();
+$unreadChats = erLhcoreClassChat::getUnreadMessagesChats(10,0);
 
 erLhcoreClassChat::prefillGetAttributes($activeChats,array('department_name'),array('updateIgnoreColumns','department'));
 erLhcoreClassChat::prefillGetAttributes($closedChats,array('department_name'),array('updateIgnoreColumns','department'));
 erLhcoreClassChat::prefillGetAttributes($pendingChats,array('department_name'),array('updateIgnoreColumns','department'));
+erLhcoreClassChat::prefillGetAttributes($unreadChats,array('department_name'),array('updateIgnoreColumns','department'));
 
 $onlineUsers = array();
 if ($currentUser->hasAccessTo('lhchat','use_onlineusers')){
@@ -28,6 +30,7 @@ $onlineuserscolumnsNames = array('visitor_tz' => 'Visitor time zone','online_att
 
 echo json_encode(array(
 'active_chats' => array('rows' => $activeChats, 'size' => count($activeChats), 'hidden_columns' => $columnsToHide, 'timestamp_delegate' => array('time'),'column_names' => $columnsName),
+'unread_chats' => array('rows' => $unreadChats, 'size' => count($unreadChats), 'hidden_columns' => $columnsToHide, 'timestamp_delegate' => array('time'),'column_names' => $columnsName),
 'online_users' => array('rows' => $onlineUsers, 'size' => count($onlineUsers), 'hidden_columns' => $onlineuserscolumnsToHide,'column_names' => $onlineuserscolumnsNames, 'timestamp_delegate' => array('last_visit','first_visit')),
 'closed_chats' => array('rows' => $closedChats, 'size' => count($closedChats), 'hidden_columns' => $columnsToHide, 'timestamp_delegate' => array('time'),'column_names' => $columnsName),
 'pending_chats' => array('rows' => $pendingChats, 'size' => count($pendingChats), 'hidden_columns' => $columnsToHide, 'timestamp_delegate' => array('time'),'column_names' => $columnsName),
