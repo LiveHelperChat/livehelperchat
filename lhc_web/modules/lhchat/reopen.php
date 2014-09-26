@@ -52,6 +52,8 @@ try {
 			$chat->updateThis();
 		}
 		
+		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.user_reopened',array('chat' => & $chat));
+		
 		if ($Params['user_parameters_unordered']['mode'] == 'widget'){
 			// Redirect user
 			erLhcoreClassModule::redirect('chat/chatwidgetchat','/' . $chat->id . '/' . $chat->hash . $modeAppend . $modeAppendTheme );

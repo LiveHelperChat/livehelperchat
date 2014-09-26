@@ -574,7 +574,11 @@ function lh(){
 	        }
 
 	    };
-
+	    
+	    if (LHCCallbacks.chatClosedCallback) {
+        	LHCCallbacks.chatClosedCallback(chat_id);
+        };
+	    
 	    this.removeSynchroChat(chat_id);
 	    this.syncadmininterfacestatic();
 
@@ -691,6 +695,10 @@ function lh(){
 	        }
 	    };
 
+	    if (LHCCallbacks.chatDeletedCallback) {
+        	LHCCallbacks.chatDeletedCallback(chat_id);
+        };
+	    
 	    this.syncadmininterfacestatic();
 	    this.removeSynchroChat(chat_id);
 	};
