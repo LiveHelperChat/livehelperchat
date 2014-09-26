@@ -19,6 +19,8 @@ $chat->user_id = $currentUser->getUserID();
     
 erLhcoreClassChat::getSession()->update($chat);
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_transfer_accepted',array('chat' => & $chat));
+
 echo json_encode(array('error' => 'false'));
 exit;
 

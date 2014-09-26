@@ -38,6 +38,8 @@ if ( !erLhcoreClassChat::hasAccessToRead($chat) )
 erLhcoreClassChat::getSession()->update($chat);
 erLhcoreClassTransfer::getSession()->delete($chatTransfer);
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_transfer_accepted',array('chat' => & $chat));
+
 echo json_encode(array('error' => 'false'));
 exit;
 ?>
