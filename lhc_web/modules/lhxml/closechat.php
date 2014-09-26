@@ -33,6 +33,8 @@ if ($chat->user_id == $currentUser->getUserID() || $currentUser->hasAccessTo('lh
 	    
 	    // Execute callback for close chat
 	    erLhcoreClassChat::closeChatCallback($chat,$userData);
+	    
+	    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.desktop_client_closed',array('chat' => & $chat));
 	}    
 }
 

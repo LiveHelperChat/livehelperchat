@@ -10,6 +10,7 @@ $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params
 if ($currentUser->hasAccessTo('lhchat','deleteglobalchat') || ($currentUser->hasAccessTo('lhchat','deletechat') && $chat->user_id == $currentUser->getUserID()))
 {
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.delete',array('chat' => & $chat,'user' => $currentUser));
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.desktop_client_deleted',array('chat' => & $chat,'user' => $currentUser));
 	$chat->removeThis();	
 }
 
