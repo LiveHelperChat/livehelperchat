@@ -284,15 +284,15 @@
     </message>
     <message>
       <source>Widget copyright</source>
-      <translation type="unfinished"/>
+      <translation>حق کپی رایت ابزارک</translation>
     </message>
     <message>
       <source>Widget container</source>
-      <translation type="unfinished"/>
+      <translation>شمارشگر ابزارک</translation>
     </message>
     <message>
       <source>Need help widget</source>
-      <translation type="unfinished"/>
+      <translation>نیاز به کمک ابزارک</translation>
     </message>
     <message>
       <source>Custom CSS</source>
@@ -324,7 +324,7 @@
     </message>
     <message>
       <source>Have a question? Ask us!</source>
-      <translation type="unfinished"/>
+      <translation>سوالی دارید؟ از ما بپرسید!</translation>
     </message>
     <message>
       <source>Background color</source>
@@ -332,7 +332,7 @@
     </message>
     <message>
       <source>Status widget border color</source>
-      <translation type="unfinished"/>
+      <translation>رنگ بردار وضعیت ابزارک</translation>
     </message>
     <message>
       <source>Text color</source>
@@ -340,19 +340,19 @@
     </message>
     <message>
       <source>Operator image in chat widget</source>
-      <translation type="unfinished"/>
+      <translation>تصویر اپراتور در ابزارک چت</translation>
     </message>
     <message>
       <source>Logo image, visible in popup</source>
-      <translation type="unfinished"/>
+      <translation>تصویر لوگو، نمایان در صفحه ی پاپ آپ</translation>
     </message>
     <message>
       <source>Logo image, visible in widget left corner, 16x16</source>
-      <translation type="unfinished"/>
+      <translation>تصویر لوگو، نمایان در گوشه ی چپ ابزارک، 16x16</translation>
     </message>
     <message>
       <source>Show copyright widget logo in left corner</source>
-      <translation type="unfinished"/>
+      <translation>نمایش لوگوی کپی رایت ابزارک در گوشه ی چپ</translation>
     </message>
     <message>
       <source>Widget copyright link</source>
@@ -380,31 +380,31 @@
     </message>
     <message>
       <source>Need help background color</source>
-      <translation type="unfinished"/>
+      <translation>نیاز به کمک رنگ پس زمینه</translation>
     </message>
     <message>
       <source>Need help hover background color</source>
-      <translation type="unfinished"/>
+      <translation>نیاز به کمک رنگ پس زمینه شناور</translation>
     </message>
     <message>
       <source>Need help text color</source>
-      <translation type="unfinished"/>
+      <translation>نیاز به کمک رنگ متن</translation>
     </message>
     <message>
       <source>Need help border color</source>
-      <translation type="unfinished"/>
+      <translation>نیاز به کمک رنگ بردار</translation>
     </message>
     <message>
       <source>Need help close background color</source>
-      <translation type="unfinished"/>
+      <translation>نیاز به کمک بستن رنگ پس زمینه</translation>
     </message>
     <message>
       <source>Need help close hover background color</source>
-      <translation type="unfinished"/>
+      <translation>نیاز به کمک بستن رنگ پس زمینه شناور</translation>
     </message>
     <message>
       <source>Need help operator image</source>
-      <translation type="unfinished"/>
+      <translation>نیاز به کمک تصویر اپراتور</translation>
     </message>
     <message>
       <source>Status widget additional CSS, takes effect after save</source>
@@ -530,7 +530,7 @@
     </message>
     <message>
       <source>Requires phone</source>
-      <translation type="unfinished"/>
+      <translation>درخواست شماره تلفن</translation>
     </message>
     <message>
       <source>Show random operator profile</source>
@@ -604,7 +604,7 @@
     </message>
     <message>
       <source>example.com</source>
-      <translation type="unfinished"/>
+      <translation>example.com</translation>
     </message>
     <message>
       <source>Choose prefered http mode</source>
@@ -1322,23 +1322,23 @@
     </message>
     <message>
       <source>Work hours, 24 hours format, 1 - 24, minutes format 0 - 60</source>
-      <translation type="unfinished"/>
+      <translation>ساعات کاری، قالب 24 ساعته، 1 - 24، قالب دقیقه 0 - 60</translation>
     </message>
     <message>
       <source>Hours from, E.g. 8</source>
-      <translation type="unfinished"/>
+      <translation>ساعت از، مانند 8</translation>
     </message>
     <message>
       <source>Minutes from, E.g. 30</source>
-      <translation type="unfinished"/>
+      <translation>دقیقه از، مانند 30</translation>
     </message>
     <message>
       <source>Hours to, E.g. 17</source>
-      <translation type="unfinished"/>
+      <translation>ساعت تا، مانند 17</translation>
     </message>
     <message>
       <source>Minutes to, E.g. 30</source>
-      <translation type="unfinished"/>
+      <translation>دقیقه تا، مانند 30</translation>
     </message>
     <message>
       <source>Notifications</source>
@@ -1847,7 +1847,7 @@
     </message>
     <message>
       <source>Please enter a message...</source>
-      <translation type="unfinished"/>
+      <translation>لطفا&quot; پیام خود را وارد نمایید</translation>
     </message>
     <message>
       <source>Start chat</source>
@@ -1855,7 +1855,7 @@
     </message>
     <message>
       <source>Live support is not available in your country</source>
-      <translation type="unfinished"/>
+      <translation>پشتیبانی آنلاین در کشور شما در دسترس نمی باشد</translation>
     </message>
     <message>
       <source>Live Support</source>
@@ -1891,23 +1891,23 @@
     </message>
     <message>
       <source>Have a question? Ask us!</source>
-      <translation type="unfinished"/>
+      <translation>سوالی دارید؟ از ما بپرسید!</translation>
     </message>
     <message>
       <source>Department is offline</source>
-      <translation type="unfinished"/>
+      <translation>دپارتمان آفلاین می باشد</translation>
     </message>
     <message>
       <source>Go to leave a message form</source>
-      <translation type="unfinished"/>
+      <translation>بسوی گذاشتن فرم تماس</translation>
     </message>
     <message>
       <source>Cancel and choose another department</source>
-      <translation type="unfinished"/>
+      <translation>لغو و انتخاب دپارتمان دیگر</translation>
     </message>
     <message>
       <source>characters</source>
-      <translation type="unfinished"/>
+      <translation>حروف</translation>
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
@@ -1931,7 +1931,7 @@
     </message>
     <message>
       <source>Choose your language</source>
-      <translation type="unfinished"/>
+      <translation>زبان خود را انتخاب نمایید</translation>
     </message>
     <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
@@ -1999,7 +1999,7 @@
     </message>
     <message>
       <source>Unread message</source>
-      <translation type="unfinished"/>
+      <translation>پیام های خوانده نشده</translation>
     </message>
   </context>
   <context>
@@ -2022,7 +2022,7 @@
     </message>
     <message>
       <source>Visitor has been redirected to contact form</source>
-      <translation type="unfinished"/>
+      <translation>بازدید کننده به فرم تماس منتقل می شود</translation>
     </message>
   </context>
   <context>
@@ -2140,15 +2140,15 @@
     </message>
     <message>
       <source>For</source>
-      <translation type="unfinished"/>
+      <translation>برای</translation>
     </message>
     <message>
       <source>all</source>
-      <translation type="unfinished"/>
+      <translation>همه</translation>
     </message>
     <message>
       <source>custom</source>
-      <translation type="unfinished"/>
+      <translation>سفارشی سازی</translation>
     </message>
     <message>
       <source>E.g. ar,pl</source>
@@ -2156,23 +2156,23 @@
     </message>
     <message>
       <source>Other countries, put widget/chat status to</source>
-      <translation type="unfinished"/>
+      <translation>دیگر کشورها، قراردهید ابزارک / وضعیت چت تا</translation>
     </message>
     <message>
       <source>offline status</source>
-      <translation type="unfinished"/>
+      <translation>وضعیت خاموش</translation>
     </message>
     <message>
       <source>hidden/disabled, widget will not be shown</source>
-      <translation type="unfinished"/>
+      <translation>پنهان / غیرفعال کردن، ابزارک نمایش داده نخواهد شد</translation>
     </message>
     <message>
       <source>For unmatched countries put chat status to</source>
-      <translation type="unfinished"/>
+      <translation>برای کشورهای بی همتا قرار دهید وضعیت چت را به </translation>
     </message>
     <message>
       <source>normal status</source>
-      <translation type="unfinished"/>
+      <translation>وضعیت نرمال</translation>
     </message>
   </context>
   <context>
@@ -3138,7 +3138,7 @@
     </message>
     <message>
       <source>New unread message</source>
-      <translation type="unfinished"/>
+      <translation>پیام خوانده نشده جدید</translation>
     </message>
   </context>
   <context>
@@ -3164,7 +3164,7 @@
     </message>
     <message>
       <source>Update chats duration by using new algorithm</source>
-      <translation type="unfinished"/>
+      <translation>بروز رسانی مدت زمان چت ها براساس الگوریتم جدید</translation>
     </message>
     <message>
       <source>Closed chats</source>
@@ -3176,7 +3176,7 @@
     </message>
     <message>
       <source>Chats duration was updated</source>
-      <translation type="unfinished"/>
+      <translation>مدت زمان چت ها بروز رسانی شد</translation>
     </message>
   </context>
   <context>
@@ -3329,7 +3329,7 @@
     </message>
     <message>
       <source>Requires phone</source>
-      <translation type="unfinished"/>
+      <translation>درخواست شماره تلفن</translation>
     </message>
     <message>
       <source>Send the message</source>
@@ -3420,19 +3420,19 @@
     </message>
     <message>
       <source>Additional form settings</source>
-      <translation type="unfinished"/>
+      <translation>تنظیمات اضافی فرم</translation>
     </message>
     <message>
       <source>Show operator profile above input fields</source>
-      <translation type="unfinished"/>
+      <translation>نمایش اطلاعات اپراتور در بالای فیلدهای ورودی</translation>
     </message>
     <message>
       <source>Remove space after operator profile</source>
-      <translation type="unfinished"/>
+      <translation>پاک کردن فضای بعد از پروفایل اپراتور</translation>
     </message>
     <message>
       <source>Hide message label</source>
-      <translation type="unfinished"/>
+      <translation>پنهان کردن برچسب پیام</translation>
     </message>
     <message>
       <source>Initial user message height in pixels</source>
@@ -3610,47 +3610,47 @@
     </message>
     <message>
       <source>Country</source>
-      <translation type="unfinished"/>
+      <translation>کشور</translation>
     </message>
     <message>
       <source>Chats</source>
-      <translation type="unfinished"/>
+      <translation>چت ها</translation>
     </message>
     <message>
       <source>Number of chats by country</source>
-      <translation type="unfinished"/>
+      <translation>تعداد چت ها بر اساس کشور</translation>
     </message>
     <message>
       <source>Messages</source>
-      <translation type="unfinished"/>
+      <translation>پیام ها</translation>
     </message>
     <message>
       <source>Number of messages by user</source>
-      <translation type="unfinished"/>
+      <translation>تعداد پیام ها براساس کاربران</translation>
     </message>
     <message>
       <source>Month</source>
-      <translation type="unfinished"/>
+      <translation>ماه</translation>
     </message>
     <message>
       <source>Closed</source>
-      <translation type="unfinished"/>
+      <translation>بسته</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>فعال</translation>
     </message>
     <message>
       <source>Operators</source>
-      <translation type="unfinished"/>
+      <translation>اپراتورها</translation>
     </message>
     <message>
       <source>Pending</source>
-      <translation type="unfinished"/>
+      <translation>منتظر</translation>
     </message>
     <message>
       <source>Chats number by statuses</source>
-      <translation type="unfinished"/>
+      <translation>تعداد چت ها بر اساس وضعیت</translation>
     </message>
     <message>
       <source>Visitors initiated</source>
@@ -3658,7 +3658,7 @@
     </message>
     <message>
       <source>Proactive</source>
-      <translation type="unfinished"/>
+      <translation>فعال</translation>
     </message>
     <message>
       <source>Proactive chats number vs visitors initiated</source>
@@ -3666,35 +3666,35 @@
     </message>
     <message>
       <source>Visitors</source>
-      <translation type="unfinished"/>
+      <translation>بازدید کننده ها</translation>
     </message>
     <message>
       <source>System</source>
-      <translation type="unfinished"/>
+      <translation>سیستم</translation>
     </message>
     <message>
       <source>Messages types</source>
-      <translation type="unfinished"/>
+      <translation>نوع پیام ها</translation>
     </message>
     <message>
       <source>Number of chats per hour, average chat duration</source>
-      <translation type="unfinished"/>
+      <translation>تعداد چت ها در ساعت، میانگین مدت زمان چت</translation>
     </message>
     <message>
       <source>Chats statistic</source>
-      <translation type="unfinished"/>
+      <translation>آمار چت ها</translation>
     </message>
     <message>
       <source>Hourly statistic</source>
-      <translation type="unfinished"/>
+      <translation>آمار ساعتی</translation>
     </message>
     <message>
       <source>Country statistic</source>
-      <translation type="unfinished"/>
+      <translation>آمار کشورها</translation>
     </message>
     <message>
       <source>Users statisic</source>
-      <translation type="unfinished"/>
+      <translation>آمار کاربران</translation>
     </message>
     <message>
       <source>Total statistic</source>
@@ -6251,51 +6251,51 @@
     <name>chat/chatexport</name>
     <message>
       <source>Visitor Name</source>
-      <translation type="unfinished"/>
+      <translation>نام بازدید کننده</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>پست الکترونیک</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation type="unfinished"/>
+      <translation>شماره تماس</translation>
     </message>
     <message>
       <source>Country</source>
-      <translation type="unfinished"/>
+      <translation>کشور</translation>
     </message>
     <message>
       <source>City</source>
-      <translation type="unfinished"/>
+      <translation>شهر</translation>
     </message>
     <message>
       <source>IP</source>
-      <translation type="unfinished"/>
+      <translation>آی پی</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>اپراتور</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>دپاتمان</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation type="unfinished"/>
+      <translation>تاریخ</translation>
     </message>
     <message>
       <source>Mail send</source>
-      <translation type="unfinished"/>
+      <translation>ارسال ایمیل</translation>
     </message>
     <message>
       <source>Referrer</source>
-      <translation type="unfinished"/>
+      <translation>ارجاع دهنده</translation>
     </message>
     <message>
       <source>Link</source>
-      <translation type="unfinished"/>
+      <translation>پیوند</translation>
     </message>
   </context>
 </TS>

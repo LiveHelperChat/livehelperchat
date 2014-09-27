@@ -15,7 +15,7 @@
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
-      <translation type="unfinished"/>
+      <translation>Deschide urmarirea de vizitatori online</translation>
     </message>
     <message>
       <source>Track is user still on site, chat status checks also has to be enabled</source>
@@ -23,7 +23,7 @@
     </message>
     <message>
       <source>Track online visitors even if there is no online operators</source>
-      <translation type="unfinished"/>
+      <translation>Urmareste vizitatorii online cand nu sunt operatori online</translation>
     </message>
     <message>
       <source>Track users footprint. For this also online visitors tracking should be enabled</source>
@@ -43,11 +43,11 @@
     </message>
     <message>
       <source>Play sound on invitation to chat.</source>
-      <translation type="unfinished"/>
+      <translation>Pornire sunet la invitatia pe chat</translation>
     </message>
     <message>
       <source>Show users option to switch language at widget</source>
-      <translation type="unfinished"/>
+      <translation>Arata utilizatori cand schimbi limba din panel</translation>
     </message>
     <message>
       <source>Between what languages user should be able to switch</source>
@@ -91,7 +91,7 @@
     </message>
     <message>
       <source>Show need help tooltip?</source>
-      <translation type="unfinished"/>
+      <translation>Ai nevoie de ajutor tooltip?</translation>
     </message>
     <message>
       <source>Minimum phone number length</source>
@@ -123,15 +123,15 @@
     </message>
     <message>
       <source>Hide disabled department widget</source>
-      <translation type="unfinished"/>
+      <translation>Ascunde departamentul din widget</translation>
     </message>
     <message>
       <source>Is visitor e-mail required for FAQ</source>
-      <translation type="unfinished"/>
+      <translation>Pentru FAQ vizitatorii au nevoie de email</translation>
     </message>
     <message>
       <source>Chats export secret hash</source>
-      <translation type="unfinished"/>
+      <translation>Sesiunile de chat pot fi exportate prin chei secrete de hash</translation>
     </message>
     <message>
       <source>Please enter explicit http mode. Either http: or https:, do not forget : at the end.</source>

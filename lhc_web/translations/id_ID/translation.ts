@@ -886,7 +886,7 @@
     </message>
     <message>
       <source>Forms</source>
-      <translation type="unfinished"/>
+      <translation>Formulir</translation>
     </message>
     <message>
       <source>Documents</source>
@@ -894,7 +894,7 @@
     </message>
     <message>
       <source>Form</source>
-      <translation type="unfinished"/>
+      <translation>Formulir</translation>
     </message>
   </context>
   <context>
@@ -1410,11 +1410,11 @@
     </message>
     <message>
       <source>Execute new chat logic again for recipient department?</source>
-      <translation type="unfinished"/>
+      <translation>Jalankan lagi percakapan logika baru untuk departemen penerima?</translation>
     </message>
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
-      <translation type="unfinished"/>
+      <translation>Jalankan lagi percakapan logika tidak terjawab untuk departemen penerima?</translation>
     </message>
     <message>
       <source>Auto assignment</source>
@@ -2022,7 +2022,7 @@
     </message>
     <message>
       <source>Visitor has been redirected to contact form</source>
-      <translation type="unfinished"/>
+      <translation>Pengunjung telah diarahkan ke formulir kontak</translation>
     </message>
   </context>
   <context>
@@ -2080,7 +2080,7 @@
     </message>
     <message>
       <source>Change my visibility to visible/invisible</source>
-      <translation type="unfinished"/>
+      <translation>Ganti kondisi saya ke terlihat/tidak terlihat</translation>
     </message>
     <message>
       <source>Change my status to online/offline</source>
@@ -2128,15 +2128,15 @@
     <name>chat/geoadjustment</name>
     <message>
       <source>GEO adjustment</source>
-      <translation type="unfinished"/>
+      <translation>Penyesuaian Geografis</translation>
     </message>
     <message>
       <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
-      <translation type="unfinished"/>
+      <translation>Apakah akan diterapkan pengaturan untuk widget status indikator percakapan ini? Penurunan kinerja dikaitkan dengan pilihan ini</translation>
     </message>
     <message>
       <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
-      <translation type="unfinished"/>
+      <translation>Membuat status percakapan normal untuk negara-negara ini, negara dapat dipisahkan dengan tanda koma &quot;de, gb, kita, fr&quot; berarti obrolan akan ditampilkan seperti biasa hanya untuk negara-negara ini.</translation>
     </message>
     <message>
       <source>For</source>
@@ -2144,23 +2144,23 @@
     </message>
     <message>
       <source>all</source>
-      <translation type="unfinished"/>
+      <translation>semua</translation>
     </message>
     <message>
       <source>custom</source>
-      <translation type="unfinished"/>
+      <translation>kustom</translation>
     </message>
     <message>
       <source>E.g. ar,pl</source>
-      <translation type="unfinished"/>
+      <translation>Cth. ar,pl</translation>
     </message>
     <message>
       <source>Other countries, put widget/chat status to</source>
-      <translation type="unfinished"/>
+      <translation>Negara-negara lain, menempatkan widget / status percakapan</translation>
     </message>
     <message>
       <source>offline status</source>
-      <translation type="unfinished"/>
+      <translation>status offline</translation>
     </message>
     <message>
       <source>hidden/disabled, widget will not be shown</source>
@@ -6172,7 +6172,7 @@
     </message>
     <message>
       <source>has redirected user to contact form!</source>
-      <translation>Pengguna telah diarahkan kepada kontak formulir!</translation>
+      <translation>Pengguna telah diarahkan ke formulir kontak!</translation>
     </message>
   </context>
   <context>
