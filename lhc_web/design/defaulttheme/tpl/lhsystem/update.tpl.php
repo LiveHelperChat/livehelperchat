@@ -30,7 +30,7 @@ function updateDatabase() {
 (function() {
 	
   $.ajax({
-      url: 'http://livehelperchat.com/update/version',   
+      url: 'https://livehelperchat.com/update/version',   
       dataType: 'jsonp',      
       jsonp: 'callback',
       jsonpCallback: 'jsonpCallbackLHC',
