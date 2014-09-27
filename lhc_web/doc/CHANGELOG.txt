@@ -1,3 +1,20 @@
+2.13v
+
+This realease is maintenence release with a lot of small changes.
+
+1. Updated xml module to return unread chats list also
+2. Move events for NodeJs extension
+3. Changed autoload mechanism to be compatible with third party autoloads. Replace index.php file
+4. XML module was missing some callbacks which are present in web interface
+5. A lot of small updates to to be compatible with newest NodeJS version.
+6. En https://github.com/LiveHelperChat/livehelperchat/issues/511
+7. If user navigated to another page sometimes user was shown as offline, even if user was online.
+8. Not required interface sync was removed in popup window.
+9. Cache for emoji icons https://github.com/LiveHelperChat/livehelperchat/issues/503
+10. Sound for unread messages will be played https://github.com/LiveHelperChat/livehelperchat/issues/505
+
+There is no database update in this release. 
+
 2.12v
 
 1. Now you can have fully functional and working minimalistic chat start form.

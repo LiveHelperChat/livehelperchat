@@ -134,7 +134,7 @@
     	<span class="fs-11" title="{{ou.visitor_tz}}">{{ou.visitor_tz_time}}</span>   
     	</td>       	
     	<td><div class="page-url"><span><a target="_blank" href="{{ou.current_page}}" title="{{ou.current_page}}">{{ou.page_title || ou.current_page}}</a></span></div></td>
-        <td><div class="page-url"><span><a target="_blank" href="http://{{ou.referrer}}">{{ou.referrer}}</a></span></div></td>
+        <td><div class="page-url"><span><a target="_blank" href="http:{{ou.referrer}}">{{ou.referrer}}</a></span></div></td>
         <td>       
 	        <div style="width:270px">
 		        <span ng-if="ou.user_country_code != ''"><img ng-src="<?php echo erLhcoreClassDesign::design('images/flags');?>/{{ou.user_country_code}}.png" alt="{{ou.user_country_name}}" title="{{ou.user_country_name}} | {{ou.city}}" /></span>
