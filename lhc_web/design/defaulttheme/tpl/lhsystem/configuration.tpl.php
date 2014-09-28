@@ -66,6 +66,7 @@
     </div>
    </section>
    
+   <?php if ($currentUser->hasAccessTo('lhsystem','generate_js_tab')) : ?>
    <section>
     <p class="title" data-section-title><a href="#embed"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Embed code');?></a></p>
     <div class="content" data-section-content data-slug="embed">
@@ -124,6 +125,8 @@
     </div>
     </div>
   </section>
+  <?php endif;?> 
+   
       
   <?php if ($currentUser->hasAccessTo('lhchat','use')) : ?>
   <section>
@@ -146,10 +149,15 @@
 			    
 			    <?php if ($currentUser->hasAccessTo('lhchat','administrateconfig')) : ?>
 			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/geoconfiguration')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','GEO detection configuration');?></a></li>
+			    <?php if ($currentUser->hasAccessTo('lhchat','geoadjustment')) : ?>
+				<li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/geoadjustment')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','GEO adjustment');?></a></li>
+				<?php endif; ?>
 			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/syncandsoundesetting')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Synchronization and sound settings');?></a></li>
 			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/startchatformsettings')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Start chat form settings');?></a></li>
 			    <?php endif; ?>
-	
+			    
+	 			
+				
 			    <?php if ($currentUser->hasAccessTo('lhchat','administratecannedmsg')) : ?>
 			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/cannedmsg')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Canned messages');?></a></li>
 			    <?php endif; ?>
@@ -176,6 +184,8 @@
 			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chatarchive/archive')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Chat archive');?></a></li>
 			    <?php endif; ?>
 			    
+			   
+				
 				<?php if ($currentUser->hasAccessTo('lhchat','viewstatistic')) : ?>
 					    <li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/statistic')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Statistic');?></a></li>
 				<?php endif; ?>
@@ -205,6 +215,7 @@
 				<ul class="circle small-list">					
 					 <li><a href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/WidgetTheme"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Widget themes');?></a></li>
 					 <li><a href="<?php echo erLhcoreClassDesign::baseurl('theme/import')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Import new themes');?></a></li>
+					 <li><a href="<?php echo erLhcoreClassDesign::baseurl('theme/default')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Default theme');?></a></li>
 				</ul>
 				<?php endif; ?>
 			    

@@ -286,8 +286,9 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `fbst` tinyint(1) NOT NULL,
 				  `online_user_id` int(11) NOT NULL,
 				  `last_msg_id` int(11) NOT NULL,
-				  `additional_data` varchar(250) NOT NULL,
+				  `additional_data` text NOT NULL,
 				  `timeout_message` varchar(250) NOT NULL,
+				  `user_tz_identifier` varchar(50) NOT NULL,
 				  `lat` varchar(10) NOT NULL,
 				  `lon` varchar(10) NOT NULL,
 				  `city` varchar(100) NOT NULL,
@@ -366,10 +367,11 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				) DEFAULT CHARSET=utf8;");
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_widget_theme` (
-				  `id` int(11) NOT NULL AUTO_INCREMENT,
+				 `id` int(11) NOT NULL AUTO_INCREMENT,
 				  `name` varchar(250) NOT NULL,
 				  `onl_bcolor` varchar(10) NOT NULL,
 				  `text_color` varchar(10) NOT NULL,
+				  `bor_bcolor` varchar(10) NOT NULL DEFAULT 'e3e3e3',
 				  `online_image` varchar(250) NOT NULL,
 				  `online_image_path` varchar(250) NOT NULL,
 				  `offline_image` varchar(250) NOT NULL,
@@ -378,7 +380,6 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `logo_image_path` varchar(250) NOT NULL,
 				  `need_help_image` varchar(250) NOT NULL,
 				  `header_background` varchar(10) NOT NULL,
-        	   	  `widget_border_color` varchar(10) NOT NULL,
 				  `need_help_tcolor` varchar(10) NOT NULL,
 				  `need_help_bcolor` varchar(10) NOT NULL,
 				  `need_help_border` varchar(10) NOT NULL,
@@ -393,6 +394,15 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `need_help_text` varchar(250) NOT NULL,
 				  `online_text` varchar(250) NOT NULL,
 				  `offline_text` varchar(250) NOT NULL,
+				  `intro_operator_text` varchar(250) NOT NULL,
+				  `operator_image` varchar(250) NOT NULL,
+				  `operator_image_path` varchar(250) NOT NULL,
+				  `widget_border_color` varchar(10) NOT NULL,
+				  `copyright_image` varchar(250) NOT NULL,
+				  `copyright_image_path` varchar(250) NOT NULL,
+				  `widget_copyright_url` varchar(250) NOT NULL,
+				  `explain_text` text NOT NULL,
+				  `show_copyright` int(11) NOT NULL DEFAULT '1',
 				  PRIMARY KEY (`id`)
 				) DEFAULT CHARSET=utf8;");
 
@@ -612,8 +622,16 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   ('enable_close_list', '', ''),
         	   ('new_user_bn', '', ''),
         	   ('new_user_sound', '', ''),
+        	   ('oupdate_timeout', '', ''),
+        	   ('ouser_timeout', '', ''),
+        	   ('o_department', '', ''),
+        	   ('omax_rows', '', ''),
+        	   ('ogroup_by', '', ''),
+        	   ('omap_depid', '', ''),
+        	   ('omap_mtimeout', '', ''),
         	   ('enable_unread_list', '', '')");
-
+       	   
+        	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_config` (
                   `identifier` varchar(50) NOT NULL,
                   `value` text NOT NULL,
@@ -626,7 +644,13 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   $randomHash = erLhcoreClassModelForgotPassword::randomPassword(9);
         	   $randomHashLength = strlen($randomHash);
 			   $exportHash = erLhcoreClassModelForgotPassword::randomPassword(9);
-
+			   
+			   if (extension_loaded('bcmath')){
+			   		$geoRow = "('geo_data','a:5:{i:0;b:0;s:21:\"geo_detection_enabled\";i:1;s:22:\"geo_service_identifier\";s:8:\"max_mind\";s:23:\"max_mind_detection_type\";s:7:\"country\";s:22:\"max_mind_city_location\";s:37:\"var/external/geoip/GeoLite2-City.mmdb\";}',0,'',1)";
+			   } else {
+			   		$geoRow = "('geo_data', '', '0', '', '1')";
+			   }
+			   
         	   $db->query("INSERT INTO `lh_chat_config` (`identifier`, `value`, `type`, `explain`, `hidden`) VALUES
                 ('tracked_users_cleanup',	'160',	0,	'How many days keep records of online users.',	0),
         	   	('list_online_operators', '0', '0', 'List online operators.', '0'),
@@ -669,12 +693,25 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('disable_send','0',0,'Disable chat transcript send', '0'),
                 ('ignore_user_status','0',0,'Ignore users online statuses and use departments online hours', '0'),
                 ('bbc_button_visible','1',0,'Show BB Code button', '0'),
+                ('allow_reopen_closed','1', 0, 'Allow user to reopen closed chats?', '0'),
+                ('reopen_as_new','1', 0, 'Reopen closed chat as new? Otherwise it will be reopened as active.', '0'),
+                ('default_theme_id','0', 0, 'Default theme ID.', '1'),
                 ('doc_sharer',	'a:10:{i:0;b:0;s:17:\"libre_office_path\";s:20:\"/usr/bin/libreoffice\";s:19:\"supported_extension\";s:51:\"ppt,pptx,doc,odp,docx,xlsx,txt,xls,xlsx,pdf,rtf,odt\";s:18:\"background_process\";i:1;s:13:\"max_file_size\";i:4;s:13:\"pdftoppm_path\";s:17:\"/usr/bin/pdftoppm\";s:13:\"PdftoppmLimit\";i:5;s:14:\"pdftoppm_limit\";i:0;s:14:\"http_user_name\";s:6:\"apache\";s:20:\"http_user_group_name\";s:6:\"apache\";}',	0,	'Libreoffice path',	1),
                 ('disable_html5_storage','1',0,'Disable HMTL5 storage, check it if your site is switching between http and https', '0'),
                 ('automatically_reopen_chat','1',0,'Automatically reopen chat on widget open', '0'),
                 ('autoclose_timeout','0', 0, 'Automatic chats closing. 0 - disabled, n > 0 time in minutes before chat is automatically closed', '0'),
                 ('autopurge_timeout','0', 0, 'Automatic chats purging. 0 - disabled, n > 0 time in minutes before chat is automatically deleted', '0'),
-                ('geo_data', '', '0', '', '1')");
+                ('update_ip',	'127.0.0.1',	0,	'Which ip should be allowed to update DB by executing http request, separate by comma?',0),
+                ('track_if_offline',	'0',	0,	'Track online visitors even if there is no online operators',0),
+                ('min_phone_length','8',0,'Minimum phone number length',0),
+                ('mheight','',0,'Messages box height',0),
+                ('suggest_leave_msg','1',0,'Suggest user to leave a message then user chooses offline department',0),
+                ('checkstatus_timeout','0',0,'Interval between chat status checks in seconds, 0 disabled.',0),
+                ('show_language_switcher','0',0,'Show users option to switch language at widget',0),
+                ('track_is_online','0',0,'Track is user still on site, chat status checks also has to be enabled',0),
+				('show_languages','eng,lit,hrv,esp,por,nld,ara,ger,pol,rus,ita,fre,chn,cse,nor,tur,vnm,idn,sve,per,ell,dnk,rou,bgr,tha,geo,fin,alb',0,'Between what languages user should be able to switch',0),
+                ('geoadjustment_data',	'a:8:{i:0;b:0;s:18:\"use_geo_adjustment\";b:0;s:13:\"available_for\";s:0:\"\";s:15:\"other_countries\";s:6:\"custom\";s:8:\"hide_for\";s:0:\"\";s:12:\"other_status\";s:7:\"offline\";s:11:\"rest_status\";s:6:\"hidden\";s:12:\"apply_widget\";i:0;}',	0,	'Geo adjustment settings',	1),
+                {$geoRow}");
 
         	   
         	   
@@ -694,10 +731,12 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  `pages_count` int(11) NOT NULL,
         	   	  `tt_pages_count` int(11) NOT NULL,
         	   	  `invitation_count` int(11) NOT NULL,
+        	   	  `last_check_time` int(11) NOT NULL,
         	   	  `dep_id` int(11) NOT NULL,
                   `user_agent` varchar(250) NOT NULL,
                   `user_country_code` varchar(50) NOT NULL,
                   `user_country_name` varchar(50) NOT NULL,
+                  `visitor_tz` varchar(50) NOT NULL,
                   `operator_message` varchar(250) NOT NULL,
                   `operator_user_proactive` varchar(100) NOT NULL,
                   `operator_user_id` int(11) NOT NULL,
@@ -711,6 +750,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
   				  `tt_time_on_site` int(11) NOT NULL,
         	   	  `requires_email` int(11) NOT NULL,
         	   	  `requires_username` int(11) NOT NULL,
+        	   	  `requires_phone` int(11) NOT NULL,
         	   	  `screenshot_id` int(11) NOT NULL,
         	   	  `identifier` varchar(50) NOT NULL,
         	   	  `operation` varchar(200) NOT NULL,
@@ -742,6 +782,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  `identifier` varchar(50) NOT NULL,
         	   	  `requires_email` int(11) NOT NULL,
         	   	  `requires_username` int(11) NOT NULL,
+        	   	  `requires_phone` int(11) NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `time_on_site_pageviews_siteaccess_position` (`time_on_site`,`pageviews`,`siteaccess`,`identifier`,`position`),
         	      KEY `identifier` (`identifier`),
@@ -909,7 +950,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				) DEFAULT CHARSET=utf8;");
 
                 // Insert record to departament instantly
-                $db->query("INSERT INTO `lh_userdep` (`user_id`,`dep_id`,`last_activity`,`hide_online`) VALUES ({$UserData->id},0,0,0)");
+                $db->query("INSERT INTO `lh_userdep` (`user_id`,`dep_id`,`last_activity`,`hide_online`,`last_accepted`,`active_chats`) VALUES ({$UserData->id},0,0,0,0,0)");
 
                 // Transfer chat
                 $db->query("CREATE TABLE IF NOT EXISTS `lh_transfer` (
@@ -1008,6 +1049,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                     array('module' => 'lhsystem','function' => 'changelanguage'),
                     array('module' => 'lhchat',  'function' => 'allowtransfer'),
                     array('module' => 'lhchat',  'function' => 'administratecannedmsg'),
+                    array('module' => 'lhchat',  'function' => 'sees_all_online_visitors'),
                     array('module' => 'lhquestionary',  'function' => 'manage_questionary'),
                     array('module' => 'lhfaq',   		'function' => 'manage_faq'),
                     array('module' => 'lhchatbox',   	'function' => 'manage_chatbox'),

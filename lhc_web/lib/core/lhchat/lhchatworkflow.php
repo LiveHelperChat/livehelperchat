@@ -65,7 +65,9 @@ class erLhcoreClassChatWorkflow {
     		
     		if ($chat->department->na_cb_execute == 1) {
     			$chat->na_cb_executed = 0;
-    		}    		
+    		}   
+
+    		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed_assigned_department',array('chat' => & $chat));
     	}
        	
     	$chat->updateThis();
@@ -101,6 +103,8 @@ class erLhcoreClassChatWorkflow {
     	$extensions = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'extensions' );
     	$instance = erLhcoreClassSystem::instance();
 
+    	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.unread_chat_workflow',array('chat' => & $chat));
+    	
     	foreach ($extensions as $ext) {
     		$callbackFile = $instance->SiteDir . '/extension/' . $ext . '/callbacks/unanswered_chat.php';
     		if (file_exists($callbackFile)) {
@@ -121,7 +125,9 @@ class erLhcoreClassChatWorkflow {
     	if (in_array('xmp', $options['options'])) {
     		erLhcoreClassXMP::sendXMPMessage($chat);
     	}
-    	 
+    	
+    	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_unread_message',array('chat' => & $chat));
+    	
     	// Execute callback if it exists
     	$extensions = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'extensions' );
     	$instance = erLhcoreClassSystem::instance();
@@ -143,6 +149,8 @@ class erLhcoreClassChatWorkflow {
     	if (in_array('xmp_accepted', $options['options'])) {    	
     		erLhcoreClassXMP::sendXMPMessage($chat,array('template' => 'xmp_accepted_message'));
     	}
+    	
+    	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_accepted',array('chat' => & $chat));
     }
 
     
@@ -158,6 +166,8 @@ class erLhcoreClassChatWorkflow {
     	if (in_array('xmp', $options['options'])) {
     		erLhcoreClassXMP::sendXMPMessage($chat);
     	}
+    	
+    	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.new_chat',array('chat' => & $chat));
     	
     	// Execute callback if it exists
     	$extensions = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'extensions' );
@@ -249,6 +259,8 @@ class erLhcoreClassChatWorkflow {
 	    		$chat->tslasign = time();
 	    		$chat->user_id = $user_id;
 	    		$chat->updateThis();
+	    		
+	    		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed_auto_assign',array('chat' => & $chat));
 	    		
 	    		$stmt = $db->prepare('UPDATE lh_userdep SET last_accepted = :last_accepted WHERE user_id = :user_id');
 	    		$stmt->bindValue(':last_accepted',time(),PDO::PARAM_INT);

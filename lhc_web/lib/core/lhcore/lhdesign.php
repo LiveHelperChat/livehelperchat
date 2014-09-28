@@ -186,6 +186,12 @@ class erLhcoreClassDesign
         return $instance->WWWDir . $instance->IndexFile . '/' . ltrim($link,'/');
     }
 
+    public static function baseurlsite()
+    {
+        $instance = erLhcoreClassSystem::instance();
+        return $instance->WWWDir . $instance->IndexFile;
+    }
+
     public static function designCSS($files)
     {
         $debugOutput = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' );

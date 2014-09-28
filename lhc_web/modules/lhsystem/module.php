@@ -46,6 +46,11 @@ $ViewList['update'] = array(
     'functions' => array( 'performupdate' )
 );
 
+$ViewList['autodbupdate'] = array(
+    'params' => array('hash'),
+    'uparams' => array()
+);
+
 $FunctionList['use'] = array('explain' => 'Allow user to see configuration links');
 $FunctionList['expirecache'] = array('explain' => 'Allow user to clear cache');
 $FunctionList['generatejs'] = array('explain' => 'Allow user to access HTML generation');
@@ -55,5 +60,6 @@ $FunctionList['changelanguage'] = array('explain' => 'Allow user to change his l
 $FunctionList['timezone'] = array('explain' => 'Allow user to change global time zone');
 $FunctionList['performupdate'] = array('explain' => 'Allow user to update Live Helper Chat');
 $FunctionList['changetemplates'] = array('explain' => 'Allow user to change e-mail templates');
+$FunctionList['generate_js_tab'] = array('explain' => 'User can see embed code tab');
 
 ?>

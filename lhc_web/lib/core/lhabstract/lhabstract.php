@@ -16,6 +16,9 @@ class erLhcoreClassAbstract {
         	           return $returnString;
         	       } else {
         	       	  $ngModel = isset($attr['nginit']) ? ' ng-init="ngModelAbstractInput_'.$name.'=\''.htmlspecialchars($object->$name,ENT_QUOTES).'\'" ng-model="ngModelAbstractInput_'.$name.'" ' : '';
+        	       	  if (isset($attr['placeholder'])) {
+        	       	  		$ngModel .= " placeholder=\"{$attr['placeholder']}\" ";
+        	       	  };
         		      return '<input class="abstract_input" class="abstract_input" '.$ngModel.' name="AbstractInput_'.$name.'" type="text" value="'.htmlspecialchars($object->$name).'" />';
         	       }
         		break;
@@ -44,7 +47,7 @@ class erLhcoreClassAbstract {
 
         	case 'checkbox':
         	          $selected = $object->$name == 1 ? ' checked="checked" ' : '';
-        		      return '<input type="checkbox" name="AbstractInput_'.$name.'" value="1" '.$selected.' />';
+        		      return '<input ng-init="abstract_checked_'.$name.'='. ($object->$name == 1 ? 'true' : 'false') .'" ng-model="abstract_checked_'.$name.'" type="checkbox" name="AbstractInput_'.$name.'" value="1" '.$selected.' />';
         		break;
 
 			case 'imgfile':

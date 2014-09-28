@@ -7,14 +7,10 @@
 
 		<form action="<?php echo erLhcoreClassDesign::baseurl('permission/editrole')?>/<?php echo $role->id?>" method="post">
 			<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
-		      <div class="row">
-		          <div class="columns large-2">
-		              <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Title');?></label>
-		          </div>
-		          <div class="columns large-10 end">
-		              <label><input class="inputfield" type="text" name="Name"  value="<?php echo htmlspecialchars($role->name);?>" /></label>
-		          </div>
-		      </div>
+	
+		    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Title');?></label>
+		    <input  type="text" name="Name" value="<?php echo htmlspecialchars($role->name);?>" />
+		      
 			<ul class="button-group radius">
 			<li><input type="submit" class="small button" name="Update_role" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Update');?>"/></li>
 			<li><input type="submit" class="small button" name="Cancel_role" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Cancel');?>"/></li>
@@ -32,7 +28,7 @@
 			</thead>
 			     <?php foreach (erLhcoreClassRoleFunction::getRoleFunctions($role->id) as $Function) : ?>
 			     <tr>
-    			     <td><input type="checkbox" name="PolicyID[]" value="<?php echo $Function['id']?>" /></td>
+    			     <td><input type="checkbox" class="mb0" name="PolicyID[]" value="<?php echo $Function['id']?>" /></td>
     			     <td><?php echo htmlspecialchars(erLhcoreClassModules::getModuleName($Function['module']))?>&nbsp;(<b><?php echo htmlspecialchars($Function['module'])?></b>)</td>
     			     <td><?php echo htmlspecialchars(erLhcoreClassModules::getFunctionName($Function['module'],$Function['function']))?>&nbsp;(<b><?php echo htmlspecialchars($Function['function'])?></b>)</td>
 			     </tr>
@@ -58,7 +54,7 @@
 			</thead>
 			     <?php foreach (erLhcoreClassGroupRole::getRoleGroups($role->id) as $Group) : ?>
 			     <tr>
-    			     <td><input type="checkbox" name="AssignedID[]" value="<?php echo $Group['assigned_id']?>" /></td>
+    			     <td><input class="mb0" type="checkbox" name="AssignedID[]" value="<?php echo $Group['assigned_id']?>" /></td>
     			     <td><?php echo htmlspecialchars($Group['name'])?></td>
 			     </tr>
 			     <?php endforeach; ?>

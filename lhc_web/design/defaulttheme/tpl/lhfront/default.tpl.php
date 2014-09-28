@@ -15,7 +15,7 @@ $closedTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_close_list
 $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_list',1);
 ?>
 
-<div class="section-container auto" data-section="auto" id="tabs" data-options="deep_linking: true">
+<div class="section-container auto" data-section="auto" id="tabs" data-options="deep_linking: true" ng-cloak>
   <?php if ($pendingTabEnabled == true) : ?>
   <section>
     <p class="title" data-section-title><a href="#pendingchats" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Pending confirm');?>"><i class="icon-chat chat-pending"></i><span>{{pending_chats.list.length != false && pending_chats.list.length > 0 ? ' ('+pending_chats.list.length+')' : ''}}</span></a></p>

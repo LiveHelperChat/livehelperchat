@@ -23,7 +23,12 @@ class erLhcoreClassModelmsg {
    public function saveThis() {
    		erLhcoreClassChat::getSession()->saveOrUpdate($this);
    }
-
+   
+   public static function fetch($msg_id) {
+   		$msg = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelmsg', (int)$msg_id );
+   		return $msg;
+   }
+   
    public static function getList($paramsSearch = array())
    {
 	   	$paramsDefault = array('limit' => 32, 'offset' => 0);

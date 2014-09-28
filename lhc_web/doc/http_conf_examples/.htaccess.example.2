@@ -1,6 +1,7 @@
 RewriteEngine On
 
 RewriteBase /
+RewriteRule ^upgrade.php - [L]
 RewriteRule ^/var/[^/]+/cache/(stylesheets|images|javascripts?)/.* - [L]
 RewriteCond %{REQUEST_FILENAME} !\.(gif|jpe?g|json|ico|png|bmp|css|ogv|js|xml|flv|html|mp3|ogg|wav|swf|otf|woff|eot|ttf)|var(.+)storage.pdf(.+)\.pdf$ [NC]
 RewriteRule ^(.*)?$ index.php?/$1 [L]

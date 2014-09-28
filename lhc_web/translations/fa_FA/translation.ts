@@ -1,5 +1,204 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="fa">
   <context>
+    <name>listchatconfig</name>
+    <message>
+      <source>How many days voting widget should not be expanded after last show</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use secure cookie, check this if you want to force SSL all the time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable online site visitors tracking</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Track is user still on site, chat status checks also has to be enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Track online visitors even if there is no online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Track users footprint. For this also online visitors tracking should be enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set your domain to enable user tracking across different domain subdomains.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How many days keep records of online users.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Suggest user to leave a message then user chooses offline department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Play sound on invitation to chat.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show users option to switch language at widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Between what languages user should be able to switch</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Should cronjob run unanswered chats workflow and execute unaswered chats callback, 0 - no, any other number bigger than 0 is a minits how long chat have to be not accepted before executing callback.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Should cronjob run departments transfer workflow, even if user leaves a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reopen chat functionality enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reopen closed chat as new? Otherwise it will be reopened as active.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Should invitation logic be executed if there is no online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pro active chats invitations limitation based on pending chats, (-1) do not limit, (0,1,n+1) number of pending chats can be for invitation to be shown.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Is pro active chat invitation active. Online users tracking also has to be enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show need help tooltip?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum phone number length</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages box height</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Maximum message length in characters</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List online operators.</source>
+      <translation>اپراتورهای حاضر را لیست کن</translation>
+    </message>
+    <message>
+      <source>Ignore users online statuses and use departments online hours</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Which ip should be ignored in online users list, separate by comma</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide disabled department widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Is visitor e-mail required for FAQ</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats export secret hash</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter explicit http mode. Either http: or https:, do not forget : at the end.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disable chat transcript send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disable chat print</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disable option in widget to open new window. Restore icon will be hidden</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Your site URL address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Your company name - visible in bottom left corner</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Interval between chat status checks in seconds, 0 disabled.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show BB Code button</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatically reopen chat on widget open</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatic chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Support application name, visible in browser title.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Allow user to reopen closed chats?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Change to your site Terms of Service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How many seconds chat accept link is valid. Set 0 to force login all the time manually.</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>system/buttons</name>
     <message>
       <source>Save</source>
@@ -71,6 +270,188 @@
     <message>
       <source>Updated!</source>
       <translation>به روز شده!</translation>
+    </message>
+  </context>
+  <context>
+    <name>abstract/widgettheme</name>
+    <message>
+      <source>Download theme</source>
+      <translation>دانلود تم</translation>
+    </message>
+    <message>
+      <source>Status widget style</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget copyright</source>
+      <translation>حق کپی رایت ابزارک</translation>
+    </message>
+    <message>
+      <source>Widget container</source>
+      <translation>شمارشگر ابزارک</translation>
+    </message>
+    <message>
+      <source>Need help widget</source>
+      <translation>نیاز به کمک ابزارک</translation>
+    </message>
+    <message>
+      <source>Custom CSS</source>
+      <translation>CSS سفارشی</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>نام</translation>
+    </message>
+    <message>
+      <source>Need help header text</source>
+      <translation>رنگ هدر نیاز به کمک</translation>
+    </message>
+    <message>
+      <source>Need help standard text</source>
+      <translation>رنگ استاندارد نیاز به کمک</translation>
+    </message>
+    <message>
+      <source>Online status text</source>
+      <translation>وضعیت آنلاین متن</translation>
+    </message>
+    <message>
+      <source>Offline status text</source>
+      <translation>متن وضعیت آفلاین</translation>
+    </message>
+    <message>
+      <source>Operator intro text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Have a question? Ask us!</source>
+      <translation>سوالی دارید؟ از ما بپرسید!</translation>
+    </message>
+    <message>
+      <source>Background color</source>
+      <translation>رنگ پس زمینه</translation>
+    </message>
+    <message>
+      <source>Status widget border color</source>
+      <translation>رنگ بردار وضعیت ابزارک</translation>
+    </message>
+    <message>
+      <source>Text color</source>
+      <translation>رنگ متن</translation>
+    </message>
+    <message>
+      <source>Operator image in chat widget</source>
+      <translation>تصویر اپراتور در ابزارک چت</translation>
+    </message>
+    <message>
+      <source>Logo image, visible in popup</source>
+      <translation>تصویر لوگو، نمایان در صفحه ی پاپ آپ</translation>
+    </message>
+    <message>
+      <source>Logo image, visible in widget left corner, 16x16</source>
+      <translation>تصویر لوگو، نمایان در گوشه ی چپ ابزارک، 16x16</translation>
+    </message>
+    <message>
+      <source>Show copyright widget logo in left corner</source>
+      <translation>نمایش لوگوی کپی رایت ابزارک در گوشه ی چپ</translation>
+    </message>
+    <message>
+      <source>Widget copyright link</source>
+      <translation>پیوند حق نسخه برداری ابزارک</translation>
+    </message>
+    <message>
+      <source>Text above start chat form fields</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online image</source>
+      <translation>تصویر حضور</translation>
+    </message>
+    <message>
+      <source>Offline image</source>
+      <translation>تصویر عدم حضور</translation>
+    </message>
+    <message>
+      <source>Widget header background color</source>
+      <translation>رنگ پس زمینه هدر ابزارک</translation>
+    </message>
+    <message>
+      <source>Widget border color</source>
+      <translation>رنگ کادر ابزارک</translation>
+    </message>
+    <message>
+      <source>Need help background color</source>
+      <translation>نیاز به کمک رنگ پس زمینه</translation>
+    </message>
+    <message>
+      <source>Need help hover background color</source>
+      <translation>نیاز به کمک رنگ پس زمینه شناور</translation>
+    </message>
+    <message>
+      <source>Need help text color</source>
+      <translation>نیاز به کمک رنگ متن</translation>
+    </message>
+    <message>
+      <source>Need help border color</source>
+      <translation>نیاز به کمک رنگ بردار</translation>
+    </message>
+    <message>
+      <source>Need help close background color</source>
+      <translation>نیاز به کمک بستن رنگ پس زمینه</translation>
+    </message>
+    <message>
+      <source>Need help close hover background color</source>
+      <translation>نیاز به کمک بستن رنگ پس زمینه شناور</translation>
+    </message>
+    <message>
+      <source>Need help operator image</source>
+      <translation>نیاز به کمک تصویر اپراتور</translation>
+    </message>
+    <message>
+      <source>Status widget additional CSS, takes effect after save</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget container additional CSS, takes effect after save</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget body additional CSS, takes effect after save</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget themes</source>
+      <translation>تم ابزارک</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/getstatus</name>
+    <message>
+      <source>Close</source>
+      <translation>بستن</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>در یک پنجره جدید باز کن</translation>
+    </message>
+    <message>
+      <source>Minimize/Restore</source>
+      <translation>بازنشانی/کاهش</translation>
+    </message>
+    <message>
+      <source>Live help is online...</source>
+      <translation>پشتیبان برخط آنلاین است ...</translation>
+    </message>
+    <message>
+      <source>Need help?</source>
+      <translation>راهنمایی میخواهید؟</translation>
+    </message>
+    <message>
+      <source>Our staff is always ready to help</source>
+      <translation>پشتیبان ما همیشه برای کمک آماده است</translation>
+    </message>
+    <message>
+      <source>Live help is offline...</source>
+      <translation>پشتیبان برخط آفلاین است...</translation>
     </message>
   </context>
   <context>
@@ -148,6 +529,10 @@
       <translation>نام درخواستی</translation>
     </message>
     <message>
+      <source>Requires phone</source>
+      <translation>درخواست شماره تلفن</translation>
+    </message>
+    <message>
       <source>Show random operator profile</source>
       <translation>نمایش تصادفی پروفایل اپراتور</translation>
     </message>
@@ -188,37 +573,6 @@
     </message>
   </context>
   <context>
-    <name>chat/getstatus</name>
-    <message>
-      <source>Close</source>
-      <translation>بستن</translation>
-    </message>
-    <message>
-      <source>Open in a new window</source>
-      <translation>در یک پنجره جدید باز کن</translation>
-    </message>
-    <message>
-      <source>Minimize/Restore</source>
-      <translation>بازنشانی/کاهش</translation>
-    </message>
-    <message>
-      <source>Live help is online...</source>
-      <translation>پشتیبان برخط آنلاین است ...</translation>
-    </message>
-    <message>
-      <source>Need help?</source>
-      <translation>راهنمایی میخواهید؟</translation>
-    </message>
-    <message>
-      <source>Our staff is always ready to help</source>
-      <translation>پشتیبان ما همیشه برای کمک آماده است</translation>
-    </message>
-    <message>
-      <source>Live help is offline...</source>
-      <translation>پشتیبان برخط آفلاین است...</translation>
-    </message>
-  </context>
-  <context>
     <name>system/htmlcode</name>
     <message>
       <source>HTML code</source>
@@ -245,8 +599,12 @@
       <translation>بعد از چند روز پیشنهاد برای یک بازدیدکننده مجدد نمایش داده شود؟</translation>
     </message>
     <message>
-      <source>Choose a language</source>
-      <translation>انتخاب زبان</translation>
+      <source>For what domain you are generating embed code?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>example.com</source>
+      <translation>example.com</translation>
     </message>
     <message>
       <source>Choose prefered http mode</source>
@@ -255,6 +613,10 @@
     <message>
       <source>Based on site (default)</source>
       <translation>بر اساس سایت (پیشفرض)</translation>
+    </message>
+    <message>
+      <source>Choose a language</source>
+      <translation>انتخاب زبان</translation>
     </message>
     <message>
       <source>Widget embed code</source>
@@ -270,11 +632,11 @@
     </message>
     <message>
       <source>Theme</source>
-      <translation type="unfinished"/>
+      <translation>تم</translation>
     </message>
     <message>
       <source>Default</source>
-      <translation type="unfinished"/>
+      <translation>پیشفرض</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>
@@ -393,6 +755,14 @@
       <translation>هر</translation>
     </message>
     <message>
+      <source>Operator ID</source>
+      <translation>شماره شناسایی اپراتور</translation>
+    </message>
+    <message>
+      <source>To what operator chat should be assigned automatically?</source>
+      <translation>چت به صورت خودکار به چه اپراتوری اختصاص داده شود؟</translation>
+    </message>
+    <message>
       <source>Copy the code from the text area to the page where you want your status to appear</source>
       <translation>کد محدوده متنی را در هر کجای صفحه که میخواهید کپی کنید</translation>
     </message>
@@ -445,6 +815,22 @@
       <translation>محل قرارگیری - محل html داخلی را نمایش میدهد.</translation>
     </message>
     <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimize action, applies only if status widget is at the bottom</source>
+      <translation>اقدام کمینه، وقتی اعمال میشود که ابزارک در پایین صفحه است</translation>
+    </message>
+    <message>
+      <source>Keep where it was</source>
+      <translation>جایی که بود نگه داشته شود *</translation>
+    </message>
+    <message>
+      <source>Minimize to bottom of the screen</source>
+      <translation>کمینه شدن به پایین صفحه</translation>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation>تنظیمات سیستم</translation>
     </message>
@@ -482,18 +868,6 @@
   </context>
   <context>
     <name>browseoffer/index</name>
-    <message>
-      <source>List of forms</source>
-      <translation>فهرست فرم ها</translation>
-    </message>
-    <message>
-      <source>Page embed code</source>
-      <translation>کد داخلی صفحه</translation>
-    </message>
-    <message>
-      <source>Index</source>
-      <translation>ایندکس</translation>
-    </message>
     <message>
       <source>Browse offers</source>
       <translation>مرور پیشنهادات</translation>
@@ -559,6 +933,57 @@
     </message>
   </context>
   <context>
+    <name>chat/lists/search_panel</name>
+    <message>
+      <source>Delete selected</source>
+      <translation>حذف منتخب ها</translation>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation>نام مستعار</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>ایمیل</translation>
+    </message>
+    <message>
+      <source>Date range from to</source>
+      <translation>محدوده تاریخی</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>دپارتمان</translation>
+    </message>
+    <message>
+      <source>User</source>
+      <translation>کاربر</translation>
+    </message>
+    <message>
+      <source>Search</source>
+      <translation>جستجو</translation>
+    </message>
+    <message>
+      <source>Print</source>
+      <translation>چاپ</translation>
+    </message>
+    <message>
+      <source>XLS</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select department</source>
+      <translation>انتخاب دپارتمان</translation>
+    </message>
+    <message>
+      <source>Select user</source>
+      <translation>انتخاب کاربر</translation>
+    </message>
+    <message>
+      <source>Type to search</source>
+      <translation>عبارت را برای جستجو وارد کنید</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/chat</name>
     <message>
       <source>Show/Hide right column</source>
@@ -609,16 +1034,16 @@
       <translation>بستن</translation>
     </message>
     <message>
-      <source>Enter your message</source>
-      <translation>پیام خود را وارد کنید</translation>
-    </message>
-    <message>
       <source>Send</source>
       <translation>ارسال</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation>کد BB</translation>
+    </message>
+    <message>
+      <source>Enter your message</source>
+      <translation>پیام خود را وارد کنید</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -750,7 +1175,7 @@
     </message>
     <message>
       <source>Auto send</source>
-      <translation type="unfinished"/>
+      <translation>ارسال خودکار</translation>
     </message>
     <message>
       <source>Edit message</source>
@@ -770,7 +1195,7 @@
     </message>
     <message>
       <source>Automatically send this message to user then chat is accepted</source>
-      <translation type="unfinished"/>
+      <translation>وقتی ارتباط بر قرار شد این پیام به صورت خودکار برای کاربر ارسال شود</translation>
     </message>
     <message>
       <source>Delay in seconds</source>
@@ -807,6 +1232,18 @@
   </context>
   <context>
     <name>department/edit</name>
+    <message>
+      <source>Work hours, 24 hours format, 1 - 24</source>
+      <translation>ساعات کاری، به صورت 24 ساعته، 1 - 24</translation>
+    </message>
+    <message>
+      <source>From, E.g. 8</source>
+      <translation>از  E.g 8</translation>
+    </message>
+    <message>
+      <source>To, E.g. 17</source>
+      <translation>To, E.g. 17</translation>
+    </message>
     <message>
       <source>Any</source>
       <translation>هر</translation>
@@ -884,16 +1321,24 @@
       <translation>یک شنبه</translation>
     </message>
     <message>
-      <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation>ساعات کاری، به صورت 24 ساعته، 1 - 24</translation>
+      <source>Work hours, 24 hours format, 1 - 24, minutes format 0 - 60</source>
+      <translation>ساعات کاری، قالب 24 ساعته، 1 - 24، قالب دقیقه 0 - 60</translation>
     </message>
     <message>
-      <source>From, E.g. 8</source>
-      <translation>از  E.g 8</translation>
+      <source>Hours from, E.g. 8</source>
+      <translation>ساعت از، مانند 8</translation>
     </message>
     <message>
-      <source>To, E.g. 17</source>
-      <translation>To, E.g. 17</translation>
+      <source>Minutes from, E.g. 30</source>
+      <translation>دقیقه از، مانند 30</translation>
+    </message>
+    <message>
+      <source>Hours to, E.g. 17</source>
+      <translation>ساعت تا، مانند 17</translation>
+    </message>
+    <message>
+      <source>Minutes to, E.g. 30</source>
+      <translation>دقیقه تا، مانند 30</translation>
     </message>
     <message>
       <source>Notifications</source>
@@ -1066,6 +1511,10 @@
       <translation>کشور</translation>
     </message>
     <message>
+      <source>Time zone</source>
+      <translation>زمان محلی</translation>
+    </message>
+    <message>
       <source>City</source>
       <translation>شهر</translation>
     </message>
@@ -1146,8 +1595,8 @@
       <translation>چاپ</translation>
     </message>
     <message>
-      <source>Attatch uploaded file</source>
-      <translation>پیوست فایل بارگذاری شده</translation>
+      <source>Attach uploaded file</source>
+      <translation>ضمیمه کردن فایل آپلود شده</translation>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
@@ -1397,8 +1846,20 @@
       <translation>پرسش شما</translation>
     </message>
     <message>
+      <source>Please enter a message...</source>
+      <translation>لطفا&quot; پیام خود را وارد نمایید</translation>
+    </message>
+    <message>
       <source>Start chat</source>
       <translation>شروع چت</translation>
+    </message>
+    <message>
+      <source>Live support is not available in your country</source>
+      <translation>پشتیبانی آنلاین در کشور شما در دسترس نمی باشد</translation>
+    </message>
+    <message>
+      <source>Live Support</source>
+      <translation>پشتیبان آنلاین</translation>
     </message>
     <message>
       <source>There are no online operators at the moment, please leave a message</source>
@@ -1429,6 +1890,26 @@
       <translation>آفلاین</translation>
     </message>
     <message>
+      <source>Have a question? Ask us!</source>
+      <translation>سوالی دارید؟ از ما بپرسید!</translation>
+    </message>
+    <message>
+      <source>Department is offline</source>
+      <translation>دپارتمان آفلاین می باشد</translation>
+    </message>
+    <message>
+      <source>Go to leave a message form</source>
+      <translation>بسوی گذاشتن فرم تماس</translation>
+    </message>
+    <message>
+      <source>Cancel and choose another department</source>
+      <translation>لغو و انتخاب دپارتمان دیگر</translation>
+    </message>
+    <message>
+      <source>characters</source>
+      <translation>حروف</translation>
+    </message>
+    <message>
       <source>Type your message here and hit enter to send...</source>
       <translation>پیام خود را اینجا وارد کنید و برای ارسال دکمه اینتر را بزنید ...</translation>
     </message>
@@ -1447,6 +1928,10 @@
     <message>
       <source>There are no online operators at the moment, please leave your message</source>
       <translation>در حال حاظر اپراتور آنلاین نیست، لطفا پیام خود را بگذارید</translation>
+    </message>
+    <message>
+      <source>Choose your language</source>
+      <translation>زبان خود را انتخاب نمایید</translation>
     </message>
     <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
@@ -1501,10 +1986,6 @@
       <translation>مورد نیاز</translation>
     </message>
     <message>
-      <source>Live Support</source>
-      <translation>پشتیبان آنلاین</translation>
-    </message>
-    <message>
       <source>Please enter a message, max characters</source>
       <translation>لطفا تعداد حداکثر کاراکترهای یک پیام را وارد کنید</translation>
     </message>
@@ -1515,6 +1996,10 @@
     <message>
       <source>Fill in the form to start a chat</source>
       <translation>برای شروع چت فرم را پر کنید</translation>
+    </message>
+    <message>
+      <source>Unread message</source>
+      <translation>پیام های خوانده نشده</translation>
     </message>
   </context>
   <context>
@@ -1534,6 +2019,10 @@
     <message>
       <source>At this moment there are no logged in support staff members, but you can leave your messages</source>
       <translation>در حال حاضر هیچ پشتیبانی آنلاین نیست، میتوانید پیام بگذارید</translation>
+    </message>
+    <message>
+      <source>Visitor has been redirected to contact form</source>
+      <translation>بازدید کننده به فرم تماس منتقل می شود</translation>
     </message>
   </context>
   <context>
@@ -1633,6 +2122,208 @@
     <message>
       <source>Please enter text!</source>
       <translation>لطفا متن را وارد کنید!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/geoadjustment</name>
+    <message>
+      <source>GEO adjustment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For</source>
+      <translation>برای</translation>
+    </message>
+    <message>
+      <source>all</source>
+      <translation>همه</translation>
+    </message>
+    <message>
+      <source>custom</source>
+      <translation>سفارشی سازی</translation>
+    </message>
+    <message>
+      <source>E.g. ar,pl</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Other countries, put widget/chat status to</source>
+      <translation>دیگر کشورها، قراردهید ابزارک / وضعیت چت تا</translation>
+    </message>
+    <message>
+      <source>offline status</source>
+      <translation>وضعیت خاموش</translation>
+    </message>
+    <message>
+      <source>hidden/disabled, widget will not be shown</source>
+      <translation>پنهان / غیرفعال کردن، ابزارک نمایش داده نخواهد شد</translation>
+    </message>
+    <message>
+      <source>For unmatched countries put chat status to</source>
+      <translation>برای کشورهای بی همتا قرار دهید وضعیت چت را به </translation>
+    </message>
+    <message>
+      <source>normal status</source>
+      <translation>وضعیت نرمال</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/xmpp</name>
+    <message>
+      <source>Geo adjustments active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>تنظیمات به روز شد</translation>
+    </message>
+    <message>
+      <source>XMPP settings</source>
+      <translation>تنظیمات XMPP</translation>
+    </message>
+    <message>
+      <source>XMPP active</source>
+      <translation>XMPP فعال</translation>
+    </message>
+    <message>
+      <source>XMPP Message content</source>
+      <translation>محتوا پیام XMPP</translation>
+    </message>
+    <message>
+      <source>XMPP Message about accepted chat</source>
+      <translation>پیام XMPP درباره چت پذیرفته شده</translation>
+    </message>
+    <message>
+      <source>XMPP</source>
+      <translation>XMPP</translation>
+    </message>
+    <message>
+      <source>Use standard XMPP service</source>
+      <translation>استفاده از سرویس XMPP استاندارد</translation>
+    </message>
+    <message>
+      <source>Host</source>
+      <translation>هاست</translation>
+    </message>
+    <message>
+      <source>Port</source>
+      <translation>پورت</translation>
+    </message>
+    <message>
+      <source>Login</source>
+      <translation>ورود</translation>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation>کلمه عبور</translation>
+    </message>
+    <message>
+      <source>Resource</source>
+      <translation>منبع</translation>
+    </message>
+    <message>
+      <source>Server</source>
+      <translation>سرور</translation>
+    </message>
+    <message>
+      <source>Recipients</source>
+      <translation>گیرندگان</translation>
+    </message>
+    <message>
+      <source>Default recipients</source>
+      <translation>گیرندگان پیش فرض</translation>
+    </message>
+    <message>
+      <source>Test recipients</source>
+      <translation>گیرندگان آزمایشی</translation>
+    </message>
+    <message>
+      <source>Individual recipients</source>
+      <translation>گیرندگان فردی</translation>
+    </message>
+    <message>
+      <source>Test group recipients</source>
+      <translation>گروه گیرندگان آزمایشی</translation>
+    </message>
+    <message>
+      <source>Test message will be send to your account e-mail</source>
+      <translation>پیام آزمایشی به ایمیل شما ارسال خواهد شد</translation>
+    </message>
+    <message>
+      <source>GTalk</source>
+      <translation>GTalk</translation>
+    </message>
+    <message>
+      <source>Use GTalk for messaging</source>
+      <translation>استفاده از چت گوگل برای پیام</translation>
+    </message>
+    <message>
+      <source>Information for your google app</source>
+      <translation>اطلاعات در مورد برنامه گوگل شما</translation>
+    </message>
+    <message>
+      <source>Redirect URL, this url you will have to enter in your google app configuration</source>
+      <translation>آدرس مستقیم، این آدرس در تنظیمات برنامه گوگل شما وارد میشود.</translation>
+    </message>
+    <message>
+      <source>Enter your app information bellow</source>
+      <translation>اطلاعات برنامه خود را در زیر وارد کنید</translation>
+    </message>
+    <message>
+      <source>OAuth 2.0 Client ID</source>
+      <translation>OAuth 2.0 Client ID</translation>
+    </message>
+    <message>
+      <source>Please enter your Client ID</source>
+      <translation>لطفا شناسه کلاینت خود را وارد کنید</translation>
+    </message>
+    <message>
+      <source>Client secret</source>
+      <translation>کلید امنیتی کلاینت</translation>
+    </message>
+    <message>
+      <source>This message will be send to your e-mail</source>
+      <translation>این پیام به ایمیل شما فرستاده میشود.</translation>
+    </message>
+    <message>
+      <source>Send test message</source>
+      <translation>ارسال پیام تستی</translation>
+    </message>
+    <message>
+      <source>Revoke access token</source>
+      <translation>لغو نشانه دسترسی</translation>
+    </message>
+    <message>
+      <source>Revoke permission to send a message</source>
+      <translation>لغو مجوز برای  ارسال پیام</translation>
+    </message>
+    <message>
+      <source>Authentificate and grant permission to send a message</source>
+      <translation>سطوح دسترسی برای ارسال پیام</translation>
+    </message>
+    <message>
+      <source>Grant permission to send a message</source>
+      <translation>سطوح دسترسی برای ارسال پیام</translation>
+    </message>
+    <message>
+      <source>Succesfully authorised, now you can try to send a message</source>
+      <translation>تصدیق هویت، شما میتوانید پیام ارسال کنید</translation>
+    </message>
+    <message>
+      <source>Token was revoked</source>
+      <translation>نشانه لغو شد</translation>
+    </message>
+    <message>
+      <source>XMPP message was sent succesfuly</source>
+      <translation>پیام XMPP با موفقیت ارسال شد</translation>
     </message>
   </context>
   <context>
@@ -1766,6 +2457,10 @@
       <translation>طول.</translation>
     </message>
     <message>
+      <source>Time zone</source>
+      <translation>زمان محلی</translation>
+    </message>
+    <message>
       <source>Identifier</source>
       <translation>شناسایی</translation>
     </message>
@@ -1871,11 +2566,11 @@
     </message>
     <message>
       <source>Enable/Disable sound about new visitor</source>
-      <translation type="unfinished"/>
+      <translation>پخش/عدم پخش صدا وقتی بازدیدکننده تازه وارد شد</translation>
     </message>
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
-      <translation type="unfinished"/>
+      <translation>فعال/غیر فعال سازی اعلان‌های مرورگر وقتی کاربر تازه وارد شد</translation>
     </message>
     <message>
       <source>List</source>
@@ -1948,6 +2643,18 @@
     <message>
       <source>days</source>
       <translation>روزها</translation>
+    </message>
+    <message>
+      <source>Max records to return</source>
+      <translation>بیشترین مقدار بازگشتی رکوردها</translation>
+    </message>
+    <message>
+      <source>Visitor local time</source>
+      <translation>زمان محلی بازدید کننده</translation>
+    </message>
+    <message>
+      <source>By user status on site</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Status</source>
@@ -2132,42 +2839,6 @@
   <context>
     <name>system/configuration</name>
     <message>
-      <source>Chat related</source>
-      <translation>چت مرتبط</translation>
-    </message>
-    <message>
-      <source>Form module</source>
-      <translation>ماژول فرم</translation>
-    </message>
-    <message>
-      <source>Documents module</source>
-      <translation>ماژول اسناد</translation>
-    </message>
-    <message>
-      <source>Users and their permissions</source>
-      <translation>کاربران و مجوزهایشان</translation>
-    </message>
-    <message>
-      <source>Files uploads configuration</source>
-      <translation>تنظیمات بارگذاری فایل</translation>
-    </message>
-    <message>
-      <source>Other</source>
-      <translation>دیگران</translation>
-    </message>
-    <message>
-      <source>Forms</source>
-      <translation>فرم ها</translation>
-    </message>
-    <message>
-      <source>Documents</source>
-      <translation>اسناد</translation>
-    </message>
-    <message>
-      <source>Automatic chats assigment</source>
-      <translation>تخصیص خودکار چت ها</translation>
-    </message>
-    <message>
       <source>Request notification permission</source>
       <translation>درخواست مجوز اطلاع رسانی</translation>
     </message>
@@ -2260,6 +2931,10 @@
       <translation>تنظیمات شناسایی موقعیت جغرافیایی</translation>
     </message>
     <message>
+      <source>GEO adjustment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Synchronization and sound settings</source>
       <translation>تنظیمات هماهنگی و صدا</translation>
     </message>
@@ -2317,11 +2992,15 @@
     </message>
     <message>
       <source>Widget themes</source>
-      <translation type="unfinished"/>
+      <translation>تم‌های ابزارک</translation>
     </message>
     <message>
       <source>Import new themes</source>
-      <translation type="unfinished"/>
+      <translation>ایمپورت تم جدید</translation>
+    </message>
+    <message>
+      <source>Default theme</source>
+      <translation>تم پیشفرض</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -2368,6 +3047,10 @@
     <message>
       <source>Empty...</source>
       <translation>خالی ...</translation>
+    </message>
+    <message>
+      <source>Assigned operator</source>
+      <translation>اپراتور اختصاص داده شده</translation>
     </message>
     <message>
       <source>Clean cache</source>
@@ -2453,6 +3136,10 @@
       <source>Logout</source>
       <translation>خروج</translation>
     </message>
+    <message>
+      <source>New unread message</source>
+      <translation>پیام خوانده نشده جدید</translation>
+    </message>
   </context>
   <context>
     <name>chat/syncadmin</name>
@@ -2462,50 +3149,34 @@
     </message>
   </context>
   <context>
-    <name>chat/lists/search_panel</name>
+    <name>chat/maintenance</name>
     <message>
-      <source>Delete selected</source>
-      <translation>حذف منتخب ها</translation>
+      <source>Maintenance</source>
+      <translation>نگهداری</translation>
     </message>
     <message>
-      <source>Nick</source>
-      <translation>نام مستعار</translation>
+      <source>Automatic chats close, click to close old chats</source>
+      <translation>بستن خودکار چت ها، برای بستن چت های قبلی کلیک کنید</translation>
     </message>
     <message>
-      <source>E-mail</source>
-      <translation>ایمیل</translation>
+      <source>Automatic chats purge, click to purge old chats</source>
+      <translation>حذف خودکار چت ها، برای حذف چت های قبلی کلیک کنید</translation>
     </message>
     <message>
-      <source>Date range from to</source>
-      <translation>محدوده تاریخی</translation>
+      <source>Update chats duration by using new algorithm</source>
+      <translation>بروز رسانی مدت زمان چت ها براساس الگوریتم جدید</translation>
     </message>
     <message>
-      <source>Department</source>
-      <translation>دپارتمان</translation>
+      <source>Closed chats</source>
+      <translation>چت های بسته شده</translation>
     </message>
     <message>
-      <source>User</source>
-      <translation>کاربر</translation>
+      <source>Purged chats</source>
+      <translation>چت های حذف شده</translation>
     </message>
     <message>
-      <source>Search</source>
-      <translation>جستجو</translation>
-    </message>
-    <message>
-      <source>Print</source>
-      <translation>چاپ</translation>
-    </message>
-    <message>
-      <source>Select department</source>
-      <translation>انتخاب دپارتمان</translation>
-    </message>
-    <message>
-      <source>Select user</source>
-      <translation>انتخاب کاربر</translation>
-    </message>
-    <message>
-      <source>Type to search</source>
-      <translation>عبارت را برای جستجو وارد کنید</translation>
+      <source>Chats duration was updated</source>
+      <translation>مدت زمان چت ها بروز رسانی شد</translation>
     </message>
   </context>
   <context>
@@ -2657,6 +3328,10 @@
       <translation>نام درخواستی</translation>
     </message>
     <message>
+      <source>Requires phone</source>
+      <translation>درخواست شماره تلفن</translation>
+    </message>
+    <message>
       <source>Send the message</source>
       <translation>ارسال پیام</translation>
     </message>
@@ -2742,6 +3417,26 @@
     <message>
       <source>E-mail is always required</source>
       <translation>همیشه ایمیل مورد نیاز است</translation>
+    </message>
+    <message>
+      <source>Additional form settings</source>
+      <translation>تنظیمات اضافی فرم</translation>
+    </message>
+    <message>
+      <source>Show operator profile above input fields</source>
+      <translation>نمایش اطلاعات اپراتور در بالای فیلدهای ورودی</translation>
+    </message>
+    <message>
+      <source>Remove space after operator profile</source>
+      <translation>پاک کردن فضای بعد از پروفایل اپراتور</translation>
+    </message>
+    <message>
+      <source>Hide message label</source>
+      <translation>پنهان کردن برچسب پیام</translation>
+    </message>
+    <message>
+      <source>Initial user message height in pixels</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>
@@ -2894,6 +3589,114 @@
       <translation>آمار</translation>
     </message>
     <message>
+      <source>User</source>
+      <translation>کاربر</translation>
+    </message>
+    <message>
+      <source>Thumbs up</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of Thumbs Up</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Thumbs down</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of Thumbs Down</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>کشور</translation>
+    </message>
+    <message>
+      <source>Chats</source>
+      <translation>چت ها</translation>
+    </message>
+    <message>
+      <source>Number of chats by country</source>
+      <translation>تعداد چت ها بر اساس کشور</translation>
+    </message>
+    <message>
+      <source>Messages</source>
+      <translation>پیام ها</translation>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation>تعداد پیام ها براساس کاربران</translation>
+    </message>
+    <message>
+      <source>Month</source>
+      <translation>ماه</translation>
+    </message>
+    <message>
+      <source>Closed</source>
+      <translation>بسته</translation>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation>فعال</translation>
+    </message>
+    <message>
+      <source>Operators</source>
+      <translation>اپراتورها</translation>
+    </message>
+    <message>
+      <source>Pending</source>
+      <translation>منتظر</translation>
+    </message>
+    <message>
+      <source>Chats number by statuses</source>
+      <translation>تعداد چت ها بر اساس وضعیت</translation>
+    </message>
+    <message>
+      <source>Visitors initiated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Proactive</source>
+      <translation>فعال</translation>
+    </message>
+    <message>
+      <source>Proactive chats number vs visitors initiated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitors</source>
+      <translation>بازدید کننده ها</translation>
+    </message>
+    <message>
+      <source>System</source>
+      <translation>سیستم</translation>
+    </message>
+    <message>
+      <source>Messages types</source>
+      <translation>نوع پیام ها</translation>
+    </message>
+    <message>
+      <source>Number of chats per hour, average chat duration</source>
+      <translation>تعداد چت ها در ساعت، میانگین مدت زمان چت</translation>
+    </message>
+    <message>
+      <source>Chats statistic</source>
+      <translation>آمار چت ها</translation>
+    </message>
+    <message>
+      <source>Hourly statistic</source>
+      <translation>آمار ساعتی</translation>
+    </message>
+    <message>
+      <source>Country statistic</source>
+      <translation>آمار کشورها</translation>
+    </message>
+    <message>
+      <source>Users statisic</source>
+      <translation>آمار کاربران</translation>
+    </message>
+    <message>
       <source>Total statistic</source>
       <translation>آمار کلی</translation>
     </message>
@@ -2948,10 +3751,6 @@
     <message>
       <source>Operators last 24h statistic, top 100 by chats number</source>
       <translation>آمار 24 ساعت اخیر اپراتورها، با بیشتر از 100 چت</translation>
-    </message>
-    <message>
-      <source>User</source>
-      <translation>کاربر</translation>
     </message>
     <message>
       <source>Total messages</source>
@@ -3388,6 +4187,10 @@
       <translation>به روزشده</translation>
     </message>
     <message>
+      <source>Updating...</source>
+      <translation>در حال به روز رسانی...</translation>
+    </message>
+    <message>
       <source>Logged user</source>
       <translation>کاربر وارد شده</translation>
     </message>
@@ -3534,6 +4337,21 @@
     <message>
       <source>Passwords mismatch</source>
       <translation>کلمات عبور یکسان نیستند</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/operatorsbalancing</name>
+    <message>
+      <source>Active</source>
+      <translation>فعال</translation>
+    </message>
+    <message>
+      <source>Maximum number of active chats user can have at a time, 0 - unlimited</source>
+      <translation>بیشترین تعداد چت هایی که کاربر میتواند داشته باشد. 0 برای نامحدود</translation>
+    </message>
+    <message>
+      <source>Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled</source>
+      <translation>اختصاص خودکار چت به اپراتور دیگر. اگر اپراتور چت را در زمان تعیین شده پاسخ ندهد. 0 برای غیرفعال سازی</translation>
     </message>
   </context>
   <context>
@@ -4038,10 +4856,6 @@
       <translation>سیاست جدید</translation>
     </message>
     <message>
-      <source>Assigned functions</source>
-      <translation>توابع واگذار شده</translation>
-    </message>
-    <message>
       <source>Choose a module</source>
       <translation>انتخاب یک ماژول</translation>
     </message>
@@ -4054,16 +4868,16 @@
       <translation>انتخاب یک تابع ماژول</translation>
     </message>
     <message>
-      <source>All functions</source>
-      <translation>تمامی توابع</translation>
-    </message>
-    <message>
       <source>Save</source>
       <translation>ذخیره</translation>
     </message>
     <message>
       <source>Cancel</source>
       <translation>لغو</translation>
+    </message>
+    <message>
+      <source>All functions</source>
+      <translation>تمامی توابع</translation>
     </message>
   </context>
   <context>
@@ -4537,6 +5351,10 @@
       <translation>به روزرسانی برنامه</translation>
     </message>
     <message>
+      <source>Comparing current database structure, please wait...</source>
+      <translation>در حال مقایسه ساختار  پایگاه داده حاضر، لطفاً منتظر بمانید</translation>
+    </message>
+    <message>
       <source>Time zone</source>
       <translation>منطقه زمانی</translation>
     </message>
@@ -4643,20 +5461,16 @@
       <translation>نسخه فعلی</translation>
     </message>
     <message>
-      <source>Last database update</source>
-      <translation>آخرین به روزرسانی بانک اطلاعات</translation>
-    </message>
-    <message>
       <source>News</source>
       <translation>تازه ها</translation>
     </message>
     <message>
-      <source>Missing updates from new versions.</source>
-      <translation>به روزرسانی های از دست رفته از نسخه جدید</translation>
-    </message>
-    <message>
       <source>Update instructions</source>
       <translation>نحوه به روزرسانی</translation>
+    </message>
+    <message>
+      <source>Missing updates from new versions.</source>
+      <translation>به روزرسانی های از دست رفته از نسخه جدید</translation>
     </message>
     <message>
       <source>You are running current version. No updates required</source>
@@ -4665,6 +5479,90 @@
     <message>
       <source>Live Helper Chat update information</source>
       <translation>اطلاعات به روزرسانی برنامه</translation>
+    </message>
+  </context>
+  <context>
+    <name>update/statusdb</name>
+    <message>
+      <source>Database structure check</source>
+      <translation>بررسی ساختار پایگاه داده</translation>
+    </message>
+    <message>
+      <source>Your database does not require any updates</source>
+      <translation>پایگاه داده شما نیازی به به روز رسانی ندارد</translation>
+    </message>
+    <message>
+      <source>Update database</source>
+      <translation>به روز رسانی پایگاه داده</translation>
+    </message>
+    <message>
+      <source>Queries which will be executed on update</source>
+      <translation>کوئری‌هایی که هنگام به روز رسانی اجرا خواهند شد</translation>
+    </message>
+  </context>
+  <context>
+    <name>theme/index</name>
+    <message>
+      <source>Default theme</source>
+      <translation>تم پیشفرض</translation>
+    </message>
+    <message>
+      <source>Theme</source>
+      <translation>تم</translation>
+    </message>
+    <message>
+      <source>Widget themes</source>
+      <translation>تم‌های ابزارک</translation>
+    </message>
+    <message>
+      <source>Import a new theme</source>
+      <translation>ایمپورت تم جدید</translation>
+    </message>
+    <message>
+      <source>Themes</source>
+      <translation>تم‌ها</translation>
+    </message>
+    <message>
+      <source>Import theme</source>
+      <translation>ایمپورت تم</translation>
+    </message>
+  </context>
+  <context>
+    <name>theme/default</name>
+    <message>
+      <source>Set as default theme</source>
+      <translation>انتخاب به عنوان تم پیشفرض</translation>
+    </message>
+  </context>
+  <context>
+    <name>theme/import</name>
+    <message>
+      <source>Default theme was set</source>
+      <translation>یم پیشفرض تنظیم شد</translation>
+    </message>
+    <message>
+      <source>Import theme</source>
+      <translation>ایمپورت تم</translation>
+    </message>
+    <message>
+      <source>File</source>
+      <translation>فایل</translation>
+    </message>
+    <message>
+      <source>Import</source>
+      <translation>ایمپورت</translation>
+    </message>
+    <message>
+      <source>Theme imported</source>
+      <translation>نم ایمپورت شد</translation>
+    </message>
+    <message>
+      <source>Could not import a new theme!</source>
+      <translation>نمی‌توان تم جدید را ایمپورت کرد</translation>
+    </message>
+    <message>
+      <source>Invalid file!</source>
+      <translation>فایل نامعتبر</translation>
     </message>
   </context>
   <context>
@@ -5041,153 +5939,6 @@
     </message>
   </context>
   <context>
-    <name>system/xmpp</name>
-    <message>
-      <source>XMPP settings</source>
-      <translation>تنظیمات XMPP</translation>
-    </message>
-    <message>
-      <source>XMPP active</source>
-      <translation>XMPP فعال</translation>
-    </message>
-    <message>
-      <source>XMPP Message content</source>
-      <translation>محتوا پیام XMPP</translation>
-    </message>
-    <message>
-      <source>XMPP Message about accepted chat</source>
-      <translation>پیام XMPP درباره چت پذیرفته شده</translation>
-    </message>
-    <message>
-      <source>XMPP</source>
-      <translation>XMPP</translation>
-    </message>
-    <message>
-      <source>Use standard XMPP service</source>
-      <translation>استفاده از سرویس XMPP استاندارد</translation>
-    </message>
-    <message>
-      <source>Host</source>
-      <translation>هاست</translation>
-    </message>
-    <message>
-      <source>Port</source>
-      <translation>پورت</translation>
-    </message>
-    <message>
-      <source>Login</source>
-      <translation>ورود</translation>
-    </message>
-    <message>
-      <source>Password</source>
-      <translation>کلمه عبور</translation>
-    </message>
-    <message>
-      <source>Resource</source>
-      <translation>منبع</translation>
-    </message>
-    <message>
-      <source>Server</source>
-      <translation>سرور</translation>
-    </message>
-    <message>
-      <source>Recipients</source>
-      <translation>گیرندگان</translation>
-    </message>
-    <message>
-      <source>Default recipients</source>
-      <translation>گیرندگان پیش فرض</translation>
-    </message>
-    <message>
-      <source>Test recipients</source>
-      <translation>گیرندگان آزمایشی</translation>
-    </message>
-    <message>
-      <source>Individual recipients</source>
-      <translation>گیرندگان فردی</translation>
-    </message>
-    <message>
-      <source>Test group recipients</source>
-      <translation>گروه گیرندگان آزمایشی</translation>
-    </message>
-    <message>
-      <source>Test message will be send to your account e-mail</source>
-      <translation>پیام آزمایشی به ایمیل شما ارسال خواهد شد</translation>
-    </message>
-    <message>
-      <source>GTalk</source>
-      <translation>GTalk</translation>
-    </message>
-    <message>
-      <source>Use GTalk for messaging</source>
-      <translation>استفاده از چت گوگل برای پیام</translation>
-    </message>
-    <message>
-      <source>Information for your google app</source>
-      <translation>اطلاعات در مورد برنامه گوگل شما</translation>
-    </message>
-    <message>
-      <source>Redirect URL, this url you will have to enter in your google app configuration</source>
-      <translation>آدرس مستقیم، این آدرس در تنظیمات برنامه گوگل شما وارد میشود.</translation>
-    </message>
-    <message>
-      <source>Enter your app information bellow</source>
-      <translation>اطلاعات برنامه خود را در زیر وارد کنید</translation>
-    </message>
-    <message>
-      <source>OAuth 2.0 Client ID</source>
-      <translation>OAuth 2.0 Client ID</translation>
-    </message>
-    <message>
-      <source>Please enter your Client ID</source>
-      <translation>لطفا شناسه کلاینت خود را وارد کنید</translation>
-    </message>
-    <message>
-      <source>Client secret</source>
-      <translation>کلید امنیتی کلاینت</translation>
-    </message>
-    <message>
-      <source>This message will be send to your e-mail</source>
-      <translation>این پیام به ایمیل شما فرستاده میشود.</translation>
-    </message>
-    <message>
-      <source>Send test message</source>
-      <translation>ارسال پیام تستی</translation>
-    </message>
-    <message>
-      <source>Revoke access token</source>
-      <translation>لغو نشانه دسترسی</translation>
-    </message>
-    <message>
-      <source>Revoke permission to send a message</source>
-      <translation>لغو مجوز برای  ارسال پیام</translation>
-    </message>
-    <message>
-      <source>Authentificate and grant permission to send a message</source>
-      <translation>سطوح دسترسی برای ارسال پیام</translation>
-    </message>
-    <message>
-      <source>Grant permission to send a message</source>
-      <translation>سطوح دسترسی برای ارسال پیام</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>تنظیمات به روز شد</translation>
-    </message>
-    <message>
-      <source>Succesfully authorised, now you can try to send a message</source>
-      <translation>تصدیق هویت، شما میتوانید پیام ارسال کنید</translation>
-    </message>
-    <message>
-      <source>Token was revoked</source>
-      <translation>نشانه لغو شد</translation>
-    </message>
-    <message>
-      <source>XMPP message was sent succesfuly</source>
-      <translation>پیام XMPP با موفقیت ارسال شد</translation>
-    </message>
-  </context>
-  <context>
     <name>file/file</name>
     <message>
       <source>Download file</source>
@@ -5461,6 +6212,13 @@
     </message>
   </context>
   <context>
+    <name>chat/updatemsguser</name>
+    <message>
+      <source>User has edited his last message</source>
+      <translation>کاربر آخرین پیام خود را ویرایش کرد</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/voteaction</name>
     <message>
       <source>Thumbs up</source>
@@ -5490,206 +6248,54 @@
     </message>
   </context>
   <context>
-    <name>chat/maintenance</name>
+    <name>chat/chatexport</name>
     <message>
-      <source>Maintenance</source>
-      <translation>نگهداری</translation>
+      <source>Visitor Name</source>
+      <translation>نام بازدید کننده</translation>
     </message>
     <message>
-      <source>Automatic chats close, click to close old chats</source>
-      <translation>بستن خودکار چت ها، برای بستن چت های قبلی کلیک کنید</translation>
+      <source>E-mail</source>
+      <translation>پست الکترونیک</translation>
     </message>
     <message>
-      <source>Automatic chats purge, click to purge old chats</source>
-      <translation>حذف خودکار چت ها، برای حذف چت های قبلی کلیک کنید</translation>
+      <source>Phone</source>
+      <translation>شماره تماس</translation>
     </message>
     <message>
-      <source>Closed chats</source>
-      <translation>چت های بسته شده</translation>
+      <source>Country</source>
+      <translation>کشور</translation>
     </message>
     <message>
-      <source>Purged chats</source>
-      <translation>چت های حذف شده</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/operatorsbalancing</name>
-    <message>
-      <source>Active</source>
-      <translation>فعال</translation>
+      <source>City</source>
+      <translation>شهر</translation>
     </message>
     <message>
-      <source>Maximum number of active chats user can have at a time, 0 - unlimited</source>
-      <translation>بیشترین تعداد چت هایی که کاربر میتواند داشته باشد. 0 برای نامحدود</translation>
+      <source>IP</source>
+      <translation>آی پی</translation>
     </message>
     <message>
-      <source>Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled</source>
-      <translation>اختصاص خودکار چت به اپراتور دیگر. اگر اپراتور چت را در زمان تعیین شده پاسخ ندهد. 0 برای غیرفعال سازی</translation>
-    </message>
-  </context>
-  <context>
-    <name>abstract/widgettheme</name>
-    <message>
-      <source>Download theme</source>
-      <translation type="unfinished"/>
+      <source>Operator</source>
+      <translation>اپراتور</translation>
     </message>
     <message>
-      <source>Status widget style</source>
-      <translation type="unfinished"/>
+      <source>Department</source>
+      <translation>دپاتمان</translation>
     </message>
     <message>
-      <source>Widget container</source>
-      <translation type="unfinished"/>
+      <source>Date</source>
+      <translation>تاریخ</translation>
     </message>
     <message>
-      <source>Need help widget</source>
-      <translation type="unfinished"/>
+      <source>Mail send</source>
+      <translation>ارسال ایمیل</translation>
     </message>
     <message>
-      <source>Custom CSS</source>
-      <translation type="unfinished"/>
+      <source>Referrer</source>
+      <translation>ارجاع دهنده</translation>
     </message>
     <message>
-      <source>Name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help header text</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help standard text</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online status text</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Offline status text</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Background color</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Text color</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Logo image, visible in popup</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online image</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Offline image</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Widget header background color</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Widget border color</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help background color</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help hover background color</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help text color</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help border color</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help close background color</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help close hover background color</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help operator image</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Status widget additional CSS, takes effect after save</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Widget container additional CSS, takes effect after save</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Widget body additional CSS, takes effect after save</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Widget themes</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>theme/import</name>
-    <message>
-      <source>Import theme</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>File</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Import</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Theme imported</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Could not import a new theme!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid file!</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>theme/index</name>
-    <message>
-      <source>Theme</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Widget themes</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Import a new theme</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Themes</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Import theme</source>
-      <translation type="unfinished"/>
+      <source>Link</source>
+      <translation>پیوند</translation>
     </message>
   </context>
 </TS>

@@ -41,16 +41,27 @@ class erLhcoreClassURL extends ezcUrl {
                 $sysConfiguration->Language = $siteaccess == 'site_admin' ? erLhcoreClassModelUserSetting::getSetting('user_language',$optionsSiteAccess['locale'],false,true) : $optionsSiteAccess['locale'];
                 $sysConfiguration->ThemeSite = $optionsSiteAccess['theme'];
                 $sysConfiguration->ContentLanguage = $optionsSiteAccess['content_language'];
-
+                
                 $sysConfiguration->WWWDirLang = '/'.$siteaccess;
                 $sysConfiguration->SiteAccess = $siteaccess;
-
+                                                
                 if ($optionsSiteAccess['locale'] != 'en_EN')
                 {
                     $urlInstance->setParam('module',$urlInstance->getParam( 'module' ));
                     $urlInstance->setParam('function',$urlInstance->getParam( 'function' ));
                 }
-
+                               
+                if (isset($_POST['switchLang']) && in_array($_POST['switchLang'], $availableSiteaccess)){                	                	
+                	$optionsSiteAccessOverride = $cfgSite->getSetting('site_access_options', $_POST['switchLang']);
+                	$sysConfiguration->Language = $optionsSiteAccessOverride['locale'];                	
+                	$sysConfiguration->SiteAccess = $_POST['switchLang'];
+		            if ($defaultSiteAccess != $sysConfiguration->SiteAccess) {
+		               	$sysConfiguration->WWWDirLang = '/'.$sysConfiguration->SiteAccess;
+		            } else {
+		               	$sysConfiguration->WWWDirLang = '';
+		            }
+                }
+                
             } else {
 
                 $optionsSiteAccess = $cfgSite->getSetting('site_access_options',$defaultSiteAccess);
@@ -61,6 +72,15 @@ class erLhcoreClassURL extends ezcUrl {
                 $sysConfiguration->ThemeSite = $optionsSiteAccess['theme'];
                 $sysConfiguration->ContentLanguage = $optionsSiteAccess['content_language'];
 
+                if (isset($_POST['switchLang']) && in_array($_POST['switchLang'], $availableSiteaccess)){
+                	$optionsSiteAccessOverride = $cfgSite->getSetting('site_access_options',$_POST['switchLang']);
+                	$sysConfiguration->Language = $optionsSiteAccessOverride['locale'];
+                	$sysConfiguration->SiteAccess = $_POST['switchLang'];                	
+                	if ($defaultSiteAccess != $sysConfiguration->SiteAccess) {                		
+                		$sysConfiguration->WWWDirLang = '/'.$sysConfiguration->SiteAccess; 
+                	}               	         	
+                }
+                
                 // To reset possition counter
                 $urlCfgDefault->removeOrderedParameter('siteaccess');
                 $urlCfgDefault->removeOrderedParameter('module');

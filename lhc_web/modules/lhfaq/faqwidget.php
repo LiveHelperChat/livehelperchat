@@ -80,7 +80,20 @@ if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_p
 	} catch (Exception $e) {
 
 	}
+} else {
+	$defaultTheme = erLhcoreClassModelChatConfig::fetch('default_theme_id')->current_value;
+	if ($defaultTheme > 0) {
+		try {
+			$theme = erLhAbstractModelWidgetTheme::fetch($defaultTheme);
+			$Result['theme'] = $theme;
+			$dynamic_url_append .= '/(theme)/'.$theme->id;
+		} catch (Exception $e) {
+			
+		}
+	}
 }
+
+
 
 if (!empty($dynamic_url_append)) {
 	$tpl->set('dynamic_url_append',$dynamic_url_append);

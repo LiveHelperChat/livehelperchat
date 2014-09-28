@@ -35,6 +35,11 @@ $def->properties['chat_id']->columnName   = 'chat_id';
 $def->properties['chat_id']->propertyName = 'chat_id';
 $def->properties['chat_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['last_check_time'] = new ezcPersistentObjectProperty();
+$def->properties['last_check_time']->columnName   = 'last_check_time';
+$def->properties['last_check_time']->propertyName = 'last_check_time';
+$def->properties['last_check_time']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['last_visit'] = new ezcPersistentObjectProperty();
 $def->properties['last_visit']->columnName   = 'last_visit';
 $def->properties['last_visit']->propertyName = 'last_visit';
@@ -155,6 +160,11 @@ $def->properties['requires_username']->columnName   = 'requires_username';
 $def->properties['requires_username']->propertyName = 'requires_username';
 $def->properties['requires_username']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['requires_phone'] = new ezcPersistentObjectProperty();
+$def->properties['requires_phone']->columnName   = 'requires_phone';
+$def->properties['requires_phone']->propertyName = 'requires_phone';
+$def->properties['requires_phone']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['invitation_seen_count'] = new ezcPersistentObjectProperty();
 $def->properties['invitation_seen_count']->columnName   = 'invitation_seen_count';
 $def->properties['invitation_seen_count']->propertyName = 'invitation_seen_count';
@@ -197,6 +207,10 @@ $def->properties['online_attr']->columnName   = 'online_attr';
 $def->properties['online_attr']->propertyName = 'online_attr';
 $def->properties['online_attr']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['visitor_tz'] = new ezcPersistentObjectProperty();
+$def->properties['visitor_tz']->columnName   = 'visitor_tz';
+$def->properties['visitor_tz']->propertyName = 'visitor_tz';
+$def->properties['visitor_tz']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 return $def;
 

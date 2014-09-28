@@ -20,6 +20,11 @@ $def->properties['onl_bcolor']->columnName   = 'onl_bcolor';
 $def->properties['onl_bcolor']->propertyName = 'onl_bcolor';
 $def->properties['onl_bcolor']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['bor_bcolor'] = new ezcPersistentObjectProperty();
+$def->properties['bor_bcolor']->columnName   = 'bor_bcolor';
+$def->properties['bor_bcolor']->propertyName = 'bor_bcolor';
+$def->properties['bor_bcolor']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $def->properties['text_color'] = new ezcPersistentObjectProperty();
 $def->properties['text_color']->columnName   = 'text_color';
 $def->properties['text_color']->propertyName = 'text_color';
@@ -40,6 +45,11 @@ $def->properties['online_image']->columnName   = 'online_image';
 $def->properties['online_image']->propertyName = 'online_image';
 $def->properties['online_image']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['operator_image'] = new ezcPersistentObjectProperty();
+$def->properties['operator_image']->columnName   = 'operator_image';
+$def->properties['operator_image']->propertyName = 'operator_image';
+$def->properties['operator_image']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $def->properties['offline_image'] = new ezcPersistentObjectProperty();
 $def->properties['offline_image']->columnName   = 'offline_image';
 $def->properties['offline_image']->propertyName = 'offline_image';
@@ -49,6 +59,11 @@ $def->properties['online_image_path'] = new ezcPersistentObjectProperty();
 $def->properties['online_image_path']->columnName   = 'online_image_path';
 $def->properties['online_image_path']->propertyName = 'online_image_path';
 $def->properties['online_image_path']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['operator_image_path'] = new ezcPersistentObjectProperty();
+$def->properties['operator_image_path']->columnName   = 'operator_image_path';
+$def->properties['operator_image_path']->propertyName = 'operator_image_path';
+$def->properties['operator_image_path']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 $def->properties['need_help_close_hover_bg'] = new ezcPersistentObjectProperty();
 $def->properties['need_help_close_hover_bg']->columnName   = 'need_help_close_hover_bg';
@@ -104,7 +119,27 @@ $def->properties['need_help_image_path'] = new ezcPersistentObjectProperty();
 $def->properties['need_help_image_path']->columnName   = 'need_help_image_path';
 $def->properties['need_help_image_path']->propertyName = 'need_help_image_path';
 $def->properties['need_help_image_path']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['copyright_image'] = new ezcPersistentObjectProperty();
+$def->properties['copyright_image']->columnName   = 'copyright_image';
+$def->properties['copyright_image']->propertyName = 'copyright_image';
+$def->properties['copyright_image']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
  
+$def->properties['copyright_image_path'] = new ezcPersistentObjectProperty();
+$def->properties['copyright_image_path']->columnName   = 'copyright_image_path';
+$def->properties['copyright_image_path']->propertyName = 'copyright_image_path';
+$def->properties['copyright_image_path']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+ 
+$def->properties['widget_copyright_url'] = new ezcPersistentObjectProperty();
+$def->properties['widget_copyright_url']->columnName   = 'widget_copyright_url';
+$def->properties['widget_copyright_url']->propertyName = 'widget_copyright_url';
+$def->properties['widget_copyright_url']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+ 
+$def->properties['show_copyright'] = new ezcPersistentObjectProperty();
+$def->properties['show_copyright']->columnName   = 'show_copyright';
+$def->properties['show_copyright']->propertyName = 'show_copyright';
+$def->properties['show_copyright']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $def->properties['custom_status_css'] = new ezcPersistentObjectProperty();
 $def->properties['custom_status_css']->columnName   = 'custom_status_css';
 $def->properties['custom_status_css']->propertyName = 'custom_status_css';
@@ -139,6 +174,16 @@ $def->properties['offline_text'] = new ezcPersistentObjectProperty();
 $def->properties['offline_text']->columnName   = 'offline_text';
 $def->properties['offline_text']->propertyName = 'offline_text';
 $def->properties['offline_text']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+ 
+$def->properties['explain_text'] = new ezcPersistentObjectProperty();
+$def->properties['explain_text']->columnName   = 'explain_text';
+$def->properties['explain_text']->propertyName = 'explain_text';
+$def->properties['explain_text']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+ 
+$def->properties['intro_operator_text'] = new ezcPersistentObjectProperty();
+$def->properties['intro_operator_text']->columnName   = 'intro_operator_text';
+$def->properties['intro_operator_text']->propertyName = 'intro_operator_text';
+$def->properties['intro_operator_text']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 return $def;
 

@@ -18,12 +18,17 @@
 
     <div class="columns large-6">
 	    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Department')?></label>
-	    <select id="DepartmentID">
+	    <select id="DepartmentID" multiple="multiple" size="5">
 	        	<option value="0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Any');?></option>
 			<?php foreach (erLhcoreClassModelDepartament::getList($departmentParams) as $departament) : ?>
 			    <option value="<?php echo $departament->id?>"><?php echo htmlspecialchars($departament->name)?></option>
 			<?php endforeach; ?>
 		</select>
+	</div>
+	
+	<div class="columns large-6">
+		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Operator ID')?></label>
+    	<input type="text" id="id_operator" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','To what operator chat should be assigned automatically?')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','To what operator chat should be assigned automatically?')?>" value="" />
 	</div>
 	
 	<div class="columns large-6">
@@ -57,8 +62,9 @@ function generateEmbedCode() {
     var siteAccess = $('#LocaleID').val() == default_site_access ? '' : $('#LocaleID').val();
     var id_hide_then_offline = $('#id_hide_then_offline').is(':checked') ? '/(hide_offline)/true' : '';
     var id_show_leave_form = $('#id_show_leave_form').is(':checked') ? '/(leaveamessage)/true' : '';
-    var id_department = $('#DepartmentID').val() > 0 ? '/(department)/'+$('#DepartmentID').val() : '';
+    var id_department = $('#DepartmentID').val() && $('#DepartmentID').val().length > 0 && $('#DepartmentID').val().join('/') != '0' ? '/(department)/'+$('#DepartmentID').val().join('/') : '';
     var id_theme = $('#ThemeID').val() > 0 ? '/(theme)/'+$('#ThemeID').val() : '';
+    var id_operator = $('#id_operator').val() > 0 ? '/(operator)/'+$('#id_operator').val() : '';
     
     var id_tag = '<!-- Place this tag where you want the Live Helper Plugin to render. -->'+"\n"+
         '<div id="lhc_status_container_page" ></div>'+"\n\n<!-- Place this tag after the Live Helper Plugin tag. -->\n";
@@ -67,7 +73,7 @@ function generateEmbedCode() {
       'LHCChatOptionsPage.opt = {};\n'+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
-        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chat/getstatusembed'+id_hide_then_offline+id_theme+id_show_leave_form+id_department+'\';'+"\n"+
+        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chat/getstatusembed'+id_hide_then_offline+id_theme+id_operator+id_show_leave_form+id_department+'\';'+"\n"+
         'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);'+"\n"+
       '})();'+"\n"+
     '</scr'+'ipt>';
@@ -75,7 +81,7 @@ function generateEmbedCode() {
     $('#HMLTContent').text(id_tag+script);
 };
 
-$('#LocaleID,#id_show_leave_form,#DepartmentID,#HttpMode,#ThemeID').change(function(){
+$('#LocaleID,#id_show_leave_form,#DepartmentID,#HttpMode,#ThemeID,#id_operator').change(function(){
     generateEmbedCode();
 });
 

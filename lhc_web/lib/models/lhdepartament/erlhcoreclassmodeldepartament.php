@@ -108,6 +108,22 @@ class erLhcoreClassModelDepartament {
 	   			return $this->department_transfer;
 	   		break;
 
+	   		case 'start_hour_front':
+	   				return floor($this->start_hour/100);
+	   			break;
+
+	   		case 'start_minutes_front':
+	   				return $this->start_hour - ($this->start_hour_front * 100);
+	   			break;
+
+	   		case 'end_hour_front':
+	   				return floor($this->end_hour/100);
+	   			break;
+
+	   		case 'end_minutes_front':
+	   				return $this->end_hour - ($this->end_hour_front * 100);
+	   			break;
+	   		
 	   		default:
 	   			;
 	   		break;

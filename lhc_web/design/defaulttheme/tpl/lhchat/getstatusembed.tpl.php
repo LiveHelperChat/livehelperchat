@@ -43,6 +43,9 @@ var lh_inst_page  = {
 	    		if (LHCChatOptionsPage.attr_prefill.length > 0){
 					for (var index in LHCChatOptionsPage.attr_prefill) {
 						argumentsQuery.push('prefill['+LHCChatOptionsPage.attr_prefill[index].name+']='+encodeURIComponent(LHCChatOptionsPage.attr_prefill[index].value));
+						if (typeof LHCChatOptionsPage.attr_prefill[index].hidden != 'undefined'){
+							argumentsQuery.push('hattr[]='+encodeURIComponent(LHCChatOptionsPage.attr_prefill[index].name));
+						};
 					};
 	    		};
 	    	};
@@ -71,7 +74,7 @@ var lh_inst_page  = {
 
     showStartWindow : function() {
 		 var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
-         this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $theme !== false ? print '/(theme)/'.$theme : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?>/(mode)/embed"+this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.parseOptions();
+         this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $theme !== false ? print '/(theme)/'.$theme : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?>/(mode)/embed"+this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.parseOptions();
 
          this.iframe_html = '<iframe id="fdbk_iframe_page" allowTransparency="true" scrolling="no" class="loading" frameborder="0" ' +
                        ( this.initial_iframe_url != '' ? ' src="'    + this.initial_iframe_url + '"' : '' ) +
@@ -117,8 +120,14 @@ var lh_inst_page  = {
         this.removeCookieAttr('hash');
         this.showStartWindow();
     },
-
-    handleMessage : function(e) {
+    
+	genericCallback : function(name){
+    	if (typeof LHCChatOptionsPage != 'undefined' && typeof LHCChatOptionsPage.callback != 'undefined' && typeof LHCChatOptionsPage.callback[name] != 'undefined') {
+    		LHCChatOptionsPage.callback[name](this);    	
+    	}
+    },
+    
+    handleMessage : function(e) {   	
     	var action = e.data.split(':')[0];
     	if (action == 'lhc_sizing_chat_page') {
     		var height = e.data.split(':')[1];
@@ -130,6 +139,9 @@ var lh_inst_page  = {
     		if (parts[1] != '' && parts[2] != '') {
     			lh_inst_page.addCookieAttribute(parts[1],parts[2]);
     		};
+    	} else if (action == 'lh_callback') {
+    		var functionName = e.data.split(':')[1];
+    		lh_inst_page.genericCallback(functionName);    	
     	} else if (action == 'lhc_close') {
     		lh_inst_page.hide();
     	}

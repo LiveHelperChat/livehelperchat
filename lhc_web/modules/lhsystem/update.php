@@ -1,9 +1,22 @@
 <?php
 
-if ((string)$Params['user_parameters_unordered']['action'] == 'comparedb') {
-	$tpl = erLhcoreClassTemplate::getInstance( 'lhsystem/update/comparedb.tpl.php');
-	$updateLinks = erLhcoreClassUpdate::getMissingUpdates($_POST['data']);
-	$tpl->set('links',$updateLinks);
+if ((string)$Params['user_parameters_unordered']['action'] == 'statusdb' || (string)$Params['user_parameters_unordered']['action'] == 'statusdbdoupdate') {
+	
+	if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+		echo json_encode(array('error' => 'true', 'result' => 'Invalid CSRF Token' ));		
+		exit;
+	}
+	
+	$tpl = erLhcoreClassTemplate::getInstance( 'lhsystem/update/statusdb.tpl.php');
+	
+	$contentData = erLhcoreClassModelChatOnlineUser::executeRequest('https://raw.githubusercontent.com/LiveHelperChat/livehelperchat/master/lhc_web/doc/update_db/structure.json');
+	
+	if ((string)$Params['user_parameters_unordered']['action'] == 'statusdbdoupdate'){	
+		erLhcoreClassUpdate::doTablesUpdate(json_decode($contentData,true));
+	}
+	
+	$tables = erLhcoreClassUpdate::getTablesStatus(json_decode($contentData,true));
+	$tpl->set('tables',$tables);
 	echo json_encode(array('result' => $tpl->fetch()));
 	exit;
 }

@@ -1,9 +1,9 @@
 <?php $systemconfig = erLhcoreClassModelChatConfig::fetch($attribute);?>
 
 <?php if (!isset($boolValue)) : ?>
-<label><?php echo htmlspecialchars($systemconfig->explain); ?></label>
+<label><?php print erTranslationClassLhTranslation::getInstance()->getTranslation('listchatconfig',$systemconfig->explain); ?></label>
 <?php else : ?>
-<label><input type="checkbox" name="<?php echo $attribute?>ValueParam" value="1" <?php if ($systemconfig->value == 1) : ?>checked="checked"<?php endif;?> /> <?php echo htmlspecialchars($systemconfig->explain); ?></label>
+<label><input type="checkbox" name="<?php echo $attribute?>ValueParam" value="1" <?php if ($systemconfig->value == 1) : ?>checked="checked"<?php endif;?> /> <?php print erTranslationClassLhTranslation::getInstance()->getTranslation('listchatconfig',$systemconfig->explain); ?></label>
 <?php endif; ?>
 
 <?php if ( $systemconfig->type == erLhcoreClassModelChatConfig::SITE_ACCESS_PARAM_ON ) : ?>

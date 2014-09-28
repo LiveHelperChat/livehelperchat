@@ -493,8 +493,10 @@ function lh(){
         			
         			// Execute pending operations
         			if (data.op != '') {
-	   	    			 $.each(data.op,function(i,item) {
-	   	    				 	 if (inst.isWidgetMode) {
+	   	    			 $.each(data.op,function(i,item) {	   	    				 	   	    				 		
+	   	    				 	 if (item.indexOf('lhinst.') != -1) { // Internal operation
+	   	    				 		eval(item);	
+	   	    				 	 } else if (inst.isWidgetMode) {
 	   	    				 		 parent.postMessage(item, '*');
 	   	    					 } else if (window.opener) {
 	   	    						 window.opener.postMessage(item, '*');	  
@@ -554,7 +556,8 @@ function lh(){
 	    });
 
 	    if ($('#CSChatMessage-'+chat_id).length != 0){
-	       $('#CSChatMessage-'+chat_id).unbind('keydown', 'enter', function(){});
+	    	$('#CSChatMessage-'+chat_id).unbind('keydown', 'enter', function(){});
+	       $('#CSChatMessage-'+chat_id).unbind('keyup', 'up', function(){});
 	    };
 
 	    if (hidetab == true) {
@@ -571,7 +574,11 @@ function lh(){
 	        }
 
 	    };
-
+	    
+	    if (LHCCallbacks.chatClosedCallback) {
+        	LHCCallbacks.chatClosedCallback(chat_id);
+        };
+	    
 	    this.removeSynchroChat(chat_id);
 	    this.syncadmininterfacestatic();
 
@@ -607,7 +614,8 @@ function lh(){
 	this.removeDialogTab = function(chat_id, tabs, hidetab)
 	{
 	    if ($('#CSChatMessage-'+chat_id).length != 0){
-	       $('#CSChatMessage-'+chat_id).unbind('keydown', 'enter', function(){});
+	    	$('#CSChatMessage-'+chat_id).unbind('keydown', 'enter', function(){});
+	       $('#CSChatMessage-'+chat_id).unbind('keyup', 'up', function(){});
 	    }
 	    
 	    this.removeSynchroChat(chat_id);
@@ -654,7 +662,8 @@ function lh(){
 	this.deleteChat = function(chat_id, tabs, hidetab)
 	{
 	    if ($('#CSChatMessage-'+chat_id).length != 0){
-	       $('#CSChatMessage-'+chat_id).unbind('keydown', 'enter', function(){});
+	    	$('#CSChatMessage-'+chat_id).unbind('keydown', 'enter', function(){});
+	       $('#CSChatMessage-'+chat_id).unbind('keyup', 'up', function(){});
 	    }
 	    	    
 	    $.ajax({
@@ -686,6 +695,10 @@ function lh(){
 	        }
 	    };
 
+	    if (LHCCallbacks.chatDeletedCallback) {
+        	LHCCallbacks.chatDeletedCallback(chat_id);
+        };
+	    
 	    this.syncadmininterfacestatic();
 	    this.removeSynchroChat(chat_id);
 	};
@@ -759,6 +772,14 @@ function lh(){
 			});
 		}
 	};
+	
+	this.switchLang = function(form,lang){
+		var languageAppend = '<input type="hidden" value="'+lang+'" name="switchLang" />';				
+		form.append(languageAppend);
+		form.submit();
+		
+		return false;
+	},
 	
 	this.sendMail = function(chat_id) {
 		$.colorbox({iframe:true, width:'90%',height:'90%', href:this.wwwDir + 'chat/sendmail/'+chat_id});
@@ -1240,7 +1261,7 @@ function lh(){
 	};	
 	
 	this.playSoundNewAction = function(identifier,chat_id,nick,message) {
-	    if (confLH.new_chat_sound_enabled == 1 && (identifier == 'pending_chat' || identifier == 'transfer_chat' )) {
+	    if (confLH.new_chat_sound_enabled == 1 && (identifier == 'pending_chat' || identifier == 'transfer_chat' || identifier == 'unread_chat')) {
 	    	this.soundPlayedTimes = 0;
 	        this.playNewChatAudio();
 	    };
@@ -1250,7 +1271,7 @@ function lh(){
     	};
 
 	    var inst = this;
-	    if ( (identifier == 'pending_chat' || identifier == 'transfer_chat' ) && (window.webkitNotifications || window.Notification)) {
+	    if ( (identifier == 'pending_chat' || identifier == 'transfer_chat' || identifier == 'unread_chat') && (window.webkitNotifications || window.Notification)) {
 
 	    	 if (window.webkitNotifications) {
 		    	  var havePermission = window.webkitNotifications.checkPermission();
@@ -1262,7 +1283,7 @@ function lh(){
 		    	      message
 		    	    );
 		    	    notification.onclick = function () {
-		    	    	if (identifier == 'pending_chat'){
+		    	    	if (identifier == 'pending_chat' || identifier == 'unread_chat'){
 		    	    		inst.startChatNewWindow(chat_id,'ChatRequest');
 		    	    	} else {
 		    	    		inst.startChatNewWindowTransferByTransfer(chat_id);
@@ -1276,7 +1297,7 @@ function lh(){
 	    		  if (window.Notification.permission == 'granted') {
 		  				var notification = new Notification(nick, { icon: WWW_DIR_JAVASCRIPT_FILES_NOTIFICATION + '/notification.png', body: message });
 		  				notification.onclick = function () {
-			    	    	if (identifier == 'pending_chat'){
+			    	    	if (identifier == 'pending_chat' || identifier == 'unread_chat'){
 			    	    		inst.startChatNewWindow(chat_id,'ChatRequest');
 			    	    	} else {
 			    	    		inst.startChatNewWindowTransferByTransfer(chat_id);
@@ -1366,23 +1387,73 @@ function lh(){
 
 	this.addmsgadmin = function (chat_id)
 	{
+		var textArea = $("#CSChatMessage-"+chat_id);
+		
 		var pdata = {
-				msg	: $("#CSChatMessage-"+chat_id).val()
+				msg	: textArea.val()
 		};
-
-		$('#CSChatMessage-'+chat_id).val('');
-		$.postJSON(this.wwwDir + this.addmsgurl + chat_id, pdata , function(data){
+		
+		textArea.val('');
+		
+		if (textArea.hasClass('edit-mode')) {
 			
-			if (LHCCallbacks.addmsgadmin) {
-        		LHCCallbacks.addmsgadmin(chat_id);
-        	};
-        	
-			lhinst.syncadmincall();
+			pdata.msgid = textArea.attr('data-msgid');
 			
-			return true;
-		});
+			$.postJSON(this.wwwDir + 'chat/updatemsg/' + chat_id, pdata , function(data){
+				if (data.error == 'f') {
+					textArea.removeClass('edit-mode');	
+					textArea.removeAttr('data-msgid');
+					$('#msg-'+pdata.msgid).replaceWith(data.msg);
+					
+					if (LHCCallbacks.addmsgadmin) {
+		        		LHCCallbacks.addmsgadmin(chat_id);
+		        	};
+		        	
+					return true;
+				}
+			});
+			
+		} else {
+			$.postJSON(this.wwwDir + this.addmsgurl + chat_id, pdata , function(data){
+				
+				if (LHCCallbacks.addmsgadmin) {
+	        		LHCCallbacks.addmsgadmin(chat_id);
+	        	};
+	        	
+				lhinst.syncadmincall();				
+				return true;
+			});
+		}
 	};
-
+	
+	this.editPrevious = function(chat_id) {	
+		var textArea = $('#CSChatMessage-'+chat_id);
+		if (textArea.val() == '') {				
+			$.getJSON(this.wwwDir + 'chat/editprevious/'+chat_id, function(data){
+				if (data.error == 'f') {
+					textArea.val(data.msg);
+					textArea.attr('data-msgid',data.id);
+					textArea.addClass('edit-mode');
+					$('#msg-'+data.id).addClass('edit-mode');
+				}
+			});			
+		}
+	};
+	
+	this.editPreviousUser = function() {	
+		var textArea = $('#CSChatMessage');
+		if (textArea.val() == '') {				
+			$.getJSON(this.wwwDir + 'chat/editprevioususer/'+this.chat_id + '/' + this.hash, function(data){
+				if (data.error == 'f'){
+					textArea.val(data.msg);
+					textArea.attr('data-msgid',data.id);
+					textArea.addClass('edit-mode');
+					$('#msg-'+data.id).addClass('edit-mode');
+				}
+			});			
+    	}
+	};
+	
     this.addmsguserchatbox = function (chat_id)
     {
     	var nickCurrent = false;
@@ -1414,40 +1485,82 @@ function lh(){
 			nickCurrent = $("#CSChatNick").val();
         }
     };
-
+    
+    this.updateMessageRow = function(msgid){    	
+    	var modeWindow = this.isWidgetMode == true ? '/(mode)/widget' : '';    	
+    	$.getJSON(this.wwwDir + 'chat/getmessage/' + this.chat_id + '/' + this.hash + '/'+ msgid + modeWindow, function(data) {  
+    		if (data.error == 'f') {
+    			$('#msg-'+msgid).replaceWith(data.msg);
+    			$('#msg-'+msgid).addClass('edit-mode-done');
+    			setTimeout(function(){
+    				$('#msg-'+msgid).removeClass('edit-mode-done');
+    			},2000);
+    		}
+    	});
+    };
+    
+    this.updateMessageRowAdmin = function(chat_id, msgid){ 
+    	$.getJSON(this.wwwDir + 'chat/getmessageadmin/' + chat_id + '/' + msgid, function(data) {    	
+    		if (data.error == 'f') {
+    			$('#msg-'+msgid).replaceWith(data.msg);
+    			$('#msg-'+msgid).addClass('edit-mode-done');
+    			setTimeout(function(){
+    				$('#msg-'+msgid).removeClass('edit-mode-done');
+    			},2000);
+    		}
+		});
+    };
+    
     this.addmsguser = function ()
     {
     	if (LHCCallbacks.addmsguserbefore) {
     		LHCCallbacks.addmsguserbefore(this);
     	};
     	
+    	var textArea = $("#CSChatMessage");
+    	
         var pdata = {
-				msg	: $("#CSChatMessage").val()
+				msg	: textArea.val()
 		};
 
         var modeWindow = this.isWidgetMode == true ? '/(mode)/widget' : '';
-		$('#CSChatMessage').val('');
+        textArea.val('');
 		var inst = this;
 		
 		if (sessionStorage) {
    		   sessionStorage.setItem('lhc_ttxt','');
     	};
-    	
-        $.postJSON(this.wwwDir + this.addmsgurluser + this.chat_id + '/' + this.hash + modeWindow, pdata , function(data) {
-        	
-        	if (data.error == 'f'){
-	        	if (LHCCallbacks.addmsguser) {
-	        		LHCCallbacks.addmsguser(inst,data);
-	        	};
+    	    			
+		if (textArea.hasClass('edit-mode')) {
+			
+			pdata.msgid = textArea.attr('data-msgid');
+			
+			$.postJSON(this.wwwDir + 'chat/updatemsguser/' + this.chat_id + '/' + this.hash + modeWindow, pdata , function(data){
+				if (data.error == 'f') {
+					textArea.removeClass('edit-mode');	
+					textArea.removeAttr('data-msgid');
+					$('#msg-'+pdata.msgid).replaceWith(data.msg);
+					return true;
+				}
+			});			
+						
+		} else { 
+	        $.postJSON(this.wwwDir + this.addmsgurluser + this.chat_id + '/' + this.hash + modeWindow, pdata , function(data) {
 	        	
-	        	inst.syncusercall();
-        	} else {
-        		$('#CSChatMessage').val(pdata.msg);
-        		var instStatus = $('#id-operator-typing');
-				instStatus.find('i').html(data.r);
-				instStatus.fadeIn();				
-        	}
-		});
+	        	if (data.error == 'f') {
+		        	if (LHCCallbacks.addmsguser) {
+		        		LHCCallbacks.addmsguser(inst,data);
+		        	};
+		        	
+		        	inst.syncusercall();
+	        	} else {
+	        		$('#CSChatMessage').val(pdata.msg);
+	        		var instStatus = $('#id-operator-typing');
+					instStatus.find('i').html(data.r);
+					instStatus.fadeIn();				
+	        	}
+			});
+        }
     };
 
     this.startSyncAdmin = function()
@@ -1489,6 +1602,10 @@ function lh(){
     
     this.changeUserSettings = function(attr,value){
     	$.get(this.wwwDir+  'user/setsettingajax/'+attr+'/'+value);
+    }; 
+    
+    this.changeUserSettingsIndifferent = function(attr,value){
+    	$.get(this.wwwDir+  'user/setsettingajax/'+attr+'/'+value+'/(indifferent)/true');
     };
     
     this.disableUserAsOnline = function(inst)
@@ -1505,7 +1622,14 @@ function lh(){
     
     this.closeReveal = function(id){
 		$(id).foundation('reveal', 'close');
-	},
+	};
+	
+	this.switchToOfflineForm = function(){
+		var form = $('#form-start-chat');
+		form.attr('action',$('#form-start-chat').attr('action')+'/(switchform)/true/(offline)/true/(leaveamessage)/true/(department)/'+$('#id_DepartamentID').val());
+		form.submit();
+		return false;
+	};
 	
     this.changeChatStatus = function(chat_id){    	
     	if ($('#myModal').size() == 0){
@@ -1726,49 +1850,49 @@ function gMapsCallback(){
     });
 
 	var locationSet = false;
-
-	$('#map-activator').click(function(){
-		setTimeout(function(){
-			google.maps.event.trigger(map, 'resize');
-			if (locationSet == false) {
-				locationSet = true;
-				map.setCenter(new google.maps.LatLng(GeoLocationData.lat, GeoLocationData.lng));
-			}
-		},500);
-	});
-
-	google.maps.event.addListener(map, 'idle', showMarkers);
-
+	
 	var processing = false;
 	var pendingProcess = false;
 	var pendingProcessTimeout = false;
+		
 
+	google.maps.event.addListener(map, 'idle', showMarkers);
+	
+	var mapTabSection = $('#map-activator').parent().parent();
+	
+	
 	function showMarkers() {
-	    if ( processing == false) {
-	        processing = true;
-    		$.ajax({
-    			url : WWW_DIR_JAVASCRIPT + 'chat/jsononlineusers'+( parseInt($('#id_department_map_id').val()) > 0 ? '/(department)/'+parseInt($('#id_department_map_id').val()) : '' ),
-    			dataType: "json",
-    			error:function(){
-    				clearTimeout(pendingProcessTimeout);
-    				pendingProcessTimeout = setTimeout(function(){
-						showMarkers();
-					},10000);
-    			},
-    			success : function(response) {
-    				bindMarkers(response);
-    				processing = false;
-    				clearTimeout(pendingProcessTimeout);
-    				if (pendingProcess == true) {
-    				    pendingProcess = false;
-    				    showMarkers();
-    				} else {
-    					pendingProcessTimeout = setTimeout(function(){
-    						showMarkers();
-    					},10000);
-    				}
-    			}
-    		});
+	    if ( processing == false) {	    		
+	    	if (mapTabSection.hasClass('active')) {
+		        processing = true;
+	    		$.ajax({
+	    			url : WWW_DIR_JAVASCRIPT + 'chat/jsononlineusers'+(parseInt($('#id_department_map_id').val()) > 0 ? '/(department)/'+parseInt($('#id_department_map_id').val()) : '' )+(parseInt($('#maxRows').val()) > 0 ? '/(maxrows)/'+parseInt($('#maxRows').val()) : '' ),
+	    			dataType: "json",
+	    			error:function(){
+	    				clearTimeout(pendingProcessTimeout);
+	    				pendingProcessTimeout = setTimeout(function(){
+							showMarkers();
+						},10000);
+	    			},
+	    			success : function(response) {
+	    				bindMarkers(response);
+	    				processing = false;
+	    				clearTimeout(pendingProcessTimeout);
+	    				if (pendingProcess == true) {
+	    				    pendingProcess = false;
+	    				    showMarkers();
+	    				} else {
+	    					pendingProcessTimeout = setTimeout(function(){
+	    						showMarkers();
+	    					},10000);
+	    				}
+	    			}
+	    		});
+    		} else {
+    			pendingProcessTimeout = setTimeout(function(){
+					showMarkers();
+				},10000);
+    		}    		
 	    } else {
 	       pendingProcess = true;
 	    }
@@ -1826,6 +1950,29 @@ function gMapsCallback(){
             }
 		});
 	};
+	
+	$('#id_department_map_id').change(function(){
+		showMarkers();
+		lhinst.changeUserSettingsIndifferent('omap_depid',$(this).val());
+	});
+	
+	$('#markerTimeout').change(function(){
+		showMarkers();
+		lhinst.changeUserSettingsIndifferent('omap_mtimeout',$(this).val());
+	});
+	
+	$('#map-activator').click(function(){
+		setTimeout(function(){
+			google.maps.event.trigger(map, 'resize');
+			if (locationSet == false) {
+				locationSet = true;
+				map.setCenter(new google.maps.LatLng(GeoLocationData.lat, GeoLocationData.lng));
+			}
+		},500);
+		showMarkers();
+	});
+	
+	
 
 };
 

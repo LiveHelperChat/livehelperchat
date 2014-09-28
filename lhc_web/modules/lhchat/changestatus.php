@@ -46,7 +46,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) ) {
 		 	 	
 		 	 	if ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT){		 	 	
 		 	 		$chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
-		 	 		$chat->chat_duration = time() - ($chat->time + $chat->wait_time);
+		 	 		$chat->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($chat->id);
 		 	 			 	 				 	 	
 		 	 		$msg = new erLhcoreClassModelmsg();
 		 	 		$msg->msg = (string)$userData.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin','has closed the chat!');

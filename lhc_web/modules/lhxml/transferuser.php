@@ -18,6 +18,8 @@ if ( erLhcoreClassChat::hasAccessToRead($Chat) )
 		$Transfer->transfer_user_id = $currentUser->getUserID();
 
 		erLhcoreClassTransfer::getSession()->save($Transfer);
+		
+		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_transfered',array('chat' => & $Chat));
 	}
 }
 

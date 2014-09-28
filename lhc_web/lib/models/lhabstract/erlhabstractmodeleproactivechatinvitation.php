@@ -25,6 +25,7 @@ class erLhAbstractModelProactiveChatInvitation {
 			'show_random_operator'	=> $this->show_random_operator,
 			'hide_after_ntimes'	    => $this->hide_after_ntimes,
 			'operator_ids'	    => $this->operator_ids,
+			'requires_phone'	=> $this->requires_phone
 		);
 
 		return $stateArray;
@@ -149,6 +150,13 @@ class erLhAbstractModelProactiveChatInvitation {
    				'requires_username' => array (
    						'type' => 'checkbox',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Requires name'),
+   						'required' => false,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+   						)),
+   				'requires_phone' => array (
+   						'type' => 'checkbox',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Requires phone'),
    						'required' => false,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
@@ -375,7 +383,7 @@ class erLhAbstractModelProactiveChatInvitation {
 		$referrer = self::getHost($item->referrer);
 				
 		$session = erLhcoreClassAbstract::getSession();			
-		
+				
 		$q = $session->createFindQuery( 'erLhAbstractModelProactiveChatInvitation' );
 		$q->where( $q->expr->lte( 'time_on_site', $q->bindValue( $item->time_on_site ) ).' AND '.$q->expr->lte( 'pageviews', $q->bindValue( $item->pages_count ) ).'
 				AND ('.$q->expr->eq( 'siteaccess', $q->bindValue( erLhcoreClassSystem::instance()->SiteAccess ) ).' OR siteaccess = \'\')
@@ -396,6 +404,7 @@ class erLhAbstractModelProactiveChatInvitation {
 			$item->invitation_seen_count = 0;
 			$item->requires_email = $message->requires_email;
 			$item->requires_username = $message->requires_username;
+			$item->requires_phone = $message->requires_phone;
 			$item->invitation_count++;
 			$item->store_chat = true;
 			$item->invitation_assigned = true;
@@ -422,6 +431,7 @@ class erLhAbstractModelProactiveChatInvitation {
 	public $position = 0;
 	public $requires_email = 0;
 	public $requires_username = 0;
+	public $requires_phone = 0;
 	public $name = '';
 	public $identifier = '';
 	public $executed_times = 0;

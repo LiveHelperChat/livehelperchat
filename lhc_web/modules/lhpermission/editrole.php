@@ -61,9 +61,11 @@ if (isset($_POST['Store_policy']))
         'Module' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::REQUIRED, 'string'
         ),
-        'ModuleFunction' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::REQUIRED, 'string'
-        )
+       'ModuleFunction' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'string',
+				null,
+				FILTER_REQUIRE_ARRAY
+		)
     );
 
     if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
@@ -79,21 +81,24 @@ if (isset($_POST['Store_policy']))
         $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Please choose module');
     }
 
-    if ( !$form->hasValidData( 'ModuleFunction' ) || $form->ModuleFunction == '' )
+    if ( !$form->hasValidData( 'ModuleFunction' ) || empty($form->ModuleFunction) )
     {
         $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Please choose module function');
     }
 
     if (count($Errors) == 0)
     {
-        $RoleFunction = new erLhcoreClassModelRoleFunction();
-        $RoleFunction->role_id = $Role->id;
-        $RoleFunction->module = $form->Module;
-        $RoleFunction->function = $form->ModuleFunction;
-
-        erLhcoreClassRole::getSession()->save($RoleFunction);
+    	foreach ($form->ModuleFunction as $moduleFunction) {
+    		$RoleFunction = new erLhcoreClassModelRoleFunction();
+    		$RoleFunction->role_id = $Role->id;
+    		$RoleFunction->module = $form->Module;
+    		$RoleFunction->function = $moduleFunction;    		
+    		erLhcoreClassRole::getSession()->save($RoleFunction);
+    	}
+            
     } else {
-         $tpl->setFile( 'lhpermission/newpolicy.tpl.php');
+    	$tpl->set( 'errors', $Errors);
+        $tpl->setFile( 'lhpermission/newpolicy.tpl.php');
     }
 }
 

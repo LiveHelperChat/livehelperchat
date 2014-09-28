@@ -38,6 +38,8 @@ if (trim($form->msg) != '')
         	$Chat->last_msg_id = $msg->id;
         	$Chat->updateThis();
         }
+        
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.desktop_client_admin_msg',array('chat' => & $Chat));
 
     }
 

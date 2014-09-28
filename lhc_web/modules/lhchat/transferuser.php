@@ -33,6 +33,8 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
 	    	$tpl->set('msg',erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser','Chat was assigned to selected user'));
 	    }
 
+	    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_transfered',array('chat' => & $Chat));
+	    
 	    echo json_encode(array('error' => 'false', 'result' => $tpl->fetch(), 'chat_id' => $Params['user_parameters']['chat_id']));
 	    exit;
 	}

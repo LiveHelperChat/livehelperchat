@@ -39,6 +39,7 @@ class erLhcoreClassModelChat {
                'chat_variables'     	=> $this->chat_variables,
                'priority'     			=> $this->priority,
                'chat_initiator'     	=> $this->chat_initiator,
+               'user_tz_identifier'     => $this->user_tz_identifier,
 
        		   'online_user_id'     	=> $this->online_user_id,
        		   'unread_messages_informed' => $this->unread_messages_informed,
@@ -251,6 +252,12 @@ class erLhcoreClassModelChat {
        			return $this->unread_time;
        		break;
        		
+       	case 'user_tz_identifier_time':
+       			$date = new DateTime(null, new DateTimeZone($this->user_tz_identifier));
+       			$this->user_tz_identifier_time = $date->format(erLhcoreClassModule::$dateHourFormat);       			
+       			return $this->user_tz_identifier_time;
+       		break;
+       		
        	case 'additional_data_array':
        			$jsonData = json_decode($this->additional_data);
        			if ($jsonData !== null) {
@@ -376,6 +383,9 @@ class erLhcoreClassModelChat {
    public $wait_timeout = 0;
    public $wait_timeout_send = 0;
    public $timeout_message = '';
+   
+   // User timezone identifier
+   public $user_tz_identifier = '';
 
    // Unanswered chat callback executed
    public $na_cb_executed = 0;

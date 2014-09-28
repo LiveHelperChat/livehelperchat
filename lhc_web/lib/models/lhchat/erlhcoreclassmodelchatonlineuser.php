@@ -36,11 +36,14 @@ class erLhcoreClassModelChatOnlineUser {
                'invitation_count'   => $this->invitation_count,
                'requires_email'   	=> $this->requires_email,
                'requires_username'  => $this->requires_username,
+               'requires_phone'  	=> $this->requires_phone,
                'dep_id'   			=> $this->dep_id,
                'reopen_chat'   		=> $this->reopen_chat,
 	       	   'operation'   		=> $this->operation,
 	       	   'screenshot_id'   	=> $this->screenshot_id,
-	       	   'online_attr'   		=> $this->online_attr
+	       	   'online_attr'   		=> $this->online_attr,
+	       	   'visitor_tz'   		=> $this->visitor_tz,
+	       	   'last_check_time'	=> $this->last_check_time
        );
    }
 
@@ -174,6 +177,21 @@ class erLhcoreClassModelChatOnlineUser {
        		
        	case 'last_visit_seconds_ago':
        			$this->last_visit_seconds_ago = time()-$this->last_visit;
+       			return $this->last_visit_seconds_ago;
+       		break;
+       		
+       	case 'last_check_time_ago':
+       			$this->last_check_time_ago = time()-$this->last_check_time;
+       			return $this->last_check_time_ago;
+       		break;
+       		
+       	case 'visitor_tz_time':
+       			$this->visitor_tz_time = '-';
+       			if ($this->visitor_tz != ''){
+       				$date = new DateTime(null, new DateTimeZone($this->visitor_tz));
+       				$this->visitor_tz_time = $date->format(erLhcoreClassModule::$dateHourFormat);
+       			}       			
+       			return $this->visitor_tz_time;
        		break;
        		
        	case 'lastactivity_ago':
@@ -287,6 +305,9 @@ class erLhcoreClassModelChatOnlineUser {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_TIMEOUT, 5);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT , 5);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); // Some hostings produces wargning...
         $content = curl_exec($ch);
 
         return $content;
@@ -356,7 +377,16 @@ class erLhcoreClassModelChatOnlineUser {
 	       			$normalizedObject->country_name = $countryData->raw['country']['names']['en'];
 	       			$normalizedObject->lat = isset($countryData->raw['location']['latitude']) ? $countryData->raw['location']['latitude'] : '0';
 	       			$normalizedObject->lon = isset($countryData->raw['location']['longitude']) ? $countryData->raw['location']['longitude'] : '0';
-	       			$normalizedObject->city = isset($countryData->raw['location']['time_zone']) ? $countryData->raw['location']['time_zone'] : '';
+	       			
+	       			try {
+		       			$normalizedObject->city = $countryData->city->name != '' ? $countryData->city->name : (isset($countryData->raw['location']['time_zone']) ? $countryData->raw['location']['time_zone'] : '');	       			
+		       			$regionName = isset($countryData->raw['mostSpecificSubdivision']['name']) ? ', '.$countryData->raw['mostSpecificSubdivision']['name'] : '';	       			
+		       			$normalizedObject->city .= isset($countryData->mostSpecificSubdivision->isoCode) ? ', '.$countryData->mostSpecificSubdivision->isoCode : '';	
+		       			$normalizedObject->city .= $regionName;	
+       				} catch (Exception $e) {
+       					// Just in case of city error
+       				}
+	       			       			
 	       			return $normalizedObject;     
        			} catch (Exception $e) {
        				return false;
@@ -539,8 +569,13 @@ class erLhcoreClassModelChatOnlineUser {
 	                   }
 
 	                   $item->identifier = (isset($paramsHandle['identifier']) && !empty($paramsHandle['identifier'])) ? $paramsHandle['identifier'] : $item->identifier;
-	                   $item->dep_id =  (isset($paramsHandle['department'])) ? (int)$paramsHandle['department'] : $item->dep_id;
 	                   
+	                   if (isset($paramsHandle['department']) && is_array($paramsHandle['department']) && count($paramsHandle['department']) == 1){
+	                   		$item->dep_id = array_shift($paramsHandle['department']);
+	                   } elseif (isset($paramsHandle['department']) && is_numeric($paramsHandle['department'])){
+	                   		$item->dep_id = (int)$paramsHandle['department'];
+	                   }
+	                   	                   
 	               } else {
 	                   $item = new erLhcoreClassModelChatOnlineUser();
 	                   $item->ip = erLhcoreClassIPDetect::getIP();
@@ -548,8 +583,20 @@ class erLhcoreClassModelChatOnlineUser {
 	                   $item->identifier = (isset($paramsHandle['identifier']) && !empty($paramsHandle['identifier'])) ? $paramsHandle['identifier'] : '';
 	                   $item->referrer = isset($_GET['r']) ? rawurldecode($_GET['r']) : '';
 	                   $item->total_visits = 1;
-	                   $item->dep_id =  (isset($paramsHandle['department'])) ? (int)$paramsHandle['department'] : 0;
-
+	                   	                	                   
+	                   if (isset($paramsHandle['department']) && is_array($paramsHandle['department']) && count($paramsHandle['department']) == 1){
+	                   		$item->dep_id = array_shift($paramsHandle['department']);
+	                   } elseif (isset($paramsHandle['department']) && is_numeric($paramsHandle['department'])){
+	                   		$item->dep_id = (int)$paramsHandle['department'];
+	                   }
+	                   	                   
+	                   if (isset($paramsHandle['tz']) && is_numeric($paramsHandle['tz'])) {
+		                   	$timezone_name = timezone_name_from_abbr(null, (int)$paramsHandle['tz']*3600, true);
+		                   	if ($timezone_name !== false) {
+		                   		$item->visitor_tz = $timezone_name;
+		                   	}
+	                   }
+	                   
 	                   self::detectLocation($item);
 
 	                   // Cleanup database then new user comes
@@ -578,7 +625,14 @@ class erLhcoreClassModelChatOnlineUser {
 	           		if ($item->has_message_from_operator == true) {
 	           			$item->invitation_seen_count++;
 	           		}
-	           		
+	           			           		
+	           		if (isset($paramsHandle['tz']) && is_numeric($paramsHandle['tz']) && $item->visitor_tz == ''){
+	           			$timezone_name = timezone_name_from_abbr(null, (int)$paramsHandle['tz']*3600, true);
+	           			if ($timezone_name !== false){
+	           				$item->visitor_tz = $timezone_name;
+	           			}
+	           		}
+	           			           		
 	           		// Hide invitation message after n times if required
 	           		if ($item->has_message_from_operator == true && $item->invitation !== false && $item->invitation->hide_after_ntimes > 0 && $item->invitation_seen_count > $item->invitation->hide_after_ntimes ) {	           			
 	           			$item->message_seen = 1;
@@ -595,13 +649,14 @@ class erLhcoreClassModelChatOnlineUser {
 	           		$item->store_chat = true;
 	           }
 
-	           if ($item->operator_message == '' && isset($paramsHandle['pro_active_invite']) && $paramsHandle['pro_active_invite'] == 1 && isset($paramsHandle['pro_active_limitation']) && ($paramsHandle['pro_active_limitation'] == -1 || erLhcoreClassChat::getPendingChatsCountPublic((isset($paramsHandle['department']) && $paramsHandle['department'] > 0) ? (int)$paramsHandle['department'] : false) <= $paramsHandle['pro_active_limitation']) ) {
+	           if ($item->operator_message == '' && isset($paramsHandle['pro_active_invite']) && $paramsHandle['pro_active_invite'] == 1 && isset($paramsHandle['pro_active_limitation']) && ($paramsHandle['pro_active_limitation'] == -1 || erLhcoreClassChat::getPendingChatsCountPublic($item->dep_id > 0 ? $item->dep_id : false) <= $paramsHandle['pro_active_limitation']) ) {
 	           		//Process pro active chat invitation if this visitor matches any rules
 	           		erLhAbstractModelProactiveChatInvitation::processProActiveInvitation($item);
 	           }
 
 	           // Save only then we have to, in general only then page view appears
 	           if ($item->store_chat == true) {
+	           		$item->last_check_time = time();
 	           		$item->saveThis();
 	           }
 
@@ -661,6 +716,9 @@ class erLhcoreClassModelChatOnlineUser {
    public $screenshot_id = 0;
    public $operation = '';
    public $online_attr = '';
+   public $visitor_tz = '';
+   public $requires_phone = 0;
+   public $last_check_time = 0;
       
    
    // 0 - do not reopen

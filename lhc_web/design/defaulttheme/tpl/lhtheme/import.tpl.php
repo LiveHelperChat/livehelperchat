@@ -9,7 +9,8 @@
 <?php endif; ?>
 
 <form action="" method="post" autocomplete="off" enctype="multipart/form-data">
-
+	<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+	
 	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('theme/import','File')?> (json)</label>
 	<input type="file" name="themefile" value="" />
 	

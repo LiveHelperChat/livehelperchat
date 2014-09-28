@@ -1,3 +1,143 @@
+2.13v
+
+This realease is maintenence release with a lot of small changes.
+
+1. Updated xml module to return unread chats list also
+2. Move events for NodeJs extension
+3. Changed autoload mechanism to be compatible with third party autoloads. Replace index.php file
+4. XML module was missing some callbacks which are present in web interface
+5. A lot of small updates to to be compatible with newest NodeJS version.
+6. En https://github.com/LiveHelperChat/livehelperchat/issues/511
+7. If user navigated to another page sometimes user was shown as offline, even if user was online.
+8. Not required interface sync was removed in popup window.
+9. Cache for emoji icons https://github.com/LiveHelperChat/livehelperchat/issues/503
+10. Sound for unread messages will be played https://github.com/LiveHelperChat/livehelperchat/issues/505
+
+There is no database update in this release. 
+
+2.12v
+
+1. Now you can have fully functional and working minimalistic chat start form.
+2. In themes there is option to upload operator image and write your own text for operator intro.
+3. Minimalistic interface settings can be configured at "Start chat form settings"
+4. Fixed bug then JS produced error if no live operator status check was enabled.
+5. Send button is hidden if there is only one field
+6. Pressing shift+enter won't submit form.
+7. If user is redirected to contact form, within chat we will save user email if it's required.
+8. Implemented https://github.com/LiveHelperChat/livehelperchat/issues/499
+9. Option to embed code just to track online visitors. Can be used just as JS API embed solution.
+https://github.com/LiveHelperChat/livehelperchat/issues/496
+
+execute doc/update_db/update_91.sql for update
+
+2.11v
+
+1. Fixed bug then department online hours was not taking effect if department ID was not provided.
+https://github.com/LiveHelperChat/livehelperchat/issues/491
+
+2. Option to setup status indication is site visitor still on site or already left a site.
+https://github.com/LiveHelperChat/livehelperchat/issues/490
+
+3. Option to export chats as XLS
+https://github.com/LiveHelperChat/livehelperchat/issues/435
+
+4. Option to write manually for what domain user is generating embed code. This is neede if you are experiencing some issue like chat is not kept while navigating through other site pages.
+Personally I always recomend to write it while generating embed code.
+https://github.com/LiveHelperChat/livehelperchat/issues/489
+
+5. Extra modules will be hidden if user does not have permission to use atleast one of submodule.
+https://github.com/LiveHelperChat/livehelperchat/issues/487
+
+6. If user refreshed page message time was incorrect because user time zone was not used. It was used only for new user messages.
+
+execute doc/update_db/update_90.sql for update
+
+2.10v
+
+1. Now then you are genrating code for multiple departments, or just standard code without any department. 
+If user chooses offline department for him is suggested go to leave a message form. This can be turned on or off in chat configuration. 
+https://github.com/LiveHelperChat/livehelperchat/issues/477
+2. On devices, with lower screen width than 1024, clicking on widget will open new window.
+3. Default line height was set for widgets to have same appearance across all sites.
+4. Option to set department online hours in hours and minutes format. Previously it was only hours. All users who uses this function is required to update department online hours. Just resave.
+https://github.com/LiveHelperChat/livehelperchat/issues/476
+5. Jersey icon was missing
+https://github.com/LiveHelperChat/livehelperchat/issues/478
+6. Now extension can override translations also. Just create a folder translations in your extension and appropriate language file.
+E.g extension/overridetranslation/translations/lt_LT/translation.ts and active extension overridetranslation, and you are ready to go.
+https://github.com/LiveHelperChat/livehelperchat/issues/479
+7. Online visitor pages remmebers user settings, selected department, max records to return etc...
+https://github.com/LiveHelperChat/livehelperchat/issues/474
+8. Core was changed to avoid warning if compiled module file is not found. Actually it's like workraound for OP Cache then file is still returned from OP Cache instead of real one.
+9. Option to enable language switched at chat widget. It applies only for chat widget and start chat windows.
+https://github.com/LiveHelperChat/livehelperchat/issues/469
+10. Install by default will enable Geo detection using MaxMind
+
+execute doc/update_db/update_89.sql for update
+
+2.09v
+
+1. https://github.com/LiveHelperChat/livehelperchat/issues/428
+2. Albanian language
+3. Chats duration algorithm was changes it now will calculate chat duration by this algorithm
+last user message time - (chat start time + chat wait time). You can update all your chats duration by visiting chat Maintenence page.
+
+execute doc/update_db/update_88.sql for update
+
+2.08v
+
+1. https://github.com/LiveHelperChat/livehelperchat/issues/422
+2. https://github.com/LiveHelperChat/livehelperchat/issues/454
+3. https://github.com/LiveHelperChat/livehelperchat/issues/456
+
+execute doc/update_db/update_87.sql for update
+
+2.07v
+
+1. Now you can generate embed code who represents few departments at once. https://github.com/LiveHelperChat/livehelperchat/issues/427
+2. https://github.com/LiveHelperChat/livehelperchat/issues/440
+3. https://github.com/LiveHelperChat/livehelperchat/issues/437
+4. https://github.com/LiveHelperChat/livehelperchat/issues/433
+5. https://github.com/LiveHelperChat/livehelperchat/issues/421
+6. Now you can set required phone in proactive chat invitation
+7. Option to set required phone length in back office.
+
+execute doc/update_db/update_86.sql for update
+
+2.06v
+
+1. Option to minize widget directly to bottom corner.
+2. Status widget will be hidden automatically then user opens live help widget
+3. Option to change border color of status widget
+4. Operator will see user local time zone. Also visitor will see messages time in their local time.
+5. Because of 4 feature online visitors list was a little bit restyled.
+6. Minimize and restore icons will be different now to avoid confusion
+7. On minimization header will stay at the same place
+8. Option to pass operator ID to chat. Usefull for integrating with third party applications. Where let say each customer has assigned operator.
+9. Separated template for user message. Easier to override
+10. Finnish language
+11. Option to edit previous visitor/operator message by pressing Up arrow, just like skype
+
+execute doc/update_db/update_85.sql for update
+
+2.05v
+
+1. Option to hide/show widget copyright small logo. 16x16
+2. Option to upload your own logo for small copyright logo in widget left corner.
+3. Option to track online visitors then widget is not visible because operators are offline.
+4. Roles permission editing window will contain checkboxes instead of combobox.
+5. Disabled ssl check for curl request, window update compatibility. Thanks to softaculous
+6. Translations now also are generated for chat configuration window. User requested this.
+
+execute doc/update_db/update_84.sql for update
+
+2.04v
+
+1. https://github.com/LiveHelperChat/livehelperchat/issues/412
+2. Option to set default theme from back office
+
+execute doc/update_db/update_83.sql for update
+
 2.03v
 
 1. Option to get browser/sound notification about new visitor in online visitors list.

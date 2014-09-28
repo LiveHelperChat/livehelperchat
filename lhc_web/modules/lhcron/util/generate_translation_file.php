@@ -1,10 +1,16 @@
 <?php
 // php cron.php -s site_admin -c cron/util/generate_translation_file
+
+$arrayTranslationsProcess = array();
+
+$items = erLhcoreClassModelChatConfig::getItems(array('limit' => 500, 'filter' => array('hidden' => 0)));
+foreach ($items as $item) {
+	$arrayTranslationsProcess['listchatconfig'][] =  $item->explain;
+}
+
 $filesToCheck = ezcBaseFile::findRecursive('.',
 array( '@\.php$@' ),
 array( '@/albums|ezcomponents|doc|translations|var|extension|cache|bin|Zend|setttings|pos/@' ));
-
-$arrayTranslationsProcess = array();
 
 $locale = 'en_EN';
 
@@ -42,7 +48,6 @@ foreach ($filesToCheck as $filePath)
 	    }
 	}
 }
-
 
 $reader = new ezcTranslationTsBackend( 'doc/translation_default' );
 $reader->setOptions( array( 'format' => 'translation_web.ts' ) );

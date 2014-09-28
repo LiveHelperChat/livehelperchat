@@ -1,5 +1,204 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="el">
   <context>
+    <name>listchatconfig</name>
+    <message>
+      <source>How many days voting widget should not be expanded after last show</source>
+      <translation>Πόσες ημέρες ψηφοφορίας widget δεν θα πρέπει να επεκταθεί μετά από την τελευταία εμφάνιση</translation>
+    </message>
+    <message>
+      <source>Use secure cookie, check this if you want to force SSL all the time</source>
+      <translation>Χρησιμοποιούμε cookie ασφαλή, ελέγχω this εάν θέλετε να εξαναγκάσετε SSL όλη την ώρα</translation>
+    </message>
+    <message>
+      <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
+      <translation>Ποια ip θα πρέπει να ενημερώσει το DB με την εκτέλεση της αίτησης http, διαχωρίστε με κόμμα;</translation>
+    </message>
+    <message>
+      <source>Enable online site visitors tracking</source>
+      <translation>Επιτρέψετε στους επισκέπτες της σε απευθείας σύνδεση περιοχή εντοπισμού</translation>
+    </message>
+    <message>
+      <source>Track is user still on site, chat status checks also has to be enabled</source>
+      <translation>Κομμάτι είναι χρήστης ακόμα στο site, chat καθεστώς ελέγχων πρέπει επίσης να επιτραπεί</translation>
+    </message>
+    <message>
+      <source>Track online visitors even if there is no online operators</source>
+      <translation>Παρακολουθήσετε σε απευθείας σύνδεση επισκέπτες, ακόμη και αν δεν υπάρχει καμία σε απευθείας σύνδεση φορείς</translation>
+    </message>
+    <message>
+      <source>Track users footprint. For this also online visitors tracking should be enabled</source>
+      <translation>Κομμάτι χρήστες αποτύπωμα. Για αυτό επίσης σε απευθείας σύνδεση επισκέπτες παρακολούθησης θα πρέπει να ενεργοποιηθούν</translation>
+    </message>
+    <message>
+      <source>Set your domain to enable user tracking across different domain subdomains.</source>
+      <translation>Ορίστε το domain σας να ενεργοποιήσετε την παρακολούθηση του χρήστη υποτομείς διαφορετικό τομέα.</translation>
+    </message>
+    <message>
+      <source>How many days keep records of online users.</source>
+      <translation>Πόσες μέρες αρχειοθετούν σε απευθείας σύνδεση χρήστες.</translation>
+    </message>
+    <message>
+      <source>Suggest user to leave a message then user chooses offline department</source>
+      <translation>Προτείνουμε το χρήστη να αφήσετε ένα μήνυμα τότε ο χρήστης επιλέγει σε μη απευθείας σύνδεση τμήμα</translation>
+    </message>
+    <message>
+      <source>Play sound on invitation to chat.</source>
+      <translation>Αναπαραγωγή ήχου στην πρόσκληση να συνομιλήσετε.</translation>
+    </message>
+    <message>
+      <source>Show users option to switch language at widget</source>
+      <translation>Δείξει στους χρήστες την επιλογή για να αλλάξετε την γλώσσα στο widget</translation>
+    </message>
+    <message>
+      <source>Between what languages user should be able to switch</source>
+      <translation>Μεταξύ ποιες γλώσσες χρήστη πρέπει να είναι σε θέση να αλλάξει</translation>
+    </message>
+    <message>
+      <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
+      <translation>Χρήση συνεδρία captcha. LHC πρέπει να εγκατασταθούν στον ίδιο τομέα ή υποτομέα.</translation>
+    </message>
+    <message>
+      <source>Should cronjob run unanswered chats workflow and execute unaswered chats callback, 0 - no, any other number bigger than 0 is a minits how long chat have to be not accepted before executing callback.</source>
+      <translation>Πρέπει να cronjob τρέχω αναπάντητα συνομιλίες ροή εργασίας και εκτελώ επανάκλησης unaswered συνομιλίες, 0 - δεν, κάθε άλλο αριθμό μεγαλύτερο από το 0 είναι ένα minits πόσο καιρό συνομιλίας πρέπει να υιοθετηθούν δεν πριν από την εκτέλεση της επιστροφής κλήσης.</translation>
+    </message>
+    <message>
+      <source>Should cronjob run departments transfer workflow, even if user leaves a chat</source>
+      <translation>Πρέπει να cronjob τρέξει τμήματα μεταφορά ροής εργασίας, ακόμη και αν ο χρήστης αφήνει μια συνομιλία</translation>
+    </message>
+    <message>
+      <source>Reopen chat functionality enabled</source>
+      <translation>Ανοίξτε πάλι κουβέντα functionality ενεργοποιημένη</translation>
+    </message>
+    <message>
+      <source>Reopen closed chat as new? Otherwise it will be reopened as active.</source>
+      <translation>Εκ νέου άνοιγμα κλεισμένων συνομιλίας ως νέα; Διαφορετικά θα ανοίξει ως ενεργό.</translation>
+    </message>
+    <message>
+      <source>Should invitation logic be executed if there is no online operators</source>
+      <translation>Πρόσκληση λογική, πρέπει να εκτελεστεί αν δεν υπάρχει καμία σε απευθείας σύνδεση φορείς</translation>
+    </message>
+    <message>
+      <source>Pro active chats invitations limitation based on pending chats, (-1) do not limit, (0,1,n+1) number of pending chats can be for invitation to be shown.</source>
+      <translation>Προορατικού συνομιλίες προσκλήσεις περιορισμός με βάση την εν αναμονή συνομιλίες, (-1) δεν περιορίζουν, (0,1, n + 1) αριθµός των εκκρεµών συνομιλίες μπορεί να είναι για την πρόσκληση να εμφανιστεί.</translation>
+    </message>
+    <message>
+      <source>Is pro active chat invitation active. Online users tracking also has to be enabled</source>
+      <translation>Είναι η πρόσκληση προορατικού chat ενεργό. Οι σε απευθείας σύνδεση χρήστες που παρακολουθούν επίσης πρέπει να επιτραπεί</translation>
+    </message>
+    <message>
+      <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
+      <translation>Χρειάζεστε βοήθεια tooltip χρονικό όριο, μετά από πόσες ώρες και πάλι εμφάνιση συμβουλής εργαλείου;</translation>
+    </message>
+    <message>
+      <source>Show need help tooltip?</source>
+      <translation>Εμφάνιση χρειάζονται βοήθεια tooltip;</translation>
+    </message>
+    <message>
+      <source>Minimum phone number length</source>
+      <translation>Ελάχιστη τηλέφωνο αριθμός μήκος</translation>
+    </message>
+    <message>
+      <source>Messages box height</source>
+      <translation>Μηνύματα πλαίσιο ύψος</translation>
+    </message>
+    <message>
+      <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
+      <translation>Προληπτική μήνυμα timeout σε ώρες. Μετά από πόσες ώρες chat ενεργό mesasge θα πρέπει να εμφανιστεί και πάλι.</translation>
+    </message>
+    <message>
+      <source>Maximum message length in characters</source>
+      <translation>Μέγιστη μήνυμα μήκος σε χαρακτήρες</translation>
+    </message>
+    <message>
+      <source>List online operators.</source>
+      <translation>Κατάλογος σε απευθείας σύνδεση φορείς.</translation>
+    </message>
+    <message>
+      <source>Ignore users online statuses and use departments online hours</source>
+      <translation>Αγνοήστε χρήστες online καταστάσεις και να χρησιμοποιούν υπηρεσίες online ώρες</translation>
+    </message>
+    <message>
+      <source>Which ip should be ignored in online users list, separate by comma</source>
+      <translation>Ποια ip πρέπει να αγνοηθεί στη λίστα σε απευθείας σύνδεση χρήστες, ξεχωριστό από το κόμμα</translation>
+    </message>
+    <message>
+      <source>Hide disabled department widget</source>
+      <translation>Απόκρυψη απενεργοποιημένη τμήμα widget</translation>
+    </message>
+    <message>
+      <source>Is visitor e-mail required for FAQ</source>
+      <translation>Είναι επισκέπτης ηλεκτρονικού ταχυδρομείου απαιτείται για το FAQ</translation>
+    </message>
+    <message>
+      <source>Chats export secret hash</source>
+      <translation>Συνομιλίες εξαγωγή μυστικό hash</translation>
+    </message>
+    <message>
+      <source>Please enter explicit http mode. Either http: or https:, do not forget : at the end.</source>
+      <translation>Παρακαλούμε εισάγετε λειτουργία ρητή http. Είτε http: ή https:, μην ξεχάσετε: στο τέλος.</translation>
+    </message>
+    <message>
+      <source>Disable chat transcript send</source>
+      <translation>Απενεργοποίηση συνομιλίας απομαγνητοφώνηση αποστολή</translation>
+    </message>
+    <message>
+      <source>Disable chat print</source>
+      <translation>Απενεργοποιήσετε την εκτύπωση της συνομιλίας</translation>
+    </message>
+    <message>
+      <source>Disable option in widget to open new window. Restore icon will be hidden</source>
+      <translation>Απενεργοποιήστε την επιλογή στο widget για να ανοίξετε νέο παράθυρο. Αποκατασταθεί η εικόνα θα να είμαι hidden</translation>
+    </message>
+    <message>
+      <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
+      <translation>Απενεργοποιήσετε HMTL5 αποθήκευσης, να ελέγξουμε αν η τοποθεσία σας εναλλαγή μεταξύ http και https</translation>
+    </message>
+    <message>
+      <source>Your site URL address</source>
+      <translation>Διεύθυνση URL της τοποθεσίας σας</translation>
+    </message>
+    <message>
+      <source>Your company name - visible in bottom left corner</source>
+      <translation>Όνομα της εταιρείας σας - ορατή στην κάτω αριστερή γωνία</translation>
+    </message>
+    <message>
+      <source>Interval between chat status checks in seconds, 0 disabled.</source>
+      <translation>Διάστημα μεταξύ κατάστασής της συζήτησής τους ελέγχους σε δευτερόλεπτα, 0 άτομα με ειδικές ανάγκες.</translation>
+    </message>
+    <message>
+      <source>Show BB Code button</source>
+      <translation>Εμφάνιση του κουμπιού BB κώδικα</translation>
+    </message>
+    <message>
+      <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
+      <translation>Αυτόματη συνομιλίες εκκαθάριση. 0 - άτομα με ειδικές ανάγκες, n &gt; 0 διάρκεια σε λεπτά πριν chat διαγράφεται αυτόματα</translation>
+    </message>
+    <message>
+      <source>Automatically reopen chat on widget open</source>
+      <translation>Αυτόματα εκ νέου chat στο widget ανοικτή</translation>
+    </message>
+    <message>
+      <source>Automatic chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
+      <translation>Αυτόματη συνομιλίες κλείσιμο. 0 - άτομα με ειδικές ανάγκες, n &gt; 0 διάρκεια σε λεπτά πριν το chat έχει κλείσει αυτόματα</translation>
+    </message>
+    <message>
+      <source>Support application name, visible in browser title.</source>
+      <translation>Υποστήριξη όνομα εφαρμογής, ορατό στον τίτλο προγράμματος περιήγησης.</translation>
+    </message>
+    <message>
+      <source>Allow user to reopen closed chats?</source>
+      <translation>Επιτρέπει στο χρήστη να ανοίξετε ξανά κλειστές συζητήσεις;</translation>
+    </message>
+    <message>
+      <source>Change to your site Terms of Service</source>
+      <translation>Αλλαγή στο site σας όροι της υπηρεσίας</translation>
+    </message>
+    <message>
+      <source>How many seconds chat accept link is valid. Set 0 to force login all the time manually.</source>
+      <translation>Πόσα δευτερόλεπτα chat δέχεται σύνδεση είναι έγκυρη. Σετ 0 για να αναγκάσει τη σύνδεση όλη την ώρα με μη αυτόματο τρόπο.</translation>
+    </message>
+  </context>
+  <context>
     <name>system/buttons</name>
     <message>
       <source>Save</source>
@@ -71,6 +270,188 @@
     <message>
       <source>Updated!</source>
       <translation>Ενημέρωση!</translation>
+    </message>
+  </context>
+  <context>
+    <name>abstract/widgettheme</name>
+    <message>
+      <source>Download theme</source>
+      <translation>Κατεβάστε θέμα</translation>
+    </message>
+    <message>
+      <source>Status widget style</source>
+      <translation>Κατάσταση στυλ widget</translation>
+    </message>
+    <message>
+      <source>Widget copyright</source>
+      <translation>Widget, πνευματικής ιδιοκτησίας</translation>
+    </message>
+    <message>
+      <source>Widget container</source>
+      <translation>Δοχείο widget</translation>
+    </message>
+    <message>
+      <source>Need help widget</source>
+      <translation>Χρειάζεστε βοήθεια widget</translation>
+    </message>
+    <message>
+      <source>Custom CSS</source>
+      <translation>Προσαρμοσμένη CSS</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Όνομα</translation>
+    </message>
+    <message>
+      <source>Need help header text</source>
+      <translation>Χρειάζεστε βοήθεια κειμένου κεφαλίδας</translation>
+    </message>
+    <message>
+      <source>Need help standard text</source>
+      <translation>Χρειάζεστε βοήθεια τυποποιημένο κείμενο</translation>
+    </message>
+    <message>
+      <source>Online status text</source>
+      <translation>Online κατάσταση κειμένου</translation>
+    </message>
+    <message>
+      <source>Offline status text</source>
+      <translation>Offline κατάσταση κειμένου</translation>
+    </message>
+    <message>
+      <source>Operator intro text</source>
+      <translation>Χειριστής εισαγωγή κειμένου</translation>
+    </message>
+    <message>
+      <source>Have a question? Ask us!</source>
+      <translation>Έχετε μια ερώτηση; Ρωτήστε μας!</translation>
+    </message>
+    <message>
+      <source>Background color</source>
+      <translation>Χρώμα φόντου</translation>
+    </message>
+    <message>
+      <source>Status widget border color</source>
+      <translation>Κατάσταση widget χρώμα περιγράμματος</translation>
+    </message>
+    <message>
+      <source>Text color</source>
+      <translation>Χρώμα κειμένου</translation>
+    </message>
+    <message>
+      <source>Operator image in chat widget</source>
+      <translation>Φορέα εικόνας σε chat widget</translation>
+    </message>
+    <message>
+      <source>Logo image, visible in popup</source>
+      <translation>Εικόνα λογότυπο, ορατή και στο popup</translation>
+    </message>
+    <message>
+      <source>Logo image, visible in widget left corner, 16x16</source>
+      <translation>Εικόνα λογότυπο, ορατό στην αριστερή γωνία του widget, 16 x 16</translation>
+    </message>
+    <message>
+      <source>Show copyright widget logo in left corner</source>
+      <translation>Εμφάνιση λογότυπο πνευματικών δικαιωμάτων widget στην αριστερή γωνία</translation>
+    </message>
+    <message>
+      <source>Widget copyright link</source>
+      <translation>Widget, πνευματικής ιδιοκτησίας σύνδεση</translation>
+    </message>
+    <message>
+      <source>Text above start chat form fields</source>
+      <translation>Το κείμενο πάνω από την έναρξη συνομιλίας πεδία φόρμας</translation>
+    </message>
+    <message>
+      <source>Online image</source>
+      <translation>Εικόνας σε απευθείας σύνδεση</translation>
+    </message>
+    <message>
+      <source>Offline image</source>
+      <translation>Είδωλο</translation>
+    </message>
+    <message>
+      <source>Widget header background color</source>
+      <translation>Χρώμα του φόντου widget κεφαλίδα</translation>
+    </message>
+    <message>
+      <source>Widget border color</source>
+      <translation>Το χρώμα περιγράμματος widget</translation>
+    </message>
+    <message>
+      <source>Need help background color</source>
+      <translation>Χρειάζεστε βοήθεια χρώμα φόντου</translation>
+    </message>
+    <message>
+      <source>Need help hover background color</source>
+      <translation>Χρειάζεστε βοήθεια κατάδειξης χρώμα φόντου</translation>
+    </message>
+    <message>
+      <source>Need help text color</source>
+      <translation>Χρειάζεστε βοήθεια χρώμα κειμένου</translation>
+    </message>
+    <message>
+      <source>Need help border color</source>
+      <translation>Χρειάζεστε βοήθεια χρώμα περιγράμματος</translation>
+    </message>
+    <message>
+      <source>Need help close background color</source>
+      <translation>Χρειάζεστε βοήθεια να κλείσει το χρώμα φόντου</translation>
+    </message>
+    <message>
+      <source>Need help close hover background color</source>
+      <translation>Χρειάζεστε βοήθεια κλείσει αιωρείται χρώμα φόντου</translation>
+    </message>
+    <message>
+      <source>Need help operator image</source>
+      <translation>Χρειάζεστε βοήθεια φορέα εικόνας</translation>
+    </message>
+    <message>
+      <source>Status widget additional CSS, takes effect after save</source>
+      <translation>Το γραφικό στοιχείο κατάσταση σώσει επιπλέον CSS, αρχίζει να ισχύει μετά από</translation>
+    </message>
+    <message>
+      <source>Widget container additional CSS, takes effect after save</source>
+      <translation>Δοχείο widget επιπλέον CSS, αρχίζει να ισχύει μετά την αποθήκευση</translation>
+    </message>
+    <message>
+      <source>Widget body additional CSS, takes effect after save</source>
+      <translation>Widget σώμα επιπλέον CSS, αρχίζει να ισχύει μετά από την αποθήκευση</translation>
+    </message>
+    <message>
+      <source>Widget themes</source>
+      <translation>Θέματα widget</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/getstatus</name>
+    <message>
+      <source>Close</source>
+      <translation>Κλείσιμο</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Άνοιγμα σε νέο παράθυρο</translation>
+    </message>
+    <message>
+      <source>Minimize/Restore</source>
+      <translation>Ελαχιστοποίηση/επαναφορά</translation>
+    </message>
+    <message>
+      <source>Live help is online...</source>
+      <translation>Ζωντανή βοήθεια είναι σε απευθείας σύνδεση...</translation>
+    </message>
+    <message>
+      <source>Need help?</source>
+      <translation>Χρειάζεστε βοήθεια;</translation>
+    </message>
+    <message>
+      <source>Our staff is always ready to help</source>
+      <translation>Το προσωπικό μας είναι πάντα έτοιμο να βοηθήσει</translation>
+    </message>
+    <message>
+      <source>Live help is offline...</source>
+      <translation>Ζωντανή βοήθεια είναι σε μη απευθείας σύνδεση...</translation>
     </message>
   </context>
   <context>
@@ -148,6 +529,10 @@
       <translation>Απαιτεί όνομα</translation>
     </message>
     <message>
+      <source>Requires phone</source>
+      <translation>Απαιτεί τηλέφωνο</translation>
+    </message>
+    <message>
       <source>Show random operator profile</source>
       <translation>Εμφάνιση προφίλ τυχαίο χειριστή</translation>
     </message>
@@ -188,37 +573,6 @@
     </message>
   </context>
   <context>
-    <name>chat/getstatus</name>
-    <message>
-      <source>Close</source>
-      <translation>Κλείσιμο</translation>
-    </message>
-    <message>
-      <source>Open in a new window</source>
-      <translation>Άνοιγμα σε νέο παράθυρο</translation>
-    </message>
-    <message>
-      <source>Minimize/Restore</source>
-      <translation>Ελαχιστοποίηση/επαναφορά</translation>
-    </message>
-    <message>
-      <source>Live help is online...</source>
-      <translation>Ζωντανή βοήθεια είναι σε απευθείας σύνδεση...</translation>
-    </message>
-    <message>
-      <source>Need help?</source>
-      <translation>Χρειάζεστε βοήθεια;</translation>
-    </message>
-    <message>
-      <source>Our staff is always ready to help</source>
-      <translation>Το προσωπικό μας είναι πάντα έτοιμο να βοηθήσει</translation>
-    </message>
-    <message>
-      <source>Live help is offline...</source>
-      <translation>Ζωντανή βοήθεια είναι σε μη απευθείας σύνδεση...</translation>
-    </message>
-  </context>
-  <context>
     <name>system/htmlcode</name>
     <message>
       <source>HTML code</source>
@@ -245,8 +599,12 @@
       <translation>Προσφορά χρονικού ορίου σε ημέρες, μετά δείχνουν πόσες μέρες προσφέρει για τον ίδιο επισκέπτη και πάλι, αφήστε κενό για συνεδρία</translation>
     </message>
     <message>
-      <source>Choose a language</source>
-      <translation>Επιλέξτε μια γλώσσα</translation>
+      <source>For what domain you are generating embed code?</source>
+      <translation>Για τι τομέα, δημιουργείτε ενσωματώνει τον κώδικα;</translation>
+    </message>
+    <message>
+      <source>example.com</source>
+      <translation>example.com</translation>
     </message>
     <message>
       <source>Choose prefered http mode</source>
@@ -255,6 +613,10 @@
     <message>
       <source>Based on site (default)</source>
       <translation>Με βάση την τοποθεσία (προεπιλογή)</translation>
+    </message>
+    <message>
+      <source>Choose a language</source>
+      <translation>Επιλέξτε μια γλώσσα</translation>
     </message>
     <message>
       <source>Widget embed code</source>
@@ -270,11 +632,11 @@
     </message>
     <message>
       <source>Theme</source>
-      <translation type="unfinished"/>
+      <translation>Θέμα</translation>
     </message>
     <message>
       <source>Default</source>
-      <translation type="unfinished"/>
+      <translation>Προεπιλογή</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>
@@ -393,6 +755,14 @@
       <translation>Κάθε</translation>
     </message>
     <message>
+      <source>Operator ID</source>
+      <translation>Τελεστής αναγνωριστικό</translation>
+    </message>
+    <message>
+      <source>To what operator chat should be assigned automatically?</source>
+      <translation>Τι χειριστή πρέπει να εκχωρούνται αυτόματα με chat;</translation>
+    </message>
+    <message>
       <source>Copy the code from the text area to the page where you want your status to appear</source>
       <translation>Αντιγράψτε τον κώδικα από την περιοχή κειμένου στη σελίδα όπου θέλετε την κατάστασή σας για να εμφανιστεί</translation>
     </message>
@@ -445,6 +815,22 @@
       <translation>Μητρική τοποθέτηση - θα παρουσιαστεί όπου ενσωματώνεται το html</translation>
     </message>
     <message>
+      <source>Invisible, only JS API will be included</source>
+      <translation>Αόρατο, μόνο JS API θα πρέπει να περιλαμβάνονται</translation>
+    </message>
+    <message>
+      <source>Minimize action, applies only if status widget is at the bottom</source>
+      <translation>Ελαχιστοποίηση της δράσης, να ισχύει μόνο αν το γραφικό στοιχείο κατάσταση είναι στο κάτω μέρος</translation>
+    </message>
+    <message>
+      <source>Keep where it was</source>
+      <translation>Κρατήσει όπου ήταν</translation>
+    </message>
+    <message>
+      <source>Minimize to bottom of the screen</source>
+      <translation>Ελαχιστοποίηση κάτω μέρος της οθόνης</translation>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation>Διαμόρφωση του συστήματος</translation>
     </message>
@@ -482,18 +868,6 @@
   </context>
   <context>
     <name>browseoffer/index</name>
-    <message>
-      <source>List of forms</source>
-      <translation>Λίστα των μορφών</translation>
-    </message>
-    <message>
-      <source>Page embed code</source>
-      <translation>Σελίδα ενσωματώνει τον κώδικα</translation>
-    </message>
-    <message>
-      <source>Index</source>
-      <translation>Δείκτης</translation>
-    </message>
     <message>
       <source>Browse offers</source>
       <translation>Αναζήτηση προσφέρει</translation>
@@ -559,6 +933,57 @@
     </message>
   </context>
   <context>
+    <name>chat/lists/search_panel</name>
+    <message>
+      <source>Delete selected</source>
+      <translation>Διαγραφή επιλεγεί</translation>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation>Nick</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>Ηλεκτρονικού ταχυδρομείου</translation>
+    </message>
+    <message>
+      <source>Date range from to</source>
+      <translation>Εύρος ημερομηνιών από να</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Τμήμα</translation>
+    </message>
+    <message>
+      <source>User</source>
+      <translation>Χρήστης</translation>
+    </message>
+    <message>
+      <source>Search</source>
+      <translation>Αναζήτηση</translation>
+    </message>
+    <message>
+      <source>Print</source>
+      <translation>Εκτύπωση</translation>
+    </message>
+    <message>
+      <source>XLS</source>
+      <translation>XLS</translation>
+    </message>
+    <message>
+      <source>Select department</source>
+      <translation>Επέλεξε τμήμα</translation>
+    </message>
+    <message>
+      <source>Select user</source>
+      <translation>Επέλεξε χρήστη</translation>
+    </message>
+    <message>
+      <source>Type to search</source>
+      <translation>Πληκτρολόγηση για αναζήτηση</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/chat</name>
     <message>
       <source>Show/Hide right column</source>
@@ -609,16 +1034,16 @@
       <translation>Κλείσιμο</translation>
     </message>
     <message>
-      <source>Enter your message</source>
-      <translation>Εισάγετε το μήνυμά σας</translation>
-    </message>
-    <message>
       <source>Send</source>
       <translation>Αποστολή</translation>
     </message>
     <message>
       <source>BB Code</source>
       <translation>BB κώδικα</translation>
+    </message>
+    <message>
+      <source>Enter your message</source>
+      <translation>Εισάγετε το μήνυμά σας</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -750,7 +1175,7 @@
     </message>
     <message>
       <source>Auto send</source>
-      <translation type="unfinished"/>
+      <translation>Αυτόματη αποστολή</translation>
     </message>
     <message>
       <source>Edit message</source>
@@ -770,7 +1195,7 @@
     </message>
     <message>
       <source>Automatically send this message to user then chat is accepted</source>
-      <translation type="unfinished"/>
+      <translation>Αυτόματα να στείλει αυτό το μήνυμα προς το χρήστη και, στη συνέχεια, να συνομιλίας είναι αποδεκτή</translation>
     </message>
     <message>
       <source>Delay in seconds</source>
@@ -807,6 +1232,18 @@
   </context>
   <context>
     <name>department/edit</name>
+    <message>
+      <source>Work hours, 24 hours format, 1 - 24</source>
+      <translation>Εργασία ώρες, 24 ώρες μορφή 1-24</translation>
+    </message>
+    <message>
+      <source>From, E.g. 8</source>
+      <translation>Από, π.χ. 8</translation>
+    </message>
+    <message>
+      <source>To, E.g. 17</source>
+      <translation>Να, π.χ. 17</translation>
+    </message>
     <message>
       <source>Any</source>
       <translation>Κάθε</translation>
@@ -884,16 +1321,24 @@
       <translation>Κυριακή</translation>
     </message>
     <message>
-      <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation>Εργασία ώρες, 24 ώρες μορφή 1-24</translation>
+      <source>Work hours, 24 hours format, 1 - 24, minutes format 0 - 60</source>
+      <translation>Ώρες εργασίας, 24 ώρες μορφή, 1-24, λεπτά μορφή 0 - 60</translation>
     </message>
     <message>
-      <source>From, E.g. 8</source>
-      <translation>Από, π.χ. 8</translation>
+      <source>Hours from, E.g. 8</source>
+      <translation>Ώρες από, π.χ. 8</translation>
     </message>
     <message>
-      <source>To, E.g. 17</source>
-      <translation>Να, π.χ. 17</translation>
+      <source>Minutes from, E.g. 30</source>
+      <translation>Λεπτά από, π.χ. 30</translation>
+    </message>
+    <message>
+      <source>Hours to, E.g. 17</source>
+      <translation>Ώρες να, π.χ. 17</translation>
+    </message>
+    <message>
+      <source>Minutes to, E.g. 30</source>
+      <translation>Λεπτά για να, π.χ. 30</translation>
     </message>
     <message>
       <source>Notifications</source>
@@ -1066,6 +1511,10 @@
       <translation>Χώρα</translation>
     </message>
     <message>
+      <source>Time zone</source>
+      <translation>Ζώνη ώρας</translation>
+    </message>
+    <message>
       <source>City</source>
       <translation>Πόλη</translation>
     </message>
@@ -1146,8 +1595,8 @@
       <translation>Εκτύπωση</translation>
     </message>
     <message>
-      <source>Attatch uploaded file</source>
-      <translation>Attatch ανεβάσει αρχείο</translation>
+      <source>Attach uploaded file</source>
+      <translation>Επισυνάψετε το αρχείο</translation>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
@@ -1397,8 +1846,20 @@
       <translation>Ερώτησή σας</translation>
     </message>
     <message>
+      <source>Please enter a message...</source>
+      <translation>Παρακαλούμε εισάγετε ένα μήνυμα...</translation>
+    </message>
+    <message>
       <source>Start chat</source>
       <translation>ΖΩΝΤΑΝΗ ΣΥΝΔΕΣΗ</translation>
+    </message>
+    <message>
+      <source>Live support is not available in your country</source>
+      <translation>Ζωντανή υποστήριξη δεν είναι διαθέσιμη στη χώρα σας</translation>
+    </message>
+    <message>
+      <source>Live Support</source>
+      <translation>Υποστήριξη σε πραγματικό χρόνο</translation>
     </message>
     <message>
       <source>There are no online operators at the moment, please leave a message</source>
@@ -1429,6 +1890,26 @@
       <translation>Εκτός σύνδεσης</translation>
     </message>
     <message>
+      <source>Have a question? Ask us!</source>
+      <translation>Έχετε μια ερώτηση; Ρωτήστε μας!</translation>
+    </message>
+    <message>
+      <source>Department is offline</source>
+      <translation>Τμήμα είναι συνδεδεμένος</translation>
+    </message>
+    <message>
+      <source>Go to leave a message form</source>
+      <translation>Πάει να φύγει ένα μήνυμα μορφή</translation>
+    </message>
+    <message>
+      <source>Cancel and choose another department</source>
+      <translation>Ακυρώσετε και να επιλέξετε ένα άλλο τμήμα</translation>
+    </message>
+    <message>
+      <source>characters</source>
+      <translation>χαρακτήρες</translation>
+    </message>
+    <message>
       <source>Type your message here and hit enter to send...</source>
       <translation>Πληκτρολογήστε το μήνυμά σας εδώ και πατήστε enter για να στείλετε...</translation>
     </message>
@@ -1447,6 +1928,10 @@
     <message>
       <source>There are no online operators at the moment, please leave your message</source>
       <translation>Δεν σε απευθείας σύνδεση φορείς που υπάρχουν αυτή τη στιγμή, παρακαλώ αφήστε το μήνυμά σας</translation>
+    </message>
+    <message>
+      <source>Choose your language</source>
+      <translation>Επιλέξτε τη γλώσσα σας</translation>
     </message>
     <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
@@ -1501,10 +1986,6 @@
       <translation>είναι απαιτούμενο</translation>
     </message>
     <message>
-      <source>Live Support</source>
-      <translation>Υποστήριξη σε πραγματικό χρόνο</translation>
-    </message>
-    <message>
       <source>Please enter a message, max characters</source>
       <translation>Παρακαλούμε εισάγετε ένα μήνυμα, max χαρακτήρες</translation>
     </message>
@@ -1515,6 +1996,10 @@
     <message>
       <source>Fill in the form to start a chat</source>
       <translation>Συμπληρώστε την φόρμα για να ξεκινήσετε μια συνομιλία</translation>
+    </message>
+    <message>
+      <source>Unread message</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -1534,6 +2019,10 @@
     <message>
       <source>At this moment there are no logged in support staff members, but you can leave your messages</source>
       <translation>Αυτή τη στιγμή δεν υπάρχουν καμία συνδεδεμένος υποστήριξη μέλη του προσωπικού, αλλά μπορείτε να αφήσετε τα μηνύματα σας</translation>
+    </message>
+    <message>
+      <source>Visitor has been redirected to contact form</source>
+      <translation>Επισκέπτης έχει ανακατευθυνθεί σε φόρμα επικοινωνίας</translation>
     </message>
   </context>
   <context>
@@ -1633,6 +2122,208 @@
     <message>
       <source>Please enter text!</source>
       <translation>Παρακαλούμε εισάγετε το κείμενο!</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/geoadjustment</name>
+    <message>
+      <source>GEO adjustment</source>
+      <translation>GEO προσαρμογής</translation>
+    </message>
+    <message>
+      <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
+      <translation>Εφαρμόσουν chat widget δείκτη κατάστασης τους κανόνες αυτούς επίσης; μείωση της απόδοσης σχετίζεται με αυτήν την επιλογή</translation>
+    </message>
+    <message>
+      <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
+      <translation>Κάνει chat κατάσταση κανονική για αυτές τις χώρες, οι χώρες μπορούν να διαχωριστούν από κόμμα &quot;de, gb, μας, fr&quot; σημαίνει συνομιλία θα εμφανιστεί ως συνήθως μόνο για τις χώρες αυτές.</translation>
+    </message>
+    <message>
+      <source>For</source>
+      <translation>Για</translation>
+    </message>
+    <message>
+      <source>all</source>
+      <translation>όλα</translation>
+    </message>
+    <message>
+      <source>custom</source>
+      <translation>προσαρμοσμένο</translation>
+    </message>
+    <message>
+      <source>E.g. ar,pl</source>
+      <translation>Π.χ. ar, pl</translation>
+    </message>
+    <message>
+      <source>Other countries, put widget/chat status to</source>
+      <translation>Άλλες χώρες, να την κατάσταση της widget/chat</translation>
+    </message>
+    <message>
+      <source>offline status</source>
+      <translation>offline κατάσταση</translation>
+    </message>
+    <message>
+      <source>hidden/disabled, widget will not be shown</source>
+      <translation>κρυμμένο/απενεργοποιημένο, widget δεν θα εμφανίζεται</translation>
+    </message>
+    <message>
+      <source>For unmatched countries put chat status to</source>
+      <translation>Για απαράμιλλη χώρες να κατάστασής της συζήτησής</translation>
+    </message>
+    <message>
+      <source>normal status</source>
+      <translation>κανονική κατάσταση</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/xmpp</name>
+    <message>
+      <source>Geo adjustments active</source>
+      <translation>Geo προσαρμογές ενεργό</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Ρυθμίσεις ενημέρωση</translation>
+    </message>
+    <message>
+      <source>XMPP settings</source>
+      <translation>Ρυθμίσεις XMPP</translation>
+    </message>
+    <message>
+      <source>XMPP active</source>
+      <translation>XMPP ενεργό</translation>
+    </message>
+    <message>
+      <source>XMPP Message content</source>
+      <translation>Περιεχόμενο του μηνύματος XMPP</translation>
+    </message>
+    <message>
+      <source>XMPP Message about accepted chat</source>
+      <translation>XMPP μήνυμα σχετικά με τη συνομιλία αποδεκτές</translation>
+    </message>
+    <message>
+      <source>XMPP</source>
+      <translation>XMPP</translation>
+    </message>
+    <message>
+      <source>Use standard XMPP service</source>
+      <translation>Χρησιμοποιήστε το πρότυπο XMPP υπηρεσία</translation>
+    </message>
+    <message>
+      <source>Host</source>
+      <translation>Υποδοχής</translation>
+    </message>
+    <message>
+      <source>Port</source>
+      <translation>Λιμάνι</translation>
+    </message>
+    <message>
+      <source>Login</source>
+      <translation>Σύνδεση</translation>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation>Κωδικός πρόσβασης</translation>
+    </message>
+    <message>
+      <source>Resource</source>
+      <translation>Πόρος</translation>
+    </message>
+    <message>
+      <source>Server</source>
+      <translation>Διακομιστή</translation>
+    </message>
+    <message>
+      <source>Recipients</source>
+      <translation>Παραλήπτες</translation>
+    </message>
+    <message>
+      <source>Default recipients</source>
+      <translation>Προεπιλογή παραλήπτες</translation>
+    </message>
+    <message>
+      <source>Test recipients</source>
+      <translation>Δοκιμή παραλήπτες</translation>
+    </message>
+    <message>
+      <source>Individual recipients</source>
+      <translation>Μεμονωμένους δικαιούχους</translation>
+    </message>
+    <message>
+      <source>Test group recipients</source>
+      <translation>Δοκιμή ομάδα παραληπτών</translation>
+    </message>
+    <message>
+      <source>Test message will be send to your account e-mail</source>
+      <translation>Δοκιμή μήνυμα θα στείλει στο e-mail σας λογαριασμό</translation>
+    </message>
+    <message>
+      <source>GTalk</source>
+      <translation>GTalk</translation>
+    </message>
+    <message>
+      <source>Use GTalk for messaging</source>
+      <translation>Χρησιμοποιήσετε GTalk για την ανταλλαγή μηνυμάτων</translation>
+    </message>
+    <message>
+      <source>Information for your google app</source>
+      <translation>Πληροφορίες για app σας google</translation>
+    </message>
+    <message>
+      <source>Redirect URL, this url you will have to enter in your google app configuration</source>
+      <translation>Ανακατευθύνετε το URL, αυτή η διεύθυνση url θα πρέπει να εισάγετε στη ρύθμιση παραμέτρων του google app</translation>
+    </message>
+    <message>
+      <source>Enter your app information bellow</source>
+      <translation>Εισάγετε σας παρακάτω πληροφορίες app</translation>
+    </message>
+    <message>
+      <source>OAuth 2.0 Client ID</source>
+      <translation>Αναγνωριστικό υπολογιστή-πελάτη OAuth 2.0</translation>
+    </message>
+    <message>
+      <source>Please enter your Client ID</source>
+      <translation>Παρακαλούμε εισάγετε το αναγνωριστικό υπολογιστή-πελάτη σας</translation>
+    </message>
+    <message>
+      <source>Client secret</source>
+      <translation>Μυστικό του πελάτη</translation>
+    </message>
+    <message>
+      <source>This message will be send to your e-mail</source>
+      <translation>Αυτό το μήνυμα θα στείλει στο e-mail σας</translation>
+    </message>
+    <message>
+      <source>Send test message</source>
+      <translation>Στείλτε μήνυμα δοκιμή</translation>
+    </message>
+    <message>
+      <source>Revoke access token</source>
+      <translation>Ανακαλέσει το διακριτικό πρόσβασης</translation>
+    </message>
+    <message>
+      <source>Revoke permission to send a message</source>
+      <translation>Ανακαλεί την άδεια Στείλτε ένα μήνυμα</translation>
+    </message>
+    <message>
+      <source>Authentificate and grant permission to send a message</source>
+      <translation>Authentificate και επιχορήγησης άδεια να στείλει ένα μήνυμα</translation>
+    </message>
+    <message>
+      <source>Grant permission to send a message</source>
+      <translation>Χορηγήσει άδεια, να στείλει ένα μήνυμα</translation>
+    </message>
+    <message>
+      <source>Succesfully authorised, now you can try to send a message</source>
+      <translation>Επιτρέπεται με επιτυχία, τώρα μπορείτε να δοκιμάσετε να στείλετε ένα μήνυμα</translation>
+    </message>
+    <message>
+      <source>Token was revoked</source>
+      <translation>Διακριτικό ανακλήθηκε</translation>
+    </message>
+    <message>
+      <source>XMPP message was sent succesfuly</source>
+      <translation>XMPP μήνυμα στάλθηκε επιτυχώς</translation>
     </message>
   </context>
   <context>
@@ -1766,6 +2457,10 @@
       <translation>Lon.</translation>
     </message>
     <message>
+      <source>Time zone</source>
+      <translation>Ζώνη ώρας</translation>
+    </message>
+    <message>
       <source>Identifier</source>
       <translation>αναγνωριστικό</translation>
     </message>
@@ -1871,11 +2566,11 @@
     </message>
     <message>
       <source>Enable/Disable sound about new visitor</source>
-      <translation type="unfinished"/>
+      <translation>Ενεργοποίηση/Απενεργοποίηση ήχου για νέος επισκέπτης</translation>
     </message>
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
-      <translation type="unfinished"/>
+      <translation>Ενεργοποίηση/απενεργοποίηση προγράμματος περιήγησης ειδοποιήσεις σχετικά με νέα επισκέπτης</translation>
     </message>
     <message>
       <source>List</source>
@@ -1948,6 +2643,18 @@
     <message>
       <source>days</source>
       <translation>ημέρες</translation>
+    </message>
+    <message>
+      <source>Max records to return</source>
+      <translation>Μέγιστο πλήθος εγγραφών για να επιστρέψετε</translation>
+    </message>
+    <message>
+      <source>Visitor local time</source>
+      <translation>Επισκέπτης τοπική ώρα</translation>
+    </message>
+    <message>
+      <source>By user status on site</source>
+      <translation>Από χρήστη κατάσταση επιτόπου</translation>
     </message>
     <message>
       <source>Status</source>
@@ -2132,42 +2839,6 @@
   <context>
     <name>system/configuration</name>
     <message>
-      <source>Chat related</source>
-      <translation>Συνομιλία σχετικές</translation>
-    </message>
-    <message>
-      <source>Form module</source>
-      <translation>Λειτουργική μονάδα φόρμας</translation>
-    </message>
-    <message>
-      <source>Documents module</source>
-      <translation>Ενότητα έγγραφα</translation>
-    </message>
-    <message>
-      <source>Users and their permissions</source>
-      <translation>Χρήστες και δικαιώματα τους</translation>
-    </message>
-    <message>
-      <source>Files uploads configuration</source>
-      <translation>Αρχεία διαμόρφωσης προσθήκες</translation>
-    </message>
-    <message>
-      <source>Other</source>
-      <translation>Άλλο</translation>
-    </message>
-    <message>
-      <source>Forms</source>
-      <translation>Μορφές</translation>
-    </message>
-    <message>
-      <source>Documents</source>
-      <translation>Έγγραφα</translation>
-    </message>
-    <message>
-      <source>Automatic chats assigment</source>
-      <translation>Αυτόματη συνομιλίες ανάθεσης</translation>
-    </message>
-    <message>
       <source>Request notification permission</source>
       <translation>Ζητήσει άδεια κοινοποίησης</translation>
     </message>
@@ -2260,6 +2931,10 @@
       <translation>Ρύθμιση παραμέτρων ανίχνευσης GEO</translation>
     </message>
     <message>
+      <source>GEO adjustment</source>
+      <translation>GEO προσαρμογής</translation>
+    </message>
+    <message>
       <source>Synchronization and sound settings</source>
       <translation>Ρυθμίσεις συγχρονισμού και ήχο</translation>
     </message>
@@ -2313,15 +2988,19 @@
     </message>
     <message>
       <source>Theming</source>
-      <translation type="unfinished"/>
+      <translation>Θεματοποίηση</translation>
     </message>
     <message>
       <source>Widget themes</source>
-      <translation type="unfinished"/>
+      <translation>Θέματα widget</translation>
     </message>
     <message>
       <source>Import new themes</source>
-      <translation type="unfinished"/>
+      <translation>Νέα θέματα εισαγωγής</translation>
+    </message>
+    <message>
+      <source>Default theme</source>
+      <translation>Προεπιλεγμένο θέμα</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -2368,6 +3047,10 @@
     <message>
       <source>Empty...</source>
       <translation>Άδειο...</translation>
+    </message>
+    <message>
+      <source>Assigned operator</source>
+      <translation>Ειδικό φορέα</translation>
     </message>
     <message>
       <source>Clean cache</source>
@@ -2453,6 +3136,10 @@
       <source>Logout</source>
       <translation>Αποσύνδεση</translation>
     </message>
+    <message>
+      <source>New unread message</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/syncadmin</name>
@@ -2462,50 +3149,34 @@
     </message>
   </context>
   <context>
-    <name>chat/lists/search_panel</name>
+    <name>chat/maintenance</name>
     <message>
-      <source>Delete selected</source>
-      <translation>Διαγραφή επιλεγεί</translation>
+      <source>Maintenance</source>
+      <translation>Συντήρηση</translation>
     </message>
     <message>
-      <source>Nick</source>
-      <translation>Nick</translation>
+      <source>Automatic chats close, click to close old chats</source>
+      <translation>Αυτόματη chats κλείσετε, κάντε κλικ για να κλείσετε παλιές συζητήσεις</translation>
     </message>
     <message>
-      <source>E-mail</source>
-      <translation>Ηλεκτρονικού ταχυδρομείου</translation>
+      <source>Automatic chats purge, click to purge old chats</source>
+      <translation>Συνομιλίες αυτόματη εκκαθάριση, κάντε κλικ για να εξαγνίσει παλιά συνομιλίες</translation>
     </message>
     <message>
-      <source>Date range from to</source>
-      <translation>Εύρος ημερομηνιών από να</translation>
+      <source>Update chats duration by using new algorithm</source>
+      <translation>Διάρκεια συνομιλίες ενημερωμένη έκδοση χρησιμοποιώντας το νέο αλγόριθμο</translation>
     </message>
     <message>
-      <source>Department</source>
-      <translation>Τμήμα</translation>
+      <source>Closed chats</source>
+      <translation>Κλειστό συνομιλίες</translation>
     </message>
     <message>
-      <source>User</source>
-      <translation>Χρήστης</translation>
+      <source>Purged chats</source>
+      <translation>Εξαγνισμένοι συνομιλίες</translation>
     </message>
     <message>
-      <source>Search</source>
-      <translation>Αναζήτηση</translation>
-    </message>
-    <message>
-      <source>Print</source>
-      <translation>Εκτύπωση</translation>
-    </message>
-    <message>
-      <source>Select department</source>
-      <translation>Επέλεξε τμήμα</translation>
-    </message>
-    <message>
-      <source>Select user</source>
-      <translation>Επέλεξε χρήστη</translation>
-    </message>
-    <message>
-      <source>Type to search</source>
-      <translation>Πληκτρολόγηση για αναζήτηση</translation>
+      <source>Chats duration was updated</source>
+      <translation>Ενημερώθηκε συνομιλίες διάρκειας</translation>
     </message>
   </context>
   <context>
@@ -2657,6 +3328,10 @@
       <translation>Απαιτεί όνομα</translation>
     </message>
     <message>
+      <source>Requires phone</source>
+      <translation>Απαιτεί τηλέφωνο</translation>
+    </message>
+    <message>
       <source>Send the message</source>
       <translation>Αποστολή μηνύματος</translation>
     </message>
@@ -2742,6 +3417,26 @@
     <message>
       <source>E-mail is always required</source>
       <translation>Το email απαιτείται πάντα</translation>
+    </message>
+    <message>
+      <source>Additional form settings</source>
+      <translation>Μορφή πρόσθετες ρυθμίσεις</translation>
+    </message>
+    <message>
+      <source>Show operator profile above input fields</source>
+      <translation>Εμφάνιση προφίλ του χειριστή πάνω από τα πεδία εισόδου</translation>
+    </message>
+    <message>
+      <source>Remove space after operator profile</source>
+      <translation>Κατάργηση διαστήματος μετά από το χειριστή προφίλ</translation>
+    </message>
+    <message>
+      <source>Hide message label</source>
+      <translation>Απόκρυψη ετικέτα μηνύματος</translation>
+    </message>
+    <message>
+      <source>Initial user message height in pixels</source>
+      <translation>Αρχικό χρήστη μήνυμα ύψος, σε pixel</translation>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>
@@ -2894,6 +3589,114 @@
       <translation>Στατιστικά</translation>
     </message>
     <message>
+      <source>User</source>
+      <translation>Χρήστη</translation>
+    </message>
+    <message>
+      <source>Thumbs up</source>
+      <translation>Μπράβο</translation>
+    </message>
+    <message>
+      <source>Number of Thumbs Up</source>
+      <translation>Αριθμός μπράβο</translation>
+    </message>
+    <message>
+      <source>Thumbs down</source>
+      <translation>Αντίχειρες κάτω</translation>
+    </message>
+    <message>
+      <source>Number of Thumbs Down</source>
+      <translation>Αριθμός αντίχειρες κάτω</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>Χώρα</translation>
+    </message>
+    <message>
+      <source>Chats</source>
+      <translation>Συνομιλίες</translation>
+    </message>
+    <message>
+      <source>Number of chats by country</source>
+      <translation>Αριθμός των συνομιλιών ανά χώρα</translation>
+    </message>
+    <message>
+      <source>Messages</source>
+      <translation>Μηνύματα</translation>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation>Αριθμός μηνυμάτων από τον χρήστη</translation>
+    </message>
+    <message>
+      <source>Month</source>
+      <translation>Μήνα</translation>
+    </message>
+    <message>
+      <source>Closed</source>
+      <translation>Κλειστά</translation>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation>Ενεργό</translation>
+    </message>
+    <message>
+      <source>Operators</source>
+      <translation>Φορείς</translation>
+    </message>
+    <message>
+      <source>Pending</source>
+      <translation>Σε εκκρεμότητα</translation>
+    </message>
+    <message>
+      <source>Chats number by statuses</source>
+      <translation>Αριθμός συνομιλίες από καταστάσεις</translation>
+    </message>
+    <message>
+      <source>Visitors initiated</source>
+      <translation>Επισκέπτες που ξεκίνησε</translation>
+    </message>
+    <message>
+      <source>Proactive</source>
+      <translation>Προληπτική</translation>
+    </message>
+    <message>
+      <source>Proactive chats number vs visitors initiated</source>
+      <translation>Προληπτική συνομιλίες αριθμός vs επισκέπτες ξεκίνησε</translation>
+    </message>
+    <message>
+      <source>Visitors</source>
+      <translation>Επισκέπτες</translation>
+    </message>
+    <message>
+      <source>System</source>
+      <translation>Σύστημα</translation>
+    </message>
+    <message>
+      <source>Messages types</source>
+      <translation>Τύποι μηνυμάτων</translation>
+    </message>
+    <message>
+      <source>Number of chats per hour, average chat duration</source>
+      <translation>Αριθμός των συνομιλιών ανά ώρα, διάρκεια μέση συνομιλίας</translation>
+    </message>
+    <message>
+      <source>Chats statistic</source>
+      <translation>Συνομιλίες στατιστικής</translation>
+    </message>
+    <message>
+      <source>Hourly statistic</source>
+      <translation>Ωριαία στατιστικής</translation>
+    </message>
+    <message>
+      <source>Country statistic</source>
+      <translation>Χώρα στατιστικής</translation>
+    </message>
+    <message>
+      <source>Users statisic</source>
+      <translation>Statisic χρήστες</translation>
+    </message>
+    <message>
       <source>Total statistic</source>
       <translation>Συνολικά στατιστικά</translation>
     </message>
@@ -2948,10 +3751,6 @@
     <message>
       <source>Operators last 24h statistic, top 100 by chats number</source>
       <translation>Φορείς τελευταία 24h στατιστική, κορυφή 100 από αριθμό συνομιλίες</translation>
-    </message>
-    <message>
-      <source>User</source>
-      <translation>Χρήστη</translation>
     </message>
     <message>
       <source>Total messages</source>
@@ -3388,6 +4187,10 @@
       <translation>Ενημέρωση</translation>
     </message>
     <message>
+      <source>Updating...</source>
+      <translation>Ενημέρωση...</translation>
+    </message>
+    <message>
       <source>Logged user</source>
       <translation>Συνδεδεμένος χρήστης</translation>
     </message>
@@ -3534,6 +4337,21 @@
     <message>
       <source>Passwords mismatch</source>
       <translation>Ο κωδικός πρόσβασης δεν ταιριάζει</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/operatorsbalancing</name>
+    <message>
+      <source>Active</source>
+      <translation>Ενεργό</translation>
+    </message>
+    <message>
+      <source>Maximum number of active chats user can have at a time, 0 - unlimited</source>
+      <translation>Μέγιστος αριθμός ενεργό συζητήσεις χρήστη μπορεί να έχουν σε έναν χρόνο, 0 - απεριόριστη</translation>
+    </message>
+    <message>
+      <source>Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled</source>
+      <translation>Αναθέσετε αυτόματα chat σε άλλο παροχέα αν χειριστή έκανε δεν γίνουν δεκτές chat σε δευτερόλεπτα, 0 - άτομα με ειδικές ανάγκες</translation>
     </message>
   </context>
   <context>
@@ -4038,10 +4856,6 @@
       <translation>Νέα πολιτική</translation>
     </message>
     <message>
-      <source>Assigned functions</source>
-      <translation>Εκχωρηθεί λειτουργίες</translation>
-    </message>
-    <message>
       <source>Choose a module</source>
       <translation>Επιλέξτε μια ενότητα</translation>
     </message>
@@ -4054,16 +4868,16 @@
       <translation>Επιλέξτε μια ενότητα λειτουργία</translation>
     </message>
     <message>
-      <source>All functions</source>
-      <translation>Όλες τις λειτουργίες</translation>
-    </message>
-    <message>
       <source>Save</source>
       <translation>Αποθήκευση</translation>
     </message>
     <message>
       <source>Cancel</source>
       <translation>&quot;Άκυρο&quot;</translation>
+    </message>
+    <message>
+      <source>All functions</source>
+      <translation>Όλες τις λειτουργίες</translation>
     </message>
   </context>
   <context>
@@ -4537,6 +5351,10 @@
       <translation>Ζωντανή συνομιλία Helper αναπροσαρμογή</translation>
     </message>
     <message>
+      <source>Comparing current database structure, please wait...</source>
+      <translation>Συγκρίνοντας την τρέχουσα δομή της βάσης δεδομένων, παρακαλώ περιμένετε...</translation>
+    </message>
+    <message>
       <source>Time zone</source>
       <translation>Ζώνη ώρας</translation>
     </message>
@@ -4643,20 +5461,16 @@
       <translation>Τρέχουσα έκδοση</translation>
     </message>
     <message>
-      <source>Last database update</source>
-      <translation>Τελευταία ενημέρωση της βάσης δεδομένων</translation>
-    </message>
-    <message>
       <source>News</source>
       <translation>Ειδήσεις</translation>
     </message>
     <message>
-      <source>Missing updates from new versions.</source>
-      <translation>Ενημερωμένες εκδόσεις που λείπουν από τις νέες εκδόσεις.</translation>
-    </message>
-    <message>
       <source>Update instructions</source>
       <translation>Ενημέρωση οδηγίες</translation>
+    </message>
+    <message>
+      <source>Missing updates from new versions.</source>
+      <translation>Ενημερωμένες εκδόσεις που λείπουν από τις νέες εκδόσεις.</translation>
     </message>
     <message>
       <source>You are running current version. No updates required</source>
@@ -4665,6 +5479,90 @@
     <message>
       <source>Live Helper Chat update information</source>
       <translation>Live Helper Chat ενημέρωση πληροφοριών</translation>
+    </message>
+  </context>
+  <context>
+    <name>update/statusdb</name>
+    <message>
+      <source>Database structure check</source>
+      <translation>Βάση δεδομένων δομή ελέγχου</translation>
+    </message>
+    <message>
+      <source>Your database does not require any updates</source>
+      <translation>Βάση δεδομένων σας δεν απαιτεί οποιεσδήποτε αναπροσαρμογές</translation>
+    </message>
+    <message>
+      <source>Update database</source>
+      <translation>Ενημέρωση της βάσης δεδομένων</translation>
+    </message>
+    <message>
+      <source>Queries which will be executed on update</source>
+      <translation>Ερωτήματα που θα εκτελεστεί στην ενημέρωση</translation>
+    </message>
+  </context>
+  <context>
+    <name>theme/index</name>
+    <message>
+      <source>Default theme</source>
+      <translation>Προεπιλεγμένο θέμα</translation>
+    </message>
+    <message>
+      <source>Theme</source>
+      <translation>Θέμα</translation>
+    </message>
+    <message>
+      <source>Widget themes</source>
+      <translation>Θέματα widget</translation>
+    </message>
+    <message>
+      <source>Import a new theme</source>
+      <translation>Εισάγει ένα νέο θέμα</translation>
+    </message>
+    <message>
+      <source>Themes</source>
+      <translation>Θέματα</translation>
+    </message>
+    <message>
+      <source>Import theme</source>
+      <translation>Θέμα εισαγωγής</translation>
+    </message>
+  </context>
+  <context>
+    <name>theme/default</name>
+    <message>
+      <source>Set as default theme</source>
+      <translation>Ορισμός θέματος ως προεπιλεγμένου</translation>
+    </message>
+  </context>
+  <context>
+    <name>theme/import</name>
+    <message>
+      <source>Default theme was set</source>
+      <translation>Προεπιλεγμένο θέμα ορίστηκε</translation>
+    </message>
+    <message>
+      <source>Import theme</source>
+      <translation>Θέμα εισαγωγής</translation>
+    </message>
+    <message>
+      <source>File</source>
+      <translation>Αρχείο</translation>
+    </message>
+    <message>
+      <source>Import</source>
+      <translation>Εισαγωγή</translation>
+    </message>
+    <message>
+      <source>Theme imported</source>
+      <translation>Θέμα που εισάγονται</translation>
+    </message>
+    <message>
+      <source>Could not import a new theme!</source>
+      <translation>Δεν θα μπορούσαν να εισαγάγουν ένα νέο θέμα!</translation>
+    </message>
+    <message>
+      <source>Invalid file!</source>
+      <translation>Αρχείο δεν είναι έγκυρο!</translation>
     </message>
   </context>
   <context>
@@ -5041,153 +5939,6 @@
     </message>
   </context>
   <context>
-    <name>system/xmpp</name>
-    <message>
-      <source>XMPP settings</source>
-      <translation>Ρυθμίσεις XMPP</translation>
-    </message>
-    <message>
-      <source>XMPP active</source>
-      <translation>XMPP ενεργό</translation>
-    </message>
-    <message>
-      <source>XMPP Message content</source>
-      <translation>Περιεχόμενο του μηνύματος XMPP</translation>
-    </message>
-    <message>
-      <source>XMPP Message about accepted chat</source>
-      <translation>XMPP μήνυμα σχετικά με τη συνομιλία αποδεκτές</translation>
-    </message>
-    <message>
-      <source>XMPP</source>
-      <translation>XMPP</translation>
-    </message>
-    <message>
-      <source>Use standard XMPP service</source>
-      <translation>Χρησιμοποιήστε το πρότυπο XMPP υπηρεσία</translation>
-    </message>
-    <message>
-      <source>Host</source>
-      <translation>Υποδοχής</translation>
-    </message>
-    <message>
-      <source>Port</source>
-      <translation>Λιμάνι</translation>
-    </message>
-    <message>
-      <source>Login</source>
-      <translation>Σύνδεση</translation>
-    </message>
-    <message>
-      <source>Password</source>
-      <translation>Κωδικός πρόσβασης</translation>
-    </message>
-    <message>
-      <source>Resource</source>
-      <translation>Πόρος</translation>
-    </message>
-    <message>
-      <source>Server</source>
-      <translation>Διακομιστή</translation>
-    </message>
-    <message>
-      <source>Recipients</source>
-      <translation>Παραλήπτες</translation>
-    </message>
-    <message>
-      <source>Default recipients</source>
-      <translation>Προεπιλογή παραλήπτες</translation>
-    </message>
-    <message>
-      <source>Test recipients</source>
-      <translation>Δοκιμή παραλήπτες</translation>
-    </message>
-    <message>
-      <source>Individual recipients</source>
-      <translation>Μεμονωμένους δικαιούχους</translation>
-    </message>
-    <message>
-      <source>Test group recipients</source>
-      <translation>Δοκιμή ομάδα παραληπτών</translation>
-    </message>
-    <message>
-      <source>Test message will be send to your account e-mail</source>
-      <translation>Δοκιμή μήνυμα θα στείλει στο e-mail σας λογαριασμό</translation>
-    </message>
-    <message>
-      <source>GTalk</source>
-      <translation>GTalk</translation>
-    </message>
-    <message>
-      <source>Use GTalk for messaging</source>
-      <translation>Χρησιμοποιήσετε GTalk για την ανταλλαγή μηνυμάτων</translation>
-    </message>
-    <message>
-      <source>Information for your google app</source>
-      <translation>Πληροφορίες για app σας google</translation>
-    </message>
-    <message>
-      <source>Redirect URL, this url you will have to enter in your google app configuration</source>
-      <translation>Ανακατευθύνετε το URL, αυτή η διεύθυνση url θα πρέπει να εισάγετε στη ρύθμιση παραμέτρων του google app</translation>
-    </message>
-    <message>
-      <source>Enter your app information bellow</source>
-      <translation>Εισάγετε σας παρακάτω πληροφορίες app</translation>
-    </message>
-    <message>
-      <source>OAuth 2.0 Client ID</source>
-      <translation>Αναγνωριστικό υπολογιστή-πελάτη OAuth 2.0</translation>
-    </message>
-    <message>
-      <source>Please enter your Client ID</source>
-      <translation>Παρακαλούμε εισάγετε το αναγνωριστικό υπολογιστή-πελάτη σας</translation>
-    </message>
-    <message>
-      <source>Client secret</source>
-      <translation>Μυστικό του πελάτη</translation>
-    </message>
-    <message>
-      <source>This message will be send to your e-mail</source>
-      <translation>Αυτό το μήνυμα θα στείλει στο e-mail σας</translation>
-    </message>
-    <message>
-      <source>Send test message</source>
-      <translation>Στείλτε μήνυμα δοκιμή</translation>
-    </message>
-    <message>
-      <source>Revoke access token</source>
-      <translation>Ανακαλέσει το διακριτικό πρόσβασης</translation>
-    </message>
-    <message>
-      <source>Revoke permission to send a message</source>
-      <translation>Ανακαλεί την άδεια Στείλτε ένα μήνυμα</translation>
-    </message>
-    <message>
-      <source>Authentificate and grant permission to send a message</source>
-      <translation>Authentificate και επιχορήγησης άδεια να στείλει ένα μήνυμα</translation>
-    </message>
-    <message>
-      <source>Grant permission to send a message</source>
-      <translation>Χορηγήσει άδεια, να στείλει ένα μήνυμα</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Ρυθμίσεις ενημέρωση</translation>
-    </message>
-    <message>
-      <source>Succesfully authorised, now you can try to send a message</source>
-      <translation>Επιτρέπεται με επιτυχία, τώρα μπορείτε να δοκιμάσετε να στείλετε ένα μήνυμα</translation>
-    </message>
-    <message>
-      <source>Token was revoked</source>
-      <translation>Διακριτικό ανακλήθηκε</translation>
-    </message>
-    <message>
-      <source>XMPP message was sent succesfuly</source>
-      <translation>XMPP μήνυμα στάλθηκε επιτυχώς</translation>
-    </message>
-  </context>
-  <context>
     <name>file/file</name>
     <message>
       <source>Download file</source>
@@ -5461,6 +6212,13 @@
     </message>
   </context>
   <context>
+    <name>chat/updatemsguser</name>
+    <message>
+      <source>User has edited his last message</source>
+      <translation>Χρήστης έχει επιμεληθεί το τελευταίο μήνυμα</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/voteaction</name>
     <message>
       <source>Thumbs up</source>
@@ -5490,206 +6248,54 @@
     </message>
   </context>
   <context>
-    <name>chat/maintenance</name>
+    <name>chat/chatexport</name>
     <message>
-      <source>Maintenance</source>
-      <translation>Συντήρηση</translation>
+      <source>Visitor Name</source>
+      <translation>Όνομα του επισκέπτη</translation>
     </message>
     <message>
-      <source>Automatic chats close, click to close old chats</source>
-      <translation>Αυτόματη chats κλείσετε, κάντε κλικ για να κλείσετε παλιές συζητήσεις</translation>
+      <source>E-mail</source>
+      <translation>Ηλεκτρονικού ταχυδρομείου</translation>
     </message>
     <message>
-      <source>Automatic chats purge, click to purge old chats</source>
-      <translation>Συνομιλίες αυτόματη εκκαθάριση, κάντε κλικ για να εξαγνίσει παλιά συνομιλίες</translation>
+      <source>Phone</source>
+      <translation>Τηλέφωνο</translation>
     </message>
     <message>
-      <source>Closed chats</source>
-      <translation>Κλειστό συνομιλίες</translation>
+      <source>Country</source>
+      <translation>Χώρα</translation>
     </message>
     <message>
-      <source>Purged chats</source>
-      <translation>Εξαγνισμένοι συνομιλίες</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/operatorsbalancing</name>
-    <message>
-      <source>Active</source>
-      <translation>Ενεργό</translation>
+      <source>City</source>
+      <translation>Πόλη</translation>
     </message>
     <message>
-      <source>Maximum number of active chats user can have at a time, 0 - unlimited</source>
-      <translation>Μέγιστος αριθμός ενεργό συζητήσεις χρήστη μπορεί να έχουν σε έναν χρόνο, 0 - απεριόριστη</translation>
+      <source>IP</source>
+      <translation>IP</translation>
     </message>
     <message>
-      <source>Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled</source>
-      <translation>Αναθέσετε αυτόματα chat σε άλλο παροχέα αν χειριστή έκανε δεν γίνουν δεκτές chat σε δευτερόλεπτα, 0 - άτομα με ειδικές ανάγκες</translation>
-    </message>
-  </context>
-  <context>
-    <name>abstract/widgettheme</name>
-    <message>
-      <source>Download theme</source>
-      <translation type="unfinished"/>
+      <source>Operator</source>
+      <translation>Χειριστή</translation>
     </message>
     <message>
-      <source>Status widget style</source>
-      <translation type="unfinished"/>
+      <source>Department</source>
+      <translation>Τμήμα</translation>
     </message>
     <message>
-      <source>Widget container</source>
-      <translation type="unfinished"/>
+      <source>Date</source>
+      <translation>Ημερομηνία</translation>
     </message>
     <message>
-      <source>Need help widget</source>
-      <translation type="unfinished"/>
+      <source>Mail send</source>
+      <translation>Αποστολή αλληλογραφίας</translation>
     </message>
     <message>
-      <source>Custom CSS</source>
-      <translation type="unfinished"/>
+      <source>Referrer</source>
+      <translation>Referrer</translation>
     </message>
     <message>
-      <source>Name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help header text</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help standard text</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online status text</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Offline status text</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Background color</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Text color</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Logo image, visible in popup</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online image</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Offline image</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Widget header background color</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Widget border color</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help background color</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help hover background color</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help text color</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help border color</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help close background color</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help close hover background color</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help operator image</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Status widget additional CSS, takes effect after save</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Widget container additional CSS, takes effect after save</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Widget body additional CSS, takes effect after save</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Widget themes</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>theme/import</name>
-    <message>
-      <source>Import theme</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>File</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Import</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Theme imported</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Could not import a new theme!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid file!</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>theme/index</name>
-    <message>
-      <source>Theme</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Widget themes</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Import a new theme</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Themes</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Import theme</source>
-      <translation type="unfinished"/>
+      <source>Link</source>
+      <translation>Σύνδεση</translation>
     </message>
   </context>
 </TS>

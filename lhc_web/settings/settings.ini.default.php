@@ -52,7 +52,9 @@ return array (
       	23 => 'bgr',
       	24 => 'tha',
       	25 => 'geo',
-      	26 => 'site_admin'
+      	26 => 'fin',
+      	27 => 'alb',
+      	28 => 'site_admin'
       ),
     ),
     'default_url' =>
@@ -562,6 +564,42 @@ return array (
       array (
     	'locale' => 'ka_KA',
     	'content_language' => 'ka',
+    	'dir_language' => 'ltr',
+    	'title' => '',
+    	'description' => '',
+    	'theme' =>
+      	array (
+    		0 => 'customtheme',
+    		1 => 'defaulttheme'
+      	),
+    	   'default_url' =>
+    	array (
+    		'module' => 'chat',
+    		'view' => 'startchat'
+    	),
+      ),	
+      'fin' =>
+      array (
+    	'locale' => 'fi_FI',
+    	'content_language' => 'fi',
+    	'dir_language' => 'ltr',
+    	'title' => '',
+    	'description' => '',
+    	'theme' =>
+      	array (
+    		0 => 'customtheme',
+    		1 => 'defaulttheme'
+      	),
+    	   'default_url' =>
+    	array (
+    		'module' => 'chat',
+    		'view' => 'startchat'
+    	),
+      ),	
+      'alb' =>
+      array (
+    	'locale' => 'sq_AL',
+    	'content_language' => 'sq',
     	'dir_language' => 'ltr',
     	'title' => '',
     	'description' => '',

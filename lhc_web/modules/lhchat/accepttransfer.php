@@ -29,6 +29,16 @@ if ($chatTransfer->transfer_to_user_id == $currentUser->getUserID()){
 	$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
 	$chat->user_typing_txt = (string)$chat->user.' '.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has joined the chat!'),ENT_QUOTES);
 	$chat->user_typing  = time();
+	
+	// Change department if user cannot read current department, so chat appears in right menu
+	$filter = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
+	if ($filter !== true && !in_array($chat->dep_id, $filter)) {
+		$dep_id = erLhcoreClassUserDep::getDefaultUserDepartment();
+		if ($dep_id > 0) {
+			$chat->dep_id = $dep_id;
+			$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
+		}
+	}
 }
 
 if ( !erLhcoreClassChat::hasAccessToRead($chat) )
@@ -47,6 +57,8 @@ if ( !erLhcoreClassChat::hasAccessToRead($chat) )
 // All ok, we can make changes
 erLhcoreClassChat::getSession()->update($chat);
 erLhcoreClassTransfer::getSession()->delete($chatTransfer);
+
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_transfer_accepted',array('chat' => & $chat));
 
 if ($Params['user_parameters_unordered']['postaction'] == 'singlewindow') {
 	erLhcoreClassModule::redirect('chat/single/' . $chat->id);

@@ -1,0 +1,3856 @@
+{
+    "tables": {
+        "lh_abstract_auto_responder": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "siteaccess",
+                "type": "varchar(3)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "wait_message",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "wait_timeout",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "position",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "timeout_message",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_abstract_browse_offer_invitation": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "siteaccess",
+                "type": "varchar(10)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "time_on_site",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "content",
+                "type": "longtext",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "callback_content",
+                "type": "longtext",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "lhc_iframe_content",
+                "type": "tinyint(4)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "custom_iframe_url",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "name",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "identifier",
+                "type": "varchar(50)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "executed_times",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "url",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "active",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "has_url",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "is_wildcard",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "referrer",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "priority",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "hash",
+                "type": "varchar(40)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "width",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "height",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "unit",
+                "type": "varchar(10)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_abstract_email_template": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "name",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "from_name",
+                "type": "varchar(150)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "from_name_ac",
+                "type": "tinyint(4)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "from_email",
+                "type": "varchar(150)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "from_email_ac",
+                "type": "tinyint(4)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "content",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "subject",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "bcc_recipients",
+                "type": "varchar(200)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "subject_ac",
+                "type": "tinyint(4)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "reply_to",
+                "type": "varchar(150)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "reply_to_ac",
+                "type": "tinyint(4)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "recipient",
+                "type": "varchar(150)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_abstract_form": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "name",
+                "type": "varchar(100)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "content",
+                "type": "longtext",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "recipient",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "active",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "name_attr",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "intro_attr",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "xls_columns",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "pagelayout",
+                "type": "varchar(200)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "post_content",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_abstract_form_collected": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "form_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "ctime",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "ip",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "content",
+                "type": "longtext",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_abstract_proactive_chat_invitation": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "siteaccess",
+                "type": "varchar(10)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "time_on_site",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "pageviews",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "message",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "executed_times",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "dep_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "hide_after_ntimes",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "name",
+                "type": "varchar(50)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "operator_ids",
+                "type": "varchar(100)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "wait_message",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "timeout_message",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "referrer",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "wait_timeout",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "show_random_operator",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "operator_name",
+                "type": "varchar(100)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "position",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "identifier",
+                "type": "varchar(50)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "requires_email",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "requires_username",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "requires_phone",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_abstract_widget_theme": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "name",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "onl_bcolor",
+                "type": "varchar(10)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "bor_bcolor",
+                "type": "varchar(10)",
+                "null": "NO",
+                "key": "",
+                "default": "e3e3e3",
+                "extra": ""
+            },
+            {
+                "field": "text_color",
+                "type": "varchar(10)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "online_image",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "online_image_path",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "offline_image",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "offline_image_path",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "logo_image",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "logo_image_path",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "copyright_image",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "copyright_image_path",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "widget_copyright_url",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "show_copyright",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": 1,
+                "extra": ""
+            },
+            {
+                "field": "need_help_image",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "header_background",
+                "type": "varchar(10)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "widget_border_color",
+                "type": "varchar(10)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "need_help_tcolor",
+                "type": "varchar(10)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "need_help_bcolor",
+                "type": "varchar(10)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "need_help_border",
+                "type": "varchar(10)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "need_help_close_bg",
+                "type": "varchar(10)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "need_help_hover_bg",
+                "type": "varchar(10)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "need_help_close_hover_bg",
+                "type": "varchar(10)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "need_help_image_path",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "custom_status_css",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "custom_container_css",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "custom_widget_css",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "need_help_header",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "need_help_text",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "online_text",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "offline_text",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "intro_operator_text",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "operator_image",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "operator_image_path",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "explain_text",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_canned_msg": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "msg",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "position",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "department_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "user_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "delay",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "auto_send",
+                "type": "tinyint(1)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_chat": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "nick",
+                "type": "varchar(50)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "status",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": "0",
+                "extra": ""
+            },
+            {
+                "field": "status_sub",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": "0",
+                "extra": ""
+            },
+            {
+                "field": "time",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "user_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "hash",
+                "type": "varchar(40)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "referrer",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "session_referrer",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "chat_variables",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "remarks",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "ip",
+                "type": "varchar(100)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "user_tz_identifier",
+                "type": "varchar(50)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "dep_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "user_status",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": "0",
+                "extra": ""
+            },
+            {
+                "field": "support_informed",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": "0",
+                "extra": ""
+            },
+            {
+                "field": "unread_messages_informed",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": "0",
+                "extra": ""
+            },
+            {
+                "field": "reinform_timeout",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": "0",
+                "extra": ""
+            },
+            {
+                "field": "email",
+                "type": "varchar(100)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "country_code",
+                "type": "varchar(100)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "country_name",
+                "type": "varchar(100)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "user_typing",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "user_typing_txt",
+                "type": "varchar(50)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "operator_typing",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "operator_typing_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "phone",
+                "type": "varchar(100)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "has_unread_messages",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "last_user_msg_time",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "fbst",
+                "type": "tinyint(1)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "online_user_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "last_msg_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "additional_data",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "timeout_message",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "lat",
+                "type": "varchar(10)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "lon",
+                "type": "varchar(10)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "city",
+                "type": "varchar(100)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "operation",
+                "type": "varchar(200)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "operation_admin",
+                "type": "varchar(200)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "mail_send",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "screenshot_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "wait_time",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "wait_timeout",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "wait_timeout_send",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "chat_duration",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "tslasign",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "priority",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "chat_initiator",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "transfer_timeout_ts",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "transfer_timeout_ac",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "transfer_if_na",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "na_cb_executed",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "nc_cb_executed",
+                "type": "tinyint(1)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_chat_accept": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "chat_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "hash",
+                "type": "varchar(50)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "ctime",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "wused",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_chat_archive_range": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "range_from",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "range_to",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_chat_blocked_user": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "ip",
+                "type": "varchar(100)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "user_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "datets",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_chat_config": [
+            {
+                "field": "identifier",
+                "type": "varchar(50)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "value",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "type",
+                "type": "tinyint(1)",
+                "null": "NO",
+                "key": "",
+                "default": "0",
+                "extra": ""
+            },
+            {
+                "field": "explain",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "hidden",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": "0",
+                "extra": ""
+            }
+        ],
+        "lh_chat_file": [
+            {
+                "field": "id",
+                "type": "int(11) unsigned",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "name",
+                "type": "varchar(255)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "upload_name",
+                "type": "varchar(255)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "size",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "type",
+                "type": "varchar(255)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "file_path",
+                "type": "varchar(255)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "extension",
+                "type": "varchar(255)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "chat_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "user_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "date",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_chat_online_user": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "vid",
+                "type": "varchar(50)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "ip",
+                "type": "varchar(50)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "visitor_tz",
+                "type": "varchar(50)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "current_page",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "page_title",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "referrer",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "chat_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "invitation_seen_count",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "last_check_time",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "invitation_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "last_visit",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "first_visit",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "total_visits",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "pages_count",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "tt_pages_count",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "invitation_count",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "dep_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "user_agent",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "user_country_code",
+                "type": "varchar(50)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "user_country_name",
+                "type": "varchar(50)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "operator_message",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "operator_user_proactive",
+                "type": "varchar(100)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "operator_user_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "message_seen",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "message_seen_ts",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "lat",
+                "type": "varchar(10)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "lon",
+                "type": "varchar(10)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "city",
+                "type": "varchar(100)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "reopen_chat",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "time_on_site",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "tt_time_on_site",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "requires_email",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "requires_username",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "requires_phone",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "screenshot_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "identifier",
+                "type": "varchar(50)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "operation",
+                "type": "varchar(200)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "online_attr",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_chat_online_user_footprint": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "chat_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "online_user_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "page",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "vtime",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_chatbox": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "identifier",
+                "type": "varchar(50)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "name",
+                "type": "varchar(100)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "chat_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "active",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_departament": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "name",
+                "type": "varchar(100)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "email",
+                "type": "varchar(100)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "xmpp_recipients",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "xmpp_group_recipients",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "priority",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "department_transfer_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "transfer_timeout",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "disabled",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "hidden",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "delay_lm",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "max_active_chats",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "max_timeout_seconds",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "identifier",
+                "type": "varchar(50)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "mod",
+                "type": "tinyint(1)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "tud",
+                "type": "tinyint(1)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "wed",
+                "type": "tinyint(1)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "thd",
+                "type": "tinyint(1)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "frd",
+                "type": "tinyint(1)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "sad",
+                "type": "tinyint(1)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "sud",
+                "type": "tinyint(1)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "nc_cb_execute",
+                "type": "tinyint(1)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "na_cb_execute",
+                "type": "tinyint(1)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "inform_unread",
+                "type": "tinyint(1)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "active_balancing",
+                "type": "tinyint(1)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "start_hour",
+                "type": "int(2)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "end_hour",
+                "type": "int(2)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "inform_close",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "inform_unread_delay",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "inform_options",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "online_hours_active",
+                "type": "tinyint(1)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "inform_delay",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_doc_share": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "name",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "desc",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "user_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "active",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "converted",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "file_name",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "file_path",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "file_name_upload",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "file_size",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "type",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "ext",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "pdf_file",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "pages_pdf_count",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "pdf_to_img_converted",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_faq": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "question",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "answer",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "url",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "email",
+                "type": "varchar(50)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "identifier",
+                "type": "varchar(10)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "active",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "has_url",
+                "type": "tinyint(1)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "is_wildcard",
+                "type": "tinyint(1)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_forgotpasswordhash": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "user_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "hash",
+                "type": "varchar(40)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "created",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_group": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "name",
+                "type": "varchar(50)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_grouprole": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "group_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "role_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_groupuser": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "group_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "user_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_msg": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "msg",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "time",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "chat_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": "0",
+                "extra": ""
+            },
+            {
+                "field": "user_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": "0",
+                "extra": ""
+            },
+            {
+                "field": "name_support",
+                "type": "varchar(100)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_question": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "question",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "location",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "active",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "priority",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "is_voting",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_intro",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "revote",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": "0",
+                "extra": ""
+            }
+        ],
+        "lh_question_answer": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "ip",
+                "type": "bigint(20)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "question_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "answer",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "ctime",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_question_option": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "question_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "option_name",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "priority",
+                "type": "tinyint(4)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_question_option_answer": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "question_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "option_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "ctime",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "ip",
+                "type": "bigint(20)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_role": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "name",
+                "type": "varchar(50)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_rolefunction": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "role_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "module",
+                "type": "varchar(100)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "function",
+                "type": "varchar(100)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_transfer": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "chat_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "dep_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "transfer_user_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "from_dep_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "transfer_to_user_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_userdep": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "user_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "dep_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "last_activity",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "hide_online",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "last_accepted",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "active_chats",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_users": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "username",
+                "type": "varchar(40)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "password",
+                "type": "varchar(40)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "email",
+                "type": "varchar(100)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "time_zone",
+                "type": "varchar(100)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "name",
+                "type": "varchar(100)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "surname",
+                "type": "varchar(100)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "filepath",
+                "type": "varchar(200)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "filename",
+                "type": "varchar(200)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "job_title",
+                "type": "varchar(100)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "xmpp_username",
+                "type": "varchar(200)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "skype",
+                "type": "varchar(50)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "disabled",
+                "type": "tinyint(4)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "hide_online",
+                "type": "tinyint(1)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "all_departments",
+                "type": "tinyint(1)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "invisible_mode",
+                "type": "tinyint(1)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_users_remember": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "user_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "mtime",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_users_setting": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "user_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "identifier",
+                "type": "varchar(50)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "value",
+                "type": "varchar(50)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_users_setting_option": [
+            {
+                "field": "identifier",
+                "type": "varchar(50)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "class",
+                "type": "varchar(50)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "attribute",
+                "type": "varchar(40)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ]
+    },
+    "tables_data": {
+        "lh_users_setting_option": [
+            {
+                "identifier": "chat_message",
+                "class": "",
+                "attribute": ""
+            },
+            {
+                "identifier": "enable_active_list",
+                "class": "",
+                "attribute": ""
+            },
+            {
+                "identifier": "enable_close_list",
+                "class": "",
+                "attribute": ""
+            },
+            {
+                "identifier": "enable_pending_list",
+                "class": "",
+                "attribute": ""
+            },
+            {
+                "identifier": "enable_unread_list",
+                "class": "",
+                "attribute": ""
+            },
+            {
+                "identifier": "new_chat_sound",
+                "class": "",
+                "attribute": ""
+            },
+            {
+                "identifier": "new_user_bn",
+                "class": "",
+                "attribute": ""
+            },
+            {
+                "identifier": "new_user_sound",
+                "class": "",
+                "attribute": ""
+            },
+            {
+                "identifier": "oupdate_timeout",
+                "class": "",
+                "attribute": ""
+            },
+            {
+                "identifier": "ouser_timeout",
+                "class": "",
+                "attribute": ""
+            },
+            {
+                "identifier": "o_department",
+                "class": "",
+                "attribute": ""
+            },
+            {
+                "identifier": "omax_rows",
+                "class": "",
+                "attribute": ""
+            },
+            {
+                "identifier": "ogroup_by",
+                "class": "",
+                "attribute": ""
+            },
+            {
+                "identifier": "omap_depid",
+                "class": "",
+                "attribute": ""
+            },
+            {
+                "identifier": "omap_mtimeout",
+                "class": "",
+                "attribute": ""
+            }
+        ],
+        "lh_chat_config": [
+            {
+                "identifier": "accept_chat_link_timeout",
+                "value": "300",
+                "type": "0",
+                "explain": "How many seconds chat accept link is valid. Set 0 to force login all the time manually.",
+                "hidden": "0"
+            },
+            {
+                "identifier": "accept_tos_link",
+                "value": "#",
+                "type": "0",
+                "explain": "Change to your site Terms of Service",
+                "hidden": "0"
+            }, 
+            {
+                "identifier": "min_phone_length",
+                "value": "8",
+                "type": "0",
+                "explain": "Minimum phone number length",
+                "hidden": "0"
+            },
+            {
+                "identifier": "track_is_online",
+                "value": "0",
+                "type": "0",
+                "explain": "Track is user still on site, chat status checks also has to be enabled",
+                "hidden": "0"
+            },
+            {
+                "identifier": "allow_reopen_closed",
+                "value": "1",
+                "type": "0",
+                "explain": "Allow user to reopen closed chats?",
+                "hidden": "0"
+            },
+            {
+                "identifier": "application_name",
+                "value": "a:6:{s:3:\"eng\";s:31:\"Live Helper Chat - live support\";s:3:\"lit\";s:26:\"Live Helper Chat - pagalba\";s:3:\"hrv\";s:0:\"\";s:3:\"esp\";s:0:\"\";s:3:\"por\";s:0:\"\";s:10:\"site_admin\";s:31:\"Live Helper Chat - live support\";}",
+                "type": "1",
+                "explain": "Support application name, visible in browser title.",
+                "hidden": "0"
+            },
+            {
+                "identifier": "autoclose_timeout",
+                "value": "0",
+                "type": "0",
+                "explain": "Automatic chats closing. 0 - disabled, n > 0 time in minutes before chat is automatically closed",
+                "hidden": "0"
+            },
+            {
+                "identifier": "automatically_reopen_chat",
+                "value": "1",
+                "type": "0",
+                "explain": "Automatically reopen chat on widget open",
+                "hidden": "0"
+            },
+            {
+                "identifier": "autopurge_timeout",
+                "value": "0",
+                "type": "0",
+                "explain": "Automatic chats purging. 0 - disabled, n > 0 time in minutes before chat is automatically deleted",
+                "hidden": "0"
+            },
+            {
+                "identifier": "bbc_button_visible",
+                "value": "1",
+                "type": "0",
+                "explain": "Show BB Code button",
+                "hidden": "0"
+            },
+            {
+                "identifier": "chatbox_data",
+                "value": "a:6:{i:0;b:0;s:20:\"chatbox_auto_enabled\";i:0;s:19:\"chatbox_secret_hash\";s:9:\"9e2e125yq\";s:20:\"chatbox_default_name\";s:7:\"Chatbox\";s:17:\"chatbox_msg_limit\";i:50;s:22:\"chatbox_default_opname\";s:7:\"Manager\";}",
+                "type": "0",
+                "explain": "Chatbox configuration",
+                "hidden": "1"
+            },
+            {
+                "identifier": "customer_company_name",
+                "value": "Live Helper Chat",
+                "type": "0",
+                "explain": "Your company name - visible in bottom left corner",
+                "hidden": "0"
+            },
+            {
+                "identifier": "customer_site_url",
+                "value": "http:\/\/livehelperchat.com",
+                "type": "0",
+                "explain": "Your site URL address",
+                "hidden": "0"
+            },
+            {
+                "identifier": "default_theme_id",
+                "value": "0",
+                "type": "0",
+                "explain": "Default theme ID.",
+                "hidden": "1"
+            },
+            {
+                "identifier": "disable_html5_storage",
+                "value": "1",
+                "type": "0",
+                "explain": "Disable HMTL5 storage, check it if your site is switching between http and https",
+                "hidden": "0"
+            },
+            {
+                "identifier": "disable_popup_restore",
+                "value": "0",
+                "type": "0",
+                "explain": "Disable option in widget to open new window. Restore icon will be hidden",
+                "hidden": "0"
+            },
+            {
+                "identifier": "disable_print",
+                "value": "0",
+                "type": "0",
+                "explain": "Disable chat print",
+                "hidden": "0"
+            },
+            {
+                "identifier": "disable_send",
+                "value": "0",
+                "type": "0",
+                "explain": "Disable chat transcript send",
+                "hidden": "0"
+            },
+            {
+                "identifier": "doc_sharer",
+                "value": "a:10:{i:0;b:0;s:17:\"libre_office_path\";s:20:\"\/usr\/bin\/libreoffice\";s:19:\"supported_extension\";s:51:\"ppt,pptx,doc,odp,docx,xlsx,txt,xls,xlsx,pdf,rtf,odt\";s:18:\"background_process\";i:1;s:13:\"max_file_size\";i:4;s:13:\"pdftoppm_path\";s:17:\"\/usr\/bin\/pdftoppm\";s:13:\"PdftoppmLimit\";i:5;s:14:\"pdftoppm_limit\";i:0;s:14:\"http_user_name\";s:6:\"apache\";s:20:\"http_user_group_name\";s:6:\"apache\";}",
+                "type": "0",
+                "explain": "Libreoffice path",
+                "hidden": "1"
+            },
+            {
+                "identifier": "explicit_http_mode",
+                "value": "",
+                "type": "0",
+                "explain": "Please enter explicit http mode. Either http: or https:, do not forget : at the end.",
+                "hidden": "0"
+            },
+            {
+                "identifier": "export_hash",
+                "value": "qlg55biu",
+                "type": "0",
+                "explain": "Chats export secret hash",
+                "hidden": "0"
+            },
+            {
+                "identifier": "faq_email_required",
+                "value": "0",
+                "type": "0",
+                "explain": "Is visitor e-mail required for FAQ",
+                "hidden": "0"
+            },
+            {
+                "identifier": "file_configuration",
+                "value": "a:7:{i:0;b:0;s:5:\"ft_op\";s:43:\"gif|jpe?g|png|zip|rar|xls|doc|docx|xlsx|pdf\";s:5:\"ft_us\";s:26:\"gif|jpe?g|png|doc|docx|pdf\";s:6:\"fs_max\";i:2048;s:18:\"active_user_upload\";b:0;s:16:\"active_op_upload\";b:1;s:19:\"active_admin_upload\";b:1;}",
+                "type": "0",
+                "explain": "Files configuration item",
+                "hidden": "1"
+            },
+            {
+                "identifier": "geo_data",
+                "value": "",
+                "type": "0",
+                "explain": "",
+                "hidden": "1"
+            },
+            {
+                "identifier": "geo_location_data",
+                "value": "a:3:{s:4:\"zoom\";i:4;s:3:\"lat\";s:7:\"49.8211\";s:3:\"lng\";s:7:\"11.7835\";}",
+                "type": "0",
+                "explain": "",
+                "hidden": "1"
+            },
+            {
+                "identifier": "hide_disabled_department",
+                "value": "1",
+                "type": "0",
+                "explain": "Hide disabled department widget",
+                "hidden": "0"
+            },
+            {
+                "identifier": "ignorable_ip",
+                "value": "",
+                "type": "0",
+                "explain": "Which ip should be ignored in online users list, separate by comma",
+                "hidden": "0"
+            },
+            {
+                "identifier": "update_ip",
+                "value": "127.0.0.1",
+                "type": "0",
+                "explain": "Which ip should be allowed to update DB by executing http request, separate by comma?",
+                "hidden": "0"
+            },
+            {
+                "identifier": "track_if_offline",
+                "value": "0",
+                "type": "0",
+                "explain": "Track online visitors even if there is no online operators",
+                "hidden": "0"
+            },
+            {
+                "identifier": "ignore_user_status",
+                "value": "0",
+                "type": "0",
+                "explain": "Ignore users online statuses and use departments online hours",
+                "hidden": "0"
+            },
+            {
+                "identifier": "list_online_operators",
+                "value": "0",
+                "type": "0",
+                "explain": "List online operators.",
+                "hidden": "0"
+            },
+            {
+                "identifier": "max_message_length",
+                "value": "500",
+                "type": "0",
+                "explain": "Maximum message length in characters",
+                "hidden": "0"
+            },
+            {
+                "identifier": "message_seen_timeout",
+                "value": "24",
+                "type": "0",
+                "explain": "Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.",
+                "hidden": "0"
+            },
+            {
+                "identifier": "need_help_tip",
+                "value": "1",
+                "type": "0",
+                "explain": "Show need help tooltip?",
+                "hidden": "0"
+            },
+            {
+                "identifier": "need_help_tip_timeout",
+                "value": "24",
+                "type": "0",
+                "explain": "Need help tooltip timeout, after how many hours show again tooltip?",
+                "hidden": "0"
+            },
+            {
+                "identifier": "pro_active_invite",
+                "value": "1",
+                "type": "0",
+                "explain": "Is pro active chat invitation active. Online users tracking also has to be enabled",
+                "hidden": "0"
+            },
+            {
+                "identifier": "pro_active_limitation",
+                "value": "-1",
+                "type": "0",
+                "explain": "Pro active chats invitations limitation based on pending chats, (-1) do not limit, (0,1,n+1) number of pending chats can be for invitation to be shown.",
+                "hidden": "0"
+            },
+            {
+                "identifier": "pro_active_show_if_offline",
+                "value": "0",
+                "type": "0",
+                "explain": "Should invitation logic be executed if there is no online operators",
+                "hidden": "0"
+            },
+            {
+                "identifier": "reopen_as_new",
+                "value": "1",
+                "type": "0",
+                "explain": "Reopen closed chat as new? Otherwise it will be reopened as active.",
+                "hidden": "0"
+            },
+            {
+                "identifier": "reopen_chat_enabled",
+                "value": "1",
+                "type": "0",
+                "explain": "Reopen chat functionality enabled",
+                "hidden": "0"
+            },
+            {
+                "identifier": "run_departments_workflow",
+                "value": "0",
+                "type": "0",
+                "explain": "Should cronjob run departments transfer workflow, even if user leaves a chat",
+                "hidden": "0"
+            },
+            {
+                "identifier": "run_unaswered_chat_workflow",
+                "value": "0",
+                "type": "0",
+                "explain": "Should cronjob run unanswered chats workflow and execute unaswered chats callback, 0 - no, any other number bigger than 0 is a minits how long chat have to be not accepted before executing callback.",
+                "hidden": "0"
+            },
+            {
+                "identifier": "session_captcha",
+                "value": "0",
+                "type": "0",
+                "explain": "Use session captcha. LHC have to be installed on the same domain or subdomain.",
+                "hidden": "0"
+            },
+            {
+                "identifier": "smtp_data",
+                "value": "a:5:{s:4:\"host\";s:0:\"\";s:4:\"port\";s:2:\"25\";s:8:\"use_smtp\";i:0;s:8:\"username\";s:0:\"\";s:8:\"password\";s:0:\"\";}",
+                "type": "0",
+                "explain": "SMTP configuration",
+                "hidden": "1"
+            },
+            {
+                "identifier": "sound_invitation",
+                "value": "1",
+                "type": "0",
+                "explain": "Play sound on invitation to chat.",
+                "hidden": "0"
+            },
+            {
+                "identifier": "start_chat_data",
+                "value": "a:23:{i:0;b:0;s:21:\"name_visible_in_popup\";b:1;s:27:\"name_visible_in_page_widget\";b:1;s:19:\"name_require_option\";s:8:\"required\";s:22:\"email_visible_in_popup\";b:0;s:28:\"email_visible_in_page_widget\";b:0;s:20:\"email_require_option\";s:8:\"required\";s:24:\"message_visible_in_popup\";b:1;s:30:\"message_visible_in_page_widget\";b:1;s:22:\"message_require_option\";s:8:\"required\";s:22:\"phone_visible_in_popup\";b:0;s:28:\"phone_visible_in_page_widget\";b:0;s:20:\"phone_require_option\";s:8:\"required\";s:21:\"force_leave_a_message\";b:0;s:29:\"offline_name_visible_in_popup\";b:1;s:35:\"offline_name_visible_in_page_widget\";b:1;s:27:\"offline_name_require_option\";s:8:\"required\";s:30:\"offline_phone_visible_in_popup\";b:0;s:36:\"offline_phone_visible_in_page_widget\";b:0;s:28:\"offline_phone_require_option\";s:8:\"required\";s:32:\"offline_message_visible_in_popup\";b:1;s:38:\"offline_message_visible_in_page_widget\";b:1;s:30:\"offline_message_require_option\";s:8:\"required\";}",
+                "type": "0",
+                "explain": "",
+                "hidden": "1"
+            },
+            {
+                "identifier": "sync_sound_settings",
+                "value": "a:16:{i:0;b:0;s:12:\"repeat_sound\";i:1;s:18:\"repeat_sound_delay\";i:5;s:10:\"show_alert\";b:0;s:22:\"new_chat_sound_enabled\";b:1;s:31:\"new_message_sound_admin_enabled\";b:1;s:30:\"new_message_sound_user_enabled\";b:1;s:14:\"online_timeout\";d:300;s:22:\"check_for_operator_msg\";d:10;s:21:\"back_office_sinterval\";d:10;s:22:\"chat_message_sinterval\";d:3.5;s:20:\"long_polling_enabled\";b:0;s:30:\"polling_chat_message_sinterval\";d:1.5;s:29:\"polling_back_office_sinterval\";d:5;s:18:\"connection_timeout\";i:30;s:28:\"browser_notification_message\";b:0;}",
+                "type": "0",
+                "explain": "",
+                "hidden": "1"
+            },
+            {
+                "identifier": "tracked_users_cleanup",
+                "value": "160",
+                "type": "0",
+                "explain": "How many days keep records of online users.",
+                "hidden": "0"
+            },
+            {
+                "identifier": "track_domain",
+                "value": "",
+                "type": "0",
+                "explain": "Set your domain to enable user tracking across different domain subdomains.",
+                "hidden": "0"
+            },
+            {
+                "identifier": "track_footprint",
+                "value": "0",
+                "type": "0",
+                "explain": "Track users footprint. For this also online visitors tracking should be enabled",
+                "hidden": "0"
+            },
+            {
+                "identifier": "mheight",
+                "value": "",
+                "type": "0",
+                "explain": "Messages box height",
+                "hidden": "0"
+            },
+            {
+                "identifier": "suggest_leave_msg",
+                "value": "1",
+                "type": "0",
+                "explain": "Suggest user to leave a message then user chooses offline department",
+                "hidden": "0"
+            },
+            {
+                "identifier": "checkstatus_timeout",
+                "value": "0",
+                "type": "0",
+                "explain": "Interval between chat status checks in seconds, 0 disabled.",
+                "hidden": "0"
+            },
+            {
+                "identifier": "track_online_visitors",
+                "value": "1",
+                "type": "0",
+                "explain": "Enable online site visitors tracking",
+                "hidden": "0"
+            },
+            {
+                "identifier": "use_secure_cookie",
+                "value": "0",
+                "type": "0",
+                "explain": "Use secure cookie, check this if you want to force SSL all the time",
+                "hidden": "0"
+            },
+            {
+                "identifier": "voting_days_limit",
+                "value": "7",
+                "type": "0",
+                "explain": "How many days voting widget should not be expanded after last show",
+                "hidden": "0"
+            },
+            {
+                "identifier": "show_language_switcher",
+                "value": "0",
+                "type": "0",
+                "explain": "Show users option to switch language at widget",
+                "hidden": "0"
+            },
+            {
+                "identifier": "show_languages",
+                "value": "eng,lit,hrv,esp,por,nld,ara,ger,pol,rus,ita,fre,chn,cse,nor,tur,vnm,idn,sve,per,ell,dnk,rou,bgr,tha,geo,fin,alb",
+                "type": "0",
+                "explain": "Between what languages user should be able to switch",
+                "hidden": "0"
+            },
+            {
+                "identifier": "xmp_data",
+                "value": "a:14:{i:0;b:0;s:4:\"host\";s:15:\"talk.google.com\";s:6:\"server\";s:9:\"gmail.com\";s:8:\"resource\";s:6:\"xmpphp\";s:4:\"port\";s:4:\"5222\";s:7:\"use_xmp\";i:0;s:8:\"username\";s:0:\"\";s:8:\"password\";s:0:\"\";s:11:\"xmp_message\";s:78:\"New chat request [{chat_id}]\r\n{messages}\r\nClick to accept a chat\r\n{url_accept}\";s:10:\"recipients\";s:0:\"\";s:20:\"xmp_accepted_message\";s:69:\"{user_name} has accepted a chat [{chat_id}]\r\n{messages}\r\n{url_accept}\";s:16:\"use_standard_xmp\";i:0;s:15:\"test_recipients\";s:0:\"\";s:21:\"test_group_recipients\";s:0:\"\";}",
+                "type": "0",
+                "explain": "XMP data",
+                "hidden": "1"
+            },
+            {
+                "identifier": "geoadjustment_data",
+                "value": "a:8:{i:0;b:0;s:18:\"use_geo_adjustment\";b:0;s:13:\"available_for\";s:0:\"\";s:15:\"other_countries\";s:6:\"custom\";s:8:\"hide_for\";s:0:\"\";s:12:\"other_status\";s:7:\"offline\";s:11:\"rest_status\";s:6:\"hidden\";s:12:\"apply_widget\";i:0;}",
+                "type": "0",
+                "explain": "Geo adjustment settings",
+                "hidden": "1"
+            }
+        ],
+        "lh_abstract_email_template": [
+            {
+                "id": "1",
+                "name": "Send mail to user",
+                "from_name": "Live Helper Chat",
+                "from_name_ac": "0",
+                "from_email": "",
+                "from_email_ac": "0",
+                "content": "Dear {user_chat_nick},\r\n\r\n{additional_message}\r\n\r\nLive Support response:\r\n{messages_content}\r\n\r\nSincerely,\r\nLive Support Team\r\n",
+                "subject": "{name_surname} has responded to your request",
+                "bcc_recipients": "",
+                "subject_ac": "1",
+                "reply_to": "",
+                "reply_to_ac": "1",
+                "recipient": ""
+            },
+            {
+                "id": "2",
+                "name": "Support request from user",
+                "from_name": "",
+                "from_name_ac": "0",
+                "from_email": "",
+                "from_email_ac": "0",
+                "content": "Hello,\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nAdditional data, if any:\r\n{additional_data}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nLink to chat if any:\r\n{prefillchat}\r\n\r\nSincerely,\r\nLive Support Team",
+                "subject": "Support request from user",
+                "bcc_recipients": "",
+                "subject_ac": "0",
+                "reply_to": "",
+                "reply_to_ac": "0",
+                "recipient": ""
+            },
+            {
+                "id": "3",
+                "name": "User mail for himself",
+                "from_name": "Live Helper Chat",
+                "from_name_ac": "0",
+                "from_email": "",
+                "from_email_ac": "0",
+                "content": "Dear {user_chat_nick},\r\n\r\nTranscript:\r\n{messages_content}\r\n\r\nSincerely,\r\nLive Support Team\r\n",
+                "subject": "Chat transcript",
+                "bcc_recipients": "",
+                "subject_ac": "0",
+                "reply_to": "",
+                "reply_to_ac": "0",
+                "recipient": ""
+            },
+            {
+                "id": "4",
+                "name": "New chat request",
+                "from_name": "Live Helper Chat",
+                "from_name_ac": "0",
+                "from_email": "",
+                "from_email_ac": "0",
+                "content": "Hello,\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nClick to accept chat automatically\r\n{url_accept}\r\n\r\nSincerely,\r\nLive Support Team",
+                "subject": "New chat request",
+                "bcc_recipients": "",
+                "subject_ac": "0",
+                "reply_to": "",
+                "reply_to_ac": "0",
+                "recipient": ""
+            },
+            {
+                "id": "5",
+                "name": "Chat was closed",
+                "from_name": "Live Helper Chat",
+                "from_name_ac": "0",
+                "from_email": "",
+                "from_email_ac": "0",
+                "content": "Hello,\r\n\r\n{operator} has closed a chat\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nAdditional data, if any:\r\n{additional_data}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nSincerely,\r\nLive Support Team",
+                "subject": "Chat was closed",
+                "bcc_recipients": "",
+                "subject_ac": "0",
+                "reply_to": "",
+                "reply_to_ac": "0",
+                "recipient": ""
+            },
+            {
+                "id": "6",
+                "name": "New FAQ question",
+                "from_name": "Live Helper Chat",
+                "from_name_ac": "0",
+                "from_email": "",
+                "from_email_ac": "0",
+                "content": "Hello,\r\n\r\nNew FAQ question\r\nEmail: {email}\r\n\r\nQuestion:\r\n{question}\r\n\r\nQuestion URL:\r\n{url_question}\r\n\r\nURL to answer a question:\r\n{url_request}\r\n\r\nSincerely,\r\nLive Support Team",
+                "subject": "New FAQ question",
+                "bcc_recipients": "",
+                "subject_ac": "0",
+                "reply_to": "",
+                "reply_to_ac": "0",
+                "recipient": ""
+            },
+            {
+                "id": "7",
+                "name": "New unread message",
+                "from_name": "Live Helper Chat",
+                "from_name_ac": "0",
+                "from_email": "",
+                "from_email_ac": "0",
+                "content": "Hello,\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nClick to accept chat automatically\r\n{url_accept}\r\n\r\nSincerely,\r\nLive Support Team",
+                "subject": "New chat request",
+                "bcc_recipients": "",
+                "subject_ac": "0",
+                "reply_to": "",
+                "reply_to_ac": "0",
+                "recipient": ""
+            },
+            {
+                "id": "8",
+                "name": "Filled form",
+                "from_name": "Live Helper Chat",
+                "from_name_ac": "0",
+                "from_email": "",
+                "from_email_ac": "0",
+                "content": "Hello,\r\n\r\nUser has filled a form\r\nForm name - {form_name}\r\nUser IP - {ip}\r\nDownload filled data - {url_download}\r\n\r\nSincerely,\r\nLive Support Team",
+                "subject": "Filled form - {form_name}",
+                "bcc_recipients": "",
+                "subject_ac": "0",
+                "reply_to": "",
+                "reply_to_ac": "0",
+                "recipient": ""
+            },
+            {
+                "id": "9",
+                "name": "Chat was accepted",
+                "from_name": "Live Helper Chat",
+                "from_name_ac": "0",
+                "from_email": "",
+                "from_email_ac": "0",
+                "content": "Hello,\r\n\r\nOperator {user_name} has accepted a chat [{chat_id}]\r\n\r\nUser request data:\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\n\r\nMessage:\r\n{message}\r\n\r\nURL of page from which user has send request:\r\n{url_request}\r\n\r\nClick to accept chat automatically\r\n{url_accept}\r\n\r\nSincerely,\r\nLive Support Team",
+                "subject": "Chat was accepted [{chat_id}]",
+                "bcc_recipients": "",
+                "subject_ac": "0",
+                "reply_to": "",
+                "reply_to_ac": "0",
+                "recipient": ""
+            }
+        ]
+    },
+    "tables_data_identifier": {
+        "lh_users_setting_option": "identifier",
+        "lh_chat_config": "identifier",
+        "lh_abstract_email_template": "id"
+    },
+    "tables_create": {
+        "lh_abstract_auto_responder": "CREATE TABLE `lh_abstract_auto_responder` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `siteaccess` varchar(3) NOT NULL,\n  `wait_message` varchar(250) NOT NULL,\n  `wait_timeout` int(11) NOT NULL,\n  `position` int(11) NOT NULL,\n  `timeout_message` varchar(250) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `siteaccess_position` (`siteaccess`,`position`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "lh_abstract_browse_offer_invitation": "CREATE TABLE `lh_abstract_browse_offer_invitation` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `siteaccess` varchar(10) NOT NULL,\n  `time_on_site` int(11) NOT NULL,\n  `content` longtext NOT NULL,\n  `callback_content` longtext NOT NULL,\n  `lhc_iframe_content` tinyint(4) NOT NULL,\n  `custom_iframe_url` varchar(250) NOT NULL,\n  `name` varchar(250) NOT NULL,\n  `identifier` varchar(50) NOT NULL,\n  `executed_times` int(11) NOT NULL,\n  `url` varchar(250) NOT NULL,\n  `active` int(11) NOT NULL,\n  `has_url` int(11) NOT NULL,\n  `is_wildcard` int(11) NOT NULL,\n  `referrer` varchar(250) NOT NULL,\n  `priority` varchar(250) NOT NULL,\n  `hash` varchar(40) NOT NULL,\n  `width` int(11) NOT NULL,\n  `height` int(11) NOT NULL,\n  `unit` varchar(10) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `active` (`active`),\n  KEY `identifier` (`identifier`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "lh_abstract_email_template": "CREATE TABLE `lh_abstract_email_template` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `name` varchar(250) NOT NULL,\n  `from_name` varchar(150) NOT NULL,\n  `from_name_ac` tinyint(4) NOT NULL,\n  `from_email` varchar(150) NOT NULL,\n  `from_email_ac` tinyint(4) NOT NULL,\n  `content` text NOT NULL,\n  `subject` varchar(250) NOT NULL,\n  `bcc_recipients` varchar(200) NOT NULL,\n  `subject_ac` tinyint(4) NOT NULL,\n  `reply_to` varchar(150) NOT NULL,\n  `reply_to_ac` tinyint(4) NOT NULL,\n  `recipient` varchar(150) NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8",
+        "lh_abstract_form": "CREATE TABLE `lh_abstract_form` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `name` varchar(100) NOT NULL,\n  `content` longtext NOT NULL,\n  `recipient` varchar(250) NOT NULL,\n  `active` int(11) NOT NULL,\n  `name_attr` varchar(250) NOT NULL,\n  `intro_attr` varchar(250) NOT NULL,\n  `xls_columns` text NOT NULL,\n  `pagelayout` varchar(200) NOT NULL,\n  `post_content` text NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "lh_abstract_form_collected": "CREATE TABLE `lh_abstract_form_collected` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `form_id` int(11) NOT NULL,\n  `ctime` int(11) NOT NULL,\n  `ip` varchar(250) NOT NULL,\n  `content` longtext NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `form_id` (`form_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "lh_abstract_proactive_chat_invitation": "CREATE TABLE `lh_abstract_proactive_chat_invitation` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `siteaccess` varchar(10) NOT NULL,\n  `time_on_site` int(11) NOT NULL,\n  `pageviews` int(11) NOT NULL,\n  `message` text NOT NULL,\n  `executed_times` int(11) NOT NULL,\n  `dep_id` int(11) NOT NULL,\n  `hide_after_ntimes` int(11) NOT NULL,\n  `name` varchar(50) NOT NULL,\n  `operator_ids` varchar(100) NOT NULL,\n  `wait_message` varchar(250) NOT NULL,\n  `timeout_message` varchar(250) NOT NULL,\n  `referrer` varchar(250) NOT NULL,\n  `wait_timeout` int(11) NOT NULL,\n  `show_random_operator` int(11) NOT NULL,\n  `operator_name` varchar(100) NOT NULL,\n  `position` int(11) NOT NULL,\n  `identifier` varchar(50) NOT NULL,\n  `requires_email` int(11) NOT NULL,\n  `requires_username` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `time_on_site_pageviews_siteaccess_position` (`time_on_site`,`pageviews`,`siteaccess`,`identifier`,`position`),\n  KEY `identifier` (`identifier`),\n  KEY `dep_id` (`dep_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "lh_abstract_widget_theme": "CREATE TABLE `lh_abstract_widget_theme` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `name` varchar(250) NOT NULL,\n  `onl_bcolor` varchar(10) NOT NULL,\n  `text_color` varchar(10) NOT NULL,\n  `online_image` varchar(250) NOT NULL,\n  `online_image_path` varchar(250) NOT NULL,\n  `offline_image` varchar(250) NOT NULL,\n  `offline_image_path` varchar(250) NOT NULL,\n  `logo_image` varchar(250) NOT NULL,\n  `logo_image_path` varchar(250) NOT NULL,\n  `need_help_image` varchar(250) NOT NULL,\n  `header_background` varchar(10) NOT NULL,\n  `widget_border_color` varchar(10) NOT NULL,\n  `need_help_tcolor` varchar(10) NOT NULL,\n  `need_help_bcolor` varchar(10) NOT NULL,\n  `need_help_border` varchar(10) NOT NULL,\n  `need_help_close_bg` varchar(10) NOT NULL,\n  `need_help_hover_bg` varchar(10) NOT NULL,\n  `need_help_close_hover_bg` varchar(10) NOT NULL,\n  `need_help_image_path` varchar(250) NOT NULL,\n  `custom_status_css` text NOT NULL,\n  `custom_container_css` text NOT NULL,\n  `custom_widget_css` text NOT NULL,\n  `need_help_header` varchar(250) NOT NULL,\n  `need_help_text` varchar(250) NOT NULL,\n  `online_text` varchar(250) NOT NULL,\n  `offline_text` varchar(250) NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "lh_canned_msg": "CREATE TABLE `lh_canned_msg` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `msg` text NOT NULL,\n  `position` int(11) NOT NULL,\n  `department_id` int(11) NOT NULL,\n  `user_id` int(11) NOT NULL,\n  `delay` int(11) NOT NULL,\n  `auto_send` tinyint(1) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `department_id` (`department_id`),\n  KEY `user_id` (`user_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "lh_chat": "CREATE TABLE `lh_chat` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `nick` varchar(50) NOT NULL,\n  `status` int(11) NOT NULL DEFAULT '0',\n  `status_sub` int(11) NOT NULL DEFAULT '0',\n  `time` int(11) NOT NULL,\n  `user_id` int(11) NOT NULL,\n  `hash` varchar(40) NOT NULL,\n  `referrer` text NOT NULL,\n  `session_referrer` text NOT NULL,\n  `chat_variables` text NOT NULL,\n  `remarks` text NOT NULL,\n  `ip` varchar(100) NOT NULL,\n  `dep_id` int(11) NOT NULL,\n  `user_status` int(11) NOT NULL DEFAULT '0',\n  `support_informed` int(11) NOT NULL DEFAULT '0',\n  `unread_messages_informed` int(11) NOT NULL DEFAULT '0',\n  `reinform_timeout` int(11) NOT NULL DEFAULT '0',\n  `email` varchar(100) NOT NULL,\n  `country_code` varchar(100) NOT NULL,\n  `country_name` varchar(100) NOT NULL,\n  `user_typing` int(11) NOT NULL,\n  `user_typing_txt` varchar(50) NOT NULL,\n  `operator_typing` int(11) NOT NULL,\n  `operator_typing_id` int(11) NOT NULL,\n  `phone` varchar(100) NOT NULL,\n  `has_unread_messages` int(11) NOT NULL,\n  `last_user_msg_time` int(11) NOT NULL,\n  `fbst` tinyint(1) NOT NULL,\n  `online_user_id` int(11) NOT NULL,\n  `last_msg_id` int(11) NOT NULL,\n  `additional_data` varchar(250) NOT NULL,\n  `timeout_message` varchar(250) NOT NULL,\n  `lat` varchar(10) NOT NULL,\n  `lon` varchar(10) NOT NULL,\n  `city` varchar(100) NOT NULL,\n  `operation` varchar(200) NOT NULL,\n  `operation_admin` varchar(200) NOT NULL,\n  `mail_send` int(11) NOT NULL,\n  `screenshot_id` int(11) NOT NULL,\n  `wait_time` int(11) NOT NULL,\n  `wait_timeout` int(11) NOT NULL,\n  `wait_timeout_send` int(11) NOT NULL,\n  `chat_duration` int(11) NOT NULL,\n  `tslasign` int(11) NOT NULL,\n  `priority` int(11) NOT NULL,\n  `chat_initiator` int(11) NOT NULL,\n  `transfer_timeout_ts` int(11) NOT NULL,\n  `transfer_timeout_ac` int(11) NOT NULL,\n  `transfer_if_na` int(11) NOT NULL,\n  `na_cb_executed` int(11) NOT NULL,\n  `nc_cb_executed` tinyint(1) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `status_user_id` (`status`,`user_id`),\n  KEY `user_id` (`user_id`),\n  KEY `online_user_id` (`online_user_id`),\n  KEY `dep_id` (`dep_id`),\n  KEY `has_unread_messages_dep_id_id` (`has_unread_messages`,`dep_id`,`id`),\n  KEY `status_dep_id_id` (`status`,`dep_id`,`id`),\n  KEY `status_dep_id_priority_id` (`status`,`dep_id`,`priority`,`id`),\n  KEY `status_priority_id` (`status`,`priority`,`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "lh_chat_accept": "CREATE TABLE `lh_chat_accept` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `chat_id` int(11) NOT NULL,\n  `hash` varchar(50) NOT NULL,\n  `ctime` int(11) NOT NULL,\n  `wused` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `hash` (`hash`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "lh_chat_archive_range": "CREATE TABLE `lh_chat_archive_range` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `range_from` int(11) NOT NULL,\n  `range_to` int(11) NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "lh_chat_blocked_user": "CREATE TABLE `lh_chat_blocked_user` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `ip` varchar(100) NOT NULL,\n  `user_id` int(11) NOT NULL,\n  `datets` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `ip` (`ip`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "lh_chat_config": "CREATE TABLE `lh_chat_config` (\n  `identifier` varchar(50) NOT NULL,\n  `value` text NOT NULL,\n  `type` tinyint(1) NOT NULL DEFAULT '0',\n  `explain` varchar(250) NOT NULL,\n  `hidden` int(11) NOT NULL DEFAULT '0',\n  PRIMARY KEY (`identifier`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "lh_chat_file": "CREATE TABLE `lh_chat_file` (\n  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,\n  `name` varchar(255) NOT NULL,\n  `upload_name` varchar(255) NOT NULL,\n  `size` int(11) NOT NULL,\n  `type` varchar(255) NOT NULL,\n  `file_path` varchar(255) NOT NULL,\n  `extension` varchar(255) NOT NULL,\n  `chat_id` int(11) NOT NULL,\n  `user_id` int(11) NOT NULL,\n  `date` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `chat_id` (`chat_id`),\n  KEY `user_id` (`user_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "lh_chat_online_user": "CREATE TABLE `lh_chat_online_user` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `vid` varchar(50) NOT NULL,\n  `ip` varchar(50) NOT NULL,\n  `current_page` text NOT NULL,\n  `page_title` varchar(250) NOT NULL,\n  `referrer` text NOT NULL,\n  `chat_id` int(11) NOT NULL,\n  `invitation_seen_count` int(11) NOT NULL,\n  `invitation_id` int(11) NOT NULL,\n  `last_visit` int(11) NOT NULL,\n  `first_visit` int(11) NOT NULL,\n  `total_visits` int(11) NOT NULL,\n  `pages_count` int(11) NOT NULL,\n  `tt_pages_count` int(11) NOT NULL,\n  `invitation_count` int(11) NOT NULL,\n  `dep_id` int(11) NOT NULL,\n  `user_agent` varchar(250) NOT NULL,\n  `user_country_code` varchar(50) NOT NULL,\n  `user_country_name` varchar(50) NOT NULL,\n  `operator_message` varchar(250) NOT NULL,\n  `operator_user_proactive` varchar(100) NOT NULL,\n  `operator_user_id` int(11) NOT NULL,\n  `message_seen` int(11) NOT NULL,\n  `message_seen_ts` int(11) NOT NULL,\n  `lat` varchar(10) NOT NULL,\n  `lon` varchar(10) NOT NULL,\n  `city` varchar(100) NOT NULL,\n  `reopen_chat` int(11) NOT NULL,\n  `time_on_site` int(11) NOT NULL,\n  `tt_time_on_site` int(11) NOT NULL,\n  `requires_email` int(11) NOT NULL,\n  `requires_username` int(11) NOT NULL,\n  `screenshot_id` int(11) NOT NULL,\n  `identifier` varchar(50) NOT NULL,\n  `operation` varchar(200) NOT NULL,\n  `online_attr` varchar(250) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `vid` (`vid`),\n  KEY `dep_id` (`dep_id`),\n  KEY `last_visit_dep_id` (`last_visit`,`dep_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "lh_chat_online_user_footprint": "CREATE TABLE `lh_chat_online_user_footprint` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `chat_id` int(11) NOT NULL,\n  `online_user_id` int(11) NOT NULL,\n  `page` varchar(250) NOT NULL,\n  `vtime` varchar(250) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `chat_id_vtime` (`chat_id`,`vtime`),\n  KEY `online_user_id` (`online_user_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "lh_chatbox": "CREATE TABLE `lh_chatbox` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `identifier` varchar(50) NOT NULL,\n  `name` varchar(100) NOT NULL,\n  `chat_id` int(11) NOT NULL,\n  `active` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `identifier` (`identifier`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "lh_departament": "CREATE TABLE `lh_departament` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `name` varchar(100) NOT NULL,\n  `email` varchar(100) NOT NULL,\n  `xmpp_recipients` varchar(250) NOT NULL,\n  `xmpp_group_recipients` varchar(250) NOT NULL,\n  `priority` int(11) NOT NULL,\n  `department_transfer_id` int(11) NOT NULL,\n  `transfer_timeout` int(11) NOT NULL,\n  `disabled` int(11) NOT NULL,\n  `hidden` int(11) NOT NULL,\n  `delay_lm` int(11) NOT NULL,\n  `max_active_chats` int(11) NOT NULL,\n  `max_timeout_seconds` int(11) NOT NULL,\n  `identifier` varchar(50) NOT NULL,\n  `mod` tinyint(1) NOT NULL,\n  `tud` tinyint(1) NOT NULL,\n  `wed` tinyint(1) NOT NULL,\n  `thd` tinyint(1) NOT NULL,\n  `frd` tinyint(1) NOT NULL,\n  `sad` tinyint(1) NOT NULL,\n  `sud` tinyint(1) NOT NULL,\n  `nc_cb_execute` tinyint(1) NOT NULL,\n  `na_cb_execute` tinyint(1) NOT NULL,\n  `inform_unread` tinyint(1) NOT NULL,\n  `active_balancing` tinyint(1) NOT NULL,\n  `start_hour` int(2) NOT NULL,\n  `end_hour` int(2) NOT NULL,\n  `inform_close` int(11) NOT NULL,\n  `inform_unread_delay` int(11) NOT NULL,\n  `inform_options` varchar(250) NOT NULL,\n  `online_hours_active` tinyint(1) NOT NULL,\n  `inform_delay` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `identifier` (`identifier`),\n  KEY `disabled_hidden` (`disabled`,`hidden`),\n  KEY `oha_sh_eh` (`online_hours_active`,`start_hour`,`end_hour`)\n) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8",
+        "lh_doc_share": "CREATE TABLE `lh_doc_share` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `name` varchar(250) NOT NULL,\n  `desc` text NOT NULL,\n  `user_id` int(11) NOT NULL,\n  `active` int(11) NOT NULL,\n  `converted` int(11) NOT NULL,\n  `file_name` varchar(250) NOT NULL,\n  `file_path` varchar(250) NOT NULL,\n  `file_name_upload` varchar(250) NOT NULL,\n  `file_size` int(11) NOT NULL,\n  `type` varchar(250) NOT NULL,\n  `ext` varchar(250) NOT NULL,\n  `pdf_file` varchar(250) NOT NULL,\n  `pages_pdf_count` int(11) NOT NULL,\n  `pdf_to_img_converted` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `user_id` (`user_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "lh_faq": "CREATE TABLE `lh_faq` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `question` varchar(250) NOT NULL,\n  `answer` text NOT NULL,\n  `url` varchar(250) NOT NULL,\n  `email` varchar(50) NOT NULL,\n  `identifier` varchar(10) NOT NULL,\n  `active` int(11) NOT NULL,\n  `has_url` tinyint(1) NOT NULL,\n  `is_wildcard` tinyint(1) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `active` (`active`),\n  KEY `active_url` (`active`,`url`),\n  KEY `has_url` (`has_url`),\n  KEY `identifier` (`identifier`),\n  KEY `is_wildcard` (`is_wildcard`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "lh_forgotpasswordhash": "CREATE TABLE `lh_forgotpasswordhash` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `user_id` int(11) NOT NULL,\n  `hash` varchar(40) NOT NULL,\n  `created` int(11) NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "lh_group": "CREATE TABLE `lh_group` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `name` varchar(50) NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8",
+        "lh_grouprole": "CREATE TABLE `lh_grouprole` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `group_id` int(11) NOT NULL,\n  `role_id` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `group_id` (`role_id`,`group_id`)\n) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8",
+        "lh_groupuser": "CREATE TABLE `lh_groupuser` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `group_id` int(11) NOT NULL,\n  `user_id` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `group_id` (`group_id`),\n  KEY `user_id` (`user_id`),\n  KEY `group_id_2` (`group_id`,`user_id`)\n) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8",
+        "lh_msg": "CREATE TABLE `lh_msg` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `msg` text NOT NULL,\n  `time` int(11) NOT NULL,\n  `chat_id` int(11) NOT NULL DEFAULT '0',\n  `user_id` int(11) NOT NULL DEFAULT '0',\n  `name_support` varchar(100) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `chat_id_id` (`chat_id`,`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "lh_question": "CREATE TABLE `lh_question` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `question` varchar(250) NOT NULL,\n  `location` varchar(250) NOT NULL,\n  `active` int(11) NOT NULL,\n  `priority` int(11) NOT NULL,\n  `is_voting` int(11) NOT NULL,\n  `question_intro` text NOT NULL,\n  `revote` int(11) NOT NULL DEFAULT '0',\n  PRIMARY KEY (`id`),\n  KEY `priority` (`priority`),\n  KEY `active_priority` (`active`,`priority`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "lh_question_answer": "CREATE TABLE `lh_question_answer` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `ip` bigint(20) NOT NULL,\n  `question_id` int(11) NOT NULL,\n  `answer` text NOT NULL,\n  `ctime` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `ip` (`ip`),\n  KEY `question_id` (`question_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "lh_question_option": "CREATE TABLE `lh_question_option` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `question_id` int(11) NOT NULL,\n  `option_name` varchar(250) NOT NULL,\n  `priority` tinyint(4) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `question_id` (`question_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "lh_question_option_answer": "CREATE TABLE `lh_question_option_answer` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `question_id` int(11) NOT NULL,\n  `option_id` int(11) NOT NULL,\n  `ctime` int(11) NOT NULL,\n  `ip` bigint(20) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `question_id` (`question_id`),\n  KEY `ip` (`ip`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "lh_role": "CREATE TABLE `lh_role` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `name` varchar(50) NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8",
+        "lh_rolefunction": "CREATE TABLE `lh_rolefunction` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `role_id` int(11) NOT NULL,\n  `module` varchar(100) NOT NULL,\n  `function` varchar(100) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `role_id` (`role_id`)\n) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8",
+        "lh_transfer": "CREATE TABLE `lh_transfer` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `chat_id` int(11) NOT NULL,\n  `dep_id` int(11) NOT NULL,\n  `transfer_user_id` int(11) NOT NULL,\n  `from_dep_id` int(11) NOT NULL,\n  `transfer_to_user_id` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `dep_id` (`dep_id`),\n  KEY `transfer_user_id_dep_id` (`transfer_user_id`,`dep_id`),\n  KEY `transfer_to_user_id` (`transfer_to_user_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "lh_userdep": "CREATE TABLE `lh_userdep` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `user_id` int(11) NOT NULL,\n  `dep_id` int(11) NOT NULL,\n  `last_activity` int(11) NOT NULL,\n  `hide_online` int(11) NOT NULL,\n  `last_accepted` int(11) NOT NULL,\n  `active_chats` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `user_id` (`user_id`),\n  KEY `last_activity_hide_online_dep_id` (`last_activity`,`hide_online`,`dep_id`),\n  KEY `dep_id` (`dep_id`)\n) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8",
+        "lh_users": "CREATE TABLE `lh_users` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `username` varchar(40) NOT NULL,\n  `password` varchar(40) NOT NULL,\n  `email` varchar(100) NOT NULL,\n  `time_zone` varchar(100) NOT NULL,\n  `name` varchar(100) NOT NULL,\n  `surname` varchar(100) NOT NULL,\n  `filepath` varchar(200) NOT NULL,\n  `filename` varchar(200) NOT NULL,\n  `job_title` varchar(100) NOT NULL,\n  `xmpp_username` varchar(200) NOT NULL,\n  `skype` varchar(50) NOT NULL,\n  `disabled` tinyint(4) NOT NULL,\n  `hide_online` tinyint(1) NOT NULL,\n  `all_departments` tinyint(1) NOT NULL,\n  `invisible_mode` tinyint(1) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `hide_online` (`hide_online`),\n  KEY `email` (`email`),\n  KEY `xmpp_username` (`xmpp_username`)\n) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8",
+        "lh_users_remember": "CREATE TABLE `lh_users_remember` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `user_id` int(11) NOT NULL,\n  `mtime` int(11) NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "lh_users_setting": "CREATE TABLE `lh_users_setting` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `user_id` int(11) NOT NULL,\n  `identifier` varchar(50) NOT NULL,\n  `value` varchar(50) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `user_id` (`user_id`,`identifier`)\n) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8",
+        "lh_users_setting_option": "CREATE TABLE `lh_users_setting_option` (\n  `identifier` varchar(50) NOT NULL,\n  `class` varchar(50) NOT NULL,\n  `attribute` varchar(40) NOT NULL,\n  PRIMARY KEY (`identifier`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8"
+    }
+}

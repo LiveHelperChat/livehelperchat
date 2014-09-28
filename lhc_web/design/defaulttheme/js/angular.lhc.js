@@ -54,12 +54,15 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	$scope.transfer_dep_chats = {};
 	$scope.transfer_chats = {};
 	$scope.timeoutControl = null;
+	$scope.setTimeoutEnabled = true;
+	
 	
 	$scope.loadChatList = function() {
 		clearTimeout($scope.timeoutControl);
 		LiveHelperChatFactory.loadChatList().then(function(data){	
 						
 				var hasPendingItems = false;
+				var lastNotifiedId = 0;
 				
 				angular.forEach(data.result, function(item, key){					
 					$scope[key] = item;					
@@ -68,8 +71,18 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	                    	lhinst.trackLastIDS[item.last_id_identifier] = parseInt(item.last_id);
 	                    } else if (lhinst.trackLastIDS[item.last_id_identifier] < parseInt(item.last_id)) {
 	                    	lhinst.trackLastIDS[item.last_id_identifier] = parseInt(item.last_id);
-	                    	lhinst.playSoundNewAction(item.last_id_identifier,parseInt(item.last_id),(item.nick ? item.nick : 'Live Help'),(item.msg ? item.msg : confLH.transLation.new_chat));
+	                    	if (lastNotifiedId != lhinst.trackLastIDS[item.last_id_identifier]) {
+	                    		lastNotifiedId = lhinst.trackLastIDS[item.last_id_identifier];
+	                    		lhinst.playSoundNewAction(item.last_id_identifier,parseInt(item.last_id),(item.nick ? item.nick : 'Live Help'),(item.msg ? item.msg : confLH.transLation.new_chat));
+	                    	}
+	                    } else if (lhinst.trackLastIDS[item.last_id_identifier] > parseInt(item.last_id)) {
+	                    	lhinst.trackLastIDS[item.last_id_identifier] = parseInt(item.last_id);
 	                    };
+	                    
+	                    if (item.last_id == 0) {
+	                    	lhinst.trackLastIDS[item.last_id_identifier] = 0;
+	                    };
+	                    
 	                    if (parseInt(item.last_id) > 0) {
 	                    	hasPendingItems = true;                        	
 	                    };	                   
@@ -88,9 +101,12 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 					$(document).foundation('section', 'resize');
 				},500);	
 				
-				$scope.timeoutControl = setTimeout(function(){
-					$scope.loadChatList();
-				},confLH.back_office_sinterval);
+				if ($scope.setTimeoutEnabled == true) {
+					$scope.timeoutControl = setTimeout(function(){
+						$scope.loadChatList();
+					},confLH.back_office_sinterval);
+				};
+				
 		},function(error){
 				$scope.timeoutControl = setTimeout(function(){
 					$scope.loadChatList();

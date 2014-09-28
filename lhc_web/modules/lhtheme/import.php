@@ -4,6 +4,11 @@ $tpl = erLhcoreClassTemplate::getInstance( 'lhtheme/import.tpl.php' );
 
 if (ezcInputForm::hasPostData()) {
 		
+	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+		erLhcoreClassModule::redirect('theme/import');
+		exit;
+	}
+	
 	if (erLhcoreClassSearchHandler::isFile('themefile',array('json'))) {
 
 		$dir = 'var/tmpfiles/';
@@ -39,6 +44,16 @@ if (ezcInputForm::hasPostData()) {
 			if (isset($data['offline_image_data'])){
 				$imgData['offline_image'] = $data['offline_image_data'];
 				unset($data['offline_image_data']);
+			}
+			
+			if (isset($data['copyright_image_data'])){
+				$imgData['copyright_image'] = $data['copyright_image_data'];
+				unset($data['copyright_image_data']);
+			}
+			
+			if (isset($data['operator_image_data'])){
+				$imgData['operator_image'] = $data['operator_image_data'];
+				unset($data['operator_image_data']);
 			}
 			
 			try {

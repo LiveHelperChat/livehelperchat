@@ -1,5 +1,10 @@
 <?php 
 $modeUserVariables = isset($modeUserVariables) ? $modeUserVariables : 'on';
+
+if (!empty($input_data->name_items)) {
+	$hasExtraField = true;
+};
+
 foreach ($input_data->name_items as $item) : ?>
 	<input type="hidden" name="name_items[]" value="<?php echo htmlspecialchars($item)?>" />
 <?php endforeach;?>
@@ -14,6 +19,10 @@ foreach ($input_data->name_items as $item) : ?>
 
 <?php foreach ($input_data->value_show as $item) : ?>
 	<input type="hidden" name="value_show[]" value="<?php echo htmlspecialchars($item)?>" />
+<?php endforeach;?>
+
+<?php foreach ($input_data->hattr as $item) : ?>
+	<input type="hidden" name="hattr[]" value="<?php echo htmlspecialchars($item)?>" />
 <?php endforeach;?>
 
 <?php

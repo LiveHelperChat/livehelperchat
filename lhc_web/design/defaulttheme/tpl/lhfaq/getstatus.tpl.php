@@ -10,7 +10,7 @@ $positionArgument = array (
 				'widget_hover' => '',
 				'padding_text' => '10px 10px 10px 35px',
 				'chrome_radius' => 'top-right',
-				'border_widget' => 'border:1px solid #e3e3e3;border-left:0;border-bottom:0;',
+				'border_widget' => 'border:1px solid #'.($theme !== false ? $theme->bor_bcolor : 'e3e3e3').';border-left:0;border-bottom:0;',
 				'background_position' => '0',
 				'widget_radius' => '-webkit-border-top-right-radius: 20px;-moz-border-radius-topright: 20px;border-top-right-radius: 20px;',
 				'posv' => 'b',
@@ -28,7 +28,7 @@ $positionArgument = array (
 				'padding_text' => '10px 10px 10px 35px',
 				'background_position' => 'left',
 				'chrome_radius' => 'top-left',
-				'border_widget' => 'border:1px solid #e3e3e3;border-right:0;border-bottom:0;',
+				'border_widget' => 'border:1px solid #'.($theme !== false ? $theme->bor_bcolor : 'e3e3e3').';border-right:0;border-bottom:0;',
 				'widget_radius' => '-webkit-border-top-left-radius: 20px;-moz-border-radius-topleft: 20px;border-top-left-radius: 20px;'
 		),
 		'middle_right' => array (
@@ -41,7 +41,7 @@ $positionArgument = array (
 				'widget_hover' => 'right:0;transition: 1s;',
 				'moz_radius' => 'topleft',
 				'padding_text' => '10px 10px 10px 35px',
-				'border_widget' => 'border:1px solid #e3e3e3;border-right:0;',
+				'border_widget' => 'border:1px solid #'.($theme !== false ? $theme->bor_bcolor : 'e3e3e3').';border-right:0;',
 				'background_position' => '0',
 				'chrome_radius' => 'top-left',
 				'widget_radius' => '-webkit-border-top-left-radius: 20px;-moz-border-radius-topleft: 20px;border-top-left-radius: 20px;      -webkit-border-bottom-left-radius: 20px;-moz-border-radius-bottomleft: 20px;border-bottom-left-radius: 20px;'
@@ -55,7 +55,7 @@ $positionArgument = array (
 				'shadow' => '1px -1px 5px',
 				'padding_text' => '10px 35px 10px 9px',
 				'widget_hover' => 'left:0;transition: 1s;',
-				'border_widget' => 'border:1px solid #e3e3e3;border-left:0;',
+				'border_widget' => 'border:1px solid #'.($theme !== false ? $theme->bor_bcolor : 'e3e3e3').';border-left:0;',
 				'moz_radius' => 'topright',
 				'background_position' => '95%',
 				'chrome_radius' => 'top-right',
@@ -144,6 +144,11 @@ var lhc_FAQ = {
    		  var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
    		  this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('faq/faqwidget')?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?>"+'?URLReferer='+locationCurrent+'&URLModule='+encodeURIComponent(LHCFAQOptions.url)+'&identifier='+encodeURIComponent(LHCFAQOptions.identifier);
 
+   		  if (window.innerWidth < 1024) {
+          		window.open(this.initial_iframe_url,"_blank");
+          		return;
+          };
+          
    		  this.iframe_html = '<iframe id="lhcfaq_iframe" allowTransparency="true" scrolling="no" class="lhc-loading" frameborder="0" ' +
                        ( this.initial_iframe_url != '' ? ' src="'    + this.initial_iframe_url + '"' : '' ) +
                        ' width="520"' +

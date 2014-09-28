@@ -27,24 +27,29 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
 	        $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $chatID);
 	        if ($chat->hash == $hash && $chat->user_status != 1) {
 
-	        	$db = ezcDbInstance::get();
-	        	$db->beginTransaction();
-
-			        // User closed chat
-			        $chat->user_status = 1;
-			        $chat->support_informed = 1;
-			        $chat->user_typing = time()-5;// Show for shorter period these status messages
-			        $chat->is_user_typing = 1;
-			        $chat->user_typing_txt = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat','User has left the chat!'),ENT_QUOTES);
-
-			        if ( ($onlineuser = $chat->online_user) !== false) {
-			        	$onlineuser->reopen_chat = 0;
-			        	$onlineuser->saveThis();
-			        }
-			        
-			        erLhcoreClassChat::getSession()->update($chat);
-
-		        $db->commit();
+	        	       	
+		        	$db = ezcDbInstance::get();
+		        	$db->beginTransaction();
+	
+				        // User closed chat
+				        $chat->user_status = 1;
+				        $chat->support_informed = 1;
+				        				        
+				        if ($chat->user_typing < (time()-12)) {
+				        	$chat->user_typing = time()-5;// Show for shorter period these status messages
+				        	$chat->is_user_typing = 1;
+				        	$chat->user_typing_txt = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat','User has left the chat!'),ENT_QUOTES);
+				        }
+				        	
+				        if ( ($onlineuser = $chat->online_user) !== false) {
+				        	$onlineuser->reopen_chat = 0;
+				        	$onlineuser->saveThis();
+				        }
+				        
+				        erLhcoreClassChat::getSession()->update($chat);
+	
+			        $db->commit();
+	        
 	        }
     } catch (Exception $e) {
         // Do nothing
