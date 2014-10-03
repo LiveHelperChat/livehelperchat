@@ -828,7 +828,10 @@ function lh(){
 	this.redirectContact = function(chat_id,message){		
 		if (confirm(message)){	
 			$.postJSON(this.wwwDir + 'chat/redirectcontact/' + chat_id, function(data){				
-				lhinst.syncadmininterfacestatic();
+				lhinst.syncadmininterfacestatic();				
+				if (LHCCallbacks.userRedirectedContact) {
+		       		LHCCallbacks.userRedirectedContact(chat_id);
+				};
 			});
 		}		
 	};
