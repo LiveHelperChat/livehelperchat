@@ -27,7 +27,7 @@
     </message>
     <message>
       <source>Track users footprint. For this also online visitors tracking should be enabled</source>
-      <translation>Traccia </translation>
+      <translation>Traccia utenti footprint. Per questo anche i visitatori online rilevamento devono essere abilitati</translation>
     </message>
     <message>
       <source>Set your domain to enable user tracking across different domain subdomains.</source>
@@ -83,7 +83,7 @@
     </message>
     <message>
       <source>Is pro active chat invitation active. Online users tracking also has to be enabled</source>
-      <translation>L&apos;</translation>
+      <translation>Invito chat attiva pro è attivo. Tracciamento utenti online deve essere attivo.</translation>
     </message>
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
