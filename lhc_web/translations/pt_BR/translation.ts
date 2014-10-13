@@ -340,7 +340,7 @@
     </message>
     <message>
       <source>Operator image in chat widget</source>
-      <translation>Imagem do operador no chat</translation>
+      <translation>Imagem do operador no widget do chat</translation>
     </message>
     <message>
       <source>Logo image, visible in popup</source>
@@ -3329,7 +3329,7 @@
     </message>
     <message>
       <source>Requires phone</source>
-      <translation>Requer Telefone</translation>
+      <translation>Telefone requerido</translation>
     </message>
     <message>
       <source>Send the message</source>
@@ -3432,11 +3432,11 @@
     </message>
     <message>
       <source>Hide message label</source>
-      <translation>Esconder mensagem de etiqueta</translation>
+      <translation>Esconder etiqueta de mensagem</translation>
     </message>
     <message>
       <source>Initial user message height in pixels</source>
-      <translation>Usar inicialmente altura da mensagem em pixels</translation>
+      <translation>Altura inicial da mensagem do usuário em pixels</translation>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>

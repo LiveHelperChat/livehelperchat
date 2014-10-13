@@ -3,43 +3,43 @@
     <name>listchatconfig</name>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
-      <translation>Hoeveel dagen mag een Stemmen widget niet worden uitgebreid na de laatste keer tonen</translation>
+      <translation>Hoeveel dagen stemmen widget moeten niet worden uitgebreid na laatste show</translation>
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
-      <translation>Gebruik een veilige cookie, schakel dit in als u altijd SSL wilt afdwingen</translation>
+      <translation>Veilige-cookie gebruiken, schakel dit in als u wilt afdwingen SSL aller tijden</translation>
     </message>
     <message>
       <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
-      <translation>Welk IP mag de DB bijwerken door het uitvoeren van een http-aanvraag, gescheiden door komma?</translation>
+      <translation>Welke ip mogen DB bijwerken door het uitvoeren van de http-aanvraag, gescheiden door komma?</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
-      <translation>Activeer online bezoeker tracking</translation>
+      <translation>Site voor online bezoekers bijhouden inschakelen</translation>
     </message>
     <message>
       <source>Track is user still on site, chat status checks also has to be enabled</source>
-      <translation type="unfinished"/>
+      <translation>Track is gebruiker nog steeds op de site, chat status controles moet ook worden ingeschakeld</translation>
     </message>
     <message>
       <source>Track online visitors even if there is no online operators</source>
-      <translation type="unfinished"/>
+      <translation>Online bezoekers bijhouden, zelfs als er geen online-ondernemers</translation>
     </message>
     <message>
       <source>Track users footprint. For this also online visitors tracking should be enabled</source>
-      <translation type="unfinished"/>
+      <translation>Spoor gebruikers voetafdruk. Hiervoor moeten ook online bezoekers bijhouden worden ingeschakeld</translation>
     </message>
     <message>
       <source>Set your domain to enable user tracking across different domain subdomains.</source>
-      <translation type="unfinished"/>
+      <translation>Stel uw domein om gebruikers bijhouden over ander domein subdomeinen.</translation>
     </message>
     <message>
       <source>How many days keep records of online users.</source>
-      <translation type="unfinished"/>
+      <translation>Hoeveel dagen wilt u de gegevens bewaren van online bezoekers?</translation>
     </message>
     <message>
       <source>Suggest user to leave a message then user chooses offline department</source>
-      <translation type="unfinished"/>
+      <translation>Attendeer de bezoeker om een bericht achter te laten, toon dan de offline afdelingen</translation>
     </message>
     <message>
       <source>Play sound on invitation to chat.</source>
@@ -55,43 +55,43 @@
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
-      <translation type="unfinished"/>
+      <translation>Gebruik sessie captcha. LHC moet op hetzelfde domein of subdomein worden geïnstalleerd.</translation>
     </message>
     <message>
       <source>Should cronjob run unanswered chats workflow and execute unaswered chats callback, 0 - no, any other number bigger than 0 is a minits how long chat have to be not accepted before executing callback.</source>
-      <translation type="unfinished"/>
+      <translation>Moet de cronjob Onbeantwoorde Chats regels en Onbeantwoorde Chats Oppakken uitvoeren, 0 - nee, ander getal groter dan 0 is het aantal minuten dat een chat  moet mag worden gemarkeerd voor opnieuw aanspreken.</translation>
     </message>
     <message>
       <source>Should cronjob run departments transfer workflow, even if user leaves a chat</source>
-      <translation type="unfinished"/>
+      <translation>Moeten cronjob die de regel Gesprek Doorverbinden naar Afdelingen uitvoerd worden, zelfs als gebruiker een chat verlaat</translation>
     </message>
     <message>
       <source>Reopen chat functionality enabled</source>
-      <translation type="unfinished"/>
+      <translation>Chat heropenen functie geactiveerd</translation>
     </message>
     <message>
       <source>Reopen closed chat as new? Otherwise it will be reopened as active.</source>
-      <translation type="unfinished"/>
+      <translation>Heropen chat als nieuw? Anders wordt hij alleen actief gezet.</translation>
     </message>
     <message>
       <source>Should invitation logic be executed if there is no online operators</source>
-      <translation type="unfinished"/>
+      <translation>Moet uitnodiging regel worden uitgevoerd als er geen agents online zijn</translation>
     </message>
     <message>
       <source>Pro active chats invitations limitation based on pending chats, (-1) do not limit, (0,1,n+1) number of pending chats can be for invitation to be shown.</source>
-      <translation type="unfinished"/>
+      <translation>Pro actieve chats uitnodigingen beperking op basis van onbeantwoorde chats, (-1) niet beperken, (0,1, n + 1) aantal onbeantwoorde chats voordat de uitnodiging getoond kan worden.</translation>
     </message>
     <message>
       <source>Is pro active chat invitation active. Online users tracking also has to be enabled</source>
-      <translation type="unfinished"/>
+      <translation>Is een uitnodiging voor pro actieve chatsessie versturen actief? Online gebruikers bijhouden ook moet worden ingeschakeld</translation>
     </message>
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
-      <translation type="unfinished"/>
+      <translation>Hulp nodig timeout, na hoeveel uur opnieuw tonen?</translation>
     </message>
     <message>
       <source>Show need help tooltip?</source>
-      <translation type="unfinished"/>
+      <translation>Hulp tips tonen?</translation>
     </message>
     <message>
       <source>Minimum phone number length</source>
@@ -103,11 +103,11 @@
     </message>
     <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
-      <translation type="unfinished"/>
+      <translation>Proactieve bericht timeout in uren. Na hoeveel uur mag een proactief chat bericht opnieuw worden weergegeven.</translation>
     </message>
     <message>
       <source>Maximum message length in characters</source>
-      <translation type="unfinished"/>
+      <translation>Maximale lengte in tekens</translation>
     </message>
     <message>
       <source>List online operators.</source>
@@ -115,15 +115,15 @@
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
-      <translation type="unfinished"/>
+      <translation>Negeer gebruikers online statussen en gebruik afdelingen online uur</translation>
     </message>
     <message>
       <source>Which ip should be ignored in online users list, separate by comma</source>
-      <translation type="unfinished"/>
+      <translation>Welke ip moet worden genegeerd in de online gebruikerslijst, gescheiden door komma</translation>
     </message>
     <message>
       <source>Hide disabled department widget</source>
-      <translation type="unfinished"/>
+      <translation>Verberg een uitgeschakelde afdeling widget</translation>
     </message>
     <message>
       <source>Is visitor e-mail required for FAQ</source>
@@ -131,71 +131,71 @@
     </message>
     <message>
       <source>Chats export secret hash</source>
-      <translation type="unfinished"/>
+      <translation>Chats exporteren geheime hash</translation>
     </message>
     <message>
       <source>Please enter explicit http mode. Either http: or https:, do not forget : at the end.</source>
-      <translation type="unfinished"/>
+      <translation>Voer expliciete http modus in. Beide http: of https:, vergeet niet de : aan het einde.</translation>
     </message>
     <message>
       <source>Disable chat transcript send</source>
-      <translation type="unfinished"/>
+      <translation>Chat chat-kopie verzenden uitschakelen</translation>
     </message>
     <message>
       <source>Disable chat print</source>
-      <translation type="unfinished"/>
+      <translation>Chat afdrukken uitschakelen</translation>
     </message>
     <message>
       <source>Disable option in widget to open new window. Restore icon will be hidden</source>
-      <translation type="unfinished"/>
+      <translation>Uitschakelen optie Nieuw venster te openen in widget. Herstellen pictogram zal worden verborgen</translation>
     </message>
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
-      <translation type="unfinished"/>
+      <translation>Uitschakelen HMTL5 opslag, controleer dit als uw site blijft wisselen tussen http en https</translation>
     </message>
     <message>
       <source>Your site URL address</source>
-      <translation type="unfinished"/>
+      <translation>Uw site URL adres</translation>
     </message>
     <message>
       <source>Your company name - visible in bottom left corner</source>
-      <translation type="unfinished"/>
+      <translation>Naam van uw bedrijf - zichtbaar in de linker onder hoek</translation>
     </message>
     <message>
       <source>Interval between chat status checks in seconds, 0 disabled.</source>
-      <translation type="unfinished"/>
+      <translation>Interval tussen de controles voor de chatstatus in seconden, 0 uitgeschakeld.</translation>
     </message>
     <message>
       <source>Show BB Code button</source>
-      <translation type="unfinished"/>
+      <translation>BB Code knop weergeven</translation>
     </message>
     <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
-      <translation type="unfinished"/>
+      <translation>Automatische chats verwijderen. 0 - uitgeschakeld, n &gt; 0 tijd in minuten voordat chat wordt automatisch verwijderd</translation>
     </message>
     <message>
       <source>Automatically reopen chat on widget open</source>
-      <translation type="unfinished"/>
+      <translation>Automatisch chat heropenen op openstaande widget</translation>
     </message>
     <message>
       <source>Automatic chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
-      <translation type="unfinished"/>
+      <translation>Automatische chats sluiten. 0 - uitgeschakeld, n &gt; 0 tijd in minuten voordat chat wordt automatisch gesloten</translation>
     </message>
     <message>
       <source>Support application name, visible in browser title.</source>
-      <translation type="unfinished"/>
+      <translation>Ondersteuning toepassingsnaam, zichtbaar in de titelbalk van de browser.</translation>
     </message>
     <message>
       <source>Allow user to reopen closed chats?</source>
-      <translation type="unfinished"/>
+      <translation>Gebruiker toestaan gesloten chats te heropenen ?</translation>
     </message>
     <message>
       <source>Change to your site Terms of Service</source>
-      <translation type="unfinished"/>
+      <translation>Wijzigen naar uw site Terms of Service</translation>
     </message>
     <message>
       <source>How many seconds chat accept link is valid. Set 0 to force login all the time manually.</source>
-      <translation type="unfinished"/>
+      <translation>Hoeveel seconden blijft de chat accepteren koppeling geldig. 0 te dwingen login hele tijd handmatig instellen</translation>
     </message>
   </context>
   <context>
@@ -284,7 +284,7 @@
     </message>
     <message>
       <source>Widget copyright</source>
-      <translation type="unfinished"/>
+      <translation>Auteursrecht widget</translation>
     </message>
     <message>
       <source>Widget container</source>
@@ -320,11 +320,11 @@
     </message>
     <message>
       <source>Operator intro text</source>
-      <translation type="unfinished"/>
+      <translation>Exploitant intro tekst</translation>
     </message>
     <message>
       <source>Have a question? Ask us!</source>
-      <translation type="unfinished"/>
+      <translation>Hebt u een vraag? Stel het ons!</translation>
     </message>
     <message>
       <source>Background color</source>
@@ -332,7 +332,7 @@
     </message>
     <message>
       <source>Status widget border color</source>
-      <translation type="unfinished"/>
+      <translation>De kleur van de rand van status widget</translation>
     </message>
     <message>
       <source>Text color</source>
@@ -340,7 +340,7 @@
     </message>
     <message>
       <source>Operator image in chat widget</source>
-      <translation type="unfinished"/>
+      <translation>Agent afbeelding in chat widget</translation>
     </message>
     <message>
       <source>Logo image, visible in popup</source>
@@ -348,7 +348,7 @@
     </message>
     <message>
       <source>Logo image, visible in widget left corner, 16x16</source>
-      <translation type="unfinished"/>
+      <translation>Embleembeeld, zichtbaar in widget linkerhoek, 16 x 16</translation>
     </message>
     <message>
       <source>Show copyright widget logo in left corner</source>
@@ -3164,7 +3164,7 @@
     </message>
     <message>
       <source>Update chats duration by using new algorithm</source>
-      <translation type="unfinished"/>
+      <translation>Bijwerken chats duur met behulp van nieuwe algoritme</translation>
     </message>
     <message>
       <source>Closed chats</source>

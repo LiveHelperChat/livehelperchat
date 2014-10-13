@@ -340,7 +340,7 @@
     </message>
     <message>
       <source>Operator image in chat widget</source>
-      <translation>Operátorova fotografie ve widgetu rozhovoru</translation>
+      <translation>Obrázek operátora ve widgetu rozhovoru</translation>
     </message>
     <message>
       <source>Logo image, visible in popup</source>
@@ -1999,7 +1999,7 @@
     </message>
     <message>
       <source>Unread message</source>
-      <translation type="unfinished"/>
+      <translation>Nepřečtená zpráva</translation>
     </message>
   </context>
   <context>
@@ -3138,7 +3138,7 @@
     </message>
     <message>
       <source>New unread message</source>
-      <translation type="unfinished"/>
+      <translation>Nová nepřečtená zpráva</translation>
     </message>
   </context>
   <context>
@@ -3329,7 +3329,7 @@
     </message>
     <message>
       <source>Requires phone</source>
-      <translation>Telefonní číslo je vyžadováno</translation>
+      <translation>Vyžaduje telefonní číslo</translation>
     </message>
     <message>
       <source>Send the message</source>
@@ -3420,7 +3420,7 @@
     </message>
     <message>
       <source>Additional form settings</source>
-      <translation>Dodatečné nastavení formuláře</translation>
+      <translation>Doplňující nastavení formuláře</translation>
     </message>
     <message>
       <source>Show operator profile above input fields</source>
