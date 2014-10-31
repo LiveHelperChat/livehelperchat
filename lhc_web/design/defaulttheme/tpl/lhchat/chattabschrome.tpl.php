@@ -4,21 +4,36 @@
 	<?php include(erLhcoreClassDesign::designtpl('lhchat/chattabs.tpl.php'));?>
 	
 	<input type="hidden" id="pending-counter-chrome" value="{{pending_chats.list.length != false && pending_chats.list.length > 0 ? pending_chats.list.length : 0}}" />
+	<input type="hidden" id="unread-counter-chrome" value="{{unread_chats.list.length != false && unread_chats.list.length > 0 ? unread_chats.list.length : 0}}" />
 	
 	<?php if ($is_popup === false) : ?>
 	<script>
 	if (!!window.postMessage) {
 		var currentPendingInitial = $('#pending-counter-chrome').val();
+		var currentUnreadInitial = $('#unread-counter-chrome').val();
 		setInterval(function(){
 			var currentPending = $('#pending-counter-chrome').val();
+			var currentUnreadPending = $('#unread-counter-chrome').val();
 			
-			if (currentPendingInitial != currentPending) {
+			if (currentPendingInitial != currentPending || currentUnreadPending != currentUnreadInitial) {
 				currentPendingInitial = currentPending;
-				if (parseInt(currentPendingInitial) >= 0) {
+				currentUnreadInitial = currentUnreadPending;
+				
+				var notificationNumber = 0;
+				
+				if (parseInt(currentPendingInitial) >= 0){
+					notificationNumber += parseInt(currentPendingInitial);
+				};
+				
+				if (parseInt(currentUnreadPending) >= 0){
+					notificationNumber += parseInt(currentUnreadPending);
+				};
+				
+				if (parseInt(notificationNumber) >= 0) {
 					try {
-						parent.postMessage('lhc_chrome:'+(parseInt(currentPendingInitial) == 0 ? '' : parseInt(currentPendingInitial)), '*');					
+						parent.postMessage('lhc_chrome:'+(parseInt(notificationNumber) == 0 ? '' : parseInt(notificationNumber)), '*');					
 					} catch(e) {};
-				}				
+				};				
 			};
 		},5000);		
 	};
