@@ -95,11 +95,11 @@
     </message>
     <message>
       <source>Minimum phone number length</source>
-      <translation type="unfinished"/>
+      <translation>Минимальная длинна телефонного номера</translation>
     </message>
     <message>
       <source>Messages box height</source>
-      <translation type="unfinished"/>
+      <translation>Высота блока сообщений</translation>
     </message>
     <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
@@ -111,7 +111,7 @@
     </message>
     <message>
       <source>List online operators.</source>
-      <translation type="unfinished"/>
+      <translation>Список операторов в онлайне</translation>
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
@@ -155,11 +155,11 @@
     </message>
     <message>
       <source>Your site URL address</source>
-      <translation type="unfinished"/>
+      <translation>URL-адрес вашего сайта</translation>
     </message>
     <message>
       <source>Your company name - visible in bottom left corner</source>
-      <translation type="unfinished"/>
+      <translation>Название вашей компании - отображается в нижнем левом углу</translation>
     </message>
     <message>
       <source>Interval between chat status checks in seconds, 0 disabled.</source>
@@ -167,7 +167,7 @@
     </message>
     <message>
       <source>Show BB Code button</source>
-      <translation type="unfinished"/>
+      <translation>Показывать кнопку BB-кода</translation>
     </message>
     <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
@@ -324,7 +324,7 @@
     </message>
     <message>
       <source>Have a question? Ask us!</source>
-      <translation type="unfinished"/>
+      <translation>Есть вопрос? Спросите у нас!</translation>
     </message>
     <message>
       <source>Background color</source>
@@ -530,7 +530,7 @@
     </message>
     <message>
       <source>Requires phone</source>
-      <translation type="unfinished"/>
+      <translation>Запросить телефонный номер</translation>
     </message>
     <message>
       <source>Show random operator profile</source>
@@ -604,7 +604,7 @@
     </message>
     <message>
       <source>example.com</source>
-      <translation type="unfinished"/>
+      <translation>example.com</translation>
     </message>
     <message>
       <source>Choose prefered http mode</source>
@@ -968,7 +968,7 @@
     </message>
     <message>
       <source>XLS</source>
-      <translation type="unfinished"/>
+      <translation>XLS</translation>
     </message>
     <message>
       <source>Select department</source>
@@ -1848,7 +1848,7 @@
     </message>
     <message>
       <source>Please enter a message...</source>
-      <translation type="unfinished"/>
+      <translation>Пожалуйста, напишите сообщение...</translation>
     </message>
     <message>
       <source>Start chat</source>
@@ -1892,7 +1892,7 @@
     </message>
     <message>
       <source>Have a question? Ask us!</source>
-      <translation type="unfinished"/>
+      <translation>Есть вопрос? Спросите у нас!</translation>
     </message>
     <message>
       <source>Department is offline</source>
@@ -1904,7 +1904,7 @@
     </message>
     <message>
       <source>Cancel and choose another department</source>
-      <translation type="unfinished"/>
+      <translation>Выйти и выбрать другой департамент</translation>
     </message>
     <message>
       <source>characters</source>
@@ -1932,7 +1932,7 @@
     </message>
     <message>
       <source>Choose your language</source>
-      <translation type="unfinished"/>
+      <translation>Выбрать ваш язык</translation>
     </message>
     <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
@@ -2000,7 +2000,7 @@
     </message>
     <message>
       <source>Unread message</source>
-      <translation type="unfinished"/>
+      <translation>Непрочитанные сообщения</translation>
     </message>
   </context>
   <context>
@@ -2145,7 +2145,7 @@
     </message>
     <message>
       <source>all</source>
-      <translation type="unfinished"/>
+      <translation>все</translation>
     </message>
     <message>
       <source>custom</source>
@@ -3139,7 +3139,7 @@
     </message>
     <message>
       <source>New unread message</source>
-      <translation type="unfinished"/>
+      <translation>Новые непрочитанные сообщения</translation>
     </message>
   </context>
   <context>
@@ -3322,7 +3322,7 @@
     </message>
     <message>
       <source>Requires e-mail</source>
-      <translation>Требует e-mail</translation>
+      <translation>Запросить e-mail</translation>
     </message>
     <message>
       <source>Requires name</source>
@@ -3330,7 +3330,7 @@
     </message>
     <message>
       <source>Requires phone</source>
-      <translation type="unfinished"/>
+      <translation>Запросить телефонный номер</translation>
     </message>
     <message>
       <source>Send the message</source>
@@ -3595,7 +3595,7 @@
     </message>
     <message>
       <source>Thumbs up</source>
-      <translation type="unfinished"/>
+      <translation>Хорошо</translation>
     </message>
     <message>
       <source>Number of Thumbs Up</source>
@@ -3603,7 +3603,7 @@
     </message>
     <message>
       <source>Thumbs down</source>
-      <translation type="unfinished"/>
+      <translation>Плохо</translation>
     </message>
     <message>
       <source>Number of Thumbs Down</source>
@@ -3611,11 +3611,11 @@
     </message>
     <message>
       <source>Country</source>
-      <translation type="unfinished"/>
+      <translation>Страна</translation>
     </message>
     <message>
       <source>Chats</source>
-      <translation type="unfinished"/>
+      <translation>Чаты</translation>
     </message>
     <message>
       <source>Number of chats by country</source>
@@ -3623,7 +3623,7 @@
     </message>
     <message>
       <source>Messages</source>
-      <translation type="unfinished"/>
+      <translation>Сообщения</translation>
     </message>
     <message>
       <source>Number of messages by user</source>
@@ -3643,7 +3643,7 @@
     </message>
     <message>
       <source>Operators</source>
-      <translation type="unfinished"/>
+      <translation>Операторы</translation>
     </message>
     <message>
       <source>Pending</source>
@@ -3671,11 +3671,11 @@
     </message>
     <message>
       <source>System</source>
-      <translation type="unfinished"/>
+      <translation>Система</translation>
     </message>
     <message>
       <source>Messages types</source>
-      <translation type="unfinished"/>
+      <translation>Типы сообщений</translation>
     </message>
     <message>
       <source>Number of chats per hour, average chat duration</source>
@@ -3683,7 +3683,7 @@
     </message>
     <message>
       <source>Chats statistic</source>
-      <translation type="unfinished"/>
+      <translation>Статистика чатов</translation>
     </message>
     <message>
       <source>Hourly statistic</source>
@@ -6252,31 +6252,31 @@
     <name>chat/chatexport</name>
     <message>
       <source>Visitor Name</source>
-      <translation type="unfinished"/>
+      <translation>Имя посетителя</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation type="unfinished"/>
+      <translation>Телефон</translation>
     </message>
     <message>
       <source>Country</source>
-      <translation type="unfinished"/>
+      <translation>Страна</translation>
     </message>
     <message>
       <source>City</source>
-      <translation type="unfinished"/>
+      <translation>Город</translation>
     </message>
     <message>
       <source>IP</source>
-      <translation type="unfinished"/>
+      <translation>IP</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>Оператор</translation>
     </message>
     <message>
       <source>Department</source>
@@ -6284,7 +6284,7 @@
     </message>
     <message>
       <source>Date</source>
-      <translation type="unfinished"/>
+      <translation>Дата</translation>
     </message>
     <message>
       <source>Mail send</source>
@@ -6292,11 +6292,11 @@
     </message>
     <message>
       <source>Referrer</source>
-      <translation type="unfinished"/>
+      <translation>Реферер</translation>
     </message>
     <message>
       <source>Link</source>
-      <translation type="unfinished"/>
+      <translation>Ссылка</translation>
     </message>
   </context>
 </TS>

@@ -3,7 +3,7 @@
     <name>listchatconfig</name>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
-      <translation>Przez ile dni od czasu ostatniego wyświetlenia widżetu głosowania ma się nie rozwijać</translation>
+      <translation>Przez ile dni, od czasu ostatniego wyświetlenia, widżet głosowania ma się nie wyświetlać</translation>
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
@@ -11,27 +11,27 @@
     </message>
     <message>
       <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
-      <translation>Jakie adresy IP są dozwolone do aktualizowania bazy danych poprzez zapytanie http, podaj adresy oddzielone przecinkami?</translation>
+      <translation>Które adresy IP są dozwolone do aktualizowania bazy danych poprzez zapytanie http, podaj adresy oddzielone przecinkami?</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
-      <translation>Włącz śledzenie gości odwiedzających stronę www</translation>
+      <translation>Włącz śledzenie gości odwiedzających stronę</translation>
     </message>
     <message>
       <source>Track is user still on site, chat status checks also has to be enabled</source>
-      <translation type="unfinished"/>
+      <translation>Śledź czy użytkownik jest nadal na stronie, sprawdzanie statusu rozmowy musi być również włączone</translation>
     </message>
     <message>
       <source>Track online visitors even if there is no online operators</source>
-      <translation>Śledź gości odwiedzających stronę www, nawet jeśli nie ma dostępnych operatorów</translation>
+      <translation>Śledź gości odwiedzających stronę, nawet gdy nie ma dostępnych operatorów</translation>
     </message>
     <message>
       <source>Track users footprint. For this also online visitors tracking should be enabled</source>
-      <translation>Podążaj za śladami użytkownika. Do działania tej funkcji należy taże włączyć śledzenie gości</translation>
+      <translation>Podążaj za śladami użytkownika. Do działania tej funkcji należy także włączyć śledzenie gości</translation>
     </message>
     <message>
       <source>Set your domain to enable user tracking across different domain subdomains.</source>
-      <translation>Ustaw swoją domenę aby zezwolić śledzenie użytkowników pomiędzy różnymi domenami i pod domenami</translation>
+      <translation>Ustaw swoją domenę aby zezwolić na śledzenie użytkowników pomiędzy różnymi domenami i poddomenami</translation>
     </message>
     <message>
       <source>How many days keep records of online users.</source>
@@ -39,11 +39,11 @@
     </message>
     <message>
       <source>Suggest user to leave a message then user chooses offline department</source>
-      <translation>Zaproponuj użytkownikowi pozostawienie wiadomości, gdy wybierze dział którego pracownicy są offline</translation>
+      <translation>Zaproponuj użytkownikowi pozostawienie wiadomości, gdy wybierze dział, którego pracownicy są offline</translation>
     </message>
     <message>
       <source>Play sound on invitation to chat.</source>
-      <translation>Odtwarzaj dźwięk przy zaproszeniu do czata.</translation>
+      <translation>Odtwarzaj dźwięk przy zaproszeniu do rozmowy.</translation>
     </message>
     <message>
       <source>Show users option to switch language at widget</source>
@@ -51,7 +51,7 @@
     </message>
     <message>
       <source>Between what languages user should be able to switch</source>
-      <translation type="unfinished"/>
+      <translation>Pomiędzy jakimi językami użytkownik powinien móc się przełączać</translation>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
@@ -151,7 +151,7 @@
     </message>
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
-      <translation type="unfinished"/>
+      <translation>Wyłącz magazynowanie HTML5, zaznacz jeżeli adresy Twojej strony przełączają się pomiędzy http i https</translation>
     </message>
     <message>
       <source>Your site URL address</source>
@@ -163,7 +163,7 @@
     </message>
     <message>
       <source>Interval between chat status checks in seconds, 0 disabled.</source>
-      <translation type="unfinished"/>
+      <translation>Przerwa pomiędzy kolejnymi sprawdzeniami statusu rozmowy w sekundach, 0 wyłącza.</translation>
     </message>
     <message>
       <source>Show BB Code button</source>
@@ -2000,7 +2000,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Unread message</source>
-      <translation type="unfinished"/>
+      <translation>Nieprzeczytana wiadomość</translation>
     </message>
   </context>
   <context>
@@ -3433,11 +3433,11 @@ pokazywany</translation>
     </message>
     <message>
       <source>Hide message label</source>
-      <translation type="unfinished"/>
+      <translation>Ukryj etykiety wiadomości</translation>
     </message>
     <message>
       <source>Initial user message height in pixels</source>
-      <translation type="unfinished"/>
+      <translation>Początkowa wysokość w pikselach pola wiadomości użytkownika</translation>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>
@@ -3595,15 +3595,15 @@ pokazywany</translation>
     </message>
     <message>
       <source>Thumbs up</source>
-      <translation type="unfinished"/>
+      <translation>Polecam</translation>
     </message>
     <message>
       <source>Number of Thumbs Up</source>
-      <translation type="unfinished"/>
+      <translation>Ilość poleceń</translation>
     </message>
     <message>
       <source>Thumbs down</source>
-      <translation type="unfinished"/>
+      <translation>Nie polecam</translation>
     </message>
     <message>
       <source>Number of Thumbs Down</source>
@@ -3675,7 +3675,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Messages types</source>
-      <translation type="unfinished"/>
+      <translation>Typy wiadomości</translation>
     </message>
     <message>
       <source>Number of chats per hour, average chat duration</source>

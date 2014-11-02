@@ -2164,7 +2164,7 @@
     </message>
     <message>
       <source>hidden/disabled, widget will not be shown</source>
-      <translation type="unfinished"/>
+      <translation>tersembunyi/dinonaktifkan, widget tidak akan ditampilkan</translation>
     </message>
     <message>
       <source>For unmatched countries put chat status to</source>
@@ -2172,14 +2172,14 @@
     </message>
     <message>
       <source>normal status</source>
-      <translation type="unfinished"/>
+      <translation>status normal</translation>
     </message>
   </context>
   <context>
     <name>system/xmpp</name>
     <message>
       <source>Geo adjustments active</source>
-      <translation type="unfinished"/>
+      <translation>Penyesuaian geo aktif</translation>
     </message>
     <message>
       <source>Settings updated</source>
@@ -2199,7 +2199,7 @@
     </message>
     <message>
       <source>XMPP Message about accepted chat</source>
-      <translation type="unfinished"/>
+      <translation>XMPP Pesan tentang obrolan diterima</translation>
     </message>
     <message>
       <source>XMPP</source>
@@ -2458,7 +2458,7 @@
     </message>
     <message>
       <source>Time zone</source>
-      <translation type="unfinished"/>
+      <translation>Zona waktu</translation>
     </message>
     <message>
       <source>Identifier</source>
@@ -2466,7 +2466,7 @@
     </message>
     <message>
       <source>Additional information</source>
-      <translation type="unfinished"/>
+      <translation>Informasi tambahan</translation>
     </message>
     <message>
       <source>Last activity</source>
@@ -2566,11 +2566,11 @@
     </message>
     <message>
       <source>Enable/Disable sound about new visitor</source>
-      <translation type="unfinished"/>
+      <translation>Aktifkan/Nonaktifkan suara tentang pengunjung baru</translation>
     </message>
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
-      <translation type="unfinished"/>
+      <translation>Aktifkan/Nonaktifkan pemberitahuan browser tentang pengunjung baru</translation>
     </message>
     <message>
       <source>List</source>
@@ -2582,15 +2582,15 @@
     </message>
     <message>
       <source>Group list by</source>
-      <translation type="unfinished"/>
+      <translation>Daftar grup dengan</translation>
     </message>
     <message>
       <source>Group by</source>
-      <translation type="unfinished"/>
+      <translation>Grup dengan</translation>
     </message>
     <message>
       <source>User country</source>
-      <translation type="unfinished"/>
+      <translation>Negara pengguna</translation>
     </message>
     <message>
       <source>Page</source>
@@ -2598,23 +2598,23 @@
     </message>
     <message>
       <source>Page title</source>
-      <translation type="unfinished"/>
+      <translation>Judul halaman</translation>
     </message>
     <message>
       <source>Referrer</source>
-      <translation type="unfinished"/>
+      <translation>Pengarah</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Departemen</translation>
     </message>
     <message>
       <source>Refresh list every</source>
-      <translation type="unfinished"/>
+      <translation>Segarkan daftar setiap</translation>
     </message>
     <message>
       <source>second</source>
-      <translation type="unfinished"/>
+      <translation>detik</translation>
     </message>
     <message>
       <source>seconds</source>
@@ -2626,11 +2626,11 @@
     </message>
     <message>
       <source>minute</source>
-      <translation type="unfinished"/>
+      <translation>menit</translation>
     </message>
     <message>
       <source>minutes</source>
-      <translation type="unfinished"/>
+      <translation>menit</translation>
     </message>
     <message>
       <source>hour</source>
@@ -2646,15 +2646,15 @@
     </message>
     <message>
       <source>Max records to return</source>
-      <translation type="unfinished"/>
+      <translation>Maksimal untuk mencatat kembali</translation>
     </message>
     <message>
       <source>Visitor local time</source>
-      <translation type="unfinished"/>
+      <translation>Pengunjung waktu setempat</translation>
     </message>
     <message>
       <source>By user status on site</source>
-      <translation type="unfinished"/>
+      <translation>Berdasarkan status pengguna di situs</translation>
     </message>
     <message>
       <source>Status</source>
@@ -2813,11 +2813,11 @@
     </message>
     <message>
       <source>Cookie related</source>
-      <translation type="unfinished"/>
+      <translation>Cookie terkait</translation>
     </message>
     <message>
       <source>Chat related</source>
-      <translation type="unfinished"/>
+      <translation>Percakapan terkait</translation>
     </message>
     <message>
       <source>Workflow</source>
@@ -2852,7 +2852,7 @@
     </message>
     <message>
       <source>System</source>
-      <translation type="unfinished"/>
+      <translation>Sistem</translation>
     </message>
     <message>
       <source>Time zone settings</source>
@@ -2888,7 +2888,7 @@
     </message>
     <message>
       <source>Embed code</source>
-      <translation type="unfinished"/>
+      <translation>Kode pencantuman</translation>
     </message>
     <message>
       <source>Live help embed code</source>
@@ -2912,7 +2912,7 @@
     </message>
     <message>
       <source>Live help configuration</source>
-      <translation type="unfinished"/>
+      <translation>Konfigurasi bantuan langsung</translation>
     </message>
     <message>
       <source>Departments</source>
@@ -2932,7 +2932,7 @@
     </message>
     <message>
       <source>GEO adjustment</source>
-      <translation type="unfinished"/>
+      <translation>Penyesuaian GEO</translation>
     </message>
     <message>
       <source>Synchronization and sound settings</source>
@@ -2972,11 +2972,11 @@
     </message>
     <message>
       <source>Maintenance</source>
-      <translation type="unfinished"/>
+      <translation>Perbaikan &amp; Pemeliharaan</translation>
     </message>
     <message>
       <source>Files</source>
-      <translation type="unfinished"/>
+      <translation>File</translation>
     </message>
     <message>
       <source>Files upload configuration</source>
@@ -3321,15 +3321,15 @@
     </message>
     <message>
       <source>Requires e-mail</source>
-      <translation type="unfinished"/>
+      <translation>E-mail dibutuhkan</translation>
     </message>
     <message>
       <source>Requires name</source>
-      <translation type="unfinished"/>
+      <translation>Nama dibutuhkan</translation>
     </message>
     <message>
       <source>Requires phone</source>
-      <translation type="unfinished"/>
+      <translation>Telepon dibutuhkan</translation>
     </message>
     <message>
       <source>Send the message</source>
@@ -5984,7 +5984,7 @@
     </message>
     <message>
       <source>Minimum 5 seconds</source>
-      <translation type="unfinished"/>
+      <translation>Minimal 5 detik</translation>
     </message>
     <message>
       <source>Transfer department has to be different one than self</source>
@@ -6019,11 +6019,11 @@
     </message>
     <message>
       <source>Popup width</source>
-      <translation type="unfinished"/>
+      <translation>Lebar popup</translation>
     </message>
     <message>
       <source>Popup height</source>
-      <translation type="unfinished"/>
+      <translation>Tinggi popup</translation>
     </message>
     <message>
       <source>Measure units, px or percents</source>
@@ -6091,15 +6091,15 @@
     </message>
     <message>
       <source>Post content after form is submitted</source>
-      <translation type="unfinished"/>
+      <translation>Memposting konten setelah formulir dikirimkan</translation>
     </message>
     <message>
       <source>Custom pagelayout</source>
-      <translation type="unfinished"/>
+      <translation>Tata letak halaman kustom</translation>
     </message>
     <message>
       <source>Forms list</source>
-      <translation type="unfinished"/>
+      <translation>Daftar formulir</translation>
     </message>
   </context>
   <context>
