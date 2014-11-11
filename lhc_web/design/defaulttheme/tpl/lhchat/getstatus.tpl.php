@@ -524,13 +524,36 @@ var lh_inst  = {
         }, <?php echo (int)(erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['check_for_operator_msg']*1000); ?> );
     },
 
+    getTzOffset : function(){
+	    Date.prototype.stdTimezoneOffset = function() {
+		    var jan = new Date(this.getFullYear(), 0, 1);
+		    var jul = new Date(this.getFullYear(), 6, 1);
+		    return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
+		}
+	
+		Date.prototype.dst = function() {
+		    return this.getTimezoneOffset() < this.stdTimezoneOffset();
+		}
+		
+		var today = new Date();
+		var timeZoneOffset = 0;
+		
+		if (today.dst()) { 
+			timeZoneOffset = today.getTimezoneOffset();
+		} else {
+			timeZoneOffset = today.getTimezoneOffset()-60;
+		}
+		
+		return (timeZoneOffset/60)*-1;
+    },
+    
     startNewMessageCheckSingle : function() {
     	var vid = this.cookieDataPers.vid;
         lh_inst.removeById('lhc_operator_message');
         var th = document.getElementsByTagName('head')[0];
         var s = document.createElement('script');
         var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
-        var tzOffset = ((new Date().getTimezoneOffset())/60) * -1;
+        var tzOffset = this.getTzOffset();
         
         s.setAttribute('id','lhc_operator_message');
         s.setAttribute('type','text/javascript');
@@ -543,7 +566,7 @@ var lh_inst  = {
         var th = document.getElementsByTagName('head')[0];
         var s = document.createElement('script');
         var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));        
-        var tzOffset = ((new Date().getTimezoneOffset())/60) * -1; 
+        var tzOffset = this.getTzOffset(); 
         s.setAttribute('id','lhc_log_pageview');
         s.setAttribute('type','text/javascript');
         s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/logpageview<?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?>/(tz)/'+tzOffset+'/(vid)/'+vid+'?l='+locationCurrent+this.parseStorageArguments()+this.parseOptionsOnline()+'&dt='+encodeURIComponent(document.title));

@@ -18,7 +18,7 @@ $(document).ready(function() {
 	if (today.dst()) { 
 		timeZoneOffset = today.getTimezoneOffset();
 	} else {
-		timeZoneOffset = today.getTimezoneOffset()+3600;
+		timeZoneOffset = today.getTimezoneOffset()-60;
 	}
 	
   	$('input[name=user_timezone]').val(((timeZoneOffset)/60) * -1);
