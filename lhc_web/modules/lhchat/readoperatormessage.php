@@ -36,6 +36,12 @@ if ($inputData->departament_id > 0) {
 	$tpl->set('department',false);
 }
 
+// Set time zone if script detected it
+if ($userInstance->visitor_tz != '') {
+	erLhcoreClassModule::$defaultTimeZone = $userInstance->visitor_tz;
+	date_default_timezone_set(erLhcoreClassModule::$defaultTimeZone);
+}
+
 $tpl->set('playsound',(string)$Params['user_parameters_unordered']['playsound'] == 'true' && !isset($_POST['askQuestion']) && erLhcoreClassModelChatConfig::fetch('sound_invitation')->current_value == 1);
 
 $chat = new erLhcoreClassModelChat();
