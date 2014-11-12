@@ -529,11 +529,11 @@ var lh_inst  = {
 		    var jan = new Date(this.getFullYear(), 0, 1);
 		    var jul = new Date(this.getFullYear(), 6, 1);
 		    return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
-		}
+		};
 	
 		Date.prototype.dst = function() {
 		    return this.getTimezoneOffset() < this.stdTimezoneOffset();
-		}
+		};
 		
 		var today = new Date();
 		var timeZoneOffset = 0;
@@ -542,7 +542,7 @@ var lh_inst  = {
 			timeZoneOffset = today.getTimezoneOffset();
 		} else {
 			timeZoneOffset = today.getTimezoneOffset()-60;
-		}
+		};
 		
 		return (timeZoneOffset/60)*-1;
     },
