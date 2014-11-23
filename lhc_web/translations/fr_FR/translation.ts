@@ -6052,7 +6052,7 @@
     </message>
     <message>
       <source>Load content in lhc iframe</source>
-      <translation type="unfinished"/>
+      <translation>Afficher le contenu dans une iframe</translation>
     </message>
     <message>
       <source>Active</source>

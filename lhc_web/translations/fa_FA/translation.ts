@@ -15,7 +15,7 @@
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
-      <translation type="unfinished"/>
+      <translation>فعال کردن ردیابی بازدیدکنندگان آنلاین در سایت</translation>
     </message>
     <message>
       <source>Track is user still on site, chat status checks also has to be enabled</source>
@@ -23,7 +23,7 @@
     </message>
     <message>
       <source>Track online visitors even if there is no online operators</source>
-      <translation type="unfinished"/>
+      <translation>بازدیدکنندگان سایت ردیابی شوند، حتی اگر هیچ اپراتوری آنلاین نیست</translation>
     </message>
     <message>
       <source>Track users footprint. For this also online visitors tracking should be enabled</source>
@@ -35,7 +35,7 @@
     </message>
     <message>
       <source>How many days keep records of online users.</source>
-      <translation type="unfinished"/>
+      <translation>اطلاعات کاربران آنلاین برای چند روز ذخیره شوند</translation>
     </message>
     <message>
       <source>Suggest user to leave a message then user chooses offline department</source>
@@ -43,15 +43,15 @@
     </message>
     <message>
       <source>Play sound on invitation to chat.</source>
-      <translation type="unfinished"/>
+      <translation>پخش صدا برای دعوت بازدیدکننده به چت</translation>
     </message>
     <message>
       <source>Show users option to switch language at widget</source>
-      <translation type="unfinished"/>
+      <translation>نمایش گزینه ی تغییر زبان برای بازدیدکنندگان</translation>
     </message>
     <message>
       <source>Between what languages user should be able to switch</source>
-      <translation type="unfinished"/>
+      <translation>کاربر بین چه زبانهایی میتوند انتخاب کند</translation>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
@@ -95,11 +95,11 @@
     </message>
     <message>
       <source>Minimum phone number length</source>
-      <translation type="unfinished"/>
+      <translation>حداقل تعداد ارقام شماره تلفن</translation>
     </message>
     <message>
       <source>Messages box height</source>
-      <translation type="unfinished"/>
+      <translation>حداکثر ارتفاع پنجره چت</translation>
     </message>
     <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
@@ -107,11 +107,11 @@
     </message>
     <message>
       <source>Maximum message length in characters</source>
-      <translation type="unfinished"/>
+      <translation>حداکثر طول پیام به کاراکتر</translation>
     </message>
     <message>
       <source>List online operators.</source>
-      <translation>اپراتورهای حاضر را لیست کن</translation>
+      <translation>نمایش اپراتورهای آنلاین</translation>
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
@@ -119,7 +119,7 @@
     </message>
     <message>
       <source>Which ip should be ignored in online users list, separate by comma</source>
-      <translation type="unfinished"/>
+      <translation>آی پی هایی که باید بلاک شوند را با کاما جدا کنید</translation>
     </message>
     <message>
       <source>Hide disabled department widget</source>
@@ -143,7 +143,7 @@
     </message>
     <message>
       <source>Disable chat print</source>
-      <translation type="unfinished"/>
+      <translation>غیرفعال کردن پرینت چت</translation>
     </message>
     <message>
       <source>Disable option in widget to open new window. Restore icon will be hidden</source>
@@ -155,11 +155,11 @@
     </message>
     <message>
       <source>Your site URL address</source>
-      <translation type="unfinished"/>
+      <translation>آدرس وبسایت شما</translation>
     </message>
     <message>
       <source>Your company name - visible in bottom left corner</source>
-      <translation type="unfinished"/>
+      <translation>نام شرکت شما - در گوشه پایین، چپ نمایش داده خواهد شد</translation>
     </message>
     <message>
       <source>Interval between chat status checks in seconds, 0 disabled.</source>
@@ -167,7 +167,7 @@
     </message>
     <message>
       <source>Show BB Code button</source>
-      <translation type="unfinished"/>
+      <translation>نمایش آیکن کدهای BB</translation>
     </message>
     <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
@@ -183,7 +183,7 @@
     </message>
     <message>
       <source>Support application name, visible in browser title.</source>
-      <translation type="unfinished"/>
+      <translation>نام برنامه چت - در بالای مرورگر نمایش داده خواهد شد</translation>
     </message>
     <message>
       <source>Allow user to reopen closed chats?</source>
@@ -262,21 +262,21 @@
     </message>
     <message>
       <source>Send test message</source>
-      <translation>ارسال پیام متنی</translation>
+      <translation>ارسال پیام تست</translation>
     </message>
   </context>
   <context>
     <name>abstract/abstract_form</name>
     <message>
       <source>Updated!</source>
-      <translation>به روز شده!</translation>
+      <translation>به روز شد!</translation>
     </message>
   </context>
   <context>
     <name>abstract/widgettheme</name>
     <message>
       <source>Download theme</source>
-      <translation>دانلود تم</translation>
+      <translation>دانلود قالب</translation>
     </message>
     <message>
       <source>Status widget style</source>
@@ -292,7 +292,7 @@
     </message>
     <message>
       <source>Need help widget</source>
-      <translation>نیاز به کمک ابزارک</translation>
+      <translation>ابزارک نیاز به کمک</translation>
     </message>
     <message>
       <source>Custom CSS</source>
@@ -320,7 +320,7 @@
     </message>
     <message>
       <source>Operator intro text</source>
-      <translation type="unfinished"/>
+      <translation>متن ورود اپراتور</translation>
     </message>
     <message>
       <source>Have a question? Ask us!</source>
@@ -332,7 +332,7 @@
     </message>
     <message>
       <source>Status widget border color</source>
-      <translation>رنگ بردار وضعیت ابزارک</translation>
+      <translation>رنگ بردار ابزارک وضعیت</translation>
     </message>
     <message>
       <source>Text color</source>
@@ -356,19 +356,19 @@
     </message>
     <message>
       <source>Widget copyright link</source>
-      <translation>پیوند حق نسخه برداری ابزارک</translation>
+      <translation>لینک کپی رایت ابزارک</translation>
     </message>
     <message>
       <source>Text above start chat form fields</source>
-      <translation type="unfinished"/>
+      <translation>متن بالای فرم شروع چت</translation>
     </message>
     <message>
       <source>Online image</source>
-      <translation>تصویر حضور</translation>
+      <translation>تصویر اعلام آنلاین بودن</translation>
     </message>
     <message>
       <source>Offline image</source>
-      <translation>تصویر عدم حضور</translation>
+      <translation>تصویر اعلام آفلاین بودن</translation>
     </message>
     <message>
       <source>Widget header background color</source>
@@ -380,31 +380,31 @@
     </message>
     <message>
       <source>Need help background color</source>
-      <translation>نیاز به کمک رنگ پس زمینه</translation>
+      <translation>رنگ پس زمینه در نیاز به کمک</translation>
     </message>
     <message>
       <source>Need help hover background color</source>
-      <translation>نیاز به کمک رنگ پس زمینه شناور</translation>
+      <translation>رنگ پس زمینه شناور در نیاز به کمک</translation>
     </message>
     <message>
       <source>Need help text color</source>
-      <translation>نیاز به کمک رنگ متن</translation>
+      <translation>رنگ متن در نیاز به کمک</translation>
     </message>
     <message>
       <source>Need help border color</source>
-      <translation>نیاز به کمک رنگ بردار</translation>
+      <translation>رنگ بردار در نیاز به کمک</translation>
     </message>
     <message>
       <source>Need help close background color</source>
-      <translation>نیاز به کمک بستن رنگ پس زمینه</translation>
+      <translation>رنگ پس زمینه بستن در نیاز به کمک</translation>
     </message>
     <message>
       <source>Need help close hover background color</source>
-      <translation>نیاز به کمک بستن رنگ پس زمینه شناور</translation>
+      <translation>رنگ پس زمینه شناور بستن در نیاز به کمک</translation>
     </message>
     <message>
       <source>Need help operator image</source>
-      <translation>نیاز به کمک تصویر اپراتور</translation>
+      <translation>تصویر اپراتور در نیاز به کمک</translation>
     </message>
     <message>
       <source>Status widget additional CSS, takes effect after save</source>
@@ -420,7 +420,7 @@
     </message>
     <message>
       <source>Widget themes</source>
-      <translation>تم ابزارک</translation>
+      <translation>قالب ابزارک</translation>
     </message>
   </context>
   <context>
@@ -435,7 +435,7 @@
     </message>
     <message>
       <source>Minimize/Restore</source>
-      <translation>بازنشانی/کاهش</translation>
+      <translation>پایین زدن/باز کردن</translation>
     </message>
     <message>
       <source>Live help is online...</source>
