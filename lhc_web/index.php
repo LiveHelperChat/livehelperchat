@@ -5,6 +5,9 @@
 @ini_set('session.gc_maxlifetime', 200000);
 @ini_set('session.cookie_lifetime', 2000000);
 @ini_set('session.cookie_httponly',1);
+if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {
+@ini_set('session.cookie_secure',1);
+}
 
 require_once "ezcomponents/Base/src/base.php"; // dependent on installation method, see below
 
