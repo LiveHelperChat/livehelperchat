@@ -7,6 +7,17 @@
 @ini_set('session.gc_maxlifetime', 200000);
 @ini_set('session.cookie_lifetime', 2000000);
 @ini_set('session.cookie_httponly',1);
+/*
+ * Vulnerability: SC-1628
+ * Name: SSL cookie without secure flag set
+ * Type: Web Servers
+ * Asset Group: Network Segment
+ * 
+ * URI: /index.php/chat/startchat
+ * Other Info: PHPSESSID=4fqbt1u2k5ci475ieiku4aaie0; path=/; HttpOnly
+ * 
+ * Source: SureCloud 
+ */
 // https://bugs.php.net/bug.php?id=49184
 // https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=730094
 if (filter_has_var(INPUT_SERVER, "HTTPS")) {
