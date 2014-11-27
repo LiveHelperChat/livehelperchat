@@ -30,7 +30,7 @@ FILTER_SANITIZE_STRING, FILTER_NULL_ON_FAILURE);
         else
             $is_secure_conn = null;
     }
-if ($is_secure_conn != null) {
+if ($is_secure_conn != null || $is_secure_conn != 'off') {
     @ini_set('session.cookie_secure',1);
 }
 
