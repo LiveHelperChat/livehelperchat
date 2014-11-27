@@ -4,7 +4,7 @@ $tpl = erLhcoreClassTemplate::getInstance( 'lhuser/new.tpl.php');
 
 $UserData = new erLhcoreClassModelUser();
 $UserDepartaments = isset($_POST['UserDepartament']) ? $_POST['UserDepartament'] : array();
-$show_all_pending = 0;
+$show_all_pending = 1;
 
 if (isset($_POST['Update_account']))
 {
