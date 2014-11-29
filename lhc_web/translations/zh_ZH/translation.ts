@@ -19,7 +19,7 @@
     </message>
     <message>
       <source>Track is user still on site, chat status checks also has to be enabled</source>
-      <translation type="unfinished"/>
+      <translation>检测用户是否在线，聊天状态检查程序必须开启</translation>
     </message>
     <message>
       <source>Track online visitors even if there is no online operators</source>
@@ -99,7 +99,7 @@
     </message>
     <message>
       <source>Messages box height</source>
-      <translation type="unfinished"/>
+      <translation>聊天窗口的高度</translation>
     </message>
     <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
@@ -320,11 +320,11 @@
     </message>
     <message>
       <source>Operator intro text</source>
-      <translation type="unfinished"/>
+      <translation>操作者姓名</translation>
     </message>
     <message>
       <source>Have a question? Ask us!</source>
-      <translation type="unfinished"/>
+      <translation>有任何问题？请问我们！</translation>
     </message>
     <message>
       <source>Background color</source>
@@ -340,7 +340,7 @@
     </message>
     <message>
       <source>Operator image in chat widget</source>
-      <translation type="unfinished"/>
+      <translation>聊天部件中操作员的图片</translation>
     </message>
     <message>
       <source>Logo image, visible in popup</source>
@@ -360,7 +360,7 @@
     </message>
     <message>
       <source>Text above start chat form fields</source>
-      <translation type="unfinished"/>
+      <translation>聊天窗口上方的文字</translation>
     </message>
     <message>
       <source>Online image</source>
@@ -6251,51 +6251,51 @@
     <name>chat/chatexport</name>
     <message>
       <source>Visitor Name</source>
-      <translation type="unfinished"/>
+      <translation>访客姓名</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>电子邮箱</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation type="unfinished"/>
+      <translation>电话</translation>
     </message>
     <message>
       <source>Country</source>
-      <translation type="unfinished"/>
+      <translation>国家</translation>
     </message>
     <message>
       <source>City</source>
-      <translation type="unfinished"/>
+      <translation>城市</translation>
     </message>
     <message>
       <source>IP</source>
-      <translation type="unfinished"/>
+      <translation>IP地址</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>操作员</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>部门</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation type="unfinished"/>
+      <translation>日期</translation>
     </message>
     <message>
       <source>Mail send</source>
-      <translation type="unfinished"/>
+      <translation>邮件已发送</translation>
     </message>
     <message>
       <source>Referrer</source>
-      <translation type="unfinished"/>
+      <translation>推荐人</translation>
     </message>
     <message>
       <source>Link</source>
-      <translation type="unfinished"/>
+      <translation>链接</translation>
     </message>
   </context>
 </TS>

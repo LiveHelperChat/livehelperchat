@@ -360,7 +360,7 @@
     </message>
     <message>
       <source>Text above start chat form fields</source>
-      <translation type="unfinished"/>
+      <translation>Tekst ponad polami formularza rozpoczęcia rozmowy</translation>
     </message>
     <message>
       <source>Online image</source>
@@ -3599,7 +3599,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Number of Thumbs Up</source>
-      <translation>Ilość poleceń</translation>
+      <translation>Ilość głosów na &quot;Tak&quot;</translation>
     </message>
     <message>
       <source>Thumbs down</source>
@@ -3607,7 +3607,7 @@ pokazywany</translation>
     </message>
     <message>
       <source>Number of Thumbs Down</source>
-      <translation type="unfinished"/>
+      <translation>Ilość głosów na &quot;Nie&quot;</translation>
     </message>
     <message>
       <source>Country</source>
