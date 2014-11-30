@@ -9,7 +9,8 @@ class erLhAbstractModelFormCollected {
 			'form_id'  		=> $this->form_id,
 			'ctime'  		=> $this->ctime,
 			'ip'  			=> $this->ip,
-			'content' 		=> $this->content
+			'content' 		=> $this->content,
+			'identifier' 	=> $this->identifier
 		);
 
 		return $stateArray;
@@ -185,6 +186,7 @@ class erLhAbstractModelFormCollected {
 	public $ctime = null;	
 	public $ip = '';
 	public $content = '';
+	public $identifier = '';
 
 }
 

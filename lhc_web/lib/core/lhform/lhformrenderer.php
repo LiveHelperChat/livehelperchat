@@ -22,6 +22,14 @@ class erLhcoreClassFormRenderer {
     		$contentForm = str_replace($inputDefinition,$content,$contentForm);    		
     	};
 
+    	if (isset($_GET['identifier']) && !empty($_GET['identifier'])) {
+    		$contentForm .= "<input type=\"hidden\" name=\"identifier\" value=\"".htmlspecialchars(rawurldecode($_GET['identifier']))."\" />";
+    	} elseif (isset($_POST['identifier']) && !empty($_POST['identifier'])) {
+    		$contentForm .= "<input type=\"hidden\" name=\"identifier\" value=\"".htmlspecialchars($_POST['identifier'])."\" />";
+    	} elseif (isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])) {
+    		$contentForm .= "<input type=\"hidden\" name=\"identifier\" value=\"".htmlspecialchars($_SERVER['HTTP_REFERER'])."\" />";
+    	}
+    	
     	if ( empty(self::$errors) && ezcInputForm::hasPostData()) {
     		self::$isCollected = true;
     	}
@@ -504,7 +512,8 @@ class erLhcoreClassFormRenderer {
     	$formCollected = new erLhAbstractModelFormCollected();
     	$formCollected->ip = erLhcoreClassIPDetect::getIP();
     	$formCollected->ctime = time();
-    	$formCollected->form_id = $form->id;    	
+    	$formCollected->form_id = $form->id;  
+    	$formCollected->identifier = isset($_POST['identifier']) ? $_POST['identifier'] : (isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : ''); 
     	$formCollected->saveThis();
     	
     	// Finish collect information

@@ -434,6 +434,14 @@
                 "extra": ""
             },
             {
+                "field": "identifier",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "content",
                 "type": "longtext",
                 "null": "NO",

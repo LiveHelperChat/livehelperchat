@@ -1,3 +1,13 @@
+2.14v
+
+This release is maintenence release with few enhancements
+
+1. Option to pass identifier. It can be either some specific value or if not provided it will be referer URL.
+Also new variable in template can be used {url_view} it will be link to filled form view instead of download link.
+https://github.com/LiveHelperChat/livehelperchat/issues/563
+
+execute doc/update_db/update_92.sql for update
+
 2.13v
 
 This realease is maintenence release with a lot of small changes.
