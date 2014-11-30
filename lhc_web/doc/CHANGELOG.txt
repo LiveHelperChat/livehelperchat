@@ -5,12 +5,11 @@ This release is maintenence release with few enhancements
 1. Option to pass identifier. It can be either some specific value or if not provided it will be referer URL.
 Also new variable in template can be used {url_view} it will be link to filled form view instead of download link.
 https://github.com/LiveHelperChat/livehelperchat/issues/563
-
 2. Chat window in browsing information tab will show is user on page still or not. Option "Track is user still on site, chat status checks also has to be enabled" has to be enabled.
-
 3. Different message will be shown then user starts chat from chat popup instead of chat widget. Like then user navigates to another window from widget it's shown URL to which he navigated. Then user decides to open popup for chat it will be different message.
-
 4. Invitation to chat will also pay attention to additional fields attributes. https://github.com/LiveHelperChat/livehelperchat/issues/540
+5. Proactive messages retargeting. In returning message field you can enter {nick}, if we will find a previous chat associated with this online user, nick from previous chat will be used if not proactive invitation nick field value will be used. 
+https://github.com/LiveHelperChat/livehelperchat/issues/544
 
 execute doc/update_db/update_92.sql for update
 

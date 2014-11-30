@@ -114,6 +114,19 @@ $def->properties['referrer']->columnName   = 'referrer';
 $def->properties['referrer']->propertyName = 'referrer';
 $def->properties['referrer']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+// Message returning
+$def->properties['message_returning'] = new ezcPersistentObjectProperty();
+$def->properties['message_returning']->columnName   = 'message_returning';
+$def->properties['message_returning']->propertyName = 'message_returning';
+$def->properties['message_returning']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+// If we won't find returning visitor chat or hist previous chat nick, this variable will be replaced for nick
+$def->properties['message_returning_nick'] = new ezcPersistentObjectProperty();
+$def->properties['message_returning_nick']->columnName   = 'message_returning_nick';
+$def->properties['message_returning_nick']->propertyName = 'message_returning_nick';
+$def->properties['message_returning_nick']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+
 return $def;
 
 ?>

@@ -492,6 +492,14 @@
                 "extra": ""
             },
             {
+                "field": "message_returning",
+                "type": "text",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "executed_times",
                 "type": "int(11)",
                 "null": "NO",
@@ -526,6 +534,14 @@
             {
                 "field": "operator_ids",
                 "type": "varchar(100)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "message_returning_nick",
+                "type": "varchar(250)",
                 "null": "NO",
                 "key": "",
                 "default": null,

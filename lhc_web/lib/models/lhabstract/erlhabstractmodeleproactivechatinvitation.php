@@ -11,7 +11,9 @@ class erLhAbstractModelProactiveChatInvitation {
 			'time_on_site'  => $this->time_on_site,
 			'referrer' 		=> $this->referrer,
 			'pageviews' 	=> $this->pageviews,
-			'message' 		=> $this->message,
+			'message' 			=> $this->message,
+			'message_returning' => $this->message_returning,
+			'message_returning_nick' => $this->message_returning_nick,
 			'identifier' 	=> $this->identifier,
 			'dep_id' 		=> $this->dep_id,
 			'executed_times'=> $this->executed_times,
@@ -27,7 +29,7 @@ class erLhAbstractModelProactiveChatInvitation {
 			'operator_ids'	    => $this->operator_ids,
 			'requires_phone'	=> $this->requires_phone
 		);
-
+			
 		return $stateArray;
 	}
 
@@ -208,6 +210,22 @@ class erLhAbstractModelProactiveChatInvitation {
    								'type' => 'textarea',
    								'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Message to user'),
    								'required' => true,
+   								'hidden' => true,
+   								'validation_definition' => new ezcInputFormDefinitionElement(
+   										ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   								)),
+   				'message_returning' => array(
+   								'type' => 'textarea',
+   								'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Message to returning user'),
+   								'required' => false,
+   								'hidden' => true,
+   								'validation_definition' => new ezcInputFormDefinitionElement(
+   										ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   								)),
+   				'message_returning_nick' => array(
+   								'type' => 'text',
+   								'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Nick which will be used if we cannot determine returning user name'),
+   								'required' => false,
    								'hidden' => true,
    								'validation_definition' => new ezcInputFormDefinitionElement(
    										ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
@@ -398,7 +416,22 @@ class erLhAbstractModelProactiveChatInvitation {
 
 		if ( !empty($messagesToUser) ) {
 			$message = array_shift($messagesToUser);
-			$item->operator_message = $message->message;
+			
+			// Use default message if first time visit or returning message is empty
+			if ($item->total_visits == 1 || $message->message_returning == '') {			
+				$item->operator_message = $message->message;
+			} else {				
+				if ($item->chat !== false && $item->chat->nick != '') {
+					$nick = $item->chat->nick;
+				} elseif ($message->message_returning_nick != '') {
+					$nick = $message->message_returning_nick;
+				} else {
+					$nick = '';
+				}
+				
+				$item->operator_message = str_replace('{nick}', $nick, $message->message_returning);				
+			}
+			
 			$item->operator_user_proactive = $message->operator_name;
 			$item->invitation_id = $message->id;
 			$item->invitation_seen_count = 0;
@@ -428,6 +461,8 @@ class erLhAbstractModelProactiveChatInvitation {
 	public $time_on_site = 0;
 	public $pageviews = 0;
 	public $message = '';
+	public $message_returning = '';
+	public $message_returning_nick = '';
 	public $position = 0;
 	public $requires_email = 0;
 	public $requires_username = 0;
