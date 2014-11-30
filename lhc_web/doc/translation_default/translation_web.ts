@@ -3831,6 +3831,10 @@
       <source>User has joined the chat!</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>User has joined the chat from popup chat window!</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/userleftchat</name>
