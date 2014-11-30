@@ -43,6 +43,8 @@ if ($visitor->requires_username == 1 || $visitor->requires_email == 1 || $visito
 
 <?php if ($visitor->requires_username == 1 || $visitor->requires_email == 1 || $visitor->requires_phone == 1) : ?></div><?php endif;?>
 
+<?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/user_variables.tpl.php'));?>
+
 <?php if ($department === false) : ?>
 	<?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/department.tpl.php'));?>
 <?php endif;?>
