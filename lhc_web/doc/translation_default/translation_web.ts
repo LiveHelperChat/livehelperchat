@@ -2479,6 +2479,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>On page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Yes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User does not have any message from operator</source>
       <translation type="unfinished"/>
     </message>
@@ -6175,6 +6187,10 @@
     <name>chat/accepttrasnfer</name>
     <message>
       <source>has joined the chat!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>has accepted a chat!</source>
       <translation type="unfinished"/>
     </message>
   </context>
