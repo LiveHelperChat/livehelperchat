@@ -375,7 +375,7 @@ var lh_inst  = {
     showStartWindow : function(url_to_open) {
 		  
 		  if (this.isOnline == false && typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.offline_redirect != 'undefined'){
-				document.location = LHCChatOptions.opt.offline_redirect;
+				window.open(LHCChatOptions.opt.offline_redirect,"_blank");
 				return;
 		  };	
     	  this.lhc_need_help_hide();
