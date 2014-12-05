@@ -557,6 +557,14 @@
       <translation>Mensagem para o usuário</translation>
     </message>
     <message>
+      <source>Message to returning user</source>
+      <translation>Mensagem para o usuário recorrente</translation>
+    </message>
+    <message>
+      <source>Nick which will be used if we cannot determine returning user name</source>
+      <translation>Apelido que será usado se não puder determinar nome de usuário recorrente</translation>
+    </message>
+    <message>
       <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
       <translation>Mensagem de espera. Visível quando usuários iniciam um bate-papo e estão esperando por alguém a aceitar um chat.</translation>
     </message>
@@ -2477,6 +2485,18 @@
       <translation>atrás</translation>
     </message>
     <message>
+      <source>On page</source>
+      <translation>Na página</translation>
+    </message>
+    <message>
+      <source>Yes</source>
+      <translation>Sim</translation>
+    </message>
+    <message>
+      <source>No</source>
+      <translation>Não</translation>
+    </message>
+    <message>
       <source>User does not have any message from operator</source>
       <translation>Usuário não recebeu nenhuma mensagem do operador</translation>
     </message>
@@ -3817,6 +3837,10 @@
       <source>User has joined the chat!</source>
       <translation>Usuário entrou no chat!</translation>
     </message>
+    <message>
+      <source>User has joined the chat from popup chat window!</source>
+      <translation>Usuário entrou no chat via janela popup!</translation>
+    </message>
   </context>
   <context>
     <name>chat/userleftchat</name>
@@ -4629,6 +4653,10 @@
       <translation>Nome</translation>
     </message>
     <message>
+      <source>Identifier</source>
+      <translation>Identificador</translation>
+    </message>
+    <message>
       <source>Intro</source>
       <translation>Introdução</translation>
     </message>
@@ -4694,12 +4722,20 @@
       <source>Date</source>
       <translation>Data</translation>
     </message>
+    <message>
+      <source>Identifier</source>
+      <translation>Identificador</translation>
+    </message>
   </context>
   <context>
     <name>form/viewcollected</name>
     <message>
       <source>collected information</source>
       <translation>informação coletada</translation>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation>Identificador</translation>
     </message>
     <message>
       <source>Download</source>
@@ -6162,6 +6198,10 @@
     <message>
       <source>has joined the chat!</source>
       <translation>entrou no chat!</translation>
+    </message>
+    <message>
+      <source>has accepted a chat!</source>
+      <translation>aceitou um chat!</translation>
     </message>
   </context>
   <context>

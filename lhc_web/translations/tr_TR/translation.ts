@@ -15,7 +15,7 @@
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
-      <translation type="unfinished"/>
+      <translation>Online ziyaretçi izlemeyi aktif hale getir</translation>
     </message>
     <message>
       <source>Track is user still on site, chat status checks also has to be enabled</source>
@@ -43,7 +43,7 @@
     </message>
     <message>
       <source>Play sound on invitation to chat.</source>
-      <translation type="unfinished"/>
+      <translation>Görüşmeye davette müzik oynat</translation>
     </message>
     <message>
       <source>Show users option to switch language at widget</source>
@@ -555,6 +555,14 @@
     <message>
       <source>Message to user</source>
       <translation>Kullanıcıya mesaj gönder</translation>
+    </message>
+    <message>
+      <source>Message to returning user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nick which will be used if we cannot determine returning user name</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
@@ -2477,6 +2485,18 @@
       <translation>önce</translation>
     </message>
     <message>
+      <source>On page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Yes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User does not have any message from operator</source>
       <translation>Kullanıcı operatörden hiç mesaj almamış</translation>
     </message>
@@ -3819,6 +3839,10 @@
       <source>User has joined the chat!</source>
       <translation>Kullanıcı konuşmaya katıldı!</translation>
     </message>
+    <message>
+      <source>User has joined the chat from popup chat window!</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/userleftchat</name>
@@ -4631,6 +4655,10 @@
       <translation>Adı</translation>
     </message>
     <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Intro</source>
       <translation type="unfinished"/>
     </message>
@@ -4696,11 +4724,19 @@
       <source>Date</source>
       <translation>Tarih</translation>
     </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>form/viewcollected</name>
     <message>
       <source>collected information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5491,7 +5527,7 @@
     </message>
     <message>
       <source>Your database does not require any updates</source>
-      <translation type="unfinished"/>
+      <translation>Veritabanınız için gerekli bir güncelleme yok</translation>
     </message>
     <message>
       <source>Update database</source>
@@ -5514,7 +5550,7 @@
     </message>
     <message>
       <source>Widget themes</source>
-      <translation type="unfinished"/>
+      <translation>Eklenti Temaları</translation>
     </message>
     <message>
       <source>Import a new theme</source>
@@ -5959,7 +5995,7 @@
     </message>
     <message>
       <source>Chat was automatically closed by cron</source>
-      <translation type="unfinished"/>
+      <translation>Görüşme cron tarafından otomatik olarak kapatıldı</translation>
     </message>
     <message>
       <source>Support staff member has closed this chat</source>
@@ -5986,26 +6022,26 @@
     </message>
     <message>
       <source>Minimum 5 seconds</source>
-      <translation type="unfinished"/>
+      <translation>En az 5 saniye</translation>
     </message>
     <message>
       <source>Transfer department has to be different one than self</source>
-      <translation type="unfinished"/>
+      <translation>Aktarılan departman kendinden farklı olmak zorundadır</translation>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>
-      <translation type="unfinished"/>
+      <translation>Lütfen geçerli bir zaman aralığı girin!</translation>
     </message>
     <message>
       <source>Please enter a valid to date range!</source>
-      <translation type="unfinished"/>
+      <translation>Lütfen geçerli zaman aralığı giriniz!</translation>
     </message>
   </context>
   <context>
     <name>abstract/browserofferinvitation</name>
     <message>
       <source>Name for personal purposes</source>
-      <translation type="unfinished"/>
+      <translation>Kişisel amaçlar için isim</translation>
     </message>
     <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
@@ -6045,11 +6081,11 @@
     </message>
     <message>
       <source>Default popup content</source>
-      <translation type="unfinished"/>
+      <translation>Varsayılan açılır içerik</translation>
     </message>
     <message>
       <source>Callback content, must be valid json</source>
-      <translation type="unfinished"/>
+      <translation>Geri çağır &quot;Callback&quot; içeriği geçerli bir json içermelidir</translation>
     </message>
     <message>
       <source>Load content in lhc iframe</source>
@@ -6069,7 +6105,7 @@
     </message>
     <message>
       <source>Browser offer invitations</source>
-      <translation type="unfinished"/>
+      <translation>Tarayıcı davetiyeleri öner</translation>
     </message>
     <message>
       <source>Content</source>
@@ -6093,7 +6129,7 @@
     </message>
     <message>
       <source>Post content after form is submitted</source>
-      <translation type="unfinished"/>
+      <translation>Form gönderildikten sonra içeriği yayınla</translation>
     </message>
     <message>
       <source>Custom pagelayout</source>
@@ -6165,6 +6201,10 @@
       <source>has joined the chat!</source>
       <translation>sohbete katıldı!</translation>
     </message>
+    <message>
+      <source>has accepted a chat!</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/closechatadmin</name>
@@ -6232,7 +6272,7 @@
     </message>
     <message>
       <source>Removed thumb vote</source>
-      <translation type="unfinished"/>
+      <translation>Oy Kaldırıldı</translation>
     </message>
   </context>
   <context>

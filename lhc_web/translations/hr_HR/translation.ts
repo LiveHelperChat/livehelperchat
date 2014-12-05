@@ -557,6 +557,14 @@
       <translation>Poruka korisniku</translation>
     </message>
     <message>
+      <source>Message to returning user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nick which will be used if we cannot determine returning user name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
       <translation>Poruka za čekanje. Vidljivo kad korisnik započne razgovor i čeka da netko prihvati razgovor.</translation>
     </message>
@@ -2477,6 +2485,18 @@
       <translation>prije</translation>
     </message>
     <message>
+      <source>On page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Yes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User does not have any message from operator</source>
       <translation>Korisnik nema niti jednu poruku od operatera</translation>
     </message>
@@ -3817,6 +3837,10 @@
       <source>User has joined the chat!</source>
       <translation>Korisnik je pristupio razgovoru!</translation>
     </message>
+    <message>
+      <source>User has joined the chat from popup chat window!</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/userleftchat</name>
@@ -4629,6 +4653,10 @@
       <translation>Ime</translation>
     </message>
     <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Intro</source>
       <translation>Intro</translation>
     </message>
@@ -4694,12 +4722,20 @@
       <source>Date</source>
       <translation>Datu</translation>
     </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>form/viewcollected</name>
     <message>
       <source>collected information</source>
       <translation>prikupljene informacije</translation>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Download</source>
@@ -6162,6 +6198,10 @@
     <message>
       <source>has joined the chat!</source>
       <translation>se pridružio razgovoru!</translation>
+    </message>
+    <message>
+      <source>has accepted a chat!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

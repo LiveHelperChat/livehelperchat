@@ -557,6 +557,14 @@
       <translation>给用户的消息</translation>
     </message>
     <message>
+      <source>Message to returning user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nick which will be used if we cannot determine returning user name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
       <translation>等待消息。可見，那麼用戶開始聊天，等著別人來接受一個聊天。</translation>
     </message>
@@ -2477,6 +2485,18 @@
       <translation>前</translation>
     </message>
     <message>
+      <source>On page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Yes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User does not have any message from operator</source>
       <translation>用戶沒有任何消息從運營商</translation>
     </message>
@@ -3817,6 +3837,10 @@
       <source>User has joined the chat!</source>
       <translation>用户已经加入了聊天！</translation>
     </message>
+    <message>
+      <source>User has joined the chat from popup chat window!</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/userleftchat</name>
@@ -4629,6 +4653,10 @@
       <translation>名称</translation>
     </message>
     <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Intro</source>
       <translation>简介</translation>
     </message>
@@ -4694,12 +4722,20 @@
       <source>Date</source>
       <translation>日期</translation>
     </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>form/viewcollected</name>
     <message>
       <source>collected information</source>
       <translation>收集到的信息</translation>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Download</source>
@@ -6162,6 +6198,10 @@
     <message>
       <source>has joined the chat!</source>
       <translation>已加入聊天 ！</translation>
+    </message>
+    <message>
+      <source>has accepted a chat!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

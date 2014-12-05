@@ -557,6 +557,14 @@
       <translation>Mesazh per perdoruesin</translation>
     </message>
     <message>
+      <source>Message to returning user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nick which will be used if we cannot determine returning user name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
       <translation>Mesazh pritjeje.E dukshme per perdoruesin atehere kur dikush nga operatoret ta pranoje biseden.</translation>
     </message>
@@ -2478,6 +2486,18 @@
       <translation>me pare</translation>
     </message>
     <message>
+      <source>On page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Yes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User does not have any message from operator</source>
       <translation>Përdoruesi nuk ka ndonjë mesazh nga operatori</translation>
     </message>
@@ -3818,6 +3838,10 @@
       <source>User has joined the chat!</source>
       <translation>Perdoruesi u bashkua ne bisede</translation>
     </message>
+    <message>
+      <source>User has joined the chat from popup chat window!</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/userleftchat</name>
@@ -4630,6 +4654,10 @@
       <translation>Emer</translation>
     </message>
     <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Intro</source>
       <translation>hyrje</translation>
     </message>
@@ -4695,12 +4723,20 @@
       <source>Date</source>
       <translation>Data</translation>
     </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>form/viewcollected</name>
     <message>
       <source>collected information</source>
       <translation>informacion i mbledhur</translation>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Download</source>
@@ -6163,6 +6199,10 @@
     <message>
       <source>has joined the chat!</source>
       <translation>u bashkua ne bisede</translation>
+    </message>
+    <message>
+      <source>has accepted a chat!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

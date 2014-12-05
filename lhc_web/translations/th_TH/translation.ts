@@ -557,6 +557,14 @@
       <translation>ข้อความไปยังผู้ใช้</translation>
     </message>
     <message>
+      <source>Message to returning user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nick which will be used if we cannot determine returning user name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
       <translation>รอข้อความ มองเห็น แล้วผู้ใช้เริ่มต้นสนทนา และรอคนรับสนทนา</translation>
     </message>
@@ -2477,6 +2485,18 @@
       <translation>ผ่านมา</translation>
     </message>
     <message>
+      <source>On page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Yes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User does not have any message from operator</source>
       <translation>ผู้ใช้ที่มีข้อความใด ๆ จากผู้ให้บริการ</translation>
     </message>
@@ -3817,6 +3837,10 @@
       <source>User has joined the chat!</source>
       <translation>ผู้เข้าร่วมสนทนา</translation>
     </message>
+    <message>
+      <source>User has joined the chat from popup chat window!</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/userleftchat</name>
@@ -4629,6 +4653,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Intro</source>
       <translation type="unfinished"/>
     </message>
@@ -4694,11 +4722,19 @@
       <source>Date</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>form/viewcollected</name>
     <message>
       <source>collected information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6161,6 +6197,10 @@
     <name>chat/accepttrasnfer</name>
     <message>
       <source>has joined the chat!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>has accepted a chat!</source>
       <translation type="unfinished"/>
     </message>
   </context>

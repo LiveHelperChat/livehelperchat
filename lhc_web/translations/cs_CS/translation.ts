@@ -557,6 +557,14 @@
       <translation>Zpráva uživateli</translation>
     </message>
     <message>
+      <source>Message to returning user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nick which will be used if we cannot determine returning user name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
       <translation>Zpráva čekání. Viditelná, pokud uživatelé zahájí rozhovor a čekají na někoho, kdo jej příjme.</translation>
     </message>
@@ -2477,6 +2485,18 @@
       <translation>zpátky</translation>
     </message>
     <message>
+      <source>On page</source>
+      <translation>Na stránce</translation>
+    </message>
+    <message>
+      <source>Yes</source>
+      <translation>Ano</translation>
+    </message>
+    <message>
+      <source>No</source>
+      <translation>Ne</translation>
+    </message>
+    <message>
       <source>User does not have any message from operator</source>
       <translation>Uživatel nedostal od operátora žádnou zprávu</translation>
     </message>
@@ -3817,6 +3837,10 @@
       <source>User has joined the chat!</source>
       <translation>Uživatel se připojil k rozhovoru!</translation>
     </message>
+    <message>
+      <source>User has joined the chat from popup chat window!</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/userleftchat</name>
@@ -4629,6 +4653,10 @@
       <translation>Jméno</translation>
     </message>
     <message>
+      <source>Identifier</source>
+      <translation>Identifikátor</translation>
+    </message>
+    <message>
       <source>Intro</source>
       <translation>Úvod</translation>
     </message>
@@ -4694,12 +4722,20 @@
       <source>Date</source>
       <translation>Datum</translation>
     </message>
+    <message>
+      <source>Identifier</source>
+      <translation>Identifikátor</translation>
+    </message>
   </context>
   <context>
     <name>form/viewcollected</name>
     <message>
       <source>collected information</source>
       <translation>uchovaná informace</translation>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation>Identifikátor</translation>
     </message>
     <message>
       <source>Download</source>
@@ -6162,6 +6198,10 @@
     <message>
       <source>has joined the chat!</source>
       <translation>se připojil k rozhovoru!</translation>
+    </message>
+    <message>
+      <source>has accepted a chat!</source>
+      <translation>přijal rozhovor!</translation>
     </message>
   </context>
   <context>
