@@ -372,7 +372,7 @@ var lh_inst  = {
 	  }
 	})(),
 
-    showStartWindow : function(url_to_open) {
+    showStartWindow : function(url_to_open,delayShow) {
 		  
 		  if (this.isOnline == false && typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.offline_redirect != 'undefined'){
 				window.open(LHCChatOptions.opt.offline_redirect,"_blank");
@@ -419,8 +419,17 @@ var lh_inst  = {
           var fragment = this.appendHTML(this.iframe_html);
 
           document.body.insertBefore(fragment, document.body.childNodes[0]);
-
+          
           var lhc_obj = this;
+          
+		  if (typeof delayShow !== 'undefined') {         		
+         		this.addClass(document.getElementById('lhc_container'),'lhc-delayed');
+         		setTimeout(function(){
+         			lhc_obj.removeClass(document.getElementById('lhc_container'),'lhc-delayed');
+         			lhc_obj.toggleStatusWidget(true);
+         		},900);
+          }
+                    
           document.getElementById('lhc_close').onclick = function() { lhc_obj.hide(); return false; };
           document.getElementById('lhc_min').onclick = function() { lhc_obj.min(); return false; };
           <?php if (erLhcoreClassModelChatConfig::fetch('disable_popup_restore')->current_value == 0) : ?>
@@ -433,7 +442,11 @@ var lh_inst  = {
 		  <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/drag_drop_logic.tpl.php')); ?>		  
 		      
 		  if (this.cookieData.m) {this.min(true);};
-		  this.toggleStatusWidget(true);
+		  
+		  if (typeof delayShow === 'undefined') {
+		  		this.toggleStatusWidget(true);
+		  }
+		  
     },
 
     toggleStatusWidget : function(hide){
@@ -808,8 +821,9 @@ lh_inst.storeReferrer(<?php echo json_encode($referrer)?>);
 		
 	if (lh_inst.cookieData.hash) {
 		lh_inst.stopCheckNewMessage();
-		lh_inst.substatus = '_reopen';
-	    lh_inst.showStartWindow();
+		lh_inst.substatus = '_reopen';	
+		lh_inst.toggleStatusWidget(true);
+	    lh_inst.showStartWindow(undefined,true);
 	}
 	
 	<?php if ($check_operator_messages == 'true' && $disable_pro_active == false) : ?>
