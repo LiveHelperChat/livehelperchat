@@ -54,18 +54,17 @@ if ($Params['user_parameters_unordered']['hash'] != '' || $Params['user_paramete
 					$storageID = $vid->id;
 				}
 				
-				erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.storescreenshot.screenshot_path',array('path' => & $path, 'storage_id' => $storageID));
-				
-				erLhcoreClassFileUpload::mkdirRecursive($path);
+				$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.storescreenshot.screenshot_path',array('path' => & $path, 'storage_id' => $storageID));
 				$fileNameHash = sha1($imgData . time());
+				
+				if ($response === false) {
+					erLhcoreClassFileUpload::mkdirRecursive($path);	
+				}
+
 				file_put_contents($path . $fileNameHash,$imgData);
-						
 				$imageSize = getimagesize($path . $fileNameHash);
-				
+
 				if ($imageSize) {
-				
-					
-					
 					try {
 						$db = ezcDbInstance::get();
 						$db->beginTransaction();
@@ -98,6 +97,8 @@ if ($Params['user_parameters_unordered']['hash'] != '' || $Params['user_paramete
 							$fileUpload->extension = 'png';						
 							$fileUpload->saveThis();
 
+							erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.storescreenshot.store',array('chat_file' => & $fileUpload));
+							
 							if ($chat !== false) {
 								$chat->user_typing_txt = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Screenshot ready...');
 								$chat->user_typing = time();

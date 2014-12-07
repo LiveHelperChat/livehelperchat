@@ -13,6 +13,11 @@ if (isset($fileData['active_user_upload']) && $fileData['active_user_upload'] ==
 		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.uploadfile.file_path',array('path' => & $path, 'storage_id' => $chat->id));
 		
 		$upload_handler = new erLhcoreClassFileUpload(array('user_id' => 0, 'max_file_size' => $data['fs_max']*1024, 'accept_file_types_lhc' => '/\.('.$data['ft_us'].')$/i','chat' => $chat, 'download_via_php' => true, 'upload_dir' => $path));
+		
+		if ($upload_handler->uploadedFile instanceof erLhcoreClassModelChatFile)
+		{
+			erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.uploadfile.file_store', array('chat_file' => $upload_handler->uploadedFile));
+		}		
 
 		$chat->user_typing = time();
 		$chat->user_typing_txt = '100%';

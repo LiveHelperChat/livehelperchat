@@ -385,6 +385,16 @@ class erLhAbstractModelWidgetTheme {
 	{
 		$this->movePhoto('operator_image');
 	}
+	
+	public function getContentAttribute($attr)
+	{
+		$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('theme.download_image.'.$attr, array('theme' => $this, 'attr' => $attr));
+		if ($response === false) {
+			return file_get_contents($this->{$attr.'_path'}.'/'.$this->$attr);
+		} else {
+			return $response['filedata'];
+		}
+	}
 								
 	public function movePhoto($attr, $isLocal = false, $localFile = false)
 	{
@@ -393,10 +403,10 @@ class erLhAbstractModelWidgetTheme {
 		if ($this->id != null){
 			$dir = 'var/storagetheme/' . date('Y') . 'y/' . date('m') . '/' . date('d') .'/' . $this->id . '/';
 	
-			erLhcoreClassChatEventDispatcher::getInstance()->dispatch('theme.edit.'.$attr.'_path',array('dir' => & $dir, 'storage_id' => $this->id));
+			$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('theme.edit.'.$attr.'_path',array('dir' => & $dir, 'storage_id' => $this->id));
 	
 			erLhcoreClassFileUpload::mkdirRecursive( $dir );
-	
+						
 			if ($isLocal == false) {
 				$this->$attr = erLhcoreClassSearchHandler::moveUploadedFile('AbstractInput_'.$attr, $dir . '/','.' );
 			} else {
@@ -404,6 +414,13 @@ class erLhAbstractModelWidgetTheme {
 			}
 			
 			$this->{$attr.'_path'} = $dir;
+			
+			$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('theme.edit.store_'.$attr,array(
+					'theme' => & $this, 
+					'path_attr' => $attr.'_path', 
+					'name' => $this->$attr,					
+					'file_path' => $this->{$attr.'_path'} . $this->$attr));
+			
 		} else {
 			$this->{$attr.'_pending'} = true;
 		}
@@ -416,8 +433,15 @@ class erLhAbstractModelWidgetTheme {
 				unlink($this->{$attr.'_path'} . $this->$attr);
 			}
 		
-			erLhcoreClassFileUpload::removeRecursiveIfEmpty('var/storagetheme/',str_replace('var/storagetheme/','',$this->{$attr.'_path'}));
-		
+			if ($this->{$attr.'_path'} != '') {
+				erLhcoreClassFileUpload::removeRecursiveIfEmpty('var/storagetheme/',str_replace('var/storagetheme/','',$this->{$attr.'_path'}));
+			}
+			
+			erLhcoreClassChatEventDispatcher::getInstance()->dispatch('theme.edit.remove_'.$attr,array(
+					'theme' => & $this,
+					'path_attr' => $attr.'_path',
+					'name' => $this->$attr));
+			
 			$this->$attr = '';
 			$this->{$attr.'_path'} = '';			
 		}		
@@ -502,7 +526,7 @@ class erLhAbstractModelWidgetTheme {
 	   			$this->logo_image_url = false;
 	   			
 	   			if ($this->logo_image != ''){
-	   				$this->logo_image_url =  erLhcoreClassSystem::instance()->wwwDir().'/'.$this->logo_image_path . $this->logo_image;
+	   				$this->logo_image_url =  ($this->logo_image_path != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) .'/'.$this->logo_image_path . $this->logo_image;
 	   			}
 	   			
 	   			return $this->logo_image_url;
@@ -512,7 +536,7 @@ class erLhAbstractModelWidgetTheme {
 	   			$this->operator_image_url = false;
 	   			
 	   			if ($this->operator_image != ''){
-	   				$this->operator_image_url =  erLhcoreClassSystem::instance()->wwwDir().'/'.$this->operator_image_path . $this->operator_image;
+	   				$this->operator_image_url =  ($this->operator_image_path != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ).'/'.$this->operator_image_path . $this->operator_image;
 	   			}
 	   			
 	   			return $this->operator_image_url;
@@ -521,8 +545,8 @@ class erLhAbstractModelWidgetTheme {
 	   	case 'copyright_image_url':
 	   			$this->copyright_image_url = false;
 	   			
-	   			if ($this->copyright_image != ''){
-	   				$this->copyright_image_url =  erLhcoreClassSystem::instance()->wwwDir().'/'.$this->copyright_image_path . $this->copyright_image;
+	   			if ($this->copyright_image != ''){	   				
+	   				$this->copyright_image_url = ($this->copyright_image_path != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ).'/'.$this->copyright_image_path . $this->copyright_image;
 	   			}
 	   			
 	   			return $this->copyright_image_url;
@@ -533,7 +557,7 @@ class erLhAbstractModelWidgetTheme {
 	   			$this->need_help_image_url = false;
 	   			
 	   			if ($this->need_help_image != ''){
-	   				$this->need_help_image_url = erLhcoreClassSystem::instance()->wwwDir().'/'.$this->need_help_image_path . $this->need_help_image;
+	   				$this->need_help_image_url = ($this->need_help_image_path != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ).'/'.$this->need_help_image_path . $this->need_help_image;
 	   			}
 	   			
 	   			return $this->need_help_image_url;
@@ -543,7 +567,7 @@ class erLhAbstractModelWidgetTheme {
 	   			$this->online_image_url = false;
 	   			
 	   			if ($this->online_image != ''){
-	   				$this->online_image_url = erLhcoreClassSystem::instance()->wwwDir().'/'.$this->online_image_path . $this->online_image;
+	   				$this->online_image_url = ($this->online_image_path != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ).'/'.$this->online_image_path . $this->online_image;
 	   			}
 	   			
 	   			return $this->online_image_url;
@@ -553,7 +577,7 @@ class erLhAbstractModelWidgetTheme {
 	   			$this->offline_image_url = false;
 	   			
 	   			if ($this->offline_image != ''){
-	   				$this->offline_image_url = erLhcoreClassSystem::instance()->wwwDir().'/'.$this->offline_image_path . $this->offline_image;
+	   				$this->offline_image_url = ($this->offline_image_path != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) .'/'.$this->offline_image_path . $this->offline_image;
 	   			}
 	   			
 	   			return $this->offline_image_url;
@@ -565,7 +589,7 @@ class erLhAbstractModelWidgetTheme {
 	   			$this->url_operator_photo = false;
 	   		
 	   			if($this->need_help_image != ''){
-	   				$this->url_operator_photo = '<img src="'.erLhcoreClassSystem::instance()->wwwDir().'/'.$this->need_help_image_path . $this->need_help_image.'"/>';
+	   				$this->url_operator_photo = '<img src="'. ($this->need_help_image_path != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) .'/'.$this->need_help_image_path . $this->need_help_image.'"/>';
 	   			}
 	   			return $this->url_operator_photo;
 	   		break;
@@ -575,7 +599,7 @@ class erLhAbstractModelWidgetTheme {
 	   			$this->online_image_url_img = false;
 	   		
 	   			if($this->online_image != ''){
-	   				$this->online_image_url_img = '<img src="'.erLhcoreClassSystem::instance()->wwwDir().'/'.$this->online_image_path . $this->online_image.'"/>';
+	   				$this->online_image_url_img = '<img src="'.($this->online_image_path != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) .'/'.$this->online_image_path . $this->online_image.'"/>';
 	   			}
 	   			return $this->online_image_url_img;
 	   		break;
@@ -585,7 +609,7 @@ class erLhAbstractModelWidgetTheme {
 	   			$this->offline_image_url_img = false;
 	   		
 	   			if($this->offline_image != ''){
-	   				$this->offline_image_url_img = '<img src="'.erLhcoreClassSystem::instance()->wwwDir().'/'.$this->offline_image_path . $this->offline_image.'"/>';
+	   				$this->offline_image_url_img = '<img src="'.($this->offline_image_path != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) .'/'.$this->offline_image_path . $this->offline_image.'"/>';
 	   			}
 	   			return $this->offline_image_url_img;
 	   		break;
@@ -595,7 +619,7 @@ class erLhAbstractModelWidgetTheme {
 	   			$this->logo_image_url_img = false;
 	   		
 	   			if ($this->logo_image != '') {
-	   				$this->logo_image_url_img = '<img src="'.erLhcoreClassSystem::instance()->wwwDir().'/'.$this->logo_image_path . $this->logo_image.'"/>';
+	   				$this->logo_image_url_img = '<img src="'.($this->logo_image_path != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ).'/'.$this->logo_image_path . $this->logo_image.'"/>';
 	   			}
 	   			
 	   			return $this->logo_image_url_img;
@@ -606,7 +630,7 @@ class erLhAbstractModelWidgetTheme {
 	   			$this->copyright_image_url_img = false;
 	   		
 	   			if ($this->copyright_image != '') {
-	   				$this->copyright_image_url_img = '<img src="'.erLhcoreClassSystem::instance()->wwwDir().'/'.$this->copyright_image_path . $this->copyright_image.'"/>';
+	   				$this->copyright_image_url_img = '<img src="'.($this->copyright_image_path != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ).'/'.$this->copyright_image_path . $this->copyright_image.'"/>';
 	   			}
 	   			
 	   			return $this->copyright_image_url_img;
@@ -616,7 +640,7 @@ class erLhAbstractModelWidgetTheme {
 	   			$this->operator_image_url_img = false;
 	   		
 	   			if ($this->operator_image != '') {
-	   				$this->operator_image_url_img = '<img src="'.erLhcoreClassSystem::instance()->wwwDir().'/'.$this->operator_image_path . $this->operator_image.'"/>';
+	   				$this->operator_image_url_img = '<img src="'.($this->operator_image_path != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ).'/'.$this->operator_image_path . $this->operator_image.'"/>';
 	   			}
 	   			
 	   			return $this->operator_image_url_img;

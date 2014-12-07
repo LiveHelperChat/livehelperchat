@@ -531,6 +531,8 @@ class erLhcoreClassFormRenderer {
     			
 	    		$params['filename'] = $file;
 	    		$params['filepath'] = $dir;
+	    		
+	    		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('form.fill.store_file',array('file_params' => & $params));
     		}
     	}
     	

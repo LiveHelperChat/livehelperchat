@@ -43,8 +43,12 @@ class erLhcoreClassModelChatFile {
 	   		unlink($this->file_path_server);
 	   	}
 
-	   	erLhcoreClassFileUpload::removeRecursiveIfEmpty('var/', str_replace('var/', '', $this->file_path));
-
+	   	if ($this->file_path != '') {
+	   		erLhcoreClassFileUpload::removeRecursiveIfEmpty('var/', str_replace('var/', '', $this->file_path));
+	   	}
+	   	
+	   	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.remove_file', array('chat_file' => & $this));
+	   	
 	   	erLhcoreClassChat::getSession()->delete($this);
    }
 

@@ -390,7 +390,7 @@ class erLhcoreClassSystem{
         }
 
         $instance->SiteDir    = $siteDir;
-        $instance->WWWDir     = $wwwDir;
+        $instance->WWWDirImages = $instance->WWWDir = $wwwDir;
         $instance->IndexFile  = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'force_virtual_host', false) === false ? '/index.php' : '';
         $instance->RequestURI = str_replace('//','/',$requestUri);
         $instance->QueryString = $queryString;
@@ -442,11 +442,18 @@ class erLhcoreClassSystem{
         return $this->WWWDir;
     }
 
+    function wwwImagesDir()
+    {
+    	return $this->WWWDirImages;
+    }
+    
     /// The path to where all the code resides
     public $SiteDir;
     /// The access path of the current site view
     /// The relative directory path of the vhless setup
     public $WWWDir;
+        
+    public $WWWDirImages;
 
     // The www dir used in links formating
     public $WWWDirLang;

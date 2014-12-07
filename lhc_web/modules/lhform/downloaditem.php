@@ -76,8 +76,16 @@ try {
 	foreach ($item->content_array as $key => $content) {
 		if ($content['definition']['type'] == 'file') {				
 			$array = explode('.',$content['value']['name']);
-			$ext = end($array);				
-			$zip->addFile( $content['filepath'] . $content['filename'],$key.'.'.$ext);
+			$ext = end($array);
+
+			$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('form.file.download', array('filename' => $content['filename']));
+			
+			// There was no callbacks or file not found etc, we try to download from standard location
+			if ($response === false) {
+				$zip->addFile( $content['filepath'] . $content['filename'],$key.'.'.$ext);
+			} else {
+				$zip->addFromString($key.'.'.$ext, $response['filedata']);				
+			}
 		}			
 	} 
 		
