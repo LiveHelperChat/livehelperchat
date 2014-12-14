@@ -341,6 +341,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `wait_message` varchar(250) NOT NULL,
 				  `wait_timeout` int(11) NOT NULL,
 				  `position` int(11) NOT NULL,
+				  `dep_id` int(11) NOT NULL,
 				  `timeout_message` varchar(250) NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `siteaccess_position` (`siteaccess`,`position`)

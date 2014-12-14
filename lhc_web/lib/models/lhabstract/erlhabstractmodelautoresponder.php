@@ -10,6 +10,7 @@ class erLhAbstractModelAutoResponder {
 			'wait_message'		=> $this->wait_message,
 			'timeout_message'	=> $this->timeout_message,
 			'wait_timeout'		=> $this->wait_timeout,
+			'dep_id'			=> $this->dep_id,
 			'position'			=> $this->position
 		);
 
@@ -47,6 +48,17 @@ class erLhAbstractModelAutoResponder {
    						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
+   				'dep_id' => array (
+   						'type' => 'combobox',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Department'),
+   						'required' => false,
+   						'hidden' => true,
+   						'source' => 'erLhcoreClassModelDepartament::getList',
+   						'hide_optional' => false,
+   						'params_call' => array(),
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'int'
    						)),
    				'wait_message' => array(
    						'type' => 'text',
@@ -193,11 +205,11 @@ class erLhAbstractModelAutoResponder {
     	return $objects;
 	}
 
-	public static function processAutoResponder() {
+	public static function processAutoResponder(erLhcoreClassModelChat $chat) {
 
 		$session = erLhcoreClassAbstract::getSession();
 		$q = $session->createFindQuery( 'erLhAbstractModelAutoResponder' );
-		$q->where(  $q->expr->eq( 'siteaccess', $q->bindValue( erLhcoreClassSystem::instance()->SiteAccess ) ).' OR siteaccess = \'\'')
+		$q->where( '('.$q->expr->eq( 'siteaccess', $q->bindValue( erLhcoreClassSystem::instance()->SiteAccess ) ).' OR siteaccess = \'\') AND ('.$q->expr->eq( 'dep_id', $q->bindValue( $chat->dep_id ) ).' OR dep_id = 0)')
 		->orderBy('position ASC')
 		->limit( 1 );
 
@@ -221,6 +233,7 @@ class erLhAbstractModelAutoResponder {
 	public $wait_message = '';
 	public $wait_timeout = 0;
 	public $timeout_message = '';
+	public $dep_id = 0;
 
 	public $hide_add = false;
 	public $hide_delete = false;

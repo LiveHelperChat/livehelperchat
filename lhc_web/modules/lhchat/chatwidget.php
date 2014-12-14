@@ -270,7 +270,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 	       }
 
 	       // Auto responder
-	       $responder = erLhAbstractModelAutoResponder::processAutoResponder();
+	       $responder = erLhAbstractModelAutoResponder::processAutoResponder($chat);
 
 	       if ($responder instanceof erLhAbstractModelAutoResponder) {
 	       		$chat->wait_timeout = $responder->wait_timeout;

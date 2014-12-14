@@ -284,7 +284,7 @@ if (isset($_POST['askQuestion']))
        } else {
 
        		// Default auto responder
-	       	$responder = erLhAbstractModelAutoResponder::processAutoResponder();
+	       	$responder = erLhAbstractModelAutoResponder::processAutoResponder($chat);
 
 	       	if ($responder instanceof erLhAbstractModelAutoResponder) {
 	       		$chat->wait_timeout = $responder->wait_timeout;

@@ -25,6 +25,12 @@ $def->properties['wait_timeout']->columnName   = 'wait_timeout';
 $def->properties['wait_timeout']->propertyName = 'wait_timeout';
 $def->properties['wait_timeout']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+// Department ID
+$def->properties['dep_id'] = new ezcPersistentObjectProperty();
+$def->properties['dep_id']->columnName   = 'dep_id';
+$def->properties['dep_id']->propertyName = 'dep_id';
+$def->properties['dep_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 // Position
 $def->properties['position'] = new ezcPersistentObjectProperty();
 $def->properties['position']->columnName   = 'position';

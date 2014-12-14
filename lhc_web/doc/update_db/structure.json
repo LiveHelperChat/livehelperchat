@@ -42,6 +42,14 @@
                 "extra": ""
             },
             {
+                "field": "dep_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "timeout_message",
                 "type": "varchar(250)",
                 "null": "NO",
