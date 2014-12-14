@@ -32,8 +32,6 @@ class erLhcoreClassChatValidator {
 			$chat->email = $form->Email;
 		}
 		
-	
-		
 		if ($form->hasValidData( 'UserNick' ) && $form->UserNick != '' && strlen($form->UserNick) > 50)
 		{
 			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum 50 characters');

@@ -15,6 +15,10 @@ https://github.com/LiveHelperChat/livehelperchat/issues/535
 5. Adjusted position of user typing text indicator
 https://github.com/LiveHelperChat/livehelperchat/issues/532
 
+5. Posibility to edit main chat information. At the moment only user nick and e-mail address
+https://github.com/LiveHelperChat/livehelperchat/issues/504
+
+execute doc/update_db/update_92.sql for update
 
 2.14v
 
