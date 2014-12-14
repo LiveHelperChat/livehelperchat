@@ -6,6 +6,47 @@
 
 class erLhcoreClassChatValidator {
 
+	public static function validateChatModify(& $chat)
+	{
+		$definition = array(				
+				'Email' => new ezcInputFormDefinitionElement(
+						ezcInputFormDefinitionElement::OPTIONAL, 'validate_email'
+				),
+				'UserNick' => new ezcInputFormDefinitionElement(
+						ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+				)				
+		);
+		
+		$form = new ezcInputForm( INPUT_POST, $definition );
+		$Errors = array();
+		
+		$currentUser = erLhcoreClassUser::instance();
+			
+		if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid CSRF token!');
+		}
+	
+		if ( !$form->hasValidData( 'Email' ) && $_POST['Email'] != '' ) {
+			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a valid email address');
+		} elseif ($form->hasValidData( 'Email' )) {
+			$chat->email = $form->Email;
+		}
+		
+	
+		
+		if ($form->hasValidData( 'UserNick' ) && $form->UserNick != '' && strlen($form->UserNick) > 50)
+		{
+			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum 50 characters');
+		}
+		
+		if ($form->hasValidData( 'UserNick' ))
+		{
+			$chat->nick = $form->UserNick;
+		}
+		
+		return $Errors;		
+	}
+	
     /**
      * Custom form fields validation
      */

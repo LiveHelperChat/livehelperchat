@@ -82,6 +82,11 @@ $ViewList['sendmail'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['modifychat'] = array(
+    'params' => array('chat_id'),
+    'functions' => array( 'modifychat' )
+);
+
 $ViewList['transferchat'] = array(
     'params' => array('chat_id'),
     'functions' => array( 'allowtransfer' )
@@ -473,8 +478,9 @@ $FunctionList['administrateinvitations'] = array('explain' =>'Allow user to chan
 $FunctionList['administrateresponder'] = array('explain' =>'Allow user to change auto responder');
 $FunctionList['maintenance'] = array('explain' =>'Allow user to run maintenance');
 $FunctionList['sees_all_online_visitors'] = array('explain' =>'Operator can see all online visitors, not only his department');
-$FunctionList['geoadjustment'] = array('explain' =>'Allow user to edit geo adjustment for chat status');
-$FunctionList['take_screenshot'] = array('explain' =>'Allow user to take visitor browser page screenshots');
+$FunctionList['geoadjustment'] = array('explain' => 'Allow user to edit geo adjustment for chat status');
+$FunctionList['take_screenshot'] = array('explain' => 'Allow user to take visitor browser page screenshots');
+$FunctionList['modifychat'] = array('explain' => 'Allow user modify main chat information');
 
 
 ?>

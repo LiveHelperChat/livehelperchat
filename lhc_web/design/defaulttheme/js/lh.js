@@ -617,7 +617,7 @@ function lh(){
 	    	$('#CSChatMessage-'+chat_id).unbind('keydown', 'enter', function(){});
 	       $('#CSChatMessage-'+chat_id).unbind('keyup', 'up', function(){});
 	    }
-	    
+	   
 	    this.removeSynchroChat(chat_id);
 	    
 	    if (hidetab == true) {
@@ -783,6 +783,10 @@ function lh(){
 	
 	this.sendMail = function(chat_id) {
 		$.colorbox({iframe:true, width:'90%',height:'90%', href:this.wwwDir + 'chat/sendmail/'+chat_id});
+	};
+	
+	this.modifyChat = function(chat_id) {
+		$.colorbox({iframe:true, width:'90%',height:'90%', href:this.wwwDir + 'chat/modifychat/'+chat_id});
 	};
 	
 	this.attatchLinkToFile = function(chat_id) {
