@@ -208,6 +208,35 @@ class erLhcoreClassChatValidator {
         	$inputForm->operator = $chat->user_id = $form->operator;
         }
         
+        /**
+         * File for offline form
+         * */
+        $inputForm->has_file = false;
+              
+        if (isset($additionalParams['offline']) && (
+         				($inputForm->validate_start_chat == true && isset($start_data_fields['offline_file_visible_in_popup']) && $start_data_fields['offline_file_visible_in_popup'] == true) || 
+         				($inputForm->validate_start_chat == false && isset($start_data_fields['offline_file_visible_in_page_widget']) && $start_data_fields['offline_file_visible_in_page_widget'] == true)
+         		)) {
+         		
+         	$fileData = erLhcoreClassModelChatConfig::fetch('file_configuration');
+         	$data = (array)$fileData->data;
+         	
+         	if (isset($_FILES['File']) && erLhcoreClassSearchHandler::isFile('File','/\.('.$data['ft_us'].')$/i',$data['fs_max']*1024)){
+         		$inputForm->has_file = true;
+
+         		// Just extract file extension
+         		$fileNameAray = explode('.',$_FILES['File']['name']);
+         		end($fileNameAray);
+         		
+         		// Set attribute for futher
+         		$inputForm->file_extension = strtolower(current($fileNameAray));
+         		$inputForm->file_location = $_FILES['File']['tmp_name'];
+         		         		
+         	} elseif (isset($_FILES['File'])) {
+         		$Errors[] = erLhcoreClassSearchHandler::$lastError != '' ? erLhcoreClassSearchHandler::$lastError : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid file');
+         	}
+         }
+        
         if ($form->hasValidData( 'user_timezone' )) {        	
         	$timezone_name = timezone_name_from_abbr(null, $form->user_timezone*3600, true);        	
         	if ($timezone_name !== false){

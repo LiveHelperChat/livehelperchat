@@ -483,6 +483,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -544,10 +548,6 @@
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -738,6 +738,10 @@
     </message>
     <message>
       <source>Choose what form you want to embed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1876,6 +1880,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>File</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Leave a message</source>
       <translation type="unfinished"/>
     </message>
@@ -1988,11 +1996,27 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Invalid file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Could not determine a default department!</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>is required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid file extension</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid file extension!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To big file!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3438,6 +3462,10 @@
     </message>
     <message>
       <source>E-mail is always required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Allow to attatch a file</source>
       <translation type="unfinished"/>
     </message>
     <message>
