@@ -58,6 +58,9 @@
 	    <div class="content" data-section-content data-slug="onlinetracking">	
 		    <?php $attribute = 'ignorable_ip'; ?>
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>	
+		    
+		    <?php $attribute = 'banned_ip_range'; ?>
+		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>	
 		    		
 		    <?php $attribute = 'track_online_visitors';$boolValue = true;?>
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>		

@@ -3,6 +3,13 @@
 1. Option to choose auto responder for specific department.
 https://github.com/LiveHelperChat/livehelperchat/issues/547
 
+2. Option to allow send file in offline chat form
+https://github.com/LiveHelperChat/livehelperchat/issues/370
+
+3. Instead of banning e-mails which are very easy to fake, there is option to ban not only single ip but also IP ranges.
+https://github.com/LiveHelperChat/livehelperchat/issues/546
+
+
 2.14v
 
 This release is maintenence release with few enhancements

@@ -126,7 +126,16 @@ class erLhcoreClassChatValidator {
         if (erLhcoreClassModelChatBlockedUser::getCount(array('filter' => array('ip' => erLhcoreClassIPDetect::getIP()))) > 0) {
             $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You do not have permission to chat! Please contact site owner.');
         }
-
+        
+        /**
+         * IP Ranges block
+         * */
+        $ignorable_ip = erLhcoreClassModelChatConfig::fetch('banned_ip_range')->current_value;
+        
+        if ( $ignorable_ip != '' && erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDetect::getIP(),explode(',',$ignorable_ip))) {
+        	$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You do not have permission to chat! Please contact site owner.');
+        }
+       
         if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
         	if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600 || $hashCaptcha != sha1($_SERVER['REMOTE_ADDR'].$form->$nameField.erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ))){
         		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid captcha code, please enable Javascript!');
@@ -221,19 +230,21 @@ class erLhcoreClassChatValidator {
          	$fileData = erLhcoreClassModelChatConfig::fetch('file_configuration');
          	$data = (array)$fileData->data;
          	
-         	if (isset($_FILES['File']) && erLhcoreClassSearchHandler::isFile('File','/\.('.$data['ft_us'].')$/i',$data['fs_max']*1024)){
-         		$inputForm->has_file = true;
-
-         		// Just extract file extension
-         		$fileNameAray = explode('.',$_FILES['File']['name']);
-         		end($fileNameAray);
-         		
-         		// Set attribute for futher
-         		$inputForm->file_extension = strtolower(current($fileNameAray));
-         		$inputForm->file_location = $_FILES['File']['tmp_name'];
-         		         		
-         	} elseif (isset($_FILES['File'])) {
-         		$Errors[] = erLhcoreClassSearchHandler::$lastError != '' ? erLhcoreClassSearchHandler::$lastError : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid file');
+         	if ($_FILES['File']['error'] != 4) { // No file was provided
+	         	if (isset($_FILES['File']) && erLhcoreClassSearchHandler::isFile('File','/\.('.$data['ft_us'].')$/i',$data['fs_max']*1024)){
+	         		$inputForm->has_file = true;
+	
+	         		// Just extract file extension
+	         		$fileNameAray = explode('.',$_FILES['File']['name']);
+	         		end($fileNameAray);
+	         		
+	         		// Set attribute for futher
+	         		$inputForm->file_extension = strtolower(current($fileNameAray));
+	         		$inputForm->file_location = $_FILES['File']['tmp_name'];
+	         		         		
+	         	} elseif (isset($_FILES['File'])) {
+	         		$Errors[] = erLhcoreClassSearchHandler::$lastError != '' ? erLhcoreClassSearchHandler::$lastError : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid file');
+	         	}
          	}
          }
         
