@@ -740,7 +740,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `user_country_code` varchar(50) NOT NULL,
                   `user_country_name` varchar(50) NOT NULL,
                   `visitor_tz` varchar(50) NOT NULL,
-                  `operator_message` varchar(250) NOT NULL,
+                  `operator_message` text NOT NULL,
                   `operator_user_proactive` varchar(100) NOT NULL,
                   `operator_user_id` int(11) NOT NULL,
                   `message_seen` int(11) NOT NULL,

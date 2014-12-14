@@ -1807,7 +1807,7 @@
             },
             {
                 "field": "operator_message",
-                "type": "varchar(250)",
+                "type": "text",
                 "null": "NO",
                 "key": "",
                 "default": null,
