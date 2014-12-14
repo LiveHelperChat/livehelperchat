@@ -40,6 +40,7 @@ class erLhcoreClassModelChat {
                'priority'     			=> $this->priority,
                'chat_initiator'     	=> $this->chat_initiator,
                'user_tz_identifier'     => $this->user_tz_identifier,
+               'user_closed_ts'     	=> $this->user_closed_ts,
 
        		   'online_user_id'     	=> $this->online_user_id,
        		   'unread_messages_informed' => $this->unread_messages_informed,
@@ -144,6 +145,11 @@ class erLhcoreClassModelChat {
        	case 'time_created_front':
        			$this->time_created_front = date('Ymd') == date('Ymd',$this->time) ? date(erLhcoreClassModule::$dateHourFormat,$this->time) : date(erLhcoreClassModule::$dateDateHourFormat,$this->time);
        			return $this->time_created_front;
+       		break;
+
+       	case 'user_closed_ts_front':
+       			$this->user_closed_ts_front = date('Ymd') == date('Ymd',$this->user_closed_ts) ? date(erLhcoreClassModule::$dateHourFormat,$this->user_closed_ts) : date(erLhcoreClassModule::$dateDateHourFormat,$this->user_closed_ts);
+       			return $this->user_closed_ts_front;
        		break;
        	
        	case 'is_operator_typing':
@@ -413,6 +419,9 @@ class erLhcoreClassModelChat {
    
    public $unread_messages_informed = 0;
    public $reinform_timeout = 0;
+   
+   // Time when user closed a chat window
+   public $user_closed_ts = 0;
    
    // Time since last assignment
    public $tslasign = 0;

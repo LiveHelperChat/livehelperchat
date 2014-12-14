@@ -172,6 +172,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Which ip should not be allowed to chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
       <translation type="unfinished"/>
     </message>
@@ -1554,6 +1558,10 @@
     </message>
     <message>
       <source>Created</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat closed at</source>
       <translation type="unfinished"/>
     </message>
     <message>

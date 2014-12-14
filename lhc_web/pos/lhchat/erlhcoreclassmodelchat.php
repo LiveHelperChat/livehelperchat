@@ -50,6 +50,11 @@ $def->properties['user_status']->columnName   = 'user_status';
 $def->properties['user_status']->propertyName = 'user_status';
 $def->properties['user_status']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['user_closed_ts'] = new ezcPersistentObjectProperty();
+$def->properties['user_closed_ts']->columnName   = 'user_closed_ts';
+$def->properties['user_closed_ts']->propertyName = 'user_closed_ts';
+$def->properties['user_closed_ts']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['support_informed'] = new ezcPersistentObjectProperty();
 $def->properties['support_informed']->columnName   = 'support_informed';
 $def->properties['support_informed']->propertyName = 'support_informed';

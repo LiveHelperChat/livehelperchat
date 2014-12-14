@@ -109,6 +109,14 @@
 		<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Created')?></td>
 		<td><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chat->time)?></td>
 	</tr>
+
+	<?php if ($chat->user_closed_ts > 0 && $chat->user_status == 1) : ?>
+	<tr>
+		<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Chat closed at')?></td>
+		<td><?php echo $chat->user_closed_ts_front?></td>
+	</tr>
+	<?php endif;?>
+	
 	<?php if ($chat->wait_time > 0) : ?>
 	<tr>
 		<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Waited')?></td>
