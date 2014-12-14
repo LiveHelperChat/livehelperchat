@@ -12,6 +12,9 @@ https://github.com/LiveHelperChat/livehelperchat/issues/546
 4. Will be recorded time when user has left a chat
 https://github.com/LiveHelperChat/livehelperchat/issues/535
 
+5. Adjusted position of user typing text indicator
+https://github.com/LiveHelperChat/livehelperchat/issues/532
+
 
 2.14v
 

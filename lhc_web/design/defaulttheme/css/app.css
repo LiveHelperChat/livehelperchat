@@ -510,10 +510,16 @@ div.message-row-in {
     -webkit-box-shadow: -1px -1px 3px rgba(50, 50, 50, 0.16);
     -moz-box-shadow:    -1px -1px 3px rgba(50, 50, 50, 0.16);
     box-shadow:         -1px -1px 3px rgba(50, 50, 50, 0.16);
+    font-size:12px;
 }
 
 #id-operator-typing{
 	font-size:11px;
+}
+
+.user-is-typing {
+	margin-top: -35px;
+	margin-right: 15px;
 }
 
 .button.very-tiny {
