@@ -15,7 +15,7 @@ class erLhcoreClassAbstract {
 
         	           return $returnString;
         	       } else {
-        	       	  $ngModel = isset($attr['nginit']) ? ' ng-init="ngModelAbstractInput_'.$name.'=\''.htmlspecialchars($object->$name,ENT_QUOTES).'\'" ng-model="ngModelAbstractInput_'.$name.'" ' : '';
+        	       	  $ngModel = isset($attr['nginit']) ? ' ng-init=\'ngModelAbstractInput_'.$name.'='.json_encode($object->$name,JSON_HEX_APOS).'\' ng-model="ngModelAbstractInput_'.$name.'" ' : '';
         	       	  if (isset($attr['placeholder'])) {
         	       	  		$ngModel .= " placeholder=\"{$attr['placeholder']}\" ";
         	       	  };
@@ -24,7 +24,7 @@ class erLhcoreClassAbstract {
         		break;
 
         	case 'colorpicker':        	      
-        		      return '<div class="row collapse" ng-init="bactract_bg_color_'.$name.'=\''.htmlspecialchars($object->$name,ENT_QUOTES).'\'"><div class="small-1 columns"><span class="prefix" style="background-color:#{{bactract_bg_color_'.$name.'}}">#</span></div><div class="small-11 columns"><input class="abstract_input" class="abstract_input" ng-model="bactract_bg_color_'.$name.'" id="id_AbstractInput_'.$name.'" name="AbstractInput_'.$name.'" type="text" value="'.htmlspecialchars($object->$name).'" /></div></div><script>$(\'#id_AbstractInput_'.$name.'\').ColorPicker({	onSubmit: function(hsb, hex, rgb, el) {		$(el).val(hex);	$(el).trigger(\'input\');	$(el).ColorPickerHide();	},	onBeforeShow: function () {		$(this).ColorPickerSetColor(this.value);	}});</script>';
+        		      return '<div class="row collapse" ng-init=\'bactract_bg_color_'.$name.'='.json_encode($object->$name,JSON_HEX_APOS).'\'><div class="small-1 columns"><span class="prefix" style="background-color:#{{bactract_bg_color_'.$name.'}}">#</span></div><div class="small-11 columns"><input class="abstract_input" class="abstract_input" ng-model="bactract_bg_color_'.$name.'" id="id_AbstractInput_'.$name.'" name="AbstractInput_'.$name.'" type="text" value="'.htmlspecialchars($object->$name).'" /></div></div><script>$(\'#id_AbstractInput_'.$name.'\').ColorPicker({	onSubmit: function(hsb, hex, rgb, el) {		$(el).val(hex);	$(el).trigger(\'input\');	$(el).ColorPickerHide();	},	onBeforeShow: function () {		$(this).ColorPickerSetColor(this.value);	}});</script>';
         		break;
 
         	case 'textarea':
