@@ -14,6 +14,9 @@ class erLhcoreClassChatValidator {
 				),
 				'UserNick' => new ezcInputFormDefinitionElement(
 						ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+				),				
+				'UserPhone' => new ezcInputFormDefinitionElement(
+						ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
 				)				
 		);
 		
@@ -35,6 +38,10 @@ class erLhcoreClassChatValidator {
 		if ($form->hasValidData( 'UserNick' ) && $form->UserNick != '' && strlen($form->UserNick) > 50)
 		{
 			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum 50 characters');
+		}
+		
+		if ($form->hasValidData( 'UserPhone' )) {
+			$chat->phone = $form->UserPhone;
 		}
 		
 		if ($form->hasValidData( 'UserNick' ))
