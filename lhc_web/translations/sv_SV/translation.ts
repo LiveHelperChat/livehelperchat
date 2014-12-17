@@ -170,6 +170,10 @@
       <translation>Visa knapp för BB kod</translation>
     </message>
     <message>
+      <source>Which ip should not be allowed to chat</source>
+      <translation>Vilka IP som inte ska tillåtas i chatten</translation>
+    </message>
+    <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
       <translation>Automatisk rensning av chattar. 0 - inaktiverad, n &gt; 0 tid i minuter före chatten automatiskt tas bort</translation>
     </message>
@@ -368,7 +372,7 @@
     </message>
     <message>
       <source>Offline image</source>
-      <translation>Offlinebilde</translation>
+      <translation>Offlinebild</translation>
     </message>
     <message>
       <source>Widget header background color</source>
@@ -376,7 +380,7 @@
     </message>
     <message>
       <source>Widget border color</source>
-      <translation>Widget borderfärg</translation>
+      <translation>Widget kantlinjefärg</translation>
     </message>
     <message>
       <source>Need help background color</source>
@@ -481,6 +485,10 @@
       <translation>Position</translation>
     </message>
     <message>
+      <source>Department</source>
+      <translation>Avdelning</translation>
+    </message>
+    <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
       <translation>Väntemeddelande. Synligt när användaren startar chatten och väntar på att någon ska acceptera chatten.</translation>
     </message>
@@ -543,10 +551,6 @@
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
       <translation>Identifierare, för vilket identitet ska detta meddelande visas för, lämna blankt för alla</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Avdelning</translation>
     </message>
     <message>
       <source>Matched times</source>
@@ -737,6 +741,10 @@
     <message>
       <source>Choose what form you want to embed</source>
       <translation>Välj vilket formulär du vill bädda in</translation>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation>Indentifierare</translation>
     </message>
     <message>
       <source>Help us to grow</source>
@@ -1241,18 +1249,6 @@
   <context>
     <name>department/edit</name>
     <message>
-      <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation>Arbetstid, 24 timmars format, 1 - 24</translation>
-    </message>
-    <message>
-      <source>From, E.g. 8</source>
-      <translation>Från, exempelvis 8</translation>
-    </message>
-    <message>
-      <source>To, E.g. 17</source>
-      <translation>Till, exempelvis 17</translation>
-    </message>
-    <message>
       <source>Any</source>
       <translation>Något</translation>
     </message>
@@ -1511,6 +1507,10 @@
       <translation>Information</translation>
     </message>
     <message>
+      <source>Edit main chat information</source>
+      <translation>Redigera huvudinformationen för chatten</translation>
+    </message>
+    <message>
       <source>Department</source>
       <translation>Avdelning</translation>
     </message>
@@ -1549,6 +1549,10 @@
     <message>
       <source>Created</source>
       <translation>Skapad</translation>
+    </message>
+    <message>
+      <source>User left</source>
+      <translation>Användaren lämnade</translation>
     </message>
     <message>
       <source>Waited</source>
@@ -1874,6 +1878,10 @@
       <translation>Det finns inga operatörer tillgängliga för närvarande, vänligen lämna ett meddelande</translation>
     </message>
     <message>
+      <source>File</source>
+      <translation>Fil</translation>
+    </message>
+    <message>
       <source>Leave a message</source>
       <translation>Lämna ett meddelande</translation>
     </message>
@@ -1942,6 +1950,18 @@
       <translation>Välj ditt språk</translation>
     </message>
     <message>
+      <source>Invalid CSRF token!</source>
+      <translation>Ogiltig CSRF-token!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid email address</source>
+      <translation>Vänligen ange en giltig e-postadress</translation>
+    </message>
+    <message>
+      <source>Maximum 50 characters</source>
+      <translation>Max 50 tecken</translation>
+    </message>
+    <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
       <translation>Du har inte rättigheter att chatta, vänligen kontakta webbplatsens ägare.</translation>
     </message>
@@ -1952,14 +1972,6 @@
     <message>
       <source>Please enter your name</source>
       <translation>Vänligen skriv in ditt namn</translation>
-    </message>
-    <message>
-      <source>Maximum 50 characters</source>
-      <translation>Max 50 tecken</translation>
-    </message>
-    <message>
-      <source>Please enter a valid email address</source>
-      <translation>Vänligen ange en giltig e-postadress</translation>
     </message>
     <message>
       <source>Please enter your message</source>
@@ -1986,12 +1998,28 @@
       <translation>Max 100 tecken för telefonnr</translation>
     </message>
     <message>
+      <source>Invalid file</source>
+      <translation>Ogiltig fil</translation>
+    </message>
+    <message>
       <source>Could not determine a default department!</source>
       <translation>Kunde inte avgöra en standard avdelning</translation>
     </message>
     <message>
       <source>is required</source>
       <translation>är obligatorisk</translation>
+    </message>
+    <message>
+      <source>Invalid file extension</source>
+      <translation>Ogiltig filändelse</translation>
+    </message>
+    <message>
+      <source>Invalid file extension!</source>
+      <translation>Ogiltig filändelse!</translation>
+    </message>
+    <message>
+      <source>To big file!</source>
+      <translation>Filen är för stor!</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -3200,6 +3228,33 @@
     </message>
   </context>
   <context>
+    <name>chat/modifychat</name>
+    <message>
+      <source>Modify chat</source>
+      <translation>Modifiera chatten</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-post</translation>
+    </message>
+    <message>
+      <source>Recipient e-mail</source>
+      <translation>Mottagarens e-post</translation>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation>Smeknamn</translation>
+    </message>
+    <message>
+      <source>Update chat</source>
+      <translation>Uppdatera chatten</translation>
+    </message>
+    <message>
+      <source>Chat information was updated</source>
+      <translation>Chattinformationen uppdaterades</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/operatorschats</name>
     <message>
       <source>Operators chats list</source>
@@ -3437,6 +3492,10 @@
     <message>
       <source>E-mail is always required</source>
       <translation>E-post är alltid obligatorisk</translation>
+    </message>
+    <message>
+      <source>Allow to attatch a file</source>
+      <translation>Tillåt att bifoga en fil</translation>
     </message>
     <message>
       <source>Additional form settings</source>
@@ -4033,7 +4092,7 @@
     </message>
     <message>
       <source>General</source>
-      <translation>Allmän</translation>
+      <translation>Allmänt</translation>
     </message>
     <message>
       <source>General settings</source>
@@ -5372,11 +5431,11 @@
     </message>
     <message>
       <source>Date format E.g (Y-m-d)</source>
-      <translation>Datumformat, exempelvis (Å-m-d)</translation>
+      <translation>Datumformat, exempelvis (Y-m-d)</translation>
     </message>
     <message>
       <source>Full date format E.g (Y-m-d H:i:s)</source>
-      <translation>Fullt datumformat, exempelvis (Å-m-d H:i:s)</translation>
+      <translation>Fullständigt datumformat, exempelvis (Y-m-d H:i:s)</translation>
     </message>
     <message>
       <source>Hour format E.g (H:i:s)</source>
@@ -5669,7 +5728,7 @@
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation>Felaktig e-post adress</translation>
+      <translation>Felaktig e-postadress</translation>
     </message>
     <message>
       <source>Please enter a name</source>
@@ -5982,6 +6041,57 @@
     </message>
   </context>
   <context>
+    <name>chat/chatexport</name>
+    <message>
+      <source>Visitor Name</source>
+      <translation>Besökarens namn</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-post</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Telefon</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>Land</translation>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>Stad</translation>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation>IP-nummer</translation>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation>Operatör</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Avdelning</translation>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>Datum</translation>
+    </message>
+    <message>
+      <source>Mail send</source>
+      <translation>Mejl skickat</translation>
+    </message>
+    <message>
+      <source>Referrer</source>
+      <translation>Referens</translation>
+    </message>
+    <message>
+      <source>Link</source>
+      <translation>Länk</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/syncuser</name>
     <message>
       <source>Chat was automatically transferred to</source>
@@ -6285,57 +6395,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Vänligen ange en giltig filtyp!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/chatexport</name>
-    <message>
-      <source>Visitor Name</source>
-      <translation>Besökarens namn</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-post</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Telefon</translation>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation>Land</translation>
-    </message>
-    <message>
-      <source>City</source>
-      <translation>Stad</translation>
-    </message>
-    <message>
-      <source>IP</source>
-      <translation>IP-nummer</translation>
-    </message>
-    <message>
-      <source>Operator</source>
-      <translation>Operatör</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Avdelning</translation>
-    </message>
-    <message>
-      <source>Date</source>
-      <translation>Datum</translation>
-    </message>
-    <message>
-      <source>Mail send</source>
-      <translation>Mejl skickat</translation>
-    </message>
-    <message>
-      <source>Referrer</source>
-      <translation>Referens</translation>
-    </message>
-    <message>
-      <source>Link</source>
-      <translation>Länk</translation>
     </message>
   </context>
 </TS>

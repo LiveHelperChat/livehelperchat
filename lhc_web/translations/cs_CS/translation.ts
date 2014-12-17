@@ -170,6 +170,10 @@
       <translation>Zobrazit tlačítko BB kódu</translation>
     </message>
     <message>
+      <source>Which ip should not be allowed to chat</source>
+      <translation>Kterým IP adresám by neměl být umožněn rozhovor</translation>
+    </message>
+    <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
       <translation>Automatické čištění rozhovorů. 0 - vypnuto, n &gt; 0 je časem v minutách, než je rozhovor automaticky smazán</translation>
     </message>
@@ -481,6 +485,10 @@
       <translation>Umístění</translation>
     </message>
     <message>
+      <source>Department</source>
+      <translation>Oddělení</translation>
+    </message>
+    <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
       <translation>Zpráva při čekání. Viditelná, pokud uživatelé zahájí rozhovor a čekají na někoho, kdo rozhovor příjme .</translation>
     </message>
@@ -545,10 +553,6 @@
       <translation>Identifikátor, pro který má být tato zpráva zobrazena, nechte prázdné pro všechny</translation>
     </message>
     <message>
-      <source>Department</source>
-      <translation>Oddělení</translation>
-    </message>
-    <message>
       <source>Matched times</source>
       <translation>Shodné časy</translation>
     </message>
@@ -558,11 +562,11 @@
     </message>
     <message>
       <source>Message to returning user</source>
-      <translation type="unfinished"/>
+      <translation>Zpráva pro vracejícího se uživatele</translation>
     </message>
     <message>
       <source>Nick which will be used if we cannot determine returning user name</source>
-      <translation type="unfinished"/>
+      <translation>Použitá přezdívka, pokud nelze rozpoznat jméno vracejícího se uživatele</translation>
     </message>
     <message>
       <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
@@ -737,6 +741,10 @@
     <message>
       <source>Choose what form you want to embed</source>
       <translation>Vyberte, jaký formulář chcete vložit</translation>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation>Identifikátor</translation>
     </message>
     <message>
       <source>Help us to grow</source>
@@ -1241,18 +1249,6 @@
   <context>
     <name>department/edit</name>
     <message>
-      <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation>Otevírací hodiny, 24 hodonový formát, 1 -  24</translation>
-    </message>
-    <message>
-      <source>From, E.g. 8</source>
-      <translation>Od, např. 8</translation>
-    </message>
-    <message>
-      <source>To, E.g. 17</source>
-      <translation>Do, např. 17</translation>
-    </message>
-    <message>
       <source>Any</source>
       <translation>Libovolný</translation>
     </message>
@@ -1511,6 +1507,10 @@
       <translation>Informace</translation>
     </message>
     <message>
+      <source>Edit main chat information</source>
+      <translation>Upravit hlavní informace o rozhovoru</translation>
+    </message>
+    <message>
       <source>Department</source>
       <translation>Oddělení</translation>
     </message>
@@ -1549,6 +1549,10 @@
     <message>
       <source>Created</source>
       <translation>Vytvořeno</translation>
+    </message>
+    <message>
+      <source>User left</source>
+      <translation>Uživatel odešel</translation>
     </message>
     <message>
       <source>Waited</source>
@@ -1874,6 +1878,10 @@
       <translation>V současnou chvíli není dostupný žádný z našich operátorů. Zanechte nám prosím zprávu.</translation>
     </message>
     <message>
+      <source>File</source>
+      <translation>Soubor</translation>
+    </message>
+    <message>
       <source>Leave a message</source>
       <translation>Zanechte zprávu</translation>
     </message>
@@ -1942,6 +1950,18 @@
       <translation>Zvolte svůj jazyk</translation>
     </message>
     <message>
+      <source>Invalid CSRF token!</source>
+      <translation>Neplaný CSRF token!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid email address</source>
+      <translation>Prosím zadejte platný e-mail</translation>
+    </message>
+    <message>
+      <source>Maximum 50 characters</source>
+      <translation>Maxium je 50 znaků</translation>
+    </message>
+    <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
       <translation>Nemáte oprávnění k vedení rozhovorů! Kontaktujte, prosím, majitele stránky.</translation>
     </message>
@@ -1952,14 +1972,6 @@
     <message>
       <source>Please enter your name</source>
       <translation>Prosím, zadejte jméno</translation>
-    </message>
-    <message>
-      <source>Maximum 50 characters</source>
-      <translation>Maxium je 50 znaků</translation>
-    </message>
-    <message>
-      <source>Please enter a valid email address</source>
-      <translation>Prosím zadejte platný e-mail</translation>
     </message>
     <message>
       <source>Please enter your message</source>
@@ -1986,12 +1998,28 @@
       <translation>Maximálně 100 znaků pro telefon</translation>
     </message>
     <message>
+      <source>Invalid file</source>
+      <translation>Neplatný soubor</translation>
+    </message>
+    <message>
       <source>Could not determine a default department!</source>
       <translation>Nelze zjistit výchozí oddělení!</translation>
     </message>
     <message>
       <source>is required</source>
       <translation>je vyžadován</translation>
+    </message>
+    <message>
+      <source>Invalid file extension</source>
+      <translation>Neplatný typ souboru</translation>
+    </message>
+    <message>
+      <source>Invalid file extension!</source>
+      <translation>Neplatný typ souboru!</translation>
+    </message>
+    <message>
+      <source>To big file!</source>
+      <translation>Soubor je příliš velký!</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -3200,6 +3228,33 @@
     </message>
   </context>
   <context>
+    <name>chat/modifychat</name>
+    <message>
+      <source>Modify chat</source>
+      <translation>Upravit rozhovor</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Recipient e-mail</source>
+      <translation>E-mail adresáta</translation>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation>Přezdívka</translation>
+    </message>
+    <message>
+      <source>Update chat</source>
+      <translation>Aktualizovat rozhovor</translation>
+    </message>
+    <message>
+      <source>Chat information was updated</source>
+      <translation>Informace o rozhovoru byla aktualizována</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/operatorschats</name>
     <message>
       <source>Operators chats list</source>
@@ -3437,6 +3492,10 @@
     <message>
       <source>E-mail is always required</source>
       <translation>E-mail je vždy vyžadován</translation>
+    </message>
+    <message>
+      <source>Allow to attatch a file</source>
+      <translation>Umožnit přiložení souboru</translation>
     </message>
     <message>
       <source>Additional form settings</source>
@@ -3839,7 +3898,7 @@
     </message>
     <message>
       <source>User has joined the chat from popup chat window!</source>
-      <translation type="unfinished"/>
+      <translation>Uživatel se připojil k rozhovoru z vyskakovacího okna!</translation>
     </message>
   </context>
   <context>
@@ -5982,6 +6041,57 @@
     </message>
   </context>
   <context>
+    <name>chat/chatexport</name>
+    <message>
+      <source>Visitor Name</source>
+      <translation>Jméno návštěvníka</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Telefon</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>Země</translation>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>Město</translation>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation>IP adresa</translation>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation>Operátor</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Oddělení</translation>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>Datum</translation>
+    </message>
+    <message>
+      <source>Mail send</source>
+      <translation>E-mail odeslán</translation>
+    </message>
+    <message>
+      <source>Referrer</source>
+      <translation>Zdroj</translation>
+    </message>
+    <message>
+      <source>Link</source>
+      <translation>Odkaz</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/syncuser</name>
     <message>
       <source>Chat was automatically transferred to</source>
@@ -6285,57 +6395,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Prosím vyberte platný typ souboru!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/chatexport</name>
-    <message>
-      <source>Visitor Name</source>
-      <translation>Jméno návštěvníka</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Telefon</translation>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation>Země</translation>
-    </message>
-    <message>
-      <source>City</source>
-      <translation>Město</translation>
-    </message>
-    <message>
-      <source>IP</source>
-      <translation>IP adresa</translation>
-    </message>
-    <message>
-      <source>Operator</source>
-      <translation>Operátor</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Oddělení</translation>
-    </message>
-    <message>
-      <source>Date</source>
-      <translation>Datum</translation>
-    </message>
-    <message>
-      <source>Mail send</source>
-      <translation>E-mail odeslán</translation>
-    </message>
-    <message>
-      <source>Referrer</source>
-      <translation>Zdroj</translation>
-    </message>
-    <message>
-      <source>Link</source>
-      <translation>Odkaz</translation>
     </message>
   </context>
 </TS>

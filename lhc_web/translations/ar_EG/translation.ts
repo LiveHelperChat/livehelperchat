@@ -170,6 +170,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Which ip should not be allowed to chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
       <translation type="unfinished"/>
     </message>
@@ -481,6 +485,10 @@
       <translation>المكان</translation>
     </message>
     <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -542,10 +550,6 @@
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -736,6 +740,10 @@
     </message>
     <message>
       <source>Choose what form you want to embed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1241,18 +1249,6 @@
   <context>
     <name>department/edit</name>
     <message>
-      <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>From, E.g. 8</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>To, E.g. 17</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Any</source>
       <translation type="unfinished"/>
     </message>
@@ -1511,6 +1507,10 @@
       <translation>المعلومات</translation>
     </message>
     <message>
+      <source>Edit main chat information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department</source>
       <translation type="unfinished"/>
     </message>
@@ -1548,6 +1548,10 @@
     </message>
     <message>
       <source>Created</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User left</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1874,6 +1878,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>File</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Leave a message</source>
       <translation>اترك رسالتك</translation>
     </message>
@@ -1942,6 +1950,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Invalid CSRF token!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a valid email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Maximum 50 characters</source>
+      <translation>الحد الأقصى ٥٠ حرفًا</translation>
+    </message>
+    <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
       <translation>لا تملك صلاحية الوصول لهذه المحادثة! من فضلك اتصل بمسؤول الموقع.</translation>
     </message>
@@ -1952,14 +1972,6 @@
     <message>
       <source>Please enter your name</source>
       <translation>من فضلك أدخل اسمك</translation>
-    </message>
-    <message>
-      <source>Maximum 50 characters</source>
-      <translation>الحد الأقصى ٥٠ حرفًا</translation>
-    </message>
-    <message>
-      <source>Please enter a valid email address</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter your message</source>
@@ -1986,11 +1998,27 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Invalid file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Could not determine a default department!</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>is required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid file extension</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid file extension!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To big file!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3200,6 +3228,33 @@
     </message>
   </context>
   <context>
+    <name>chat/modifychat</name>
+    <message>
+      <source>Modify chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Recipient e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat information was updated</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/operatorschats</name>
     <message>
       <source>Operators chats list</source>
@@ -3436,6 +3491,10 @@
     </message>
     <message>
       <source>E-mail is always required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Allow to attatch a file</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5982,6 +6041,57 @@
     </message>
   </context>
   <context>
+    <name>chat/chatexport</name>
+    <message>
+      <source>Visitor Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>City</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Referrer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Link</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/syncuser</name>
     <message>
       <source>Chat was automatically transferred to</source>
@@ -6284,57 +6394,6 @@
     <name>file/configurations</name>
     <message>
       <source>Please enter valid file type!</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/chatexport</name>
-    <message>
-      <source>Visitor Name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>City</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>IP</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Date</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Mail send</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Referrer</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Link</source>
       <translation type="unfinished"/>
     </message>
   </context>

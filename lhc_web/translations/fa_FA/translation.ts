@@ -170,6 +170,10 @@
       <translation>نمایش آیکن کدهای BB</translation>
     </message>
     <message>
+      <source>Which ip should not be allowed to chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
       <translation type="unfinished"/>
     </message>
@@ -481,6 +485,10 @@
       <translation>موقعیت</translation>
     </message>
     <message>
+      <source>Department</source>
+      <translation>دپارتمان</translation>
+    </message>
+    <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
       <translation>پیام در حال انتظار، این پیام زمانی نمایش داده میشود که کاربران چت را شروع کرده و در انتظار پاسخ به چت هستند</translation>
     </message>
@@ -543,10 +551,6 @@
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
       <translation>شناسه، برای شناسه مشخصی این پیام نمایش داده شود.</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>دپارتمان</translation>
     </message>
     <message>
       <source>Matched times</source>
@@ -737,6 +741,10 @@
     <message>
       <source>Choose what form you want to embed</source>
       <translation>انتخاب کنید میخواهید کدام فرم را وارد کنید</translation>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Help us to grow</source>
@@ -1241,18 +1249,6 @@
   <context>
     <name>department/edit</name>
     <message>
-      <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation>ساعات کاری، به صورت 24 ساعته، 1 - 24</translation>
-    </message>
-    <message>
-      <source>From, E.g. 8</source>
-      <translation>از  E.g 8</translation>
-    </message>
-    <message>
-      <source>To, E.g. 17</source>
-      <translation>To, E.g. 17</translation>
-    </message>
-    <message>
       <source>Any</source>
       <translation>هر</translation>
     </message>
@@ -1511,6 +1507,10 @@
       <translation>اطلاعات</translation>
     </message>
     <message>
+      <source>Edit main chat information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department</source>
       <translation>دپارتمان</translation>
     </message>
@@ -1549,6 +1549,10 @@
     <message>
       <source>Created</source>
       <translation>ایجاد شده</translation>
+    </message>
+    <message>
+      <source>User left</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Waited</source>
@@ -1874,6 +1878,10 @@
       <translation>در حال حاظر اپراتوری آنلاین نیست، لطفا پیام بگذارید.</translation>
     </message>
     <message>
+      <source>File</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Leave a message</source>
       <translation>پیام گذاشتن</translation>
     </message>
@@ -1942,6 +1950,18 @@
       <translation>زبان خود را انتخاب نمایید</translation>
     </message>
     <message>
+      <source>Invalid CSRF token!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a valid email address</source>
+      <translation>لطفا یک آدرس ایمیل معتبر وارد کنید</translation>
+    </message>
+    <message>
+      <source>Maximum 50 characters</source>
+      <translation>حداکثر 50 کاراکتر</translation>
+    </message>
+    <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
       <translation>شما نمیتوانید چت کنید، لطفا با مالک سایت تماس بگیرید.</translation>
     </message>
@@ -1952,14 +1972,6 @@
     <message>
       <source>Please enter your name</source>
       <translation>لطفا نام خود را وارد کنید</translation>
-    </message>
-    <message>
-      <source>Maximum 50 characters</source>
-      <translation>حداکثر 50 کاراکتر</translation>
-    </message>
-    <message>
-      <source>Please enter a valid email address</source>
-      <translation>لطفا یک آدرس ایمیل معتبر وارد کنید</translation>
     </message>
     <message>
       <source>Please enter your message</source>
@@ -1986,12 +1998,28 @@
       <translation>حداکثر 100 کاراکتر برای تلفن</translation>
     </message>
     <message>
+      <source>Invalid file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Could not determine a default department!</source>
       <translation>دپارتمان پیشفرض مشخص نیست</translation>
     </message>
     <message>
       <source>is required</source>
       <translation>مورد نیاز</translation>
+    </message>
+    <message>
+      <source>Invalid file extension</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid file extension!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To big file!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -3200,6 +3228,33 @@
     </message>
   </context>
   <context>
+    <name>chat/modifychat</name>
+    <message>
+      <source>Modify chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Recipient e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat information was updated</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/operatorschats</name>
     <message>
       <source>Operators chats list</source>
@@ -3437,6 +3492,10 @@
     <message>
       <source>E-mail is always required</source>
       <translation>همیشه ایمیل مورد نیاز است</translation>
+    </message>
+    <message>
+      <source>Allow to attatch a file</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Additional form settings</source>
@@ -5982,6 +6041,57 @@
     </message>
   </context>
   <context>
+    <name>chat/chatexport</name>
+    <message>
+      <source>Visitor Name</source>
+      <translation>نام بازدید کننده</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>پست الکترونیک</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>شماره تماس</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>کشور</translation>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>شهر</translation>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation>آی پی</translation>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation>اپراتور</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>دپاتمان</translation>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>تاریخ</translation>
+    </message>
+    <message>
+      <source>Mail send</source>
+      <translation>ارسال ایمیل</translation>
+    </message>
+    <message>
+      <source>Referrer</source>
+      <translation>ارجاع دهنده</translation>
+    </message>
+    <message>
+      <source>Link</source>
+      <translation>پیوند</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/syncuser</name>
     <message>
       <source>Chat was automatically transferred to</source>
@@ -6285,57 +6395,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>لطفا نوع فایل معتبر وارد کنید!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/chatexport</name>
-    <message>
-      <source>Visitor Name</source>
-      <translation>نام بازدید کننده</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>پست الکترونیک</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>شماره تماس</translation>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation>کشور</translation>
-    </message>
-    <message>
-      <source>City</source>
-      <translation>شهر</translation>
-    </message>
-    <message>
-      <source>IP</source>
-      <translation>آی پی</translation>
-    </message>
-    <message>
-      <source>Operator</source>
-      <translation>اپراتور</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>دپاتمان</translation>
-    </message>
-    <message>
-      <source>Date</source>
-      <translation>تاریخ</translation>
-    </message>
-    <message>
-      <source>Mail send</source>
-      <translation>ارسال ایمیل</translation>
-    </message>
-    <message>
-      <source>Referrer</source>
-      <translation>ارجاع دهنده</translation>
-    </message>
-    <message>
-      <source>Link</source>
-      <translation>پیوند</translation>
     </message>
   </context>
 </TS>

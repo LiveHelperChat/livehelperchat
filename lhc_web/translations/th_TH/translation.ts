@@ -170,6 +170,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Which ip should not be allowed to chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
       <translation type="unfinished"/>
     </message>
@@ -481,6 +485,10 @@
       <translation>ตำแหน่ง</translation>
     </message>
     <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
       <translation>รอข้อความ มองเห็นได้เมื่อผู้ใช้เริ่มต้นสนทนา และรอคนรับการสนทนา</translation>
     </message>
@@ -543,10 +551,6 @@
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
       <translation>รหัส รหัสใดควรจะแสดงข้อความนี้ ปล่อยว่างไว้ทั้งหมด</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Matched times</source>
@@ -736,6 +740,10 @@
     </message>
     <message>
       <source>Choose what form you want to embed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1241,18 +1249,6 @@
   <context>
     <name>department/edit</name>
     <message>
-      <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation>ทำงานชั่วโมง 24 ชั่วโมงรูปแบบ 1-24</translation>
-    </message>
-    <message>
-      <source>From, E.g. 8</source>
-      <translation>จาก 8 เช่น</translation>
-    </message>
-    <message>
-      <source>To, E.g. 17</source>
-      <translation>การ เช่น 17</translation>
-    </message>
-    <message>
       <source>Any</source>
       <translation type="unfinished"/>
     </message>
@@ -1511,6 +1507,10 @@
       <translation>ข้อมูล</translation>
     </message>
     <message>
+      <source>Edit main chat information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department</source>
       <translation>แผนก</translation>
     </message>
@@ -1549,6 +1549,10 @@
     <message>
       <source>Created</source>
       <translation>สร้าง</translation>
+    </message>
+    <message>
+      <source>User left</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Waited</source>
@@ -1874,6 +1878,10 @@
       <translation>มีผู้ประกอบการไม่ออนไลน์อยู่ในขณะนี้ กรุณาฝากข้อความไว้</translation>
     </message>
     <message>
+      <source>File</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Leave a message</source>
       <translation>ฝากข้อความไว้</translation>
     </message>
@@ -1942,6 +1950,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Invalid CSRF token!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a valid email address</source>
+      <translation>กรุณาระบุ e-mail ที่ถูกต้อง</translation>
+    </message>
+    <message>
+      <source>Maximum 50 characters</source>
+      <translation>สูงสุด 50 ตัวอักษร</translation>
+    </message>
+    <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
       <translation>นอกจากนี้คุณไม่มีสิทธิ์คุย กรุณาติดต่อเจ้าของเว็บไซต์</translation>
     </message>
@@ -1952,14 +1972,6 @@
     <message>
       <source>Please enter your name</source>
       <translation>กรุณาใส่ชื่อของคุณ</translation>
-    </message>
-    <message>
-      <source>Maximum 50 characters</source>
-      <translation>สูงสุด 50 ตัวอักษร</translation>
-    </message>
-    <message>
-      <source>Please enter a valid email address</source>
-      <translation>กรุณาระบุ e-mail ที่ถูกต้อง</translation>
     </message>
     <message>
       <source>Please enter your message</source>
@@ -1986,12 +1998,28 @@
       <translation>ตัวสูงสุดสำหรับโทรศัพท์</translation>
     </message>
     <message>
+      <source>Invalid file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Could not determine a default department!</source>
       <translation>ไม่สามารถกำหนดแผนกเริ่มต้น</translation>
     </message>
     <message>
       <source>is required</source>
       <translation>จำเป็นต้องมี</translation>
+    </message>
+    <message>
+      <source>Invalid file extension</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid file extension!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To big file!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -3200,6 +3228,33 @@
     </message>
   </context>
   <context>
+    <name>chat/modifychat</name>
+    <message>
+      <source>Modify chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Recipient e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat information was updated</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/operatorschats</name>
     <message>
       <source>Operators chats list</source>
@@ -3437,6 +3492,10 @@
     <message>
       <source>E-mail is always required</source>
       <translation>อีเมล์จำเป็นต้องมีเสมอ</translation>
+    </message>
+    <message>
+      <source>Allow to attatch a file</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Additional form settings</source>
@@ -5982,6 +6041,57 @@
     </message>
   </context>
   <context>
+    <name>chat/chatexport</name>
+    <message>
+      <source>Visitor Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>City</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Referrer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Link</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/syncuser</name>
     <message>
       <source>Chat was automatically transferred to</source>
@@ -6285,57 +6395,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>กรุณาระบุชนิดแฟ้มที่ถูกต้อง</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/chatexport</name>
-    <message>
-      <source>Visitor Name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>City</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>IP</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Date</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Mail send</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Referrer</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Link</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

@@ -170,6 +170,10 @@
       <translation>Mostrar botão de código BB</translation>
     </message>
     <message>
+      <source>Which ip should not be allowed to chat</source>
+      <translation>Qual ip não devem ser autorizados a conversar</translation>
+    </message>
+    <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
       <translation>Remover chats automaticamente. 0 - desabilitado, n &gt; 0 tempo em minutos antes do chat ser automaticamente deletado</translation>
     </message>
@@ -481,6 +485,10 @@
       <translation>Posição</translation>
     </message>
     <message>
+      <source>Department</source>
+      <translation>Departamento</translation>
+    </message>
+    <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
       <translation>Mensagem de espera. Visíval quando usuários iniciam um chat e aguardam a alguém aceitar o mesmo.</translation>
     </message>
@@ -543,10 +551,6 @@
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
       <translation>Identificador, para qual identificador esta mensagem deve ser mostrada, deixe em branco para todos</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Departamento</translation>
     </message>
     <message>
       <source>Matched times</source>
@@ -737,6 +741,10 @@
     <message>
       <source>Choose what form you want to embed</source>
       <translation>Escolha qual formulário deseja incorporar</translation>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation>Identificador</translation>
     </message>
     <message>
       <source>Help us to grow</source>
@@ -1241,18 +1249,6 @@
   <context>
     <name>department/edit</name>
     <message>
-      <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation>Horário de trabalho no formato 24 horas, 1 - 24</translation>
-    </message>
-    <message>
-      <source>From, E.g. 8</source>
-      <translation>A partir de, Ex.: 8</translation>
-    </message>
-    <message>
-      <source>To, E.g. 17</source>
-      <translation>Para, Ex.: 17</translation>
-    </message>
-    <message>
       <source>Any</source>
       <translation>Qualquer</translation>
     </message>
@@ -1511,6 +1507,10 @@
       <translation>Informação</translation>
     </message>
     <message>
+      <source>Edit main chat information</source>
+      <translation>Editar principais informações do chat</translation>
+    </message>
+    <message>
       <source>Department</source>
       <translation>Departamento</translation>
     </message>
@@ -1549,6 +1549,10 @@
     <message>
       <source>Created</source>
       <translation>Criado</translation>
+    </message>
+    <message>
+      <source>User left</source>
+      <translation>Usuário saiu</translation>
     </message>
     <message>
       <source>Waited</source>
@@ -1874,6 +1878,10 @@
       <translation>Não existem operadores online no momento, por favor deixe uma mensagem e entraremos em contato com você.</translation>
     </message>
     <message>
+      <source>File</source>
+      <translation>Arquivo</translation>
+    </message>
+    <message>
       <source>Leave a message</source>
       <translation>Deixe uma mensagem</translation>
     </message>
@@ -1942,6 +1950,18 @@
       <translation>Escolha o seu idioma</translation>
     </message>
     <message>
+      <source>Invalid CSRF token!</source>
+      <translation>Token CSRF inválido!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid email address</source>
+      <translation>Por favor insira um endereço de email válido</translation>
+    </message>
+    <message>
+      <source>Maximum 50 characters</source>
+      <translation>Máximo de 50 caracteres</translation>
+    </message>
+    <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
       <translation>Você não tem permissão para o chat! Por favor, contate o proprietário do site.</translation>
     </message>
@@ -1952,14 +1972,6 @@
     <message>
       <source>Please enter your name</source>
       <translation>Por favor, digite seu nome</translation>
-    </message>
-    <message>
-      <source>Maximum 50 characters</source>
-      <translation>Máximo de 50 caracteres</translation>
-    </message>
-    <message>
-      <source>Please enter a valid email address</source>
-      <translation>Por favor insira um endereço de email válido</translation>
     </message>
     <message>
       <source>Please enter your message</source>
@@ -1986,12 +1998,28 @@
       <translation>Máximo de 100 caracteres para telefone</translation>
     </message>
     <message>
+      <source>Invalid file</source>
+      <translation>Arquivo inválido</translation>
+    </message>
+    <message>
       <source>Could not determine a default department!</source>
       <translation>Não foi possível determinar um departamento padrão!</translation>
     </message>
     <message>
       <source>is required</source>
       <translation>é exigido</translation>
+    </message>
+    <message>
+      <source>Invalid file extension</source>
+      <translation>Extensão de arquivo inválida</translation>
+    </message>
+    <message>
+      <source>Invalid file extension!</source>
+      <translation>Extensão de arquivo inválida!</translation>
+    </message>
+    <message>
+      <source>To big file!</source>
+      <translation>Arquivo muito grande!</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -3200,6 +3228,33 @@
     </message>
   </context>
   <context>
+    <name>chat/modifychat</name>
+    <message>
+      <source>Modify chat</source>
+      <translation>Alterar chat</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Recipient e-mail</source>
+      <translation>Destinatário de e-mail</translation>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation>Apelido</translation>
+    </message>
+    <message>
+      <source>Update chat</source>
+      <translation>Atualizar chat</translation>
+    </message>
+    <message>
+      <source>Chat information was updated</source>
+      <translation>A informação do chat foi atualizada</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/operatorschats</name>
     <message>
       <source>Operators chats list</source>
@@ -3437,6 +3492,10 @@
     <message>
       <source>E-mail is always required</source>
       <translation>O e-mail é sempre necessário</translation>
+    </message>
+    <message>
+      <source>Allow to attatch a file</source>
+      <translation>Permitir anexar um arquivo</translation>
     </message>
     <message>
       <source>Additional form settings</source>
@@ -5982,6 +6041,57 @@
     </message>
   </context>
   <context>
+    <name>chat/chatexport</name>
+    <message>
+      <source>Visitor Name</source>
+      <translation>Nome do visitante</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Telefone</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>País</translation>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>Cidade</translation>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation>IP</translation>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation>Operador</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Departamento</translation>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>Data</translation>
+    </message>
+    <message>
+      <source>Mail send</source>
+      <translation>Enviar e-mail</translation>
+    </message>
+    <message>
+      <source>Referrer</source>
+      <translation>Referenciador</translation>
+    </message>
+    <message>
+      <source>Link</source>
+      <translation>Link</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/syncuser</name>
     <message>
       <source>Chat was automatically transferred to</source>
@@ -6285,57 +6395,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Por favor insira um tipo de arquivo válido!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/chatexport</name>
-    <message>
-      <source>Visitor Name</source>
-      <translation>Nome do visitante</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Telefone</translation>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation>País</translation>
-    </message>
-    <message>
-      <source>City</source>
-      <translation>Cidade</translation>
-    </message>
-    <message>
-      <source>IP</source>
-      <translation>IP</translation>
-    </message>
-    <message>
-      <source>Operator</source>
-      <translation>Operador</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Departamento</translation>
-    </message>
-    <message>
-      <source>Date</source>
-      <translation>Data</translation>
-    </message>
-    <message>
-      <source>Mail send</source>
-      <translation>Enviar e-mail</translation>
-    </message>
-    <message>
-      <source>Referrer</source>
-      <translation>Referenciador</translation>
-    </message>
-    <message>
-      <source>Link</source>
-      <translation>Link</translation>
     </message>
   </context>
 </TS>

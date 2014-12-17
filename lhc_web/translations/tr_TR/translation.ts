@@ -170,6 +170,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Which ip should not be allowed to chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
       <translation type="unfinished"/>
     </message>
@@ -481,6 +485,10 @@
       <translation>Pozisyon</translation>
     </message>
     <message>
+      <source>Department</source>
+      <translation>Departman</translation>
+    </message>
+    <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -543,10 +551,6 @@
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
       <translation>Belirteç, hangi belirteç için bu mesaj gösterilecek, hepsini boş bırak </translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Departman</translation>
     </message>
     <message>
       <source>Matched times</source>
@@ -736,6 +740,10 @@
     </message>
     <message>
       <source>Choose what form you want to embed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1241,18 +1249,6 @@
   <context>
     <name>department/edit</name>
     <message>
-      <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation>Çalışma saatleri, 24 saat biçimi, 1 - 24</translation>
-    </message>
-    <message>
-      <source>From, E.g. 8</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>To, E.g. 17</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Any</source>
       <translation>Herhangi biri</translation>
     </message>
@@ -1511,6 +1507,10 @@
       <translation>Bilgi</translation>
     </message>
     <message>
+      <source>Edit main chat information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department</source>
       <translation>Departman</translation>
     </message>
@@ -1549,6 +1549,10 @@
     <message>
       <source>Created</source>
       <translation>Oluşturuldu</translation>
+    </message>
+    <message>
+      <source>User left</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Waited</source>
@@ -1874,6 +1878,10 @@
       <translation>Şu anda online operatör yok, lütfen mesaj bırakın </translation>
     </message>
     <message>
+      <source>File</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Leave a message</source>
       <translation>Mesaj bırak</translation>
     </message>
@@ -1942,6 +1950,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Invalid CSRF token!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a valid email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Maximum 50 characters</source>
+      <translation>Maksimum 50 karakter</translation>
+    </message>
+    <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
       <translation>Konuşma yapmaya izniniz yok! Lütfen site sahibi ile iletişime geçin.</translation>
     </message>
@@ -1952,14 +1972,6 @@
     <message>
       <source>Please enter your name</source>
       <translation>Lütfen adınızı girin</translation>
-    </message>
-    <message>
-      <source>Maximum 50 characters</source>
-      <translation>Maksimum 50 karakter</translation>
-    </message>
-    <message>
-      <source>Please enter a valid email address</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter your message</source>
@@ -1986,11 +1998,27 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Invalid file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Could not determine a default department!</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>is required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid file extension</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid file extension!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To big file!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3202,6 +3230,33 @@
     </message>
   </context>
   <context>
+    <name>chat/modifychat</name>
+    <message>
+      <source>Modify chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Recipient e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat information was updated</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/operatorschats</name>
     <message>
       <source>Operators chats list</source>
@@ -3438,6 +3493,10 @@
     </message>
     <message>
       <source>E-mail is always required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Allow to attatch a file</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5984,6 +6043,57 @@
     </message>
   </context>
   <context>
+    <name>chat/chatexport</name>
+    <message>
+      <source>Visitor Name</source>
+      <translation>Ziyaretçi adı</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-posta</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Telefon</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>Ülke</translation>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>Şehir</translation>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation>IP</translation>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation>Operatör</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Departman</translation>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>Tarih</translation>
+    </message>
+    <message>
+      <source>Mail send</source>
+      <translation>Posta gönder</translation>
+    </message>
+    <message>
+      <source>Referrer</source>
+      <translation>Yönlendirme</translation>
+    </message>
+    <message>
+      <source>Link</source>
+      <translation>Bağlantı</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/syncuser</name>
     <message>
       <source>Chat was automatically transferred to</source>
@@ -6287,57 +6397,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Lütfen geçerli bir dosya türü girin!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/chatexport</name>
-    <message>
-      <source>Visitor Name</source>
-      <translation>Ziyaretçi adı</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-posta</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Telefon</translation>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation>Ülke</translation>
-    </message>
-    <message>
-      <source>City</source>
-      <translation>Şehir</translation>
-    </message>
-    <message>
-      <source>IP</source>
-      <translation>IP</translation>
-    </message>
-    <message>
-      <source>Operator</source>
-      <translation>Operatör</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Departman</translation>
-    </message>
-    <message>
-      <source>Date</source>
-      <translation>Tarih</translation>
-    </message>
-    <message>
-      <source>Mail send</source>
-      <translation>Posta gönder</translation>
-    </message>
-    <message>
-      <source>Referrer</source>
-      <translation>Yönlendirme</translation>
-    </message>
-    <message>
-      <source>Link</source>
-      <translation>Bağlantı</translation>
     </message>
   </context>
 </TS>

@@ -170,6 +170,10 @@
       <translation>Εμφάνιση του κουμπιού BB κώδικα</translation>
     </message>
     <message>
+      <source>Which ip should not be allowed to chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
       <translation>Αυτόματη συνομιλίες εκκαθάριση. 0 - άτομα με ειδικές ανάγκες, n &gt; 0 διάρκεια σε λεπτά πριν chat διαγράφεται αυτόματα</translation>
     </message>
@@ -481,6 +485,10 @@
       <translation>Θέση</translation>
     </message>
     <message>
+      <source>Department</source>
+      <translation>Τμήμα</translation>
+    </message>
+    <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
       <translation>Περιμένει μήνυμα. Ορατά, όταν οι χρήστες αρχίζει συνομιλία και περιμένει κάποιος να δεχθεί μια συνομιλία.</translation>
     </message>
@@ -543,10 +551,6 @@
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
       <translation>Αναγνωριστικό, για ποιο προσδιοριστικό πρέπει να εμφανιστεί αυτό το μήνυμα, αφήστε κενό για όλους</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Τμήμα</translation>
     </message>
     <message>
       <source>Matched times</source>
@@ -737,6 +741,10 @@
     <message>
       <source>Choose what form you want to embed</source>
       <translation>Επιλέξτε ποια μορφή θέλετε να ενσωματώσετε</translation>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Help us to grow</source>
@@ -1241,18 +1249,6 @@
   <context>
     <name>department/edit</name>
     <message>
-      <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation>Εργασία ώρες, 24 ώρες μορφή 1-24</translation>
-    </message>
-    <message>
-      <source>From, E.g. 8</source>
-      <translation>Από, π.χ. 8</translation>
-    </message>
-    <message>
-      <source>To, E.g. 17</source>
-      <translation>Να, π.χ. 17</translation>
-    </message>
-    <message>
       <source>Any</source>
       <translation>Κάθε</translation>
     </message>
@@ -1511,6 +1507,10 @@
       <translation>Πληροφορία</translation>
     </message>
     <message>
+      <source>Edit main chat information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department</source>
       <translation>Τμήμα</translation>
     </message>
@@ -1549,6 +1549,10 @@
     <message>
       <source>Created</source>
       <translation>Δημιουργήθηκε</translation>
+    </message>
+    <message>
+      <source>User left</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Waited</source>
@@ -1851,7 +1855,7 @@
     </message>
     <message>
       <source>Your question</source>
-      <translation>Ερώτησή σας</translation>
+      <translation>Η ερώτησή σας</translation>
     </message>
     <message>
       <source>Please enter a message...</source>
@@ -1871,7 +1875,11 @@
     </message>
     <message>
       <source>There are no online operators at the moment, please leave a message</source>
-      <translation>Δεν σε απευθείας σύνδεση φορείς που υπάρχουν αυτή τη στιγμή, παρακαλώ αφήστε ένα μήνυμα</translation>
+      <translation>Δεν υπάρχουν συνδεδεμένοι φορείς αυτή τη στιγμή, παρακαλώ αφήστε ένα μήνυμα</translation>
+    </message>
+    <message>
+      <source>File</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Leave a message</source>
@@ -1935,11 +1943,23 @@
     </message>
     <message>
       <source>There are no online operators at the moment, please leave your message</source>
-      <translation>Δεν σε απευθείας σύνδεση φορείς που υπάρχουν αυτή τη στιγμή, παρακαλώ αφήστε το μήνυμά σας</translation>
+      <translation>Δεν υπάρχουν συνδεδεμένοι φορείς αυτή τη στιγμή, παρακαλώ αφήστε το μήνυμά σας</translation>
     </message>
     <message>
       <source>Choose your language</source>
       <translation>Επιλέξτε τη γλώσσα σας</translation>
+    </message>
+    <message>
+      <source>Invalid CSRF token!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a valid email address</source>
+      <translation>Παρακαλώ εισάγετε μια έγκυρη διεύθυνση email</translation>
+    </message>
+    <message>
+      <source>Maximum 50 characters</source>
+      <translation>Έως 50 χαρακτήρες</translation>
     </message>
     <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
@@ -1952,14 +1972,6 @@
     <message>
       <source>Please enter your name</source>
       <translation>Παρακαλώ εισάγετε το όνομά σας</translation>
-    </message>
-    <message>
-      <source>Maximum 50 characters</source>
-      <translation>Έως 50 χαρακτήρες</translation>
-    </message>
-    <message>
-      <source>Please enter a valid email address</source>
-      <translation>Παρακαλώ εισάγετε μια έγκυρη διεύθυνση email</translation>
     </message>
     <message>
       <source>Please enter your message</source>
@@ -1986,12 +1998,28 @@
       <translation>Έως 100 χαρακτήρες για το τηλέφωνο</translation>
     </message>
     <message>
+      <source>Invalid file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Could not determine a default department!</source>
       <translation>Δεν μπόρεσε να προσδιορίσει ένα προεπιλεγμένο τμήμα!</translation>
     </message>
     <message>
       <source>is required</source>
       <translation>είναι απαιτούμενο</translation>
+    </message>
+    <message>
+      <source>Invalid file extension</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid file extension!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To big file!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -3200,6 +3228,33 @@
     </message>
   </context>
   <context>
+    <name>chat/modifychat</name>
+    <message>
+      <source>Modify chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Recipient e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat information was updated</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/operatorschats</name>
     <message>
       <source>Operators chats list</source>
@@ -3437,6 +3492,10 @@
     <message>
       <source>E-mail is always required</source>
       <translation>Το email απαιτείται πάντα</translation>
+    </message>
+    <message>
+      <source>Allow to attatch a file</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Additional form settings</source>
@@ -4252,7 +4311,7 @@
     </message>
     <message>
       <source>Email</source>
-      <translation>Ηλεκτρονικό ταχυδρομείο</translation>
+      <translation>Email</translation>
     </message>
     <message>
       <source>Name</source>
@@ -5982,6 +6041,57 @@
     </message>
   </context>
   <context>
+    <name>chat/chatexport</name>
+    <message>
+      <source>Visitor Name</source>
+      <translation>Όνομα του επισκέπτη</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>Ηλεκτρονικού ταχυδρομείου</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Τηλέφωνο</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>Χώρα</translation>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>Πόλη</translation>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation>IP</translation>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation>Χειριστή</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Τμήμα</translation>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>Ημερομηνία</translation>
+    </message>
+    <message>
+      <source>Mail send</source>
+      <translation>Αποστολή αλληλογραφίας</translation>
+    </message>
+    <message>
+      <source>Referrer</source>
+      <translation>Referrer</translation>
+    </message>
+    <message>
+      <source>Link</source>
+      <translation>Σύνδεση</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/syncuser</name>
     <message>
       <source>Chat was automatically transferred to</source>
@@ -6285,57 +6395,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Παρακαλούμε, εισάγετε έγκυρο αρχείο τύπου!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/chatexport</name>
-    <message>
-      <source>Visitor Name</source>
-      <translation>Όνομα του επισκέπτη</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>Ηλεκτρονικού ταχυδρομείου</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Τηλέφωνο</translation>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation>Χώρα</translation>
-    </message>
-    <message>
-      <source>City</source>
-      <translation>Πόλη</translation>
-    </message>
-    <message>
-      <source>IP</source>
-      <translation>IP</translation>
-    </message>
-    <message>
-      <source>Operator</source>
-      <translation>Χειριστή</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Τμήμα</translation>
-    </message>
-    <message>
-      <source>Date</source>
-      <translation>Ημερομηνία</translation>
-    </message>
-    <message>
-      <source>Mail send</source>
-      <translation>Αποστολή αλληλογραφίας</translation>
-    </message>
-    <message>
-      <source>Referrer</source>
-      <translation>Referrer</translation>
-    </message>
-    <message>
-      <source>Link</source>
-      <translation>Σύνδεση</translation>
     </message>
   </context>
 </TS>

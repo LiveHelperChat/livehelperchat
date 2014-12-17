@@ -170,6 +170,10 @@
       <translation>Показывать кнопку BB-кода</translation>
     </message>
     <message>
+      <source>Which ip should not be allowed to chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
       <translation type="unfinished"/>
     </message>
@@ -481,6 +485,10 @@
       <translation>Позиция</translation>
     </message>
     <message>
+      <source>Department</source>
+      <translation>Отдел</translation>
+    </message>
+    <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
       <translation>Сообщение для ожидающих посетителей, будет показано, когда пользователь начнет чат и будет ждать оператора</translation>
     </message>
@@ -543,10 +551,6 @@
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
       <translation>Идентификатор, что должно отображаться это сообщение, идентификатор оставьте пустым для всех</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Отдел</translation>
     </message>
     <message>
       <source>Matched times</source>
@@ -737,6 +741,10 @@
     <message>
       <source>Choose what form you want to embed</source>
       <translation>Выберите форму для встраивания</translation>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Help us to grow</source>
@@ -1241,18 +1249,6 @@
   <context>
     <name>department/edit</name>
     <message>
-      <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation>Часы работы, 24 часовой формат, от 1-24</translation>
-    </message>
-    <message>
-      <source>From, E.g. 8</source>
-      <translation>Например, с 8</translation>
-    </message>
-    <message>
-      <source>To, E.g. 17</source>
-      <translation>Например, до 17</translation>
-    </message>
-    <message>
       <source>Any</source>
       <translation>Любой</translation>
     </message>
@@ -1512,6 +1508,10 @@
       <translation>Информация</translation>
     </message>
     <message>
+      <source>Edit main chat information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department</source>
       <translation>Департамент</translation>
     </message>
@@ -1550,6 +1550,10 @@
     <message>
       <source>Created</source>
       <translation>Создано</translation>
+    </message>
+    <message>
+      <source>User left</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Waited</source>
@@ -1875,6 +1879,10 @@
       <translation>Операторов нет на месте. Вы можете отправить ваше сообщение, ответ придет вам на e-mail.</translation>
     </message>
     <message>
+      <source>File</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Leave a message</source>
       <translation>Оставить сообщение</translation>
     </message>
@@ -1943,6 +1951,18 @@
       <translation>Выбрать ваш язык</translation>
     </message>
     <message>
+      <source>Invalid CSRF token!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a valid email address</source>
+      <translation>Введите ваш e-mail</translation>
+    </message>
+    <message>
+      <source>Maximum 50 characters</source>
+      <translation>Максимальная длина имени - 50 знаков</translation>
+    </message>
+    <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
       <translation>У вас нет прав для использования чата! Пожалуйста свяжитесь с владельцем сайта.</translation>
     </message>
@@ -1953,14 +1973,6 @@
     <message>
       <source>Please enter your name</source>
       <translation>Введите ваше имя</translation>
-    </message>
-    <message>
-      <source>Maximum 50 characters</source>
-      <translation>Максимальная длина имени - 50 знаков</translation>
-    </message>
-    <message>
-      <source>Please enter a valid email address</source>
-      <translation>Введите ваш e-mail</translation>
     </message>
     <message>
       <source>Please enter your message</source>
@@ -1987,12 +1999,28 @@
       <translation>Максимальная длина телефона - 100 символов</translation>
     </message>
     <message>
+      <source>Invalid file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Could not determine a default department!</source>
       <translation>Не удалось определить Департамент по умолчанию!</translation>
     </message>
     <message>
       <source>is required</source>
       <translation>обязательно</translation>
+    </message>
+    <message>
+      <source>Invalid file extension</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid file extension!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To big file!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -3201,6 +3229,33 @@
     </message>
   </context>
   <context>
+    <name>chat/modifychat</name>
+    <message>
+      <source>Modify chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Recipient e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat information was updated</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/operatorschats</name>
     <message>
       <source>Operators chats list</source>
@@ -3438,6 +3493,10 @@
     <message>
       <source>E-mail is always required</source>
       <translation>Всегда требовать E-mail</translation>
+    </message>
+    <message>
+      <source>Allow to attatch a file</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Additional form settings</source>
@@ -5983,6 +6042,57 @@
     </message>
   </context>
   <context>
+    <name>chat/chatexport</name>
+    <message>
+      <source>Visitor Name</source>
+      <translation>Имя посетителя</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Телефон</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>Страна</translation>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>Город</translation>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation>IP</translation>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation>Оператор</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>Дата</translation>
+    </message>
+    <message>
+      <source>Mail send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Referrer</source>
+      <translation>Реферер</translation>
+    </message>
+    <message>
+      <source>Link</source>
+      <translation>Ссылка</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/syncuser</name>
     <message>
       <source>Chat was automatically transferred to</source>
@@ -6286,57 +6396,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Пожалуйста, введите правильный тип файла</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/chatexport</name>
-    <message>
-      <source>Visitor Name</source>
-      <translation>Имя посетителя</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Телефон</translation>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation>Страна</translation>
-    </message>
-    <message>
-      <source>City</source>
-      <translation>Город</translation>
-    </message>
-    <message>
-      <source>IP</source>
-      <translation>IP</translation>
-    </message>
-    <message>
-      <source>Operator</source>
-      <translation>Оператор</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Date</source>
-      <translation>Дата</translation>
-    </message>
-    <message>
-      <source>Mail send</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Referrer</source>
-      <translation>Реферер</translation>
-    </message>
-    <message>
-      <source>Link</source>
-      <translation>Ссылка</translation>
     </message>
   </context>
 </TS>

@@ -170,6 +170,10 @@
       <translation>显示 BB 代码按钮</translation>
     </message>
     <message>
+      <source>Which ip should not be allowed to chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
       <translation>自动清除聊天记录。0-禁用，n &gt; 0 分钟前自动删除</translation>
     </message>
@@ -481,6 +485,10 @@
       <translation>位置</translation>
     </message>
     <message>
+      <source>Department</source>
+      <translation>新闻部</translation>
+    </message>
+    <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
       <translation>等待消息。可见，当用户开始聊天，并正在等待有人来接受聊天。</translation>
     </message>
@@ -543,10 +551,6 @@
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
       <translation>標識符，標識符是什麼，應該顯示這個消息，留下空</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>新闻部</translation>
     </message>
     <message>
       <source>Matched times</source>
@@ -737,6 +741,10 @@
     <message>
       <source>Choose what form you want to embed</source>
       <translation>选择您想要嵌入什么的形式</translation>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Help us to grow</source>
@@ -1241,18 +1249,6 @@
   <context>
     <name>department/edit</name>
     <message>
-      <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation>工作小时，24 小时格式，1-24</translation>
-    </message>
-    <message>
-      <source>From, E.g. 8</source>
-      <translation>例如 8 日</translation>
-    </message>
-    <message>
-      <source>To, E.g. 17</source>
-      <translation>对，如 17</translation>
-    </message>
-    <message>
       <source>Any</source>
       <translation>任何</translation>
     </message>
@@ -1511,6 +1507,10 @@
       <translation>信息</translation>
     </message>
     <message>
+      <source>Edit main chat information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department</source>
       <translation>新闻部</translation>
     </message>
@@ -1549,6 +1549,10 @@
     <message>
       <source>Created</source>
       <translation>創建</translation>
+    </message>
+    <message>
+      <source>User left</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Waited</source>
@@ -1874,6 +1878,10 @@
       <translation>此刻有没有在线运营商，请留言</translation>
     </message>
     <message>
+      <source>File</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Leave a message</source>
       <translation>留言</translation>
     </message>
@@ -1942,6 +1950,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Invalid CSRF token!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a valid email address</source>
+      <translation>請輸入一個有效的電子郵件地址</translation>
+    </message>
+    <message>
+      <source>Maximum 50 characters</source>
+      <translation>最大50个字符</translation>
+    </message>
+    <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
       <translation>您没有权限聊天！请联系网站所有者。</translation>
     </message>
@@ -1952,14 +1972,6 @@
     <message>
       <source>Please enter your name</source>
       <translation>请输入您的姓名</translation>
-    </message>
-    <message>
-      <source>Maximum 50 characters</source>
-      <translation>最大50个字符</translation>
-    </message>
-    <message>
-      <source>Please enter a valid email address</source>
-      <translation>請輸入一個有效的電子郵件地址</translation>
     </message>
     <message>
       <source>Please enter your message</source>
@@ -1986,12 +1998,28 @@
       <translation>電話最多100個字符</translation>
     </message>
     <message>
+      <source>Invalid file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Could not determine a default department!</source>
       <translation>不能确定默认部门 ！</translation>
     </message>
     <message>
       <source>is required</source>
       <translation>需要</translation>
+    </message>
+    <message>
+      <source>Invalid file extension</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid file extension!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To big file!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -3200,6 +3228,33 @@
     </message>
   </context>
   <context>
+    <name>chat/modifychat</name>
+    <message>
+      <source>Modify chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Recipient e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat information was updated</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/operatorschats</name>
     <message>
       <source>Operators chats list</source>
@@ -3437,6 +3492,10 @@
     <message>
       <source>E-mail is always required</source>
       <translation>电子邮件始终是必需的</translation>
+    </message>
+    <message>
+      <source>Allow to attatch a file</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Additional form settings</source>
@@ -5982,6 +6041,57 @@
     </message>
   </context>
   <context>
+    <name>chat/chatexport</name>
+    <message>
+      <source>Visitor Name</source>
+      <translation>访客姓名</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>电子邮箱</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>电话</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>国家</translation>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>城市</translation>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation>IP地址</translation>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation>操作员</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>部门</translation>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>日期</translation>
+    </message>
+    <message>
+      <source>Mail send</source>
+      <translation>邮件已发送</translation>
+    </message>
+    <message>
+      <source>Referrer</source>
+      <translation>推荐人</translation>
+    </message>
+    <message>
+      <source>Link</source>
+      <translation>链接</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/syncuser</name>
     <message>
       <source>Chat was automatically transferred to</source>
@@ -6285,57 +6395,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>请输入有效的文件类型 ！</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/chatexport</name>
-    <message>
-      <source>Visitor Name</source>
-      <translation>访客姓名</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>电子邮箱</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>电话</translation>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation>国家</translation>
-    </message>
-    <message>
-      <source>City</source>
-      <translation>城市</translation>
-    </message>
-    <message>
-      <source>IP</source>
-      <translation>IP地址</translation>
-    </message>
-    <message>
-      <source>Operator</source>
-      <translation>操作员</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>部门</translation>
-    </message>
-    <message>
-      <source>Date</source>
-      <translation>日期</translation>
-    </message>
-    <message>
-      <source>Mail send</source>
-      <translation>邮件已发送</translation>
-    </message>
-    <message>
-      <source>Referrer</source>
-      <translation>推荐人</translation>
-    </message>
-    <message>
-      <source>Link</source>
-      <translation>链接</translation>
     </message>
   </context>
 </TS>
