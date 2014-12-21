@@ -22,6 +22,12 @@ $ViewList['checkmirrorchanges'] = array(
 		'uparams' => array()
 );
 
+$ViewList['checkinitializer'] = array(
+		'params' => array('chat_id'),
+		'functions' => array('browse'),
+		'uparams' => array()
+);
+
 $ViewList['storenodemap'] = array(
 		'params' => array(),
 		'uparams' => array('vid','hash','hash_resume')

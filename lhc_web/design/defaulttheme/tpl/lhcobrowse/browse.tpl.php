@@ -20,7 +20,7 @@
     
 </div>
 <script>
-var lhcbrowserOpeator = new LHCCoBrowserOperator(window,document,{'chat_id':<?php echo $browse->chat_id?>, 'base':<?php echo json_encode($browse->url)?>, 'initialize' : <?php echo $browse->initialize != '' ? $browse->initialize : 'null'?>});
+var lhcbrowserOpeator = new LHCCoBrowserOperator(window,document,{'nodejssettings':{'nodejssocket':<?php echo json_encode(erLhcoreClassModelChatConfig::fetch('sharing_nodejs_sllocation')->current_value)?>,'nodejshost':<?php echo json_encode(erLhcoreClassModelChatConfig::fetch('sharing_nodejs_socket_host')->current_value)?>,'secure':<?php if ((int)erLhcoreClassModelChatConfig::fetch('sharing_nodejs_secure')->current_value == 1) : ?>true<?php else : ?>false<?php endif;?>},'nodejsenabled':<?php echo (int)erLhcoreClassModelChatConfig::fetch('sharing_nodejs_enabled')->current_value?>,'chat_hash':'<?php echo $browse->chat->hash?>','chat_id':<?php echo $browse->chat_id?>, 'base':<?php echo json_encode($browse->url)?>, 'initialize' : <?php echo $browse->initialize != '' ? $browse->initialize : 'null'?>});
 </script>
 <div id="contentWrap">
         <iframe id="content" name="content" src="<?php echo erLhcoreClassDesign::baseurl('cobrowse/mirror')?>" frameborder="0"></iframe>

@@ -14,7 +14,7 @@ io.set('transports',[
     'polling']);
 
 http.listen(config.web.port,config.web.host);
-console.log('LHC Co-Browsing Server listening on '+config.web.host+':'+config.web.port);
+console.log('LHC Co-browsing Server listening on '+config.web.host+':'+config.web.port);
 
 function handler(req, res) {
   res.writeHead(200);
@@ -22,46 +22,43 @@ function handler(req, res) {
 }
 console.log(config.debug.output);
 io.sockets.on('connection', function (socket) {
-       
-  socket.on('newmessage', function (data) {
+	
+  console.log('connected some'); 	
+	
+  socket.on('usermessage', function (data) {
   		if (config.debug.output == true) {
-  			console.log('newmessage:'+data.instance_id+'_'+data.chat_id); 	
-  		};
-  		
-  		socket.broadcast.to('chat_room_'+data.instance_id+'_'+data.chat_id).emit('newmessage', data);    	
+  			console.log('usermessage:'+data.chat_id + JSON.stringify(data.msg)); 	
+  		};  		
+  		socket.broadcast.to('chat_room_'+data.chat_id).emit('usermessage', data.msg);    	
   });
  
-  socket.on('userleftchat', function (data) {
+  socket.on('userleft', function (data) {
   		if (config.debug.output == true) {
-  			console.log('userleftchat:'+data.instance_id+'_'+data.chat_id);
-  		}; 	
-    	socket.broadcast.to('chat_room_'+data.instance_id+'_'+data.chat_id).emit('userleftchat', data.chat_id);
+  			console.log('userleft:'+data.chat_id);
+  		};
+  		socket.leave('chat_room_'+data.chat_id);
+    	socket.broadcast.to('chat_room_'+data.chat_id).emit('userleft', data.chat_id);
   });
   
   socket.on('join', function (data) {
 	  if (config.debug.output == true) {
-		  console.log('join:'+data.instance_id+'_'+data.chat_id);  
+		  console.log('join:'+data.chat_id);  
 	  };		
-	  socket.join('chat_room_'+data.instance_id+'_'+data.chat_id);
-	  socket.broadcast.to('chat_room_'+data.instance_id+'_'+data.chat_id).emit('userjoined', data.chat_id);	  
+	  socket.join('chat_room_'+data.chat_id);
+	  socket.broadcast.to('chat_room_'+data.chat_id).emit('userjoined', data.chat_id);	  
+  });
+  
+  socket.on('joinadmin', function (data) {
+	  if (config.debug.output == true) {
+		  console.log('joinadmin:'+data.chat_id);  
+	  };		
+	  socket.join('chat_room_'+data.chat_id);	    
   });
 
   socket.on('leave', function (data) {
   		if (config.debug.output == true) {
-  			console.log('leave:'+data.instance_id+'_'+data.chat_id);
+  			console.log('leave:'+data.chat_id);
   		};
-  		socket.leave('chat_room_'+data.instance_id+'_'+data.chat_id);  		
+  		socket.leave('chat_room_'+data.chat_id);  		
   });
-  
-  socket.on('syncforce', function (data) { 
-  		if (config.debug.output == true) {
-  			console.log('syncforce:'+data.instance_id+'_'+data.chat_id); 	
-  		};
-    	socket.broadcast.to('chat_room_'+data.instance_id+'_'+data.chat_id).emit('syncforce', data.chat_id);
-  });
-  
-  socket.on('disconnect', function() {
-	  
-  }); 
-  
 });

@@ -58,7 +58,12 @@ class erLhcoreClassModelCoBrowse {
 				break;
 
 			case 'is_sharing':
-					return $this->finished == 0 && $this->mtime > time()-30;
+					return $this->finished == 0 && $this->mtime > time()-3600;
+				break;
+
+			case 'chat':
+					$this->chat = erLhcoreClassModelChat::fetch($this->chat_id);
+					return $this->chat;
 				break;
 				
 			default:

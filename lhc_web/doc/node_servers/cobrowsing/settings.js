@@ -1,6 +1,6 @@
 var settings = {}
 
-// If you will be using only web application set this to true, will save some resource
+// Initialize main variables
 settings.web = {};
 settings.debug = {};
 
@@ -12,12 +12,12 @@ settings.socketiopath = '/usr/local/lib/node_modules/socket.io';
 /**
  * Set your settings
  * */
-settings.web.host = "localhost";
+settings.web.host = "127.0.0.1"; //94.23.6.194
 settings.web.port = 31130;
 
 /**
  * Enable debug output
  * */
-settings.debug.output = true;
+settings.debug.output = false;
 
 module.exports = settings;

@@ -47,6 +47,7 @@ class erLhcoreClassCoBrowse {
 				foreach ($jsonDatas as $jsonData) {
 					if ($jsonData->f == 'initialize') {
 						$coBrowseSession->initialize = json_encode($jsonData);
+						$coBrowseSession->finished = 0;
 					}
 					
 					$changes[] = $jsonData;					
@@ -58,8 +59,7 @@ class erLhcoreClassCoBrowse {
 					$coBrowseSession->url = $params['base'];
 				}
 				
-				$coBrowseSession->chat_id = $chat->id;
-				$coBrowseSession->finished = 0;
+				$coBrowseSession->chat_id = $chat->id;				
 				$coBrowseSession->saveThis();
 			}
 			

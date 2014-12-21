@@ -1,7 +1,11 @@
 2.16v
 
 Release with one mega feature. Co-Browsing - see exactly what your users see and help them to navigate.
-1. This feature works even on standard server without some special software. But if you want to use at it's maximum runing node server is required.
+
+1. This feature works even on standard server without special software. But if you want to use at it's maximum runing node server is required.
+Inspiration come from, without these libraries it would be impossible to do all that :)
+https://code.google.com/p/mutation-summary/
+https://github.com/abbakym/mutationsummary-cobrowsing-experiment
 
 execute doc/update_db/update_94.sql for update
 

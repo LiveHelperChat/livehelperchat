@@ -2518,11 +2518,11 @@
     </message>
     <message>
       <source>Yes</source>
-      <translation type="unfinished"/>
+      <translation>بله</translation>
     </message>
     <message>
       <source>No</source>
-      <translation type="unfinished"/>
+      <translation>نه</translation>
     </message>
     <message>
       <source>User does not have any message from operator</source>

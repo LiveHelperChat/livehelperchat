@@ -3371,9 +3371,37 @@
             },
             {
                 "identifier": "sharing_auto_allow",
-                "value": "1",
+                "value": "0",
                 "type": "0",
                 "explain": "Do not ask permission for users to see their screen",
+                "hidden": "0"
+            },
+            {
+                "identifier": "sharing_nodejs_enabled",
+                "value": "0",
+                "type": "0",
+                "explain": "NodeJs support enabled",
+                "hidden": "0"
+            },
+            {
+                "identifier": "sharing_nodejs_secure",
+                "value": "0",
+                "type": "0",
+                "explain": "Connect to NodeJs in https mode",
+                "hidden": "0"
+            },
+            {
+                "identifier": "sharing_nodejs_socket_host",
+                "value": "0",
+                "type": "0",
+                "explain": "Host where NodeJs is running",
+                "hidden": "0"
+            },
+            {
+                "identifier": "sharing_nodejs_sllocation",
+                "value": "https://cdn.socket.io/socket.io-1.1.0.js",
+                "type": "0",
+                "explain": "Location of SocketIO JS library",
                 "hidden": "0"
             },
             {
