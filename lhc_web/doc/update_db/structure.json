@@ -3992,6 +3992,6 @@
         "lh_users_remember": "CREATE TABLE `lh_users_remember` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `user_id` int(11) NOT NULL,\n  `mtime` int(11) NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8",
         "lh_users_setting": "CREATE TABLE `lh_users_setting` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `user_id` int(11) NOT NULL,\n  `identifier` varchar(50) NOT NULL,\n  `value` varchar(50) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `user_id` (`user_id`,`identifier`)\n) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8",
         "lh_users_setting_option": "CREATE TABLE `lh_users_setting_option` (\n  `identifier` varchar(50) NOT NULL,\n  `class` varchar(50) NOT NULL,\n  `attribute` varchar(40) NOT NULL,\n  PRIMARY KEY (`identifier`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8",
-        "lh_cobrowse": "CREATE TABLE IF NOT EXISTS `lh_cobrowse` ( `id` int(11) NOT NULL AUTO_INCREMENT, `chat_id` int(11) NOT NULL, `mtime` int(11) NOT NULL, `url` varchar(250) NOT NULL, `initialize` longtext NOT NULL, `modifications` longtext NOT NULL, `finished` tinyint(1) NOT NULL, PRIMARY KEY (`id`),  KEY `chat_id` (`chat_id`)) DEFAULT CHARSET=utf8)"
+        "lh_cobrowse": "CREATE TABLE IF NOT EXISTS `lh_cobrowse` ( `id` int(11) NOT NULL AUTO_INCREMENT, `chat_id` int(11) NOT NULL, `mtime` int(11) NOT NULL, `url` varchar(250) NOT NULL, `initialize` longtext NOT NULL, `modifications` longtext NOT NULL, `finished` tinyint(1) NOT NULL, PRIMARY KEY (`id`),  KEY `chat_id` (`chat_id`)) DEFAULT CHARSET=utf8"
     }
 }
