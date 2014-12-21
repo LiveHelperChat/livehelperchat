@@ -22,9 +22,7 @@ function handler(req, res) {
 }
 console.log(config.debug.output);
 io.sockets.on('connection', function (socket) {
-	
-  console.log('connected some'); 	
-	
+
   socket.on('usermessage', function (data) {
   		if (config.debug.output == true) {
   			console.log('usermessage:'+data.chat_id + JSON.stringify(data.msg)); 	

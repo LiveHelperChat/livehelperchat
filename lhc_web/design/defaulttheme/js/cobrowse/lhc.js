@@ -6,6 +6,7 @@ var LHCCoBrowser = (function() {
 		this.updateTimeout = null;
 		this.mirrorClient = null;
 		this.socket = null;
+		this.chat_hash = params['chat_hash'];
 
 		this.trans = {};
 
@@ -105,8 +106,6 @@ var LHCCoBrowser = (function() {
 					_this.isNodeConnected = false;
 				});
 
-				console.log("connect-again");
-
 			} catch (err) {
 				console.log(err);
 			}
@@ -117,7 +116,7 @@ var LHCCoBrowser = (function() {
 	LHCCoBrowser.prototype.onConnected = function() {
 		this.isNodeConnected = true;
 		this.socket.emit('join', {
-			chat_id : lh_inst.cookieData.hash
+			chat_id : this.chat_hash
 		});
 	};
 
@@ -125,7 +124,7 @@ var LHCCoBrowser = (function() {
 
 		if (this.isNodeConnected === true && this.socket !== null) {
 			this.socket.emit('usermessage', {
-				chat_id : lh_inst.cookieData.hash,
+				chat_id : this.chat_hash,
 				msg : msg
 			});
 			if (!msg.f || msg.f != 'initialize') { // always store initialize command data to database, so rest of operators can join
@@ -162,7 +161,7 @@ var LHCCoBrowser = (function() {
 			if (this.isNodeConnected == true) {
 				this.isNodeConnected = false;
 				this.socket.emit('userleft', {
-					chat_id : lh_inst.cookieData.hash
+					chat_id : this.chat_hash
 				});
 				this.socket.disconnect();
 				this.socket = null;

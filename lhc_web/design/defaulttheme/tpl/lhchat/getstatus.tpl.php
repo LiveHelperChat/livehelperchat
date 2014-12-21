@@ -685,24 +685,27 @@ var lh_inst  = {
         th.appendChild(s);
     },
     
-    startCoBrowse : function(){
+    startCoBrowse : function(chatHash){
     	var inst = this;    	
     	if (this.isSharing == false && (this.cookieData.shr || <?php echo (int)erLhcoreClassModelChatConfig::fetch('sharing_auto_allow')->current_value?> == 1 || confirm(<?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Allow operator to see your page content?'),ENT_QUOTES))?>)))
     	{
-    		this.addCookieAttribute('shr',1);
+    		this.sharehash = chatHash || this.cookieData.hash || this.cookieData.shr;    		
+    		this.addCookieAttribute('shr',this.sharehash);
+    		
 	    	if (typeof TreeMirror == "undefined") {    					   		
 			   		var th = document.getElementsByTagName('head')[0];
 			        var s = document.createElement('script');
 			        s.setAttribute('type','text/javascript');
 			        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::designJS('js/cobrowse/mutation-summary.js;js/cobrowse/tree-mirror.js;js/cobrowse/lhc.js');?>');
-			        th.appendChild(s);		        
+			        th.appendChild(s);
 			        s.onreadystatechange = s.onload = function(){
-			        	inst.startCoBrowse();
+			        	inst.startCoBrowse(inst.sharehash);
 			        };		        
 	    	} else {
 		    	try {	 
-		    		this.isSharing = true;
-				  	var cobrowser = new LHCCoBrowser({'nodejssettings':{'nodejssocket':<?php echo json_encode(erLhcoreClassModelChatConfig::fetch('sharing_nodejs_sllocation')->current_value)?>,'nodejshost':<?php echo json_encode(erLhcoreClassModelChatConfig::fetch('sharing_nodejs_socket_host')->current_value)?>,'secure':<?php if ((int)erLhcoreClassModelChatConfig::fetch('sharing_nodejs_secure')->current_value == 1) : ?>true<?php else : ?>false<?php endif;?>},'nodejsenabled':<?php echo (int)erLhcoreClassModelChatConfig::fetch('sharing_nodejs_enabled')->current_value?>,'trans':{'operator_watching':<?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Screen shared, click to finish'),ENT_QUOTES))?>},'url':'<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+lh_inst.lang+'/cobrowse/storenodemap'+inst.getAppendCookieArguments()+'/?url='+encodeURIComponent(location.href.match(/^(.*\/)[^\/]*$/)[1])});
+		    		this.isSharing = true;		    		
+		    		this.addCookieAttribute('shr',this.sharehash);
+				  	var cobrowser = new LHCCoBrowser({'chat_hash':this.sharehash,'nodejssettings':{'nodejssocket':<?php echo json_encode(erLhcoreClassModelChatConfig::fetch('sharing_nodejs_sllocation')->current_value)?>,'nodejshost':<?php echo json_encode(erLhcoreClassModelChatConfig::fetch('sharing_nodejs_socket_host')->current_value)?>,'secure':<?php if ((int)erLhcoreClassModelChatConfig::fetch('sharing_nodejs_secure')->current_value == 1) : ?>true<?php else : ?>false<?php endif;?>},'nodejsenabled':<?php echo (int)erLhcoreClassModelChatConfig::fetch('sharing_nodejs_enabled')->current_value?>,'trans':{'operator_watching':<?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Screen shared, click to finish'),ENT_QUOTES))?>},'url':'<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+lh_inst.lang+'/cobrowse/storenodemap'+inst.getAppendCookieArguments()+'/?url='+encodeURIComponent(location.href.match(/^(.*\/)[^\/]*$/)[1])});
 				  	cobrowser.startMirroring();
 			   } catch(err) {
 			  		console.log(err);
@@ -806,7 +809,7 @@ var lh_inst  = {
     	} else if (action == 'lhc_screenshot') {
     		lh_inst.makeScreenshot();
     	} else if (action == 'lhc_cobrowse') {
-    		lh_inst.startCoBrowse();
+    		lh_inst.startCoBrowse(e.data.split(':')[1]);
     	} else if (action == 'lhc_lang') {
     		var lang = e.data.split(':')[1];
     		if (lang != undefined) {    				
@@ -895,7 +898,7 @@ lh_inst.storeReferrer(<?php echo json_encode($referrer)?>);
 	<?php endif;?>
 		
 	if (lh_inst.cookieData.shr) {
-		lh_inst.startCoBrowse();
+		lh_inst.startCoBrowse(lh_inst.cookieData.shr);
 	};
 	
 <?php elseif ($track_online_users == true) : ?>

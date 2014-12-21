@@ -7,7 +7,7 @@
 	           <input id="awesomebar" name="url" value="<?php echo htmlspecialchars($browse->url)?>" type="text">
 	          </div>
 	          <div class="small-3 columns">
-	            	<a href="#" class="button prefix" onclick="return lhinst.addRemoteCommand('<?php echo $chat->id?>','lhc_cobrowse')"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('cobrowse/browse','Request screen share')?>" class="icon-eye"></i></a>
+	            	<a href="#" class="button prefix" onclick="return lhinst.addRemoteCommand('<?php echo $chat->id?>','lhc_cobrowse:<?php echo $browse->chat_id?>_<?php echo $browse->chat->hash?>')"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('cobrowse/browse','Request screen share')?>" class="icon-eye"></i></a>
 	          </div>
 	        </div>
         

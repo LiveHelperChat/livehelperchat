@@ -3392,7 +3392,7 @@
             },
             {
                 "identifier": "sharing_nodejs_socket_host",
-                "value": "0",
+                "value": "",
                 "type": "0",
                 "explain": "Host where NodeJs is running",
                 "hidden": "0"
