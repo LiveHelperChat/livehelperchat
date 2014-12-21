@@ -433,7 +433,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   `url` varchar(250) NOT NULL,
         	   `initialize` longtext NOT NULL,
         	   `modifications` longtext NOT NULL,
-        	   `finished` tinyint(4) NOT NULL,
+        	   `finished` tinyint(1) NOT NULL,
         	   PRIMARY KEY (`id`),
         	   KEY `chat_id` (`chat_id`)
         	   ) DEFAULT CHARSET=utf8");
