@@ -123,7 +123,8 @@ var lh_inst  = {
     cookieData : {},
     cookieDataPers : {},
 	domain : false,
-    
+    isSharing : false,
+        
     getCookieDomain : function(domain) {    
     	 if (this.domain !== false) {
     	 	return this.domain;
@@ -493,7 +494,7 @@ var lh_inst  = {
 	<?php elseif (in_array($position, array('bottom_right','bottom_left','middle_right','middle_left'))) : ?>
 		this.removeById('lhc_status_container');	
 		
-        var statusTEXT = '<a id="'+(this.isOnline == true ? 'online-icon' : 'offline-icon')+'" class="status-icon" href="#" onclick="return lh_inst.lh_openchatWindow()" >'+(this.isOnline ? '<?php if ($theme !== false && $theme->online_text !== '') : print htmlspecialchars_decode($theme->online_text,ENT_QUOTES); else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Live help is online...')?><?php endif?>' : '<?php if ($theme !== false && $theme->offline_text != '') : print htmlspecialchars_decode($theme->offline_text,ENT_QUOTES); else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Live help is offline...')?><?php endif?>')+'</a>';
+        var statusTEXT = '<a id="'+(this.isOnline == true ? 'online-icon' : 'offline-icon')+'" class="status-icon" href="#" onclick="return lh_inst.lh_openchatWindow()" >'+(this.isOnline ? <?php if ($theme !== false && $theme->online_text !== '') : print json_encode($theme->online_text); else : ?><?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Live help is online...'),ENT_QUOTES))?><?php endif?> : <?php if ($theme !== false && $theme->offline_text != '') : print json_encode($theme->offline_text); else : ?><?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Live help is offline...'),ENT_QUOTES))?><?php endif?>)+'</a>';
 
         if (!this.cssStatusWasAdded) {
           	this.cssStatusWasAdded = true;
@@ -668,6 +669,48 @@ var lh_inst  = {
     	};    			
     },
     
+    finishScreenSharing : function(){
+    	this.removeById('lhc_status_mirror');
+		this.removeCookieAttr('shr');
+		this.isSharing = false;
+		
+		var vid = this.cookieDataPers.vid;       
+        var th = document.getElementsByTagName('head')[0];
+        var s = document.createElement('script');
+        var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));        
+        var tzOffset = this.getTzOffset(); 
+        s.setAttribute('id','lhc_finish_shr');
+        s.setAttribute('type','text/javascript');
+        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+lh_inst.lang+'/cobrowse/finishsession'+lh_inst.getAppendCookieArguments());
+        th.appendChild(s);
+    },
+    
+    startCoBrowse : function(){
+    	var inst = this;    	
+    	if (this.isSharing == false && (this.cookieData.shr || <?php echo (int)erLhcoreClassModelChatConfig::fetch('sharing_auto_allow')->current_value?> == 1 || confirm(<?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Allow operator to see your page content?'),ENT_QUOTES))?>)))
+    	{
+    		this.addCookieAttribute('shr',1);
+	    	if (typeof TreeMirror == "undefined") {    					   		
+			   		var th = document.getElementsByTagName('head')[0];
+			        var s = document.createElement('script');
+			        s.setAttribute('type','text/javascript');
+			        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::designJS('js/cobrowse/mutation-summary.js;js/cobrowse/tree-mirror.js;js/cobrowse/lhc.js');?>');
+			        th.appendChild(s);		        
+			        s.onreadystatechange = s.onload = function(){
+			        	inst.startCoBrowse();
+			        };		        
+	    	} else {
+		    	try {	 
+		    		this.isSharing = true;
+				  	var cobrowser = new LHCCoBrowser({'trans':{'operator_watching':<?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Operator is watching, click to leave screen sharing'),ENT_QUOTES))?>},'url':'<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+lh_inst.lang+'/cobrowse/storenodemap'+inst.getAppendCookieArguments()+'/?url='+encodeURIComponent(location.href.match(/^(.*\/)[^\/]*$/)[1])});
+				  	cobrowser.startMirroring();
+			   } catch(err) {
+			  		console.log(err);
+			   }
+	    	};
+    	}
+    },
+    
     lhc_need_help_hide :function() {
     	this.removeById('lhc_need_help_container');
     	<?php if (erLhcoreClassModelChatConfig::fetch('need_help_tip_timeout')->current_value > 0) : ?>    	
@@ -762,6 +805,8 @@ var lh_inst  = {
     		}
     	} else if (action == 'lhc_screenshot') {
     		lh_inst.makeScreenshot();
+    	} else if (action == 'lhc_cobrowse') {
+    		lh_inst.startCoBrowse();
     	} else if (action == 'lhc_lang') {
     		var lang = e.data.split(':')[1];
     		if (lang != undefined) {    				
@@ -818,6 +863,9 @@ lh_inst.storeReferrer(<?php echo json_encode($referrer)?>);
 <?php if (!($isOnlineHelp == false && $hide_offline == 'true')) : ?>
 	
 	lh_inst.showStatusWidget();
+	
+	
+	
 		
 	if (lh_inst.cookieData.hash) {
 		lh_inst.stopCheckNewMessage();
@@ -846,6 +894,9 @@ lh_inst.storeReferrer(<?php echo json_encode($referrer)?>);
 	};
 	<?php endif;?>
 		
+	if (lh_inst.cookieData.shr) {
+		lh_inst.startCoBrowse();
+	};
 	
 <?php elseif ($track_online_users == true) : ?>
 	lh_inst.logPageView();

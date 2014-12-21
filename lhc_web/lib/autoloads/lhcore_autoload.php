@@ -169,6 +169,10 @@ return array_merge(array (
 		'erLhcoreClassDocShare' 					=> 'lib/core/lhdocshare/lhdocshare.php',
 		'erLhcoreClassModelDocShare' 				=> 'lib/models/lhdocshare/erlhcoreclassmodeldocshare.php',
 		
+		// Co browse
+		'erLhcoreClassCoBrowse' 					=> 'lib/core/lhcobrowse/lhcobrowse.php',
+		'erLhcoreClassModelCoBrowse' 				=> 'lib/models/lhcobrowse/erlhcoreclassmodelcobrowse.php',
+		
 ),
 include('var/autoloads/lhextension_autoload.php')
 );

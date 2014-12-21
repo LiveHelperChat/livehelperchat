@@ -1,3 +1,10 @@
+2.16v
+
+Release with one mega feature. Co-Browsing - see exactly what your users see and help them to navigate.
+1. This feature works even on standard server without some special software. But if you want to use at it's maximum runing node server is required.
+
+execute doc/update_db/update_94.sql for update
+
 2.15v
 
 1. Option to choose auto responder for specific department.

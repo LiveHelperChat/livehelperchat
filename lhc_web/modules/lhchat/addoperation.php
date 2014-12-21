@@ -13,7 +13,6 @@ if (trim($form->operation) != '')
 	$Chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
 
     // Has access to read, chat
-    //FIXME create permission to add message...
     if ( erLhcoreClassChat::hasAccessToRead($Chat) )
     {
         $currentUser = erLhcoreClassUser::instance();

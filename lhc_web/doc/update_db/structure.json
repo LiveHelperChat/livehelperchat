@@ -992,6 +992,64 @@
                 "extra": ""
             }
         ],
+        "lh_cobrowse": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },            
+            {
+                "field": "chat_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "mtime",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "finished",
+                "type": "tinyint(1)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "url",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "initialize",
+                "type": "longtext",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "modifications",
+                "type": "longtext",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
         "lh_chat": [
             {
                 "field": "id",
@@ -3309,6 +3367,13 @@
                 "value": "8",
                 "type": "0",
                 "explain": "Minimum phone number length",
+                "hidden": "0"
+            },
+            {
+                "identifier": "sharing_auto_allow",
+                "value": "1",
+                "type": "0",
+                "explain": "Do not ask permission for users to see their screen",
                 "hidden": "0"
             },
             {

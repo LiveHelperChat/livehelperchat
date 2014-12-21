@@ -1,0 +1,57 @@
+html, body {
+    height: 100%;
+}
+
+#chrome {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 5px;
+    background: #F0F0F0;
+    
+}
+
+#last-message{
+	font-style:italic;
+}
+
+#chrome .icon-eye{
+	font-size:32px;
+}
+
+#status-icon-sharing{
+	color:#a3ff60;
+}
+
+#chrome .button,
+#chrome label{
+	margin-bottom:0;
+}
+#finished-message {
+	font-weight:bold;
+	font-style:italic;;
+}
+
+#chrome .eye-not-sharing {
+	color:#ffb3b8;
+}
+
+#awesomebar {
+    display: block;
+    width: 100%;
+    margin-bottom:0;
+}
+
+#contentWrap {
+    border: 0;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+#content {
+    width: 100%;
+    height: 99%;
+}

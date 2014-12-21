@@ -720,7 +720,12 @@ function lh(){
 	    },1000);	   
         return false;
 	};
-
+	
+	this.startCoBrowse = function(chat_id)
+	{
+		window.open(this.wwwDir + 'cobrowse/browse/'+chat_id,'chatwindow-cobrowse-chat-id-'+chat_id,"menubar=1,resizable=1,width=800,height=650").focus();
+	};
+	
 	this.startChatTransfer = function(chat_id,tabs,name,transfer_id){
 		var inst = this;
 	    $.getJSON(this.wwwDir + this.accepttransfer + transfer_id ,{}, function(data){

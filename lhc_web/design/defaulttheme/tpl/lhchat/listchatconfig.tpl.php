@@ -137,10 +137,10 @@
 		    		    
 		    <?php $attribute = 'allow_reopen_closed';$boolValue = true;?>
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
-		    		    
-		    <?php $attribute = 'reopen_as_new';$boolValue = true;?>
+		   		   		    
+		    <?php $attribute = 'track_is_online';$boolValue = true;?>
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
-		    		    
+		     		    
 		    <?php $attribute = 'min_phone_length';?>
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 		    
@@ -201,8 +201,8 @@
 		    	    
 		</div>
 	</section>
-	
-  <section>
+
+   <section>
 	    <p class="title" data-section-title><a href="#workflow"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Workflow');?></a></p>
 	    <div class="content" data-section-content data-slug="workflow">	
 		    <?php $attribute = 'run_unaswered_chat_workflow'?>
@@ -210,6 +210,16 @@
 		    
 		    <?php $attribute = 'run_departments_workflow';$boolValue = true;?>
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+		</div>
+   </section>
+
+   <section>
+	    <p class="title" data-section-title><a href="#screen-sharing"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Screen sharing');?></a></p>
+	    <div class="content" data-section-content data-slug="screen-sharing">	
+	     
+		    <?php $attribute = 'sharing_auto_allow';$boolValue = true;?>
+		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+		 
 		</div>
   </section>
   <?php endif; ?>

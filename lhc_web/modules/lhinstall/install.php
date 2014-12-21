@@ -426,6 +426,18 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  KEY `is_wildcard` (`is_wildcard`)
 				) DEFAULT CHARSET=utf8;");
 
+        	   $db->query("CREATE TABLE IF NOT EXISTS `lh_cobrowse` (
+        	   `id` int(11) NOT NULL AUTO_INCREMENT,
+        	   `chat_id` int(11) NOT NULL,
+        	   `mtime` int(11) NOT NULL,
+        	   `url` varchar(250) NOT NULL,
+        	   `initialize` longtext NOT NULL,
+        	   `modifications` longtext NOT NULL,
+        	   `finished` tinyint(4) NOT NULL,
+        	   PRIMARY KEY (`id`),
+        	   KEY `chat_id` (`chat_id`)
+        	   ) DEFAULT CHARSET=utf8");
+        	   
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_file` (
         	   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
         	   `name` varchar(255) NOT NULL,
@@ -712,6 +724,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('suggest_leave_msg','1',0,'Suggest user to leave a message then user chooses offline department',0),
                 ('checkstatus_timeout','0',0,'Interval between chat status checks in seconds, 0 disabled.',0),
                 ('show_language_switcher','0',0,'Show users option to switch language at widget',0),
+                ('sharing_auto_allow','1',0,'Do not ask permission for users to see their screen',0),
                 ('track_is_online','0',0,'Track is user still on site, chat status checks also has to be enabled',0),
 				('show_languages','eng,lit,hrv,esp,por,nld,ara,ger,pol,rus,ita,fre,chn,cse,nor,tur,vnm,idn,sve,per,ell,dnk,rou,bgr,tha,geo,fin,alb',0,'Between what languages user should be able to switch',0),
                 ('geoadjustment_data',	'a:8:{i:0;b:0;s:18:\"use_geo_adjustment\";b:0;s:13:\"available_for\";s:0:\"\";s:15:\"other_countries\";s:6:\"custom\";s:8:\"hide_for\";s:0:\"\";s:12:\"other_status\";s:7:\"offline\";s:11:\"rest_status\";s:6:\"hidden\";s:12:\"apply_widget\";i:0;}',	0,	'Geo adjustment settings',	1),
