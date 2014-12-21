@@ -102,6 +102,12 @@ class erLhcoreClassModelChat {
 	   	$q->deleteFrom( 'lh_chat_online_user_footprint' )->where( $q->expr->eq( 'chat_id', $this->id ) );
 	   	$stmt = $q->prepare();
 	   	$stmt->execute();
+	   	
+	   	// Delete screen sharing
+	   	$q->deleteFrom( 'lh_cobrowse' )->where( $q->expr->eq( 'chat_id', $this->id ) );
+	   	$stmt = $q->prepare();
+	   	$stmt->execute();
+	   	
 
 	   	erLhcoreClassModelChatFile::deleteByChatId($this->id);
 
