@@ -1641,6 +1641,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Screen sharing</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat between operators, chat initializer</source>
       <translation type="unfinished"/>
     </message>
