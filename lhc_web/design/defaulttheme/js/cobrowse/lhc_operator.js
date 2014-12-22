@@ -220,6 +220,7 @@ var LHCCoBrowserOperator = (function() {
 	LHCCoBrowserOperator.prototype.handleMessage = function(msg) {
 		if (msg.base) {
 			this.base = msg.base;
+			console.log(this.base);
 		} else if (msg.err) {
 			this.iFrameDocument.getElementById('loading').style.display = 'none';
 			this.iFrameDocument.getElementById('error').innerHTML = msg.err;
@@ -263,7 +264,7 @@ var LHCCoBrowserOperator = (function() {
 		} else if (msg.clear) {
 			this.clearPage();
 		} else {
-			console.log('just message: ', msg);
+			//console.log('just message: ', msg);
 		}
 	};
 

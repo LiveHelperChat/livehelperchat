@@ -8,13 +8,13 @@ if (is_numeric($Params['user_parameters']['chat_id']))
          $browse = erLhcoreClassCoBrowse::getBrowseInstance($chat);
          if ($browse->modifications != '') {
          	$changes = json_decode($browse->modifications);
-         	$changes[] = array('url' => $browse->url);
-         	$changes[] = array('base' => $browse->url);
+         	$changes[] = array('url' => $browse->url);         	
          	$changes[] = array('lmsg' => $browse->mtime > 0 ? $browse->mtime_front : '');
          	$changes[] = array('finished' => array('status' => !$browse->is_sharing,'text' => $browse->is_sharing == 0 ? erTranslationClassLhTranslation::getInstance()->getTranslation('cobrowse/browse','Screen sharing session has finished') : erTranslationClassLhTranslation::getInstance()->getTranslation('cobrowse/browse','Screen is shared')));
          	if ($browse->finished == 1) {
          		$changes[] = array('clear' => true);
          	}
+         	array_unshift($changes, array('base' => $browse->url));
          	echo json_encode($changes);         	
          	$browse->modifications = '';
          	$browse->saveThis();
@@ -22,10 +22,10 @@ if (is_numeric($Params['user_parameters']['chat_id']))
          	$changes = array();
          	$changes[] = array('lmsg' => $browse->mtime > 0 ? $browse->mtime_front : '');
          	$changes[] = array('finished' => array('status' => !$browse->is_sharing,'text' => $browse->is_sharing == 0 ? erTranslationClassLhTranslation::getInstance()->getTranslation('cobrowse/browse','Screen sharing session has finished') : erTranslationClassLhTranslation::getInstance()->getTranslation('cobrowse/browse','Screen is shared')));
-         	$changes[] = array('base' => $browse->url);
          	if ($browse->finished == 1) {
          		$changes[] = array('clear' => true); 
          	}      	
+         	array_unshift($changes, array('base' => $browse->url));
          	echo json_encode($changes); 
          }
     }
