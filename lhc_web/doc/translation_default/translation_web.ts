@@ -4275,6 +4275,25 @@
     </message>
   </context>
   <context>
+    <name>cobrowse/browse</name>
+    <message>
+      <source>Request screen share</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Click blue eye at the top to request screen share</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Screen sharing session has finished</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Screen is shared</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>department/departments</name>
     <message>
       <source>Departments</source>
@@ -6436,25 +6455,6 @@
     <name>file/configurations</name>
     <message>
       <source>Please enter valid file type!</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>cobrowse/browse</name>
-    <message>
-      <source>Request screen share</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Loading or pending permission from user</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Screen sharing session has finished</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Screen is shared</source>
       <translation type="unfinished"/>
     </message>
   </context>
