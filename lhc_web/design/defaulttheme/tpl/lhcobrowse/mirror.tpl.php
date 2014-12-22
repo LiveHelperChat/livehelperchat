@@ -15,7 +15,7 @@
     </style>
 </head>
 <body>
-    <div id="loading"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('cobrowse/browse','Loading or pending permission from user')?>...</div>
+    <div id="loading"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('cobrowse/browse','Click blue eye at the top to request screen share')?>...</div>
     <div id="error"></div>
     <script type="text/javascript">
         window.onload = function() {

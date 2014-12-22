@@ -15,7 +15,8 @@ var LHCCoBrowserOperator = (function() {
 		this.refreshTimeout = null;
 		this.isNodeConnected = false;
 		this.isInitialized = false;
-
+		this.cursor = params['cursor'];
+		
 		if (params['nodejsenabled']) {
 			this.setupNodeJs();
 		}
@@ -53,7 +54,7 @@ var LHCCoBrowserOperator = (function() {
 
 		w.onIframeLoaded = function() {
 			_this.iFrameDocument = w.frames['content'].document
-
+			
 			// Override behavior for links: instead of reloading an iframe,
 			// use them via our "browser" so that mirrors stay in sync.
 			_this.iFrameDocument.onclick = function(e) {
@@ -183,42 +184,25 @@ var LHCCoBrowserOperator = (function() {
 
 	LHCCoBrowserOperator.prototype.visitorCursor = function(pos) {
 
-		var localWidth = Math.max(
-				this.iFrameDocument.documentElement["clientWidth"],
-				this.iFrameDocument.body["scrollWidth"],
-				this.iFrameDocument.documentElement["scrollWidth"],
-				this.iFrameDocument.body["offsetWidth"],
-				this.iFrameDocument.documentElement["offsetWidth"]);
-		var localHeight = Math.max(
-				this.iFrameDocument.documentElement["clientHeight"],
-				this.iFrameDocument.body["scrollHeight"],
-				this.iFrameDocument.documentElement["scrollHeight"],
-				this.iFrameDocument.body["offsetHeight"],
-				this.iFrameDocument.documentElement["offsetHeight"]);
-
-		// Original ratio
-		var percentengeRemoteWidth = (Math.round((pos.x / pos.w) * 1000) / 1000);
-
-		// Difference from both sides
-		var precentengeWidth = (Math.round((localWidth - pos.w)) / 2);
-
+		document.getElementById('center-layout').style.width = pos.w+'px';
+		
 		var element = this.iFrameDocument.getElementById('user-cursor');
 
 		if (element === null) {
 			var fragment = this
-					.appendHTML('<div id="user-cursor" style="z-index:99999;box-shadow: rgba(0, 0, 0, 0.74902) 0px 0px 4px 4px;border-radius:50%;top:'
+					.appendHTML('<div id="user-cursor" style="z-index:99999;top:'
 							+ pos.y
 							+ 'px;left:'
-							+ (Math.round(pos.x) + precentengeWidth)
-							+ 'px;position:absolute;width:15px;height:15px;background-color:rgb(68, 186, 247);"></div>');
+							+ parseInt(pos.x-12)
+							+ 'px;position:absolute;"><img src="'+this.cursor+'" /></div>');
 			if (this.iFrameDocument.body !== null) {
 				this.iFrameDocument.body.insertBefore(fragment,
 						this.iFrameDocument.body.childNodes[0]);
 			}
 			
 		} else {
-			element.style.top = pos.y + 'px';
-			element.style.left = (Math.round(pos.x) + precentengeWidth) + 'px';
+			element.style.top = pos.y + 'px';		
+			element.style.left = parseInt(pos.x-12) + 'px';
 		}
 	};
 

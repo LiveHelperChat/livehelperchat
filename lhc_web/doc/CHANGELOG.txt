@@ -6,6 +6,7 @@ Release with one mega feature. Co-Browsing - see exactly what your users see and
 Inspiration come from, without these libraries it would be impossible to do all that :)
 https://code.google.com/p/mutation-summary/
 https://github.com/abbakym/mutationsummary-cobrowsing-experiment
+http://teft.deviantart.com/art/Obsidian-Cursor-set-78972293
 
 execute doc/update_db/update_94.sql for update
 
