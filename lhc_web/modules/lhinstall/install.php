@@ -1079,6 +1079,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                     array('module' => 'lhchatbox',   	'function' => 'manage_chatbox'),
                     array('module' => 'lhbrowseoffer',  'function' => 'manage_bo'),
                     array('module' => 'lhxml',   		'function' => '*'),
+                    array('module' => 'lhcobrowse',   	'function' => 'browse'),
                     array('module' => 'lhfile',   		'function' => 'use_operator'),
                     array('module' => 'lhfile',   		'function' => 'file_delete_chat')
                 );
