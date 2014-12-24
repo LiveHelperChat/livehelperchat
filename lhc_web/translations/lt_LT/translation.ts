@@ -54,6 +54,26 @@
       <translation>Tarp kokių kalbų vartotojas turėtų galėti perjungti kalbą</translation>
     </message>
     <message>
+      <source>Host where NodeJs is running</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Location of SocketIO JS library</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Connect to NodeJs in https mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>NodeJS support enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do not ask permission for users to see their screen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
       <translation>Naudoti sesiją apsaugai. LHC turi būti instaliuotas tam pačiam domene arba subdomene.</translation>
     </message>
@@ -456,6 +476,14 @@
     <message>
       <source>Live help is offline...</source>
       <translation>Pagalba neaktyvi...</translation>
+    </message>
+    <message>
+      <source>Allow operator to see your page content?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Screen shared, click to finish</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -1609,6 +1637,10 @@
     <message>
       <source>Attach uploaded file</source>
       <translation>Prisegti nusiųstą failą</translation>
+    </message>
+    <message>
+      <source>Screen sharing</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
@@ -2872,6 +2904,10 @@
       <translation>Darbo eiga</translation>
     </message>
     <message>
+      <source>Screen sharing</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Update</source>
       <translation>Atnaujinti</translation>
     </message>
@@ -3243,6 +3279,10 @@
     </message>
     <message>
       <source>Nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4230,6 +4270,25 @@
     <message>
       <source>New</source>
       <translation>Naujas</translation>
+    </message>
+  </context>
+  <context>
+    <name>cobrowse/browse</name>
+    <message>
+      <source>Request screen share</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Click blue eye at the top to request screen share</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Screen sharing session has finished</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Screen is shared</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

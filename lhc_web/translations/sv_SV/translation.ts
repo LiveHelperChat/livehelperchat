@@ -54,6 +54,26 @@
       <translation>Välj vilka språk användaren ska kunna välja mellan</translation>
     </message>
     <message>
+      <source>Host where NodeJs is running</source>
+      <translation>Värden där NodeJS körs</translation>
+    </message>
+    <message>
+      <source>Location of SocketIO JS library</source>
+      <translation>Placering av SocketIO JS-bibliotek</translation>
+    </message>
+    <message>
+      <source>Connect to NodeJs in https mode</source>
+      <translation>Anslut till NodeJS i https-läge</translation>
+    </message>
+    <message>
+      <source>NodeJS support enabled</source>
+      <translation>Stöd för NodeJS är aktiverat</translation>
+    </message>
+    <message>
+      <source>Do not ask permission for users to see their screen</source>
+      <translation>Fråga inte om lov från användarna för att se deras skärmar</translation>
+    </message>
+    <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
       <translation>Använd sessioncaptcha. LHC måste vara installerat på samma domän eller subdomän.</translation>
     </message>
@@ -456,6 +476,14 @@
     <message>
       <source>Live help is offline...</source>
       <translation>Live hjälpen är otillgänglig...</translation>
+    </message>
+    <message>
+      <source>Allow operator to see your page content?</source>
+      <translation>Tillåt operatören att se ditt sidinnehåll?</translation>
+    </message>
+    <message>
+      <source>Screen shared, click to finish</source>
+      <translation>Skärmen är delad, klicka för att avsluta</translation>
     </message>
   </context>
   <context>
@@ -1609,6 +1637,10 @@
     <message>
       <source>Attach uploaded file</source>
       <translation>Bifoga uppladdad fil</translation>
+    </message>
+    <message>
+      <source>Screen sharing</source>
+      <translation>Skärmdelning</translation>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
@@ -2872,6 +2904,10 @@
       <translation>Arbetsflöde</translation>
     </message>
     <message>
+      <source>Screen sharing</source>
+      <translation>Skärmdelning</translation>
+    </message>
+    <message>
       <source>Update</source>
       <translation>Uppdatera</translation>
     </message>
@@ -3244,6 +3280,10 @@
     <message>
       <source>Nick</source>
       <translation>Smeknamn</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Telefon</translation>
     </message>
     <message>
       <source>Update chat</source>
@@ -4230,6 +4270,25 @@
     <message>
       <source>New</source>
       <translation>Nytt</translation>
+    </message>
+  </context>
+  <context>
+    <name>cobrowse/browse</name>
+    <message>
+      <source>Request screen share</source>
+      <translation>Begär skärmdelning</translation>
+    </message>
+    <message>
+      <source>Click blue eye at the top to request screen share</source>
+      <translation>Klicka på ikonen med det blåa ögat högst upp för att begära skärmdelning</translation>
+    </message>
+    <message>
+      <source>Screen sharing session has finished</source>
+      <translation>Skärmdelningssessionen har avslutats</translation>
+    </message>
+    <message>
+      <source>Screen is shared</source>
+      <translation>Skärmen är delad</translation>
     </message>
   </context>
   <context>

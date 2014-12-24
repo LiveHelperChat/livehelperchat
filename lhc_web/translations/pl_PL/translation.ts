@@ -54,6 +54,26 @@
       <translation>Pomiędzy jakimi językami użytkownik powinien móc się przełączać</translation>
     </message>
     <message>
+      <source>Host where NodeJs is running</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Location of SocketIO JS library</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Connect to NodeJs in https mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>NodeJS support enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do not ask permission for users to see their screen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
       <translation>Zastosuj CAPTCHA w sesji. Aplikacja livechat musi być zainstalowana w tej samej domenie lub pod domenie.</translation>
     </message>
@@ -456,6 +476,14 @@
     <message>
       <source>Live help is offline...</source>
       <translation>Pomoc na żywo jest niedostępna</translation>
+    </message>
+    <message>
+      <source>Allow operator to see your page content?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Screen shared, click to finish</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -1610,6 +1638,10 @@ pokazywany</translation>
     <message>
       <source>Attach uploaded file</source>
       <translation>Dołącz przesłany plik </translation>
+    </message>
+    <message>
+      <source>Screen sharing</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
@@ -2873,6 +2905,10 @@ pokazywany</translation>
       <translation>Logika przepływu</translation>
     </message>
     <message>
+      <source>Screen sharing</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Update</source>
       <translation>Aktualizacja</translation>
     </message>
@@ -3244,6 +3280,10 @@ pokazywany</translation>
     </message>
     <message>
       <source>Nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4231,6 +4271,25 @@ pokazywany</translation>
     <message>
       <source>New</source>
       <translation>Nowy</translation>
+    </message>
+  </context>
+  <context>
+    <name>cobrowse/browse</name>
+    <message>
+      <source>Request screen share</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Click blue eye at the top to request screen share</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Screen sharing session has finished</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Screen is shared</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

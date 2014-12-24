@@ -171,15 +171,8 @@ var LHCCoBrowser = (function() {
 			};
 			
 			if (element !== null) {
-				element.focus();
-								
-				if( element.tagName == 'INPUT' || element.tagName == 'TEXTAREA' ||  element.tagName == 'SELECT' ) {
-				    // it was an input
-					element.click();					
-				} else {				
-					element.click();
-				}
-				
+				element.focus();								
+				element.click();
 			} else {
 				console.log('not found');
 			}			
