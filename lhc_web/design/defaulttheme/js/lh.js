@@ -846,7 +846,7 @@ function lh(){
 	};
 	
 	this.redirectToURL = function(chat_id,trans) {
-		var url = prompt(trans, "http://google.com");
+		var url = prompt(trans, "");
 		if (url != null) {
 			lhinst.addRemoteCommand(chat_id,'lhc_chat_redirect:'+url.replace(new RegExp(':','g'),'__SPLIT__'));	
 		}
