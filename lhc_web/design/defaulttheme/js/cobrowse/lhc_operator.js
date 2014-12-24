@@ -36,6 +36,7 @@ var LHCCoBrowserOperator = (function() {
 				if ($(this).is(':checked')){
 					_this.sendData('lhc_cobrowse_cmd:mouse:show');
 					_this.mouseShow = true;
+					_this.appendHTML("<style>#lhc-user-cursor{display:none!important;}</style>");
 				} else {
 					_this.sendData('lhc_cobrowse_cmd:mouse:hide');
 					_this.mouseShow = false;
@@ -95,8 +96,8 @@ var LHCCoBrowserOperator = (function() {
 				if (node.nodeName == 'IFRAME' && attr == 'id' && val == 'lhc_iframe') {
 					// Remove iframe after tree mirror has done it's job
 					setTimeout(function(){
-						$(_this.iFrameDocument).find('#lhc_container').remove();						
-					},1000);					
+						$(_this.iFrameDocument).find('#lhc_container,#lhc-user-cursor').remove();	
+					},2000);					
 					return true;
 				}
 				
@@ -191,23 +192,24 @@ var LHCCoBrowserOperator = (function() {
 	
 	LHCCoBrowserOperator.prototype.mouseEventListener = function(e) {			
 		var _this = this;
-
-		var mouseX = (e.clientX || e.pageX)
-				+ this.iFrameDocument.body.scrollLeft;
-		var mouseY = (e.clientY || e.pageY)
-				+ this.iFrameDocument.body.scrollTop;
-
-		if (_this.mouse.x != mouseX || _this.mouse.y != mouseY) {
-			_this.mouse.x = mouseX;
-			_this.mouse.y = mouseY;
-			if (this.mouseShow == true) {
-				if (_this.mouseTimeout === null) {
-					_this.mouseTimeout = setTimeout(function() {
-						_this.sendData('lhc_cobrowse_cmd:operatorcursor:'
-								+ _this.mouse.x + ',' + _this.mouse.y);
-						_this.mouseTimeout = null;
-					}, (_this.isNodeConnected === true) ? 20 : 1000);
-				}				
+		if (this.iFrameDocument.body != null) {		
+			var mouseX = (e.clientX || e.pageX)
+					+ this.iFrameDocument.body.scrollLeft;
+			var mouseY = (e.clientY || e.pageY)
+					+ this.iFrameDocument.body.scrollTop;
+	
+			if (_this.mouse.x != mouseX || _this.mouse.y != mouseY) {
+				_this.mouse.x = mouseX;
+				_this.mouse.y = mouseY;
+				if (this.mouseShow == true) {
+					if (_this.mouseTimeout === null) {
+						_this.mouseTimeout = setTimeout(function() {
+							_this.sendData('lhc_cobrowse_cmd:operatorcursor:'
+									+ _this.mouse.x + ',' + _this.mouse.y);
+							_this.mouseTimeout = null;
+						}, (_this.isNodeConnected === true) ? 20 : 1000);
+					}				
+				}
 			}
 		}
 	};
@@ -385,7 +387,11 @@ var LHCCoBrowserOperator = (function() {
 			this.mirror = new TreeMirror(this.iFrameDocument,
 					this.treeMirrorParams);
 			this.mirror.initialize.apply(this.mirror, msg.args);
-			this.appendHTML("<style>#lhc-user-cursor{display:none!important;}.lhc-higlighted{-webkit-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);-moz-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);}</style>");
+			
+			var _this = this;
+			setTimeout(function(){
+				_this.appendHTML("<style>#lhc-user-cursor{display:none!important;}.lhc-higlighted{-webkit-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);-moz-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);}</style>");
+			},3000);			
 			
 			if (this.mouseShow == true) {
 				this.sendData('lhc_cobrowse_cmd:mouse:show');

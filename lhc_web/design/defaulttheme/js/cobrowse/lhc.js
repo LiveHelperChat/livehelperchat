@@ -293,7 +293,7 @@ var LHCCoBrowser = (function() {
 								.stringify(_this.sendCommands)));
 				_this.sendCommands = [];
 				_this.updateTimeout = null;
-			}, 500); // Send grouped changes every 0.5 seconds
+			}, this.isNodeConnected === true ? 0 : 500); // Send grouped changes every 0.5 seconds
 		}
 	};
 

@@ -12,7 +12,7 @@ settings.socketiopath = '/usr/local/lib/node_modules/socket.io';
 /**
  * Set your settings
  * */
-settings.web.host = "94.23.6.194"; //94.23.6.194
+settings.web.host = "127.0.0.1"; //94.23.6.194
 settings.web.port = 31130;
 
 /**
