@@ -1,6 +1,6 @@
 <div id="chrome">
 	<div class="row">
-		<div class="large-6 columns">		
+		<div class="small-6 columns">		
 			<div class="row collapse">       
 	          <div class="small-9 columns">
 	           <input id="awesomebar" name="url" value="<?php echo htmlspecialchars($browse->url)?>" type="text">
@@ -10,7 +10,7 @@
 	          </div>
 	        </div>
 		</div>
-		<div class="large-6 columns">
+		<div class="small-6 columns">
 			<label class="inline left" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('cobrowse/browse','Show my mouse position to visitor')?>"><input type="checkbox" value="on" id="show-operator-mouse" ><i class="icon-mouse"></i></label><label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('cobrowse/browse','On highlight scroll user window location to match my')?>" class="inline left"><input id="scroll-user-window" value="on" type="checkbox"><i class="icon-window"></i></label>
 			<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','allowredirect')) : ?>
 			<a class="icon-network left" onclick="lhinst.redirectToURL('<?php echo $chat->id?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Please enter a URL');?>')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Redirect user to another url');?>"></a>
