@@ -2,8 +2,8 @@
 
 class erLhcoreClassUpdate
 {
-	const DB_VERSION = 94;
-	const LHC_RELEASE = 216;
+	const DB_VERSION = 95;
+	const LHC_RELEASE = 217;
 		
 	public static function doTablesUpdate($definition){
 		$updateInformation = self::getTablesStatus($definition);
@@ -43,12 +43,25 @@ class erLhcoreClassUpdate
 				
 				foreach ($columnsDesired as $columnDesired) {
 					$columnFound = false;
+					$typeMatch = true;
 					foreach ($columnsData as $column) {
-						if ($columnDesired['field'] == $column['field']){
+						if ($columnDesired['field'] == $column['field']) {
 							$columnFound = true;
-						}						
+							
+							if ($columnDesired['type'] != $column['type']) {
+								$typeMatch = false;
+							}
+						}	
 					}
-										
+
+					if ($typeMatch == false) {
+						$tablesStatus[$table]['error'] = true;
+						$status[] = "[{$columnDesired['field']}] column type is not correct";
+												
+						$tablesStatus[$table]['queries'][] = "ALTER TABLE `{$table}`
+						CHANGE `{$columnDesired['field']}` `{$columnDesired['field']}` {$columnDesired['type']} NOT NULL;";
+					}
+					
 					if ($columnFound == false) {
 						$tablesStatus[$table]['error'] = true;
 						$status[] = "[{$columnDesired['field']}] column was not found";
