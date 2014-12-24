@@ -11,7 +11,7 @@ Co-Browsing enhancement release
 7. You can force user browser to scroll to highlighted element by checking checkbox at top.
 8. Operator Co-Browser window will represent exact view of user browser. This is required to match mouse positions.
 
-execute doc/update_db/update_94.sql for update
+execute doc/update_db/update_95.sql for update
 
 2.16v
 

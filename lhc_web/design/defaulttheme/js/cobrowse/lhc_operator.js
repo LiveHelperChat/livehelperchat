@@ -20,6 +20,7 @@ var LHCCoBrowserOperator = (function() {
 		this.windowScroll = false;
 		this.fillTimeout = null;
 		this.textSend = null;
+		this.highlightedCSS = false;
 		
 		if (params['nodejsenabled']) {
 			this.setupNodeJs();
@@ -35,8 +36,7 @@ var LHCCoBrowserOperator = (function() {
 			params['options'].opmouse.click(function(){
 				if ($(this).is(':checked')){
 					_this.sendData('lhc_cobrowse_cmd:mouse:show');
-					_this.mouseShow = true;
-					_this.appendHTML("<style>#lhc-user-cursor{display:none!important;}</style>");
+					_this.mouseShow = true;					
 				} else {
 					_this.sendData('lhc_cobrowse_cmd:mouse:hide');
 					_this.mouseShow = false;
@@ -96,7 +96,7 @@ var LHCCoBrowserOperator = (function() {
 				if (node.nodeName == 'IFRAME' && attr == 'id' && val == 'lhc_iframe') {
 					// Remove iframe after tree mirror has done it's job
 					setTimeout(function(){
-						$(_this.iFrameDocument).find('#lhc_container,#lhc-user-cursor').remove();	
+						$(_this.iFrameDocument).find('#lhc_container').remove();	
 					},2000);					
 					return true;
 				}
@@ -141,7 +141,6 @@ var LHCCoBrowserOperator = (function() {
 				_this.handleMessage(_this.initialize);
 			}
 			;
-			_this.appendHTML("<style>#lhc-user-cursor{display:none!important;}.lhc-higlighted{-webkit-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);-moz-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);}</style>");
 			
 			_this.startChangesMonitoring();
 		}
@@ -171,6 +170,16 @@ var LHCCoBrowserOperator = (function() {
 	LHCCoBrowserOperator.prototype.highlightElement = function(x,y,l,t)
 	{
 		this.sendData('lhc_cobrowse_cmd:hightlight:'+x+','+y+','+l+','+t);		
+		
+		if (this.highlightedCSS == false)
+		{
+			this.highlightedCSS = true;
+			var fragment = this.appendHTML('<style>.lhc-higlighted{-webkit-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);-moz-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);}</style>');
+			if (this.iFrameDocument.body !== null) {
+				this.iFrameDocument.body.insertBefore(fragment,
+						this.iFrameDocument.body.childNodes[0]);
+			}			
+		}
 	};
 	
 	LHCCoBrowserOperator.prototype.sendClickCommand = function(x,y,l,t)
@@ -264,6 +273,7 @@ var LHCCoBrowserOperator = (function() {
 	LHCCoBrowserOperator.prototype.userLeft = function(chat_id) {
 		$('#status-icon-sharing').addClass('eye-not-sharing');
 		this.clearPage();
+		
 	};
 
 	LHCCoBrowserOperator.prototype.userJoined = function(chat_id) {
@@ -278,8 +288,6 @@ var LHCCoBrowserOperator = (function() {
 				if (typeof data.empty == "undefined") {
 					_this.handleMessage(data);
 				}
-				;
-				_this.appendHTML("<style>#lhc-user-cursor{display:none!important;}.lhc-higlighted{-webkit-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);-moz-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);}</style>");
 			});
 		}, 3000);
 
@@ -318,6 +326,7 @@ var LHCCoBrowserOperator = (function() {
 	};
 
 	LHCCoBrowserOperator.prototype.clearPage = function() {
+		this.highlightedCSS = false;
 		if (this.iFrameDocument) {
 			while (this.iFrameDocument.firstChild) {
 				this.iFrameDocument.removeChild(this.iFrameDocument.firstChild)
@@ -334,7 +343,7 @@ var LHCCoBrowserOperator = (function() {
 
 		if (element === null) {
 			var fragment = this
-					.appendHTML('<style>#lhc-user-cursor{display:none!important;}.lhc-higlighted{-webkit-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);-moz-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);}</style><div id="user-cursor" style="z-index:99999;top:'
+					.appendHTML('<div id="user-cursor" style="z-index:99999;top:'
 							+ pos.y
 							+ 'px;left:'
 							+ parseInt(pos.x-12)
@@ -390,8 +399,12 @@ var LHCCoBrowserOperator = (function() {
 			
 			var _this = this;
 			setTimeout(function(){
-				_this.appendHTML("<style>#lhc-user-cursor{display:none!important;}.lhc-higlighted{-webkit-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);-moz-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);}</style>");
-			},3000);			
+				var fragment = _this.appendHTML("<style>#lhc-user-cursor{display:none!important;}.lhc-higlighted{-webkit-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);-moz-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);}</style>");
+				if (_this.iFrameDocument.body !== null) {
+					_this.iFrameDocument.body.insertBefore(fragment,
+							_this.iFrameDocument.body.childNodes[0]);
+				}
+			},2000);			
 			
 			if (this.mouseShow == true) {
 				this.sendData('lhc_cobrowse_cmd:mouse:show');
