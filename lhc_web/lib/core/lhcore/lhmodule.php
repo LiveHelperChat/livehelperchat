@@ -86,15 +86,21 @@ class erLhcoreClassModule{
 
             	self::attatchExtensionListeners();
             	
-            	$includeStatus = include(self::getModuleFile());
+            	$includeStatus = @include(self::getModuleFile());
             	
             	// Inclusion failed
             	if ($includeStatus === false) {
             		$CacheManager = erConfigClassLhCacheConfig::getInstance();
             		$CacheManager->expireCache();
 
-            		// Just try reinclude
-            		include(self::getModuleFile(true));
+            		if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true) {
+	            		// Just try reinclude
+	            		include(self::getModuleFile(true));
+            		} else {
+            			// Just try reinclude
+            			@include(self::getModuleFile(true));
+            		}
+            		
             		if (!isset($Result)) {
             			self::redirect( self::$currentModuleName . '/' . self::$currentView);
             			exit;
