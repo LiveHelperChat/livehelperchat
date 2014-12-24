@@ -706,10 +706,9 @@ var lh_inst  = {
 			        };		        
 	    	} else {
 		    	try {	 
-		    		this.isSharing = true;		    		
+		    		this.isSharing = true;
 		    		this.addCookieAttribute('shr',this.sharehash);
-				  	this.cobrowser = new LHCCoBrowser({'chat_hash':this.sharehash,'nodejssettings':{'nodejssocket':<?php echo json_encode(erLhcoreClassModelChatConfig::fetch('sharing_nodejs_sllocation')->current_value)?>,'nodejshost':<?php echo json_encode(erLhcoreClassModelChatConfig::fetch('sharing_nodejs_socket_host')->current_value)?>,'secure':<?php if ((int)erLhcoreClassModelChatConfig::fetch('sharing_nodejs_secure')->current_value == 1) : ?>true<?php else : ?>false<?php endif;?>},'nodejsenabled':<?php echo (int)erLhcoreClassModelChatConfig::fetch('sharing_nodejs_enabled')->current_value?>,'trans':{'operator_watching':<?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Screen shared, click to finish'),ENT_QUOTES))?>},'url':'<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+lh_inst.lang+'/cobrowse/storenodemap'+inst.getAppendCookieArguments()+'/?url='+encodeURIComponent(location.href.match(/^(.*\/)[^\/]*$/)[1])});
-				  	this.cobrowser.startMirroring();
+		    		<?php include(erLhcoreClassDesign::designtpl('lhcobrowse/userinit.tpl.php')); ?>
 			   } catch(err) {
 			  		console.log(err);
 			   }
