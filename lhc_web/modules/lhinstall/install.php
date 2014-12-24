@@ -293,7 +293,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `lat` varchar(10) NOT NULL,
 				  `lon` varchar(10) NOT NULL,
 				  `city` varchar(100) NOT NULL,
-				  `operation` varchar(200) NOT NULL,
+				  `operation` text NOT NULL,
 				  `operation_admin` varchar(200) NOT NULL,
 				  `mail_send` int(11) NOT NULL,
         	   	  `screenshot_id` int(11) NOT NULL,
@@ -434,6 +434,10 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   `initialize` longtext NOT NULL,
         	   `modifications` longtext NOT NULL,
         	   `finished` tinyint(1) NOT NULL,
+        	   `w` int NOT NULL,
+			   `wh` int NOT NULL,
+			   `x` int NOT NULL,
+			   `y` int NOT NULL,        	   		
         	   PRIMARY KEY (`id`),
         	   KEY `chat_id` (`chat_id`)
         	   ) DEFAULT CHARSET=utf8");

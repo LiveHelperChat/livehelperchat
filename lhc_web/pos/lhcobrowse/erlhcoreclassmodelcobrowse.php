@@ -39,6 +39,38 @@ $def->properties['finished']->columnName   = 'finished';
 $def->properties['finished']->propertyName = 'finished';
 $def->properties['finished']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+/**
+ * User window width
+ * */
+$def->properties['w'] = new ezcPersistentObjectProperty();
+$def->properties['w']->columnName   = 'w';
+$def->properties['w']->propertyName = 'w';
+$def->properties['w']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+/**
+ * User window height
+ * */
+$def->properties['wh'] = new ezcPersistentObjectProperty();
+$def->properties['wh']->columnName   = 'wh';
+$def->properties['wh']->propertyName = 'wh';
+$def->properties['wh']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+/**
+ * Mouse position x
+ * */
+$def->properties['x'] = new ezcPersistentObjectProperty();
+$def->properties['x']->columnName   = 'x';
+$def->properties['x']->propertyName = 'x';
+$def->properties['x']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+/**
+ * Mouse position y
+ * */
+$def->properties['y'] = new ezcPersistentObjectProperty();
+$def->properties['y']->columnName   = 'y';
+$def->properties['y']->propertyName = 'y';
+$def->properties['y']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

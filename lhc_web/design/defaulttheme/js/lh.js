@@ -845,6 +845,13 @@ function lh(){
 		}		
 	};
 	
+	this.redirectToURL = function(chat_id,trans) {
+		var url = prompt(trans, "http://google.com");
+		if (url != null) {
+			lhinst.addRemoteCommand(chat_id,'lhc_chat_redirect:'+url.replace(new RegExp(':','g'),'__SPLIT__'));	
+		}
+	};
+	
 	this.transferChatDep = function(chat_id)
 	{
 	    var user_id = $('[name=DepartamentID'+chat_id+']:checked').val();

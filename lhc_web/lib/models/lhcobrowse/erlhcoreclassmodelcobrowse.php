@@ -12,6 +12,10 @@ class erLhcoreClassModelCoBrowse {
 				'modifications'     => $this->modifications,
 				'initialize'     	=> $this->initialize,
 				'finished'     		=> $this->finished,
+				'w'     			=> $this->w,
+				'wh'     			=> $this->wh,
+				'x'     			=> $this->x,
+				'y'     			=> $this->y,
 		);
 	}
 
@@ -153,6 +157,10 @@ class erLhcoreClassModelCoBrowse {
 	public $modifications = '';	
 	public $initialize = '';	
 	public $finished = 0;	
+	public $w = 0;	
+	public $wh = 0;	
+	public $x = 0;	
+	public $y = 0;
 }
 
 ?>

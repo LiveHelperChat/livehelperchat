@@ -16,11 +16,63 @@ var LHCCoBrowserOperator = (function() {
 		this.isNodeConnected = false;
 		this.isInitialized = false;
 		this.cursor = params['cursor'];
+		this.mouseShow = false;
+		this.windowScroll = false;
+		this.fillTimeout = null;
+		this.textSend = null;
 		
 		if (params['nodejsenabled']) {
 			this.setupNodeJs();
 		}
 		;
+		
+		if (parseInt(params['cpos'].w) > 0 && parseInt(params['cpos'].wh) > 0){
+			document.getElementById('center-layout').style.width = params['cpos'].w+'px';
+			document.getElementById('center-layout').style.height = params['cpos'].wh+'px';
+		}
+		
+		if (params['options'].opmouse) {
+			params['options'].opmouse.click(function(){
+				if ($(this).is(':checked')){
+					_this.sendData('lhc_cobrowse_cmd:mouse:show');
+					_this.mouseShow = true;
+				} else {
+					_this.sendData('lhc_cobrowse_cmd:mouse:hide');
+					_this.mouseShow = false;
+				}
+			});
+			if (params['options'].opmouse.is(':checked')){
+				this.mouseShow = true;
+			};
+		};
+		
+		if (params['options'].scroll) {
+			params['options'].scroll.click(function(){
+				if ($(this).is(':checked')){
+					_this.sendData('lhc_cobrowse_cmd:scroll:true');
+					_this.windowScroll = true;
+				} else {
+					_this.sendData('lhc_cobrowse_cmd:scroll:false');
+					_this.windowScroll = false;
+				}
+			});
+			if (params['options'].scroll.is(':checked')){
+				this.windowScroll = true;
+			};			
+		};
+		
+		/**
+		 * Setup mouse tracking
+		 * */
+		this.mouse = {
+				x : 0,
+				y : 0				
+		};
+		
+		this.mouseTimeout = null;
+		this.mouseEventListenerCallback = function(e) {
+			_this.mouseEventListener(e);
+		};
 
 		this.treeMirrorParams = {
 			createElement : function(tagName) {
@@ -29,13 +81,7 @@ var LHCCoBrowserOperator = (function() {
 					node.style.display = 'none';
 					return node;
 				}
-
-				if (tagName == 'IFRAME') {
-					var node = document.createElement('NO-SCRIPT');
-					node.style.display = 'none';
-					return node;
-				}
-
+				
 				if (tagName == 'HEAD') {
 					var node = document.createElement('HEAD');
 					node.appendChild(document.createElement('BASE'));
@@ -44,8 +90,18 @@ var LHCCoBrowserOperator = (function() {
 				}
 			},
 			setAttribute : function(node, attr, val) {
+				
+				// don't mess with our helper iframe, strange things starts to happen without this :) 
+				if (node.nodeName == 'IFRAME' && attr == 'id' && val == 'lhc_iframe') {
+					// Remove iframe after tree mirror has done it's job
+					setTimeout(function(){
+						$(_this.iFrameDocument).find('#lhc_container').remove();						
+					},1000);					
+					return true;
+				}
+				
 				// remove anchors's onclick dom0-style handlers so they
-				// don't mess with our click handler and don't produce errors		    			    	
+				// don't mess with our click handler and don't produce errors	
 				if (node.nodeName == 'A' && attr == 'onclick') {
 					return true
 				}
@@ -55,23 +111,107 @@ var LHCCoBrowserOperator = (function() {
 		w.onIframeLoaded = function() {
 			_this.iFrameDocument = w.frames['content'].document
 			
+			_this.iFrameDocument.addEventListener('mousemove', _this.mouseEventListenerCallback, false);
+			
 			// Override behavior for links: instead of reloading an iframe,
 			// use them via our "browser" so that mirrors stay in sync.
-			_this.iFrameDocument.onclick = function(e) {
-				// "slave" mirrors can't navigate
-				e.preventDefault();
+			_this.iFrameDocument.onclick = function(e) {							
+				if (e.ctrlKey) {					
+					if (!(e.target && e.target.tagName == 'INPUT' && (e.target.type == 'radio' || e.target.type == 'checkbox')) ){
+						e.preventDefault();
+					};
+					
+					_this.sendClickCommand(e.x,e.y,_this.iFrameDocument.body.scrollLeft,_this.iFrameDocument.body.scrollTop);
+				} else {
+					e.preventDefault();
+					// Highlight element on click
+					_this.highlightElement(e.x,e.y,_this.iFrameDocument.body.scrollLeft,_this.iFrameDocument.body.scrollTop);	
+				}
 			};
 
+			_this.iFrameDocument.onkeyup = function(evt) {
+			    evt = evt || window.event;
+			    var charCode = evt.keyCode || evt.which;
+			    var charStr = String.fromCharCode(charCode);
+			    _this.fillForm(charStr);	
+			};
+			
 			if (_this.initialize !== null && _this.initialize != '') {
 				_this.handleMessage(_this.initialize);
 			}
 			;
-
+			_this.appendHTML("<style>#lhc-user-cursor{display:none!important;}.lhc-higlighted{-webkit-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);-moz-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);}</style>");
+			
 			_this.startChangesMonitoring();
 		}
-	}
-	;
+	};
+	
+	LHCCoBrowserOperator.prototype.fillForm = function()
+	{
+		var elements = this.iFrameDocument.getElementsByClassName('lhc-higlighted');
+		for (var i = 0; i < elements.length; i++) {
+			if (elements[i].tagName == 'INPUT' || elements[i].tagName == 'TEXTAREA') {
+				this.textSend = elements[i].value.replace(new RegExp(':','g'),'__SPLIT__');
+				if (this.isNodeConnected === true) {
+					this.sendData('lhc_cobrowse_cmd:fillform:'+this.textSend); // Split is required to avoid mixing argumetns	
+				} else {
+					if (this.fillTimeout === null) {
+						var _that = this;
+						this.fillTimeout = setTimeout(function() {
+							_that.sendData('lhc_cobrowse_cmd:fillform:'+_that.textSend);
+							_that.fillTimeout = null;
+						}, 300);
+					};
+				}
+			}
+		};
+	};
+	
+	LHCCoBrowserOperator.prototype.highlightElement = function(x,y,l,t)
+	{
+		this.sendData('lhc_cobrowse_cmd:hightlight:'+x+','+y+','+l+','+t);		
+	};
+	
+	LHCCoBrowserOperator.prototype.sendClickCommand = function(x,y,l,t)
+	{
+		this.sendData('lhc_cobrowse_cmd:click:'+x+','+y+','+l+','+t);	
+	};
+	
+	LHCCoBrowserOperator.prototype.sendData = function(command)
+	{
+		if (this.isNodeConnected === false) {
+			lhinst.addRemoteCommand(this.chat_id,command);	
+		} else {
+			this.socket.emit('remotecommand', {
+				chat_id : this.chat_id + '_' + this.chat_hash,
+				cmd : command
+			});
+		}
+	};
+	
+	LHCCoBrowserOperator.prototype.mouseEventListener = function(e) {			
+		var _this = this;
 
+		var mouseX = (e.clientX || e.pageX)
+				+ this.iFrameDocument.body.scrollLeft;
+		var mouseY = (e.clientY || e.pageY)
+				+ this.iFrameDocument.body.scrollTop;
+
+		if (_this.mouse.x != mouseX || _this.mouse.y != mouseY) {
+			_this.mouse.x = mouseX;
+			_this.mouse.y = mouseY;
+			if (this.mouseShow == true) {
+				if (_this.mouseTimeout === null) {
+					_this.mouseTimeout = setTimeout(function() {
+						_this.sendData('lhc_cobrowse_cmd:operatorcursor:'
+								+ _this.mouse.x + ',' + _this.mouse.y);
+						_this.mouseTimeout = null;
+					}, (_this.isNodeConnected === true) ? 20 : 1000);
+				}				
+			}
+		}
+	};
+	
 	LHCCoBrowserOperator.prototype.setupNodeJs = function() {
 		var _this = this;
 		if (typeof io == "undefined") {
@@ -137,6 +277,7 @@ var LHCCoBrowserOperator = (function() {
 					_this.handleMessage(data);
 				}
 				;
+				_this.appendHTML("<style>#lhc-user-cursor{display:none!important;}.lhc-higlighted{-webkit-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);-moz-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);}</style>");
 			});
 		}, 3000);
 
@@ -185,12 +326,13 @@ var LHCCoBrowserOperator = (function() {
 	LHCCoBrowserOperator.prototype.visitorCursor = function(pos) {
 
 		document.getElementById('center-layout').style.width = pos.w+'px';
+		document.getElementById('center-layout').style.height = pos.wh+'px';
 		
 		var element = this.iFrameDocument.getElementById('user-cursor');
 
 		if (element === null) {
 			var fragment = this
-					.appendHTML('<div id="user-cursor" style="z-index:99999;top:'
+					.appendHTML('<style>#lhc-user-cursor{display:none!important;}.lhc-higlighted{-webkit-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);-moz-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);}</style><div id="user-cursor" style="z-index:99999;top:'
 							+ pos.y
 							+ 'px;left:'
 							+ parseInt(pos.x-12)
@@ -243,6 +385,16 @@ var LHCCoBrowserOperator = (function() {
 			this.mirror = new TreeMirror(this.iFrameDocument,
 					this.treeMirrorParams);
 			this.mirror.initialize.apply(this.mirror, msg.args);
+			this.appendHTML("<style>#lhc-user-cursor{display:none!important;}.lhc-higlighted{-webkit-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);-moz-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);}</style>");
+			
+			if (this.mouseShow == true) {
+				this.sendData('lhc_cobrowse_cmd:mouse:show');
+			};
+			
+			if (this.windowScroll == true) {
+				this.sendData('lhc_cobrowse_cmd:scroll:true');
+			};						
+			
 		} else if (msg.f && msg.f == 'cursor') {
 			this.visitorCursor(msg.pos);
 		} else if (msg.f) {

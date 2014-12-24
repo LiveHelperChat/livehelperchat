@@ -457,30 +457,31 @@ $ViewList['sendchat'] = array(
 );
 
 $FunctionList['use'] = array('explain' => 'General permission to use chat module');
-$FunctionList['singlechatwindow'] = array('explain' =>'Allow user to use single chat window functionality');
-$FunctionList['allowchattabs'] = array('explain' =>'Allow user to user chat rooms functionality');
-$FunctionList['deletechat'] = array('explain' =>'Allow user to delete his own chats');
+$FunctionList['singlechatwindow'] = array('explain' =>'Allow operator to use single chat window functionality');
+$FunctionList['allowchattabs'] = array('explain' =>'Allow operator to user chat rooms functionality');
+$FunctionList['deletechat'] = array('explain' =>'Allow operator to delete his own chats');
 $FunctionList['deleteglobalchat'] = array('explain' =>'Allow to delete all chats');
 $FunctionList['allowtransfer'] = array('explain' =>'Allow user to transfer chat to another user');
-$FunctionList['allowcloseremote'] = array('explain' =>'Allow user to close another user chat');
-$FunctionList['allowblockusers'] = array('explain' =>'Allow user to block visitors');
+$FunctionList['allowcloseremote'] = array('explain' =>'Allow operator to close another operator chat');
+$FunctionList['allowblockusers'] = array('explain' =>'Allow operator to block visitors');
 $FunctionList['administrateconfig'] = array('explain' =>'Allow to change chat config');
-$FunctionList['allowclearonlinelist'] = array('explain' =>'Allow user to clean online users list');
-$FunctionList['administratecannedmsg'] = array('explain' =>'Allow user change canned messages');
-$FunctionList['allowopenremotechat'] = array('explain' =>'Allow user to open other users chats from same department');
-$FunctionList['allowreopenremote'] = array('explain' =>'Allow user to reopen other users chats');
-$FunctionList['allowtransfertoanyuser'] = array('explain' =>'Allow user to transfer chat to any online user, not only his own department users');
-$FunctionList['viewstatistic'] = array('explain' =>'Allow user to view statistic');
-$FunctionList['use_onlineusers'] = array('explain' =>'Allow user to view online visitors');
-$FunctionList['chattabschrome'] = array('explain' =>'Allow user to user chrome extension');
-$FunctionList['canchangechatstatus'] = array('explain' =>'Allow user to change chat status');
-$FunctionList['administrateinvitations'] = array('explain' =>'Allow user to change pro active invitations');
-$FunctionList['administrateresponder'] = array('explain' =>'Allow user to change auto responder');
-$FunctionList['maintenance'] = array('explain' =>'Allow user to run maintenance');
+$FunctionList['allowclearonlinelist'] = array('explain' =>'Allow operator to clean online users list');
+$FunctionList['administratecannedmsg'] = array('explain' =>'Allow operator change canned messages');
+$FunctionList['allowopenremotechat'] = array('explain' =>'Allow operator to open other operators chats from same department');
+$FunctionList['allowreopenremote'] = array('explain' =>'Allow operator to reopen other operators chats');
+$FunctionList['allowtransfertoanyuser'] = array('explain' =>'Allow operator to transfer chat to any online operator, not only his own department users');
+$FunctionList['viewstatistic'] = array('explain' =>'Allow operator to view statistic');
+$FunctionList['use_onlineusers'] = array('explain' =>'Allow operator to view online visitors');
+$FunctionList['chattabschrome'] = array('explain' =>'Allow operator to use chrome extension');
+$FunctionList['canchangechatstatus'] = array('explain' =>'Allow operator to change chat status');
+$FunctionList['administrateinvitations'] = array('explain' =>'Allow operator to change pro active invitations');
+$FunctionList['administrateresponder'] = array('explain' =>'Allow operator to change auto responder');
+$FunctionList['maintenance'] = array('explain' =>'Allow operator to run maintenance');
 $FunctionList['sees_all_online_visitors'] = array('explain' =>'Operator can see all online visitors, not only his department');
-$FunctionList['geoadjustment'] = array('explain' => 'Allow user to edit geo adjustment for chat status');
-$FunctionList['take_screenshot'] = array('explain' => 'Allow user to take visitor browser page screenshots');
-$FunctionList['modifychat'] = array('explain' => 'Allow user modify main chat information');
+$FunctionList['geoadjustment'] = array('explain' => 'Allow operator to edit geo adjustment for chat status');
+$FunctionList['take_screenshot'] = array('explain' => 'Allow operator to take visitor browser page screenshots');
+$FunctionList['modifychat'] = array('explain' => 'Allow operator modify main chat information');
+$FunctionList['allowredirect'] = array('explain' => 'Allow operator to redirect user to another page');
 
 
 ?>

@@ -22,12 +22,19 @@ function handler(req, res) {
 }
 console.log(config.debug.output);
 io.sockets.on('connection', function (socket) {
+	
+	socket.on('usermessage', function (data) {
+		if (config.debug.output == true) {
+			console.log('usermessage:'+data.chat_id + JSON.stringify(data.msg)); 	
+		};  		
+		socket.broadcast.to('chat_room_'+data.chat_id).emit('usermessage', data.msg);    	
+	});
 
-  socket.on('usermessage', function (data) {
+  socket.on('remotecommand', function (data) {
   		if (config.debug.output == true) {
-  			console.log('usermessage:'+data.chat_id + JSON.stringify(data.msg)); 	
+  			console.log('remotecommand:'+data.chat_id + JSON.stringify(data.cmd)); 	
   		};  		
-  		socket.broadcast.to('chat_room_'+data.chat_id).emit('usermessage', data.msg);    	
+  		socket.broadcast.to('chat_room_'+data.chat_id).emit('remotecommand', data.cmd);    	
   });
  
   socket.on('userleft', function (data) {

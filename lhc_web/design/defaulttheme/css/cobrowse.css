@@ -15,7 +15,7 @@ html, body {
 #last-message{
 	font-style:italic;
 }
-
+#chrome .icon-network,
 #chrome .icon-eye{
 	font-size:32px;
 }

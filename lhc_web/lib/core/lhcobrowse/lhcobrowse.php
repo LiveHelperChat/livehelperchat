@@ -48,8 +48,17 @@ class erLhcoreClassCoBrowse {
 					if ($jsonData->f == 'initialize') {
 						$coBrowseSession->initialize = json_encode($jsonData);
 						$coBrowseSession->finished = 0;
-					}
-					
+					} elseif ($jsonData->f == 'cursor'){
+						if (isset($jsonData->pos->wh) && isset($jsonData->pos->w) && $jsonData->pos->w > 0 && $jsonData->pos->wh > 0) {
+							$coBrowseSession->wh = $jsonData->pos->wh;
+							$coBrowseSession->w = $jsonData->pos->w;
+						}
+						
+						if ( isset($jsonData->pos->x) && isset($jsonData->pos->y) ){
+							$coBrowseSession->x = $jsonData->pos->x;
+							$coBrowseSession->y = $jsonData->pos->y;
+						}
+					}					
 					$changes[] = $jsonData;					
 				}
 								

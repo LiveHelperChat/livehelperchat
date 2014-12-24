@@ -683,7 +683,10 @@ var lh_inst  = {
         s.setAttribute('type','text/javascript');
         s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+lh_inst.lang+'/cobrowse/finishsession'+lh_inst.getAppendCookieArguments());
         th.appendChild(s);
+        this.cobrowser = null;
     },
+    
+    cobrowse : null,
     
     startCoBrowse : function(chatHash){
     	var inst = this;    	
@@ -705,8 +708,8 @@ var lh_inst  = {
 		    	try {	 
 		    		this.isSharing = true;		    		
 		    		this.addCookieAttribute('shr',this.sharehash);
-				  	var cobrowser = new LHCCoBrowser({'chat_hash':this.sharehash,'nodejssettings':{'nodejssocket':<?php echo json_encode(erLhcoreClassModelChatConfig::fetch('sharing_nodejs_sllocation')->current_value)?>,'nodejshost':<?php echo json_encode(erLhcoreClassModelChatConfig::fetch('sharing_nodejs_socket_host')->current_value)?>,'secure':<?php if ((int)erLhcoreClassModelChatConfig::fetch('sharing_nodejs_secure')->current_value == 1) : ?>true<?php else : ?>false<?php endif;?>},'nodejsenabled':<?php echo (int)erLhcoreClassModelChatConfig::fetch('sharing_nodejs_enabled')->current_value?>,'trans':{'operator_watching':<?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Screen shared, click to finish'),ENT_QUOTES))?>},'url':'<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+lh_inst.lang+'/cobrowse/storenodemap'+inst.getAppendCookieArguments()+'/?url='+encodeURIComponent(location.href.match(/^(.*\/)[^\/]*$/)[1])});
-				  	cobrowser.startMirroring();
+				  	this.cobrowser = new LHCCoBrowser({'chat_hash':this.sharehash,'nodejssettings':{'nodejssocket':<?php echo json_encode(erLhcoreClassModelChatConfig::fetch('sharing_nodejs_sllocation')->current_value)?>,'nodejshost':<?php echo json_encode(erLhcoreClassModelChatConfig::fetch('sharing_nodejs_socket_host')->current_value)?>,'secure':<?php if ((int)erLhcoreClassModelChatConfig::fetch('sharing_nodejs_secure')->current_value == 1) : ?>true<?php else : ?>false<?php endif;?>},'nodejsenabled':<?php echo (int)erLhcoreClassModelChatConfig::fetch('sharing_nodejs_enabled')->current_value?>,'trans':{'operator_watching':<?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Screen shared, click to finish'),ENT_QUOTES))?>},'url':'<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+lh_inst.lang+'/cobrowse/storenodemap'+inst.getAppendCookieArguments()+'/?url='+encodeURIComponent(location.href.match(/^(.*\/)[^\/]*$/)[1])});
+				  	this.cobrowser.startMirroring();
 			   } catch(err) {
 			  		console.log(err);
 			   }
@@ -810,6 +813,12 @@ var lh_inst  = {
     		lh_inst.makeScreenshot();
     	} else if (action == 'lhc_cobrowse') {
     		lh_inst.startCoBrowse(e.data.split(':')[1]);
+    	} else if (action == 'lhc_chat_redirect') {
+    		document.location = e.data.split(':')[1].replace(new RegExp('__SPLIT__','g'),':');
+    	} else if (action == 'lhc_cobrowse_cmd') {
+    		if (lh_inst.cobrowser !== null){
+    		lh_inst.cobrowser.handleMessage(e.data.split(':'));
+    		};
     	} else if (action == 'lhc_lang') {
     		var lang = e.data.split(':')[1];
     		if (lang != undefined) {    				

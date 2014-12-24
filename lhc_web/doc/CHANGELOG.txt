@@ -1,3 +1,18 @@
+2.17v
+
+Co-Browsing enhancement release
+
+1. Now from co-browsing window you can highligh elements. Just click left mouse cursor on desirable element.
+2. If you click link hodling CTRL browser on user side will click this element to. This means you can navigate user browser where you want.
+3. At top bar there is now network icon. If you click it you can navigate user preciselly to URL you want. You can navigate user to another url also from chat window. There is new icon for that
+4. You can fill some of the forms fields by holding CTRL+Left mouse click. As field becames with blue shadow you can fill text fields on visitor browser directly. Fill forms for users :)
+5. NodeJs server for Co-Browsing was updated.
+6. You can can allow user to see your mouse pointer on his screen.
+7. You can force user browser to scroll to highlighted element by checking checkbox at top.
+8. Operator Co-Browser window will represent exact view of user browser. This is required to match mouse positions.
+
+execute doc/update_db/update_94.sql for update
+
 2.16v
 
 Release with one mega feature. Co-Browsing - see exactly what your users see and help them to navigate.

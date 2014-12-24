@@ -86,7 +86,7 @@ class erLhcoreClassModule{
 
             	self::attatchExtensionListeners();
             	
-            	$includeStatus = @include(self::getModuleFile());
+            	$includeStatus = include(self::getModuleFile());
             	
             	// Inclusion failed
             	if ($includeStatus === false) {
@@ -94,7 +94,7 @@ class erLhcoreClassModule{
             		$CacheManager->expireCache();
 
             		// Just try reinclude
-            		@include(self::getModuleFile(true));
+            		include(self::getModuleFile(true));
             		if (!isset($Result)) {
             			self::redirect( self::$currentModuleName . '/' . self::$currentView);
             			exit;
