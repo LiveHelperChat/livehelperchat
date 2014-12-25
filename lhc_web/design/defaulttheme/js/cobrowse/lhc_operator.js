@@ -87,6 +87,7 @@ var LHCCoBrowserOperator = (function() {
 					var node = document.createElement('HEAD');
 					node.appendChild(document.createElement('BASE'));
 					node.firstChild.href = _this.base;
+					node.firstChild.id = "lhc-co-browse-base-id";
 					return node;
 				}
 			},
@@ -99,6 +100,11 @@ var LHCCoBrowserOperator = (function() {
 						$(_this.iFrameDocument).find('#lhc_container').remove();	
 					},2000);					
 					return true;
+				}
+				
+				// There exists original base so remove our own detected.
+				if (node.nodeName == 'BASE') {
+					$(_this.iFrameDocument).find('#lhc-co-browse-base-id').remove();
 				}
 				
 				// remove anchors's onclick dom0-style handlers so they
