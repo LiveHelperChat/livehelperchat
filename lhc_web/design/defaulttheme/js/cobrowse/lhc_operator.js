@@ -137,7 +137,7 @@ var LHCCoBrowserOperator = (function() {
 					// Click on image when parent element is link, so we take link link and make sure there is no onclick listener on original site
 					} else if (e.target && e.target.tagName == 'IMG' && e.target.parentNode && e.target.parentNode.nodeName == 'A' && e.target.parentNode.href != '' && e.target.parentNode.onclick === null) {
 						if (_this.isNodeConnected === true) {
-							_this.sendData('lhc_cobrowse_cmd:navigate:'+e.target.href.replace(new RegExp(':','g'),'__SPLIT__'));
+							_this.sendData('lhc_cobrowse_cmd:navigate:'+e.target.parentNode.href.replace(new RegExp(':','g'),'__SPLIT__'));
 						} else {
 							_this.sendData('lhc_chat_redirect:'+e.target.parentNode.href.replace(new RegExp(':','g'),'__SPLIT__'));
 						};
@@ -312,7 +312,7 @@ var LHCCoBrowserOperator = (function() {
 					_this.handleMessage(data);
 				}
 			});
-		}, 3000);
+		}, 500);
 
 	};
 
