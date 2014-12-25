@@ -129,7 +129,7 @@ var LHCCoBrowserOperator = (function() {
 										
 					// Use direct message if it's link with content, more accurate behaviour and faster
 					if (e.target && e.target.tagName == 'A' && e.target.href != '' && e.target.onclick === null) {// Use direct message if it's link with content, more accurate behaviour and faster
-						if (_this.isNodeConnected === true) {
+						if (_this.isNodeConnected === true) {							
 							_this.sendData('lhc_cobrowse_cmd:navigate:'+e.target.href.replace(new RegExp(':','g'),'__SPLIT__'));
 						} else {
 							_this.sendData('lhc_chat_redirect:'+e.target.href.replace(new RegExp(':','g'),'__SPLIT__'));

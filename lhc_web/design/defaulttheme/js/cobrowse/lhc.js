@@ -141,7 +141,7 @@ var LHCCoBrowser = (function() {
 				this.windowForceScroll = false;
 			}
 		} else if (msg[1] == 'navigate') {			
-			document.location = e.data.split(':')[2].replace(new RegExp('__SPLIT__','g'),':');
+			document.location =msg[2].replace(new RegExp('__SPLIT__','g'),':');
 		} else if (msg[1] == 'click') {	
 			var pos = msg[2].split(',');
 			
