@@ -10,6 +10,9 @@ var LHCCoBrowser = (function() {
 		this.cssAdded = false;
 		this.operatorMouseVisible = false;
 		this.windowForceScroll = false;
+		this.NodeJsSupportEnabled = false;
+		this.initializeData = null;
+		
 		
 		this.trans = {};
 
@@ -46,6 +49,7 @@ var LHCCoBrowser = (function() {
 		 * Setup NodeJs support if required
 		 * */
 		if (params['nodejsenabled']) {
+			this.NodeJsSupportEnabled = true;			
 			this.setupNodeJs();
 		}
 		;
@@ -267,6 +271,12 @@ var LHCCoBrowser = (function() {
 		this.socket.emit('join', {
 			chat_id : this.chat_hash
 		});
+		
+		if (this.initializeData !== null) {			
+			this.sendData({base:location.href.match(/^(.*\/)[^\/]*$/)[1]});
+			this.sendData(this.initializeData);
+			this.initializeData = null;
+		};
 	};
 
 	LHCCoBrowser.prototype.sendData = function(msg) {
@@ -282,6 +292,11 @@ var LHCCoBrowser = (function() {
 		}
 		;
 
+		if (this.NodeJsSupportEnabled == true && msg.f && msg.f == 'initialize' && this.initializeData === null)
+		{
+			this.initializeData = msg;
+		};
+	
 		var _this = this;
 		this.sendCommands.push(msg);
 		if (this.updateTimeout === null) {

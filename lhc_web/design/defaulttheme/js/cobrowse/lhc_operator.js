@@ -302,18 +302,6 @@ var LHCCoBrowserOperator = (function() {
 	LHCCoBrowserOperator.prototype.userJoined = function(chat_id) {
 		$('#status-icon-sharing').removeClass('eye-not-sharing');
 		var _this = this;
-
-		// User realoaded page and most likely stored new initializer point
-		// Also this way operators can join to the same screen sharing session without any issues.
-		setTimeout(function() {
-			$.getJSON(WWW_DIR_JAVASCRIPT + 'cobrowse/checkinitializer/'
-					+ _this.chat_id, function(data) {
-				if (typeof data.empty == "undefined") {
-					_this.handleMessage(data);
-				}
-			});
-		}, 1000);
-
 	};
 
 	LHCCoBrowserOperator.prototype.onConnected = function() {
