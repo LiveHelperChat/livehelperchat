@@ -129,12 +129,18 @@ var LHCCoBrowserOperator = (function() {
 										
 					// Use direct message if it's link with content, more accurate behaviour and faster
 					if (e.target && e.target.tagName == 'A' && e.target.href != '' && e.target.onclick === null) {// Use direct message if it's link with content, more accurate behaviour and faster
-						_this.sendData('lhc_chat_redirect:'+e.target.href.replace(new RegExp(':','g'),'__SPLIT__'));
-					
+						if (_this.isNodeConnected === true) {
+							_this.sendData('lhc_cobrowse_cmd:navigate:'+e.target.href.replace(new RegExp(':','g'),'__SPLIT__'));
+						} else {
+							_this.sendData('lhc_chat_redirect:'+e.target.href.replace(new RegExp(':','g'),'__SPLIT__'));
+						};						
 					// Click on image when parent element is link, so we take link link and make sure there is no onclick listener on original site
 					} else if (e.target && e.target.tagName == 'IMG' && e.target.parentNode && e.target.parentNode.nodeName == 'A' && e.target.parentNode.href != '' && e.target.parentNode.onclick === null) {
-						_this.sendData('lhc_chat_redirect:'+e.target.parentNode.href.replace(new RegExp(':','g'),'__SPLIT__'));
-					
+						if (_this.isNodeConnected === true) {
+							_this.sendData('lhc_cobrowse_cmd:navigate:'+e.target.href.replace(new RegExp(':','g'),'__SPLIT__'));
+						} else {
+							_this.sendData('lhc_chat_redirect:'+e.target.parentNode.href.replace(new RegExp(':','g'),'__SPLIT__'));
+						};
 					// Give up and use standard listener
 					} else {
 						_this.sendClickCommand(e.x,e.y,_this.iFrameDocument.body.scrollLeft,_this.iFrameDocument.body.scrollTop);
