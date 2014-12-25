@@ -104,7 +104,12 @@ var LHCCoBrowserOperator = (function() {
 				// remove anchors's onclick dom0-style handlers so they
 				// don't mess with our click handler and don't produce errors	
 				if (node.nodeName == 'A' && attr == 'onclick') {
-					return true
+					if (val != ''){
+						node.setAttribute(attr,"javascript:void(0)"); // By settings this we will know we can't use href link
+						return true;
+					} else {
+						return true;
+					}					
 				}
 			}
 		};
@@ -121,8 +126,20 @@ var LHCCoBrowserOperator = (function() {
 					if (!(e.target && e.target.tagName == 'INPUT' && (e.target.type == 'radio' || e.target.type == 'checkbox')) ){
 						e.preventDefault();
 					};
+										
+					// Use direct message if it's link with content, more accurate behaviour and faster
+					if (e.target && e.target.tagName == 'A' && e.target.href != '' && e.target.onclick === null) {// Use direct message if it's link with content, more accurate behaviour and faster
+						_this.sendData('lhc_chat_redirect:'+e.target.href.replace(new RegExp(':','g'),'__SPLIT__'));
 					
-					_this.sendClickCommand(e.x,e.y,_this.iFrameDocument.body.scrollLeft,_this.iFrameDocument.body.scrollTop);
+					// Click on image when parent element is link, so we take link link and make sure there is no onclick listener on original site
+					} else if (e.target && e.target.tagName == 'IMG' && e.target.parentNode && e.target.parentNode.nodeName == 'A' && e.target.parentNode.href != '' && e.target.parentNode.onclick === null) {
+						_this.sendData('lhc_chat_redirect:'+e.target.parentNode.href.replace(new RegExp(':','g'),'__SPLIT__'));
+					
+					// Give up and use standard listener
+					} else {
+						_this.sendClickCommand(e.x,e.y,_this.iFrameDocument.body.scrollLeft,_this.iFrameDocument.body.scrollTop);
+					}
+					
 				} else {
 					e.preventDefault();
 					// Highlight element on click
