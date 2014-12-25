@@ -312,7 +312,7 @@ var LHCCoBrowserOperator = (function() {
 					_this.handleMessage(data);
 				}
 			});
-		}, 500);
+		}, 700);
 
 	};
 
@@ -414,12 +414,11 @@ var LHCCoBrowserOperator = (function() {
 
 			// trigger treemirror's method; in our example only 'initialize' can be triggered,
 			// so it's reasonable to clearPage() and (re-)instantiate the mirror here
-		} else if (msg.f && msg.f == 'initialize') {
-			this.clearPage();
+		} else if (msg.f && msg.f == 'initialize') {			
+			this.clearPage();			
 			this.mirror = new TreeMirror(this.iFrameDocument,
 					this.treeMirrorParams);
-			this.mirror.initialize.apply(this.mirror, msg.args);
-			
+			this.mirror.initialize.apply(this.mirror, msg.args);			
 			var _this = this;
 			setTimeout(function(){
 				var fragment = _this.appendHTML("<style>#lhc-user-cursor{display:none!important;}.lhc-higlighted{-webkit-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);-moz-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);}</style>");
