@@ -312,7 +312,7 @@ var LHCCoBrowserOperator = (function() {
 					_this.handleMessage(data);
 				}
 			});
-		}, 700);
+		}, 1000);
 
 	};
 
