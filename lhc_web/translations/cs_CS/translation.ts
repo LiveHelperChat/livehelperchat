@@ -55,23 +55,23 @@
     </message>
     <message>
       <source>Host where NodeJs is running</source>
-      <translation type="unfinished"/>
+      <translation>Host, kde běží NodeJS</translation>
     </message>
     <message>
       <source>Location of SocketIO JS library</source>
-      <translation type="unfinished"/>
+      <translation>Umístění knihovny SocketIO</translation>
     </message>
     <message>
       <source>Connect to NodeJs in https mode</source>
-      <translation type="unfinished"/>
+      <translation>Připojit se k NodeJS v https módu</translation>
     </message>
     <message>
       <source>NodeJS support enabled</source>
-      <translation type="unfinished"/>
+      <translation>Podpora NodeJS zapnuta</translation>
     </message>
     <message>
       <source>Do not ask permission for users to see their screen</source>
-      <translation type="unfinished"/>
+      <translation>Nežádat svolení od uživatelů vidět jejich obrazovku</translation>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
@@ -479,11 +479,11 @@
     </message>
     <message>
       <source>Allow operator to see your page content?</source>
-      <translation type="unfinished"/>
+      <translation>Umožnit operátorovi vidět obsah vámi zobrazené stránky?</translation>
     </message>
     <message>
       <source>Screen shared, click to finish</source>
-      <translation type="unfinished"/>
+      <translation>Obrazovka je sdílena, dokončete kliknutím</translation>
     </message>
   </context>
   <context>
@@ -1639,8 +1639,16 @@
       <translation>Přiložit nahraný soubor</translation>
     </message>
     <message>
+      <source>Please enter a URL</source>
+      <translation>Prosím zadejte URL</translation>
+    </message>
+    <message>
+      <source>Redirect user to another url</source>
+      <translation>Přesmětovat uživatele na jiné URL</translation>
+    </message>
+    <message>
       <source>Screen sharing</source>
-      <translation type="unfinished"/>
+      <translation>Sdílení obrazovky</translation>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
@@ -2905,7 +2913,7 @@
     </message>
     <message>
       <source>Screen sharing</source>
-      <translation type="unfinished"/>
+      <translation>Sdílení obrazovky</translation>
     </message>
     <message>
       <source>Update</source>
@@ -3283,7 +3291,7 @@
     </message>
     <message>
       <source>Phone</source>
-      <translation type="unfinished"/>
+      <translation>Telefon</translation>
     </message>
     <message>
       <source>Update chat</source>
@@ -4276,6 +4284,14 @@
     <name>cobrowse/browse</name>
     <message>
       <source>Request screen share</source>
+      <translation>Požadavek na sdílení obrazovky</translation>
+    </message>
+    <message>
+      <source>Show my mouse position to visitor</source>
+      <translation>Zobrazovat polohy ukazatele myši návštěvníkům</translation>
+    </message>
+    <message>
+      <source>On highlight scroll user window location to match my</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4288,7 +4304,7 @@
     </message>
     <message>
       <source>Screen is shared</source>
-      <translation type="unfinished"/>
+      <translation>Obrazovka je sdílena</translation>
     </message>
   </context>
   <context>

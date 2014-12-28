@@ -1639,6 +1639,14 @@
       <translation>Bifoga uppladdad fil</translation>
     </message>
     <message>
+      <source>Please enter a URL</source>
+      <translation>Var vänlig skriv en URL</translation>
+    </message>
+    <message>
+      <source>Redirect user to another url</source>
+      <translation>Vidarebefordra användare till en annan URL</translation>
+    </message>
+    <message>
       <source>Screen sharing</source>
       <translation>Skärmdelning</translation>
     </message>
@@ -4277,6 +4285,14 @@
     <message>
       <source>Request screen share</source>
       <translation>Begär skärmdelning</translation>
+    </message>
+    <message>
+      <source>Show my mouse position to visitor</source>
+      <translation>Visa min muspekares position för besökare</translation>
+    </message>
+    <message>
+      <source>On highlight scroll user window location to match my</source>
+      <translation>Vid markering, scrolla användarens skärmposition att matcha min</translation>
     </message>
     <message>
       <source>Click blue eye at the top to request screen share</source>

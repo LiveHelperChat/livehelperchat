@@ -55,23 +55,23 @@
     </message>
     <message>
       <source>Host where NodeJs is running</source>
-      <translation type="unfinished"/>
+      <translation>Host in cui è in esecuzione NodeJs</translation>
     </message>
     <message>
       <source>Location of SocketIO JS library</source>
-      <translation type="unfinished"/>
+      <translation>Posizione di libreria JS SocketIO</translation>
     </message>
     <message>
       <source>Connect to NodeJs in https mode</source>
-      <translation type="unfinished"/>
+      <translation>Connettersi a NodeJs in modalità https</translation>
     </message>
     <message>
       <source>NodeJS support enabled</source>
-      <translation type="unfinished"/>
+      <translation>Supporto NodeJS abilitato</translation>
     </message>
     <message>
       <source>Do not ask permission for users to see their screen</source>
-      <translation type="unfinished"/>
+      <translation>Non chiedere il permesso per gli utenti di vedere il loro schermo</translation>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
@@ -191,7 +191,7 @@
     </message>
     <message>
       <source>Which ip should not be allowed to chat</source>
-      <translation type="unfinished"/>
+      <translation>A quale ip non dovrebbe essere permesso di chattare</translation>
     </message>
     <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
@@ -480,11 +480,11 @@
     </message>
     <message>
       <source>Allow operator to see your page content?</source>
-      <translation type="unfinished"/>
+      <translation>Permettere all&apos;operatore di vedere il contenuto della pagina?</translation>
     </message>
     <message>
       <source>Screen shared, click to finish</source>
-      <translation type="unfinished"/>
+      <translation>Schermo condiviso, clicca per finire</translation>
     </message>
   </context>
   <context>
@@ -591,11 +591,11 @@
     </message>
     <message>
       <source>Message to returning user</source>
-      <translation type="unfinished"/>
+      <translation>Messaggio per l&apos;utente di ritorno</translation>
     </message>
     <message>
       <source>Nick which will be used if we cannot determine returning user name</source>
-      <translation type="unfinished"/>
+      <translation>Nick, che verrà utilizzato se noi non possiamo determinare il nome utente di ritorno</translation>
     </message>
     <message>
       <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
@@ -773,7 +773,7 @@
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identificatore</translation>
     </message>
     <message>
       <source>Help us to grow</source>
@@ -1537,7 +1537,7 @@
     </message>
     <message>
       <source>Edit main chat information</source>
-      <translation type="unfinished"/>
+      <translation>Modificare le informazioni di chat principale</translation>
     </message>
     <message>
       <source>Department</source>
@@ -1581,7 +1581,7 @@
     </message>
     <message>
       <source>User left</source>
-      <translation type="unfinished"/>
+      <translation>Utente uscito</translation>
     </message>
     <message>
       <source>Waited</source>
@@ -1640,8 +1640,16 @@
       <translation>Allega file caricato</translation>
     </message>
     <message>
-      <source>Screen sharing</source>
+      <source>Please enter a URL</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Redirect user to another url</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Screen sharing</source>
+      <translation>Condivisione dello schermo</translation>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
@@ -1912,7 +1920,7 @@
     </message>
     <message>
       <source>File</source>
-      <translation type="unfinished"/>
+      <translation>File</translation>
     </message>
     <message>
       <source>Leave a message</source>
@@ -1984,7 +1992,7 @@
     </message>
     <message>
       <source>Invalid CSRF token!</source>
-      <translation type="unfinished"/>
+      <translation>Token CSRF non valido!</translation>
     </message>
     <message>
       <source>Please enter a valid email address</source>
@@ -2032,7 +2040,7 @@
     </message>
     <message>
       <source>Invalid file</source>
-      <translation type="unfinished"/>
+      <translation>File non valido</translation>
     </message>
     <message>
       <source>Could not determine a default department!</source>
@@ -2044,15 +2052,15 @@
     </message>
     <message>
       <source>Invalid file extension</source>
-      <translation type="unfinished"/>
+      <translation>Estensione di file non valido</translation>
     </message>
     <message>
       <source>Invalid file extension!</source>
-      <translation type="unfinished"/>
+      <translation>Estensione di file non valido!</translation>
     </message>
     <message>
       <source>To big file!</source>
-      <translation type="unfinished"/>
+      <translation>File troppo grande!</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -2547,15 +2555,15 @@
     </message>
     <message>
       <source>On page</source>
-      <translation type="unfinished"/>
+      <translation>Sulla Pagina</translation>
     </message>
     <message>
       <source>Yes</source>
-      <translation type="unfinished"/>
+      <translation>Sì</translation>
     </message>
     <message>
       <source>No</source>
-      <translation type="unfinished"/>
+      <translation>No</translation>
     </message>
     <message>
       <source>User does not have any message from operator</source>
@@ -2906,7 +2914,7 @@
     </message>
     <message>
       <source>Screen sharing</source>
-      <translation type="unfinished"/>
+      <translation>Condivisione dello schermo</translation>
     </message>
     <message>
       <source>Update</source>
@@ -3268,31 +3276,31 @@
     <name>chat/modifychat</name>
     <message>
       <source>Modify chat</source>
-      <translation type="unfinished"/>
+      <translation>Modificare la chat</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Recipient e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Posta elettronica del destinatario</translation>
     </message>
     <message>
       <source>Nick</source>
-      <translation type="unfinished"/>
+      <translation>Nick</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation type="unfinished"/>
+      <translation>Telefono</translation>
     </message>
     <message>
       <source>Update chat</source>
-      <translation type="unfinished"/>
+      <translation>Aggiorna la chat</translation>
     </message>
     <message>
       <source>Chat information was updated</source>
-      <translation type="unfinished"/>
+      <translation>Iinformazioni di chat aggiornate</translation>
     </message>
   </context>
   <context>
@@ -3536,7 +3544,7 @@
     </message>
     <message>
       <source>Allow to attatch a file</source>
-      <translation type="unfinished"/>
+      <translation>Consentire di allegare file</translation>
     </message>
     <message>
       <source>Additional form settings</source>
@@ -3939,7 +3947,7 @@
     </message>
     <message>
       <source>User has joined the chat from popup chat window!</source>
-      <translation type="unfinished"/>
+      <translation>Utente è entrato dalla finestra di popup chat chat!</translation>
     </message>
   </context>
   <context>
@@ -4277,19 +4285,27 @@
     <name>cobrowse/browse</name>
     <message>
       <source>Request screen share</source>
+      <translation>Condividi schermo richiesta</translation>
+    </message>
+    <message>
+      <source>Show my mouse position to visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>On highlight scroll user window location to match my</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Click blue eye at the top to request screen share</source>
-      <translation type="unfinished"/>
+      <translation>Fare clic su occhio blu nella parte superiore per richiedere condivisione schermo</translation>
     </message>
     <message>
       <source>Screen sharing session has finished</source>
-      <translation type="unfinished"/>
+      <translation>Terminata la sessione di condivisione dello schermo</translation>
     </message>
     <message>
       <source>Screen is shared</source>
-      <translation type="unfinished"/>
+      <translation>Lo schermo è condiviso</translation>
     </message>
   </context>
   <context>
@@ -4773,7 +4789,7 @@
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identificatore</translation>
     </message>
     <message>
       <source>Intro</source>
@@ -4843,7 +4859,7 @@
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identificatore</translation>
     </message>
   </context>
   <context>
@@ -4854,7 +4870,7 @@
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identificatore</translation>
     </message>
     <message>
       <source>Download</source>
@@ -6371,7 +6387,7 @@
     </message>
     <message>
       <source>has accepted a chat!</source>
-      <translation type="unfinished"/>
+      <translation>ha accettato la chat!</translation>
     </message>
   </context>
   <context>

@@ -55,23 +55,23 @@
     </message>
     <message>
       <source>Host where NodeJs is running</source>
-      <translation type="unfinished"/>
+      <translation>Di mana host NodeJs berjalan</translation>
     </message>
     <message>
       <source>Location of SocketIO JS library</source>
-      <translation type="unfinished"/>
+      <translation>Lokasi dari perpustakaan SocketIO JS</translation>
     </message>
     <message>
       <source>Connect to NodeJs in https mode</source>
-      <translation type="unfinished"/>
+      <translation>Sambungkan ke NodeJs dalam mode https</translation>
     </message>
     <message>
       <source>NodeJS support enabled</source>
-      <translation type="unfinished"/>
+      <translation>Bantuan NodeJS diaktifkan</translation>
     </message>
     <message>
       <source>Do not ask permission for users to see their screen</source>
-      <translation type="unfinished"/>
+      <translation>Jangan meminta izin bagi pengguna untuk melihat layar mereka</translation>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
@@ -99,7 +99,7 @@
     </message>
     <message>
       <source>Pro active chats invitations limitation based on pending chats, (-1) do not limit, (0,1,n+1) number of pending chats can be for invitation to be shown.</source>
-      <translation type="unfinished"/>
+      <translation>Pembatasan undangan percakapan pro aktif berdasarkan percakapan tertunda, (-1) tidak membatasi, (0,1,n+1) jumlah percakapan tertunda bisa untuk undangan yang akan ditampilkan.</translation>
     </message>
     <message>
       <source>Is pro active chat invitation active. Online users tracking also has to be enabled</source>
@@ -191,7 +191,7 @@
     </message>
     <message>
       <source>Which ip should not be allowed to chat</source>
-      <translation type="unfinished"/>
+      <translation>Yang ip seharusnya tidak diperbolehkan untuk obrolan</translation>
     </message>
     <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
@@ -479,11 +479,11 @@
     </message>
     <message>
       <source>Allow operator to see your page content?</source>
-      <translation type="unfinished"/>
+      <translation>Biarkan operator untuk melihat konten halaman Anda?</translation>
     </message>
     <message>
       <source>Screen shared, click to finish</source>
-      <translation type="unfinished"/>
+      <translation>Layar bersama, klik untuk menyelesaikan</translation>
     </message>
   </context>
   <context>
@@ -590,11 +590,11 @@
     </message>
     <message>
       <source>Message to returning user</source>
-      <translation type="unfinished"/>
+      <translation>Pesan untuk pengguna yang kembali</translation>
     </message>
     <message>
       <source>Nick which will be used if we cannot determine returning user name</source>
-      <translation type="unfinished"/>
+      <translation>Panggilan yang akan digunakan jika kita tidak dapat menentukan kembali nama pengguna</translation>
     </message>
     <message>
       <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
@@ -772,7 +772,7 @@
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Pengenal</translation>
     </message>
     <message>
       <source>Help us to grow</source>
@@ -1430,7 +1430,7 @@
     </message>
     <message>
       <source>Chat transfer worklow</source>
-      <translation>Alur perpindahan chat</translation>
+      <translation>Alur perpindahan percakapan</translation>
     </message>
     <message>
       <source>To what department chat should be transfered if it is not accepted</source>
@@ -1536,7 +1536,7 @@
     </message>
     <message>
       <source>Edit main chat information</source>
-      <translation type="unfinished"/>
+      <translation>Merubah informasi percakapan utama</translation>
     </message>
     <message>
       <source>Department</source>
@@ -1580,7 +1580,7 @@
     </message>
     <message>
       <source>User left</source>
-      <translation type="unfinished"/>
+      <translation>Kiri pengguna</translation>
     </message>
     <message>
       <source>Waited</source>
@@ -1639,8 +1639,16 @@
       <translation>Lampirkan berkas terunggahan</translation>
     </message>
     <message>
+      <source>Please enter a URL</source>
+      <translation>Masukkan URL</translation>
+    </message>
+    <message>
+      <source>Redirect user to another url</source>
+      <translation>Mengarahkan pengguna ke URL lain</translation>
+    </message>
+    <message>
       <source>Screen sharing</source>
-      <translation type="unfinished"/>
+      <translation>Berbagi layar</translation>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
@@ -1911,7 +1919,7 @@
     </message>
     <message>
       <source>File</source>
-      <translation type="unfinished"/>
+      <translation>File</translation>
     </message>
     <message>
       <source>Leave a message</source>
@@ -2051,7 +2059,7 @@
     </message>
     <message>
       <source>To big file!</source>
-      <translation type="unfinished"/>
+      <translation>File terlalu besar!</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -2550,11 +2558,11 @@
     </message>
     <message>
       <source>Yes</source>
-      <translation type="unfinished"/>
+      <translation>Ya</translation>
     </message>
     <message>
       <source>No</source>
-      <translation type="unfinished"/>
+      <translation>Tidak</translation>
     </message>
     <message>
       <source>User does not have any message from operator</source>
@@ -3240,27 +3248,27 @@
     </message>
     <message>
       <source>Automatic chats close, click to close old chats</source>
-      <translation type="unfinished"/>
+      <translation>Tutup otomatis percakapan, klik untuk menutup percakapan lama</translation>
     </message>
     <message>
       <source>Automatic chats purge, click to purge old chats</source>
-      <translation type="unfinished"/>
+      <translation>Membersihkan otomatis percakapan, klik untuk membersihkan percakapan lama</translation>
     </message>
     <message>
       <source>Update chats duration by using new algorithm</source>
-      <translation type="unfinished"/>
+      <translation>Perbarui durasi percakapan dengan menggunakan algoritma baru</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation type="unfinished"/>
+      <translation>Tutup percapakan</translation>
     </message>
     <message>
       <source>Purged chats</source>
-      <translation type="unfinished"/>
+      <translation>Bersihkan percakapan</translation>
     </message>
     <message>
       <source>Chats duration was updated</source>
-      <translation type="unfinished"/>
+      <translation>Durasi percakapan telah diperbarui</translation>
     </message>
   </context>
   <context>
@@ -4276,6 +4284,14 @@
     <name>cobrowse/browse</name>
     <message>
       <source>Request screen share</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show my mouse position to visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>On highlight scroll user window location to match my</source>
       <translation type="unfinished"/>
     </message>
     <message>
