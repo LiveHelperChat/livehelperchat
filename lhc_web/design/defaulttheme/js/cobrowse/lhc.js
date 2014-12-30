@@ -59,7 +59,18 @@ var LHCCoBrowser = (function() {
 	LHCCoBrowser.prototype.handleMessage = function(msg) {
 				
 		if (msg[1] == 'hightlight') {
-			var pos = msg[2].split(',');
+			
+			var parts = msg[2].split('__SPLIT__');
+			var selectorData = parts[1].replace(new RegExp('_SEL_','g'),':');
+			var element = null;
+			if (selectorData != '' && typeof jQuery !== 'undefined' ) {
+				var objects = $(selectorData);				
+				if (objects.length == 1) {
+					element = objects[0];
+				}
+			};
+			
+			var pos = parts[0].split(',');
 			
 			var origScroll = {scrollLeft: document.body.scrollLeft,scrollTop:document.body.scrollTop};
 			document.body.scrollLeft = pos[2];
@@ -73,8 +84,10 @@ var LHCCoBrowser = (function() {
 				operatorCursor.style.display = "none";
 			};
 			
-			// Get original page element
-			var element = document.elementFromPoint(pos[0], pos[1]);
+			if (element === null) {
+				// Get original page element
+				element = document.elementFromPoint(pos[0], pos[1]);
+			};
 			
 			// Now we can restore operator cursor
 			if (operatorCursor !== null) {
@@ -123,8 +136,7 @@ var LHCCoBrowser = (function() {
 									+ parseInt(pos[0]-12)
 									+ 'px;position:absolute;"><img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAcCAQAAAAkETzVAAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfeDBYQLhknKDAhAAAC4ElEQVQ4y32US2xVRRjHf/M457774KpNxRaBGjRq0igJxmriI9EaF2BoNCHgRiI748odxARXLNmpKzbEjTFqlI0sDLLSBcE0GNTW0sIl5bba9txzzzkzZ8bFubdeI/hNMqvf983/ew0AMCSa4dtjSOSjgv+zIYHeu3vxk2P7RAkd3BsuCzSVqaeiztUL78xWRwi1fPYuuAIr0VSaO2dPXNo993Q5WlzatMvg7oIiCak2Jw4f/Vre2fHK9GS8dH3NgvL+P6gmpN6cPPzWZW7LW/UDT+73N35vpd5XvB1A5RGBQBFS9hgyrsvPx+vvffT+zMOi3FXVAc0SEAgkgSMjIxML4tx9y8fPfPjytK7GOpR9VAMgkKgCNaTiFp/WX3rj1FjjzMUfNhNMkeK2D8JjeifmD87qjw+8e/L4qzsbBFoCqI74UxFSa04cPHgRgyGhTZuMX9TGA3OPPxH9utjOKs4iF7bD9rSSsEYOGPFtcPaxRz547YVyqav6AkSBGgwZMVnPOReStDUfpSWUEnIXgC+uImpn+51xf2j9wveXWj5A5ULODAgwvbi97vjZLLj6zbyRxav/VABHhsGQ9seI1zc/+2l5ixyH79fV473TfhhDzA4iOgI8SV5NSUixuCmvCxCXdNXC6dAplFDXGqfDdWG4Up9+8MuEFEP+m9fnPZ4cs3Lz+VOMMUrt/uGTz705dU4l4krlyEM12zHk+EKrIydli3VWaXF7beWLH59Z3e8kgZis7ykXSoshFEgEAkdGQtebdjyh5sZfVDN3vvvq8ny8QTJiE68h9Jmli8CyRZkaw1F0Pru5bPy1lRs/RzEOX/F/FRWriY5CowkIKTHEKKOq7oWLaLPKOtF41vJiYHIlEkVAlQYNqigSNtlgiy52pKhrSAYOh8CSk2NJKCGxxHTJtLNUCjSjVnTe4zF4HBm6l6jF6n/t2IA1BQpNSIkQHcp6T+Q9f5JdAmDJ9/fK8jfQNz5Ki5DVMQAAAABJRU5ErkJggg==\"/></div>');
 					if (document.body !== null) {
-						document.body.insertBefore(fragment,
-								document.body.childNodes[0]);
+						document.body.appendChild(fragment);
 					}				
 				} else {
 					element.style.top = pos[1] + 'px';		
@@ -147,7 +159,18 @@ var LHCCoBrowser = (function() {
 		} else if (msg[1] == 'navigate') {			
 			document.location =msg[2].replace(new RegExp('__SPLIT__','g'),':');
 		} else if (msg[1] == 'click') {	
-			var pos = msg[2].split(',');
+			
+			var parts = msg[2].split('__SPLIT__');
+			var selectorData = parts[1].replace(new RegExp('_SEL_','g'),':');
+			var element = null;
+			if (selectorData != '' && typeof jQuery !== 'undefined' ) {
+				var objects = $(selectorData);				
+				if (objects.length == 1) {
+					element = objects[0];
+				}
+			}
+						
+			var pos = parts[0].split(',');
 			
 			var origScroll = {scrollLeft: document.body.scrollLeft,scrollTop:document.body.scrollTop};
 			document.body.scrollLeft = pos[2];
@@ -161,8 +184,10 @@ var LHCCoBrowser = (function() {
 				operatorCursor.style.display = "none";
 			};
 			
-			// Get original page element
-			var element = document.elementFromPoint(pos[0], pos[1]);
+			// Get original page element only if smarter way failed
+			if (element === null){
+				element = document.elementFromPoint(pos[0], pos[1]);
+			}
 			
 			// Now we can restore operator cursor
 			if (operatorCursor !== null) {
@@ -382,8 +407,9 @@ var LHCCoBrowser = (function() {
 		var htmlStatus = '<div id="lhc_status_mirror" style="border-radius:3px;cursor:pointer;position:fixed;top:5px;right:5px;padding:5px;z-index:9999;text-align:center;font-weight:bold;background-color:rgba(140, 227, 253, 0.53);font-family:arial;font-size:12px;">'
 				+ this.trans.operator_watching + '</div>';
 		var fragment = lh_inst.appendHTML(htmlStatus);
-		document.body.insertBefore(fragment, document.body.childNodes[0]);
-
+		
+		document.body.appendChild(fragment);
+	
 		document.getElementById('lhc_status_mirror').onclick = function() {
 			_this.stopMirroring();
 		};
