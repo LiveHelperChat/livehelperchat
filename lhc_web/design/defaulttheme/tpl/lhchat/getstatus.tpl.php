@@ -699,7 +699,7 @@ var lh_inst  = {
 			   		var th = document.getElementsByTagName('head')[0];
 			        var s = document.createElement('script');
 			        s.setAttribute('type','text/javascript');
-			        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::designJS('js/cobrowse/mutation-summary.js;js/cobrowse/tree-mirror.js;js/cobrowse/lhc.js');?>');
+			        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::designJS('js/cobrowse/mutation-summary.js;js/cobrowse/tree-mirror.js;js/cobrowse/jquery.selector.js;js/cobrowse/lhc.js');?>');
 			        th.appendChild(s);
 			        s.onreadystatechange = s.onload = function(){
 			        	inst.startCoBrowse(inst.sharehash);

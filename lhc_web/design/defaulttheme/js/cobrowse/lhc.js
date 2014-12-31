@@ -45,6 +45,26 @@ var LHCCoBrowser = (function() {
 
 		document.addEventListener('mousemove', this.mouseEventListenerCallback,false);
 
+		this.inputChangeKeyUpListener = function(e) {
+			_this.changeEventListener(e);
+		};
+		
+		var inputs = document.getElementsByTagName("INPUT");		
+		for (var i = 0; i < inputs.length; i++) {			
+			inputs[i].addEventListener('keyup', this.inputChangeKeyUpListener,false);
+			inputs[i].addEventListener('change', this.inputChangeKeyUpListener,false);
+		};		
+		
+		var inputs = document.getElementsByTagName("TEXTAREA");		
+		for (var i = 0; i < inputs.length; i++) {			
+			inputs[i].addEventListener('keyup', this.inputChangeKeyUpListener,false);
+		};		
+		
+		var inputs = document.getElementsByTagName("SELECT");		
+		for (var i = 0; i < inputs.length; i++) {
+			inputs[i].addEventListener('change', this.inputChangeKeyUpListener,false);
+		};		
+		
 		/**
 		 * Setup NodeJs support if required
 		 * */
@@ -52,14 +72,39 @@ var LHCCoBrowser = (function() {
 			this.NodeJsSupportEnabled = true;			
 			this.setupNodeJs();
 		}
-		;
-	}
-	;
+	};
+		
+	LHCCoBrowser.prototype.changeEventListener = function(e) {
+		if (typeof jQuery !== 'undefined' ) {
+			var selectorData = $(e.target).getSelector();			
+			if (selectorData.length == 1) {	
+				if (e.target.tagName == 'SELECT') {	
+					this.sendData({
+						'f' : 'selectval',
+						'selector' : selectorData[0],
+						'value' : e.target.selectedIndex
+					});					
+				} else {					
+					if (e.target.tagName == 'TEXTAREA' || e.target.type == 'text'){
+						this.sendData({
+							'f' : 'textdata',
+							'selector' : selectorData[0],
+							'value' : $(e.target).val()
+						});
+					} else if (e.target.type == 'checkbox' || e.target.type == 'radio') {
+						this.sendData({
+							'f' : 'chkval',
+							'selector' : selectorData[0],
+							'value' : $(e.target).is(':checked')
+						});
+					}
+				}
+			}
+		}
+	};
 	
-	LHCCoBrowser.prototype.handleMessage = function(msg) {
-				
+	LHCCoBrowser.prototype.handleMessage = function(msg) {				
 		if (msg[1] == 'hightlight') {
-			
 			var parts = msg[2].split('__SPLIT__');
 			var selectorData = parts[1].replace(new RegExp('_SEL_','g'),':');
 			var element = null;
@@ -69,7 +114,7 @@ var LHCCoBrowser = (function() {
 					element = objects[0];
 				}
 			};
-			
+						
 			var pos = parts[0].split(',');
 			
 			var origScroll = {scrollLeft: document.body.scrollLeft,scrollTop:document.body.scrollTop};
@@ -208,12 +253,62 @@ var LHCCoBrowser = (function() {
 				console.log('not found');
 			}			
 		} else if (msg[1] == 'fillform') {				
-			var value = msg[2].replace(new RegExp('__SPLIT__','g'),':');			
-			var elements = document.getElementsByClassName('lhc-higlighted');
-			for (var i = 0; i < elements.length; i++) {			
+			var data = msg[2].split('__SPLIT__');
+			var value = data[0].replace(new RegExp('_SEL_','g'),':');
+			var selectorData = data[1].replace(new RegExp('_SEL_','g'),':');
+			
+			var elements = [];
+			if (selectorData != '' && typeof jQuery !== 'undefined' ) {
+				var objects = $(selectorData);
+				if (objects.length == 1) {
+					elements.push(objects[0]);					
+				}
+			} else {
+				elements = document.getElementsByClassName('lhc-higlighted');
+			}			
+						
+			for (var i = 0; i < elements.length; i++) {	
+
+				// Remove our event listeners while we change 
+				elements[i].removeEventListener('keyup',this.inputChangeKeyUpListener, false);
+				elements[i].removeEventListener('change',this.inputChangeKeyUpListener, false);
+				
 				elements[i].value = value;
+								
+				try {
+					elements[i].dispatchEvent(new Event('change', { 'bubbles': true }));
+				} catch (err) {	}
+				
+				elements[i].addEventListener('keyup', this.inputChangeKeyUpListener,false);
+				elements[i].addEventListener('change', this.inputChangeKeyUpListener,false);				
+			};
+			
+			
+		} else if (msg[1] == 'changeselect') {				
+			var data = msg[2].split('__SPLIT__');
+			var selectorData = data[1].replace(new RegExp('_SEL_','g'),':');			
+			var value = data[0];
+						
+			var elements = [];
+			if (selectorData != '' && typeof jQuery !== 'undefined' ) {
+				var objects = $(selectorData);
+				if (objects.length == 1) {
+					elements.push(objects[0]);					
+				}
+			} else {
+				elements = document.getElementsByClassName('lhc-higlighted');
+			}	
+					
+			for (var i = 0; i < elements.length; i++) {	
+				if (elements[i].tagName == 'SELECT'){
+					elements[i].selectedIndex = value;					
+					try {
+						elements[i].dispatchEvent(new Event('change', { 'bubbles': true }));
+					} catch (err) {	}					
+				}
 			};
 		}
+		
 	};
 	
 	LHCCoBrowser.prototype.mouseEventListener = function(e) {
@@ -364,11 +459,24 @@ var LHCCoBrowser = (function() {
 				this.socket.disconnect();
 				this.socket = null;
 			}
-			;
-
-			document.removeEventListener('mousemove',
-					this.mouseEventListenerCallback, false);
-
+			document.removeEventListener('mousemove',this.mouseEventListenerCallback, false);
+			
+			var inputs = document.getElementsByTagName("INPUT");		
+			for (var i = 0; i < inputs.length; i++) {			
+				inputs[i].removeEventListener('keyup', this.inputChangeKeyUpListener,false);
+				inputs[i].removeEventListener('change', this.inputChangeKeyUpListener,false);
+			}		
+			
+			var inputs = document.getElementsByTagName("TEXTAREA");		
+			for (var i = 0; i < inputs.length; i++) {			
+				inputs[i].removeEventListener('keyup', this.inputChangeKeyUpListener,false);
+			}	
+			
+			var inputs = document.getElementsByTagName("SELECT");		
+			for (var i = 0; i < inputs.length; i++) {
+				inputs[i].removeEventListener('change', this.inputChangeKeyUpListener,false);
+			}	
+			
 		} catch (e) {
 			console.log(e);
 		}

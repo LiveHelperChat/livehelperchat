@@ -1,3 +1,14 @@
+2.18v
+
+Co-Browsing enhancement release part 2
+1. Select box change will be synced to user browser also.
+2. If your site is using jQuery JS library highligh elements selection will be more precise. 99.99% of accuracy. 
+3. User actions on forms will be synced to operator browser. That means while user is filling a form you will see what fields he fills instantly, 
+what checkboxes checks and so on. This feature requires jQuery JS library on remote site.
+4. You can choose to execute or not javascript on Operator Co-Browsing window. Option available in Co-Browsing options.
+
+execute doc/update_db/update_96.sql for update
+
 2.17v
 
 Co-Browsing enhancement release

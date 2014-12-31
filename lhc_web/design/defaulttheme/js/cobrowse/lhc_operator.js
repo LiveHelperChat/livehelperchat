@@ -12,6 +12,7 @@ var LHCCoBrowserOperator = (function() {
 		this.chat_id = params['chat_id'];
 		this.chat_hash = params['chat_hash'];
 		this.node_js_settings = params['nodejssettings'];
+		this.disablejs = params['disablejs'];
 		this.refreshTimeout = null;
 		this.isNodeConnected = false;
 		this.isInitialized = false;
@@ -77,11 +78,29 @@ var LHCCoBrowserOperator = (function() {
 
 		this.treeMirrorParams = {
 			createElement : function(tagName) {
-				/*if (tagName == 'SCRIPT') {
+				if (_this.disablejs == true && tagName == 'SCRIPT') {
 					var node = document.createElement('NO-SCRIPT');
 					node.style.display = 'none';
 					return node;
-				}*/
+				}
+				
+				if (tagName == 'SELECT') {
+					var node = document.createElement('SELECT');
+					node.onchange = function() {												
+						_this.changeSelectValue($(node)[0].selectedIndex, _this.getSelectorQuery(node));
+					};
+					return node;
+				}
+				
+				if (tagName == 'INPUT' || tagName == 'TEXTAREA') {
+					var node = document.createElement(tagName);
+					node.onfocus = function() {
+						_this.highlightElement(-1,-1,_this.iFrameDocument.body.scrollLeft,_this.iFrameDocument.body.scrollTop,_this.getSelectorQuery(node));
+					};
+					return node;
+				}
+				
+								
 				
 				if (tagName == 'HEAD') {
 					var node = document.createElement('HEAD');
@@ -132,6 +151,8 @@ var LHCCoBrowserOperator = (function() {
 			
 			_this.iFrameDocument.addEventListener('mousemove', _this.mouseEventListenerCallback, false);
 			
+			
+			
 			// Override behavior for links: instead of reloading an iframe,
 			// use them via our "browser" so that mirrors stay in sync.
 			_this.iFrameDocument.onclick = function(e) {							
@@ -156,66 +177,64 @@ var LHCCoBrowserOperator = (function() {
 						};
 					// Give up and use standard listener
 					} else {
-						var selectorData = $(e.target).getSelector();
-						var selectorQuery = '';
-						
-						if (selectorData.length == 1) {				
-							selectorQuery = selectorData[0];
-						}
-						
-						_this.sendClickCommand(e.x,e.y,_this.iFrameDocument.body.scrollLeft,_this.iFrameDocument.body.scrollTop,selectorQuery);
+												
+						_this.sendClickCommand(e.x,e.y,_this.iFrameDocument.body.scrollLeft,_this.iFrameDocument.body.scrollTop,_this.getSelectorQuery(e.target));
 					}
 					
 				} else {
 					e.preventDefault();
-								
-					var selectorData = $(e.target).getSelector();
-					var selectorQuery = '';
-					
-					if (selectorData.length == 1) {				
-						selectorQuery = selectorData[0];
-					}
-									
+														
 					// Highlight element on click
-					_this.highlightElement(e.x,e.y,_this.iFrameDocument.body.scrollLeft,_this.iFrameDocument.body.scrollTop,selectorQuery);	
+					_this.highlightElement(e.x,e.y,_this.iFrameDocument.body.scrollLeft,_this.iFrameDocument.body.scrollTop,_this.getSelectorQuery(e.target));	
 				}
 			};
 
 			_this.iFrameDocument.onkeyup = function(evt) {
-			    evt = evt || window.event;
-			    var charCode = evt.keyCode || evt.which;
-			    var charStr = String.fromCharCode(charCode);
-			    _this.fillForm(charStr);	
+			    evt = evt || window.event;			  				
+			    _this.fillForm(evt.target,_this.getSelectorQuery(evt.target));	
 			};
 			
 			if (_this.initialize !== null && _this.initialize != '') {
 				_this.handleMessage(_this.initialize);
 			}
-			;
-			
+						
 			_this.startChangesMonitoring();
 		}
 	};
 	
-	LHCCoBrowserOperator.prototype.fillForm = function()
+	LHCCoBrowserOperator.prototype.getSelectorQuery = function(node)
 	{
-		var elements = this.iFrameDocument.getElementsByClassName('lhc-higlighted');
+		var selectorData = $(node).getSelector();				
+		if (selectorData.length == 1) {				
+			return selectorData[0];
+		}		
+		return '';	
+	};
+		
+	LHCCoBrowserOperator.prototype.fillForm = function(target,selector)
+	{
+		var elements = [target];
 		for (var i = 0; i < elements.length; i++) {
 			if (elements[i].tagName == 'INPUT' || elements[i].tagName == 'TEXTAREA') {
-				this.textSend = elements[i].value.replace(new RegExp(':','g'),'__SPLIT__');
-				if (this.isNodeConnected === true) {
-					this.sendData('lhc_cobrowse_cmd:fillform:'+this.textSend); // Split is required to avoid mixing argumetns	
+				this.textSend = elements[i].value.replace(new RegExp(':','g'),'_SEL_');
+				if (this.isNodeConnected === true) {					
+					this.sendData('lhc_cobrowse_cmd:fillform:'+this.textSend+'__SPLIT__'+selector.replace(new RegExp(':','g'),'_SEL_')); // Split is required to avoid mixing argumetns	
 				} else {
 					if (this.fillTimeout === null) {
 						var _that = this;
 						this.fillTimeout = setTimeout(function() {
-							_that.sendData('lhc_cobrowse_cmd:fillform:'+_that.textSend);
+							_that.sendData('lhc_cobrowse_cmd:fillform:'+_that.textSend+'__SPLIT__'+selector.replace(new RegExp(':','g'),'_SEL_'));
 							_that.fillTimeout = null;
 						}, 300);
 					};
 				}
 			}
 		};
+	};
+	
+	LHCCoBrowserOperator.prototype.changeSelectValue = function(val,selector)
+	{		
+		this.sendData('lhc_cobrowse_cmd:changeselect:'+val+'__SPLIT__'+selector.replace(new RegExp(':','g'),'_SEL_'));		
 	};
 	
 	LHCCoBrowserOperator.prototype.highlightElement = function(x,y,l,t,selector)
@@ -378,22 +397,24 @@ var LHCCoBrowserOperator = (function() {
 		document.getElementById('center-layout').style.width = pos.w+'px';
 		document.getElementById('center-layout').style.height = pos.wh+'px';
 		
-		var element = this.iFrameDocument.getElementById('user-cursor');
-
-		if (element === null) {
-			var fragment = this
-					.appendHTML('<div id="user-cursor" style="z-index:99999;top:'
-							+ pos.y
-							+ 'px;left:'
-							+ parseInt(pos.x-12)
-							+ 'px;position:absolute;"><img src="'+this.cursor+'" /></div>');
-			if (this.iFrameDocument.body !== null) {
-				this.iFrameDocument.body.appendChild(fragment);				
+		if (typeof this.iFrameDocument !== 'undefined') {				
+			var element = this.iFrameDocument.getElementById('user-cursor');
+	
+			if (element === null) {
+				var fragment = this
+						.appendHTML('<div id="user-cursor" style="z-index:99999;top:'
+								+ pos.y
+								+ 'px;left:'
+								+ parseInt(pos.x-12)
+								+ 'px;position:absolute;"><img src="'+this.cursor+'" /></div>');
+				if (this.iFrameDocument.body !== null) {
+					this.iFrameDocument.body.appendChild(fragment);				
+				}
+				
+			} else {
+				element.style.top = pos.y + 'px';		
+				element.style.left = parseInt(pos.x-12) + 'px';
 			}
-			
-		} else {
-			element.style.top = pos.y + 'px';		
-			element.style.left = parseInt(pos.x-12) + 'px';
 		}
 	};
 
@@ -407,7 +428,30 @@ var LHCCoBrowserOperator = (function() {
 		;
 		return frag;
 	};
-
+	
+	LHCCoBrowserOperator.prototype.changeTextValue = function(msg) {
+		if (msg.selector != '') {
+			$(this.iFrameDocument).find(msg.selector).val(msg.value);
+		}
+	};
+	
+	LHCCoBrowserOperator.prototype.changeSelectValueFromUser = function(msg) {
+		if (msg.selector != '') {
+			if ($(this.iFrameDocument).find(msg.selector).size() > 0) {
+				$(this.iFrameDocument).find(msg.selector)[0].selectedIndex = msg.value;
+			}
+		}
+	};
+	
+	LHCCoBrowserOperator.prototype.changeCheckboxValueFromUser = function(msg) {
+		if (msg.selector != '') {
+			if ($(this.iFrameDocument).find(msg.selector).size() > 0) {
+				$(this.iFrameDocument).find(msg.selector)[0].checked = msg.value;
+			}
+		}
+	};	
+	
+	
 	LHCCoBrowserOperator.prototype.handleMessage = function(msg) {
 		if (msg.base) {
 			this.base = msg.base;			
@@ -453,6 +497,12 @@ var LHCCoBrowserOperator = (function() {
 			
 		} else if (msg.f && msg.f == 'cursor') {
 			this.visitorCursor(msg.pos);
+		} else if (msg.f && msg.f == 'textdata') {
+			this.changeTextValue(msg);
+		} else if (msg.f && msg.f == 'selectval') {
+			this.changeSelectValueFromUser(msg);
+		} else if (msg.f && msg.f == 'chkval') {
+			this.changeCheckboxValueFromUser(msg);
 		} else if (msg.f) {
 			if (typeof this.mirror != "undefined") {
 				this.mirror[msg.f].apply(this.mirror, msg.args);

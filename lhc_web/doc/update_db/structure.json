@@ -3423,6 +3423,13 @@
                 "hidden": "0"
             },
             {
+                "identifier": "disable_js_execution",
+                "value": "0",
+                "type": "0",
+                "explain": "Disable JS execution in Co-Browsing operator window",
+                "hidden": "0"
+            },
+            {
                 "identifier": "sharing_nodejs_socket_host",
                 "value": "",
                 "type": "0",
