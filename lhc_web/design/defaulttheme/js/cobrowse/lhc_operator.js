@@ -86,17 +86,21 @@ var LHCCoBrowserOperator = (function() {
 				
 				if (tagName == 'SELECT') {
 					var node = document.createElement('SELECT');
-					node.onchange = function() {												
+					
+					node.addEventListener('change', function(){
 						_this.changeSelectValue($(node)[0].selectedIndex, _this.getSelectorQuery(node));
-					};
+					}, false);
+					
 					return node;
 				}
 				
 				if (tagName == 'INPUT' || tagName == 'TEXTAREA') {
 					var node = document.createElement(tagName);
-					node.onfocus = function() {
+										
+					node.addEventListener('focus', function(){
 						_this.highlightElement(-1,-1,_this.iFrameDocument.body.scrollLeft,_this.iFrameDocument.body.scrollTop,_this.getSelectorQuery(node));
-					};
+					}, false);
+					
 					return node;
 				}
 				
@@ -205,7 +209,7 @@ var LHCCoBrowserOperator = (function() {
 	LHCCoBrowserOperator.prototype.getSelectorQuery = function(node)
 	{
 		var selectorData = $(node).getSelector();				
-		if (selectorData.length == 1) {				
+		if (selectorData.length >= 1) {				
 			return selectorData[0];
 		}		
 		return '';	

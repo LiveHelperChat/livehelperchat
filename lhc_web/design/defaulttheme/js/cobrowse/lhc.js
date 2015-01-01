@@ -76,8 +76,8 @@ var LHCCoBrowser = (function() {
 		
 	LHCCoBrowser.prototype.changeEventListener = function(e) {
 		if (typeof jQuery !== 'undefined' ) {
-			var selectorData = $(e.target).getSelector();			
-			if (selectorData.length == 1) {	
+			var selectorData = jQuery(e.target).getSelector();			
+			if (selectorData.length >= 1) {	
 				if (e.target.tagName == 'SELECT') {	
 					this.sendData({
 						'f' : 'selectval',
@@ -89,13 +89,13 @@ var LHCCoBrowser = (function() {
 						this.sendData({
 							'f' : 'textdata',
 							'selector' : selectorData[0],
-							'value' : $(e.target).val()
+							'value' : jQuery(e.target).val()
 						});
 					} else if (e.target.type == 'checkbox' || e.target.type == 'radio') {
 						this.sendData({
 							'f' : 'chkval',
 							'selector' : selectorData[0],
-							'value' : $(e.target).is(':checked')
+							'value' : jQuery(e.target).is(':checked')
 						});
 					}
 				}
@@ -109,8 +109,8 @@ var LHCCoBrowser = (function() {
 			var selectorData = parts[1].replace(new RegExp('_SEL_','g'),':');
 			var element = null;
 			if (selectorData != '' && typeof jQuery !== 'undefined' ) {
-				var objects = $(selectorData);				
-				if (objects.length == 1) {
+				var objects = jQuery(selectorData);				
+				if (objects !== null && objects.length == 1) {
 					element = objects[0];
 				}
 			};
@@ -209,8 +209,8 @@ var LHCCoBrowser = (function() {
 			var selectorData = parts[1].replace(new RegExp('_SEL_','g'),':');
 			var element = null;
 			if (selectorData != '' && typeof jQuery !== 'undefined' ) {
-				var objects = $(selectorData);				
-				if (objects.length == 1) {
+				var objects = jQuery(selectorData);				
+				if (objects !== null && objects.length == 1) {
 					element = objects[0];
 				}
 			}
@@ -259,14 +259,16 @@ var LHCCoBrowser = (function() {
 			
 			var elements = [];
 			if (selectorData != '' && typeof jQuery !== 'undefined' ) {
-				var objects = $(selectorData);
-				if (objects.length == 1) {
+				var objects = jQuery(selectorData);
+				if (objects !== null && objects.length == 1) {
 					elements.push(objects[0]);					
 				}
-			} else {
+			}
+			
+			if (elements.length == 0) {
 				elements = document.getElementsByClassName('lhc-higlighted');
-			}			
-						
+			}
+			
 			for (var i = 0; i < elements.length; i++) {	
 
 				// Remove our event listeners while we change 
@@ -292,11 +294,13 @@ var LHCCoBrowser = (function() {
 						
 			var elements = [];
 			if (selectorData != '' && typeof jQuery !== 'undefined' ) {
-				var objects = $(selectorData);
-				if (objects.length == 1) {
+				var objects = jQuery(selectorData);
+				if (objects !== null && objects.length == 1) {
 					elements.push(objects[0]);					
 				}
-			} else {
+			}; 
+			
+			if (elements.length == 0) {
 				elements = document.getElementsByClassName('lhc-higlighted');
 			}	
 					
