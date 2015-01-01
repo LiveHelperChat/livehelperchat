@@ -277,6 +277,7 @@ var LHCCoBrowser = (function() {
 								
 				try {
 					elements[i].dispatchEvent(new Event('change', { 'bubbles': true }));
+					elements[i].dispatchEvent(new Event('keyup', { 'bubbles': true }));
 				} catch (err) {	}
 				
 				elements[i].addEventListener('keyup', this.inputChangeKeyUpListener,false);

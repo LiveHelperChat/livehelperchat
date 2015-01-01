@@ -3424,7 +3424,7 @@
             },
             {
                 "identifier": "disable_js_execution",
-                "value": "0",
+                "value": "1",
                 "type": "0",
                 "explain": "Disable JS execution in Co-Browsing operator window",
                 "hidden": "0"
