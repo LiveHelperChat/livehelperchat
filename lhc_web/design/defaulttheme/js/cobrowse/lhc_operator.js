@@ -244,7 +244,7 @@ var LHCCoBrowserOperator = (function() {
 		if (this.highlightedCSS == false)
 		{
 			this.highlightedCSS = true;
-			var fragment = this.appendHTML('<style>.lhc-higlighted{-webkit-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);-moz-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);}</style>');
+			var fragment = this.appendHTML('<style>.lhc-higlighted{-webkit-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1)!important;-moz-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1)!important;box-shadow: 0px 0px 20px 5px rgba(88,140,204,1)!important;}</style>');
 			if (this.iFrameDocument.body !== null) {
 				this.iFrameDocument.body.insertBefore(fragment,
 						this.iFrameDocument.body.childNodes[0]);

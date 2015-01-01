@@ -165,7 +165,7 @@ var LHCCoBrowser = (function() {
 				lh_inst.addClass(element,'lhc-higlighted');				
 				if (this.cssAdded == false) {	
 					this.cssAdded = true;
-					lh_inst.addCss('.lhc-higlighted{-webkit-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);-moz-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);}');
+					lh_inst.addCss('.lhc-higlighted{-webkit-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1)!important;-moz-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1)!important;box-shadow: 0px 0px 20px 5px rgba(88,140,204,1)!important;}');
 				}
 			}
 		} else if (msg[1] == 'operatorcursor'){
