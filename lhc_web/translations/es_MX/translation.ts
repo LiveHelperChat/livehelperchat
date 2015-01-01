@@ -5597,7 +5597,7 @@
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation>Dirección de correo incorrecta</translation>
+      <translation>Dirección de E-mail incorrecta</translation>
     </message>
     <message>
       <source>Invalid CSRF token!</source>
@@ -5609,7 +5609,7 @@
     </message>
     <message>
       <source>Passwords mismatch</source>
-      <translation>Contraseñas no coinciden</translation>
+      <translation>Las contraseñas no coinciden</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -5767,7 +5767,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Correo</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Password</source>
@@ -5803,7 +5803,7 @@
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation>Dirección de correo incorrecta</translation>
+      <translation>Dirección de e-mail incorrecta</translation>
     </message>
     <message>
       <source>Please enter a name</source>
@@ -5909,7 +5909,7 @@
     </message>
     <message>
       <source>Invalid e-mail address!</source>
-      <translation>Correo inválido</translation>
+      <translation>E-mail inválido</translation>
     </message>
     <message>
       <source>Password remind</source>
@@ -5924,11 +5924,11 @@
     <name>user/forgotpasswordsent</name>
     <message>
       <source>Password reminder</source>
-      <translation>Recordatorio de contraseña</translation>
+      <translation>¿Olvido su contraseña?</translation>
     </message>
     <message>
       <source>E-mail sent. Click the link in the email and You will be sent out a new password.</source>
-      <translation>Correo enviado. Haga clic en el enlace del correo electrónico y se le enviará una nueva contraseña.</translation>
+      <translation>E-mail enviado. Haga clic en el enlace del correo electrónico y se le enviará una nueva contraseña.</translation>
     </message>
   </context>
   <context>
@@ -5939,7 +5939,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Correo</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Name</source>
@@ -6190,7 +6190,7 @@
     </message>
     <message>
       <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-      <translation>El departamento de soporte ha cerrado la ventana de chat, pero  puede dejar mensajes, y el administrador los podrá leer más tarde.</translation>
+      <translation>El departamento de soporte ha cerrado la ventana de chat, pero  puede dejar mensajes, y el administrador los leerá más tarde.</translation>
     </message>
     <message>
       <source>You do not have permission to view this chat, or the chat was deleted</source>
@@ -6363,7 +6363,7 @@
     </message>
     <message>
       <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
-      <translation>Correo electrónico del destinatario, esto se utiliza si la aplicación no pudo determinar quién debe recibir un correo.</translation>
+      <translation>E-mail del destinatario, esto se utiliza si la aplicación no pudo determinar quién debe recibir un correo.</translation>
     </message>
     <message>
       <source>BCC recipients, can be separated by comma.</source>
@@ -6375,7 +6375,7 @@
     </message>
     <message>
       <source>E-mail templates</source>
-      <translation>Plantillas de Correo</translation>
+      <translation>Plantillas de e-mail</translation>
     </message>
   </context>
   <context>

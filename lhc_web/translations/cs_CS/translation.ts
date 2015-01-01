@@ -59,11 +59,11 @@
     </message>
     <message>
       <source>Location of SocketIO JS library</source>
-      <translation>Umístění knihovny SocketIO</translation>
+      <translation>Umístění knihovny SocketIO JS</translation>
     </message>
     <message>
       <source>Connect to NodeJs in https mode</source>
-      <translation>Připojit se k NodeJS v https módu</translation>
+      <translation>Připojit se k NodeJS v HTTPS módu</translation>
     </message>
     <message>
       <source>NodeJS support enabled</source>
@@ -71,7 +71,7 @@
     </message>
     <message>
       <source>Do not ask permission for users to see their screen</source>
-      <translation>Nežádat svolení od uživatelů vidět jejich obrazovku</translation>
+      <translation>Nepožadovat od uživatelů svolení vidět jejich obrazovku</translation>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
@@ -479,7 +479,7 @@
     </message>
     <message>
       <source>Allow operator to see your page content?</source>
-      <translation>Umožnit operátorovi vidět obsah vámi zobrazené stránky?</translation>
+      <translation>Chcete umožnit operátorovi vidět obsah vámi zobrazené stránky?</translation>
     </message>
     <message>
       <source>Screen shared, click to finish</source>
@@ -1644,7 +1644,7 @@
     </message>
     <message>
       <source>Redirect user to another url</source>
-      <translation>Přesmětovat uživatele na jiné URL</translation>
+      <translation>Přesmětovat uživatele na jinou URL</translation>
     </message>
     <message>
       <source>Screen sharing</source>
@@ -4284,23 +4284,23 @@
     <name>cobrowse/browse</name>
     <message>
       <source>Request screen share</source>
-      <translation>Požadavek na sdílení obrazovky</translation>
+      <translation>Požádat o sdílení obrazovky</translation>
     </message>
     <message>
       <source>Show my mouse position to visitor</source>
-      <translation>Zobrazovat polohy ukazatele myši návštěvníkům</translation>
+      <translation>Zobrazit polohu ukazatele myši návštěvníkovi</translation>
     </message>
     <message>
       <source>On highlight scroll user window location to match my</source>
-      <translation type="unfinished"/>
+      <translation>Při zvýraznění skrolovat polohu okna uživatele, aby se shodovala s mou</translation>
     </message>
     <message>
       <source>Click blue eye at the top to request screen share</source>
-      <translation type="unfinished"/>
+      <translation>Klikněte na modré oko v záhlaví pro požadavek na sdílení obrazovky</translation>
     </message>
     <message>
       <source>Screen sharing session has finished</source>
-      <translation type="unfinished"/>
+      <translation>Sezení sdílení obrazovky bylo ukončeno</translation>
     </message>
     <message>
       <source>Screen is shared</source>

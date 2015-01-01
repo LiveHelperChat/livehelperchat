@@ -2007,7 +2007,7 @@
     </message>
     <message>
       <source>Invalid captcha code, please enable Javascript!</source>
-      <translation>Ogiltig captcha kod, vänligen aktivera Javascript!</translation>
+      <translation>Ogiltig captcha-kod, vänligen aktivera Javascript!</translation>
     </message>
     <message>
       <source>Please enter your name</source>
@@ -3483,7 +3483,7 @@
     </message>
     <message>
       <source>Enable leave a message functionality automatically if there are no online operators</source>
-      <translation>Aktiver lämna ett meddelande funktion automatiskt om det inte finns någon operatör online</translation>
+      <translation>Aktivera lämna ett meddelande-funktion automatiskt om det inte finns någon operatör online</translation>
     </message>
     <message>
       <source>Online form settings</source>
