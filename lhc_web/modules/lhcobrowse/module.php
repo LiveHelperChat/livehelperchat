@@ -38,6 +38,12 @@ $ViewList['finishsession'] = array(
 		'uparams' => array('vid','hash','hash_resume')
 );
 
+$ViewList['proxycss'] = array(
+		'params' => array('chat_id'),
+        'functions' => array('browse'),
+		'uparams' => array()
+);
+
 $FunctionList = array();
 $FunctionList['browse'] = array('explain' => 'Allow operator to use co-browse functionality');
 

@@ -22,6 +22,13 @@ var LHCCoBrowserOperator = (function() {
 		this.fillTimeout = null;
 		this.textSend = null;
 		this.highlightedCSS = false;
+		this.httpsmode = params['httpsmode'];
+		this.lhcbase = params['lhcbase'];
+		this.sitehttps = false;
+		
+		if (this.base != '' && this.base.indexOf('https') > -1) {
+			this.sitehttps = true;
+		}
 		
 		if (params['nodejsenabled']) {
 			this.setupNodeJs();
@@ -102,9 +109,7 @@ var LHCCoBrowserOperator = (function() {
 					}, false);
 					
 					return node;
-				}
-				
-								
+				}				
 				
 				if (tagName == 'HEAD') {
 					var node = document.createElement('HEAD');
@@ -128,6 +133,9 @@ var LHCCoBrowserOperator = (function() {
 				// There exists original base so remove our own detected.
 				if (node.nodeName == 'BASE') {
 					$(_this.iFrameDocument).find('#lhc-co-browse-base-id').remove();
+					if (node.attr == 'href') {
+						_this.base = val;
+					}
 				}
 				
 				if (node.nodeName == 'SCRIPT' && attr == 'src') {
@@ -135,6 +143,18 @@ var LHCCoBrowserOperator = (function() {
 						node.setAttribute('src',"");						
 						return true;
 					}
+				}
+				
+				if (node.nodeName == 'LINK' && attr == 'type' && val == 'text/css') {					
+					node.setAttribute('lhc-css','true');
+				}
+				
+				if (node.nodeName == 'LINK' && attr == 'href') {
+					// We have to proxy CSS request because LHC is in HTTPS and user site in HTTP
+					if (_this.httpsmode == true && _this.sitehttps == false && node.getAttribute('lhc-css') !== null) {
+						node.setAttribute('href',_this.lhcbase +'/'+_this.chat_id+'/?base='+encodeURIComponent(_this.base)+'&css='+encodeURIComponent(val));
+						return true;
+					}					
 				}
 				
 				// remove anchors's onclick dom0-style handlers so they
@@ -458,7 +478,10 @@ var LHCCoBrowserOperator = (function() {
 	
 	LHCCoBrowserOperator.prototype.handleMessage = function(msg) {
 		if (msg.base) {
-			this.base = msg.base;			
+			this.base = msg.base;		
+			if (this.base.indexOf('https') > -1) {
+				this.sitehttps = true;
+			}
 		} else if (msg.err) {
 			this.iFrameDocument.getElementById('loading').style.display = 'none';
 			this.iFrameDocument.getElementById('error').innerHTML = msg.err;

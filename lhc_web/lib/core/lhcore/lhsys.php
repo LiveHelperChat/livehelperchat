@@ -289,6 +289,7 @@ class erLhcoreClassSystem{
     {	    
 	    if ( (!empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) !== 'off') || ((!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') || (!empty($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] == 'on'))){
 	    	@ini_set('session.cookie_secure',1);
+	    	self::$httpsMode = true;
 	    }	    
     }
     
@@ -446,6 +447,8 @@ class erLhcoreClassSystem{
     {
     	return $this->WWWDirImages;
     }
+    
+    public static $httpsMode = false;
     
     /// The path to where all the code resides
     public $SiteDir;
