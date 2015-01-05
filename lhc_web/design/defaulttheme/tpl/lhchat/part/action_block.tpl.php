@@ -18,7 +18,7 @@
 	            <?php endforeach;?>
 	            </select>
 	         </div>
-			<div class="columns small-4">
+			<div class="columns small-4 sub-action-chat">
 					<ul class="button-group round even-2">
 						  <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Fill textarea with canned message')?>" href="#" onclick="$('#CSChatMessage-<?php echo $chat->id?>').val(($('#id_CannedMessage-<?php echo $chat->id?>').val() > 0) ? $('#id_CannedMessage-<?php echo $chat->id?>').find(':selected').text() : '');return false;" class="button tiny icon-pencil"></a></li>
 						  <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Send delayed canned message instantly')?>" href="#" class="button tiny icon-mail" onclick="return lhinst.sendCannedMessage('<?php echo $chat->id?>',$(this))"></a></li>
