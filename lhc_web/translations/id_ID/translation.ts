@@ -170,6 +170,10 @@
       <translation>Nonaktifkan pilihan dalam widget untuk membuka jendela yang baru. Ikon pengembalian akan disembunyikan</translation>
     </message>
     <message>
+      <source>Disable JS execution in Co-Browsing operator window</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
       <translation>Nonaktifkan penyimpanan HMTL5, memeriksa jika situs Anda beralih antara http dan https</translation>
     </message>

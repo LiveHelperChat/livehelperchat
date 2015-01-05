@@ -170,6 +170,10 @@
       <translation>Paslėpti galimybę vartotojui atidaryti widgetą naujam lange. Atidarymo naujam lange ikona bus paslėpta.</translation>
     </message>
     <message>
+      <source>Disable JS execution in Co-Browsing operator window</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
       <translation>Išjungti HTML5 saugojimą, pažymėkite jei jūsų puslapis keičia režimus naršant</translation>
     </message>

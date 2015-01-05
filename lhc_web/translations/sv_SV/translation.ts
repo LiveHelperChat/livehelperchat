@@ -170,6 +170,10 @@
       <translation>Inaktivera alternativ i widget för att öppna ett nytt fönster. Återställningsikonen kommer att vara dold</translation>
     </message>
     <message>
+      <source>Disable JS execution in Co-Browsing operator window</source>
+      <translation>Inaktivera JS-körning i operatörens fönster i skärmdelningsläge</translation>
+    </message>
+    <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
       <translation>Inaktivera HTML5 lagring, välj detta om din hemsida växlar mellan http och https</translation>
     </message>

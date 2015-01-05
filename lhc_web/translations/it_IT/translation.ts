@@ -170,6 +170,10 @@
       <translation>Disabilità l&apos;opzione nel widget per aprire una nuova finestra. Verrà nascosta l&apos;icona Ripristina.</translation>
     </message>
     <message>
+      <source>Disable JS execution in Co-Browsing operator window</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
       <translation>Disabilita storage HTML5, contrassegna se il tuo sito switcha tra http e https</translation>
     </message>

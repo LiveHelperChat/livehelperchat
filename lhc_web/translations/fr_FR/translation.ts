@@ -170,6 +170,10 @@
       <translation>Désactiver l&apos;option pour ouvrir une nouvelle fenêtre dans le widget. L&apos;icône de restauration sera masquée.</translation>
     </message>
     <message>
+      <source>Disable JS execution in Co-Browsing operator window</source>
+      <translation>Désactiver l&apos;éxécution de JS dans la fenêtre opérateur de co-navigation</translation>
+    </message>
+    <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
       <translation>Désactiver le stockage HMTL5, cocher si votre site bascule entre http et https</translation>
     </message>
@@ -2952,7 +2956,7 @@
     </message>
     <message>
       <source>Update information</source>
-      <translation>Mise à jour des informations</translation>
+      <translation>Informations de mise à jour</translation>
     </message>
     <message>
       <source>SMTP settings</source>
@@ -5694,7 +5698,7 @@
     </message>
     <message>
       <source>Import theme</source>
-      <translation>Importez un thème</translation>
+      <translation>Importer un thème</translation>
     </message>
   </context>
   <context>
@@ -5712,7 +5716,7 @@
     </message>
     <message>
       <source>Import theme</source>
-      <translation>Importez un thème</translation>
+      <translation>Importer un thème</translation>
     </message>
     <message>
       <source>File</source>
@@ -5720,7 +5724,7 @@
     </message>
     <message>
       <source>Import</source>
-      <translation>Importez</translation>
+      <translation>Importer</translation>
     </message>
     <message>
       <source>Theme imported</source>
@@ -6123,7 +6127,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-mail</translation>
+      <translation>Courriel</translation>
     </message>
     <message>
       <source>Phone</source>
@@ -6159,7 +6163,7 @@
     </message>
     <message>
       <source>Referrer</source>
-      <translation>Référent</translation>
+      <translation>Référant</translation>
     </message>
     <message>
       <source>Link</source>
@@ -6272,7 +6276,7 @@
     </message>
     <message>
       <source>Load content in lhc iframe</source>
-      <translation>Afficher le contenu dans une iframe</translation>
+      <translation>Afficher le contenu dans un iframe</translation>
     </message>
     <message>
       <source>Active</source>

@@ -170,6 +170,10 @@
       <translation>Uitschakelen optie Nieuw venster te openen in widget. Herstellen pictogram zal worden verborgen</translation>
     </message>
     <message>
+      <source>Disable JS execution in Co-Browsing operator window</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
       <translation>Uitschakelen HMTL5 opslag, controleer dit als uw site blijft wisselen tussen http en https</translation>
     </message>

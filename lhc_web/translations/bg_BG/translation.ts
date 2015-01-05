@@ -170,6 +170,10 @@
       <translation>Изключване на опцията в модула за отваряне на чата в нов прозорец. Бутона за възстановяване ще се скрие</translation>
     </message>
     <message>
+      <source>Disable JS execution in Co-Browsing operator window</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
       <translation>Изключване на HTML5 архив, проверете дали сайта ви превключва между http и https</translation>
     </message>

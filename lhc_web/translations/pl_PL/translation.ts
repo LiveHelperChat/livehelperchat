@@ -170,6 +170,10 @@
       <translation>Wyłącz opcje otwierania nowego okna w widżecie. Ikonka &quot;przywróć&quot; będzie ukryta.</translation>
     </message>
     <message>
+      <source>Disable JS execution in Co-Browsing operator window</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
       <translation>Wyłącz magazynowanie HTML5, zaznacz jeżeli adresy Twojej strony przełączają się pomiędzy http i https</translation>
     </message>

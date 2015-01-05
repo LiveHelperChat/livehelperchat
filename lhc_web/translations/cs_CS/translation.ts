@@ -170,6 +170,10 @@
       <translation>Vypnout možnost widgetu otevřít nové okno. Ikona obnovení bude skryta</translation>
     </message>
     <message>
+      <source>Disable JS execution in Co-Browsing operator window</source>
+      <translation>Vypnout spuštění JS v okně co-prohlížeče operátora</translation>
+    </message>
+    <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
       <translation>Vypnout uložiště HTML5, zaškrtněte, pokud se Vaše stránka přepíná mezi HTTP a HTTPS</translation>
     </message>

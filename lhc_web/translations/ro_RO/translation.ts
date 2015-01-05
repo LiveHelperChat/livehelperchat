@@ -55,23 +55,23 @@
     </message>
     <message>
       <source>Host where NodeJs is running</source>
-      <translation type="unfinished"/>
+      <translation>Adresa unde ruleaza NodeJs</translation>
     </message>
     <message>
       <source>Location of SocketIO JS library</source>
-      <translation type="unfinished"/>
+      <translation>Locatia librariei SocketIO</translation>
     </message>
     <message>
       <source>Connect to NodeJs in https mode</source>
-      <translation type="unfinished"/>
+      <translation>Conectare la NodeJs prin https</translation>
     </message>
     <message>
       <source>NodeJS support enabled</source>
-      <translation type="unfinished"/>
+      <translation>Suport NodeJS activat</translation>
     </message>
     <message>
       <source>Do not ask permission for users to see their screen</source>
-      <translation type="unfinished"/>
+      <translation>Nu cere permisia utilizatorilor pentru a le vedea ecranul</translation>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
@@ -168,6 +168,10 @@
     <message>
       <source>Disable option in widget to open new window. Restore icon will be hidden</source>
       <translation>Dezactivați opțiunea în widget de a se deschide intr-o fereastră nouă. Butonul &quot;Reia vechea discutie&quot; va fi ascuns.</translation>
+    </message>
+    <message>
+      <source>Disable JS execution in Co-Browsing operator window</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
@@ -1963,7 +1967,7 @@
     </message>
     <message>
       <source>characters</source>
-      <translation>de caractere</translation>
+      <translation>caractere</translation>
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
@@ -1999,7 +2003,7 @@
     </message>
     <message>
       <source>Maximum 50 characters</source>
-      <translation>Maxim 50 de caractere</translation>
+      <translation>Maxim 50 caractere</translation>
     </message>
     <message>
       <source>You do not have permission to chat! Please contact site owner.</source>

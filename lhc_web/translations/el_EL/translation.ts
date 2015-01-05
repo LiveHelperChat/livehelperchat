@@ -170,6 +170,10 @@
       <translation>Απενεργοποιήστε την επιλογή στο widget για να ανοίξετε νέο παράθυρο. Αποκατασταθεί η εικόνα θα να είμαι hidden</translation>
     </message>
     <message>
+      <source>Disable JS execution in Co-Browsing operator window</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
       <translation>Απενεργοποιήσετε HMTL5 αποθήκευσης, να ελέγξουμε αν η τοποθεσία σας εναλλαγή μεταξύ http και https</translation>
     </message>

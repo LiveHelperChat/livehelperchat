@@ -170,6 +170,10 @@
       <translation>Deshabilitar la opción en el widget de abrir en una ventana nueva. El icono de restauración estará oculto</translation>
     </message>
     <message>
+      <source>Disable JS execution in Co-Browsing operator window</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
       <translation>Desactivar el almacenamiento HTML5, marcar solo si el sitio web se encuentra cambiando entre http y https</translation>
     </message>

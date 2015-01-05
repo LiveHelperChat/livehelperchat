@@ -170,6 +170,10 @@
       <translation>Disabilite opção no widget abrir em nova janela. Ícone de restaurar ficará invisível.</translation>
     </message>
     <message>
+      <source>Disable JS execution in Co-Browsing operator window</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
       <translation>Desativar armazenamento HMTL5, confira se o seu site alterna entre http e https</translation>
     </message>

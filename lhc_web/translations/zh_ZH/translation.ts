@@ -170,6 +170,10 @@
       <translation>禁用选项可以在新窗口中打开。恢复图标将会隐藏</translation>
     </message>
     <message>
+      <source>Disable JS execution in Co-Browsing operator window</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
       <translation type="unfinished"/>
     </message>
