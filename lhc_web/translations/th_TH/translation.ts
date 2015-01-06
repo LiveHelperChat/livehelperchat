@@ -2665,8 +2665,32 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>List</source>
-      <translation>รายการ</translation>
+      <source>Online users on map</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has message from operator</source>
+      <translation>มีข้อความจากผู้ให้บริการ</translation>
+    </message>
+    <message>
+      <source>Marker timeout before it dissapears from map</source>
+      <translation>เครื่องหมายการหมดเวลาก่อนที่จะหายจากแผนที่</translation>
+    </message>
+    <message>
+      <source>seconds</source>
+      <translation>วินาที</translation>
+    </message>
+    <message>
+      <source>minute</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>minutes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online visitors list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>online users</source>
@@ -2709,20 +2733,8 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>seconds</source>
-      <translation>วินาที</translation>
-    </message>
-    <message>
       <source>Show visitors who visited site in the past</source>
       <translation>แสดงผู้เยี่ยมชมผู้เยี่ยมชมไซต์ในอดีต</translation>
-    </message>
-    <message>
-      <source>minute</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>minutes</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>hour</source>
@@ -2771,18 +2783,6 @@
     <message>
       <source>last visit</source>
       <translation>เยี่ยมชมล่าสุด</translation>
-    </message>
-    <message>
-      <source>Map</source>
-      <translation>แผนที่</translation>
-    </message>
-    <message>
-      <source>User has message from operator</source>
-      <translation>มีข้อความจากผู้ให้บริการ</translation>
-    </message>
-    <message>
-      <source>Marker timeout before it dissapears from map</source>
-      <translation>เครื่องหมายการหมดเวลาก่อนที่จะหายจากแผนที่</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>

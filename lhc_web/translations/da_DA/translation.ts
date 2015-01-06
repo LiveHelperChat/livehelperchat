@@ -2665,8 +2665,32 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>List</source>
-      <translation>Vis</translation>
+      <source>Online users on map</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has message from operator</source>
+      <translation>Bruger har meddelelse fra operatør</translation>
+    </message>
+    <message>
+      <source>Marker timeout before it dissapears from map</source>
+      <translation>Markør-timeout før det forsvinder fra kort</translation>
+    </message>
+    <message>
+      <source>seconds</source>
+      <translation>sekunder</translation>
+    </message>
+    <message>
+      <source>minute</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>minutes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online visitors list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>online users</source>
@@ -2709,20 +2733,8 @@
       <translation>sekund</translation>
     </message>
     <message>
-      <source>seconds</source>
-      <translation>sekunder</translation>
-    </message>
-    <message>
       <source>Show visitors who visited site in the past</source>
       <translation>Vise besøgende, der besøgte webstedet tidligere</translation>
-    </message>
-    <message>
-      <source>minute</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>minutes</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>hour</source>
@@ -2771,18 +2783,6 @@
     <message>
       <source>last visit</source>
       <translation>sidste besøg</translation>
-    </message>
-    <message>
-      <source>Map</source>
-      <translation>Kort</translation>
-    </message>
-    <message>
-      <source>User has message from operator</source>
-      <translation>Bruger har meddelelse fra operatør</translation>
-    </message>
-    <message>
-      <source>Marker timeout before it dissapears from map</source>
-      <translation>Markør-timeout før det forsvinder fra kort</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>

@@ -2666,8 +2666,32 @@ pokazywany</translation>
       <translation>Włącz/wyłącz powiadomienia przeglądarki o nowym gościu</translation>
     </message>
     <message>
-      <source>List</source>
-      <translation>Lista</translation>
+      <source>Online users on map</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has message from operator</source>
+      <translation>Użytkownik ma wiadomość od operatora</translation>
+    </message>
+    <message>
+      <source>Marker timeout before it dissapears from map</source>
+      <translation>Czas po którym znacznik zniknie z mapy</translation>
+    </message>
+    <message>
+      <source>seconds</source>
+      <translation>sekunda</translation>
+    </message>
+    <message>
+      <source>minute</source>
+      <translation>minuta</translation>
+    </message>
+    <message>
+      <source>minutes</source>
+      <translation>minuty</translation>
+    </message>
+    <message>
+      <source>Online visitors list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>online users</source>
@@ -2710,20 +2734,8 @@ pokazywany</translation>
       <translation>sekundy</translation>
     </message>
     <message>
-      <source>seconds</source>
-      <translation>sekunda</translation>
-    </message>
-    <message>
       <source>Show visitors who visited site in the past</source>
       <translation>Pokaż odwiedzających, którzy odwiedzili witrynę w przeszłości</translation>
-    </message>
-    <message>
-      <source>minute</source>
-      <translation>minuta</translation>
-    </message>
-    <message>
-      <source>minutes</source>
-      <translation>minuty</translation>
     </message>
     <message>
       <source>hour</source>
@@ -2772,18 +2784,6 @@ pokazywany</translation>
     <message>
       <source>last visit</source>
       <translation>ostatnia wizyta</translation>
-    </message>
-    <message>
-      <source>Map</source>
-      <translation>Mapa</translation>
-    </message>
-    <message>
-      <source>User has message from operator</source>
-      <translation>Użytkownik ma wiadomość od operatora</translation>
-    </message>
-    <message>
-      <source>Marker timeout before it dissapears from map</source>
-      <translation>Czas po którym znacznik zniknie z mapy</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>

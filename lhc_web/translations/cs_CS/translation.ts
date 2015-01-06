@@ -2665,8 +2665,32 @@
       <translation>Povolit/Zakázat signalizaci prohlížeče o nových návštěvnících</translation>
     </message>
     <message>
-      <source>List</source>
-      <translation>Seznam</translation>
+      <source>Online users on map</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has message from operator</source>
+      <translation>Uživatel má zprávu od operátora</translation>
+    </message>
+    <message>
+      <source>Marker timeout before it dissapears from map</source>
+      <translation>Časová prodleva značky než zmizí z mapy</translation>
+    </message>
+    <message>
+      <source>seconds</source>
+      <translation>sekundami</translation>
+    </message>
+    <message>
+      <source>minute</source>
+      <translation>minuta</translation>
+    </message>
+    <message>
+      <source>minutes</source>
+      <translation>minut</translation>
+    </message>
+    <message>
+      <source>Online visitors list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>online users</source>
@@ -2709,20 +2733,8 @@
       <translation>sekund</translation>
     </message>
     <message>
-      <source>seconds</source>
-      <translation>sekundami</translation>
-    </message>
-    <message>
       <source>Show visitors who visited site in the past</source>
       <translation>Zobrazit návštěvníky, kteří byli na stránce před </translation>
-    </message>
-    <message>
-      <source>minute</source>
-      <translation>minuta</translation>
-    </message>
-    <message>
-      <source>minutes</source>
-      <translation>minut</translation>
     </message>
     <message>
       <source>hour</source>
@@ -2771,18 +2783,6 @@
     <message>
       <source>last visit</source>
       <translation>poslední návštěva</translation>
-    </message>
-    <message>
-      <source>Map</source>
-      <translation>Mapa</translation>
-    </message>
-    <message>
-      <source>User has message from operator</source>
-      <translation>Uživatel má zprávu od operátora</translation>
-    </message>
-    <message>
-      <source>Marker timeout before it dissapears from map</source>
-      <translation>Časová prodleva značky než zmizí z mapy</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>

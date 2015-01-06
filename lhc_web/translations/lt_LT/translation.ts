@@ -55,23 +55,23 @@
     </message>
     <message>
       <source>Host where NodeJs is running</source>
-      <translation type="unfinished"/>
+      <translation>Adresas kur NodeJs veikia</translation>
     </message>
     <message>
       <source>Location of SocketIO JS library</source>
-      <translation type="unfinished"/>
+      <translation>Adresas kur SocketIO JS biblioteka yra</translation>
     </message>
     <message>
       <source>Connect to NodeJs in https mode</source>
-      <translation type="unfinished"/>
+      <translation>Jungtis prie NodeJs https režimu</translation>
     </message>
     <message>
       <source>NodeJS support enabled</source>
-      <translation type="unfinished"/>
+      <translation>NodeJS palaikymas įgalintas</translation>
     </message>
     <message>
       <source>Do not ask permission for users to see their screen</source>
-      <translation type="unfinished"/>
+      <translation>Neklausti leidimo norint matyti vartotojų ekraną</translation>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
@@ -171,7 +171,7 @@
     </message>
     <message>
       <source>Disable JS execution in Co-Browsing operator window</source>
-      <translation type="unfinished"/>
+      <translation>Išjungti JS vykdymą Co-Browsing operatoriaus lange</translation>
     </message>
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
@@ -195,7 +195,7 @@
     </message>
     <message>
       <source>Which ip should not be allowed to chat</source>
-      <translation type="unfinished"/>
+      <translation>Kuriems IP neturėtų būti leista pradėti pokalbio</translation>
     </message>
     <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
@@ -483,11 +483,11 @@
     </message>
     <message>
       <source>Allow operator to see your page content?</source>
-      <translation type="unfinished"/>
+      <translation>Leisti operatoriui matyti puslapio turinį?</translation>
     </message>
     <message>
       <source>Screen shared, click to finish</source>
-      <translation type="unfinished"/>
+      <translation>Ekranas matomas, paspausti norint baigti</translation>
     </message>
   </context>
   <context>
@@ -594,11 +594,11 @@
     </message>
     <message>
       <source>Message to returning user</source>
-      <translation type="unfinished"/>
+      <translation>Žinutė grįžtančiam lankytojui</translation>
     </message>
     <message>
       <source>Nick which will be used if we cannot determine returning user name</source>
-      <translation type="unfinished"/>
+      <translation>Nikas kuris bus naudojamas jei neįmanoma nustatyti grįžtančio vartotojo vardo</translation>
     </message>
     <message>
       <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
@@ -776,7 +776,7 @@
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identifikatorius</translation>
     </message>
     <message>
       <source>Help us to grow</source>
@@ -1540,7 +1540,7 @@
     </message>
     <message>
       <source>Edit main chat information</source>
-      <translation type="unfinished"/>
+      <translation>Koreguoti pagrindinę chato informaciją</translation>
     </message>
     <message>
       <source>Department</source>
@@ -1584,7 +1584,7 @@
     </message>
     <message>
       <source>User left</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojas paliko</translation>
     </message>
     <message>
       <source>Waited</source>
@@ -1644,15 +1644,15 @@
     </message>
     <message>
       <source>Please enter a URL</source>
-      <translation type="unfinished"/>
+      <translation>Prašome įvesti URL</translation>
     </message>
     <message>
       <source>Redirect user to another url</source>
-      <translation type="unfinished"/>
+      <translation>Nukreipti vartotoją į kitą URL</translation>
     </message>
     <message>
       <source>Screen sharing</source>
-      <translation type="unfinished"/>
+      <translation>Ekrano dalinamasis</translation>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
@@ -1923,7 +1923,7 @@
     </message>
     <message>
       <source>File</source>
-      <translation type="unfinished"/>
+      <translation>Failas</translation>
     </message>
     <message>
       <source>Leave a message</source>
@@ -1995,7 +1995,7 @@
     </message>
     <message>
       <source>Invalid CSRF token!</source>
-      <translation type="unfinished"/>
+      <translation>Nekoraktiškas CSRF tokenas!</translation>
     </message>
     <message>
       <source>Please enter a valid email address</source>
@@ -2043,7 +2043,7 @@
     </message>
     <message>
       <source>Invalid file</source>
-      <translation type="unfinished"/>
+      <translation>Nekorektiškas failas</translation>
     </message>
     <message>
       <source>Could not determine a default department!</source>
@@ -2055,15 +2055,15 @@
     </message>
     <message>
       <source>Invalid file extension</source>
-      <translation type="unfinished"/>
+      <translation>Nekorektiška failo galunė</translation>
     </message>
     <message>
       <source>Invalid file extension!</source>
-      <translation type="unfinished"/>
+      <translation>Nekorektiška failo galunė!</translation>
     </message>
     <message>
       <source>To big file!</source>
-      <translation type="unfinished"/>
+      <translation>Per didelis failas!</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -2558,15 +2558,15 @@
     </message>
     <message>
       <source>On page</source>
-      <translation type="unfinished"/>
+      <translation>Puslapyje</translation>
     </message>
     <message>
       <source>Yes</source>
-      <translation type="unfinished"/>
+      <translation>Taip</translation>
     </message>
     <message>
       <source>No</source>
-      <translation type="unfinished"/>
+      <translation>Ne</translation>
     </message>
     <message>
       <source>User does not have any message from operator</source>
@@ -2665,8 +2665,32 @@
       <translation>Įjungti/Išjungti naršyklės pranešimus apie naujus lankytojus</translation>
     </message>
     <message>
-      <source>List</source>
-      <translation>Sąrašas</translation>
+      <source>Online users on map</source>
+      <translation>Prisijungusių vartotojų žemėlapis</translation>
+    </message>
+    <message>
+      <source>User has message from operator</source>
+      <translation>Vartotojui buvo išsiųstas žinutė iš operatoriaus</translation>
+    </message>
+    <message>
+      <source>Marker timeout before it dissapears from map</source>
+      <translation>Žymės laikas prieš jai dingstant iš žemėlapio</translation>
+    </message>
+    <message>
+      <source>seconds</source>
+      <translation>sekundžių</translation>
+    </message>
+    <message>
+      <source>minute</source>
+      <translation>minutė</translation>
+    </message>
+    <message>
+      <source>minutes</source>
+      <translation>minutės</translation>
+    </message>
+    <message>
+      <source>Online visitors list</source>
+      <translation>Prisijungusių lankytojų sąrašas</translation>
     </message>
     <message>
       <source>online users</source>
@@ -2709,20 +2733,8 @@
       <translation>sekundes</translation>
     </message>
     <message>
-      <source>seconds</source>
-      <translation>sekundžių</translation>
-    </message>
-    <message>
       <source>Show visitors who visited site in the past</source>
       <translation>Rodyti lankytojus, kurie aplankė per pastarasias</translation>
-    </message>
-    <message>
-      <source>minute</source>
-      <translation>minutė</translation>
-    </message>
-    <message>
-      <source>minutes</source>
-      <translation>minutės</translation>
     </message>
     <message>
       <source>hour</source>
@@ -2771,18 +2783,6 @@
     <message>
       <source>last visit</source>
       <translation>paskutinis apsilankymas</translation>
-    </message>
-    <message>
-      <source>Map</source>
-      <translation>Žemėlapis</translation>
-    </message>
-    <message>
-      <source>User has message from operator</source>
-      <translation>Vartotojui buvo išsiųstas žinutė iš operatoriaus</translation>
-    </message>
-    <message>
-      <source>Marker timeout before it dissapears from map</source>
-      <translation>Žymės laikas prieš jai dingstant iš žemėlapio</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>
@@ -2917,7 +2917,7 @@
     </message>
     <message>
       <source>Screen sharing</source>
-      <translation type="unfinished"/>
+      <translation>Ekrano dalinimasis</translation>
     </message>
     <message>
       <source>Update</source>
@@ -3279,31 +3279,31 @@
     <name>chat/modifychat</name>
     <message>
       <source>Modify chat</source>
-      <translation type="unfinished"/>
+      <translation>Koreguoti pokalbio informaciją</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>E-paštas</translation>
     </message>
     <message>
       <source>Recipient e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Gavėjo el-paštas</translation>
     </message>
     <message>
       <source>Nick</source>
-      <translation type="unfinished"/>
+      <translation>Nikas</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation type="unfinished"/>
+      <translation>Telefonas</translation>
     </message>
     <message>
       <source>Update chat</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinti pokalbį</translation>
     </message>
     <message>
       <source>Chat information was updated</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio informacija buvo atnaujinta</translation>
     </message>
   </context>
   <context>
@@ -3547,7 +3547,7 @@
     </message>
     <message>
       <source>Allow to attatch a file</source>
-      <translation type="unfinished"/>
+      <translation>Leisti prisegti failą</translation>
     </message>
     <message>
       <source>Additional form settings</source>
@@ -3950,7 +3950,7 @@
     </message>
     <message>
       <source>User has joined the chat from popup chat window!</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojas prisijungė prie pokalbio iš iššokančio lango!</translation>
     </message>
   </context>
   <context>
@@ -4288,27 +4288,27 @@
     <name>cobrowse/browse</name>
     <message>
       <source>Request screen share</source>
-      <translation type="unfinished"/>
+      <translation>Inicijuoti ekrano dalinimasi</translation>
     </message>
     <message>
       <source>Show my mouse position to visitor</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti mano pelės lokaciją lankytojui</translation>
     </message>
     <message>
       <source>On highlight scroll user window location to match my</source>
-      <translation type="unfinished"/>
+      <translation>Pažymint elementą parodyti vartotojui pažymėtą elementą</translation>
     </message>
     <message>
       <source>Click blue eye at the top to request screen share</source>
-      <translation type="unfinished"/>
+      <translation>Paspauskite mėlyną akį norėdami užklausti ekrano dalinimasi</translation>
     </message>
     <message>
       <source>Screen sharing session has finished</source>
-      <translation type="unfinished"/>
+      <translation>Ekrano dalinimosi sesija pasibaigė</translation>
     </message>
     <message>
       <source>Screen is shared</source>
-      <translation type="unfinished"/>
+      <translation>Ekranu yra dalinimasi</translation>
     </message>
   </context>
   <context>
@@ -4792,7 +4792,7 @@
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identifikatorius</translation>
     </message>
     <message>
       <source>Intro</source>
@@ -4862,7 +4862,7 @@
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identifikatorius</translation>
     </message>
   </context>
   <context>
@@ -4873,7 +4873,7 @@
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identifikatorius</translation>
     </message>
     <message>
       <source>Download</source>
@@ -6390,7 +6390,7 @@
     </message>
     <message>
       <source>has accepted a chat!</source>
-      <translation type="unfinished"/>
+      <translation>patvirtino pokalbį!</translation>
     </message>
   </context>
   <context>

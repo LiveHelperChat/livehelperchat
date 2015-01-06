@@ -2665,8 +2665,32 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>List</source>
-      <translation>სია</translation>
+      <source>Online users on map</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has message from operator</source>
+      <translation>მომხმარებელს  ოპერატორისგან აქვს შეტყობინება </translation>
+    </message>
+    <message>
+      <source>Marker timeout before it dissapears from map</source>
+      <translation>ტაიმ-აუტის მარკერი,  სანამ რუკიდან გაქრება </translation>
+    </message>
+    <message>
+      <source>seconds</source>
+      <translation>წამები</translation>
+    </message>
+    <message>
+      <source>minute</source>
+      <translation>წუთი</translation>
+    </message>
+    <message>
+      <source>minutes</source>
+      <translation>წუთები</translation>
+    </message>
+    <message>
+      <source>Online visitors list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>online users</source>
@@ -2709,20 +2733,8 @@
       <translation>მეორე</translation>
     </message>
     <message>
-      <source>seconds</source>
-      <translation>წამები</translation>
-    </message>
-    <message>
       <source>Show visitors who visited site in the past</source>
       <translation>ვიზიტორების ჩვენება, ვინც წარსულში ეწვია საიტს</translation>
-    </message>
-    <message>
-      <source>minute</source>
-      <translation>წუთი</translation>
-    </message>
-    <message>
-      <source>minutes</source>
-      <translation>წუთები</translation>
     </message>
     <message>
       <source>hour</source>
@@ -2771,18 +2783,6 @@
     <message>
       <source>last visit</source>
       <translation>ბოლო ვიზიტი</translation>
-    </message>
-    <message>
-      <source>Map</source>
-      <translation>რუკა</translation>
-    </message>
-    <message>
-      <source>User has message from operator</source>
-      <translation>მომხმარებელს  ოპერატორისგან აქვს შეტყობინება </translation>
-    </message>
-    <message>
-      <source>Marker timeout before it dissapears from map</source>
-      <translation>ტაიმ-აუტის მარკერი,  სანამ რუკიდან გაქრება </translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>

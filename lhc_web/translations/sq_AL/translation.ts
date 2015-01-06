@@ -2666,8 +2666,32 @@
       <translation>Aktivio/C&apos;aktivizo njoftimet nga shfletuesi per vizitore te ri</translation>
     </message>
     <message>
-      <source>List</source>
-      <translation>Lista</translation>
+      <source>Online users on map</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has message from operator</source>
+      <translation>Përdoruesi ka mesazh nga operatori</translation>
+    </message>
+    <message>
+      <source>Marker timeout before it dissapears from map</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>seconds</source>
+      <translation>sekondat</translation>
+    </message>
+    <message>
+      <source>minute</source>
+      <translation>minute</translation>
+    </message>
+    <message>
+      <source>minutes</source>
+      <translation>minutat</translation>
+    </message>
+    <message>
+      <source>Online visitors list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>online users</source>
@@ -2710,20 +2734,8 @@
       <translation>sekonda</translation>
     </message>
     <message>
-      <source>seconds</source>
-      <translation>sekondat</translation>
-    </message>
-    <message>
       <source>Show visitors who visited site in the past</source>
       <translation>Shfaq vizitoret te cilet kane vizituar faqen me perpara</translation>
-    </message>
-    <message>
-      <source>minute</source>
-      <translation>minute</translation>
-    </message>
-    <message>
-      <source>minutes</source>
-      <translation>minutat</translation>
     </message>
     <message>
       <source>hour</source>
@@ -2772,18 +2784,6 @@
     <message>
       <source>last visit</source>
       <translation>Vizita e fundit</translation>
-    </message>
-    <message>
-      <source>Map</source>
-      <translation>Harta</translation>
-    </message>
-    <message>
-      <source>User has message from operator</source>
-      <translation>Përdoruesi ka mesazh nga operatori</translation>
-    </message>
-    <message>
-      <source>Marker timeout before it dissapears from map</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>

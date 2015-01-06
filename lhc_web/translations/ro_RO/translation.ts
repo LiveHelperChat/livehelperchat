@@ -2665,8 +2665,32 @@
       <translation>Activeaza/dezactiveaza notificari browser pentru vizitatori noi</translation>
     </message>
     <message>
-      <source>List</source>
-      <translation>Lista</translation>
+      <source>Online users on map</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has message from operator</source>
+      <translation>Utilizatorul are mesaj de la operator</translation>
+    </message>
+    <message>
+      <source>Marker timeout before it dissapears from map</source>
+      <translation>Timpul de expirare a markerului, acesta va disparea de pe harta</translation>
+    </message>
+    <message>
+      <source>seconds</source>
+      <translation>secunde</translation>
+    </message>
+    <message>
+      <source>minute</source>
+      <translation>minut</translation>
+    </message>
+    <message>
+      <source>minutes</source>
+      <translation>minute</translation>
+    </message>
+    <message>
+      <source>Online visitors list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>online users</source>
@@ -2709,20 +2733,8 @@
       <translation>secunde</translation>
     </message>
     <message>
-      <source>seconds</source>
-      <translation>secunde</translation>
-    </message>
-    <message>
       <source>Show visitors who visited site in the past</source>
       <translation>Afiseaza vizitatorii de pe site din ultimele</translation>
-    </message>
-    <message>
-      <source>minute</source>
-      <translation>minut</translation>
-    </message>
-    <message>
-      <source>minutes</source>
-      <translation>minute</translation>
     </message>
     <message>
       <source>hour</source>
@@ -2771,18 +2783,6 @@
     <message>
       <source>last visit</source>
       <translation>ultima vizita</translation>
-    </message>
-    <message>
-      <source>Map</source>
-      <translation>Harta</translation>
-    </message>
-    <message>
-      <source>User has message from operator</source>
-      <translation>Utilizatorul are mesaj de la operator</translation>
-    </message>
-    <message>
-      <source>Marker timeout before it dissapears from map</source>
-      <translation>Timpul de expirare a markerului, acesta va disparea de pe harta</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>

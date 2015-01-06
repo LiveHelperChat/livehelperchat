@@ -2665,8 +2665,32 @@
       <translation>启用/禁用浏览器通知关于新访客</translation>
     </message>
     <message>
-      <source>List</source>
-      <translation>表</translation>
+      <source>Online users on map</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has message from operator</source>
+      <translation>用户从运营商的消息</translation>
+    </message>
+    <message>
+      <source>Marker timeout before it dissapears from map</source>
+      <translation>标记超时之前从地图上消失</translation>
+    </message>
+    <message>
+      <source>seconds</source>
+      <translation>秒</translation>
+    </message>
+    <message>
+      <source>minute</source>
+      <translation>分钟</translation>
+    </message>
+    <message>
+      <source>minutes</source>
+      <translation>分钟</translation>
+    </message>
+    <message>
+      <source>Online visitors list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>online users</source>
@@ -2709,20 +2733,8 @@
       <translation>秒</translation>
     </message>
     <message>
-      <source>seconds</source>
-      <translation>秒</translation>
-    </message>
-    <message>
       <source>Show visitors who visited site in the past</source>
       <translation>顯示在過去的遊客誰訪問的網站</translation>
-    </message>
-    <message>
-      <source>minute</source>
-      <translation>分钟</translation>
-    </message>
-    <message>
-      <source>minutes</source>
-      <translation>分钟</translation>
     </message>
     <message>
       <source>hour</source>
@@ -2771,18 +2783,6 @@
     <message>
       <source>last visit</source>
       <translation>最后的访问</translation>
-    </message>
-    <message>
-      <source>Map</source>
-      <translation>Žemėlapis</translation>
-    </message>
-    <message>
-      <source>User has message from operator</source>
-      <translation>用户从运营商的消息</translation>
-    </message>
-    <message>
-      <source>Marker timeout before it dissapears from map</source>
-      <translation>标记超时之前从地图上消失</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>

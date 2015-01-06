@@ -55,23 +55,23 @@
     </message>
     <message>
       <source>Host where NodeJs is running</source>
-      <translation type="unfinished"/>
+      <translation>Host onde o Node.js está sendo executado</translation>
     </message>
     <message>
       <source>Location of SocketIO JS library</source>
-      <translation type="unfinished"/>
+      <translation>Local da Biblioteca SocketIO JS</translation>
     </message>
     <message>
       <source>Connect to NodeJs in https mode</source>
-      <translation type="unfinished"/>
+      <translation>Conectar ao NodeJs utilizando o modo https</translation>
     </message>
     <message>
       <source>NodeJS support enabled</source>
-      <translation type="unfinished"/>
+      <translation>Suporte a NodeJS habilitado</translation>
     </message>
     <message>
       <source>Do not ask permission for users to see their screen</source>
-      <translation type="unfinished"/>
+      <translation>Não solicitar permissão para usuários para visualizar sua tela</translation>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
@@ -171,7 +171,7 @@
     </message>
     <message>
       <source>Disable JS execution in Co-Browsing operator window</source>
-      <translation type="unfinished"/>
+      <translation>Desabilitar a execução de JS na janela de operador Co-Browsing</translation>
     </message>
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
@@ -483,11 +483,11 @@
     </message>
     <message>
       <source>Allow operator to see your page content?</source>
-      <translation type="unfinished"/>
+      <translation>Deseja permitir que o operador veja o conteúdos da sua página?</translation>
     </message>
     <message>
       <source>Screen shared, click to finish</source>
-      <translation type="unfinished"/>
+      <translation>Tela compartilhada, click para finalizar</translation>
     </message>
   </context>
   <context>
@@ -1644,15 +1644,15 @@
     </message>
     <message>
       <source>Please enter a URL</source>
-      <translation type="unfinished"/>
+      <translation>Digite uma URL</translation>
     </message>
     <message>
       <source>Redirect user to another url</source>
-      <translation type="unfinished"/>
+      <translation>Redirecionar usuário para outra URL</translation>
     </message>
     <message>
       <source>Screen sharing</source>
-      <translation type="unfinished"/>
+      <translation>Compartilhamento de tela</translation>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
@@ -2665,8 +2665,32 @@
       <translation>Ativar/Desativar notificações do navegador sobre novo visitante</translation>
     </message>
     <message>
-      <source>List</source>
-      <translation>Lista</translation>
+      <source>Online users on map</source>
+      <translation>Mapa de usuários online</translation>
+    </message>
+    <message>
+      <source>User has message from operator</source>
+      <translation>Usuário recebeu mensagem do operador</translation>
+    </message>
+    <message>
+      <source>Marker timeout before it dissapears from map</source>
+      <translation>Marcador de limite de tempo antes de desaparecer do mapa</translation>
+    </message>
+    <message>
+      <source>seconds</source>
+      <translation>segundos</translation>
+    </message>
+    <message>
+      <source>minute</source>
+      <translation>minuto</translation>
+    </message>
+    <message>
+      <source>minutes</source>
+      <translation>minutos</translation>
+    </message>
+    <message>
+      <source>Online visitors list</source>
+      <translation>Lista de visitantes online</translation>
     </message>
     <message>
       <source>online users</source>
@@ -2709,20 +2733,8 @@
       <translation>segundo(s)</translation>
     </message>
     <message>
-      <source>seconds</source>
-      <translation>segundos</translation>
-    </message>
-    <message>
       <source>Show visitors who visited site in the past</source>
       <translation>Mostrar visitates de retorno</translation>
-    </message>
-    <message>
-      <source>minute</source>
-      <translation>minuto</translation>
-    </message>
-    <message>
-      <source>minutes</source>
-      <translation>minutos</translation>
     </message>
     <message>
       <source>hour</source>
@@ -2771,18 +2783,6 @@
     <message>
       <source>last visit</source>
       <translation>última visita</translation>
-    </message>
-    <message>
-      <source>Map</source>
-      <translation>Mapa</translation>
-    </message>
-    <message>
-      <source>User has message from operator</source>
-      <translation>Usuário recebeu mensagem do operador</translation>
-    </message>
-    <message>
-      <source>Marker timeout before it dissapears from map</source>
-      <translation>Marcador de limite de tempo antes de desaparecer do mapa</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>
@@ -2917,7 +2917,7 @@
     </message>
     <message>
       <source>Screen sharing</source>
-      <translation type="unfinished"/>
+      <translation>Compartilhamento de tela</translation>
     </message>
     <message>
       <source>Update</source>
@@ -3295,7 +3295,7 @@
     </message>
     <message>
       <source>Phone</source>
-      <translation type="unfinished"/>
+      <translation>Telefone</translation>
     </message>
     <message>
       <source>Update chat</source>
@@ -4288,27 +4288,27 @@
     <name>cobrowse/browse</name>
     <message>
       <source>Request screen share</source>
-      <translation type="unfinished"/>
+      <translation>Solicitar compartilhamento de tela</translation>
     </message>
     <message>
       <source>Show my mouse position to visitor</source>
-      <translation type="unfinished"/>
+      <translation>Mostrar a posição do meu mouse para o visitante</translation>
     </message>
     <message>
       <source>On highlight scroll user window location to match my</source>
-      <translation type="unfinished"/>
+      <translation>Fazer com que o scroll do visitante seja igual ao meu</translation>
     </message>
     <message>
       <source>Click blue eye at the top to request screen share</source>
-      <translation type="unfinished"/>
+      <translation>Clique no botão &quot;olho azul&quot; no topo para solicitar o compartilhamento de tela</translation>
     </message>
     <message>
       <source>Screen sharing session has finished</source>
-      <translation type="unfinished"/>
+      <translation>A sessão de compartilhamento de tela foi finalizada</translation>
     </message>
     <message>
       <source>Screen is shared</source>
-      <translation type="unfinished"/>
+      <translation>Compartilhamento de tela ativo</translation>
     </message>
   </context>
   <context>

@@ -2665,8 +2665,32 @@
       <translation>Aktifkan/Nonaktifkan pemberitahuan browser tentang pengunjung baru</translation>
     </message>
     <message>
-      <source>List</source>
-      <translation>Daftar</translation>
+      <source>Online users on map</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has message from operator</source>
+      <translation>Pengguna memiliki pesan dari operator</translation>
+    </message>
+    <message>
+      <source>Marker timeout before it dissapears from map</source>
+      <translation>Batas waktu penanda sebelum menghilang dari peta</translation>
+    </message>
+    <message>
+      <source>seconds</source>
+      <translation>detik</translation>
+    </message>
+    <message>
+      <source>minute</source>
+      <translation>menit</translation>
+    </message>
+    <message>
+      <source>minutes</source>
+      <translation>menit</translation>
+    </message>
+    <message>
+      <source>Online visitors list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>online users</source>
@@ -2709,20 +2733,8 @@
       <translation>detik</translation>
     </message>
     <message>
-      <source>seconds</source>
-      <translation>detik</translation>
-    </message>
-    <message>
       <source>Show visitors who visited site in the past</source>
       <translation>Menunjukkan pengunjung yang mengunjungi situs di masa lalu</translation>
-    </message>
-    <message>
-      <source>minute</source>
-      <translation>menit</translation>
-    </message>
-    <message>
-      <source>minutes</source>
-      <translation>menit</translation>
     </message>
     <message>
       <source>hour</source>
@@ -2771,18 +2783,6 @@
     <message>
       <source>last visit</source>
       <translation>kunjungan terakhir</translation>
-    </message>
-    <message>
-      <source>Map</source>
-      <translation>Peta</translation>
-    </message>
-    <message>
-      <source>User has message from operator</source>
-      <translation>Pengguna memiliki pesan dari operator</translation>
-    </message>
-    <message>
-      <source>Marker timeout before it dissapears from map</source>
-      <translation>Batas waktu penanda sebelum menghilang dari peta</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>

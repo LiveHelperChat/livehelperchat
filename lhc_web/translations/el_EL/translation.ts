@@ -2665,8 +2665,32 @@
       <translation>Ενεργοποίηση/απενεργοποίηση προγράμματος περιήγησης ειδοποιήσεις σχετικά με νέα επισκέπτης</translation>
     </message>
     <message>
-      <source>List</source>
-      <translation>Λίστα</translation>
+      <source>Online users on map</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has message from operator</source>
+      <translation>Ο χρήστης έχει μήνυμα από τον διαχειριστή</translation>
+    </message>
+    <message>
+      <source>Marker timeout before it dissapears from map</source>
+      <translation>Χρονικό όριο δείκτη πριν εξαφανιστεί από το χάρτη</translation>
+    </message>
+    <message>
+      <source>seconds</source>
+      <translation>δευτερόλεπτα</translation>
+    </message>
+    <message>
+      <source>minute</source>
+      <translation>λεπτό</translation>
+    </message>
+    <message>
+      <source>minutes</source>
+      <translation>λεπτά</translation>
+    </message>
+    <message>
+      <source>Online visitors list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>online users</source>
@@ -2709,20 +2733,8 @@
       <translation>δεύτερο</translation>
     </message>
     <message>
-      <source>seconds</source>
-      <translation>δευτερόλεπτα</translation>
-    </message>
-    <message>
       <source>Show visitors who visited site in the past</source>
       <translation>Δείξουν στους επισκέπτες που επισκεφθήκατε το site στο παρελθόν</translation>
-    </message>
-    <message>
-      <source>minute</source>
-      <translation>λεπτό</translation>
-    </message>
-    <message>
-      <source>minutes</source>
-      <translation>λεπτά</translation>
     </message>
     <message>
       <source>hour</source>
@@ -2771,18 +2783,6 @@
     <message>
       <source>last visit</source>
       <translation>τελευταία επίσκεψη</translation>
-    </message>
-    <message>
-      <source>Map</source>
-      <translation>Χάρτης</translation>
-    </message>
-    <message>
-      <source>User has message from operator</source>
-      <translation>Ο χρήστης έχει μήνυμα από τον διαχειριστή</translation>
-    </message>
-    <message>
-      <source>Marker timeout before it dissapears from map</source>
-      <translation>Χρονικό όριο δείκτη πριν εξαφανιστεί από το χάρτη</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>

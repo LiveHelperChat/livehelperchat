@@ -2666,8 +2666,32 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>List</source>
-      <translation>Liste</translation>
+      <source>Online users on map</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has message from operator</source>
+      <translation>Kullanıcı operatörden mesaj aldı</translation>
+    </message>
+    <message>
+      <source>Marker timeout before it dissapears from map</source>
+      <translation>Haritadan kaybolmadan önce işaretçi zamanaşımı</translation>
+    </message>
+    <message>
+      <source>seconds</source>
+      <translation>saniyeler</translation>
+    </message>
+    <message>
+      <source>minute</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>minutes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online visitors list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>online users</source>
@@ -2710,20 +2734,8 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>seconds</source>
-      <translation>saniyeler</translation>
-    </message>
-    <message>
       <source>Show visitors who visited site in the past</source>
       <translation>Geçmişte siteyi ziyaret eden ziyaretçileri göster</translation>
-    </message>
-    <message>
-      <source>minute</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>minutes</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>hour</source>
@@ -2772,18 +2784,6 @@
     <message>
       <source>last visit</source>
       <translation>son ziyaret</translation>
-    </message>
-    <message>
-      <source>Map</source>
-      <translation>Harita</translation>
-    </message>
-    <message>
-      <source>User has message from operator</source>
-      <translation>Kullanıcı operatörden mesaj aldı</translation>
-    </message>
-    <message>
-      <source>Marker timeout before it dissapears from map</source>
-      <translation>Haritadan kaybolmadan önce işaretçi zamanaşımı</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>

@@ -2665,8 +2665,32 @@
       <translation>Aktivoi/Passivoi selaimen ilmoitukset uusista vierailijoista</translation>
     </message>
     <message>
-      <source>List</source>
-      <translation>Lista</translation>
+      <source>Online users on map</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has message from operator</source>
+      <translation>Käyttäjälle on viesti operaattorilta</translation>
+    </message>
+    <message>
+      <source>Marker timeout before it dissapears from map</source>
+      <translation>Merkin näyttöaika ennen kuin se poistetaan kartalta.</translation>
+    </message>
+    <message>
+      <source>seconds</source>
+      <translation>sekunnit</translation>
+    </message>
+    <message>
+      <source>minute</source>
+      <translation>min</translation>
+    </message>
+    <message>
+      <source>minutes</source>
+      <translation>min</translation>
+    </message>
+    <message>
+      <source>Online visitors list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>online users</source>
@@ -2709,20 +2733,8 @@
       <translation>sekunti</translation>
     </message>
     <message>
-      <source>seconds</source>
-      <translation>sekunnit</translation>
-    </message>
-    <message>
       <source>Show visitors who visited site in the past</source>
       <translation>Näytä käyttäjät jotka vierailivat</translation>
-    </message>
-    <message>
-      <source>minute</source>
-      <translation>min</translation>
-    </message>
-    <message>
-      <source>minutes</source>
-      <translation>min</translation>
     </message>
     <message>
       <source>hour</source>
@@ -2771,18 +2783,6 @@
     <message>
       <source>last visit</source>
       <translation>viimeisin vierailu</translation>
-    </message>
-    <message>
-      <source>Map</source>
-      <translation>Kartta</translation>
-    </message>
-    <message>
-      <source>User has message from operator</source>
-      <translation>Käyttäjälle on viesti operaattorilta</translation>
-    </message>
-    <message>
-      <source>Marker timeout before it dissapears from map</source>
-      <translation>Merkin näyttöaika ennen kuin se poistetaan kartalta.</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>

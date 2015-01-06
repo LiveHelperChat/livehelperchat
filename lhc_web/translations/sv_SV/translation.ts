@@ -2665,8 +2665,32 @@
       <translation>Aktivera/inaktivera webbläsarnotifikation om ny besökare</translation>
     </message>
     <message>
-      <source>List</source>
-      <translation>Lista</translation>
+      <source>Online users on map</source>
+      <translation>Karta över besökare som är online</translation>
+    </message>
+    <message>
+      <source>User has message from operator</source>
+      <translation>Användaren har ett meddelande från operatören</translation>
+    </message>
+    <message>
+      <source>Marker timeout before it dissapears from map</source>
+      <translation>Tid innan markeringen tas bort från kartan</translation>
+    </message>
+    <message>
+      <source>seconds</source>
+      <translation>sekunder</translation>
+    </message>
+    <message>
+      <source>minute</source>
+      <translation>minut</translation>
+    </message>
+    <message>
+      <source>minutes</source>
+      <translation>minuter</translation>
+    </message>
+    <message>
+      <source>Online visitors list</source>
+      <translation>Lista över besökare som är online</translation>
     </message>
     <message>
       <source>online users</source>
@@ -2709,20 +2733,8 @@
       <translation>sekund</translation>
     </message>
     <message>
-      <source>seconds</source>
-      <translation>sekunder</translation>
-    </message>
-    <message>
       <source>Show visitors who visited site in the past</source>
       <translation>Visa besökare som besökt siten tidigare</translation>
-    </message>
-    <message>
-      <source>minute</source>
-      <translation>minut</translation>
-    </message>
-    <message>
-      <source>minutes</source>
-      <translation>minuter</translation>
     </message>
     <message>
       <source>hour</source>
@@ -2771,18 +2783,6 @@
     <message>
       <source>last visit</source>
       <translation>senaste besök</translation>
-    </message>
-    <message>
-      <source>Map</source>
-      <translation>Karta</translation>
-    </message>
-    <message>
-      <source>User has message from operator</source>
-      <translation>Användaren har ett meddelande från operatören</translation>
-    </message>
-    <message>
-      <source>Marker timeout before it dissapears from map</source>
-      <translation>Tid innan markeringen tas bort från kartan</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>

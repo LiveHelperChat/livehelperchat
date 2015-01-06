@@ -2665,8 +2665,32 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>List</source>
-      <translation>Lista</translation>
+      <source>Online users on map</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has message from operator</source>
+      <translation>Korisnik ima poruku od operatera</translation>
+    </message>
+    <message>
+      <source>Marker timeout before it dissapears from map</source>
+      <translation>Oznaka isteka vremena prije nego nestane s mape</translation>
+    </message>
+    <message>
+      <source>seconds</source>
+      <translation>sekundi</translation>
+    </message>
+    <message>
+      <source>minute</source>
+      <translation>minuta</translation>
+    </message>
+    <message>
+      <source>minutes</source>
+      <translation>minute</translation>
+    </message>
+    <message>
+      <source>Online visitors list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>online users</source>
@@ -2709,20 +2733,8 @@
       <translation>sekunde/sekundi</translation>
     </message>
     <message>
-      <source>seconds</source>
-      <translation>sekundi</translation>
-    </message>
-    <message>
       <source>Show visitors who visited site in the past</source>
       <translation>Pokaži tko je posjetio ovu stranicu</translation>
-    </message>
-    <message>
-      <source>minute</source>
-      <translation>minuta</translation>
-    </message>
-    <message>
-      <source>minutes</source>
-      <translation>minute</translation>
     </message>
     <message>
       <source>hour</source>
@@ -2771,18 +2783,6 @@
     <message>
       <source>last visit</source>
       <translation>zadnji posjet</translation>
-    </message>
-    <message>
-      <source>Map</source>
-      <translation>Mapa</translation>
-    </message>
-    <message>
-      <source>User has message from operator</source>
-      <translation>Korisnik ima poruku od operatera</translation>
-    </message>
-    <message>
-      <source>Marker timeout before it dissapears from map</source>
-      <translation>Oznaka isteka vremena prije nego nestane s mape</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>

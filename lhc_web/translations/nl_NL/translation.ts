@@ -2665,8 +2665,32 @@
       <translation>Browser notificatie, nieuwe bezoeker, aan/uit</translation>
     </message>
     <message>
-      <source>List</source>
-      <translation>Lijst</translation>
+      <source>Online users on map</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has message from operator</source>
+      <translation>Gebruiker heeft een bericht van de operator</translation>
+    </message>
+    <message>
+      <source>Marker timeout before it dissapears from map</source>
+      <translation>Timeout voordat de marker van de kaart verdwijnt</translation>
+    </message>
+    <message>
+      <source>seconds</source>
+      <translation>seconden</translation>
+    </message>
+    <message>
+      <source>minute</source>
+      <translation>minuut</translation>
+    </message>
+    <message>
+      <source>minutes</source>
+      <translation>minuten</translation>
+    </message>
+    <message>
+      <source>Online visitors list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>online users</source>
@@ -2709,20 +2733,8 @@
       <translation>seconde</translation>
     </message>
     <message>
-      <source>seconds</source>
-      <translation>seconden</translation>
-    </message>
-    <message>
       <source>Show visitors who visited site in the past</source>
       <translation>Toon bezoekers die de site in het verleden bezochten</translation>
-    </message>
-    <message>
-      <source>minute</source>
-      <translation>minuut</translation>
-    </message>
-    <message>
-      <source>minutes</source>
-      <translation>minuten</translation>
     </message>
     <message>
       <source>hour</source>
@@ -2771,18 +2783,6 @@
     <message>
       <source>last visit</source>
       <translation>laatste bezoek</translation>
-    </message>
-    <message>
-      <source>Map</source>
-      <translation>Kaart</translation>
-    </message>
-    <message>
-      <source>User has message from operator</source>
-      <translation>Gebruiker heeft een bericht van de operator</translation>
-    </message>
-    <message>
-      <source>Marker timeout before it dissapears from map</source>
-      <translation>Timeout voordat de marker van de kaart verdwijnt</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>

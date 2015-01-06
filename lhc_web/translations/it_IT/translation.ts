@@ -2666,8 +2666,32 @@
       <translation>Attiva/Disattiva notifica browser nuovi visitatori</translation>
     </message>
     <message>
-      <source>List</source>
-      <translation>Lista</translation>
+      <source>Online users on map</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has message from operator</source>
+      <translation>Utente ha messaggio dall&apos;operatore</translation>
+    </message>
+    <message>
+      <source>Marker timeout before it dissapears from map</source>
+      <translation>Il limite del tempo del marker lo fa scomparire dalla mappa</translation>
+    </message>
+    <message>
+      <source>seconds</source>
+      <translation>secondi</translation>
+    </message>
+    <message>
+      <source>minute</source>
+      <translation>minuto</translation>
+    </message>
+    <message>
+      <source>minutes</source>
+      <translation>minuti</translation>
+    </message>
+    <message>
+      <source>Online visitors list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>online users</source>
@@ -2710,20 +2734,8 @@
       <translation>secondi</translation>
     </message>
     <message>
-      <source>seconds</source>
-      <translation>secondi</translation>
-    </message>
-    <message>
       <source>Show visitors who visited site in the past</source>
       <translation>Mostra visitatori che hanno visitato il sito in passato</translation>
-    </message>
-    <message>
-      <source>minute</source>
-      <translation>minuto</translation>
-    </message>
-    <message>
-      <source>minutes</source>
-      <translation>minuti</translation>
     </message>
     <message>
       <source>hour</source>
@@ -2772,18 +2784,6 @@
     <message>
       <source>last visit</source>
       <translation>ultima visita</translation>
-    </message>
-    <message>
-      <source>Map</source>
-      <translation>Mappa</translation>
-    </message>
-    <message>
-      <source>User has message from operator</source>
-      <translation>Utente ha messaggio dall&apos;operatore</translation>
-    </message>
-    <message>
-      <source>Marker timeout before it dissapears from map</source>
-      <translation>Il limite del tempo del marker lo fa scomparire dalla mappa</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>

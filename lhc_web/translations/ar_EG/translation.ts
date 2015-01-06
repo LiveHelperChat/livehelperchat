@@ -2665,8 +2665,32 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>List</source>
-      <translation>قائمة</translation>
+      <source>Online users on map</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has message from operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Marker timeout before it dissapears from map</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>seconds</source>
+      <translation>ثواني</translation>
+    </message>
+    <message>
+      <source>minute</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>minutes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online visitors list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>online users</source>
@@ -2709,19 +2733,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>seconds</source>
-      <translation>ثواني</translation>
-    </message>
-    <message>
       <source>Show visitors who visited site in the past</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>minute</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>minutes</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2770,18 +2782,6 @@
     </message>
     <message>
       <source>last visit</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Map</source>
-      <translation>الخريطة</translation>
-    </message>
-    <message>
-      <source>User has message from operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Marker timeout before it dissapears from map</source>
       <translation type="unfinished"/>
     </message>
     <message>

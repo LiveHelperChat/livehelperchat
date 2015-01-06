@@ -2665,8 +2665,32 @@
       <translation>Bật/tắt thông báo của trình duyệt khi có khách truy cập mới</translation>
     </message>
     <message>
-      <source>List</source>
-      <translation>Danh sách</translation>
+      <source>Online users on map</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has message from operator</source>
+      <translation>Người dùng có tin nhắn từ nhà điều hành</translation>
+    </message>
+    <message>
+      <source>Marker timeout before it dissapears from map</source>
+      <translation>Thời gian chờ đánh dấu trước khi nó biến mất khỏi bản đồ</translation>
+    </message>
+    <message>
+      <source>seconds</source>
+      <translation>giây</translation>
+    </message>
+    <message>
+      <source>minute</source>
+      <translation>phút</translation>
+    </message>
+    <message>
+      <source>minutes</source>
+      <translation>phút</translation>
+    </message>
+    <message>
+      <source>Online visitors list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>online users</source>
@@ -2709,20 +2733,8 @@
       <translation>Thứ hai</translation>
     </message>
     <message>
-      <source>seconds</source>
-      <translation>giây</translation>
-    </message>
-    <message>
       <source>Show visitors who visited site in the past</source>
       <translation>Cho du khách truy cập trang web trong quá khứ</translation>
-    </message>
-    <message>
-      <source>minute</source>
-      <translation>phút</translation>
-    </message>
-    <message>
-      <source>minutes</source>
-      <translation>phút</translation>
     </message>
     <message>
       <source>hour</source>
@@ -2771,18 +2783,6 @@
     <message>
       <source>last visit</source>
       <translation>lần thăm cuối</translation>
-    </message>
-    <message>
-      <source>Map</source>
-      <translation>Bản đồ</translation>
-    </message>
-    <message>
-      <source>User has message from operator</source>
-      <translation>Người dùng có tin nhắn từ nhà điều hành</translation>
-    </message>
-    <message>
-      <source>Marker timeout before it dissapears from map</source>
-      <translation>Thời gian chờ đánh dấu trước khi nó biến mất khỏi bản đồ</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>

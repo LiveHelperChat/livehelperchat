@@ -2665,8 +2665,32 @@
       <translation>Включване/Изключване на известия в прозореца за нови посетители</translation>
     </message>
     <message>
-      <source>List</source>
-      <translation>Списък</translation>
+      <source>Online users on map</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has message from operator</source>
+      <translation>Потребителят има съобщение от оператор</translation>
+    </message>
+    <message>
+      <source>Marker timeout before it dissapears from map</source>
+      <translation>Изчакване на маркера преди да изчезне от картата</translation>
+    </message>
+    <message>
+      <source>seconds</source>
+      <translation>секунди</translation>
+    </message>
+    <message>
+      <source>minute</source>
+      <translation>минута</translation>
+    </message>
+    <message>
+      <source>minutes</source>
+      <translation>минути</translation>
+    </message>
+    <message>
+      <source>Online visitors list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>online users</source>
@@ -2709,20 +2733,8 @@
       <translation>секунда</translation>
     </message>
     <message>
-      <source>seconds</source>
-      <translation>секунди</translation>
-    </message>
-    <message>
       <source>Show visitors who visited site in the past</source>
       <translation>Покажи посетителите на сайта в последните</translation>
-    </message>
-    <message>
-      <source>minute</source>
-      <translation>минута</translation>
-    </message>
-    <message>
-      <source>minutes</source>
-      <translation>минути</translation>
     </message>
     <message>
       <source>hour</source>
@@ -2771,18 +2783,6 @@
     <message>
       <source>last visit</source>
       <translation>последно посещение</translation>
-    </message>
-    <message>
-      <source>Map</source>
-      <translation>Карта</translation>
-    </message>
-    <message>
-      <source>User has message from operator</source>
-      <translation>Потребителят има съобщение от оператор</translation>
-    </message>
-    <message>
-      <source>Marker timeout before it dissapears from map</source>
-      <translation>Изчакване на маркера преди да изчезне от картата</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>

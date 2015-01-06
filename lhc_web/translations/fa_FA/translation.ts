@@ -2665,8 +2665,32 @@
       <translation>فعال/غیر فعال سازی اعلان‌های مرورگر وقتی کاربر تازه وارد شد</translation>
     </message>
     <message>
-      <source>List</source>
-      <translation>فهرست</translation>
+      <source>Online users on map</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has message from operator</source>
+      <translation>کاربر پیامی از اپراتور دارد</translation>
+    </message>
+    <message>
+      <source>Marker timeout before it dissapears from map</source>
+      <translation>توقف نشانگر قبل از محو شدن از نقشه</translation>
+    </message>
+    <message>
+      <source>seconds</source>
+      <translation>ثانیه ها</translation>
+    </message>
+    <message>
+      <source>minute</source>
+      <translation>دقیقه</translation>
+    </message>
+    <message>
+      <source>minutes</source>
+      <translation>دقایق</translation>
+    </message>
+    <message>
+      <source>Online visitors list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>online users</source>
@@ -2709,20 +2733,8 @@
       <translation>ثانیه</translation>
     </message>
     <message>
-      <source>seconds</source>
-      <translation>ثانیه ها</translation>
-    </message>
-    <message>
       <source>Show visitors who visited site in the past</source>
       <translation>نمایش بازدیدکنندگانی که قبلا از سایت بازدید کرده اند</translation>
-    </message>
-    <message>
-      <source>minute</source>
-      <translation>دقیقه</translation>
-    </message>
-    <message>
-      <source>minutes</source>
-      <translation>دقایق</translation>
     </message>
     <message>
       <source>hour</source>
@@ -2771,18 +2783,6 @@
     <message>
       <source>last visit</source>
       <translation>آخرین بازدید</translation>
-    </message>
-    <message>
-      <source>Map</source>
-      <translation>نقشه</translation>
-    </message>
-    <message>
-      <source>User has message from operator</source>
-      <translation>کاربر پیامی از اپراتور دارد</translation>
-    </message>
-    <message>
-      <source>Marker timeout before it dissapears from map</source>
-      <translation>توقف نشانگر قبل از محو شدن از نقشه</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>
