@@ -10,6 +10,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 	$tpl->setFile( 'lhchat/errors/adminchatnopermission.tpl.php');
 }
 
-$Result['content'] = $tpl->fetch();
-$Result['pagelayout'] = 'popup';
+echo $tpl->fetch();
+exit;
+
 ?>

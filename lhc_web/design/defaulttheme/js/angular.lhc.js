@@ -114,8 +114,11 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		});
 	};
 	
-	this.previewChat = function(chat_id){
-		$.colorbox({'iframe':true,height:'500px',width:'500px', href:WWW_DIR_JAVASCRIPT+'chat/previewchat/'+chat_id});
+	this.previewChat = function(chat_id){				
+		if ($('#myModal').size() == 0) {
+			$('body').prepend('<div id="myModal" class="reveal-modal"><a class="close-reveal-modal">&#215;</a></div>');
+		};				
+		$('#myModal').foundation('reveal', 'open', {url: WWW_DIR_JAVASCRIPT+'chat/previewchat/'+chat_id});
 	};		
 	
 	this.redirectContact = function(chat_id,message) {	
