@@ -97,8 +97,12 @@ var TreeMirror = (function () {
                     node = doc.createElement(nodeData.tagName);
 
                 Object.keys(nodeData.attributes).forEach(function (name) {
-                    if (!_this.delegate || !_this.delegate.setAttribute || !_this.delegate.setAttribute(node, name, nodeData.attributes[name])) {
-                        node.setAttribute(name, nodeData.attributes[name]);
+                	try {
+	                    if (!_this.delegate || !_this.delegate.setAttribute || !_this.delegate.setAttribute(node, name, nodeData.attributes[name])) {
+	                        node.setAttribute(name, nodeData.attributes[name]);
+	                    }
+                    } catch (e) {
+                    	// Debug here if needed
                     }
                 });
 

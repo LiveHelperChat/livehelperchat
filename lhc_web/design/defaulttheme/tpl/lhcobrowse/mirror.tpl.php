@@ -18,9 +18,11 @@
     <div id="loading"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('cobrowse/browse','Click blue eye at the top to request screen share')?>...</div>
     <div id="error"></div>
     <script type="text/javascript">
-        window.onload = function() {
-            parent.onIframeLoaded()
-        }
+    window.onload = function() {
+        setTimeout(function(){
+        	parent.onIframeLoaded()
+        },700);            
+    }
     </script>
 </body>
 </html>
