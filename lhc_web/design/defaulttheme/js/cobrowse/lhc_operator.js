@@ -146,7 +146,19 @@ var LHCCoBrowserOperator = (function() {
 				}
 				
 				if (node.nodeName == 'LINK' && attr == 'type' && val == 'text/css') {					
-					node.setAttribute('lhc-css','true');
+					node.setAttribute('lhc-css','true');	
+					// Perhaps href was already set for particular node
+					if (_this.httpsmode == true && _this.sitehttps == false && node.getAttribute('href') != "") {
+						node.setAttribute('href',_this.lhcbase +'/'+_this.chat_id+'/?base='+encodeURIComponent(_this.base)+'&css='+encodeURIComponent(node.getAttribute('href')));						
+					}
+				}
+				
+				if (node.nodeName == 'LINK' && attr == 'rel' && val == 'stylesheet') {					
+					node.setAttribute('lhc-css','true');					
+					// Perhaps href was already set for particular node
+					if (_this.httpsmode == true && _this.sitehttps == false && node.getAttribute('href') != "") {
+						node.setAttribute('href',_this.lhcbase +'/'+_this.chat_id+'/?base='+encodeURIComponent(_this.base)+'&css='+encodeURIComponent(node.getAttribute('href')));						
+					}
 				}
 				
 				if (node.nodeName == 'LINK' && attr == 'href') {
