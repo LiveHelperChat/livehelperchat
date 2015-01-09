@@ -49,6 +49,56 @@ $def->properties['operator_image']->columnName   = 'operator_image';
 $def->properties['operator_image']->propertyName = 'operator_image';
 $def->properties['operator_image']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['minimize_image'] = new ezcPersistentObjectProperty();
+$def->properties['minimize_image']->columnName   = 'minimize_image';
+$def->properties['minimize_image']->propertyName = 'minimize_image';
+$def->properties['minimize_image']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['restore_image'] = new ezcPersistentObjectProperty();
+$def->properties['restore_image']->columnName   = 'restore_image';
+$def->properties['restore_image']->propertyName = 'restore_image';
+$def->properties['restore_image']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['close_image'] = new ezcPersistentObjectProperty();
+$def->properties['close_image']->columnName   = 'close_image';
+$def->properties['close_image']->propertyName = 'close_image';
+$def->properties['close_image']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['popup_image'] = new ezcPersistentObjectProperty();
+$def->properties['popup_image']->columnName   = 'popup_image';
+$def->properties['popup_image']->propertyName = 'popup_image';
+$def->properties['popup_image']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['minimize_image_path'] = new ezcPersistentObjectProperty();
+$def->properties['minimize_image_path']->columnName   = 'minimize_image_path';
+$def->properties['minimize_image_path']->propertyName = 'minimize_image_path';
+$def->properties['minimize_image_path']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['popup_image_path'] = new ezcPersistentObjectProperty();
+$def->properties['popup_image_path']->columnName   = 'popup_image_path';
+$def->properties['popup_image_path']->propertyName = 'popup_image_path';
+$def->properties['popup_image_path']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['hide_close'] = new ezcPersistentObjectProperty();
+$def->properties['hide_close']->columnName   = 'hide_close';
+$def->properties['hide_close']->propertyName = 'hide_close';
+$def->properties['hide_close']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['hide_popup'] = new ezcPersistentObjectProperty();
+$def->properties['hide_popup']->columnName   = 'hide_popup';
+$def->properties['hide_popup']->propertyName = 'hide_popup';
+$def->properties['hide_popup']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['restore_image_path'] = new ezcPersistentObjectProperty();
+$def->properties['restore_image_path']->columnName   = 'restore_image_path';
+$def->properties['restore_image_path']->propertyName = 'restore_image_path';
+$def->properties['restore_image_path']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['close_image_path'] = new ezcPersistentObjectProperty();
+$def->properties['close_image_path']->columnName   = 'close_image_path';
+$def->properties['close_image_path']->propertyName = 'close_image_path';
+$def->properties['close_image_path']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $def->properties['offline_image'] = new ezcPersistentObjectProperty();
 $def->properties['offline_image']->columnName   = 'offline_image';
 $def->properties['offline_image']->propertyName = 'offline_image';
@@ -183,6 +233,21 @@ $def->properties['intro_operator_text'] = new ezcPersistentObjectProperty();
 $def->properties['intro_operator_text']->columnName   = 'intro_operator_text';
 $def->properties['intro_operator_text']->propertyName = 'intro_operator_text';
 $def->properties['intro_operator_text']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+ 
+$def->properties['header_height'] = new ezcPersistentObjectProperty();
+$def->properties['header_height']->columnName   = 'header_height';
+$def->properties['header_height']->propertyName = 'header_height';
+$def->properties['header_height']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+ 
+$def->properties['header_padding'] = new ezcPersistentObjectProperty();
+$def->properties['header_padding']->columnName   = 'header_padding';
+$def->properties['header_padding']->propertyName = 'header_padding';
+$def->properties['header_padding']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+ 
+$def->properties['widget_border_width'] = new ezcPersistentObjectProperty();
+$def->properties['widget_border_width']->columnName   = 'widget_border_width';
+$def->properties['widget_border_width']->propertyName = 'widget_border_width';
+$def->properties['widget_border_width']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 return $def;
 

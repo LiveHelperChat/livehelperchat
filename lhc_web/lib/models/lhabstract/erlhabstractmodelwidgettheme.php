@@ -40,7 +40,20 @@ class erLhAbstractModelWidgetTheme {
 			'show_copyright'			=> $this->show_copyright,
 			'widget_copyright_url'		=> $this->widget_copyright_url,
 			'explain_text'				=> $this->explain_text,
-			'intro_operator_text'		=> $this->intro_operator_text,
+			'intro_operator_text'		=> $this->intro_operator_text,		    
+			'minimize_image'		    => $this->minimize_image,
+		    'minimize_image_path'		=> $this->minimize_image_path,		    
+			'restore_image'		        => $this->restore_image,
+		    'restore_image_path'		=> $this->restore_image_path,		    
+			'close_image'		        => $this->close_image,
+		    'close_image_path'		    => $this->close_image_path,		    
+			'popup_image'		        => $this->popup_image,			
+			'popup_image_path'		    => $this->popup_image_path,		    
+			'hide_close'		        => $this->hide_close,
+			'hide_popup'		        => $this->hide_popup,
+			'header_height'		        => $this->header_height,
+			'header_padding'		    => $this->header_padding,
+			'widget_border_width'		=> $this->widget_border_width,
 		);
 
 		return $stateArray;
@@ -61,329 +74,7 @@ class erLhAbstractModelWidgetTheme {
 		
    	public function getFields()
    	{
-   		return array(
-   				'name' => array(
-   						'type' => 'text',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Name'),
-   						'required' => true,   						
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),
-   				'need_help_header' => array(
-   						'type' => 'text',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help header text'),
-   						'required' => false,   
-   						'nginit' => true,	
-   						'hidden' => true,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),   			
-   				'need_help_text' => array(
-   						'type' => 'text',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help standard text'),
-   						'required' => false,
-   						'nginit' => true,
-   						'hidden' => true,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),
-   				'online_text' => array(
-   						'type' => 'text',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Online status text'),
-   						'required' => false,
-   						'nginit' => true,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),
-   				'offline_text' => array(
-   						'type' => 'text',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Offline status text'),
-   						'required' => false,
-   						'nginit' => true,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),
-   				'intro_operator_text' => array(
-   						'type' => 'text',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Operator intro text'),
-   						'required' => false,   						
-   						'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Have a question? Ask us!'),   						
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),
-   				'onl_bcolor' => array(
-   						'type' => 'colorpicker',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Background color'),
-   						'required' => true,
-   						'hidden' => true,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),   				
-   				'bor_bcolor' => array(
-   						'type' => 'colorpicker',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Status widget border color'),
-   						'required' => true,
-   						'hidden' => true,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),   				
-   				'text_color' => array(
-   						'type' => 'colorpicker',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text color'),
-   						'required' => false,
-   						'hidden' => true,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),
-   				'operator_image' => array(
-   						'type' => 'file',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Operator image in chat widget'),
-   						'required' => false,
-   						'hidden' => true,
-   						'frontend' => 'operator_image_url_img',
-   						'backend_call' => 'moveOperatorIntroPhoto',
-   						'delete_call' => 'deleteOperatorIntroPhoto',
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'callback','erLhcoreClassSearchHandler::isImageFile()'
-   						)),   				
-   				'logo_image' => array(
-   						'type' => 'file',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Logo image, visible in popup'),
-   						'required' => false,
-   						'hidden' => true,
-   						'frontend' => 'logo_image_url_img',
-   						'backend_call' => 'moveLogoPhoto',
-   						'delete_call' => 'deleteLogoPhoto',
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'callback','erLhcoreClassSearchHandler::isImageFile()'
-   						)),   				
-   				'copyright_image' => array(
-   						'type' => 'file',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Logo image, visible in widget left corner, 16x16'),
-   						'required' => false,
-   						'hidden' => true,
-   						'frontend' => 'copyright_image_url_img',
-   						'backend_call' => 'moveCopyrightPhoto',
-   						'delete_call' => 'deleteCopyrightPhoto',
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'callback','erLhcoreClassSearchHandler::isImageFile()'
-   						)),   				
-   				'show_copyright' => array(
-   						'type' => 'checkbox',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Show copyright widget logo in left corner'),
-   						'required' => false,
-   						'hidden' => true,   						
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-   						)), 	
-   				'widget_copyright_url' => array(
-   						'type' => 'text',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget copyright link'),
-   						'required' => false,  
-   						'hidden' => true,
-   						'nginit' => true,						
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),  				
-   				'explain_text' => array(
-   						'type' => 'textarea',
-   						'height' => '50px',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text above start chat form fields'),
-   						'required' => false,  
-   						'hidden' => true,
-   						'nginit' => true,						
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),  				
-   				'online_image' => array(
-   						'type' => 'file',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Online image'),
-   						'required' => false,
-   						'hidden' => true,
-   						'frontend' => 'online_image_url_img',
-   						'backend_call' => 'moveOnlinePhoto',
-   						'delete_call' => 'deleteOnlinePhoto',
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'callback','erLhcoreClassSearchHandler::isImageFile()'
-   						)),
-   				'offline_image' => array(
-   						'type' => 'file',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Offline image'),
-   						'required' => false,
-   						'hidden' => true,
-   						'frontend' => 'offline_image_url_img',
-   						'backend_call' => 'moveOfflinePhoto',
-   						'delete_call' => 'deleteOfflinePhoto',
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'callback','erLhcoreClassSearchHandler::isImageFile()'
-   						)),   			
-   				'header_background' => array(
-   						'type' => 'colorpicker',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget header background color'),
-   						'required' => true,
-   						'hidden' => true,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),   				
-   				'widget_border_color' => array(
-   						'type' => 'colorpicker',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget border color'),
-   						'required' => true,
-   						'hidden' => true,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),   				
-   				'need_help_bcolor' => array(
-   						'type' => 'colorpicker',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help background color'),
-   						'required' => true,
-   						'hidden' => true,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),
-   				'need_help_hover_bg' => array(
-   						'type' => 'colorpicker',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help hover background color'),
-   						'required' => true,
-   						'hidden' => true,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),
-   				'need_help_tcolor' => array(
-   						'type' => 'colorpicker',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help text color'),
-   						'required' => true,
-   						'hidden' => true,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),
-   				'need_help_border' => array(
-   						'type' => 'colorpicker',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help border color'),
-   						'required' => true,
-   						'hidden' => true,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),
-   				'need_help_close_bg' => array(
-   						'type' => 'colorpicker',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help close background color'),
-   						'required' => true,
-   						'hidden' => true,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),
-   				'need_help_close_hover_bg' => array(
-   						'type' => 'colorpicker',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help close hover background color'),
-   						'required' => true,
-   						'hidden' => true,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),
-   				'need_help_image' => array(
-   						'type' => 'file',
-   						'frontend' => 'url_operator_photo',
-   						'backend_call' => 'moveOperatorPhoto',
-   						'delete_call' => 'deleteOperatorPhoto',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help operator image'),
-   						'required' => false,
-   						'hidden' => true,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								 ezcInputFormDefinitionElement::OPTIONAL, 'callback','erLhcoreClassSearchHandler::isImageFile()'
-   						)),
-   				'custom_status_css' => array(
-   						'type' => 'textarea',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Status widget additional CSS, takes effect after save'),
-   						'required' => true,
-   						'placeholder' => '#lhc_status_container:hover{}',
-   						'hidden' => true,
-   						'height' => '150px',
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),
-   				'custom_container_css' => array(
-   						'type' 			=> 'textarea',
-   						'trans' 		=> erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget container additional CSS, takes effect after save'),
-   						'required' 		=> true,
-   						'hidden' 		=> true,
-   						'placeholder'	=>'#lhc_container #lhc_iframe_container{border:0};',
-   						'height' => '150px',
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),
-   				'custom_widget_css' => array(
-   						'type' 			=> 'textarea',
-   						'trans' 		=> erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget body additional CSS, takes effect after save'),
-   						'required' 		=> true,
-   						'placeholder' 	=> 'body {background-color:#84A52E;}',
-   						'hidden' 		=> true,
-   						'height' 		=> '150px',
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),
-   		);
-	}
-		
-			
-	public function deleteOnlinePhoto()
-	{
-		$this->deletePhoto('online_image');				
-	}
-	
-	public function moveOnlinePhoto()
-	{
-		$this->movePhoto('online_image');				
-	}
-			
-	public function deleteOfflinePhoto()
-	{
-		$this->deletePhoto('offline_image');				
-	}
-	
-	public function moveOfflinePhoto()
-	{
-		$this->movePhoto('offline_image');				
-	}
-	
-	public function deleteLogoPhoto()
-	{
-		$this->deletePhoto('logo_image');				
-	}
-	
-	public function moveLogoPhoto()
-	{
-		$this->movePhoto('logo_image');				
-	}
-	
-	public function deleteOperatorPhoto()
-	{
-		$this->deletePhoto('need_help_image');
-	}
-	
-	public function deleteCopyrightPhoto()
-	{
-		$this->deletePhoto('copyright_image');
-	}
-	
-	public function deleteOperatorIntroPhoto()
-	{
-		$this->deletePhoto('operator_image');
-	}
-	
-	public function moveOperatorPhoto()
-	{
-		$this->movePhoto('need_help_image');
-	}
-	
-	public function moveCopyrightPhoto()
-	{
-		$this->movePhoto('copyright_image');
-	}
-	
-	public function moveOperatorIntroPhoto()
-	{
-		$this->movePhoto('operator_image');
+   		return include('lib/core/lhabstract/fields/erlhabstractmodelwidgettheme.php');
 	}
 	
 	public function getContentAttribute($attr)
@@ -456,35 +147,30 @@ class erLhAbstractModelWidgetTheme {
 				
 		erLhcoreClassAbstract::getSession()->save($this);
 		
-		if ($this->need_help_image_pending == true) {
-			$this->moveOperatorPhoto();
-			$this->updateThis();
+		$movePhotos = array(
+		    'need_help_image',
+		    'online_image',
+		    'offline_image',
+		    'logo_image',
+		    'copyright_image',
+		    'operator_image',
+		    'minimize_image',
+		    'restore_image',
+		    'close_image',
+		    'popup_image',
+		);
+		
+		$pendingUpdate = false;
+		foreach ($movePhotos as $photoAttr) {
+		    if ($this->{$photoAttr.'_pending'} == true) {
+		        $this->movePhoto($photoAttr);
+		        $pendingUpdate = true;		       
+		    }
 		}
 		
-		if ($this->online_image_pending == true) {
-			$this->moveOnlinePhoto();
-			$this->updateThis();
-		}
-		
-		if ($this->offline_image_pending == true) {
-			$this->moveOfflinePhoto();
-			$this->updateThis();
-		}
-		
-		if ($this->logo_image_pending == true) {
-			$this->moveLogoPhoto();
-			$this->updateThis();
-		}
-		
-		if ($this->copyright_image_pending == true) {
-			$this->moveCopyrightPhoto();
-			$this->updateThis();
-		}
-		
-		if ($this->operator_image_pending == true) {
-			$this->moveOperatorIntroPhoto();
-			$this->updateThis();
-		}
+		if ($pendingUpdate == true) {
+		    $this->updateThis();
+		}				
 	}
 	
 	
@@ -521,130 +207,43 @@ class erLhAbstractModelWidgetTheme {
 	   	       $this->left_menu = '';
 	   		   return $this->left_menu;
 	   		break;
-	   		
+
 	   	case 'logo_image_url':
-	   			$this->logo_image_url = false;
-	   			
-	   			if ($this->logo_image != ''){
-	   				$this->logo_image_url =  ($this->logo_image_path != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) .'/'.$this->logo_image_path . $this->logo_image;
-	   			}
-	   			
-	   			return $this->logo_image_url;
-	   		break;	
-	   		
+	   	case 'minimize_image_url':
+	   	case 'restore_image_url':
+	   	case 'close_image_url':
+	   	case 'popup_image_url':
 	   	case 'operator_image_url':
-	   			$this->operator_image_url = false;
-	   			
-	   			if ($this->operator_image != ''){
-	   				$this->operator_image_url =  ($this->operator_image_path != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ).'/'.$this->operator_image_path . $this->operator_image;
-	   			}
-	   			
-	   			return $this->operator_image_url;
-	   		break;	
-	   		
 	   	case 'copyright_image_url':
-	   			$this->copyright_image_url = false;
-	   			
-	   			if ($this->copyright_image != ''){	   				
-	   				$this->copyright_image_url = ($this->copyright_image_path != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ).'/'.$this->copyright_image_path . $this->copyright_image;
-	   			}
-	   			
-	   			return $this->copyright_image_url;
-	   		break;	
-	   		
-	   		
 	   	case 'need_help_image_url':
-	   			$this->need_help_image_url = false;
-	   			
-	   			if ($this->need_help_image != ''){
-	   				$this->need_help_image_url = ($this->need_help_image_path != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ).'/'.$this->need_help_image_path . $this->need_help_image;
-	   			}
-	   			
-	   			return $this->need_help_image_url;
-	   		break;	
-	   		
 	   	case 'online_image_url':
-	   			$this->online_image_url = false;
-	   			
-	   			if ($this->online_image != ''){
-	   				$this->online_image_url = ($this->online_image_path != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ).'/'.$this->online_image_path . $this->online_image;
-	   			}
-	   			
-	   			return $this->online_image_url;
-	   		break;	
-	   		
 	   	case 'offline_image_url':
-	   			$this->offline_image_url = false;
-	   			
-	   			if ($this->offline_image != ''){
-	   				$this->offline_image_url = ($this->offline_image_path != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) .'/'.$this->offline_image_path . $this->offline_image;
-	   			}
-	   			
-	   			return $this->offline_image_url;
-	   		break;	
-	   		
-	   		
-	   	case 'url_operator_photo':
-	   			 
-	   			$this->url_operator_photo = false;
-	   		
-	   			if($this->need_help_image != ''){
-	   				$this->url_operator_photo = '<img src="'. ($this->need_help_image_path != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) .'/'.$this->need_help_image_path . $this->need_help_image.'"/>';
-	   			}
-	   			return $this->url_operator_photo;
-	   		break;
-	   		
+	   	       $attr = str_replace('_url', '', $var);	   	       	   	       
+	   	       $this->$var = false;	   	        
+	   	       if ($this->$attr != ''){
+	   	           $this->$var =  ($this->{$attr.'_path'} != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) .'/'.$this->{$attr.'_path'} . $this->$attr;
+	   	       }	   	        
+	   	       return $this->$var;
+	   	    break;
+	   		   			   		
+	   	case 'need_help_image_url_img':
 	   	case 'online_image_url_img':
-	   			 
-	   			$this->online_image_url_img = false;
-	   		
-	   			if($this->online_image != ''){
-	   				$this->online_image_url_img = '<img src="'.($this->online_image_path != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) .'/'.$this->online_image_path . $this->online_image.'"/>';
-	   			}
-	   			return $this->online_image_url_img;
-	   		break;
-	   		
 	   	case 'offline_image_url_img':
-	   			 
-	   			$this->offline_image_url_img = false;
-	   		
-	   			if($this->offline_image != ''){
-	   				$this->offline_image_url_img = '<img src="'.($this->offline_image_path != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) .'/'.$this->offline_image_path . $this->offline_image.'"/>';
-	   			}
-	   			return $this->offline_image_url_img;
-	   		break;
-	   		
 	   	case 'logo_image_url_img':
-	   			 
-	   			$this->logo_image_url_img = false;
-	   		
-	   			if ($this->logo_image != '') {
-	   				$this->logo_image_url_img = '<img src="'.($this->logo_image_path != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ).'/'.$this->logo_image_path . $this->logo_image.'"/>';
-	   			}
-	   			
-	   			return $this->logo_image_url_img;
-	   		break;
-	   		
 	   	case 'copyright_image_url_img':
-	   			 
-	   			$this->copyright_image_url_img = false;
-	   		
-	   			if ($this->copyright_image != '') {
-	   				$this->copyright_image_url_img = '<img src="'.($this->copyright_image_path != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ).'/'.$this->copyright_image_path . $this->copyright_image.'"/>';
-	   			}
-	   			
-	   			return $this->copyright_image_url_img;
-	   		break;
-	   		
 	   	case 'operator_image_url_img':
-	   			$this->operator_image_url_img = false;
-	   		
-	   			if ($this->operator_image != '') {
-	   				$this->operator_image_url_img = '<img src="'.($this->operator_image_path != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ).'/'.$this->operator_image_path . $this->operator_image.'"/>';
+	   	case 'popup_image_url_img':
+	   	case 'close_image_url_img':
+	   	case 'restore_image_url_img':
+	   	case 'minimize_image_url_img':	   			 
+	   	        $attr = str_replace('_url_img', '', $var);	   	    
+	   			$this->$var = false;	   		
+	   			if($this->$attr != ''){
+	   				$this->$var = '<img src="'.($this->{$attr.'_path'} != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) .'/'.$this->{$attr.'_path'} . $this->$attr.'"/>';
 	   			}
-	   			
-	   			return $this->operator_image_url_img;
-	   		break;  
+	   			return $this->$var;
+	   		break;	   		
+	   		
 	   		
 	   	default:
 	   		break;
@@ -666,12 +265,22 @@ class erLhAbstractModelWidgetTheme {
 
 	public function removeThis()
 	{
-		$this->deletePhoto('online_image');
-		$this->deletePhoto('offline_image');
-		$this->deletePhoto('logo_image');
-		$this->deletePhoto('need_help_image');
-		$this->deletePhoto('copyright_image');
-		$this->deletePhoto('operator_image');
+	    $imagesToRemove = array(
+            'online_image',
+            'offline_image',
+            'logo_image',
+            'need_help_image',
+            'copyright_image',
+            'operator_image',
+            'minimize_image',
+            'restore_image',
+            'close_image',
+            'popup_image'
+        );
+	    
+	    foreach ($imagesToRemove as $img) {
+	        $this->deletePhoto($img);
+	    }
 		
 		erLhcoreClassAbstract::getSession()->delete($this);
 	}
@@ -785,7 +394,20 @@ class erLhAbstractModelWidgetTheme {
 	public $widget_copyright_url = '';
 	public $explain_text = '';
 	public $intro_operator_text = '';
-	public $widget_border_color = 'cccccc';
+	public $widget_border_color = 'cccccc';	
+	public $hide_close = 0;
+	public $hide_popup = 0;	
+	public $minimize_image = '';
+	public $minimize_image_path = '';	
+	public $restore_image = '';
+	public $restore_image_path = '';	
+	public $close_image = '';
+	public $close_image_path = '';	
+	public $popup_image = '';
+	public $popup_image_path = '';	
+	public $header_height = 0;
+	public $header_padding = 0;
+	public $widget_border_width = 0;
 	
 	public $hide_add = false;
 	public $hide_delete = false;

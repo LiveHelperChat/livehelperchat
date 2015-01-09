@@ -65,6 +65,14 @@ var LHCCoBrowser = (function() {
 			inputs[i].addEventListener('change', this.inputChangeKeyUpListener,false);
 		};		
 		
+		this.scrollTimeout = null;
+		this.scrollTop = document.body.scrollTop;
+		this.scrollLeft = document.body.scrollLeft;
+		
+		document.addEventListener("scroll", function(e) {
+			_this.scrollEventListener(e);
+		});
+		
 		/**
 		 * Setup NodeJs support if required
 		 * */
@@ -74,6 +82,24 @@ var LHCCoBrowser = (function() {
 		}
 	};
 		
+	LHCCoBrowser.prototype.scrollEventListener = function(e) 
+	{
+		this.scrollTop = document.body.scrollTop;
+		this.scrollLeft = document.body.scrollLeft;
+		
+		var _this = this;
+		
+		if (this.scrollTimeout === null) {
+			this.scrollTimeout = setTimeout(function() {
+				_this.sendData({
+					'f' : 'uscroll',
+					'pos' : {'t':_this.scrollTop,'l':_this.scrollLeft}
+				});
+				_this.scrollTimeout = null;				
+			}, (this.isNodeConnected === true) ? 20 : 1000);
+		};
+	};
+	
 	LHCCoBrowser.prototype.changeEventListener = function(e) {
 		if (typeof jQuery !== 'undefined' ) {
 			var selectorData = jQuery(e.target).getSelector();			

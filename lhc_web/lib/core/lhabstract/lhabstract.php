@@ -169,11 +169,20 @@ class erLhcoreClassAbstract {
 
             } elseif ($field['type'] == 'file' || $field['type'] == 'filebinary'){
             	 if (erLhcoreClassSearchHandler::isFile( 'AbstractInput_'.$key)){
-                   $object->{$field['backend_call']}();
+                	   if (isset($field['backend_call_param'])){
+                	       $object->{$field['backend_call']}($field['backend_call_param']);
+                	   } else {
+                            $object->{$field['backend_call']}();
+                	   }
                  }
 
                  if (isset($_POST['AbstractInput_'.$key.'_delete']) && $_POST['AbstractInput_'.$key.'_delete'] == 1) {
-                 	$object->{$field['delete_call']}();
+                 	
+                 	if (isset($field['delete_call_param'])){
+                 	    $object->{$field['delete_call']}($field['delete_call_param']);
+                 	} else {
+                 	    $object->{$field['delete_call']}();
+                 	}
                  }
 
             } elseif ($field['type'] == 'imgfile'){

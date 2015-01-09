@@ -55,6 +55,21 @@ var LHCCoBrowserOperator = (function() {
 			};
 		};
 		
+		this.userScrollSync = false;
+		
+		if (params['options'].opscroll) {
+			params['options'].opscroll.click(function(){
+				if ($(this).is(':checked')){
+					_this.userScrollSync = true;					
+				} else {
+					_this.userScrollSync = false;
+				}
+			});
+			if (params['options'].opscroll.is(':checked')){
+				this.userScrollSync = true;
+			};
+		};
+		
 		if (params['options'].scroll) {
 			params['options'].scroll.click(function(){
 				if ($(this).is(':checked')){
@@ -422,22 +437,22 @@ var LHCCoBrowserOperator = (function() {
 			}
 		}
 	};
-
+	
 	LHCCoBrowserOperator.prototype.visitorCursor = function(pos) {
-
+		
 		document.getElementById('center-layout').style.width = pos.w+'px';
 		document.getElementById('center-layout').style.height = pos.wh+'px';
 		
 		if (typeof this.iFrameDocument !== 'undefined') {				
 			var element = this.iFrameDocument.getElementById('user-cursor');
-	
+			
 			if (element === null) {
 				var fragment = this
-						.appendHTML('<div id="user-cursor" style="z-index:99999;top:'
-								+ pos.y
-								+ 'px;left:'
-								+ parseInt(pos.x-12)
-								+ 'px;position:absolute;"><img src="'+this.cursor+'" /></div>');
+				.appendHTML('<div id="user-cursor" style="z-index:99999;top:'
+						+ pos.y
+						+ 'px;left:'
+						+ parseInt(pos.x-12)
+						+ 'px;position:absolute;"><img src="'+this.cursor+'" /></div>');
 				if (this.iFrameDocument.body !== null) {
 					this.iFrameDocument.body.appendChild(fragment);				
 				}
@@ -449,6 +464,13 @@ var LHCCoBrowserOperator = (function() {
 		}
 	};
 
+	LHCCoBrowserOperator.prototype.visitorScroll = function(pos) {	
+		if (typeof this.iFrameDocument !== 'undefined' && this.userScrollSync == true) {
+			this.iFrameDocument.body.scrollLeft = pos.l;
+			this.iFrameDocument.body.scrollTop = pos.t;
+		}
+	};
+	
 	LHCCoBrowserOperator.prototype.appendHTML = function(htmlStr) {
 		var frag = this.iFrameDocument.createDocumentFragment(), temp = this.iFrameDocument
 				.createElement('div');
@@ -531,6 +553,8 @@ var LHCCoBrowserOperator = (function() {
 			
 		} else if (msg.f && msg.f == 'cursor') {
 			this.visitorCursor(msg.pos);
+		} else if (msg.f && msg.f == 'uscroll') {
+			this.visitorScroll(msg.pos);
 		} else if (msg.f && msg.f == 'textdata') {
 			this.changeTextValue(msg);
 		} else if (msg.f && msg.f == 'selectval') {

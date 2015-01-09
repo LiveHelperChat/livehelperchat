@@ -686,6 +686,70 @@
                 "extra": ""
             },
             {
+                "field": "popup_image",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "popup_image_path",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "close_image",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "close_image_path",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "restore_image",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "restore_image_path",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "minimize_image",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "minimize_image_path",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "online_image",
                 "type": "varchar(250)",
                 "null": "NO",
@@ -759,6 +823,46 @@
             },
             {
                 "field": "show_copyright",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": 1,
+                "extra": ""
+            },
+            {
+                "field": "hide_close",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": 1,
+                "extra": ""
+            },
+            {
+                "field": "hide_popup",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": 1,
+                "extra": ""
+            },
+            {
+                "field": "header_height",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": 1,
+                "extra": ""
+            },
+            {
+                "field": "header_padding",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": 1,
+                "extra": ""
+            },
+            {
+                "field": "widget_border_width",
                 "type": "int(11)",
                 "null": "NO",
                 "key": "",
