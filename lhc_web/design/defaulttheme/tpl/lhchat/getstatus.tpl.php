@@ -201,8 +201,7 @@ var lh_inst  = {
 		var dm = document.getElementById('lhc_container');					
 		if (!dm.attrIsMin || dm.attrIsMin == false) {
 			dm.attrHeight = dm.style.height;
-			dm.attrIsMin = true;			
-			//this.addClass(dm,'lhc-no-transition');
+			dm.attrIsMin = true;
 			this.addClass(dm,'lhc-min');									
 			<?php if ($currentPosition['posv'] == 'b') : ?>			
 			if(dm.style.bottom!='' && dm.attrHeight!=''){
@@ -242,10 +241,7 @@ var lh_inst  = {
 			<?php endif;?>		
 			this.removeCookieAttr('m');
 			this.removeClass(dm,'lhc-min');
-			var inst = this;
-			//setTimeout(function(){				
-			//	inst.removeClass(dm,'lhc-no-transition');
-			//},500);
+			var inst = this;		
 			this.storePos(dm);
 		};
 	},
