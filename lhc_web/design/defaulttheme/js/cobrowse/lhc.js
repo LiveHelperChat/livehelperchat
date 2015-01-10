@@ -69,9 +69,11 @@ var LHCCoBrowser = (function() {
 		this.scrollTop = document.body.scrollTop;
 		this.scrollLeft = document.body.scrollLeft;
 		
-		document.addEventListener("scroll", function(e) {
+		this.scrollEventListenerCallback = function(e) {
 			_this.scrollEventListener(e);
-		});
+		};
+		
+		document.addEventListener("scroll",this.scrollEventListenerCallback, false);
 		
 		/**
 		 * Setup NodeJs support if required
@@ -491,7 +493,8 @@ var LHCCoBrowser = (function() {
 				this.socket = null;
 			}
 			document.removeEventListener('mousemove',this.mouseEventListenerCallback, false);
-			
+			document.removeEventListener('scroll',this.scrollEventListenerCallback, false);
+						
 			var inputs = document.getElementsByTagName("INPUT");		
 			for (var i = 0; i < inputs.length; i++) {			
 				inputs[i].removeEventListener('keyup', this.inputChangeKeyUpListener,false);
