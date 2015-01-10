@@ -883,6 +883,10 @@ lh_inst.storeReferrer(<?php echo json_encode($referrer)?>);
 		lh_inst.substatus = '_reopen';	
 		lh_inst.toggleStatusWidget(true);
 	    lh_inst.showStartWindow(undefined,true);
+	    <?php if ($track_online_users == true || $trackOnline == true) : ?>
+	    lh_inst.logPageView();
+	    lh_inst.online_tracked = true;
+	    <?php endif;?>
 	}
 	
 	<?php if ($check_operator_messages == 'true' && $disable_pro_active == false) : ?>
