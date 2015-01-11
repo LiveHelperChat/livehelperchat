@@ -834,7 +834,7 @@
                 "type": "int(11)",
                 "null": "NO",
                 "key": "",
-                "default": 1,
+                "default": 0,
                 "extra": ""
             },
             {
@@ -842,7 +842,7 @@
                 "type": "int(11)",
                 "null": "NO",
                 "key": "",
-                "default": 1,
+                "default": 0,
                 "extra": ""
             },
             {
@@ -850,7 +850,7 @@
                 "type": "int(11)",
                 "null": "NO",
                 "key": "",
-                "default": 1,
+                "default": 0,
                 "extra": ""
             },
             {
@@ -858,7 +858,7 @@
                 "type": "int(11)",
                 "null": "NO",
                 "key": "",
-                "default": 1,
+                "default": 0,
                 "extra": ""
             },
             {
@@ -866,7 +866,7 @@
                 "type": "int(11)",
                 "null": "NO",
                 "key": "",
-                "default": 1,
+                "default": 0,
                 "extra": ""
             },
             {
