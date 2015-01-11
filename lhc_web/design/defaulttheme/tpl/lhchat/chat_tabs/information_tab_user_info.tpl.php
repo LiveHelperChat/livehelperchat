@@ -167,6 +167,8 @@
 		<a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Screen sharing')?>" class="icon-eye" href="#" onclick="return lhinst.startCoBrowse('<?php echo $chat->id?>')"></a>
 		<?php endif;?>
 		
+		<?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/chat_actions_extension_multiinclude.tpl.php'));?>
+		 
 	</p>
 	<?php else : ?>
 	<a class="icon-print" target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('chatarchive/printchatadmin')?>/<?php echo $archive->id?>/<?php echo $chat->id?>"></a>

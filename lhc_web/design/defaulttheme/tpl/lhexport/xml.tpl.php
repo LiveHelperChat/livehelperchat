@@ -20,7 +20,7 @@
 <longitude><?php echo $chat->lon?></longitude>
 <additional_data><![CDATA[<?php echo htmlspecialchars($chat->additional_data)?>]]></additional_data>
 <operator_variables type="array">
-<?php if (!empty($chat->chat_variables)) : $chatVariables = unserialize($chat->chat_variables); ?>
+<?php if (!empty($chat->chat_variables)) : $chatVariables = json_decode($chat->chat_variables); ?>
 
 <?php if (isset($chatVariables['variables'])) : ?>
 	<?php foreach ($chatVariables['variables'] as $key => $variable) : ?>

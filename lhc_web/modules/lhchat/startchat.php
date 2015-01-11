@@ -180,6 +180,12 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
    			if (isset($chatPrefill) && ($chatPrefill instanceof erLhcoreClassModelChat)) {
    				erLhcoreClassChatValidator::updateInitialChatAttributes($chatPrefill, $chat);
    			}
+   			
+   			erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_offline_request',array(
+   			'input_data' => $inputData,
+   			'chat' => $chat,
+   			'prefill' => array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false)));
+   			
 	   		$tpl->set('request_send',true);
 	   	} else {
 	       $chat->time = time();

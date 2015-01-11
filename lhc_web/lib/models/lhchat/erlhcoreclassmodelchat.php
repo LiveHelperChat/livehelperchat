@@ -279,6 +279,20 @@ class erLhcoreClassModelChat {
        			}
        			return $this->additional_data_array;
        		break;
+       		
+       	case 'chat_variables_array':
+       	        if (!empty($this->chat_variables)){
+           			$jsonData = json_decode($this->chat_variables,true);
+           			if ($jsonData !== null) {
+           				$this->chat_variables_array = $jsonData;
+           			} else {
+           				$this->chat_variables_array = $this->chat_variables;
+           			}
+       	        } else {
+       	            $this->chat_variables_array = $this->chat_variables;
+       	        }
+       			return $this->chat_variables_array;
+       		break;
        			
        	default:
        		break;

@@ -215,6 +215,12 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
    			if (isset($chatPrefill) && ($chatPrefill instanceof erLhcoreClassModelChat)) {
    				erLhcoreClassChatValidator::updateInitialChatAttributes($chatPrefill, $chat);
    			}
+   			
+   			erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_offline_request',array(
+   			'input_data' => $inputData,
+   			'chat' => $chat,
+   			'prefill' => array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false)));
+   			
    			$Result['parent_messages'][] = 'lh_callback:offline_request_cb';
    			$tpl->set('request_send',true);
    		} else {
@@ -292,11 +298,18 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 
 	       		$chat->saveThis();
 	       }
-
-	       erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat));
-
+    	       	       
 	       // Redirect user
 	       erLhcoreClassModule::redirect('chat/chatwidgetchat','/' . $chat->id . '/' . $chat->hash . $modeAppend . '/(cstarted)/online_chat_started_cb');
+	       
+	       flush();
+	       session_write_close();
+	       
+	       if ( function_exists('fastcgi_finish_request') ) {
+	           fastcgi_finish_request();
+	       };
+	       	       
+	       erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat));	       
 	       exit;
    	   }
 
