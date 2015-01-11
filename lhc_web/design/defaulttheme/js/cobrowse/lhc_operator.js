@@ -207,26 +207,8 @@ var LHCCoBrowserOperator = (function() {
 						e.preventDefault();
 					};
 										
-					// Use direct message if it's link with content, more accurate behaviour and faster
-					if (e.target && e.target.tagName == 'A' && e.target.href != '' && e.target.onclick === null) {// Use direct message if it's link with content, more accurate behaviour and faster
-						if (_this.isNodeConnected === true) {							
-							_this.sendData('lhc_cobrowse_cmd:navigate:'+e.target.href.replace(new RegExp(':','g'),'__SPLIT__'));
-						} else {
-							_this.sendData('lhc_chat_redirect:'+e.target.href.replace(new RegExp(':','g'),'__SPLIT__'));
-						};						
-					// Click on image when parent element is link, so we take link link and make sure there is no onclick listener on original site
-					} else if (e.target && e.target.tagName == 'IMG' && e.target.parentNode && e.target.parentNode.nodeName == 'A' && e.target.parentNode.href != '' && e.target.parentNode.onclick === null) {
-						if (_this.isNodeConnected === true) {
-							_this.sendData('lhc_cobrowse_cmd:navigate:'+e.target.parentNode.href.replace(new RegExp(':','g'),'__SPLIT__'));
-						} else {
-							_this.sendData('lhc_chat_redirect:'+e.target.parentNode.href.replace(new RegExp(':','g'),'__SPLIT__'));
-						};
-					// Give up and use standard listener
-					} else {
-												
-						_this.sendClickCommand(e.x,e.y,_this.iFrameDocument.body.scrollLeft,_this.iFrameDocument.body.scrollTop,_this.getSelectorQuery(e.target));
-					}
-					
+					_this.sendClickCommand(e.x,e.y,_this.iFrameDocument.body.scrollLeft,_this.iFrameDocument.body.scrollTop,_this.getSelectorQuery(e.target));
+										
 				} else {
 					e.preventDefault();
 														
@@ -536,7 +518,7 @@ var LHCCoBrowserOperator = (function() {
 			this.mirror.initialize.apply(this.mirror, msg.args);			
 			var _this = this;
 			setTimeout(function(){
-				var fragment = _this.appendHTML("<style>#lhc-user-cursor{display:none!important;}.lhc-higlighted{-webkit-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);-moz-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);}</style>");
+				var fragment = _this.appendHTML("<style>body{visibility:visible!important;}#lhc-user-cursor{display:none!important;}.lhc-higlighted{-webkit-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);-moz-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);}</style>");
 				if (_this.iFrameDocument.body !== null) {
 					_this.iFrameDocument.body.insertBefore(fragment,
 							_this.iFrameDocument.body.childNodes[0]);
