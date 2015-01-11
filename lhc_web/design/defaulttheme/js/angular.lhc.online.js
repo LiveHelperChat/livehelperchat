@@ -226,8 +226,11 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 		};
 		
 		this.previewChat = function(ou) {
-			if (ou.chat_id > 0 && ou.can_view_chat == 1) {
-				$.colorbox({'iframe':true, height:'500px', width:'500px', href: WWW_DIR_JAVASCRIPT + 'chat/previewchat/'+ou.chat_id});
+			if (ou.chat_id > 0 && ou.can_view_chat == 1) {				
+				if ($('#myModal').size() == 0) {
+					$('body').prepend('<div id="myModal" class="reveal-modal medium"><a class="close-reveal-modal">&#215;</a></div>');
+				};				
+				$('#myModal').foundation('reveal', 'open', {url: WWW_DIR_JAVASCRIPT+'chat/previewchat/'+ou.chat_id});
 			}
 		};
 		
