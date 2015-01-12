@@ -9,5 +9,5 @@ Live helper chat
   http://www.apache.org/licenses/LICENSE-2.0
   
   More information
-  http://livehelperchat.com/license-term-of-use-removing-links-129a.html
+  https://livehelperchat.com/commercial-support-13c.html
 ************************
