@@ -66,8 +66,8 @@ var LHCCoBrowser = (function() {
 		};		
 		
 		this.scrollTimeout = null;
-		this.scrollTop = document.body.scrollTop;
-		this.scrollLeft = document.body.scrollLeft;
+		this.scrollTop = this.scrollTopGS();
+		this.scrollLeft = this.scrollLeftGS();
 		
 		this.scrollEventListenerCallback = function(e) {
 			_this.scrollEventListener(e);
@@ -86,8 +86,8 @@ var LHCCoBrowser = (function() {
 		
 	LHCCoBrowser.prototype.scrollEventListener = function(e) 
 	{
-		this.scrollTop = document.body.scrollTop;
-		this.scrollLeft = document.body.scrollLeft;
+		this.scrollTop = this.scrollTopGS();
+		this.scrollLeft = this.scrollLeftGS();
 		
 		var _this = this;
 		
@@ -397,9 +397,9 @@ var LHCCoBrowser = (function() {
 						
 			var pos = parts[0].split(',');
 			
-			var origScroll = {scrollLeft: document.body.scrollLeft,scrollTop:document.body.scrollTop};
-			document.body.scrollLeft = pos[2];
-			document.body.scrollTop = pos[3];
+			var origScroll = {scrollLeft: this.scrollLeftGS(),scrollTop:this.scrollTopGS()};						
+			this.scrollLeftGS(pos[2]);
+			this.scrollTopGS(pos[3]);
 			
 			// Avoid highlight on our own cursor
 			var operatorCursor = document.getElementById('lhc-user-cursor');
@@ -422,10 +422,10 @@ var LHCCoBrowser = (function() {
 			
 			// Restore user scrollbar position where we found it
 			if (this.windowForceScroll == false) {
-				document.body.scrollLeft = origScroll['scrollLeft'];
-				document.body.scrollTop = origScroll['scrollTop'];
+				this.scrollLeftGS(origScroll['scrollLeft']);
+				this.scrollTopGS(origScroll['scrollTop']);
 			};
-			
+						
 			var hightlight = true;
 			if (element !== null && lh_inst.hasClass(element,'lhc-higlighted') && (element.tagName != 'INPUT' && element.tagName != 'TEXTAREA' && element.tagName != 'SELECT') ){
 				hightlight = false;
@@ -497,9 +497,9 @@ var LHCCoBrowser = (function() {
 						
 			var pos = parts[0].split(',');
 			
-			var origScroll = {scrollLeft: document.body.scrollLeft,scrollTop:document.body.scrollTop};
-			document.body.scrollLeft = pos[2];
-			document.body.scrollTop = pos[3];
+			var origScroll = {scrollLeft: this.scrollLeftGS(),scrollTop: this.scrollTopGS()};
+			this.scrollLeftGS(pos[2]);
+			this.scrollTopGS(pos[3]);
 			
 			// Avoid highlight on our own cursor
 			var operatorCursor = document.getElementById('lhc-user-cursor');
@@ -522,8 +522,8 @@ var LHCCoBrowser = (function() {
 			
 			// Restore user scrollbar position where we found it
 			if (this.windowForceScroll == false) {
-				document.body.scrollLeft = origScroll['scrollLeft'];
-				document.body.scrollTop = origScroll['scrollTop'];
+				this.scrollLeftGS(origScroll['scrollLeft']);
+				this.scrollTopGS(origScroll['scrollTop']);
 			};
 			
 			if (element !== null) {
@@ -599,9 +599,9 @@ var LHCCoBrowser = (function() {
 	LHCCoBrowser.prototype.mouseEventListener = function(e) {
 		var _this = this;
 
-		var mouseX = (e.clientX || e.pageX) + document.body.scrollLeft;
-		var mouseY = (e.clientY || e.pageY) + document.body.scrollTop;
-
+		var mouseX = (e.clientX || e.pageX) + this.scrollLeftGS();
+		var mouseY = (e.clientY || e.pageY) + this.scrollTopGS();
+		
 		if (_this.mouse.x != mouseX || _this.mouse.y != mouseY) {
 			_this.mouse.x = mouseX;
 			_this.mouse.y = mouseY;
@@ -671,6 +671,32 @@ var LHCCoBrowser = (function() {
 		;
 	};
 
+	LHCCoBrowser.prototype.scrollTopGS = function(stop)
+	{
+		if (typeof stop === 'undefined') {
+			return document.documentElement.scrollTop || document.body.scrollTop;
+		} else {
+			if (document.documentElement && document.documentElement.scrollTop) {
+				document.documentElement.scrollTop = stop;
+			} else {
+				document.body.scrollTop = stop;
+			}
+		}
+	};
+	
+	LHCCoBrowser.prototype.scrollLeftGS = function(sleft)
+	{
+		if (typeof sleft === 'undefined') {
+			return document.documentElement.scrollLeft || document.body.scrollLeft;
+		} else {
+			if (document.documentElement && document.documentElement.scrollLeft) {
+				document.documentElement.scrollLeft = sleft;
+			} else {
+				document.body.scrollLeft = sleft;
+			}
+		}
+	};
+	
 	LHCCoBrowser.prototype.onConnected = function() {
 		this.isNodeConnected = true;
 		this.socket.emit('join', {
@@ -706,13 +732,16 @@ var LHCCoBrowser = (function() {
 		this.sendCommands.push(msg);
 		if (this.updateTimeout === null) {
 			this.updateTimeout = setTimeout(function() {
-				var xhr = new XMLHttpRequest();
-				xhr.open("POST", _this.url, true);
-				xhr.setRequestHeader("Content-type",
-						"application/x-www-form-urlencoded");
-				xhr.send("data="
-						+ encodeURIComponent(lh_inst.JSON
-								.stringify(_this.sendCommands)));
+				
+				if (window.XDomainRequest) xhr = new XDomainRequest();
+				else if (window.XMLHttpRequest) xhr = new XMLHttpRequest();
+				else xhr = new ActiveXObject("Microsoft.XMLHTTP");								
+				xhr.open("POST", _this.url, true);				
+				if (typeof xhr.setRequestHeader !== 'undefined'){
+					xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+				};
+				xhr.send("data=" + encodeURIComponent(lh_inst.JSON.stringify(_this.sendCommands)));
+				
 				_this.sendCommands = [];
 				_this.updateTimeout = null;
 			}, this.isNodeConnected === true ? 0 : 500); // Send grouped changes every 0.5 seconds

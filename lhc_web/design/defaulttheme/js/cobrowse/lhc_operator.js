@@ -119,8 +119,8 @@ var LHCCoBrowserOperator = (function() {
 				if (tagName == 'INPUT' || tagName == 'TEXTAREA') {
 					var node = document.createElement(tagName);
 										
-					node.addEventListener('focus', function(){
-						_this.highlightElement(-1,-1,_this.iFrameDocument.body.scrollLeft,_this.iFrameDocument.body.scrollTop,_this.getSelectorQuery(node));
+					node.addEventListener('focus', function(){					
+						_this.highlightElement(-1,-1,_this.iFrameDocument.body.scrollLeft,_this.iFrameDocument.body.scrollTop,_this.getSelectorQuery(node),node);
 					}, false);
 					
 					return node;
@@ -213,7 +213,7 @@ var LHCCoBrowserOperator = (function() {
 					e.preventDefault();
 														
 					// Highlight element on click
-					_this.highlightElement(e.x,e.y,_this.iFrameDocument.body.scrollLeft,_this.iFrameDocument.body.scrollTop,_this.getSelectorQuery(e.target));	
+					_this.highlightElement(e.x,e.y,_this.iFrameDocument.body.scrollLeft,_this.iFrameDocument.body.scrollTop,_this.getSelectorQuery(e.target),e.target);	
 				}
 			};
 
@@ -265,9 +265,23 @@ var LHCCoBrowserOperator = (function() {
 		this.sendData('lhc_cobrowse_cmd:changeselect:'+val+'__SPLIT__'+selector.replace(new RegExp(':','g'),'_SEL_'));		
 	};
 	
-	LHCCoBrowserOperator.prototype.highlightElement = function(x,y,l,t,selector)
+	LHCCoBrowserOperator.prototype.highlightElement = function(x,y,l,t,selector,node)
 	{
 		this.sendData('lhc_cobrowse_cmd:hightlight:'+x+','+y+','+l+','+t+'__SPLIT__'+selector.replace(new RegExp(':','g'),'_SEL_'));		
+		
+		var hightlight = true;
+		
+		if (jQuery(node).hasClass('lhc-higlighted') == true && (node.tagName != 'INPUT' && node.tagName != 'TEXTAREA' && node.tagName != 'SELECT')) {
+			hightlight = false;
+		};
+		
+		jQuery(this.iFrameDocument).find('.lhc-higlighted').removeClass('lhc-higlighted');
+		
+		if (hightlight == true) {
+			jQuery(node).addClass('lhc-higlighted');
+		};
+		
+		console.log(hightlight);
 		
 		if (this.highlightedCSS == false)
 		{
@@ -518,7 +532,7 @@ var LHCCoBrowserOperator = (function() {
 			this.mirror.initialize.apply(this.mirror, msg.args);			
 			var _this = this;
 			setTimeout(function(){
-				var fragment = _this.appendHTML("<style>body{visibility:visible!important;}#lhc-user-cursor{display:none!important;}.lhc-higlighted{-webkit-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);-moz-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);}</style>");
+				var fragment = _this.appendHTML("<style>body{visibility:visible!important;}#lhc_status_container{display:none!important;}#lhc-user-cursor{display:none!important;}.lhc-higlighted{-webkit-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);-moz-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);box-shadow: 0px 0px 20px 5px rgba(88,140,204,1);}</style>");
 				if (_this.iFrameDocument.body !== null) {
 					_this.iFrameDocument.body.insertBefore(fragment,
 							_this.iFrameDocument.body.childNodes[0]);

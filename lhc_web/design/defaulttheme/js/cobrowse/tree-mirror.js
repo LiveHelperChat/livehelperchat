@@ -150,10 +150,15 @@ var TreeMirrorClient = (function () {
             queries = queries.concat(testingQueries);
 
         var MutationObserverCtor;
-        if (typeof WebKitMutationObserver !== 'undefined')
-            MutationObserverCtor = WebKitMutationObserver;
-        else
-            MutationObserverCtor = MutationObserver;
+        
+        try {
+	        if (typeof WebKitMutationObserver !== 'undefined')
+	            MutationObserverCtor = WebKitMutationObserver;
+	        else
+	            MutationObserverCtor = MutationObserver;
+        } catch (e) {
+        	MutationObserverCtor = undefined;
+        };
         
         if (MutationObserverCtor !== undefined) {
 	        this.mutationSummary = new MutationSummary({
