@@ -76,7 +76,7 @@ var lh_inst_page  = {
                        ( this.initial_iframe_url != '' ? ' src="'    + this.initial_iframe_url + '"' : '' ) +
                        ' width="100%"' +
                        ' height="340"' +
-                       ' style="width: 100%; height: 340x;"></iframe>';
+                       ' style="width: 100%; height: 340px;"></iframe>';
 
 		  document.getElementById('lhc_status_container_page').innerHTML = this.iframe_html;
     },
