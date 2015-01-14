@@ -47,21 +47,49 @@ class erLhcoreClassChatStatistic {
     public static function getNumberOfChatsPerMonth($filter = array())
     {	
     	$numberOfChats = array();
+    	$departmentFilter = array();
+    	$departmentMsgFilter = array();
+    	
+    	// Message filter
+    	$msgFilter = $filter;
+    	       	
+    	/**
+    	 * If department filter provided we have to use strict filter with table names
+    	 * */    	
+    	$departmentMsgFilter['innerjoin']['lh_chat'] = array('lh_msg.chat_id','lh_chat.id');
     	    	
+    	/**
+    	 * If user ID provided only provided user chat's has to take effect
+    	 * */
+    	if (isset($msgFilter['filter']['user_id'])){
+    	    unset($msgFilter['filter']['user_id']);
+    	    $msgFilter['filter']['lh_chat.user_id'] = $filter['filter']['user_id'];    	  
+    	}
+    	
+    	if (isset($msgFilter['filtergte']['time'])){
+    	    unset($msgFilter['filtergte']['time']);
+    	    $msgFilter['filtergte']['lh_msg.time'] = $filter['filtergte']['time'];
+    	}
+    		
+    	if (isset($msgFilter['filterlte']['time'])){
+    	    unset($msgFilter['filterlte']['time']);
+    	    $msgFilter['filterlte']['lh_msg.time'] = $filter['filterlte']['time'];
+    	}
+    	    
     	for ($i = 0; $i < 12;$i++) {
     		$dateUnix = mktime(0,0,0,date('m')-$i,1,date('y'));
     		$numberOfChats[$dateUnix] = array (
-    				'closed' 			=> erLhcoreClassChat::getCount(array_merge_recursive($filter,array('filter' => array('status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix))))),    		
-    				'active' 			=> erLhcoreClassChat::getCount(array_merge_recursive($filter,array('filter' => array('status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix))))),    		
-    				'operators' 		=> erLhcoreClassChat::getCount(array_merge_recursive($filter,array('filter' => array('status' => erLhcoreClassModelChat::STATUS_OPERATORS_CHAT),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix))))),    		
-    				'pending' 			=> erLhcoreClassChat::getCount(array_merge_recursive($filter,array('filter' => array('status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix))))),    		
+    				'closed' 			=> erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix))))),    		
+    				'active' 			=> erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix))))),    		
+    				'operators' 		=> erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('status' => erLhcoreClassModelChat::STATUS_OPERATORS_CHAT),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix))))),    		
+    				'pending' 			=> erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix))))),    		
     				
-    				'msg_user' 			=> erLhcoreClassChat::getCount(array('filter' 	=> array('user_id' => 0),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix)))+$filter,'lh_msg'),    		
-    				'msg_operator' 		=> erLhcoreClassChat::getCount(array('filtergt' => array('user_id' => 0),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix)))+$filter,'lh_msg'),    		
-    				'msg_system' 		=> erLhcoreClassChat::getCount(array('filter' 	=> array('user_id' => -1),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix)))+$filter,'lh_msg'),    		
+    				'msg_user' 			=> erLhcoreClassChat::getCount(array_merge_recursive(array('filter' 	=> array('lh_msg.user_id' => 0),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%m\') = '. date('Ym',$dateUnix))),$msgFilter,$departmentMsgFilter),'lh_msg','count(lh_msg.id)'),    		
+    				'msg_operator' 		=> erLhcoreClassChat::getCount(array('filtergt' => array('lh_msg.user_id' => 0),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%m\') = '. date('Ym',$dateUnix)))+$msgFilter+$departmentMsgFilter,'lh_msg','count(lh_msg.id)'),    		
+    				'msg_system' 		=> erLhcoreClassChat::getCount(array_merge_recursive(array('filter' => array('lh_msg.user_id' => -1),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%m\') = '. date('Ym',$dateUnix))),$msgFilter,$departmentMsgFilter),'lh_msg','count(lh_msg.id)'),    		
     				
-    				'chatinitdefault' 	=> erLhcoreClassChat::getCount(array_merge_recursive($filter,array('filter' => array('chat_initiator' => erLhcoreClassModelChat::CHAT_INITIATOR_DEFAULT),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix))))),    		
-    				'chatinitproact' 	=> erLhcoreClassChat::getCount(array_merge_recursive($filter,array('filter' => array('chat_initiator' => erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix))))),    		
+    				'chatinitdefault' 	=> erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('chat_initiator' => erLhcoreClassModelChat::CHAT_INITIATOR_DEFAULT),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix))))),    		
+    				'chatinitproact' 	=> erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('chat_initiator' => erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix))))),    		
     		);
     	}
     	return $numberOfChats;
@@ -147,22 +175,43 @@ class erLhcoreClassChatStatistic {
     public static function numberOfMessagesByUser($days = 30, $filter = array()) 
     {    	    
     	$dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
-    	    	
+    	
+    	if (isset($filter['filtergte']['time'])){
+    	    $filter['filtergte']['lh_msg.time'] = $filter['filtergte']['time'];
+    	    unset($filter['filtergte']['time']);
+    	}
+    		
+    	if (isset($filter['filterlte']['time'])){
+    	    $filter['filterlte']['lh_msg.time'] = $filter['filterlte']['time'];
+    	    unset($filter['filterlte']['time']);
+    	}
+    	
+    	if (isset($filter['filter']['user_id'])){
+    	    $filter['filter']['lh_msg.user_id'] = $filter['filter']['user_id'];
+    	    unset($filter['filter']['user_id']);
+    	}
+    	
     	$generalFilter = self::formatFilter($filter);
     	    	 
-    	$useTimeFilter = !isset($filter['filtergte']['time']) && !isset($filter['filterlte']['time']);
+    	$useTimeFilter = !isset($filter['filtergte']['lh_msg.time']) && !isset($filter['filterlte']['lh_msg.time']);
     	$appendFilterTime = '';
     	if ($useTimeFilter == true) {
-    		$appendFilterTime = 'time > :time ';
+    		$appendFilterTime = 'lh_msg.time > :time ';
     	}
     	
     	if ($generalFilter != '' && $useTimeFilter == true) {
     		$generalFilter = ' AND '.$generalFilter;
     	}
     	
-    	$sql = "SELECT count(id) AS number_of_chats,user_id FROM lh_msg WHERE {$appendFilterTime} {$generalFilter} GROUP BY user_id ORDER BY number_of_chats DESC LIMIT 20";
+    	$sql = "SELECT count(lh_msg.id) AS number_of_chats,lh_msg.user_id 
+    	FROM lh_msg 
+    	INNER JOIN lh_chat ON lh_chat.id = lh_msg.chat_id
+    	WHERE {$appendFilterTime} {$generalFilter} 
+    	GROUP BY lh_msg.user_id 
+    	ORDER BY number_of_chats DESC LIMIT 20";
     	$db = ezcDbInstance::get();
     	$stmt = $db->prepare($sql);
+    
     	
     	if ($useTimeFilter == true) {
     		$stmt->bindValue(':time',$dateUnixPast);

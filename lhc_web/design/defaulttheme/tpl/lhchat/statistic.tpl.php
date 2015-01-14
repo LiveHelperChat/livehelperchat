@@ -206,13 +206,24 @@
 		
 		<div class="row">
 		
-			<div class="columns large-6">
+			<div class="columns large-3">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','User');?></label>
 			<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
 	                    'input_name'     => 'user_id',
 						'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select user'),
 	                    'selected_id'    => $input->user_id,				
 	                    'list_function'  => 'erLhcoreClassModelUser::getUserList'
+	            )); ?> 
+	        </div>   
+		
+			<div class="columns large-3">
+			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department');?></label>
+		
+			<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
+	                    'input_name'     => 'department_id',
+						'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department'),
+	                    'selected_id'    => $input->department_id,				
+	                    'list_function'  => 'erLhcoreClassModelDepartament::getList'
 	            )); ?> 
 	        </div>   
           

@@ -377,6 +377,18 @@ class erLhcoreClassChat {
     		}
     	}
 
+    	if (isset($params['leftjoin']) && count($params['leftjoin']) > 0) {
+    	    foreach ($params['leftjoin'] as $table => $joinOn) {
+    	        $q->leftJoin($table, $q->expr->eq($joinOn[0], $joinOn[1]));
+    	    }
+    	}
+    	
+    	if (isset($params['innerjoin']) && count($params['innerjoin']) > 0) {
+    	    foreach ($params['innerjoin'] as $table => $joinOn) {
+    	        $q->innerJoin($table, $q->expr->eq($joinOn[0], $joinOn[1]));
+    	    }
+    	}
+    	
     	if ( count($conditions) > 0 )
     	{
 	    	$q->where( $conditions );
