@@ -400,6 +400,7 @@ var LHCCoBrowser = (function() {
 			var origScroll = {scrollLeft: this.scrollLeftGS(),scrollTop:this.scrollTopGS()};						
 			this.scrollLeftGS(pos[2]);
 			this.scrollTopGS(pos[3]);
+						
 			
 			// Avoid highlight on our own cursor
 			var operatorCursor = document.getElementById('lhc-user-cursor');
@@ -418,6 +419,7 @@ var LHCCoBrowser = (function() {
 			if (operatorCursor !== null) {
 				operatorCursor.style.display = origDisplay;
 			};
+			
 			
 			
 			// Restore user scrollbar position where we found it
@@ -676,11 +678,17 @@ var LHCCoBrowser = (function() {
 		if (typeof stop === 'undefined') {
 			return document.documentElement.scrollTop || document.body.scrollTop;
 		} else {
-			if (document.documentElement && document.documentElement.scrollTop) {
-				document.documentElement.scrollTop = stop;
-			} else {
-				document.body.scrollTop = stop;
-			}
+			if (document.documentElement){
+				try {
+					document.documentElement.scrollTop = stop;
+				} catch (e) {}	
+			};	
+			
+			if (document.body) {
+				try {
+					document.body.scrollTop = stop;
+				} catch (e) {}	
+			}			
 		}
 	};
 	
@@ -689,10 +697,15 @@ var LHCCoBrowser = (function() {
 		if (typeof sleft === 'undefined') {
 			return document.documentElement.scrollLeft || document.body.scrollLeft;
 		} else {
-			if (document.documentElement && document.documentElement.scrollLeft) {
-				document.documentElement.scrollLeft = sleft;
-			} else {
-				document.body.scrollLeft = sleft;
+			if (document.documentElement){
+				try {
+					document.documentElement.scrollLeft = sleft;
+				} catch (e) {}	
+			};		
+			if (document.body) {
+				try {
+					document.body.scrollLeft = sleft;
+				} catch (e) {}	
 			}
 		}
 	};

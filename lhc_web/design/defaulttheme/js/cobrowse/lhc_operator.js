@@ -120,7 +120,7 @@ var LHCCoBrowserOperator = (function() {
 					var node = document.createElement(tagName);
 										
 					node.addEventListener('focus', function(){					
-						_this.highlightElement(-1,-1,_this.iFrameDocument.body.scrollLeft,_this.iFrameDocument.body.scrollTop,_this.getSelectorQuery(node),node);
+						_this.highlightElement(-1,-1,_this.scrollLeftGS(),_this.scrollTopGS(),_this.getSelectorQuery(node),node);
 					}, false);
 					
 					return node;
@@ -192,6 +192,9 @@ var LHCCoBrowserOperator = (function() {
 			}
 		};
 
+		
+		
+		
 		w.onIframeLoaded = function() {
 			_this.iFrameDocument = w.frames['content'].document
 			
@@ -207,13 +210,13 @@ var LHCCoBrowserOperator = (function() {
 						e.preventDefault();
 					};
 										
-					_this.sendClickCommand(e.x,e.y,_this.iFrameDocument.body.scrollLeft,_this.iFrameDocument.body.scrollTop,_this.getSelectorQuery(e.target));
+					_this.sendClickCommand(e.x,e.y,_this.scrollLeftGS(),_this.scrollTopGS(),_this.getSelectorQuery(e.target));
 										
 				} else {
 					e.preventDefault();
 														
 					// Highlight element on click
-					_this.highlightElement(e.x,e.y,_this.iFrameDocument.body.scrollLeft,_this.iFrameDocument.body.scrollTop,_this.getSelectorQuery(e.target),e.target);	
+					_this.highlightElement(e.x,e.y,_this.scrollLeftGS(),_this.scrollTopGS(),_this.getSelectorQuery(e.target),e.target);	
 				}
 			};
 
@@ -229,6 +232,26 @@ var LHCCoBrowserOperator = (function() {
 			_this.startChangesMonitoring();
 		}
 	};
+	
+	
+	LHCCoBrowserOperator.prototype.scrollTopGS = function(stop)
+	{
+		if (typeof stop === 'undefined') {
+			return this.iFrameDocument.documentElement.scrollTop || this.iFrameDocument.body.scrollTop;
+		} else {
+			jQuery(this.iFrameDocument).scrollTop(stop);
+		}
+	};
+	
+	LHCCoBrowserOperator.prototype.scrollLeftGS = function(sleft)
+	{
+		if (typeof sleft === 'undefined') {
+			return this.iFrameDocument.documentElement.scrollLeft || this.iFrameDocument.body.scrollLeft;
+		} else {
+			jQuery(this.iFrameDocument).scrollLeft(sleft);			
+		}
+	};
+	
 	
 	LHCCoBrowserOperator.prototype.getSelectorQuery = function(node)
 	{
@@ -280,9 +303,7 @@ var LHCCoBrowserOperator = (function() {
 		if (hightlight == true) {
 			jQuery(node).addClass('lhc-higlighted');
 		};
-		
-		console.log(hightlight);
-		
+			
 		if (this.highlightedCSS == false)
 		{
 			this.highlightedCSS = true;
@@ -314,10 +335,8 @@ var LHCCoBrowserOperator = (function() {
 	LHCCoBrowserOperator.prototype.mouseEventListener = function(e) {			
 		var _this = this;
 		if (this.iFrameDocument.body != null) {		
-			var mouseX = (e.clientX || e.pageX)
-					+ this.iFrameDocument.body.scrollLeft;
-			var mouseY = (e.clientY || e.pageY)
-					+ this.iFrameDocument.body.scrollTop;
+			var mouseX = (e.clientX || e.pageX) + this.scrollLeftGS();
+			var mouseY = (e.clientY || e.pageY) + this.scrollTopGS();
 	
 			if (_this.mouse.x != mouseX || _this.mouse.y != mouseY) {
 				_this.mouse.x = mouseX;
@@ -461,9 +480,9 @@ var LHCCoBrowserOperator = (function() {
 	};
 
 	LHCCoBrowserOperator.prototype.visitorScroll = function(pos) {	
-		if (typeof this.iFrameDocument !== 'undefined' && this.userScrollSync == true) {
-			this.iFrameDocument.body.scrollLeft = pos.l;
-			this.iFrameDocument.body.scrollTop = pos.t;
+		if (typeof this.iFrameDocument !== 'undefined' && this.userScrollSync == true) {			
+			this.scrollTopGS(pos.t);
+			this.scrollLeftGS(pos.l);
 		}
 	};
 	
