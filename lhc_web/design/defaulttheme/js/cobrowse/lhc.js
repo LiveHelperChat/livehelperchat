@@ -65,6 +65,13 @@ var LHCCoBrowser = (function() {
 			inputs[i].addEventListener('change', this.inputChangeKeyUpListener,false);
 		};		
 		
+		this.hashchangeEventListenerCallback = function(e) {			
+			_this.hashchangeEventListener(e);
+		};
+		
+		window.addEventListener('hashchange',this.hashchangeEventListenerCallback,false); 
+		
+		
 		this.scrollTimeout = null;
 		this.scrollTop = this.scrollTopGS();
 		this.scrollLeft = this.scrollLeftGS();
@@ -83,7 +90,15 @@ var LHCCoBrowser = (function() {
 			this.setupNodeJs();
 		}
 	};
-		
+	
+	LHCCoBrowser.prototype.hashchangeEventListener = function(e)
+	{
+		this.sendData({
+			'f' : 'uchash',
+			'pos' : {'hsh':window.location.hash,'t':this.scrollTopGS(),'l':this.scrollLeftGS()}
+		});		
+	}
+	
 	LHCCoBrowser.prototype.scrollEventListener = function(e) 
 	{
 		this.scrollTop = this.scrollTopGS();

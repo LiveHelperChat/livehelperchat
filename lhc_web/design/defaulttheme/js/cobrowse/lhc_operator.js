@@ -55,18 +55,36 @@ var LHCCoBrowserOperator = (function() {
 			};
 		};
 		
+		this.opcontrol = false;
+		
+		if (params['options'].opcontrol) {
+			params['options'].opcontrol.click(function(){
+				if ($(this).is(':checked')){			
+					_this.opcontrol = true;					
+				} else {					
+					_this.opcontrol = false;
+				}
+			});
+			if (params['options'].opcontrol.is(':checked')){
+				this.opcontrol = true;
+			};
+		};
+		
 		this.userScrollSync = false;
+		this.userScrollData = {'t':0,'l':0};
 		
 		if (params['options'].opscroll) {
 			params['options'].opscroll.click(function(){
 				if ($(this).is(':checked')){
-					_this.userScrollSync = true;					
+					_this.userScrollSync = true;	
+					_this.visitorScroll(_this.userScrollData);
 				} else {
 					_this.userScrollSync = false;
 				}
 			});
-			if (params['options'].opscroll.is(':checked')){
+			if (params['options'].opscroll.is(':checked')) {			
 				this.userScrollSync = true;
+				this.visitorScroll(this.userScrollData);
 			};
 		};
 		
@@ -191,21 +209,16 @@ var LHCCoBrowserOperator = (function() {
 				}
 			}
 		};
-
-		
-		
 		
 		w.onIframeLoaded = function() {
 			_this.iFrameDocument = w.frames['content'].document
 			
 			_this.iFrameDocument.addEventListener('mousemove', _this.mouseEventListenerCallback, false);
 			
-			
-			
 			// Override behavior for links: instead of reloading an iframe,
 			// use them via our "browser" so that mirrors stay in sync.
 			_this.iFrameDocument.onclick = function(e) {							
-				if (e.ctrlKey) {					
+				if (e.ctrlKey || _this.opcontrol == true) {					
 					if (!(e.target && e.target.tagName == 'INPUT' && (e.target.type == 'radio' || e.target.type == 'checkbox')) ){
 						e.preventDefault();
 					};
@@ -478,11 +491,25 @@ var LHCCoBrowserOperator = (function() {
 			}
 		}
 	};
-
-	LHCCoBrowserOperator.prototype.visitorScroll = function(pos) {	
+	
+	LHCCoBrowserOperator.prototype.visitorScroll = function(pos) {
+		this.userScrollData = pos;
 		if (typeof this.iFrameDocument !== 'undefined' && this.userScrollSync == true) {			
 			this.scrollTopGS(pos.t);
 			this.scrollLeftGS(pos.l);
+		}
+	};
+
+	LHCCoBrowserOperator.prototype.visitorHash = function(pos) {	
+		if (typeof this.iFrameDocument !== 'undefined') {	
+			
+			// Try to find element by id first	
+			if (jQuery(this.iFrameDocument).find(pos.hsh).size() > 0) {	
+				this.scrollTopGS(jQuery(this.iFrameDocument).find(pos.hsh).offset().top);
+			} else {			
+				this.scrollTopGS(pos.t);
+				this.scrollLeftGS(pos.l);
+			}
 		}
 	};
 	
@@ -570,6 +597,8 @@ var LHCCoBrowserOperator = (function() {
 			this.visitorCursor(msg.pos);
 		} else if (msg.f && msg.f == 'uscroll') {
 			this.visitorScroll(msg.pos);
+		} else if (msg.f && msg.f == 'uchash') {
+			this.visitorHash(msg.pos);
 		} else if (msg.f && msg.f == 'textdata') {
 			this.changeTextValue(msg);
 		} else if (msg.f && msg.f == 'selectval') {
