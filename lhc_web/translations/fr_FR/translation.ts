@@ -303,16 +303,16 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Widget copyright</source>
+      <translation>Droit d&apos;auteur du widget</translation>
+    </message>
+    <message>
       <source>Download theme</source>
       <translation>Téléchargez un thème</translation>
     </message>
     <message>
       <source>Status widget style</source>
       <translation>Style du statut du widget</translation>
-    </message>
-    <message>
-      <source>Widget copyright</source>
-      <translation>Droit d&apos;auteur du widget</translation>
     </message>
     <message>
       <source>Widget container</source>
@@ -337,6 +337,10 @@
     <message>
       <source>Need help standard text</source>
       <translation>Texte standard de &quot;Besoin d&apos;aide ?&quot;</translation>
+    </message>
+    <message>
+      <source>Widget border width (px)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Online status text</source>
@@ -381,6 +385,22 @@
     <message>
       <source>Show copyright widget logo in left corner</source>
       <translation>Voir le logo de droit d&apos;auteur du widget dans le coin gauche</translation>
+    </message>
+    <message>
+      <source>Hide widget close button</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide popup option</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Header height (px)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Header padding (px)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Widget copyright link</source>
@@ -445,6 +465,22 @@
     <message>
       <source>Widget body additional CSS, takes effect after save</source>
       <translation>CSS additionel pour le corps du widget, prend effet après sauvegarde</translation>
+    </message>
+    <message>
+      <source>Minimize image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Restore image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Close image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Popup image</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Widget themes</source>
@@ -4297,6 +4333,10 @@
     <message>
       <source>On highlight scroll user window location to match my</source>
       <translation>Lors d&apos;un surlignage, défiler l&apos;écran de l&apos;utilisateur pour concorder avec le mien</translation>
+    </message>
+    <message>
+      <source>Follow user scroll position</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Click blue eye at the top to request screen share</source>

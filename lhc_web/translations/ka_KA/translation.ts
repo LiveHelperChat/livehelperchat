@@ -3,227 +3,227 @@
     <name>listchatconfig</name>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
-      <translation type="unfinished"/>
+      <translation>რამდენი დღე  არ უნდა გაფართივდეს ხმის მიცემის ვიდჯეტი ბოლო ჩვენებიდან</translation>
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
-      <translation type="unfinished"/>
+      <translation>გამოიყენეთ დაცული ქუქი-ჩანაწერები, შეამოწმეთ თუ გსურთ, რომ აიძულოთ SSL ყოველ ჯერზე.</translation>
     </message>
     <message>
       <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
-      <translation type="unfinished"/>
+      <translation>რომელი ip უნდა იყოს დაშვებული, რომ განახლდეს DB მძიმით გამოყოფილი http მოთხოვნის შესრულებით?</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
-      <translation type="unfinished"/>
+      <translation>საიტის ონლაინ ვიზიტორების თვალთვალის ჩართვა</translation>
     </message>
     <message>
       <source>Track is user still on site, chat status checks also has to be enabled</source>
-      <translation type="unfinished"/>
+      <translation>თვალის მიდევნება, თუ მომხმარებელი კვლავაც საიტზეა, ჩეთის სტატუსის შემოწმებაც აგრეთვე ჩართული იქნება</translation>
     </message>
     <message>
       <source>Track online visitors even if there is no online operators</source>
-      <translation type="unfinished"/>
+      <translation>ონლაინ ვიზიტორებისთვის თვალის მიდევნება, იმ შემთხვევაშიც კი თუ ონლაინ ოპერატორები არ არიან</translation>
     </message>
     <message>
       <source>Track users footprint. For this also online visitors tracking should be enabled</source>
-      <translation type="unfinished"/>
+      <translation>მომხმარებლის კვალისთვის თვალის მიდევნება. ამისთვის ასევე ჩართული უნდა იყოს ონლაინ ვიზიტორებისთვის თვალის მიდევნება</translation>
     </message>
     <message>
       <source>Set your domain to enable user tracking across different domain subdomains.</source>
-      <translation type="unfinished"/>
+      <translation>მომართეთტქვენი დომენი რომ ჩართოთ მომხმარებლის თვალთვალი სხვადასხვა დომენებისა და ქვედომენების გავლით.</translation>
     </message>
     <message>
       <source>How many days keep records of online users.</source>
-      <translation type="unfinished"/>
+      <translation>რამდენი დღე შევინახოთ ონლაინ მომხმარებების ჩანაწერები.</translation>
     </message>
     <message>
       <source>Suggest user to leave a message then user chooses offline department</source>
-      <translation type="unfinished"/>
+      <translation>შესთავაზე მომხმარებელს დატოვოს შეტყობინება, შემდეგ მომხმარებელი ირჩვევს კავშირგარეშე  დეპარტამენტს</translation>
     </message>
     <message>
       <source>Play sound on invitation to chat.</source>
-      <translation type="unfinished"/>
+      <translation>ხმის დაკვრა ჩეთში მოწვევისას.</translation>
     </message>
     <message>
       <source>Show users option to switch language at widget</source>
-      <translation type="unfinished"/>
+      <translation>აჩვენე მომხმარებლის ვარიანტები რომ გადართის ენა ვიდჯეტში</translation>
     </message>
     <message>
       <source>Between what languages user should be able to switch</source>
-      <translation type="unfinished"/>
+      <translation>რომელ ენებს შორის  უნდა გადართოს მომხმარებელმა</translation>
     </message>
     <message>
       <source>Host where NodeJs is running</source>
-      <translation type="unfinished"/>
+      <translation>ჰოსტი სადაც  NodeJs არის გაშვებული</translation>
     </message>
     <message>
       <source>Location of SocketIO JS library</source>
-      <translation type="unfinished"/>
+      <translation>SocketIO JS  ბიბლიოთეკის მდებარეობა</translation>
     </message>
     <message>
       <source>Connect to NodeJs in https mode</source>
-      <translation type="unfinished"/>
+      <translation>NodeJs სთან დაკავშირება  https  რეჟიმში</translation>
     </message>
     <message>
       <source>NodeJS support enabled</source>
-      <translation type="unfinished"/>
+      <translation>NodeJS  მხარდაჭერა ჩართულია</translation>
     </message>
     <message>
       <source>Do not ask permission for users to see their screen</source>
-      <translation type="unfinished"/>
+      <translation>არ სთხოვო ნებართვა მომხმარებლებს, რომ ნახოთ მათი ეკრანი</translation>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
-      <translation type="unfinished"/>
+      <translation>სესიის  captcha-ს გამოყენება. LHC ინსტალაცია მოხდება იგივე დომენზე ან ქვედომენზე.</translation>
     </message>
     <message>
       <source>Should cronjob run unanswered chats workflow and execute unaswered chats callback, 0 - no, any other number bigger than 0 is a minits how long chat have to be not accepted before executing callback.</source>
-      <translation type="unfinished"/>
+      <translation> cronjob მა უნდა გაუშვას პასუხგაუცემელი ჩეთების სამუშაო პროცესი და შეასრულოს ასუხგაუცემელი  ჩეთების უკუგამოძახება, 0 -  არა, ნებისმიერი სხვა რიცხხვი რომელიც მეტია 0-ზე არის წუთები, რომელთა მანძილზეც ჩეთი არ იქნება დადასტურებული უკუგამოძახების შესრულებამდე.</translation>
     </message>
     <message>
       <source>Should cronjob run departments transfer workflow, even if user leaves a chat</source>
-      <translation type="unfinished"/>
+      <translation>cronjob გაშვებული უნდა იყოს დეპარტამენტების სამუშაო პროცესის ტრანსფერში, იმ შემთხვევაშიც თუ მომხმარებელმა დატოვა ჩეთი</translation>
     </message>
     <message>
       <source>Reopen chat functionality enabled</source>
-      <translation type="unfinished"/>
+      <translation>ჩეთის ფინქციების ჩართვის ხელახლა გახსნა</translation>
     </message>
     <message>
       <source>Reopen closed chat as new? Otherwise it will be reopened as active.</source>
-      <translation type="unfinished"/>
+      <translation>გავხსნა დახურული ჩეთები,  როგორც ახალი?წინააღმდეგ შემთხვევაშ ის გაიხსნება როგორც ახალი</translation>
     </message>
     <message>
       <source>Should invitation logic be executed if there is no online operators</source>
-      <translation type="unfinished"/>
+      <translation>მოწვევის ლოგიკა უნდა შესრულდეს თუ არ არიან ონლაინ ოპერატორები</translation>
     </message>
     <message>
       <source>Pro active chats invitations limitation based on pending chats, (-1) do not limit, (0,1,n+1) number of pending chats can be for invitation to be shown.</source>
-      <translation type="unfinished"/>
+      <translation>პროაქტიული ჩეთების მოწვევების ლიმიტირება მომლოდინე ჩეთებზე დაფუძნებით,  (-1)  არ შეზღუდო,  (0,1,n+1) მომლოდინე ჩეთების რაოდენობა შეიძლება ნაჩვენები იყოს მოსაწვევებში</translation>
     </message>
     <message>
       <source>Is pro active chat invitation active. Online users tracking also has to be enabled</source>
-      <translation type="unfinished"/>
+      <translation>აქტიურია პროაქტიული ჩეთის მოწვევა. მომხმარებლების თვალთვალიც ასევე ჩართული უნდა იყოს</translation>
     </message>
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
-      <translation type="unfinished"/>
+      <translation>გჭირდებათ დახმარება მინიშნების შეყოვნება, რამდენი საათის შემდეგ აჩვენოს ხელახლა მინიშნება?</translation>
     </message>
     <message>
       <source>Show need help tooltip?</source>
-      <translation type="unfinished"/>
+      <translation>ვაჩვენო გჭირდებათ დახმარების მინიშნება?</translation>
     </message>
     <message>
       <source>Minimum phone number length</source>
-      <translation type="unfinished"/>
+      <translation>ტელეფონის ნომრის მინიმალური სიგრძე</translation>
     </message>
     <message>
       <source>Messages box height</source>
-      <translation type="unfinished"/>
+      <translation>შეტყობინების სარკმელის სიმაღლე</translation>
     </message>
     <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
-      <translation type="unfinished"/>
+      <translation>პროაქტიური შეტყობინებების შეყოვნება საათებში. რამდენი საათის შემდეგ უნდა იყოს ჩეთის შეტყობინება ხელახლა ნაჩვენები.</translation>
     </message>
     <message>
       <source>Maximum message length in characters</source>
-      <translation type="unfinished"/>
+      <translation>შეტყობინების მაქსიმალური სიგრძე სიმბოლოებში</translation>
     </message>
     <message>
       <source>List online operators.</source>
-      <translation type="unfinished"/>
+      <translation>ონლაინ ოპერატორების სია.</translation>
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
-      <translation type="unfinished"/>
+      <translation>მომხმარებლების ონლაინ სტატუსების იგნორირება და დეპარტამენტის გამოყენება ონლაინ საათებში</translation>
     </message>
     <message>
       <source>Which ip should be ignored in online users list, separate by comma</source>
-      <translation type="unfinished"/>
+      <translation>რომელი ip უნდა იყოს იგნორირებული, მძიმით გამოყოფილ  ონლაინ მომხმარებელთა სიაში</translation>
     </message>
     <message>
       <source>Hide disabled department widget</source>
-      <translation type="unfinished"/>
+      <translation>გამორთული დეპარტამენტის ვიდჯეტის დამალვა</translation>
     </message>
     <message>
       <source>Is visitor e-mail required for FAQ</source>
-      <translation type="unfinished"/>
+      <translation>აუცილებელია ვიზიტორის ელ-ფოსტა ხშირად დასმული კითხვებისთვის</translation>
     </message>
     <message>
       <source>Chats export secret hash</source>
-      <translation type="unfinished"/>
+      <translation>ჩეთის საიდუმლო ჰეშის ექსპორტი</translation>
     </message>
     <message>
       <source>Please enter explicit http mode. Either http: or https:, do not forget : at the end.</source>
-      <translation type="unfinished"/>
+      <translation>გთხოვთ დაბეჭდეთ  აშკარა http  რეჟიმში.  ან http: ან https:, არ დაგავიწყდეთ: დასრულებისას.</translation>
     </message>
     <message>
       <source>Disable chat transcript send</source>
-      <translation type="unfinished"/>
+      <translation>ჩეთის ტრანსკრიპტის გაგზავნის გამორთვა</translation>
     </message>
     <message>
       <source>Disable chat print</source>
-      <translation type="unfinished"/>
+      <translation>ჩეთის ამობეჭდვის გამორთვა</translation>
     </message>
     <message>
       <source>Disable option in widget to open new window. Restore icon will be hidden</source>
-      <translation type="unfinished"/>
+      <translation>გამორთე ოფცია ვიდჯეტში რომ გახსნას ახალი ფანჯარა. აღდგენის ხატულა დამალული იქნება.</translation>
     </message>
     <message>
       <source>Disable JS execution in Co-Browsing operator window</source>
-      <translation type="unfinished"/>
+      <translation>JS შესრულების გამორთვა თანაჩატვირთვადი ოპერატორის ფანჯარაში</translation>
     </message>
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
-      <translation type="unfinished"/>
+      <translation>HMTL5 სივრცის გამორთვა, შეამოწმეთ თუ თქვენი საიტი გადაირთვება http-სა და https-ს შორის</translation>
     </message>
     <message>
       <source>Your site URL address</source>
-      <translation type="unfinished"/>
+      <translation>თქვენი საიტის URL მისამართი</translation>
     </message>
     <message>
       <source>Your company name - visible in bottom left corner</source>
-      <translation type="unfinished"/>
+      <translation>თქვენი კომპანიის სახელი-ხილვადი ქვედა მარცხენა მხარეს.</translation>
     </message>
     <message>
       <source>Interval between chat status checks in seconds, 0 disabled.</source>
-      <translation type="unfinished"/>
+      <translation>ინტერვალი წამებში ჩეთების  სტატუსების შემოწმებას შორის.0 გამორთულია.</translation>
     </message>
     <message>
       <source>Show BB Code button</source>
-      <translation type="unfinished"/>
+      <translation>აჩვენე BB კოდის ღილაკი</translation>
     </message>
     <message>
       <source>Which ip should not be allowed to chat</source>
-      <translation type="unfinished"/>
+      <translation>რომელი ip არ უნდა იყოს ნებადართული ჩეთში</translation>
     </message>
     <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
-      <translation type="unfinished"/>
+      <translation>ჩეთების ავტომატური გაწმენდა. 0 -  გამორთვა,  n &gt; 0  დრო წუთებში სანამ ჩეთი ავტომატურად წაიშლება</translation>
     </message>
     <message>
       <source>Automatically reopen chat on widget open</source>
-      <translation type="unfinished"/>
+      <translation>ჩეთის ხელახლა გახსნა ავტომატურად გახსნილ ვიდჯეტში</translation>
     </message>
     <message>
       <source>Automatic chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
-      <translation type="unfinished"/>
+      <translation>ჩეთების ავტომატურად დახურვა. 0 - გამორთულია,  n &gt; 0 დრო წუთებში სანამ ჩეთი ავტომატურად დაიხურება</translation>
     </message>
     <message>
       <source>Support application name, visible in browser title.</source>
-      <translation type="unfinished"/>
+      <translation>აპლიკაციის სახელის ბრაუზერში ხილვადობის მხარდაჭერა.</translation>
     </message>
     <message>
       <source>Allow user to reopen closed chats?</source>
-      <translation type="unfinished"/>
+      <translation>ნება დავრთო მომხმარებლებს, რომ ხელახლა გახსნან დახურული ჩეთები?</translation>
     </message>
     <message>
       <source>Change to your site Terms of Service</source>
-      <translation type="unfinished"/>
+      <translation>თქვენი ვებსაიტის გამოყენების პირობების შეცვლა</translation>
     </message>
     <message>
       <source>How many seconds chat accept link is valid. Set 0 to force login all the time manually.</source>
-      <translation type="unfinished"/>
+      <translation>რამდენი წამია ჩეთის დადასტურების ბმული ვალიდური. მომართეთ  0  თუ გსურთ აიძულოთ ავტორიზაცია ყოველ ჯერზე.</translation>
     </message>
   </context>
   <context>
@@ -303,152 +303,188 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Widget copyright</source>
+      <translation>ვიდჯეტის საავტორო უფლება</translation>
+    </message>
+    <message>
       <source>Download theme</source>
-      <translation type="unfinished"/>
+      <translation>თემის ჩამოტვირთვა</translation>
     </message>
     <message>
       <source>Status widget style</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Widget copyright</source>
-      <translation type="unfinished"/>
+      <translation>სტატუსის ვიდჯეტის სტილი</translation>
     </message>
     <message>
       <source>Widget container</source>
-      <translation type="unfinished"/>
+      <translation>ვიდჯეტის კონტეინერი</translation>
     </message>
     <message>
       <source>Need help widget</source>
-      <translation type="unfinished"/>
+      <translation>გჭირდებათ დახმარება ვიდჯეტი</translation>
     </message>
     <message>
       <source>Custom CSS</source>
-      <translation type="unfinished"/>
+      <translation>მორგებული  CSS</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>სახელი</translation>
     </message>
     <message>
       <source>Need help header text</source>
-      <translation type="unfinished"/>
+      <translation>გჭირდებათ დახმარება ზედა კოლონტიტულის ტექსტი</translation>
     </message>
     <message>
       <source>Need help standard text</source>
+      <translation>გჭირდებათ დახმარება სტანდარტული ტექსტი</translation>
+    </message>
+    <message>
+      <source>Widget border width (px)</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Online status text</source>
-      <translation type="unfinished"/>
+      <translation>კავშირგარეშე სტატუსის ტექსტი</translation>
     </message>
     <message>
       <source>Offline status text</source>
-      <translation type="unfinished"/>
+      <translation>კავშირგარეშე სტატუსის ტექსტი</translation>
     </message>
     <message>
       <source>Operator intro text</source>
-      <translation type="unfinished"/>
+      <translation>ოპერატორის ინტრო ტექსტი</translation>
     </message>
     <message>
       <source>Have a question? Ask us!</source>
-      <translation type="unfinished"/>
+      <translation>შეკითხვა გაქვთ? გვკითხეთ!</translation>
     </message>
     <message>
       <source>Background color</source>
-      <translation type="unfinished"/>
+      <translation>ფონის ფერი</translation>
     </message>
     <message>
       <source>Status widget border color</source>
-      <translation type="unfinished"/>
+      <translation>სტატუსის ვიდჯეტის ჩარჩოს ფერი</translation>
     </message>
     <message>
       <source>Text color</source>
-      <translation type="unfinished"/>
+      <translation>ტექსტის ფერი</translation>
     </message>
     <message>
       <source>Operator image in chat widget</source>
-      <translation type="unfinished"/>
+      <translation>ოპერატორის სურათი ჩეთის ვიჯეტში</translation>
     </message>
     <message>
       <source>Logo image, visible in popup</source>
-      <translation type="unfinished"/>
+      <translation>ლოგოს სურათი, ხილვადია ჩამოშლად ფანჯარაში</translation>
     </message>
     <message>
       <source>Logo image, visible in widget left corner, 16x16</source>
-      <translation type="unfinished"/>
+      <translation>ლოგოს სურათი, ნაჩვენებია ვიდჯეტის მარცხენა მხარეს, 16x16</translation>
     </message>
     <message>
       <source>Show copyright widget logo in left corner</source>
+      <translation>საავტორო უფლების ვიდჯეტის ლოგო მარცხენა მხარეს</translation>
+    </message>
+    <message>
+      <source>Hide widget close button</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide popup option</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Header height (px)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Header padding (px)</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Widget copyright link</source>
-      <translation type="unfinished"/>
+      <translation>ვიდჯერის საავტორო უფლების ბმული</translation>
     </message>
     <message>
       <source>Text above start chat form fields</source>
-      <translation type="unfinished"/>
+      <translation>ტექსტი დაწყების ჩეთის ფორმის ველის ზემოთ</translation>
     </message>
     <message>
       <source>Online image</source>
-      <translation type="unfinished"/>
+      <translation>ონლაინ სურათი</translation>
     </message>
     <message>
       <source>Offline image</source>
-      <translation type="unfinished"/>
+      <translation>კავშირგარეშე სურათი</translation>
     </message>
     <message>
       <source>Widget header background color</source>
-      <translation type="unfinished"/>
+      <translation>ვიდჯეტის ზედა კოლონტიტულის ფონის ფერი</translation>
     </message>
     <message>
       <source>Widget border color</source>
-      <translation type="unfinished"/>
+      <translation>ვიდჯეტის ფონის ფერი</translation>
     </message>
     <message>
       <source>Need help background color</source>
-      <translation type="unfinished"/>
+      <translation>გჭირდებათ დახმარება ფონის ფერი</translation>
     </message>
     <message>
       <source>Need help hover background color</source>
-      <translation type="unfinished"/>
+      <translation>გჭირდებათ დახმარება გადატარების  ფონის ფერი</translation>
     </message>
     <message>
       <source>Need help text color</source>
-      <translation type="unfinished"/>
+      <translation>გჭირდებათ დახმარება ტექსტის ფერი</translation>
     </message>
     <message>
       <source>Need help border color</source>
-      <translation type="unfinished"/>
+      <translation>გჭირდებათ დახმარება ჩარჩოს ფერი</translation>
     </message>
     <message>
       <source>Need help close background color</source>
-      <translation type="unfinished"/>
+      <translation>გჭირდებათ დახმარება ფონის ფრის დახურვა</translation>
     </message>
     <message>
       <source>Need help close hover background color</source>
-      <translation type="unfinished"/>
+      <translation>გჭირდებათ დახმარება დახურეთ გადატარების  ფონის ფერი</translation>
     </message>
     <message>
       <source>Need help operator image</source>
-      <translation type="unfinished"/>
+      <translation>გჭირდებათ დახმარება ოპერატორის სურათი</translation>
     </message>
     <message>
       <source>Status widget additional CSS, takes effect after save</source>
-      <translation type="unfinished"/>
+      <translation>სტატუსის ვიდჯეტის დამატებითი  CSS, ძალაშ შევა შენახვის შემდეგ</translation>
     </message>
     <message>
       <source>Widget container additional CSS, takes effect after save</source>
-      <translation type="unfinished"/>
+      <translation>ვიდჯეტის კონტეინერის დამატებითი  CSS, ძალაში შევა შენახვის შემდეგ</translation>
     </message>
     <message>
       <source>Widget body additional CSS, takes effect after save</source>
+      <translation>ვიდჯეტის ტანის დამატებითი CSS, ძალაში შევა შენახვის  შემდეგ</translation>
+    </message>
+    <message>
+      <source>Minimize image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Restore image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Close image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Popup image</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Widget themes</source>
-      <translation type="unfinished"/>
+      <translation>ვიდჯეტის თემები</translation>
     </message>
   </context>
   <context>
@@ -483,11 +519,11 @@
     </message>
     <message>
       <source>Allow operator to see your page content?</source>
-      <translation type="unfinished"/>
+      <translation>ნება დართეთ ოპერატორს, რომ ნახოს თქვენი გვერდის კონტენტი</translation>
     </message>
     <message>
       <source>Screen shared, click to finish</source>
-      <translation type="unfinished"/>
+      <translation>ეკრანი გაზიარებულია,  დაკლიკეთ, რომ დაასრულოთ</translation>
     </message>
   </context>
   <context>
@@ -570,7 +606,7 @@
     </message>
     <message>
       <source>Requires phone</source>
-      <translation type="unfinished"/>
+      <translation> აუცილებელია ტელეფონი</translation>
     </message>
     <message>
       <source>Show random operator profile</source>
@@ -594,11 +630,11 @@
     </message>
     <message>
       <source>Message to returning user</source>
-      <translation type="unfinished"/>
+      <translation>შეტყობინებამომხმარებლის დაბრუნების შესახებ</translation>
     </message>
     <message>
       <source>Nick which will be used if we cannot determine returning user name</source>
-      <translation type="unfinished"/>
+      <translation>ნიკი, რომელიც გამოყენებული იქნება თუ ჩვენ ვერ განვსაზღვრავთ დაბრუნებული მომხმარებლის სახელს</translation>
     </message>
     <message>
       <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
@@ -644,11 +680,11 @@
     </message>
     <message>
       <source>For what domain you are generating embed code?</source>
-      <translation type="unfinished"/>
+      <translation>რომელი დომენისთვის აგენერირებთ ჩასაშენებელ კოდს?</translation>
     </message>
     <message>
       <source>example.com</source>
-      <translation type="unfinished"/>
+      <translation>example.com</translation>
     </message>
     <message>
       <source>Choose prefered http mode</source>
@@ -676,11 +712,11 @@
     </message>
     <message>
       <source>Theme</source>
-      <translation type="unfinished"/>
+      <translation>თემა</translation>
     </message>
     <message>
       <source>Default</source>
-      <translation type="unfinished"/>
+      <translation>ნაგულისხმევი</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>
@@ -736,7 +772,7 @@
     </message>
     <message>
       <source>Disable responsive layout for status widget.</source>
-      <translation type="unfinished"/>
+      <translation>მაკეტის რეაგიების გამორთვა სტატუსის ვიდჯეტისთვის.</translation>
     </message>
     <message>
       <source>Disable minimize icon</source>
@@ -776,7 +812,7 @@
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>იდენტიფიკატორი</translation>
     </message>
     <message>
       <source>Help us to grow</source>
@@ -804,11 +840,11 @@
     </message>
     <message>
       <source>Operator ID</source>
-      <translation type="unfinished"/>
+      <translation>ოპერატორის ID</translation>
     </message>
     <message>
       <source>To what operator chat should be assigned automatically?</source>
-      <translation type="unfinished"/>
+      <translation>რომელ ოპერატორს მიეკუთვნება ჩეთი ავტომატურად?</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want your status to appear</source>
@@ -864,19 +900,19 @@
     </message>
     <message>
       <source>Invisible, only JS API will be included</source>
-      <translation type="unfinished"/>
+      <translation>უხილავი,   მხოლოდ JS API  იქნება ჩასმული</translation>
     </message>
     <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
-      <translation type="unfinished"/>
+      <translation>მოქმედების მინიმიზაცია, გამოიყენება მხოლოდ მაშინ, თუ სტატუსის ვიდჯეტი არის ქვემოთ</translation>
     </message>
     <message>
       <source>Keep where it was</source>
-      <translation type="unfinished"/>
+      <translation>შეინარჩუნე, სადაც იყო</translation>
     </message>
     <message>
       <source>Minimize to bottom of the screen</source>
-      <translation type="unfinished"/>
+      <translation>მინიმიზაცია ეკრანის ქვემოთ</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -934,11 +970,11 @@
     </message>
     <message>
       <source>Forms</source>
-      <translation type="unfinished"/>
+      <translation>ფორმები</translation>
     </message>
     <message>
       <source>Documents</source>
-      <translation type="unfinished"/>
+      <translation>დოკუმენტები</translation>
     </message>
     <message>
       <source>Form</source>
@@ -984,7 +1020,7 @@
     <name>chat/lists/search_panel</name>
     <message>
       <source>Delete selected</source>
-      <translation type="unfinished"/>
+      <translation>მონიშნულების წაშლა</translation>
     </message>
     <message>
       <source>Nick</source>
@@ -1016,7 +1052,7 @@
     </message>
     <message>
       <source>XLS</source>
-      <translation type="unfinished"/>
+      <translation>XLS</translation>
     </message>
     <message>
       <source>Select department</source>
@@ -1181,7 +1217,7 @@
     </message>
     <message>
       <source>Please enter an IP to block</source>
-      <translation type="unfinished"/>
+      <translation>გთხოვთ, დაბეჭდეთ IP ბლოკში</translation>
     </message>
     <message>
       <source>User was blocked!</source>
@@ -1223,7 +1259,7 @@
     </message>
     <message>
       <source>Auto send</source>
-      <translation type="unfinished"/>
+      <translation>ავტო გაგზავნა</translation>
     </message>
     <message>
       <source>Edit message</source>
@@ -1243,7 +1279,7 @@
     </message>
     <message>
       <source>Automatically send this message to user then chat is accepted</source>
-      <translation type="unfinished"/>
+      <translation>ამ შეტყობინების ავტომატურად გაგზავნა მომხმარებლისთის, ამშინ, როცა ჩეთი დადასტურდება</translation>
     </message>
     <message>
       <source>Delay in seconds</source>
@@ -1358,27 +1394,27 @@
     </message>
     <message>
       <source>Work hours, 24 hours format, 1 - 24, minutes format 0 - 60</source>
-      <translation type="unfinished"/>
+      <translation>სამუშაო საათები, 24 საათიანი ფორმატი, 1-24, წუთების ფორმატი 0-60</translation>
     </message>
     <message>
       <source>Hours from, E.g. 8</source>
-      <translation type="unfinished"/>
+      <translation>საათები, მაგ. 8-დან</translation>
     </message>
     <message>
       <source>Minutes from, E.g. 30</source>
-      <translation type="unfinished"/>
+      <translation>წუთები, მაგ. 30-დან</translation>
     </message>
     <message>
       <source>Hours to, E.g. 17</source>
-      <translation type="unfinished"/>
+      <translation>საათები მაგ. 17 -მდე</translation>
     </message>
     <message>
       <source>Minutes to, E.g. 30</source>
-      <translation type="unfinished"/>
+      <translation>წუთები მაგ. 30-მდე</translation>
     </message>
     <message>
       <source>Notifications</source>
-      <translation type="unfinished"/>
+      <translation>შეტყობინებები</translation>
     </message>
     <message>
       <source>XMPP recipients</source>
@@ -1422,7 +1458,7 @@
     </message>
     <message>
       <source>Inform then chat is accepted by one of the staff members using</source>
-      <translation type="unfinished"/>
+      <translation>ინფორმირება, როდესაც ჩეთი დადასტურდება  პერსონალის ერთ-ერთი წარმომადგენლის მიერ</translation>
     </message>
     <message>
       <source>Other</source>
@@ -1446,15 +1482,15 @@
     </message>
     <message>
       <source>Execute new chat logic again for recipient department?</source>
-      <translation type="unfinished"/>
+      <translation>ხელახლა შეასრულოს ახალი ჩეთის ლოგიკა ადრესატების დეპარტამენტისთვის?</translation>
     </message>
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
-      <translation type="unfinished"/>
+      <translation>ხელახლა შეასრულოს პასუხგაუცემელი ჩეთის ლოგიკა ადრესატების დეპარტამენტისთვის?</translation>
     </message>
     <message>
       <source>Auto assignment</source>
-      <translation type="unfinished"/>
+      <translation>ავტო მიკუთვნება</translation>
     </message>
     <message>
       <source>Miscellaneous</source>
@@ -1540,7 +1576,7 @@
     </message>
     <message>
       <source>Edit main chat information</source>
-      <translation type="unfinished"/>
+      <translation>მთავარი ჩეთის  ინფორმაციის რედაქტირება</translation>
     </message>
     <message>
       <source>Department</source>
@@ -1552,7 +1588,7 @@
     </message>
     <message>
       <source>Time zone</source>
-      <translation type="unfinished"/>
+      <translation>დროის სარტყელი</translation>
     </message>
     <message>
       <source>City</source>
@@ -1584,7 +1620,7 @@
     </message>
     <message>
       <source>User left</source>
-      <translation type="unfinished"/>
+      <translation>მომხმარებელი გავიდა</translation>
     </message>
     <message>
       <source>Waited</source>
@@ -1640,19 +1676,19 @@
     </message>
     <message>
       <source>Attach uploaded file</source>
-      <translation type="unfinished"/>
+      <translation>ატვირთული ფაილების დართვა</translation>
     </message>
     <message>
       <source>Please enter a URL</source>
-      <translation type="unfinished"/>
+      <translation>გთხოვთ დაბეჭდეთ URL</translation>
     </message>
     <message>
       <source>Redirect user to another url</source>
-      <translation type="unfinished"/>
+      <translation>მომხმარებლის გადართვა სხვა url-ზე</translation>
     </message>
     <message>
       <source>Screen sharing</source>
-      <translation type="unfinished"/>
+      <translation>ეკრანის გაზიარება</translation>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
@@ -1778,15 +1814,15 @@
     </message>
     <message>
       <source>h.</source>
-      <translation>h.</translation>
+      <translation>სთ.</translation>
     </message>
     <message>
       <source>m.</source>
-      <translation>m.</translation>
+      <translation>წთ.</translation>
     </message>
     <message>
       <source>s.</source>
-      <translation>s.</translation>
+      <translation>წმ.</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -1903,7 +1939,7 @@
     </message>
     <message>
       <source>Please enter a message...</source>
-      <translation type="unfinished"/>
+      <translation>გთხოვთ, დაბეჭდეთ შეტყობინება</translation>
     </message>
     <message>
       <source>Start chat</source>
@@ -1911,7 +1947,7 @@
     </message>
     <message>
       <source>Live support is not available in your country</source>
-      <translation type="unfinished"/>
+      <translation>ინტერაქტიული მხარდაჭერა არ არის ხელმისაწვდომი თქვენს ქვეყანაში</translation>
     </message>
     <message>
       <source>Live Support</source>
@@ -1923,7 +1959,7 @@
     </message>
     <message>
       <source>File</source>
-      <translation type="unfinished"/>
+      <translation>ფაილი</translation>
     </message>
     <message>
       <source>Leave a message</source>
@@ -1951,23 +1987,23 @@
     </message>
     <message>
       <source>Have a question? Ask us!</source>
-      <translation type="unfinished"/>
+      <translation>კითხვა გაქვთ? გვკითხეთ!</translation>
     </message>
     <message>
       <source>Department is offline</source>
-      <translation type="unfinished"/>
+      <translation>დეპარტამენტი კავშირგარეშეა</translation>
     </message>
     <message>
       <source>Go to leave a message form</source>
-      <translation type="unfinished"/>
+      <translation>შეტყობინების დატივების  ფორმაში შესვლა</translation>
     </message>
     <message>
       <source>Cancel and choose another department</source>
-      <translation type="unfinished"/>
+      <translation>გაუქმება და სხვა დეპარტამენტის არჩევა</translation>
     </message>
     <message>
       <source>characters</source>
-      <translation type="unfinished"/>
+      <translation>სიმბოლოები</translation>
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
@@ -1991,11 +2027,11 @@
     </message>
     <message>
       <source>Choose your language</source>
-      <translation type="unfinished"/>
+      <translation>აირჩიეთ ენა</translation>
     </message>
     <message>
       <source>Invalid CSRF token!</source>
-      <translation type="unfinished"/>
+      <translation>არასწორი CSRF  მარკერი</translation>
     </message>
     <message>
       <source>Please enter a valid email address</source>
@@ -2043,7 +2079,7 @@
     </message>
     <message>
       <source>Invalid file</source>
-      <translation type="unfinished"/>
+      <translation>არასწორი ფაილი</translation>
     </message>
     <message>
       <source>Could not determine a default department!</source>
@@ -2055,15 +2091,15 @@
     </message>
     <message>
       <source>Invalid file extension</source>
-      <translation type="unfinished"/>
+      <translation>ფაილის არასწორი გაფართოება</translation>
     </message>
     <message>
       <source>Invalid file extension!</source>
-      <translation type="unfinished"/>
+      <translation>ფაილის არასწორი გაფართოება!</translation>
     </message>
     <message>
       <source>To big file!</source>
-      <translation type="unfinished"/>
+      <translation>დიდი ფაილისთვის!</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -2079,7 +2115,7 @@
     </message>
     <message>
       <source>Unread message</source>
-      <translation type="unfinished"/>
+      <translation>წაუკითხავი შეტყობინება</translation>
     </message>
   </context>
   <context>
@@ -2102,7 +2138,7 @@
     </message>
     <message>
       <source>Visitor has been redirected to contact form</source>
-      <translation type="unfinished"/>
+      <translation>ვიზიტორი გადამისამართდა კონტაქტის ფორმაზე</translation>
     </message>
   </context>
   <context>
@@ -2208,58 +2244,58 @@
     <name>chat/geoadjustment</name>
     <message>
       <source>GEO adjustment</source>
-      <translation type="unfinished"/>
+      <translation>გეო რეგულირება</translation>
     </message>
     <message>
       <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
-      <translation type="unfinished"/>
+      <translation>ჩეთის ვიდჯეტის სტატუსის ინდიკატორისთვის ასევე გამოვიყენოთ ეს წესები? ეფექტურობის შემცირება ასოცირდება ამ ვარიანტთან</translation>
     </message>
     <message>
       <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
-      <translation type="unfinished"/>
+      <translation>აქციე ჩეთის სტატუსი ნორმალურად ამ ქვეყნებისთვის, ქვეყნები შეიძლება გამოყოფილი იყოს მძიმით &quot;de,gb,us,fr&quot;  ნიშნავს, რომ ჩეთი ნაჩვენები იქნება მხოლოდ ამ ქვეყნებისთვის.</translation>
     </message>
     <message>
       <source>For</source>
-      <translation type="unfinished"/>
+      <translation>თვის</translation>
     </message>
     <message>
       <source>all</source>
-      <translation type="unfinished"/>
+      <translation>ყველა</translation>
     </message>
     <message>
       <source>custom</source>
-      <translation type="unfinished"/>
+      <translation>მორგებული</translation>
     </message>
     <message>
       <source>E.g. ar,pl</source>
-      <translation type="unfinished"/>
+      <translation>E.g. ar,pl</translation>
     </message>
     <message>
       <source>Other countries, put widget/chat status to</source>
-      <translation type="unfinished"/>
+      <translation>სხვა ქვეყნები, მომართეთ ვიდჯეტის/ჩეთის სტატუსი</translation>
     </message>
     <message>
       <source>offline status</source>
-      <translation type="unfinished"/>
+      <translation>კავშირგარეშე სტატუსი</translation>
     </message>
     <message>
       <source>hidden/disabled, widget will not be shown</source>
-      <translation type="unfinished"/>
+      <translation>დაფარული/გამორთული ვიდჯეტი არ იქნება ნაჩვენები</translation>
     </message>
     <message>
       <source>For unmatched countries put chat status to</source>
-      <translation type="unfinished"/>
+      <translation>შეუსაბამო ქვეყნებისთვის ჩეთის სტატუსის მომართვა</translation>
     </message>
     <message>
       <source>normal status</source>
-      <translation type="unfinished"/>
+      <translation>ნორმალური სტატუსი</translation>
     </message>
   </context>
   <context>
     <name>system/xmpp</name>
     <message>
       <source>Geo adjustments active</source>
-      <translation type="unfinished"/>
+      <translation>გეო რეგულირება გააქტიურებულია</translation>
     </message>
     <message>
       <source>Settings updated</source>
@@ -2279,7 +2315,7 @@
     </message>
     <message>
       <source>XMPP Message about accepted chat</source>
-      <translation type="unfinished"/>
+      <translation>XMPP შეტყობინება ჩეთის დადასტურების შესახებ</translation>
     </message>
     <message>
       <source>XMPP</source>
@@ -2538,7 +2574,7 @@
     </message>
     <message>
       <source>Time zone</source>
-      <translation type="unfinished"/>
+      <translation>დროის სარტყელი</translation>
     </message>
     <message>
       <source>Identifier</source>
@@ -2558,15 +2594,15 @@
     </message>
     <message>
       <source>On page</source>
-      <translation type="unfinished"/>
+      <translation>გვერდზე</translation>
     </message>
     <message>
       <source>Yes</source>
-      <translation type="unfinished"/>
+      <translation>დიახ</translation>
     </message>
     <message>
       <source>No</source>
-      <translation type="unfinished"/>
+      <translation>არა</translation>
     </message>
     <message>
       <source>User does not have any message from operator</source>
@@ -2658,15 +2694,15 @@
     </message>
     <message>
       <source>Enable/Disable sound about new visitor</source>
-      <translation type="unfinished"/>
+      <translation>ახალი ვიზიტორების შესახებ ხმის ჩართვა/გამორთვა </translation>
     </message>
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
-      <translation type="unfinished"/>
+      <translation>ახალი ვიზიტორების შესახებ ბრაუზერის შეტყობინებების ჩართვა/გამორთვა </translation>
     </message>
     <message>
       <source>Online users on map</source>
-      <translation type="unfinished"/>
+      <translation>ონალინ მომხმარებლები რუკაზე</translation>
     </message>
     <message>
       <source>User has message from operator</source>
@@ -2690,7 +2726,7 @@
     </message>
     <message>
       <source>Online visitors list</source>
-      <translation type="unfinished"/>
+      <translation>ონლაინ ვიზიტორების სია</translation>
     </message>
     <message>
       <source>online users</source>
@@ -2750,15 +2786,15 @@
     </message>
     <message>
       <source>Max records to return</source>
-      <translation type="unfinished"/>
+      <translation>ჩანაწერების მაქსიმუმი დასაბრუნებლად</translation>
     </message>
     <message>
       <source>Visitor local time</source>
-      <translation type="unfinished"/>
+      <translation>ვიზიტორის ლოკალური დრო</translation>
     </message>
     <message>
       <source>By user status on site</source>
-      <translation type="unfinished"/>
+      <translation>საიტზე მომხმარებლის სტატუსის მიხედვით</translation>
     </message>
     <message>
       <source>Status</source>
@@ -2905,11 +2941,11 @@
     </message>
     <message>
       <source>Cookie related</source>
-      <translation type="unfinished"/>
+      <translation>ქუქისთან დაკავშირებული</translation>
     </message>
     <message>
       <source>Chat related</source>
-      <translation type="unfinished"/>
+      <translation>ჩეთთან დაკავშირებული</translation>
     </message>
     <message>
       <source>Workflow</source>
@@ -2917,7 +2953,7 @@
     </message>
     <message>
       <source>Screen sharing</source>
-      <translation type="unfinished"/>
+      <translation>ეკრანის გაზიარება</translation>
     </message>
     <message>
       <source>Update</source>
@@ -2948,7 +2984,7 @@
     </message>
     <message>
       <source>System</source>
-      <translation type="unfinished"/>
+      <translation>სისტემა</translation>
     </message>
     <message>
       <source>Time zone settings</source>
@@ -2984,7 +3020,7 @@
     </message>
     <message>
       <source>Embed code</source>
-      <translation type="unfinished"/>
+      <translation>ჩასაშენებელი კოდი</translation>
     </message>
     <message>
       <source>Live help embed code</source>
@@ -3008,7 +3044,7 @@
     </message>
     <message>
       <source>Live help configuration</source>
-      <translation type="unfinished"/>
+      <translation>ინტერაქტიული დახმარების კონფიგურირება</translation>
     </message>
     <message>
       <source>Departments</source>
@@ -3028,7 +3064,7 @@
     </message>
     <message>
       <source>GEO adjustment</source>
-      <translation type="unfinished"/>
+      <translation>GEO რეგულირება</translation>
     </message>
     <message>
       <source>Synchronization and sound settings</source>
@@ -3068,11 +3104,11 @@
     </message>
     <message>
       <source>Maintenance</source>
-      <translation type="unfinished"/>
+      <translation>მომსახურება</translation>
     </message>
     <message>
       <source>Files</source>
-      <translation type="unfinished"/>
+      <translation>ფაილები</translation>
     </message>
     <message>
       <source>Files upload configuration</source>
@@ -3084,19 +3120,19 @@
     </message>
     <message>
       <source>Theming</source>
-      <translation type="unfinished"/>
+      <translation>დეკორაცია</translation>
     </message>
     <message>
       <source>Widget themes</source>
-      <translation type="unfinished"/>
+      <translation>ვიდჯეტის თემები</translation>
     </message>
     <message>
       <source>Import new themes</source>
-      <translation type="unfinished"/>
+      <translation>ახალი თემების იმპორტი</translation>
     </message>
     <message>
       <source>Default theme</source>
-      <translation type="unfinished"/>
+      <translation>ნაგულისხმევი თემა</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -3146,7 +3182,7 @@
     </message>
     <message>
       <source>Assigned operator</source>
-      <translation type="unfinished"/>
+      <translation>მიკუთვნებული ოპერატორები</translation>
     </message>
     <message>
       <source>Clean cache</source>
@@ -3206,7 +3242,7 @@
     </message>
     <message>
       <source>Extra modules</source>
-      <translation type="unfinished"/>
+      <translation>ექსტრა მოდულები</translation>
     </message>
     <message>
       <source>Questionary</source>
@@ -3234,7 +3270,7 @@
     </message>
     <message>
       <source>New unread message</source>
-      <translation type="unfinished"/>
+      <translation>ახალი წაუკითხავი შეტყობინება</translation>
     </message>
   </context>
   <context>
@@ -3248,62 +3284,62 @@
     <name>chat/maintenance</name>
     <message>
       <source>Maintenance</source>
-      <translation type="unfinished"/>
+      <translation>მომსახურება</translation>
     </message>
     <message>
       <source>Automatic chats close, click to close old chats</source>
-      <translation type="unfinished"/>
+      <translation>ჩეთების ავტომატურად დახურვა, დაკლიკეთ, რომ დახუროთ ძველი ჩეთები</translation>
     </message>
     <message>
       <source>Automatic chats purge, click to purge old chats</source>
-      <translation type="unfinished"/>
+      <translation>ავტომატური ჩეთების გაწმენდა, დაკლიკეთ, რომ წაშალოთ ძველი ჩეთები</translation>
     </message>
     <message>
       <source>Update chats duration by using new algorithm</source>
-      <translation type="unfinished"/>
+      <translation>ჩეთების ხანგრძლივობის განახლება ახალი ალგირითმის გამოყენებით</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation type="unfinished"/>
+      <translation>დახურული ჩეთები</translation>
     </message>
     <message>
       <source>Purged chats</source>
-      <translation type="unfinished"/>
+      <translation>გასუფთავებული ჩეთები</translation>
     </message>
     <message>
       <source>Chats duration was updated</source>
-      <translation type="unfinished"/>
+      <translation>ჩეთების ხანგრძლივობა განახლებულია</translation>
     </message>
   </context>
   <context>
     <name>chat/modifychat</name>
     <message>
       <source>Modify chat</source>
-      <translation type="unfinished"/>
+      <translation>ჩეთის მოდიფიცირება</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>ელფოსტა</translation>
     </message>
     <message>
       <source>Recipient e-mail</source>
-      <translation type="unfinished"/>
+      <translation>ადრესატების ელფოსტები</translation>
     </message>
     <message>
       <source>Nick</source>
-      <translation type="unfinished"/>
+      <translation>ნიკი</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation type="unfinished"/>
+      <translation>ტელეფონი</translation>
     </message>
     <message>
       <source>Update chat</source>
-      <translation type="unfinished"/>
+      <translation>ჩეთის განახლბა</translation>
     </message>
     <message>
       <source>Chat information was updated</source>
-      <translation type="unfinished"/>
+      <translation>ჩეთის ინფორმაცია განახლდა</translation>
     </message>
   </context>
   <context>
@@ -3456,7 +3492,7 @@
     </message>
     <message>
       <source>Requires phone</source>
-      <translation type="unfinished"/>
+      <translation>მოითხოვს ტელეფონს</translation>
     </message>
     <message>
       <source>Send the message</source>
@@ -3547,27 +3583,27 @@
     </message>
     <message>
       <source>Allow to attatch a file</source>
-      <translation type="unfinished"/>
+      <translation>ნება დართე დაურთოს ფაილი</translation>
     </message>
     <message>
       <source>Additional form settings</source>
-      <translation type="unfinished"/>
+      <translation>ფორმის დამატებითი პარამეტრები</translation>
     </message>
     <message>
       <source>Show operator profile above input fields</source>
-      <translation type="unfinished"/>
+      <translation>ოპერატორის პროფილის ჩვენება შესატანი ველების ზემოთ</translation>
     </message>
     <message>
       <source>Remove space after operator profile</source>
-      <translation type="unfinished"/>
+      <translation>სივრცის წაშლა ოპერატორის პროფილამდე</translation>
     </message>
     <message>
       <source>Hide message label</source>
-      <translation type="unfinished"/>
+      <translation>შეტყობინების იარლიყის დამალვა</translation>
     </message>
     <message>
       <source>Initial user message height in pixels</source>
-      <translation type="unfinished"/>
+      <translation>მომხმარებლის საწყისი შეტყობინების სიმაღლე პიქსელებში</translation>
     </message>
     <message>
       <source>Please choose at least one field for a popup</source>
@@ -3725,107 +3761,107 @@
     </message>
     <message>
       <source>Thumbs up</source>
-      <translation type="unfinished"/>
+      <translation>კარგია</translation>
     </message>
     <message>
       <source>Number of Thumbs Up</source>
-      <translation type="unfinished"/>
+      <translation>მოწონებების რაოდენობა</translation>
     </message>
     <message>
       <source>Thumbs down</source>
-      <translation type="unfinished"/>
+      <translation>ცუდია</translation>
     </message>
     <message>
       <source>Number of Thumbs Down</source>
-      <translation type="unfinished"/>
+      <translation>არმოწონების რაოდენობა</translation>
     </message>
     <message>
       <source>Country</source>
-      <translation type="unfinished"/>
+      <translation>ქვეყანა</translation>
     </message>
     <message>
       <source>Chats</source>
-      <translation type="unfinished"/>
+      <translation>ჩეთები</translation>
     </message>
     <message>
       <source>Number of chats by country</source>
-      <translation type="unfinished"/>
+      <translation>ჩეთების რაოდენობა ქვეყნის მიხედვით</translation>
     </message>
     <message>
       <source>Messages</source>
-      <translation type="unfinished"/>
+      <translation>შეტყობინებები</translation>
     </message>
     <message>
       <source>Number of messages by user</source>
-      <translation type="unfinished"/>
+      <translation>შეტყობინებების რაოდენობა მომხმარებლისგან</translation>
     </message>
     <message>
       <source>Month</source>
-      <translation type="unfinished"/>
+      <translation>თვე</translation>
     </message>
     <message>
       <source>Closed</source>
-      <translation type="unfinished"/>
+      <translation>დახურული</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>აქტიური</translation>
     </message>
     <message>
       <source>Operators</source>
-      <translation type="unfinished"/>
+      <translation>ოპერატორები</translation>
     </message>
     <message>
       <source>Pending</source>
-      <translation type="unfinished"/>
+      <translation>მომლოდინე</translation>
     </message>
     <message>
       <source>Chats number by statuses</source>
-      <translation type="unfinished"/>
+      <translation>ჩეთების რაოდენობა სტატუსების მიხედვით</translation>
     </message>
     <message>
       <source>Visitors initiated</source>
-      <translation type="unfinished"/>
+      <translation>ვიზიტორების მიერ ინიცირებული</translation>
     </message>
     <message>
       <source>Proactive</source>
-      <translation type="unfinished"/>
+      <translation>პროაქტიული</translation>
     </message>
     <message>
       <source>Proactive chats number vs visitors initiated</source>
-      <translation type="unfinished"/>
+      <translation>პროაქტიული ჩეთების რაოდენობა მომხმარებლების მიერ ინიცირებულის წინააღმდეგ</translation>
     </message>
     <message>
       <source>Visitors</source>
-      <translation type="unfinished"/>
+      <translation>ვიზიტორები</translation>
     </message>
     <message>
       <source>System</source>
-      <translation type="unfinished"/>
+      <translation>სისტემა</translation>
     </message>
     <message>
       <source>Messages types</source>
-      <translation type="unfinished"/>
+      <translation>შეტყობინებების  სახეობები</translation>
     </message>
     <message>
       <source>Number of chats per hour, average chat duration</source>
-      <translation type="unfinished"/>
+      <translation>ჩეთების რაოდენობა თითოეული საათისთვის, ჩეთის საშუალო ხანგრძლივობა</translation>
     </message>
     <message>
       <source>Chats statistic</source>
-      <translation type="unfinished"/>
+      <translation>ჩეთების სტატისტიკა</translation>
     </message>
     <message>
       <source>Hourly statistic</source>
-      <translation type="unfinished"/>
+      <translation>საათობრივი სტატისტიკა</translation>
     </message>
     <message>
       <source>Country statistic</source>
-      <translation type="unfinished"/>
+      <translation>ქვეყნის სტატისტიკა</translation>
     </message>
     <message>
       <source>Users statisic</source>
-      <translation type="unfinished"/>
+      <translation>მომხმარებლის სტატისტიკა</translation>
     </message>
     <message>
       <source>Total statistic</source>
@@ -3950,7 +3986,7 @@
     </message>
     <message>
       <source>User has joined the chat from popup chat window!</source>
-      <translation type="unfinished"/>
+      <translation>მომხმარებელი ჩეთს შემოუერთდა ჩეთის ჩამოშლადი ფანჯრით!</translation>
     </message>
   </context>
   <context>
@@ -4288,27 +4324,31 @@
     <name>cobrowse/browse</name>
     <message>
       <source>Request screen share</source>
-      <translation type="unfinished"/>
+      <translation>ეკრანის გაზიარების მოთხოვნა</translation>
     </message>
     <message>
       <source>Show my mouse position to visitor</source>
-      <translation type="unfinished"/>
+      <translation>ჩემი მაუსის პოზიციის ჩვენება ვიზიტორებისთვის</translation>
     </message>
     <message>
       <source>On highlight scroll user window location to match my</source>
+      <translation>ცოციას განათების ჩართვა  მომხმარებლის ფანჯრის ლოკაცია  ჩემ ლოკაციასთან დამთხვევისას</translation>
+    </message>
+    <message>
+      <source>Follow user scroll position</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Click blue eye at the top to request screen share</source>
-      <translation type="unfinished"/>
+      <translation>დაკლიკეთ ლურჯ თვალზე ზემოთ, რომ მოითხოვოთ ეკრანის გაზიარება</translation>
     </message>
     <message>
       <source>Screen sharing session has finished</source>
-      <translation type="unfinished"/>
+      <translation>ეკრანის გაზიარების სესია დასრულებულია</translation>
     </message>
     <message>
       <source>Screen is shared</source>
-      <translation type="unfinished"/>
+      <translation>ეკრანი გაზიარებულია</translation>
     </message>
   </context>
   <context>
@@ -4350,7 +4390,7 @@
     </message>
     <message>
       <source>Updating...</source>
-      <translation type="unfinished"/>
+      <translation>მიმდინარეობს განახლება...</translation>
     </message>
     <message>
       <source>Logged user</source>
@@ -4462,11 +4502,11 @@
     </message>
     <message>
       <source>Pending chats</source>
-      <translation type="unfinished"/>
+      <translation>მომლოდინე ჩეთები</translation>
     </message>
     <message>
       <source>I can see all pending chats, not only assigned to me</source>
-      <translation type="unfinished"/>
+      <translation>მე შემიძლია ვნახო ყველა მომლოდინე ჩეთი, არამხოლოდ ჩემთვის მოკუთვნებული</translation>
     </message>
     <message>
       <source>Account updated</source>
@@ -4478,7 +4518,7 @@
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
-      <translation type="unfinished"/>
+      <translation>მომხმარებელს შეუძლია ნახოს ყველა მომლოდინე ჩეთი, არამხოლოდ მისთვის მიკუთვნებული</translation>
     </message>
     <message>
       <source>Please enter a username!</source>
@@ -4505,15 +4545,15 @@
     <name>chat/operatorsbalancing</name>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>აქტიური</translation>
     </message>
     <message>
       <source>Maximum number of active chats user can have at a time, 0 - unlimited</source>
-      <translation type="unfinished"/>
+      <translation>აქტიური ჩეთების მაქსიმალური რაოდენობა მომხმარებლისთვის ერთ ჯერზე, 0-ულიმიტო</translation>
     </message>
     <message>
       <source>Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled</source>
-      <translation type="unfinished"/>
+      <translation>ავტომატურად მიაკუთვნე ჩეთი სხვა ოპერატორს თუ ოპერატორმა არ დაადასტურა ჩეთი წამებში, 0-გამორთულია</translation>
     </message>
   </context>
   <context>
@@ -4792,7 +4832,7 @@
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>იდენტიფიკატორი</translation>
     </message>
     <message>
       <source>Intro</source>
@@ -4862,7 +4902,7 @@
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>იდენტიფიკატორი</translation>
     </message>
   </context>
   <context>
@@ -4873,7 +4913,7 @@
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>იდენტიფიკატორი</translation>
     </message>
     <message>
       <source>Download</source>
@@ -5526,7 +5566,7 @@
     </message>
     <message>
       <source>Comparing current database structure, please wait...</source>
-      <translation type="unfinished"/>
+      <translation>მიმდინარე მონაცემთა ბაზის სტრუქტურის შედარება, გთხოვთ, დაიცადოთ...</translation>
     </message>
     <message>
       <source>Time zone</source>
@@ -5659,84 +5699,84 @@
     <name>update/statusdb</name>
     <message>
       <source>Database structure check</source>
-      <translation type="unfinished"/>
+      <translation>მონაცემთა ბაზის სტრუქტურის შემოწმება</translation>
     </message>
     <message>
       <source>Your database does not require any updates</source>
-      <translation type="unfinished"/>
+      <translation>თქვენი მონაცემთა ბაზა არ საჭიროებს არცერთ განახლებას</translation>
     </message>
     <message>
       <source>Update database</source>
-      <translation type="unfinished"/>
+      <translation>მონაცემთა ბაზის განახლება</translation>
     </message>
     <message>
       <source>Queries which will be executed on update</source>
-      <translation type="unfinished"/>
+      <translation>მოთხოვნები, რომლებიც შესრულდება განახლებისას</translation>
     </message>
   </context>
   <context>
     <name>theme/index</name>
     <message>
       <source>Default theme</source>
-      <translation type="unfinished"/>
+      <translation>ნაგულისხმევი თემა</translation>
     </message>
     <message>
       <source>Theme</source>
-      <translation type="unfinished"/>
+      <translation>თემა</translation>
     </message>
     <message>
       <source>Widget themes</source>
-      <translation type="unfinished"/>
+      <translation>ვიდჯეტის თემები</translation>
     </message>
     <message>
       <source>Import a new theme</source>
-      <translation type="unfinished"/>
+      <translation>ახალი თემის იმპორტი</translation>
     </message>
     <message>
       <source>Themes</source>
-      <translation type="unfinished"/>
+      <translation>თემები</translation>
     </message>
     <message>
       <source>Import theme</source>
-      <translation type="unfinished"/>
+      <translation>თემის იმპორტი</translation>
     </message>
   </context>
   <context>
     <name>theme/default</name>
     <message>
       <source>Set as default theme</source>
-      <translation type="unfinished"/>
+      <translation>ნაგულისხმევი თემის მომართვა</translation>
     </message>
   </context>
   <context>
     <name>theme/import</name>
     <message>
       <source>Default theme was set</source>
-      <translation type="unfinished"/>
+      <translation>ნაგულისხმევი თემა მომართულ იქნა</translation>
     </message>
     <message>
       <source>Import theme</source>
-      <translation type="unfinished"/>
+      <translation>თემის იმპორტი</translation>
     </message>
     <message>
       <source>File</source>
-      <translation type="unfinished"/>
+      <translation>ფაილი</translation>
     </message>
     <message>
       <source>Import</source>
-      <translation type="unfinished"/>
+      <translation>იმპორტი</translation>
     </message>
     <message>
       <source>Theme imported</source>
-      <translation type="unfinished"/>
+      <translation>თემა იმპორტირებულია</translation>
     </message>
     <message>
       <source>Could not import a new theme!</source>
-      <translation type="unfinished"/>
+      <translation>ახალი თემის იმპორტი ვერ განხორციელდა!</translation>
     </message>
     <message>
       <source>Invalid file!</source>
-      <translation type="unfinished"/>
+      <translation>ფაილის არასწორი  ფორმატი!</translation>
     </message>
   </context>
   <context>
@@ -6123,51 +6163,51 @@
     <name>chat/chatexport</name>
     <message>
       <source>Visitor Name</source>
-      <translation type="unfinished"/>
+      <translation>ვიზიტორის სახელი</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>ელ-ფოსტა</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation type="unfinished"/>
+      <translation>ტელეფონი</translation>
     </message>
     <message>
       <source>Country</source>
-      <translation type="unfinished"/>
+      <translation>ქვეყანა</translation>
     </message>
     <message>
       <source>City</source>
-      <translation type="unfinished"/>
+      <translation>ქალაქი</translation>
     </message>
     <message>
       <source>IP</source>
-      <translation type="unfinished"/>
+      <translation>IP</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>ოპერატორი</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>დეპარტამენტი</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation type="unfinished"/>
+      <translation>თარიღი</translation>
     </message>
     <message>
       <source>Mail send</source>
-      <translation type="unfinished"/>
+      <translation>წერილის გაგზავნა</translation>
     </message>
     <message>
       <source>Referrer</source>
-      <translation type="unfinished"/>
+      <translation>რეფერერი</translation>
     </message>
     <message>
       <source>Link</source>
-      <translation type="unfinished"/>
+      <translation>ბმული</translation>
     </message>
   </context>
   <context>
@@ -6182,7 +6222,7 @@
     </message>
     <message>
       <source>Chat was automatically closed by cron</source>
-      <translation type="unfinished"/>
+      <translation>ჩეთი ავტომატურად დაიხურა კრონის მიერ</translation>
     </message>
     <message>
       <source>Support staff member has closed this chat</source>
@@ -6272,7 +6312,7 @@
     </message>
     <message>
       <source>Callback content, must be valid json</source>
-      <translation type="unfinished"/>
+      <translation>უკუგამოძახების კონტენტი უნდა იყოს ვალიდური json</translation>
     </message>
     <message>
       <source>Load content in lhc iframe</source>
@@ -6390,7 +6430,7 @@
     </message>
     <message>
       <source>has accepted a chat!</source>
-      <translation type="unfinished"/>
+      <translation>დაადასტურა ჩეთი!</translation>
     </message>
   </context>
   <context>
@@ -6444,7 +6484,7 @@
     <name>chat/updatemsguser</name>
     <message>
       <source>User has edited his last message</source>
-      <translation type="unfinished"/>
+      <translation>მომხმარებელმა შეასწორა მისი ბოლო შეტყობინება</translation>
     </message>
   </context>
   <context>

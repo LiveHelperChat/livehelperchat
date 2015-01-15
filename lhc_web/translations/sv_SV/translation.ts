@@ -303,16 +303,16 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Widget copyright</source>
+      <translation>Widget copyright</translation>
+    </message>
+    <message>
       <source>Download theme</source>
       <translation>Ladda ned stil</translation>
     </message>
     <message>
       <source>Status widget style</source>
       <translation>Status widgetstil</translation>
-    </message>
-    <message>
-      <source>Widget copyright</source>
-      <translation>Widget copyright</translation>
     </message>
     <message>
       <source>Widget container</source>
@@ -337,6 +337,10 @@
     <message>
       <source>Need help standard text</source>
       <translation>Hjälpwidget standard text</translation>
+    </message>
+    <message>
+      <source>Widget border width (px)</source>
+      <translation>Kantlinjebredd för widgeten (px)</translation>
     </message>
     <message>
       <source>Online status text</source>
@@ -381,6 +385,22 @@
     <message>
       <source>Show copyright widget logo in left corner</source>
       <translation>Visa copyrightlogo i widgetens vänstra hörn</translation>
+    </message>
+    <message>
+      <source>Hide widget close button</source>
+      <translation>Glöm stäng-knappen för widgeten</translation>
+    </message>
+    <message>
+      <source>Hide popup option</source>
+      <translation>Göm popup-alternativet</translation>
+    </message>
+    <message>
+      <source>Header height (px)</source>
+      <translation>Höjd på headern (px)</translation>
+    </message>
+    <message>
+      <source>Header padding (px)</source>
+      <translation>Spaltfyllnad för headern (px)</translation>
     </message>
     <message>
       <source>Widget copyright link</source>
@@ -445,6 +465,22 @@
     <message>
       <source>Widget body additional CSS, takes effect after save</source>
       <translation>Widget body ytterligare CSS, får effekt efter att det har sparats</translation>
+    </message>
+    <message>
+      <source>Minimize image</source>
+      <translation>Minimera bild</translation>
+    </message>
+    <message>
+      <source>Restore image</source>
+      <translation>Återställ bild</translation>
+    </message>
+    <message>
+      <source>Close image</source>
+      <translation>Stäng bild</translation>
+    </message>
+    <message>
+      <source>Popup image</source>
+      <translation>Popup bild</translation>
     </message>
     <message>
       <source>Widget themes</source>
@@ -4297,6 +4333,10 @@
     <message>
       <source>On highlight scroll user window location to match my</source>
       <translation>Vid markering, scrolla användarens skärmposition att matcha min</translation>
+    </message>
+    <message>
+      <source>Follow user scroll position</source>
+      <translation>Följ användarens scrollposition</translation>
     </message>
     <message>
       <source>Click blue eye at the top to request screen share</source>

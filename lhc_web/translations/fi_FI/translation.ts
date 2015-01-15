@@ -67,11 +67,11 @@
     </message>
     <message>
       <source>NodeJS support enabled</source>
-      <translation type="unfinished"/>
+      <translation>NodeJS tuki aktivoitu</translation>
     </message>
     <message>
       <source>Do not ask permission for users to see their screen</source>
-      <translation type="unfinished"/>
+      <translation>Älä kysy käyttäjiltä lupaa nähdä heidän näyttöään</translation>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
@@ -115,11 +115,11 @@
     </message>
     <message>
       <source>Minimum phone number length</source>
-      <translation type="unfinished"/>
+      <translation>Puhelinnumeron minimi pituus</translation>
     </message>
     <message>
       <source>Messages box height</source>
-      <translation type="unfinished"/>
+      <translation>Viestilaatikon korkeus</translation>
     </message>
     <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
@@ -187,7 +187,7 @@
     </message>
     <message>
       <source>Interval between chat status checks in seconds, 0 disabled.</source>
-      <translation type="unfinished"/>
+      <translation>Chat -tilan tarkistuksen intervalli sekunteina, 0 pois käytöstä</translation>
     </message>
     <message>
       <source>Show BB Code button</source>
@@ -303,16 +303,16 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Widget copyright</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Download theme</source>
       <translation>Tallenna teema</translation>
     </message>
     <message>
       <source>Status widget style</source>
       <translation>Status-widgetin tyyli</translation>
-    </message>
-    <message>
-      <source>Widget copyright</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Widget container</source>
@@ -337,6 +337,10 @@
     <message>
       <source>Need help standard text</source>
       <translation>Tarvitsetko apua sisältöteksti</translation>
+    </message>
+    <message>
+      <source>Widget border width (px)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Online status text</source>
@@ -381,6 +385,22 @@
     <message>
       <source>Show copyright widget logo in left corner</source>
       <translation>Näytä copyright-logo widgetin vasemmassa yläkulmassa.</translation>
+    </message>
+    <message>
+      <source>Hide widget close button</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide popup option</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Header height (px)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Header padding (px)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Widget copyright link</source>
@@ -447,6 +467,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Minimize image</source>
+      <translation>Pienennys -kuvake</translation>
+    </message>
+    <message>
+      <source>Restore image</source>
+      <translation>Palautus -kuvake</translation>
+    </message>
+    <message>
+      <source>Close image</source>
+      <translation>Sulkemis -kuvake</translation>
+    </message>
+    <message>
+      <source>Popup image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Widget themes</source>
       <translation>Widget teemat</translation>
     </message>
@@ -483,11 +519,11 @@
     </message>
     <message>
       <source>Allow operator to see your page content?</source>
-      <translation type="unfinished"/>
+      <translation>Salli avustajan nähdä näyttösi?</translation>
     </message>
     <message>
       <source>Screen shared, click to finish</source>
-      <translation type="unfinished"/>
+      <translation>Näyttö jaettu, klikkaa lopettaaksei</translation>
     </message>
   </context>
   <context>
@@ -570,7 +606,7 @@
     </message>
     <message>
       <source>Requires phone</source>
-      <translation type="unfinished"/>
+      <translation>Vaatii puhelinnumeron</translation>
     </message>
     <message>
       <source>Show random operator profile</source>
@@ -594,7 +630,7 @@
     </message>
     <message>
       <source>Message to returning user</source>
-      <translation type="unfinished"/>
+      <translation>Viesti palaavalle käyttäjälle</translation>
     </message>
     <message>
       <source>Nick which will be used if we cannot determine returning user name</source>
@@ -648,7 +684,7 @@
     </message>
     <message>
       <source>example.com</source>
-      <translation type="unfinished"/>
+      <translation>esimerkki.fi</translation>
     </message>
     <message>
       <source>Choose prefered http mode</source>
@@ -930,7 +966,7 @@
     </message>
     <message>
       <source>HTML Code</source>
-      <translation type="unfinished"/>
+      <translation>HTML-koodi</translation>
     </message>
     <message>
       <source>Forms</source>
@@ -1016,7 +1052,7 @@
     </message>
     <message>
       <source>XLS</source>
-      <translation type="unfinished"/>
+      <translation>XLS</translation>
     </message>
     <message>
       <source>Select department</source>
@@ -1552,7 +1588,7 @@
     </message>
     <message>
       <source>Time zone</source>
-      <translation type="unfinished"/>
+      <translation>Aikavyöhyke</translation>
     </message>
     <message>
       <source>City</source>
@@ -1584,7 +1620,7 @@
     </message>
     <message>
       <source>User left</source>
-      <translation type="unfinished"/>
+      <translation>Käyttäjä poistui</translation>
     </message>
     <message>
       <source>Waited</source>
@@ -1652,7 +1688,7 @@
     </message>
     <message>
       <source>Screen sharing</source>
-      <translation type="unfinished"/>
+      <translation>Näytön jakaminen</translation>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
@@ -1923,7 +1959,7 @@
     </message>
     <message>
       <source>File</source>
-      <translation type="unfinished"/>
+      <translation>Tiedosto</translation>
     </message>
     <message>
       <source>Leave a message</source>
@@ -2063,7 +2099,7 @@
     </message>
     <message>
       <source>To big file!</source>
-      <translation type="unfinished"/>
+      <translation>Liian suuri tiedosto</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -2538,7 +2574,7 @@
     </message>
     <message>
       <source>Time zone</source>
-      <translation type="unfinished"/>
+      <translation>Aikavyöhyke</translation>
     </message>
     <message>
       <source>Identifier</source>
@@ -2562,11 +2598,11 @@
     </message>
     <message>
       <source>Yes</source>
-      <translation type="unfinished"/>
+      <translation>Kyllä</translation>
     </message>
     <message>
       <source>No</source>
-      <translation type="unfinished"/>
+      <translation>Ei</translation>
     </message>
     <message>
       <source>User does not have any message from operator</source>
@@ -3753,23 +3789,23 @@
     </message>
     <message>
       <source>Messages</source>
-      <translation type="unfinished"/>
+      <translation>Viestit</translation>
     </message>
     <message>
       <source>Number of messages by user</source>
-      <translation type="unfinished"/>
+      <translation>Viestit käyttäjien mukaan</translation>
     </message>
     <message>
       <source>Month</source>
-      <translation type="unfinished"/>
+      <translation>Kuukausi</translation>
     </message>
     <message>
       <source>Closed</source>
-      <translation type="unfinished"/>
+      <translation>Suljettu</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>Aktiivinen</translation>
     </message>
     <message>
       <source>Operators</source>
@@ -3777,7 +3813,7 @@
     </message>
     <message>
       <source>Pending</source>
-      <translation type="unfinished"/>
+      <translation>Odottaa</translation>
     </message>
     <message>
       <source>Chats number by statuses</source>
@@ -3797,7 +3833,7 @@
     </message>
     <message>
       <source>Visitors</source>
-      <translation type="unfinished"/>
+      <translation>Vierailijoita</translation>
     </message>
     <message>
       <source>System</source>
@@ -4296,6 +4332,10 @@
     </message>
     <message>
       <source>On highlight scroll user window location to match my</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Follow user scroll position</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6390,7 +6430,7 @@
     </message>
     <message>
       <source>has accepted a chat!</source>
-      <translation type="unfinished"/>
+      <translation>on hyväksynyt keskustelun!</translation>
     </message>
   </context>
   <context>

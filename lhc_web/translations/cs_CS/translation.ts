@@ -303,16 +303,16 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Widget copyright</source>
+      <translation>Copyright widgetu</translation>
+    </message>
+    <message>
       <source>Download theme</source>
       <translation>Stáhnout téma</translation>
     </message>
     <message>
       <source>Status widget style</source>
       <translation>Styl widgetu stavu</translation>
-    </message>
-    <message>
-      <source>Widget copyright</source>
-      <translation>Copyright widgetu</translation>
     </message>
     <message>
       <source>Widget container</source>
@@ -337,6 +337,10 @@
     <message>
       <source>Need help standard text</source>
       <translation>Běžný text Potřebujete radu?</translation>
+    </message>
+    <message>
+      <source>Widget border width (px)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Online status text</source>
@@ -381,6 +385,22 @@
     <message>
       <source>Show copyright widget logo in left corner</source>
       <translation>Zobrazit logo copyrightu widgetu v levém rohu</translation>
+    </message>
+    <message>
+      <source>Hide widget close button</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide popup option</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Header height (px)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Header padding (px)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Widget copyright link</source>
@@ -445,6 +465,22 @@
     <message>
       <source>Widget body additional CSS, takes effect after save</source>
       <translation>Dodatečný CSS těla widgetu, projeví se po uložení</translation>
+    </message>
+    <message>
+      <source>Minimize image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Restore image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Close image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Popup image</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Widget themes</source>
@@ -2666,7 +2702,7 @@
     </message>
     <message>
       <source>Online users on map</source>
-      <translation type="unfinished"/>
+      <translation>Online uživatelé na mapě</translation>
     </message>
     <message>
       <source>User has message from operator</source>
@@ -2690,7 +2726,7 @@
     </message>
     <message>
       <source>Online visitors list</source>
-      <translation type="unfinished"/>
+      <translation>Seznam online návštěvníků</translation>
     </message>
     <message>
       <source>online users</source>
@@ -4297,6 +4333,10 @@
     <message>
       <source>On highlight scroll user window location to match my</source>
       <translation>Při zvýraznění skrolovat polohu okna uživatele, aby se shodovala s mou</translation>
+    </message>
+    <message>
+      <source>Follow user scroll position</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Click blue eye at the top to request screen share</source>

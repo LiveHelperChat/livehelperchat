@@ -171,7 +171,7 @@
     </message>
     <message>
       <source>Disable JS execution in Co-Browsing operator window</source>
-      <translation type="unfinished"/>
+      <translation>Disabilitare l&apos;esecuzione di JS in co-Browsing finestra operatore</translation>
     </message>
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
@@ -303,16 +303,16 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Widget copyright</source>
+      <translation>Copyright del widget</translation>
+    </message>
+    <message>
       <source>Download theme</source>
       <translation>Scarica tema</translation>
     </message>
     <message>
       <source>Status widget style</source>
       <translation>Stile del widget dello stato.</translation>
-    </message>
-    <message>
-      <source>Widget copyright</source>
-      <translation>Copyright del widget</translation>
     </message>
     <message>
       <source>Widget container</source>
@@ -337,6 +337,10 @@
     <message>
       <source>Need help standard text</source>
       <translation>&quot;Serve Aiuto?&quot; testo standard</translation>
+    </message>
+    <message>
+      <source>Widget border width (px)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Online status text</source>
@@ -381,6 +385,22 @@
     <message>
       <source>Show copyright widget logo in left corner</source>
       <translation>Visualizza logo copyright nel widget (angolo sinistro)</translation>
+    </message>
+    <message>
+      <source>Hide widget close button</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide popup option</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Header height (px)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Header padding (px)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Widget copyright link</source>
@@ -446,6 +466,22 @@
     <message>
       <source>Widget body additional CSS, takes effect after save</source>
       <translation>CSS aggiuntivo del corpo del widget, ha effetto dopo il salvataggio</translation>
+    </message>
+    <message>
+      <source>Minimize image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Restore image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Close image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Popup image</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Widget themes</source>
@@ -1645,11 +1681,11 @@
     </message>
     <message>
       <source>Please enter a URL</source>
-      <translation type="unfinished"/>
+      <translation>Immettere un URL</translation>
     </message>
     <message>
       <source>Redirect user to another url</source>
-      <translation type="unfinished"/>
+      <translation>Reindirizzare l&apos;utente ad un altro url</translation>
     </message>
     <message>
       <source>Screen sharing</source>
@@ -2667,7 +2703,7 @@
     </message>
     <message>
       <source>Online users on map</source>
-      <translation type="unfinished"/>
+      <translation>Utenti online su mappa</translation>
     </message>
     <message>
       <source>User has message from operator</source>
@@ -2691,7 +2727,7 @@
     </message>
     <message>
       <source>Online visitors list</source>
-      <translation type="unfinished"/>
+      <translation>Elenco visitatori online</translation>
     </message>
     <message>
       <source>online users</source>
@@ -4293,10 +4329,14 @@
     </message>
     <message>
       <source>Show my mouse position to visitor</source>
-      <translation type="unfinished"/>
+      <translation>Visualizza la mia posizione del mouse al visitatore</translation>
     </message>
     <message>
       <source>On highlight scroll user window location to match my</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Follow user scroll position</source>
       <translation type="unfinished"/>
     </message>
     <message>
