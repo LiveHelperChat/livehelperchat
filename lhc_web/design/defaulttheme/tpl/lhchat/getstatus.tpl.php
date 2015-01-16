@@ -415,8 +415,18 @@ var lh_inst  = {
 
           var fragment = this.appendHTML(this.iframe_html);
 
-          document.body.insertBefore(fragment, document.body.childNodes[0]);
-          
+          var parentElement = document.body;
+
+          if (typeof LHCChatOptions != 'undefined' &&
+            typeof LHCChatOptions.opt != 'undefined' &&
+            typeof LHCChatOptions.opt.widget_parent != 'undefined') {
+            if(document.getElementById(LHCChatOptions.opt.widget_parent) != null) {
+                parentElement = document.getElementById(LHCChatOptions.opt.widget_parent);
+              }
+          }
+
+          parentElement.insertBefore(fragment, parentElement.childNodes[0]);
+
           var lhc_obj = this;
           
 		  if (typeof delayShow !== 'undefined') {         		
