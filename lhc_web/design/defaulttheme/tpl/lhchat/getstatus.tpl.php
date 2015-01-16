@@ -429,7 +429,7 @@ var lh_inst  = {
                     
           var closeHandler = document.getElementById('lhc_close');
           if (closeHandler !== null){
-              closeHandler.onclick = function() { lhc_obj.hide(); return false; };
+              closeHandler.onclick = function() { lhc_obj.hide(); lh_inst.chatClosedCallback('user'); return false; };
           };
           
           document.getElementById('lhc_min').onclick = function() { lhc_obj.min(); return false; };
@@ -481,7 +481,14 @@ var lh_inst  = {
     		this.substatus = '';
     	}
     },
-    
+
+    chatClosedCallback : function(type){
+      if (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.callback != 'undefined' && typeof LHCChatOptions.callback.close_chat_cb != 'undefined') {
+        LHCChatOptions.callback.close_chat_cb(type+this.substatus);
+        this.substatus = '';
+      }
+    },
+
     genericCallback : function(name){
     	if (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.callback != 'undefined' && typeof LHCChatOptions.callback[name] != 'undefined') {
     		LHCChatOptions.callback[name](this);    	
@@ -834,6 +841,7 @@ var lh_inst  = {
     		lh_inst.genericCallback(functionName);    	
     	} else if (action == 'lhc_close') {
     		lh_inst.hide();
+                lh_inst.chatClosedCallback('message')
     	}
     }
 };
