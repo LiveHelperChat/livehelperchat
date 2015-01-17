@@ -451,11 +451,13 @@ var lh_inst  = {
     },
 
     toggleStatusWidget : function(hide){
-    	if (hide == true){    		
-    		this.addClass(document.getElementById('lhc_status_container'),'hide-status');
-    	} else {
-    		this.removeClass(document.getElementById('lhc_status_container'),'hide-status');    		
-    	}
+      if(document.getElementById('lhc_status_container') != null) {
+        if (hide == true){
+          this.addClass(document.getElementById('lhc_status_container'),'hide-status');
+        } else {
+          this.removeClass(document.getElementById('lhc_status_container'),'hide-status');
+        }
+      }
     },
     
     lh_openchatWindow : function() {    	
