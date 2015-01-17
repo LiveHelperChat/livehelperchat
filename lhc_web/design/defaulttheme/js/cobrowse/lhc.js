@@ -13,6 +13,7 @@ var LHCCoBrowser = (function() {
 		this.NodeJsSupportEnabled = false;
 		this.initializeData = null;
 		this.selectorInitialized = false;
+		this.initialiseBlock = true;
 		
 		this.trans = {};
 
@@ -829,6 +830,10 @@ var LHCCoBrowser = (function() {
 		var _this = this;
 		this.mirrorClient = new TreeMirrorClient(document, {
 			initialize : function(rootId, children) {
+				setTimeout(function(){
+					_this.initialiseBlock = false;
+				},3000);
+				
 				_this.sendData({
 					'f' : 'cursor',
 					'pos' : {w:Math.max(document.documentElement["clientWidth"],
@@ -846,12 +851,22 @@ var LHCCoBrowser = (function() {
 					f : 'initialize',
 					args : [ rootId, children ]
 				});
+				
 			},
-			applyChanged : function(removed, addedOrMoved, attributes, text) {
-				_this.sendData({
-					f : 'applyChanged',
-					args : [ removed, addedOrMoved, attributes, text ]
-				});
+			applyChanged : function(removed, addedOrMoved, attributes, text){
+				if (_this.initialiseBlock == false){
+					_this.sendData({
+						f : 'applyChanged',
+						args : [ removed, addedOrMoved, attributes, text ]
+					});
+				} else {
+					setTimeout(function(){
+						_this.sendData({
+							f : 'applyChanged',
+							args : [ removed, addedOrMoved, attributes, text ]
+						});
+					},3100);
+				}
 			}
 		});
 

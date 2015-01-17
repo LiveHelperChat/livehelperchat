@@ -189,7 +189,7 @@ var LHCCoBrowserOperator = (function() {
 					}
 				}
 								
-				if (node.nodeName == 'LINK' && attr == 'href') {
+				if (node.nodeName == 'LINK' && attr == 'href') {					
 					// We have to proxy CSS request because LHC is in HTTPS and user site in HTTP
 					if (_this.httpsmode == true && _this.sitehttps == false && node.getAttribute('lhc-css') !== null) {
 						node.setAttribute('href',_this.lhcbase +'/'+_this.chat_id+'/?base='+encodeURIComponent(_this.base)+'&css='+encodeURIComponent(val));
