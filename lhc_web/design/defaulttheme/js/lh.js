@@ -481,12 +481,12 @@ function lh(){
         				inst.chatsyncuserpending();
         			}
     	            
-        			if ( data.ott != '' ) {
+        			if ( data.ott != '' && data.ott != 'f') {
         				var instStatus = $('#id-operator-typing');
         				instStatus.html(data.ott);
         				instStatus.css('visibility','visible');
         				inst.operatorTyping = true;
-        			} else {
+        			} else if (data.ott == 'f') {
         				inst.operatorTyping = false;
         			    $('#id-operator-typing').css('visibility','hidden');
         			}

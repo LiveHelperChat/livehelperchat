@@ -159,7 +159,7 @@ class erLhcoreClassModelChat {
        		break;
        	
        	case 'is_operator_typing':
-       		   $this->is_operator_typing = $this->operator_typing > (time()-10); // typing is considered if status did not changed for 30 seconds
+       		   $this->is_operator_typing = $this->operator_typing > (time()-60); // typing is considered if status did not changed for 30 seconds
        		   return $this->is_operator_typing;
        		break;
 
