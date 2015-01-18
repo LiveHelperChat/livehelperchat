@@ -89,6 +89,8 @@ class erLhcoreClassUpdate
 			}			
 		}
 		
+		var_dump($definition);
+		
 		foreach ($definition['tables_indexes'] as $table => $dataTableIndex) {
 		    
 		    $sql = 'SHOW INDEX FROM '.$table;
@@ -109,13 +111,11 @@ class erLhcoreClassUpdate
 		        $tablesStatus[$table]['queries'][] = $dataTableIndex['new'][$newIndex];
 		    }
 		    
+		    $removeIndexes = array_intersect($dataTableIndex['old'], $existingIndexes);
+            print_r($removeIndexes);
+		    
 		    //foreach ($dataTableIndex['new'])
-		   /*  key_name*/
-		    print_r($columnsData);
-		    print_r($existingIndexes);
-		    print_r($newIndexes);
-		    print_r($tablesStatus);
-		    echo $sql; 
+		   /*  key_name*/		    
 		   /*  print_r($dataTableIndex['new']);
 		    print_r($existingIndexes); */
 		}
