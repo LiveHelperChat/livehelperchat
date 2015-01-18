@@ -483,12 +483,12 @@ function lh(){
     	            
         			if ( data.ott != '' ) {
         				var instStatus = $('#id-operator-typing');
-        				instStatus.find('i').html(data.ott);
-        				instStatus.fadeIn();
+        				instStatus.html(data.ott);
+        				instStatus.css('visibility','visible');
         				inst.operatorTyping = true;
         			} else {
         				inst.operatorTyping = false;
-        			    $('#id-operator-typing').fadeOut();
+        			    $('#id-operator-typing').css('visibility','hidden');
         			}
         			
         			// Execute pending operations
@@ -1131,9 +1131,9 @@ function lh(){
 	        	            {
 	        	                $.each(data.result_status,function(i,item) {
 	        	                      if (item.tp == 'true') {
-	                                      $('#user-is-typing-'+item.chat_id).html(item.tx).fadeIn();
+	                                      $('#user-is-typing-'+item.chat_id).html(item.tx).css('visibility','visible');
 	        	                      } else {
-	        	                          $('#user-is-typing-'+item.chat_id).fadeOut();
+	        	                          $('#user-is-typing-'+item.chat_id).css('visibility','hidden');
 	        	                      };
 	
 	        	                      if (item.us == 0){
@@ -1576,8 +1576,8 @@ function lh(){
 	        	} else {
 	        		$('#CSChatMessage').val(pdata.msg);
 	        		var instStatus = $('#id-operator-typing');
-					instStatus.find('i').html(data.r);
-					instStatus.fadeIn();				
+					instStatus.html(data.r);
+					instStatus.css('visibility','visible');				
 	        	}
 			});
         }
@@ -1756,7 +1756,7 @@ function lh(){
        		},
             progressall: function (e, data) {
                 var progress = parseInt(data.loaded / data.total * 100, 10);
-                $('#id-operator-typing').show();
+                $('#id-operator-typing').css('visibility','visible');
                 $('#id-operator-typing').html(progress+'%');
             }}).prop('disabled', !$.support.fileInput)
             .parent().addClass($.support.fileInput ? undefined : 'disabled');
@@ -1797,7 +1797,7 @@ function lh(){
             pasteZone: $('#CSChatMessage-'+data_config.chat_id),
             progressall: function (e, data) {
                 var progress = parseInt(data.loaded / data.total * 100, 10);
-                $('#user-is-typing-'+data_config.chat_id).show();
+                $('#user-is-typing-'+data_config.chat_id).css('visibility','visible');
                 $('#user-is-typing-'+data_config.chat_id).html(progress+'%');
             }}).prop('disabled', !$.support.fileInput)
             .parent().addClass($.support.fileInput ? undefined : 'disabled');

@@ -35,10 +35,10 @@
          <?php $lastMessageID = $msg['id']; endforeach; ?>
        </div>
     </div>
-
-    <div class="pt5" id="ChatMessageContainer">
-    
-		<div class="pt5 user-chatwidget-buttons" id="ChatSendButtonContainer">        	
+    <div id="id-operator-typing"></div>
+ 
+    <div id="ChatMessageContainer">    
+		<div class="user-chatwidget-buttons" id="ChatSendButtonContainer">        	
 	    	<ul class="button-group right button-action-right">    	
 	    	
 	    		<li><a href="#" class="tiny secondary button trigger-button"><i class="icon-pencil"></i></a></li>
@@ -54,11 +54,8 @@
 	    		<?php endif;?>
 	    	</ul>    	
 	    </div>
-    
+       
         <textarea rows="4" name="ChatMessage" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Enter your message')?>" id="CSChatMessage" class="live-chat-message"></textarea>
-        <div id="id-operator-typing">
-	            <i></i>
-	    </div>
 	    
         <script type="text/javascript">        
         jQuery('#CSChatMessage').bind('keydown', 'return', function (evt){

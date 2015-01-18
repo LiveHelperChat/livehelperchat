@@ -2,7 +2,7 @@
 	<div class="columns large-7" id="chat-main-column-<?php echo $chat->id;?>">
 		<a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Show/Hide right column')?>" href="#" class="icon-right-circled collapse-right" onclick="lhinst.processCollapse('<?php echo $chat->id;?>')"></a>
 
-		<div class="message-block pb10">
+		<div class="message-block">
 			<div class="msgBlock msgBlock-admin" id="messagesBlock-<?php echo $chat->id?>">
 				<?php
 				$LastMessageID = 0;
@@ -21,11 +21,11 @@
 		</div>
 
 		<?php include(erLhcoreClassDesign::designtpl('lhchat/part/above_textarea.tpl.php')); ?>
-
+		
+		<div class="user-is-typing" id="user-is-typing-<?php echo $chat->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','User is typing now...')?></div>
+		
 		<textarea rows="4" <?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>readonly="readonly"<?php endif;?> name="ChatMessage" id="CSChatMessage-<?php echo $chat->id?>"></textarea>
-		<div class="user-is-typing" id="user-is-typing-<?php echo $chat->id?>">
-				<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','User is typing now...')?>
-		</div>
+		
 			
 		<script type="text/javascript">
 		jQuery('#CSChatMessage-<?php echo $chat->id?>').bind('keydown', 'return', function (evt){
