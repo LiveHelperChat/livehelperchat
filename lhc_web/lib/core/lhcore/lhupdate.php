@@ -89,11 +89,38 @@ class erLhcoreClassUpdate
 			}			
 		}
 		
-		/* foreach ($definition['tables_indexes'] as $table => $dataTableIndex) {
-		    print_r($table);
-		} */
+		foreach ($definition['tables_indexes'] as $table => $dataTableIndex) {
+		    
+		    $sql = 'SHOW INDEX FROM '.$table;
+		    $stmt = $db->prepare($sql);
+		    $stmt->execute();
+		    $columnsData = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+		   
+		    $existingIndexes = array();
+		    foreach ($columnsData as $indexData) {
+		        $existingIndexes[] = $indexData['key_name'];
+		    }
+		    
+		    $existingIndexes = array_unique($existingIndexes);
+		    
+		    $newIndexes = array_diff(array_keys($dataTableIndex['new']), $existingIndexes);
+		    
+		    foreach ($newIndexes as $newIndex) {
+		        $tablesStatus[$table]['queries'][] = $dataTableIndex['new'][$newIndex];
+		    }
+		    
+		    //foreach ($dataTableIndex['new'])
+		   /*  key_name*/
+		    print_r($columnsData);
+		    print_r($existingIndexes);
+		    print_r($newIndexes);
+		    print_r($tablesStatus);
+		    echo $sql; 
+		   /*  print_r($dataTableIndex['new']);
+		    print_r($existingIndexes); */
+		}
 			
-		var_dump($definition);
+		echo "asdad";
 		exit;
 		
 		

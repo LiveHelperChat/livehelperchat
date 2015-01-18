@@ -14,9 +14,7 @@ if ((string)$Params['user_parameters_unordered']['action'] == 'statusdb' || (str
 	if ((string)$Params['user_parameters_unordered']['action'] == 'statusdbdoupdate'){	
 		erLhcoreClassUpdate::doTablesUpdate(json_decode($contentData,true));
 	}
-	
-	var_dump($contentData);
-	
+		
 	$tables = erLhcoreClassUpdate::getTablesStatus(json_decode($contentData,true));
 	$tpl->set('tables',$tables);
 	echo json_encode(array('result' => $tpl->fetch()));
