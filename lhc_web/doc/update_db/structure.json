@@ -4100,7 +4100,7 @@
     "tables_indexes" : {
     	"lh_grouprole" : {
     		"new" : {"group_id_primary" : "ALTER TABLE `lh_grouprole` ADD INDEX `group_id_primary` (`group_id`);"},
-    		"old" : {}
+    		"old" : {"group_id_role_id"}
     	}
     },
     "tables_create": {
