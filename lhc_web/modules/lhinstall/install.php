@@ -925,7 +925,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `group_id` int(11) NOT NULL,
                   `role_id` int(11) NOT NULL,
                   PRIMARY KEY (`id`),
-                  KEY `group_id` (`role_id`,`group_id`)
+                  KEY `group_id` (`role_id`,`group_id`),
+                  KEY `group_id_primary` (`group_id`)
                 ) DEFAULT CHARSET=utf8;");
 
                // Assign admin role to admin group
