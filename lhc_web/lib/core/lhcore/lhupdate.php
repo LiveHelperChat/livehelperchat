@@ -89,6 +89,14 @@ class erLhcoreClassUpdate
 			}			
 		}
 		
+		/* foreach ($definition['tables_indexes'] as $table => $dataTableIndex) {
+		    print_r($table);
+		} */
+			
+		var_dump($definition);
+		exit;
+		
+		
 		foreach ($definition['tables_data'] as $table => $dataTable) {
 			$tableIdentifier = $definition['tables_data_identifier'][$table];
 			
@@ -127,10 +135,6 @@ class erLhcoreClassUpdate
 					// Perhaps table does not exists
 				}			
 			}
-
-			foreach ($definition['tables_indexes'] as $table => $dataTableIndex) {
-			    
-			}
 			
 			if (!empty($status)){
 				$tablesStatus[$table]['status'] .= implode(", ", $status);
@@ -141,5 +145,5 @@ class erLhcoreClassUpdate
 		return $tablesStatus;
 	}
 }
-
+sdfsdf
 ?>
