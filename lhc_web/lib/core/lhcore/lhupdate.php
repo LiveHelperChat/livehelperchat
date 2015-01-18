@@ -128,6 +128,10 @@ class erLhcoreClassUpdate
 				}			
 			}
 
+			foreach ($definition['tables_indexes'] as $table => $dataTableIndex) {
+			    
+			}
+			
 			if (!empty($status)){
 				$tablesStatus[$table]['status'] .= implode(", ", $status);
 				$tablesStatus[$table]['error'] = true;
