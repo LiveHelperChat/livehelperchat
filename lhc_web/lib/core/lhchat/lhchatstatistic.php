@@ -100,7 +100,7 @@ class erLhcoreClassChatStatistic {
     	$numberOfChats = array();
     	
     	for ($i = 0; $i < 24; $i++) {
-    		$dateHour = str_pad($i , 2, '0' , STR_PAD_LEFT);
+    		$dateHour = $i; //str_pad($i , 2, '0' , STR_PAD_LEFT);
     		$numberOfChats[$i] = erLhcoreClassChat::getCount(array_merge(array('customfilter' =>  array('(extract(hour from (to_timestamp(time))))::int = '. $dateHour)),$filter));
     	}
     	
