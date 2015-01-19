@@ -100,7 +100,7 @@ var LHCCoBrowser = (function() {
 		});		
 	}
 	
-	LHCCoBrowser.prototype.scrollEventListener = function(e) 
+	LHCCoBrowser.prototype.scrollEventListener = function() 
 	{
 		this.scrollTop = this.scrollTopGS();
 		this.scrollLeft = this.scrollLeftGS();
@@ -832,6 +832,7 @@ var LHCCoBrowser = (function() {
 			initialize : function(rootId, children) {
 				setTimeout(function(){
 					_this.initialiseBlock = false;
+					_this.scrollEventListener();
 				},3000);
 				
 				_this.sendData({
