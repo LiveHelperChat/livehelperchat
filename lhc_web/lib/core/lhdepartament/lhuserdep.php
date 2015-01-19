@@ -89,7 +89,7 @@ class erLhcoreClassUserDep{
        foreach ($Departaments as $DepartamentID)
        {
 
-            $stmt = $db->prepare('INSERT INTO lh_userdep (user_id,dep_id,hide_online,last_activity) VALUES (:user_id,:dep_id,:hide_online,0,0,:active_chats)');
+            $stmt = $db->prepare('INSERT INTO lh_userdep (user_id,dep_id,hide_online,last_activity,last_accepted,active_chats) VALUES (:user_id,:dep_id,:hide_online,0,0,:active_chats)');
             $stmt->bindValue( ':user_id',$userID,PDO::PARAM_INT);
             $stmt->bindValue( ':dep_id',$DepartamentID,PDO::PARAM_INT);
             $stmt->bindValue( ':hide_online',$UserData->hide_online,PDO::PARAM_INT);
