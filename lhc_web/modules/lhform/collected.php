@@ -30,7 +30,7 @@ $pages->paginate();
 
 $items = array();
 if ($pages->items_total > 0) {
-	$items = erLhAbstractModelFormCollected::getList(array('filter' => array('form_id' => $form->id),'offset' => $pages->low, 'limit' => $pages->items_per_page,'sort' => 'id ASC'));
+	$items = erLhAbstractModelFormCollected::getList(array('filter' => array('form_id' => $form->id),'offset' => $pages->low, 'limit' => $pages->items_per_page,'sort' => 'id DESC'));
 }
 
 $tpl->set('items',$items);

@@ -1,7 +1,9 @@
 <?php
 
 class erLhcoreClassFileUploadAdmin extends erLhcoreClassFileUpload {
-
+	
+	public $uploadedFile = false;
+	
     protected function handle_file_upload($uploaded_file, $name, $size, $type, $error, $index = null, $content_range = null) {
     	    	
     	$matches = array();
@@ -41,6 +43,8 @@ class erLhcoreClassFileUploadAdmin extends erLhcoreClassFileUpload {
         	}
 
         	$fileUpload->saveThis();
+        	
+        	$this->uploadedFile = $fileUpload;
         } else {
         	throw new Exception($file->error);
         }

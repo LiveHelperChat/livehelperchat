@@ -2,8 +2,8 @@
 
 class erLhcoreClassUpdate
 {
-	const DB_VERSION = 91;
-	const LHC_RELEASE = 213;
+	const DB_VERSION = 97;
+	const LHC_RELEASE = 219;
 		
 	public static function doTablesUpdate($definition){
 		$updateInformation = self::getTablesStatus($definition);
@@ -43,12 +43,25 @@ class erLhcoreClassUpdate
 				
 				foreach ($columnsDesired as $columnDesired) {
 					$columnFound = false;
+					$typeMatch = true;
 					foreach ($columnsData as $column) {
-						if ($columnDesired['field'] == $column['field']){
+						if ($columnDesired['field'] == $column['field']) {
 							$columnFound = true;
-						}						
+							
+							if ($columnDesired['type'] != $column['type']) {
+								$typeMatch = false;
+							}
+						}	
 					}
-										
+
+					if ($typeMatch == false) {
+						$tablesStatus[$table]['error'] = true;
+						$status[] = "[{$columnDesired['field']}] column type is not correct";
+												
+						$tablesStatus[$table]['queries'][] = "ALTER TABLE `{$table}`
+						CHANGE `{$columnDesired['field']}` `{$columnDesired['field']}` {$columnDesired['type']} NOT NULL;";
+					}
+					
 					if ($columnFound == false) {
 						$tablesStatus[$table]['error'] = true;
 						$status[] = "[{$columnDesired['field']}] column was not found";
@@ -75,7 +88,47 @@ class erLhcoreClassUpdate
 				$tablesStatus[$table]['queries'][] = $definition['tables_create'][$table];
 			}			
 		}
-		
+				
+		foreach ($definition['tables_indexes'] as $table => $dataTableIndex) {		    
+		    try {
+    		    $sql = 'SHOW INDEX FROM '.$table;
+    		    $stmt = $db->prepare($sql);
+    		    $stmt->execute();
+    		    $columnsData = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+    		    $status = array();
+    		    
+    		    $existingIndexes = array();
+    		    foreach ($columnsData as $indexData) {
+    		        $existingIndexes[] = $indexData['key_name'];
+    		    }
+    		    
+    		    $existingIndexes = array_unique($existingIndexes);
+    		    
+    		    $newIndexes = array_diff(array_keys($dataTableIndex['new']), $existingIndexes);
+    		    
+    		    foreach ($newIndexes as $newIndex) {
+    		        $tablesStatus[$table]['queries'][] = $dataTableIndex['new'][$newIndex];
+    		        $status[] = "{$newIndex} index was not found";
+    		    }
+    		    
+    		    $removeIndexes = array_intersect($dataTableIndex['old'], $existingIndexes);
+    		   
+    		    foreach ($removeIndexes as $removeIndex) {
+    		        $tablesStatus[$table]['queries'][] = "ALTER TABLE `{$table}` DROP INDEX `{$removeIndex}`;";
+    		        $tablesStatus[$table]['error'] = true;
+    		        $status[] = "{$removeIndex} legacy index was found";
+    		    }
+    		    
+    		    if (!empty($status)) {
+    		        $tablesStatus[$table]['status'] = implode(", ", $status);
+    		        $tablesStatus[$table]['error'] = true;
+    		    }
+    		    
+		    } catch (Exception $e) {
+		        // Just not existing table perhaps
+		    }	    
+		}
+				
 		foreach ($definition['tables_data'] as $table => $dataTable) {
 			$tableIdentifier = $definition['tables_data_identifier'][$table];
 			
@@ -114,7 +167,7 @@ class erLhcoreClassUpdate
 					// Perhaps table does not exists
 				}			
 			}
-
+			
 			if (!empty($status)){
 				$tablesStatus[$table]['status'] .= implode(", ", $status);
 				$tablesStatus[$table]['error'] = true;
@@ -124,5 +177,5 @@ class erLhcoreClassUpdate
 		return $tablesStatus;
 	}
 }
-
+sdfsdf
 ?>

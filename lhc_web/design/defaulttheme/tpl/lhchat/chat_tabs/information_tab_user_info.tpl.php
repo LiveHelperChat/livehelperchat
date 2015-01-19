@@ -22,7 +22,7 @@
 
 	 
 <h5>
-	<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Information')?>
+	<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Information')?><a onclick="lhinst.modifyChat('<?php echo $chat->id?>')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Edit main chat information')?>" href="#"><i class="icon-pencil"></i></a>
 </h5>
 
 <table class="small-12">
@@ -109,6 +109,14 @@
 		<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Created')?></td>
 		<td><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chat->time)?></td>
 	</tr>
+
+	<?php if ($chat->user_closed_ts > 0 && $chat->user_status == 1) : ?>
+	<tr>
+		<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','User left')?></td>
+		<td><?php echo $chat->user_closed_ts_front?></td>
+	</tr>
+	<?php endif;?>
+	
 	<?php if ($chat->wait_time > 0) : ?>
 	<tr>
 		<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Waited')?></td>
@@ -151,6 +159,16 @@
 		
 		<a class="icon-attach" onclick="lhinst.attatchLinkToFile('<?php echo $chat->id?>')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Attach uploaded file')?>"></a>
 		
+		<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','allowredirect')) : ?>
+		<a class="icon-network" onclick="lhinst.redirectToURL('<?php echo $chat->id?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Please enter a URL');?>')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Redirect user to another url');?>"></a>
+		<?php endif;?>
+		
+		<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhcobrowse', 'browse')) : ?>
+		<a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Screen sharing')?>" class="icon-eye" href="#" onclick="return lhinst.startCoBrowse('<?php echo $chat->id?>')"></a>
+		<?php endif;?>
+		
+		<?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/chat_actions_extension_multiinclude.tpl.php'));?>
+		 
 	</p>
 	<?php else : ?>
 	<a class="icon-print" target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('chatarchive/printchatadmin')?>/<?php echo $archive->id?>/<?php echo $chat->id?>"></a>

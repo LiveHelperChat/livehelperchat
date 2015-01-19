@@ -1,7 +1,9 @@
 <?php
 
 class erLhcoreClassFileUpload extends UploadHandler {
-
+	
+	public $uploadedFile = false;
+	
 	protected function get_file_name($name, $type = null, $index = null, $content_range = null) {
 		$name = sha1($name . erLhcoreClassModelForgotPassword::randomPassword(40).time());
 		return md5($this->get_unique_filename(
@@ -86,6 +88,8 @@ class erLhcoreClassFileUpload extends UploadHandler {
 
 	        $chat->has_unread_messages = 1;
 	        $chat->updateThis();
+	        
+	        $this->uploadedFile = $fileUpload;
         }
 
         return $file;

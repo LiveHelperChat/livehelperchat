@@ -1,11 +1,13 @@
 /*************************
-  Live helper chat
-  ************************
-  Copyright (c) 2013 Remdex
+Live helper chat
+************************
+  Copyright (c) 2015 Remigijus Kiminas
   Written by Remigijus Kiminas
 
   License:
-  http://livehelperchat.com/license-term-of-use-removing-links-129a.html
-  ************************
-
-**********************************************/
+  Apache License, Version 2.0
+  http://www.apache.org/licenses/LICENSE-2.0
+  
+  More information
+  https://livehelperchat.com/commercial-support-13c.html
+************************

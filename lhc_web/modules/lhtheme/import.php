@@ -56,6 +56,26 @@ if (ezcInputForm::hasPostData()) {
 				unset($data['operator_image_data']);
 			}
 			
+			if (isset($data['popup_image_data'])){
+				$imgData['popup_image'] = $data['popup_image_data'];
+				unset($data['popup_image_data']);
+			}
+			
+			if (isset($data['close_image_data'])){
+				$imgData['close_image'] = $data['close_image_data'];
+				unset($data['close_image_data']);
+			}
+			
+			if (isset($data['restore_image_data'])){
+				$imgData['restore_image'] = $data['restore_image_data'];
+				unset($data['restore_image_data']);
+			}
+			
+			if (isset($data['minimize_image_data'])){
+				$imgData['minimize_image'] = $data['minimize_image_data'];
+				unset($data['minimize_image_data']);
+			}
+			
 			try {
 				$widgetTheme->setState($data);
 				$widgetTheme->saveThis();

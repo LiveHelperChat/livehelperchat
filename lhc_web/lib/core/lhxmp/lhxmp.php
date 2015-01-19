@@ -162,8 +162,12 @@ class erLhcoreClassXMP {
 		}	
 	}
 	
-	public static function getBaseHost(){
-		return ( (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || isset($_SERVER['HTTP_USESSL']) ) ? 'https://' : 'http://';
+	public static function getBaseHost() {
+		if ( (!empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) !== 'off') || ((!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') || (!empty($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] == 'on'))){
+			return 'https://';
+		}
+		
+		return 'http://';		
 	}
 	
 	public static function sendXMPMessage($chat, $params = array()) {

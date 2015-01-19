@@ -21,6 +21,11 @@ if  ($chatTransfer->dep_id > 0) {
 		$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
 		$chat->user_typing_txt = (string)$chat->user.' '.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has joined the chat!'),ENT_QUOTES);
 		$chat->user_typing  = time();
+		
+		$msg = new erLhcoreClassModelmsg();
+		$msg->msg = (string)$chat->user.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has accepted a chat!');
+		$msg->chat_id = $chat->id;
+		$msg->user_id = -1;
 	}
 }
 
@@ -29,6 +34,11 @@ if ($chatTransfer->transfer_to_user_id == $currentUser->getUserID()){
 	$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
 	$chat->user_typing_txt = (string)$chat->user.' '.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has joined the chat!'),ENT_QUOTES);
 	$chat->user_typing  = time();
+	
+	$msg = new erLhcoreClassModelmsg();
+	$msg->msg = (string)$chat->user.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has accepted a chat!');
+	$msg->chat_id = $chat->id;
+	$msg->user_id = -1;
 	
 	// Change department if user cannot read current department, so chat appears in right menu
 	$filter = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
@@ -52,6 +62,12 @@ if ( !erLhcoreClassChat::hasAccessToRead($chat) )
 	} else {
 		exit; // User does not have permission to assign chat to himself
 	}
+}
+
+// Store system message
+if (isset($msg) && $msg instanceof erLhcoreClassModelmsg) {	
+	$chat->last_user_msg_time = $msg->time = time();
+	erLhcoreClassChat::getSession()->save($msg);
 }
 
 // All ok, we can make changes

@@ -90,8 +90,8 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 					$breakSync = true;
 				}  elseif ($Params['user_parameters_unordered']['ot'] == 't' && $chat->is_operator_typing == false) {
 					$breakSync = true;
+					$ott = 'f';
 				}
-				
 			}
 			
 		    // Closed

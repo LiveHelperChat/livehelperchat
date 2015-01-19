@@ -29,6 +29,9 @@ try {
 	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($i, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('form/index','Date'));
 	$i++;
 	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($i, 1, 'IP');
+	
+	$i++;
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($i, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('form/index','Identifier'));
 		
 	// Set data
 	$i = 2;	
@@ -53,7 +56,12 @@ try {
 
 	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($y, $i, $item->ctime_full_front);
 	$y++;
+	
 	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($y, $i, $item->ip);	
+	$i++;
+	
+	$y++;
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($y, $i, $item->identifier);	
 	$i++;
 	
 	$objPHPExcel->getActiveSheet()->setTitle('Report');
@@ -68,8 +76,16 @@ try {
 	foreach ($item->content_array as $key => $content) {
 		if ($content['definition']['type'] == 'file') {				
 			$array = explode('.',$content['value']['name']);
-			$ext = end($array);				
-			$zip->addFile( $content['filepath'] . $content['filename'],$key.'.'.$ext);
+			$ext = end($array);
+
+			$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('form.file.download', array('filename' => $content['filename']));
+			
+			// There was no callbacks or file not found etc, we try to download from standard location
+			if ($response === false) {
+				$zip->addFile( $content['filepath'] . $content['filename'],$key.'.'.$ext);
+			} else {
+				$zip->addFromString($key.'.'.$ext, $response['filedata']);				
+			}
 		}			
 	} 
 		

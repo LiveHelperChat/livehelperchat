@@ -4,7 +4,7 @@ $tpl = erLhcoreClassTemplate::getInstance( 'lhuser/new.tpl.php');
 
 $UserData = new erLhcoreClassModelUser();
 $UserDepartaments = isset($_POST['UserDepartament']) ? $_POST['UserDepartament'] : array();
-$show_all_pending = 0;
+$show_all_pending = 1;
 
 if (isset($_POST['Update_account']))
 {
@@ -202,16 +202,27 @@ if (isset($_POST['Update_account']))
         	
         	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.edit.photo_path',array('dir' => & $dir,'storage_id' => $UserData->id));
         	
-        	erLhcoreClassFileUpload::mkdirRecursive( $dir );
-        	$file = qqFileUploader::upload($_FILES,'UserPhoto',$dir);
-
+        	$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.edit.photo_store', array('file_post_variable' => 'UserPhoto', 'dir' => & $dir, 'storage_id' => $UserData->id));
+        	 
+        	// There was no callbacks
+        	if ($response === false) {
+        		erLhcoreClassFileUpload::mkdirRecursive( $dir );
+        		$file = qqFileUploader::upload($_FILES,'UserPhoto',$dir);
+        	} else {
+        		$file = $response['data'];
+        	}
+        	
         	if ( empty($file["errors"]) ) {
         		$UserData->filename           = $file["data"]["filename"];
         		$UserData->filepath           = $file["data"]["dir"];
 
-        		erLhcoreClassImageConverter::getInstance()->converter->transform( 'photow_150', $UserData->file_path_server, $UserData->file_path_server );
-        		chmod($UserData->file_path_server, 0644);
-
+        		$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.edit.photo_resize_150', array('mime_type' => $file["data"]['mime_type'],'user' => $UserData));
+        		
+        		if ($response === false) {
+        			erLhcoreClassImageConverter::getInstance()->converter->transform( 'photow_150', $UserData->file_path_server, $UserData->file_path_server );
+        			chmod($UserData->file_path_server, 0644);
+        		}
+        		
         		$UserData->saveThis();
         	}
         }

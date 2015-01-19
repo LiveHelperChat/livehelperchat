@@ -167,7 +167,7 @@ if ((string)$Params['user_parameters_unordered']['vid'] != '') {
 // Reopen chat automatically if possible
 if ( erLhcoreClassModelChatConfig::fetch('automatically_reopen_chat')->current_value == 1 && erLhcoreClassModelChatConfig::fetch('reopen_chat_enabled')->current_value == 1 && ($reopenData = erLhcoreClassChat::canReopenDirectly(array('reopen_closed' => erLhcoreClassModelChatConfig::fetch('allow_reopen_closed')->current_value))) !== false ) {
 	$sound = is_numeric($Params['user_parameters_unordered']['sound']) ? '/(sound)/'.$Params['user_parameters_unordered']['sound'] : '';
-	erLhcoreClassModule::redirect('chat/reopen','/' . $reopenData['id'] . '/' . $reopenData['hash'] . '/(mode)/widget' . $modeAppend . $sound );
+	erLhcoreClassModule::redirect('chat/reopen','/' . $reopenData['id'] . '/' . $reopenData['hash'] . '/(mode)/widget' . $modeAppend . $modeAppendTheme . $sound );
 	exit;
 }
 
@@ -215,6 +215,12 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
    			if (isset($chatPrefill) && ($chatPrefill instanceof erLhcoreClassModelChat)) {
    				erLhcoreClassChatValidator::updateInitialChatAttributes($chatPrefill, $chat);
    			}
+   			
+   			erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_offline_request',array(
+   			'input_data' => $inputData,
+   			'chat' => $chat,
+   			'prefill' => array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false)));
+   			
    			$Result['parent_messages'][] = 'lh_callback:offline_request_cb';
    			$tpl->set('request_send',true);
    		} else {
@@ -270,7 +276,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 	       }
 
 	       // Auto responder
-	       $responder = erLhAbstractModelAutoResponder::processAutoResponder();
+	       $responder = erLhAbstractModelAutoResponder::processAutoResponder($chat);
 
 	       if ($responder instanceof erLhAbstractModelAutoResponder) {
 	       		$chat->wait_timeout = $responder->wait_timeout;
@@ -292,11 +298,18 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 
 	       		$chat->saveThis();
 	       }
-
-	       erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat));
-
+    	       	       
 	       // Redirect user
-	       erLhcoreClassModule::redirect('chat/chatwidgetchat','/' . $chat->id . '/' . $chat->hash . $modeAppend . '/(cstarted)/online_chat_started_cb');
+	       erLhcoreClassModule::redirect('chat/chatwidgetchat','/' . $chat->id . '/' . $chat->hash . $modeAppend . $modeAppendTheme . '/(cstarted)/online_chat_started_cb');
+	       
+	       flush();
+	       session_write_close();
+	       
+	       if ( function_exists('fastcgi_finish_request') ) {
+	           fastcgi_finish_request();
+	       };
+	       	       
+	       erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat));	       
 	       exit;
    	   }
 

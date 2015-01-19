@@ -127,7 +127,7 @@ class erLhcoreClassModelUser {
        	    break;
 
        	case 'photo_path':
-       			$this->photo_path = erLhcoreClassSystem::instance()->wwwDir() .'/'. $this->filepath . $this->filename;
+       			$this->photo_path = ($this->filepath != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) .'/'. $this->filepath . $this->filename;
        			return $this->photo_path;
        		break;
 
@@ -316,14 +316,18 @@ class erLhcoreClassModelUser {
    }
 
    public function removeFile()
-   {
-	   	if ($this->filepath != '') {
+   {   		   	
+	   	if ($this->filename != '' || $this->filename != '') {
 	   		if ( file_exists($this->filepath . $this->filename) ) {
 	   			unlink($this->filepath . $this->filename);
 	   		}
 
-	   		erLhcoreClassFileUpload::removeRecursiveIfEmpty('var/userphoto/',str_replace('var/userphoto/','',$this->filepath));
-
+	   		if ($this->filepath != '') {
+	   			erLhcoreClassFileUpload::removeRecursiveIfEmpty('var/userphoto/',str_replace('var/userphoto/','',$this->filepath));
+	   		}
+	   		
+	   		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.remove_photo', array('user' => & $this));
+	   		
 	   		$this->filepath = '';
 	   		$this->filename = '';
 	   		$this->saveThis();

@@ -209,9 +209,9 @@ class erLhcoreClassTemplate {
 	        $contentFile = php_strip_whitespace($file);
 
 	        // Compile templates - 3 level of inclusions
-	        for ($i = 0; $i < 3; $i++) {
+	        for ($i = 0; $i < 9; $i++) {
     	        $Matches = array();
-    			preg_match_all('/<\?php(.*?)include_once\(erLhcoreClassDesign::designtpl\(\'([a-zA-Z0-9-\.-\/\_]+)\'\)\)(.*?)\?\>/i',$contentFile,$Matches);
+    			preg_match_all('/<\?php(\s*)include_once\(erLhcoreClassDesign::designtpl\(\'([a-zA-Z0-9-\.-\/\_]+)\'\)\)(.*?)\?\>/i',$contentFile,$Matches);
     			foreach ($Matches[2] as $key => $Match)
     			{
     				$contentFile = str_replace($Matches[0][$key],php_strip_whitespace(erLhcoreClassDesign::designtpl($Match)),$contentFile);
@@ -219,7 +219,7 @@ class erLhcoreClassTemplate {
 
     	        //Compile templates inclusions first level.
     	        $Matches = array();
-    			preg_match_all('/<\?php(.*?)include\(erLhcoreClassDesign::designtpl\(\'([a-zA-Z0-9-\.-\/\_]+)\'\)\)(.*?)\?\>/i',$contentFile,$Matches);
+    			preg_match_all('/<\?php(\s*)include\(erLhcoreClassDesign::designtpl\(\'([a-zA-Z0-9-\.-\/\_]+)\'\)\)(.*?)\?\>/i',$contentFile,$Matches);
     			foreach ($Matches[2] as $key => $Match)
     			{
     				$contentFile = str_replace($Matches[0][$key],php_strip_whitespace(erLhcoreClassDesign::designtpl($Match)),$contentFile);

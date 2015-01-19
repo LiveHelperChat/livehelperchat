@@ -13,7 +13,15 @@ try {
 		
 		header('Content-type: '.$type);
 		header('Content-Disposition: attachment; filename="'.$attr_name.'.'.$ext.'"');
-		echo file_get_contents($file->content_array[$attr_name]['filepath'] . $file->content_array[$attr_name]['filename']);
+		
+		$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('form.file.download', array('filename' => $file->content_array[$attr_name]['filename']));
+		
+		// There was no callbacks or file not found etc, we try to download from standard location
+		if ($response === false) {
+			echo file_get_contents($file->content_array[$attr_name]['filepath'] . $file->content_array[$attr_name]['filename']);
+		} else {
+			echo $response['filedata'];
+		}
 	}
 
 } catch (Exception $e) {

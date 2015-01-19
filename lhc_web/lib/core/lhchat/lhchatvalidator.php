@@ -6,6 +6,52 @@
 
 class erLhcoreClassChatValidator {
 
+	public static function validateChatModify(& $chat)
+	{
+		$definition = array(				
+				'Email' => new ezcInputFormDefinitionElement(
+						ezcInputFormDefinitionElement::OPTIONAL, 'validate_email'
+				),
+				'UserNick' => new ezcInputFormDefinitionElement(
+						ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+				),				
+				'UserPhone' => new ezcInputFormDefinitionElement(
+						ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+				)				
+		);
+		
+		$form = new ezcInputForm( INPUT_POST, $definition );
+		$Errors = array();
+		
+		$currentUser = erLhcoreClassUser::instance();
+			
+		if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid CSRF token!');
+		}
+	
+		if ( !$form->hasValidData( 'Email' ) && $_POST['Email'] != '' ) {
+			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a valid email address');
+		} elseif ($form->hasValidData( 'Email' )) {
+			$chat->email = $form->Email;
+		}
+		
+		if ($form->hasValidData( 'UserNick' ) && $form->UserNick != '' && strlen($form->UserNick) > 50)
+		{
+			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum 50 characters');
+		}
+		
+		if ($form->hasValidData( 'UserPhone' )) {
+			$chat->phone = $form->UserPhone;
+		}
+		
+		if ($form->hasValidData( 'UserNick' ))
+		{
+			$chat->nick = $form->UserNick;
+		}
+		
+		return $Errors;		
+	}
+	
     /**
      * Custom form fields validation
      */
@@ -126,7 +172,16 @@ class erLhcoreClassChatValidator {
         if (erLhcoreClassModelChatBlockedUser::getCount(array('filter' => array('ip' => erLhcoreClassIPDetect::getIP()))) > 0) {
             $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You do not have permission to chat! Please contact site owner.');
         }
-
+        
+        /**
+         * IP Ranges block
+         * */
+        $ignorable_ip = erLhcoreClassModelChatConfig::fetch('banned_ip_range')->current_value;
+        
+        if ( $ignorable_ip != '' && erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDetect::getIP(),explode(',',$ignorable_ip))) {
+        	$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You do not have permission to chat! Please contact site owner.');
+        }
+       
         if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
         	if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600 || $hashCaptcha != sha1($_SERVER['REMOTE_ADDR'].$form->$nameField.erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ))){
         		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid captcha code, please enable Javascript!');
@@ -207,6 +262,37 @@ class erLhcoreClassChatValidator {
         if ($form->hasValidData( 'operator' ) && erLhcoreClassModelUser::getUserCount(array('filter' => array('id' => $form->operator, 'disabled' => 0))) > 0) {
         	$inputForm->operator = $chat->user_id = $form->operator;
         }
+        
+        /**
+         * File for offline form
+         * */
+        $inputForm->has_file = false;
+              
+        if (isset($additionalParams['offline']) && (
+         				($inputForm->validate_start_chat == true && isset($start_data_fields['offline_file_visible_in_popup']) && $start_data_fields['offline_file_visible_in_popup'] == true) || 
+         				($inputForm->validate_start_chat == false && isset($start_data_fields['offline_file_visible_in_page_widget']) && $start_data_fields['offline_file_visible_in_page_widget'] == true)
+         		)) {
+         		
+         	$fileData = erLhcoreClassModelChatConfig::fetch('file_configuration');
+         	$data = (array)$fileData->data;
+         	
+         	if ($_FILES['File']['error'] != 4) { // No file was provided
+	         	if (isset($_FILES['File']) && erLhcoreClassSearchHandler::isFile('File','/\.('.$data['ft_us'].')$/i',$data['fs_max']*1024)){
+	         		$inputForm->has_file = true;
+	
+	         		// Just extract file extension
+	         		$fileNameAray = explode('.',$_FILES['File']['name']);
+	         		end($fileNameAray);
+	         		
+	         		// Set attribute for futher
+	         		$inputForm->file_extension = strtolower(current($fileNameAray));
+	         		$inputForm->file_location = $_FILES['File']['tmp_name'];
+	         		         		
+	         	} elseif (isset($_FILES['File'])) {
+	         		$Errors[] = erLhcoreClassSearchHandler::$lastError != '' ? erLhcoreClassSearchHandler::$lastError : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid file');
+	         	}
+         	}
+         }
         
         if ($form->hasValidData( 'user_timezone' )) {        	
         	$timezone_name = timezone_name_from_abbr(null, $form->user_timezone*3600, true);        	

@@ -9,7 +9,8 @@ class erLhAbstractModelFormCollected {
 			'form_id'  		=> $this->form_id,
 			'ctime'  		=> $this->ctime,
 			'ip'  			=> $this->ip,
-			'content' 		=> $this->content
+			'content' 		=> $this->content,
+			'identifier' 	=> $this->identifier
 		);
 
 		return $stateArray;
@@ -113,9 +114,16 @@ class erLhAbstractModelFormCollected {
 	public function removeThis()
 	{
 		foreach ($this->content_array as $key => $content) {
-			if ($content['definition']['type'] == 'file' && file_exists($content['filepath'] . $content['filename'])) {
-				unlink($content['filepath'] . $content['filename']);				
-				erLhcoreClassFileUpload::removeRecursiveIfEmpty('var/', str_replace('var/', '', $content['filepath']));
+			if ($content['definition']['type'] == 'file') {
+							
+				if ($content['filename'] != '') {
+					erLhcoreClassChatEventDispatcher::getInstance()->dispatch('form.remove_file', array('filepath' => $content['filepath'], 'filename' => $content['filename']));
+				}
+				
+				if ($content['filepath'] != '' && file_exists($content['filepath'] . $content['filename'])){
+					unlink($content['filepath'] . $content['filename']);				
+					erLhcoreClassFileUpload::removeRecursiveIfEmpty('var/', str_replace('var/', '', $content['filepath']));
+				}
 			}
 		}
 				
@@ -185,6 +193,7 @@ class erLhAbstractModelFormCollected {
 	public $ctime = null;	
 	public $ip = '';
 	public $content = '';
+	public $identifier = '';
 
 }
 

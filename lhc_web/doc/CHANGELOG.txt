@@ -1,3 +1,92 @@
+2.19v
+
+1. More attributes for themes
+Restore, Popup, Close, Miminize images
+Hide close, Hide popup options in theme.
+Header widget height and padding options
+Main widget border width option
+
+2. Cookie conflict fix with third party libraries
+
+3. Now operator can follow user scrollbar position
+
+execute doc/update_db/update_97.sql for update
+
+2.18v
+
+Co-Browsing enhancement release part 2
+1. Select box change will be synced to user browser also.
+2. If your site is using jQuery JS library highligh elements selection will be more precise. 99.99% of accuracy. 
+3. User actions on forms will be synced to operator browser. That means while user is filling a form you will see what fields he fills instantly, 
+what checkboxes checks and so on. This feature requires jQuery JS library on remote site.
+4. You can choose to execute or not javascript on Operator Co-Browsing window. Option available in Co-Browsing options.
+
+execute doc/update_db/update_96.sql for update
+
+2.17v
+
+Co-Browsing enhancement release
+
+1. Now from co-browsing window you can highligh elements. Just click left mouse cursor on desirable element.
+2. If you click link hodling CTRL browser on user side will click this element to. This means you can navigate user browser where you want.
+3. At top bar there is now network icon. If you click it you can navigate user preciselly to URL you want. You can navigate user to another url also from chat window. There is new icon for that
+4. You can fill some of the forms fields by holding CTRL+Left mouse click. As field becames with blue shadow you can fill text fields on visitor browser directly. Fill forms for users :)
+5. NodeJs server for Co-Browsing was updated.
+6. You can can allow user to see your mouse pointer on his screen.
+7. You can force user browser to scroll to highlighted element by checking checkbox at top.
+8. Operator Co-Browser window will represent exact view of user browser. This is required to match mouse positions.
+
+execute doc/update_db/update_95.sql for update
+
+2.16v
+
+Release with one mega feature. Co-Browsing - see exactly what your users see and help them to navigate.
+
+1. This feature works even on standard server without special software. But if you want to use at it's maximum runing node server is required.
+Inspiration come from, without these libraries it would be impossible to do all that :)
+https://code.google.com/p/mutation-summary/
+https://github.com/abbakym/mutationsummary-cobrowsing-experiment
+http://teft.deviantart.com/art/Obsidian-Cursor-set-78972293
+
+execute doc/update_db/update_94.sql for update
+
+2.15v
+
+1. Option to choose auto responder for specific department.
+https://github.com/LiveHelperChat/livehelperchat/issues/547
+
+2. Option to allow send file in offline chat form
+https://github.com/LiveHelperChat/livehelperchat/issues/370
+
+3. Instead of banning e-mails which are very easy to fake, there is option to ban not only single ip but also IP ranges.
+https://github.com/LiveHelperChat/livehelperchat/issues/546
+
+4. Will be recorded time when user has left a chat
+https://github.com/LiveHelperChat/livehelperchat/issues/535
+
+5. Adjusted position of user typing text indicator
+https://github.com/LiveHelperChat/livehelperchat/issues/532
+
+5. Posibility to edit main chat information. At the moment only user nick and e-mail address
+https://github.com/LiveHelperChat/livehelperchat/issues/504
+
+execute doc/update_db/update_93.sql for update
+
+2.14v
+
+This release is maintenence release with few enhancements
+
+1. Option to pass identifier. It can be either some specific value or if not provided it will be referer URL.
+Also new variable in template can be used {url_view} it will be link to filled form view instead of download link.
+https://github.com/LiveHelperChat/livehelperchat/issues/563
+2. Chat window in browsing information tab will show is user on page still or not. Option "Track is user still on site, chat status checks also has to be enabled" has to be enabled.
+3. Different message will be shown then user starts chat from chat popup instead of chat widget. Like then user navigates to another window from widget it's shown URL to which he navigated. Then user decides to open popup for chat it will be different message.
+4. Invitation to chat will also pay attention to additional fields attributes. https://github.com/LiveHelperChat/livehelperchat/issues/540
+5. Proactive messages retargeting. In returning message field you can enter {nick}, if we will find a previous chat associated with this online user, nick from previous chat will be used if not proactive invitation nick field value will be used. 
+https://github.com/LiveHelperChat/livehelperchat/issues/544
+
+execute doc/update_db/update_92.sql for update
+
 2.13v
 
 This realease is maintenence release with a lot of small changes.

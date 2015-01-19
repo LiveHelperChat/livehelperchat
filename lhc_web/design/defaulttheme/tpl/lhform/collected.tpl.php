@@ -20,6 +20,7 @@
 <thead>
 <tr>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Name');?></th>
+    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Identifier');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Intro');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Time');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','IP');?></th>
@@ -30,6 +31,9 @@
 <?php foreach ($items as $item) : ?>
     <tr>
     	<td><?php echo htmlspecialchars($item->getAttrValue($form->name_attr))?></td>
+    	<td>
+    	<div class="page-url"><span><?php echo htmlspecialchars($item->identifier)?></span></div>
+    	</td>
         <td><?php echo htmlspecialchars($item->getAttrValue($form->intro_attr))?></td>
         <td><?php echo $item->ctime_front?></td>
         <td><?php echo htmlspecialchars($item->ip)?></td>

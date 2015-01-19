@@ -96,12 +96,8 @@ if ($isOnlineHelp == false && erLhcoreClassModelChatConfig::fetch('pro_active_sh
 // Perhaps user do not want to show live help when it's offline
 if ( !($isOnlineHelp == false && $hide_offline == 'true') || $trackOnline == 1 ) : ?>
 
-/*! Cookies.js - 0.3.1; Copyright (c) 2013, Scott Hamper; http://www.opensource.org/licenses/MIT */
-(function(e){"use strict";var a=function(b,d,c){return 1===arguments.length?a.get(b):a.set(b,d,c)};a._document=document;a._navigator=navigator;a.defaults={path:"/"};a.get=function(b){a._cachedDocumentCookie!==a._document.cookie&&a._renewCache();return a._cache[b]};a.set=function(b,d,c){c=a._getExtendedOptions(c);c.expires=a._getExpiresDate(d===e?-1:c.expires);a._document.cookie=a._generateCookieString(b,d,c);return a};a.expire=function(b,d){return a.set(b,e,d)};a._getExtendedOptions=function(b){return{path:b&&
-b.path||a.defaults.path,domain:b&&b.domain||a.defaults.domain,expires:b&&b.expires||a.defaults.expires,secure:b&&b.secure!==e?b.secure:a.defaults.secure}};a._isValidDate=function(b){return"[object Date]"===Object.prototype.toString.call(b)&&!isNaN(b.getTime())};a._getExpiresDate=function(b,d){d=d||new Date;switch(typeof b){case "number":b=new Date(d.getTime()+1E3*b);break;case "string":b=new Date(b)}if(b&&!a._isValidDate(b))throw Error("`expires` parameter cannot be converted to a valid Date instance");
-return b};a._generateCookieString=function(b,a,c){b=encodeURIComponent(b);a=(a+"").replace(/[^!#$&-+\--:<-\[\]-~]/g,encodeURIComponent);c=c||{};b=b+"="+a+(c.path?";path="+c.path:"");b+=c.domain?";domain="+c.domain:"";b+=c.expires?";expires="+c.expires.toUTCString():"";return b+=c.secure?";secure":""};a._getCookieObjectFromString=function(b){var d={};b=b?b.split("; "):[];for(var c=0;c<b.length;c++){var f=a._getKeyValuePairFromCookieString(b[c]);d[f.key]===e&&(d[f.key]=f.value)}return d};a._getKeyValuePairFromCookieString=
-function(b){var a=b.indexOf("="),a=0>a?b.length:a;return{key:decodeURIComponent(b.substr(0,a)),value:decodeURIComponent(b.substr(a+1))}};a._renewCache=function(){a._cache=a._getCookieObjectFromString(a._document.cookie);a._cachedDocumentCookie=a._document.cookie};a._areEnabled=function(){return a._navigator.cookieEnabled||"1"===a.set("cookies.js",1).get("cookies.js")};a.enabled=a._areEnabled();"function"===typeof define&&define.amd?define(function(){return a}):"undefined"!==typeof exports?("undefined"!==
-typeof module&&module.exports&&(exports=module.exports=a),exports.lhc_Cookies=a):window.lhc_Cookies=a})();
+/*! Cookies.js - 0.4.0; Copyright (c) 2014, Scott Hamper; http://www.opensource.org/licenses/MIT */
+(function(e){"use strict";var b=function(a,d,c){return 1===arguments.length?b.get(a):b.set(a,d,c)};b._document=document;b._navigator=navigator;b.defaults={path:"/"};b.get=function(a){b._cachedDocumentCookie!==b._document.cookie&&b._renewCache();return b._cache[a]};b.set=function(a,d,c){c=b._getExtendedOptions(c);c.expires=b._getExpiresDate(d===e?-1:c.expires);b._document.cookie=b._generateCookieString(a,d,c);return b};b.expire=function(a,d){return b.set(a,e,d)};b._getExtendedOptions=function(a){return{path:a&& a.path||b.defaults.path,domain:a&&a.domain||b.defaults.domain,expires:a&&a.expires||b.defaults.expires,secure:a&&a.secure!==e?a.secure:b.defaults.secure}};b._isValidDate=function(a){return"[object Date]"===Object.prototype.toString.call(a)&&!isNaN(a.getTime())};b._getExpiresDate=function(a,d){d=d||new Date;switch(typeof a){case "number":a=new Date(d.getTime()+1E3*a);break;case "string":a=new Date(a)}if(a&&!b._isValidDate(a))throw Error("`expires` parameter cannot be converted to a valid Date instance"); return a};b._generateCookieString=function(a,b,c){a=a.replace(/[^#$&+\^`|]/g,encodeURIComponent);a=a.replace(/\(/g,"%28").replace(/\)/g,"%29");b=(b+"").replace(/[^!#$&-+\--:<-\[\]-~]/g,encodeURIComponent);c=c||{};a=a+"="+b+(c.path?";path="+c.path:"");a+=c.domain?";domain="+c.domain:"";a+=c.expires?";expires="+c.expires.toUTCString():"";return a+=c.secure?";secure":""};b._getCookieObjectFromString=function(a){var d={};a=a?a.split("; "):[];for(var c=0;c<a.length;c++){var f=b._getKeyValuePairFromCookieString(a[c]); d[f.key]===e&&(d[f.key]=f.value)}return d};b._getKeyValuePairFromCookieString=function(a){var b=a.indexOf("="),b=0>b?a.length:b;try {return{key:decodeURIComponent(a.substr(0,b)),value:decodeURIComponent(a.substr(b+1))}} catch(e) {return{key:a.substr(0,b),value:a.substr(b+1)}}};b._renewCache=function(){b._cache=b._getCookieObjectFromString(b._document.cookie);b._cachedDocumentCookie=b._document.cookie};b._areEnabled=function(){var a="1"===b.set("cookies_lhc.js",1).get("cookies_lhc.js");b.expire("cookies_lhc.js");return a};b.enabled=b._areEnabled();window.lhc_Cookies=b})();
 
 lhc_Cookies.defaults = {path:"/",secure: <?php erLhcoreClassModelChatConfig::fetch('use_secure_cookie')->current_value == 1 ? print 'true' : print 'false' ?>};
 
@@ -126,7 +122,8 @@ var lh_inst  = {
     cookieData : {},
     cookieDataPers : {},
 	domain : false,
-    
+    isSharing : false,
+        
     getCookieDomain : function(domain) {    
     	 if (this.domain !== false) {
     	 	return this.domain;
@@ -203,8 +200,7 @@ var lh_inst  = {
 		var dm = document.getElementById('lhc_container');					
 		if (!dm.attrIsMin || dm.attrIsMin == false) {
 			dm.attrHeight = dm.style.height;
-			dm.attrIsMin = true;			
-			//this.addClass(dm,'lhc-no-transition');
+			dm.attrIsMin = true;
 			this.addClass(dm,'lhc-min');									
 			<?php if ($currentPosition['posv'] == 'b') : ?>			
 			if(dm.style.bottom!='' && dm.attrHeight!=''){
@@ -244,10 +240,7 @@ var lh_inst  = {
 			<?php endif;?>		
 			this.removeCookieAttr('m');
 			this.removeClass(dm,'lhc-min');
-			var inst = this;
-			//setTimeout(function(){				
-			//	inst.removeClass(dm,'lhc-no-transition');
-			//},500);
+			var inst = this;		
 			this.storePos(dm);
 		};
 	},
@@ -375,10 +368,10 @@ var lh_inst  = {
 	  }
 	})(),
 
-    showStartWindow : function(url_to_open) {
+    showStartWindow : function(url_to_open,delayShow) {
 		  
 		  if (this.isOnline == false && typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.opt != 'undefined' && typeof LHCChatOptions.opt.offline_redirect != 'undefined'){
-				document.location = LHCChatOptions.opt.offline_redirect;
+				window.open(LHCChatOptions.opt.offline_redirect,"_blank");
 				return;
 		  };	
     	  this.lhc_need_help_hide();
@@ -421,12 +414,35 @@ var lh_inst  = {
 
           var fragment = this.appendHTML(this.iframe_html);
 
-          document.body.insertBefore(fragment, document.body.childNodes[0]);
+          var parentElement = document.body;
+
+          if (typeof LHCChatOptions != 'undefined' &&
+            typeof LHCChatOptions.opt != 'undefined' &&
+            typeof LHCChatOptions.opt.widget_parent != 'undefined') {
+            if(document.getElementById(LHCChatOptions.opt.widget_parent) != null) {
+                parentElement = document.getElementById(LHCChatOptions.opt.widget_parent);
+              }
+          }
+
+          parentElement.insertBefore(fragment, parentElement.childNodes[0]);
 
           var lhc_obj = this;
-          document.getElementById('lhc_close').onclick = function() { lhc_obj.hide(); return false; };
+          
+		  if (typeof delayShow !== 'undefined') {         		
+         		this.addClass(document.getElementById('lhc_container'),'lhc-delayed');
+         		setTimeout(function(){
+         			lhc_obj.removeClass(document.getElementById('lhc_container'),'lhc-delayed');
+         			lhc_obj.toggleStatusWidget(true);
+         		},900);
+          }
+                    
+          var closeHandler = document.getElementById('lhc_close');
+          if (closeHandler !== null){
+              closeHandler.onclick = function() { lhc_obj.hide(); lh_inst.chatClosedCallback('user'); return false; };
+          };
+          
           document.getElementById('lhc_min').onclick = function() { lhc_obj.min(); return false; };
-          <?php if (erLhcoreClassModelChatConfig::fetch('disable_popup_restore')->current_value == 0) : ?>
+          <?php if (erLhcoreClassModelChatConfig::fetch('disable_popup_restore')->current_value == 0 && ($theme === false || $theme->hide_popup == 0)) : ?>
           document.getElementById('lhc_remote_window').onclick = function() { lhc_obj.openRemoteWindow(); return false; };
 		  <?php endif; ?>
 		  
@@ -436,15 +452,21 @@ var lh_inst  = {
 		  <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/drag_drop_logic.tpl.php')); ?>		  
 		      
 		  if (this.cookieData.m) {this.min(true);};
-		  this.toggleStatusWidget(true);
+		  
+		  if (typeof delayShow === 'undefined') {
+		  		this.toggleStatusWidget(true);
+		  }
+		  
     },
 
     toggleStatusWidget : function(hide){
-    	if (hide == true){    		
-    		this.addClass(document.getElementById('lhc_status_container'),'hide-status');
-    	} else {
-    		this.removeClass(document.getElementById('lhc_status_container'),'hide-status');    		
-    	}
+      if(document.getElementById('lhc_status_container') != null) {
+        if (hide == true){
+          this.addClass(document.getElementById('lhc_status_container'),'hide-status');
+        } else {
+          this.removeClass(document.getElementById('lhc_status_container'),'hide-status');
+        }
+      }
     },
     
     lh_openchatWindow : function() {    	
@@ -468,7 +490,14 @@ var lh_inst  = {
     		this.substatus = '';
     	}
     },
-    
+
+    chatClosedCallback : function(type){
+      if (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.callback != 'undefined' && typeof LHCChatOptions.callback.close_chat_cb != 'undefined') {
+        LHCChatOptions.callback.close_chat_cb(type+this.substatus);
+        this.substatus = '';
+      }
+    },
+
     genericCallback : function(name){
     	if (typeof LHCChatOptions != 'undefined' && typeof LHCChatOptions.callback != 'undefined' && typeof LHCChatOptions.callback[name] != 'undefined') {
     		LHCChatOptions.callback[name](this);    	
@@ -483,7 +512,7 @@ var lh_inst  = {
 	<?php elseif (in_array($position, array('bottom_right','bottom_left','middle_right','middle_left'))) : ?>
 		this.removeById('lhc_status_container');	
 		
-        var statusTEXT = '<a id="'+(this.isOnline == true ? 'online-icon' : 'offline-icon')+'" class="status-icon" href="#" onclick="return lh_inst.lh_openchatWindow()" >'+(this.isOnline ? '<?php if ($theme !== false && $theme->online_text !== '') : print htmlspecialchars_decode($theme->online_text,ENT_QUOTES); else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Live help is online...')?><?php endif?>' : '<?php if ($theme !== false && $theme->offline_text != '') : print htmlspecialchars_decode($theme->offline_text,ENT_QUOTES); else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Live help is offline...')?><?php endif?>')+'</a>';
+        var statusTEXT = '<a id="'+(this.isOnline == true ? 'online-icon' : 'offline-icon')+'" class="status-icon" href="#" onclick="return lh_inst.lh_openchatWindow()" >'+(this.isOnline ? <?php if ($theme !== false && $theme->online_text !== '') : print json_encode($theme->online_text); else : ?><?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Live help is online...'),ENT_QUOTES))?><?php endif?> : <?php if ($theme !== false && $theme->offline_text != '') : print json_encode($theme->offline_text); else : ?><?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Live help is offline...'),ENT_QUOTES))?><?php endif?>)+'</a>';
 
         if (!this.cssStatusWasAdded) {
           	this.cssStatusWasAdded = true;
@@ -527,13 +556,36 @@ var lh_inst  = {
         }, <?php echo (int)(erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['check_for_operator_msg']*1000); ?> );
     },
 
+    getTzOffset : function(){
+	    Date.prototype.stdTimezoneOffset = function() {
+		    var jan = new Date(this.getFullYear(), 0, 1);
+		    var jul = new Date(this.getFullYear(), 6, 1);
+		    return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
+		};
+	
+		Date.prototype.dst = function() {
+		    return this.getTimezoneOffset() < this.stdTimezoneOffset();
+		};
+		
+		var today = new Date();
+		var timeZoneOffset = 0;
+		
+		if (today.dst()) { 
+			timeZoneOffset = today.getTimezoneOffset();
+		} else {
+			timeZoneOffset = today.getTimezoneOffset()-60;
+		};
+		
+		return (timeZoneOffset/60)*-1;
+    },
+    
     startNewMessageCheckSingle : function() {
     	var vid = this.cookieDataPers.vid;
         lh_inst.removeById('lhc_operator_message');
         var th = document.getElementsByTagName('head')[0];
         var s = document.createElement('script');
         var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
-        var tzOffset = ((new Date().getTimezoneOffset())/60) * -1;
+        var tzOffset = this.getTzOffset();
         
         s.setAttribute('id','lhc_operator_message');
         s.setAttribute('type','text/javascript');
@@ -546,7 +598,7 @@ var lh_inst  = {
         var th = document.getElementsByTagName('head')[0];
         var s = document.createElement('script');
         var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));        
-        var tzOffset = ((new Date().getTimezoneOffset())/60) * -1; 
+        var tzOffset = this.getTzOffset(); 
         s.setAttribute('id','lhc_log_pageview');
         s.setAttribute('type','text/javascript');
         s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/logpageview<?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?>/(tz)/'+tzOffset+'/(vid)/'+vid+'?l='+locationCurrent+this.parseStorageArguments()+this.parseOptionsOnline()+'&dt='+encodeURIComponent(document.title));
@@ -633,6 +685,53 @@ var lh_inst  = {
 			  	
 			   }
     	};    			
+    },
+    
+    finishScreenSharing : function(){
+    	this.removeById('lhc_status_mirror');
+		this.removeCookieAttr('shr');
+		this.isSharing = false;
+		
+		var vid = this.cookieDataPers.vid;       
+        var th = document.getElementsByTagName('head')[0];
+        var s = document.createElement('script');
+        var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));        
+        var tzOffset = this.getTzOffset(); 
+        s.setAttribute('id','lhc_finish_shr');
+        s.setAttribute('type','text/javascript');
+        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+lh_inst.lang+'/cobrowse/finishsession'+lh_inst.getAppendCookieArguments());
+        th.appendChild(s);
+        this.cobrowser = null;
+    },
+    
+    cobrowse : null,
+    
+    startCoBrowse : function(chatHash){
+    	var inst = this;    	
+    	if (this.isSharing == false && (this.cookieData.shr || <?php echo (int)erLhcoreClassModelChatConfig::fetch('sharing_auto_allow')->current_value?> == 1 || confirm(<?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Allow operator to see your page content?'),ENT_QUOTES))?>)))
+    	{
+    		this.sharehash = chatHash || this.cookieData.hash || this.cookieData.shr;    		
+    		this.addCookieAttribute('shr',this.sharehash);
+    		
+	    	if (typeof TreeMirror == "undefined") {    					   		
+			   		var th = document.getElementsByTagName('head')[0];
+			        var s = document.createElement('script');
+			        s.setAttribute('type','text/javascript');
+			        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::designJS('js/cobrowse/mutation-summary.js;js/cobrowse/tree-mirror.js;js/cobrowse/lhc.js');?>');
+			        th.appendChild(s);
+			        s.onreadystatechange = s.onload = function(){
+			        	inst.startCoBrowse(inst.sharehash);
+			        };		        
+	    	} else {
+		    	try {	 
+		    		this.isSharing = true;
+		    		this.addCookieAttribute('shr',this.sharehash);
+		    		<?php include(erLhcoreClassDesign::designtpl('lhcobrowse/userinit.tpl.php')); ?>
+			   } catch(err) {
+			  		console.log(err);
+			   }
+	    	};
+    	}
     },
     
     lhc_need_help_hide :function() {
@@ -729,6 +828,14 @@ var lh_inst  = {
     		}
     	} else if (action == 'lhc_screenshot') {
     		lh_inst.makeScreenshot();
+    	} else if (action == 'lhc_cobrowse') {
+    		lh_inst.startCoBrowse(e.data.split(':')[1]);
+    	} else if (action == 'lhc_chat_redirect') {
+    		document.location = e.data.split(':')[1].replace(new RegExp('__SPLIT__','g'),':');
+    	} else if (action == 'lhc_cobrowse_cmd') {
+    		if (lh_inst.cobrowser !== null){
+    		lh_inst.cobrowser.handleMessage(e.data.split(':'));
+    		};
     	} else if (action == 'lhc_lang') {
     		var lang = e.data.split(':')[1];
     		if (lang != undefined) {    				
@@ -743,6 +850,7 @@ var lh_inst  = {
     		lh_inst.genericCallback(functionName);    	
     	} else if (action == 'lhc_close') {
     		lh_inst.hide();
+                lh_inst.chatClosedCallback('message')
     	}
     }
 };
@@ -785,11 +893,19 @@ lh_inst.storeReferrer(<?php echo json_encode($referrer)?>);
 <?php if (!($isOnlineHelp == false && $hide_offline == 'true')) : ?>
 	
 	lh_inst.showStatusWidget();
+	
+	
+	
 		
 	if (lh_inst.cookieData.hash) {
 		lh_inst.stopCheckNewMessage();
-		lh_inst.substatus = '_reopen';
-	    lh_inst.showStartWindow();
+		lh_inst.substatus = '_reopen';	
+		lh_inst.toggleStatusWidget(true);
+	    lh_inst.showStartWindow(undefined,true);
+	    <?php if ($track_online_users == true || $trackOnline == true) : ?>
+	    lh_inst.logPageView();
+	    lh_inst.online_tracked = true;
+	    <?php endif;?>
 	}
 	
 	<?php if ($check_operator_messages == 'true' && $disable_pro_active == false) : ?>
@@ -812,6 +928,9 @@ lh_inst.storeReferrer(<?php echo json_encode($referrer)?>);
 	};
 	<?php endif;?>
 		
+	if (lh_inst.cookieData.shr) {
+		lh_inst.startCoBrowse(lh_inst.cookieData.shr);
+	};
 	
 <?php elseif ($track_online_users == true) : ?>
 	lh_inst.logPageView();

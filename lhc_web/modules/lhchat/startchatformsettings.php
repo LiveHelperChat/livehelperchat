@@ -82,6 +82,12 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
         'OfflineMessageHidden' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
+        'OfflineFileVisibleInPopup' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+        'OfflineFileVisibleInPageWidget' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
         'OfflineMessageRequireOption' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
         ),
@@ -187,6 +193,18 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
         $data['offline_tos_visible_in_page_widget'] = true;
     } else {
         $data['offline_tos_visible_in_page_widget'] = false;
+    }
+    
+    if ( $form->hasValidData( 'OfflineFileVisibleInPageWidget' ) && $form->OfflineFileVisibleInPageWidget == true ) {
+        $data['offline_file_visible_in_page_widget'] = true;
+    } else {
+        $data['offline_file_visible_in_page_widget'] = false;
+    }
+    
+    if ( $form->hasValidData( 'OfflineFileVisibleInPopup' ) && $form->OfflineFileVisibleInPopup == true ) {
+        $data['offline_file_visible_in_popup'] = true;
+    } else {
+        $data['offline_file_visible_in_popup'] = false;
     }
     
     // Name

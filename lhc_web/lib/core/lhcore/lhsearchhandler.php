@@ -386,14 +386,34 @@ class erLhcoreClassSearchHandler {
         return $return;
    }
    
-   public static function isFile($fileName, $supportedExtensions = array ('zip','doc','docx','pdf','xls','xlsx','jpg','jpeg','png','bmp','rar','7z'))
+   public static $lastError = null;
+   
+   public static function isFile($fileName, $supportedExtensions = array ('zip','doc','docx','pdf','xls','xlsx','jpg','jpeg','png','bmp','rar','7z'), $maxFileSize = false)
    { 
 	   	if (isset($_FILES[$fileName]) &&  is_uploaded_file($_FILES[$fileName]["tmp_name"]) && $_FILES[$fileName]["error"] == 0 )
 	   	{
 	   		$fileNameAray = explode('.',$_FILES[$fileName]['name']);
 	   		end($fileNameAray);
 	   		$extension = strtolower(current($fileNameAray));
-	   		return in_array($extension,$supportedExtensions);
+	   		
+	   		if (is_array($supportedExtensions) && !in_array($extension,$supportedExtensions)){
+	   			self::$lastError = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid file extension');
+	   			return false;
+	   		}
+	   		
+	   		if (is_string($supportedExtensions)){
+	   			if (!preg_match($supportedExtensions, $_FILES[$fileName]['name'])) {
+	   				self::$lastError = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid file extension!');	   				
+	   				return false;
+	   			}
+	   		}
+	   		
+	   		if ($maxFileSize !== false && $maxFileSize > 0 && $_FILES[$fileName]['size'] > $maxFileSize){
+	   			self::$lastError = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','To big file!');
+	   			return false;
+	   		}
+	   		
+	   		return true;
 	   	}
 	   	 
 	   	return false;

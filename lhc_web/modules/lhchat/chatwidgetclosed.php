@@ -34,6 +34,7 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
 				        // User closed chat
 				        $chat->user_status = 1;
 				        $chat->support_informed = 1;
+				        $chat->user_closed_ts = time();
 				        				        
 				        if ($chat->user_typing < (time()-12)) {
 				        	$chat->user_typing = time()-5;// Show for shorter period these status messages

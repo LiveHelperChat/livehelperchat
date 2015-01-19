@@ -1,7 +1,7 @@
 var lhc_FormEmbed = function() {
 	var self = this;
 	this.showVotingForm = function() {
-   		  this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('form/formwidget')?>/<?php echo $form_id?>";
+   		  this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('form/formwidget')?>/<?php echo $form_id,$identifier?>";
    		  this.iframe_html = '<iframe id="lhcform_iframe_embed" allowTransparency="true" scrolling="no" class="loading" frameborder="0" ' +
                        ( this.initial_iframe_url != '' ? ' src="'    + this.initial_iframe_url + '"' : '' ) +
                        ' width="100%"' +

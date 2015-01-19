@@ -93,8 +93,14 @@ class erLhcoreClassModule{
             		$CacheManager = erConfigClassLhCacheConfig::getInstance();
             		$CacheManager->expireCache();
 
-            		// Just try reinclude
-            		@include(self::getModuleFile(true));
+            		if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true) {
+	            		// Just try reinclude
+	            		include(self::getModuleFile(true));
+            		} else {
+            			// Just try reinclude
+            			@include(self::getModuleFile(true));
+            		}
+            		
             		if (!isset($Result)) {
             			self::redirect( self::$currentModuleName . '/' . self::$currentView);
             			exit;
@@ -153,8 +159,18 @@ class erLhcoreClassModule{
     			$className = 'erLhcoreClassExtension'.ucfirst($extension);
     			$class = new $className();
     			$class->run();
+    			self::$extensionsBootstraps[$className] = $class;
     		}
     	}    	
+    }
+    
+    public static function getExtensionInstance($className)
+    {
+        if (isset(self::$extensionsBootstraps[$className])) {
+            return self::$extensionsBootstraps[$className];
+        }
+        
+        return false;
     }
     
     public static function getModuleDefaultView($module)
@@ -433,6 +449,8 @@ class erLhcoreClassModule{
     static private $moduleCacheEnabled = NULL;
     static private $cacheInstance = NULL;
     static private $cacheVersionSite = NULL;
+    
+    static private $extensionsBootstraps = array();
     
     // Should we cache cache config variables
     // Instance version of chat should not cache, because each customer can have a different one

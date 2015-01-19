@@ -54,6 +54,26 @@
       <translation>Tarp kokių kalbų vartotojas turėtų galėti perjungti kalbą</translation>
     </message>
     <message>
+      <source>Host where NodeJs is running</source>
+      <translation>Adresas kur NodeJs veikia</translation>
+    </message>
+    <message>
+      <source>Location of SocketIO JS library</source>
+      <translation>Adresas kur SocketIO JS biblioteka yra</translation>
+    </message>
+    <message>
+      <source>Connect to NodeJs in https mode</source>
+      <translation>Jungtis prie NodeJs https režimu</translation>
+    </message>
+    <message>
+      <source>NodeJS support enabled</source>
+      <translation>NodeJS palaikymas įgalintas</translation>
+    </message>
+    <message>
+      <source>Do not ask permission for users to see their screen</source>
+      <translation>Neklausti leidimo norint matyti vartotojų ekraną</translation>
+    </message>
+    <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
       <translation>Naudoti sesiją apsaugai. LHC turi būti instaliuotas tam pačiam domene arba subdomene.</translation>
     </message>
@@ -150,6 +170,10 @@
       <translation>Paslėpti galimybę vartotojui atidaryti widgetą naujam lange. Atidarymo naujam lange ikona bus paslėpta.</translation>
     </message>
     <message>
+      <source>Disable JS execution in Co-Browsing operator window</source>
+      <translation>Išjungti JS vykdymą Co-Browsing operatoriaus lange</translation>
+    </message>
+    <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
       <translation>Išjungti HTML5 saugojimą, pažymėkite jei jūsų puslapis keičia režimus naršant</translation>
     </message>
@@ -168,6 +192,10 @@
     <message>
       <source>Show BB Code button</source>
       <translation>Rodyti BB kodo mygtyką</translation>
+    </message>
+    <message>
+      <source>Which ip should not be allowed to chat</source>
+      <translation>Kuriems IP neturėtų būti leista pradėti pokalbio</translation>
     </message>
     <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
@@ -275,16 +303,16 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Widget copyright</source>
+      <translation>Widget autorystė</translation>
+    </message>
+    <message>
       <source>Download theme</source>
       <translation>Parsisiųsti temą</translation>
     </message>
     <message>
       <source>Status widget style</source>
       <translation>Statuso widgeto stilius</translation>
-    </message>
-    <message>
-      <source>Widget copyright</source>
-      <translation>Widget autorystė</translation>
     </message>
     <message>
       <source>Widget container</source>
@@ -309,6 +337,10 @@
     <message>
       <source>Need help standard text</source>
       <translation>Reikia pagalbos tekstas</translation>
+    </message>
+    <message>
+      <source>Widget border width (px)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Online status text</source>
@@ -353,6 +385,22 @@
     <message>
       <source>Show copyright widget logo in left corner</source>
       <translation>Rodyti autorystės widgeto logo kairiame kampe</translation>
+    </message>
+    <message>
+      <source>Hide widget close button</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide popup option</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Header height (px)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Header padding (px)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Widget copyright link</source>
@@ -419,6 +467,22 @@
       <translation>Widgeto turinio papildomas CSS, matomas po išsaugojimo</translation>
     </message>
     <message>
+      <source>Minimize image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Restore image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Close image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Popup image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Widget themes</source>
       <translation>Widgeto temos</translation>
     </message>
@@ -453,6 +517,14 @@
       <source>Live help is offline...</source>
       <translation>Pagalba neaktyvi...</translation>
     </message>
+    <message>
+      <source>Allow operator to see your page content?</source>
+      <translation>Leisti operatoriui matyti puslapio turinį?</translation>
+    </message>
+    <message>
+      <source>Screen shared, click to finish</source>
+      <translation>Ekranas matomas, paspausti norint baigti</translation>
+    </message>
   </context>
   <context>
     <name>abstract/proactivechatinvitation</name>
@@ -479,6 +551,10 @@
     <message>
       <source>Position</source>
       <translation>Pozicija</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Departamentas</translation>
     </message>
     <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
@@ -545,16 +621,20 @@
       <translation>Identifikatorius, kuriam identifikatoriui ši žinutė turėtų būti rodoma. Palikite tuščia visiems</translation>
     </message>
     <message>
-      <source>Department</source>
-      <translation>Departamentas</translation>
-    </message>
-    <message>
       <source>Matched times</source>
       <translation>Pritaikyta kartų</translation>
     </message>
     <message>
       <source>Message to user</source>
       <translation>Žinutė vartotojui</translation>
+    </message>
+    <message>
+      <source>Message to returning user</source>
+      <translation>Žinutė grįžtančiam lankytojui</translation>
+    </message>
+    <message>
+      <source>Nick which will be used if we cannot determine returning user name</source>
+      <translation>Nikas kuris bus naudojamas jei neįmanoma nustatyti grįžtančio vartotojo vardo</translation>
     </message>
     <message>
       <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
@@ -729,6 +809,10 @@
     <message>
       <source>Choose what form you want to embed</source>
       <translation>Pasirinkite kokią formą norite įterpti</translation>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation>Identifikatorius</translation>
     </message>
     <message>
       <source>Help us to grow</source>
@@ -1233,18 +1317,6 @@
   <context>
     <name>department/edit</name>
     <message>
-      <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation>Darbo valandos, 24 valandų formatas, 1-24</translation>
-    </message>
-    <message>
-      <source>From, E.g. 8</source>
-      <translation>Nuo, Pvz. 8</translation>
-    </message>
-    <message>
-      <source>To, E.g. 17</source>
-      <translation>Iki, Pvz. 17</translation>
-    </message>
-    <message>
       <source>Any</source>
       <translation>Bet kuris</translation>
     </message>
@@ -1503,6 +1575,10 @@
       <translation>Informacija</translation>
     </message>
     <message>
+      <source>Edit main chat information</source>
+      <translation>Koreguoti pagrindinę chato informaciją</translation>
+    </message>
+    <message>
       <source>Department</source>
       <translation>Departamentas</translation>
     </message>
@@ -1541,6 +1617,10 @@
     <message>
       <source>Created</source>
       <translation>Sukurtas</translation>
+    </message>
+    <message>
+      <source>User left</source>
+      <translation>Vartotojas paliko</translation>
     </message>
     <message>
       <source>Waited</source>
@@ -1597,6 +1677,18 @@
     <message>
       <source>Attach uploaded file</source>
       <translation>Prisegti nusiųstą failą</translation>
+    </message>
+    <message>
+      <source>Please enter a URL</source>
+      <translation>Prašome įvesti URL</translation>
+    </message>
+    <message>
+      <source>Redirect user to another url</source>
+      <translation>Nukreipti vartotoją į kitą URL</translation>
+    </message>
+    <message>
+      <source>Screen sharing</source>
+      <translation>Ekrano dalinamasis</translation>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
@@ -1866,6 +1958,10 @@
       <translation>Šiuo metu nėra prisijungusių operatorių, prašome palikti žinutę</translation>
     </message>
     <message>
+      <source>File</source>
+      <translation>Failas</translation>
+    </message>
+    <message>
       <source>Leave a message</source>
       <translation>Palikite žinutę</translation>
     </message>
@@ -1934,6 +2030,18 @@
       <translation>Pasirinkti kalbą</translation>
     </message>
     <message>
+      <source>Invalid CSRF token!</source>
+      <translation>Nekoraktiškas CSRF tokenas!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid email address</source>
+      <translation>Prašome įvesti korektišką el. pašto adresą</translation>
+    </message>
+    <message>
+      <source>Maximum 50 characters</source>
+      <translation>Maksimum 50 ženklų</translation>
+    </message>
+    <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
       <translation>Jūs neturite teisės pradėti pokalbio! Susisiekite su svetinės savininku.</translation>
     </message>
@@ -1944,14 +2052,6 @@
     <message>
       <source>Please enter your name</source>
       <translation>Prašome įvesti vardą</translation>
-    </message>
-    <message>
-      <source>Maximum 50 characters</source>
-      <translation>Maksimum 50 ženklų</translation>
-    </message>
-    <message>
-      <source>Please enter a valid email address</source>
-      <translation>Prašome įvesti korektišką el. pašto adresą</translation>
     </message>
     <message>
       <source>Please enter your message</source>
@@ -1978,12 +2078,28 @@
       <translation>Maksimum 100 ženklų telefono numeryje</translation>
     </message>
     <message>
+      <source>Invalid file</source>
+      <translation>Nekorektiškas failas</translation>
+    </message>
+    <message>
       <source>Could not determine a default department!</source>
       <translation>Negalima nustatyti numatyto departamento!</translation>
     </message>
     <message>
       <source>is required</source>
       <translation>yra privalomas</translation>
+    </message>
+    <message>
+      <source>Invalid file extension</source>
+      <translation>Nekorektiška failo galunė</translation>
+    </message>
+    <message>
+      <source>Invalid file extension!</source>
+      <translation>Nekorektiška failo galunė!</translation>
+    </message>
+    <message>
+      <source>To big file!</source>
+      <translation>Per didelis failas!</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -2477,6 +2593,18 @@
       <translation>prieš</translation>
     </message>
     <message>
+      <source>On page</source>
+      <translation>Puslapyje</translation>
+    </message>
+    <message>
+      <source>Yes</source>
+      <translation>Taip</translation>
+    </message>
+    <message>
+      <source>No</source>
+      <translation>Ne</translation>
+    </message>
+    <message>
       <source>User does not have any message from operator</source>
       <translation>Vartotojas neturi jokios žinutės iš operatoriaus.</translation>
     </message>
@@ -2573,8 +2701,32 @@
       <translation>Įjungti/Išjungti naršyklės pranešimus apie naujus lankytojus</translation>
     </message>
     <message>
-      <source>List</source>
-      <translation>Sąrašas</translation>
+      <source>Online users on map</source>
+      <translation>Prisijungusių vartotojų žemėlapis</translation>
+    </message>
+    <message>
+      <source>User has message from operator</source>
+      <translation>Vartotojui buvo išsiųstas žinutė iš operatoriaus</translation>
+    </message>
+    <message>
+      <source>Marker timeout before it dissapears from map</source>
+      <translation>Žymės laikas prieš jai dingstant iš žemėlapio</translation>
+    </message>
+    <message>
+      <source>seconds</source>
+      <translation>sekundžių</translation>
+    </message>
+    <message>
+      <source>minute</source>
+      <translation>minutė</translation>
+    </message>
+    <message>
+      <source>minutes</source>
+      <translation>minutės</translation>
+    </message>
+    <message>
+      <source>Online visitors list</source>
+      <translation>Prisijungusių lankytojų sąrašas</translation>
     </message>
     <message>
       <source>online users</source>
@@ -2617,20 +2769,8 @@
       <translation>sekundes</translation>
     </message>
     <message>
-      <source>seconds</source>
-      <translation>sekundžių</translation>
-    </message>
-    <message>
       <source>Show visitors who visited site in the past</source>
       <translation>Rodyti lankytojus, kurie aplankė per pastarasias</translation>
-    </message>
-    <message>
-      <source>minute</source>
-      <translation>minutė</translation>
-    </message>
-    <message>
-      <source>minutes</source>
-      <translation>minutės</translation>
     </message>
     <message>
       <source>hour</source>
@@ -2679,18 +2819,6 @@
     <message>
       <source>last visit</source>
       <translation>paskutinis apsilankymas</translation>
-    </message>
-    <message>
-      <source>Map</source>
-      <translation>Žemėlapis</translation>
-    </message>
-    <message>
-      <source>User has message from operator</source>
-      <translation>Vartotojui buvo išsiųstas žinutė iš operatoriaus</translation>
-    </message>
-    <message>
-      <source>Marker timeout before it dissapears from map</source>
-      <translation>Žymės laikas prieš jai dingstant iš žemėlapio</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>
@@ -2822,6 +2950,10 @@
     <message>
       <source>Workflow</source>
       <translation>Darbo eiga</translation>
+    </message>
+    <message>
+      <source>Screen sharing</source>
+      <translation>Ekrano dalinimasis</translation>
     </message>
     <message>
       <source>Update</source>
@@ -3180,6 +3312,37 @@
     </message>
   </context>
   <context>
+    <name>chat/modifychat</name>
+    <message>
+      <source>Modify chat</source>
+      <translation>Koreguoti pokalbio informaciją</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-paštas</translation>
+    </message>
+    <message>
+      <source>Recipient e-mail</source>
+      <translation>Gavėjo el-paštas</translation>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation>Nikas</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Telefonas</translation>
+    </message>
+    <message>
+      <source>Update chat</source>
+      <translation>Atnaujinti pokalbį</translation>
+    </message>
+    <message>
+      <source>Chat information was updated</source>
+      <translation>Pokalbio informacija buvo atnaujinta</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/operatorschats</name>
     <message>
       <source>Operators chats list</source>
@@ -3417,6 +3580,10 @@
     <message>
       <source>E-mail is always required</source>
       <translation>El. paštas yra visada privalomas</translation>
+    </message>
+    <message>
+      <source>Allow to attatch a file</source>
+      <translation>Leisti prisegti failą</translation>
     </message>
     <message>
       <source>Additional form settings</source>
@@ -3817,6 +3984,10 @@
       <source>User has joined the chat!</source>
       <translation>Vartotojas prisijungė prie pokalbių kambario!</translation>
     </message>
+    <message>
+      <source>User has joined the chat from popup chat window!</source>
+      <translation>Vartotojas prisijungė prie pokalbio iš iššokančio lango!</translation>
+    </message>
   </context>
   <context>
     <name>chat/userleftchat</name>
@@ -4147,6 +4318,37 @@
     <message>
       <source>New</source>
       <translation>Naujas</translation>
+    </message>
+  </context>
+  <context>
+    <name>cobrowse/browse</name>
+    <message>
+      <source>Request screen share</source>
+      <translation>Inicijuoti ekrano dalinimasi</translation>
+    </message>
+    <message>
+      <source>Show my mouse position to visitor</source>
+      <translation>Rodyti mano pelės lokaciją lankytojui</translation>
+    </message>
+    <message>
+      <source>On highlight scroll user window location to match my</source>
+      <translation>Pažymint elementą parodyti vartotojui pažymėtą elementą</translation>
+    </message>
+    <message>
+      <source>Follow user scroll position</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Click blue eye at the top to request screen share</source>
+      <translation>Paspauskite mėlyną akį norėdami užklausti ekrano dalinimasi</translation>
+    </message>
+    <message>
+      <source>Screen sharing session has finished</source>
+      <translation>Ekrano dalinimosi sesija pasibaigė</translation>
+    </message>
+    <message>
+      <source>Screen is shared</source>
+      <translation>Ekranu yra dalinimasi</translation>
     </message>
   </context>
   <context>
@@ -4629,6 +4831,10 @@
       <translation>Pavadinimas</translation>
     </message>
     <message>
+      <source>Identifier</source>
+      <translation>Identifikatorius</translation>
+    </message>
+    <message>
       <source>Intro</source>
       <translation>Įžanga</translation>
     </message>
@@ -4694,12 +4900,20 @@
       <source>Date</source>
       <translation>Data</translation>
     </message>
+    <message>
+      <source>Identifier</source>
+      <translation>Identifikatorius</translation>
+    </message>
   </context>
   <context>
     <name>form/viewcollected</name>
     <message>
       <source>collected information</source>
       <translation>surinkta informacija</translation>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation>Identifikatorius</translation>
     </message>
     <message>
       <source>Download</source>
@@ -5946,6 +6160,57 @@
     </message>
   </context>
   <context>
+    <name>chat/chatexport</name>
+    <message>
+      <source>Visitor Name</source>
+      <translation>Lankytojo vardas</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>El. paštas</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Telefonas</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>Šalis</translation>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>Miestas</translation>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation>IP</translation>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation>Operatorius</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Departamentas</translation>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>Data</translation>
+    </message>
+    <message>
+      <source>Mail send</source>
+      <translation>El. laiškas išsiųstas</translation>
+    </message>
+    <message>
+      <source>Referrer</source>
+      <translation>Atėjo iš</translation>
+    </message>
+    <message>
+      <source>Link</source>
+      <translation>Nuoroda</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/syncuser</name>
     <message>
       <source>Chat was automatically transferred to</source>
@@ -6163,6 +6428,10 @@
       <source>has joined the chat!</source>
       <translation>prisijungė prie pokalbio</translation>
     </message>
+    <message>
+      <source>has accepted a chat!</source>
+      <translation>patvirtino pokalbį!</translation>
+    </message>
   </context>
   <context>
     <name>chat/closechatadmin</name>
@@ -6245,57 +6514,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Prašome pasirinkti korektišką failo tipą!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/chatexport</name>
-    <message>
-      <source>Visitor Name</source>
-      <translation>Lankytojo vardas</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>El. paštas</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Telefonas</translation>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation>Šalis</translation>
-    </message>
-    <message>
-      <source>City</source>
-      <translation>Miestas</translation>
-    </message>
-    <message>
-      <source>IP</source>
-      <translation>IP</translation>
-    </message>
-    <message>
-      <source>Operator</source>
-      <translation>Operatorius</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Departamentas</translation>
-    </message>
-    <message>
-      <source>Date</source>
-      <translation>Data</translation>
-    </message>
-    <message>
-      <source>Mail send</source>
-      <translation>El. laiškas išsiųstas</translation>
-    </message>
-    <message>
-      <source>Referrer</source>
-      <translation>Atėjo iš</translation>
-    </message>
-    <message>
-      <source>Link</source>
-      <translation>Nuoroda</translation>
     </message>
   </context>
 </TS>

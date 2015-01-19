@@ -17,7 +17,7 @@
 		            <option value="https:">https:</option>      
 		    </select>    	    
     </div>
-    <div class="columns large-6 end">
+    <div class="columns large-6">
 	   <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Choose what form you want to embed');?></label>
 	   <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
 										'input_name'     => 'FormID',								
@@ -26,6 +26,10 @@
 										'list_function'  => 'erLhAbstractModelForm::getList',
 										'list_function_params'  => array('limit' => '1000000'),
 		)); ?> 	    
+    </div>
+    <div class="columns large-6 end">
+	   <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Identifier');?></label>
+	   <input type="text" id="id_identifier" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Identifier')?>" value="" /> 	    
     </div>
     
 </div>
@@ -40,20 +44,21 @@ var default_site_access = '<?php echo erConfigClassLhConfig::getInstance()->getS
 function generateEmbedCode(){
     var siteAccess = $('#LocaleID').val() == default_site_access ? '' : $('#LocaleID').val();
     var formid = $('#id_FormID').val() == default_site_access ? '' : $('#id_FormID').val();
+    var identifier = $('#id_identifier').val() == '' ? '' : '?identifier=' + $('#id_identifier').val();
 
     var id_tag = '<!-- Place this tag where you want the Live Helper Form module to render. -->'+"\n"+'<div id="lhc_form_embed_container" ></div>'+"\n\n<!-- Place this tag after the Live Helper Form module tag. -->\n";
 
     var script = '<script type="text/javascript">'+"\nvar LHCFormOptions = {};\n"+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
-        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'form/embed/'+formid+"';\n"+
+        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'form/embed/'+formid+identifier+"';\n"+
         'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);'+"\n"+
       '})();'+"\n"+
     '</scr'+'ipt>';
     $('#HMLTContent').text(id_tag+script);
 };
 
-$('#LocaleID,#HttpMode').change(function(){
+$('#LocaleID,#HttpMode,#id_identifier').change(function(){
     generateEmbedCode();
 });
 generateEmbedCode();

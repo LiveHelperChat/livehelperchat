@@ -28,12 +28,23 @@ if (is_array($Params['user_parameters_unordered']['department'])){
 
 $inputData->validate_start_chat = false;
 $inputData->operator = (int)$Params['user_parameters_unordered']['operator'];
+$inputData->name_items = array();
+$inputData->value_items = array();
+$inputData->value_types = array();
+$inputData->value_sizes = array();
+$inputData->hattr = array();
 
 // Assign department instantly
 if ($inputData->departament_id > 0) {
 	$tpl->set('department',$inputData->departament_id);
 } else {
 	$tpl->set('department',false);
+}
+
+// Set time zone if script detected it
+if ($userInstance->visitor_tz != '') {
+	erLhcoreClassModule::$defaultTimeZone = $userInstance->visitor_tz;
+	date_default_timezone_set(erLhcoreClassModule::$defaultTimeZone);
 }
 
 $tpl->set('playsound',(string)$Params['user_parameters_unordered']['playsound'] == 'true' && !isset($_POST['askQuestion']) && erLhcoreClassModelChatConfig::fetch('sound_invitation')->current_value == 1);
@@ -60,6 +71,15 @@ if (isset($_POST['askQuestion']))
     $validationFields['Username'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
     $validationFields['Phone'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
     $validationFields['user_timezone'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int');
+    
+    // Additional attributes
+    $validationFields['name_items'] = new ezcInputFormDefinitionElement ( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY );
+	$validationFields['values_req'] = new ezcInputFormDefinitionElement ( ezcInputFormDefinitionElement::OPTIONAL, 'string', null, FILTER_REQUIRE_ARRAY );
+	$validationFields['value_items'] = new ezcInputFormDefinitionElement ( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY );
+	$validationFields['value_types'] = new ezcInputFormDefinitionElement ( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY );
+	$validationFields['value_sizes'] = new ezcInputFormDefinitionElement ( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY );
+	$validationFields['value_show'] = new ezcInputFormDefinitionElement ( ezcInputFormDefinitionElement::OPTIONAL, 'string', null, FILTER_REQUIRE_ARRAY );
+	$validationFields['hattr'] = new ezcInputFormDefinitionElement ( ezcInputFormDefinitionElement::OPTIONAL, 'string', null, FILTER_REQUIRE_ARRAY );
     
     if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
     	// Start session if required only
@@ -111,6 +131,50 @@ if (isset($_POST['askQuestion']))
     	}
     }
     
+    // validate and insert additional_data code in proactive chat
+	if ($form->hasValidData ( 'name_items' ) && ! empty ( $form->name_items )) {
+		$valuesArray = array ();
+		if ($form->hasValidData ( 'value_items' ) && ! empty ( $form->value_items )) {
+			$inputData->value_items = $valuesArray = $form->value_items;
+		}
+		
+		if ($form->hasValidData ( 'values_req' ) && ! empty ( $form->values_req )) {
+			$inputData->values_req = $form->values_req;
+		}
+		
+		if ($form->hasValidData ( 'value_types' ) && ! empty ( $form->value_types )) {
+			$inputData->value_types = $form->value_types;
+		}
+		
+		if ($form->hasValidData ( 'value_sizes' ) && ! empty ( $form->value_sizes )) {
+			$inputData->value_sizes = $form->value_sizes;
+		}
+		
+		if ($form->hasValidData ( 'value_show' ) && ! empty ( $form->value_show )) {
+			$inputData->value_show = $form->value_show;
+		}
+		
+		if ($form->hasValidData ( 'hattr' ) && ! empty ( $form->hattr )) {
+			$inputData->hattr = $form->hattr;
+		}
+		
+		$inputData->name_items = $form->name_items;
+		
+		$stringParts = array ();
+		foreach ( $form->name_items as $key => $name_item ) {
+			if (isset ( $inputData->values_req [$key] ) && $inputData->values_req [$key] == 't' && ($inputData->value_show [$key] == 'b' || $inputData->value_show [$key] == (isset ( $additionalParams ['offline'] ) ? 'off' : 'on')) && (! isset ( $valuesArray [$key] ) || trim ( $valuesArray [$key] ) == '')) {
+				$Errors [] = trim ( $name_item ) . ' : ' . erTranslationClassLhTranslation::getInstance ()->getTranslation ( 'chat/startchat', 'is required' );
+			}
+			$stringParts [] = array (
+					'key' => $name_item,
+					'value' => (isset ( $valuesArray [$key] ) ? trim ( $valuesArray [$key] ) : '') 
+			);
+		}
+		
+		$chat->additional_data = json_encode ( $stringParts );
+	}
+
+	
     if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
     	if ( !$form->hasValidData( $nameField ) || $form->$nameField == '' || $form->$nameField < time()-600 || $hashCaptcha != sha1($_SERVER['REMOTE_ADDR'].$form->$nameField.erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ))){
     		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid captcha code, please enable Javascript!');
@@ -220,7 +284,7 @@ if (isset($_POST['askQuestion']))
        } else {
 
        		// Default auto responder
-	       	$responder = erLhAbstractModelAutoResponder::processAutoResponder();
+	       	$responder = erLhAbstractModelAutoResponder::processAutoResponder($chat);
 
 	       	if ($responder instanceof erLhAbstractModelAutoResponder) {
 	       		$chat->wait_timeout = $responder->wait_timeout;
@@ -258,6 +322,84 @@ if (isset($_POST['askQuestion']))
     } else {
         $tpl->set('errors',$Errors);
     }
+}
+
+// User this only if not post
+if (!ezcInputForm::hasPostData()) {
+	$definition = array(
+			'name'  => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
+					null,
+					FILTER_REQUIRE_ARRAY
+			),
+			'value' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
+					null,
+					FILTER_REQUIRE_ARRAY
+			),
+			'type' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'string',
+					null,
+					FILTER_REQUIRE_ARRAY
+			),
+			'size' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'string',
+					null,
+					FILTER_REQUIRE_ARRAY
+			),
+			'req' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'string',
+					null,
+					FILTER_REQUIRE_ARRAY
+			),
+			'sh' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'string',
+					null,
+					FILTER_REQUIRE_ARRAY
+			),
+			'hattr' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'string',
+					null,
+					FILTER_REQUIRE_ARRAY
+			)
+	);
+	
+	$form = new ezcInputForm( INPUT_GET, $definition );
+	
+	if ( $form->hasValidData( 'name' ) && !empty($form->name))
+	{
+		$inputData->name_items = $form->name;
+	}
+	
+	if ( $form->hasValidData( 'sh' ) && !empty($form->sh))
+	{
+		$inputData->value_show = $form->sh;
+	}
+	
+	if ( $form->hasValidData( 'req' ) && !empty($form->req))
+	{
+		$inputData->values_req = $form->req;
+	}
+	
+	if ( $form->hasValidData( 'value' ) && !empty($form->value))
+	{
+		$inputData->value_items = $form->value;
+	}
+	
+	if ( $form->hasValidData( 'hattr' ) && !empty($form->hattr))
+	{
+		$inputData->hattr = $form->hattr;
+	}
+	
+	if ( $form->hasValidData( 'type' ) && !empty($form->type))
+	{
+		$inputData->value_types = $form->type;
+	}
+	
+	if ( $form->hasValidData( 'size' ) && !empty($form->size))
+	{
+		$inputData->value_sizes = $form->size;
+	}
 }
 
 $tpl->set('input_data',$inputData);

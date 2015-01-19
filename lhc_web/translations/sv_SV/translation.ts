@@ -54,6 +54,26 @@
       <translation>Välj vilka språk användaren ska kunna välja mellan</translation>
     </message>
     <message>
+      <source>Host where NodeJs is running</source>
+      <translation>Värden där NodeJS körs</translation>
+    </message>
+    <message>
+      <source>Location of SocketIO JS library</source>
+      <translation>Placering av SocketIO JS-bibliotek</translation>
+    </message>
+    <message>
+      <source>Connect to NodeJs in https mode</source>
+      <translation>Anslut till NodeJS i https-läge</translation>
+    </message>
+    <message>
+      <source>NodeJS support enabled</source>
+      <translation>Stöd för NodeJS är aktiverat</translation>
+    </message>
+    <message>
+      <source>Do not ask permission for users to see their screen</source>
+      <translation>Fråga inte om lov från användarna för att se deras skärmar</translation>
+    </message>
+    <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
       <translation>Använd sessioncaptcha. LHC måste vara installerat på samma domän eller subdomän.</translation>
     </message>
@@ -150,6 +170,10 @@
       <translation>Inaktivera alternativ i widget för att öppna ett nytt fönster. Återställningsikonen kommer att vara dold</translation>
     </message>
     <message>
+      <source>Disable JS execution in Co-Browsing operator window</source>
+      <translation>Inaktivera JS-körning i operatörens fönster i skärmdelningsläge</translation>
+    </message>
+    <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
       <translation>Inaktivera HTML5 lagring, välj detta om din hemsida växlar mellan http och https</translation>
     </message>
@@ -168,6 +192,10 @@
     <message>
       <source>Show BB Code button</source>
       <translation>Visa knapp för BB kod</translation>
+    </message>
+    <message>
+      <source>Which ip should not be allowed to chat</source>
+      <translation>Vilka IP som inte ska tillåtas i chatten</translation>
     </message>
     <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
@@ -275,16 +303,16 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Widget copyright</source>
+      <translation>Widget copyright</translation>
+    </message>
+    <message>
       <source>Download theme</source>
       <translation>Ladda ned stil</translation>
     </message>
     <message>
       <source>Status widget style</source>
       <translation>Status widgetstil</translation>
-    </message>
-    <message>
-      <source>Widget copyright</source>
-      <translation>Widget copyright</translation>
     </message>
     <message>
       <source>Widget container</source>
@@ -309,6 +337,10 @@
     <message>
       <source>Need help standard text</source>
       <translation>Hjälpwidget standard text</translation>
+    </message>
+    <message>
+      <source>Widget border width (px)</source>
+      <translation>Kantlinjebredd för widgeten (px)</translation>
     </message>
     <message>
       <source>Online status text</source>
@@ -355,6 +387,22 @@
       <translation>Visa copyrightlogo i widgetens vänstra hörn</translation>
     </message>
     <message>
+      <source>Hide widget close button</source>
+      <translation>Glöm stäng-knappen för widgeten</translation>
+    </message>
+    <message>
+      <source>Hide popup option</source>
+      <translation>Göm popup-alternativet</translation>
+    </message>
+    <message>
+      <source>Header height (px)</source>
+      <translation>Höjd på headern (px)</translation>
+    </message>
+    <message>
+      <source>Header padding (px)</source>
+      <translation>Spaltfyllnad för headern (px)</translation>
+    </message>
+    <message>
       <source>Widget copyright link</source>
       <translation>Widget copyrightlänk</translation>
     </message>
@@ -368,7 +416,7 @@
     </message>
     <message>
       <source>Offline image</source>
-      <translation>Offlinebilde</translation>
+      <translation>Offlinebild</translation>
     </message>
     <message>
       <source>Widget header background color</source>
@@ -376,7 +424,7 @@
     </message>
     <message>
       <source>Widget border color</source>
-      <translation>Widget borderfärg</translation>
+      <translation>Widget kantlinjefärg</translation>
     </message>
     <message>
       <source>Need help background color</source>
@@ -419,6 +467,22 @@
       <translation>Widget body ytterligare CSS, får effekt efter att det har sparats</translation>
     </message>
     <message>
+      <source>Minimize image</source>
+      <translation>Minimera bild</translation>
+    </message>
+    <message>
+      <source>Restore image</source>
+      <translation>Återställ bild</translation>
+    </message>
+    <message>
+      <source>Close image</source>
+      <translation>Stäng bild</translation>
+    </message>
+    <message>
+      <source>Popup image</source>
+      <translation>Popup bild</translation>
+    </message>
+    <message>
       <source>Widget themes</source>
       <translation>Widget stilar</translation>
     </message>
@@ -453,6 +517,14 @@
       <source>Live help is offline...</source>
       <translation>Live hjälpen är otillgänglig...</translation>
     </message>
+    <message>
+      <source>Allow operator to see your page content?</source>
+      <translation>Tillåt operatören att se ditt sidinnehåll?</translation>
+    </message>
+    <message>
+      <source>Screen shared, click to finish</source>
+      <translation>Skärmen är delad, klicka för att avsluta</translation>
+    </message>
   </context>
   <context>
     <name>abstract/proactivechatinvitation</name>
@@ -462,7 +534,7 @@
     </message>
     <message>
       <source>chat configuration</source>
-      <translation>chatt inställningar</translation>
+      <translation>chattinställningar</translation>
     </message>
     <message>
       <source>also online users tracking has to be</source>
@@ -479,6 +551,10 @@
     <message>
       <source>Position</source>
       <translation>Position</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Avdelning</translation>
     </message>
     <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
@@ -545,16 +621,20 @@
       <translation>Identifierare, för vilket identitet ska detta meddelande visas för, lämna blankt för alla</translation>
     </message>
     <message>
-      <source>Department</source>
-      <translation>Avdelning</translation>
-    </message>
-    <message>
       <source>Matched times</source>
       <translation>Matchad antal</translation>
     </message>
     <message>
       <source>Message to user</source>
       <translation>Meddelande till användare</translation>
+    </message>
+    <message>
+      <source>Message to returning user</source>
+      <translation>Meddelande till återvändande användare</translation>
+    </message>
+    <message>
+      <source>Nick which will be used if we cannot determine returning user name</source>
+      <translation>Namn som ska användas om vi inte kan bestämma den återvändande användarens namn</translation>
     </message>
     <message>
       <source>Wait message. Visible then users starts chat and is waiting for someone to accept a chat.</source>
@@ -731,6 +811,10 @@
       <translation>Välj vilket formulär du vill bädda in</translation>
     </message>
     <message>
+      <source>Identifier</source>
+      <translation>Indentifierare</translation>
+    </message>
+    <message>
       <source>Help us to grow</source>
       <translation>Hjälp oss växa</translation>
     </message>
@@ -832,14 +916,14 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>System inställningar</translation>
+      <translation>Systeminställningar</translation>
     </message>
   </context>
   <context>
     <name>questionary/htmlcode</name>
     <message>
       <source>Show overlay</source>
-      <translation>Visa övertäckning</translation>
+      <translation>Visa överlappande</translation>
     </message>
     <message>
       <source>Show different offers for the same user</source>
@@ -863,7 +947,7 @@
     </message>
     <message>
       <source>HTML code</source>
-      <translation>HTML kod</translation>
+      <translation>HTML-kod</translation>
     </message>
   </context>
   <context>
@@ -1175,7 +1259,7 @@
     </message>
     <message>
       <source>Auto send</source>
-      <translation>Autoskicka</translation>
+      <translation>Skicka automatiskt</translation>
     </message>
     <message>
       <source>Edit message</source>
@@ -1215,7 +1299,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>System inställningar</translation>
+      <translation>Systeminställningar</translation>
     </message>
     <message>
       <source>Please enter canned message</source>
@@ -1232,18 +1316,6 @@
   </context>
   <context>
     <name>department/edit</name>
-    <message>
-      <source>Work hours, 24 hours format, 1 - 24</source>
-      <translation>Arbetstid, 24 timmars format, 1 - 24</translation>
-    </message>
-    <message>
-      <source>From, E.g. 8</source>
-      <translation>Från, exempelvis 8</translation>
-    </message>
-    <message>
-      <source>To, E.g. 17</source>
-      <translation>Till, exempelvis 17</translation>
-    </message>
     <message>
       <source>Any</source>
       <translation>Något</translation>
@@ -1434,7 +1506,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>System inställningar</translation>
+      <translation>Systeminställningar</translation>
     </message>
     <message>
       <source>departments</source>
@@ -1503,6 +1575,10 @@
       <translation>Information</translation>
     </message>
     <message>
+      <source>Edit main chat information</source>
+      <translation>Redigera huvudinformationen för chatten</translation>
+    </message>
+    <message>
       <source>Department</source>
       <translation>Avdelning</translation>
     </message>
@@ -1541,6 +1617,10 @@
     <message>
       <source>Created</source>
       <translation>Skapad</translation>
+    </message>
+    <message>
+      <source>User left</source>
+      <translation>Användaren lämnade</translation>
     </message>
     <message>
       <source>Waited</source>
@@ -1597,6 +1677,18 @@
     <message>
       <source>Attach uploaded file</source>
       <translation>Bifoga uppladdad fil</translation>
+    </message>
+    <message>
+      <source>Please enter a URL</source>
+      <translation>Var vänlig skriv en URL</translation>
+    </message>
+    <message>
+      <source>Redirect user to another url</source>
+      <translation>Vidarebefordra användare till en annan URL</translation>
+    </message>
+    <message>
+      <source>Screen sharing</source>
+      <translation>Skärmdelning</translation>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
@@ -1765,7 +1857,7 @@
     </message>
     <message>
       <source>Screenshot ready...</source>
-      <translation>Skärmdump redo</translation>
+      <translation>Skärmdump redo...</translation>
     </message>
   </context>
   <context>
@@ -1866,6 +1958,10 @@
       <translation>Det finns inga operatörer tillgängliga för närvarande, vänligen lämna ett meddelande</translation>
     </message>
     <message>
+      <source>File</source>
+      <translation>Fil</translation>
+    </message>
+    <message>
       <source>Leave a message</source>
       <translation>Lämna ett meddelande</translation>
     </message>
@@ -1934,24 +2030,28 @@
       <translation>Välj ditt språk</translation>
     </message>
     <message>
-      <source>You do not have permission to chat! Please contact site owner.</source>
-      <translation>Du har inte rättigheter att chatta, vänligen kontakta webbplatsens ägare.</translation>
+      <source>Invalid CSRF token!</source>
+      <translation>Ogiltig CSRF-token!</translation>
     </message>
     <message>
-      <source>Invalid captcha code, please enable Javascript!</source>
-      <translation>Ogiltig captcha kod, vänligen aktivera Javascript!</translation>
-    </message>
-    <message>
-      <source>Please enter your name</source>
-      <translation>Vänligen skriv in ditt namn</translation>
+      <source>Please enter a valid email address</source>
+      <translation>Vänligen ange en giltig e-postadress</translation>
     </message>
     <message>
       <source>Maximum 50 characters</source>
       <translation>Max 50 tecken</translation>
     </message>
     <message>
-      <source>Please enter a valid email address</source>
-      <translation>Vänligen ange en giltig e-post adress</translation>
+      <source>You do not have permission to chat! Please contact site owner.</source>
+      <translation>Du har inte rättigheter att chatta, vänligen kontakta webbplatsens ägare.</translation>
+    </message>
+    <message>
+      <source>Invalid captcha code, please enable Javascript!</source>
+      <translation>Ogiltig captcha-kod, vänligen aktivera Javascript!</translation>
+    </message>
+    <message>
+      <source>Please enter your name</source>
+      <translation>Vänligen skriv in ditt namn</translation>
     </message>
     <message>
       <source>Please enter your message</source>
@@ -1978,12 +2078,28 @@
       <translation>Max 100 tecken för telefonnr</translation>
     </message>
     <message>
+      <source>Invalid file</source>
+      <translation>Ogiltig fil</translation>
+    </message>
+    <message>
       <source>Could not determine a default department!</source>
       <translation>Kunde inte avgöra en standard avdelning</translation>
     </message>
     <message>
       <source>is required</source>
       <translation>är obligatorisk</translation>
+    </message>
+    <message>
+      <source>Invalid file extension</source>
+      <translation>Ogiltig filändelse</translation>
+    </message>
+    <message>
+      <source>Invalid file extension!</source>
+      <translation>Ogiltig filändelse!</translation>
+    </message>
+    <message>
+      <source>To big file!</source>
+      <translation>Filen är för stor!</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -2187,7 +2303,7 @@
     </message>
     <message>
       <source>XMPP settings</source>
-      <translation>XMPP inställningar</translation>
+      <translation>XMPP-inställningar</translation>
     </message>
     <message>
       <source>XMPP active</source>
@@ -2271,7 +2387,7 @@
     </message>
     <message>
       <source>Redirect URL, this url you will have to enter in your google app configuration</source>
-      <translation>Vidarebefordra URL, denna url måste du ange i din konfiguration för din google app</translation>
+      <translation>Vidarebefordra URL, denna URL måste du ange i din konfiguration för din google app</translation>
     </message>
     <message>
       <source>Enter your app information bellow</source>
@@ -2279,15 +2395,15 @@
     </message>
     <message>
       <source>OAuth 2.0 Client ID</source>
-      <translation>OAuth 2.0 Klient ID</translation>
+      <translation>OAuth 2.0 Klient-ID</translation>
     </message>
     <message>
       <source>Please enter your Client ID</source>
-      <translation>Var vänlig skriv in ditt Klient ID</translation>
+      <translation>Var vänlig skriv in ditt Klient-ID</translation>
     </message>
     <message>
       <source>Client secret</source>
-      <translation>Klient hemlighet</translation>
+      <translation>Klient, hemlighet</translation>
     </message>
     <message>
       <source>This message will be send to your e-mail</source>
@@ -2330,7 +2446,7 @@
     <name>chat/onlineusers</name>
     <message>
       <source>GEO detection configuration</source>
-      <translation>Geografisk plats inställningar</translation>
+      <translation>Geografisk lokaliseringsinställning</translation>
     </message>
     <message>
       <source>GEO Enabled</source>
@@ -2378,7 +2494,7 @@
     </message>
     <message>
       <source>You can download city/country database from.</source>
-      <translation>Du kan ladda ned stad/land databas från.</translation>
+      <translation>Du kan ladda ner stad/land-databasen från.</translation>
     </message>
     <message>
       <source>bcmath php extension detected</source>
@@ -2386,7 +2502,7 @@
     </message>
     <message>
       <source>Location of city database</source>
-      <translation>Lokalisering av stadsdatabas</translation>
+      <translation>Lokalisering av stadsdatabasen</translation>
     </message>
     <message>
       <source>User country based detection, faster</source>
@@ -2477,6 +2593,18 @@
       <translation>sedan</translation>
     </message>
     <message>
+      <source>On page</source>
+      <translation>På sidan</translation>
+    </message>
+    <message>
+      <source>Yes</source>
+      <translation>Ja</translation>
+    </message>
+    <message>
+      <source>No</source>
+      <translation>Nej</translation>
+    </message>
+    <message>
       <source>User does not have any message from operator</source>
       <translation>Användaren har inte fått något meddelande från operatör</translation>
     </message>
@@ -2562,7 +2690,7 @@
     </message>
     <message>
       <source>Chat configuration</source>
-      <translation>Chatt inställningar</translation>
+      <translation>Chattinställningar</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new visitor</source>
@@ -2573,8 +2701,32 @@
       <translation>Aktivera/inaktivera webbläsarnotifikation om ny besökare</translation>
     </message>
     <message>
-      <source>List</source>
-      <translation>Lista</translation>
+      <source>Online users on map</source>
+      <translation>Karta över besökare som är online</translation>
+    </message>
+    <message>
+      <source>User has message from operator</source>
+      <translation>Användaren har ett meddelande från operatören</translation>
+    </message>
+    <message>
+      <source>Marker timeout before it dissapears from map</source>
+      <translation>Tid innan markeringen tas bort från kartan</translation>
+    </message>
+    <message>
+      <source>seconds</source>
+      <translation>sekunder</translation>
+    </message>
+    <message>
+      <source>minute</source>
+      <translation>minut</translation>
+    </message>
+    <message>
+      <source>minutes</source>
+      <translation>minuter</translation>
+    </message>
+    <message>
+      <source>Online visitors list</source>
+      <translation>Lista över besökare som är online</translation>
     </message>
     <message>
       <source>online users</source>
@@ -2617,20 +2769,8 @@
       <translation>sekund</translation>
     </message>
     <message>
-      <source>seconds</source>
-      <translation>sekunder</translation>
-    </message>
-    <message>
       <source>Show visitors who visited site in the past</source>
       <translation>Visa besökare som besökt siten tidigare</translation>
-    </message>
-    <message>
-      <source>minute</source>
-      <translation>minut</translation>
-    </message>
-    <message>
-      <source>minutes</source>
-      <translation>minuter</translation>
     </message>
     <message>
       <source>hour</source>
@@ -2679,18 +2819,6 @@
     <message>
       <source>last visit</source>
       <translation>senaste besök</translation>
-    </message>
-    <message>
-      <source>Map</source>
-      <translation>Karta</translation>
-    </message>
-    <message>
-      <source>User has message from operator</source>
-      <translation>Användaren har ett meddelande från operatören</translation>
-    </message>
-    <message>
-      <source>Marker timeout before it dissapears from map</source>
-      <translation>Tid innan markeringen tas bort från kartan</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>
@@ -2785,7 +2913,7 @@
     <name>chat/listchatconfig</name>
     <message>
       <source>Chat configuration</source>
-      <translation>Chatt konfiguration</translation>
+      <translation>Chattinställningar</translation>
     </message>
     <message>
       <source>Notifications about new chats</source>
@@ -2793,7 +2921,7 @@
     </message>
     <message>
       <source>Copyright settings</source>
-      <translation>Copyright inställningar</translation>
+      <translation>Inställningar för Copyright</translation>
     </message>
     <message>
       <source>Application name</source>
@@ -2824,6 +2952,10 @@
       <translation>Arbetsflöde</translation>
     </message>
     <message>
+      <source>Screen sharing</source>
+      <translation>Skärmdelning</translation>
+    </message>
+    <message>
       <source>Update</source>
       <translation>Uppdatera</translation>
     </message>
@@ -2833,7 +2965,7 @@
     </message>
     <message>
       <source>List chat configuration</source>
-      <translation>Lista chatt inställningar</translation>
+      <translation>Lista chatt, inställningar</translation>
     </message>
   </context>
   <context>
@@ -2844,11 +2976,11 @@
     </message>
     <message>
       <source>New chat notification settings</source>
-      <translation>Inställningar, ny chatt notifiering</translation>
+      <translation>Inställningar för notifiering av ny chatt</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>System inställningar</translation>
+      <translation>Systeminställningar</translation>
     </message>
     <message>
       <source>System</source>
@@ -2864,15 +2996,15 @@
     </message>
     <message>
       <source>SMTP settings</source>
-      <translation>SMTP inställningar</translation>
+      <translation>SMTP-inställningar</translation>
     </message>
     <message>
       <source>E-mail templates</source>
-      <translation>E-post mallar</translation>
+      <translation>E-postmallar</translation>
     </message>
     <message>
       <source>Languages configuration</source>
-      <translation>Språk inställningar</translation>
+      <translation>Språkinställningar</translation>
     </message>
     <message>
       <source>Users</source>
@@ -2912,7 +3044,7 @@
     </message>
     <message>
       <source>Live help configuration</source>
-      <translation>Live hjälp inställningar</translation>
+      <translation>Live hjälp, inställningar</translation>
     </message>
     <message>
       <source>Departments</source>
@@ -2924,11 +3056,11 @@
     </message>
     <message>
       <source>Chat configuration</source>
-      <translation>Chatt inställningar</translation>
+      <translation>Chattinställningar</translation>
     </message>
     <message>
       <source>GEO detection configuration</source>
-      <translation>Geografisk plats inställningar</translation>
+      <translation>Geografisk lokaliseringsinställning</translation>
     </message>
     <message>
       <source>GEO adjustment</source>
@@ -2940,7 +3072,7 @@
     </message>
     <message>
       <source>Start chat form settings</source>
-      <translation>Starta chatt , formulär inställningar</translation>
+      <translation>Inställningar för &quot;starta en chatt&quot;-formulär</translation>
     </message>
     <message>
       <source>Canned messages</source>
@@ -2956,7 +3088,7 @@
     </message>
     <message>
       <source>XMPP settings</source>
-      <translation>XMPP inställningar</translation>
+      <translation>XMPP-inställningar</translation>
     </message>
     <message>
       <source>Chats list</source>
@@ -3004,7 +3136,7 @@
     </message>
     <message>
       <source>File configuration</source>
-      <translation>Fil inställningar</translation>
+      <translation>Filinställningar</translation>
     </message>
     <message>
       <source>New file</source>
@@ -3180,6 +3312,37 @@
     </message>
   </context>
   <context>
+    <name>chat/modifychat</name>
+    <message>
+      <source>Modify chat</source>
+      <translation>Modifiera chatten</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-post</translation>
+    </message>
+    <message>
+      <source>Recipient e-mail</source>
+      <translation>Mottagarens e-post</translation>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation>Smeknamn</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Telefon</translation>
+    </message>
+    <message>
+      <source>Update chat</source>
+      <translation>Uppdatera chatten</translation>
+    </message>
+    <message>
+      <source>Chat information was updated</source>
+      <translation>Chattinformationen uppdaterades</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/operatorschats</name>
     <message>
       <source>Operators chats list</source>
@@ -3239,7 +3402,7 @@
     <name>chat/sendchat</name>
     <message>
       <source>Enter your e-mail</source>
-      <translation>Skriv in din e-post adress</translation>
+      <translation>Skriv in din e-postadress</translation>
     </message>
   </context>
   <context>
@@ -3266,11 +3429,11 @@
     </message>
     <message>
       <source>Reply e-mail</source>
-      <translation>Svara till e-post adress</translation>
+      <translation>Svara till e-postadress</translation>
     </message>
     <message>
       <source>From e-mail</source>
-      <translation>Från e-post adress</translation>
+      <translation>Från e-postadress</translation>
     </message>
     <message>
       <source>Type your message to the user</source>
@@ -3290,15 +3453,15 @@
     </message>
     <message>
       <source>Please enter recipient e-mail!</source>
-      <translation>Vänligen skriv in mottagar e-post adressen!</translation>
+      <translation>Vänligen skriv in mottagarens e-postadress!</translation>
     </message>
     <message>
       <source>From e-mail is missing!</source>
-      <translation>Från e-post adress saknas!</translation>
+      <translation>Den e-postadress som är från-adressen saknas!</translation>
     </message>
     <message>
       <source>Reply e-mail is missing!</source>
-      <translation>Svar till e-post adressen saknas!</translation>
+      <translation>Den e-postadress som till-adressen saknas!</translation>
     </message>
     <message>
       <source>Subject is missing!</source>
@@ -3321,7 +3484,7 @@
     </message>
     <message>
       <source>Requires e-mail</source>
-      <translation>E-post är obligatoriskt</translation>
+      <translation>E-postadress är obligatoriskt</translation>
     </message>
     <message>
       <source>Requires name</source>
@@ -3352,7 +3515,7 @@
     <name>chat/startchatformsettings</name>
     <message>
       <source>Start a chat form settings</source>
-      <translation>Formulär inställningar för Starta en chatt</translation>
+      <translation>Inställningar för &quot;starta en chatt&quot;-formulär</translation>
     </message>
     <message>
       <source>At least one field has to be visible and required in the popup and page widget</source>
@@ -3360,11 +3523,11 @@
     </message>
     <message>
       <source>Enable leave a message functionality automatically if there are no online operators</source>
-      <translation>Aktiver lämna ett meddelande funktion automatiskt om det inte finns någon operatör online</translation>
+      <translation>Aktivera lämna ett meddelande-funktion automatiskt om det inte finns någon operatör online</translation>
     </message>
     <message>
       <source>Online form settings</source>
-      <translation>Online formulär inställningar</translation>
+      <translation>Inställningar för online-formulär</translation>
     </message>
     <message>
       <source>Name</source>
@@ -3412,11 +3575,15 @@
     </message>
     <message>
       <source>Offline form settings</source>
-      <translation>Offline formulär inställningar</translation>
+      <translation>Inställningar för offfline-formulär</translation>
     </message>
     <message>
       <source>E-mail is always required</source>
       <translation>E-post är alltid obligatorisk</translation>
+    </message>
+    <message>
+      <source>Allow to attatch a file</source>
+      <translation>Tillåt att bifoga en fil</translation>
     </message>
     <message>
       <source>Additional form settings</source>
@@ -3448,7 +3615,7 @@
     </message>
     <message>
       <source>Start chat form settings</source>
-      <translation>Starta chatt , formulär inställningar</translation>
+      <translation>Inställningar för &quot;starta en chatt&quot;-formulär</translation>
     </message>
   </context>
   <context>
@@ -3491,7 +3658,7 @@
     </message>
     <message>
       <source>Messages settings</source>
-      <translation>Inställningar meddelande</translation>
+      <translation>Meddelandeinställningar</translation>
     </message>
     <message>
       <source>Sync for a new user message, interval in seconds</source>
@@ -3515,7 +3682,7 @@
     </message>
     <message>
       <source>New chat request notification settings</source>
-      <translation>Ny chattförfrågan notifikationsinställningar</translation>
+      <translation> Notifikationsinställningar för ny chattförfrågan</translation>
     </message>
     <message>
       <source>Play a new pending chat sound on a new chat request</source>
@@ -3726,7 +3893,7 @@
     </message>
     <message>
       <source>Chatbox chats</source>
-      <translation>Chatbox chattar</translation>
+      <translation>Chattbox, chattar</translation>
     </message>
     <message>
       <source>Total messages (including visitors, system and operators messages)</source>
@@ -3746,7 +3913,7 @@
     </message>
     <message>
       <source>Last 24h statistic</source>
-      <translation>Statistik de senaste 24h</translation>
+      <translation>Statistik de senaste 24 timmarna</translation>
     </message>
     <message>
       <source>Operators last 24h statistic, top 100 by chats number</source>
@@ -3816,6 +3983,10 @@
     <message>
       <source>User has joined the chat!</source>
       <translation>Användaren har anslutit till chatten!</translation>
+    </message>
+    <message>
+      <source>User has joined the chat from popup chat window!</source>
+      <translation>Användaren har gått med i chatten från popup-fönstret!</translation>
     </message>
   </context>
   <context>
@@ -3943,11 +4114,11 @@
     <name>chatarchive/process</name>
     <message>
       <source>Process archive</source>
-      <translation>Behandla arkiv</translation>
+      <translation>Bearbeta arkiv</translation>
     </message>
     <message>
       <source>Process</source>
-      <translation>Behandla</translation>
+      <translation>Bearbeta</translation>
     </message>
   </context>
   <context>
@@ -4009,7 +4180,7 @@
     </message>
     <message>
       <source>General</source>
-      <translation>Allmän</translation>
+      <translation>Allmänt</translation>
     </message>
     <message>
       <source>General settings</source>
@@ -4050,7 +4221,7 @@
     <name>chatbox/generalsettings</name>
     <message>
       <source>Chatbox settings</source>
-      <translation>Chattbox inställningar</translation>
+      <translation>Inställningar för chattboxen</translation>
     </message>
     <message>
       <source>Default new chatbox name</source>
@@ -4128,7 +4299,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>System inställningar</translation>
+      <translation>Systeminställningar</translation>
     </message>
   </context>
   <context>
@@ -4147,6 +4318,37 @@
     <message>
       <source>New</source>
       <translation>Nytt</translation>
+    </message>
+  </context>
+  <context>
+    <name>cobrowse/browse</name>
+    <message>
+      <source>Request screen share</source>
+      <translation>Begär skärmdelning</translation>
+    </message>
+    <message>
+      <source>Show my mouse position to visitor</source>
+      <translation>Visa min muspekares position för besökare</translation>
+    </message>
+    <message>
+      <source>On highlight scroll user window location to match my</source>
+      <translation>Vid markering, scrolla användarens skärmposition att matcha min</translation>
+    </message>
+    <message>
+      <source>Follow user scroll position</source>
+      <translation>Följ användarens scrollposition</translation>
+    </message>
+    <message>
+      <source>Click blue eye at the top to request screen share</source>
+      <translation>Klicka på ikonen med det blåa ögat högst upp för att begära skärmdelning</translation>
+    </message>
+    <message>
+      <source>Screen sharing session has finished</source>
+      <translation>Skärmdelningssessionen har avslutats</translation>
+    </message>
+    <message>
+      <source>Screen is shared</source>
+      <translation>Skärmen är delad</translation>
     </message>
   </context>
   <context>
@@ -4177,7 +4379,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>System inställningar</translation>
+      <translation>Systeminställningar</translation>
     </message>
   </context>
   <context>
@@ -4328,7 +4530,7 @@
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation>Felaktig e-post adress</translation>
+      <translation>Felaktig e-postadress</translation>
     </message>
     <message>
       <source>Please enter a name</source>
@@ -4362,7 +4564,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>System inställningar</translation>
+      <translation>Systeminställningar</translation>
     </message>
     <message>
       <source>Departments</source>
@@ -4568,7 +4770,7 @@
     <name>file/configuration</name>
     <message>
       <source>File configuration</source>
-      <translation>Fil inställningar</translation>
+      <translation>Filinställningar</translation>
     </message>
     <message>
       <source>Allowed files types for operators</source>
@@ -4580,7 +4782,7 @@
     </message>
     <message>
       <source>Maximum file size in KB</source>
-      <translation>Max filstorlek i KB</translation>
+      <translation>Max filstorlek i kB</translation>
     </message>
     <message>
       <source>Settings updated</source>
@@ -4618,7 +4820,7 @@
     <name>form/collected</name>
     <message>
       <source>Download XLS</source>
-      <translation>Ladda ned XLS</translation>
+      <translation>Ladda ner XLS</translation>
     </message>
     <message>
       <source>URL</source>
@@ -4627,6 +4829,10 @@
     <message>
       <source>Name</source>
       <translation>Namn</translation>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation>Identifierare</translation>
     </message>
     <message>
       <source>Intro</source>
@@ -4646,7 +4852,7 @@
     </message>
     <message>
       <source>Download</source>
-      <translation>Ladda ned</translation>
+      <translation>Ladda ner</translation>
     </message>
     <message>
       <source>Delete</source>
@@ -4694,12 +4900,20 @@
       <source>Date</source>
       <translation>Datum</translation>
     </message>
+    <message>
+      <source>Identifier</source>
+      <translation>Identifierare</translation>
+    </message>
   </context>
   <context>
     <name>form/viewcollected</name>
     <message>
       <source>collected information</source>
       <translation>insamlad information</translation>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation>Identifierare</translation>
     </message>
     <message>
       <source>Download</source>
@@ -4824,7 +5038,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>System inställningar</translation>
+      <translation>Systeminställningar</translation>
     </message>
     <message>
       <source>List of roles</source>
@@ -4920,11 +5134,11 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>System inställningar</translation>
+      <translation>Systeminställningar</translation>
     </message>
     <message>
       <source>List of roles</source>
-      <translation>Roll lista</translation>
+      <translation>Rollista</translation>
     </message>
   </context>
   <context>
@@ -4942,7 +5156,7 @@
     <name>permission/roles</name>
     <message>
       <source>List of roles</source>
-      <translation>Roll lista</translation>
+      <translation>Rollista</translation>
     </message>
     <message>
       <source>Title</source>
@@ -4962,7 +5176,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>System inställningar</translation>
+      <translation>Systeminställningar</translation>
     </message>
   </context>
   <context>
@@ -5234,7 +5448,7 @@
     <name>system/languages</name>
     <message>
       <source>Languages configuration</source>
-      <translation>Språk inställningar</translation>
+      <translation>Språkinställningar</translation>
     </message>
     <message>
       <source>Your language</source>
@@ -5297,7 +5511,7 @@
     <name>system/smtp</name>
     <message>
       <source>SMTP settings</source>
-      <translation>SMTP inställningar</translation>
+      <translation>SMTP-inställningar</translation>
     </message>
     <message>
       <source>SMTP enabled</source>
@@ -5336,11 +5550,11 @@
     </message>
     <message>
       <source>Date format E.g (Y-m-d)</source>
-      <translation>Datumformat, exempelvis (Å-m-d)</translation>
+      <translation>Datumformat, exempelvis (Y-m-d)</translation>
     </message>
     <message>
       <source>Full date format E.g (Y-m-d H:i:s)</source>
-      <translation>Fullt datumformat, exempelvis (Å-m-d H:i:s)</translation>
+      <translation>Fullständigt datumformat, exempelvis (Y-m-d H:i:s)</translation>
     </message>
     <message>
       <source>Hour format E.g (H:i:s)</source>
@@ -5427,7 +5641,7 @@
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation>Felaktig e-post adress</translation>
+      <translation>Felaktig e-postadress</translation>
     </message>
     <message>
       <source>Invalid CSRF token!</source>
@@ -5443,7 +5657,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>System inställningar</translation>
+      <translation>Systeminställningar</translation>
     </message>
     <message>
       <source>Users</source>
@@ -5493,7 +5707,7 @@
     </message>
     <message>
       <source>Update database</source>
-      <translation>Uppdatera databas</translation>
+      <translation>Uppdatera databasen</translation>
     </message>
     <message>
       <source>Queries which will be executed on update</source>
@@ -5633,7 +5847,7 @@
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation>Felaktig e-post adress</translation>
+      <translation>Felaktig e-postadress</translation>
     </message>
     <message>
       <source>Please enter a name</source>
@@ -5653,7 +5867,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>System inställningar</translation>
+      <translation>Systeminställningar</translation>
     </message>
     <message>
       <source>Users</source>
@@ -5716,7 +5930,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>System inställningar</translation>
+      <translation>Systeminställningar</translation>
     </message>
     <message>
       <source>Groups</source>
@@ -5739,7 +5953,7 @@
     </message>
     <message>
       <source>Invalid e-mail address!</source>
-      <translation>Ogiltig e-post adress!</translation>
+      <translation>Ogiltig e-postadress!</translation>
     </message>
     <message>
       <source>Password remind</source>
@@ -5812,7 +6026,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>System inställningar</translation>
+      <translation>Systeminställningar</translation>
     </message>
   </context>
   <context>
@@ -5873,7 +6087,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>System inställningar</translation>
+      <translation>Systeminställningar</translation>
     </message>
     <message>
       <source>Groups</source>
@@ -5943,6 +6157,57 @@
     <message>
       <source>Download file</source>
       <translation>Ladda ner filen</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/chatexport</name>
+    <message>
+      <source>Visitor Name</source>
+      <translation>Besökarens namn</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-post</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Telefon</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>Land</translation>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>Stad</translation>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation>IP-nummer</translation>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation>Operatör</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Avdelning</translation>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation>Datum</translation>
+    </message>
+    <message>
+      <source>Mail send</source>
+      <translation>Mejl skickat</translation>
+    </message>
+    <message>
+      <source>Referrer</source>
+      <translation>Referens</translation>
+    </message>
+    <message>
+      <source>Link</source>
+      <translation>Länk</translation>
     </message>
   </context>
   <context>
@@ -6130,7 +6395,7 @@
     </message>
     <message>
       <source>Allow to change from e-mail</source>
-      <translation>Tillåt ändring av från adress</translation>
+      <translation>Tillåt ändring av från-adressen</translation>
     </message>
     <message>
       <source>Reply to</source>
@@ -6138,11 +6403,11 @@
     </message>
     <message>
       <source>Allow to change reply e-mail</source>
-      <translation>Tillåt ändring av svarsaddress</translation>
+      <translation>Tillåt ändring av till-adressen</translation>
     </message>
     <message>
       <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
-      <translation>Mottagaradress, den här adressen används om applikationen inte kan avgöra vem som borde få e-posten</translation>
+      <translation>Mottagaradress, den här adressen används om programmet inte kan avgöra vem som ska ha e-posten</translation>
     </message>
     <message>
       <source>BCC recipients, can be separated by comma.</source>
@@ -6154,7 +6419,7 @@
     </message>
     <message>
       <source>E-mail templates</source>
-      <translation>E-post mallar</translation>
+      <translation>E-postmallar</translation>
     </message>
   </context>
   <context>
@@ -6162,6 +6427,10 @@
     <message>
       <source>has joined the chat!</source>
       <translation>har gått med i chatten!</translation>
+    </message>
+    <message>
+      <source>has accepted a chat!</source>
+      <translation>har accepterat en chatt!</translation>
     </message>
   </context>
   <context>
@@ -6245,57 +6514,6 @@
     <message>
       <source>Please enter valid file type!</source>
       <translation>Vänligen ange en giltig filtyp!</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/chatexport</name>
-    <message>
-      <source>Visitor Name</source>
-      <translation>Besökarens namn</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-post</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Telefon</translation>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation>Land</translation>
-    </message>
-    <message>
-      <source>City</source>
-      <translation>Stad</translation>
-    </message>
-    <message>
-      <source>IP</source>
-      <translation>IP-nummer</translation>
-    </message>
-    <message>
-      <source>Operator</source>
-      <translation>Operatör</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Avdelning</translation>
-    </message>
-    <message>
-      <source>Date</source>
-      <translation>Datum</translation>
-    </message>
-    <message>
-      <source>Mail send</source>
-      <translation>Mejl skickat</translation>
-    </message>
-    <message>
-      <source>Referrer</source>
-      <translation>Referens</translation>
-    </message>
-    <message>
-      <source>Link</source>
-      <translation>Länk</translation>
     </message>
   </context>
 </TS>

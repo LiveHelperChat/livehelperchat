@@ -1,3 +1,4 @@
+<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','take_screenshot')) : ?>
 <section>
     <p class="title" data-section-title><a href="#screenshot"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Screenshot')?></a></p>
     <div class="content" data-section-content>    
@@ -31,3 +32,4 @@
       </div>
     </div>
 </section>
+<?php endif;?>
