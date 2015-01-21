@@ -51,12 +51,25 @@ $tpl->set('playsound',(string)$Params['user_parameters_unordered']['playsound'] 
 
 $chat = new erLhcoreClassModelChat();
 
+$modeAppendTheme = '';
 if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
 	try {
 		$theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
 		$Result['theme'] = $theme;
+		$modeAppendTheme = '/(theme)/'.$theme->id;
 	} catch (Exception $e) {
 
+	}
+} else {
+	$defaultTheme = erLhcoreClassModelChatConfig::fetch('default_theme_id')->current_value;
+	if ($defaultTheme > 0) {
+		try {
+			$theme = erLhAbstractModelWidgetTheme::fetch($defaultTheme);
+			$Result['theme'] = $theme;
+			$modeAppendTheme = '/(theme)/'.$theme->id;
+		} catch (Exception $e) {
+		
+		}
 	}
 }
 
@@ -316,7 +329,7 @@ if (isset($_POST['askQuestion']))
        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat));
        
        // Redirect user
-       erLhcoreClassModule::redirect('chat/chatwidgetchat/' . $chat->id . '/' . $chat->hash . '/(cstarted)/chat_started_by_invitation_cb');
+       erLhcoreClassModule::redirect('chat/chatwidgetchat/' . $chat->id . '/' . $chat->hash . $modeAppendTheme .  '/(cstarted)/chat_started_by_invitation_cb');
        exit;
 
     } else {
