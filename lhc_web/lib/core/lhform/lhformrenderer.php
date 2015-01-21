@@ -7,6 +7,8 @@ class erLhcoreClassFormRenderer {
 	private static $collectedInfo = array();
 	private static $isCollected = false;
 	private static $collectedObject = false;
+	private static $mainEmail = false;
+	
 	
 	public static function setCollectedObject($object) {
 		self::$collectedObject = $object;
@@ -198,9 +200,14 @@ class erLhcoreClassFormRenderer {
     		
     		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && $form->{$params['name']} == '')) {    		
     			self::$errors[] = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
-    		} elseif ($form->hasValidData( $params['name'] )) {    		
+    		} elseif ($form->hasValidData( $params['name'] )) {
     			$value = $form->{$params['name']};
-    			self::$collectedInfo[$params['name']] = array('definition' => $params,'value' => $form->{$params['name']});
+    			self::$collectedInfo[$params['name']] = array('main' => (isset($params['main']) && $params['main'] == 'true'),'definition' => $params,'value' => $form->{$params['name']});
+    			    			
+    			// It's main form e-mail
+    			if (self::$collectedInfo[$params['name']]['main'] == true) {
+    			    self::$mainEmail = self::$collectedInfo[$params['name']]['value'];
+    			}
     		}
     		
     	} else {
@@ -474,8 +481,9 @@ class erLhcoreClassFormRenderer {
     			$value = (isset($params['value']) ? $params['value'] : '');
     		}
     	}    	
+    	$placeholder = isset($params['placeholder']) ? ' placeholder="'.htmlspecialchars($params['placeholder']).'" ' : '';
     	
-    	return "<textarea name=\"{$params['name']}\">" . htmlspecialchars($value) . "</textarea>";
+    	return "<textarea name=\"{$params['name']}\" {$placeholder}>" . htmlspecialchars($value) . "</textarea>";
     }
     
     public static function renderAdditionalAtrributes($params) {
@@ -538,9 +546,9 @@ class erLhcoreClassFormRenderer {
     	
     	$formCollected->content = serialize($collectedInformation);    	
     	$formCollected->saveThis();
-    	
+    	    	
     	// Inform user about filled form
-    	erLhcoreClassChatMail::informFormFilled($formCollected);
+    	erLhcoreClassChatMail::informFormFilled($formCollected,array('email' => self::$mainEmail));
     }
     
 }
