@@ -3073,7 +3073,7 @@
             },
             {
                 "field": "dialect",
-                "type": "varchar(100)",
+                "type": "varchar(50)",
                 "null": "NO",
                 "key": "",
                 "default": null,
