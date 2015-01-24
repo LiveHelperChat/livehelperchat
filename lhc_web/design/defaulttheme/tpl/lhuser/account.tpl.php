@@ -160,6 +160,30 @@
     </div>
   </section>
   <?php endif; ?>
+    
+  <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhspeech','changedefaultlanguage')) : ?>
+  <section <?php if ($tab == 'tab_speech') : ?>class="active"<?php endif;?>>
+    <p class="title" data-section-title><a href="#speech"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Speech');?></a></p>
+    <div class="content" data-section-content data-slug="speech">
+	   <form action="<?php echo erLhcoreClassDesign::baseurl('user/account')?>" method="post">
+
+	  	<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
+	  	<?php $dataSpeech = array(
+	  	        'language' => erLhcoreClassModelUserSetting::getSetting('speech_language',''),
+	  	        'dialect' => erLhcoreClassModelUserSetting::getSetting('speech_dialect',''),
+	  	        'optional' => true,
+	  	    );
+	  	?>
+	  	
+		<?php include(erLhcoreClassDesign::designtpl('lhspeech/speech_form_fields.tpl.php'));?>
+		
+		<input type="submit" class="small button" name="UpdateSpeech_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>"/>
+	  	  
+	   </form>	  
+    </div>
+  </section>
+  <?php endif; ?>
   
   
   

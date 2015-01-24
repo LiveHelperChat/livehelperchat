@@ -102,6 +102,10 @@ a.icon-mail-send{
 	color:green;
 }
 
+a.icon-mic-recording {
+	color:red!important;
+}
+
 .button-group a.icon-mail{
 	color:#FFF;
 }
@@ -527,6 +531,10 @@ div.message-row-in {
 	width:32px;
 	height:32px;
 	display:block;
+}
+
+.admin-chat-mic{
+	background:url(../images/icons/mic.gif) no-repeat center center;
 }
 
 .widget-options .print-ico,

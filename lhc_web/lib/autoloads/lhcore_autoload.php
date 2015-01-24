@@ -169,6 +169,12 @@ return array_merge(array (
 		'erLhcoreClassDocShare' 					=> 'lib/core/lhdocshare/lhdocshare.php',
 		'erLhcoreClassModelDocShare' 				=> 'lib/models/lhdocshare/erlhcoreclassmodeldocshare.php',
 		
+        // Speech
+        'erLhcoreClassSpeech'                       => 'lib/core/lhspeech/lhspeech.php',
+        'erLhcoreClassModelSpeechLanguage'          => 'lib/models/lhspeech/erlhcoreclassmodelspeechlanguage.php',
+        'erLhcoreClassModelSpeechLanguageDialect'   => 'lib/models/lhspeech/erlhcoreclassmodelspeechlanguagedialect.php',
+        'erLhcoreClassModelSpeechChatLanguage'      => 'lib/models/lhspeech/erlhcoreclassmodelspeechchatlanguage.php',
+    
 		// Co browse
 		'erLhcoreClassCoBrowse' 					=> 'lib/core/lhcobrowse/lhcobrowse.php',
 		'erLhcoreClassModelCoBrowse' 				=> 'lib/models/lhcobrowse/erlhcoreclassmodelcobrowse.php',

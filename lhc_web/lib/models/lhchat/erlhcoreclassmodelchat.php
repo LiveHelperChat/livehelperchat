@@ -108,6 +108,11 @@ class erLhcoreClassModelChat {
 	   	$stmt = $q->prepare();
 	   	$stmt->execute();
 	   	
+	   	// Delete speech settings
+	   	$q->deleteFrom( 'lh_speech_chat_language' )->where( $q->expr->eq( 'chat_id', $this->id ) );
+	   	$stmt = $q->prepare();
+	   	$stmt->execute();
+	   	
 
 	   	erLhcoreClassModelChatFile::deleteByChatId($this->id);
 

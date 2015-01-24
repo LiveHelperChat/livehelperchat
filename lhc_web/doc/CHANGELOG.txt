@@ -1,3 +1,15 @@
+2.20v
+
+1. Speech to text support. Only google chrome at the moment has this hTML5 API
+2. Theme variable was not forwarded internally. (During read operator message action)
+3. Relative position for iframe. Some sites are using nonsense iframe positions.
+4. Operator typing issue was fixed. Operator typing message was shown and was not shown again even if operator was still typing
+5. Text preview position was changed.
+6. Various co-browsing improvements.
+
+execute doc/update_db/update_98.sql for update
+
+
 2.19v
 
 1. More attributes for themes

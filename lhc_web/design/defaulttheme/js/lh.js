@@ -86,6 +86,8 @@ function lh(){
     // Notifications array
     this.notificationsArray = [];
 
+    this.speechHandler = false;
+    
     // Block synchronization till message add finished
     this.underMessageAdd = false;
 
@@ -210,35 +212,39 @@ function lh(){
     this.is_typing = false;
     this.typing_timeout = null;
    
+    this.operatorTypingCallback = function(chat_id)
+    {
+    	var www_dir = this.wwwDir;
+        var inst = this;
+        
+        if (inst.is_typing == false) {
+            inst.is_typing = true;
+            clearTimeout(inst.typing_timeout);
+            
+            if (LHCCallbacks.initTypingMonitoringAdminInform) {
+            	inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);},3000);   
+           		LHCCallbacks.initTypingMonitoringAdminInform({'chat_id':chat_id,'status':true});
+            } else {                
+                $.getJSON(www_dir + 'chat/operatortyping/' + chat_id+'/true',{ }, function(data){
+                   inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);},3000);                   
+                   if (LHCCallbacks.initTypingMonitoringAdmin) {
+                   		LHCCallbacks.initTypingMonitoringAdmin(chat_id,true);
+                   }                   
+                }).fail(function(){
+                	inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);},3000);
+                });
+            }
+            
+        } else {
+             clearTimeout(inst.typing_timeout);
+             inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);},3000);
+        }        
+    };
     
     this.initTypingMonitoringAdmin = function(chat_id) {
-
-        var www_dir = this.wwwDir;
-        var inst = this;
-
+    	var inst = this;
         jQuery('#CSChatMessage-'+chat_id).bind('keyup', function (evt){
-            if (inst.is_typing == false) {
-                inst.is_typing = true;
-                clearTimeout(inst.typing_timeout);
-                
-                if (LHCCallbacks.initTypingMonitoringAdminInform) {
-                	inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);},3000);   
-               		LHCCallbacks.initTypingMonitoringAdminInform({'chat_id':chat_id,'status':true});
-                } else {                
-	                $.getJSON(www_dir + 'chat/operatortyping/' + chat_id+'/true',{ }, function(data){
-	                   inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);},3000);                   
-	                   if (LHCCallbacks.initTypingMonitoringAdmin) {
-	                   		LHCCallbacks.initTypingMonitoringAdmin(chat_id,true);
-	                   }                   
-	                }).fail(function(){
-	                	inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);},3000);
-	                });
-                }
-                
-            } else {
-                 clearTimeout(inst.typing_timeout);
-                 inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);},3000);
-            }
+        	inst.operatorTypingCallback(chat_id);
         });
     };
 
@@ -725,6 +731,19 @@ function lh(){
 	{
 		window.open(this.wwwDir + 'cobrowse/browse/'+chat_id,'chatwindow-cobrowse-chat-id-'+chat_id,"menubar=1,resizable=1,width=800,height=650").focus();
 		return false;
+	};
+	
+	
+	
+	this.speechToText = function(chat_id)
+	{
+		if (this.speechHandler == false)
+		{
+			this.speechHandler = new LHCSpeechToText();
+		}
+		
+		this.speechHandler.listen({'chat_id':chat_id});
+		
 	};
 	
 	this.startChatTransfer = function(chat_id,tabs,name,transfer_id){
@@ -1373,44 +1392,56 @@ function lh(){
 		} catch(err) {		     
         	//
         };
-        
-		/*var inst = this;
-	    $.getJSON(this.wwwDir + this.syncadmininterfaceurl ,{ }, function(data){
-	        // If no error
-	        if (data.error == 'false')
-	        {
-                $.each(data.result,function(i,item) {
-                    if (item.content != '') {
-                    	$(item.dom_id).html(item.content);
-                    };
-
-                    if (item.dom_id_status != undefined) {
-                    	if (parseInt(item.dom_item_count) > 0) {
-                    		$(item.dom_id_status).html(' ('+item.dom_item_count+')');
-                    	} else {
-                    		$(item.dom_id_status).html('');
-                    	};
-                    };
-                });
-                
-                if ($('#right-pending-chats ul').size() == 0) {
-                	clearTimeout(inst.soundIsPlaying);
-                }
-	        }
-    	});*/
 	};
 
 	this.transferUserDialog = function(chat_id,title)
 	{
 		$.colorbox({width:'550px',height:'400px', href:this.wwwDir + 'chat/transferchat/'+chat_id});
 	};
-
+	
+	this.speechLanguage = function(chat_id)
+	{
+		if ($('#myModal').size() == 0) {
+			$('body').prepend('<div id="myModal" class="reveal-modal medium"><a class="close-reveal-modal">&#215;</a></div>');
+		};
+		
+		$('#myModal').foundation('reveal', 'open', {url: WWW_DIR_JAVASCRIPT+'speech/setchatspeechlanguage/'+chat_id});
+		
+		return false;
+	};
+	
+	this.getDialect = function(language) {
+		$.get(this.wwwDir + 'speech/getdialect/' + language.val(), function(data){
+			$('#id_select_dialect').replaceWith(data);
+		});
+	};
+	
+	this.setChatLanguageRecognition = function(chat_id)
+	{
+		var _this = this;
+		
+		$.postJSON(this.wwwDir + 'speech/setchatspeechlanguage/' + chat_id, {'select_language':$('#id_select_language').val(),'select_dialect':$('#id_select_dialect').val()} , function(data){
+			if (data.error == 'false') {
+				if (_this.speechHandler !== false) {
+					_this.speechHandler.setChatDialect(chat_id,data.dialect);
+				}
+				$('#myModal').foundation('reveal', 'close');
+			}
+		});
+		
+		return false;
+	};
+	
 	this.addmsgadmin = function (chat_id)
 	{
 		var textArea = $("#CSChatMessage-"+chat_id);
 		
 		var pdata = {
 				msg	: textArea.val()
+		};
+		
+		if (this.speechHandler !== false) {
+			this.speechHandler.messageSend();
 		};
 		
 		textArea.val('');

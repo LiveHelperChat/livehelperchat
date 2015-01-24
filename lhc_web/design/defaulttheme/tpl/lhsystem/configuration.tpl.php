@@ -229,6 +229,20 @@
   </section>
   <?php endif;?>      
  
+ <?php if ($currentUser->hasAccessTo('lhspeech','manage')) : ?>
+   <section>
+    <p class="title" data-section-title><a href="#speech"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Speech');?></a></p>
+    <div class="content" data-section-content data-slug="speech">
+      <div>
+			<ul class="circle small-list">
+			    <li><a title="Set default speech recognition language" href="<?php echo erLhcoreClassDesign::baseurl('speech/defaultlanguage')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Speech language');?></a></li>
+			</ul>	
+        </div>
+    </div>
+  </section>
+  <?php endif;?>
+  
+  
 </div>
 
 

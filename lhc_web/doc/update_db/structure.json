@@ -3046,6 +3046,92 @@
                 "extra": ""
             }
         ],
+        "lh_speech_chat_language": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "chat_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "language_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "dialect",
+                "type": "varchar(100)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_speech_language": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "name",
+                "type": "varchar(100)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
+        "lh_speech_language_dialect": [
+            {
+                "field": "id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "PRI",
+                "default": null,
+                "extra": "auto_increment"
+            },
+            {
+                "field": "language_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "lang_name",
+                "type": "varchar(100)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "lang_code",
+                "type": "varchar(100)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            }
+        ],
         "lh_rolefunction": [
             {
                 "field": "id",
@@ -3497,6 +3583,13 @@
                 "type": "0",
                 "explain": "Change to your site Terms of Service",
                 "hidden": "0"
+            }, 
+            {
+                "identifier": "speech_data",
+                "value": "a:3:{i:0;b:0;s:8:\"language\";i:7;s:7:\"dialect\";s:5:\"en-US\";}",
+                "type": "1",
+                "explain": "Change to your site Terms of Service",
+                "hidden": "1"
             }, 
             {
                 "identifier": "min_phone_length",
@@ -3954,6 +4047,510 @@
                 "hidden": "1"
             }
         ],
+        "lh_speech_language_dialect": [
+            {
+                "id": "1",
+                "language_id": "1",
+                "lang_name": "Afrikaans",
+                "lang_code": "af-ZA"
+            },
+            {
+                "id": "2",
+                "language_id": "2",
+                "lang_name": "Bahasa Indonesia",
+                "lang_code": "id-ID"
+            },
+            {
+                "id": "3",
+                "language_id": "3",
+                "lang_name": "Bahasa Melayu",
+                "lang_code": "ms-MY"
+            },
+            {
+                "id": "4",
+                "language_id": "4",
+                "lang_name": "Catal\u00e0",
+                "lang_code": "ca-ES"
+            },
+            {
+                "id": "5",
+                "language_id": "5",
+                "lang_name": "\u010ce\u0161tina",
+                "lang_code": "cs-CZ"
+            },
+            {
+                "id": "6",
+                "language_id": "6",
+                "lang_name": "Deutsch",
+                "lang_code": "de-DE"
+            },
+            {
+                "id": "7",
+                "language_id": "7",
+                "lang_name": "Australia",
+                "lang_code": "en-AU"
+            },
+            {
+                "id": "8",
+                "language_id": "7",
+                "lang_name": "Canada",
+                "lang_code": "en-CA"
+            },
+            {
+                "id": "9",
+                "language_id": "7",
+                "lang_name": "India",
+                "lang_code": "en-IN"
+            },
+            {
+                "id": "10",
+                "language_id": "7",
+                "lang_name": "New Zealand",
+                "lang_code": "en-NZ"
+            },
+            {
+                "id": "11",
+                "language_id": "7",
+                "lang_name": "South Africa",
+                "lang_code": "en-ZA"
+            },
+            {
+                "id": "12",
+                "language_id": "7",
+                "lang_name": "United Kingdom",
+                "lang_code": "en-GB"
+            },
+            {
+                "id": "13",
+                "language_id": "7",
+                "lang_name": "United States",
+                "lang_code": "en-US"
+            },
+            {
+                "id": "14",
+                "language_id": "8",
+                "lang_name": "Argentina",
+                "lang_code": "es-AR"
+            },
+            {
+                "id": "15",
+                "language_id": "8",
+                "lang_name": "Bolivia",
+                "lang_code": "es-BO"
+            },
+            {
+                "id": "16",
+                "language_id": "8",
+                "lang_name": "Chile",
+                "lang_code": "es-CL"
+            },
+            {
+                "id": "17",
+                "language_id": "8",
+                "lang_name": "Colombia",
+                "lang_code": "es-CO"
+            },
+            {
+                "id": "18",
+                "language_id": "8",
+                "lang_name": "Costa Rica",
+                "lang_code": "es-CR"
+            },
+            {
+                "id": "19",
+                "language_id": "8",
+                "lang_name": "Ecuador",
+                "lang_code": "es-EC"
+            },
+            {
+                "id": "20",
+                "language_id": "8",
+                "lang_name": "El Salvador",
+                "lang_code": "es-SV"
+            },
+            {
+                "id": "21",
+                "language_id": "8",
+                "lang_name": "Espa\u00f1a",
+                "lang_code": "es-ES"
+            },
+            {
+                "id": "22",
+                "language_id": "8",
+                "lang_name": "Estados Unidos",
+                "lang_code": "es-US"
+            },
+            {
+                "id": "23",
+                "language_id": "8",
+                "lang_name": "Guatemala",
+                "lang_code": "es-GT"
+            },
+            {
+                "id": "24",
+                "language_id": "8",
+                "lang_name": "Honduras",
+                "lang_code": "es-HN"
+            },
+            {
+                "id": "25",
+                "language_id": "8",
+                "lang_name": "M\u00e9xico",
+                "lang_code": "es-MX"
+            },
+            {
+                "id": "26",
+                "language_id": "8",
+                "lang_name": "Nicaragua",
+                "lang_code": "es-NI"
+            },
+            {
+                "id": "27",
+                "language_id": "8",
+                "lang_name": "Panam\u00e1",
+                "lang_code": "es-PA"
+            },
+            {
+                "id": "28",
+                "language_id": "8",
+                "lang_name": "Paraguay",
+                "lang_code": "es-PY"
+            },
+            {
+                "id": "29",
+                "language_id": "8",
+                "lang_name": "Per\u00fa",
+                "lang_code": "es-PE"
+            },
+            {
+                "id": "30",
+                "language_id": "8",
+                "lang_name": "Puerto Rico",
+                "lang_code": "es-PR"
+            },
+            {
+                "id": "31",
+                "language_id": "8",
+                "lang_name": "Rep\u00fablica Dominicana",
+                "lang_code": "es-DO"
+            },
+            {
+                "id": "32",
+                "language_id": "8",
+                "lang_name": "Uruguay",
+                "lang_code": "es-UY"
+            },
+            {
+                "id": "33",
+                "language_id": "8",
+                "lang_name": "Venezuela",
+                "lang_code": "es-VE"
+            },
+            {
+                "id": "34",
+                "language_id": "9",
+                "lang_name": "Euskara",
+                "lang_code": "eu-ES"
+            },
+            {
+                "id": "35",
+                "language_id": "10",
+                "lang_name": "Fran\u00e7ais",
+                "lang_code": "fr-FR"
+            },
+            {
+                "id": "36",
+                "language_id": "11",
+                "lang_name": "Galego",
+                "lang_code": "gl-ES"
+            },
+            {
+                "id": "37",
+                "language_id": "12",
+                "lang_name": "Hrvatski",
+                "lang_code": "hr_HR"
+            },
+            {
+                "id": "38",
+                "language_id": "13",
+                "lang_name": "IsiZulu",
+                "lang_code": "zu-ZA"
+            },
+            {
+                "id": "39",
+                "language_id": "14",
+                "lang_name": "\u00cdslenska",
+                "lang_code": "is-IS"
+            },
+            {
+                "id": "40",
+                "language_id": "15",
+                "lang_name": "Italia",
+                "lang_code": "it-IT"
+            },
+            {
+                "id": "41",
+                "language_id": "15",
+                "lang_name": "Svizzera",
+                "lang_code": "it-CH"
+            },
+            {
+                "id": "42",
+                "language_id": "16",
+                "lang_name": "Magyar",
+                "lang_code": "hu-HU"
+            },
+            {
+                "id": "43",
+                "language_id": "17",
+                "lang_name": "Nederlands",
+                "lang_code": "nl-NL"
+            },
+            {
+                "id": "44",
+                "language_id": "18",
+                "lang_name": "Norsk bokm\u00e5l",
+                "lang_code": "nb-NO"
+            },
+            {
+                "id": "45",
+                "language_id": "19",
+                "lang_name": "Polski",
+                "lang_code": "pl-PL"
+            },
+            {
+                "id": "46",
+                "language_id": "20",
+                "lang_name": "Brasil",
+                "lang_code": "pt-BR"
+            },
+            {
+                "id": "47",
+                "language_id": "20",
+                "lang_name": "Portugal",
+                "lang_code": "pt-PT"
+            },
+            {
+                "id": "48",
+                "language_id": "21",
+                "lang_name": "Rom\u00e2n\u0103",
+                "lang_code": "ro-RO"
+            },
+            {
+                "id": "49",
+                "language_id": "22",
+                "lang_name": "Sloven\u010dina",
+                "lang_code": "sk-SK"
+            },
+            {
+                "id": "50",
+                "language_id": "23",
+                "lang_name": "Suomi",
+                "lang_code": "fi-FI"
+            },
+            {
+                "id": "51",
+                "language_id": "24",
+                "lang_name": "Svenska",
+                "lang_code": "sv-SE"
+            },
+            {
+                "id": "52",
+                "language_id": "25",
+                "lang_name": "T\u00fcrk\u00e7e",
+                "lang_code": "tr-TR"
+            },
+            {
+                "id": "53",
+                "language_id": "26",
+                "lang_name": "\u0431\u044a\u043b\u0433\u0430\u0440\u0441\u043a\u0438",
+                "lang_code": "bg-BG"
+            },
+            {
+                "id": "54",
+                "language_id": "27",
+                "lang_name": "P\u0443\u0441\u0441\u043a\u0438\u0439",
+                "lang_code": "ru-RU"
+            },
+            {
+                "id": "55",
+                "language_id": "28",
+                "lang_name": "\u0421\u0440\u043f\u0441\u043a\u0438",
+                "lang_code": "sr-RS"
+            },
+            {
+                "id": "56",
+                "language_id": "29",
+                "lang_name": "\ud55c\uad6d\uc5b4",
+                "lang_code": "ko-KR"
+            },
+            {
+                "id": "57",
+                "language_id": "30",
+                "lang_name": "\u666e\u901a\u8bdd (\u4e2d\u56fd\u5927\u9646)",
+                "lang_code": "cmn-Hans-CN"
+            },
+            {
+                "id": "58",
+                "language_id": "30",
+                "lang_name": "\u666e\u901a\u8bdd (\u9999\u6e2f)",
+                "lang_code": "cmn-Hans-HK"
+            },
+            {
+                "id": "59",
+                "language_id": "30",
+                "lang_name": "\u4e2d\u6587 (\u53f0\u7063)",
+                "lang_code": "cmn-Hant-TW"
+            },
+            {
+                "id": "60",
+                "language_id": "30",
+                "lang_name": "\u7cb5\u8a9e (\u9999\u6e2f)",
+                "lang_code": "yue-Hant-HK"
+            },
+            {
+                "id": "61",
+                "language_id": "31",
+                "lang_name": "\u65e5\u672c\u8a9e",
+                "lang_code": "ja-JP"
+            },
+            {
+                "id": "62",
+                "language_id": "32",
+                "lang_name": "Lingua lat\u012bna",
+                "lang_code": "la"
+            }
+        ],
+        "lh_speech_language": [
+            {
+                "id": "1",
+                "name": "Afrikaans"
+            },
+            {
+                "id": "2",
+                "name": "Bahasa Indonesia"
+            },
+            {
+                "id": "3",
+                "name": "Bahasa Melayu"
+            },
+            {
+                "id": "4",
+                "name": "Catal\u00e0"
+            },
+            {
+                "id": "5",
+                "name": "\u010ce\u0161tina"
+            },
+            {
+                "id": "6",
+                "name": "Deutsch"
+            },
+            {
+                "id": "7",
+                "name": "English"
+            },
+            {
+                "id": "8",
+                "name": "Espa\u00f1ol"
+            },
+            {
+                "id": "9",
+                "name": "Euskara"
+            },
+            {
+                "id": "10",
+                "name": "Fran\u00e7ais"
+            },
+            {
+                "id": "11",
+                "name": "Galego"
+            },
+            {
+                "id": "12",
+                "name": "Hrvatski"
+            },
+            {
+                "id": "13",
+                "name": "IsiZulu"
+            },
+            {
+                "id": "14",
+                "name": "\u00cdslenska"
+            },
+            {
+                "id": "15",
+                "name": "Italiano"
+            },
+            {
+                "id": "16",
+                "name": "Magyar"
+            },
+            {
+                "id": "17",
+                "name": "Nederlands"
+            },
+            {
+                "id": "18",
+                "name": "Norsk bokm\u00e5l"
+            },
+            {
+                "id": "19",
+                "name": "Polski"
+            },
+            {
+                "id": "20",
+                "name": "Portugu\u00eas"
+            },
+            {
+                "id": "21",
+                "name": "Rom\u00e2n\u0103"
+            },
+            {
+                "id": "22",
+                "name": "Sloven\u010dina"
+            },
+            {
+                "id": "23",
+                "name": "Suomi"
+            },
+            {
+                "id": "24",
+                "name": "Svenska"
+            },
+            {
+                "id": "25",
+                "name": "T\u00fcrk\u00e7e"
+            },
+            {
+                "id": "26",
+                "name": "\u0431\u044a\u043b\u0433\u0430\u0440\u0441\u043a\u0438"
+            },
+            {
+                "id": "27",
+                "name": "P\u0443\u0441\u0441\u043a\u0438\u0439"
+            },
+            {
+                "id": "28",
+                "name": "\u0421\u0440\u043f\u0441\u043a\u0438"
+            },
+            {
+                "id": "29",
+                "name": "\ud55c\uad6d\uc5b4"
+            },
+            {
+                "id": "30",
+                "name": "\u4e2d\u6587"
+            },
+            {
+                "id": "31",
+                "name": "\u65e5\u672c\u8a9e"
+            },
+            {
+                "id": "32",
+                "name": "Lingua lat\u012bna"
+            }
+        ],
         "lh_abstract_email_template": [
             {
                 "id": "1",
@@ -4104,6 +4701,9 @@
     	}
     },
     "tables_create": {
+    	"lh_speech_language : "CREATE TABLE IF NOT EXISTS `lh_speech_language` ( `id` int(11) NOT NULL AUTO_INCREMENT,`name` varchar(100) NOT NULL,PRIMARY KEY (`id`)) DEFAULT CHARSET=utf8",
+    	"lh_speech_language_dialect : "CREATE TABLE IF NOT EXISTS `lh_speech_language_dialect` (`id` int(11) NOT NULL AUTO_INCREMENT,`language_id` int(11) NOT NULL, `lang_name` varchar(100) NOT NULL,`lang_code` varchar(100) NOT NULL, PRIMARY KEY (`id`),KEY `language_id` (`language_id`)) DEFAULT CHARSET=utf8",
+    	"lh_speech_chat_language : "CREATE TABLE IF NOT EXISTS `lh_speech_chat_language` (`id` int(11) NOT NULL AUTO_INCREMENT, `chat_id` int(11) NOT NULL, `language_id` int(11) NOT NULL, `dialect` varchar(50) NOT NULL, PRIMARY KEY (`id`), KEY `chat_id` (`chat_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8",
         "lh_abstract_auto_responder": "CREATE TABLE `lh_abstract_auto_responder` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `siteaccess` varchar(3) NOT NULL,\n  `wait_message` varchar(250) NOT NULL,\n  `wait_timeout` int(11) NOT NULL,\n  `position` int(11) NOT NULL,\n  `timeout_message` varchar(250) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `siteaccess_position` (`siteaccess`,`position`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8",
         "lh_abstract_browse_offer_invitation": "CREATE TABLE `lh_abstract_browse_offer_invitation` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `siteaccess` varchar(10) NOT NULL,\n  `time_on_site` int(11) NOT NULL,\n  `content` longtext NOT NULL,\n  `callback_content` longtext NOT NULL,\n  `lhc_iframe_content` tinyint(4) NOT NULL,\n  `custom_iframe_url` varchar(250) NOT NULL,\n  `name` varchar(250) NOT NULL,\n  `identifier` varchar(50) NOT NULL,\n  `executed_times` int(11) NOT NULL,\n  `url` varchar(250) NOT NULL,\n  `active` int(11) NOT NULL,\n  `has_url` int(11) NOT NULL,\n  `is_wildcard` int(11) NOT NULL,\n  `referrer` varchar(250) NOT NULL,\n  `priority` varchar(250) NOT NULL,\n  `hash` varchar(40) NOT NULL,\n  `width` int(11) NOT NULL,\n  `height` int(11) NOT NULL,\n  `unit` varchar(10) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `active` (`active`),\n  KEY `identifier` (`identifier`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8",
         "lh_abstract_email_template": "CREATE TABLE `lh_abstract_email_template` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `name` varchar(250) NOT NULL,\n  `from_name` varchar(150) NOT NULL,\n  `from_name_ac` tinyint(4) NOT NULL,\n  `from_email` varchar(150) NOT NULL,\n  `from_email_ac` tinyint(4) NOT NULL,\n  `content` text NOT NULL,\n  `subject` varchar(250) NOT NULL,\n  `bcc_recipients` varchar(200) NOT NULL,\n  `subject_ac` tinyint(4) NOT NULL,\n  `reply_to` varchar(150) NOT NULL,\n  `reply_to_ac` tinyint(4) NOT NULL,\n  `recipient` varchar(150) NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8",
