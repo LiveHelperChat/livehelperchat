@@ -71,7 +71,7 @@
     </message>
     <message>
       <source>Do not ask permission for users to see their screen</source>
-      <translation>Non chiedere il permesso per gli utenti di vedere il loro schermo</translation>
+      <translation>Non chiedere il permesso agli utenti di vedere il loro schermo</translation>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
@@ -79,7 +79,7 @@
     </message>
     <message>
       <source>Should cronjob run unanswered chats workflow and execute unaswered chats callback, 0 - no, any other number bigger than 0 is a minits how long chat have to be not accepted before executing callback.</source>
-      <translation>Dovrebbe cronjob eseguire il workflow delle chat non risposte ed eseguire il callback? 0 - no, qualsiasi altro numero è la lunghezza in minuti dell&apos;attesa prima di eseguire il callback </translation>
+      <translation>Deve cronjob eseguire il workflow delle chat non risposte ed eseguire il callback? 0 - no, qualsiasi altro numero più grande di 0 è la lunghezza in minuti dell&apos;attesa prima di eseguire il callback </translation>
     </message>
     <message>
       <source>Should cronjob run departments transfer workflow, even if user leaves a chat</source>
@@ -340,7 +340,7 @@
     </message>
     <message>
       <source>Widget border width (px)</source>
-      <translation type="unfinished"/>
+      <translation>Larghezza del bordo di widget (px)</translation>
     </message>
     <message>
       <source>Online status text</source>
@@ -388,15 +388,15 @@
     </message>
     <message>
       <source>Hide widget close button</source>
-      <translation type="unfinished"/>
+      <translation>Nascondere il pulsante chiudi widget</translation>
     </message>
     <message>
       <source>Hide popup option</source>
-      <translation type="unfinished"/>
+      <translation>Nascondere l&apos;opzione popup</translation>
     </message>
     <message>
       <source>Header height (px)</source>
-      <translation type="unfinished"/>
+      <translation>Altezza intestazione (px)</translation>
     </message>
     <message>
       <source>Header padding (px)</source>
@@ -1066,6 +1066,10 @@
     <message>
       <source>Type to search</source>
       <translation>Digita per cercare</translation>
+    </message>
+    <message>
+      <source>Choose department</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -4337,6 +4341,10 @@
     </message>
     <message>
       <source>Follow user scroll position</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>On click navigate user browser</source>
       <translation type="unfinished"/>
     </message>
     <message>

@@ -340,7 +340,7 @@
     </message>
     <message>
       <source>Widget border width (px)</source>
-      <translation type="unfinished"/>
+      <translation>Šířka ohraničení widgetu (px)</translation>
     </message>
     <message>
       <source>Online status text</source>
@@ -388,19 +388,19 @@
     </message>
     <message>
       <source>Hide widget close button</source>
-      <translation type="unfinished"/>
+      <translation>Skrýt zavírací tlačítko widgetu</translation>
     </message>
     <message>
       <source>Hide popup option</source>
-      <translation type="unfinished"/>
+      <translation>Skrýt zobrazení v okně</translation>
     </message>
     <message>
       <source>Header height (px)</source>
-      <translation type="unfinished"/>
+      <translation>Výška hlavičky (px)</translation>
     </message>
     <message>
       <source>Header padding (px)</source>
-      <translation type="unfinished"/>
+      <translation>Vnitřní odsazení hlavičky (px)</translation>
     </message>
     <message>
       <source>Widget copyright link</source>
@@ -468,19 +468,19 @@
     </message>
     <message>
       <source>Minimize image</source>
-      <translation type="unfinished"/>
+      <translation>Obrázek minimalizace</translation>
     </message>
     <message>
       <source>Restore image</source>
-      <translation type="unfinished"/>
+      <translation>Obrázek obnovení</translation>
     </message>
     <message>
       <source>Close image</source>
-      <translation type="unfinished"/>
+      <translation>Obrázek zavření</translation>
     </message>
     <message>
       <source>Popup image</source>
-      <translation type="unfinished"/>
+      <translation>Obrázek vyskakovacího okna</translation>
     </message>
     <message>
       <source>Widget themes</source>
@@ -1065,6 +1065,10 @@
     <message>
       <source>Type to search</source>
       <translation>Pište pro hledání</translation>
+    </message>
+    <message>
+      <source>Choose department</source>
+      <translation>Zvolte oddělení</translation>
     </message>
   </context>
   <context>
@@ -4336,7 +4340,11 @@
     </message>
     <message>
       <source>Follow user scroll position</source>
-      <translation type="unfinished"/>
+      <translation>Následovat uživatelovu pozici skrolování</translation>
+    </message>
+    <message>
+      <source>On click navigate user browser</source>
+      <translation>Navigovat uživatelův prohlížeč při kliknutí</translation>
     </message>
     <message>
       <source>Click blue eye at the top to request screen share</source>

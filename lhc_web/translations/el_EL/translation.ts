@@ -1066,6 +1066,10 @@
       <source>Type to search</source>
       <translation>Πληκτρολόγηση για αναζήτηση</translation>
     </message>
+    <message>
+      <source>Choose department</source>
+      <translation>Επιλέξτε τμήμα</translation>
+    </message>
   </context>
   <context>
     <name>chat/chat</name>
@@ -1330,7 +1334,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>Ηλεκτρονικού ταχυδρομείου</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Disabled</source>
@@ -4337,6 +4341,10 @@
     <message>
       <source>Follow user scroll position</source>
       <translation>Ακολουθήστε το χρήστη θέση κύλισης</translation>
+    </message>
+    <message>
+      <source>On click navigate user browser</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Click blue eye at the top to request screen share</source>

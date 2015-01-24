@@ -1066,6 +1066,10 @@
       <source>Type to search</source>
       <translation>Введите для поиска</translation>
     </message>
+    <message>
+      <source>Choose department</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/chat</name>
@@ -2599,11 +2603,11 @@
     </message>
     <message>
       <source>Yes</source>
-      <translation type="unfinished"/>
+      <translation>Да</translation>
     </message>
     <message>
       <source>No</source>
-      <translation type="unfinished"/>
+      <translation>Нет</translation>
     </message>
     <message>
       <source>User does not have any message from operator</source>
@@ -3320,7 +3324,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Recipient e-mail</source>
@@ -3328,11 +3332,11 @@
     </message>
     <message>
       <source>Nick</source>
-      <translation type="unfinished"/>
+      <translation>Ник</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation type="unfinished"/>
+      <translation>Телефон</translation>
     </message>
     <message>
       <source>Update chat</source>
@@ -3802,7 +3806,7 @@
     </message>
     <message>
       <source>Closed</source>
-      <translation type="unfinished"/>
+      <translation>Закрыть</translation>
     </message>
     <message>
       <source>Active</source>
@@ -3834,7 +3838,7 @@
     </message>
     <message>
       <source>Visitors</source>
-      <translation type="unfinished"/>
+      <translation>Посетители</translation>
     </message>
     <message>
       <source>System</source>
@@ -3858,11 +3862,11 @@
     </message>
     <message>
       <source>Country statistic</source>
-      <translation type="unfinished"/>
+      <translation>Статистика Стран</translation>
     </message>
     <message>
       <source>Users statisic</source>
-      <translation type="unfinished"/>
+      <translation>Статистика пользователей</translation>
     </message>
     <message>
       <source>Total statistic</source>
@@ -4337,6 +4341,10 @@
     </message>
     <message>
       <source>Follow user scroll position</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>On click navigate user browser</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6192,7 +6200,7 @@
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Отдел</translation>
     </message>
     <message>
       <source>Date</source>

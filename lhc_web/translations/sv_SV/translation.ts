@@ -1066,6 +1066,10 @@
       <source>Type to search</source>
       <translation>Skriv in för att söka</translation>
     </message>
+    <message>
+      <source>Choose department</source>
+      <translation>Välj avdelning</translation>
+    </message>
   </context>
   <context>
     <name>chat/chat</name>
@@ -4337,6 +4341,10 @@
     <message>
       <source>Follow user scroll position</source>
       <translation>Följ användarens scrollposition</translation>
+    </message>
+    <message>
+      <source>On click navigate user browser</source>
+      <translation>Klicka för att navigera användarens webbläsare</translation>
     </message>
     <message>
       <source>Click blue eye at the top to request screen share</source>

@@ -1067,6 +1067,10 @@ pokazywany</translation>
       <source>Type to search</source>
       <translation>Wpisz, aby wyszukać</translation>
     </message>
+    <message>
+      <source>Choose department</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/chat</name>
@@ -4337,6 +4341,10 @@ pokazywany</translation>
     </message>
     <message>
       <source>Follow user scroll position</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>On click navigate user browser</source>
       <translation type="unfinished"/>
     </message>
     <message>

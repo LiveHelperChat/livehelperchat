@@ -825,6 +825,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Speech language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide status when offline</source>
       <translation type="unfinished"/>
     </message>
@@ -1537,6 +1541,10 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>General information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Footprint</source>
       <translation type="unfinished"/>
     </message>
@@ -1545,7 +1553,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>General information</source>
+      <source>Information</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1574,10 +1582,6 @@
     </message>
     <message>
       <source>Operators chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Information</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1733,6 +1737,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Choose other than default recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send delayed canned message instantly</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Reopen chat</source>
       <translation type="unfinished"/>
     </message>
@@ -1742,10 +1754,6 @@
     </message>
     <message>
       <source>Fill textarea with canned message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Send delayed canned message instantly</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3141,6 +3149,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Speech</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>File configuration</source>
       <translation type="unfinished"/>
     </message>
@@ -4516,6 +4528,10 @@
     </message>
     <message>
       <source>I can see all pending chats, not only assigned to me</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Speech</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6523,6 +6539,36 @@
     <name>file/configurations</name>
     <message>
       <source>Please enter valid file type!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>speech/language</name>
+    <message>
+      <source>Choose speech recognition language for this chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Dialect</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default speech recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>speech/speech</name>
+    <message>
+      <source>Use application default recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use application default recognition dialect</source>
       <translation type="unfinished"/>
     </message>
   </context>

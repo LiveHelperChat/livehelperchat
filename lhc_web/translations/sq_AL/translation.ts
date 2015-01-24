@@ -1066,6 +1066,10 @@
       <source>Type to search</source>
       <translation>Shtyp per te kerkuar</translation>
     </message>
+    <message>
+      <source>Choose department</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/chat</name>
@@ -4337,6 +4341,10 @@
     </message>
     <message>
       <source>Follow user scroll position</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>On click navigate user browser</source>
       <translation type="unfinished"/>
     </message>
     <message>
