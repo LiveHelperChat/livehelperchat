@@ -14,6 +14,7 @@ var LHCSpeechToTextCallbackListener = (function() {
 		$('#CSChatMessage-'+this.chat_id).addClass('admin-chat-mic');
 		$('#user-chat-status-'+this.chat_id).removeClass('icon-user').addClass('icon-mic');
 		$('#mic-chat-'+this.chat_id).addClass('icon-mic-recording').html(this.recognition.lang);
+		$('#user-is-typing-'+this.chat_id).html('Speak now.').css("visibility","visible");
 	}
 	
 	LHCSpeechToTextCallbackListener.prototype.onend = function(params)
@@ -33,13 +34,13 @@ var LHCSpeechToTextCallbackListener = (function() {
 	
 	LHCSpeechToTextCallbackListener.prototype.onerror = function(event){
 		if (event.error == 'no-speech') {
-			console.log("info_no_speech");
+			$('#user-is-typing-'+this.chat_id).html('No speech was detected.').css("visibility","visible");
 	    }
 	    if (event.error == 'audio-capture') {
-	    	console.log('info_no_microphone');			     
+	    	 $('#user-is-typing-'+this.chat_id).html('No microphone was found.').css("visibility","visible");
 	    }
-	    if (event.error == 'not-allowed') {			     
-	        console.log('info_denied');			   		      
+	    if (event.error == 'not-allowed') {			 
+	        $('#user-is-typing-'+this.chat_id).html('Permission to use microphone was denied.').css("visibility","visible");
 	    }
 	}
 	
