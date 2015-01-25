@@ -1,3 +1,10 @@
+2.21v
+
+1. Option to change front page tabs order in chat configuraiton section. (Misc)
+https://github.com/LiveHelperChat/livehelperchat/issues/593
+
+execute doc/update_db/update_99.sql for update
+
 2.20v
 
 1. Speech to text support. Only google chrome at the moment has this hTML5 API

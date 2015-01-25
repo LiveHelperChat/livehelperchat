@@ -3592,6 +3592,13 @@
                 "hidden": "1"
             }, 
             {
+                "identifier": "front_tabs",
+                "value": "online_users,online_map,pending_chats,active_chats,unread_chats,closed_chats,online_operators",
+                "type": "0",
+                "explain": "Home page tabs order",
+                "hidden": "0"
+            }, 
+            {
                 "identifier": "min_phone_length",
                 "value": "8",
                 "type": "0",
