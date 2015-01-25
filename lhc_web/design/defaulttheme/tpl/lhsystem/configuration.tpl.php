@@ -23,7 +23,7 @@
 			    <?php endif; ?>
 			    
 			    <?php if ($currentUser->hasAccessTo('lhsystem','configuresmtp')) : ?>
-			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('system/smtp')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','SMTP settings');?></a></li>
+			    <li><a href="<?php echo erLhcoreClassDesign::baseurl('system/smtp')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Mail settings');?></a></li>
 			    <?php endif; ?>
 		    
 			    <?php if ($currentUser->hasAccessTo('lhabstract','use')) : ?>		    
