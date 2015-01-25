@@ -226,7 +226,7 @@ class erLhcoreClassChatMail {
     	if ($sendMail->from_email != '') {
     		$mail->From = $mail->Sender = $sendMail->from_email;
     	}    	
-    
+        	
     	$mail->FromName = $sendMail->from_name;
     	    	
     	$mail->Subject = str_replace(array('{name}','{department}','{country}','{city}'),array($chat->nick,(string)$chat->department,$chat->country_name,$chat->city),$sendMail->subject);
